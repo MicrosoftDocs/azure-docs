@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/26/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -86,16 +86,16 @@ In this case, you don't have a published version yet because you just created th
 ## Add authentication to manage Azure resources
 
 You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources.
-To manage Azure resources, the script has to authenticate using the credentials from your [Automation account](automation-offering-get-started.md).
+To manage Azure resources, the script has to authenticate using the credentials from your Automation Account. To help you, you can use the [Azure Automation utility package](https://github.com/azureautomation/azure_automation_utility) to make it easier to authenticate and interact with Azure resources.
 
 > [!NOTE]
-> The Automation account must have been created with the service principal feature for there to be a runas certificate.
+> The Automation account must have been created with the service principal feature for there to be a Run As Certificate.
 > If your automation account was not created with the service principal, you can authenticate by using the method described at
 > [Authenticate with the Azure Management Libraries for Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate).
 
 1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-Python pane.
 
-1. Add the following code to authenticate to Azure:
+2. Add the following code to authenticate to Azure:
 
    ```python
    import os
@@ -156,7 +156,7 @@ async_vm_start = compute_client.virtual_machines.start("MyResourceGroup", "TestV
 async_vm_start.wait()
 ```
 
-Where _MyResourceGroup_ is the name of the resource group that contains the VM, and _TestVM_ is the name of the VM you want to start. 
+Where _MyResourceGroup_ is the name of the resource group that contains the VM, and _TestVM_ is the name of the VM you want to start.
 
 Test and run the runbook again to see that it starts the VM.
 

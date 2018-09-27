@@ -100,7 +100,7 @@ sections:
           values:
           - href: /azure/cosmos-db/create-sql-api-java
           - href: /azure/cosmos-db/create-sql-api-dotnet
-          - href: /azure/cosmos-db/create-sql-api-nodejs-preview
+          - href: /azure/cosmos-db/create-sql-api-nodejs
           - href: /azure/cosmos-db/create-sql-api-python
           - href:
           - href:
@@ -154,6 +154,31 @@ sections:
       - html: Global database replication with Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> 
       - html: <a href="local-emulator">Develop your application locally using the emulator</a>
       - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Create an HTTP Trigger with an Azure Cosmos DB input binding</a>
+
+  - title: Build your skills with Microsoft Learn
+    items:
+    - type: list
+      style: cards
+      className: cardsFTitle
+      items:
+      - title:  Create an Azure Cosmos DB database built to scale
+        href: /learn/modules/create-cosmos-db-for-scale/
+        image: 
+          src: /learn/achievements/create-cosmos-db-for-scale.svg
+          href: /learn/modules/create-cosmos-db-for-scale/
+      - title:  Insert and query data in your Azure Cosmos DB database
+        href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+        image: 
+          src: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg
+          href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+      - title: Build a .NET Core app for Azure Cosmos DB in Visual Studio Code
+        href: /learn/modules/build-cosmos-db-app-with-vscode
+        image: 
+          src: /learn/achievements/build-cosmos-db-app-with-vscode.svg
+          href: /learn/modules/build-cosmos-db-app-with-vscode
+    - type: paragraph
+      text: <a href="/learn/browse/?products=azure-cosmos-db">More interactive learning...</a>
+
 
   - title: Reference
     items:

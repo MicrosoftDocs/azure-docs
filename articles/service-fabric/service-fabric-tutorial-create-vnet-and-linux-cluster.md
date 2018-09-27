@@ -36,7 +36,7 @@ In this tutorial series you learn how to:
 > * Create a secure cluster on Azure
 > * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Install the [Service Fabric CLI](service-fabric-cli.md)
-* Install the [Azure CLI 2.0](/cli/azure/install-azure-cli)
+* Install the [Azure CLI](/cli/azure/install-azure-cli)
 
 The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -183,13 +183,7 @@ sfctl cluster health
 
 ## Clean up resources
 
-The other articles in this tutorial series use the cluster you just created. If you're not immediately moving on to the next article, you might want to delete the cluster to avoid incurring charges. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
-
-Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](http://portal.azure.com). Delete the resource group and all the cluster resources using the [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) command.
-
-```azurecli
-az group delete --name $ResourceGroupName
-```
+The other articles in this tutorial series use the cluster you just created. If you're not immediately moving on to the next article, you might want to [delete the cluster](service-fabric-cluster-delete.md) to avoid incurring charges.
 
 ## Next steps
 

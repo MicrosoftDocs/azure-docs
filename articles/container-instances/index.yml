@@ -45,6 +45,18 @@ sections:
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Package an application into a container image</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Create an Azure Container Registry and upload the container image</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Deploy the container image to an Azure Container Instance</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Run Docker containers with Azure Container Instances
+      href: /learn/modules/run-docker-with-azure-container-instances/
+      image: 
+        src: /learn/achievements/run-docker-with-azure-container-instances.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-container-instances">More interactive learning...</a>
 - title: Reference
   items:
   - type: list
