@@ -122,6 +122,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Export or delete account data
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+  - name: Release notes
+    href: azure-machine-learning-release-notes.md  
   - name: Known issues
     href: resource-known-issues.md
   - name: Get support
@@ -321,12 +323,8 @@
         - name: Overview and install
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Build and deploy text classification models
-          href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
-    - name: Older release notes
-      href: azure-machine-learning-release-notes.md       
+          href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md     
     - name: FAQs
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Old Issues
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-    - name: Support
-      href: support-for-aml-services.md
