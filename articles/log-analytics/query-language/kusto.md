@@ -18,9 +18,7 @@ ms.component: na
 ---
 
 # Log Analytics query language reference
-[Log Analytics queries](../log-analytics-queries.md) uses the same query language and engine used by [Azure Data Explorer](/azure/data-explorer/). You can access the language reference and other details about the language from the following location.
-
-[Kusto language reference](/azure/kusto/query)
+[Log Analytics queries](../log-analytics-queries.md) use the same query language and engine used by [Azure Data Explorer](/azure/data-explorer/). You can access the language reference and other details about the language from the following location: [Kusto language reference](/azure/kusto/query)
 
 
 
