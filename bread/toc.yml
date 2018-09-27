@@ -291,7 +291,7 @@
       topicHref: /azure/cognitive-services/project-personality-chat/overview    
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
-      topicHref: /azure/cognitive-services/acoustics/What-Is-Acoustics.md
+      topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
