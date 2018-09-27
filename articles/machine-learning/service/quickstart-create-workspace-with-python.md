@@ -29,27 +29,33 @@ The resources you create can be used as prerequisites to other Azure Machine Lea
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
-##  Install Miniconda
+##  Install the SDK
+No need to install if you are using a Data Science Virtual Machine (DSVM) created after September 27, 2019.  The VM comes with the Python SDK pre-installed.
+
+### Miniconda
 
 Before installing the SDK, it is recommended to create an isolated Python environment first. This quickstart shows using [Miniconda](https://conda.io/docs/user-guide/install/index.html). If you have full [Anaconda](https://www.anaconda.com/) installed, that works too. You can also choose to use [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
 Download and install Miniconda from [this website](https://conda.io/miniconda.html). Make sure to choose the Python 3.7 version or later. Do not choose Python 2.x version.
 
-## Install the Python SDK
+### Machine Learning Python SDK
 
-Once Miniconda is installed, launch command-line window, and type the following command to create a new conda environment named `myennv` with Python 3.6.
+Once Miniconda is installed, launch a command-line window, and create a new conda environment named `myennv` with Python 3.6.
 
 ```sh
 conda create -n myenv -y Python=3.6
 ```
 
 Now activate the environment.
-* If you are on Windows
+* On Windows
+
     ```sh
     # if you are on Windows
     conda activate myenv
     ```
-* If you are on Linux or macOS
+
+* On Linux or macOS
+
     ```sh
     # if you are on Linux or macOS
     source activate myenv
@@ -70,14 +76,16 @@ jupyter notebook
 
 In the browser window, create a new notebook using the default `Python 3` kernel. 
 
-First, display the SDK version by typing the following Python code in a notebook cell and execute it.
+Display the SDK version by typing the following Python code in a notebook cell and execute it.
 
 ```python
 import azureml.core
 print(azureml.core.VERSION)
 ```
 
-Create a new Azure resource group and a new workspace. Find your subscription ID in the [subscriptions list in the Azure portal](). Use any subscription in which you are an owner or contributor.
+Create a new Azure resource group and a new workspace.
+
+Find a value for `<azure-subscription-id>` in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor.
 
 ```
 ws = Workspace.create(name='myworkspace',
@@ -88,9 +96,9 @@ ws = Workspace.create(name='myworkspace',
                      )
 ```
 
-Executing the above code might trigger an interactive window in the browser to sign into your Azure account. You only need to do this once, the authentication token will be cached locally.
+Executing the above code may trigger an interactive window in the browser to sign into your Azure account. Once you sign in, the authentication token will be cached locally.
 
-To see the details of the workspace, including the associated Azure Blob Storage Account, Azure Container Registry, and Azure KeyVault, type:
+To see the details of the workspace, including the associated storage, container registry, and key vault, type:
 
 ```python
 ws.get_details()
@@ -104,7 +112,7 @@ Persist the workspace configuration in a local file:
 ws.write_config()
 ```
 
-This `write_config()` API call creates a `config.json` file under an `aml_config` folder in the current directory. The `config.json` file looks like this:
+This `write_config()` API call creates the `aml_config\config.json` file in the current directory. The `config.json` file looks like this:
 
 ```json
 {
@@ -116,7 +124,7 @@ This `write_config()` API call creates a `config.json` file under an `aml_config
 
 ## Why write a configuration file?
 
-Once you create the `config.json` file, all other scripts and notebooks in that directory and below can read from it with the `from_config()` API.  This makes it easy to use the same workspace with scripts and notebooks in a directory.
+When you create the `config.json` file, all other scripts and notebooks in that directory and below can read from it with the `from_config()` API.  This makes it easy to use the same workspace with scripts and notebooks in a directory.
 
 ```python
 ws = Workspace.from_config()
