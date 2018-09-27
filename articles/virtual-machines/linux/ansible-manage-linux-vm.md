@@ -38,16 +38,15 @@ This section illustrates how to use Ansible to deallocate (stop) an Azure virtua
 
   ```yaml
   --- 
-  - 
-    connection: local
-    hosts: localhost
-    name: "Stop Azure VM"
-    tasks: 
-      - 
-        allocated: false
-        azure_rm_virtualmachine: ~
-        name: myVM
-        resource_group: myResourceGroup
+  connection: local
+  hosts: localhost
+  name: "Stop Azure VM"
+  tasks: 
+    - 
+      allocated: false
+      azure_rm_virtualmachine: ~
+      name: myVM
+      resource_group: myResourceGroup
   ```
 
 1. Exit insert mode by selecting the **Esc** key.
