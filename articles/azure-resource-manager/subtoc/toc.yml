@@ -435,6 +435,9 @@
     - name: TrustedID Providers
       href: /azure/templates/Microsoft.DataLakeStore/accounts/trustedIdProviders
       maintainContext: true
+    - name: Virtual Network Rules
+      href: /azure/templates/Microsoft.DataLakeStore/accounts/virtualNetworkRules
+      maintainContext: true
 - name: Deployment Manager
   items:
   - name: Artifact Sources
