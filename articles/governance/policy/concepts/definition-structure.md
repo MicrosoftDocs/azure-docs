@@ -95,9 +95,9 @@ Parameters work the same way when building policies. By including parameters in 
 definition, you can reuse that policy for different scenarios by using different values.
 
 > [!NOTE]
-> Once parameters are defined on a policy or initiative definition, the parameters definition can't
-> be changed. This prevents existing assignments of the policy or initiative from indirectly being
-> made invalid.
+> The parameters definition for a policy or initiative definition can only be configured during the
+> initial creation of the policy or initiative. The parameters definition can't be changed later.
+> This prevents existing assignments of the policy or initiative from indirectly being made invalid.
 
 For example, you could define a policy for a resource property to limit the locations where
 resources can be deployed. In this case, you would declare the following parameters when you create
