@@ -475,9 +475,9 @@ az group deployment create \
 
 ## Resource Manager template for metric alert that monitors multiple resources
 
-The previous section described sample Azure resource manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This preview feature is currently available only via Azure resource manager templates and REST API and is only supported for virtual Machines . Portal support for creating and editing such rules is coming soon.
+The previous section described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This preview feature is currently available only via Azure Resource Manager templates and REST API and is only supported for virtual Machines . Portal support for creating and editing such rules is coming soon.
 
-This section will describe Azure resource manager templates for three scenarios to monitor multiple resources with a single rule.
+This section will describe Azure Resource Manager templates for three scenarios to monitor multiple resources with a single rule.
 
 - Monitoring all virtual machines (in one Azure region) in one or more resource groups.
 - Monitoring all virtual machines (in one Azure region) in a subscription
@@ -711,7 +711,7 @@ Save and modify the json below as all-vms-in-resource-group.parameters.json for 
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
-            "value": "Multi-resource metric alert via ARM template"
+            "value": "Multi-resource metric alert via Azure Resource Manager template"
         },
         "alertDescription": {
             "value": "New Multi-resource metric alert created via template"
@@ -828,7 +828,7 @@ Save the json below as all-vms-in-subscription.json for the purpose of this walk
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "ARM path up to subscription ID. For example - /subscriptions/00000000-0000-0000-0000-0000-00000000"
+                "description": "Azure Resource Manager path up to subscription ID. For example - /subscriptions/00000000-0000-0000-0000-0000-00000000"
             }
         },
         "targetResourceRegion":{
@@ -1006,7 +1006,7 @@ Save and modify the json below as all-vms-in-subscription.parameters.json for th
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
-            "value": "Multi-resource sub level metric alert via ARM template"
+            "value": "Multi-resource sub level metric alert via Azure Resource Manager template"
         },
         "alertDescription": {
             "value": "New Multi-resource sub level metric alert created via template"
@@ -1298,7 +1298,7 @@ Save and modify the json below as list-of-vms.parameters.json for the purpose of
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
-            "value": "Multi-resource metric alert by list via ARM template"
+            "value": "Multi-resource metric alert by list via Azure Resource Manager template"
         },
         "alertDescription": {
             "value": "New Multi-resource metric alert by list created via template"
