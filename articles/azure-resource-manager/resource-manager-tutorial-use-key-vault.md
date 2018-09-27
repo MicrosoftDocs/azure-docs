@@ -92,7 +92,7 @@ To create a Key Vault:
     - **Key Vault Name**: assign a unique name. 
     - **Ad User Id**: enter your Azure AD user object ID that you retrieved from the last procedure.
     - **Secret Name**: The default name is **mAdminPassword**. If you change the secret name here, you need to update the secret name when you deploy the virtual machine.
-    - **Secret Value**: Enter your secret.  The secret is the password used to log in to the virtual machine.
+    - **Secret Value**: Enter your secret.  The secret is the password used to sign in to the virtual machine.
     - **I agree to the terms and conditions state above**: Select.
 3. Select **Edit parameters** from the top to take a look of the template.
 4. Browse to line 30 of the template JSON file. This is the Key Vault resource definition.
@@ -152,10 +152,10 @@ You don't need to make any changes to the template file.
     ```
     Replace **<SubscriptionID>** with your Azure subscription ID, and replace <KeyVaultName> with the name of the Key Vault you created in the last section.
 
-    ![integrate key vault and resource manager template virtual machine deployment parameters file](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
+    ![integrate key vault and Resource Manager template virtual machine deployment parameters file](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 3. Give the values to:
 
-    - **adminUsername**: name the virtual machine adminsitrator account.
+    - **adminUsername**: name the virtual machine administrator account.
     - **dnsLabelPrefix**: name the dnsLablePrefix.
 4. Save the changes.
 
@@ -179,7 +179,7 @@ After you have successfully deployed the virtual machine, test the login using t
 1. Open the [Azure portal](https://portal.azure.com).
 2. Select **Resource grouips**//**YourResourceGroupName>**//**simpleWinVM**
 3. Select **connect** from the top.
-4. Select **Download RDP File** and then follow the instructions to log in into the virtual machine.
+4. Select **Download RDP File** and then follow the instructions to sign in into the virtual machine.
 
 ## Clean up resources
 
