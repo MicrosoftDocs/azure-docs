@@ -35,7 +35,7 @@ Intelligent Insights automatically detects performance issues with SQL Database 
 | [Pagelatch Contention](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Multiple threads are concurrently attempting to access the same in-memory data buffer pages resulting in increased wait times and causing pagelatch contention. This is affecting the SQL database the performance. | Multiple threads are concurrently attempting to access the same in-memory data buffer pages resulting in increased wait times and causing pagelatch contention. This is affecting database the performance. |
 | [Missing Index](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Missing index was detected affecting the SQL database performance. | Missing index was detected affecting the database performance. |
 | [New Query](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | New query was detected affecting the overall SQL Database performance. | New query was detected affecting the overall database performance. |
-| [Unusual Wait Statistic](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Unusual database wait times were detected affecting the SQL database performance. | Unusual database wait times were detected affecting the database performance. |
+| [Increased Wait Statistic](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Increased database wait times were detected affecting the SQL database performance. | Increased database wait times were detected affecting the database performance. |
 | [TempDB Contention](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Multiple threads are trying to access the same TempDB resource causing a bottleneck. This is affecting the SQL Database performance. | Multiple threads are trying to access the same TempDB resource causing a bottleneck. This is affecting the database performance. |
 | [Elastic Pool DTU Shortage](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Shortage of available eDTUs in the elastic pool is affecting SQL Database performance. | Not available for Managed Instance as it uses vCore model. |
 | [Plan Regression](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | New plan, or a change in the workload of an existing plan was detected. This is affecting the SQL Database performance. | New plan, or a change in the workload of an existing plan was detected. This is affecting the database performance. |
@@ -197,17 +197,17 @@ The diagnostics log outputs information up to two new most CPU-consuming queries
 
 Consider using [Azure SQL Database Query Performance Insight](sql-database-query-performance.md).
 
-## Unusual Wait Statistic
+## Increased Wait Statistic
 
 ### What is happening
 
 This detectable performance pattern indicates a workload performance degradation in which poor-performing queries are identified compared to the past seven-day workload baseline.
 
-In this case, the system can't classify the poor-performing queries under any other standard detectable performance categories, but it detected the wait statistic responsible for the regression. Therefore, it considers them as queries with *unusual wait statistics*, where the unusual wait statistic responsible for the regression is also exposed. 
+In this case, the system can't classify the poor-performing queries under any other standard detectable performance categories, but it detected the wait statistic responsible for the regression. Therefore, it considers them as queries with *increased wait statistics*, where the wait statistic responsible for the regression is also exposed. 
 
 ### Troubleshooting
 
-The diagnostics log outputs information on unusual wait time details, query hashes of the affected queries, and the wait times.
+The diagnostics log outputs information on increased wait time details and query hashes of the affected queries.
 
 Because the system couldn't successfully identify the root cause for the poor-performing queries, the diagnostics information is a good starting point for manual troubleshooting. You can optimize the performance of these queries. A good practice is to fetch only data you need to use and to simplify and break down complex queries into smaller ones. 
 

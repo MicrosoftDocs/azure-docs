@@ -38,7 +38,7 @@ In this tutorial series you learn how to:
 > * Create a secure cluster on Azure
 > * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## Prerequisites
 
@@ -241,14 +241,7 @@ Get-ServiceFabricClusterHealth
 
 ## Clean up resources
 
-The other articles in this tutorial series use the cluster you created. If you're not immediately moving on to the next article, you might want to delete the cluster and key vault to avoid incurring charges. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
-
-Delete the resource group and all the cluster resources using the [Remove-AzureRMResourceGroup cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).  Also delete the resource group containing the key vault.
-
-```powershell
-Remove-AzureRmResourceGroup -Name $groupname -Force
-Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
-```
+The other articles in this tutorial series use the cluster you just created. If you're not immediately moving on to the next article, you might want to [delete the cluster](service-fabric-cluster-delete.md) to avoid incurring charges.
 
 ## Next steps
 

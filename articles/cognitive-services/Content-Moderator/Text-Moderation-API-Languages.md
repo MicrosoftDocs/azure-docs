@@ -1,12 +1,13 @@
 ---
-title: Languages supported by Azure Content Moderator | Microsoft Docs
+title: Language Support - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Here's a list of languages supported by Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: sajagtap
 ---

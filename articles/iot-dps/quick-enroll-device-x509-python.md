@@ -1,6 +1,6 @@
 ---
 title: This quickstart shows you how to enroll X.509 devices to the Azure Device Provisioning Service using Python | Microsoft Docs
-description: In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using using Python
+description: In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using Python
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/25/2018
