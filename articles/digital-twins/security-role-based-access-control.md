@@ -36,13 +36,13 @@ Roles in Azure Digital Twins consist of several components.
 
 ### Role definitions
 
-A **role definition** is a collection of permissions and is sometimes just called a **role**. The role definition lists the allowed operations including *read*, *write*, and *delete*. It also specifies a set of conditions that might exclude certain object types in the topology.
+A **role definition** is a collection of permissions and is sometimes called a **role**. The role definition lists the allowed operations including *read*, *write*, and *delete*. It also specifies a set of conditions that might exclude certain object types in the topology.
 
 The following roles are available in Digital Twins:
 
 * Space Administrator: Global permission to run all operations for the specified space and all nodes underneath.
-* User Administrator: Create, Read, Update, and Delete permission for users and user related objects. Read permission for spaces.
-* Device Administrator: Create, Read, Update, and Delete permission for devices and device related objects. Read permission for spaces.
+* User Administrator: Create, Read, Update, and Delete permission for users and user-related objects. Read permission for spaces.
+* Device Administrator: Create, Read, Update, and Delete permission for devices and device-related objects. Read permission for spaces.
 * Key Administrator: Create, Read, Update, and Delete permission for access keys. Read permission for spaces.
 * Token Administrator: Read and Update permission for access keys. Read permission for spaces.
 * User: Read permission for spaces, sensors, and users, including their corresponding related objects.
@@ -59,24 +59,24 @@ The `ObjectIdType` refers to the type of identity that is being given a role. Ap
 * The `UserId` type assigns a role to a user.
 * The `DeviceId` type assigns a role to a device.
 * The `DomainName` type assigns a role to a domain name. Each user with the specified domain name will have the access rights of the corresponding role.
-* The `TenantId` type assigns a role to a tenant. Each user belonging to the specified Azure AD tenant id will have the access rights of the corresponding role.
-* The `ServicePrincipalId` type assigns a role to a service principal object id.
+* The `TenantId` type assigns a role to a tenant. Each user belonging to the specified Azure AD tenant ID will have the access rights of the corresponding role.
+* The `ServicePrincipalId` type assigns a role to a service principal object ID.
 * The `UserDefinedFunctionId` type assigns a role to a User-Defined Function (UDF).
 
 > [!div class="nextstepaction"]
-> [Query or the object id for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)
+> [Query or the object ID for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)
 
 > [!div class="nextstepaction"]
-> [Obtain the object id for a service principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1)
+> [Obtain the object ID for a service principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1)
 
 > [!div class="nextstepaction"]
-> [Retrieve the object id for an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+> [Retrieve the object ID for an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
 ## Role assignments
 
-Permissions are granted to a recipient by creating a role assignment, and revoked by removing a role assignment. A Digital Twins role assignment associates an object (user, AAD tenant, etc.), role, and a space. Permissions are then inherited by any child spaces.
+Permissions are granted to a recipient by creating a role assignment, and revoked by removing a role assignment. A Digital Twins role assignment associates an object (user, Azure AD tenant, etc.), role, and a space. Permissions are then inherited by any child spaces.
 
-For example, a user is given a role assignment with role DeviceInstaller for the root node of a spatial graph, which represents a building. She then is able to read and update devices not only for that node, but all other child spaces in the building.
+For example, a user is given a role assignment with role DeviceInstaller for the root node of a spatial graph, which represents a building. The user is then able to read and update devices not only for that node, but all other child spaces in the building.
 
 ## Next steps
 
