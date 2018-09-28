@@ -14,7 +14,7 @@ ms.author: kegodin
 
 ## What is Project Acoustics?
 
-The Project Acoustics Unity plugin is an acoustics system that calculates sound wave behavior prior to runtime, akin to static lighting. The cloud does the heavy lifting of wave physics at design time, so runtime CPU cost is low.  
+The Project Acoustics Unity plugin is an acoustics system that calculates sound wave behavior prior to runtime, akin to static lighting. The cloud does the heavy lifting of wave physics computations, so runtime CPU cost is low.  
 
 ## Where can I download the plugin?
 
@@ -22,7 +22,7 @@ If you're interested in evaluating the acoustics plugin, register [here](https:/
 
 ## Is Azure used at runtime?
 
-No, cloud integration is used only during the precompute stage at design time.
+No, cloud integration is used only during the precompute stage as part of the scene setup.
  
 ## What is simulation input? 
 

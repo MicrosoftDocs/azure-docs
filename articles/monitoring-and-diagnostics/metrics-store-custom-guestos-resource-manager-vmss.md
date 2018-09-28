@@ -78,7 +78,7 @@ In the virtual machine scale set resource, find the **virtualMachineProfile** se
 
 In the **extensionProfile**, add a new extension to the template as shown by the **VMSS-WAD-extension section**.  This section is the Managed Service Identity (MSI) extension that ensures the metrics being emitted are accepted by Azure Monitor. The **name** field can contain any name. 
 
-The code below below the MSI extension also adds the diagnostics extension and configuration as an extension resource to the virtual machine scale set resource . Feel free to add/remove performance counters as needed. 
+The code below from the MSI extension also adds the diagnostics extension and configuration as an extension resource to the virtual machine scale set resource . Feel free to add/remove performance counters as needed. 
 
 ```json
           "extensionProfile": { 
