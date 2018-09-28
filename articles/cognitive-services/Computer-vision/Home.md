@@ -63,6 +63,6 @@ Computer Vision can analyze images that meet the following requirements:
 
 Get started with Computer Vision with one of our quickstarts:
 
-- [Analyze an image](/quickstarts-sdk/csharp-analyze-sdk.md)
-- [Extract handwritten text](/quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Generate a thumbnail](/quickstarts-sdk/csharp-thumb-sdk.md)
+- [Analyze an image](quickstarts-sdk/csharp-analyze-sdk.md)
+- [Extract handwritten text](quickstarts-sdk/csharp-hand-text-sdk.md)
+- [Generate a thumbnail](quickstarts-sdk/csharp-thumb-sdk.md)
