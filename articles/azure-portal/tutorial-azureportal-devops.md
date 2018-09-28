@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
-ms.author: mlearned
+ms.author: cwatson
 
 ---
 # Tutorial: DevOps with the Azure portal
