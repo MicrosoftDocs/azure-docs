@@ -41,10 +41,17 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 
     ![QnA Maker HTTP request](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 
-## QnA Maker + LUIS Bot
-1. First [create a Web App bot](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample) with the LUIS template.
+## Web app Bot
 
-1. Add dependencies to the top of the **BasicLuisDialog** file:
+1. [Create a Web App bot](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample) with the LUIS template. Select the 3.x SDK and the C# programming language.
+
+1. Once the web app bot is created, in the Azure portal, select the web app bot.
+1. Select **Application Settings** in the Web app bot service navigation, then scroll down to **Application settings** section of available settings.
+1. Change the **LuisAppId** to the value of the LUIS app created in the preceding  section.
+
+
+## Change code in BasicLuisDialog.cs
+1. Add dependencies to the top of the **BasicLuisDialog.cs** file:
 
     ```csharp
     using System;
