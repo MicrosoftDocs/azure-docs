@@ -16,7 +16,7 @@ ROBOTS: NOINDEX
 # Quickstart: Build an app to recognize emotions on faces in an image.
 
 > [!WARNING]
-> The Emotion API will be deprecated on February 15, 2019. Emotion recognition functionality is generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/).
+> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). [Click here to learn more](https://azure.microsoft.com/services/cognitive-services/face).
 
 This article provides information and a code sample to help you quickly get started with the [Emotion Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) in the Emotion API Android client library. The sample demonstrates how you can use Java to recognize the emotions expressed by people.
 

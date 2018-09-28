@@ -17,7 +17,7 @@ ROBOTS: NOINDEX
 # Tutorial: Recognize emotions on a face in an image.
 
 > [!WARNING]
-> The Emotion API will be deprecated on February 15, 2019. Emotion recognition functionality is generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/).
+> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). [Click here to learn more](https://azure.microsoft.com/services/cognitive-services/face).
 
 Explore a basic Windows application that uses Emotion API to recognize the emotions expressed by the faces in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Emotion API and WPF (Windows Presentation Foundation), a part of .NET Framework.
 

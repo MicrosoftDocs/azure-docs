@@ -16,7 +16,7 @@ ROBOTS: NOINDEX
 # Example: How to Analyze Videos in Real-time
 
 > [!WARNING]
-> The Emotion API will be deprecated on February 15, 2019. Emotion recognition functionality is generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/).
+> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). [Click here to learn more](https://azure.microsoft.com/services/cognitive-services/face).
 
 This guide will demonstrate how to perform near-real-time analysis on frames taken from a live video stream. The basic components in such a system are:
 - Acquire frames from a video source

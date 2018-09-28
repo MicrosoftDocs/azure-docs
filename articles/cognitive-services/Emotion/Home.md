@@ -17,7 +17,7 @@ ROBOTS: NOINDEX
 # What is the Emotion API?
 
 > [!WARNING]
-> The Emotion API will be deprecated on February 15, 2019. Emotion recognition functionality is generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/).
+> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). [Click here to learn more](https://azure.microsoft.com/services/cognitive-services/face).
 
 Welcome to the Microsoft Emotion API, which allows you to build more personalized apps with Microsoft’s cloud-based emotion recognition algorithm.
 
