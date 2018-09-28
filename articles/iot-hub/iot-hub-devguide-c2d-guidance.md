@@ -35,6 +35,6 @@ Here is a detailed comparison of the various cloud-to-device communication optio
 
 Learn how to use direct methods, desired properties, and cloud-to-device messages in the following tutorials:
 
-* [Use direct methods](quickstart-control-device-node.md), for direct methods;
-* [Use desired properties to configure devices](tutorial-device-twins.md), for device twin's desired properties; 
-* [Send cloud-to-device messages](iot-hub-node-node-c2d.md), for cloud-to-device messages.
+* [Use direct methods](quickstart-control-device-node.md)
+* [Use desired properties to configure devices](tutorial-device-twins.md) 
+* [Send cloud-to-device messages](iot-hub-node-node-c2d.md)
