@@ -22,8 +22,8 @@ This article gives an overview of two scenarios: a production scenario with a mi
 
 Solutions developers have two ways to connect to Digital Twins.  Solutions developers can connect to Azure Digital Twins in the following ways:
 
-1. They can create a client application or a middle-tier API. Client apps require users to authenticate and then use the [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow to call a downstream API.
-1. Create or make use of an existing Azure AD Application. View the documentation [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad).
+* They can create a client application or a middle-tier API. Client apps require users to authenticate and then use the [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow to call a downstream API.
+* Create or make use of an existing Azure AD Application. View the documentation [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad).
     1. Specify the **Sign-on and Redirect URIs** (if needed).
     1. In the application manifest set `oauth2AllowImplicitFlow` to true.
     1. In **Required Permissions**, add Digital Twins by searching “Azure Digital Twins.” Select **Delegated Permissions Read/Write Access** and click the **Grant Permissions** button.
@@ -50,8 +50,8 @@ For detailed instructions about how to orchestrate the on-behalf-of flow visit [
 
     >[!NOTE]
     >If you receive error message "OAuth 2 couldn’t be completed," try one of the following:
-    > 1. Close Postman and reopen it and try again.
-    > 1. Delete the secret key in your app, recreate a new one and renter the value in the above form.
+    > * Close Postman and reopen it and try again.
+    > * Delete the secret key in your app, recreate a new one and renter the value in the above form.
 
 1. Scroll down and click **Use Token**.
 
