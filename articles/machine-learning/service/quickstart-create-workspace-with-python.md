@@ -96,7 +96,7 @@ ws = Workspace.create(name='myworkspace',
                      )
 ```
 
-Executing the above code may trigger a new browser window for you to sign into your Azure account. Once you sign in, the authentication token will be cached locally.
+Executing the preceding code may trigger a new browser window for you to sign into your Azure account. Once you sign in, the authentication token will be cached locally.
 
 To see the details of the workspace, including the associated storage, container registry, and key vault, type:
 
@@ -108,15 +108,18 @@ ws.get_details()
 
 Save the details of your workspace in a configuration file.  
 
+This workspace configuration file makes it easy to load this same workspace later with other notebooks and scripts in the same directory or below. 
+
 ```python
-# write the configuration file
+# Create a configuration file called 'aml_config\config.json'.
 ws.write_config()
 
-# in other code in this directory or its sub-directories, you can load this workspace with
+# Use this code to load the workspace from 
+# other scripts and notebooks in this directory.
 # ws = Workspace.from_config()
 ```
 
-This `write_config()` API call creates the `aml_config\config.json` file in the current directory. The `config.json` file looks like this:
+The `write_config()` API call creates the configuration file in the current directory. The `config.json` file looks like this:
 
 ```json
 {
@@ -124,7 +127,6 @@ This `write_config()` API call creates the `aml_config\config.json` file in the 
     "resource_group": "<resource-group-name>",
     "workspace_name": "<workspace-name>"
 }
-This workspace configuration file makes it easy to share the workspace later with other notebooks and scripts in the same directory or below.  Use `ws = Workspace.from_config()`  to read the configuration file and load the workspace.
 ```
 
 ## Use the workspace
@@ -151,13 +153,13 @@ run.complete()
 ```
 
 ## View logged results
-Now view the experiment run in the Azure portal by printing out its URL, then go to it.
+When the run completes, you can view the experiment run in the Azure portal. Use the following code to print a URL to the results for the last run.
 
 ```python
 print(run.get_portal_url())
 ```
 
-Click on the link to view the logged values.
+Use the link to view the logged values in a browser.
 
 ![logged values in portal](./media/quickstart-create-workspace-with-python/logged-values.png)
 
