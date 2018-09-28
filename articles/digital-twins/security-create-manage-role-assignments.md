@@ -12,11 +12,11 @@ ms.author: adgera
 
 # Create and manage role assignments
 
-Azure Digital Twins leverages [role-based access control](./security-role-based-access-control.md) to specify which Digital Twins topology resources are granted or revoked access, permissions, and roles.
+Azure Digital Twins uses [role-based access control](./security-role-based-access-control.md) to specify which Digital Twins topology resources are granted or revoked access, permissions, and roles.
 
 Each role assignment includes:
 
-* An **object identifier** (e.g. an Azure Active Directory Id, service principal object Id, or domain name).
+* An **object identifier** (an Azure Active Directory Id, service principal object Id, or domain name).
 * An **object identifier type**.
 * A **role definition Id**.
 * A **space path**.
@@ -24,7 +24,7 @@ Each role assignment includes:
 
 ## Role definition identifiers
 
-The following can be obtained by querying the System/Roles API:
+The table below shows what can be obtained by querying the System/Roles API:
 
 |**Role** | **Identifier** |
 |---------|---------|
@@ -65,7 +65,7 @@ For the DomainName ObjectIdType, ObjectId must begin with the “@” character.
 Disallowed for DeviceId and TenantId ObjectIdTypes.
 Required for UserId and ServicePrincipalId ObjectIdTypes.
 Optional for the DomainName ObjectIdType. |
-| path* | Yes | string |The full access path to the Space object. Ex: /{Guid}/{Guid} If an identifier needs the role assignment for the entire topology specify "/" which designates the root. However, this is discouraged as you should always follow the principle of least privilege |
+| path* | Yes | string |The full access path to the Space object. Ex: /{Guid}/{Guid} If an identifier needs the role assignment for the entire topology specify "/" which designates the root. However, using "/" is discouraged and **you should always follow the Principle of Least Privilege** |
 
 ## Sample configuration
 
