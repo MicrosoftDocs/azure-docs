@@ -52,7 +52,7 @@ The TXT record you need depends on the DNS record you want to migrate. For examp
 
 | DNS record example | TXT Host | TXT Value |
 | - | - | - |
-| @ (root) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
+| \@ (root) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
 | www (sub) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
 | \* (wildcard) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
 

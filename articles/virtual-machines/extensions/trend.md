@@ -3,7 +3,7 @@ title: Install Trend Micro Deep Security on a VM | Microsoft Docs
 description: This article describes how to install and configure Trend Micro security on a VM created with the Classic deployment model in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: danis
+ms.author: roiyz
 
 ---
 # How to install and configure Trend Micro Deep Security as a Service on a Windows VM

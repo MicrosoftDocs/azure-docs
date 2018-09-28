@@ -3,7 +3,7 @@
 title: Connect to SQL Server or Azure SQL Database - Azure Logic Apps | Microsoft Docs
 description: How to access and manage SQL databases on premises or in the cloud by automating workflows with Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 05/15/2018
 ms.topic: article

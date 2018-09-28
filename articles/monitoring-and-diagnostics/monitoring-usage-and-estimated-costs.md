@@ -1,22 +1,22 @@
 ---
-title: Monitoring usage and estimated costs in Azure Monitor | Microsoft Docs
+title: Monitoring usage and estimated costs in Azure Monitor
 description: Overview of the process of using Azure Monitor usage and estimated costs page
 author: dalekoetke
-manager: carmonmills
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/31/2018
-ms.author: Dale.Koetke;mbullwin
-
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 08/11/2018
+ms.author: mbullwin
+ms.reviewer: Dale.Koetke
+ms.component: ""
 ---
 # Monitoring usage and estimated costs
+
+> [!NOTE]
+> This article describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models.  Refer to the following articles for related information.
+> - [Manage cost by controlling data volume and retention in Log Analytics](../log-analytics/log-analytics-manage-cost-storage.md) describes how to control your costs by changing your data retention period.
+> - [Analyze data usage in Log Analytics](../log-analytics/log-analytics-usage.md) describes how to analyze and alert on your data usage.
+> - [Manage pricing and data volume in Application Insights](../application-insights/app-insights-pricing.md) describes how to analyze data usage in Application Insights.
 
 In the Monitor hub of the Azure portal, the **Usage and estimated costs** page explains the usage of core monitoring features such as [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/), and [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). For customers on the pricing plans available before April 2018, this also includes Log Analytics usage purchased through the Insights and Analytics offer.
 

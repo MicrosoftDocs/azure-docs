@@ -3,7 +3,7 @@ title: Redeploy Linux Virtual Machines in Azure | Microsoft Docs
 description: How to redeploy Linux virtual machines in Azure to mitigate SSH connection issues.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # Redeploy Linux virtual machine to new Azure node
@@ -25,12 +25,12 @@ If you face difficulties troubleshooting SSH or application access to a Linux vi
 
 You can redeploy a VM using one of the following options. You only need to choose one option to redeploy your VM:
 
-- [Azure CLI 2.0](#azure-cli-20)
-- [Azure CLI 1.0](#azure-cli-10)
+- [Azure CLI](#azure-cli-20)
+- [Azure classic CLI](#azure-cli-10)
 - [Azure portal](#using-azure-portal)
 
-## Use the Azure CLI 2.0
-Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to your Azure account using [az login](/cli/azure/reference-index#az_login).
+## Use the Azure CLI
+Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to your Azure account using [az login](/cli/azure/reference-index#az_login).
 
 Redeploy your VM with [az vm redeploy](/cli/azure/vm#az_vm_redeploy). The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
 
@@ -38,8 +38,8 @@ Redeploy your VM with [az vm redeploy](/cli/azure/vm#az_vm_redeploy). The follow
 az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
-## Use the Azure CLI 1.0
-Install the [latest Azure CLI 1.0](../../cli-install-nodejs.md) and log in to your Azure account. Make sure that you are in Resource Manager mode (`azure config mode arm`).
+## Use the Azure classic CLI
+Install the [latest Azure classic CLI](../../cli-install-nodejs.md) and log in to your Azure account. Make sure that you are in Resource Manager mode (`azure config mode arm`).
 
 The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
 

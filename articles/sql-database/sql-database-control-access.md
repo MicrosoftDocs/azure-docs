@@ -1,20 +1,23 @@
 ---
-title: Granting access to Azure SQL Database | Microsoft Docs
-description: Learn about granting access to Microsoft Azure SQL Database.
+title: Granting access to Azure SQL Database and SQL Data Warehouse | Microsoft Docs
+description: Learn about granting access to Microsoft Azure SQL Database and SQL Data Warehouse.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: carlrab
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 06/13/2018
 ---
-# Azure SQL Database access control
-To provide security, SQL Database controls access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. 
+# Azure SQL Database and SQL Data Warehouse access control
+To provide security, Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) control access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. 
 
 > [!IMPORTANT]
-> For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md). For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
+> For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md). For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md). For an overview of SQL Data Warehouse security features, see [SQL Data Warehouse security overview](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
 
 ## Firewall and firewall rules
 Microsoft Azure SQL Database provides a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database firewall rules](sql-database-firewall-configure.md)

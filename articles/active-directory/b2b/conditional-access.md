@@ -5,11 +5,11 @@ description: Azure Active Directory B2B collaboration supports multi-factor auth
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
 

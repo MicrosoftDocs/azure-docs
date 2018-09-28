@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: iot-suite
  ms.topic: include
- ms.date: 04/24/2018
+ ms.date: 09/17/2018
  ms.author: dobett
  ms.custom: include file
 ---
@@ -13,11 +13,12 @@
 > [!div class="op_single_selector"]
 > * [C on Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
 > * [C on Linux](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [C on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (generic)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [C on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
-In this tutorial, you implement a **Chiller** device that sends the following telemetry to the Remote Monitoring [solution accelerator](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
+In this tutorial, you implement a **Chiller** device that sends the following telemetry to the Remote Monitoring [solution accelerator](../articles/iot-accelerators/about-iot-accelerators.md):
 
 * Temperature
 * Pressure
@@ -39,7 +40,7 @@ Before you write any code for your device, deploy your Remote Monitoring solutio
 
 ### Deploy your Remote Monitoring solution accelerator
 
-The **Chiller** device you create in this tutorial sends data to an instance of the [Remote Monitoring](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md) solution accelerator. If you haven't already provisioned the Remote Monitoring solution accelerator in your Azure account, see [Deploy the Remote Monitoring solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
+The **Chiller** device you create in this tutorial sends data to an instance of the [Remote Monitoring](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) solution accelerator. If you haven't already provisioned the Remote Monitoring solution accelerator in your Azure account, see [Deploy the Remote Monitoring solution accelerator](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
 
 When the deployment process for the Remote Monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
 

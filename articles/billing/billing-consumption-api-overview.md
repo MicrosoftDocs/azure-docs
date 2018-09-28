@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-
+ 
 ---
 
 # Azure consumption API overview 
@@ -78,7 +78,7 @@ The API includes:
 -	**Enterprise Customers Only** This API is only available EA customers. 
     - Customers must have Enterprise Admin permissions to call this API 
 
-For more information, see the technical specification for the [Balances API](https://docs.microsoft.com/rest/api/consumption/getbalancesbybillingaccount).
+For more information, see the technical specification for the [Balances API](https://docs.microsoft.com/rest/api/consumption/balances).
 
 ## Budgets API
 
@@ -100,7 +100,7 @@ For more information, see the technical specification for the [Budgets API](http
 
 ## Reservation Recommendations API
 
-Use this API to get recommendations for purchasing VM reserved instances. Recommendations are designed to allows customers to analyze expected cost savings and purchase amounts. 
+Use this API to get recommendations for purchasing Reserved VM Instances. Recommendations are designed to allows customers to analyze expected cost savings and purchase amounts. 
 
 The API includes:
 

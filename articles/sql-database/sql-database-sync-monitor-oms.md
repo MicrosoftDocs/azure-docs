@@ -1,20 +1,23 @@
 ---
-title: "Monitor Azure SQL Data Sync (Preview) with Log Analytics | Microsoft Docs"
-description: "Learn how to monitor Azure SQL Data Sync (Preview) by using Log Analytics"
+title: "Monitor Azure SQL Data Sync with Log Analytics | Microsoft Docs"
+description: "Learn how to monitor Azure SQL Data Sync by using Log Analytics"
 services: sql-database
-ms.date: "04/01/2018"
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: 
 ms.topic: conceptual
-ms.service: "sql-database"
-author: "douglaslMS"
-ms.author: "douglasl"
-manager: "craigg"
-ms.custom: data-sync
+author: allenwux
+ms.author: xiwu
+ms.reviewer: douglasl
+manager: craigg
+ms.date: 04/01/2018
 ---
-# Monitor SQL Data Sync (Preview) with Log Analytics 
+# Monitor SQL Data Sync with Log Analytics 
 
 To check the SQL Data Sync activity log and detect errors and warnings, you previously had to check SQL Data Sync manually in the Azure portal, or use PowerShell or the REST API. Follow the steps in this article to configure a custom solution that improves the Data Sync monitoring experience. You can customize this solution to fit your scenario.
 
-For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
 
 ## Monitoring Dashboard for all your Sync Groups 
 
@@ -195,8 +198,6 @@ For more info about SQL Data Sync, see:
 -   Complete PowerShell examples that show how to configure SQL Data Sync:
     -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
-
--   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 For more info about SQL Database, see:
 

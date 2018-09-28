@@ -1,6 +1,6 @@
 ---
 title: Introduction to Azure Cosmos DB | Microsoft Docs
-description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, and high availability.
+description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, high availability, and offers native support for NoSQL data.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -36,7 +36,7 @@ As a globally distributed, multi-model database service, Azure Cosmos DB makes i
         * [SQL API](sql-api-introduction.md): A schema-less JSON database engine with rich SQL querying capabilities.
         * [MongoDB API](mongodb-introduction.md): A massively scalable *MongoDB-as-a-Service* powered by Azure Cosmos DB platform. Compatible with existing MongoDB libraries, drivers, tools, and applications.
         * [Cassandra API](cassandra-introduction.md): A globally distributed Cassandra-as-a-Service powered by Azure Cosmos DB platform. Compatible with existing [Apache Cassandra](https://cassandra.apache.org/) libraries, drivers, tools, and applications.
-        * [Gremlin API](graph-introduction.md): A fully managed, horizontally scalable graph database service that makes it easy to build and run applications that work with highly connected datasets supporting Open Graph APIs (based on the [Apache TinkerPop specification](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [Gremlin API](graph-introduction.md): A fully managed, horizontally scalable graph database service that makes it easy to build and run applications that work with highly connected datasets supporting Open Gremlin APIs (based on the [Apache TinkerPop specification](http://tinkerpop.apache.org/), Apache Gremlin).
         * [Table API](table-introduction.md): A key-value database service built to provide premium capabilities (for example, automatic indexing, guaranteed low latency, global distribution) to existing Azure Table storage applications without making any app changes.
         * Additional data models and APIs are coming soon!
 
@@ -64,7 +64,7 @@ As a globally distributed, multi-model database service, Azure Cosmos DB makes i
     * Azure Cosmos DB’s database engine is fully schema-agnostic – it automatically indexes all the data it ingests without requiring any schema or indexes and serves blazing fast queries. 
 
 * **Low cost of ownership**
-    * Five to ten times [more cost effective](https://aka.ms/cosmos-db-tco-paper) than a non-managed solution or an on-prem NoSQL solution.
+    * Five to ten times more cost effective than a non-managed solution or an on-prem NoSQL solution.
     * Three times cheaper than AWS DynamoDB or Google Spanner.
 
 ## Capability comparison

@@ -1,20 +1,15 @@
 ---
-title: Query Hive through the JDBC driver - Azure HDInsight | Microsoft Docs
+title: Query Hive through the JDBC driver - Azure HDInsight 
 description: Use the JDBC driver from a Java application to submit Hive queries to Hadoop on HDInsight. Connect programmatically and from the SQuirrel SQL client.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 928f8d2a-684d-48cb-894c-11c59a5599ae
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Query Hive through the JDBC driver in HDInsight

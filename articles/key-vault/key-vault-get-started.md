@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Key Vault | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure.
 services: key-vault
@@ -12,7 +12,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: barclayn
 
@@ -25,15 +25,12 @@ This article helps you get started with Azure Key Vault using PowerShell and wal
 
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
-> [!NOTE]
-> This article does not include instructions on how to write an Azure application. You can use the [Azure Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343) for these steps.
-
 For Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
 
 ## Requirements
 Before you move forward with the article confirm that you have:
 
-- **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
+- **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/en-us/free/).
 - **Azure PowerShell**, **minimum version of 1.1.0**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`. When you have Azure PowerShell version 0.9.1 through 0.9.8 installed, you can still use this tutorial with some minor changes. For example, you must use the `Switch-AzureMode AzureResourceManager` command and some of the Azure Key Vault commands have changed. For a list of the Key Vault cmdlets for versions 0.9.1 through 0.9.8, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
 - **An application that can be configured to use Key Vault**. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying **Readme** file.
 
@@ -203,7 +200,7 @@ To view the value contained in the secret as plain text:
 Now, your key vault and key or secret is ready for applications to use. You must authorize applications to use them.  
 
 ## <a id="register"></a>Register an application with Azure Active Directory
-This step would usually be done by a developer, on a separate computer. It is not specific to Azure Key Vault. For detailed steps on registering an application with Azure Active Directory you should review the article titled [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md) or [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+This step would usually be done by a developer, on a separate computer. It is not specific to Azure Key Vault. For detailed steps on registering an application with Azure Active Directory you should review the article titled [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) or [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 
 > [!IMPORTANT]
 > To complete the tutorial, your account, the vault, and the application that you will register in this step must all be in the same Azure directory.
@@ -266,7 +263,7 @@ To change the authorization of an application to use keys or secrets:
 ## <a id="HSM"></a>Working with a hardware security module (HSM)
 For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete).
 
-To create these HSM-protected keys, you must use the [Azure Key Vault Premium service tier to support HSM-protected keys](https://azure.microsoft.com/pricing/free-trial/). In addition, note that this functionality is not available for Azure China.
+To create these HSM-protected keys, you must use the [Azure Key Vault Premium service tier to support HSM-protected keys](https://azure.microsoft.com/pricing/details/key-vault/). In addition, note that this functionality is not available for Azure China.
 
 When you create the key vault, add the **-SKU** parameter:
 

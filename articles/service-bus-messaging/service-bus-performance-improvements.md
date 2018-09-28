@@ -3,25 +3,20 @@ title: Best practices for improving performance using Azure Service Bus | Micros
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: ''
 
-ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/05/2018
-ms.author: sethm
+ms.date: 09/14/2018
+ms.author: spelluru
 
 ---
 # Best Practices for performance improvements using Service Bus Messaging
 
 This article describes how to use Azure Service Bus to optimize performance when exchanging brokered messages. The first part of this article describes the different mechanisms that are offered to help increase performance. The second part provides guidance on how to use Service Bus in a way that can offer the best performance in a given scenario.
 
-Throughout this topic, the term "client" refers to any entity that accesses Service Bus. A client can take the role of a sender or a receiver. The term "sender" is used for a Service Bus queue or topic client that sends messages to a Service Bus queue or topic subscription. The term "receiver" refers to a Service Bus queue or subscription client that receives messages from a Service Bus queue or subscription.
+Throughout this article, the term "client" refers to any entity that accesses Service Bus. A client can take the role of a sender or a receiver. The term "sender" is used for a Service Bus queue or topic client that sends messages to a Service Bus queue or topic subscription. The term "receiver" refers to a Service Bus queue or subscription client that receives messages from a Service Bus queue or subscription.
 
 These sections introduce several concepts that Service Bus uses to help boost performance.
 
@@ -33,7 +28,7 @@ Service Bus enables clients to send and receive messages via one of three protoc
 2. Service Bus Messaging Protocol (SBMP)
 3. HTTP
 
-AMQP and SBMP are more efficient, because they maintain the connection to Service Bus as long as the messaging factory exists. It also implements batching and prefetching. Unless explicitly mentioned, all content in this topic assumes the use of AMQP or SBMP.
+AMQP and SBMP are more efficient, because they maintain the connection to Service Bus as long as the messaging factory exists. It also implements batching and prefetching. Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
 
 ## Reusing factories and clients
 
@@ -41,13 +36,13 @@ Service Bus client objects, such as [QueueClient][QueueClient] or [MessageSender
 
 ## Concurrent operations
 
-Performing an operation (send, receive, delete, etc.) takes some time. This time includes the processing of the operation by the Service Bus service in addition to the latency of the request and the reply. To increase the number of operations per time, operations must execute concurrently. You can achieve this concurrence in several different ways:
+Performing an operation (send, receive, delete, etc.) takes some time. This time includes the processing of the operation by the Service Bus service in addition to the latency of the request and the reply. To increase the number of operations per time, operations must execute concurrently. 
 
-* **Asynchronous operations**: the client schedules operations by performing asynchronous operations. The next request is started before the previous request is completed. The following code snippet is an example of an asynchronous send operation:
+The client schedules concurrent operations by performing asynchronous operations. The next request is started before the previous request is completed. The following code snippet is an example of an asynchronous send operation:
   
  ```csharp
-  BrokeredMessage m1 = new BrokeredMessage(body);
-  BrokeredMessage m2 = new BrokeredMessage(body);
+  Message m1 = new BrokeredMessage(body);
+  Message m2 = new BrokeredMessage(body);
   
   Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
     {
@@ -61,25 +56,14 @@ Performing an operation (send, receive, delete, etc.) takes some time. This time
   Console.WriteLine("All messages sent");
   ```
   
-  The following code is an example of an asynchronous receive operation:
+  The following code is an example of an asynchronous receive operation. See the full program [here](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues):
   
   ```csharp
-  Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  
-  Task.WaitAll(receive1, receive2);
-  Console.WriteLine("All messages received");
-  
-  async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-  {
-    BrokeredMessage m = t.Result;
-    Console.WriteLine("{0} received", m.Label);
-    await m.CompleteAsync();
-    Console.WriteLine("{0} complete", m.Label);
-  }
-  ```
+  var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
+  var doneReceiving = new TaskCompletionSource<bool>();
 
-* **Multiple factories**: all clients (senders in addition to receivers) that are created by the same factories share one TCP connection. The maximum message throughput is limited by the number of operations that can go through this TCP connection. The throughput that can be obtained with a single factory varies greatly with TCP round-trip times and message size. To obtain higher throughput rates, use multiple messaging factories.
+  receiver.RegisterMessageHandler(...);
+  ```
 
 ## Receive mode
 
@@ -104,7 +88,7 @@ mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05
 MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
-Batching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support batching.
+Batching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol using the [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) library. The HTTP protocol does not support batching.
 
 ## Batching store access
 
@@ -131,7 +115,7 @@ Batched store access does not affect the number of billable messaging operations
 
 When a message is prefetched, the service locks the prefetched message. With the lock, the prefetched message cannot be received by a different receiver. If the receiver cannot complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy will receive an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, the cache size should always be smaller than the number of messages that can be consumed by a client within the lock time-out interval.
 
-When using the default lock expiration of 60 seconds, a good value for [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count should not exceed 20 X 3 X 10 = 600. By default, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] is set to 0, which means that no additional messages are fetched from the service.
+When using the default lock expiration of 60 seconds, a good value for [PrefetchCount][SubscriptionClient.PrefetchCount] is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count should not exceed 20 X 3 X 10 = 600. By default, [PrefetchCount][QueueClient.PrefetchCount] is set to 0, which means that no additional messages are fetched from the service.
 
 Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. Fetching the first message, however, will take longer (due to the increased message size). Receiving prefetched messages will be faster because these messages have already been downloaded by the client.
 
@@ -154,12 +138,12 @@ If a message containing critical information that must not be lost is sent to an
 > [!NOTE]
 > Express entities do not support transactions.
 
-## Use of partitioned queues or topics
+## Partitioned queues or topics
 
 Internally, Service Bus uses the same node and messaging store to process and store all messages for a messaging entity (queue or topic). A [partitioned queue or topic](service-bus-partitioning.md), on the other hand, is distributed across multiple nodes and messaging stores. Partitioned queues and topics not only yield a higher throughput than regular queues and topics, they also exhibit superior availability. To create a partitioned entity, set the [EnablePartitioning][EnablePartitioning] property to **true**, as shown in the following example. For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
 
 > [!NOTE]
-> Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
+> Partitioned entities are not supported in the [Premium SKU](service-bus-premium-messaging.md). 
 
 ```csharp
 // Create partitioned queue.
@@ -168,7 +152,7 @@ qd.EnablePartitioning = true;
 namespaceManager.CreateQueue(qd);
 ```
 
-## Use of multiple queues
+## Multiple queues
 
 If it is not possible to use a partitioned queue or topic, or the expected load cannot be handled by a single partitioned queue or topic, you must use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
 

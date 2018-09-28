@@ -226,7 +226,7 @@ ApplicationParameters  : {}
 ```
 Multiple application instances can be created for any given version of a registered application type. Each application instance runs in isolation, with its own work directory and process.
 
-To see which named apps and services are running in the cluster, run the [Get-ServiceFabricApplication](/powershell/servicefabric/vlatest/get-servicefabricapplication) and [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdlets:
+To see which named apps and services are running in the cluster, run the [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication) and [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdlets:
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication  

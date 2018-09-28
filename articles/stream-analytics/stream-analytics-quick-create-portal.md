@@ -4,7 +4,7 @@ description: This quickstart shows you how to get started by creating a Stream A
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
@@ -30,13 +30,13 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
    ```json
    {
-     "time": "2018-01-26T21:18:52.0000000",
+     "time": "2018-08-19T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
    }
    ```
-2. Sign in to the Azure portal.  
+2. Sign in to the [Azure portal](https://portal.azure.com/).  
 
 3. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job page with **Name** set to "asaquickstartstorage", **Location** set to "West US 2", **Resource group** set to "asaquickstart-resourcegroup" (host the storage account in the same resource group as the Streaming job for increased performance). The remaining settings can be left to their default values.  
 
@@ -44,7 +44,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 4. From **All resources** page, find the storage account you created in the previous step. Open the **Overview** page, and then the **Blobs** tile.  
 
-5. From the **Blob Service** page, select **Container**, provide a **Name** for your container, such as *container1* and change the **Public access level** to Blob (anonymous read access for blobs only) > select **OK**.  
+5. From the **Blob Service** page, select **Container**, provide a **Name** for your container, such as *container1* and change the **Public access level** to Private (no anonymous access) > select **OK**.  
 
    ![Create a container](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
@@ -112,7 +112,7 @@ In this section, you will configure blob storage as an input to the Stream Analy
    |---------|---------|---------|
    |Output alias |   BlobOutput   |   Enter a name to identify the job’s output. |
    |Subscription  |  \<Your subscription\>  |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
-   |Storage account |  myasastorageaccount |   Choose or enter the name of the storage account. Storage account names are automatically detected if they are created in the same subscription.       |
+   |Storage account |  asaquickstartstorage |   Choose or enter the name of the storage account. Storage account names are automatically detected if they are created in the same subscription.       |
    |Container |   container1  |  Select the existing container that you created in your storage account.   |
    |Path pattern |   output  |  Enter a name to serve as the path within your existing container for the output.   |
 
@@ -142,6 +142,16 @@ In this section, you will configure blob storage as an input to the Stream Analy
 3. In this example, the query reads the data from blob and copies it to a new file in the blob select **Save**.  
 
    ![Configure job transformation](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+
+## Configure late arrival policy
+
+1. Navigate to the Stream Analytics job that you created earlier.
+
+2. Under **Configure**, select **Event ordering**.
+
+3. Set **Events that arrive late** to 20 days, and select **Save**.
+
+   ![Configure late arrival policy](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
 
 ## Start the Stream Analytics job and check the output
 

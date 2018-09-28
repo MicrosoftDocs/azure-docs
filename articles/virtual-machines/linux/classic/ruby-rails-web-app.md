@@ -125,7 +125,7 @@ You should see output similar to the following.
     ![default rails page][default-rails-cloud]
 
 ## Next steps
-In this tutorial, you did most of the steps manually. In a production environment, you would write your app on a development machine and deploy it to the Azure VM. Also, most production environments host the Rails application in conjunction with another server process such as Apache or NginX, which handles request routing to multiple instances of the Rails application and serving static resources. For more information, see http://rubyonrails.org/deploy/.
+In this tutorial, you did most of the steps manually. In a production environment, you would write your app on a development machine and deploy it to the Azure VM. Also, most production environments host the Rails application in conjunction with another server process such as Apache or NginX, which handles request routing to multiple instances of the Rails application and serving static resources. For more information, see http://guides.rubyonrails.org/routing.html.
 
 To learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
 

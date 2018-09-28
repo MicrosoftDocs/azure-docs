@@ -3,7 +3,7 @@ title: Connect Windows computers to Azure Log Analytics | Microsoft Docs
 description: This article describes how to connect Windows computers hosted in other clouds or on-premises to Log Analytics with the Microsoft Monitoring Agent (MMA).
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,9 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
+ms.component: na
 ---
 
 # Connect Windows computers to the Log Analytics service in Azure
@@ -27,7 +28,7 @@ The agent may be installed by using one of the following methods. Most installat
 * Manual installation. Setup is manually run on the computer using the setup wizard, from the command line, or deployed using an existing software distribution tool.
 * Azure Automation Desired State Configuration (DSC). Using DSC in Azure Automation with a script for Windows computers already deployed in your environment.  
 * PowerShell script.
-* Resource Manager template for virtual machines running Windows on-premise in Azure Stack.  
+* Resource Manager template for virtual machines running Windows on-premises in Azure Stack.  
 
 To understand the supported configuration, review [supported Windows operating systems](log-analytics-concept-hybrid.md#supported-windows-operating-systems) and [network firewall configuration](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
@@ -119,7 +120,7 @@ To retrieve the product code from the agent install package directly, you can us
 	    $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
 
 	    Import-DscResource -ModuleName xPSDesiredStateConfiguration
-        Import-DscResource –ModuleName PSDesiredStateConfiguration
+        Import-DscResource -ModuleName PSDesiredStateConfiguration
 
 	    Node OMSnode {
 		    Service OIService
@@ -148,7 +149,7 @@ To retrieve the product code from the agent install package directly, you can us
     ```
 
 4. [Import the MMAgent.ps1 configuration script](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) into your Automation account. 
-5. [Assign a Windows computer or node](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-dsc) to the configuration. Within 15 minutes, the node checks its configuration and the agent is pushed to the node.
+5. [Assign a Windows computer or node](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) to the configuration. Within 15 minutes, the node checks its configuration and the agent is pushed to the node.
 
 ## Verify agent connectivity to Log Analytics
 

@@ -1,10 +1,10 @@
 ---
 title: Enroll TPM device to Azure Device Provisioning Service using Java | Microsoft Docs
 description: Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using Java service SDK
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/20/2017
-ms.topic: quickstatrt
+ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 manager: timlt

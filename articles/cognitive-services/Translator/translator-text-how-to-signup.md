@@ -1,47 +1,58 @@
 ---
-title: Microsoft Translator Text API Sign up | Microsoft Docs
-description: How to sign up for the Microsoft Translator Text API.
+title: Translator Text API sign-up
+titleSuffix: Azure Cognitive Services
+description: How to sign up for the Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
-manager: olivierf
+author: noellelacharite
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
-ms.date: 10/30/2017
-ms.author: v-jansko
+ms.topic: conceptual
+ms.date: 06/15/2018
+ms.author: nolachar
 ---
+# How to sign up for the Translator Text API
 
-# How to sign up for the Microsoft Translator Text API
+## Sign in to the Azure portal
 
+- Don't have an account? You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
+- Already have an account? [Sign in](https://ms.portal.azure.com/)
 
-### 1: Sign into Azure 	
-- Don't have an account? [Sign up for a Microsoft Azure account](http://azure.com/)
-- Already have an account? [Sign in](http://portal.azure.com/)
+## Create a subscription to the Translator Text API
 
-### 2: Subscribe to Microsoft Translator 	
-- After you sign into Azure, go to the [Cognitive Services](https://portal.azure.com/#create/Microsoft.CognitiveServices) section
-- Under "API Type", select the Translator Text API
-- In the Pricing Tier section, select the pricing tier that best fits your needs
-	- Each subscription has a free tier. The free tier has the same features and functionalities as the paid plans and does not have an expiration date.
-	- You can have only one free subscription in your account.
-- Fill out the rest of the form, and select the Create button
-- The subscription is ready for immediate use
+After you sign in to the portal, you can create a subscription to the Translator Text API as follows:
 
-### 3: Authentication key 	
-- Retrieve your authentication key by going to the menu All Resources > click on your subscription
-- The Key value is used for authentication, keep the Key value confidential. You need the key value when you develop your app
+1. Select **+ Create a resource**.
+1. In the **Search the Marketplace** search box, enter **Translator Text** and then select it from the results.
+1. Select **Create** to define details for the subscription.
+1. From the **Pricing tier** list, select the pricing tier that best fits your needs.
+    1. Each subscription has a free tier. The free tier has the same features and functionalities as the paid plans and doesn't expire.
+    1. You can have only one free subscription for your account.
+1. Select **Create** to finish creating the subscription.
 
-### 4: Learn, test, and get support 	
+## Authentication key
+
+When you sign up for Translator Text, you get a personalized access key unique to your subscription. This key is required on each call to the Translator Text API.
+
+1. Retrieve your authentication key by first selecting the appropriate subscription.
+1. Select **Keys** in the **Resource Management** section of your subscription's details.
+1. Copy either of the keys listed for your subscription.
+
+## Learn, test, and get support
+
 - [Code examples on GitHub](https://github.com/MicrosoftTranslator)
 - [Microsoft Translator Support Forum](http://www.aka.ms/TranslatorForum)
 
-
 ## Pricing options
+
 - [Translator Text API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 
 ## Customization
+
 Use Custom Translator to customize your translations and create a translation system tuned to your own terminology and style, starting from generic Microsoft Translator neural machine translation systems. [Learn more](customization.md)
- 
+
 ## Additional resources
-- [Get Started with Azure (5-minute video)](https://azure.microsoft.com/get-started/?b=16.24)
+
+- [Get Started with Azure (3-minute video)](https://azure.microsoft.com/get-started/?b=16.24)
 - [How to Pay with an Invoice](https://azure.microsoft.com/pricing/invoicing/)

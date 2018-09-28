@@ -1,21 +1,14 @@
 ---
-title: Analyze sensor data using Hive and Hadoop - Azure HDInsight | Microsoft Docs
+title: Analyze sensor data using Hive and Hadoop - Azure HDInsight 
 description: Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel with PowerView.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: a8ac160c-1cef-45d9-bf36-7beb5a439105
 ms.service: hdinsight
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.author: larryfr
 ROBOTS: NOINDEX
-
 ---
 # Analyze sensor data using the Hive Query Console on Hadoop in HDInsight
 

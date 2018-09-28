@@ -9,11 +9,11 @@ editor: curtand
 
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: maheshu
 
@@ -55,7 +55,7 @@ Recommended version: **1.1.614.0** - published on September 5, 2017.
 >
 >
 
-Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
+Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)
 
 ### Enable synchronization of NTLM and Kerberos credential hashes to Azure AD
 Execute the following PowerShell script on each AD forest. The script enables all on-premises users' NTLM and Kerberos password hashes to be synchronized to your Azure AD tenant. The script also initiates a full synchronization in Azure AD Connect.

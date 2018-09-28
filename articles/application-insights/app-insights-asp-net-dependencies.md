@@ -11,8 +11,8 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: mbullwin
 
 ---
@@ -129,7 +129,7 @@ Click through to an occurrence of a failed request, and look at its associated e
 ![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## Analytics
-You can track dependencies in the [Log Analytics query language](https://docs.loganalytics.io/). Here are some examples.
+You can track dependencies in the [Log Analytics query language](https://aka.ms/LogAnalyticsLanguage). Here are some examples.
 
 * Find any failed dependency calls:
 
@@ -187,6 +187,8 @@ For example, if you build your code with an assembly that you didn't write yours
             {
                 timer.Stop();
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+                // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+                // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
             }
 ```
 

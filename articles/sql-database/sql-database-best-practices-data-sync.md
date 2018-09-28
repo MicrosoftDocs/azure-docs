@@ -1,19 +1,23 @@
 ---
-title: "Best practices for Azure SQL Data Sync (Preview) | Microsoft Docs"
-description: "Learn about best practices for configuring and running Azure SQL Data Sync (Preview)."
+title: "Best practices for Azure SQL Data Sync | Microsoft Docs"
+description: "Learn about best practices for configuring and running Azure SQL Data Sync."
 services: sql-database
-ms.date: 04/01/2018
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.service: "sql-database"
-author: "douglaslMS"
-ms.author: "douglasl"
+author: "allenwux"
+ms.author: "xiwu"
+ms.reviewer: 
 manager: "craigg"
+ms.date: 08/20/2018
 ---
-# Best practices for SQL Data Sync (Preview) 
+# Best practices for SQL Data Sync 
 
-This article describes best practices for Azure SQL Data Sync (Preview).
+This article describes best practices for Azure SQL Data Sync.
 
-For an overview of SQL Data Sync (Preview), see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a> Security and reliability
 
@@ -44,10 +48,10 @@ Azure SQL Database supports only a single set of credentials. To accomplish thes
 
 #### SQL Database instance size
 
-When you create a new SQL Database instance, set the maximum size so that it's always larger than the database you deploy. If you don't set the maximum size to larger than the deployed database, sync fails. Although SQL Data Sync (Preview) doesn't offer automatic growth, you can run the `ALTER DATABASE` command to increase the size of the database after it has been created. Ensure that you stay within the SQL Database instance size limits.
+When you create a new SQL Database instance, set the maximum size so that it's always larger than the database you deploy. If you don't set the maximum size to larger than the deployed database, sync fails. Although SQL Data Sync doesn't offer automatic growth, you can run the `ALTER DATABASE` command to increase the size of the database after it has been created. Ensure that you stay within the SQL Database instance size limits.
 
 > [!IMPORTANT]
-> SQL Data Sync (Preview) stores additional metadata with each database. Ensure that you account for this metadata when you calculate space needed. The amount of added overhead is related to the width of the tables (for example, narrow tables require more overhead) and the amount of traffic.
+> SQL Data Sync stores additional metadata with each database. Ensure that you account for this metadata when you calculate space needed. The amount of added overhead is related to the width of the tables (for example, narrow tables require more overhead) and the amount of traffic.
 
 ### <a name="table-considerations-and-constraints"></a> Table considerations and constraints
 
@@ -57,32 +61,32 @@ You don't have to include all the tables that are in a database in a sync group.
 
 #### Primary keys
 
-Each table in a sync group must have a primary key. The SQL Data Sync (Preview) service can't sync a table that doesn't have a primary key.
+Each table in a sync group must have a primary key. The SQL Data Sync service can't sync a table that doesn't have a primary key.
 
-Before using SQL Data Sync (Preview) in production, test initial and ongoing sync performance.
+Before using SQL Data Sync in production, test initial and ongoing sync performance.
 
 ### <a name="provisioning-destination-databases"></a> Provisioning destination databases
 
-SQL Data Sync (Preview) Preview provides basic database autoprovisioning.
+SQL Data Sync provides basic database autoprovisioning.
 
-This section discusses the limitations of provisioning in SQL Data Sync (Preview).
+This section discusses the limitations of provisioning in SQL Data Sync.
 
 #### Autoprovisioning limitations
 
-SQL Data Sync (Preview) has the following limitations on autoprovisioning:
+SQL Data Sync has the following limitations for autoprovisioning:
 
--   Select only the columns that are created in the destination table.  
-    Any columns that aren't part of the sync group aren't provisioned in the destination tables.
--   Indexes are created only for selected columns.  
-    If the source table index has columns that aren't part of the sync group, those indexes aren't provisioned in the destination tables.  
+-   Select only the columns that are created in the destination table. Any columns that aren't part of the sync group aren't provisioned in the destination tables.
+-   Indexes are created only for selected columns. If the source table index has columns that aren't part of the sync group, those indexes aren't provisioned in the destination tables.  
 -   Indexes on XML type columns aren't provisioned.  
 -   CHECK constraints aren't provisioned.  
 -   Existing triggers on the source tables aren't provisioned.  
 -   Views and stored procedures aren't created on the destination database.
+-   ON UPDATE CASCADE and ON DELETE CASCADE actions on foreign key constraints aren't recreated in the destination tables.
+-   If you have decimal or numeric columns with a precision greater than 28, SQL Data Sync may encounter a conversion overflow issue during sync. We recommend that you limit the precision of decimal or numeric columns to 28 or less.
 
 #### Recommendations
 
--   Use the SQL Data Sync (Preview) autoprovisioning capability only when you are trying out the service.  
+-   Use the SQL Data Sync autoprovisioning capability only when you are trying out the service.  
 -   For production, provision the database schema.
 
 ### <a name="locate-hub"></a> Where to locate the hub database
@@ -108,7 +112,7 @@ In this section, we discuss the initial sync of a sync group. Learn how to help 
 
 #### How initial sync works
 
-When you create a sync group, start with data in only one database. If you have data in multiple databases, SQL Data Sync (Preview) treats each row as a conflict that needs to be resolved. This conflict resolution causes the initial sync to go slowly. If you have data in multiple databases, initial sync might take between several days and several months, depending on the database size.
+When you create a sync group, start with data in only one database. If you have data in multiple databases, SQL Data Sync treats each row as a conflict that needs to be resolved. This conflict resolution causes the initial sync to go slowly. If you have data in multiple databases, initial sync might take between several days and several months, depending on the database size.
 
 If the databases are in different datacenters, each row must travel between the different datacenters. This increases the cost of an initial sync.
 
@@ -203,16 +207,15 @@ Instead, first remove a database from a sync group. Then, deploy the change and 
 If you attempt to remove a database and then edit a sync group without first deploying one of the changes, one or the other operation fails. The portal interface might become inconsistent. If this happens, refresh the page to restore the correct state.
 
 ## Next steps
-For more information about SQL Data Sync (Preview), see:
+For more information about SQL Data Sync, see:
 
--   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md)
--   [Set up Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)
--   [Monitor Azure SQL Data Sync (Preview) with Log Analytics](sql-database-sync-monitor-oms.md)
--   [Troubleshoot issues with Azure SQL Data Sync (Preview)](sql-database-troubleshoot-data-sync.md)  
--   Complete PowerShell examples that show how to configure SQL Data Sync (Preview):  
+-   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)  
+-   Complete PowerShell examples that show how to configure SQL Data Sync:  
     -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Download the SQL Data Sync (Preview) REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 For more information about SQL Database, see:
 

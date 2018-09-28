@@ -2,12 +2,13 @@
 title: Route Azure Blob storage events to a custom web endpoint - Powershell | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. 
 services: storage,event-grid 
-keywords: 
 author: david-stanford
+
 ms.author: dastanfo
-ms.date: 05/24/2018
+ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
+ms.component: blobs
 ---
 
 # Route Blob storage events to a custom web endpoint with PowerShell
@@ -32,9 +33,6 @@ Log in to your Azure subscription with the `Connect-AzureRmAccount` command and 
 Connect-AzureRmAccount
 ```
 
-> [!NOTE]
-> Availability for Storage events is tied to Event Grid [availability](../../event-grid/overview.md) and will become available in other regions as Event Grid does.
-
 This example uses **westus2** and stores the selection in a variable for use throughout.
 
 ```powershell
@@ -56,7 +54,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## Create a storage account
 
-To use Blob storage events, you need either a [Blob storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) or a [General Purpose v2 storage account](../common/storage-account-options.md#general-purpose-v2). **General Purpose v2 (GPv2)** are storage accounts that support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.  
+Blob storage events are available in general-purpose v2 storage accounts and Blob storage accounts. **General-purpose v2** storage accounts  support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
 Create a Blob storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called **gridstorage** with locally redundant storage (LRS). 
 
@@ -77,7 +75,7 @@ $ctx = $storageAccount.Context
 
 ## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/dbarkol/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 Replace `<your-site-name>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
 
@@ -86,7 +84,7 @@ $sitename="<your-site-name>"
 
 New-AzureRmResourceGroupDeployment `
   -ResourceGroupName $resourceGroup `
-  -TemplateUri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
   -siteName $sitename `
   -hostingPlanName viewerhost
 ```
@@ -94,6 +92,8 @@ New-AzureRmResourceGroupDeployment `
 The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: `https://<your-site-name>.azurewebsites.net`
 
 You should see the site with no messages currently displayed.
+
+[!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
 
 ## Subscribe to your storage account
 

@@ -1,18 +1,19 @@
 ---
-title: Microsoft Translator Text API Dictionary Lookup Method | Microsoft Docs
-description: Use the Microsoft Translator Text API Dictionary Lookup method.
+title: Translator Text API Dictionary Lookup Method
+titlesuffix: Azure Cognitive Services
+description: Use the Translator Text API Dictionary Lookup method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: Dictionary Lookup
+# Translator Text API 3.0: Dictionary Lookup
 
 Provides alternative translations for a word and a small number of idiomatic phrases. Each translation has a part-of-speech and a list of back-translations. The back-translations enable a user to understand the translation in context. The [Dictionary Example](.\v3-0-dictionary-examples.md) operation allows further drill down to see example uses of each translation pair.
 
@@ -116,7 +117,7 @@ A successful response is a JSON array with one result for each string in the inp
 
     * `confidence`: A value between 0.0 and 1.0 which represents the "confidence" (or perhaps more accurately, "probability in the training data") of that translation pair. The sum of confidence scores for one source word may or may not sum to 1.0. 
 
-    * `prefixWord`: A string giving the the word to display as a prefix of the translation. Currently, this is the gendered determiner of nouns, in languages that have gendered determiners. For example, the prefix of the Spanish word "mosca" is "la", since "mosca" is a feminine noun in Spanish. This is only dependent on the translation, and not on the source. If there is no prefix, it will be the empty string.
+    * `prefixWord`: A string giving the word to display as a prefix of the translation. Currently, this is the gendered determiner of nouns, in languages that have gendered determiners. For example, the prefix of the Spanish word "mosca" is "la", since "mosca" is a feminine noun in Spanish. This is only dependent on the translation, and not on the source. If there is no prefix, it will be the empty string.
     
     * `backTranslations`: A list of "back translations" of the target. For example, source words that the target can translate to. The list is guaranteed to contain the source word that was requested (e.g., if the source word being looked up is "fly", then it is guaranteed that "fly" will be in the `backTranslations` list). However, it is not guaranteed to be in the first position, and often will not be. Each element of the `backTranslations` list is an object described by the following properties:
 

@@ -7,14 +7,6 @@
     href: asdk-what-is.md
   - name: ASDK release notes
     href: asdk-release-notes.md
-- name: Tutorials
-  items:
-  - name: Subscribe to an offer
-    href: asdk-subscribe-services.md
-  - name: Update offers and plans
-    href: asdk-update-offers.md 
-  - name: Create a VM from a template
-    href: asdk-create-vm-template.md 
 - name: Concepts
   items:
   - name: Deployment planning considerations
@@ -47,6 +39,8 @@
     href: asdk-telemetry.md  
   - name: Start and stop the ASDK
     href: asdk-start-stop.md
+  - name: Validate an Azure Stack backup
+    href: asdk-validate-backup.md
   - name: Troubleshooting
     href: asdk-troubleshooting.md
 - name: Reference

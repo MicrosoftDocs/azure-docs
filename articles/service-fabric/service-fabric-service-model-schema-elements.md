@@ -1220,7 +1220,7 @@ Specifies information on debugger to attach when activating codepackage.
 
 <a id="DefaultRunAsPolicyElementanonymouscomplexTypeComplexTypeDefinedInApplicationPoliciesTypecomplexType"></a>
 ## DefaultRunAsPolicy element
-Specify a default user account for all service code packages that don’t have a specific RunAsPolicy defined in the ServiceManifestImport section.
+Specify a default user account for all service code packages that don't have a specific RunAsPolicy defined in the ServiceManifestImport section.
 
 |Attribute|Value|
 |---|---|
@@ -1234,7 +1234,7 @@ Specify a default user account for all service code packages that don’t have a s
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DefaultRunAsPolicy" minOccurs="0">
                                 <xs:annotation>
-                                        <xs:documentation>Specify a default user account for all service code packages that don’t have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
+                                        <xs:documentation>Specify a default user account for all service code packages that don't have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                         <xs:attribute name="UserRef" type="xs:string" use="required">
@@ -2797,7 +2797,7 @@ Declares configuration settings in a service manifest to be overridden. It consi
 
 <a id="FileStoreElementFileStoreETWTypeComplexTypeDefinedInDestinationselement"></a>
 ## FileStore element (type FileStoreETWType) 
-Describes a file store destination for ETW events. Works only in on-premise environment.
+Describes a file store destination for ETW events. Works only in on-premises environment.
 
 |Attribute|Value|
 |---|---|
@@ -5334,7 +5334,7 @@ Persistence Policy extension for the Service Type
 
 <a id="PlacementConstraintsElementxs:stringComplexTypeDefinedInServiceTypecomplexTypeDefinedInServiceTypeTypecomplexTypeDefinedInServiceGroupTypeTypecomplexType"></a>
 ## PlacementConstraints element
-Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service’s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
+Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the serviceÂ’s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
 
 |Attribute|Value|
 |---|---|
@@ -5348,7 +5348,7 @@ Used to control which nodes in the cluster a service can run on. A key/value pai
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PlacementConstraints" type="xs:string" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service’s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion&gt;12  &amp;&amp; InDMZ == True)".</xs:documentation>
+                    <xs:documentation>Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the serviceÂ’s requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion&gt;12  &amp;&amp; InDMZ == True)".</xs:documentation>
                 </xs:annotation>
             </xs:element>
             
@@ -6260,7 +6260,7 @@ Declares a service to be created automatically when the application is instantia
                         </xs:attribute>
                         <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
                     </xs:complexType>
@@ -6295,7 +6295,7 @@ The DNS name of the service.
 |use|optional|
 
 #### ServicePackageActivationMode
-ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
+ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
 |Attribute|Value|
 |---|---|
 |name|ServicePackageActivationMode|
@@ -6490,7 +6490,7 @@ A collection of services that are automatically located together, so they are al
                         </xs:attribute>
                         <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
                     </xs:complexType>
@@ -6509,7 +6509,7 @@ Name of this service relative to this application Name URI. Fully qualified Name
 |use|required|
 
 #### ServicePackageActivationMode
-ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
+ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
 |Attribute|Value|
 |---|---|
 |name|ServicePackageActivationMode|

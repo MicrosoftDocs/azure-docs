@@ -2,19 +2,19 @@
 title: Set up your development environment on Mac OS X to work with Azure Service Fabric| Microsoft Docs
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on Mac OS X.
 services: service-fabric
-documentationcenter: java
-author: sayantancs
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: java
+ms.devlang: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
-ms.author: saysa
+ms.author: suhuruli
 
 ---
 # Set up your development environment on Mac OS X
@@ -95,7 +95,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 4. Now you can quickly start a local copy of Service Fabric, whenever you need it, by running:
 
     ```bash 
-    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
     >[!TIP]
@@ -114,7 +114,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 
 
 
-6. When your done you can stop and cleanup the container with this command:
+6. When you are done, stop and cleanup the container with this command:
 
     ```bash 
     docker rm -f sftestcluster
@@ -153,14 +153,16 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     ```bash
     npm install -g yo
     ```
-3. Install the Yeoman generator that you prefer by following the steps in the getting started [documentation](service-fabric-get-started-linux.md). To create Service Fabric applications by using Yeoman, follow these steps:
+3. Install the Yeoman generator that you prefer by following the steps in the getting started [documentation](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables). To create Service Fabric applications by using Yeoman, follow these steps:
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. To build a Service Fabric Java application on your Mac, JDK version 1.8 and Gradle must be installed on the host machine. The software can be installed by using [HomeBrew](https://brew.sh/), as follows: 
+4. After you install the generators, create guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`, respectively.
+
+5. To build a Service Fabric Java application on your Mac, JDK version 1.8 and Gradle must be installed on the host machine. The software can be installed by using [HomeBrew](https://brew.sh/), as follows: 
 
     ```bash
     brew update

@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
 
 ---
@@ -25,6 +25,12 @@ The runbook schedule can also be modified via the automation account by the user
 
 > [!NOTE]
 > Enabling automatic updates doesn't require a reboot of your Azure VMs, and doesn't affect on-going replication.
+
+> [!NOTE]
+> Billing for jobs used by automation account is based on the number of job run time minutes used in the month and by default 500 minutes are included as free units for an automation account. The execution of the job daily amounts from a **few seconds to about a minute** and will be **covered in the free credits**.
+
+FREE UNITS INCLUDED (PER MONTH)**	PRICE
+Job run time	500 minutes	₹0.14/minute
 
 ## Enable automatic updates
 
@@ -60,7 +66,7 @@ If there is an issue with the automatic updates, you'll be notified of the same 
 In case you tried to enable automatic updates and it failed, refer below for troubleshooting.
 
 **Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal. 
-- Recommended Action: Ensure that the logged in account is assigned the 'Contributor' and retry the operation.
+- Recommended Action: Ensure that the logged in account is assigned the 'Contributor' and retry the operation. Refer to [this](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) document for further information on assigning the right permissions.
  
 Once automatic updates are turned ON, most of the issues can be healed by the Site Recovery service and requires you to click on the '**Repair**' button.
 
@@ -70,8 +76,8 @@ In case the repair button isn't available, refer to the error message displayed 
 
  - **Error**: The Run As account does not have the permission to access the recovery services resource.
 
-    **Recommended Action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) or make sure that the Automation Run As account's Azure Active Directory Application has access to the recovery services resource.
+    **Recommended Action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account) or make sure that the Automation Run As account's Azure Active Directory Application has access to the recovery services resource.
 
 - **Error**: Run As account is not found. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection. 
 
-    **Recommended Action**: Delete and [then re-create the Run As account](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **Recommended Action**: Delete and [then re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

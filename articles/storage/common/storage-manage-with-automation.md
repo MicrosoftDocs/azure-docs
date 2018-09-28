@@ -2,20 +2,12 @@
 title: Manage Azure Storage using Azure Automation
 description: Learn about how the Azure Automation service can be used to manage Azure Storage at scale.
 services: storage, automation
-documentationcenter: ''
 author: jodoglevy
-manager: eamono
-editor: ''
-
-ms.assetid: bac41c39-1d95-46aa-a481-ec17bbb21b40
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: eamono
-
+ms.component: common
 ---
 # Managing Azure Storage using Azure Automation
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure Storage blobs, tables, and queues.

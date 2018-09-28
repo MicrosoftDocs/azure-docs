@@ -1,21 +1,13 @@
 ---
-title: Store and View Diagnostic Data in Azure Storage | Microsoft Docs
+title: Store and View Diagnostic Data in Azure Storage
 description: Get Azure diagnostics data into Azure Storage and view it
-services: cloud-services
-documentationcenter: .net
-author: thraka
-manager: timlt
-editor: tysonn
-
-ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
-ms.service: cloud-services
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: azure-monitor
+author: jpconnock
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 08/01/2016
-ms.author: adegeo
-
+ms.author: jeconnoc
+ms.component: diagnostic-extension
 ---
 # Store and view diagnostic data in Azure Storage
 Diagnostic data is not permanently stored unless you transfer it to the Microsoft Azure storage emulator or to Azure storage. Once in storage, it can be viewed with one of several available tools.

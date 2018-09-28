@@ -1,6 +1,6 @@
 ---
-title: Use CLI 2.0 to create an Azure AD app and configure it to access Azure Media Services API | Microsoft Docs
-description: This topic shows how to use CLI 2.0 to create an Azure AD app and configure it to access Azure Media Services API.
+title: Use Azure CLI to create an Azure AD app and configure it to access Azure Media Services API | Microsoft Docs
+description: This topic shows how to use the Azure CLI to create an Azure AD app and configure it to access Azure Media Services API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,9 +17,9 @@ ms.author: juliako
 
 ---
 
-# Use CLI 2.0 to create an AAD app and configure it to access Azure Media Services API
+# Use Azure CLI to create an AAD app and configure it to access Azure Media Services API
 
-This topic shows you how to use CLI 2.0 to create an Azure Active Directory (Azure AD) application and service principal to access Azure Media Services resources. 
+This topic shows you how to use the Azure CLI to create an Azure Active Directory (Azure AD) application and service principal to access Azure Media Services resources. 
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ This topic shows you how to use CLI 2.0 to create an Azure Active Directory (Azu
 
 For more information, see [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
-## Create an Azure AD app and configure access to the media account with CLI 2.0
+## Create an Azure AD app and configure access to the media account with Azure CLI
  
 ```azurecli
 az login
@@ -57,7 +57,7 @@ For example, it could be one of the following levels:
 * The **resource group** level.
 * The **resource** level (for example, a Media account).
 
-For more information, see [Create an Azure service principal with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+For more information, see [Create an Azure service principal with the Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
 Also see [Manage Role-Based Access Control with the Azure command-line interface](../../role-based-access-control/role-assignments-cli.md). 
 

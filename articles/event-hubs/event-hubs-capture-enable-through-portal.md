@@ -3,7 +3,7 @@ title: Azure Event Hubs Capture enable through portal | Microsoft Docs
 description: Enable the Event Hubs Capture feature using the Azure portal.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/19/2017
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 

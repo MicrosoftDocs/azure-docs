@@ -3,7 +3,7 @@ title: Azure Quickstart - Create a blob in object storage using the Azure portal
 description: In this quickstart, you use the Azure portal  in object (Blob) storage. Then you use the Azure portal to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
-manager: jeconnoc
+
 
 ms.custom: mvc
 ms.service: storage
@@ -20,7 +20,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## Create a container
 
@@ -29,7 +29,7 @@ To create a container in the Azure portal, follow these steps:
 1. Navigate to your new storage account in the Azure portal.
 2. In the left menu for the storage account, scroll to the **Blob Service** section, then select **Browse Blobs**.
 3. Click the **Add Container** button.
-4. Enter a name for your new container. The container name must be lowercase, must start with a letter or numberm and can contain only letters, numbers, and the dash (-) character. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
+4. Enter a name for your new container. The container name must be lowercase, must start with a letter or number and can contain only letters, numbers, and the dash (-) character. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 5. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
 6. Click **OK** to create the container.
 

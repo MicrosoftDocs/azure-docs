@@ -2,17 +2,24 @@
 title: Azure Active Directory auth - Azure SQL (Overview) | Microsoft Docs
 description: Learn about how to use Azure Active Directory for authentication with SQL Database, Managed Instance, and SQL Data Warehouse
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: data warehouse
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: GithubMirek
 ms.author: mireks
-
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 06/13/2018
 ---
 # Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse
-Azure Active Directory authentication is a mechanism of connecting to Microsoft Azure SQL Database and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
+Azure Active Directory authentication is a mechanism of connecting to Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). 
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+
+With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
 
 * It provides an alternative to SQL Server authentication.
 * Helps stop the proliferation of user identities across database servers.

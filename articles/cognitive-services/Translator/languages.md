@@ -1,18 +1,20 @@
 ---
-title: Supported languages in the Microsoft Translator API | Microsoft Docs
-description: View languages supported by the Microsoft Translator Text API.
+title: Translator Text API Supported languages
+titlesuffix: Azure Cognitive Services
+description: View languages supported by the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
-ms.date: 10/30/2017
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: v-jansko
 ---
+# Supported languages in the Translator Text API
 
-# Supported languages in the Microsoft Translator Text API 
-The Microsoft Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. Neural machine translation is available in V2 by using the "generalnn" category. 
+The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. Neural machine translation is available in V2 by using the "generalnn" category.
 
 [Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
 
@@ -20,6 +22,7 @@ The Microsoft Translator Text API supports the following languages for text to t
 |:----------- |:-------:|:-------------:|
 | Afrikaans      | Statistical |`af`          |
 | Arabic      | Neural | `ar`          |
+| Arabic, Levantine    | Neural | `apc`
 | Bangla      | Neural |`bn`          |
 | Bosnian (Latin)      | Statistical |`bs`          |
 | Bulgarian     |  Neural |`bg`          |
@@ -73,12 +76,13 @@ The Microsoft Translator Text API supports the following languages for text to t
 | Swedish        |  Neural |`sv`          |
 | Tahitian      | Statistical |`ty`          |
 | Tamil      | Statistical |`ta`          |
+| Telugu   | Neural   | `te` |
 | Thai      | Neural |`th`          |
 | Tongan      | Statistical |`to`          |
 | Turkish       |  Neural |`tr`          |
 | Ukrainian      | Neural |`uk`          |
 | Urdu      | Statistical |`ur`          |
-| Vietnamese      | Statistical |`vi`          |
+| Vietnamese      | Neural |`vi`          |
 | Welsh      | Neural |`cy`          |
 | Yucatec Maya      | Statistical |`yua`          |
 
@@ -111,7 +115,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 
 ## Dictionary
 
-The dictionary supports the following languages to or from English using the Lookup and Examples methods. 
+The dictionary supports the following languages to or from English using the Lookup and Examples methods.
 
 | Language    | Language code |
 |:----------- |:-------------:|
@@ -168,20 +172,20 @@ The dictionary supports the following languages to or from English using the Loo
 
 ## Languages detected by the Detect method
 
-The following languages can be detected by the Detect method. Detect may detect languages that Microsoft Translator can't translate. 
+The following languages can be detected by the Detect method. Detect may detect languages that Microsoft Translator can't translate.
 
-| Language    | 
+| Language    |
 |:----------- |
 | Afrikaans |
-| Albanian | 
+| Albanian |
 | Arabic |
 | Basque |
 | Belarusian |
 | Bulgarian |
 | Catalan |
 | Chinese |
-| Chinese_Simplified |
-| Chinese_Traditional |
+| Chinese (Simplified) |
+| Chinese (Traditional) |
 | Croatian |
 | Czech |
 | Danish |
@@ -194,7 +198,7 @@ The following languages can be detected by the Detect method. Detect may detect 
 | Galician |
 | German |
 | Greek |
-| Haitian_Creole |
+| Haitian Creole |
 | Hebrew |
 | Hindi |
 | Hungarian |
@@ -204,8 +208,8 @@ The following languages can be detected by the Detect method. Detect may detect 
 | Italian |
 | Japanese |
 | Korean |
-| Kurdish_Arabic |
-| Kurdish_Latin |
+| Kurdish (Arabic) |
+| Kurdish (Latin) |
 | Latin |
 | Latvian |
 | Lithuanian |
@@ -213,15 +217,15 @@ The following languages can be detected by the Detect method. Detect may detect 
 | Malay |
 | Maltese |
 | Norwegian |
-| Norwegian_Nynorsk |
+| Norwegian (Nynorsk) |
 | Pashto |
 | Persian |
 | Polish |
 | Portuguese |
 | Romanian |
 | Russian |
-| Serbian_Cyrillic |
-| Serbian_Latin |
+| Serbian (Cyrillic) |
+| Serbian (Latin) |
 | Slovak |
 | Slovenian |
 | Somali |
@@ -229,12 +233,13 @@ The following languages can be detected by the Detect method. Detect may detect 
 | Swahili |
 | Swedish |
 | Tagalog |
+| Telugu |
 | Thai |
 | Turkish |
 | Ukrainian |
 | Urdu |
-| Uzbek_Cyrillic |
-| Uzbek_Latin |
+| Uzbek (Cyrillic) |
+| Uzbek (Latin) |
 | Vietnamese |
 | Welsh |
 | Yiddish |
@@ -243,7 +248,7 @@ The following languages can be detected by the Detect method. Detect may detect 
 
 You can access the list of supported languages programmatically using the Languages operation of the V3.0 Text API. You can view the list by feature, language code, as well as the language name in English or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages become available.
 
-[View Languages operation reference documentation](/reference/languages.md)
+[View Languages operation reference documentation](reference/v3-0-languages.md)
 
 ## Access the list on the Microsoft Translator website
 

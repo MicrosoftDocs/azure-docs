@@ -2,19 +2,13 @@
 title: Develop for Azure Files with Python | Microsoft Docs
 description: Learn how to develop Python applications and services that use Azure Files to store file data.
 services: storage
-documentationcenter: python
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
+ms.component: files
 ---
 
 # Develop for Azure Files with Python
@@ -30,7 +24,7 @@ This tutorial will demonstrate the basics of using Python to develop application
 * Upload, download, and delete a file
 
 > [!Note]  
-> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard Python I/O classes and functions. This article will describe how to write applications that use the Azure Storage Python SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard Python I/O classes and functions. This article will describe how to write applications that use the Azure Storage Python SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
 
 ## Download and Install Azure Storage SDK for Python
 
@@ -178,6 +172,6 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ## Next steps
 Now that you've learned how to manipulate Azure Files with Python, follow these links to learn more.
 
-* [Python Developer Center](/develop/python/)
+* [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)

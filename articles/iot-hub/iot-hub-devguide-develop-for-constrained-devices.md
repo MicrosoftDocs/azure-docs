@@ -69,7 +69,7 @@ To learn more about Azure IoT C SDK architecture:
 [lnk-cmake]: https://cmake.org/
 [lnk-devbox-setup]:  https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md
 [lnk-choosing-protocol]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols
-[lnk-hub-file-upload]: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload
+[lnk-hub-file-upload]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload
 [lnk-strip]: https://en.wikipedia.org/wiki/Strip_(Unix)
 [lnk-serializer]: https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer
 [lnk-parson]: https://github.com/kgabis/parson

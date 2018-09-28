@@ -65,7 +65,7 @@ For enhanced security, you should allow FTP over SSL only. You can also disable 
 
 In your app's resource page in [Azure portal](https://portal.azure.com), select **App settings** in the left navigation.
 
-To disable unencrypted FTP, select **FTPS Only**. To disable both FTP and FTPS entirely, select **Disable**. When finished, click **Save**.
+To disable unencrypted FTP, select **FTPS Only**. To disable both FTP and FTPS entirely, select **Disable**. When finished, click **Save**. If using **FTPS Only** you must enforce TLS 1.1 or higher by navigating to the **SSL settings** blade of your web app. TLS 1.0 is not supported with **FTPS Only**.
 
 ![Disable FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
@@ -74,6 +74,8 @@ To disable unencrypted FTP, select **FTPS Only**. To disable both FTP and FTPS e
 For FTP deployment using [Azure CLI](/cli/azure), see [Create a web app and deploy files with FTP (Azure CLI)](./scripts/app-service-cli-deploy-ftp.md).
 
 For FTP deployment using [Azure PowerShell](/cli/azure), see [Upload files to a web app using FTP (PowerShell)](./scripts/app-service-powershell-deploy-ftp.md).
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## Troubleshoot FTP deployment
 

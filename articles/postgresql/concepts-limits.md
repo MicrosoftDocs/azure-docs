@@ -2,13 +2,13 @@
 title: Limitations in Azure Database for PostgreSQL
 description: This article describes limitations in Azure Database for PostgreSQL, such as number of connection and storage engine options.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/30/2018
 ---
 # Limitations in Azure Database for PostgreSQL
 The following sections describe capacity and functional limits in the database service.
@@ -37,18 +37,19 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 
 ## Functional limitations
 ### Scale operations
-1.	Dynamic scaling of servers across pricing tiers is currently not supported. That is, switching between Basic, General Purpose, or Memory Optimized tiers.
-2.	Decreasing server storage size is currently not supported.
+- Dynamic scaling to and from the Basic pricing tiers is currently not supported.
+- Decreasing server storage size is currently not supported.
 
 ### Server version upgrades
-- Automated migration between major database engine versions is currently not supported.
+- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./howto-migrate-using-dump-and-restore.md) it to a server that was created with the new engine version.
 
-### Subscription management
-- Dynamically moving servers across subscriptions and resource groups is currently not supported.
+### VNet service endpoints
+- Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
-### Point-in-time-restore (PITR)
-1.	When using the PITR feature, the new server is created with the same configurations as the server it is based on.
-2.	Restoring a deleted server is not supported.
+### Restoring a server
+- When using the PITR feature, the new server is created with the same pricing tier configurations as the server it is based on.
+- The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
+- Restoring a deleted server is not supported.
 
 ## Next steps
 - Understand [what’s available in each pricing tier](concepts-pricing-tiers.md)

@@ -1,5 +1,5 @@
 ---
-title: Service to Meter mapping for Free account - Azure | Microsoft Docs
+title: Service to Meter mapping for Azure Free account | Microsoft Docs
 description: Understand service to meter mapping for services included with free account.
 services: ''
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
+ms.author: cwatson
 
 ---
 # Understand free service to meter mapping

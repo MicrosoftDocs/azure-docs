@@ -12,7 +12,7 @@
 
 ## <a name="os-config"></a>Add IP addresses to a VM operating system
 
-Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the steps that following for your VM operating system.
+Connect and sign in to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the steps that following for your VM operating system.
 
 ### Windows
 
@@ -105,7 +105,7 @@ ping -S 10.0.0.5 hotmail.com
 
 	You should see the IP address you added as part of the list.
 
-### Linux (Redhat, CentOS, and others)
+### Linux (Red Hat, CentOS, and others)
 
 1. Open a terminal window.
 2. Make sure you are the root user. If you are not, enter the following command:

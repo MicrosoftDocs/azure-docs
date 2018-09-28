@@ -1,10 +1,11 @@
 ---
-title: Face service Python quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you detect faces in an image using the Face service with Python in Cognitive Services.
+title: "Quickstart: Detect faces in an image - Face API, Python"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you detect faces in an image using the Face API with Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
@@ -13,7 +14,7 @@ ms.author: nolachar
 ---
 # Quickstart: Detect faces in an image using Python
 
-In this quickstart, you detect human faces in an image using the Face service. The detected faces are demarcated with rectangles and superimposed with the gender and age of each person.
+In this quickstart, you detect human faces in a remote image using the Face service. The detected faces are demarcated with rectangles and superimposed with the gender and age of each person. To use a local image, see the syntax in [Computer Vision: Analyze a local image with Python](../../Computer-vision/QuickStarts/python-disk.md).
 
 You can run this quickstart as a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
@@ -46,6 +47,14 @@ To run the sample, do the following steps:
 The following code uses the Python `requests` library to call the Face Detect API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary. The types of features to recognize is passed in via the `params` dictionary.
 
 ```python
+import requests
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
+import matplotlib.pyplot as plt
+from PIL import Image
+from matplotlib import patches
+from io import BytesIO
+
 # Replace <Subscription Key> with your valid subscription key.
 subscription_key = "<Subscription Key>"
 assert subscription_key
@@ -62,33 +71,19 @@ face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/dete
 # Set image_url to the URL of an image that you want to analyze.
 image_url = 'https://how-old.net/Images/faces2/main007.jpg'
 
-import requests
-from IPython.display import HTML
-
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-
 params = {
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
     'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,' +
     'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
 }
-
-response = requests.post(
-    face_api_url, params=params, headers=headers, json={"url": image_url})
+data = {'url': image_url}
+response = requests.post(face_api_url, params=params, headers=headers, json=data)
 faces = response.json()
 
 # Display the original image and overlay it with the face information.
-# If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
-import matplotlib.pyplot as plt
-from PIL import Image
-from matplotlib import patches
-from io import BytesIO
-
-response = requests.get(image_url)
-image = Image.open(BytesIO(response.content))
-
+image = Image.open(BytesIO(requests.get(image_url).content))
 plt.figure(figsize=(8, 8))
 ax = plt.imshow(image, alpha=0.6)
 for face in faces:

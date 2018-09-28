@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
 
@@ -89,7 +89,7 @@ When the new job is created, select **Go to resource**.
 
 Set it to take input from your Continuous Export blob:
 
-![](./media/app-insights-export-stream-analytics/SA005.png)
+![](./media/app-insights-export-stream-analytics/SA0005.png)
 
 Now you'll need the Primary Access Key from your Storage Account, which you noted earlier. Set this as the Storage Account Key.
 

@@ -7,7 +7,7 @@ manager: cshepard
 keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: genli
 ---
 
@@ -79,15 +79,15 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ### <a name="the-vm-has-no-internet-access"></a>The VM doesn't have internet access
 Per the deployment requirement, the VM doesn't have internet access. Or, it might have restrictions that prevent access to the Azure infrastructure.
 
-To function correctly, the Backup extension requires connectivity to Azure public IP addresses. The extension sends commands to an Azure storage endpoint (HTTP URL) to manage the snapshots of the VM. If the extension doesn't have access to the public internet, backup eventually fails.
+To function correctly, the Backup extension requires connectivity to Azure public IP addresses. The extension sends commands to an Azure storage endpoint (HTTPs URL) to manage the snapshots of the VM. If the extension doesn't have access to the public internet, backup eventually fails.
 
-It it possible to deploy a proxy server to route the VM traffic.
-##### Create a path for HTTP traffic
+It is possible to deploy a proxy server to route the VM traffic.
+##### Create a path for HTTPs traffic
 
-1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
-2. To allow access to the internet from the HTTP proxy server, add rules to the network security group, if you have one.
+1. If you have network restrictions in place (for example, a network security group), deploy an HTTPs proxy server to route the traffic.
+2. To allow access to the internet from the HTTPs proxy server, add rules to the network security group, if you have one.
 
-To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+To learn how to set up an HTTPs proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Either the backed up VM or the proxy server through which the traffic is routed requires access to Azure Public IP addresses
 
@@ -107,6 +107,8 @@ To understand the step by step procedure to configure service tags, watch [this 
 
 If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
 
+Furthermore, if your subnet doesn't have a route for internet outbound traffic, you need to add a service endpoint with service tag "Microsoft.Storage" to your subnet. 
+
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)
 
 #### Solution
@@ -116,7 +118,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 2. If the Windows Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Windows Guest Agent service is installed.
 4. If the Windows Guest Agent appears in **Programs and Features**, uninstall the Windows Guest Agent.
 5. Download and install the [latest version of the agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
-6. Verify that the Windows Guest Agent services appears in services.
+6. Verify that the Windows Guest Agent services appear in services.
 7. Run an on-demand backup: 
 	* In the portal, select **Backup Now**.
 
@@ -192,7 +194,7 @@ To resolve the issue, remove the lock from the resource group and complete the f
 1. Remove the lock in the resource group in which the VM is located. 
 2. Install ARMClient by using Chocolatey: <br>
    https://github.com/projectkudu/ARMClient
-3. Log in to ARMClient: <br>
+3. Sign in to ARMClient: <br>
 	`.\armclient.exe login`
 4. Get the restore point collection that corresponds to the VM: <br>
    	`.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`

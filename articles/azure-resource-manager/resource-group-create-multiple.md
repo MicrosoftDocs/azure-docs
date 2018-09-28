@@ -4,43 +4,26 @@ description: Use copy operation and arrays in an Azure Resource Manager template
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: ''
 
-ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 07/10/2018
 ms.author: tomfitz
 
 ---
-# Deploy multiple instances of a resource or property in Azure Resource Manager templates
-This article shows you how to conditionally deploy a resource, and how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
+# Deploy multiple instances of a resource or property in Azure Resource Manager Templates
 
-## Conditionally deploy resource
+This article shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource. If you need to specify whether a resource is deployed at all, see [condition element](resource-manager-templates-resources.md#condition).
 
-When you must decide during deployment to create either one instance or no instances of a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is deployed. When the value is false, the resource is not deployed. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
+For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## Resource iteration
-When you must decide during deployment to create one or more instances of a resource, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and cannot exceed 800. 
+
+When you must decide during deployment to create one or more instances of a resource, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and can't exceed 800. 
 
 The resource to create multiple times takes the following format:
 
@@ -124,9 +107,9 @@ Creates these names:
 * storagefabrikam
 * storagecoho
 
-By default, Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.
+By default, Resource Manager creates the resources in parallel. Therefore, the order in which they're created isn't guaranteed. However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.
 
-To serially deploy multiple instances of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it does not start one batch until the previous batch completes.
+To serially deploy multiple instances of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 For example, to serially deploy storage accounts two at a time, use:
 
@@ -188,7 +171,7 @@ The following example shows how to apply `copy` to the dataDisks property on a v
       ...
 ```
 
-Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. You do not have to provide the name when used with resource iteration.
+Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. You don't have to provide the name when used with resource iteration.
 
 Resource Manager expands the `copy` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
 
@@ -219,13 +202,41 @@ Resource Manager expands the `copy` array during deployment. The name of the arr
       ...
 ```
 
+The copy element is an array so you can specify more than one property for the resource. Add an object for each property to create.
+
+```json
+{
+    "name": "string",
+    "type": "Microsoft.Network/loadBalancers",
+    "apiVersion": "2017-10-01",
+    "properties": {
+        "copy": [
+          {
+              "name": "loadBalancingRules",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          },
+          {
+              "name": "probes",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          }
+        ]
+    }
+}
+```
+
 You can use resource and property iteration together. Reference the property iteration by name.
 
 ```json
 {
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[concat(parameters('vnetname'), copyIndex())]",
-    "apiVersion": "2016-06-01",
+    "apiVersion": "2018-04-01",
     "copy":{
         "count": 2,
         "name": "vnetloop"
@@ -306,8 +317,29 @@ To create multiple instances of a variable, use the `copy` element in the variab
 }
 ```
 
+With either approach, the copy element is an array so you can specify more than one variable. Add an object for each variable to create.
+
+```json
+"copy": [
+  {
+    "name": "first-variable",
+    "count": 5,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
+    }
+  },
+  {
+    "name": "second-variable",
+    "count": 3,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
+    }
+  },
+]
+```
+
 ## Depend on resources in a loop
-You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition is not shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the Virtual Machines is also set to `storagecopy`.
+You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition isn't shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the Virtual Machines is also set to `storagecopy`.
 
 ```json
 {
@@ -345,7 +377,7 @@ You specify that a resource is deployed after another resource by using the `dep
 <a id="looping-on-a-nested-resource" />
 
 ## Iteration for a child resource
-You cannot use a copy loop for a child resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the type and name properties.
+You can't use a copy loop for a child resource. To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the type and name properties.
 
 For example, suppose you typically define a dataset as a child resource within a data factory.
 
@@ -367,7 +399,7 @@ For example, suppose you typically define a dataset as a child resource within a
 }]
 ```
 
-To create multiple instances of data sets, move it outside of the data factory. The dataset must be at the same level as the data factory, but it is still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+To create multiple instances of data sets, move it outside of the data factory. The dataset must be at the same level as the data factory, but it's still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 To establish a parent/child relationship with an instance of the data factory, provide a name for the data set that includes the parent resource name. Use the format: `{parent-resource-name}/{child-resource-name}`.  
 
@@ -403,12 +435,14 @@ The following examples show common scenarios for creating multiple resources or 
 |[Copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Deploys multiple storage accounts with an index number in the name. |
 |[Serial copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Deploys multiple storage accounts one at time. The name includes the index number. |
 |[Copy storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Deploys multiple storage accounts. The name includes a value from an array. |
-|[VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Conditionally deploys either new or existing resources with a virtual machine. |
 |[VM deployment with a variable number of data disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Deploys multiple data disks with a virtual machine. |
 |[Copy variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstrates the different ways of iterating on variables. |
-|[Multiple security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Deploys multiple security rules to a network security group. It constructs the security rules from a parameter. |
+|[Multiple security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Deploys multiple security rules to a network security group. It constructs the security rules from a parameter. For the parameter, see [multiple NSG parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## Next steps
+
+* To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 * To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
 

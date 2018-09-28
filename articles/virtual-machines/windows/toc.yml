@@ -39,7 +39,7 @@
     href: tutorial-monitoring.md
   - name: 12 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 13 - Team Services CI/CD
+  - name: 13 - Azure Pipelines CI/CD
     href: tutorial-vsts-iis-cicd.md
   - name: 14 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
@@ -96,6 +96,10 @@
       href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
+    - name: Standard SSDs
+      href: disks-standard-ssd.md
+    - name: Ultra SSDs
+      href: disks-ultra-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
@@ -112,6 +116,8 @@
     href: infrastructure-automation.md
   - name: Security and policy
     href: security-policy.md
+  - name: States and lifecycle
+    href: states-lifecycle.md
   - name: Monitoring
     href: monitor.md
   - name: Backup and recovery
@@ -177,8 +183,6 @@
         href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
-    - name: Prepay for VMs - Reserved Instances
-      href: prepay-reserved-vm-instances.md
     - name: VM usage
       href: vm-usage.md
     - name: Common PowerShell tasks
@@ -191,6 +195,8 @@
       href: os-disk-swap.md
     - name: Tag a VM
       href: tag.md
+    - name: Time sync
+      href: time-sync.md
     - name: Run scripts on a VM
       href: run-scripts-in-vm.md
       items:
@@ -216,8 +222,24 @@
       href: instance-metadata-service.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
+  - name: Manage costs
+    items:
+    - name: Prepay for VMs - Azure Reservations
+      href: prepay-reserved-vm-instances.md
+    - name: What are Azure Reservations?
+      href: ../../billing/billing-save-compute-costs-reservations.md
+    - name: VM instance size flexibility
+      href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
+    - name: Shared images (preview)
+      items: 
+      - name: Overview
+        href: shared-image-galleries.md
+      - name: Create shared images using CLI
+        href: ../linux/shared-images.md
+      - name: Troubleshoot shared images
+        href: troubleshooting-shared-images.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Prepare VM for upload
@@ -306,7 +328,9 @@
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
     - name: Enable write accelerator
-      href: how-to-enable-write-accelerator.md 
+      href: how-to-enable-write-accelerator.md
+    - name: Using Ultra SSD
+      href: disks-enable-ultra-ssd.md
     - name: Migrate to Managed Disks
       href: migrate-to-managed-disks.md
       items:
@@ -335,6 +359,20 @@
       href: portal-create-fqdn.md
     - name: DNS resolution
       href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Configure managed identities
+    items:
+    - name: Portal
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: CLI
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: PowerShell
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Azure Resource Manager Template
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: REST
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Azure SDKs
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
   - name: Use VM extensions
     href: ../extensions/overview.md
   - name: Migrate VMs
@@ -384,6 +422,9 @@
       href: boot-diagnostics.md
     - name: Serial console 
       href: serial-console.md
+      items:
+        - name: CMD and PowerShell commands
+          href: serial-console-cmd-ps-commands.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Deployment issues
@@ -412,6 +453,8 @@
       href: how-to-use-perfInsights.md
     - name: Performance Diagnostics VM Extension 
       href: performance-diagnostics-vm-extension.md
+    - name: Performance diagnostics for Azure virtual machines 
+      href: performance-diagnostics.md
     - name: Use nested virtualization 
       href: troubleshoot-vm-by-use-nested-virtualization.md
     - name: Install the VM agent in offline mode
@@ -422,6 +465,16 @@
         href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
+    - name: Throttling errors
+      href: troubleshooting-throttling-errors.md
+    - name: Troubleshoot boot errors
+      items:
+      - name: BitLocker errors 
+        href: troubleshoot-bitlocker-boot-error.md  
+      - name: Checking file system errors
+        href: troubleshoot-check-disk-boot-error.md
+      - name: Common blue screen errors
+        href: troubleshoot-common-blue-screen-error.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -439,11 +492,13 @@
   - name: Compute REST
     href: /rest/api/compute
   - name: Managed Disks REST
-    href: /rest/api/manageddisks
+    href: /rest/api/compute/disks
 - name: Resources
   items:
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

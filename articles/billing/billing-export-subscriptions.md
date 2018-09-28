@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/9/2017
-ms.author: adpick
+ms.date: 06/15/2018
+ms.author: cwatson
 ---
 # Export and view your top-level Subscription information
 If you need to view the set of subscription IDs associated with your user credentials, [download a .json file with your subscription information from the Azure Account Center](http://account.azure.com/subscriptions/download).

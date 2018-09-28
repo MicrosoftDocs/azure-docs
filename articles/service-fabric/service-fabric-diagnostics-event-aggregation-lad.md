@@ -49,5 +49,5 @@ This configures the LAD agent to monitor specified log files. Whenever a new lin
 
 ## Next steps
 
-1. To understand in more detail what events you should examine while troubleshooting issues, see [LTTng documentation](http://lttng.org/docs) and [Using LAD](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-linux).
+1. To understand in more detail what events you should examine while troubleshooting issues, see [LTTng documentation](http://lttng.org/docs) and [Using LAD](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
 2. [Set up the Log Analytics agent](service-fabric-diagnostics-event-analysis-oms.md) to help gather metrics, monitor Containers deployed on your cluster, and visualize your logs 

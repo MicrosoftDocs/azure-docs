@@ -1,22 +1,24 @@
 ---
-title: Set up Azure SQL Data Sync (Preview) | Microsoft Docs
-description: This tutorial shows you how to set up Azure SQL Data Sync (Preview)
+title: Set up Azure SQL Data Sync | Microsoft Docs
+description: This tutorial shows you how to set up Azure SQL Data Sync
 services: sql-database
-author: douglaslms
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/10/2018
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 ms.reviewer: douglasl
+manager: craigg
+ms.date: 04/10/2018
 ---
-# Set up SQL Data Sync (Preview)
+# Set up SQL Data Sync
 In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybrid sync group that contains both Azure SQL Database and SQL Server instances. The new sync group is fully configured and synchronizes on the schedule you set.
 
 This tutorial assumes that you have at least some prior experience with SQL Database and with SQL Server. 
 
-For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
 
 For complete PowerShell examples that show how to configure SQL Data Sync, see the following articles:
 -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -193,7 +195,7 @@ The minimum frequency is every five minutes.
 
 ### Does SQL Data Sync fully create and provision tables?
 
-If the sync schema tables are not already created in the destination database, SQL Data Sync (Preview) creates them with the columns that you selected. However, this behavior does not result in a full fidelity schema, for the following reasons:
+If the sync schema tables are not already created in the destination database, SQL Data Sync creates them with the columns that you selected. However, this behavior does not result in a full fidelity schema, for the following reasons:
 
 -   Only the columns that you selected are created in the destination table. If some columns in the source tables are not part of the sync group, those columns are not provisioned in the destination tables.
 
@@ -210,7 +212,7 @@ database.
 
 Because of these limitations, we recommend the following things:
 -   For production environments, provision the full-fidelity schema yourself.
--   For trying out the service, the auto-provisioning feature of SQL Data Sync (Preview) works well.
+-   For trying out the service, the auto-provisioning feature of SQL Data Sync works well.
 
 ### Why do I see tables that I did not create?  
 Data Sync creates side tables in your database for change tracking. Don't delete them or Data Sync stops working.
@@ -234,14 +236,14 @@ You have to make and propagate all schema changes manually.
 
 ### How can I export and import a database with Data Sync?
 After you export a database as a `.bacpac` file and import the file to create a new database, you have to do the following two things to use Data Sync in the new database:
-1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). This script deletes all of the required Data Sync objects from the database.
+1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql). This script deletes all of the required Data Sync objects from the database.
 2.  Recreate the sync group with the new database. If you no longer need the old sync group, delete it.
 
 ## FAQ about the client agent
 
 ### Why do I need a client agent?
 
-The SQL Data Sync (Preview) service communicates with SQL Server databases via the client agent. This security feature prevents direct communication with databases behind a firewall. When the SQL Data Sync (Preview) service communicates with the agent, it does so using encrypted connections and a unique token or *agent key*. The SQL Server databases authenticate the agent using the connection string and agent key. This
+The SQL Data Sync service communicates with SQL Server databases via the client agent. This security feature prevents direct communication with databases behind a firewall. When the SQL Data Sync service communicates with the agent, it does so using encrypted connections and a unique token or *agent key*. The SQL Server databases authenticate the agent using the connection string and agent key. This
 design provides a high level of security for your data.
 
 ### How many instances of the local agent UI can be run?
@@ -254,7 +256,7 @@ After you install a client agent, the only way to change the service account is 
 
 ### How do I change my agent key?
 
-An agent key can only be used once by an agent. It cannot be reused when you remove then reinstall a new agent, nor can it be used by multiple agents. If you need to create a new key for an existing agent, you must be sure that the same key is recorded with the client agent and with the SQL Data Sync (Preview) service.
+An agent key can only be used once by an agent. It cannot be reused when you remove then reinstall a new agent, nor can it be used by multiple agents. If you need to create a new key for an existing agent, you must be sure that the same key is recorded with the client agent and with the SQL Data Sync service.
 
 ### How do I retire a client agent?
 
@@ -266,11 +268,11 @@ If you want to run the local agent from a different computer than it is currentl
 
 1. Install the agent on desired computer.
 
-2. Log in to the SQL Data Sync (Preview) portal and regenerate an agent key for the new agent.
+2. Log in to the SQL Data Sync portal and regenerate an agent key for the new agent.
 
 3. Use the new agent's UI to submit the new agent key.
 
-4. Wait while the client agent downloads the list of on-premise databases that were registered earlier.
+4. Wait while the client agent downloads the list of on-premises databases that were registered earlier.
 
 5. Provide database credentials for all databases that display as unreachable. These databases must be reachable from the new computer on which the agent is installed.
 

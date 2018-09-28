@@ -19,9 +19,6 @@ ms.author: douglasl
 
 The following table includes links to sample Azure PowerShell scripts for Azure Data Factory.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [samples for Data Factory version1](v1/data-factory-samples.md).
-
 | |  |
 |---|---|
 |**Copy data**||

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/11/2018
 ms.author: spelluru
 
 ---
@@ -109,7 +109,7 @@ The following example shows how to use expressions and functions to construct a 
 1. Install a JSON editor. You need a JSON editor to work with artifact definition files. We recommend using [Visual Studio Code](https://code.visualstudio.com/), which is available for Windows, Linux, and OS X.
 2. Get a sample artifactfile.json definition file. Check out the artifacts created by the DevTest Labs team in our [GitHub repository](https://github.com/Azure/azure-devtestlab). We have created a rich library of artifacts that can help you create your own artifacts. Download an artifact definition file and make changes to it to create your own artifacts.
 3. Make use of IntelliSense. Use IntelliSense to see valid elements that you can use to construct an artifact definition file. You also can see the different options for values of an element. For example, when you edit the **targetOsType** element, IntelliSense shows you two choices, for Windows or Linux.
-4. Store the artifact in a [Git repository](devtest-lab-add-artifact-repo.md).
+4. Store the artifact in the [public Git repository for DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or [your own Git repository](devtest-lab-add-artifact-repo.md). In the public repository, you can view artifacts shared by others that you can use directly or customize them to suit your needs. 
    
    1. Create a separate directory for each artifact. The directory name should be the same as the artifact name.
    2. Store the artifact definition file (artifactfile.json) in the directory that you created.
@@ -118,9 +118,8 @@ The following example shows how to use expressions and functions to construct a 
       Here is an example of how an artifact folder might look:
       
       ![Artifact folder example](./media/devtest-lab-artifact-author/git-repo.png)
-5. Add the artifacts repository to the lab. See [Add a Git repository for artifacts and templates](devtest-lab-add-artifact-repo.md).
+5. If you are using your own repository to store artifacts, add the repository to the lab by following instructions in the article: [Add a Git repository for artifacts and templates](devtest-lab-add-artifact-repo.md).
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Related articles
 * [How to diagnose artifact failures in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)

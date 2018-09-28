@@ -9,11 +9,11 @@ editor: curtand
 
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: maheshu
 
@@ -68,6 +68,9 @@ The process of provisioning your managed domain can take up to an hour.
 4. When the managed domain is fully provisioned, the **Overview** tab shows the domain status as **Running**.
 
     ![Domain Services - Overview tab after fully provisioned](./media/getting-started/domain-services-provisioned.png)
+    >[!NOTE]
+    >During the provisioning process, Azure AD Domain Services creates Enterprise Applications named "Domain Controller Services" and "AzureActiveDirectoryDomainControllerServices" within your directory. These Enterprise Applications are needed to service your managed domain. It is imperative that these are not deleted at any time.
+    >
 
 5. On the **Properties** tab, you see two IP addresses at which domain controllers are available for the virtual network.
 

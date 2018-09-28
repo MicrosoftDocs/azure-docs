@@ -1,63 +1,52 @@
 ---
-title: Detect device issues in Remote Monitoring solution - Azure | Microsoft Docs
+title: Detect device issues in an Azure-based remote monitoring solution tutorial | Microsoft Docs
 description: This tutorial shows you how to use rules and actions to automatically detect threshold-based device issues in the Remote Monitoring solution.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
-services: iot-suite
-ms.date: 05/01/2018
-ms.topic: conceptual
+services: iot-accelerators
+ms.date: 07/19/2018
+ms.topic: tutorial
+ms.custom: mvc
+
+# As an operator of an IoT monitoring solution, I want to use an online solution to detect issues with my devices. 
 ---
 
-# Detect issues using threshold-based rules
+# Tutorial: Detect issues with devices connected to your monitoring solution
 
-This tutorial shows the capabilities of the rules engine in the Remote Monitoring solution. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
+In this tutorial, you configure the Remote Monitoring solution accelerator to detect issues with your connected IoT devices. To detect the issues with your devices, you add rules that generate alerts on the solution dashboard.
 
-Contoso has a rule that generates a critical alert when the pressure reported by a **Chiller** device exceeds 250 PSI. As an operator, you want to identify **Chiller** devices that may have problematic sensors by looking for initial pressure spikes. To identify these devices, you create a rule to generate a warning when the pressure exceeds 150 PSI.
+To introduce rules and alerts, the tutorial uses a simulated chiller device. The chiller is managed by an organization called Contoso and is connected to the Remote Monitoring solution accelerator. Contoso already has a rule that generates a critical alert when the pressure in a chiller goes above 298 PSI. As an operator at Contoso, you want to identify chiller devices that may have problematic sensors by looking for initial pressure spikes. To identify such devices, you add a rule that generates a warning alert when the pressure in the chiller goes above 150 PSI.
 
-You have also been told that a critical alert needs to be triggered when the average humidity of the **Chiller** device in the past 5 minutes is greater than 80% and the temperature of the **Chiller** device in the past 5 minutes is greater than 75 degrees fahrenheit.
+You have also been asked to create a critical alert for a chiller when, over the last five minutes, the average humidity in the device was greater than 80% and the temperature of the device was greater than 75 degrees fahrenheit.
 
-In this tutorial, you learn how to:
+In this tutorial, you:
 
 >[!div class="checklist"]
 > * View the rules in your solution
-> * Create a new rule
-> * Create a new rule with multiple conditions
+> * Create a rule
+> * Create a rule with multiple conditions
 > * Edit an existing rule
-> * Delete a rule
+> * Switch rules on and off
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To follow this tutorial, you need a deployed instance of the Remote Monitoring solution in your Azure subscription.
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-If you haven't deployed the Remote Monitoring solution yet, you should complete the [Deploy the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) tutorial.
+## Review the existing rules
 
-## View the rules in your solution
+The **Rules** page in the solution accelerator displays a list of all the current rules:
 
-The **Rules** page in the solution displays a list of all the current rules:
+[![Rules page](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-![Rules and Actions page](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2.png)
+To view only the rules that apply to chiller devices, apply a filter. You can view more information about a rule and edit it when you select it in the list:
 
-To view only the rules that apply to **Chiller** devices, apply a filter:
+[![View rule details](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
 
-![Filter the list of rules](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2.png)
+## Create a rule
 
-You can view more information about a rule and edit it when you select it in the list:
-
-![View rule details](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2.png)
-
-To disable, enable, or delete one or more rules, select multiple rules in the list:
-
-![Select multiple rules](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2.png)
-
-## Create a new rule
-
-To add a new rule that generates a warning when the pressure in a **Chiller** device exceeds 150 PSI, choose **New rule**:
-
-![Create rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2.png)
-
-Use the following values to create the rule:
+To create a rule that generates a warning when the pressure in a chiller device goes above 150 PSI, click **New rule**. Use the following values to create the rule:
 
 | Setting          | Value                                 |
 | ---------------- | ------------------------------------- |
@@ -68,19 +57,19 @@ Use the following values to create the rule:
 | Condition 1 Field| pressure                              |
 | Condition 1 operator | Greater than                      |
 | Condition 1 value    | 150                               |
-| Serverity level  | Warning                               |
+| Severity level  | Warning                               |
 
-To save the new rule, choose **Apply**.
+[![Create warning rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-expanded.png#lightbox)
 
-You can view when the rule is triggered on the **Rules** page or on the **Dashboard** page.
+To save the new rule, click **Apply**.
 
-## Create a new rule with multiple conditions
+You can see when the rule is triggered on the **Rules** page or on the **Dashboard** page:
 
-To create a new rule with multiple conditions that generates a critical alert when the average humidity of the **Chiller** device in the past 5 minutes is greater than 80% and the temperature of the **Chiller** device in the past 5 minutes is greater than 75 degrees fahrenheit, choose **New rule**:
+[![Warning rule triggered](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-![Create mult rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2.png)
+## Create an advanced rule
 
-Use the following values to create the rule:
+To create a rule with multiple conditions that generates a critical alert when, over the last five minutes for a chiller device, the average humidity is greater than 80% and the average temperature is greater than 75 degrees fahrenheit, click **New rule**. Use the following values to create the rule:
 
 | Setting          | Value                                 |
 | ---------------- | ------------------------------------- |
@@ -91,14 +80,12 @@ Use the following values to create the rule:
 | Time period      | 5                                     |
 | Condition 1 Field| humidity                              |
 | Condition 1 operator | Greater than                      |
-| Condition 1 value    | 80                               |
-| Serverity level  | Critical                              |
+| Condition 1 value    | 80                                |
+| Severity level  | Critical                              |
 
-To add the second condition, click on "+ Add condition".
+[![Create multiple condition rule part one](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 
-![Create condition 2](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2.png)
-
-Use the following values on the new condition:
+To add the second condition, click on "+ Add condition". Use the following values for the new condition:
 
 | Setting          | Value                                 |
 | ---------------- | ------------------------------------- |
@@ -106,45 +93,45 @@ Use the following values on the new condition:
 | Condition 2 operator | Greater than                      |
 | Condition 2 value    | 75                                |
 
-To save the new rule, choose **Apply**.
+[![Create multiple condition rule part two](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
 
-You can view when the rule is triggered on the **Rules** page or on the **Dashboard** page.
+To save the new rule, click **Apply**.
+
+You can see when the rule is triggered on the **Rules** page or on the **Dashboard** page:
+
+[![Multiple condition rule triggered](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-expanded.png#lightbox)
 
 ## Edit an existing rule
 
-To make a change to an existing rule, select it in the list of rules.
+To make a change to an existing rule, select it in the list of rules, and click **Edit**:
 
-![Edit rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2.png)
+[![Edit rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-expanded.png#lightbox)
 
-<!--## Disable a rule
+## Disable a rule
 
-To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
+To temporarily switch off a rule, you can disable it in the list of rules. Select the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
 
-![Disable rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable.png)
+[![Disable rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
-You can enable and disable multiple rules at the same time if you select multiple rules in the list.-->
+You can enable and disable multiple rules at the same time by selecting multiple rules in the list.
 
-<!--## Delete a rule
+## Delete a rule
 
-To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
+To permanently delete a rule, you can delete it in the list of rules. Select the rule to delete, and then choose **Delete**.
 
-You can delete multiple rules at the same time if you select multiple rules in the list.-->
+[![Delete rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+
+After you confirm that you want to delete the rule, you are given the opportunity to delete any alerts associated with the rule from the **Maintenance** page.
+
+[![Delete rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+
+You can only delete one rule at a time.
+
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## Next steps
 
-This tutorial showed you how to:
+This tutorial showed you how to use the **Rules** page in the Remote Monitoring solution accelerator to create and manage rules that trigger alerts in the solution. To learn how to use the solution accelerator to manage and configure your connected devices, continue to the next tutorial.
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * View the rules in your solution
-> * Create a new rule
-> * Edit an existing rule
-> * Delete a rule
-
-Now that you have learned how to detect issues using threshold-based rules, the suggested next steps are to learn how to:
-
-* [Manage and configure your devices](iot-accelerators-remote-monitoring-manage.md).
-* [Troubleshoot and remediate device issues](iot-accelerators-remote-monitoring-maintain.md).
-* [Test your solution with simulated devices](iot-accelerators-remote-monitoring-test.md).
-
-<!-- Next tutorials in the sequence -->
+> [!div class="nextstepaction"]
+> [Configure and manage devices connected to your monitoring solution](iot-accelerators-remote-monitoring-manage.md)

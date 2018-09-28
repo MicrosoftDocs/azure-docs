@@ -1,14 +1,16 @@
 ---
-title: Get started with the Microsoft Speech Recognition API in JavaScript | Microsoft Docs
-description: Use the Microsoft Speech Recognition API in Cognitive Services to develop applications that continuously convert spoken audio to text.
+title: Get started with the Bing Speech Recognition API in JavaScript | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Use the Bing Speech Recognition API in Cognitive Services to develop applications that continuously convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 # Get started with the Speech Recognition API in JavaScript
 
@@ -42,7 +44,7 @@ To try the sample locally, clone this repository:
 git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 ```
 
-compile the TypeScript sources and bundle/browserfy them into a single JavaScript file ([npm](https://www.npmjs.com/) needs to be installed on your machine). Change into the root of the cloned repository and run the commands:
+compile the TypeScript sources and bundle them into a single JavaScript file ([npm](https://www.npmjs.com/) needs to be installed on your machine). Change into the root of the cloned repository and run the commands:
 
 ```
 cd SpeechToText-WebSockets-Javascript && npm run bundle

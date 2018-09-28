@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
@@ -30,8 +30,8 @@ Every app that uses Azure AD B2C needs to be registered in your B2C directory in
 After you register your app, it communicates with Azure Active Directory (Azure AD) by sending requests to the endpoint:
 
 ```
-https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
-https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 ```
 
 In nearly all OAuth and OpenID Connect flows, four parties are involved in the exchange:

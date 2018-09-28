@@ -3,12 +3,12 @@ title: Azure Storage security guide | Microsoft Docs
 description: Details the many methods of securing Azure Storage, including but not limited to RBAC, Storage Service Encryption, Client-side Encryption, SMB 3.0, and Azure Disk Encryption.
 services: storage
 author: craigshoemaker
-manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
+ms.component: common
 ---
 
 # Azure Storage security guide
@@ -97,7 +97,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   This API reference describes the APIs you can use to manage your storage account programmatically.
-* [Developer's guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [Use Resource Manager authentication API to access subscriptions](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   This article shows how to authenticate using the Resource Manager APIs.
 * [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -138,21 +138,13 @@ Using Azure Key Vault also adds another level of security for your storage keys.
 
 Another advantage of using Azure Key Vault is you can also control access to your keys using Azure Active Directory. This means you can grant access to the handful of applications that need to retrieve the keys from Azure Key Vault, and know that other applications will not be able to access the keys without granting them permission specifically.
 
-Note: it is recommended to use only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some application losing access.
+> [!NOTE]
+> Microsoft recommends using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some application losing access.
 
 #### Resources
-* [About Azure Storage Accounts](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  This article gives an overview of storage accounts and discusses viewing, copying, and regenerating storage access keys.
+* [Manage storage account settings in the Azure portal](storage-account-manage.md)
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt163683.aspx)
-
-  This article contains links to specific articles about retrieving the storage account keys and regenerating the storage account keys for an Azure Account using the REST API. Note: This is for  Resource Manager storage accounts.
-* [Operations on storage accounts](https://msdn.microsoft.com/library/ee460790.aspx)
-
-  This article in the Storage Service Manager REST API Reference contains links to specific articles on retrieving and regenerating the storage account keys using the REST API. Note: This is for the Classic storage accounts.
-* [Say goodbye to key management – manage access to Azure Storage data using Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
-
-  This article shows how to use Active Directory to control access to your Azure Storage keys in Azure Key Vault. It also shows how to use an Azure Automation job to regenerate the keys on an hourly basis.
 
 ## Data Plane Security
 Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We've seen methods to encrypt the data and security during transit of the data, but how do you go about controlling access to the objects?
@@ -205,7 +197,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### How the Shared Access Signature is authenticated by the Azure Storage Service
+#### How the Shared Access Signature is authorized by the Azure Storage Service
 When the storage service receives the request, it takes the input query parameters and creates a signature using the same method as the calling program. It then compares the two signatures. If they agree, then the storage service can check the storage service version to make sure it's valid, verify that the current date and time are within the specified window, make sure the access requested corresponds to the request made, etc.
 
 For example, with our URL above, if the URL was pointing to a file instead of a blob, this request would fail because it specifies that the Shared Access Signature is for a blob. If the REST command being called was to update a blob, it would fail because the Shared Access Signature specifies that only read access is permitted.
@@ -400,11 +392,11 @@ There is an article listed in the resources below that provides the list of the 
 
 ![Snapshot of fields in a log file](./media/storage-security-guide/image3.png)
 
-We're interested in the entries for GetBlob, and how they are authenticated, so we need to look for entries with operation-type "Get-Blob", and check the request-status (fourth</sup> column) and the authorization-type (eighth</sup> column).
+We're interested in the entries for GetBlob, and how they are authorized, so we need to look for entries with operation-type "Get-Blob", and check the request-status (fourth</sup> column) and the authorization-type (eighth</sup> column).
 
-For example, in the first few rows in the listing above, the request-status is "Success" and the authorization-type is "authenticated". This means the request was validated using the storage account key.
+For example, in the first few rows in the listing above, the request-status is "Success" and the authorization-type is "authenticated". This means the request was authorized using the storage account key.
 
-#### How are my blobs being authenticated?
+#### How is access to my blobs being authorized?
 We have three cases that we are interested in.
 
 1. The blob is public and it is accessed using a URL without a Shared Access Signature. In this case, the request-status is "AnonymousSuccess" and the authorization-type is "anonymous".

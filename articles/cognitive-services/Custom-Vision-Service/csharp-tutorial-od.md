@@ -1,17 +1,20 @@
 ---
-title: Build an object detection project in C# - Custom Vision Service - Azure Cognitive Services | Microsoft Docs
-description: Explore a basic Windows app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction by using the default endpoint.
+title: "Tutorial: Build an object detection project in C# - Custom Vision Service"
+titlesuffix: Azure Cognitive Services
+description: Create a project, add tags, upload images, train your project, and make a prediction by using the default endpoint.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
 ---
 
-# Use Custom Vision API to build an object detection project in C&#35; 
+# Tutorial: Use Custom Vision API to build an object detection project in C#
+
 Learn how to use a basic Windows application that uses the Computer Vision API to create an object detection project. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision API.
 
 ## Prerequisites
@@ -22,7 +25,7 @@ To build this example, you need the Custom Vision SDK NuGet Packages:
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-You can download the images along with the [C# Samples](https://github.com/areddish/cognitive-services-dotnet-sdk-samples).
+You can download the images along with the [C# Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
 
 ## Get the training and prediction keys
 
@@ -99,7 +102,12 @@ For object detection projects we need to identify the region of the object using
 ```csharp
     Dictionary<string, double[]> fileToRegionMap = new Dictionary<string, double[]>()
     {
-        // FileName, Left, Top, Width, Height
+        // The bounding box is specified in normalized coordinates.
+        //  Normalized Left = Left / Width (in Pixels)
+        //  Normalized Top = Top / Height (in Pixels)
+        //  Normalized Bounding Box Width = (Right - Left) / Width (in Pixels)
+        //  Normalized Bounding Box Height = (Bottom - Top) / Height (in Pixels)
+        // FileName, Left, Top, Width, Height of the bounding box.
         {"scissors_1", new double[] { 0.4007353, 0.194068655, 0.259803921, 0.6617647 } },
         {"scissors_2", new double[] { 0.426470578, 0.185898721, 0.172794119, 0.5539216 } },
         {"scissors_3", new double[] { 0.289215684, 0.259428144, 0.403186262, 0.421568632 } },

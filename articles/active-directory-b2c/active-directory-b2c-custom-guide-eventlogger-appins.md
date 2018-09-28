@@ -6,7 +6,7 @@ author: davidmu1
 manager: mtillman
 
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
@@ -282,7 +282,6 @@ Referenced using {OIDC:One of the property names below}
 |  MaxAge | max_age | N/A |
 | ClientId | client_id | N/A |
 | Username | login_hint | N/A |
-| Password | domain_hint | N/A |
 |  Resource | resource| N/A |
 | AuthenticationContextReferences | acr_values | N/A |
 
@@ -297,14 +296,14 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 Here's a sample request from the application:
 
 ```
-https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
+https://sampletenant.b2clogin.com/tfp/sampletenant.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize?client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
-You can then add the claims by adding an `Input Claim` element to the Application Insights event:
+You can then add the claims by adding an `Input Claim` element to the Application Insights event. Properties of an event are added through the syntax {property:NAME}, where NAME is property being added to the event. For example:
 
 ```
-<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="app_session" DefaultValue="{OAUTH-KV:app_session}" />
-<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="loyalty_number" DefaultValue="{OAUTH-KV:loyalty_number}" />
+<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
+<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 ```
 
 ### Other system claims

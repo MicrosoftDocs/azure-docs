@@ -3,7 +3,7 @@
 title: Connect to IBM Informix database - Azure Logic Apps | Microsoft Docs
 description: Manage resources with IBM Informix REST APIs and Azure Logic Apps 
 author: gplarsen
-manager: cfowler
+manager: jeconnoc
 ms.author: plarsen
 ms.date: 09/26/2016
 ms.topic: article

@@ -2,16 +2,17 @@
 title: "Tutorial: Design your first Azure SQL database using SSMS | Microsoft Docs"
 description: Learn to design your first Azure SQL database with SQL Server Management Studio.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,develop databases
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 05/22/2018
+author: CarlRabeler
 ms.author: carlrab
-
+ms.reviewer: 
+manager: craigg
+ms.date: 07/16/2018
 ---
-
 # Tutorial: Design your first Azure SQL database using SSMS
 
 Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to: 
@@ -27,7 +28,7 @@ Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsof
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
    >[!NOTE]
-   > For the purpose of this tutorial, we are using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). 
+   > For the purpose of this tutorial, we are using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-based purchasing model](sql-database-service-tiers-vcore.md). 
 
 ## Prerequisites
 
@@ -37,7 +38,7 @@ To complete this tutorial, make sure you have installed:
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL database
 
@@ -73,7 +74,7 @@ Follow these steps to create a blank SQL database.
 
 5. Click **Select**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. Explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. For the purpose of this tutorial, we are using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). 
+6. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. Explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. For the purpose of this tutorial, we are using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-based purchasing model](sql-database-service-tiers-vcore.md). 
 
 7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 
@@ -82,9 +83,7 @@ Follow these steps to create a blank SQL database.
 8. Accept the preview terms to use the **Add-on Storage** option. 
 
    > [!IMPORTANT]
-   > - Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
-   > - More than 1 TB of storage in the Premium tier is available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. More widespread availability is planned. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   >
+   > More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
 9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
 
@@ -129,7 +128,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
@@ -175,7 +174,7 @@ Create a database schema with four tables that model a student management system
 The following diagram shows how these tables are related to each other. Some of these tables reference columns in other tables. For example, the Student table references the **PersonId** column of the **Person** table. Study the diagram to understand how the tables in this tutorial are related to one another. For an in-depth look at how to create effective database tables, see [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx). For information about choosing data types, see [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
-> You can also use the [table designer in SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) to create and design your tables. 
+> You can also use the [table designer in SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) to create and design your tables. 
 
 ![Table relationships](./media/sql-database-design-first-database/tutorial-database-tables.png)
 
