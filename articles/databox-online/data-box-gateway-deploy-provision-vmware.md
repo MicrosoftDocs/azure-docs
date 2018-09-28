@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: 
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure.  
@@ -70,7 +70,7 @@ Before you deploy a virtual device, make sure that:
 Before you begin:
 
 - Review the networking requirements to deploy a Data Box Gateway and configure the datacenter network as per the requirements. For more information, see [Data Box Gateway networking requirements](data-box-gateway-system-requirements.md#networking-requirements).
-- Make sure that the the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
+- Make sure that the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
 
 ## Check the host system
 
@@ -194,7 +194,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 6. Steps 5-7 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 8. If you booted up your device in non-DHCP environment, you will see a message to the effect: **Use the Set-HcsIPAddress cmdlet to configure the network**. 
    
-7. To configure the network, at the command prompt, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `DATA1`.
+7. To configure the network, at the command prompt, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
 8. Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
 
@@ -204,7 +204,7 @@ Perform the following steps to start your virtual device and connect to it.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [check the host system meets minimum virtual device requirements](#check-the-host-system).
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -217,7 +217,7 @@ In this tutorial, you learned about Data Box Gateway topics such as:
 
 > [!div class="checklist"]
 > * Ensure host meets minimum device requirements
-> * Provision a virtual device in hypervisor
+> * Provision a virtual device in VMware
 > * Start the virtual device and get the IP address
 
 Advance to the next tutorial to learn how to connect, set up, and activate your virtual device.
