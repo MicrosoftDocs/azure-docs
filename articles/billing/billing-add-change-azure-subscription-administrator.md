@@ -64,18 +64,18 @@ Only an [Owner](../role-based-access-control/built-in-roles.md#owner) can be add
 
     ![Screenshot that removes co-administrator](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
 
-### Adding a guest user as Co-administrator
+### Adding a guest user as a Co-administrator
 
-Guest users that have been assigned the Co-administrator role might see some differences than member users with the Co-administrator role. Consider the following scenario:
+Guest users that have been assigned the Co-administrator role might see some differences as compared to member users with the Co-administrator role. Consider the following scenario:
 
 - User A with an Azure AD Work or School account is a Service administrator for an Azure subscription.
 - User B has a Microsoft account.
-- User A grants user B the Co-administrator role.
+- User A assigns the Co-administrator role to user B.
 - User B can do almost everything, but is unable to register applications or look up users in the Azure AD directory.
 
-You would expect that user B could manage everything. The reason for this difference is that the Microsoft account is added to the subscription as a guest user instead of a member user. Guest users have different default permissions in Azure AD as compared to member users. For example, member users can read other users in the directory and guest users cannot. Member users can register new service principals in the directory and guest users cannot. A possible solution is to assign the specific directory roles the guest user needs. For example, in the previous scenario, you could assign the [Directory Readers](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role to read other users and assign the [Application Developer](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) role to be able to create service principals. For more information about member and guest users and their permissions, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+You would expect that user B could manage everything. The reason for this difference is that the Microsoft account is added to the subscription as a guest user instead of a member user. Guest users have different default permissions in Azure AD as compared to member users. For example, member users can read other users in Azure AD and guest users cannot. Member users can register new service principals in Azure AD and guest users cannot. If a guest user needs to be able to perform these tasks, a possible solution is to assign the specific Azure AD administrator roles the guest user needs. For example, in the previous scenario, you could assign the [Directory Readers](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role to read other users and assign the [Application Developer](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) role to be able to create service principals. For more information about member and guest users and their permissions, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
-Note that [roles for Azure resources](../role-based-access-control/built-in-roles.md) are different than [directory roles](../active-directory/users-groups-roles/directory-assign-admin-roles.md) and don't grant any access to Azure AD. For more information, see [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Note that the [built-in roles for Azure resources](../role-based-access-control/built-in-roles.md) are different than the [Azure AD administrator roles](../active-directory/users-groups-roles/directory-assign-admin-roles.md). The built-in roles don't grant any access to Azure AD. For more information, see [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 <a name="change-service-administrator-for-a-subscription"></a>
 
