@@ -161,8 +161,6 @@ The following table details the features and limits of the Basic, Standard, and 
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-[!INCLUDE [storage-limits-increase-include](../includes/storage-limits-increase-include.md)]
-
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
 
 #### Storage resource provider limits 

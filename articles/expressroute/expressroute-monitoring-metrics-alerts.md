@@ -16,7 +16,7 @@ ms.author: cherylmc
 
 ## Circuit metrics
 
-To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring** you can can view the **Metrics**.
+To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring** you can view the **Metrics**.
 
 ![circuit metrics](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
