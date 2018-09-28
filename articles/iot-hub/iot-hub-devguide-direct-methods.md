@@ -25,7 +25,7 @@ Refer to [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.
 
 ## Method lifecycle
 
-Direct methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`) or through AMQP links (`IoThub-methodname` and `IoThub-status` application properties). 
+Direct methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`) or through AMQP links (the `IoThub-methodname` and `IoThub-status` application properties). 
 
 > [!NOTE]
 > When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -43,7 +43,7 @@ Now, invoke a direct method from a back-end app.
 
 ### Method invocation
 
-Direct method invocations on a device are HTTPS calls that comprise:
+Direct method invocations on a device are HTTPS calls that are made up of the following items:
 
 * The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/invokedevicemethod):
 
@@ -91,7 +91,7 @@ curl -X POST \
 
 ### Response
 
-The back-end app receives a response that comprises:
+The back-end app receives a response that is made up of the following items:
 
 * *HTTP status code*, which is used for errors coming from the IoT Hub, including a 404 error for devices not currently connected.
 
@@ -120,7 +120,7 @@ Let's look at how to handle a direct method on an IoT device.
 
 ### MQTT
 
-The following is for MQTT.
+The following section is for the MQTT protocol.
 
 #### Method invocation
 
@@ -149,13 +149,13 @@ The body is set by the device and can be any status.
 
 ### AMQP
 
-The following is for AMQP.
+The following section is for the AMQP protocol.
 
 #### Method invocation
 
 The device receives direct method requests by creating a receive link on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
 
-The AMQP message arrives on the receive link that represents the method request. It contains the following:
+The AMQP message arrives on the receive link that represents the method request. It contains the following sections:
 
 * The correlation ID property, which contains a request ID that should be passed back with the corresponding method response.
 
