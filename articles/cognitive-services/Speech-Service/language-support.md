@@ -1,23 +1,24 @@
 ---
-title: Speech service supported languages - Azure Cognitive Services
-description: A list of the languages supported by the Speech service.
-titleSuffix: "Microsoft Cognitive Services"
+title: Language support - Speech Service API
+description: A list of natural languages supported by Speech Service.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
-
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/08/2018
+ms.date: 09/25/2018
 ms.author: v-jerkin
 ---
-# Supported languages for Speech service
+
+# Language and region support for Speech Service API
 
 Different languages are supported for different Speech service functions. The following tables summarize language support.
 
 ## Speech to Text
 
-The Microsoft speech recognition API supports the following languages. Different levels of customization are available for each language.  
+The Microsoft speech recognition API supports the following languages. Different levels of customization are available for each language.
 
   Code | Language | [Acoustic adaptation](how-to-customize-acoustic-models.md) | [Language adaptation](how-to-customize-language-model.md) | [Pronunciation adaptation](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
@@ -32,21 +33,21 @@ The Microsoft speech recognition API supports the following languages. Different
  en-NZ | English (New Zealand) | Yes | Yes | Yes  
  en-US | English (United States) | Yes | Yes | Yes
  es-ES | Spanish (Spain) | Yes | Yes | No
- es-MX | Spanish (Mexico) | Yes | Yes | No 
- fi-FI | Finnish (Finland) | No | No | No 
- fr-CA | French (Canada) | Yes | Yes | No 
+ es-MX | Spanish (Mexico) | Yes | Yes | No
+ fi-FI | Finnish (Finland) | No | No | No
+ fr-CA | French (Canada) | Yes | Yes | No
  fr-FR | French (France) | Yes | Yes | No
- hi-IN | Hindi (India) | No | Yes | No 
+ hi-IN | Hindi (India) | No | Yes | No
  it-IT | Italian (Italy) | Yes | Yes | No
  ja-JP | Japanese (Japan) | No | Yes | No
  ko-KR | Korean (Korea) | No | Yes | No
- nb-NO | Norwegian (Bokmål) (Norway) | No | No | No 
+ nb-NO | Norwegian (Bokmål) (Norway) | No | No | No
  nl-NL | Dutch (Netherlands) | No | Yes | No
  pl-PL | Polish (Poland) | No | No | No
  pt-BR | Portuguese (Brazil) | No | Yes | No
  pt-PT | Portuguese (Portugal) | No | Yes | No
  ru-RU | Russian (Russia) | No | Yes | No
- sv-SE | Swedish (Sweden) | No | No | No 
+ sv-SE | Swedish (Sweden) | No | No | No
  zh-CN | Chinese (Mandarin, simplified) | Yes | Yes | No
  zh-HK | Chinese (Mandarin, Traditional) | No | Yes | No
  zh-TW | Chinese (Taiwanese Mandarin) | No | Yes | No
@@ -87,7 +88,7 @@ en-IN | English (India) | Female | "Microsoft Server Speech Text to Speech Voice
 en-US | English (US) |Female | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
-| | |Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+| | |Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 es-ES | Spanish (Spain) |Female | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)"
@@ -184,7 +185,7 @@ You can obtain the list of languages programmatically by using the REST API's La
 | Bulgarian      | `bg`          |
 | Cantonese (Traditional)      | `yue`          |
 | Catalan      | `ca`          |
-| Chinese Simplified      | `zh-Hans`          | 
+| Chinese Simplified      | `zh-Hans`          |
 | Chinese Traditional      | `zh-Hant`          |
 | Croatian      | `hr`          |
 | Czech      | `cs`          |
