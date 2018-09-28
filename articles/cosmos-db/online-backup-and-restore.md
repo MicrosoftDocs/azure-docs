@@ -49,11 +49,15 @@ For SQL API, If you want to maintain your own snapshots, you can use the export 
 > If you "Provision throughput for a set of containers at Database level" – Please remember the restore happens at full Database account level. You also need to ensure to reach out within 8 hours to the support team if you accidently deleted your container. Data can't be restored if you don't contact the support team within 8 hours. 
 
 
+
 ## Restoring a database from an online backup
 
 If you accidentally delete your database or container, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](https://azure.microsoft.com/support/options/) to restore the data from the last automatic backup. Azure support is available for selected plans only such as Standard, Developer, support isn't available with Basic plan. To learn about different support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/) page. 
 
 If you need to restore your database because of data corruption issue (includes cases where documents within a container are deleted), see [Handling data corruption](#handling-data-corruption) as you need to take additional steps to prevent the corrupted data from overwriting the existing backups. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was available for the duration of the backup cycle for that snapshot.
+
+> [!NOTE]
+> Restore of collection or database is only done on demand from customer. It is customer's responsbility to delete the container or database immediately after restore's purpose is accomplished. Please remember if restored database or collections are not deleted they will incur cost at the rate of restored collection or database. It is super important to delete them immediately. 
 
 ## Handling data corruption
 
