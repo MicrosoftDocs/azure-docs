@@ -24,7 +24,7 @@ excess container on a host.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-For more information about Container Solution, refer to the
+For more information about Container Solution, see the
 [Container Solution Log
 Analytics](../../log-analytics/log-analytics-containers.md).
 
@@ -35,7 +35,7 @@ This article assumes that you have set up an DC/OS and
 have deployed simple web container applications on the cluster.
 
 ### Pre-requisite
-- [Microsoft Azure Subscription](https://azure.microsoft.com/free/) - You can get this for free.  
+- [Microsoft Azure Subscription](https://azure.microsoft.com/free/) - You can get a subscription for free.  
 - Log Analytics Workspace Setup - see "Step 3" below
 - [DC/OS CLI](https://dcos.io/docs/1.8/usage/cli/install/) installed.
 
@@ -54,7 +54,7 @@ properties** page.
 ![](media/container-service-monitoring-oms/image4.png)
 
 3. Here, you will be asked to enter the `wsid` (the Log Analytics workspace ID)
-and `wskey` (the primary key for the workspace id). To get both `wsid` and
+and `wskey` (the primary key for the workspace ID). To get both `wsid` and
 `wskey` you need to create an account at <https://mms.microsoft.com>.
 Follow the steps to create an account. Once you are done creating
 the account, you need to obtain your `wsid` and `wskey` by clicking **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
@@ -68,11 +68,11 @@ the account, you need to obtain your `wsid` and `wskey` by clicking **Settings**
 ## Setting up a simple Log Analytics dashboard
 
 Once you have installed the Log Analytics agent for Linux on the VMs, next step is
-to set up the Log Analytics dashboard. You can do this through Azure Portal.
+to set up the Log Analytics dashboard. You can set up the dashboard through Azure portal.
 
-### Azure Portal 
+### Azure portal 
 
-Log in to Azure Portal at <https://portal.microsoft.com/>. Go to
+Sign in to Azure portal at <https://portal.microsoft.com/>. Go to
 **Marketplace**, select **Monitoring + management** and click **See All**. Then Type `containers` in search. You will see "containers" in the search results. Select **Containers** and click **Create**.
 
 ![](media/container-service-monitoring-oms/image9.png)
@@ -93,7 +93,7 @@ Analytics](../../log-analytics/log-analytics-containers.md).
 ### How to scale Log Analytics agent with ACS DC/OS 
 
 In case you need to have installed Log Analytics agent short of the actual node
-count or you are scaling up VMSS by adding more VM, you can do so by
+count or you are scaling up virtual machine scale set by adding more VM, you can do so by
 scaling the `msoms` service.
 
 You can either go to Marathon or the DC/OS UI Services tab and scale up
