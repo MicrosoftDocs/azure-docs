@@ -94,12 +94,12 @@ Your Azure Stack deployment may be *connected* or *disconnected*.
 ](#register-disconnected-with-capacity-billing)
 
 ### Determine a unique registration name to use 
-When you register Azure Stack with Azure, you must provide a unique registration name. An easy way to associate an Azure Stack subscription an Azure registration is to use your Azure Stack Deployment ID. 
+When you register Azure Stack with Azure, you must provide a unique registration name. An easy way to associate an Azure Stack subscription with an Azure registration is to use your Azure Stack Cloud ID. 
 
 > [!NOTE]
 > Azure Stack registrations using the capacity-based billing model will need to change the unique name when re-registering after those yearly subscriptions expire.
 
-To determine the Deployment ID for your Azure Stack deployment, open PowerShell as an administrator on a computer than can access the Privileged Endpoint, run the following commands, and record the **DeploymentID** value: 
+To determine the Cloud ID for your Azure Stack deployment, open PowerShell as an administrator on a computer than can access the Privileged Endpoint, run the following commands, and record the **CloudID** value: 
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
