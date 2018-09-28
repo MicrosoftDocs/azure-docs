@@ -513,8 +513,6 @@
           href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Troubleshooting
           href: ../monitoring/monitoring-container-insights-troubleshoot.md
-      - name: AKS container health
-        href: ../monitoring/monitoring-container-health.md?toc=/azure/azure-monitor/toc.json
       - name: Docker and Windows Container monitoring
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Monitor Docker applications
@@ -675,7 +673,7 @@
       - name: Language reference
         items:
         - name: Language reference
-          href: /azure/kusto/query
+          href: ../log-analytics/query-language/kusto.md
         - name: app expression
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: workspace expression
