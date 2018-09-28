@@ -73,6 +73,10 @@
         href: azure-stack-integrate-identity.md
       - name: Validate Azure identity
         href: azure-stack-validate-identity.md
+      - name: Validate ADFS integration
+        href: azure-stack-validate-adfs.md
+      - name: Validate graph integration
+        href: azure-stack-validate-graph.md
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
       items:
