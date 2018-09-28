@@ -51,7 +51,7 @@ If you are monitoring your network using Windows server based nodes, we recommen
 
 In case of Windows desktops/client operating system based nodes, ICMP is recommended since this platform does not allow TCP data to be sent over raw sockets, which is required by NPM to discover network topology.
 
-You can get more details on the relative advantages of each protocol [here](log-analytics-network-performance-monitor-performance-monitor#choose-the-protocol.md).
+You can get more details on the relative advantages of each protocol [here](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol.md).
 
 ### How can I configure a node to support monitoring using TCP protocol?
 For the node to support monitoring using TCP protocol: <br>
