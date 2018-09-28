@@ -21,7 +21,7 @@ ms.reviewer: jerskine
 
 # Validate graph integration for Azure Stack
 
-Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate that your environment is ready for graph integration with Azure Stack. It is recommended to validate graph integration before you begin data center integration or before an Azure Stack deployment.
+Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate that your environment is ready for graph integration with Azure Stack. You should validate graph integration before you begin data center integration or before an Azure Stack deployment.
 
 The readiness checker validates:
 
