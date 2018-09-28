@@ -24,7 +24,7 @@ ms.author: gokuma
 
 Azure Data Science Virtual Machines includes a comprehensive set of sample code in the form of Jupyter notebooks and scripts in languages such as Python and R. 
 > [!NOTE]
-> For more information on running Jupyter notebooks on your Data Science Virtual Machines, see the [Access Jupyter](#access-jupyter) section.
+> For more information on running Jupyter notebooks on your data science virtual machines, see the [Access Jupyter](#access-jupyter) section.
 
 ## Quick reference of samples
 | Samples category | Description | Locations |
