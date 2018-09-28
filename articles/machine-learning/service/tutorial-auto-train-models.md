@@ -101,13 +101,9 @@ from sklearn import datasets
 
 digits = datasets.load_digits()
 
-# only take the first 100 rows if you want the training steps to run faster
-X_digits = digits.data[:100,:]
-y_digits = digits.target[:100]
-
-# use full dataset
-#X_digits = digits.data
-#y_digits = digits.target
+# Exclude the first 100 rows from training so that they can be used for test.
+X_train = digits.data[100:,:]
+y_train = digits.target[100:]
 ```
 
 ### Display some sample images
@@ -118,13 +114,13 @@ Load the data into `numpy` arrays. Then use `matplotlib` to plot 30 random image
 count = 0
 sample_size = 30
 plt.figure(figsize = (16, 6))
-for i in np.random.permutation(X_digits.shape[0])[:sample_size]:
+for i in np.random.permutation(X_train.shape[0])[:sample_size]:
     count = count + 1
     plt.subplot(1, sample_size, count)
     plt.axhline('')
     plt.axvline('')
-    plt.text(x = 2, y = -2, s = y_digits[i], fontsize = 18)
-    plt.imshow(X_digits[i].reshape(8, 8), cmap = plt.cm.Greys)
+    plt.text(x = 2, y = -2, s = y_train[i], fontsize = 18)
+    plt.imshow(X_train[i].reshape(8, 8), cmap = plt.cm.Greys)
 plt.show()
 ```
 A random sample of images displays:
@@ -150,7 +146,7 @@ Define the experiment settings and model settings.
 |**iterations**|20|Number of iterations. In each iteration, the model trains with the data with a specific pipeline|
 |**n_cross_validations**|3|Number of cross validation splits|
 |**preprocess**|False| *True/False* Enables experiment to perform preprocessing on the input.  Preprocessing handles *missing data*, and performs some common *feature extraction*|
-|**exit_score**|0.995|*double* value indicating the target for *primary_metric*. Once the target is surpassed the run terminates|
+|**exit_score**|0.9985|*double* value indicating the target for *primary_metric*. Once the target is surpassed the run terminates|
 |**blacklist_algos**|['kNN','LinearSVM']|*Array* of *strings* indicating algorithms to ignore.
 |
 
@@ -164,10 +160,10 @@ Automl_config = AutoMLConfig(task = 'classification',
                              iterations = 20,
                              n_cross_validations = 3,
                              preprocess = False,
-                             exit_score = 0.995,
+                             exit_score = 0.9985,
                              blacklist_algos = ['kNN','LinearSVM'],
-                             X = X_digits,
-                             y = y_digits,
+                             X = X_train,
+                             y = y_train,
                              path=project_folder)
 ```
 
@@ -494,8 +490,10 @@ Since the model accuracy is high, you might have to run the following code a few
 ```python
 # find 30 random samples from test set
 n = 30
-sample_indices = np.random.permutation(X_digits.shape[0])[0:n]
-test_samples = X_digits[sample_indices]
+X_test = digits.data[:100, :]
+y_test = digits.target[:100]
+sample_indices = np.random.permutation(X_test.shape[0])[0:n]
+test_samples = X_test[sample_indices]
 
 
 # predict using the  model
@@ -511,11 +509,11 @@ for s in sample_indices:
     plt.axvline('')
     
     # use different color for misclassified sample
-    font_color = 'red' if y_digits[s] != result[i] else 'black'
-    clr_map = plt.cm.gray if y_digits[s] != result[i] else plt.cm.Greys
+    font_color = 'red' if y_test[s] != result[i] else 'black'
+    clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
     
     plt.text(x = 2, y = -2, s = result[i], fontsize = 18, color = font_color)
-    plt.imshow(X_digits[s].reshape(8, 8), cmap = clr_map)
+    plt.imshow(X_test[s].reshape(8, 8), cmap = clr_map)
     
     i = i + 1
 plt.show()
