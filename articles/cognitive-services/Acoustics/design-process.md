@@ -12,10 +12,10 @@ ms.author: kegodin
 ---
 
 # Design process overview
-You can express your design intent in all three phases of the Project Acoustics workflow: pre-bake design, sound source placement, and post-bake design. The process requires less markup associated with placing reverb volumes while retaining designer control over how a scene sounds.
+You can express your design intent in all three phases of the Project Acoustics workflow: pre-bake scene setup, sound source placement, and post-bake design. The process requires less markup associated with placing reverb volumes while retaining designer control over how a scene sounds.
 
 ## Pre-bake design
-The pre-bake design process produces the scene and metadata that are used for the sound wave simulation, which includes selecting which scene elements will participate in the simulation to provide occlusions, reflections, and reverberation. The metadata for the scene is the selection of acoustic materials for each scene element. The acoustic materials control the amount of sound energy reflected back from each surface.
+The pre-bake scene setup process produces the scene and metadata that are used for the sound wave simulation, which includes selecting which scene elements will participate in the simulation to provide occlusions, reflections, and reverberation. The metadata for the scene is the selection of acoustic materials for each scene element. The acoustic materials control the amount of sound energy reflected back from each surface.
 
 The default absorption coefficient for all surfaces is 0.04, which is highly reflective. You can achieve aesthetic and gameplay effects by tuning the absorption coefficients of different materials throughout the scene, which are especially prominent to listeners when they hear the transitions from one area of the scene to another. For example, transitioning from a dark reverberant room to a bright, non-reverberant outdoor scene enhances the impact of the transition. To achieve this effect, tune the absorption coefficients on the outdoor scene materials higher.
 
