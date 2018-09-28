@@ -47,9 +47,8 @@ Launch a command-line window and create a new conda environment named `myenv` wi
 conda create -n myenv -y Python=3.6
 ```
 
-### Activate the environment
-
 Activate the environment.
+
   ```sh
   conda activate myenv
   ```
@@ -126,7 +125,7 @@ The `write_config()` API call creates the configuration file in the current dire
 
 ## Use the workspace
 
-Write some basic code that uses the basic APIs of the SDK to track experiment runs.
+Write some code that uses the basic APIs of the SDK to track experiment runs.
 
 ```python
 from azureml.core import Experiment
