@@ -71,8 +71,7 @@ Perform the following steps to configure the Activity Log Analytics solution for
     3. In the *SubscriptionName* blade, click **Connect**.  
         ![connect subscription](./media/log-analytics-activity/subscription-connect.png)
 
-If you add the solution using the OMS portal, you'll see the following tile. Sign in to the Azure portal to connect an Azure subscription to your workspace.  
-![performing assessment](./media/log-analytics-activity/tile-performing-assessment.png)
+Sign in to the Azure portal to connect an Azure subscription to your workspace.  
 
 ## Using the solution
 
