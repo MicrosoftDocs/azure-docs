@@ -16,8 +16,8 @@ ROBOTS: NOINDEX
 
 # Emotion API Frequently Asked Questions
 
-> [!IMPORTANT]
-> Emotion API was deprecated on October 30, 2017. The functionality is now part of [Face API](https://docs.microsoft.com/azure/cognitive-services/face/).
+> [!WARNING]
+> The Emotion API will be deprecated on February 15, 2019. Emotion recognition functionality is generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/).
 
 ### If you can't find answers to your questions in this FAQ, try asking the Emotion API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://cognitive.uservoice.com/).  
 
