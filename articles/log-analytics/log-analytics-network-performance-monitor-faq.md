@@ -51,11 +51,11 @@ If you are monitoring your network using Windows server based nodes, we recommen
 
 In case of Windows desktops/client operating system based nodes, ICMP is recommended since this platform does not allow TCP data to be sent over raw sockets, which is required by NPM to discover network topology.
 
-You can get more details on the relative advantages of each protocol [here](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol.md).
+You can get more details on the relative advantages of each protocol [here](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
 ### How can I configure a node to support monitoring using TCP protocol?
-For the node to support monitoring using TCP protocol: <br>
-* Ensure that the node platform is Windows Server (2008 SP1 or later).<br>
+For the node to support monitoring using TCP protocol: 
+* Ensure that the node platform is Windows Server (2008 SP1 or later).
 * Run [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell script on the node.  See [instructions](log-analytics-network-performance-monitor.md#configure-operations-management-suite-agents-for-monitoring) for more details.
 
 
@@ -151,7 +151,7 @@ This can happen if either the host firewall or the intermediate firewall (networ
 * To verify that an intermediate network firewall or Azure NSG is not blocking the communication on the required port, use the third party PsPing utility using the below instructions:
   * psping utility is available for download [here](https://technet.microsoft.com/en-us/sysinternals/psping.aspx) 
   * Run following command from the source node.
-    * psping -n 15 <destination node IPAddress>:portNumber 
+    * psping -n 15 \<destination node IPAddress\>:portNumber 
     By default NPM uses 8084 port. In case you have explicitly changed this by using the EnableRules.ps1 script, enter the custom port number you are using). This is a ping from Azure machine to On-Prem
 * Check if the pings are successful. If not, then it indicates that an intermediate network firewall or Azure NSG is blocking the traffic on this port.
 * Now, run the command from destination node to source node IP.
@@ -167,9 +167,9 @@ This can happen if your circuit and peering connections are distributed across m
 
 Then,
 
-* If NPM workspace is linked with subscription A, then you will be able to monitor connectivity via ER to VNET A only.<br>
-* If NPM workspace is linked with subscription B, then you will be able to monitor connectivity via ER to VNET B only.<br>
-* If NPM workspace is linked with subscription C, then you will be able to able to monitor connectivity via ER to VNET C as well as MS peering.<br>
+* If NPM workspace is linked with subscription A, then you will be able to monitor connectivity via ER to VNET A only.
+* If NPM workspace is linked with subscription B, then you will be able to monitor connectivity via ER to VNET B only.
+* If NPM workspace is linked with subscription C, then you will be able to able to monitor connectivity via ER to VNET C as well as MS peering.
 
 Note that the cross-subscription support will soon be available. After this you will be able to monitor all your ExpressRoute private and Microsoft peering connections in different subscriptions, from one workspace.
 ### The ER Monitor capability has a diagnostic message "Traffic is not passing through ANY circuit". What does that mean?
