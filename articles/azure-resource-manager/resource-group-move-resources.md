@@ -192,6 +192,7 @@ The following list provides a general summary of Azure services that can be move
 * DNS
 * Event Grid
 * Event Hubs
+* Front Door
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
@@ -203,7 +204,6 @@ The following list provides a general summary of Azure services that can be move
 * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)
 * Managed Identity - user-assigned
 * Media Services
-* Mobile Engagement
 * Notification Hubs
 * Operational Insights
 * Operations Management

@@ -65,20 +65,26 @@ $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 ## Create a service using the static IP address
 
-To create a service with the static IP address, add the `loadBalancerIP` property and the value of the static IP address to the YAML manifest, as shown in the following example:
+To create a service with the static public IP address, add the `loadBalancerIP` property and the value of the static public IP address to the YAML manifest. Create a file named `load-balancer-service.yaml` and copy in the following YAML. Provide your own public IP address created in the previous step.
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: azure-load-balancer
 spec:
   loadBalancerIP: 40.121.183.52
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: azure-load-balancer
+```
+
+Create the service and deployment with the `kubectl apply` command.
+
+```console
+kubectl apply -f load-balancer-service.yaml
 ```
 
 ## Troubleshoot
@@ -86,17 +92,17 @@ spec:
 If the static IP address defined in the *loadBalancerIP* property of the Kubernetes service manifest does not exist, or has not been created in the node resource group, the load balancer service creation fails. To troubleshoot, review the service creation events with the [kubectl describe][kubectl-describe] command. Provide the name of the service as specified in the YAML manifest, as shown in the following example:
 
 ```console
-kubectl describe service azure-vote-front
+kubectl describe service azure-load-balancer
 ```
 
 Information about the Kubernetes service resource is displayed. The *Events* at the end of the following example output indicate that the *user supplied IP Address was not found*. In these scenarios, verify that you have created the static public IP address in the node resource group and that the IP address specified in the Kubernetes service manifest is correct.
 
 ```
-Name:                     azure-vote-front
+Name:                     azure-load-balancer
 Namespace:                default
 Labels:                   <none>
 Annotations:              <none>
-Selector:                 app=azure-vote-front
+Selector:                 app=azure-load-balancer
 Type:                     LoadBalancer
 IP:                       10.0.18.125
 IP:                       40.121.183.52
@@ -110,7 +116,7 @@ Events:
   Type     Reason                      Age               From                Message
   ----     ------                      ----              ----                -------
   Normal   CreatingLoadBalancer        7s (x2 over 22s)  service-controller  Creating load balancer
-  Warning  CreatingLoadBalancerFailed  6s (x2 over 12s)  service-controller  Error creating load balancer (will retry): Failed to create load balancer for service default/azure-vote-front: user supplied IP Address 40.121.183.52 was not found
+  Warning  CreatingLoadBalancerFailed  6s (x2 over 12s)  service-controller  Error creating load balancer (will retry): Failed to create load balancer for service default/azure-load-balancer: user supplied IP Address 40.121.183.52 was not found
 ```
 
 ## Next steps
@@ -129,3 +135,4 @@ For additional control over the network traffic to your applications, you may wa
 [aks-static-ingress]: ingress-static-ip.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli
