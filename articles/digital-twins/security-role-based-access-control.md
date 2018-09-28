@@ -1,16 +1,16 @@
 ---
 title: Understanding Azure Digital Twins Role-Based Access Control | Microsoft Docs
 description: Using Azure Digital Twins Role-Based Access Control
-author: adamgerard
+author: lyrana
 manager: alinast
 ms.service: azure-digital-twins
 services: azure-digital-twins
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: adgera
+ms.date: 09/28/2018
+ms.author: lyrana
 ---
 
-# Role-Based Access Control
+# Role-based access control
 
 Azure Digital Twins enables precise access control to specific data, resources, and actions in your spatial graph. It does so through granular role and permission management called _Role-Based Access Control_. Role-Based Access Control consists of _Roles_, or the level of permissions, and _Role Assignments_, or the association of a role to a user or device.
 
@@ -18,21 +18,20 @@ Using Role-Based Access Control, permission can be granted to a user, a device, 
 
 Role-Based Access Control is unique in that permissions are inherited down the spatial graph.
 
-## What can I do with Role-Based Access Control?
+## What can I do with role-based access control?
 
-Some examples of how a developer might use Role-Based Access Control include:
+A developer might use Role-Based Access Control to:
+
 * Grant a user the ability to manage devices for an entire building, or only for a particular room or floor.
 * Grant an administrator global access to all spatial graph nodes for an entire graph, or only for a section of the graph.
 * Grant a support specialist read access to the topology, except for access keys.
 * Grant every member of a domain read access to all topology objects.
 
-## Role-Based Access Control best practices
+## Role-based access control best practices
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-rbac-best-practices.md)]
 
 ## Roles
-
-Roles in Azure Digital Twins consist of several components.
 
 ### Role definitions
 
@@ -40,17 +39,18 @@ A **role definition** is a collection of permissions and is sometimes called a *
 
 The following roles are available in Digital Twins:
 
-* Space Administrator: Global permission to run all operations for the specified space and all nodes underneath.
-* User Administrator: Create, Read, Update, and Delete permission for users and user-related objects. Read permission for spaces.
-* Device Administrator: Create, Read, Update, and Delete permission for devices and device-related objects. Read permission for spaces.
-* Key Administrator: Create, Read, Update, and Delete permission for access keys. Read permission for spaces.
-* Token Administrator: Read and Update permission for access keys. Read permission for spaces.
-* User: Read permission for spaces, sensors, and users, including their corresponding related objects.
-* Support Specialist: Read permission for everything except access keys.
-* Device Installer: Read and Update permission for devices and sensors, including their corresponding related objects. Read permission for spaces.
-* Gateway Device: Create permission for sensors. Read permission for devices and sensors, including their corresponding related objects.
+* **Space Administrator**: Create, Read, Update, and Delete permission for the specified space and all nodes underneath. Global permission.
+* **User Administrator**: Create, Read, Update, and Delete permission for users and user-related objects. Read permission for spaces.
+* **Device Administrator**: Create, Read, Update, and Delete permission for devices and device-related objects. Read permission for spaces.
+* **Key Administrator**: Create, Read, Update, and Delete permission for access keys. Read permission for spaces.
+* **Token Administrator**: Read and Update permission for access keys. Read permission for spaces.
+* **User**: Read permission for spaces, sensors, and users, including their corresponding related objects.
+* **Support Specialist**: Read permission for everything except access keys.
+* **Device Installer**: Read and Update permission for devices and sensors, including their corresponding related objects. Read permission for spaces.
+* **Gateway Device**: Create permission for sensors. Read permission for devices and sensors, including their corresponding related objects.
 
-*The full definitions for the above can be retrieved by querying the system/roles API.*
+>[!NOTE]
+> *The full definitions for the above can be retrieved by querying the system/roles API.*
 
 ### Object types
 
@@ -76,7 +76,7 @@ The `ObjectIdType` refers to the type of identity that is being given a role. Ap
 
 Permissions are granted to a recipient by creating a role assignment, and revoked by removing a role assignment. A Digital Twins role assignment associates an object (user, Azure AD tenant, etc.), role, and a space. Permissions are then granted to all objects that belong to that space, including the entire spatial graph beneath it.
 
-For example, a user is given a role assignment with role DeviceInstaller for the root node of a spatial graph, which represents a building. The user is then able to read and update devices not only for that node, but all other child spaces in the building.
+For example, a user is given a role assignment with role `DeviceInstaller` for the root node of a spatial graph, which represents a building. The user is then able to Read and Update devices not only for that node, but all other child spaces in the building.
 
 ## Next steps
 
