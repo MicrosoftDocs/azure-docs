@@ -72,6 +72,4 @@ To use this feature, you need:
 
 ## Next Steps
 
-* [Analyze data in Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata)
-* [Alert on data in Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-response)
-
+* [Analyze Azure AD activity logs in Log Analytics](howto-analyze-activity-logs-in-log-analytics.md)
