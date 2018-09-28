@@ -58,7 +58,7 @@
     href: https://docs.microsoft.com/sandbox/functions-recipes/    
 - name: Concepts
   items:
-  - name: Compare 1.x and 2.x
+  - name: Compare versions 1.x and 2.x
     href: functions-versions.md
   - name: Scale and hosting
     href: functions-scale.md
@@ -166,8 +166,6 @@
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Set the runtime version 
       href: set-runtime-version.md
-    - name: Manually register an extension 
-      href: install-update-binding-extensions-manual.md
     - name: Disable a function 
       href: disable-function.md
     - name: Troubleshoot storage
