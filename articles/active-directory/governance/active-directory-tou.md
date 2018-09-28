@@ -205,6 +205,12 @@ If a user is using Windows 10 and Edge, they will receive a message similar to t
 
 If they are using Chrome, they will be prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
+### Browsers
+
+If a user is using browser that is not supported, they will be asked to use a different browser.
+
+![Unsupported browser](./media/active-directory-tou/per-device-browser-unsupported.png)
+
 ## Delete Terms of use
 You can delete old Terms of use using the following procedure.
 
