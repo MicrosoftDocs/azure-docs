@@ -220,13 +220,13 @@
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: Prepare for JSON Lines diagnostic logs format
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
-        - name: GuestOS to metrics store VM
+        - name: VM guest to metrics store
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json  
-        - name: GuestOS to metrics store VM scale set 
+        - name: VM scale set guest to metrics store
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json  
-        - name: GuestOS to metrics store classic VM
+        - name: Classic VM guest to metrics store 
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json  
-        - name: GuestOS to metrics store cloud service
+        - name: Cloud service guest to metrics store
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json 
       - name: Troubleshoot
         items:
