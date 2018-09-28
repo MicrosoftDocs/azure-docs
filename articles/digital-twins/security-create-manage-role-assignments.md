@@ -1,7 +1,7 @@
 ---
 title: Understanding Azure Digital Twins device connectivity and authentication | Microsoft Docs
 description: Using Azure Digital Twins to connect and authenticate devices
-author: adgera
+author: kingdomofends
 manager: alinast
 ms.service: azure-digital-twins
 services: azure-digital-twins

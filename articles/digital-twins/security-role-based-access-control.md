@@ -1,7 +1,7 @@
 ---
 title: Understanding Azure Digital Twins Role-Based Access Control | Microsoft Docs
 description: Using Azure Digital Twins Role-Based Access Control
-author: adgera
+author: kingdomofends
 manager: alinast
 ms.service: azure-digital-twins
 services: azure-digital-twins

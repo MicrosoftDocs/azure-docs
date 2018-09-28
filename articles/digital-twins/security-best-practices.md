@@ -1,7 +1,7 @@
 ---
 title: Understanding Azure Digital Twins security best practices | Microsoft Docs
 description: Azure Digital Twins security best practices
-author: adgera
+author: kingdomofends
 manager: alinast
 ms.service: azure-digital-twins
 services: azure-digital-twins
