@@ -117,6 +117,8 @@
       href: concepts-expressroute-with-site-recovery.md
     - name: Network Security Groups with Site Recovery
       href: concepts-network-security-group-with-site-recovery.md
+    - name: Public IP Address with Site Recovery
+      href: concepts-public-ip-address-with-site-recovery.md
   - name: Disaster recovery for apps
     href: site-recovery-workload.md
   - name: About recovery plans
