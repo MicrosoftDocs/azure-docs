@@ -110,6 +110,9 @@ Here are the steps to set up an Azure Pipelines release so you can automate the 
 
     g. Select the **Incremental** Deployment Mode.
 
+    > [!WARNING]
+    > If you select a deployment mode other than **Incremental**, existing resources may be deleted.
+
 1.  Save the release pipeline.
 
 1.  Create a new release from this release pipeline.
