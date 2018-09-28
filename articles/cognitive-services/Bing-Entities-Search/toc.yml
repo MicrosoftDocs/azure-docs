@@ -1,0 +1,75 @@
+- name: Bing Entity Search Documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: What is Bing Entity Search?
+      href: search-the-web.md
+- name: REST API Quickstarts
+  expanded: true
+  items:
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node.js
+    href: quickstarts/nodejs.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: Ruby
+    href: quickstarts/ruby.md
+- name: SDK Quickstarts
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Entity Search C# quickstart
+    href: entity-search-sdk-quickstart.md
+  - name: Entity Search Node.js quickstart
+    href: entity-search-sdk-node-quickstart.md  
+  - name: Entity Search Python quickstart
+    href: entity-sdk-python-quickstart.md 
+  - name: Entity Search Java quickstart
+    href: entity-sdk-java-quickstart.md
+- name: Tutorials
+  items:
+  - name: Single-page web app
+    href: tutorial-bing-entities-search-single-page-app.md
+  - name: Single-page web app (source code)
+    href: tutorial-bing-entities-search-single-page-app-source.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search
+- name: How-to guides
+  items:
+  - name: Use and display requirements
+    href: use-display-requirements.md
+  - name: Resize and crop thumbnails
+    href: resize-and-crop-thumbnails.md
+- name: Reference
+  items:
+  - name: Bing Entity Search API v7
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
+- name: Resources
+  items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/601036-bing-entity-search-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=bing+entity+search
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Get API key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/
+  - name: Bing Entity Search endpoint
+    href: entity-search-endpoint.md
+  - name: Analytics for Bing Entity Search API
+    href: bing-entity-stats.md

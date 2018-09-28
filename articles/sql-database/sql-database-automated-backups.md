@@ -1,227 +1,138 @@
 ---
-title: SQL Database backups - automatic, geo-redundant | Microsoft Docs
+title: Azure SQL Database automatic, geo-redundant backups | Microsoft Docs
 description: SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy.
 services: sql-database
-documentationcenter: ''
-author: anosov1960
-manager: jhubbard
-editor: ''
-
-ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
 ms.service: sql-database
-ms.custom: business continuity
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/02/2016
-ms.author: sashan;carlrab;barbkess
-
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/25/2018
 ---
-# Learn about SQL Database backups
-<!------------------
-This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
+# Learn about automatic SQL Database backups
 
-Metadata guidelines
+SQL Database automatically creates database backups and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If your security rules require that your backups are available for an extended period of time, you can configure a long-term backup retention policy. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
-pageTitle
-    60 characters or less. Includes name of the feature - primary benefit. Not the same as H1. Its 60 characters or fewer including all characters between the quotes and the Microsoft Azure site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
-
-TEMPLATE GUIDELINES for feature topics
-
-The Feature Topic is a one-pager (ok, sometimes longer) that explains a capability of the product or service. It explains what the capability is and characteristics of the capability.  
-
-It is a "learning" topic, not an action topic.
-
-DO explain this:
-    • Definition of the feature terminology.  i.e., What is a database backup?
-    • Characteristics and capabilities of the feature. (How the feature works)
-    • Common uses with links to overview topics that recommend when to use the feature.
-    • Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    • Next Steps with links to related overviews, features, and tasks.
-
-DON'T explain this:
-    • How to steps for using the feature (Tasks)
-    • How to solve business problems that incorporate the feature (Overviews)
-
-GUIDELINES for the H1 
-
-    The H1 should answer the question "What is in this topic?" Write the H1 heading in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
-
-    To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
-
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example:    "Learn about elastic pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
-GUIDELINES for introduction
-
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
-
-    If the introduction is short enough, your article can pop to the top in Google Instant Answers.
-
-    In this example:
-
-Sentence #1 Explains what the article will cover, which is what the feature is or does. This is also the metadata description. 
-    SQL Database automatically creates a database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
-
-Sentence #2 Explains why I should care about this.  
-    Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion.
-
--------------------->
-
-SQL Database automatically creates a database backups and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If you want to keep backups in your own storage container you can configure a long-term backup retention policy. For more information, see [Long-term retention](sql-database-long-term-retention.md).
-
-<!-- This image needs work, so not putting it in right now.
-
-This diagram shows SQL Database running in the US East region. It creates a database backup every five minutes, which it stores locally to Azure Read Access Geo-redundant Storage (RA-GRS). Azure uses geo-replication to copy the database backups to a paired data center in the US West region.
-
-![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
-
--->
-
-<!---------------
-GUIDELINES for the first ## H2.
-
-    The first ## describes what the feature encompasses and how it is used. It points to related task articles.
-
-    For consistency, being the heading with "What is ... "
------------------>
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## What is a SQL Database backup?
-<!-- 
-    Explains what a SQL Database backup is and answers an important question that people want to know.
--->
 
+SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups for the purposes of Point-in-time restore (PITR). The transaction log backups generally occur every 5 - 10 minutes and differential backups generally occur every 12 hours, with the frequency based on the compute size and amount of database activity. Transaction log backups, with full and differential backups, allow you to restore a database to a specific point-in-time to the same server that hosts the database. The backups are stored in RA-GRS storage blobs that are replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
 
-<!----------------- 
-    Explains first component of the backup feature
------------------->
-
-SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://msdn.microsoft.com/library/ms175526.aspx), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups. The transaction log backups generally happen every 5 - 10 minutes, with the frequency based on the performance level and amount of database activity. Transaction log backups, with full and differential backups, allow you to restore a database to a specific point-in-time to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
-
-<!--------------- 
-    Explicit list of what to do with a local backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
 
 You can use these backups to:
 
 * Restore a database to a point-in-time within the retention period. This operation will create a new database in the same server as the original database.
 * Restore a deleted database to the time it was deleted or any time within the retention period. The deleted database can only be restored in the same server where the original database was created.
 * Restore a database to another geographical region. This allows you to recover from a geographic disaster when you cannot access your server and database. It creates a new database in any existing server anywhere in the world. 
-* Restore a database from a specific backup stored in your Azure Recovery Services vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
+* Restore a database from a specific long-term backup if the database has been configured with a long-term retention policy (LTR). This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
 * To perform a restore, see [restore database from backups](sql-database-recovery-using-backups.md).
 
-> [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
->
-
-<!----------------- 
-    Explains first component of the backup feature
------------------->
-
-<!--------------- 
-    Explicit list of what to do with a geo-redundant backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
-
 > [!NOTE]
-> In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
+> In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping multiple secondary databases synchronized with a primary database. 
 > 
-> 
 
-<!----------------
-    The next ## H2's discuss key characteristics of how the feature works. The title is in conversational language and asks the question that will be answered.
-------------------->
-## How much backup storage is included at no cost?
-SQL Database provides up to 200% of your maximum provisioned database storage as backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you have 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support. Another option is to pay for extra backup storage that is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate. 
+## How long are backups kept?
+Each SQL Database backup has a default retention period that is based on the service tier of the database, and differs between the  [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model](sql-database-service-tiers-vcore.md). You can update the backup retention period for a database. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
 
-## How often do backups happen?
-Full database backups happen weekly, differential database backups generally happen every few hours, and transaction log backups generally happen every 5 - 10 minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database service as it balances the overall system workload. 
+If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
 
-The backup storage geo-replication occurs based on the Azure Storage replication schedule.
-
-## How long do you keep my backups?
-Each SQL Database backup has a retention period that is based on the [service-tier](sql-database-service-tiers.md) of the database. The retention period for a database in the:
-
-<!------------------
-
-    Using a list so the information is easy to find when scanning.
-------------------->
-
-* Basic service tier is 7 days.
-* Standard service tier is 35 days.
-* Premium service tier is 35 days.
-
-If you downgrade your database from the Standard or Premium service tiers to Basic, the backups are saved for seven days. All existing backups older than seven days are no longer available. 
-
-If you upgrade your database from the Basic service tier to Standard or Premium, SQL Database keeps existing backups until they are 35 days old. It keeps new backups as they occur for 35 days.
-
-If you delete a database, SQL Database keeps the backups in the same way it would for an online database. For example, suppose you delete a Basic database that has a retention period of seven days. A backup that is four days old is saved for three more days.
+If you need to keep the backups for longer than the maximum PITR retention period, you can modify the backup properties to add one or more long-term retention periods to your database. See [Long-term backup retention](sql-database-long-term-retention.md) for more details.
 
 > [!IMPORTANT]
-> If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
-> 
-> 
+> If you delete the Azure SQL server that hosts SQL databases, all elastic pools and databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR will not be deleted and these databases can be restored.
 
-## How to extend the backup retention period?
-If your application requires that the backups are available for longer period of time you can extend the built-in retention period by configuring the Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from 35 days to up to 10 years. For more information, see [Long-term retention](sql-database-long-term-retention.md).
+### PITR retention period
+The default retention period for a database created using the DTU-based purchasing model depends on the service tier:
 
-Once you add the LTR policy to a database using Azure portal or API, the weekly full database backups will be automatically copied to your own Azure Backup Service Vault. If your database is encrypted with TDE the backups are automatically encrypted at rest.  The Services Vault will automatically delete your expired backups based on their timestamp and the LTR policy.  So you don’t need to manage the backup schedule or worry about the cleanup of the old files. 
-The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use the Aure portal or PowerShell to access these backups.
+* Basic service tier is 1 week.
+* Standard service tier is 5 weeks.
+* Premium service tier is 5 weeks.
 
-> [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
->
+If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the backups retention is configurable up to 35 days. 
 
-<!-------------------
-OPTIONAL section
-## Best practices 
---------------------->
+If you reduce the current PITR retention period, all existing backups older than the new retention period will no longer be available. 
 
-<!-------------------
-OPTIONAL section
-## General remarks
---------------------->
+If you increase the current PITR retention period, SQL Database will keep the existing backups until the longer retention period is reached.
 
-<!-------------------
-OPTIONAL section
-## Limitations and restrictions
---------------------->
+## How often do backups happen?
+### Backups for point-in-time restore
+SQL Database supports self-service for point-in-time restore (PITR) by automatically creating full backup, differential backups, and transaction log backups. Full database backups are created weekly, differential database backups are generally created every 12 hours, and transaction log backups are generally created every 5 - 10 minutes, with the frequency based on the compute size and amount of database activity. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database service as it balances the overall system workload.
 
-<!-------------------
-OPTIONAL section
-## Metadata
---------------------->
+The PITR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-<!-------------------
-OPTIONAL section
-## Performance
---------------------->
+For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-<!-------------------
-OPTIONAL section
-## Permissions
---------------------->
+### Backups for long-term retention
+SQL Database offers the option of configuring long-term retention (LTR) of full backups for up to 10 years in Azure blob storage. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage. 
 
-<!-------------------
-OPTIONAL section
-## Security
---------------------->
+Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
-<!-------------------
-GUIDELINES for Next Steps
+For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
 
-    The last section is Next Steps. Give a next step that would be relevant to the customer after they have learned about the feature and the tasks associated with it.  Perhaps point them to one or two key scenarios that use this feature.
+## Are backups encrypted?
 
-    You don't need to repeat links you have already given them.
---------------------->
+If your database is encrypted with TDE, the backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for an Azure SQL database, backups are also encrypted. All new Azure SQL databases are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+
+## How does Microsoft ensure backup integrity
+
+On an ongoing basis, the Azure SQL Database engineering team automatically tests the restore of automated database backups of databases across the service. Upon restore, databases also receive integrity checks using DBCC CHECKDB. Any issues found during the integrity check will result in an alert to the engineering team. For more information about data integrity in Azure SQL Database, see [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+
+## How do automated backups impact my compliance?
+
+When you migrate your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy is not compromised. If the default retention doesn't meet your compliance requirements, you can change the PITR retention period using PowerShell or REST API. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
+## How to change backup retention period
+You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. The following examples illustrate how to change PITR retention to 28 days. 
+
+> [!NOTE]
+> Thes APIs will only impact the PITR retention period. If you configured LTR for your database, it will not be impacted. See [Long-term backup retention](sql-database-long-term-retention.md) for details of how to change the LTR retention period(s).
+
+### Change PITR backup retention period using PowerShell
+```powershell
+Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
+> [!IMPORTANT]
+> This API is included in AzureRM.Sql PowerShell Module starting from version [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview). 
+
+### Change PITR retention period using REST API
+**Sample Request**
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
+```
+**Request Body**
+```json
+{
+  "properties":{  
+      "retentionDays":28
+   }
+}
+```
+**Sample Response**
+
+Status code: 200
+```json
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 28
+  }
+}
+```
+See [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) for more details.
 
 ## Next steps
 
 - Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
-- To restore to a point in time, see [restore database to a point in time](sql-database-point-in-time-restore.md).
-- To view the oldest restore point from the service-generated backups of a database, see [view oldest restore point](sql-database-view-oldest-restore-point.md)
-- To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term backup retention](sql-database-configure-long-term-retention.md)
+- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](sql-database-recovery-using-backups.md).
+- To restore to a point in time using PowerShell, see [restore database to a point in time using PowerShell](scripts/sql-database-restore-database-powershell.md).
+- To configure, manage, and restore from long-term retention of automated backups in Azure blob storage using the Azure portal, see [Manage long-term backup retention using the Azure portal](sql-database-long-term-backup-retention-configure.md).
+- To configure, manage, and restore from long-term retention of automated backups in Azure blog storage using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-long-term-backup-retention-configure.md).

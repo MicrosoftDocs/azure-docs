@@ -1,0 +1,91 @@
+- name: Privileged Identity Management documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure AD PIM?
+    href: pim-configure.md
+- name: Concepts
+  items:
+  - name: Subscription requirements
+    href: subscription-requirements.md
+  - name: Directory roles you can manage
+    href: pim-roles.md
+  - name: Secure privileged access
+    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: MFA and PIM
+    href: pim-how-to-require-mfa.md
+  - name: Overview dashboards
+    href: pim-resource-roles-overview-dashboards.md
+  - name: Email notifications
+    href: pim-email-notifications.md
+  - name: Assignment types
+    href: pim-resource-roles-eligible-visibility.md
+  - name: Security wizard
+    href: pim-security-wizard.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Start using PIM
+    href: pim-getting-started.md
+  - name: Activate my roles
+    items:
+    - name: Activate my directory roles
+      href: pim-how-to-activate-role.md
+    - name: Activate my resource roles
+      href: pim-resource-roles-activate-your-roles.md
+  - name: Configure PIM
+    items:
+    - name: Discover Azure resources
+      href: pim-resource-roles-discover-resources.md
+    - name: Grant access to others to manage PIM
+      href: pim-how-to-give-access-to-pim.md
+    - name: Enable subscription management
+      href: pim-resource-roles-enable-subscription-management.md
+  - name: Manage directory roles
+    items:
+    - name: Assign roles
+      href: pim-how-to-add-role-to-user.md
+    - name: Approve requests
+      href: azure-ad-pim-approval-workflow.md
+    - name: Configure role settings
+      href: pim-how-to-change-default-settings.md
+    - name: Configure alerts
+      href: pim-how-to-configure-security-alerts.md
+    - name: View audit history
+      href: pim-how-to-use-audit-log.md
+  - name: Manage resource roles
+    items:
+    - name: Assign roles
+      href: pim-resource-roles-assign-roles.md
+    - name: Approve requests
+      href: pim-resource-roles-approval-workflow.md
+    - name: Extend or renew roles
+      href: pim-resource-roles-renew-extend.md
+    - name: Configure role settings
+      href: pim-resource-roles-configure-role-settings.md
+    - name: Configure alerts
+      href: pim-resource-roles-configure-alerts.md
+    - name: View who has access
+      href: azure-pim-resource-rbac.md
+    - name: View audit history
+      href: pim-resource-roles-use-the-audit-log.md
+    - name: Use custom roles
+      href: pim-resource-roles-custom-role-policy.md
+  - name: Review access
+    items:
+    - name: Directory roles
+      items:
+      - name: Review my directory roles
+        href: pim-how-to-perform-security-review.md
+      - name: Start an access review
+        href: pim-how-to-start-security-review.md
+      - name: Complete an access review
+        href: pim-how-to-complete-review.md
+    - name: Resource roles
+      items:
+      - name: Review my resource roles
+        href: pim-resource-roles-perform-access-review.md
+      - name: Start an access review
+        href: pim-resource-roles-start-access-review.md
+      - name: Complete an access review
+        href: pim-resource-roles-complete-access-review.md

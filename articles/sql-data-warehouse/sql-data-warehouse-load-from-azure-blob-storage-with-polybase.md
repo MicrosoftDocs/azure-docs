@@ -1,32 +1,20 @@
 ---
-title: Load data from Azure blob storage into SQL Data Warehouse (PolyBase) | Microsoft Docs
-description: Learn how to use PolyBase to load data from Azure blob storage into SQL Data Warehouse. Load a few tables from public data into the Contoso Retail Data Warehouse schema.
+title: Load Contoso Retail data to Azure SQL Data Warehouse | Microsoft Docs
+description: Use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
-manager: barbkess
-editor: ''
-
-ms.assetid: faca0fe7-62e7-4e1f-a86f-032b4ffcb06e
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: cakarst;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
 ---
-# Load data from Azure blob storage into SQL Data Warehouse (PolyBase)
-> [!div class="op_single_selector"]
-> * [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
-> * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-> 
-> 
 
-Use PolyBase and T-SQL commands to load data from Azure blob storage into Azure SQL Data Warehouse. 
+# Load Contoso Retail data to Azure SQL Data Warehouse
 
-To keep it simple, this tutorial loads two tables from a public Azure Storage Blob into the Contoso Retail Data Warehouse schema. To load the full data set, run the example [Load the full Contoso Retail Data Warehouse][Load the full Contoso Retail Data Warehouse] from the Microsoft SQL Server Samples repository.
+Use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into Azure SQL Data Warehouse. To load the full data set, run the example [Load the full Contoso Retail Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server Samples repository.
 
 In this tutorial you will:
 
@@ -224,7 +212,7 @@ GO
 
 ### 4.2. Load the data into new tables
 To load data from Azure blob storage and save it in a table inside of your database, use the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS leverages the strongly typed external tables you have just created.To load the data into new tables, use one [CTAS][CTAS] statement per table. 
-
+ 
 CTAS creates a new table and populates it with the results of a select statement. CTAS defines the new table to have the same columns and data types as the results of the select statement. If you select all the columns from an external table, the new table will be a replica of the columns and data types in the external table.
 
 In this example, we create both the dimension and the fact table as hash distributed tables. 
@@ -256,7 +244,7 @@ SELECT
     s.request_id,
     r.status,
     count(distinct input_name) as nbr_files, 
-    sum(s.bytes_processed)/1024/1024 as gb_processed
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
 FROM
     sys.dm_pdw_exec_requests r
     inner join sys.dm_pdw_dms_external_work s
@@ -366,8 +354,8 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 [label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/en-us/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/en-us/library/dn935026.aspx
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx

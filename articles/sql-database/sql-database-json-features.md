@@ -2,26 +2,21 @@
 title: Azure SQL Database JSON features | Microsoft Docs
 description: Azure SQL Database enables you to parse, query, and format data in JavaScript Object Notation (JSON) notation.
 services: sql-database
-documentationcenter: ''
-author: jovanpop-msft
-manager: jhubbard
-editor: ''
-
-ms.assetid: 55860105-2f5f-4b10-87a0-99faa32b5653
 ms.service: sql-database
-ms.custom: db development; app development
-ms.devlang: NA
-ms.date: 11/15/2016
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: jovanpop-msft
 ms.author: jovanpop
-ms.workload: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Getting started with JSON features in Azure SQL Database
 Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text.
 
-JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) have REST endpoints that return or consume JSON.
+JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) have REST endpoints that return or consume JSON.
 
 Azure SQL Database lets you work with JSON data easily and integrate your database with modern services.
 

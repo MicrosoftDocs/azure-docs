@@ -2,33 +2,29 @@
 title: In-Memory OLTP improves SQL txn perf | Microsoft Docs
 description: Adopt In-Memory OLTP to improve transactional performance in an existing SQL database.
 services: sql-database
-documentationcenter: ''
-author: jodebrui
-manager: jhubbard
-editor: MightyPen
-
-ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
 ms.service: sql-database
-ms.custom: db development; monitor and tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/22/2016
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: jodebrui
 ms.author: jodebrui
-
+ms.reviewer:
+manager: craigg
+ms.reviewer: MightyPen
+ms.date: 04/01/2018
 ---
 # Use In-Memory OLTP to improve your application performance in SQL Database
-[In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in  [Premium](sql-database-service-tiers.md) Azure SQL Databases without increasing the pricing tier. 
+[In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in [Premium and Business Critical tier](sql-database-service-tiers-vcore.md) databases without increasing the pricing tier. 
 
 > [!NOTE] 
-> Learn how [Quorum doubles key database’s workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+> Learn how [Quorum doubles key database’s workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 
 Follow these steps to adopt In-Memory OLTP in your existing database.
 
-## Step 1: Ensure you are using a Premium database
-In-Memory OLTP is supported only in v12 Premium databases. In-Memory is supported if the returned result is 1 (not 0):
+## Step 1: Ensure you are using a Premium and Business Critical tier database
+In-Memory OLTP is supported only in Premium and Business Critical tier databases. In-Memory is supported if the returned result is 1 (not 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');

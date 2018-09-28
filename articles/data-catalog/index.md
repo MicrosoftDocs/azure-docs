@@ -1,9 +1,20 @@
 ---
+title: Azure Data Catalog Documentation - Tutorials, API Reference
+description: Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.
+services: data-catalog
+author: czeumault
+manager: carolz
 layout: LandingPage
----
-#Data Catalog Documentation
+ms.assetid: 
+ms.service: data-catalog
 
-Azure Data Catalog is a fully managed cloud service that enables users to discover the data sources they need, and to understand the data sources they find, while helping organizations get more value from their existing investments. Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to discover, understand, and consume data sources. Data Catalog includes a crowdsourcing model of metadata and annotations, and allows all users to contribute their knowledge to build a community and culture of data.
+ms.topic: conceptual
+ms.date: 05/25/2017
+ms.author: carolz
+---
+# Data Catalog Documentation
+
+Learn how to use Data Catalog to help your organization and team discover, understand, and consume your data sources. Tutorials, REST API reference, and other documentation show you how to plan and set up your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -55,6 +66,7 @@ Azure Data Catalog is a fully managed cloud service that enables users to discov
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="/rest/api/datacatalog/">REST API</a></p>
+                        <p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Search syntax reference</a></p>
                     </div>
                 </div>
             </div>
@@ -62,11 +74,4 @@ Azure Data Catalog is a fully managed cloud service that enables users to discov
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Data Catalog Documentation
-        </div>
-    </a>
-</div>
+

@@ -1,0 +1,81 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Media Services Documentation
+metadata:
+  document_id: 
+  title: Azure Media Services Documentation | Microsoft Docs
+  meta.description:  Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. 
+  services: media-services
+  author: juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04-21-2018
+  ms.author: juliako
+abstract:
+  description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. 
+sections:
+
+  - items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 2
+      items:
+        - href: /azure/media-services/latest/
+          html: <p>Learn how to encode, stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
+          image:
+            src: media/index/AMSIcons-media_servicesV3.svg
+          title: Azure Media Services v3 (preview)
+        - href: /azure/media-services/previous/
+          html: <p>Learn how to encode, stream on-demand, and broadcast live videos with Media Services v2.</p>
+          image:
+            src: media/index/AMSIcons-media_servicesV2.svg
+          title: Azure Media Services v2 (GA)
+
+  - title: 5-Minute Quickstarts
+    items:
+    - type: paragraph
+      text: 'Learn how to encode and stream with Media Services:'
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: media/index/AMSIcons-encoding.svg
+          title: Stream files
+      rows:
+        - title: Media Services v3
+          values:
+          - href: /azure/media-services/latest/stream-files-dotnet-quickstart
+        - title: Media Services v2
+          values:
+          - href: /azure/media-services/previous/media-services-portal-vod-get-started
+  - title: Step-by-Step Tutorials
+    items:
+    - type: paragraph
+      text: 'Learn how to stream files and analyze your videos with Media Services:'
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: media/index/AMSIcons-encoding.svg
+          title: Encode and stream
+        - image:
+            src: media/index/AMSIcons-live.svg
+          title: Stream live          
+        - image:
+            src: media/index/AMSIcons-media_analytics.svg
+          title: Analyze videos
+      rows:
+        - title: Media Services v3
+          values:
+          - href: /azure/media-services/latest/stream-files-tutorial-with-api
+          - href: /azure/media-services/latest/stream-live-tutorial-with-api
+          - href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+        - title: Media Services v2
+          values:
+          - href: /azure/media-services/previous/media-services-dotnet-get-started
+          - href: /azure/media-services/previous/media-services-portal-live-passthrough-get-started
+          - href:  

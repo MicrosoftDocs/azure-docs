@@ -1,22 +1,13 @@
 ---
-title: How to annotate data sources | Microsoft Docs
+title: How to annotate data sources in Azure Data Catalog
 description: How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+ms.author: maroche
 ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 09/21/2016
-ms.author: maroche
-
+ms.topic: conceptual
+ms.date: 01/18/2018
 ---
 # How to annotate data sources
 ## Introduction
@@ -52,8 +43,8 @@ When selecting multiple data assets in the Data Catalog portal, users can annota
 
 > [!NOTE]
 > Tags and experts can also be provided when registering data assets using the Data Catalog data source registration tool.
-> 
-> 
+>
+>
 
 When selecting multiple tables and views, only columns that all selected data assets have in common will be displayed in the Data Catalog portal. This allows users to provide tags and descriptions for all columns with the same name for all selected assets.
 
@@ -65,4 +56,3 @@ Registering a data source with Data Catalog makes that data discoverable by copy
 
 ## See also
 * [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to annotate data sources.
-

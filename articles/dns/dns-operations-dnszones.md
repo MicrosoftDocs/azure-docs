@@ -1,9 +1,9 @@
 ---
-title: Manage DNS zones using PowerShell | Microsoft Docs
-description: You can manage DNS zones using Azure Powershell. How to update, delete and create DNS zones on Azure DNS
+title: Manage DNS zones in Azure DNS - PowerShell | Microsoft Docs
+description: You can manage DNS zones using Azure Powershell. This article describes how to update, delete and create DNS zones on Azure DNS
 services: dns
 documentationcenter: na
-author: georgewallace
+author: vhorne
 manager: timlt
 
 ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
@@ -12,32 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2016
-ms.author: gwallace
+ms.date: 03/19/2018
+ms.author: victorh
 ---
 # How to manage DNS Zones using PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure CLI](dns-operations-dnszones-cli.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
+> * [Azure classic CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI](dns-operations-dnszones-cli.md)
 
-This article  shows you how to manage your DNS zone by using PowerShell. To use these steps, you need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+This article shows you how to manage your DNS zones by using Azure PowerShell. You can also manage your DNS zones using the cross-platform [Azure CLI](dns-operations-dnszones-cli.md) or the Azure portal.
+
+This guide specifically deals with Public DNS zones. For information on using Azure PowerShell to manage Private Zones in Azure DNS, see [Get started with Azure DNS Private Zones using Azure PowerShell](private-dns-getstarted-powershell.md).
+
+[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
+
+[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)]
+
 
 ## Create a DNS zone
 
 A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet.
 
-The example below creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*.
+The following example creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*:
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
-The following example shows how to create a DNS zone with two [Azure Resource Manager tags](dns-zones-records.md#tags), *project = demo* and *env = test*. 
+The following example shows how to create a DNS zone with two [Azure Resource Manager tags](dns-zones-records.md#tags), *project = demo* and *env = test*:
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
+
+Azure DNS now also supports private DNS zones (currently in public preview).  To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using PowerShell](./private-dns-getstarted-powershell.md).
 
 ## Get a DNS zone
 
@@ -50,7 +61,7 @@ Name                  : contoso.com
 ResourceGroupName     : myresourcegroup
 Etag                  : 00000003-0000-0000-8ec2-f4879750d201
 Tags                  : {project, env}
-NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org., 
+NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org.,
                         ns4-01.azure-dns.info.}
 NumberOfRecordSets    : 2
 MaxNumberOfRecordSets : 5000
@@ -96,7 +107,7 @@ $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceG
 $zone.Tags.Remove("project")
 
 # Add a new tag
-$zone.Tags.Add("status","approved") 
+$zone.Tags.Add("status","approved")
 
 # Commit changes
 Set-AzureRmDnsZone -Zone $zone
@@ -144,17 +155,19 @@ As with `Set-AzureRmDnsZone`, specifying the zone using a `$zone` object enables
 
 The `New-AzureRmDnsZone`, `Set-AzureRmDnsZone`, and `Remove-AzureRmDnsZone` cmdlets all support confirmation prompts.
 
-Both `New-AzureRmDnsZone` and `Set-AzureRmDnsZone` will prompt for confirmation if the `$ConfirmPreference` PowerShell preference variable has a value of `Medium` or lower. Due to the potentially high impact of deleting a DNS zone, the `Remove-AzureRmDnsZone` cmdlet prompts for confirmation if the `$ConfirmPreference` PowerShell variable has any value other than `None`.
+Both `New-AzureRmDnsZone` and `Set-AzureRmDnsZone` prompt for confirmation if the `$ConfirmPreference` PowerShell preference variable has a value of `Medium` or lower. Due to the potentially high impact of deleting a DNS zone, the `Remove-AzureRmDnsZone` cmdlet prompts for confirmation if the `$ConfirmPreference` PowerShell variable has any value other than `None`.
 
 Since the default value for `$ConfirmPreference` is `High`, only `Remove-AzureRmDnsZone` prompts for confirmation by default.
 
-You can override the current `$ConfirmPreference` setting using the `-Confirm` parameter. If you specify `-Confirm` or `-Confirm:$True` , the cmdlet prompts you for confirmation before it runs. If you specify `-Confirm:$False` , the cmdlet does not prompt you for confirmation. 
+You can override the current `$ConfirmPreference` setting using the `-Confirm` parameter. If you specify `-Confirm` or `-Confirm:$True` , the cmdlet prompts you for confirmation before it runs. If you specify `-Confirm:$False` , the cmdlet does not prompt you for confirmation.
 
 For more information about `-Confirm` and `$ConfirmPreference`, see [About Preference Variables](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
 
 ## Next steps
 
-Learn how to [manage record sets and records](dns-getstarted-create-recordset.md) in your DNS zone.
+Learn how to [manage record sets and records](dns-operations-recordsets.md) in your DNS zone.
 <br>
 Learn how to [delegate your domain to Azure DNS](dns-domain-delegation.md).
+<br>
+Review the [Azure DNS PowerShell reference documentation](/powershell/module/azurerm.dns).
 

@@ -1,9 +1,21 @@
 ---
+title: Azure Redis Cache Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Azure Redis Cache, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more.
+services: redis-cache
+author: czeumault
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: redis-cache
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#Redis Cache Documentation
+# Redis Cache Documentation
 
-Azure Redis Cache is based on the popular open-source Redis Cache. It gives you access to a secure dedicated Redis cache managed by Microsoft and accessible from any application within Azure. Azure Redis Cache provides high throughput and consistent low-latency data access to power fast, scalable Azure applications.
+Learn how to use Azure Redis Cache, a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Tutorials, API references, and other documentation show you how to use Redis Cache from any application on Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -135,6 +147,50 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
 
 ---
 
+## Build your skills with Microsoft Learn
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/learn/modules/optimize-your-web-apps-with-redis/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/optimize-web-apps-with-redis.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3> Optimize your web applications by caching read-only data with Redis</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/work-with-mutable-and-partial-data-in-a-redis-cache/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/work-with-mutable-and-partial-data-in-a-redis-cache.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Work with mutable and partial data in a Redis cache</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>   
+
+**[More interactive learning...](/learn/browse?products=azure-redis-cache)**
+
+---
+
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
@@ -143,7 +199,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.rediscache">PowerShell</a></p>
                         <p><a href="/cli/azure/redis">Azure CLI 2​.0 (Preview)</a></p>
                     </div>
                 </div>
@@ -179,11 +235,4 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Redis Cache Documentation
-        </div>
-    </a>
-</div>
+

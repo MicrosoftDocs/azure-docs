@@ -90,7 +90,7 @@ To create a storage account, you can use the [Microsoft Azure portal](https://po
 
 **Create a storage account from the Microsoft Azure portal**
 
-1. Click **New**.
+1. Click **Create a resource**.
 2. Select **Storage**.
 3. Fill in the storage account name, and then select a location.
    
@@ -110,11 +110,11 @@ To create a storage account, you can use the [Microsoft Azure portal](https://po
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### Create a storage account by using PowerShell
-Using PowerShell, create a storage account by using the [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet.
+Using PowerShell, create a storage account by using the [New-AzureStorageAccount](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azurestorageaccount) cmdlet.
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Then you can create a container within that storage account by using the [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) cmdlet.
+Then you can create a container within that storage account by using the [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet.
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
@@ -123,7 +123,7 @@ Then you can create a container within that storage account by using the [NewAzu
 >  
 > 
 > ### Create a storage account by using the command-line tool for Mac and Linux
-> From [Linux command-line tool](../virtual-machines/virtual-machines-linux-cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), create a storage account as follows.
+> From [Linux command-line tool](../virtual-machines/linux/cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), create a storage account as follows.
 > 
 > 
 
@@ -142,7 +142,7 @@ Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet.
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### Upload a VHD by using the command-line tool for Mac and Linux
-With the [Linux command-line tool](../virtual-machines-command-line-tools.md), use the following:
+With the [Linux command-line tool](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), use the following:
         azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
 ## See also

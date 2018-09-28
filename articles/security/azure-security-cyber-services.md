@@ -1,10 +1,10 @@
----
+﻿---
 title: Microsoft Services in Cybersecurity | Microsoft Docs
 description: The article provides an introduction about Microsoft services related to cybersecurity and how to obtain more information about these services.
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 
 ms.assetid: 925ba3c6-fe35-413a-98ea-e1a1461f3022
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
-ms.author: yurid
+ms.date: 04/26/2018
+ms.author: barclayn
 
 ---
 # Microsoft Services in Cybersecurity
-Microsoft Services provides a comprehensive approach to security, identity and cybersecurity. Microsoft Services provides an array of Security and Identity services across strategy, planning, implementation, and ongoing support which can help our Enterprise customers implement holistic security solutions that align with their strategic goals.
+
+Microsoft Services provides a comprehensive approach to security, identity and cybersecurity. Microsoft Services provides an array of Security and Identity services across strategy, planning, implementation, and ongoing support. These services can help Enterprise customers implement holistic security solutions that align with their strategic goals.
 
 With direct access to product development teams, we can create solutions that integrate, and enhance the latest security and identity capabilities of our products to help protect our customer’s business and drive innovation.
 
@@ -36,4 +37,3 @@ Learn more about services provided by Microsoft Services:
 * [Incident Response and Recovery](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
 [Learn more](https://aka.ms/cyberserv) about Microsoft Services Security consulting services.
-

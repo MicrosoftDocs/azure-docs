@@ -1,6 +1,6 @@
 ---
   title: Security best practices for IaaS workloads in Azure | Microsoft Docs
-  description: " The migration of workloads to Azure IaaS brings about opportunities to re-evaluate our designs "
+  description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
   services: security
   documentationcenter: na
   author: barclayn
@@ -13,232 +13,160 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 11/17/2016
+  ms.date: 09/18/2018
   ms.author: barclayn
 
 
 
 ---
-
 # Security best practices for IaaS workloads in Azure
 
-As you started thinking about moving workloads to Azure IaaS you probably came to the realization that some considerations are familiar. You may already have experience securing virtual environments. The move to Azure IaaS allow you to apply your expertise in securing virtual environments and also brings a new set of options to help you secure your assets.
+In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (VMs)](https://docs.microsoft.com/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such scenarios, follow the [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), and apply security best practices to all your VMs.
 
-Before we get going let's start by saying that we should not expect to bring on-premises resources as one-to-one to Azure. The new challenges and the new options bring about an opportunity to reevaluate existing deigns, tools, and processes.
+Your responsibility for security is based on the type of cloud service. The following chart summarizes the balance of responsibility for both Microsoft and you:
 
+![Areas of responsibility](./media/azure-security-iaas/sec-cloudstack-new.png)
 
+Security requirements vary depending on a number of factors including different types of workloads. Not one of these best practices can by itself secure your systems. Like anything else in security, you have to choose the appropriate options and see how the solutions can complement each other by filling gaps.
 
+This article describes security best practices for VMs and operating systems.
 
-![Areas of Responsibility](./media/azure-security-iaas/sec-cloudstack-new.png)
+The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time,  this article will be updated to reflect those changes.
 
->[!NOTE]
-> Your responsibility for security is based on the type of cloud service. The chart above summarizes the balance of responsibility for both Microsoft and you.
+## Protect VMs by using authentication and access control
+The first step in protecting your VMs is to ensure that only authorized users can set up new VMs and access VMs.
 
-## Best practices
-We will be discussing some of the options available in Azure that could help you meet your organization’s security requirements. While doing this we must keep in mind the different types of workloads and how their security requirements may vary. Not one of these best practices can by itself secure your systems. Like anything else in security, you have to choose the appropriate options and see how the solutions can complement each other by filling gaps left by the others.
+**Best practice**: Control VM access.   
+**Detail**: Use [Azure policies](../azure-policy/azure-policy-introduction.md) to establish conventions for resources in your organization and create customized policies. Apply these policies to resources, such as [resource groups](../azure-resource-manager/resource-group-overview.md). VMs that belong to a resource group inherit its policies.
 
-### Use Privileged Access Workstations (PAW)
+If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](../azure-resource-manager/management-groups-overview.md) provide a level of scope above subscriptions. You organize subscriptions into management groups (containers) and apply your governance conditions to those groups. All subscriptions within a management group automatically inherit the conditions applied to the group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
-Organizations often fall prey to cyber-attacks because of administrators performing actions while using accounts with elevated rights. Usually this isn’t done maliciously but because existing configuration and processes allow them to do it. Most of these users understand the risk from a conceptual standpoint but still choose to take steps that they would agree are risky.
+**Best practice**: Reduce variability in your setup and deployment of VMs.   
+**Detail**: Use [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) templates to strengthen your deployment choices and make it easier to understand and inventory the VMs in your environment.
 
-Doing things like checking email and browsing the Internet seem innocent enough but may expose elevated accounts to compromise by malicious actors who may use browsing activities, specially crafted emails, or other techniques to gain access to your enterprise. The use of secure management workstations for conducting all Azure administration tasks is highly recommended as a way of reducing exposure to accidental compromise.
+**Best practice**: Secure privileged access.   
+**Detail**: Use a [least privilege approach](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and built-in Azure roles to enable users to access and set up VMs:
 
-Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily use workstations and devices provides very strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket.
+- [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Can manage VMs, but not the virtual network or storage account to which they are connected.
+- [Classic Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Can manage VMs created by using the classic deployment model, but not the virtual network or storage account to which the VMs are connected.
+- [Security Manager](../role-based-access-control/built-in-roles.md#security-manager): Can manage security components, security policies, and VMs.
+- [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user): Can view everything and connect, start, restart, and shut down VMs.
 
-The PAW approach is an extension of the well-established recommended practice to use separate admin and user accounts for administrative personnel. This practice uses an individually assigned administrative account that is separate from the user's standard user account. PAW builds on that account separation practice by providing a trustworthy workstation for those sensitive accounts.
+Your subscription admins and coadmins can change this setting, making them administrators of all the VMs in a subscription. Be sure that you trust all of your subscription admins and coadmins to log in to any of your machines.
 
-For more information on Privileged Access Workstations and guidance for PAW implementation, follow this link:
+> [!NOTE]
+> We recommend that you consolidate VMs with the same lifecycle into the same resource group. By using resource groups, you can deploy, monitor, and roll up billing costs for your resources.
+>
+>
 
-- [Privileged Access Workstations](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations)
+Organizations that control VM access and setup improve their overall VM security.
 
-### Use multifactor authentication
+## Use multiple VMs for better availability
+If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, use an [availability set](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
-In the past, your network perimeter was used to control access to corporate data. In a cloud-first, mobile-first world, identity is the control plane: You use it to control access to IaaS services from any device, and you use it to get visibility and insight into where and how your data is being used. Protecting the digital identity of your Azure users is the cornerstone of protecting your subscriptions from identity theft and other cybercrimes.
+An availability set is a logical grouping that you can use in Azure to ensure that the VM resources you place within it are isolated from each other when they’re deployed in an Azure datacenter. Azure ensures that the VMs you place in an availability set run across multiple physical servers, compute racks, storage units, and network switches. If a hardware or Azure software failure occurs, only a subset of your VMs are affected, and your overall application continues to be available to your customers. Availability sets are an essential capability when you want to build reliable cloud solutions.
 
-One of the most beneficial steps that you can take to secure an account is to enable two factor authentication. Two factor authentication is a way of authenticating by using more than just your password. The second factor is something in addition to the password.  This helps mitigate the risk of access by someone who manages to get a hold of someone else’s password.
+## Protect against malware
+You should install antimalware protection to help identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](azure-security-antimalware.md) or a Microsoft partner’s endpoint protection solution ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection), and [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
 
-Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options—phone call, text message, or mobile app notification—allowing users to choose the method they prefer.
+Microsoft Antimalware includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. For environments that are hosted separately from your production environment, you can use an antimalware extension to help protect your VMs and cloud services.
 
-The easiest way to use [Azure MFA](../multi-factor-authentication/multi-factor-authentication.md) is the Microsoft Authenticator mobile app that can be used on mobile devices running Windows, IOS and Android. With the latest release of Windows 10 and your on premises Active Directory integrated with Azure AD, [Microsoft Hello for Business](../active-directory/active-directory-azureadjoin-passport-deployment.md) can be used for seamless single sign-on to Azure resources. In this case, the Windows 10 device will be used as the second factor for authentication.
+You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](https://docs.microsoft.com/azure/security-center/) for ease of deployment and built-in detections (alerts and incidents).
 
+**Best practice**: Install an antimalware solution to protect against malware.   
+**Detail**: [Install a Microsoft partner solution or Microsoft Antimalware](../security-center/security-center-install-endpoint-protection.md)
 
-In the case of Azure, the simplest way to enable two factor authentication is to use Azure Multifactor Authentication (MFA). [Azure MFA](../multi-factor-authentication/multi-factor-authentication.md) has an application that can be used on your mobile devices, it can work via phone calls, text messages or via a code generated in the app and it can integrate with your on-premises directory.
+**Best practice**: Integrate your antimalware solution with Security Center to monitor the status of your protection.   
+**Detail**: [Manage endpoint protection issues with Security Center](../security-center/security-center-partner-integration.md)
 
-For accounts that manage your Azure subscription you should use MFA and for accounts that can logon to the Virtual Machines you should use MFA when possible. Using MFA for these accounts gives you much greater level of security than just using a password. Using other forms of two factor authentication could work just as well but may be more involved to get deployed if they are not already in production.
+## Manage your VM updates
+Azure VMs, like all on-premises VMs, are meant to be user managed. Azure doesn't push Windows updates to them. You need to manage your VM updates.
 
-The screenshot below shows some of the options available for Azure MFA authentication.
+**Best practice**: Keep your VMs current.   
+**Detail**: Use the [Update Management](../automation/automation-update-management.md) solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
-![MFA options](./media/azure-security-iaas/mfa-options.png)
+Computers that are managed by Update Management use the following configurations to perform assessment and update deployments:
 
-### Limit and Constrain Administrative Access
+- Microsoft Monitoring Agent (MMA) for Windows or Linux
+- PowerShell Desired State Configuration (DSC) for Linux
+- Automation Hybrid Runbook Worker
+- Microsoft Update or Windows Server Update Services (WSUS) for Windows computers
 
-Securing the accounts that can manage your Azure subscription is extremely important. The compromise of any of those accounts effectively negates the value of all the other steps you may take to ensure the confidentiality and integrity of your data. As recently illustrated by the [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) leak of classified information, internal attacks pose a huge threat to the overall security of any organization.
+If you use Windows Update, leave the automatic Windows Update setting enabled.
 
-Individuals who have administrative rights should have been evaluated by following a criteria similar to the one below:
+**Best practice**: Ensure at deployment that images you built include the most recent round of Windows updates.   
+**Detail**: Check for and install all Windows updates as a first step of every deployment. This measure is especially important to apply when you deploy images that come from either you or your own library. Although images from the Azure Marketplace are updated automatically by default, there can be a lag time (up to a few weeks) after a public release.
 
-- Are they performing tasks that require administrative privileges?
-- How often are the tasks performed?
-- Specific reason why the tasks cannot be performed by another administrator on their behalf.
-- Document all other known alternative approaches to granting the privilege and why each isn't acceptable.
+**Best practice**: Periodically redeploy your VMs to force a fresh version of the OS.   
+**Detail**: Define your VM with an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
 
-The use of just in time administration prevents the unnecessary existence of accounts with elevated rights during time periods when those rights are not needed. Accounts have elevated rights for a limited time enabling administrators to do their jobs and then they have those rights removed at the end of a shift or when a task is completed.
+**Best practice**: Install the latest security updates.   
+**Detail**: Some of the first workloads that customers move to Azure are labs and external-facing systems. If your Azure VMs host applications or services that need to be accessible to the internet, be vigilant about patching. Patch beyond the operating system. Unpatched vulnerabilities on partner applications can also lead to problems that can be avoided if good patch management is in place.
 
-[PIM](../active-directory/active-directory-privileged-identity-management-configure.md) allows you to manage, monitor, and control access within your organization. It helps you remain aware of the actions taken by individuals within your organization and brings just-in-time administration to Azure AD by introducing the concept of an eligible admin. These are individuals who have accounts with the potential to be granted admin rights. These types of users can go through an activation process and be granted admin rights for a limited time.
+**Best practice**: Deploy and test a backup solution.   
+**Detail**: A backup needs to be handled the same way that you handle any other operation. This is true of systems that are part of your production environment extending to the cloud.
 
+Test and dev systems must follow backup strategies that provide restore capabilities that are similar to what users have grown accustomed to, based on their experience with on-premises environments. Production workloads moved to Azure should integrate with existing backup solutions when possible. Or, you can use [Azure Backup](../backup/backup-azure-vms-first-look-arm.md) to help address your backup requirements.
 
-### Use DevTest Labs
+Organizations that don't enforce software-update policies are more exposed to threats that exploit known, previously fixed vulnerabilities. To comply with industry regulations, companies must prove that they are diligent and using correct security controls to help ensure the security of their workloads located in the cloud.
 
-Using Azure for labs and development environments allows organizations to gain agility in testing and development by taking away the delays introduced by hardware procurement. Unfortunately, there is the risk that a lack of familiarity with Azure or a desire to help expedite its adoption may lead the administrator to be overly permissive with rights assignment. This may be unintentionally exposing the organization to internal attacks. Some users could be granted a lot more access than they should have.
+Software-update best practices for a traditional datacenter and Azure IaaS have many similarities. We recommend that you evaluate your current software update policies to include VMs located in Azure.
 
-In Azure we now include a service called [DevTest Labs](../devtest-lab/devtest-lab-overview.md). DevTest Labs uses [Azure Role based access control(RBAC)](../active-directory/role-based-access-control-what-is.md)(RBAC). RBAC allows you to segregate duties within your team into roles that grant only the level of access necessary for users to do their jobs. It comes with pre-defined roles (Owner, lab user and contributor). These roles can even be used to assign rights to external partners and greatly simplify collaboration.
+## Manage your VM security posture
+Cyberthreats are evolving. Safeguarding your VMs requires a monitoring capability that can quickly detect threats, prevent unauthorized access to your resources, trigger alerts, and reduce false positives.
 
-Since DevTest Labs uses RBAC, it is possible to create additional [custom roles](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs not only simplifies the management of permissions, it is also designed to simplify the process of getting environments provisioned and to deal with other typical challenges of teams working on development and test environments. It requires some preparation but in the long term it will make things easier for your team.
+To monitor the security posture of your [Windows](../security-center/security-center-virtual-machine.md) and [Linux VMs](../security-center/security-center-linux-virtual-machine.md), use [Azure Security Center](../security-center/security-center-intro.md). In Security Center, safeguard your VMs by taking advantage of the following capabilities:
 
-Some key Azure DevTest Labs features include:
+- Apply OS security settings with recommended configuration rules.
+- Identify and download system security and critical updates that might be missing.
+- Deploy recommendations for endpoint antimalware protection.
+- Validate disk encryption.
+- Assess and remediate vulnerabilities.
+- Detect threats.
 
-- Administrative control over the options available to users. Things like allowed VM sizes, maximum number of VMs and when VMs are started and shut down can be centrally managed by the administrator
-- Automation of lab environment creation
-- Cost tracking
-- Simplified distribution of VMs for temporary collaborative work
-- Self-service allowing users to provision their labs using templates
-- Managing and limiting consumption
+Security Center can actively monitor for threats, and potential threats are exposed in security alerts. Correlated threats are aggregated in a single view called a security incident.
 
-![Creating a DevTestLab](./media/azure-security-iaas/devtestlabs.png)
+Security Center stores data in [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
 
-There is no additional cost associated with the usage of DevTest Labs. The creation of labs, policy configuration, templates, and artifacts are all free. You only pay for the azure resources used within your labs such as virtual machines, storage accounts and virtual networks.
+Organizations that don't enforce strong security for their VMs remain unaware of potential attempts by unauthorized users to circumvent security controls.
 
+## Monitor VM performance
+Resource abuse can be a problem when VM processes consume more resources than they should. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. This is particularly important for VMs that are hosting IIS or other web servers, because high CPU or memory usage might indicate a denial of service (DoS) attack. It’s imperative to monitor VM access not only reactively while an issue is occurring, but also proactively against baseline performance as measured during normal operation.
 
+We recommend that you use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) to gain visibility into your resource’s health. Azure Monitor features:
 
-### Control and Limit Endpoint Access
+- [Resource diagnostic log files](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
+- [Azure Diagnostics extension](../monitoring-and-diagnostics/azure-diagnostics.md): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md).
 
-Hosting labs or production systems in Azure means that your systems need to be accessible from the Internet. By default, a new windows virtual machine has the RDP port accessible from the Internet and a Linux virtual machine has the SSH port open. This means that taking steps to 'limit exposed endpoints' is necessary to minimize the risk of unauthorized access.
+Organizations that don't monitor VM performance can’t determine whether certain changes in performance patterns are normal or abnormal. A VM that’s consuming more resources than normal might indicate an attack from an external resource or a compromised process running in the VM.
 
-There are technologies in Azure that can help you limit the access to those administrative endpoints. In Azure you can use Network Security Groups ([NSGs](../virtual-network/virtual-networks-nsg.md)). When you use Resource Manager for deployment NSGs are used to limit the access from all networks to just the management endpoints (RDP or SSH).  When you think NSGs, think router ACLs. You can use them to tightly control the network communication between various segments of your Azure networks. This is similar to creating networks in DMZs or other isolated networks. They do not inspect the traffic but they will help with network segmentation.
+## Encrypt your virtual hard disk files
+We recommend that you encrypt your virtual hard disks (VHDs) to help protect your boot volume and data volumes at rest in storage, along with your encryption keys and secrets.
 
+[Azure Disk Encryption](azure-security-disk-encryption-overview.md) helps you encrypt your Windows and Linux IaaS virtual machine disks. Azure Disk Encryption uses the industry-standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in Azure Storage.
 
-In Azure you can configure a [site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) from your on-premises network, effectively extending your on-premises network to the cloud.  This would provide you with another opportunity to use NSGs, as you could also modify the NSGs to not allow access from anywhere other than the local network and then require that administration is done by first connecting to the Azure network via VPN.
+Following are best practices for using Azure Disk Encryption:
 
-The site-to-site VPN option may be most attractive in cases where you are hosting production systems that are closely integrated with your on-premises resources in Azure.
+**Best practice**: Enable encryption on VMs.   
+**Detail**: Azure Disk Encryption generates and writes the encryption keys to your key vault. Managing encryption keys in your key vault requires Azure AD authentication. Create an Azure AD application for this purpose. For authentication purposes, you can use either client secret-based authentication or [client certificate-based Azure AD authentication](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
-Alternatively, the [point to site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) option could be used in situations where you want to manage systems that don't need access to on-premises resources. Those systems can be isolated in their own Azure Virtual Network and administrators could VPN into the Azure hosted environment from their administrative workstation.
+**Best practice**: Use a key encryption key (KEK) for an additional layer of security for encryption keys. Add a KEK to your key vault.   
+**Detail**: Use the [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet to create a key encryption key in the key vault. You can also import a KEK from your on-premises hardware security module (HSM) for key management. For more information, see the [Key Vault documentation](../key-vault/key-vault-hsm-protected-keys.md). When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault. Keeping an escrow copy of this key in an on-premises key management HSM offers additional protection against accidental deletion of keys.
 
->[!NOTE]
-Either VPN option would allow you to reconfigure the ACLs on the NSGs to not allow access to management endpoints from the Internet.
+**Best practice**: Take a [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) and/or backup before disks are encrypted. Backups provide a recovery option if an unexpected failure happens during encryption.   
+**Detail**: VMs with managed disks require a backup before encryption occurs. After a backup is made, you can use the **Set-AzureRmVMDiskEncryptionExtension** cmdlet to encrypt managed disks by specifying the *-skipVmBackup* parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../backup/backup-azure-vms-encryption.md) article.
 
-Another option worth considering is a [Remote Desktop Gateway](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md) deployment. You could use this remote desktop gateway deployment to securely connect over HTTPS to remote desktop servers while applying more granular controls to those connections.
+**Best practice**: To make sure the encryption secrets don’t cross regional boundaries, Azure Disk Encryption needs the key vault and the VMs to be located in the same region.   
+**Detail**: Create and use a key vault that is in the same region as the VM to be encrypted.
 
-Some of the features that you would have access to include:
+When you apply Azure Disk Encryption, you can satisfy the following business needs:
 
-- Administrator options to limit connections to requests from specific systems.
-- Smartcard authentication or Azure MFA
-- Control over which systems someone can connect to via the gateway.
-- Control over device and disk redirection.
+- IaaS VMs are secured at rest through industry-standard encryption technology to address organizational security and compliance requirements.
+- IaaS VMs start under customer-controlled keys and policies, and you can audit their usage in your key vault.
 
-### Use a Key Management solution
+## Next steps
+See [Azure security best practices and patterns](security-best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.
 
-Secure key management is essential to protecting data in the cloud. With [Azure Key Vault](../key-vault/key-vault-whatis.md), you can securely store encryption keys and small secrets like passwords in hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs.
-
-If you choose to do this, Microsoft will process your keys in FIPS 140-2 Level 2 validated HSMs (hardware and firmware). Monitor and audit key use with Azure logging—pipe logs into Azure applying or your SIEM for additional analysis and threat detection.
-
-Anyone with an Azure subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it could be implemented and managed by an organization’s administrator responsible for managing Azure services.
-
-
-### Encrypt Virtual Disks and Disk Storage
-
-[Azure Disk Encryption](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) addresses the threat of data theft or exposure from unauthorized access achieved by moving a disk. The disk could be attached to another system as a way of bypassing other security controls. Disk encryption uses [BitLocker](https://technet.microsoft.com/library/hh831713 ) in windows and DM-Crypt in Linux to encrypt operating system and data drives. Azure Disk Encryption integrates with key vault to control and manage the encryption keys and it is available for standard VMs and VMs with premium storage.
-
-For more information, look at the article covering [Azure Disk Encryption in Windows and Linux IaaS VMs](azure-security-disk-encryption.md).
-
-[Azure Storage Service Encryption](../storage/storage-service-encryption.md) protects your data at rest. It is enabled at the storage account level and it encrypts data as its written in our datacenters and it is automatically decrypted as you access it. It supports the following scenarios:
-
-- Encryption of block blobs, append blobs, and page blobs.
-- Encryption of archived VHDs and templates brought to Azure from on-premises.
-- Encryption of underlying OS and data disks for IaaS VMs created using your VHDs.
-
-Before you proceed with Azure Storage encryption you should be aware of two notable limitations:
-
-- It is not available on classic storage accounts.
-- It only encrypts data written after encryption is enabled.
-
-### Use a Centralized Security Management System
-
-Your servers need to be monitored for patching, configuration, events, and activities that may be considered security concerns. To address those concerns you can use [Security Center](https://azure.microsoft.com/services/security-center/) and [Operations Management Suite Security and Compliance](https://azure.microsoft.com/services/security-center/). Both of these options go beyond the configuration within the operating system and also provide monitoring of the configuration of the underlying infrastructure like network configuration and virtual appliance use.
-
-### Operating system management best practices
-
-In an IaaS deployment you are still responsible for the management of the systems that you deploy just like any other server or workstation in your environment. This means that patching, hardening, rights assignments and any other activity related to the maintenance of your system is still your responsibility.  For systems that are tightly integrated with your on-premises resources you may want to use the same tools and procedures that you are using on-premises for things like anti-virus, anti-malware, patching, and backup.
-
-**Hardening**
-All virtual machines in Azure IaaS should be hardened so that they only expose services endpoints that are required for the applications that are installed. For Windows virtual machines, follow the recommendations that are published by Microsoft as baselines for the Security Compliance Manager solution.
-
-[Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx) - we recently released version 4.0 - This is a free tool that enables you to quickly configure and manage your desktops, traditional datacenter, private and public cloud using Group Policy and System Center Configuration Manager.
-
-SCM provides ready to deploy policies and DCM configuration packs that are tested. These baselines are based on [Microsoft Security guide](https://technet.microsoft.com/en-us/library/cc184906.aspx) recommendations and industry best practices, allowing you to manage configuration drift, address compliance requirements, and reduce security threats.
-
-You can leverage SCM to import the current configuration of your computers using two different methods: first, you can import Active Directory-based group policies; second, you can import the configuration of a “golden master” reference machine by using the [LocalGPO tool](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) to backup the local group policy which you can then import into SCM.
-
-Compare your standards to industry best practices, customize them , and create new policies and DCM configuration packs.
-Baselines have been published for all supported operating systems, including Windows 10 Anniversary Update and Windows Server 2016.
-
-
-**Install and manage antimalware**
-
-For environments that are hosted separately from your production environment there is an antimalware extension that can be used to protect your virtual machines and cloud services and it integrates with [Azure Security Center](../security-center/security-center-intro.md).
-
-
-[Microsoft Antimalware](azure-security-antimalware.md) includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, exclusion event collection, and [PowerShell support](https://msdn.microsoft.com/library/dn771715.aspx).
-
-![Azure Antimalware](./media/azure-security-iaas/azantimalware.png)
-
-**Install the latest security updates**
-Some of the first workloads we see customers move to Azure are labs and external facing systems. If you are hosting virtual machines in Azure that host applications or services that need to be made accessible to the Internet, you need to be vigilant about patching. Remember that this goes beyond patching the operating system. Unpatched vulnerabilities on third-party applications can also lead to problems that would have been easily avoided if good patch management was in place.
-
-For more information on managing patching in Azure IaaS look at [Best practices for software updates on Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md).
-
-**Deploy and test a backup solution**
-
-Just like security updates, backup needs to be handled the same way you handle any other operation. This is true of systems that are part of your production environment extending to the cloud. Test and Dev Systems must follow backup strategies that are able of providing similar restore capabilities to what users have grown accustomed to based on their experience with on-premise environments.
-
-Production workloads moved to Azure should integrate with existing backup solutions when possible or you can use [Azure Backup](../backup/backup-azure-arm-vms.md) to help you address your backup requirements.
-
-
-### Monitor
-
-[Security Center](../security-center/security-center-intro.md) provides ongoing evaluation of the security state of your Azure resources to identify potential security vulnerabilities. A list of recommendations guides you through the process of configuring needed controls.
-
-Examples include:
-
-- Provisioning antimalware to help identify and remove malicious software
-- Configuring network security groups and rules to control traffic to virtual machines
-- Provisioning of web application firewalls to help defend against attacks that target your web applications
-- Deploying missing system updates
-- Addressing OS configurations that do not match the recommended baselines
-
-In the image below you can see some of the options available for you to enable in Security Center.
-
-![Azure security center policies](./media/azure-security-iaas/security-center-policies.png)
-
- [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) is a Microsoft cloud based IT management solution that helps you manage and protect your on-premise and cloud infrastructure. Since OMS is implemented as a cloud based service it can be deployed quickly and with minimal investment in infrastructure resources.
-
-New features are delivered automatically saving you from ongoing maintenance and upgrade costs. It also integrates with System Center Operations Manager.  OMS has different components to help you better manage your Azure workloads including a [Security and Compliance](../operations-management-suite/oms-security-getting-started.md) module.
-
-The security and compliance features in OMS allow you to view information about your resources organized into four major categories:
-
-- Security Domains: in this area you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
-- Notable Issues: this option will allow you to quickly identify the number of active issues and the severity of these issues.
-- Detections (Preview): enables you to identify attack patterns by visualizing security alerts as they take place against your resources.
-- Threat Intelligence: enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type, and a map that shows where these IPs are coming from.
-- Common security queries: this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the Search blade with the results for that query
-
-The screenshot below shows an example of the type of information that can be displayed by OMS.
-
-![OMS security baselines](./media/azure-security-iaas/oms-security-baseline.png)
-
-
-
-## Next Steps
-
-
-* [Azure security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/)
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
-* [Azure Security Best Practices and Patterns](security-best-practices-and-patterns.md)
+The following resources are available to provide more general information about Azure security and related Microsoft services:
+* [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/) - for up to date information on the latest in Azure Security
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to secure@microsoft.com

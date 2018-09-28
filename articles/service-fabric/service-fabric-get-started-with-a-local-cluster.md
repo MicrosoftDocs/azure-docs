@@ -1,6 +1,6 @@
 ---
-title: Get started with deploying and upgrading apps on your local cluster | Microsoft Docs
-description: Set up a local Service Fabric cluster, deploy an existing application to it, and then upgrade that application.
+title: Deploy and upgrade Azure Service Fabric services locally | Microsoft Docs
+description: Learn how to set up a local Service Fabric cluster, deploy an existing application to it, and then upgrade that application.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/09/2016
-ms.author: ryanwi;mikhegn
+ms.date: 11/03/2017
+ms.author: ryanwi
 
 ---
 # Get started with deploying and upgrading applications on your local cluster
@@ -86,7 +86,7 @@ In this tutorial, you use an existing sample application (called WordCount) so t
    
     ![Deployed application UI][deployed-app-ui]
    
-    The WordCount application is simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via ASP.NET Web API. A stateful service tracks the number of words counted. They are partitioned based on the first character of the word. You can find the source code for the WordCount app in the [getting started samples](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    The WordCount application is simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via ASP.NET Web API. A stateful service tracks the number of words counted. They are partitioned based on the first character of the word. You can find the source code for the WordCount app in the [classic getting started samples](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount).
    
     The application that we deployed contains four partitions. So words beginning with A through G are stored in the first partition, words beginning with H through N are stored in the second partition, and so on.
 
@@ -110,7 +110,7 @@ Now that we have deployed the application, let's look at some of the app details
    
     ![List services for the application in PowerShell][ps-getsfsvc]
    
-    The application is made up of two services--the web front end and the stateful service that manages the words.
+    The application is made up of two services, the web front end, and the stateful service that manages the words.
 3. Finally, look at the list of partitions for WordCountService:
    
     ```powershell

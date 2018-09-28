@@ -1,19 +1,19 @@
 ---
-title: Deep diagnostics for web apps and services with Application Insights | Microsoft Docs
+title: Web application performance monitoring - Azure Application Insights | Microsoft Docs
 description: How Application Insights fits into the devOps cycle
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 11/16/2016
-ms.author: awills
+ms.topic: conceptual
+ms.date: 03/14/2017
+ms.author: mbullwin
 
 ---
 # Deep diagnostics for web apps and services with Application Insights
@@ -148,18 +148,22 @@ And when Application Insights logs an exception, you can view the data point in 
 During debugging, you have the option to keep the telemetry in your development machine, viewing it in Visual Studio but without sending it to the portal. This local option avoids mixing debugging with production telemetry.
 
 ### Build annotations
-If you use Visual Studio Team Services to build and deploy your app, deployment annotations show up on charts in the portal. If your latest release had any effect on the metrics, it becomes obvious.
+If you use Azure DevOps to build and deploy your app, deployment annotations show up on charts in the portal. If your latest release had any effect on the metrics, it becomes obvious.
 
 ![Build annotations](./media/app-insights-devops/070.png)
 
 ### Work items
-When an alert is raised, Application Insights can automatically create a work item in your work tracking system (Visual Studio Team Services only at present).
+When an alert is raised, Application Insights can automatically create a work item in your work tracking system.
 
 ## But what about...?
 * [Privacy and storage](app-insights-data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
-* [Support](app-insights-get-dev-support.md) - You can take advantage of the Azure support program. There are lively forums where you can get answers from our developers. And in the last resort, we can give you individual help.
 * [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
+
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
 Getting started with Application Insights is easy. The main options are:

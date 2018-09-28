@@ -3,8 +3,8 @@ title: Provision Web App with Redis Cache
 description: Use Azure Resource Manager template to deploy web app with Redis Cache.
 services: app-service
 documentationcenter: ''
-author: steved0x
-manager: erickson-doug
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 01/06/2017
+ms.author: wesmc
 
 ---
 # Create a Web App plus Redis Cache using a template
 In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Redis cache. You will learn how to define which resources are deployed and
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 For the complete template, see [Web App with Redis Cache template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
@@ -41,7 +41,7 @@ To run the deployment automatically, click the following button:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## Variables for names
-This template uses variables to construct names for the resources. It uses the [uniqueString](../azure-resource-manager/resource-group-template-functions.md#uniquestring) function to construct a value based on the
+This template uses variables to construct names for the resources. It uses the [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) function to construct a value based on the
 resource group id.
 
     "variables": {

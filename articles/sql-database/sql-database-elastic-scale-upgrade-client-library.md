@@ -1,28 +1,24 @@
 ---
 title: Upgrade to the latest elastic database client library | Microsoft Docs
-description: Upgrade apps and libraries using Nuget
+description: Use Nuget to upgrade elastic database client library.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-
-ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
 ms.service: sql-database
-ms.custom: sharded databases
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2016
-ms.author: ddove
-
+ms.subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Upgrade an app to use the latest elastic database client library
-New versions of the [Elastic Database client library](sql-database-elastic-database-client-library.md) are  available through NuGetand the NuGetPackage Manager interface in Visual Studio. Upgrades contain bug fixes and support for new capabilities of the client library.
+New versions of the [Elastic Database client library](sql-database-elastic-database-client-library.md) are available through NuGetand the NuGetPackage Manager interface in Visual Studio. Upgrades contain bug fixes and support for new capabilities of the client library.
 
 **For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-Rebuild your application with the new library, as well as change your existing Shard Map Manager metadata stored in your Azure SQL Databases to support new features.
+Rebuild your application with the new library, as well as change your existing Shard Map Manager metadata stored in your Azure SQL databases to support new features.
 
 Performing these steps in order ensures that old versions of the client library are no longer present in your environment when metadata objects are updated, which means that old-version metadata objects won’t be created after upgrade.   
 
@@ -32,6 +28,7 @@ Performing these steps in order ensures that old versions of the client library 
 * In your Visual Studio solution, select **Tools** --> **NuGet Package Manager** -->  **Manage NuGet Packages for Solution**. 
 * (Visual Studio 2013) In the left panel, select **Updates**, and then select the **Update** button on the package **Azure SQL Database Elastic Scale Client Library** that appears in the window.
 * (Visual Studio 2015) Set the Filter box to **Upgrade available**. Select the package to update, and click the **Update** button.
+* (Visual Studio 2017) At the top of the dialog, select **Updates**. Select the package to update, and click the **Update** button.
 * Build and Deploy. 
 
 **2. Upgrade your scripts.** If you are using **PowerShell** scripts to manage shards, [download the new library version](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) and copy it into the directory from which you execute scripts. 

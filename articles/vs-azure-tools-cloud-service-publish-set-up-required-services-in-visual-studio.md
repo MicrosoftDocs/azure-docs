@@ -1,122 +1,80 @@
 ---
-title: Prepare to publish or deploy an Azure application from Visual Studio | Microsoft Docs
+title: Prepare to publish or deploy a Cloud Service from Visual Studio | Microsoft Docs
 description: Learn the procedures to set up cloud and storage account services and configure your Azure application.
 services: visual-studio-online
-documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: ''
-
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 11/11/2016
-ms.author: tarcher
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
+ms.date: 11/10/2017
+ms.author: ghogen
 
 ---
-# Prepare to Publish or Deploy an Azure Application from Visual Studio
-## Overview
-Before you can publish a cloud service project, you must set up the following services:
+# Prepare to publish or deploy a cloud service from Visual Studio
 
-* A **cloud service** to run your roles in the Azure environment
+To publish a cloud service project, you must set up the following services as described in this article:
+
+* A **cloud service** to run your roles in the Azure environment, and 
 * A **storage account** that provides access to the Blob, Queue, and Table services.
 
-Use the following procedures to set up these services and configure your application
-
 ## Create a cloud service
-To publish a cloud service to Azure, you must first create a cloud service, which runs your roles in the Azure environment. You can create a cloud service in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), as described in the section **To create a cloud service by using the Azure classic portal**, later in this topic. You can also create a cloud service in Visual Studio by using the publishing wizard.
 
-### To create a cloud service by using Visual Studio
-1. Open the shortcut menu for the Azure project, and choose **Publish**.
+A cloud service runs your roles in the Azure environment. You can create a cloud service either in Visual Studio or through the [Azure portal](https://portal.azure.com/) as described in the sections that follow.
 
-    ![VST_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
-2. If you haven't signed in, sign in with your username and password for the Microsoft account or organizational account that's associated with your Azure subscription.
-3. Choose the **Next** button to advance to the **Settings** page.
+### Create a cloud service from Visual Studio
 
-    ![Publishing Wizard Common Settings](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
-4. In the **Cloud Services** list, choose **Create New**. The **Create Azure Services** dialog appears.
-5. Enter the name of your cloud service. The name forms part of the URL for your service and therefore must be globally unique. The name is not case-sensitive.
+1. With a previously created Cloud Service project, right-click the project select **Publish**.
+1. If necessary, sign in with the Microsoft or organizational account associated with your Azure subscription, then select **Next** to advance to the **Settings** page.
+1. A **Create Cloud Service and Storage Account** dialog appears (if not, select **Create New** from the **Cloud Service** list).
+1. Enter a case-insensitive name for your cloud service, which forms part of your URL and must be unique. Also choose a Region or Affinity Group, and select a Replication option.
 
-### To create a cloud service by using the Azure classic portal
-1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
-2. (optional) To display a list of cloud services that you've already created, choose the Cloud Services link on the left side of the page.
-3. Choose the **+** icon in the lower-left corner, and then choose **Cloud Service** on the menu that appears. Another screen with two options, **Quick Create** and **Custom Create**, appears. If you choose **Quick Create**, you can create a cloud service just by specifying its URL and the region where it will be physically hosted. If you choose **Custom Create**, you can immediately publish a cloud service by specifying a package (.cspkg file), a configuration (.cscfg) file, and a certificate. Custom Create isn’t required if you intend to publish your cloud service by using the **Publish** command in an Azure project. The **Publish** command is available on the shortcut menu for an Azure project.
-4. Choose **Quick Create** to later publish your cloud service by using Visual Studio.
-5. Specify a name for your cloud service. The complete URL appears next to the name.
-6. In the list, choose the region where most of your users are located.
-7. At the bottom of the window, choose the **Create Cloud Service** link.
+### Create a cloud service through the Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Select **Cloud Services (classic)** on the left side of the page.
+1. Select **+ Add**, then provide the required information (DNS name, subscription, resource group, and location). It's not necessary to upload a package at this point because you do that later in Visual Studio.
+1. Select **Create** to complete the process.
 
 ## Create a storage account
-A storage account provides access to the Blob, Queue, and Table services. You can create a storage account by using Visual Studio or the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103).
 
-### To create a storage account by using Visual Studio
-1. In **Solution Explorer**, open the shortcut menu for the **Storage** node, and then choose **Create Storage Account**.
+A storage account provides access to the Blob, Queue, and Table services. You can create a storage account through Visual Studio or the [Azure portal](https://portal.azure.com/).
 
-    ![Create a new Azure storage account](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
-2. Select or enter the following information for the new storage account in the **Create Storage Account** dialog box.
+### Create a storage account from Visual Studio
 
-   * The Azure subscription to which you want to add the storage account.
-   * The name you want to use for the new storage account.
-   * The region or affinity group (such as West US or East Asia).
-   * The type of replication you want to use for the storage account, such as Geo-Redundant.
-3. When you’re done, choose **Create**.The new storage account appears in the **Storage** list in **Server Explorer**.
+1. In **Solution Explorer** with a previously created Cloud Service project, locate the **Connected Services** node within a role project, right-click, and select **Add Connected Service**. (In Visual Studio 2015, right-click the **Storage** node and select **Create Storage Account**.)
+1. In the **Connected Services** list that appears, select **Cloud Storage with Azure Storage**.
+1. In the Azure Storage dialog that appears, select **+Create New Storage Account**, which brings up a dialog in which you specify your subscription, a name fo the account, a pricing tier, resource group, and location.
+1. Select **Create** when you're done. The new storage account appears in the list of available storage accounts in your subscription.
+1. Select that account and select **Add**.
 
-### To create a storage account by using the Azure classic portal
-1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
-2. (Optional) To view your storage accounts, choose the **Storage** link in the panel on the left side of the page.
-3. In the lower-left corner of the page, choose the **+** icon.
-4. In the menu that appears, choose **Storage**, and then choose **Quick Create**.
-5. Give the storage account a name that will result in a unique url.
-6. Give your cloud service a name. The complete URL appears next to the name.
-7. In the list of regions, choose a region where most of your users are located.
-8. Specify whether you want to enable geo-replication. If you enable geo-replication, your data will be saved in multiple physical locations to reduce the chance of loss. This feature makes storage more expensive, but you can reduce the cost by enabling geo-location when you create the storage account instead of adding the feature later. For more information, see [Geo-replication](http://go.microsoft.com/fwlink/?LinkId=253108).
-9. At the bottom of the window, choose the **Create Storage Account** link.
+### Create a storage account through the Azure portal
 
-After you create your storage account, you will see the URLs that you can use to access resources in each of the Azure storage services, and also the primary and secondary access keys for your account. You use these keys to authenticate requests made against the storage services.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Select **+ New** on the top left.
+1. Select **Storage** under "Azure Marketplace," then **Storage account - blob, file, table, queue** from the right side.
+1. Provide the required information (name, deployment model, and so forth.
+1. Select **Create** to complete the process.
 
-> [!NOTE]
-> The secondary access key provides the same access to your storage account as the primary access key and is generated as a backup should your primary access key be compromised. Additionally, it is recommended that you regenerate your access keys on a regular basis. You can modify a connection string setting to use the secondary key while you regenerate the primary key, then you can modify it to use the regenerated primary key while you regenerate the secondary key.
->
->
+## Configure your app to use the storage account
 
-## Configure your app to use services provided by the storage account
-You must configure any role that accesses storage services to use the Azure storage services that you have created. To do this, you can use multiple service configurations for your Azure project. By default, two are created in your Azure project. By using multiple service configurations, you can use the same connection string in your code, but have a different value for a connection string in each service configuration. For example, you can use one service configuration to run and debug your application locally using the Azure storage emulator and a different service configuration to publish your application to Azure. For more information about service configurations, see [Configuring Your Azure Project Using Multiple Service Configurations](vs-azure-tools-multiple-services-project-configurations.md).
+After you create a storage account, connecting to it from Visual Studio automatically updates the service configurations for the project, including URLs and access keys.
 
-### To configure your application to use services that the storage account provides
-1. In Visual Studio open your Azure solution. In Solution Explorer, open the shortcut menu for each role in your Azure project that accesses the storage services and choose **Properties**. A page with the name of the role is displayed in the Visual Studio editor. The page displays the fields for the **Configuration** tab.
-2. In the property pages for the role, choose **Settings**.
-3. In the **Service Configuration** list, choose the name of the service configuration that you want to edit. If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.  For more information about how to update service configurations, see the section **Manage Connection Strings for Storage Accounts** in the topic [Configure the Roles for an Azure Cloud Service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
-4. To modify any connection string settings, choose the **…** button next to the setting. The **Create Storage Connection String** dialog box appears.
-5. Under **Connect using**, choose the **Your subscription** option.
-6. In the **Subscription** list, choose your subscription. If the list of subscriptions doesn't include the one that you want, choose the **Download Publish Settings** link.
-7. In the **Account name** list, choose your storage account name. Azure Tools obtains storage account credentials automatically by using the .publishsettings file. To specify your storage account credentials manually, choose the **Manually entered credentials** option, and then continue with this procedure. You can get your storage account name and primary key from the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885). If you don’t want to specify your storage account settings manually, choose the **OK** button to close the dialog box.
-8. Choose the **Enter storage account** credentials link.
-9. In the **Account name** box, enter the name of your storage account.
+If you created a cloud service from Visual Studio using the **Add Connected Service**, you can check the connections by opening `ServiceConfiguration.Cloud.cscfg` and `ServiceConfiguration.Local.cscfg`.
 
-   > [!NOTE]
-   > Log into the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), and then choose the **Storage** button. The portal shows a list of storage accounts. If you choose an account, a page for it opens. You can copy the name of the storage account from this page. If you are using a previous version of the classic portal, the name of your storage account appears in the **Storage Accounts** view. To copy this name, highlight it in the **Properties** window of this view, and then choose the Ctrl-C keys. To paste the name into Visual Studio, choose the **Account name** text box, and then choose the Ctrl+V keys.
-   >
-   >
-10. In the **Account key** box, enter your primary key, or copy and paste it from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
-     To copy this key:
+If you created a cloud service through the Azure portal, follow the same steps in [Create a storage account from Visual Studio](#create-a-storage-account-from-visual-studio) but select the existing account rather than creating a new one. Visual Studio then updates the configuration for you.
 
-    1. At the bottom of the page for the appropriate storage account, choose the **Manage Keys** button.
-    2. On the **Manage Keys Access** page, select the text of the primary access key, and then choose the Ctrl+C keys.
-    3. In Azure Tools, paste the key into the **Account key** box.
-    4. You must select one of the following options to determine how the service will access the storage account:
+To configure settings manually, use the property pages in Visual Studio for the applicable role in your cloud service project (right-click the role and select **Properties**). For more information, see [Configuring a connection string to a storage account](https://docs.microsoft.com/azure/vs-azure-tools-multiple-services-project-configurations#configuring-a-connection-string-to-a-storage-account).
 
-       * **Use HTTP**. This is the standard option. For example, `http://<account name>.blob.core.windows.net`.
-       * **Use HTTPS** for a secure connection. For example, `https://<accountname>.blob.core.windows.net`.
-       * **Specify custom endpoints** for each of the three services. You can then type these endpoints into the field for the specific service.
+### About access keys
 
-         > [!NOTE]
-         > If you create custom endpoints, you can create a more complex connection string. When you use this string format, you can specify storage service endpoints that include a custom domain name that you have registered for your storage account with the Blob service. Also you can grant access only to blob resources in a single container through a shared access signature. For more information about how to create custom endpoints, see [Configure Azure Storage Connection Strings](storage/storage-configure-connection-string.md).
-         >
-         >
-11. To save these connection string changes, choose the **OK** button and then choose the **Save** button on the toolbar. After you save these changes, you can get the value of this connection string in your code by using [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). When you publish your application to Azure, choose the service configuration that contains the Azure storage account for the connection string. After your application is published, verify that the application works as expected against the Azure storage services
+The Azure portal shows the URLs that you can use to access resources in each of the Azure storage services, and also the primary and secondary access keys for your account. You use these keys to authenticate requests made against the storage services.
+
+The secondary access key provides the same access to your storage account as the primary access key and is generated as a backup should your primary access key be compromised. Additionally, it is recommended that you regenerate your access keys on a regular basis. You can modify a connection string setting to use the secondary key while you regenerate the primary key, then you can modify it to use the regenerated primary key while you regenerate the secondary key.
 
 ## Next steps
+
 To learn more about publishing apps to Azure from Visual Studio, see [Publishing a Cloud Service using the Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).

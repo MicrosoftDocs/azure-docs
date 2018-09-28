@@ -1,24 +1,51 @@
+---
+ title: include file
+ description: include file
+ services: virtual-network
+ author: jimdial
+ ms.service: virtual-network
+ ms.topic: include
+ ms.date: 04/09/2018
+ ms.author: jdial
+ ms.custom: include file
+---
+
 ## <a name="os-config"></a>Add IP addresses to a VM operating system
 
-Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the following steps for your VM operating system:
+Connect and sign in to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the steps that following for your VM operating system.
 
 ### Windows
 
 1. From a command prompt, type *ipconfig /all*.  You only see the *Primary* private IP address (through DHCP).
 2. Type *ncpa.cpl* in the command prompt to open the **Network connections** window.
-3. Open the properties for **Local Area Connection**.
+3. Open the properties for the appropriate adapter: **Local Area Connection**.
 4. Double-click Internet Protocol version 4 (IPv4).
 5. Select **Use the following IP address** and enter the following values:
 
 	* **IP address**: Enter the *Primary* private IP address
 	* **Subnet mask**: Set based on your subnet. For example, if the subnet is a /24 subnet then the subnet mask is 255.255.255.0.
 	* **Default gateway**: The first IP address in the subnet. If your subnet is 10.0.0.0/24, then the gateway IP address is 10.0.0.1.
-	* Click **Use the following DNS server addresses** and enter the following values:
+	* Select **Use the following DNS server addresses** and enter the following values:
 		* **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.
-	* Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
+	* Select the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses, that you added to the Azure network interface in a previous step, to the Windows network interface that is assigned the primary IP address assigned to the Azure network interface.
+
+        You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. When you manually set the IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) settings. You should never assign an Azure public IP address within the operating system.
+
 	* Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
+
 6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
-	
+7. Configure Windows to use the private IP address of the primary IP configuration in Azure as the primary IP address for Windows. See [No Internet access from Azure Windows VM that has multiple IP addresses](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) for details. 
+
+### Validation (Windows)
+
+To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, once you have added it correctly using steps above, use the following command:
+
+```bash
+ping -S 10.0.0.5 hotmail.com
+```
+>[!NOTE]
+>For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+
 ### Linux (Ubuntu)
 
 1. Open a terminal window.
@@ -39,9 +66,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 		```
 
 	You should see a .cfg file.
-4. Open the file: vi *filename*.
-
-	You should see the following lines at the end of the file:
+4. Open the file. You should see the following lines at the end of the file:
 
 	```bash
 	auto eth0
@@ -53,6 +78,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 	```bash
 	iface eth0 inet static
 	address <your private IP address here>
+	netmask <your subnet mask>
 	```
 
 6. Save the file by using the following command:
@@ -74,12 +100,12 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 8. Verify the IP address is added to the network interface with the following command:
 
 	```bash
-	Ip addr list eth0
+	ip addr list eth0
 	```
 
 	You should see the IP address you added as part of the list.
-	
-### Linux (Redhat, CentOS, and others)
+
+### Linux (Red Hat, CentOS, and others)
 
 1. Open a terminal window.
 2. Make sure you are the root user. If you are not, enter the following command:
@@ -102,36 +128,63 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 
 	You should see *ifcfg-eth0* as one of the files.
 
-5. Copy the *ifcfg-eth0* file and name it *ifcfg-eth0:0* with the following command:
+5. To add an IP address, create a configuration file for it as shown below. Note that one file must be created for each IP configuration.
 
 	```bash
-	cp ifcfg-eth0 ifcfg-eth0:0
+	touch ifcfg-eth0:0
 	```
 
-6. Edit the *ifcfg-eth0:0* file with the following command:
+6. Open the *ifcfg-eth0:0* file with the following command:
 
 	```bash
-	vi ifcfg-eth1
+	vi ifcfg-eth0:0
 	```
 
-7. Change the device to the appropriate name in the file; *eth0:0* in this case, with the following command:
+7. Add content to the file, *eth0:0* in this case, with the following command. Be sure to update information based on your IP address.
 
 	```bash
 	DEVICE=eth0:0
+    BOOTPROTO=static
+    ONBOOT=yes
+    IPADDR=192.168.101.101
+    NETMASK=255.255.255.0
 	```
 
-8. Change the *IPADDR = YourPrivateIPAddress* line to reflect the IP address.
-9. Save the file with the following command:
+8. Save the file with the following command:
 
 	```bash
 	:wq
 	```
 
-10. Restart the network services and make sure the changes are successful by running the following commands:
+9. Restart the network services and make sure the changes are successful by running the following commands:
 
 	```bash
 	/etc/init.d/network restart
-	Ipconfig
+	ifconfig
 	```
 
 	You should see the IP address you added, *eth0:0*, in the list returned.
+
+### Validation (Linux)
+
+To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+
+```bash
+ping -I 10.0.0.5 hotmail.com
+```
+>[!NOTE]
+>For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+
+For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+
+```bash
+echo 150 custom >> /etc/iproute2/rt_tables 
+
+ip rule add from 10.0.0.5 lookup custom
+ip route add default via 10.0.0.1 dev eth2 table custom
+
+```
+- Be sure to replace:
+	- **10.0.0.5** with the private IP address that has a public IP address associated to it
+	- **10.0.0.1** to your default gateway
+	- **eth2** to the name of your secondary NIC

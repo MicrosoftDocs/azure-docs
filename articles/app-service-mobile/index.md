@@ -1,10 +1,21 @@
 ---
+title: Azure Mobile Apps Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Mobile Apps in Azure App Service to build and host native iOS, Android, or Windows apps, or cross-platform apps using Xamarin or Cordova.
+services: app-service-mobile
+author: czeumault
+manager: carolz
 layout: LandingPage
-
+ms.assetid: 
+ms.service: app-service-mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 05/25/2018
+ms.author: carolz
 ---
 # Mobile Apps Documentation
 
-Mobile Apps in Azure App Service offers a scalable, mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
+Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, or Windows apps, or cross-platform apps using Xamarin or Cordova. Tutorials, videos, client SDK documentation, and more show you how to build and host the backend for any mobile app.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -14,7 +25,7 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/app-service-mobile.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/common/i_learn-about.svg" alt="Mobile Apps" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +43,7 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/common/i_video.svg" alt="Videos" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +61,7 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_android.svg" alt="Android" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,7 +79,7 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_cordova.svg" alt="Cordova" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -86,7 +97,7 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_ios.svg" alt="iOS" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -104,7 +115,7 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_Windows.svg" alt="Windows" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -122,11 +133,11 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/media/common/i_mobileapp.svg" alt="Xamarin.Android" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating a xamarin.Android app</h3>
+                        <h3>Get started creating a Xamarin.Android app</h3>
                     </div>
                 </div>
             </div>
@@ -140,11 +151,11 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_xamarin.svg" alt="Xamarin.Forms" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating a xamarin.Forms app</h3>
+                        <h3>Get started creating a Xamarin.Forms app</h3>
                     </div>
                 </div>
             </div>
@@ -158,7 +169,7 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/common/i_mobile-app-developement.svg" alt="Xamarin.iOS" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -181,8 +192,13 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET backend SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">Node.js backend SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Android client SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">iOS client SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">JavaScript/Cordova client SDK</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">Windows/Xamarin client SDK</a></p>
+                    </div>
                 </div>
             </div>
         </div>

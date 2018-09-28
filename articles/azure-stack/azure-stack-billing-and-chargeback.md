@@ -3,78 +3,65 @@ title: Customer Billing And Chargeback In Azure Stack | Microsoft Docs
 description: Learn how to retrieve resource usage information from Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: AlfredoPizzirani
-manager: byronr
+author: sethmanheim
+manager: femila
 editor: ''
 
-ms.assetid: a9afc7b6-43da-437b-a853-aab73ff14113
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: alfredop
+ms.date: 07/12/2018
+ms.author: sethm
+ms.reviewer: alfredop
 
 ---
-# Customer billing and chargeback in Azure Stack
-Now that you’re using Azure Stack, it’s a good idea to think about how
-to track usage. Service providers rely on usage information to bill
-their customers, and to understand the cost of providing services.
-Enterprises, too, typically track usage by department.
+# Usage and billing in Azure Stack
 
-Azure Stack is not a billing system. It won’t charge your tenants for
-the resources they use. But, Azure Stack does have the infrastructure to
-collect and aggregate usage data for every single resource provider. You
-can access this data and export it to a billing system by using a
-billing adapter, or export it to a business intelligence tool like
-Microsoft Power BI.
+This article describes how Azure Stack users are billed for resource usage. You can learn how the billing information is accessed for analytics and charge back.
 
-![Conceptual model of a billing adapter connecting Azure Stack to a Billing application](media/azure-stack-billing-and-chargeback/image1.png)
+Azure Stack collects and groups usage data for used resources. Then Azure Stack forwards this data to Azure Commerce. Azure Commerce bills you for Azure Stack usage in the same way as it would bill you for Azure usage.
+
+You can also get usage data and export it to your own billing or charge back system by using a billing adapter, or export it to a business intelligence tool such as Microsoft Power BI.
+
+
+## Usage pipeline
+
+Each resource provider in Azure Stack posts usage data per resource usage. The Usage Service periodically (hourly and daily) aggregates usage data and stores it in the usage database. Azure Stack operators and users can access the stored usage data through the Azure Stack Resource Usage APIs. 
+
+If you have [Registered your Azure Stack instance with Azure](azure-stack-register.md), Azure Stack is configured to send the usage data to Azure Commerce. After the data is uploaded to Azure, you can access it through the billing portal or by using Azure Resource Usage APIs. Refer to the [Usage data reporting](azure-stack-usage-reporting.md)  article to learn more about what usage data is reported to Azure.  
+
+The following image shows the key components in the usage pipeline: 
+
+![Usage pipeline](media\azure-stack-billing-and-chargeback\usagepipeline.png)
 
 ## What usage information can I find, and how?
-Azure Stack resource providers generate usage records at hourly
-intervals. The records show the amount of each resource that was
-consumed, and which subscription consumed the resource. This data is
-stored. You can access the data via the REST API.
 
-A service administrator can retrieve usage data for all tenant
-subscriptions. Individual tenants can retrieve only their own
-information.
+Azure Stack Resource providers (such as Compute, Storage, and Network) generate usage data at hourly intervals for each subscription. The usage data contains information about the resource used such as resource name, subscription used, and quantity used. To learn about the meters ID resources, refer to the [Usage API FAQ](azure-stack-usage-related-faq.md) article.
 
-Usage records have information about storage, network, and compute
-usage. For a list of meters, see [this article](azure-stack-usage-related-faq.md).
+After the usage data has been collected, it is [reported to Azure](azure-stack-usage-reporting.md) to generate a bill, which can be viewed through the Azure billing portal. 
 
-## Retrieve usage information
-To generate records, it’s essential that you have resources running and
-actively using the system. If you’re unsure whether you have any
-resources running, in Azure Stack Marketplace deploy, then run a virtual
-machine (VM). Look at the VM monitoring blade to make sure it’s running.
+> [!NOTE]  
+> Usage data reporting is not required for Azure Stack Development Kit and for Azure Stack integrated system users who license under the capacity model. To learn more about licensing in Azure Stack, see the [Packaging and pricing](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf) data sheet.
 
-We recommend that you run Windows PowerShell cmdlets to view usage data.
-PowerShell calls the Resource Usage APIs.
+The Azure billing portal shows usage data for the chargeable resources. In addition to the chargeable resources, Azure Stack captures usage data for a broader set of resources, which you can access in your Azure Stack environment through REST APIs or PowerShell. Azure Stack operators can get the usage data for all user subscriptions. Individual users can only get their usage details. 
 
-1. [Install and configure Azure
-   PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/).
-2. To sign in to Azure Resource Manager, use the PowerShell cmdlet
-   **Login-AzureRmAccount**.
-3. To select the subscription that you used to create resources, type
-   **Get-AzureRmSubscription –SubscriptionName “your sub” |
-   Select-AzureRmSubscription**.
-4. To retrieve the data, use the PowerShell cmdlet
-   [**Get-UsageAggregates**](https://msdn.microsoft.com/en-us/library/mt619285.aspx).
-   If usage data is available, it’s returned in PowerShell, as in the
-   following example. PowerShell returns 1,000 lines of usage per call.
-   You can use the *continuation* argument to retrieve sets of lines
-   beyond the first 1,000. For more information about usage data, see
-   the [Resource Usage API reference](azure-stack-provider-resource-api.md).
-   
-   ![](media/azure-stack-billing-and-chargeback/image2.png)
+## Usage reporting for multitenant Cloud Service Providers
+
+A multitenant Cloud Service Provider (CSP) who has many customers using Azure Stack may want to report each customer usage separately, so that the provider can charge usage to different Azure subscriptions. 
+
+Each customer is going to have their identity represented by a different Azure Active Directory (Azure AD) tenant. Azure Stack supports assigning one CSP subscription to each Azure AD tenant. You can add tenants and their subscriptions to the base Azure Stack registration. The base registration is done for all Azure Stacks. If a subscription isn't registered for a tenant, the user can still use Azure Stack, and their usage will be sent to the subscription used for the base registration. 
+
 
 ## Next steps
+
+[Register with Azure Stack](azure-stack-registration.md)
+
+[Report Azure Stack usage data to Azure](azure-stack-usage-reporting.md)
+
 [Provider Resource Usage API](azure-stack-provider-resource-api.md)
 
 [Tenant Resource Usage API](azure-stack-tenant-resource-usage-api.md)
 
 [Usage-related FAQ](azure-stack-usage-related-faq.md)
-

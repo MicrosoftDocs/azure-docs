@@ -1,23 +1,121 @@
----
+﻿---
 title: Release notes for Visual Studio Extension for Developer Analytics
 description: The latest updates for Visual Studio tools for Developer Analytics.
 services: application-insights
 documentationcenter: ''
-author: acearun
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 06/09/2016
-ms.author: aruna
+ms.topic: conceptual
+ms.date: 03/20/2017
+ms.reviewer: aruna
+ms.author: mbullwin
 
 ---
 # Release Notes for Developer Analytics Tools
-What's new: Application Insights and HockeyApp analytics in Visual Studio.
+
+## Version 7.18 (Visual Studio 2015)
+
+* Redesigned toast notifications.
+* "Not" filters in the Detail view for events in Application Insights Search.
+* Bug fixes
+
+## Version 8.6 (Visual Studio 2017 RTW and RC4) and Version 7.17 (Visual Studio 2015)
+
+* Annotations marking when you publish your app from Visual Studio are now made to your data in the Metrics Explorer in the Azure Portal
+* Markers are now added to scrollbars in code files, corresponding to red and yellow CodeLens warnings from Application Insights
+* Updated pricing information in the Configuration window
+* Bug fixes
+
+[See the detailed notes here](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#devanalytics)
+
+## Version 7.16 (Visual Studio 2015)
+
+* Bug fixes
+
+## Version 8.5 (Visual Studio 2017 RC3) and Version 7.15 (Visual Studio 2015)
+
+* CodeLens now shows both debug and live telemetry data in projects that send data to an Application Insights resource
+* Application Insights pricing information is now shown in the Configuration window
+* CodeLens for requests and exceptions now supports ASP.NET projects written in Visual Basic
+* Application Insights Search now shows un-sampled event counts for events that have been sampled
+* Bug fixes
+
+## Version 7.14 (Visual Studio 2015)
+
+* Search support for availability (web test) and page view events
+* Trends support for availability (web test) and page view events
+* Diagnostic Tools and event details label for SDK Adaptive Sampling
+* Bug fixes
+
+## Version 7.12 (Visual Studio 2015)
+
+* New publish notification format
+* Bug fixes
+
+## Version 8.4 (Visual Studio 2017 RC2) and Version 7.11 (Visual Studio 2015)
+
+* CodeLens shows requests for local debug sessions for projects with the Application Insights SDK
+* CodeLens can take you directly to Application Analytics to see user impact
+* Insert JavaScript to collect page views
+* Bug fixes
+
+## Version 7.10 (Visual Studio 2015)
+
+* New design for the Application Insights Configuration window
+* Bug fixes
+
+## Version 7.9 (Visual Studio 2015)
+
+* CodeLens shows exceptions that have occurred during local debug sessions for projects with the Application Insights SDK
+* Bug fixes
+
+## Version 8.3 (Visual Studio 2017 RC) and Version 7.8 (Visual Studio 2015)
+
+* New experience for adding Application Insights in the Configuration window
+* Bug fixes
+
+## Version 7.7 (Visual Studio 2015)
+
+* More accurate mappings from telemetry events to methods using custom ASP.NET routing
+* Bug fixes
+
+## Version 7.6 (Visual Studio 2015)
+
+* Analyze events involved in an operation from the new Track Operation tab on events in the Search tool
+* Bug fixes
+
+## Version 7.5 (Visual Studio 2015)
+
+* Production telemetry information for requests in Diagnostic Tools
+* Work Item creation from Related Items in the Search tool
+* Bug fixes
+
+## Version 7.4 (Visual Studio 2015)
+
+* The filter pane in Trends is now resizable
+* Bug fixes
+
+## Version 7.3 (Visual Studio 2015)
+
+* Requests in CodeLens
+* Configuration window
+* HockeyApp SDK updated to v4.2.2
+* Bug fixes
+
+## Version 7.2 (Visual Studio 2015)
+
+* Bug fixes
+
+## Version 7.1 (Visual Studio 2015)
+
+* Telemetry Readiness indicator in Application Insights Trends
+* Bug fixes
 
 ## Version 7.0
 ### Azure Application Insights Trends
@@ -67,7 +165,7 @@ When you are connected, you will see the upload form in the dialog.
 
 ![Upload dialog for Universal Windows apps](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
 
-Select the content to upload (an .appxbundle or .appx file), and then choose release options in the wizard. Optionally, you can add release notes on the next page. Choose **Finish** to begin the upload.
+Select the content to upload (a .appxbundle or .appx file), and then choose release options in the wizard. Optionally, you can add release notes on the next page. Choose **Finish** to begin the upload.
 
 When the upload is complete, a HockeyApp notification with confirmation and a link to the app in the HockeyApp portal appears.
 
@@ -92,7 +190,7 @@ This opens the HockeyApp upload dialog, which is similar to the one in a Univers
 
 Note a new field in this wizard, for specifying the version of the app. For Universal Windows apps, the information is populated from the manifest. Windows Forms apps, unfortunately, don’t have an equivalent to this feature. You will need to specify them manually.
 
-The rest of the flow is similar to Universal Windows apps: choose build and release options, add release notes, upload, and manage in the HockeyApp portal.
+The rest of the flow is similar to Universal Windows apps: choose Azure Pipelines options, add release notes, upload, and manage in the HockeyApp portal.
 
 It’s as simple as that. Give it a try and let us know what you think.
 
@@ -188,10 +286,4 @@ You can view your telemetry, in addition to other debugging data, on the Visual 
 You no longer have to sign in to Azure to add Application Insights packages to your project, either through the **New Project** dialog or from the project context menu. If you do sign in, the SDK will be installed and configured to send telemetry to the portal as before. If you don’t sign in, the SDK will be added to your project and it will generate telemetry for the diagnostic hub. You can configure it later if you want.
 
 ![New Project dialog](./media/app-insights-release-notes-vsix/newproject.png)
-
-### Device support
-At *Connect();* 2015, we [announced](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) that our mobile developer experience for devices is HockeyApp. HockeyApp helps you distribute beta builds to your testers, collect and analyze all crashes from your app, and collect feedback directly from your customers.
-HockeyApp supports your app on whichever platform you choose to build it, whether that be iOS, Android, or Windows, or a cross-platform solution like Xamarin, Cordova, or Unity.
-
-In future releases of the Application Insights extension, we’ll introduce a more integrated experience between HockeyApp and Visual Studio. For now, you can start with HockeyApp by simply adding the NuGet reference. See the [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) for more information.
 

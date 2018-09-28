@@ -1,10 +1,10 @@
 ---
-title: How to set a static internal private IP
+title: Static internal private IP - Azure VM - Classic
 description: Understanding static internal IPs (DIPs) and how to manage them
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genlin
+manager: cshepard
 editor: tysonn
 
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2016
-ms.author: jdial
+ms.date: 05/18/2018
+ms.author: genli
 
 ---
 # How to set a static internal private IP address using PowerShell (Classic)
 In most cases, you won’t need to specify a static internal IP address for your virtual machine. VMs in a virtual network will automatically receive an internal IP address from a range that you specify. But in certain cases, specifying a static IP address for a particular VM makes sense. For example, if your VM is going to run DNS or will be a domain controller. A static internal IP address stays with the VM even through a stop/deprovision state. 
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the [Resource Manager deployment model](virtual-networks-static-private-ip-arm-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the [Resource Manager deployment model](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
 
@@ -37,7 +37,7 @@ To verify if the IP address *10.0.0.7* is available in a vnet named *TestVnet*, 
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> If you want to test the command above in a safe environment follow the guidelines in [Create a Virtual Network](virtual-networks-create-vnet-classic-portal.md) to create a vnet named *TestVnet* and ensure it uses the *10.0.0.0/8* address space.
+> If you want to test the command above in a safe environment follow the guidelines in [Create a virtual network (classic)](virtual-networks-create-vnet-classic-pportal.md) to create a vnet named *TestVnet* and ensure it uses the *10.0.0.0/8* address space.
 > 
 > 
 
@@ -92,7 +92,7 @@ To remove the static internal IP added to the VM in the script above, run the fo
     | Update-AzureVM
 
 ## How to add a static internal IP to an existing VM
-To add a static internal IP to the VM created using the script above, runt he following command:
+To add a static internal IP to the VM created using the script above, run the following command:
 
     Get-AzureVM -ServiceName TestService000 -Name TestVM `
     | Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `

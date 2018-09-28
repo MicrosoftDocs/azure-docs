@@ -1,27 +1,20 @@
 ---
-title: Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets | Microsoft Docs
-description: Configure autoscale for VM Scale Sets based on multiple rules and profiles with email and webhoook notifications for scale actions.
-author: kamathashwin
-manager: carolz
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 7e3576e2-4a2b-4736-b5ae-98c4689cdd2b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/30/2016
-ms.author: ashwink
-
+title: Advanced Autoscale using Azure Virtual Machines
+description: Uses Resource Manager and VM Scale Sets with multiple rules and profiles which send email and call webhook URLs with scale actions.
+author: anirudhcavale
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 02/22/2016
+ms.author: ancav
+ms.component: autoscale
 ---
 
-# Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets
-You can scale out and in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough shows an example of configuring all these objects using a Resource Manager template on a VM Scale Set.
+# Advanced autoscale configuration using Resource Manager templates for VM Scale Sets
+You can scale-in and scale-out in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough shows an example of configuring all these objects using a Resource Manager template on a VM Scale Set.
 
 > [!NOTE]
-> While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling Cloud Services and Web Apps.
+> While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)
 > For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) and [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) documents
 >
 >
@@ -197,7 +190,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
             }
           }
     ```
-    For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Now your autoscale setting contains the three profiles explained previously.
+    For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/library/azure/dn931928.aspx). Now your autoscale setting contains the three profiles explained previously.
 
 7. Finally, look at the Autoscale **notification** section. Autoscale notifications allow you to do three things when a scale-out or in action is successfully triggered.
    - Notify the admin and co-admins of your subscription
@@ -238,6 +231,8 @@ You have updated an autoscale setting on a VM Scale set to include multiple scal
 
 ## Next Steps
 Use these links to learn more about autoscaling.
+
+[TroubleShoot Autoscale with Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
 [Common Metrics for Autoscale](insights-autoscale-common-metrics.md)
 

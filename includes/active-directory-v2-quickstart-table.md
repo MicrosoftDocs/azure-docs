@@ -1,10 +1,29 @@
-| Mobile & Native Apps | Web Apps & Web APIs | Integrate Directly with Protocols |
-| --- | --- | --- |
-| [Add Sign-In to an iOS App](../articles/active-directory/active-directory-v2-devquickstarts-ios.md) |[Add Sign-In to an AngularJS SPA (NodeJS)](../articles/active-directory/active-directory-v2-devquickstarts-angular-node.md) |[Register an Application](../articles/active-directory/active-directory-v2-app-registration.md) |
-| [Add Sign-In to an Android App](../articles/active-directory/active-directory-v2-devquickstarts-android.md) |[Add Sign-In to an AngularJS SPA (.NET)](../articles/active-directory/active-directory-v2-devquickstarts-angular-dotnet.md) |[Mobile Apps with OAuth 2.0](../articles/active-directory/active-directory-v2-protocols-oauth-code.md) |
-| [Add Sign-In to a Windows Desktop App](../articles/active-directory/active-directory-v2-devquickstarts-wpf.md) |[Add Sign-In to a .NET MVC App](../articles/active-directory/active-directory-v2-devquickstarts-dotnet-web.md) |[Web Apps with OpenID Connect](../articles/active-directory/active-directory-v2-protocols-oidc.md) |
-| [Call Office 365 Rest APIs from an app](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |[Add Sign-In to a Node JS Web App](../articles/active-directory/active-directory-v2-devquickstarts-node-web.md) |[Single Page Apps with OpenID Connect](../articles/active-directory/active-directory-v2-protocols-implicit.md) |
-| [Secure a .NET Web API](../articles/active-directory/active-directory-v2-devquickstarts-dotnet-api.md) |[Daemon apps with the Client Credentials Flow](../articles/active-directory/active-directory-v2-protocols-oauth-client-creds.md) | |
-| [Secure a NodeJS Web API](../articles/active-directory/active-directory-v2-devquickstarts-node-api.md) | | |
-| [Call Office 365 REST APIs from the web](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | | |
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
 
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.component: develop
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/01/2018
+ms.author: andret
+ms.custom: include file
+---
+
+| Mobile and native apps | Web apps and web APIs | Integrate directly with protocols |
+| --- | --- | --- |
+| [Add sign-in to an iOS application](../articles/active-directory/develop/tutorial-v2-ios.md) | [Add sign-in to a JavaScript Single Page Application (SPA)](../articles/active-directory/develop/tutorial-v2-javascript-spa.md) |[Register an application](../articles/active-directory/develop/quickstart-v2-register-an-app.md) |
+| [Add sign-in to an Android application](../articles/active-directory/develop/tutorial-v2-android.md) | [Add sign-in to a ASP.NET application](../articles/active-directory/develop/tutorial-v2-asp-webapp.md) |[Mobile applications with the OAuth 2.0 protocol](../articles/active-directory/develop/v2-oauth2-auth-code-flow.md) |
+| [Add sign-in to a Windows Desktop application](../articles/active-directory/develop/guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  [Add sign-in to a ASP.NET Core Web application](https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2) | [Web applications with the OpenID Connect protocol](../articles/active-directory/develop/v2-protocols-oidc.md) |
+| [Add sign-in to a multi-platform Xamarin application](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)| [Add sign-in to a Node.js web application](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) |[JavaScript SPAs with the OpenID Connect protocol](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) |
+|  | [Protect an ASP.NET Web API](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet) | [Daemon applications with the OAuth 2.0 client credentials flow](../articles/active-directory/develop/v2-oauth2-client-creds-grant-flow.md) |
+|  | [Protect an ASP.NET Core Web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2) | |

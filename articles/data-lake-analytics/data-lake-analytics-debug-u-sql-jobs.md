@@ -1,92 +1,107 @@
 ---
-title: Debug U-SQL jobs | Microsoft Docs
-description: 'Learn how to debug U-SQL failed vertex using Visual Studio. '
+title: Debug user-defined C# code for failed Azure Data Lake U-SQL jobs
+description: This article describes how to debug a U-SQL failed vertex using Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 09/02/2016
-ms.author: jgao
-
+author: yanancai
+ms.author: yanacai
+ms.reviewer: jasonwhowell
+ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
+ms.topic: conceptual
+ms.date: 11/30/2017
 ---
-# Debug C# code in U-SQL for Data Lake Analytics jobs
-Learn how to use Azure Data Lake Visual Studio tools to debug failed U-SQL jobs due to bugs inside user code. 
+# Debug user-defined C# code for failed U-SQL jobs
 
-The Visual Studio tool allows you to download compiled code and necessary vertex data from  cluster to trace and debug failed jobs .
+U-SQL provides an extensibility model using C#. In U-SQL scripts, it is easy to call C# functions and perform analytic functions that SQL-like declarative language does not support. To learn more for U-SQL extensibility, see [U-SQL programmability guide](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-Big data systems usually provide extensibility model through languages such as Java, C#, Python, etc. Many these systems provide limited runtime debugging information, that makes it hard to debug runtime errors in custom code. The latest Visual Studio tools comes with a feature called “Failed Vertex Debug”. Using this feature, you can download the runtime data from Azure to local workstation so that you can debug failed custom C# code using the same runtime and exact input data from the cloud.  After the problems are fixed, you can re-run the revised code in Azure from the tools.
+In practice, any code may need debugging, but it is hard to debug a distributed job with custom code on the cloud with limited log files. [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs) provides a feature called **Failed Vertex Debug**, which helps you more easily debug the failures that occur in your custom code. When U-SQL job fails, the service keeps the failure state and the tool helps you to download the cloud failure environment to the local machine for debugging. The local download captures the entire cloud environment, including any input data and user code.
 
-For a video presentation of this feature, see [Debug your custom code in Azure Data Lake Analytics](https://mix.office.com/watch/1bt17ibztohcb).
+The following video demonstrates Failed Vertex Debug in Azure Data Lake Tools for Visual Studio.
 
-> [!NOTE]
-> Visual Studio may hang or crash if you don’t have the following two windows upgrades: [Microsoft Visual C++ 2015 Redistributable Update 2](https://www.microsoft.com/download/details.aspx?id=51682), 
-> [Universal C Runtime for Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/3enkNvprfm4]
+>
 
-## Prerequisites
-* Have gone through the [Get started](data-lake-analytics-data-lake-tools-get-started.md) article.
+> [!IMPORTANT]
+> Visual Studio requires the following two updates for using this feature: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) and the [Universal C Runtime for Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+>
 
-## Create and configure debug projects
-When you open a failed job in Data Lake Visual Studio tool, you will get an alert. The detailed error info will be shown in the error tab and the yellow alert bar on the top of the window. 
+## Download failed vertex to local machine
+
+When you open a failed job in Azure Data Lake Tools for Visual Studio, you see a yellow alert bar with detailed error messages in the error tab.
+
+1. Click **Download** to download all the required resources and input streams. If the download doesn't complete, click **Retry**.
+
+2. Click **Open** after the download completes to generate a local debugging environment. A new debugging solution will be opened, and if you have existing solution opened in Visual Studio, please make sure to save and close it before debugging.
 
 ![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-**To download vertex and create a debug solution**
+## Configure the debugging environment
 
-1. Open a failed U-SQL job in Visual Studio.
-2. Click **Download** to download all the required resources and input streams. Click **Retry** if the download failed.
-3. Click **Open** after the download is completed to create a local debug project. A new Visual Studio solution called **VertexDebug** with an empty project called **LocalVertexHost** will be created.
-
-If user defined operators are used in U-SQL code behind (Script.usql.cs), you must create a Class Library C# project with the user defined operators code, and include the project in the VertexDebug Solution.
-
-If you have registered .dll assemblies to your Data Lake Analytics database, you must add the source code of the assemblies to the VertexDebug Solution.
-
-If you created a separate C# class library for your U-SQL code and registered .dll assemblies to your Data Lake Analytics database, you need to add the source C# project of the assemblies to the VertexDebug Solution.
-
-In some rare cases, you use user defined operators in U-SQL code behind (Script.usql.cs) file in the original solution. If you want to make it work, you need to create a C# library containing the source code and change the assembly name to the one registered in the cluster. You can get the assembly name registered in the cluster by checking the script that got running in the cluster. You can do so by opening the U-SQL job and click “script” in the job panel. 
-
-**To configure the solution**
-
-1. From Solution explorer, right-click the C# project you just created, and then click **Properties**.
-2. Set the Output path as LocalVertexHost project working directory path. You can get LocalVertexHost project Working Directory path through LocalVertexHost properties.
-3. Build your C# project in order to put the .pdb file into the LocalVertexHost project Working Directory, or you can copy the .pdb file to this folder manually.
-4. In **Exception Settings**, check Common Language Runtime Exceptions:
+> [!NOTE]
+> Before debugging, be sure to check **Common Language Runtime Exceptions** in the Exception Settings window (**Ctrl + Alt + E**).
 
 ![Azure Data Lake Analytics U-SQL debug visual studio setting](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
-## Debug the job
-After you have created a debug solution by downloading the vertex and have configured the environment, you can start debugging your U-SQL code.
+In the new launched Visual Studio instance, you may or may not find the user-defined C# source code:
 
-1. From Solution Explorer, right-click the **LocalVertexHost** project you just created, point to **Debug**, and then click **Start new instance**. The LocalVertexHost must be set as the Startup project. You may see the following message for the first time which you can ignore. It can take up to one minute to get to the debug screen.
-   
-   ![Azure Data Lake Analytics U-SQL debug visual studio warning](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
-2. Use Visual Studio based debugging experience (watch, variables, etc.) to troubleshoot the problem. 
-3. After you have identified an issue, fix the code, and then rebuild the C# project before testing it again until all the problems are resolved. After the debug has been completed successfully, the output window showing the following message 
-   
-     The Program ‘LocalVertexHost.exe’ has exited with code 0 (0x0).
+1. [I can find my source code in the solution](#source-code-is-included-in-debugging-solution)
+
+2. [I cannot find my source code in the solution](#source-code-is-not-included-in-debugging-solution)
+
+### Source code is included in debugging solution
+
+There are two cases that the C# source code is captured:
+
+1. The user code is defined in code-behind file (typically named `Script.usql.cs` in a U-SQL project).
+
+2. The user code is defined in C# class library project for U-SQL application, and registered as assembly with **debug info**.
+
+If the source code is imported to the solution, you can use the Visual Studio debugging tools (watch, variables, etc.) to troubleshoot the problem:
+
+1. Press **F5** to start debugging. The code runs until it is stopped by an exception.
+
+2. Open the source code file and set breakpoints, then press **F5** to debug the code step by step.
+
+    ![Azure Data Lake Analytics U-SQL debug exception](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
+
+### Source code is not included in debugging solution
+
+If the user code is not included in code-behind file, or you did not register the assembly with **debug info**, then the source code is not included automatically in the debugging solution. In this case, you need extra steps to add your source code:
+
+1. Right-click **Solution 'VertexDebug' > Add > Existing Project...** to find the assembly source code and add the project to the debugging solution.
+
+    ![Azure Data Lake Analytics U-SQL debug add project](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
+
+2. Get the project folder path for **FailedVertexDebugHost** project. 
+
+3. Right-Click **the added assembly source code project > Properties**, select the **Build** tab at left, and paste the copied path ending with \bin\debug as **Output > Output path**. The final output path is like "<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\".
+
+    ![Azure Data Lake Analytics U-SQL debug set pdb path](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
+
+After these settings, start debugging with **F5** and breakpoints. You can also use the Visual Studio debugging tools (watch, variables, etc.) to troubleshoot the problem.
+
+> [!NOTE]
+> Rebuild the assembly source code project each time after you modify the code to generate updated .pdb files.
 
 ## Resubmit the job
-After you have completed debugging your U-SQL code, you can resubmit the failed job.
 
-1. Register new .dll assemblies to your ADLA database.
-   
-   1. From Server Explorer/Cloud Explorer in Data Lake Visual Studio Tool, expand the **Databases** node 
-   2. Right-click Assemblies to Register assemblies. 
-   3. Register your new .dll assemblies to the ADLA database.
-2. Or copy your C# code to script.usql.cs--C# code behind file.
-3. Resubmit your job.
+After debugging, if the project completes successfully the output window shows the following message:
 
-## Next Steps
-* [Tutorial: Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-* [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Develop U-SQL User defined operators for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+    The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
 
+![Azure Data Lake Analytics U-SQL debug succeed](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
+
+To resubmit the failed job:
+
+1. For jobs with code-behind solutions, copy the C# code into the code-behind source file (typically `Script.usql.cs`).
+
+2. For jobs with assemblies, right-click the assembly source code project in debugging solution and register the updated .dll assemblies into your Azure Data Lake catalog.
+
+3. Resubmit the U-SQL job.
+
+## Next steps
+
+- [U-SQL programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
+- [Develop U-SQL User-defined operators for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+- [Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
+- [How to troubleshoot an abnormal recurring job](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

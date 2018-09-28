@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 
 ---
@@ -24,30 +24,35 @@ This recommendation is generated for any non-web port that has "any" as source.
 
 > [!NOTE]
 > This document introduces the service by using an example deployment. This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations blade**, select **Restrict access through Internet facing endpoint**.
+
    ![Restrict access through Internet facing endpoint][1]
 2. This opens the blade **Restrict access through Internet facing endpoint**. This blade lists the virtual machines (VMs) with inbound rules that create a potential security issue. Select a VM.
+
    ![Select a VM][2]
 3. The **NSG** blade displays Network Security Group information, related inbound rules, and the associated VM. Select **Edit inbound rules** to proceed with editing an inbound rule.
+
    ![Network Security Group blade][3]
 4. On the **Inbound security rules** blade select the inbound rule to edit. In this example, let’s select **AllowWeb**.
+
    ![Inbound security rules][4]
-   
-   Note, you can also select **Default rules** to see the set of default rules contained by all NSGs. The default rules cannot be deleted but, because they are assigned a lower priority, they can be overridden by the rules that you create. Learn more about [default rules](../virtual-network/virtual-networks-nsg.md#default-rules).
+
+   Note, you can also select **Default rules** to see the set of default rules contained by all NSGs. The default rules cannot be deleted but, because they are assigned a lower priority, they can be overridden by the rules that you create. Learn more about [default rules](../virtual-network/security-overview.md#default-security-rules).
+
    ![Default rules][5]
-5. On the **AllowWeb** blade, edit the properties of the inbound rule so that the **Source** is an IP address or block of IP addresses. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/virtual-networks-nsg.md#nsg-rules).
-   
+5. On the **AllowWeb** blade, edit the properties of the inbound rule so that the **Source** is an IP address or block of IP addresses. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/security-overview.md#security-rules).
+
    ![Edit inbound rule][6]
 
 ## See also
 This article showed you how to implement the Security Center recommendation "Restrict access through Internet facing endpoint.” To learn more about enabling NSGs and rules, see the following:
 
-* [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
-* [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [What is a Network Security Group (NSG)?](../virtual-network/security-overview.md)
+* [Manage a network security group](../virtual-network/manage-network-security-group.md)
 
 To learn more about Security Center, see the following:
 

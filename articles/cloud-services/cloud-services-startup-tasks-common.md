@@ -3,7 +3,7 @@ title: Common startup tasks for Cloud Services | Microsoft Docs
 description: Provides some examples of common startup tasks you may want to perform in your cloud services web role or worker role.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
-ms.author: adegeo
+ms.date: 07/18/2017
+ms.author: jeconnoc
 
 ---
 # Common Cloud Service startup tasks
@@ -24,7 +24,6 @@ See [this article](cloud-services-startup-tasks.md) to understand how startup ta
 
 > [!NOTE]
 > Startup tasks are not applicable to Virtual Machines, only to Cloud Service Web and Worker roles.
-> 
 > 
 
 ## Define environment variables before a role starts
@@ -345,7 +344,7 @@ The simplest way to detect that a task has already run is to create a file in th
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
-IF EXIST "%RoleRoot%\Task1_Success.txt" (
+IF EXIST "%PathToApp1Install%\Task1_Success.txt" (
   ECHO Application 1 is already installed. Exiting. >> "%TEMP%\StartupLog.txt" 2>&1
   GOTO Finish
 )
@@ -358,7 +357,7 @@ IF %ERRORLEVEL% EQU 0 (
   REM   The application installed without error. Create a file to indicate that the task
   REM   does not need to be run again.
 
-  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
+  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%PathToApp1Install%\Task1_Success.txt"
 
 ) ELSE (
   REM   An error occurred. Log the error and exit with the error code.
@@ -384,7 +383,7 @@ Visual Studio does not provide a debugger to step through batch files, so it's g
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
-To simplify your xml, you can create a wrapper *cmd* file that calls all of your startup tasks along with logging and ensures each child-task shares the same environment variables. This may have an 
+To simplify your xml, you can create a wrapper *cmd* file that calls all of your startup tasks along with logging and ensures each child-task shares the same environment variables.
 
 You may find it annoying though to use `>> "%TEMP%\StartupLog.txt" 2>&1` on the end of each startup task. You can enforce task logging by creating a wrapper that handles logging for you. This wrapper calls the real batch file you want to run. Any output from the target batch file will be redirected to the *Startuplog.txt* file.
 

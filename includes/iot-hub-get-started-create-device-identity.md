@@ -1,25 +1,40 @@
-## Create a device identity
-In this section, you use a Node.js tool called [IoT Hub Explorer][iot-hub-explorer] to create a device identity for this tutorial.
+---
+ title: include file
+ description: include file
+ services: iot-hub
+ author: dominicbetts
+ ms.service: iot-hub
+ ms.topic: include
+ ms.date: 09/07/2018
+ ms.author: dobett
+ ms.custom: include file
+---
 
-1. Run the following in your command-line environment:
-   
-    npm install -g iothub-explorer@latest
-2. Then, run the following command to login to your hub, remembering to substitute `{iot hub connection string}` with the IoT Hub connection string you previously copied:
-   
-    iothub-explorer login "{iot hub connection string}"
-3. Finally, create a new device identity called `myDeviceId` with the command:
-   
-    iothub-explorer create myDeviceId --connection-string
+## Create a device identity
+
+In this section, you use the Azure CLI to create a device identity for this tutorial. The Azure CLI is preinstalled in the [Azure Cloud Shell](https://docs.microsoft.com/zure/cloud-shell/overview), or you can [install it locally](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Device IDs are case sensitive.
+
+1. Run the following command in the command-line environment where you are using the Azure CLI to install the IoT extension:
+
+    ```cmd/sh
+    az extension add --name azure-cli-iot-ext
+    ```
+
+1. If you are running the Azure CLI locally, use the following command to sign in to your Azure account (if you are using the Cloud Shell, you are signed in automatically and you don't need to run this command):
+
+    ```cmd/sh
+    az login
+    ```
+
+1. Finally, create a new device identity called `myDeviceId` and retrieve the device connection string with these commands:
+
+    ```cmd/sh
+    az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}
+    az iot hub device-identity show-connection-string --device-id myDeviceId --hub-name {Your IoT Hub name} -o table
+    ```
+
+   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 Make a note of the device connection string from the result. This device connection string is used by the device app to connect to your IoT Hub as a device.
 
-![][img-identity]
-
-Refer to [Getting started with IoT Hub][lnk-getstarted] for a way to create device identities programmatically.
-
 <!-- images and links -->
-[img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png
-
-[iot-hub-explorer]: https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer
-
-[lnk-getstarted]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md

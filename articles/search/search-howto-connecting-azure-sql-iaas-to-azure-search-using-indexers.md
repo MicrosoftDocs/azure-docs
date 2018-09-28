@@ -1,24 +1,17 @@
 ---
-title: Configure a connection from an Azure Search indexer to SQL Server on an Azure virtual machine | Microsoft Docs
+title: SQL VM connection to Azure Search | Microsoft Docs
 description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure Search.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: ''
-author: jack4it
-manager: pablocas
-editor: ''
-
-ms.assetid: 46e42e0e-c8de-4fec-b11a-ed132db7e7bc
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 09/26/2016
-ms.author: jackma
+ms.topic: conceptual
+ms.date: 01/23/2017
+ms.author: heidist
 
 ---
 # Configure a connection from an Azure Search indexer to SQL Server on an Azure VM
-As noted in [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#frequently-asked-questions), creating indexers against **SQL Server on Azure VMs** (or **SQL Azure VMs** for short) is supported by Azure Search, but there are a few security-related prerequisites to take care of first. 
+As noted in [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), creating indexers against **SQL Server on Azure VMs** (or **SQL Azure VMs** for short) is supported by Azure Search, but there are a few security-related prerequisites to take care of first. 
 
 **Task Duration:** About 30 minutes, assuming you already installed a certificate on the VM.
 
@@ -47,22 +40,22 @@ Azure Search requires an encrypted channel for all indexer requests over a publi
 ## Configure SQL Server connectivity in the VM
 After you set up the encrypted connection required by Azure Search, there are additional configuration steps intrinsic to SQL Server on Azure VMs. If you haven't done so already , the next step is to finish configuration using either one of these articles:
 
-* For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../virtual-machines/virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-* For a **Classic** VM, see [Connect to a SQL Server Virtual Machine on Azure Classic](../virtual-machines/virtual-machines-windows-classic-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
+* For a **Classic** VM, see [Connect to a SQL Server Virtual Machine on Azure Classic](../virtual-machines/windows/classic/sql-connect.md).
 
 In particular, review the section in each article for "connecting over the internet".
 
 ## Configure the Network Security Group (NSG)
 It is not unusual to configure the NSG and corresponding Azure endpoint or Access Control List (ACL) to make your Azure VM accessible to other parties. Chances are you've done this before to allow your own application logic to connect to your SQL Azure VM. It's no different for an Azure Search connection to your SQL Azure VM. 
 
-The links below provide instructions on NSG configuration for VM deployments. Use these instructions to ACL an Azure SEarch endpoint based on its IP address.
+The links below provide instructions on NSG configuration for VM deployments. Use these instructions to ACL an Azure Search endpoint based on its IP address.
 
 > [!NOTE]
-> For background, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md)
+> For background, see [What is a Network Security Group?](../virtual-network/security-overview.md)
 > 
 > 
 
-* For a **Resource Manager** VM, see [How to create NSGs for ARM deployments](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+* For a **Resource Manager** VM, see [How to create NSGs for ARM deployments](../virtual-network/tutorial-filter-network-traffic.md). 
 * For a **Classic** VM, see [How to create NSGs for Classic deployments](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
 IP addressing can pose a few challenges that are easily overcome if you are aware of the issue and potential workarounds. The remaining sections provide recommendations for handling issues related to IP addresses in the ACL.

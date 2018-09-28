@@ -1,174 +1,104 @@
 ---
-title: Azure Functions Storage blob bindings | Microsoft Docs
-description: Understand how to use Azure Storage triggers and bindings in Azure Functions.
+title: Azure Blob storage bindings for Azure Functions
+description: Understand how to use Azure Blob storage triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: christopheranderson
-manager: erikre
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.assetid: aba8976c-6568-4ec7-86f5-410efd6b0fb9
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 11/02/2016
-ms.author: chrande
-
+ms.date: 09/03/2018
+ms.author: glenga
 ---
-# Azure Functions Storage blob bindings
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure Storage blob bindings in Azure Functions. 
-Azure Functions supports trigger, input, and output bindings for Azure Storage blobs.
+# Azure Blob storage bindings for Azure Functions
+
+This article explains how to work with Azure Blob storage bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for blobs. The article includes a section for each binding:
+
+* [Blob trigger](#trigger)
+* [Blob input binding](#input)
+* [Blob output binding](#output)
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> A [blob only storage account](../storage/storage-create-storage-account.md#blob-storage-accounts) is not supported. Azure Functions requires a general-purpose storage account to use with blobs. 
-> 
-> 
+> Use the Event Grid trigger instead of the Blob storage trigger for Blob storage accounts, for high scale, or to avoid cold-start delays. For more information, see the [Trigger](#trigger) section. 
 
-<a name="trigger"></a>
+## Packages - Functions 1.x
 
-## Storage blob trigger
-The Azure Storage blob trigger enables you to monitor a storage container for new and updated blobs and react to it. 
+The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub repository.
 
-The Storage blob trigger to a function uses the following JSON objects in the `bindings` array of function.json:
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-```json
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
+## Packages - Functions 2.x
+
+The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs) GitHub repository.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## Trigger
+
+The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as input to the function.
+
+The [Event Grid trigger](functions-bindings-event-grid.md) has built-in support for [blob events](../storage/blobs/storage-blob-event-overview.md) and can also be used to start a function when a new or updated blob is detected. For an example, see the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial.
+
+Use Event Grid instead of the Blob storage trigger for the following scenarios:
+
+* Blob storage accounts
+* High scale
+* Minimizing cold-start delay
+
+### Blob storage accounts
+
+[Blob storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts) are supported for blob input and output bindings but not for blob triggers. Blob storage triggers require a general-purpose storage account.
+
+### High scale
+
+High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
+
+### Cold-start delay
+
+If your function app is on the Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. To avoid this cold-start delay, you can switch to an App Service plan with Always On enabled, or use a different trigger type.
+
+### Queue storage trigger
+
+Besides Event Grid, another alternative for processing blobs is the Queue storage trigger, but it has no built-in support for blob events. You would have to create queue messages when creating or updating blobs. For an example that assumes you've done that, see the [blob input binding example later in this article](#input---example).
+
+## Trigger - example
+
+See the language-specific example:
+
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
+* [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---javascript-example)
+
+### Trigger - C# example
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that writes a log when a blob is added or updated in the `samples-workitems` container.
+
+```csharp
+[FunctionName("BlobTriggerCSharp")]        
+public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
 {
-    "name": "<Name of input parameter in function signature>",
-    "type": "blobTrigger",
-    "direction": "in",
-    "path": "<container to monitor, and optionally a blob name pattern - see below>",
-    "connection":"<Name of app setting - see below>"
+    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
-Note the following:
+The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#trigger---blob-name-patterns) later in this article.
 
-* For `path`, see [Name patterns](#pattern) to find out how to format blob name patterns.
-* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-  editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+For more information about the `BlobTrigger` attribute, see [Trigger - attributes](#trigger---attributes).
 
-Also, see one of the following subheadings for more information:
+### Trigger - C# script example
 
-* [Name patterns](#pattern)
-* [Blob receipts](#receipts)
-* [Handling poison blobs](#poison)
+The following example shows a blob trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
 
-<a name="pattern"></a>
-
-### Name patterns
-You can specify a blob name pattern in the `path` property. For example:
-
-```json
-"path": "input/original-{name}",
-```
-
-This path would find a blob named *original-Blob1.txt* in the *input* container, and the value of the `name` variable in function code would be `Blob1`.
-
-Another example:
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-
-This path would also find a blob named *original-Blob1.txt*, and the value of the `blobname` and `blobextension` variables in function code 
-would be *original-Blob1* and *txt*.
-
-You can restrict the file type of blobs by using a fixed value for the file extension. For example:
-
-```json
-"path": "samples/{name}.png",
-```
-
-In this case, only *.png* blobs in the *samples* container trigger the function.
-
-Curly braces are special characters in name patterns. To specify blob names that have curly braces in the name, double the curly braces. 
-For example:
-
-```json
-"path": "images/{{20140101}}-{name}",
-```
-
-This path would find a blob named *{20140101}-soundfile.mp3* in the *images* container, and the `name` variable value in the function code 
-would be *soundfile.mp3*. 
-
-<a name"receipts"></a>
-
-### Blob receipts
-The Azure Functions runtime makes sure that no blob trigger function gets called more than once for the same new or updated blob. 
-It does so by maintaining *blob receipts* to determine if a given blob version has been processed.
-
-Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure storage account for your function app 
-(specified by the `AzureWebJobsStorage` app setting). A blob receipt has the following information:
-
-* The triggered function ("*&lt;function app name>*.Functions.*&lt;function name>*", for example: "functionsf74b96f7.Functions.CopyBlob")
-* The container name
-* The blob type ("BlockBlob" or "PageBlob")
-* The blob name
-* The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
-
-To force reprocessing of a blob, delete the blob receipt for that blob from the *azure-webjobs-hosts* container manually.
-
-<a name="poison"></a>
-
-### Handling poison blobs
-When a blob trigger function fails, Azure Functions retries that function up to 5 times by default (including the first try) for a given blob. 
-If all 5 tries fail, Functions adds a message to a Storage queue named *webjobs-blobtrigger-poison*. The queue message for poison blobs 
-is a JSON object that contains the following properties:
-
-* FunctionId (in the format *&lt;function app name>*.Functions.*&lt;function name>*)
-* BlobType ("BlockBlob" or "PageBlob")
-* ContainerName
-* BlobName
-* ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
-
-### Blob polling for large containers
-If the blob container watched by the binding contains more than 10,000 blobs, the Functions runtime scans log files to watch 
-for new or changed blobs. This process is not real time. A function might not get triggered until several minutes or longer 
-after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) 
-basis. There is no guarantee that all events are captured. Under some conditions, logs may be missed. If the speed and reliability 
-limitations of blob triggers for large containers are not acceptable for your application, the recommended method is to create a 
-[queue message](../storage/storage-dotnet-how-to-use-queues.md) when you create the blob, and use a 
-[queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob.
-
-<a name="triggerusage"></a>
-
-## Trigger usage
-In C# functions, you bind to the input blob data by using a named parameter in your function signature, like `<T> <name>`.
-Where `T` is the data type that you want to deserialize the data into, and `paramName` is the name you specified in the 
-[trigger JSON](#trigger). In Node.js functions, you access the input blob data using `context.bindings.<name>`.
-
-The blob can be deserialized into any of the following types:
-
-* Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialized blob data.
-  If you declare a custom input type (e.g. `FooType`), Azure Functions attempts to deserialize the JSON data
-  into your specified type.
-* String - useful for text blob data.
-
-In C# functions, you can also bind to any of the following types, and the Functions runtime will attempt to 
-deserialize the blob data using that type:
-
-* `TextReader`
-* `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* `CloudBlobContainer`
-* `CloudBlobDirectory`
-* `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
-* Other types deserialized by [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
-
-## Trigger sample
-Suppose you have the following function.json, that defines a Storage blob trigger:
+Here's the binding data in the *function.json* file:
 
 ```json
 {
@@ -178,40 +108,65 @@ Suppose you have the following function.json, that defines a Storage blob trigge
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
-            "connection":""
+            "path": "samples-workitems/{name}",
+            "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-See the language-specific sample that logs the contents of each blob that is added to the monitored container.
+The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#trigger---blob-name-patterns) later in this article.
 
-* [C#](#triggercsharp)
-* [Node.js](#triggernodejs)
+For more information about *function.json* file properties, see the [Configuration](#trigger---configuration) section explains these properties.
 
-<a name="triggercsharp"></a>
-
-### Trigger usage in C# #
+Here's C# script code that binds to a `Stream`:
 
 ```cs
-public static void Run(string myBlob, TraceWriter log)
+public static void Run(Stream myBlob, TraceWriter log)
 {
-    log.Info($"C# Blob trigger function processed: {myBlob}");
+   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
-<!--
-<a name="triggerfsharp"></a>
-### Trigger usage in F# ##
-```fsharp
+Here's C# script code that binds to a `CloudBlockBlob`:
 
-``` 
--->
+```cs
+#r "Microsoft.WindowsAzure.Storage"
 
-<a name="triggernodejs"></a>
+using Microsoft.WindowsAzure.Storage.Blob;
 
-### Trigger usage in Node.js
+public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
+{
+    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
+}
+```
+
+### Trigger - JavaScript example
+
+The following example shows a blob trigger binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
+
+Here's the *function.json* file:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myBlob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#trigger---blob-name-patterns) later in this article.
+
+For more information about *function.json* file properties, see the [Configuration](#trigger---configuration) section explains these properties.
+
+Here's the JavaScript code:
 
 ```javascript
 module.exports = function(context) {
@@ -220,67 +175,289 @@ module.exports = function(context) {
 };
 ```
 
-<a name="input"></a>
+### Trigger - Java example
 
-## Storage Blob input binding
-The Azure Storage blob input binding enables you to use a blob from a storage container in your function. 
+The following example shows a blob trigger binding in a *function.json* file and [Java code](functions-reference-java.md) that uses the binding. The function writes a log when a blob is added or updated in the `myblob` container.
 
-The Storage blob input to a function uses the following JSON objects in the `bindings` array of function.json:
+Here's the *function.json* file:
 
 ```json
 {
-  "name": "<Name of input parameter in function signature>",
-  "type": "blob",
-  "direction": "in"
-  "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "file",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "myblob/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
 ```
 
-Note the following:
+Here's the Java code:
 
-* `path` must contain the container name and the blob name. For example, if you have a [queue trigger](functions-bindings-storage-queue.md)
-  in your function, you can use `"path": "samples-workitems/{queueTrigger}"` to point to a blob in the `samples-workitems` container with a name that 
-  matches the blob name specified in the trigger message.   
-* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-  editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+```java
+ @FunctionName("blobprocessor")
+ public void run(
+    @BlobTrigger(name = "file",
+                  dataType = "binary",
+                  path = "myblob/filepath",
+                  connection = "myconnvarname") byte[] content,
+    @BindingName("name") String filename,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info("Name: " + name + " Size: " + content.length + " bytes");
+ }
 
-<a name="inputusage"></a>
+```
 
-## Input usage
-In C# functions, you bind to the input blob data by using a named parameter in your function signature, like `<T> <name>`.
-Where `T` is the data type that you want to deserialize the data into, and `paramName` is the name you specified in the 
-[input binding](#input). In Node.js functions, you access the input blob data using `context.bindings.<name>`.
 
-The blob can be deserialized into any of the following types:
+## Trigger - attributes
 
-* Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialized blob data.
-  If you declare a custom input type (e.g. `FooType`), Azure Functions attempts to deserialize the JSON data
-  into your specified type.
-* String - useful for text blob data.
+In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a blob trigger:
 
-In C# functions, you can also bind to any of the following types, and the Functions runtime will attempt to 
-deserialize the blob data using that type:
+* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)
 
-* `TextReader`
+  The attribute's constructor takes a path string that indicates the container to watch and optionally a [blob name pattern](#trigger---blob-name-patterns). Here's an example:
+
+  ```csharp
+  [FunctionName("ResizeImage")]
+  public static void Run(
+      [BlobTrigger("sample-images/{name}")] Stream image, 
+      [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
+  ```
+
+  You can set the `Connection` property to specify the storage account to use, as shown in the following example:
+
+   ```csharp
+  [FunctionName("ResizeImage")]
+  public static void Run(
+      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
+      [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
+  ```
+
+  For a complete example, see [Trigger - C# example](#trigger---c-example).
+
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
+
+  Provides another way to specify the storage account to use. The constructor takes the name of an app setting that contains a storage connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
+
+  ```csharp
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
+  {
+      [FunctionName("BlobTrigger")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
+  {
+      ....
+  }
+  ```
+
+The storage account to use is determined in the following order:
+
+* The `BlobTrigger` attribute's `Connection` property.
+* The `StorageAccount` attribute applied to the same parameter as the `BlobTrigger` attribute.
+* The `StorageAccount` attribute applied to the function.
+* The `StorageAccount` attribute applied to the class.
+* The default storage account for the function app ("AzureWebJobsStorage" app setting).
+
+## Trigger - configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file and the `BlobTrigger` attribute.
+
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to `blobTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#trigger---usage) section. |
+|**name** | n/a | The name of the variable that represents the blob in function code. | 
+|**path** | **BlobPath** |The container to monitor.  May be a [blob name pattern](#trigger-blob-name-patterns). | 
+|**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [Blob storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## Trigger - usage
+
+In C# and C# script, you can use the following parameter types for the triggering blob:
+
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
+* `TextReader`
+* `string`
+* `Byte[]`
+* A POCO serializable as JSON
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-<a name="inputsample"></a>
+<sup>1</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
 
-## Input sample
-Suppose you have the following function.json, that defines a [Storage queue trigger](functions-bindings-storage-queue.md), 
-a Storage blob input, and a Storage blob output:
+If you try to bind to one of the Storage SDK types and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
+Binding to `string`, `Byte[]`, or POCO is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) later in this article.
+
+In JavaScript, access the input blob data using `context.bindings.<name from function.json>`.
+
+## Trigger - blob name patterns
+
+You can specify a blob name pattern in the `path` property in *function.json* or in the `BlobTrigger` attribute constructor. The name pattern can be a [filter or binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns). The following sections provide examples.
+
+### Get file name and extension
+
+The following example shows how to bind to the blob file name and extension separately:
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+If the blob is named *original-Blob1.txt*, the values of the `blobname` and `blobextension` variables in function code are *original-Blob1* and *txt*.
+
+### Filter on blob name
+
+The following example triggers only on blobs in the `input` container that start with the string "original-":
+
+```json
+"path": "input/original-{name}",
+```
+ 
+If the blob name is *original-Blob1.txt*, the value of the `name` variable in function code is `Blob1`.
+
+### Filter on file type
+
+The following example triggers only on *.png* files:
+
+```json
+"path": "samples/{name}.png",
+```
+
+### Filter on curly braces in file names
+
+To look for curly braces in file names, escape the braces by using two braces. The following example filters for blobs that have curly braces in the name:
+
+```json
+"path": "images/{{20140101}}-{name}",
+```
+
+If the blob is named *{20140101}-soundfile.mp3*, the `name` variable value in the function code is *soundfile.mp3*. 
+
+## Trigger - metadata
+
+The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) type.
+
+|Property  |Type  |Description  |
+|---------|---------|---------|
+|`BlobTrigger`|`string`|The path to the triggering blob.|
+|`Uri`|`System.Uri`|The blob's URI for the primary location.|
+|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|The blob's system properties. |
+|`Metadata` |`IDictionary<string,string>`|The user-defined metadata for the blob.|
+
+For example, the following C# script and JavaScript examples log the path to the triggering blob, including the container:
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+{
+    log.Info($"Full blob path: {blobTrigger}");
+} 
+```
+
+```javascript
+module.exports = function (context, myBlob) {
+    context.log("Full blob path:", context.bindingData.blobTrigger);
+    context.done();
+};
+```
+
+## Trigger - blob receipts
+
+The Azure Functions runtime ensures that no blob trigger function gets called more than once for the same new or updated blob. To determine if a given blob version has been processed, it maintains *blob receipts*.
+
+Azure Functions stores blob receipts in a container named *azure-webjobs-hosts* in the Azure storage account for your function app (defined by the app setting `AzureWebJobsStorage`). A blob receipt has the following information:
+
+* The triggered function ("*&lt;function app name>*.Functions.*&lt;function name>*", for example: "MyFunctionApp.Functions.CopyBlob")
+* The container name
+* The blob type ("BlockBlob" or "PageBlob")
+* The blob name
+* The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+
+To force reprocessing of a blob, delete the blob receipt for that blob from the *azure-webjobs-hosts* container manually.
+
+## Trigger - poison blobs
+
+When a blob trigger function fails for a given blob, Azure Functions retries that function a total of 5 times by default. 
+
+If all 5 tries fail, Azure Functions adds a message to a Storage queue named *webjobs-blobtrigger-poison*. The queue message for poison blobs is a JSON object that contains the following properties:
+
+* FunctionId (in the format *&lt;function app name>*.Functions.*&lt;function name>*)
+* BlobType ("BlockBlob" or "PageBlob")
+* ContainerName
+* BlobName
+* ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+
+## Trigger - concurrency and memory usage
+
+The blob trigger uses a queue internally, so the maximum number of concurrent function invocations is controlled by the [queues configuration in host.json](functions-host-json.md#queues). The default settings limit concurrency to 24 invocations. This limit applies separately to each function that uses a blob trigger.
+
+[The consumption plan](functions-scale.md#how-the-consumption-plan-works) limits a function app on one virtual machine (VM) to 1.5 GB of memory. Memory is used by each concurrently executing function instance and by the Functions runtime itself. If a blob-triggered function loads the entire blob into memory, the maximum memory used by that function just for blobs is 24 * maximum blob size. For example, a function app with three blob-triggered functions and the default settings would have a maximum per-VM concurrency of 3*24 = 72 function invocations.
+
+JavaScript functions load the entire blob into memory, and C# functions do that if you bind to `string`, `Byte[]`, or POCO.
+
+## Trigger - polling
+
+If the blob container being monitored contains more than 10,000 blobs, the Functions runtime scans log files to watch 
+for new or changed blobs. This process can result in delays. A function might not get triggered until several minutes or longer 
+after the blob is created. In addition, [storage logs are created on a "best effort"](/rest/api/storageservices/About-Storage-Analytics-Logging) 
+basis. There's no guarantee that all events are captured. Under some conditions, logs may be missed. If you require faster or more reliable blob processing, consider creating a [queue message](../storage/queues/storage-dotnet-how-to-use-queues.md) 
+ when you create the blob. Then use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob. Another option is to use Event Grid; see the tutorial [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+
+## Input
+
+Use a Blob storage input binding to read blobs.
+
+## Input - example
+
+See the language-specific example:
+
+* [C#](#input---c-example)
+* [C# script (.csx)](#input---c-script-example)
+* [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
+
+### Input - C# example
+
+The following example is a [C# function](functions-dotnet-class-library.md) that uses a queue trigger and an input blob binding. The queue message contains the name of the blob, and the function logs the size of the blob.
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
+    TraceWriter log)
+{
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```        
+
+### Input - C# script example
+
+<!--Same example for input and output. -->
+
+The following example shows blob input and output bindings in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the bindings. The function makes a copy of a text blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+
+In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -289,14 +466,14 @@ a Storage blob input, and a Storage blob output:
       "name": "myInputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     },
     {
       "name": "myOutputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "out"
     }
   ],
@@ -304,14 +481,9 @@ a Storage blob input, and a Storage blob output:
 }
 ``` 
 
-See the language-specific sample that copies the input blob to the output blob.
+The [configuration](#input---configuration) section explains these properties.
 
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
-<a name="incsharp"></a>
-
-### Input usage in C# #
+Here's the C# script code:
 
 ```cs
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
@@ -321,17 +493,46 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-<!--
-<a name="infsharp"></a>
-### Input usage in F# ##
-```fsharp
+### Input - JavaScript example
 
+<!--Same example for input and output. -->
+
+The following example shows blob input and output bindings in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+
+In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ``` 
--->
 
-<a name="innodejs"></a>
+The [configuration](#input---configuration) section explains these properties.
 
-### Input usage in Node.js
+Here's the JavaScript code:
 
 ```javascript
 module.exports = function(context) {
@@ -341,64 +542,346 @@ module.exports = function(context) {
 };
 ```
 
-<a name="output"></a>
+### Input - Java example
 
-## Storage Blob output binding
-The Azure Storage blob output binding enables you to write blobs to a Storage container in your function. 
+The following example is a Java function that uses a queue trigger and an input blob binding. The queue message contains the name of the blob, and the function logs the size of the blob.
 
-The Storage blob output for a function uses the following JSON objects in the `bindings` array of function.json:
+```java
+@FunctionName("getBlobSize")
+@StorageAccount("AzureWebJobsStorage")
+public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
+                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
+       final ExecutionContext context) {
+      context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
+ }
+ ```
 
-```json
+  In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobInput` annotation on parameters whose value would come from a blob.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`. 
+
+
+## Input - attributes
+
+In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
+
+The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
+    TraceWriter log)
 {
-  "name": "<Name of output parameter in function signature>",
-  "type": "blob",
-  "direction": "out"
-  "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+
+```
+
+You can set the `Connection` property to specify the storage account to use, as shown in the following example:
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
+    TraceWriter log)
+{
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
-Note the following:
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attributes).
 
-* `path` must contain the container name and the blob name to write to. For example, if you have a [queue trigger](functions-bindings-storage-queue.md)
-  in your function, you can use `"path": "samples-workitems/{queueTrigger}"` to point to a blob in the `samples-workitems` container with a name that 
-  matches the blob name specified in the trigger message.   
-* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-  editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+## Input - configuration
 
-<a name="outputusage"></a>
+The following table explains the binding configuration properties that you set in the *function.json* file and the `Blob` attribute.
 
-## Output usage
-In C# functions, you bind to the output blob by using the named `out` parameter in your function signature, like `out <T> <name>`,
-where `T` is the data type that you want to serialize the data into, and `paramName` is the name you specified in the 
-[output binding](#output). In Node.js functions, you access the output blob using `context.bindings.<name>`.
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to `blob`. |
+|**direction** | n/a | Must be set to `in`. Exceptions are noted in the [usage](#input---usage) section. |
+|**name** | n/a | The name of the variable that represents the blob in function code.|
+|**path** |**BlobPath** | The path to the blob. | 
+|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [Blob storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|n/a | **Access** | Indicates whether you will be reading or writing. |
 
-You can write to the output blob using any of the following types:
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-* Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialization.
-  If you declare a custom output type (e.g. `out FooType paramName`), Azure Functions attempts to serialize object 
-  into JSON. If the output parameter is null when the function exits, the Functions runtime creates a blob as 
-  a null object.
-* String - (`out string paramName`) useful for text blob data. the Functions runtime creates a blob only if the 
-  string parameter is non-null when the function exits.
+## Input - usage
 
-In C# functions you can also output to any of the following types:
+In C# and C# script, you can use the following parameter types for the blob input binding:
+
+* `Stream`
+* `TextReader`
+* `string`
+* `Byte[]`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
+
+<sup>1</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+
+If you try to bind to one of the Storage SDK types and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
+Binding to `string` or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) earlier in this article.
+
+In JavaScript, access the blob data using `context.bindings.<name from function.json>`.
+
+## Output
+
+Use Blob storage output bindings to write blobs.
+
+## Output - example
+
+See the language-specific example:
+
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
+* [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
+
+### Output - C# example
+
+The following example is a [C# function](functions-dotnet-class-library.md) that uses a blob trigger and two output blob bindings. The function is triggered by the creation of an image blob in the *sample-images* container. It creates small and medium size copies of the image blob. 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+{
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+}
+
+public enum ImageSize { ExtraSmall, Small, Medium }
+
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
+};
+```        
+
+### Output - C# script example
+
+<!--Same example for input and output. -->
+
+The following example shows blob input and output bindings in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the bindings. The function makes a copy of a text blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+
+In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+The [configuration](#output---configuration) section explains these properties.
+
+Here's the C# script code:
+
+```cs
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputBlob = myInputBlob;
+}
+```
+
+### Output - JavaScript example
+
+<!--Same example for input and output. -->
+
+The following example shows blob input and output bindings in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+
+In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+The [configuration](#output---configuration) section explains these properties.
+
+Here's the JavaScript code:
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputBlob = context.bindings.myInputBlob;
+    context.done();
+};
+```
+
+### Output - Java example
+
+The following example shows blob input and output bindings in a Java function. The function makes a copy of
+ a text blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named {originalblobname}-Copy
+
+```java
+@FunctionName("copyTextBlob")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
+public String blobCopy(
+    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
+    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+      return content;
+ }
+ ```
+
+ In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobOutput` annotation on function parameters whose value would be written to an object in blob storage.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
+
+
+## Output - attributes
+
+In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
+
+The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+{
+    ...
+}
+```
+
+You can set the `Connection` property to specify the storage account to use, as shown in the following example:
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
+{
+    ...
+}
+```
+
+For a complete example, see [Output - C# example](#output---c-example).
+
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attributes).
+
+## Output - configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file and the `Blob` attribute.
+
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to `blob`. |
+|**direction** | n/a | Must be set to `out` for an output binding. Exceptions are noted in the [usage](#output---usage) section. |
+|**name** | n/a | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
+|**path** |**BlobPath** | The path to the blob. | 
+|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [Blob storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|n/a | **Access** | Indicates whether you will be reading or writing. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## Output - usage
+
+In C# and C# script, you can bind to the following types to write blobs:
 
 * `TextWriter`
-* `Stream`
+* `out string`
+* `out Byte[]`
 * `CloudBlobStream`
-* `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
-* `ICollector<T>` (to output multiple blobs)
-* `IAsyncCollector<T>` (async version of `ICollector<T>`)
+* `Stream`
+* `CloudBlobContainer`<sup>1</sup>
+* `CloudBlobDirectory`
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-<a name="outputsample"></a>
+<sup>1</sup> Requires "in" binding `direction` in *function.json* or `FileAccess.Read` in a C# class library. However, you can use the container object that the runtime provides to do write operations, such as uploading blobs to the container.
 
-## Output sample
-See [input sample](#inputsample).
+<sup>2</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+
+If you try to bind to one of the Storage SDK types and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
+In async functions, use the return value or `IAsyncCollector` instead of an `out` parameter.
+
+Binding to `string` or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) earlier in this article.
+
+
+In JavaScript, access the blob data using `context.bindings.<name from function.json>`.
+
+## Exceptions and return codes
+
+| Binding |  Reference |
+|---|---|
+| Blob | [Blob Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Blob, Table, Queue |  [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, Table, Queue |  [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## Next steps
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+
+<!---
+> [!div class="nextstepaction"]
+> [Go to a quickstart that uses a Blob storage trigger](functions-create-storage-blob-triggered-function.md)
+--->

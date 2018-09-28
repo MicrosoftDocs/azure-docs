@@ -1,19 +1,19 @@
----
-title: Troubleshooting Analytics - the powerful search tool of Application Insights | Microsoft Docs
+﻿---
+title: Troubleshoot Analytics in Azure Application Insights | Microsoft Docs
 description: 'Problems with Application Insights analytics? Start here. '
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: mrbullwinkle
+manager: carmonm
 
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2016
-ms.author: awills
+ms.author: mbullwin
 
 ---
 # Troubleshoot Analytics in Application Insights
@@ -53,7 +53,7 @@ An authentication related error occurred (during authentication or during access
 4. Open another (ordinary) browser window and go to [Azure](https://portal.azure.com). Sign out. Then open your link and sign in with the correct credentials.
 5. Edge and Internet Explorer users can also get this error when trusted zone settings are not supported.
    
-    Verify both [Analytics portal](https://analytics.applicationinsights.io) and [Azure Active Directory portal](https://portal.azure.com) are in the same security zone:
+    Verify both [Analytics portal](https://portal.azure.com) and [Azure Active Directory portal](https://portal.azure.com) are in the same security zone:
    
    * In Internet Explorer, open **Internet Options**, **Security**, **Trusted sites**, **Sites**:
      
@@ -103,8 +103,6 @@ The URL is invalid.
 ## <a name="cookies"></a>Enable third-party cookies
   See [how to disable third party cookies](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), but notice we need to **enable** them.
 
-## <a name="e-x"></a>If all else fails
-[Contact us](app-insights-get-dev-support.md).
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

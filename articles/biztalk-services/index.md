@@ -1,9 +1,21 @@
 ---
+title: Azure Biztalk Services Documentation - Tutorials | Microsoft Docs
+description: Learn how to use BizTalk services to provide cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft.
+services: biztalk-services
+author: czeumault
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: biztalk-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Biztalk Services Documentation
 
-BizTalk Services provides cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft. It lets you connect with any HTTP, FTP, SFTP, or REST data source. You can route messages by using various Azure artifacts such as Service Bus queues, Topics, SQL Database, and Blob storage.   
+Learn how to use BizTalk services to provide cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft. Tutorials and other documentation show you how to integrate the enterprise and the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -53,7 +65,7 @@ BizTalk Services provides cloud to on-premises and line-of-business application 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with BizTalk Services using the Azure Portal</h3>
+                        <h3>Get Started with BizTalk Services</h3>
                     </div>
                 </div>
             </div>
@@ -62,13 +74,4 @@ BizTalk Services provides cloud to on-premises and line-of-business application 
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/biztalk-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Biztalk Services Documentation
-        </div>
-    </a>
-</div>

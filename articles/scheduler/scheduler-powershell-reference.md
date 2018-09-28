@@ -1,75 +1,65 @@
----
-title: Scheduler PowerShell Cmdlets Reference
-description: Scheduler PowerShell Cmdlets Reference
+﻿---
+title: PowerShell cmdlets reference - Azure Scheduler
+description: Learn about PowerShell cmdlets for Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-
-ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-
 ---
-# Scheduler PowerShell Cmdlets Reference
-The following table describes and links to the reference page of each of the major cmdlets in Azure Scheduler.
 
-To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+# PowerShell cmdlets reference for Azure Scheduler
 
-For more information about [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx), see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+> is replacing Azure Scheduler, which is being retired. 
+> To schedule jobs, [try Azure Logic Apps instead](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-| Cmdlet | Cmdlet Description |
-| --- | --- |
-| [Disable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490133\(v=azure.200\).aspx) |Disables a job collection. |
-| [Enable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490135\(v=azure.200\).aspx) |Enables a job collection. |
-| [Get-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490125\(v=azure.200\).aspx) |Gets Scheduler jobs. |
-| [Get-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490132\(v=azure.200\).aspx) |Gets job collections. |
-| [Get-AzureRmSchedulerJobHistory](https://msdn.microsoft.com/library/mt490126\(v=azure.200\).aspx) |Gets job history. |
-| [New-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490136\(v=azure.200\).aspx) |Creates an HTTP job. |
-| [New-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490141\(v=azure.200\).aspx) |Creates a job collection. |
-| [New-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490134\(v=azure.200\).aspx) |Creates a service bus queue job. |
-| [New-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490142\(v=azure.200\).aspx) |Creates a service bus topic job. |
-| [New-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490127\(v=azure.200\).aspx) |Creates a storage queue job. |
-| [Remove-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490140\(v=azure.200\).aspx) |Removes a Scheduler job. |
-| [Remove-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490131\(v=azure.200\).aspx) |Removes a job collection. |
-| [Set-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490130\(v=azure.200\).aspx) |Modifies a Scheduler HTTP job. |
-| [Set-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490129\(v=azure.200\).aspx) |Modifies a job collection. |
-| [Set-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490143\(v=azure.200\).aspx) |Modifies a service bus queue job. |
-| [Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137\(v=azure.200\).aspx) |Modifies a service bus topic job. |
-| [Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128\(v=azure.200\).aspx) |Modifies a storage queue job. |
+To author scripts for creating and 
+managing Scheduler jobs and job collections, 
+you can use PowerShell cmdlets. This article lists 
+the major [PowerShell cmdlets for Azure Scheduler](/powershell/module/azurerm.scheduler) 
+with links to their reference articles. 
+To install Azure PowerShell for your Azure subscription, 
+see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
+For more information about [Azure Resource Manager cmdlets](/powershell/azure/overview), 
+see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-For more detailed information, you can run any of the following cmdlets: 
+| Cmdlet | Description |
+|--------|-------------|
+| [Disable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azurermschedulerjobcollection) |Disables a job collection. |
+| [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azurermschedulerjobcollection) |Enables a job collection. |
+| [Get-AzureRmSchedulerJob](/powershell/module/azurerm.scheduler/get-azurermschedulerjob) |Gets Scheduler jobs. |
+| [Get-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azurermschedulerjobcollection) |Gets job collections. |
+| [Get-AzureRmSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azurermschedulerjobhistory) |Gets job history. |
+| [New-AzureRmSchedulerHttpJob](/powershell/module/azurerm.scheduler/new-azurermschedulerhttpjob) |Creates an HTTP job. |
+| [New-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/new-azurermschedulerjobcollection) |Creates a job collection. |
+| [New-AzureRmSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azurermschedulerservicebusqueuejob) | Creates a Service Bus queue job. |
+| [New-AzureRmSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azurermschedulerservicebustopicjob) |Creates a Service Bus topic job. |
+| [New-AzureRmSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azurermschedulerstoragequeuejob) |Creates a Storage queue job. |
+| [Remove-AzureRmSchedulerJob](/powershell/module/azurerm.scheduler/remove-azurermschedulerjob) |Removes a Scheduler job. |
+| [Remove-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azurermschedulerjobcollection) |Removes a job collection. |
+| [Set-AzureRmSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azurermschedulerhttpjob) |Modifies a Scheduler HTTP job. |
+| [Set-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/set-azurermschedulerjobcollection) |Modifies a job collection. |
+| [Set-AzureRmSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebusqueuejob) |Modifies a Service Bus queue job. |
+| [Set-AzureRmSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebustopicjob) |Modifies a Service Bus topic job. |
+| [Set-AzureRmSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerstoragequeuejob) |Modifies a Storage queue job. |
+||| 
+
+For more details, you can run any of these cmdlets: 
 
 ```
 Get-Help <cmdlet name> -Detailed
-```
-```
 Get-Help <cmdlet name> -Examples
-```
-```
 Get-Help <cmdlet name> -Full
 ```
 
-## See Also
- [What is Scheduler?](scheduler-intro.md)
+## See also
 
- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
-
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
-
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
-
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
-
- [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
-
- [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
-
- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
-
+* [What is Azure Scheduler?](scheduler-intro.md)
+* [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Create and schedule your first job - Azure portal](scheduler-get-started-portal.md)
+* [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)

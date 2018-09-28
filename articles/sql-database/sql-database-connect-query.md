@@ -1,84 +1,58 @@
 ---
-title: Connect to SQL Database with a C# query | Microsoft Docs
-description: Write a program in C# to query and connect to SQL database. Info about IP addresses, connection strings, secure login, and free Visual Studio.
+title: Azure SQL Database Connect and Query quickstarts | Microsoft Docs
+description: Azure SQL Database quickstarts showing you how to connect to and query an Azure SQL database. 
 services: sql-database
-keywords: c# database query, c# query, connect to database, SQL C#
-documentationcenter: ''
-author: stevestein
-manager: jhubbard
-editor: ''
-
-ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: how to
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 08/17/2016
-ms.author: sstein
-
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
+ms.topic: quickstart
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: 
+manager: craigg
+ms.date: 04/24/2018
 ---
-# Connect to a SQL Database with Visual Studio
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
-> 
+# Azure SQL Database Connect and Query Quickstarts
 
-Learn how to connect to an Azure SQL database in Visual Studio. 
+The following document includes links to Azure examples showing how to connect and query an Azure SQL database. It also provides some recommendations for Transport Level Security.
 
-## Prerequisites
-To connect to a SQL database using Visual Studio, you need the following: 
+## Quickstarts
 
-* A SQL database to connect to. This article uses the **AdventureWorks** sample database. To get the AdventureWorks sample database, see [Create the demo database](sql-database-get-started.md).
-* Visual Studio 2013 update 4 (or later). Microsoft now provides Visual Studio Community for *free*.
-  
-  * [Visual Studio Community, download](http://www.visualstudio.com/products/visual-studio-community-vs)
-  * [More options for free Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
+| |  |
+|---|---|
+|[SQL Server Management Studio](sql-database-connect-query-ssms.md)|This quickstart demonstrates how to use SSMS to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|This quickstart demonstrates how to use Azure Data Studio to connect to an Azure SQL database, and then use Transact-SQL (T-SQL) statements to create the TutorialDB used in Azure Data Studio tutorials.|
+|[Azure portal](sql-database-connect-query-portal.md)|This quickstart demonstrates how to use the Query editor to connect to a SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
+|[Visual Studio Code](sql-database-connect-query-vscode.md)|This quickstart demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
+|[.NET with Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|This quickstart demonstrates how to use the .NET framework to create a C# program with Visual Studio to connect to an Azure SQL database and use Transact-SQL statements to query data.|
+|[.NET core](sql-database-connect-query-dotnet-core.md)|This quickstart demonstrates how to use .NET Core on Windows/Linux/macOS to create a C# program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
+|[Go](sql-database-connect-query-go.md)|This quickstart demonstrates how to use Go to connect to an Azure SQL database. Transact-SQL statements to query and modify data are also demonstrated.|
+|[Java](sql-database-connect-query-java.md)|This quickstart demonstrates how to use Java to connect to an Azure SQL database and then use Transact-SQL statements to query data.|
+|[Node.js](sql-database-connect-query-nodejs.md)|This quickstart demonstrates how to use Node.js to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
+|[PHP](sql-database-connect-query-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
+|[Python](sql-database-connect-query-python.md)|This quickstart demonstrates how to use Python to connect to an Azure SQL database and use Transact-SQL statements to query data. |
+|[Ruby](sql-database-connect-query-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
+|||
 
-## Open Visual Studio from the Azure portal
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Click **More Services** > **SQL databases**
-3. Open the **AdventureWorks** database blade by locating and clicking the *AdventureWorks* database.
-4. Click the **Tools** button at the top of the database blade:
-   
-    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
-5. Click **Open in Visual Studio** (if you need Visual Studio, click the download link):
-   
-    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
-6. Visual Studio opens with the **Connect to Server** window already set to connect to the server and database you selected in the portal.  (Click **Options** to verify that the connection is set to the correct database.)
-   Type your server admin password and click **Connect**.
+## TLS considerations for SQL Database connectivity
+Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to Azure SQL Database. No
+special configuration is necessary. For all connections to SQL Server or to Azure SQL Database, we recommend that all applications set
+the following configurations, or their equivalents:
 
-    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
+ - **Encrypt = On**
+ - **TrustServerCertificate = Off**
 
+Some systems use different yet equivalent keywords for those configuration keywords. These configurations ensure that the client driver
+verifies the identity of the TLS certificate received from the server.
 
-1. If you do not have a firewall rule set up for your computer's IP address, you get a *Cannot connect* message here. To create a firewall rule, see [Configure an Azure SQL Database server-level firewall rule](sql-database-configure-firewall-settings.md).
-2. After successfully connecting, the **SQL Server Object Explorer** window opens with a connection to your database.
-   
-    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
+We also recommend that you disable TLS 1.1 and 1.0 on the client if you need to comply with Payment Card Industry - Data Security
+Standard (PCI-DSS).
 
-## Run a sample query
-Now that we're connected to the database, the following steps show how to run a simple query:
-
-1. Right-click the database and then select **New Query**.
-   
-    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
-2. In the query window, copy and paste the following code.
-   
-        SELECT
-        CustomerId
-        ,Title
-        ,FirstName
-        ,LastName
-        ,CompanyName
-        FROM SalesLT.Customer;
-3. Click the **Execute** button to run the query:
-   
-    ![Success. Connect to SQL Database server: SVisual Studio](./media/sql-database-connect-query/run-query.png)
+Non-Microsoft drivers might not use TLS by default. This can be a factor when connecting to Azure SQL Database. Applications with
+embedded drivers might not allow you to control these connection settings. We recommend that you examine the security of such drivers
+and applications before using them on systems that interact with sensitive data.
 
 ## Next steps
-* Opening SQL databases in Visual Studio uses SQL Server Data Tools. For more details, see [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
-* To connect to a SQL database using code, see [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md).
 
+For connectivity architecture information, see [Azure SQL Database Connectivity Architecture](sql-database-connectivity-architecture.md).
