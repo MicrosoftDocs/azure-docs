@@ -16,8 +16,8 @@ ROBOTS: NOINDEX
 
 # Example: Call Emotion API for Video
 
-> [!WARNING]
-> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). [Click here to learn more](https://azure.microsoft.com/services/cognitive-services/face/#recognition).
+> [!IMPORTANT]
+> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 This guide demonstrates how to call Emotion API for Video. The samples are written in C# using the Emotion API for Video client library.
 
