@@ -254,7 +254,9 @@ You can also check the Batch AI cluster and job status using the following Azure
 - Check cluster status. You can see how many nodes are running by using `az batchai cluster list`.
 - Check job status. You can see how many jobs are running by using `az batchai job list`.
 
-It takes around 5 minutes to create the Batch AI cluster
+It takes around 5 minutes to create the Batch AI cluster.
+
+For a Jupyter Notebook that demonstrates training in a Batch AI cluster, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
 
 ## <a name='aci'></a>Azure Container Instance (ACI)
 
