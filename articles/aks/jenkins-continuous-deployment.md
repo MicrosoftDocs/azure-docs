@@ -108,12 +108,14 @@ A [Kubernetes load balancer service][kubernetes-service] is created to expose th
 ```console
 $ kubectl get service azure-vote-front --watch
 
-azure-vote-front   10.0.34.242   13.90.150.118   80:30676/TCP   2m
+NAME               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+azure-vote-front   LoadBalancer   10.0.215.27   <pending>     80:30747/TCP   22s
+azure-vote-front   LoadBalancer   10.0.215.27   40.117.57.239   80:30747/TCP   2m
 ```
 
 To see the application in action, open a web browser to the external IP address of your service. The Azure vote application is displayed, as shown in the following example:
 
-![Azure sample vote application running in AKS](media/aks-jenkins/azure-vote-safari.png)
+![Azure sample vote application running in AKS](media/aks-jenkins/azure-vote.png)
 
 ## Deploy Jenkins to an Azure VM
 
@@ -132,14 +134,14 @@ sh azure-jenkins.sh
 It takes a few minutes to create the VM and deploy the required components for Docker and Jenkins. When the script has completed, it outputs an address for the Jenkins server and a key to unlock the dashboard, as shown in the following example output:
 
 ```
-Open a browser to http://52.166.118.64:8080
+Open a browser to http://40.115.43.83:8080
 Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
 
 Open a web browser to the URL displayed and enter the unlock key. Follow the on-screen prompts to complete the Jenkins configuration:
 
-- Choose **Install selected plugins**
+- Choose **Install suggested plugins**
 - Create the first admin user. Enter a username, such as *azureuser*, then provide your own secure password. Finally, type a full name and e-mail address.
 - Select **Save and Finish**
 - Once Jenkins is ready, select **Start using Jenkins**
@@ -150,7 +152,7 @@ Open a web browser to the URL displayed and enter the unlock key. Follow the on-
 
 A Jenkins environment variable is used to hold the ACR login server name. This variable is referenced during the Jenkins build job. To create this environment variable, complete the following steps:
 
-- From the Jenkins admin portal, click **Manage Jenkins** > **Configure System**
+- On the left-hand side of the Jenkins portal, select **Manage Jenkins** > **Configure System**
 - Under **Global Properties**, select **Environment variables**. Add a variable with the name `ACR_LOGINSERVER` and the value of your ACR login server.
 
     ![Jenkins environment variables](media/aks-jenkins/env-variables.png)
@@ -169,10 +171,10 @@ First, create a service principal using the [az ad sp create-for-rbac][az-ad-sp-
 $ az ad sp create-for-rbac --skip-assignment
 
 {
-  "appId": "ff6009ca-24c6-4bbe-9a73-4d1f73eb8fd3",
-  "displayName": "azure-cli-2018-09-27-19-40-19",
-  "name": "http://azure-cli-2018-09-27-19-40-19",
-  "password": "6161b56d-baec-4639-9ca5-642cd3e5248d",
+  "appId": "626dd8ea-042d-4043-a8df-4ef56273670f",
+  "displayName": "azure-cli-2018-09-28-22-19-34",
+  "name": "http://azure-cli-2018-09-28-22-19-34",
+  "password": "1ceb4df3-c567-4fb6-955e-f95ac9460297",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
 ```
@@ -188,14 +190,14 @@ ACR_ID=$(az acr show --resource-group myResourceGroup --name <acrLoginServer> --
 Now create a role assignment to assign the service principal *Contributor* rights to the ACR registry. In the following example, provide your own *appId* shown in the output a previous command to create the service principal:
 
 ```azurecli
-az role assignment create --assignee ff6009ca-24c6-4bbe-9a73-4d1f73eb8fd3 --role Contributor --scope $ACR_ID
+az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role Contributor --scope $ACR_ID
 ```
 
 ### Create a credential resource in Jenkins for the ACR service principal
 
 With the role assignment created in Azure, now store your ACR credentials in a Jenkins credential object. These credentials are referenced during the Jenkins build job.
 
-Back on the Jenkins admin portal, click **Credentials** > **Jenkins** > **Global credentials (unrestricted)** > **Add Credentials**.
+Back on the left-hand side of the Jenkins portal, click **Credentials** > **Jenkins** > **Global credentials (unrestricted)** > **Add Credentials**.
 
 Ensure that the credential kind is **Username with password** and enter the following items:
 
@@ -207,11 +209,11 @@ When complete, the credentials form looks like the following example:
 
 ![Create a Jenkins credential object with the service principal information](media/aks-jenkins/acr-credentials.png)
 
-Click **OK** and return to the Jenkins admin portal.
+Click **OK** and return to the Jenkins portal.
 
 ## Create a Jenkins project
 
-In your Jenkins website, select **Create new jobs** from the home page:
+From the home page of your Jenkins portal, select **New item** on the left-hand side:
 
 1. Enter *azure-vote* as job name. Choose **Freestyle project**, then select **OK**.
 1. Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https://github.com/\<your-github-account\>/azure-voting-app-redis*
@@ -298,7 +300,7 @@ When updated, save the file, commit the changes, and push these to your fork of 
 
 Once the build is complete, refresh your web browser of the sample Azure vote application. Your changes are displayed, as shown in the following example:
 
-![Sample Azure vote in AKS updated by the Jenkins build job](media/aks-jenkins/azure-vote-updated-safari.png)
+![Sample Azure vote in AKS updated by the Jenkins build job](media/aks-jenkins/azure-vote-updated.png)
 
 ## Next steps
 
