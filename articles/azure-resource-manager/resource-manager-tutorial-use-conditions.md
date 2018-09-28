@@ -20,14 +20,15 @@ ms.author: jgao
 
 Learn how to deploy Azure resources based on conditions. 
 
-The scenario used in this tutorial is the same as used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). In additional to a storage account, a virtual machine, a virtual network, and some other dependent resources, you also deploy an additional storage account based on the value of a parameter.  If the value of the parameter is "yes", the storage account is deployed.
+The scenario used in this tutorial is the same as the one used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). In additional to a storage account, a virtual machine, a virtual network, and some other dependent resources, you also deploy an additional storage account based on the value of a parameter.  If the value of the parameter is "yes", the storage account is deployed. Otherwise, the storage account is not deployed.
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Open a quickstart template
-> * Explore the template
+> * Modify the template
 > * Deploy the template
+> * Clean up resources
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -52,16 +53,9 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 
 ## Modify the template
 
-You make the following changes to the azuredpeloy.json template:
-
-1. Make a copy of the storage account resource definition.
-2. Give the new storage account a new name.
-3. Add a condition to the new storage account. This new storage account is only created when the condition is true.
-4. add a parameter. The condition is based on the value of this parameter
-
 1. Open **azuredeploy.json** if it is not opened.
 2. Make a copy of the storage account definition, and place it right after the existing storage account definition.
-3. Update the name of the new storage account as:
+3. Update the name of the new storage account to:
 
     ```json
     "name": "[concat(variables('storageAccountName'), '1')]",
@@ -76,7 +70,7 @@ You make the following changes to the azuredpeloy.json template:
 
     After you are done, the new storage account definition looks like:
 
-    ![resource manager use condition](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Resource Manager use condition](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 
 5. Add one more parameter to the template:
 
@@ -109,7 +103,7 @@ New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $re
 
 After the template is deployed successfully, open the resource group and check the resources in the group. You shall see two storage accounts. 
 
-Try making another deployment with **deployStorage1**  set to "no".
+Try making another deployment with **deployStorage1**  set to "no". And then verify the additional storage is not created.
 
 ## Clean up resources
 
