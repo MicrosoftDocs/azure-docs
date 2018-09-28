@@ -35,15 +35,15 @@ Role-based access control consists of several components that specify what resou
 
 ### Role definitions
 
-A **role definition** is a collection of permissions and is sometimes just called a **role**.
+A **role definition** is a collection of permissions and is sometimes called a **role**.
 
 A **role definition** lists allowed operations including *read*, *write*, and *delete*. It also specifies a set of conditions that might exclude certain object types in the topology.
 
 The following roles are available in role-based access control:
 
 * **Space Administrator**: Global access able to run all operations for the specified space and all nodes underneath.
-* **User Administrator**: CRUD for users and user related objects. Read for spaces.
-* **Device Administrator**: CRUD for devices and device related objects. Read for spaces.
+* **User Administrator**: CRUD for users and user-related objects. Read for spaces.
+* **Device Administrator**: CRUD for devices and device-related objects. Read for spaces.
 * **Key Administrator**: CRUD for access keys. Read for spaces.
 * **Token Administrator**: Read and Update for access keys. Read for spaces.
 * **User**: Read access for spaces, sensors, and users, including their corresponding related objects.
@@ -78,7 +78,7 @@ The `ObjectIdType` refers to the type of identity that is being given a role. Ap
 
 Permissions are granted by created a role assignment, and revoked by removing a role assignment. A Digital Twins role assignment associates an object (user, AAD tenant, etc.), role, and a space. Permissions are then inherited by any child spaces.
 
-For example, a user is given a role assignment with role `DeviceInstaller` for the root node of a topology, which represents a building. She then is able to read and update devices not only for that node, but all other child spaces in the building.
+For example, a user is given a role assignment with role `DeviceInstaller` for the root node of a topology, which represents a building. They are then able to read and update devices not only for that node, but all other child spaces in the building.
 
 ## Next steps
 
