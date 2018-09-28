@@ -71,7 +71,7 @@ Optional for the DomainName ObjectIdType. |
 
 A user needs administrative access to a floor of a tenant space:
 
-    ```json
+  ```json
     {
       "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
       "ObjectId" : " 0fc863bb-eb51-4704-a312-7d635d70e599",
@@ -79,11 +79,11 @@ A user needs administrative access to a floor of a tenant space:
       "TenantId": " a0c20ae6-e830-4c60-993d-a91ce6032724",
       "Path": "/ 091e349c-c0ea-43d4-93cf-6b57abd23a44/ d84e82e6-84d5-45a4-bd9d-006a118e3bab"
     }
-    ```
+  ```
 
 An application that runs test scenarios mocking devices and sensors:
 
-    ```json
+  ```json
     {
       "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
       "ObjectId" : "cabf7acd-af0b-41c5-959a-ce2f4c26565b",
@@ -91,18 +91,18 @@ An application that runs test scenarios mocking devices and sensors:
       "TenantId": " a0c20ae6-e830-4c60-993d-a91ce6032724",
       "Path": "/"
     }
-    ```
+  ```
 
 All users part of a domain will receive read access for spaces, sensors, and users, including their corresponding related objects:
 
-    ```json
+  ```json
     {
       "RoleId": " b1ffdb77-c635-4e7e-ad25-948237d85b30",
       "ObjectId" : "@microsoft.com",
       "ObjectIdType" : "DomainName",
       "Path": "/091e349c-c0ea-43d4-93cf-6b57abd23a44"
     }
-    ```
+  ```
 
 To GET a Role Assignment:
 

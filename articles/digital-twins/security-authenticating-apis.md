@@ -14,7 +14,7 @@ ms.author: lyrana
 
 Azure Digital Twins uses Azure Active Directory (Azure AD) to authenticate users and protect applications.
 
-If you're unfamiliar with Azure AD, more information is available in the [developer guide](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-developers-guide). The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For a deep-dive into the library, take a look [here](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki). 
+If you're unfamiliar with Azure AD, more information is available in the [developer guide](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-developers-guide). The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For a deep-dive into the library, take a look [here](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 
 This article gives an overview of two scenarios: a production scenario with a middle-tier API, and authentication in the client application Postman for quick start-up and testing.
 
@@ -25,7 +25,7 @@ Solutions developers have two ways to connect to Digital Twins.  Solutions devel
 1. They can create a client application or a middle-tier API. Client apps require users to authenticate and then use the [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow to call a downstream API.
 1. Create or make use of an existing Azure AD Application. View the documentation [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad).
     1. Specify the **Sign-on and Redirect URIs** (if needed).
-    1. In the application manifest set oauth2AllowImplicitFlow to true.
+    1. In the application manifest set `oauth2AllowImplicitFlow` to true.
     1. In **Required Permissions**, add Digital Twins by searching “Azure Digital Twins.” Select **Delegated Permissions Read/Write Access** and click the **Grant Permissions** button.
 
 For detailed instructions about how to orchestrate the on-behalf-of flow visit [this page](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). You can also view code samples [here](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
