@@ -7584,6 +7584,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/devtest-lab/index.md",
+            "redirect_url": "/azure/lab-services",
+            "redirect_document_id":  false
+        },
+        {
             "source_path": "articles/devtest-lab/devtest-lab-add-artifact-repo.md",
             "redirect_url": "/azure/lab-services/devtest-lab-add-artifact-repo",
             "redirect_document_id": false
