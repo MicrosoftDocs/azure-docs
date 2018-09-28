@@ -24,7 +24,7 @@ Learn how to manage storage accounts in Azure Stack to find, recover, and reclai
 The list of storage accounts in the region can be viewed in Azure Stack
 by:
 
-1. Sign in to the [Administrator portal](https://adminportal.local.azurestack.external).
+1. Sign in to the [Admin portal](https://adminportal.local.azurestack.external).
 
 2. Select **All services** > **Region management** under **Administration**.
 
@@ -121,7 +121,7 @@ collection.
 
 **To change the retention period:**
 
-1. Sign in to the [Administrator portal](https://adminportal.local.azurestack.external).
+1. Sign in to the [Admin portal](https://adminportal.local.azurestack.external).
 2. Select **All services** > **Region management** under **Administration**.
 3. Select **Storage** from the **Resource Providers** list.
 4. Select **Settings** at the top to open the setting pane.
