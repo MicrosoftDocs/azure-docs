@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ##  Install the SDK
 
-**Skip this section if you are using** a Data Science Virtual Machine (DSVM) created after September 27, 2018 since those DSVMs comes with the Python SDK pre-installed.
+**Skip this section if you are using** a Data Science Virtual Machine (DSVM) created after September 27, 2018 since those DSVMs come with the Python SDK pre-installed.
 
 Before installing the SDK, we recommend you create an isolated Python environment first. While this quickstart uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
@@ -106,12 +106,12 @@ ws.get_details()
 
 ## Write a configuration file
 
-Save the details of your workspace in a configuration file.  
+Save the details of your workspace in a configuration file into the current directory. This file is called 'aml_config\config.json'.  
 
-This workspace configuration file makes it easy to load this same workspace later with other notebooks and scripts in the same directory or below. 
+This workspace configuration file makes it easy to load this same workspace later with other notebooks and scripts in the same directory or a subdirectory. 
 
 ```python
-# Create a configuration file called 'aml_config\config.json'.
+# Create the configuration file.
 ws.write_config()
 
 # Use this code to load the workspace from 
@@ -119,7 +119,7 @@ ws.write_config()
 # ws = Workspace.from_config()
 ```
 
-The `write_config()` API call creates the configuration file in the current directory. The `config.json` file looks like this:
+The `write_config()` API call creates the configuration file in the current directory. The `config.json` file contains the following:
 
 ```json
 {
@@ -131,7 +131,7 @@ The `write_config()` API call creates the configuration file in the current dire
 
 ## Use the workspace
 
-Write some simple code that uses the basic APIs of the SDK to track experiment runs.
+Write some basic code that uses the basic APIs of the SDK to track experiment runs.
 
 ```python
 from azureml.core import Experiment
@@ -159,7 +159,7 @@ When the run completes, you can view the experiment run in the Azure portal. Use
 print(run.get_portal_url())
 ```
 
-Use the link to view the logged values in a browser.
+Use the link to view the logged values in the Azure portal in your browser.
 
 ![logged values in portal](./media/quickstart-create-workspace-with-python/logged-values.png)
 
@@ -167,7 +167,7 @@ Use the link to view the logged values in a browser.
 >[!IMPORTANT]
 >The resources you created can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
-If you're not going to use what you've created here, delete the resources you just created with this quickstart so you don't incur any charges.
+If you're not going to use what you've created here, delete the resources you created with this quickstart so you don't incur any charges.
 
 ```python
 ws.delete(delete_dependent_resources=True)
