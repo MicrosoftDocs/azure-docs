@@ -20,7 +20,7 @@ Role-Based Access Control is unique in that permissions are inherited down the s
 
 ## What can I do with role-based access control?
 
-Some examples of how a developer might use Role-Based Access Control include:
+A developer might use Role-Based Access Control to:
 
 * Grant a user the ability to manage devices for an entire building, or only for a particular room or floor.
 * Grant an administrator global access to all spatial graph nodes for an entire graph, or only for a section of the graph.
@@ -39,7 +39,7 @@ A **role definition** is a collection of permissions and is sometimes called a *
 
 The following roles are available in Digital Twins:
 
-* **Space Administrator**: Global permission to run all operations for the specified space and all nodes underneath.
+* **Space Administrator**: Create, Read, Update, and Delete permission for the specified space and all nodes underneath. Global permission.
 * **User Administrator**: Create, Read, Update, and Delete permission for users and user-related objects. Read permission for spaces.
 * **Device Administrator**: Create, Read, Update, and Delete permission for devices and device-related objects. Read permission for spaces.
 * **Key Administrator**: Create, Read, Update, and Delete permission for access keys. Read permission for spaces.

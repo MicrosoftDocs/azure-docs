@@ -48,7 +48,7 @@ For detailed instructions about how to orchestrate the on-behalf-of flow visit [
 1. Click **Request Token**.
 
     >[!NOTE]
-    >If you receive error message "OAuth 2 couldn’t be completed", try one of the following:
+    >If you receive error message "OAuth 2 couldn’t be completed," try one of the following:
     > 1. Close Postman and reopen it and try again.
     > 1. Delete the secret key in your App, recreate a new one and renter the value in the above form.
 
