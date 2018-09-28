@@ -27,8 +27,7 @@ which is an action in your logic app.
 
 > [!NOTE]
 > Logic Apps doesn't support directly connecting to Azure storage 
-> accounts through firewalls, even when you set up your firewall 
-> with the specified IP addresses. To access these storage accounts, 
+> accounts through firewalls. To access these storage accounts, 
 > use either option here: 
 >
 > * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
