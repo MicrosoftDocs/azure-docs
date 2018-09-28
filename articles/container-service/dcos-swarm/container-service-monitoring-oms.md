@@ -24,7 +24,7 @@ excess container on a host.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-For more information about Container Solution, please refer to the
+For more information about Container Solution, refer to the
 [Container Solution Log
 Analytics](../../log-analytics/log-analytics-containers.md).
 
@@ -44,7 +44,7 @@ for ‘Log Analytics’ as shown below.
 
 ![](media/container-service-monitoring-oms/image2.png)
 
-2. Click **Install**. You will see a pop up with the version
+2. Click **Install**. You will see a pop-up with the version
 information and an **Install Package** or **Advanced Installation**
 button. When you click **Advanced Installation**, which leads you to the **Log Analytics specific configuration
 properties** page.
@@ -56,7 +56,7 @@ properties** page.
 3. Here, you will be asked to enter the `wsid` (the Log Analytics workspace ID)
 and `wskey` (the primary key for the workspace id). To get both `wsid` and
 `wskey` you need to create an account at <https://mms.microsoft.com>.
-Please follow the steps to create an account. Once you are done creating
+Follow the steps to create an account. Once you are done creating
 the account, you need to obtain your `wsid` and `wskey` by clicking **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
 
  ![](media/container-service-monitoring-oms/image5.png)
@@ -72,7 +72,7 @@ to set up the Log Analytics dashboard. You can do this through Azure Portal.
 
 ### Azure Portal 
 
-Login to Azure portal at <https://portal.microsoft.com/>. Go to
+Log in to Azure Portal at <https://portal.microsoft.com/>. Go to
 **Marketplace**, select **Monitoring + management** and click **See All**. Then Type `containers` in search. You will see "containers" in the search results. Select **Containers** and click **Create**.
 
 ![](media/container-service-monitoring-oms/image9.png)
