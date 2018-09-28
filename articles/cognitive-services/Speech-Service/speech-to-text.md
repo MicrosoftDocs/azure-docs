@@ -23,7 +23,7 @@ The **Speech to Text** API offers the following features:
 
 - Optimized **Speech to Text** results for interactive, conversation, and dictation scenarios. The recognized results are returned in both Lexical and Display forms (for Lexical results, see DetailedSpeechRecognitionResult in the examples or API).
 
-- Support for many spoken languages and dialects. For the full list of supported languages in each recognition mode, see [Supported languages](supported-languages.md#speech-to-text).
+- Support for many spoken languages and dialects. For the full list of supported languages in each recognition mode, see [Supported languages](language-support.md#speech-to-text).
 
 - Customized language and acoustic models, so you can tailor your application to your users' specialized domain vocabulary, speaking environment and way of speaking.
 
