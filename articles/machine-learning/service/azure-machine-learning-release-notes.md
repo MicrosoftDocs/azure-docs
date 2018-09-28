@@ -10,11 +10,9 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 03/28/2018
 ---
-# Release notes for Azure Machine Learning 
+# Azure Machine Learning service release notes
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
-
-In this article, learn about the past releases of Azure Machine Learning. 
+In this article, learn about the Azure Machine Learning service releases. 
 
 ## 2018-10
 
