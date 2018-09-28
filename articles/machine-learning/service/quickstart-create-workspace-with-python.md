@@ -21,7 +21,7 @@ In this tutorial, you will install the Python SDK and:
 * Write code that logs values inside the workspace
 * View the logged values in your workspace
 
-The workspace and its configuration file you create in this quickstart can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Read [this](how-to-manage-quotas.md) article on the default limits and how to request more quota.
+The workspace and its configuration file you create in this quickstart can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. As with other Azure services, there are limits and quotas associated with the Azure Machine Learning service. [Learn about quotas and how to request more.](how-to-manage-quotas.md)
 
 For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
 
@@ -29,38 +29,39 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 
 ##  Install the SDK
-**Skip this section if you are using** a Data Science Virtual Machine (DSVM) created after September 27, 2018 since those DSVMs comes with the Python SDK pre-installed.
 
-### Miniconda
+**Skip this section if you are using** a Data Science Virtual Machine (DSVM) created after September 27, 2018 since those DSVMs comes with the Python SDK pre-installed.
 
 Before installing the SDK, we recommend you create an isolated Python environment first. While this quickstart uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
+### Install Miniconda
+
+
 [Download](https://conda.io/miniconda.html) and install Miniconda. Choose the Python 3.7 version or later. Do not choose Python 2.x version.
 
-### Machine Learning Python SDK
+### Create an isolated Python environment 
 
-Once Miniconda is installed, launch a command-line window, and create a new conda environment named `myennv` with Python 3.6.
+Launch a command-line window and create a new conda environment named `myenv` with Python 3.6.
 
 ```sh
 conda create -n myenv -y Python=3.6
 ```
+### Activate the environment
 
-Now activate the environment.
+Activate the environment using the steps for your operating system
 * On Windows
-
-    ```sh
-    # if you are on Windows
-    conda activate myenv
-    ```
+  ```sh
+  conda activate myenv
+  ```
 
 * On Linux or macOS
+  ```sh
+  source activate myenv
+  ```
 
-    ```sh
-    # if you are on Linux or macOS
-    source activate myenv
-    ```
+### Install the SDK
 
-In the activated conda environment, install  the SDK. This code installs the core components of the Azure Machine Learning SDK as well as a Jupyter Notebook server in the `myenv` conda environment.
+In the activated conda environment, install the SDK. This code installs the core components of the Azure Machine Learning SDK as well as a Jupyter Notebook server in the `myenv` conda environment.
 
 ```sh
 pip install azureml-sdk[notebooks]
