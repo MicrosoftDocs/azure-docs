@@ -7584,6 +7584,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/devtest-lab/index.md",
+            "redirect_url": "/azure/lab-services",
+            "redirect_document_id":  false
+        },
+        {
             "source_path": "articles/devtest-lab/devtest-lab-add-artifact-repo.md",
             "redirect_url": "/azure/lab-services/devtest-lab-add-artifact-repo",
             "redirect_document_id": false
@@ -29536,7 +29541,11 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/billing/billing-set-up-alerts.md",
+            "source_path": "articles/azure-portal/tutorial-azureportal-devops.md",
+            "redirect_url": "https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&view=vsts&tabs=new-nav",
+            "redirect_document_id": false 
+        },        
+        {    "source_path": "articles/billing/billing-set-up-alerts.md",
             "redirect_url": "/azure/billing/billing-getting-started",
             "redirect_document_id": false
         }
