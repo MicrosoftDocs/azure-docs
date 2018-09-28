@@ -36,7 +36,7 @@ Learn how to deploy, manage, and monitor secure web applications on Azure.
   - [.NET with Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js with MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java with MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python with PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
+  - [Python with PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Map an existing custom domain to your application](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Bind an existing SSL certificate to your application](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

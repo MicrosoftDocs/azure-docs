@@ -59,7 +59,7 @@ When your function is first enabled, there is only one instance of the function.
 
 * **N more function instances are added**: The Functions scaling logic determines that both `Function_0` and `Function_1` have more messages than they can process. New function app instances `Function_2`...`Functions_N` are created, where `N` is greater than the number of event hub partitions. In our example, Event Hubs again load balances the partitions, in this case across the instances `Function_0`...`Functions_9`. 
 
-Note that when FUnctions scales to `N` instances, which is a number greater than the number of event hub partitions. This is done to make sure that there are always [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instances available to obtain locks on partitions as they become available from other instances. You are only charged for the resources used when the function instance executes; you are not charged for this over-provisioning.
+Note that when Functions scales to `N` instances, which is a number greater than the number of event hub partitions. This is done to make sure that there are always [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instances available to obtain locks on partitions as they become available from other instances. You are only charged for the resources used when the function instance executes; you are not charged for this over-provisioning.
 
 When all function execution completes (with or without errors), checkpoints are added to the associated storage account. When check-pointing succeeds, all 1000 messages are never retrieved again.
 
@@ -338,7 +338,7 @@ public void eventHubProcessor(
 
 ## Trigger - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) attribute.
 
 The attribute's constructor takes the name of the event hub, the name of the consumer group, and the name of an app setting that contains the connection string. For more information about these settings, see the [trigger configuration section](#trigger---configuration). Here's an `EventHubTriggerAttribute` attribute example:
 
