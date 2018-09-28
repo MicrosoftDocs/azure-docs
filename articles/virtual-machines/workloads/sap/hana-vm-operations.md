@@ -361,7 +361,7 @@ Following this setup routine, the scale-out configuration you installed is going
 ## SAP HANA Dynamic Tiering 2.0 for Azure virtual machines
 
 In addition to the SAP HANA certifications on Azure M-series VMs, SAP HANA Dynamic Tiering 2.0 is also supported on Microsoft Azure
-(see SAP HANA Dynamic Tiering documentation linsk further down). While there is no difference in installing the product or 
+(see SAP HANA Dynamic Tiering documentation links further down). While there is no difference in installing the product or 
 operating it, for example, via SAP HANA Cockpit inside an Azure Virtual Machine, there are a few important items, which are mandatory for official support on Azure. These key points are described below. Throughout the article, the abbreviation "DT 2.0" will be used
 instead of the full name Dynamic Tiering 2.0.
 
