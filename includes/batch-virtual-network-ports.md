@@ -25,7 +25,7 @@ ms.custom: include file
 * When specifying the subnet using the Batch APIs, use the *resource identifier* of the subnet. For example, for a Resource Manager-based VNet, the subnet identifier is of the form:
 
   ```
-  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}`
+  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}
   ```
 
 * The pool using the VNet can have a maximum of 4096 nodes.
