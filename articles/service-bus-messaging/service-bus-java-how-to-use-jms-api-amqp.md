@@ -43,7 +43,7 @@ You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 dist
 * qpid-amqp-1-0-common-[version].jar
 
 > ![NOTE]
-> JMS JAR names may have been changed. For details, see [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10). 
+> JMS JAR names and versions may have changed. For details, see [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
 
 ## Coding Java applications
 ### Java Naming and Directory Interface (JNDI)
