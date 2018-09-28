@@ -19,7 +19,7 @@ ms.author: cwatson
 ---
 # Create a subscription in the Azure portal
 
-To create an Azure subscription, you need to be an account owner.
+To create an Azure subscription for your organization, you must have the Owner role on the account you use to create the subscription.
 
 ## Create an Azure subscription
 
