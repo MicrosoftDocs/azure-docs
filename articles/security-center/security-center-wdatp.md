@@ -88,9 +88,7 @@ To generate a benign Windows Defender ATP test alert:
 2. At the prompt, copy and run the following command. The Command prompt window will close automatically.
 
     ```
-    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe',
-   'C:\\test-WDATP-test\\invoice.exe'); Start-Process
-    'C:\\test-WDATP-test\\invoice.exe' 
+    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
     ```
 
    ![A command prompt window with the command above](media/security-center-wdatp/image4.jpeg)
