@@ -28,6 +28,8 @@ New apps created in the Azure Portal are set to 2.x by default as this is the mo
 1. Change the version from ~2 to ~1.  *This toggle will be disabled if you have functions in your app*.
 1. Click save and restart the app.  All templates should now create and run in 1.x.
 
+Alternatively you can modify the application settings for the function app and make sure that the `FUNCTIONS_EXTENSION_VERSION` setting is set to `~1`. This is particularly relevant if you're deploying the function app via an ARM template, so verify that your template includes this setting.
+
 ## Cross-platform development
 
 Runtime 1.x supports development and hosting only in the portal or on Windows. Runtime 2.x runs on .NET Core 2, which means it can run on all platforms supported by .NET Core, including macOS and Linux. This enables cross-platform development and hosting scenarios.
@@ -94,7 +96,7 @@ For VS Code you may also need to update the user setting for the `azureFunctions
 
 ### Changing version of apps in Azure
 
-Published app versions are set through the application setting `FUNCTIONS_RUNTIME_VERSION`.  This is set to `~2` for v2 apps, and `~1` for v1 apps.  It is strongly discouraged to change the runtime version of an app that has existing functions published to it without also changing the code of those functions.  The recommended path is to create a new function app and set to the appropriate version, test changes, and then disable or delete the previous app.
+Published app versions are set through the application setting `FUNCTIONS_EXTENSION_VERSION`.  This is set to `~2` for v2 apps, and `~1` for v1 apps.  It is strongly discouraged to change the runtime version of an app that has existing functions published to it without also changing the code of those functions.  The recommended path is to create a new function app and set to the appropriate version, test changes, and then disable or delete the previous app.
 
 ## Bindings 
 
