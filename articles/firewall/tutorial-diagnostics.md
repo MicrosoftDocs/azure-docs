@@ -51,8 +51,7 @@ It can take a few minutes for the data to appear in your logs after you complete
 10. Select your subscription, use the existing firewall resource group (**Test-FW-RG**), select **East US** for the location, and select the **Free** pricing tier.
 11. Click **OK**.
    ![Starting the configuration process][1]
-   >[!NOTE]
-   >OMS workspaces are now referred to as Log Analytics workspaces.  
+   OMS workspaces are now referred to as Log Analytics workspaces.  
 12. Under **Log**, click **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule** to collect logs for application and network rules.
    ![Save diagnostics settings][2]
 13. Click **Save**.
