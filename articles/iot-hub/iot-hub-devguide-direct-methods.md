@@ -15,7 +15,7 @@ IoT Hub gives you the ability to invoke direct methods on devices from the cloud
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Each device method targets a single device. [IoT Developer's Guide - Jobs](iot-hub-devguide-jobs.md) shows how to provide a way to invoke direct methods on multiple devices, and schedule method invocation for disconnected devices.
+Each device method targets a single device. [Schedule jobs on multiple devices](iot-hub-devguide-jobs.md) shows how to provide a way to invoke direct methods on multiple devices, and schedule method invocation for disconnected devices.
 
 Anyone with **service connect** permissions on IoT Hub may invoke a method on a device.
 
