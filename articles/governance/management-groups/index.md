@@ -97,18 +97,19 @@ apply global access and policies that other customers within the directory can't
 assigned on the root will apply across all management groups, subscriptions, resource groups, and
 resources within the directory by having one hierarchy within the directory.
 
-### Trouble seeing all subscriptions
+## Trouble seeing all subscriptions
 
-A few directories that starting using management groups early in the preview before (6/25/2018) could see an issue where all the subscriptions are not enforced into the hierarchy.  This is because the processes to enforce subscriptions into the hierarchy was implemented after a role or policy assignment was done on the root management group in the directory.
+A few directories that starting using management groups early in the preview before (June 25 2018) could see an issue where all the subscriptions are not enforced into the hierarchy.  This reason is because the processes to enforce subscriptions into the hierarchy was implemented after a role or policy assignment was done on the root management group in the directory.
 
-**How to resolve this**
-There are 2 self serve options to resolve this.
+### How to resolve the issue
+
+There are two self serve options to resolve this.
 
 1. Remove all Role and Policy assignments from the root management group
     1. By removing any policy and role assignments from the root management group, the service will backfill all subscriptions into the hierarchy the next overnight cycle.  The reason for this check is to ensure there is no accidental access given or policy assignment to all of the tenants subscriptions.
-    1. The best way to do this without impacting your services is to apply the role or policy assignments one level below the Root management group. Then you can remove all assignments from the root scope.
+    1. The best way to do this process without impacting your services is to apply the role or policy assignments one level below the Root management group. Then you can remove all assignments from the root scope.
 1. Call the API directly to start the backfill process
-    1. Any authorized customer in the directory can call the "TenantBackfillStatusRequest" or "StartTenantBackfillRequest" APIs. When the StartTenantBackfillRequest API is called, it kicks off the initial setup process of moving all the subscriptions into the hierarchy. This also starts the enforcement of all new subscription to be a child of the root management group. This process can be done without changing any assignments on the root level as you are saying it is okay that any policy or access assignment on the root can be applied to all subscriptions.
+    1. Any authorized customer in the directory can call the *TenantBackfillStatusRequest* or *StartTenantBackfillRequest* APIs. When the StartTenantBackfillRequest API is called, it kicks off the initial setup process of moving all the subscriptions into the hierarchy. This process also starts the enforcement of all new subscription to be a child of the root management group. This process can be done without changing any assignments on the root level as you are saying it is okay that any policy or access assignment on the root can be applied to all subscriptions.
 
 If you have questions on this backfill process, please contact: managementgroups@microsoft.com  
   
