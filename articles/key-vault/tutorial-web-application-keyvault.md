@@ -126,6 +126,7 @@ There are two NuGet packages that your web application needs to have installed. 
 
     * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - makes it easy to fetch access tokens for Service-to-Azure-Service authentication scenarios. 
     * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - contains methods for interacting with Key Vault.
+    * [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) - contains `IConfiguration` extensions for Azure Key Vault
 
 5. Use the Solution Explorer to open `Program.cs` and replace the contents of the Program.cs file with the following code. Substitute ```<YourKeyVaultName>``` with the name of your key vault:
 
