@@ -94,7 +94,7 @@ Your Azure Stack deployment may be *connected* or *disconnected*.
 ](#register-disconnected-with-capacity-billing)
 
 ### Determine a unique registration name to use 
-When you register Azure Stack with Azure, you must provide a unique registration name. One way to easily associate an Azure Stack subscription with your Azure registration is to use your Azure Stack Deployment ID. 
+When you register Azure Stack with Azure, you must provide a unique registration name. An easy way to associate an Azure Stack subscription an Azure registration is to use your Azure Stack Deployment ID. 
 
 > [!NOTE]
 > Azure Stack registrations using the capacity-based billing model will need to change the unique name when re-registering after those yearly subscriptions expire.
