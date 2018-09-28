@@ -93,6 +93,12 @@ On the VM that you plan to upload to Azure, run all commands in the following st
     ```PowerShell
     powercfg /setactive SCHEME_MIN
     ```
+6. Ensure the TEMP and TMP path environment variables are set to default %SystemRoot%\TEMP
+    ```PowerShell
+    C:\>reg query "HKLM\System\CurrentControlSet\Control\Session Manager\Environment" | find /i "temp"
+    TEMP    REG_EXPAND_SZ    %SystemRoot%\TEMP
+    TMP    REG_EXPAND_SZ    %SystemRoot%\TEMP
+    ```
 
 ## Check the Windows services
 Make sure that each of the following Windows services is set to the **Windows default values**. These are the minimum numbers of services that must be set up to make sure that the VM has connectivity. To reset the startup settings, run the following commands:
