@@ -237,4 +237,4 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 ## Next Steps
 
-* Go over the [MSAL.jw samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples) to get started coding.
+* Go over the [MSAL JS samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples) to get started coding.
