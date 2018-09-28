@@ -170,8 +170,6 @@
       href: install-update-binding-extensions-manual.md
     - name: Disable a function 
       href: disable-function.md
-    - name: Troubleshoot storage
-      href: functions-recover-storage-account.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate
@@ -205,7 +203,11 @@
     - name: Event publishing
       href: durable-functions-event-publishing.md
     - name: Use WebJobs SDK
-      href: durable-functions-webjobs-sdk.md      
+      href: durable-functions-webjobs-sdk.md  
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot storage
+      href: functions-recover-storage-account.md   
 - name: Reference
   items:
   - name: Bindings
