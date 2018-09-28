@@ -8,7 +8,7 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
 ---
 
@@ -32,7 +32,7 @@ To sign up for a 30-day free trial:
 
    ![Speech Services tab](media/index/try-speech-api-free-trial1.png)
    
-1. Under **Speech services <sup>PREVIEW</sup>**, select the **Get API Key** button.
+1. Under **Speech services**, select the **Get API Key** button.
 
    ![API key](media/index/try-speech-api-free-trial2.png)
 
@@ -71,11 +71,11 @@ To add a Speech service resource (free or paid tier) to your Azure account:
 
 1. In the **New** window, search for **speech**.
 
-1. In the search results, select **Speech (preview)**.
+1. In the search results, select **Speech**.
 
-    ![Select Speech (preview)](media/index/try-speech-api-create-speech2.png)
+    ![Select Speech](media/index/try-speech-api-create-speech2.png)
 
-1. Under **Speech (preview)**, click the **Create** button.
+1. Under **Speech**, select the **Create** button.
 
     ![Select the Create button](media/index/try-speech-api-create-speech3.png)
 
@@ -107,7 +107,7 @@ To switch from one subscription to another, for example when your free trial exp
 > [!NOTE]
 > Free trial keys are created in the West US (`westus`) region. A subscription created via the Azure dashboard may be in some other region if you so choose.
 
-* If your application uses a [Speech SDK](speech-sdk.md), you provide the region code, such as `westus`, when instantiating `RecognizerFactory`. 
+* If your application uses a [Speech SDK](speech-sdk.md), you provide the region code, such as `westus`, when creating a speech configuration.
 * If your application uses one of the Speech service's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
 
 Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.

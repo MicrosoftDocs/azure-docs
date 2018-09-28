@@ -167,6 +167,8 @@
     href: event-hubs-quotas.md
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-event-hubs
   - name: FAQ
     href: event-hubs-faq.md
   - name: Azure Roadmap

@@ -52,7 +52,7 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 When creating a virtual machine, several options are available such as operating system image, network configuration, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running the default latest version of Windows Server 2016 Datacenter.
 
-Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

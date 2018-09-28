@@ -27,6 +27,8 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
+  - name: Access to Azure Virtual Networks (VNETs)
+    href: connect-virtual-network-vnet-isolated-environment-overview.md
 - name: How-to guides
   items:
   - name: Develop
@@ -35,6 +37,8 @@
       href: logic-apps-create-logic-apps-from-templates.md
     - name: Migrate from BizTalk Services
       href: logic-apps-move-from-mabs.md
+    - name: Create logic apps - Visual Studio Code
+      href: create-logic-apps-visual-studio-code.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
@@ -67,8 +71,12 @@
       href: logic-apps-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
-    - name: Secure your logic apps
-      href: logic-apps-securing-a-logic-app.md
+    - name: Secure
+      items:
+      - name: Secure your logic apps
+        href: logic-apps-securing-a-logic-app.md
+      - name: Authenticate with managed identities
+        href: create-managed-service-identity.md
     - name: Develop custom connectors
       href: custom-connector-overview.md
     - name: Develop custom APIs
@@ -138,6 +146,8 @@
         href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
       - name: Build a disaster recovery plan
         href: logic-apps-enterprise-integration-b2b-business-continuity.md
+  - name: Connect to virtual networks with isolated environments
+    href: connect-virtual-network-vnet-isolated-environment.md
   - name: Access on-premises data
     items: 
       - name: Install data gateway
@@ -226,14 +236,18 @@
         href: ../connectors/connectors-create-api-rss.md
       - name: Salesforce
         href: ../connectors/connectors-create-api-salesforce.md
-      - name: SAP
+      - name: SAP (New)
         href: logic-apps-using-sap-connector.md
+      - name: SAP
+        href: logic-apps-using-sap-connector-old.md
       - name: Schedule
         href: ../connectors/connectors-native-recurrence.md
       - name: SendGrid
         href: ../connectors/connectors-create-api-sendgrid.md
       - name: SFTP
         href: ../connectors/connectors-create-api-sftp.md  
+      - name: SFTP - SSH
+        href: ../connectors/connectors-sftp-ssh.md  
       - name: SharePoint
         href: ../connectors/connectors-create-api-sharepoint.md
       - name: Slack

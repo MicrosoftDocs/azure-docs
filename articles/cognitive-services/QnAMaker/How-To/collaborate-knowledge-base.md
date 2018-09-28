@@ -3,13 +3,13 @@ title: Collaborating on knowledge base - Qna Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure Role-Based Access Control. 
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
+ms.author: tulasim
 ---
 
 # Collaborate on your knowledge base

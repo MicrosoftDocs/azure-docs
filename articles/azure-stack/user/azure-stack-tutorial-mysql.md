@@ -155,7 +155,7 @@ Be sure to provide the Azure Stack Operator the public IP or full FQDN for the p
 > [!NOTE]
 > This step must be run from the Azure Stack administration portal by an Azure Stack Operator.
 
-With the MySQL cluster's Public IP and SQL authentication login information provided by the tenant user, an Azure Stack Operator can now [create a MySQL Hosting Server using the new MySQL cluster](.\.\azure-stack-mysql-resource-provider-hosting-servers.md#connect-to-a-mysql-hosting-server). 
+With the MySQL cluster's Public IP and MySQL authentication login information provided by the tenant user, an Azure Stack Operator can now [create a MySQL Hosting Server using the new MySQL cluster](.\.\azure-stack-mysql-resource-provider-hosting-servers.md#connect-to-a-mysql-hosting-server). 
 
 Also ensure that the Azure Stack Operator has created plans and offers to make MySQL database creation available for users. The operator will need to add the **Microsoft.MySqlAdapter** service to a plan and create a new quota specifically for highly available databases. For more information about creating plans, see [Plan, offer, quota, and subscription overview](.\.\azure-stack-plan-offer-quota-overview.md).
 

@@ -1,19 +1,21 @@
 ---
-title: Speaker Recognition API | Microsoft Docs
-description: Use advanced algorithms for speaker verification and speaker identification with the Speaker Recognition API in Cognitive Services.
+title: What is Speaker Recognition?
+titlesuffix: Azure Cognitive Services
+description: Use advanced algorithms for speaker verification and speaker identification with the Speaker Recognition API.
 services: cognitive-services
 author: dwlin
-manager: zhang
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: speaker-recognition
-ms.topic: article
+ms.topic: overview
 ms.date: 03/20/2016
 ms.author: dwlin
 ---
 
 # Speaker Recognition API
 
-Welcome to the Microsoft Speaker Recognition APIs. Speaker Recognition APIs are cloud-based APIs that provide the most advanced algorithms for speaker verification and speaker identification. Speaker Recognition can be divided into two categories: speaker verification and speaker identification.
+Welcome to the Speaker Recognition APIs. Speaker Recognition APIs are cloud-based APIs that provide the most advanced algorithms for speaker verification and speaker identification. Speaker Recognition can be divided into two categories: speaker verification and speaker identification.
 
 
 ## Speaker Verification
