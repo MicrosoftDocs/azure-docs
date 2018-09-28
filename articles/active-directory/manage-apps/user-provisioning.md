@@ -238,7 +238,7 @@ For an example step-by-step deployment plan for outbound user provisioning to an
 
 Yes, it is possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications.
 
-However, for B2B users to be able to to sign-in to the SaaS application using Azure AD, the SaaS application must have it's SAML-based single sign-on capability configured in a specific way that. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+However, for B2B users to be able to to sign-in to the SaaS application using Azure AD, the SaaS application must have it's SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
 ###Does automatic user provisioning to SaaS apps work with dynamic groups in Azure AD?
 
@@ -246,7 +246,7 @@ Yes. When configured to "sync only assigned users and groups", the Azure AD user
 
 However, usage of dynamic groups can impact the overall performance of end-to-end user provisioning from the Azure AD to SaaS applications. When using dynamic groups, please keep these caveats and recommendations in mind:
 
-* How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information on how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule)
+* How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information on how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
 
 * When using dynamic groups, the rules must be carefully considered with user provisioning and deprovisioning in mind, as a loss of membership will result in a deprovisioning event.
 
