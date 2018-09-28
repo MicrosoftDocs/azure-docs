@@ -87,21 +87,16 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 5. Next run `:remote console` to redirect all console commands to the remote server.
 
+   > [!NOTE]
+   > If you don't run the `:remote console` command but would like to redirect all console commands to the remote server, you should prefix the command with `:>`, for example you should run the command as `:> g.V().count()`. This prefix is a part of the command and it is important when using the Gremlin console with Azure Cosmos DB. Omitting this prefix instructs the console to execute the command locally, often against an in-memory graph. Using this prefix `:>` tells the console to execute a remote command, in this case against Azure Cosmos DB (either the localhost emulator, or an Azure instance).
+
 Great! Now that we finished the setup, let's start running some console commands.
 
 Let's try a simple count() command. Type the following into the console at the prompt:
-```
-:> g.V().count()
-```
 
-> [!TIP]
-> Notice the `:>` that precedes the `g.V().count()` text? 
->
-> This is part of the command you need to type. It is important when using the Gremlin console, with Azure Cosmos DB.  
->
-> Omitting this `:>` prefix instructs the console to execute the command locally, often against an in-memory graph.
-> Using this `:>` tells the console to execute a remote command, in this case against Cosmos DB (either the localhost emulator, or an > Azure instance).
-
+```
+g.V().count()
+```
 
 ## Create vertices and edges
 
@@ -110,7 +105,7 @@ Let's begin by adding five person vertices for *Thomas*, *Mary Kay*, *Robin*, *B
 Input (Thomas):
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 Output:
@@ -121,7 +116,7 @@ Output:
 Input (Mary Kay):
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
 
 ```
 
@@ -135,7 +130,7 @@ Output:
 Input (Robin):
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 Output:
@@ -147,7 +142,7 @@ Output:
 Input (Ben):
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
 
 ```
 
@@ -160,7 +155,7 @@ Output:
 Input (Jack):
 
 ```
-:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
 ```
 
 Output:
@@ -175,7 +170,7 @@ Next, let's add edges for relationships between our people.
 Input (Thomas -> Mary Kay):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
 Output:
@@ -187,7 +182,7 @@ Output:
 Input (Thomas -> Robin):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
 Output:
@@ -199,7 +194,7 @@ Output:
 Input (Robin -> Ben):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
+g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
 Output:
@@ -214,7 +209,7 @@ Let's update the *Thomas* vertex with a new age of *45*.
 
 Input:
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
+g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 Output:
 
@@ -231,7 +226,7 @@ First, let's try a query with a filter to return only people who are older than 
 Input (filter query):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40))
+g.V().hasLabel('person').has('age', gt(40))
 ```
 
 Output:
@@ -245,7 +240,7 @@ Next, let's project the first name for the people who are older than 40 years ol
 Input (filter + projection query):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40)).values('firstName')
+g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
 Output:
@@ -261,7 +256,7 @@ Let's traverse the graph to return all of Thomas's friends.
 Input (friends of Thomas):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
 Output: 
@@ -276,7 +271,7 @@ Next, let's get the next layer of vertices. Traverse the graph to return all the
 Input (friends of friends of Thomas):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 Output:
 
@@ -291,7 +286,7 @@ Let's now delete a vertex from the graph database.
 Input (drop Jack vertex):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
+g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
 ## Clear your graph
@@ -301,8 +296,8 @@ Finally, let's clear the database of all vertices and edges.
 Input:
 
 ```
-:> g.E().drop()
-:> g.V().drop()
+g.E().drop()
+g.V().drop()
 ```
 
 Congratulations! You've completed this Azure Cosmos DB: Gremlin API tutorial!

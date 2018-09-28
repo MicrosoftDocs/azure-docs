@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: magoedte
 ---
 
@@ -200,7 +200,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
                         "apiVersion": "2015-11-01-preview",
                         "type": "Microsoft.OperationsManagement/solutions",
                         "location": "[parameters('workspaceRegion')]",
-                        "name": "[Concat('ContainerInsights', '-',  uniqueString(parameters('workspaceResourceId')))]",
+                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
                         "properties": {
                             "workspaceResourceId": "[parameters('workspaceResourceId')]"
                         },

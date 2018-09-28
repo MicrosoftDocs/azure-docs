@@ -42,6 +42,9 @@ You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 dist
 * qpid-amqp-1-0-client-jms-[version].jar
 * qpid-amqp-1-0-common-[version].jar
 
+> ![NOTE]
+> JMS JAR names and versions may have changed. For details, see [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
+
 ## Coding Java applications
 ### Java Naming and Directory Interface (JNDI)
 JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names. Two types of JMS objects are resolved using JNDI: ConnectionFactory and Destination. JNDI uses a provider model into which you can plug different directory services to handle name resolution duties. The Apache Qpid JMS AMQP 1.0 library comes with a simple properties file-based JNDI Provider that is configured using a properties file of the following format:
@@ -117,14 +120,17 @@ There are no special APIs or options required when using JMS with Service Bus. H
 The JNDI environment is configured by passing a hashtable of configuration information into the constructor of the javax.naming.InitialContext class. The two required elements in the hashtable are the class name of the Initial Context Factory and the Provider URL. The following code shows how to configure the JNDI environment to use the Qpid properties file based JNDI Provider with a properties file named **servicebus.properties**.
 
 ```java
-Hashtable<String, String> env = new Hashtable<String, String>(); 
-env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
-env.put(Context.PROVIDER_URL, "servicebus.properties"); 
-InitialContext context = new InitialContext(env);
+Hashtable<String, String> env = new Hashtable<>();
+env.put("connectionfactory.SBCF", "amqps://[namespace].servicebus.windows.net?amqp.idleTimeout=120000");
+env.put("queue.QUEUE", "queue");
+
+env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
+Context context = new InitialContext(env);
 ``` 
 
 ### A simple JMS application using a Service Bus queue
 The following example program sends JMS TextMessages to a Service Bus queue with the JNDI logical name of QUEUE, and receives the messages back.
+
 
 ```java
 // SimpleSenderReceiver.java
@@ -148,10 +154,12 @@ public class SimpleSenderReceiver implements MessageListener {
 
     public SimpleSenderReceiver() throws Exception {
         // Configure JNDI environment
-        Hashtable<String, String> env = new Hashtable<String, String>();
-        env.put(Context.INITIAL_CONTEXT_FACTORY, 
-                   "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
-        env.put(Context.PROVIDER_URL, "servicebus.properties");
+        Hashtable<String, String> env = new Hashtable<>();
+        // Specify the name of your namespace. Idle timeout value is set as Service Bus enforces timeout.         
+        env.put("connectionfactory.SBCF", "amqps://[namespace].servicebus.windows.net?amqp.idleTimeout=120000");
+        env.put("queue.QUEUE", "queue");
+
+        env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
         Context context = new InitialContext(env);
 
         // Look up ConnectionFactory and Queue
@@ -239,6 +247,17 @@ Received message with JMSMessageID = ID:7578408152750301483
 Sent message with JMSMessageID = ID:956102171969368961
 Received message with JMSMessageID = ID:956102171969368961
 exit
+```
+
+## AMQP disposition and Service Bus operation mapping
+Here is how an AMQP disposition translates to a Service Bus operation:
+
+```
+ACCEPTED = 1; -> Complete()
+REJECTED = 2; -> DeadLetter()
+RELEASED = 3; (just unlock the message in service bus, will then get redelivered)
+MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
+MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
 ## Cross-platform messaging between JMS and .NET
