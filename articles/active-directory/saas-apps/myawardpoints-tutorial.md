@@ -109,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
 	> [!NOTE]
-	> Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [My Award Points Top Sub/Top Team Client support team](mailto:myawardpoints@biworldwide.com) to get this value. You will get the **SAML Entity ID** value in the later steps in this tutorial.
+	> You will get the `<SAMLENTITYID>` value in the later steps in this tutorial.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
