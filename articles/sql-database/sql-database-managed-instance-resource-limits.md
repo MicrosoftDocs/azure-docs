@@ -18,7 +18,7 @@ ms.date: 09/19/2018
 This article provides an overview of the Azure SQL Database Managed Instance resource limits and provides information how to create request to increase default subscription limits. 
 
 > [!NOTE]
-> For other Managed Instance limitations, not specific to individual subscription, see [vCore-based purchasing model](sql-database-managed-instance.md#vcore-based-purchasing-mode)) and [Managed Instance service tiers](sql-database-managed-instance.md#managed-instance-service-tiers).
+> For other Managed Instance limitations, not specific to individual subscription, see [vCore-based purchasing model](sql-database-managed-instance.md#vcore-based-purchasing-model) and [Managed Instance service tiers](sql-database-managed-instance.md#managed-instance-service-tiers).
 
 ## Default subscription limits per region
 
