@@ -57,15 +57,11 @@ HTTP POST /api/v1.0/roleassignments
 
 | **Name** | **Required** | **Type** | **Description** |
 |---------|---------|---------|---------|
-|roleId	| Yes |	string | The role definition identifier. Role definitions and their identifiers can be found by querying the system API. |
-|objectId | Yes |	string | The object id for the role assignment that must be formatted according to its associated type.
-For the DomainName ObjectIdType, ObjectId must begin with the “@” character. |
-| objectIdType | Yes |string | The type of the role assignment. Must be one of the following |
-| tenantId | Varies | string |	The tenant identifier.
-Disallowed for DeviceId and TenantId ObjectIdTypes.
-Required for UserId and ServicePrincipalId ObjectIdTypes.
-Optional for the DomainName ObjectIdType. |
-| path* | Yes | string |The full access path to the Space object. Ex: /{Guid}/{Guid} If an identifier needs the role assignment for the entire topology specify "/" which designates the root. However, using "/" is discouraged and **you should always follow the Principle of Least Privilege** |
+|roleId| Yes |string | The role definition identifier. Role definitions and their identifiers can be found by querying the system API. |
+|objectId | Yes |string | The object id for the role assignment that must be formatted according to its associated type. For the `DomainName` ObjectIdType, ObjectId must begin with the `“@”` character. |
+| objectIdType | Yes |string | The type of the role assignment. Must be one of the following rows in this table. |
+| tenantId | Varies | string |The tenant identifier. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
+| path* | Yes | string |The full access path to the `Space` object. Ex: `/{Guid}/{Guid}` If an identifier needs the role assignment for the entire topology specify `"/"` which designates the root. However, using that is discouraged and **you should always follow the Principle of Least Privilege** |
 
 ## Sample configuration
 
