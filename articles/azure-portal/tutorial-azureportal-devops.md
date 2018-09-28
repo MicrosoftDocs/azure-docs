@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
-ms.author: mlearned
+ms.author: cwatson
 
 ---
 # Tutorial: DevOps with the Azure portal
@@ -29,7 +29,7 @@ The Azure platform is full of flexible DevOps workflows. In this tutorial, you l
 Create a Web app with [Azure App Service](https://azure.microsoft.com/services/app-service/), which you’ll use in the rest of this tutorial. You’ll initially enable continuous deployment from your source code repository into your running Azure environment.
 
 1. Sign into the Azure portal
-2. Choose **App Services** &gt; **Add icon** and enter a name, choose your subscription, and create a new resource group to serve as the container for the service.
+2. Choose **App Services** &gt; **Add** icon and enter a name, choose your subscription, and create a new resource group to serve as the container for the service.
    
    Resource groups allow you to manage various aspects of the solution such as billing, deployments, and monitoring all as a single group via [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
