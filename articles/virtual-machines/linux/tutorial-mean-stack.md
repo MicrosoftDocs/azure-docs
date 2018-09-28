@@ -319,7 +319,7 @@ sudo apt-get install -y nodejs
 1. Change the directory back up to *Books* (`cd ..`) and start the server by running this command:
 
     ```bash
-    nodejs server.js
+    node server.js
     ```
 
 2. Open a web browser to the address that you recorded for the VM. For example, *http://13.72.77.9:3300*. You should see something like the following page:
