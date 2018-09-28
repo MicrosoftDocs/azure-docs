@@ -21,7 +21,7 @@ ms.custom: aaddev
 ---
 
 # v2.0 Protocols - SPAs using the implicit flow
-[!INCLUDE active-directory-develop-applies-v2]
+[!INCLUDE active-directory-develop-applies-v2.md]
 
 With the v2.0 endpoint, you can sign users into your single-page apps with both personal and work or school accounts from Microsoft. Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
 
@@ -31,7 +31,7 @@ With the v2.0 endpoint, you can sign users into your single-page apps with both 
 
 For these applications (think: AngularJS, Ember.js, React.js, etc) Azure AD supports the OAuth 2.0 Implicit Grant flow. The implicit flow is described in the [OAuth 2.0 Specification](http://tools.ietf.org/html/rfc6749#section-4.2). Its primary benefit is that it allows the app to get tokens from Azure AD without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code. There are a few important security considerations to take into account when using the implicit flow - specifically around [client](http://tools.ietf.org/html/rfc6749#section-10.3) and [user impersonation](http://tools.ietf.org/html/rfc6749#section-10.3).
 
-If you want to use the implicit flow and Azure AD to add authentication to your JavaScript app, we recommend you use our open source JavaScript library, [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). There are few tutorials available [here](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples) to help you get started.
+If you want to use the implicit flow and Azure AD to add authentication to your JavaScript app, we recommend you use our open source JavaScript library, [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
 
 However, if you would prefer not to use a library in your single-page app and send protocol messages yourself, follow the general steps below.
 
@@ -49,7 +49,7 @@ The entire implicit sign-in flow looks something like this - each of the steps a
 To initially sign the user into your app, you can send an [OpenID Connect](v2-protocols-oidc.md) authorization request and get an `id_token` from the v2.0 endpoint:
 
 > [!IMPORTANT]
-> In order to succesfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **Implicit grant** enabled for the Web client. If it is not enabled, an `unsupported_response` error will be returned: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'"
+> In order to succesfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **Allow Implicit Flow** enabled for the Web client. If it is not enabled, an `unsupported_response` error will be returned: **The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'**
 
 ```
 // Line breaks for legibility only
@@ -65,8 +65,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Click the link below to execute this request! After signing in, your browser should be redirected to `https://localhost/myapp/` with a `id_token` in the address bar.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> To test signing in via the implicit flow, click here: <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> After signing in, your browser should be redirected to `https://localhost/myapp/` with a `id_token` in the address bar.
+> 
 
 | Parameter |  | Description |
 | --- | --- | --- |
@@ -158,13 +158,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &login_hint=myuser@mycompany.com
 ```
 
+For details on the query parameters in the URL, see [send the sign in request](#send-the-sign-in-request).
+
 > [!TIP]
 > Try copy & pasting the below request into a browser tab! (Don't forget to replace the `domain_hint` and the `login_hint` values with the correct values for your user)
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint={{consumers-or-organizations}}&login_hint={{your-username}}
-```
-For details on the parameters, [see above](#Send-the-sign-in-request). 
+>
+>`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=consumers-or-organizations&login_hint=your-username`
+>
 
 Thanks to the `prompt=none` parameter, this request will either succeed or fail immediately and return to your application. A successful response will be sent to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
@@ -234,3 +234,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 | --- | --- | --- |
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
 | post_logout_redirect_uri | recommended | The URL that the user should be returned to after logout completes. This value must match one of the redirect URIs registered for the application. If not included, the user will be shown a generic message by the v2.0 endpoint. |
+
+## Next Steps
+
+* Go over the [MSAL.jw samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples) to get started coding.
