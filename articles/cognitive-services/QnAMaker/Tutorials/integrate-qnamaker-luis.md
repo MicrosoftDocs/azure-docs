@@ -23,7 +23,7 @@ While it is straightforward to create multiple knowledge bases in QnA Maker, you
 
 In the above scenario, QnA Maker first gets the intent of the incoming question from a LUIS model, and then use that to route it to the correct QnA Maker knowledge base.
 
-## LUIS app
+## Create a LUIS app
 
 1. Log in to the [LUIS](https://www.luis.ai/) portal.
 1. [Create an app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
@@ -31,7 +31,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 1. [Train the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) and [publish the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) your LUIS App.
 1. In the **Manage** section, make note of your LUIS app ID, LUIS endpoint key, and host region. You will need these values later. 
 
-## QnA Maker knowledge bases
+## Create QnA Maker knowledge bases
 
 1. Log in to [QnA Maker](https://qnamaker.ai).
 1. [Create](https://www.qnamaker.ai/Create) a knowledge bases for each intent in the LUIS app.
