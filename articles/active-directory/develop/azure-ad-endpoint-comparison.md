@@ -1,9 +1,9 @@
 ---
-title: Comparing the Azure AD v2.0 endpoint with v1.0 endpoint | Microsoft Docs
+title: Comparing the Azure AD v2.0 endpoint with the v1.0 endpoint | Microsoft Docs
 description: Know the differences between Azure AD v2.0 endpoint and the v1.0 endpoint
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
 ---
 
-# Comparing the Azure AD v2.0 endpoint with v1.0 endpoint
+# Comparing the Azure AD v2.0 endpoint with the v1.0 endpoint
 
 When developing a new application, it is important to know the differences between the v1.0 and v2.0 endpoints. Below are the main differences, as well as some existing limitations for the v2.0 endpoint.
 
 > [!NOTE]
-> Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](#limitations).
+> Not all Azure Active Directory (Azure AD) scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](#limitations).
 
 ## Who can sign in
 
@@ -33,7 +33,7 @@ When developing a new application, it is important to know the differences betwe
 
 * The v1.0 endpoint allows only work and school accounts to sign in to your application (Azure AD)
 
-* The v2.0 endpoint allows work and school accounts from Azure Active Directory and personal accounts (MSA) (hotmail.com, outlook.com, msn.com) to sign in.
+* The v2.0 endpoint allows work and school accounts from Azure AD and personal accounts (MSA) (hotmail.com, outlook.com, msn.com) to sign in.
 
 * Both v1.0 and v2.0 endpoints also accept sign-ins of *[guest users](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* of an Azure AD directory for applications configured as *[single-tenant](single-and-multi-tenant-apps.md)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
@@ -115,7 +115,7 @@ The `email` scope allows your app access to the user’s primary email address t
 
 This allows you to code your app in a minimal-disclosure fashion – you can only ask the user for the set of information that your app requires to do its job. For more information on these scopes, see [the v2.0 scope reference](v2-permissions-and-consent.md).
 
-## Token Claims
+## Token claims
 
 The claims in tokens issued by the v2.0 endpoint will not be identical to tokens issued by the generally available Azure AD endpoints. Apps migrating to the new service should not assume a particular claim will exist in id_tokens or access_tokens. Further details of different types of tokens used in the v2.0 endpoint are available in the [access token](access-tokens.md) reference and [`id_token` reference](id-tokens.md)
 
@@ -210,18 +210,16 @@ Currently, library support for the v2.0 endpoint is limited. If you want to use 
 
 The v2.0 endpoint does not support SAML or WS-Federation; it only supports Open ID Connect and OAuth 2.0. Not all features and capabilities of OAuth protocols have been incorporated into the v2.0 endpoint.
 
-The following protocol features and capabilities currently are *not available* in the v2.0 endpoint:
+The following protocol features and capabilities currently are *not available* or *not supported* in the v2.0 endpoint:
 
-* Currently, the `email` claim is returned only if an optional claim is configured and scope is scope=email was specified in the request. However, this behavior will change as the v2.0 endpoint is updated to further comply with the Open ID Connect and OAuth2.0 standards.
+* The `email` claim is returned only if an optional claim is configured and scope is scope=email was specified in the request. However, expect this behavior to change as the v2.0 endpoint is updated to further comply with the Open ID Connect and OAuth2.0 standards.
 
 * The v2.0 endpoint does not support issuing role or group claims in ID tokens.
 
-* The [OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3) is not supported by the v2.0 endpoint.
-
-In addition, the v2.0 endpoint does not support any form of the SAML or WS-Federation protocols.
+* The v2.0 endpoint does not support [OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-v2-protocols.md).
 
-#### SAML Restrictions
+#### SAML restrictions
 
 If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. Currently, the SAML assertion grant is not supported on the v2.0 endpoint.

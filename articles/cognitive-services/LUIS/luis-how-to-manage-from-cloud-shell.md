@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to get usage information in Azure Cloud Shell for LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

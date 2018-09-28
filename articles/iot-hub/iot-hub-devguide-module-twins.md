@@ -1,4 +1,4 @@
----
+﻿---
 title: Understand Azure IoT Hub module twins | Microsoft Docs
 description: Developer guide - use module twins to synchronize state and configuration data between IoT Hub and your devices
 author: chrissie926
@@ -245,7 +245,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
     }
     ```
 
-* All string values can be at most 4 KB in length.
+* All string values can be at most 512 bytes in length.
 
 ## Module twin size
 IoT Hub enforces an 8KB size limitation on each of the respective total values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.

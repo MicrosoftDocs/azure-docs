@@ -43,6 +43,8 @@
       href: container-instances-multi-container-yaml.md
     - name: Multi-container group - Resource Manager
       href: container-instances-multi-container-group.md
+    - name: Virtual network deployment (preview)
+      href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
     - name: Set environment variables (env)
@@ -101,6 +103,8 @@
     href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-container-instances
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing

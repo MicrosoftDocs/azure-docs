@@ -58,7 +58,7 @@
     href: https://docs.microsoft.com/sandbox/functions-recipes/    
 - name: Concepts
   items:
-  - name: Compare 1.x and 2.x
+  - name: Compare versions 1.x and 2.x
     href: functions-versions.md
   - name: Scale and hosting
     href: functions-scale.md
@@ -170,6 +170,8 @@
       href: install-update-binding-extensions-manual.md
     - name: Disable a function 
       href: disable-function.md
+    - name: Troubleshoot storage
+      href: functions-recover-storage-account.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate
