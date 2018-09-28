@@ -47,11 +47,7 @@ Header|Values|Comments
 | `Authorization`	| Authorization token obtained by presenting your subscription key to the token service. Each token is valid for ten minutes. See [REST APIs: Authentication](rest-apis.md#authentication).
 
 > [!NOTE]
-<<<<<<< HEAD
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
-=======
 > If your selected voice and output format have different bit rates, the audio is resampled as necessary.
->>>>>>> c8955e1a4fed02862813b4f99fb387cc15ac7621
 
 A sample request is shown below.
 
