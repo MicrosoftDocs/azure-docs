@@ -52,7 +52,7 @@ If the process server uses a proxy to connect to Site Recovery in Azure, use thi
 
 1. Log onto the process server machine. 
 2. Open an Admin PowerShell command window, and run the following command:
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine

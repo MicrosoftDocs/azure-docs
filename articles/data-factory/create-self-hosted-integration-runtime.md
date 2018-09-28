@@ -29,7 +29,7 @@ This document introduces how you can create and configure Self-hosted IR.
 	```powershell
 	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
-2. Download and install self-hosted integration runtime (on local machine).
+2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) and install self-hosted integration runtime (on local machine).
 3. Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
@@ -92,7 +92,7 @@ Self-hosted integration runtime can be installed by downloading an MSI setup pac
 9. Get the Authentication key using Azure PowerShell. PowerShell example for retrieving authentication key:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
 	```
 11. On the **Register Integration Runtime (Self-hosted)** page of Microsoft Integration Runtime Configuration Manager running on your machine, do the following steps:
 	1. Paste the **authentication key** in the text area.
