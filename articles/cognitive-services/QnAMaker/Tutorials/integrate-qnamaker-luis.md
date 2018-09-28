@@ -25,7 +25,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 
 ## Create a LUIS app
 
-1. Log in to the [LUIS](https://www.luis.ai/) portal.
+1. Sign in to the [LUIS](https://www.luis.ai/) portal.
 1. [Create an app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Add an intent](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) for each QnA Maker knowledge base. The example utterances should correspond to questions in the QnA Maker knowledge bases.
 1. [Train the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) and [publish the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) your LUIS App.
@@ -33,7 +33,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 
 ## Create QnA Maker knowledge bases
 
-1. Log in to [QnA Maker](https://qnamaker.ai).
+1. Sign in to [QnA Maker](https://qnamaker.ai).
 1. [Create](https://www.qnamaker.ai/Create) a knowledge bases for each intent in the LUIS app.
 1. Test and publish the knowledge bases. When you publish each KB, make note of the KB ID, host (subdomain before _.azurewebsites.net/qnamaker_), and the authorization endpoint key. You will need these values later. 
 
@@ -58,7 +58,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     using System.Text;
     ```
 
-1. Add the below classes for deserializing the QnA Maker response:
+1. Add the below classes to deserialize the QnA Maker response:
 
     ```csharp
     public class Metadata
