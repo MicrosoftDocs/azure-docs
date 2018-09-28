@@ -175,8 +175,12 @@ You can link a normal HDInsight cluster by using the Ambari managed username. Si
 
         ![The Select Main Class dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 
-      * Because the application code in this example does not require command-line arguments or reference JARs or files, you can leave the remaining boxes empty. After you provide all the information, the dialog box should resemble the following image.
+      * You can provide the information you want. About the **Job configurations**, we have the default value. And you can refer to [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html) for more information about the keys. The **Command line arguments**, **Referenced JARs** and **Referenced Files** should look like the below image. You can refer to [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) for more information about **Referenced JARs** and **Referenced Files**. To make **Referenced JARs** and **Referenced Files** work well, you should upload the resources to the cluster you submit first. Refer to [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).The submit dialog box should resemble the following image.
         
+        ![The Spark Submission dialog box job configuration meaning](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
+
+        ![The Spark Submission dialog box jar files meaning](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+
         ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
    c. The **Spark Submission** tab at the bottom of the window should start displaying the progress. You can also stop the application by selecting the red button in the **Spark Submission** window.
