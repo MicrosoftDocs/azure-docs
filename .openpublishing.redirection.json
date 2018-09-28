@@ -1220,7 +1220,7 @@
             "source_path": "articles/virtual-machines/windows/troubleshoot-check-disk-boot-error.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error.md",
             "redirect_document_id": false
-        },	
+        },
         {
             "source_path": "articles/virtual-machines/linux/troubleshooting-throttling-errors.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors",
@@ -1240,7 +1240,7 @@
             "source_path": "articles/virtual-machines/windows/unexpected-reboots-attached-vhds.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/unexpected-reboots-attached-vhds",
             "redirect_document_id": false
-        },		
+        },
         {
             "source_path": "articles/virtual-machines/linux/unexpected-reboots-attached-vhds.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/unexpected-reboots-attached-vhds",
@@ -1250,7 +1250,7 @@
             "source_path": "articles/virtual-machines/windows/understand-vm-reboot.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/understand-vm-reboot",
             "redirect_document_id": false
-        },		
+        },
         {
             "source_path": "articles/virtual-machines/linux/understand-vm-reboot.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/understand-vm-reboot",
@@ -1300,7 +1300,7 @@
             "source_path": "articles/virtual-machines/windows/allocation-failure-classic.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure-classic",
             "redirect_document_id": false
-        },		
+        },
         {
             "source_path": "articles/virtual-machines/linux/change-vm-size-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/change-vm-size",
@@ -3161,7 +3161,7 @@
             "redirect_url": "/azure/automation/source-control-integration",
             "redirect_document_id": false
         },
-        {   
+        {
             "source_path": "articles/azure-functions/functions-create-generic-webhook-triggered-function.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
             "redirect_document_id": false
@@ -3475,7 +3475,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md",
-            "redirect_url": "/azure/app-service/containers/tutorial-docker-python-postgresql-app",
+            "redirect_url": "/azure/app-service/containers/tutorial-python-postgresql-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/containers/tutorial-docker-python-postgresql-app.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-python-postgresql-app",
             "redirect_document_id": false
         },
         {
@@ -4365,7 +4370,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-web-tutorial-python-postgresql.md",
-            "redirect_url": "/azure/app-service/containers/tutorial-docker-python-postgresql-app",
+            "redirect_url": "/azure/app-service/containers/tutorial-python-postgresql-app",
             "redirect_document_id": false
         },
         {
@@ -11064,6 +11069,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/supported-countries-markets.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/language-support",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Spell-Check/bing-spell-check-supported-languages.md",
+            "redirect_url": "/azure/cognitive-services/bing-spell-check/language-support",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-database/sql-database-command-line-tools.md",
             "redirect_url": "/azure/sql-database/sql-database-manage-overview",
             "redirect_document_id": false
@@ -12390,6 +12405,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/text-analytics/text-analytics-supported-languages.md",
+            "redirect_url": "/azure/cognitive-services/text-analytics/language-support",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/Speech/index.md",
             "redirect_url": "/azure/cognitive-services/Speech/Home",
             "redirect_document_id": false
@@ -12450,6 +12470,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Content-Moderator/text-moderation-api-languages.md",
+            "redirect_url": "/azure/cognitive-services/content-moderator/language-support",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
             "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
             "redirect_document_id": false
@@ -12498,6 +12523,11 @@
             "source_path": "articles/cognitive-services/Translator/quickstarts/ruby.md",
             "redirect_url": "/azure/cognitive-services/Translator/quickstart-ruby-translate",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Translator/languages.md",
+            "redirect_url": "/azure/cognitive-services/Translator/language-support",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
@@ -24281,8 +24311,13 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/Bing-Web-Search/tutorial-bing-web-search-single-page-app-source.md",
-            "redirect_url": "https://github.com/erhopf/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search",
+            "source_path": "articles/cognitive-services/Bing-Web-Search/supported-countries-markets.md",
+            "redirect_url": "/azure/cognitive-services/bing-web-search/language-support",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages.md",
+            "redirect_url": "/azure/cognitive-services/bing-autosuggest/language-support",
             "redirect_document_id": true
         },
         {
@@ -26396,6 +26431,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/QnAMaker/overview/languages-supported.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/overview/language-support",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/media-services/previous/media-services-configure-elemental-live-encoder.md",
             "redirect_url": "/azure/media-services/previous/media-services-overview",
             "redirect_document_id": false
@@ -27371,6 +27411,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/bing-visual-search/supported-countries-markets.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/language-support",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/bing-news-search/supported-countries-markets.md",
+            "redirect_url": "/azure/cognitive-services/bing-news-search/language-support",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
             "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
             "redirect_document_id": true
@@ -27503,6 +27553,11 @@
         {
             "source_path": "articles/cognitive-services/LUIS/AzureIbizaSubscription.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-supported-languages.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-language-support",
             "redirect_document_id": true
         },
         {
@@ -28585,12 +28640,17 @@
             "source_path": "articles/cognitive-services/Bing-Image-Search/sdk.md",
             "redirect_url": "/azure/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart"
         },
-		{
+        {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/supported-countries-markets.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/language-support",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
             "redirect_url": "/azure/active-directory/conditional-access/baseline-protection",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-locations.md",
             "redirect_url": "/azure/active-directory/conditional-access/location-condition",
             "redirect_document_id": true
@@ -28685,44 +28745,44 @@
             "redirect_url": "/azure/active-directory/identity-protection/vulnerabilities",
             "redirect_document_id": true
         },
-    	{
+        {
             "source_path": "articles/active-directory/active-directory-identityprotection.md",
             "redirect_url": "/azure/active-directory/identity-protection/overview",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/LUIS/luis-reference-gdpr.md",
-            "redirect_url": "/azure/cognitive-services/LUIS/luis-user-privacy",
-            "redirect_document_id": true
-        },
-		{
             "source_path": "articles/active-directory/active-directory-conditional-access-conditions.md",
             "redirect_url": "/azure/active-directory/conditional-access/conditions",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-controls.md",
             "redirect_url": "/azure/active-directory/conditional-access/controls",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-device-policies.md",
             "redirect_url": "/azure/active-directory/conditional-access/overview",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-mam.md",
             "redirect_url": "/azure/active-directory/conditional-access/app-based-conditional-access",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-no-modern-authentication.md",
             "redirect_url": "/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/cognitive-services/speech-service/speech-scenarios.md",
             "redirect_url": "/azure/cognitive-services/speech-service/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/speech-service/supported-languages.md",
+            "redirect_url": "/azure/cognitive-services/speech-service/language-support",
             "redirect_document_id": true
         },
         {

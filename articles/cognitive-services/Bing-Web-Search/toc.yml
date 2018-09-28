@@ -89,8 +89,8 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Use and display requirements
     href: UseAndDisplayRequirements.md
-  - name: Supported countries and markets
-    href: supported-countries-markets.md
+  - name: Language and region support
+    href: language-support.md
   - name: Analytics for Bing Web Search API
     href: bing-web-stats.md
   - name: Support

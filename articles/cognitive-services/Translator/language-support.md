@@ -1,18 +1,17 @@
 ---
-title: Translator Text API Supported languages
-titlesuffix: Azure Cognitive Services
-description: View languages supported by the Translator Text API.
+title: Language support - Translator Text API
+titleSuffix: Azure Cognitive Services
+description: A list of natural languages supported by the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: conceptual
-ms.date: 06/27/2018
+ms.topic: article
+ms.date: 09/25/2018
 ms.author: v-jansko
 ---
-# Supported languages in the Translator Text API
+# Language and region support for the Translator Text API
 
 The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. Neural machine translation is available in V2 by using the "generalnn" category.
 
@@ -28,7 +27,7 @@ The Translator Text API supports the following languages for text to text transl
 | Bulgarian     |  Neural |`bg`          |
 | Cantonese (Traditional)      | Statistical |`yue`          |
 | Catalan      | Statistical |`ca`          |
-| Chinese Simplified        |  Neural |`zh-Hans`          | 
+| Chinese Simplified        |  Neural |`zh-Hans`          |
 | Chinese Traditional        |  Neural |`zh-Hant`          |
 | Croatian      | Neural |`hr`          |
 | Czech        |  Neural |`cs`          |
@@ -125,7 +124,7 @@ The dictionary supports the following languages to or from English using the Loo
 | Bosnian (Latin)      | `bs`          |
 | Bulgarian      | `bg`          |
 | Catalan      | `ca`          |
-| Chinese Simplified      | `zh-Hans`          | 
+| Chinese Simplified      | `zh-Hans`          |
 | Croatian      | `hr`          |
 | Czech      | `cs`          |
 | Danish      | `da`          |
