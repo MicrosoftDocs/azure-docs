@@ -26,7 +26,7 @@
   - name: Single-page web app (source code)
     href: tutorials/autosuggest-source.md
 - name: How-to guides
-  items: 
+  items:
   - name: Use and display requirements
     href: UseAndDisplayRequirements.md
   - name: Upgrade from v5 to v7
@@ -59,8 +59,7 @@
     href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
   - name: Bing Autosuggest endpoint
     href: autosuggest-endpoint.md
-  - name: Supported languages
-    href: bing-autosuggest-supported-languages.md
+  - name: Language and region support
+    href: language-support.md
   - name: Analytics for Bing Autosuggest API
     href: bing-autosuggest-stats.md
-
