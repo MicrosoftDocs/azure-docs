@@ -16,7 +16,7 @@ ms.date: 09/24/2018
 
 In this tutorial, you'll learn how to generate a  machine learning model using automated machine learning (automated ML).  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
-[ ![flow diagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
+![flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
 Similar to the [train models tutorial](tutorial-train-models-with-aml.md), this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. But this time you don't to specify an algorithm or tune hyperparameters. The automated ML technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
 
@@ -34,7 +34,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `tutorials/03.auto-train-models.ipynb` notebook:
+For your convenience, this tutorial is available as a Jupyter notebook. Run the `03.auto-train-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
