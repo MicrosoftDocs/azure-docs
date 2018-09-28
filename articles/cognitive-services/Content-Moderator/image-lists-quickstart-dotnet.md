@@ -1,17 +1,19 @@
 ---
-title: Moderate with custom image lists in Azure Content Moderator | Microsoft Docs
-description: How to moderate with custom image lists using Azure Content Moderator SDK for .NET.
+title: "Quickstart: Moderate with custom image lists - Content Moderator"
+titlesuffix: Azure Cognitive Services
+description: How to moderate with custom image lists using the Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/04/2018
+ms.topic: quickstart
+ms.date: 09/14/2018
 ms.author: sajagtap
 ---
 
-# Moderate with custom image lists in .NET
+# Quickstart: Moderate with custom image lists in .NET
 
 This article provides information and code samples to help you get started using 
 the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
@@ -46,9 +48,6 @@ Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 
 1. Select this project as the single startup project for the solution.
 
-1. Add a reference to the **ModeratorHelper** project assembly that you created 
-   in the [Content Moderator client helper quickstart](content-moderator-helper-quickstart-dotnet.md).
-
 ### Install required packages
 
 Install the following NuGet packages:
@@ -61,14 +60,65 @@ Install the following NuGet packages:
 
 Modify the program's using statements.
 
+	using Microsoft.Azure.CognitiveServices.ContentModerator;
 	using Microsoft.CognitiveServices.ContentModerator;
 	using Microsoft.CognitiveServices.ContentModerator.Models;
-	using ModeratorHelper;
 	using Newtonsoft.Json;
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
 	using System.Threading;
+
+### Create the Content Moderator client
+
+Add the following code to create a Content Moderator client for your subscription.
+
+> [!IMPORTANT]
+> Update the **AzureRegion** and **CMSubscriptionKey** fields with 
+> the values of your region identifier and subscription key.
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.Endpoint = AzureBaseURL;
+            return client;
+        }
+    }
 
 
 ### Initialize application-specific settings
@@ -83,7 +133,7 @@ Add the following classes and static fields to the **Program** class in Program.
 
     /// <summary>
     /// The number of minutes to delay after updating the search index before
-    /// performing image match operations against a the list.
+    /// performing image match operations against the list.
     /// </summary>
     private const double latencyDelay = 0.5;
 
@@ -178,7 +228,7 @@ Add the following classes and static fields to the **Program** class in Program.
     /// <summary>
     /// The name of the file to contain the output from the list management operations.
     /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
+    /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private static string OutputFile = "ListOutput.log";
 
     /// <summary>

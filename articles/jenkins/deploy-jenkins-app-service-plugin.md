@@ -14,12 +14,12 @@ ms.date: 07/31/2018
 
 To deploy a Java web app to Azure, you can use the Azure CLI in [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) or you can use the [Azure App Service Jenkins plugin](https://plugins.jenkins.io/azure-app-service). 
 The Jenkins plugin version 1.0 supports continuous deployment by using the Web Apps feature of Azure App Service through:
-* Git or FTP.
+* File upload.
 * Docker for Web Apps on Linux.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Configure Jenkins to deploy Web Apps through Git or FTP.
+> * Configure Jenkins to deploy Web Apps through file upload.
 > * Configure Jenkins to deploy Web App for Containers.
 
 ## Create and configure a Jenkins instance
@@ -33,7 +33,7 @@ If you don't already have a Jenkins Master, start with the [solution template](i
 
 You can use the Jenkins plugin to deploy a web app in any language that is supported by Web Apps, such as C#, PHP, Java, and Node.js. In this tutorial, we use a [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). To fork the repo to your own GitHub account, select the **Fork** button in the upper right corner of the GitHub interface.  
 > [!NOTE]
-> The Java JDK and Maven are required to build the Java project. Install these components on the Jenkins Master, or on the VM agent if you use the agent for continuous integration. 
+> The Java JDK and Maven are required to build the Java project. Install these components on the Jenkins Master, or on the VM agent if you use the agent for continuous integration. If you are deploying a Java SE application, ZIP is also needed on the build server.
 
 To install the components, sign in to the Jenkins instance with SSH and run the following commands:
 
@@ -56,7 +56,11 @@ You need an Azure service principal to deploy to Azure.
 
 ## Configure Jenkins to deploy Web Apps by uploading files
 
-To deploy your project to Web Apps, you can upload your build artifacts (for example, a WAR file in Java) by using Git or FTP.
+To deploy your project to Web Apps, you can upload your build artifacts by file upload. Azure App Service supports multiple deployment options. The Azure App Service Jenkins plugin makes it simple for you and derives the deployment option based on the file type. 
+
+* For Java EE applications, [WAR deployment](/azure/app-service/app-service-deploy-zip#deploy-war-file) is used.
+* For Java SE applications, [ZIP deployment](/azure/app-service/app-service-deploy-zip#deploy-zip-file) is used.
+* For other languages, [Git deployment](/azure/app-service/app-service-deploy-local-git) is used.
 
 Before you set up the job in Jenkins, you need an Azure App Service plan and a web app to run the Java app.
 
@@ -123,7 +127,7 @@ The Azure App Service Jenkins plugin is pipeline-ready. You can refer to the fol
 
 Web Apps on Linux supports deployment by using Docker. To deploy your web app by using Docker, you need to provide a Dockerfile that packages your web app with a service runtime into a Docker image. The Jenkins plugin then builds the image, pushes it to a Docker registry, and deploys the image to your web app.
 
-Web Apps on Linux also supports traditional deployment methods, like Git and FTP, but only for built-in languages (.NET Core, Node.js, PHP, and Ruby). For other languages, you need to package your application code and service runtime together into a Docker image and use Docker to deploy.
+Web Apps on Linux also supports traditional deployment methods, like Git and file upload, but only for built-in languages (.NET Core, Node.js, PHP, and Ruby). For other languages, you need to package your application code and service runtime together into a Docker image and use Docker to deploy.
 
 Before setting up the job in Jenkins, you need a web app on Linux. You also need a container registry to store and manage your private Docker container images. You can use DockerHub to create the container registry. In this example, we use Azure Container Registry.
 
@@ -229,5 +233,5 @@ In this tutorial, you used the Azure App Service Jenkins plugin to deploy to Azu
 You learned how to:
 
 > [!div class="checklist"]
-> * Configure Jenkins to deploy Azure App Service through FTP 
+> * Configure Jenkins to deploy Azure App Service through file upload 
 > * Configure Jenkins to deploy to Web App for Containers 

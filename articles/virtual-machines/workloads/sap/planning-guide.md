@@ -446,7 +446,7 @@ It is important to keep in mind that the VM(s) in each of the sets need to be de
 ### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Cross-Premises - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network
 ![VPN with Site-To-Site Connectivity (cross-premises)][planning-guide-figure-300]
 
-This scenario is a cross-premises scenario with many possible deployment patterns. It can be described as as running some parts of the SAP landscape on-premises and other parts of the SAP landscape on Azure. All aspects of the fact that part of the SAP components are running on Azure should be transparent for end users. Hence the SAP Transport Correction System (STMS), RFC Communication, Printing, Security (like SSO), etc. work seamlessly for the SAP systems running on Azure. But the cross-premises scenario also describes a scenario where the complete SAP landscape runs in Azure with the customer's domain and DNS extended into Azure.
+This scenario is a cross-premises scenario with many possible deployment patterns. It can be described as running some parts of the SAP landscape on-premises and other parts of the SAP landscape on Azure. All aspects of the fact that part of the SAP components are running on Azure should be transparent for end users. Hence the SAP Transport Correction System (STMS), RFC Communication, Printing, Security (like SSO), etc. work seamlessly for the SAP systems running on Azure. But the cross-premises scenario also describes a scenario where the complete SAP landscape runs in Azure with the customer's domain and DNS extended into Azure.
 
 > [!NOTE]
 > This is the deployment scenario, which is supported for running productive SAP systems.
@@ -507,7 +507,7 @@ Azure Resource Manager allows you to provision your applications using a declara
 
 More information about using Resource Manager templates can be found here:
 
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../linux/create-ssh-secured-vm-from-template.md]
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../linux/create-ssh-secured-vm-from-template.md)
 * [Manage virtual machines using Azure Resource Manager and PowerShell][virtual-machines-deploy-rmtemplates-powershell]
 * <https://azure.microsoft.com/documentation/templates/>
 
@@ -827,9 +827,9 @@ the same functionality found in the Azure portal.
 
 For information about installation, configuration and how to use CLI commands to accomplish Azure tasks see
 
-* [Install the Azure CLI][xplat-cli]
+* [Install the Azure classic CLI][xplat-cli]
 * [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../linux/create-ssh-secured-vm-from-template.md]
-* [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
+* [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Also read chapter [Azure CLI for Linux VMs][deployment-guide-4.5.2] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure Monitoring Extension for SAP.
 
@@ -965,7 +965,7 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 * Create a new VM from the VM config with *New-AzureRmVM* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 * Add a data disk to a new VM with *Add-AzureRmVMDataDisk* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
 
-**Azure CLI 2.0**
+**Azure CLI**
 
 * Sign in to your subscription with *az login*
 * Select your subscription with *az account set --subscription `<subscription name or id`>*
@@ -993,7 +993,7 @@ To upload an existing VM or VHD from the on-premises network, in order to use it
   * Managed Disk Image *Set-AzureRmVMSourceImage* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
 * Create a new VM from the VM config with *New-AzureRmVM* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 
-**Azure CLI 2.0**
+**Azure CLI**
 
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
 * Sign in to your subscription with *az login*
@@ -1042,7 +1042,7 @@ During the time of the download the VHDs or Managed Disks can't be active. Even 
 
   For more details of the Save-AzureRmVhd cmdlet, check here <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
 
-#### CLI 2.0
+#### Azure CLI
   * Downloading a Managed Disk  
   You first need to get access to the underlying blob of the Managed Disk. Then you can copy the underlying blob to a new storage account and download the blob from this storage account.
   ```
@@ -1080,7 +1080,7 @@ $config = New-AzureRmDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<s
 New-AzureRmDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
 ```
 
-##### CLI 2.0
+##### Azure CLI
 You can use Azure CLI to copy a VHD as shown in [this article][storage-azure-cli-copy-blobs]. To create a new Managed Disk, use *az disk create* as shown in the following example.
 
 ```
@@ -1122,7 +1122,7 @@ $disk = New-AzureRmDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupNa
 $vm = Add-AzureRmVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
 $vm | Update-AzureRmVM
 ```
-##### CLI 2.0
+##### Azure CLI
 ```
 
 # attach a vhd to a vm
@@ -1165,7 +1165,7 @@ Get-AzureStorageBlobCopyState -Blob <target blob name> -Container <target contai
 
 For examples see [this article][storage-powershell-guide-full-copy-vhd].
 
-##### CLI 2.0
+##### Azure CLI
 * Start the copy with
 
 ```

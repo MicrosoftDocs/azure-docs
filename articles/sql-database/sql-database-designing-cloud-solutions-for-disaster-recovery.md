@@ -3,15 +3,16 @@ title: Design globally available services using Azure SQL Database | Microsoft D
 description: Learn about application design for highly available services using Azure SQL Database.
 keywords: cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 07/26/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-
+manager: craigg
+ms.date: 07/26/2018
 ---
 # Designing globally available services using Azure SQL Database
 
@@ -156,4 +157,4 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 ## Next steps
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 * To learn about geo-replication and failover groups, see [active geo-replication](sql-database-geo-replication-overview.md)  
-* For information about active geo-replication with Elastic Pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* For information about active geo-replication with elastic pools, see [Elastic pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

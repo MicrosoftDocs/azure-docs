@@ -1,15 +1,15 @@
 ---
-title: Upgrade your QnA Maker service - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: How to upgrade your QnA Maker service
+title: Upgrade your QnA Maker service - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: You can choose to upgrade individual components of the QnA Maker stack after the initial creation.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
+ms.date: 09/12/2018
+ms.author: tulasim
 ---
 
 # Upgrade your QnA Maker service
