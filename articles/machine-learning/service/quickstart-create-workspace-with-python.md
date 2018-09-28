@@ -46,22 +46,16 @@ Launch a command-line window and create a new conda environment named `myenv` wi
 ```sh
 conda create -n myenv -y Python=3.6
 ```
-### Activate the environment
 
-Activate the environment using the steps for your operating system
-* On Windows
+Activate the environment.
+
   ```sh
   conda activate myenv
   ```
 
-* On Linux or macOS
-  ```sh
-  source activate myenv
-  ```
-
 ### Install the SDK
 
-In the activated conda environment, install the SDK. This code installs the core components of the Azure Machine Learning SDK as well as a Jupyter Notebook server in the `myenv` conda environment.
+In the activated conda environment, install the SDK. This code installs the core components of the Azure Machine Learning SDK as well as a Jupyter Notebook server in the `myenv` conda environment.  The installation takes **approximately 4 minutes** to complete.
 
 ```sh
 pip install azureml-sdk[notebooks]
@@ -87,7 +81,7 @@ Create a new Azure resource group and a new workspace.
 
 Find a value for `<azure-subscription-id>` in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor.
 
-```
+```python
 ws = Workspace.create(name='myworkspace',
                       subscription_id='<azure-subscription-id>'
                       resource_group='myresourcegroup',
@@ -124,14 +118,14 @@ The `write_config()` API call creates the configuration file in the current dire
 ```json
 {
     "subscription_id": "<azure-subscription-id>",
-    "resource_group": "<resource-group-name>",
-    "workspace_name": "<workspace-name>"
+    "resource_group": "myresourcegroup",
+    "workspace_name": "myworkspace"
 }
 ```
 
 ## Use the workspace
 
-Write some basic code that uses the basic APIs of the SDK to track experiment runs.
+Write some code that uses the basic APIs of the SDK to track experiment runs.
 
 ```python
 from azureml.core import Experiment
@@ -177,7 +171,18 @@ ws.delete(delete_dependent_resources=True)
 
 You have now created the necessary resources to start experimenting and deploying models. You also ran code in a notebook, and explored the run history from that code in your workspace in the cloud.
 
-For an in-depth workflow experience, follow the Azure Machine Learning tutorials to train and deploy a model.  
+You will need a few more packages in your environment to use it with the Azure Machine Learning tutorials:
+
+1. In your browser, close your notebook.
+1. In the command-line window, use `Ctrl`+`C` to stop the notebook server.
+1. Install additional packages.
+
+    ```sh
+    conda install -y cython matplotlib scikit-learn pandas numpy
+    pip install azureml-sdk[automl]
+    ```
+
+After installing these packages, follow the tutorials to train and deploy a model.  
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md)
