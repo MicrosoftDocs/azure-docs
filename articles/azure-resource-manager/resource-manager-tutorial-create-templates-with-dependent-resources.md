@@ -173,9 +173,9 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn how to retrieve secrets from Azure Key Vault, and use the secrets in the template deployment, see:
+In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn how to deploy Azure resources based on conditions, see:
 
 
 > [!div class="nextstepaction"]
-> [Integrate Key Vault in template deployment](./resource-manager-tutorial-use-key-vault.md)
+> [Use conditions](./resource-manager-tutorial-use-conditions.md)
 
