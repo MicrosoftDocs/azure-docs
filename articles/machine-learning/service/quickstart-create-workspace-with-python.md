@@ -13,32 +13,29 @@ ms.date: 09/24/2018
 
 # Quickstart: Use Python to get started with Azure Machine Learning
 
-In this quickstart, you'll use the Azure Machine Learning SDK for Python to create and then use a Machine Learning service [workspace](concept-azure-machine-learning-architecture.md).
+In this quickstart, you'll use the Azure Machine Learning SDK for Python to create and then use a Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). This workspace is the foundational block for experimenting, training, and deploying machine learning models in the cloud with the Azure Machine Learning service.
 
-This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.
-
-In this tutorial, you will:
-
-* Install the Python SDK and use it to create a workspace in your Azure subscription
-* Create a workspace configuration file you can reference later in other notebooks and scripts
-* Write some code that logs values inside the workspace
+In this tutorial, you will install the Python SDK and:
+* Create a workspace in your Azure subscription
+* Create a configuration file for that workspace to use later in other notebooks and scripts
+* Write code that logs values inside the workspace
 * View the logged values in your workspace
 
-For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
-
 The workspace and its configuration file you create in this quickstart can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Read [this](how-to-manage-quotas.md) article on the default limits and how to request more quota.
+
+For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
 ##  Install the SDK
-Skip this section if you are using a Data Science Virtual Machine (DSVM) created after September 27, 2018.  The VM comes with the Python SDK pre-installed.
+**Skip this section if you are using** a Data Science Virtual Machine (DSVM) created after September 27, 2018 since those DSVMs comes with the Python SDK pre-installed.
 
 ### Miniconda
 
-Before installing the SDK, it is recommended to create an isolated Python environment first. This quickstart shows using [Miniconda](https://conda.io/docs/user-guide/install/index.html). If you have full [Anaconda](https://www.anaconda.com/) installed, that works too. You can also choose to use [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
+Before installing the SDK, we recommend you create an isolated Python environment first. While this quickstart uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
-Download and install Miniconda from [this website](https://conda.io/miniconda.html). Make sure to choose the Python 3.7 version or later. Do not choose Python 2.x version.
+[Download](https://conda.io/miniconda.html) and install Miniconda. Choose the Python 3.7 version or later. Do not choose Python 2.x version.
 
 ### Machine Learning Python SDK
 
