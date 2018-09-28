@@ -820,6 +820,10 @@ Trigger a full backup. Log backups begin as expected.
 
 No. Azure Backup protects SQL Servers running in Azure. If an Availability Group (AG) is spread between Azure and on-premises machines, the AG can be protected only if the primary replica is running in Azure. Additionally, Azure Backup only protects the nodes running in the same Azure region as the Recovery Services vault.
 
+### Can I protect SQL Always On Availability Groups which are spread across Azure regions
+Azure Backup Recovery Services Vault can detect and protect all nodes which are in the same region as the Recovery Services Vault. If you have a SQL Always On Availability group spanning multiple Azure regions, you need to configure backup from the region which has the primary node. Azure Backup will be able to detect and protect all databases in the availability group as per backup preference. If the backup preference is not met, backups will fail and you will get the failure alert.
+
+
 ## Next steps
 
 To learn more about Azure Backup, see the Azure PowerShell sample to back up encrypted virtual machines.
