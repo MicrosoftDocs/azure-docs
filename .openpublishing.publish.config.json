@@ -232,5 +232,9 @@
     ]
   },
   "need_generate_pdf_url_template": true,
-  "targets": {}
+  "targets": {
+    "Pdf": {
+      "template_folder": "_themes.pdf"	
+    }
+  }
 }
