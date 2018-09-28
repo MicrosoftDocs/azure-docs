@@ -1,7 +1,5 @@
 # Overview
 ## [About the Azure portal](../azure-portal-overview.md)
-# Tutorials
-## [DevOps with the Azure portal](tutorial-azureportal-devops.md)
 # Concepts
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Keyboard shortcuts](azure-portal-keyboard-shortcuts.md)
