@@ -82,9 +82,9 @@ Privileged Identity Management supports the following scenarios:
 You can start using Azure AD Privileged Identity Management in the [Azure portal](https://portal.azure.com/).
 
 > [!NOTE]
-> You must be a global administrator with an organizational account (for example, @yourdomain.com), not a Microsoft account (for example, @outlook.com), to enable Azure AD Privileged Identity Management for a directory.
+> You must be a Global Administrator with an organizational account (for example, @yourdomain.com), not a Microsoft account (for example, @outlook.com), to enable Azure AD Privileged Identity Management for a directory.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of your directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a Global Administrator of your directory.
 2. If your organization has more than one directory, select your username in the upper right-hand corner of the Azure portal. Select the directory where you will use Azure AD Privileged Identity Management.
 3. Select **All services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
 4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application opens.
