@@ -12,7 +12,7 @@ ms.author: alinast
 
 # Data Processing and User-Defined Functions
 
-Azure Digital Twins offers advanced compute capabilities. Developers can define and run custom functions against incoming telemetry messages to send signals to pre-defined endpoints. 
+Azure Digital Twins offers advanced compute capabilities. Developers can define and run custom functions against incoming telemetry messages to send events to pre-defined endpoints. 
 
 ## Data processing flow
 
@@ -20,10 +20,10 @@ Once devices send telemetry data to Digital Twins, developers can process data i
 
 ![Digital Twins Data Processing Flow][1]
 
-1. The _parse phase_ involves transforming the incoming telemetry message to a commonly understood [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) format. Device and sensor validation are executed in this phase.
-1. The _match phase_ finds the appropriate User-Defined Function(s) based on the device, sensor, and space information from the incoming telemetry message. 
-1. The _compute phase_ runs the User-Defined Function(s) matched in the previous phase. These function(s) may read and update computed values on spatial graph nodes, and can emit custom notifications.
-1. The _dispatch phase_ routes any custom notifications from the compute phase to endpoints defined in the graph.
+1. The _parse_ phase transforms the incoming telemetry message to a commonly understood [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) format. This phase also executes device and sensor validation.
+1. The _match_ phase finds the appropriate User-Defined Function(s) to run. Predefined matchers will find the User-Defined Function(s) based on the device, sensor, and space information from the incoming telemetry message.
+1. The _compute_ phase runs the User-Defined Function(s) matched in the previous phase. These function(s) may read and update computed values on spatial graph nodes, and can emit custom notifications.
+1. The _dispatch_ phase routes any custom notifications from the compute phase to endpoints defined in the graph.
 
 ## Data processing objects
 
