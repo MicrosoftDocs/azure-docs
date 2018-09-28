@@ -63,7 +63,7 @@ the account, you need to obtain your `wsid` and `wskey` by clicking **Settings**
 
 4. Select the number of instances that you want and click the ‘Review and Install’ button. Typically, you will want to have the number of instances equal to the number of VM’s you have in your agent cluster. Log Analytics agent for Linux installs as individual containers on each VM that it wants to collect information for monitoring and logging information.
 
-   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+   [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
 ## Setting up a simple Log Analytics dashboard
 
