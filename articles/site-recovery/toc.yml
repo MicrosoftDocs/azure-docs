@@ -212,7 +212,7 @@
       - name: Set up the source environment for physical server replication
         href: physical-azure-set-up-source.md
       - name: Set up the target environment for physical server replication
-        href: physical-azure-set-up-target.md
+        href: vmware-azure-set-up-target.md
       - name: Set up disaster recovery for Azure Stack VMs
         href: azure-stack-site-recovery.md
     - name: Deploy the Mobility service
