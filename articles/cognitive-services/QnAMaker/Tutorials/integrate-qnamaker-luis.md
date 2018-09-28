@@ -47,10 +47,13 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 
 1. Once the web app bot is created, in the Azure portal, select the web app bot.
 1. Select **Application Settings** in the Web app bot service navigation, then scroll down to **Application settings** section of available settings.
-1. Change the **LuisAppId** to the value of the LUIS app created in the preceding  section.
+1. Change the **LuisAppId** to the value of the LUIS app created in the preceding  section then select **Save**.
 
 
 ## Change code in BasicLuisDialog.cs
+1. From the **Bot Management** section of the web app bot navigation in the Azure portal, select **Build**.
+1. Select **Open online code editor**. A new browser tab opens with the online editing environment. 
+1. In the **WWWROOT** section, select the **Dialogs** directory, then open **BasicLuisDialog.cs**.
 1. Add dependencies to the top of the **BasicLuisDialog.cs** file:
 
     ```csharp
