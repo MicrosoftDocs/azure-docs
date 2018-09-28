@@ -595,7 +595,7 @@ You can configure the Service Fabric cluster to remove unused container images f
 } 
 ```
 
-For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter.  
 
 
 ## Configure container image download time
