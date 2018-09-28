@@ -198,18 +198,17 @@ Make sure that the following settings are configured correctly for remote deskto
    
    ```PowerShell
     Enable-PSRemoting -force
-    netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
-    netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+    Set-NetFirewallRule -Group "@FirewallAPI.dll,-30267" -Enabled true
    ```
 3. Enable the following firewall rules to allow the RDP traffic:
 
    ```PowerShell
-    netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
+    Set-NetFirewallRule -Group "@FirewallAPI.dll,-28752" -Enabled true
    ```   
 4. Enable the File and Printer Sharing rule so that the VM can respond to a ping command inside the Virtual Network:
 
    ```PowerShell
-    netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
+    Set-NetFirewallRule -Name "FPS-ICMP4-ERQ-In" -Enabled true
    ``` 
 5. If the VM  will be part of a Domain, check the following settings to make sure that the former settings are not reverted. The AD policies that must be checked are the following:
 
