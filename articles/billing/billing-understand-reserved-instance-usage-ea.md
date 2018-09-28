@@ -62,7 +62,7 @@ Assume that you are running a SQL Database Gen 4 in the east US region and your 
 
 ### Usage in CSV file 
 
-Filter on **Additional Info** and type in your **Reservation ID**, and choose the required Meter Category - Azure SQL database or Azure Cosmos DB. The following screenshot shows the fields related to the reservation.
+Filter on **Additional Info** and type in your **Reservation ID**, and choose the required **Meter Category** - Azure SQL database or Azure Cosmos DB. The following screenshot shows the fields related to the reservation.
 
 ![Enterprise Agreement (EA) csv for SQL Database reserved capacity](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
 

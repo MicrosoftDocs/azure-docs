@@ -73,7 +73,7 @@ Assume that you are running a SQL Database Gen 4 in the east US region and your 
 
 ### Statement section of CSV file
 
-Filter on **Reserved Instance Usage** meter name, and choose the required Meter Category - Azure SQL database or Azure Cosmos DB. You see something like the following screenshot:
+Filter on **Reserved Instance Usage** meter name, and choose the required **Meter Category** - Azure SQL database or Azure Cosmos DB. You see something like the following screenshot:
 
 ![CSV file for SQL Database reserved capacity](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
