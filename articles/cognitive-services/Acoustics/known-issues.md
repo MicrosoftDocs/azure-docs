@@ -21,7 +21,7 @@ If you rename a scene, all the acoustic parameters that belong to that scene wil
 
 This should default to a relative path to make it easier to share projects between collaborators. As a workaround, change the path to be relative to project directory.
 
-## Runtime voxels are a different size than design-time voxels
+## Runtime voxels are a different size than scene preview voxels
 
 If you do a **Calculate** on the **Probes** tab and view the voxels, then do a bake and view voxels at runtime for the same scene, the voxels are different sizes. The voxels shown pre-bake are the voxels used in simulation. The voxels shown at runtime are used for interpolation between probe points. This may cause an inconsistency where portals will appear open at runtime that aren't actually open.
 
