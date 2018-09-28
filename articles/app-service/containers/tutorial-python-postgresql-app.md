@@ -25,6 +25,7 @@ In this tutorial, you learn how to:
 > * Create a PostgreSQL database in Azure
 > * Connect a Python app to PostgreSQL
 > * Deploy the app to Azure
+> * View diagnostic logs
 > * Update the data model and redeploy the app
 > * Manage the app in the Azure portal
 
@@ -243,7 +244,7 @@ In this step, you deploy the Postgres-connected Python application to Azure App 
 
 ### Configure repository
 
-This step is optional if you use a deployment method other than Git. The Git deployment engine in App Service invokes `pip` automation when there's an _application.py_ in the repository root. In the local terminal window, navigate to the repository root, create a dummy _application.py_, and commit your changes.
+The Git deployment engine in App Service invokes `pip` automation when there's an _application.py_ in the repository root. In this tutorial, you'll let the deployment engine run the automation for you. In the local terminal window, navigate to the repository root, create a dummy _application.py_, and commit your changes.
 
 ```bash
 cd ..
@@ -270,29 +271,11 @@ Earlier in the tutorial, you defined environment variables to connect to your Po
 
 In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in Cloud Shell.
 
-The following example specifies the database connection details as app settings. It also uses the *WEBSITES_PORT* variable to the container port 8080, which the built-in Python image is configured to listen for web requests.
+The following example specifies the database connection details as app settings. 
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" WEBSITES_PORT=8080
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration"
 ```
-
-### Configure entry point
-
-By default, the built-in image looks for a _wsgi.py_ or _application.py_ in the root directory as the entry point, but your entry point is _app/app.py_. Even though you added an _application.py_ earlier, it's an empty file that does nothing.
-
-In the cloud shell, run the [`az webapp config set`](/cli/azure/webapp/config?view=azure-cli-latest#az-webapp-config-set) command to set a custom startup script.
-
-```azurecli-interactive
-az webapp config set --name <app_name> --resource-group myResourceGroup --startup-file "gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/app app:app"
-```
-
-The `--startup-file` parameter takes a custom command or the path to the file that contains the custom command. Your custom command should have the following format:
-
-```
-gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/<subdirectory> <module>:<variable>
-```
-
-In the custom command, `--chdir` is required if your entry point is not in the root directory, and `<subdirectory>` is the subdirectory. `<module>` is the name of the _.py_ file and `<variable>` is the variable in the module that represents your web app.
 
 ### Push to Azure from Git
 
@@ -317,6 +300,24 @@ remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git 
  * [new branch]      master -> master 
 ```  
+
+### Configure entry point
+
+By default, the built-in image looks for a _wsgi.py_ or _application.py_ in the root directory as the entry point, but your entry point is _app/app.py_. The _application.py_ you added earlier is empty and does nothing.
+
+In the Cloud Shell, run the [`az webapp config set`](/cli/azure/webapp/config?view=azure-cli-latest#az-webapp-config-set) command to set a custom startup script.
+
+```azurecli-interactive
+az webapp config set --name <app_name> --resource-group myResourceGroup --startup-file "gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/app app:app"
+```
+
+The `--startup-file` parameter takes a custom command or the path to the file that contains the custom command. Your custom command should have the following format:
+
+```
+gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/<subdirectory> <module>:<variable>
+```
+
+In the custom command, `--chdir` is required if your entry point is not in the root directory, and `<subdirectory>` is the subdirectory. `<module>` is the name of the _.py_ file and `<variable>` is the variable in the module that represents your web app.
 
 ### Browse to the Azure web app
 
@@ -343,7 +344,22 @@ https://<app_name>.scm.azurewebsites.net/api/logs/docker
 You should see two JSON objects, each with an `href` property. One `href` points to the Docker console logs (ends with `_docker.log`), and another `href` points to the console logs generated from inside the Python container. 
 
 ```json
-[{"machineName":"RD0003FF61ACD0_default","lastUpdated":"2018-09-27T16:48:17Z","size":4766,"href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log","path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log"},{"machineName":"RD0003FF61ACD0","lastUpdated":"2018-09-27T16:48:19Z","size":2589,"href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log","path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log"}]
+[  
+   {  
+      "machineName":"RD0003FF61ACD0_default",
+      "lastUpdated":"2018-09-27T16:48:17Z",
+      "size":4766,
+      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log",
+      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log"
+   },
+   {  
+      "machineName":"RD0003FF61ACD0",
+      "lastUpdated":"2018-09-27T16:48:19Z",
+      "size":2589,
+      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log",
+      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log"
+   }
+]
 ```
 
 Copy the `href` value you want into a browser window to navigate to the logs. The logs are not streamed, so you may experience some delay. To see new logs, refresh the browser page.
@@ -413,7 +429,20 @@ By default, the portal shows your web app's **Overview** page. This page gives y
 
 ## Next steps
 
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Create a PostgreSQL database in Azure
+> * Connect a Python app to PostgreSQL
+> * Deploy the app to Azure
+> * View diagnostic logs
+> * Update the data model and redeploy the app
+> * Manage the app in the Azure portal
+
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
+
+> [!div class="nextstepaction"]
+> [Configure built-in Python image](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
