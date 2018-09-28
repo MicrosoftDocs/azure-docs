@@ -1,5 +1,5 @@
 ---
-title: Understanding the Digital Twins Object Models and Spatial Intelligence Graph | Microsoft Docs
+title: Understanding Digital Twins Object Models and Spatial Intelligence Graph | Microsoft Docs
 description: Using Azure Digital Twins to model relationships between people, places, and devices
 author: alinamstanciu
 manager: bertvanhoof
