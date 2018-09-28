@@ -40,13 +40,13 @@ have deployed simple web container applications on the cluster.
 - [DC/OS CLI](https://dcos.io/docs/1.8/usage/cli/install/) installed.
 
 1. In the DC/OS dashboard, click on Universe and search
-for ‘OMS’ as shown below.
+for ‘Log Analytics’ as shown below.
 
 ![](media/container-service-monitoring-oms/image2.png)
 
 2. Click **Install**. You will see a pop up with the version
 information and an **Install Package** or **Advanced Installation**
-button. When you click **Advanced Installation**, which leads you to the **OMS specific configuration
+button. When you click **Advanced Installation**, which leads you to the **Log Analytics specific configuration
 properties** page.
 
 ![](media/container-service-monitoring-oms/image3.png)
@@ -61,31 +61,14 @@ the account, you need to obtain your `wsid` and `wskey` by clicking **Settings**
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-4. Select the number of instances that you want and click the ‘Review and Install’ button. Typically, you will want to have the number of instances equal to the number of VM’s you have in your agent cluster. OMS Agent for Linux installs as individual containers on each VM that it wants to collect information for monitoring and logging information.
+4. Select the number of instances that you want and click the ‘Review and Install’ button. Typically, you will want to have the number of instances equal to the number of VM’s you have in your agent cluster. Log Analytics agent for Linux installs as individual containers on each VM that it wants to collect information for monitoring and logging information.
 
-## Setting up a simple OMS dashboard
+   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
-Once you have installed the OMS Agent for Linux on the VMs, next step is
-to set up the OMS dashboard. There are two ways to do this: OMS Portal
-or Azure Portal.
+## Setting up a simple Log Analytics dashboard
 
-### OMS Portal 
-
-Log in to the OMS portal (<https://mms.microsoft.com>) and go to the **Solution
-Gallery**.
-
-![](media/container-service-monitoring-oms/image6.png)
-
-Once you are in the **Solution Gallery**, select **Containers**.
-
-![](media/container-service-monitoring-oms/image7.png)
-
-Once you’ve selected the Container Solution, you will see the tile on
-the OMS Overview Dashboard page. Once the ingested container data is
-indexed, you will see the tile populated with information on the
-solution view tiles.
-
-![](media/container-service-monitoring-oms/image8.png)
+Once you have installed the Log Analytics agent for Linux on the VMs, next step is
+to set up the Log Analytics dashboard. You can do this through Azure Portal.
 
 ### Azure Portal 
 
@@ -107,9 +90,9 @@ For more information about the Log Analytics Container Solution, please refer to
 [Container Solution Log
 Analytics](../../log-analytics/log-analytics-containers.md).
 
-### How to scale OMS Agent with ACS DC/OS 
+### How to scale Log Analytics agent with ACS DC/OS 
 
-In case you need to have installed OMS agent short of the actual node
+In case you need to have installed Log Analytics agent short of the actual node
 count or you are scaling up VMSS by adding more VM, you can do so by
 scaling the `msoms` service.
 
@@ -118,7 +101,7 @@ your node count.
 
 ![](media/container-service-monitoring-oms/image12.PNG)
 
-This will deploy to other nodes which have not yet deployed the OMS agent.
+This will deploy to other nodes which have not yet deployed the Log Analytics agent.
 
 ## Uninstall MS OMS
 
