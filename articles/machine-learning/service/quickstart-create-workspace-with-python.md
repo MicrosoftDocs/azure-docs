@@ -44,7 +44,7 @@ Before installing the SDK, we recommend you create an isolated Python environmen
 Launch a command-line window and create a new conda environment named `myenv` with Python 3.6.
 
 ```sh
-conda create -n myenv -y Python=3.6 
+conda create -n myenv -y Python=3.6
 ```
 
 ### Activate the environment
