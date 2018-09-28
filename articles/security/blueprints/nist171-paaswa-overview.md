@@ -62,7 +62,7 @@ This solution uses the following Azure services. For more information, see the [
 - Azure Storage
 - Azure Log Analytics
 - Azure Automation
-- Azure Web App
+- Azure Web Apps
 
 ## Deployment architecture
 The following section details the deployment and implementation elements.
