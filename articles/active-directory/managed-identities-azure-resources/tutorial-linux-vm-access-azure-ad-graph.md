@@ -41,6 +41,8 @@ This tutorial shows you how to to use a system-assigned managed identity for a L
 
 - [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
+- [Install the latest version of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
 - To grant a VM identity access to Azure AD Graph, your account needs to be assigned the **Global Admin** role in Azure AD.
 
 ## Connect to Azure AD
@@ -61,7 +63,7 @@ When you enabled system-assigned managed identity on the Linux VM, it created a 
 
 Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication. The Microsoft Azure AD Graph API supports Azure AD authentication. In this step, you will grant your VM identity's service principal access to the Azure AD Graph so that it can query group memberships. Service principals are granted access to the Microsoft or Azure AD Graph through **Application Permissions**. The type of application permission you need to grant depends on the entity you want to access in the MS or Azure AD Graph.
 
-For this tutorial, you will grant your VM identity the ability to query group memberships using the ```Directory.Read.All``` application permission. To grant this permission, you will need a user account that is assigned the Global Admin role in Azure AD. Normally you would grant an application permission by visiting your application's registration in the Azure portal and adding the permission there. However, managed identities for Azure resources does not register application objects in Azure AD, it only registers service principals. To register the application permission you will use the Azure AD PowerShell command line tool. 
+For this tutorial, you will grant your VM identity the ability to query group memberships using the `Directory.Read.All` application permission. To grant this permission, you will need a user account that is assigned the Global Admin role in Azure AD. Normally you would grant an application permission by visiting your application's registration in the Azure portal and adding the permission there. However, managed identities for Azure resources does not register application objects in Azure AD, it only registers service principals. To register the application permission you will use the Azure AD PowerShell command line tool. 
 
 Azure AD Graph:
 - Service Principal appId (used when granting app permission): 00000002-0000-0000-c000-000000000000
@@ -70,31 +72,28 @@ Azure AD Graph:
 
 ### Grant application permissions using CURL
 
-You will need Azure AD PowerShell to use this option. If you don't have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) before continuing.
-
 1. Retrieve a token to make CURL requests:
 
    ```cli
    az account get-access-token --resource "https://graph.windows.net/"
    ```
 
-2. You will need to retrieve and note the `objectId` of your VM to grant it permissions to read its group membership. Replace `<TENANT ID>` with the tenant id for your subscription and `<ACCESS TOKEN>` with the access token you retrieved in the preceding step.
+2. You will need to retrieve and note the `objectId` of your VM. It's used in subsequent steps to grant permissions to the VM to read its group membership. Replace `<ACCESS TOKEN>` with the access token you retrieved in the preceding step.
 
    ```bash
-   curl 'https://graph.windows.net/<TENANT ID>/servicePrincipals?$filter=startswith%28displayName%2C%27myVM%27%29&api-version=1.6' -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://graph.windows.net/myorganization/servicePrincipals?$filter=startswith%28displayName%2C%27myVM%27%29&api-version=1.6' -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
-3. Next, retrieve and note the `objectId` for the `odata.type: Microsoft.DirectoryServices.ServicePrincipal` and the `id` for the `Directory.Read.All` app role permission.  Replace `<TENANT ID>` with the tenant id for your subscription and `<ACCESS TOKEN>` with the access token you retrieved earlier.
+3. Using the Azure AD Graph appID, 00000002-0000-0000-c000-000000000000, retrieve and note the `objectId` for `odata.type: Microsoft.DirectoryServices.ServicePrincipal` and the `id` for the `Directory.Read.All` app role permission.  Replace `<ACCESS TOKEN>` with the access token you retrieved earlier.
 
    ```bash
-   curl "https://graph.windows.net/<TENANT ID>/servicePrincipals?api-version=1.6&%24filter=appId%20eq%20'00000002-0000-0000-c000-000000000000'" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl "https://graph.windows.net/myorganization/servicePrincipals?api-version=1.6&%24filter=appId%20eq%20'00000002-0000-0000-c000-000000000000'" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    Response:
 
    ```json
-   
-   "odata.metadata":"https://graph.windows.net/733a8f0e-ec41-4e69-8ad8-971fc4b533f8/$metadata#directoryObjects",
+   "odata.metadata":"https://graph.windows.net/myorganization/$metadata#directoryObjects",
    "value":[
       {
          "odata.type":"Microsoft.DirectoryServices.ServicePrincipal",
@@ -126,10 +125,10 @@ You will need Azure AD PowerShell to use this option. If you don't have it insta
             }
    ``` 
 
-4. Now, grant the VM's service principal read access to Azure AD directory objects using the Azure AD Graph API.  The `id` value is the value for the `Directory.Read.All` app role permission and the `resourceId` is the `objectId` for the service principal `odata.type:Microsoft.DirectoryServices.ServicePrincipal`.
+4. Now, grant the VM's service principal read access to Azure AD directory objects using the Azure AD Graph API.  The `id` value is the value for the `Directory.Read.All` app role permission and the `resourceId` is the `objectId` for the service principal `odata.type:Microsoft.DirectoryServices.ServicePrincipal` (the values you noted in the previous step).
 
    ```bash
-   curl "https://graph.windows.net/<TENANT ID>/servicePrincipals/<VM Object ID>/appRoleAssignments?api-version=1.6" -X POST -d '{"id":"5778995a-e1bf-45b8-affa-663a9f3f4d04","principalId":"<VM Object ID>","resourceId":"81789304-ff96-402b-ae73-07ec0db26721"}'-H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl "https://graph.windows.net/myorganization/servicePrincipals/<VM Object ID>/appRoleAssignments?api-version=1.6" -X POST -d '{"id":"5778995a-e1bf-45b8-affa-663a9f3f4d04","principalId":"<VM Object ID>","resourceId":"81789304-ff96-402b-ae73-07ec0db26721"}'-H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
    ``` 
  
 ## Get an access token using the VM's identity and use it to call Azure AD Graph 
@@ -138,14 +137,11 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
 2. **Connect** to the VM with the SSH client of your choice. 
-3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for the Azure AD Graph.  If you want to access MS Graph, use https://graph.microsoft.com as the resource ID instead.  
- 
-   The CURL request for the access token is below.  
+3. In the terminal window, using CURL, make a request to the local managed identiies for Azure resources endpoint to get an access token for the Azure AD Graph.  
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://graph.windows.net' -H Metadata:true
-   ```
-    
+   ```    
    The response includes the access token you need to access Azure AD Graph.
 
    Response:
@@ -159,9 +155,9 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
        "resource":"https://graph.windows.net",
        "token_type":"Bearer"
    }
-    ```
+   ```
 
-4. Using the Object ID of your VM's service principal you can query the Azure AD Graph to retrieve its group memberships. Replace `<OBJECT-ID>` with the Object ID of your VM's service principal, <TENANT ID> with your tenant id and <ACCESS-TOKEN> with the previously obtained acccess token:
+4. Using the object ID of your VM's service principal (the value you retrieved in earlier steps), you can query the Azure AD Graph API to retrieve its group memberships. Replace `<OBJECT-ID>` with the Object ID of your VM's service principal and `<ACCESS-TOKEN>` with the previously obtained acccess token:
 
    ```bash
    curl 'https://graph.windows.net/myorganization/servicePrincipals/<OBJECT-ID>/getMemberGroups?api-version=1.6' -X POST -d "{\"securityEnabledOnly\": false}" -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS-TOKEN>"
@@ -170,12 +166,12 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
    Response:
 
    ```bash   
-   Content : {"odata.metadata":"https://graph.windows.net/<Tenant ID>/$metadata#Collection(Edm.String)","value":["<ObjectID of VM's group membership>"]}
+   Content : {"odata.metadata":"https://graph.windows.net/myorganization/$metadata#Collection(Edm.String)","value":["<ObjectID of VM's group membership>"]}
    ```
 
 ## Next steps
 
-In this tutorial, you learned how to use a Windows VM system-assigned managed identity to access Azure AD Graph.  To learn more about Azure AD Graph see:
+In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure AD Graph.  To learn more about Azure AD Graph see:
 
 >[!div class="nextstepaction"]
 >[Azure AD Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)
