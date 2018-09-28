@@ -3,13 +3,13 @@ title: Build a Python and PostgreSQL web app in Azure App Service | Microsoft Do
 description: Learn how to run a data-driven Python app in Azure, with connection to a PostgreSQL database.
 services: app-service\web
 documentationcenter: python
-author: berndverst
+author: cephalin
 manager: jeconnoc
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/27/2018
+ms.date: 09/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
 ---
