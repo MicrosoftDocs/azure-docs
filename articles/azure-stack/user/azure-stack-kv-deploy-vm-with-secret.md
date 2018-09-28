@@ -41,8 +41,8 @@ The following steps describe the process required to create a virtual machine by
 2. Update the azuredeploy.parameters.json file.
 3. Deploy the template.
 
->[NOTE]  
->You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
+> ![NOTE]  
+> You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
 
 ## Create a Key Vault secret
 
