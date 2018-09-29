@@ -212,6 +212,10 @@
       href: durable-functions-webjobs-sdk.md      
 - name: Reference
   items:
+  - name: API references
+    items:
+    - name: Python
+      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
   - name: App settings reference
     href: functions-app-settings.md
   - name: Bindings
@@ -258,8 +262,6 @@
     href: functions-host-json.md      
   - name: OpenAPI reference
     href: functions-api-definition.md
-  - name: Python
-    href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
