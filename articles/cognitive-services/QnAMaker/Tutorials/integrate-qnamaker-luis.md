@@ -94,7 +94,9 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     }
     ```
 
+
 6. Add the following class to make an HTTP request to the QnA Maker service. Notice that the **Authorization** header's value includes the word, `EndpointKey` with a space following the word. The JSON result is deserialized into the preceding classes and the first answer is returned. 
+
 
 
     ```csharp
@@ -145,6 +147,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
         }
     }
     ```
+
 
 7. Modify the BasicLuisDialog class. Each LUIS intent should have a method decorated with **LuisIntent**. The parameter to the decoration is the actual LUIS intent name. The method name that is decorated _should_ be the LUIS intent name for readability and maintainability but doesn't have to be the same at design or run time.  
 
