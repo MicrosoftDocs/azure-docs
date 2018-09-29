@@ -95,7 +95,7 @@
     - name: Threshold based rules
       href: stream-analytics-threshold-based-rules.md
     - name: Process Kafka events
-      href: ./event-hubs/event-hubs-kafka-stream-analytics.md
+      href: ../event-hubs/event-hubs-kafka-stream-analytics.md
       maintainContext: true
   - name: Monitor
     items:
