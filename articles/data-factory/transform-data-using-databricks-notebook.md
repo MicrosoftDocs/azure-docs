@@ -101,7 +101,7 @@ In this section, you author a Databricks linked service. This linked service con
 
     1.  For **Select cluster**, select **New job cluster**
     
-    1.  For **Domain/ Region** info should auto-populate
+    1.  For **Domain/ Region**, info should auto-populate
 
     1.  For **Access Token**, generate it from Azure Databricks workplace. You can find the steps [here](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
