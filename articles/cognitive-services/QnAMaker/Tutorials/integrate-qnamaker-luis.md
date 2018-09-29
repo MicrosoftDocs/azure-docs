@@ -52,9 +52,9 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 
 ## Change code in BasicLuisDialog.cs
 1. From the **Bot Management** section of the web app bot navigation in the Azure portal, select **Build**.
-1. Select **Open online code editor**. A new browser tab opens with the online editing environment. 
-1. In the **WWWROOT** section, select the **Dialogs** directory, then open **BasicLuisDialog.cs**.
-1. Add dependencies to the top of the **BasicLuisDialog.cs** file:
+2. Select **Open online code editor**. A new browser tab opens with the online editing environment. 
+3. In the **WWWROOT** section, select the **Dialogs** directory, then open **BasicLuisDialog.cs**.
+4. Add dependencies to the top of the **BasicLuisDialog.cs** file:
 
     ```csharp
     using System;
@@ -68,7 +68,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     using System.Text;
     ```
 
-1. Add the below classes to deserialize the QnA Maker response:
+5. Add the below classes to deserialize the QnA Maker response:
 
     ```csharp
     public class Metadata
@@ -94,7 +94,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     }
     ```
 
-1. Add the following class to make an HTTP request to the QnA Maker service. Notice that the **Authorization** header's value includes the word, `EndpointKey` with a space following the word. The JSON result is deserialized into the preceding classes and the first answer is returned. 
+6. Add the following class to make an HTTP request to the QnA Maker service. Notice that the **Authorization** header's value includes the word, `EndpointKey` with a space following the word. The JSON result is deserialized into the preceding classes and the first answer is returned. 
 
 
     ```csharp
@@ -146,7 +146,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     }
     ```
 
-1. Modify the BasicLuisDialog class. Each LUIS intent should have a method decorated with **LuisIntent**. The parameter to the decoration is the actual LUIS intent name. The method name that is decorated _should_ be the LUIS intent name for readability and maintainability but doesn't have to be the same at design or run time.  
+7. Modify the BasicLuisDialog class. Each LUIS intent should have a method decorated with **LuisIntent**. The parameter to the decoration is the actual LUIS intent name. The method name that is decorated _should_ be the LUIS intent name for readability and maintainability but doesn't have to be the same at design or run time.  
 
     ```csharp
     [Serializable]
