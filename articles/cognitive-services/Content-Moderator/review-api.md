@@ -1,12 +1,13 @@
 ---
-title: Azure Content Moderator - Moderation jobs and human-in-the-loop reviews | Microsoft Docs
+title: Moderation jobs and human-in-the-loop reviews - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Apply human oversight to machine-assisted moderation for best results.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/21/2018
 ms.author: sajagtap
 ---

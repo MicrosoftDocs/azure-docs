@@ -146,13 +146,13 @@ Use this claims transformation to set a string ClaimType value.
 
 ## CompareClaims
 
-Determine whether one string claim is equal to another. The result is a new boolean ClaimType boolean with a value of `true` or `false`.
+Determine whether one string claim is equal to another. The result is a new boolean ClaimType with a value of `true` or `false`.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | First claim type, which is to be compared. |
 | inputClaim | inputClaim2 | string | Second claim type, which is to be compared. |
-| InputParameter | operator | string | Possible values: `Equal` or `Not Equal`. |
+| InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this claims transformation has been invoked. |
 
@@ -192,7 +192,7 @@ Determines whether a claim value is equal to the input parameter value.
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
-| InputParameter | operator | string | Possible values: `Equal` or `Not Equal`. |
+| InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
 | InputParameter | compareTo | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this claims transformation has been invoked. |
@@ -220,7 +220,7 @@ You can use this claims transformation to check if a claim is equal to a value y
     - **inputClaim1**: v1
 - Input parameters:
     - **compareTo**: V1
-    - **operator**: equal 
+    - **operator**: EQUAL 
     - **ignoreCase**:  true
 - Output claims:
     - **outputClaim**: true
@@ -231,11 +231,11 @@ Creates a random string using the random number generator. If the random number 
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputParameter | randomGeneratorType | string | Specifies the random value to be generated, `GUID` (global unique ID) or `integer` (a number). |
+| InputParameter | randomGeneratorType | string | Specifies the random value to be generated, `GUID` (global unique ID) or `INTEGER` (a number). |
 | InputParameter | stringFormat | string | [Optional] Format the random value. |
 | InputParameter | base64 | boolean | [Optional] Convert the random value to base64. If string format is applied, the value after string format is encoded to base64. |
-| InputParameter | maximumNumber | int | [Optional] For `Integer` randomGeneratorType only. Specify the maximute number. |
-| InputParameter | seed  | int | [Optional] For `Integer` randomGeneratorType only. Specify the seed for the random value. Note: same seed yields same sequence of random numbers. |
+| InputParameter | maximumNumber | int | [Optional] For `INTEGER` randomGeneratorType only. Specify the maximute number. |
+| InputParameter | seed  | int | [Optional] For `INTEGER` randomGeneratorType only. Specify the seed for the random value. Note: same seed yields same sequence of random numbers. |
 | OutputClaim | outputClaim | string | The ClaimTypes that will be produced after this claims transformation has been invoked. The random value. |
 
 Following example generates a global unique ID. This claims transformation is used to create the random UPN (user principle name).
@@ -262,7 +262,7 @@ Following example generates an integer random value between 0 and 1000. The valu
 ```XML
 <ClaimsTransformation Id="SetRandomNumber" TransformationMethod="CreateRandomString">
   <InputParameters>
-    <InputParameter Id="randomGeneratorType" DataType="string" Value="integer" />
+    <InputParameter Id="randomGeneratorType" DataType="string" Value="INTEGER" />
     <InputParameter Id="maximumNumber" DataType="int" Value="1000" />
     <InputParameter Id="stringFormat" DataType="string" Value="OTP_{0}" />
     <InputParameter Id="base64" DataType="boolean" Value="false" />
@@ -276,7 +276,7 @@ Following example generates an integer random value between 0 and 1000. The valu
 ### Example
 
 - Input parameters:
-    - **randomGeneratorType**: integer
+    - **randomGeneratorType**: INTEGER
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
     - **base64**: false

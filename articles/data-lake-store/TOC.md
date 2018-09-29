@@ -11,8 +11,7 @@
 # Get started
 ## [Using Azure Portal](data-lake-store-get-started-portal.md)
 ## [Using Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [Using Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-
+## [Using Azure CLI](data-lake-store-get-started-cli-2.0.md)
 
 # How to
 ## Load and move data

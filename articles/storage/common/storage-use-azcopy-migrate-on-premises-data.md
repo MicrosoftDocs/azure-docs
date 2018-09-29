@@ -11,7 +11,7 @@ ms.author: rogarana
 ms.component: common
 --- 
 
-#  Migrate on-premises data to cloud storage by using AzCopy
+#  Tutorial: Migrate on-premises data to cloud storage by using AzCopy
 
 AzCopy is a command-line tool for copying data to or from Azure Blob storage, Azure Files, and Azure Table storage, by using simple commands. The commands are designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, download the latest version of AzCopy on [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](http://aka.ms/downloadazcopy). 
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 >[!NOTE]
 >If you want to be able to download blobs from a secondary region to your local storage and vice versa, set **Replication** to **Read-access-geo-redundant storage**. Selecting this option creates a [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage) account. 

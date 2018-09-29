@@ -170,7 +170,10 @@ The left menu provides different pages for configuring your app.
 The built-in Python image in App Service on Linux is currently in Preview. You can create production Python apps using a custom container instead.
 
 > [!div class="nextstepaction"]
-> [Python with PostgreSQL in a custom container](tutorial-docker-python-postgresql-app.md)
+> [Python with PostgreSQL](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure built-in Python image](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
 > [Use custom images](tutorial-custom-docker-image.md)

@@ -34,6 +34,10 @@ ms.author: rnagpal
 
 ## Release notes
 
+### <a name="2.0.0"/>2.0.0
+* Added Multi-region write support
+* Fixed NuGet package dependencies on Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
+
 ### <a name="1.1.3"/>1.1.3
 * Fixed NuGet package dependencies on Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB.
 * Bug fixes on table serialization when JsonConvert.DefaultSettings are configured.

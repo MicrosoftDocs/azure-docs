@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 
 ---
@@ -65,7 +65,5 @@ A [sample alias file](https://raw.githubusercontent.com/Azure/azure-rest-api-spe
 ## Next steps
 
 - [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
-
 - [Connect with PowerShell](azure-stack-connect-powershell.md)
-
 - [Manage user permissions](azure-stack-manage-permissions.md)
