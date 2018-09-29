@@ -34,7 +34,7 @@ You must also have a subnet that you will delegate to Azure NetApp Files.
 3.	In the New Volume window, click **Create** and provide information for the following fields:   
     * **Name**      
         Specify the name for the volume that you are creating.   
-        The name must be unique within a resource group. It must be at least 3 characters long.  It can use any alphanumeric characters.
+        The name must be unique within a resource group. It must be at least three characters long.  It can use any alphanumeric characters.
 
     * **File path**  
         Specify the file path that will be used to create the export path for the new volume. The export path is used to mount and access the volume.   
