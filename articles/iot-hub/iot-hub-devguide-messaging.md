@@ -12,7 +12,7 @@ ms.author: dobett
 
 # Send device-to-cloud and cloud-to-device messages with IoT Hub
 
-IoT Hub allows for bi-directional communication with your devices. Use IoT Hub messaging to communicate with your devices by sending messages from your devices to your solutions back end and sending commands from the your IoT solutions back end to your devices. Learn more about the [IoT Hub message format](iot-hub-devguide-messages-construct.md).
+IoT Hub allows for bi-directional communication with your devices. Use IoT Hub messaging to communicate with your devices by sending messages from your devices to your solutions back end and sending commands from your IoT solutions back end to your devices. Learn more about the [IoT Hub message format](iot-hub-devguide-messages-construct.md).
 
 ## Sending device-to-cloud messages to IoT Hub
 

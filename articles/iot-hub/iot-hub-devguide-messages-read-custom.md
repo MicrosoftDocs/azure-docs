@@ -20,7 +20,7 @@ IoT Hub [Message Routing](iot-hub-devguide-routing-query-syntax.md) enables user
 | ------------- | ----------- |
 | **Name**      | The unique name that identifies the query. |
 | **Source**    | The origin of the data stream to be acted upon. For example, device telemetry. |
-| **Condition** | The query expression for the routing query that is run against the message application properties, system properties, message body, device twin tags and device twin properties to determine if it is a match for the endpoint. For more information about constructing a query, see the see [message routing query syntax](iot-hub-devguide-routing-query-syntax.md) |
+| **Condition** | The query expression for the routing query that is run against the message application properties, system properties, message body, device twin tags, and device twin properties to determine if it is a match for the endpoint. For more information about constructing a query, see the see [message routing query syntax](iot-hub-devguide-routing-query-syntax.md) |
 | **Endpoint**  | The name of the endpoint where IoT Hub sends messages that match the query. We recommend that you choose an endpoint in the same region as your IoT hub. |
 
 A single message may match the condition on multiple routing queries, in which case IoT Hub delivers the message to the endpoint associated with each matched query. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple queries that have the same destination, it is only written once to that destination.
