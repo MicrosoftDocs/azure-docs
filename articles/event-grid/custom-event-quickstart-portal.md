@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 09/29/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -55,65 +55,52 @@ An event grid topic provides a user-defined endpoint that you post your events t
 
    ![Name conflict](./media/custom-event-quickstart-portal/name-conflict.png)
 
-## Create an Azure Function
+## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. In this article, you use Azure Functions to create a function app for the endpoint.
+Before subscribing to the events for the Blob storage, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-1. To create a function, select **Create a resource**.
+1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   ![Create a resource](./media/custom-event-quickstart-portal/create-resource-small.png)
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-1. Select **Compute** and **Function App**.
+1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
+`https://<your-site-name>.azurewebsites.net`
 
-   ![Create function](./media/custom-event-quickstart-portal/create-function.png)
+1. You see the site but no events have been posted to it yet.
 
-1. Provide a unique name for the Azure Function. Do not use the name shown in the image. Select the resource group you created in this article. For hosting plan, use **Consumption Plan**. Use the suggested new storage account. You can turn off Application Insights. After providing the values, select **Create**.
+   ![View new site](./media/custom-event-quickstart-portal/view-site.png)
 
-   ![Provide function values](./media/custom-event-quickstart-portal/provide-function-values.png)
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
-1. When the deployment finishes, select **Go to resource**.
-
-   ![Go to resource](./media/custom-event-quickstart-portal/go-to-resource.png)
-
-1. Next to **Functions**, select **+**.
-
-   ![Add function](./media/custom-event-quickstart-portal/add-function.png)
-
-1. From the available options, select **Custom function**.
-
-   ![Custom function](./media/custom-event-quickstart-portal/select-custom-function.png)
-
-1. Scroll down until you find **Event Grid trigger**. Select **C#**.
-
-   ![Select event grid trigger](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
-
-1. Accept the default values, and select **Create**.
-
-   ![New function](./media/custom-event-quickstart-portal/new-function.png)
-
-Your function is now ready to receive events.
-
-## Subscribe to a topic
+## Subscribe to custom topic
 
 You subscribe to a topic to tell Event Grid which events you want to track, and where to send the events.
 
-1. In your Azure function, select **Add Event Grid Subscription**.
+1. In the portal, select your custom topic.
 
-   ![Add event grid subscription](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
+   ![Select custom topic](./media/custom-event-quickstart-portal/select-custom-topic.png)
 
-1. Provide values for the subscription. Select **Event Grid Topics** for the topic type. For subscription and resource group, select the subscription and resource group where you created your custom topic. For instance, select the name of your custom topic. The subscriber endpoint is prepopulated with the URL for the function.
+1. Select **+ Event Subscription**.
 
-   ![Provide subscription values](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+   ![Add event subscription](./media/custom-event-quickstart-portal/new-event-subscription.png)
 
-1. Before triggering the event, open the logs for the function so you can see the event data when it is sent. At the bottom of your Azure function, select **Logs**.
+1. Select **Web Hook** for the endpoint type. Provide a name for the event subscription.
 
-   ![Select logs](./media/custom-event-quickstart-portal/select-logs.png)
+   ![Provide event subscription values](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+
+1. Select **Select an endpoint**. 
+
+1. For the web hook endpoint, provide the URL of your web app and add `api/updates` to the home page URL. Select **Confirm Selection**.
+
+   ![Provide endpoint URL](./media/custom-event-quickstart-portal/provide-endpoint.png)
+
+1. When finished providing the event subscription values, select **Create**.
+
+## Send an event to your topic
 
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. To simplify this article, use Cloud Shell to send sample event data to the custom topic. Typically, an application or Azure service would send the event data.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Send an event to your topic
 
 Use either Azure CLI or PowerShell to send a test event to your custom topic.
 
@@ -161,7 +148,7 @@ Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-ke
 
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Look at the logs to see the event data.
 
-![View logs](./media/custom-event-quickstart-portal/view-log-entry.png)
+
 
 ## Clean up resources
 
