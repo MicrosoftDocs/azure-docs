@@ -95,9 +95,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     ```
 
 
-6. Add the following class to make an HTTP request to the QnA Maker service. Notice that the **Authorization** header's value includes the word, `EndpointKey` with a space following the word. The JSON result is deserialized into the preceding classes and the first answer is returned. 
-
-
+6. Add the following class to make an HTTP request to the QnA Maker service. Notice that the **Authorization** header's value includes the word, `EndpointKey` with a space following the word. The JSON result is deserialized into the preceding classes and the first answer is returned.
 
     ```csharp
     [Serializable]
