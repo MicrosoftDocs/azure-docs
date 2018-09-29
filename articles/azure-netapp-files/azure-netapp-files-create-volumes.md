@@ -47,7 +47,7 @@ You must also have a subnet that you will delegate to Azure NetApp Files.
 
     * **Virtual network**  
         Specify the Azure virtual network (Vnet) from which you want to access the volume. The Vnet you specify must have Azure NetApp Files configured. The Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume.   
-        
+
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to the Azure NetApp Files service. 
@@ -63,4 +63,5 @@ A volume inherits subscription, resource group, location attributes from its cap
 
 ## Next steps  
 [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
+[Learn about virtual network integration for Azure services](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-for-azure-services)
 
