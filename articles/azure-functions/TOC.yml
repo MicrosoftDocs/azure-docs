@@ -214,6 +214,8 @@
   items:
   - name: API references
     items:
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
     - name: Python
       href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
   - name: App settings reference
