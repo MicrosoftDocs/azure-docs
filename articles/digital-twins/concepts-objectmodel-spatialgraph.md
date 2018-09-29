@@ -61,7 +61,7 @@ Graph _extensibility_ allows users to customize the underlying Digital Twins Obj
 
 ### Spatial Intelligence Graph Management APIs
 
-Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure.com), the URL of the Management APIs is automatically generated and will be displayed in the Azure portal's **Overview** section with the following format `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`. Browse the URL to learn more about the APIs you'll use to build with Azure Digital Twins.
+Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure.com), the URL of the Management APIs is automatically generated and will be displayed in the Azure portal's **Overview** section with the following format `https://{{yourDigitalTwinsName}}.{{yourLocation}}.azuresmartspaces.net/management/swagger`. Browse the URL to learn more about the APIs you'll use to build with Azure Digital Twins.
 
 All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). The APIs follow [Microsoft REST API Guidelines conventions](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Most of the APIs that return collections support [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) system query options.
 

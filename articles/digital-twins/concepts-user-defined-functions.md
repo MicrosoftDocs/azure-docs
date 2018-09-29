@@ -91,6 +91,8 @@ UDFs can be written in JavaScript and allow developers to execute custom snippet
 - Create a notification when certain conditions are met for an incoming sensor reading.
 - Attach graph metadata to the sensor reading before sending out a notification.
 
+Refer to [How to User User-Defined Functions](how-to-user-defined-functions.md) for more details.
+
 ### Role Assignment
 
 A UDF's actions are subject to Digital Twins' role-based access control to secure data within the service. Role assignments ensure that a given UDF has the proper permissions to interact with the spatial graph. For example, a UDF might attempt to create, read, update, or delete graph data under a given space. A UDF's level of access is checked when the UDF asks the graph for data or attempts an action. For more information, see [Role-Based Access Control](security-create-manage-role-assignments.md).
