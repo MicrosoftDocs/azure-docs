@@ -34,6 +34,7 @@ Jobs are initiated by the solution back end and maintained by IoT Hub. You can i
 
 The following snippet shows the HTTPS 1.1 request details for executing a [direct method](iot-hub-devguide-direct-methods.md) on a set of devices using a job:
 
+    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
     Authorization: <config.sharedAccessSignature>
@@ -53,6 +54,7 @@ The following snippet shows the HTTPS 1.1 request details for executing a [direc
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
+    ```
 
 The query condition can also be on a single device ID or on a list of device IDs as shown in the following examples:
 
@@ -67,7 +69,9 @@ queryCondition = "deviceId IN ['MyDevice1']
 
 The following snippet shows the HTTPS 1.1 request details for updating device twin properties using a job:
 
+    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
+    
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
@@ -81,18 +85,21 @@ The following snippet shows the HTTPS 1.1 request details for updating device tw
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
+    ```
 
 ## Querying for progress on jobs
 
 The following snippet shows the HTTPS 1.1 request details for querying for jobs:
 
+    ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
     User-Agent: <sdk-name>/<sdk-version>
-
+    ```
+    
 The continuationToken is provided from the response.
 
 You can query for the job execution status on each device using the [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md).
