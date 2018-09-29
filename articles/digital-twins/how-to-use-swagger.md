@@ -15,7 +15,7 @@ ms.author: adgera
 Each provisioned Azure Digital Twins instance includes its own automatically-generated Swagger reference documentation.
 
 [Swagger](https://swagger.io/) (or [OpenAPI](https://www.openapis.org/)) unites complex API information into an interactive and language-agnostic reference resource. Specifically, Swagger provides critical reference material about which JSON payloads, HTTP methods, and specific endpoints to use to perform operations against an API.
-S
+
 >[!NOTE]
 > No configuration is required to use your digital twin Swagger reference material
 
@@ -37,17 +37,25 @@ Swagger provides an interactive summary of your API including:
 
 Automatically generated reference material is supplied explaining critical concepts and Object Models.
 
+![Swagger reference][1]
+
 ### Using Swagger to test endpoints
 
 One of the powerful functionalities Swagger provides is the ability to **Try it out** on directly through the documentation UI.
 
+![Swagger reference][2]
+
 ### Understand request requirements
 
-Each listed endpoint includes all required request information including required parameters, their types, and which HTTP method is required to access the resource. 
+Each listed endpoint includes all required request information including required parameters, their types, and which HTTP method is required to access the resource.
+
+![Swagger reference][3]
 
 ### Swagger response data
 
 Each listed endpoint also includes valid response body data to validate your development and tests.
+
+![Swagger reference][4]
 
 ### Swagger OAuth 2.0 authorization
 
@@ -64,3 +72,12 @@ Learn how to authenticate with your Management API:
 
 > [!div class="nextstepaction"]
 > [Authenticating with APIs](./security-authenticating-apis.md)
+
+<!-- Images -->
+[1]: media/concepts/swagger_management_top.png
+[2]: media/concepts/swagger_management_models.png
+[3]: media/concepts/swagger_management_model.png
+[4]: media/concepts/swagger_management_try.png
+[5]: media/concepts/swagger_management_tried.png
+[6]: media/concepts/swagger_management_response.png
+[7]: media/concepts/swagger_management_endpoints.png
