@@ -108,9 +108,11 @@
     href: troubleshoot-bitlocker-boot-error.md  
   - name: Checking file system errors
     href: troubleshoot-check-disk-boot-error.md
-  - name: Throttling errors
-    href: troubleshooting-throttling-errors.md
-  - name: Use nested virtualization 
-    href: troubleshoot-vm-by-use-nested-virtualization.md
-  - name: Understand a system reboot
-    href: understand-vm-reboot.md
+  - name: Blue screen errors
+    href: troubleshoot-common-blue-screen-error.md
+- name: Throttling errors
+  href: troubleshooting-throttling-errors.md
+- name: Use nested virtualization 
+  href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: Understand a system reboot
+  href: understand-vm-reboot.md
