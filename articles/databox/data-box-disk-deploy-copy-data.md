@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/10/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Copy data to Data Box Disk
-> * Verify data integrity
+> * Verify data
 
 ## Prerequisites
 
@@ -51,6 +51,7 @@ Perform the following steps to connect and copy data from your computer to the D
 
     Follow the Azure naming requirements for container and blob names.
 
+    #### Azure naming conventions for container and blob names
     |Entity   |Conventions  |
     |---------|---------|
     |Container names block blob and page blob     |Must start with a letter or number, and can contain only lowercase letters, numbers, and the hyphen (-). Every hyphen (-) must be immediately preceded and followed by a letter or number. Consecutive hyphens are not permitted in names. <br>Must be a valid DNS name, which is 3 to 63 characters long.          |
@@ -157,9 +158,9 @@ Perform the following steps to connect and copy data from your computer to the D
 > -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md). 
 > - If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
 
-## Verify data integrity
+## Verify data 
 
-To verify the data integrity, perform the following steps.
+To verify the data, perform the following steps.
 
 1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *AzureImportExport* folder of your drive. 
     
