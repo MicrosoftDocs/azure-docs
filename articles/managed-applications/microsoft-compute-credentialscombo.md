@@ -104,7 +104,7 @@ If `osPlatform` is **Windows**, or `osPlatform` is **Linux** and the user provid
 ```json
 {
   "authenticationType": "password",
-  "password": "p4ssw0rd!dem0",
+  "password": "p4ssw0rddem0",
 }
 ```
 
