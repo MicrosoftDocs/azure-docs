@@ -212,6 +212,14 @@
       href: durable-functions-webjobs-sdk.md      
 - name: Reference
   items:
+  - name: API references
+    items:
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
+  - name: App settings reference
+    href: functions-app-settings.md
   - name: Bindings
     items:
     - name: Blob storage
@@ -253,11 +261,9 @@
     - name: Twilio
       href: functions-bindings-twilio.md    
   - name: host.json reference
-    href: functions-host-json.md  
-  - name: App settings reference
-    href: functions-app-settings.md     
+    href: functions-host-json.md      
   - name: OpenAPI reference
-    href: functions-api-definition.md     
+    href: functions-api-definition.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
