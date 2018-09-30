@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
 ---
-# Confidence Score
+# Confidence score
 When a user query is matched against a knowledge base, QnA Maker returns relevant answers, along with a confidence score. This score indicates the confidence that the answer is the right match for the given user query. 
 
 The confidence score is a number between 0 and 100. A score of 100 is likely an exact match, while a score of 0 means, that no matching answer was found. The higher the score- the greater the confidence in the answer. For a given query, there could be multiple answers returned. In that case, the answers are returned in order of decreasing confidence score.
@@ -38,7 +38,7 @@ The following table indicates typical confidence associated for a given score.
 |< 30|Very low confidence - typically does not answer the user's query, but has some matching words or phrases |" Where can I add synonyms to my KB"|
 |0|No match, so the answer is not returned.|"How much does the service cost"|
 
-## Choosing a score threshold
+## Choose a score threshold
 The table above shows the scores that are expected on most KBs. However, since every KB is different, and has different types of words, intents and goals- we recommend you test and choose the threshold that best works for you. The default and recommended threshold that should work for most KBs, is **50**.
 
 When choosing your threshold, keep in mind the balance between Accuracy and Coverage, and tweak your threshold based on your requirements.
@@ -48,7 +48,7 @@ When choosing your threshold, keep in mind the balance between Accuracy and Cove
 - If **Coverage** (or recall) is more important- and you want to answer as many questions as possible, even if there is only a partial relation to the user's question- then LOWER the threshold. This means there could be more cases where the answer does not answer the user's actual query, but gives some other somewhat related answer. *For example:* if you make the threshold **30**, you might give not very related answers like, answering with the above example, for queries like "Where can I edit my KB?"
 
 
-## Improving confidence scores
+## Improve confidence scores
 To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response.
 
 
@@ -68,15 +68,15 @@ When no good match is found by the ranker, the confidence score of 0.0 or "None"
 
 2. Click to open the **App Service**.
 
-![Access App service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+    ![Access App service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
 3. Click on **Application Settings** and edit the **DefaultAnswer** field to the desired default response. Click **Save**.
 
-![Change default response](../media/qnamaker-concepts-confidencescore/change-response.png)
+    ![Change default response](../media/qnamaker-concepts-confidencescore/change-response.png)
 
 4. Restart your App service
 
-![QnA Maker appservice restart](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+    ![QnA Maker appservice restart](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## Next steps
