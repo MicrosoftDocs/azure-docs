@@ -1,5 +1,5 @@
 ---
-title: Set up Azure Digital Twins (.Net) | Microsoft Docs
+title: Provision your Azure Digital Twins (.NET) setup | Microsoft Docs
 description: Learn how to deploy and provision your instance of Azure Digital Twins using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
@@ -10,9 +10,9 @@ ms.date: 08/30/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Set up Azure Digital Twins using portal and .Net application
+# Tutorial: Set up and provision Azure Digital Twins 
 
-Azure Digital Twins service allows you to bring together people, places and things in a coherant spatial system. This series of tutorials demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. This series shows you how to deploy Digital Twins using the portal[https://portal.azure.com], create a provisioning application using Digital Twins REST APIs in a .Net application, monitor the telemetry coming from your devices and rooms, and create customized analyses on the telemetry data. 
+Azure Digital Twins service allows you to bring together people, places and things in a coherant spatial system. This series of tutorials demonstrate how to use the Digital Twins to detect room occupancy with optimal conditions of temperature and air quality. This series shows you how to deploy Digital Twins using the portal[https://portal.azure.com], create a provisioning application using Digital Twins REST APIs in a .Net application, monitor the sensor coming from your devices and rooms, and create customized notifications on that data. This will walk you through a scenario where you have a sample building, with the hierarchy of floors, conference rooms and devices with sensors for temperature and air quality in these rooms. We will show you how to set notifications for room availability with optimal conditions. As a facilities administrator, you can use this information to book meeting rooms.  
 
 In this tutorial, you learn how to:
 
@@ -20,14 +20,15 @@ In this tutorial, you learn how to:
 > * Create your instance of Azure Digital Twins service
 > * Grant permissions to an application to access your instance
 > * Explore the .Net sample
+> * Understand spatial object model
 > * Provision your spaces and devices
 
 If you don’t have an Azure, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
-- Install [.NET Core SDK](https://www.microsoft.com/net/download) on your development machine.
-- Download the Digital Twins .Net sample. Click **Clone or download** on the [sample page](https://github.com/Azure-Samples/digital-twins-samples-csharp), and then **Download ZIP** to a folder on your work machine. Extract the zip folder for use in the proceeding steps. 
+- [.NET Core SDK](https://www.microsoft.com/net/download) should be installed on your development machine.
+
 
 ## Create your instance of Azure Digital Twins service
 
@@ -43,12 +44,20 @@ Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azure/act
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 
-## Explore the .Net sample
-Most of the following sections will be using the Digital Twins .Net sample that you downloaded in the prerequisites section. The sample allows you to configure and provision a spatial topology. Explore the contents of the *src* folder to find the following:
+## Download and explore the Digital Twins sample
+
+### Download the sample
+[Download or clone the Digital Twins .Net sample app](https://github.com/Azure-Samples/digital-twins-samples-csharp) from Github. To clone the sample using a Git client, run the following command: 
+```cmd/sh
+git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
+``` 
+
+### Explore the sample
+The sample allows you to configure and provision a spatial topology. Explore the contents of the *src* folder to find the following:
 - *models*: This folder replicates the object model used by the Digital Twins, for spaces and other resources. 
 - *api*: This folder contains wrapper functions for Digital Twins REST APIs. This is not a complete library. For a complete list of features, visit the swagger URL created for your Digital Twins instance.
 - *actions*: It provides an interface to the Digital Twins service to perform tasks like:
-    - get available spaces using the *getSpaces.cs*, or 
+    - get information about the provisioned spaces using the *getSpaces.cs*, or 
     - provision your spatial graph using the *provisionSample.cs*.
 
 ### Configure the sample
@@ -60,7 +69,7 @@ Most of the following sections will be using the Digital Twins .Net sample that 
     c. *Tenant*: Enter the *Directory Id* of your [AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 4. Run `dotnet run` to see a list of Digital Twins features that you can explore using the sample.
 
-## Understanding spatial object model
+## Understand spatial object model
 In this section, we will learn about the object model that the Digital Twins uses to define a spatial graph. 
 
 ## Provision your spaces and devices
@@ -98,52 +107,10 @@ This function uses the *provisionSample.yaml* in the same folder to start provis
 
 - Run `dotnet run ProvisionSample` at the command line to provision your spatial topology. Observe the messages in the command window and notice how your spatial graph gets created. Notice how it creates an IoT hub at the root node or the `Venue`. 
 
-## Understand a User Defined Function
-*User-defined functions* (or UDFs) allow you to customize the processing of telemetry data from your sensors. It  In this section, we will use the .Net sample used in the previous sections to understand how to create and configure a UDF. 
-
-- In the *provisionSample.yaml* file, note the entries  of type `userdefinedfunctions`
-
-## Simulate telemetry data
-<!--TBD This should be in a proper app in Azure Samples -->
-This section shows you how to simulate sensor data for detecting motion, temperature and carbon dioxide. It uses a sample .Net application that generates this data and sends it to your Digital Twins instance. It uses your work machine's MAC id to simulate as a unique device. 
-
-1. Download the Azure-IoT-SSS-Samples-DeviceConnectivity sample <!--download link here-->
-2. Generate SAS token for your simulated device. Using a REST client such as Postman, POST a REST call for `https://{{endpoint-management}}/api/v1.0/keystores` to the Digital Twins service with the following payload:
-    ```
-    {
-    "Name": "Friendly name for your key store",
-    "Description": "Description for your key store",
-    "SpaceId": "<RootTenantId>"
-    }
-    ```
-  Note the response GUID that you will get for this call. 
-3. Create a key using the key store GUID that you received from the preceding step. POST a REST call for `https://{{endpoint-management}}/api/v1.0/keystores/<insert keystore GUID here>/keys`. Note down the response code you get for the key. 
-4. Get the [SAS token](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) from key for each individual Hardware Id, which is the MAC Id in your setup. Using a REST client, run `GET https://{{endpoint-management}}/api/v1.0/keystores/<insert keystore GUID here>/keys/<insert the response code for keys here>/token?deviceMac=<HardwareId>`
-  Note down the response body. It is a SAS token in this format: *SharedAccessSignature id=<HardwareId>&<key>*.
-5. Navigate to the Azure-IoT-SSS-Samples-DeviceConnectivity folder on the command line and run the sample:
-    1. Open the *appSettings.json* file and update the following variables:
-        - Assign the URL for your Digital Twins instance to the variable *ManagementApiUrl*. It will be in the form of `https://yourDigitalTwinsName.yourDigitalTwinsLocation.azuresmartspaces.net/management/`.
-        - Assign the SAS token noted above to the variable *SasToken*.
-    1. Run the following on the command line:
-        ```cmd/sh
-        dotnet restore
-        dotnet run
-        ```
-
-## Create notifications for telemetry data
-This section shows you how to create notifications for the simulated telemetry data using [Event Grid](https://docs.microsoft.com/azure/event-grid/overview). 
-
-1. Create an *Event Grid Topic*:
-    1. Log in to the [portal](https://portal.azure.com).
-    1. On the left on the portal, click on the **Resource groups** and then select the group you created for your Digital Twins instance. 
-    1. Click **Add** and search for *Event grid* in the search box. Select **Event Grid Topic**. 
-    1. Enter a name for the Event Grid topic, and select your subscription, the resource group and the location that you used for the Digital Twins. Click **Create**.
-6. Create an endpoint in your Digital Twins instance to interact with the Event Grid topic created above.
-
 
 ## Clean up resources
 
-Once you are done exploring this tutorial, you may delete resources created in this tutorial:
+If you wish to stop exploring Azure Digital Twins beyond this point, feel free to delete resources created in this tutorial:
 
 1. From the left-hand menu in the [Azure portal](http://portal.azure.com), click **All resources**, select and **Delete** your Digital Twins resource group.
 2. If you need to, you may proceed to delete the sample applications on your work machine as well. 
@@ -151,7 +118,7 @@ Once you are done exploring this tutorial, you may delete resources created in t
 
 ## Next steps
 
-Proceed to the <!-- Link to the concepts ontology/topology here --> to learn the basic concepts behind the Azure Digital Twins. 
+Proceed to the next tutorial in the series to learn how to create customized code or User-Defined Functions to monitor conditions in your sample building. 
 > [!div class="nextstepaction"]
-> [Next steps button](quickstart-view-occupancy-dotnet.md)
+> [Next steps button](tutorial-facilities-udf.md)
 

@@ -16,7 +16,13 @@
 - name: Tutorials
   items:
   - name: Monitor facilities with Digital Twins
-    href: tutorial-facilities-app.md
+    items:
+      - name: Provision a sample venue
+        href: tutorial-facilities-setup.md
+      - name: Create customized monitoring system
+        href: tutorial-facilities-udf.md
+      - name: Receive notifictions from your venue
+        href: tutorial-facilities-events.md
 - name: Concepts
   items:
   - name: Object Model and Spatial Intelligence Graph
