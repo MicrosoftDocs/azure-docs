@@ -63,6 +63,8 @@ If you try the previous steps and everything is configured properly, download [W
 2. Verify that the client and the server have a common set.
 
   ![packet](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg)
+  
+3. If there is no server response on the network traces, verify you enabled IKEv2 on the Azure Gateway Configuration page on the Azure Portal website.
 
 ## Next steps
 For additional help, see [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
