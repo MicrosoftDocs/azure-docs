@@ -205,7 +205,7 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 >
 >
 
-### Feb. 16, 2017
+### Feb. 16, 2017 
 
 **Palo Alto Networks devices with version prior to 7.1.4** for Azure route-based VPN: If you are using VPN devices from Palo Alto Networks with PAN-OS version prior to 7.1.4 and are experiencing connectivity issues to Azure route-based VPN gateways, perform the following steps:
 
