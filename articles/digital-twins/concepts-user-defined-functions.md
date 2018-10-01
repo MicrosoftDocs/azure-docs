@@ -16,11 +16,11 @@ Azure Digital Twins offers advanced compute capabilities. Developers can define 
 
 ## Data processing flow
 
-Once devices send telemetry data to Digital Twins, developers can process data in four phases: _parse_, _match_, _compute_, and _dispatch_: 
+Once devices send telemetry data to Digital Twins, developers can process data in four phases: _validate_, _match_, _compute_, and _dispatch_: 
 
 ![Digital Twins Data Processing Flow][1]
 
-1. The _parse_ phase transforms the incoming telemetry message to a commonly understood [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) format. This phase also executes device and sensor validation.
+1. The _validate_ phase transforms the incoming telemetry message to a commonly understood [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) format. This phase also executes device and sensor validation.
 1. The _match_ phase finds the appropriate User-Defined Function(s) to run. Predefined matchers will find the User-Defined Function(s) based on the device, sensor, and space information from the incoming telemetry message.
 1. The _compute_ phase runs the User-Defined Function(s) matched in the previous phase. These function(s) may read and update computed values on spatial graph nodes, and can emit custom notifications.
 1. The _dispatch_ phase routes any custom notifications from the compute phase to endpoints defined in the graph.
