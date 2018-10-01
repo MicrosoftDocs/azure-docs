@@ -32,6 +32,8 @@
     href: app-service-app-service-environment-intro.md
   - name: Diagnostics
     href: ../app-service-diagnostics.md
+  - name: Certificates
+    href: certificates.md
 - name: How-To guides
   items:
   - name: Use an ASE
@@ -42,6 +44,8 @@
     href: create-from-template.md
   - name: Forced tunnel configuration
     href: forced-tunnel-support.md
+  - name: Firewall integration
+    href: firewall-integration.md
 - name: Reference
   items:
   - name: Management addresses

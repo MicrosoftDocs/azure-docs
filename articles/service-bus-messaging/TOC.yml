@@ -204,6 +204,8 @@
   items:
   - name: FAQ
     href: service-bus-faq.md
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-service-bus
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: Blog

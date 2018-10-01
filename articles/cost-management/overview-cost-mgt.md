@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/12/2018
+ms.date: 09/21/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
@@ -18,7 +18,7 @@ Cost management is the process where you effectively plan and control the costs 
 
 Although related, billing differs from cost management. Billing is the process of invoicing customers for goods or services and managing the commercial relationship.  Procurement and finance teams usually conduct billing tasks.
 
-Cost Management shows organizational cost and usage patterns with advanced analytics. Reports in Cost Management show Azure cost, usage, reserved instance, and Azure Hybrid Benefit use. Collectively, the reports show your internal and external costs. The reports help you understand your spending and resource use and can help find spending anomalies. Predictive analytics are also available. Cost Management uses Azure management groups, budgets, and recommendations to show clearly how your expenses are organized and how you might reduce costs.
+Cost Management shows organizational cost and usage patterns with advanced analytics. Reports in Cost Management show Azure cost, usage, reserved instance, and Azure Hybrid Benefit use. Collectively, the reports show your internal and external costs for usage and Azure Marketplace charges. Other charges, such as reservation purchases, support, and taxes are not yet shown in reports. The reports help you understand your spending and resource use and can help find spending anomalies. Predictive analytics are also available. Cost Management uses Azure management groups, budgets, and recommendations to show clearly how your expenses are organized and how you might reduce costs.
 
 You can use the Azure portal or various APIs for export automation to integrate cost data with external systems and processes. Automated billing data export and scheduled reports are also available.
 

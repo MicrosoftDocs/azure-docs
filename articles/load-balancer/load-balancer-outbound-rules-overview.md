@@ -12,13 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2018
+ms.date: 09/24/2018
 ms.author: kumud
 ---
 
-# Load Balancer Outbound Rules
+# Load Balancer outbound rules
 
-Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound.  Outbound rules make it simple to configure public [Standard Load Balancer](load-balancer-standard-overview.md)'s outbound network address translation (NAT).  You have full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
+Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound.  Outbound rules make it simple to configure public [Standard Load Balancer](load-balancer-standard-overview.md)'s outbound network address translation.  You have full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
+
+![Load Balancer outbound rules](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
 With outbound rules, you can use Load Balancer to: 
 - define outbound NAT from scratch.
@@ -207,4 +209,5 @@ When using an internal Standard Load Balancer, outbound NAT is not available unt
 
 - Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md).
 - Learn about [Standard Load Balancer](load-balancer-standard-overview.md).
-- Learn about [bidirectional TCP Reset on idle timeout](https://aka.ms/lbtcpreset).
+- Learn about [bidirectional TCP Reset on idle timeout](load-balancer-tcp-reset.md).
+- [Configure outbound rules with Azure CLI 2.0](configure-load-balancer-outbound-cli.md).

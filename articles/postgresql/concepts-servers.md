@@ -4,11 +4,10 @@ description: This article provides considerations and guidelines for configuring
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 09/27/2018
 ---
 # Azure Database for PostgreSQL servers
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL servers.
@@ -50,6 +49,7 @@ The PostgreSQL superuser attribute is assigned to the azure_superuser, which bel
 An Azure Database for PostgreSQL server has two default databases: 
 - **postgres** - A default database you can connect to once your server is created.
 - **azure_maintenance** - This database is used to separate the processes that provide the managed service from user actions. You do not have access to this database.
+- **azure_sys** - A database for the Query Store. This database does not accumulate data when Query Store is off; this is the default setting. For more information, see the [Query Store overview](concepts-query-store.md).
 
 
 ## Server parameters

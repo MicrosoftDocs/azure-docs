@@ -157,7 +157,7 @@ Azure virtual machines, virtual machine scale sets, Batch, and related compute s
 ### Data and analytics
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
-* [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
+* [Data Lake Storage Gen1](../articles/data-lake-store/data-lake-store-overview.md)
 * [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 

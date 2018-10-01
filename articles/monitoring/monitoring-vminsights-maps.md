@@ -18,7 +18,7 @@ ms.author: magoedte
 ---
 
 # Using Azure Monitor for VMs Map to understand application components
-Viewing the discovered application components on Windows and Linux virtual machines running in Azure your your environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly or across groups of VMs from Azure Monitor. 
+Viewing the discovered application components on Windows and Linux virtual machines running in your Azure environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly or across groups of VMs from Azure Monitor. 
 
 This article will help you understand the experience between the two perspectives and how to use the Map feature. For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md).
 

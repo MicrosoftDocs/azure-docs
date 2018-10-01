@@ -67,7 +67,7 @@ The following table summarizes the ingress capacity for each SKU:
 |S1     |   30 million     |  30 GB     |  720    |  720 KB   |
 |S2     |   300 million    |   300 GB   | 7,200   | 7,200 KB  |
 
-You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You cannot migrate from an S1 environment to an S2, or from an S2 environment to an S1. 
+You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You cannot migrate from an S1 environment to an S2, or from an S2 environment to an S1.
 
 For ingress capacity, you should first determine the total ingress you require on a per-month basis. Next, determine what your per-minute needs are, as this is where throttling and latency play a role.
 
@@ -85,34 +85,37 @@ You may not know in advance how much data you expect to push. In this case, you 
  
 ### Mitigate throttling and latency
 
-For information about how to prevent throttling and latency, see [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md). 
+For information about how to prevent throttling and latency, see [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md).
 
 ## Shaping your events
-It's important to ensure the way you send events to TSI supports the size of the environment you are provisioning (Conversely, you can map the size of the environment to how many events TSI reads and the size of each event).  Likewise, it's important to think about the attributes you may want to slice and filter by when querying your data.  With this in mind, we suggest reviewing the JSON shaping section of our *Send events* documentation [documentation] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  It's towards the bottom of the page.  
+It's important to ensure the way you send events to TSI supports the size of the environment you are provisioning (Conversely, you can map the size of the environment to how many events TSI reads and the size of each event).  Likewise, it's important to think about the attributes you may want to slice and filter by when querying your data.  With this in mind, we suggest reviewing the JSON shaping section of our [Sending events documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  It's towards the bottom of the page.  
 
 ## Ensuring you have reference data in place
 A Reference Data Set is a collection of items that augment the events from your event source. Time Series Insights ingress engine joins each event from your event source with the corresponding data row in your reference data set. This augmented event is then available for query. This join is based on the Primary Key column(s) defined in your reference data set.
 
 Note, reference data is not joined retroactively. This means that only current and future ingress data is matched and joined to the reference date set, once it has been configured and uploaded.  If you plan to send lots of historical data to TSI and don't upload or create reference data in TSI first, then you may have to re-do your work (hint, not fun).  
 
-To learn more about how to create, upload, and manage your reference data in TSI, head to our *reference data* documentation [documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+To learn more about how to create, upload, and manage your reference data in TSI, head to our [Reference data set documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## Business disaster recovery
-As an Azure service, Time Series Insights provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications][https://docs.microsoft.com/en-us/azure/architecture/resiliency/index] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
+As an Azure service, Time Series Insights provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/index) paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
 
-Azure Time Series Insights does not have built-in business disaster recovery (BCDR). Customers that require BCDR can still implement a recovery strategy using the following method: 
+Azure Time Series Insights does not have built-in business disaster recovery (BCDR).
+By default both Azure IoT Hub and Event Hubs have recovery built in.
 
-Create a second Time Series Insights environment in a backup Azure region and send events to this secondary environment from the primary event source, leveraging a second dedicated consumer group and that event source's BCDR guidelines.  
+To learn more about IoT Hub's BCDR policies, head [here](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  
+
+To learn more about Event hub's BCDR policies, head [here](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
+
+However, customers that require BCDR can still implement a recovery strategy using the following method.
+By creating a second Time Series Insights environment in a backup Azure region and send events to this secondary environment from the primary event source, leveraging a second dedicated consumer group and that event source's BCDR guidelines.  
 
 1.  Create environment in second region.  More on creating a Time Series Insights environment [here](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 2.  Create a second dedicated consumer group for your event source and connect that event source to the new environment.  Be sure to designate the second, dedicated consumer group.  You can learn more about this by following either [IoT Hub documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) or [Event hub documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  If your primary region were to go down during a disaster incident, switch over operations to the backup Time Series Insights environment.  
 
-By default both the Azure Iot Hub and Event Hubs have recovery built in. 
-To learn more about IoT Hub's BCDR policies, head [here](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  To learn more about Event hub's BCDR policies, head [here](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
-
-It is **important to note** during any Failover scenario there may be a delay before TSI can start processing messages again. This can cause a spike in message processing for more information please take a look at
-[Time Series Insights Managing Throttling](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-environment-mitigate-latency)
+It is **important to note** during any failover scenario there may be a delay before TSI can start processing messages again: this can cause a spike in message processing. For more information please take a look at
+[this document](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency)
 
 ## Next steps
 - [How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)

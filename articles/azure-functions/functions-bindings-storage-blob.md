@@ -879,8 +879,9 @@ In JavaScript, access the blob data using `context.bindings.<name from function.
 
 ## Next steps
 
+* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+
+<!---
 > [!div class="nextstepaction"]
 > [Go to a quickstart that uses a Blob storage trigger](functions-create-storage-blob-triggered-function.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+--->

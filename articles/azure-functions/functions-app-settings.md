@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 09/22/2018
 ms.author: glenga
 ---
 
@@ -16,7 +16,7 @@ ms.author: glenga
 
 App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are in environment variables. This article lists the app settings that are available in function apps.
 
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-run-local.md#local-settings-file) file.
 
