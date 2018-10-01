@@ -29,7 +29,7 @@ Some key practices to safely secure your IoT devices include:
 > * Secure each device that's connected to your IoT space in a tamper-proof way.
 > * Limit the role of each device, sensor, and person within your IoT space. If compromised, the impact is minimized.
 > * Potential use of device IP address filtering.
-> * Limit I/O and device bandwidth to improve performance. Rate-limiting and throttling can improve security by preventing denial-of-service attacks.
+> * Limit I/O and device bandwidth to improve performance. Rate-limiting can improve security by preventing denial-of-service attacks.
 
 Some key practices to safely secure an IoT space include:
 
@@ -37,7 +37,7 @@ Some key practices to safely secure an IoT space include:
 > * Encrypt saved, stored, or persistent data.
 > * Require passwords or keys to be periodically changed or refreshed.
 > * Carefully restrict access and permissions by role (see Role-Based Access Control best practices below).
-> * Use powerful encryption wherever possible. That means requiring long passwords, using secure protocols, and two-factor authentication.
+> * Use powerful encryption. That means requiring long passwords, using secure protocols, and two-factor authentication.
 
 Monitoring IoT resources to watch for outliers, threats, or resource parameters that fall outside the range of usual operation is managed through Azure Analytics.
 
