@@ -19,15 +19,14 @@ In this article, you learn how to configure a HDInsight cluster with ESP by usin
 >ESP is GA in HDI 3.6 for Spark, Interactive, and Hadoop. ESP for HBase and Kafka cluster types is in preview.
 
 ## Enable Azure AD-DS
+> [!NOTE]
+> Only tenant administrators have the privileges to create an Azure AD-DS instance. Multi-factor authentication needs to be disabled only for users who will access the cluster.
 
 Enabling Azure AD-DS is a prerequisite before you can create a HDInsight cluster with ESP. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 When Azure AD-DS is enabled, all users and objects start synchronizing from Azure Active Directory (AAD) to Azure AD-DS by default. The length of the sync operation depends on the number of objects in AAD. The sync could take a few days for hundreds of thousands of objects. 
 
 Customers can choose to sync only the groups that need access to the HDInsight clusters. This option of syncing only certain groups is called *scoped synchronization*. See [Configure Scoped Synchronization from Azure AD to your managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) for instructions.
-
-> [!NOTE]
-> Only tenant administrators have the privileges to create an Azure AD-DS instance. Multi-factor authentication needs to be disabled only for users who will access the cluster.
 
 When enabling secure LDAP, put the domain name in the subject name or the subject alternative name in the certificate. For example, if your domain name is *contoso.com*, make sure that exact name exists in your certificate subject name or subject alternative name. For more information, see [Configure secure LDAP for an Azure AD-DS managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
