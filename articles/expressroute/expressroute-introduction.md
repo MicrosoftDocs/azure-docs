@@ -1,19 +1,12 @@
 ---
 title: 'ExpressRoute Overview: Extend your on-premises network to Azure over a private connection | Microsoft Docs'
-description: This ExpressRoute Technical Overview explains how an ExpressRoute connection works to extend your on-premises network to Azure over a private connection.
-documentationcenter: na
+description: The ExpressRoute Technical Overview explains how an ExpressRoute connection works to extend your on-premises network to Azure over a private connection.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
 
-ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.topic: overview
+ms.date: 09/19/2018
 ms.author: cherylmc
 
 ---
@@ -66,11 +59,29 @@ For example, if you connected to Microsoft in Amsterdam through ExpressRoute, yo
 ### Global connectivity with ExpressRoute premium add-on
 You can enable the ExpressRoute premium add-on feature to extend connectivity across geopolitical boundaries. For example, if you are connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in all regions across the world (national clouds are excluded). You can access services deployed in South America or Australia the same way you access the North and West Europe regions.
 
+### Across on-premises connectivity with ExpressRoute Global Reach
+
+You can enable ExpressRoute Global Reach to exchange data across your remote sites by connecting your multiple ExpressRoute circuits. For example, if you have a private datacenter in California connected to ExpressRoute in Silicon Valley, and another private datacenter in Texas connected to ExpressRoute in Dallas, with ExpressRoute Global Reach, you can connect your private datacenters together through two ExpressRoute circuits. Your cross-datacenter traffic will traverse through Microsoft's network.
+
+For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
+
 ### Rich connectivity partner ecosystem
 ExpressRoute has a constantly growing ecosystem of connectivity providers and SI partners. For the latest information, refer to the [ExpressRoute providers and locations](expressroute-locations.md) article.
 
 ### Connectivity to national clouds
 Microsoft operates isolated cloud environments for special geopolitical regions and customer segments. Refer to the [ExpressRoute providers and locations](expressroute-locations.md) page for a list of national clouds and providers.
+
+### ExpressRoute Direct
+
+ExpressRoute Direct provides customers with the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100Gbps connectivity, which supports Active/Active connectivity at scale. 
+
+Key features that ExpressRoute Direct provide include, but are not limited to:
+
+* Massive Data Ingestion into services like Storage and Cosmos DB 
+* Physical isolation for industries that are regulated and required dedicated and isolated connectivity like: Banking, Government, and retail 
+* Granular control of circuit distribution based on business unit
+
+For more information, see [About ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
 
 ### Bandwidth options
 You can purchase ExpressRoute circuits for a wide range of bandwidths. Supported bandwidths are listed below. Be sure to check with your connectivity provider to determine the list of supported bandwidths they provide.

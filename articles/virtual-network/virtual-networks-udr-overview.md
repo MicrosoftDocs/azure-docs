@@ -101,13 +101,13 @@ You cannot specify **VNet peering** or **VirtualNetworkServiceEndpoint** as the 
 
 The name displayed and referenced for next hop types is different between the Azure portal and command-line tools, and the Azure Resource Manager and classic deployment models. The following table lists the names used to refer to each next hop type with the different tools and [deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
-|Next hop type                   |Azure CLI 2.0 and PowerShell (Resource Manager) |Azure CLI 1.0 and PowerShell (classic)|
+|Next hop type                   |Azure CLI and PowerShell (Resource Manager) |Azure classic CLI and PowerShell (classic)|
 |-------------                   |---------                                       |-----|
 |Virtual network gateway         |VirtualNetworkGateway                           |VPNGateway|
-|Virtual network                 |VNetLocal                                       |VNETLocal (not available in the CLI 1.0 in asm mode)|
-|Internet                        |Internet                                        |Internet (not available in the CLI 1.0 in asm mode)|
+|Virtual network                 |VNetLocal                                       |VNETLocal (not available in the classic CLI in asm mode)|
+|Internet                        |Internet                                        |Internet (not available in the classic CLI in asm mode)|
 |Virtual appliance               |VirtualAppliance                                |VirtualAppliance|
-|None                            |None                                            |Null (not available in the CLI 1.0 in asm mode)|
+|None                            |None                                            |Null (not available in the classic CLI in asm mode)|
 |Virtual network peering         |VNet peering                                    |Not applicable|
 |Virtual network service endpoint|VirtualNetworkServiceEndpoint                   |Not applicable|
 

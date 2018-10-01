@@ -3,7 +3,7 @@ title: Azure VM extensions and features for Linux | Microsoft Docs
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -80,7 +80,7 @@ Azure VM extensions run on existing VMs, which is useful when you need to make c
 
 The following methods can be used to run an extension against an existing VM.
 
-### Azure CLI 2.0
+### Azure CLI
 
 Azure VM extensions can be run against an existing VM with the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*:
 

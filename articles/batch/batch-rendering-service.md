@@ -64,7 +64,7 @@ Azure Batch is used for many workloads, but the following capabilities are avail
   * Azure Marketplace VM images are available that contain popular graphics and rendering applications, avoiding the need to install the applications yourself or create your own custom images with the applications installed. 
 * Pay-per-use licensing for rendering applications:
   * You can choose to pay for the applications by the minute, in addition to paying for the compute VMs, which avoids having to buy licenses and potentially configure a license server for the applications.  Paying for use also means that it is possible to cater for varying and unexpected load as there is not a fixed number of licenses.
-  * It is also possible to use the pre-installed applications with your own licenses and not use the pay-per-use licensing.
+  * It is also possible to use the pre-installed applications with your own licenses and not use the pay-per-use licensing. To do this, typically you install an on-premises or Azure-based license server and use an Azure virtual network to connect the rendering pool to the license server.
 * Plug-ins for client design and modeling applications:
   * Plug-ins allow end-users to utilize Azure Batch directly from client application, such as Autodesk Maya, enabling them to create pools, submit jobs and make use of more compute capacity to perform faster renders.
 * Render manager integration:
