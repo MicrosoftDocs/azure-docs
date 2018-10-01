@@ -31,7 +31,7 @@ The following parameters may be included in the query string of the REST request
 
 |Parameter name|Required/optional|Meaning|
 |-|-|-|
-|`language`|Required|The identifier of the language to be recognized. See [Supported languages](supported-languages.md#speech-to-text).|
+|`language`|Required|The identifier of the language to be recognized. See [Supported languages](language-support.md#speech-to-text).|
 |`format`|Optional<br>default: `simple`|Result format, `simple` or `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and duration. Detailed results include multiple candidates with confidence values and four different representations.|
 |`profanity`|Optional<br>default: `masked`|How to handle profanity in recognition results. May be `masked` (replaces profanity with asterisks), `removed` (removes all profanity), or `raw` (includes profanity).
 
@@ -197,7 +197,7 @@ Locale | Language   | Gender | Service name mapping
 en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
 en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
-A full list of available voices is available in [Supported languages](supported-languages.md#text-to-speech).
+A full list of available voices is available in [Supported languages](language-support.md#text-to-speech).
 
 ### Request headers
 
