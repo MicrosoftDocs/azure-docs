@@ -71,7 +71,7 @@ Triggers have these top-level elements, although some are optional:
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow | 
+| <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow. Available only for triggers. | 
 | <*runtime-config-options*> | JSON Object | You can change trigger runtime behavior by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration settings](#runtime-config-options). | 
 | <*splitOn-expression*> | String | For triggers that return an array, you can specify an expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. | 
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
@@ -703,9 +703,9 @@ a schema that validates input from the incoming request:
 
 ## Trigger conditions
 
-For any trigger, you can include an array that contains one or more 
-expressions for conditions that determine whether the workflow should run. 
-To add the `conditions` property to your logic app, 
+For any trigger, and only triggers, you can include an array that contains one 
+or more expressions for conditions that determine whether the workflow should run. 
+To add the `conditions` property to a trigger in your logic app, 
 open your logic app in the code view editor.
 
 For example, you can specify that a trigger fires only when 

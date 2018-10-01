@@ -57,33 +57,33 @@ or review this basic scope example:
 
 ## Conditions and loops changes
 
-In previous schema versions, 
-conditions and loops were parameters associated with a single action. 
-This schema lifts this limitation, so conditions and loops now appear as action types. 
+In previous schema versions, conditions and loops were parameters 
+associated with a single action. This schema lifts this limitation, 
+so conditions and loops are now available as action types. 
 Learn more about [loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md), 
 or review this basic example for a condition action:
 
-```
+```json
 {
-    "If_trigger_is_some-trigger": {
-        "type": "If",
-        "expression": "@equals(triggerBody(), 'some-trigger')",
-        "runAfter": { },
-        "actions": {
-            "Http_2": {
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://www.bing.com"
-                },
-                "runAfter": {},
-                "type": "Http"
-            }
-        },
-        "else": 
-        {
-            "if_trigger_is_another-trigger": "..."
-        }      
-    }
+   "Condition - If_trigger_is_some-trigger": {
+      "type": "If",
+      "expression": "@equals(triggerBody(), '<trigger-name>')",
+      "runAfter": {},
+      "actions": {
+         "Http_2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.bing.com"
+            },
+            "runAfter": {},
+            "type": "Http"
+         }
+      },
+      "else": 
+      {
+         "If_trigger_is_another-trigger": "<...>"
+      }  
+   }
 }
 ```
 
