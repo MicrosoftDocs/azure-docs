@@ -89,15 +89,15 @@ To initiate the process of obtaining a larger quota:
      ![Problem details](media/sql-database-managed-instance-resource-limits/problem-details.png)
 
      > [!IMPORTANT]
-     > A valid request should include: 
-     > - Region in which limit needs to be changed 
-     > - Required number of instances, per service tier in existing subnets after the quota increase (if any of the existing subnet needs to be expanded). 
-     > - Required number of new subnets and total number of instances per service tier within the new subnets (if you need to deploy managed instances in new subnets).
+     > A valid request should include:
+     > - Region in which subscription limit needs to be increased
+     > - Required number of instances, per service tier in existing subnets after the quota increase (if any of the existing subnets needs to be expanded
+     > - Required number of additional instances, per service tier in existing subnets (if any of the existing subnets needs to be expanded)
 5. Click **Next**.
 6. On the Contact Information tab for the new support request, enter preferred contact method (email or phone) and the contact details.
 7. Click **Create**.
 
-## Next steps 
+## Next steps
 
 - For more information about Managed Instance see [What is a Managed Instance?](sql-database-managed-instance.md). 
 - For pricing information, see [SQL Database Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
