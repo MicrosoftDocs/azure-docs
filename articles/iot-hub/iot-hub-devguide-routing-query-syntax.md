@@ -53,7 +53,7 @@ System properties help identify contents and source of the messages.
 | connectionDeviceId | string | This value is set by IoT Hub and identifies the source of the messages. This could be device telemetry messages, device twin change notifications, or device lifecycle events. This cannot be queried. |
 | iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `enqueuedTime`. |
 
-As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to **contentType**, **contentEncoding** and **enqueuedTime**, the **connectionDeviceId** and **connectionModuleId** can also be queried.
+As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to **contentType**, **contentEncoding**, and **enqueuedTime**, the **connectionDeviceId** and **connectionModuleId** can also be queried.
 
 ### Application properties
 

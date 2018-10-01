@@ -40,7 +40,7 @@ You can grant [permissions](#iot-hub-permissions) in the following ways:
   | registryRead | **RegistryRead** permissions |
   | registryReadWrite | **RegistryRead** and **RegistryWrite** permissions |
 
-* **Per-Device Security Credentials**. Each IoT Hub contains an [identity registry][lnk-identity-registry]. For each device in this identity registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
+* **Per-Device Security Credentials**. Each IoT Hub contains an [identity registry](iot-hub-devguide-identity-registry.md) For each device in this identity registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
 For example, in a typical IoT solution:
 
@@ -99,6 +99,7 @@ Password (You can generate a SAS token with the [device explorer](https://github
 When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection disconnects from the service and triggers a reconnection. This behavior, while not problematic for a back-end app, is damaging for a device app for the following reasons:
 
 * Gateways usually connect on behalf of many devices. When using SASL PLAIN, they have to create a distinct TCP connection for each device connecting to an IoT hub. This scenario considerably increases the consumption of power and networking resources, and increases the latency of each device connection.
+
 * Resource-constrained devices are adversely affected by the increased use of resources to reconnect after each token expiration.
 
 ## Scope IoT hub-level credentials
@@ -112,6 +113,7 @@ This mechanism is similar to the [Event Hubs publisher policy](https://code.msdn
 IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include:
 
 * The direct use of the MQTT, AMQP, or HTTPS surfaces.
+
 * The implementation of the token service pattern, as explained in [Custom device authentication](iot-hub-devguide-security.md#custom-device-and-module-authentication).
 
 IoT Hub also allows devices to authenticate with IoT Hub using [X.509 certificates](iot-hub-devguide-security.md#supported-x509-certificates).

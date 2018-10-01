@@ -35,7 +35,7 @@ Azure IoT Hub device SDK for .NET:
 * [API reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [Module reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
-Azure IoT Hub device SDK for C: written in ANSI C (C99) for portability and broad platform compatibility
+Azure IoT Hub device SDK for C, written in ANSI C (C99) for portability and broad platform compatibility:
 
 * Install from [apt-get, MBED, Arduino IDE, or Nuget](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Source code](https://github.com/Azure/azure-iot-sdk-c)
@@ -75,7 +75,7 @@ Azure IoT Hub device SDK for iOS:
 
 ### OS platform and hardware compatibility
 
-Supported platforms for the SDKs can be found in this [document](iot-hub-device-sdk-platform-support.md).
+Supported platforms for the SDKs can be found in [Azure IoT SDKs Platform Support](iot-hub-device-sdk-platform-support.md).
 
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/) or individual repository.
 
@@ -131,7 +131,7 @@ Azure Provisioning device and service SDKs for C#:
 
 Azure Provisioning device and service SDKs for Java:
 
-* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning-device-client)
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning/provisioning-device-client)
 * [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning/provisioning-service-client)
 
 Azure Provisioning device and service SDKs for Node.js:
@@ -147,7 +147,7 @@ Azure Provisioning device and service SDKs for Python:
 Azure Provisioning device and service SDKs for C:
 
 * [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client)
-* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning/service)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_service_client)
 
 ## Next steps
 

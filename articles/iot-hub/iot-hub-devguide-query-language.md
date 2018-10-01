@@ -154,7 +154,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### Module twin queries
 
-Querying on module twins is similar to query on device twins, but using a different collection/namespace, i.e. instead of “from devices” you can query
+Querying on module twins is similar to querying on device twins, but using a different collection/namespace, i.e. instead of “from devices” you can query device.modules:
 
 ```sql
 SELECT * FROM devices.modules
@@ -166,7 +166,7 @@ We don't allow join between the devices and devices.modules collections. If you 
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-This query will return all module twins with the scanning status, but only on the specified subset of devices.
+This query will return all module twins with the scanning status, but only on the specified subset of devices:
 
 ```sql
 Select * from devices.modules 
@@ -235,7 +235,6 @@ Currently, comparisons are supported only between primitive types (no objects), 
 ## Get started with jobs queries
 
 [Jobs](iot-hub-devguide-jobs.md) provide a way to execute operations on sets of devices. Each device twin contains the information of the jobs of which it is part in a collection called **jobs**.
-Logically,
 
 ```json
 {
