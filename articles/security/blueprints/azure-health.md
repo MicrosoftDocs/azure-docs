@@ -67,11 +67,9 @@ HIPAA and HITRUST (through the Common Security Framework
 
 ## Deploying the automation
 
-- To deploy the solution, follow the instructions provided in the deployment guidance. 
+- To deploy the solution, follow the instructions provided in the [deployment guidance](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-For a quick overview of how this solution works, watch this [video](https://aka.ms/healthblueprintvideo) explaining and demonstrating its deployment.
+- For a quick overview of how this solution works, watch this [video](https://aka.ms/healthblueprintvideo) explaining and demonstrating its deployment.
 
 - Frequently asked question can be found in the [FAQ](https://aka.ms/healthblueprintfaq) guidance.
 
