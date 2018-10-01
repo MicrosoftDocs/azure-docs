@@ -95,6 +95,7 @@ For a quick overview of how this solution works, watch this [video](https://aka.
 -   An installation PowerShell script is used to deploy the 
     solution, provided via a .zip file that contains a pre-built
     demo functions.
+-   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   This solution will demonstrate how to migrate an on-premise SQL based solution to Azure, and to implement a Privieged Access Workstation to securely manage cloud-bsed services and solutions. 
 
 ## Solution components
 
