@@ -12,18 +12,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2018
+ms.date: 10/1/2018
 ms.author: cwatson
 ---
 # View Azure Reservations in the Azure portal
 
-What's the task/scenario for the person that needs to view this (but not manage)?
+Depending on your subscription type and permissions, there are a couple of ways to view Azure Reservations.
 
-Permissions required?
+## View Reservations as Owner or Reader
+
+By default, when you buy a reservation, you and the account administrator can view the reservation. You and the account administrator automatically get the Owner role on the reservation. To allow other people to view the reservation, you must add them as an **Owner** or **Reader** on the Reservation. For more information, see [Add or change users who can manage a reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+ 
+To view a reservation as an Owner or Reader,
+
+1. Sign in to the [Azure portal]( http://portal.azure.com).
+1. Search on **Reservations**.
+
+You see a list of the reservations where you have the Owner or Reader role.
 
 If you need to change the scope of a reservation, split a reservation, or change who can manage a reservation, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
 
-## View Reservations
+## View Reservations for Enterprise enrollments
+
+To view reservations transactions in the Azure portal, you must be an EA administrator with an Enterprise enrollment.
 
 1. Sign in to the [Azure portal]( http://portal.azure.com).
 1. Search on **Cost Management + Billing**.
@@ -35,6 +46,11 @@ If you need to change the scope of a reservation, split a reservation, or change
 1. Select **Apply**.
  
     ![Screenshot that shows Reservation transactions results](./media/billing-view-reservation/portal-billing-reservation-transaction-results.png)
+
+As an EA administrator, you can also view reservation transactions by going to **Reports** in the EA portal.
+
+To get the data by using an API, see [Get Reserved Instance transaction charges for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges).
+
 
 ## Next steps
 
