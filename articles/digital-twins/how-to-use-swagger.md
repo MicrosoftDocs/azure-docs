@@ -61,7 +61,7 @@ Each listed endpoint also includes required request information such as:
 * Required parameter data types.
 * The HTTP method to access the resource.
 
-![Swagger endpoints][6]
+![Swagger endpoints][4]
 
 Each resource can be clicked to gain a more detailed overview.
 
@@ -71,11 +71,11 @@ One of the powerful functionalities Swagger provides is the ability to **Try it 
 
 After clicking into a specific endpoint, you'll see a  **Try it out** button:
 
-![Swagger try][4]
+![Swagger try][5]
 
 Expanding that button brings up input fields for each required and optional parameter. Enter the values accordingly and click **Execute**:
 
-![Swagger tried][5]
+![Swagger tried][6]
 
 After executing the test, you can validate the response data.
 
@@ -107,7 +107,7 @@ Learn how to authenticate with your Management API:
 [1]: media/concepts/swagger_management_top.png
 [2]: media/concepts/swagger_management_models.png
 [3]: media/concepts/swagger_management_model.png
-[4]: media/concepts/swagger_management_try.png
-[5]: media/concepts/swagger_management_tried.png
-[6]: media/concepts/swagger_management_endpoints.png
+[4]: media/concepts/swagger_management_endpoints.png
+[5]: media/concepts/swagger_management_try.png
+[6]: media/concepts/swagger_management_tried.png
 [7]: media/concepts/swagger_management_response.png
