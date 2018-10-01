@@ -12,12 +12,11 @@ ms.reviewer: jmartens
 ms.date: 09/24/2018
 ---
 
-#Load and read data with Azure Machine Learning
+# Load and read data with Azure Machine Learning
 
 Use the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) to load different types of input data. 
 
-To load your data, you have one approaches:
-+ Specify the data file type and its parameters
+In order to load your data, specify the data file type and its parameters
 
 ## Use text line data 
 One of the simplest ways to load data is to read it as text lines.
