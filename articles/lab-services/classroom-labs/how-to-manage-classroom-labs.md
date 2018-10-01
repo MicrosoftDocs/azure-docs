@@ -68,7 +68,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
         > [!WARNING]
         > Once you publish, you can't unpublish. 
-    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see For details on how to configure and publish after the wizard completes, see [Publish the template](how-to-manage-classroom-labs.md#publish-the-template) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
+    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see For details on how to configure and publish after the wizard completes, see [Publish the template](#publish-the-template) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
 
         ![Publish template](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. You see the **progress of publishing** the template. This process can take up to an hour. 
