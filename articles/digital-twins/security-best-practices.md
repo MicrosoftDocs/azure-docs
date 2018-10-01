@@ -25,17 +25,19 @@ This article summarizes key best practices to follow.
 
 Some key practices to safely secure your IoT devices include:
 
-* Secure each device that's connected to your IoT space in a tamper-proof way.
-* Limit I/O and device bandwidth to improve performance. Rate-limiting and throttling can improve security by preventing denial-of-service attacks.
-* Limit the role of each device, sensor, and person within your IoT space. If compromised, the impact is minimized.
-* Potential use of device IP address filtering.
+> [!div class="checklist"]
+> * Secure each device that's connected to your IoT space in a tamper-proof way.
+> * Limit I/O and device bandwidth to improve performance. Rate-limiting and throttling can improve security by preventing denial-of-service attacks.
+> * Limit the role of each device, sensor, and person within your IoT space. If compromised, the impact is minimized.
+> * Potential use of device IP address filtering.
 
 Some key practices to safely secure an IoT space include:
 
-* Use powerful encryption wherever possible. That means requiring long passwords, using secure protocols, and two-factor authentication.
-* Encrypt saved, stored, or persistent data.
-* Require passwords or keys to be periodically changed or refreshed.
-* Carefully restrict access and permissions by role (see Role-Based Access Control best practices below).
+> [!div class="checklist"]
+> * Use powerful encryption wherever possible. That means requiring long passwords, using secure protocols, and two-factor authentication.
+> * Encrypt saved, stored, or persistent data.
+> * Require passwords or keys to be periodically changed or refreshed.
+> * Carefully restrict access and permissions by role (see Role-Based Access Control best practices below).
 
 Monitoring IoT resources to watch for outliers, threats, or resource parameters that fall outside the range of usual operation is managed through Azure Analytics.
 
@@ -46,10 +48,11 @@ Monitoring IoT resources to watch for outliers, threats, or resource parameters 
 
 Azure Digital Twins enforces an [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow through Azure Active Directory to authenticate to downstream APIs. Familiar best practices for securely interacting with APIs through OAuth 2.0 apply here as well. A few key practices to secure your IoT space for Azure Active Directory include:
 
-* Limiting OAuth 2.0 scope of access for a token.
-* Verifying the length of time a token is valid and whether a token remains valid.
-* Setting appropriate lengths of time that tokens are valid for.
-* Refreshing expired tokens.
+> [!div class="checklist"]
+> * Limiting OAuth 2.0 scope of access for a token.
+> * Verifying the length of time a token is valid and whether a token remains valid.
+> * Setting appropriate lengths of time that tokens are valid for.
+> * Refreshing expired tokens.
 
 ## Role-Based Access Control best practices
 
