@@ -12,13 +12,13 @@ ms.author: dkshir
 
 # Tutorial: Set up and provision Azure Digital Twins 
 
-Azure Digital Twins service allows you to bring together people, places and devices in a coherant spatial system. This series of tutorials demonstrate how to use the Digital Twins to detect room occupancy with optimal conditions of temperature and air quality. This will walk you through a scenario of a sample building, containing multiple floors and rooms within each floor. The rooms contain devices with sensor to detect motion, ambient temperature and air quality in the form of carbon dioxide. This series will show you how to represent the rooms in the building to the Digital Twins service, as well as how to connect the sensors to this service, so you can monitor the data coming in near real-time. As a facilities administrator, you can use this information to book meeting rooms with optimal conditions. 
+Azure Digital Twins service allows you to bring together people, places and devices in a coherant spatial system. This series of tutorials demonstrate how to use the Digital Twins to detect room occupancy with optimal conditions of temperature and air quality. This will walk you through a scenario of a sample building, containing multiple floors and rooms within each floor. The rooms contain devices with sensors to detect motion, ambient temperature and air quality in the form of carbon dioxide. This series will show you how to represent the rooms in the building to the Digital Twins service, as well as how to connect the sensors to this service, so you can monitor the data coming in near real-time. As a facilities administrator, you can use this information to book meeting rooms with optimal conditions. 
 
 In the first tutorial of this series, you learn how to:
 
 > [!div class="checklist"]
 > * Deploy your Digital Twins instance
-> * Connect your application to Digital Twins 
+> * Permit your application to connect to Digital Twins
 > * Download and explore the Digital Twins sample
 > * Provision your spaces and devices
 
@@ -36,7 +36,7 @@ Create a new instance of the Digital Twins in the [portal](https://portal.azure.
 [!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
 
 
-## Connect your application to Digital Twins
+## Permit your application to connect to Digital Twins
 
 Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) to control access to the service. Grant access rights to your application using the steps in this section.
 

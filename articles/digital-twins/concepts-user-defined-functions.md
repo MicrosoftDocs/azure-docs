@@ -96,7 +96,7 @@ We need to create a role assignment for the UDF to execute under to ensure it ha
 Learn more on how to create matchers, user-defined functions and role assignments:
 
 > [!div class="nextstepaction"]
-> [Facility Management Tutorial](tutorial-facilities-app.md)
+> [Facility Management Tutorial](tutorial-facilities-setup.md)
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-data-processing-flow.png
