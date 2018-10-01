@@ -24,10 +24,10 @@ To create and manage child resources (including datasets, linked services, pipel
 You use a general-purpose Azure storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../articles/storage/common/storage-quickstart-create-account.md) to create one. 
 
 #### Get the storage account name and account key
-You use the name and key of your Azure storage account in this quickstart. The following procedure provides steps to get the name and key of your storage account: 
+You will need the name and key of your Azure storage account for this quickstart. The following procedure provides steps to get the name and key of your storage account: 
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com). Sign in by using your Azure username and password. 
-2. Select **More services** on the left menu, filter with the **Storage** keyword, and select **Storage accounts**.
+2. Select **All services** on the left menu, filter with the **Storage** keyword, and select **Storage accounts**.
 
    ![Search for a storage account](media/data-factory-quickstart-prerequisites/search-storage-account.png)
 3. In the list of storage accounts, filter for your storage account (if needed), and then select your storage account. 
@@ -51,7 +51,7 @@ In this section, you create a blob container named **adftutorial** in Azure Blob
 4. Select **adftutorial** in the list of containers. 
 
    ![Select the container](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
-1. On the **Container** page, select **Upload** on the toolbar.  
+5. On the **Container** page, select **Upload** on the toolbar.  
 
    ![Upload button](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
 6. On the **Upload blob** page, select **Advanced**.
