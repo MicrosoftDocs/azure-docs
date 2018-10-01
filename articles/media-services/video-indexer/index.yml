@@ -1,0 +1,34 @@
+﻿### YamlMime:YamlDocument
+documentType: LandingData
+title: Video Indexer Documentation
+metadata:
+  document_id: 
+  title: Video Indexer Documentation | Microsoft Docs
+  meta.description: Learn how about Video Indexer.
+  services: media-services
+  author: Juliako
+  manager: femila
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09-27-2018
+  ms.author: juliako
+abstract:
+  description: Video indexer incorporates media AI technologies to make it easier to extract insights from videos. 
+
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+      - image:
+          src: media/index/AMSIcons-media_analytics.svg
+        text: What is Video Indexer?
+        href: ../../cognitive-services/video-indexer/video-indexer-overview.md?toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json
+      - image:
+          src: media/index/AMSIcons-media_analytics.svg
+        text: Compare Video Indexer and Media Services presets
+        href: /azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets
