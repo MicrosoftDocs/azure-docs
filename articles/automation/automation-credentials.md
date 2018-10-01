@@ -73,7 +73,7 @@ The function in the following table is used to access credentials in a Python2 r
 4. Complete the form and click **Create** to save the new credential.
 
 > [!NOTE]
-> User accounts that use Multi-factor authentication are not supported for use in Azure Automation.
+> User accounts that use multi-factor authentication are not supported for use in Azure Automation.
 
 ### To create a new credential asset with Windows PowerShell
 
