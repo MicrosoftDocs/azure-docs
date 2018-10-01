@@ -224,7 +224,11 @@
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json  
         - name: VM scale set guest to metrics store
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json  
+<<<<<<< HEAD
         - name: VM (classic) guest to metrics store 
+=======
+        - name: Classic VM guest to metrics store 
+>>>>>>> d524c1e33aeee31843203acb5e97027a75b8adc2
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json  
         - name: Cloud service guest to metrics store
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json 
@@ -502,6 +506,8 @@
       items:
       - name: Azure Monitor for containers 
         items:
+        - name: Overview
+          href: ../monitoring/monitoring-container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Onboard 
           href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Analyze 
@@ -542,6 +548,8 @@
       items:
       - name: Azure Monitor for VMs
         items:
+        - name: Overview
+          href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
         - name: Known issues
           href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
         - name: FAQ
