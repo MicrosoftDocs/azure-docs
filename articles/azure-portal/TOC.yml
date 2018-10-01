@@ -21,14 +21,6 @@
     href: azure-portal-dashboards-structure.md
   - name: Programmatically create Azure dashboards
     href: azure-portal-dashboards-create-programmatically.md
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/
-  - name: Azure PowerShell
-    href: /powershell/azureps-cmdlets-docs
-  - name: REST
-    href: /rest/api/azure/
 - name: Resources
   items:
   - name: Azure roadmap
