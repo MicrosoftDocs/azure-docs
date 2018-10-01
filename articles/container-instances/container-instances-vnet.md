@@ -153,7 +153,6 @@ az container create \
     --vnet-name aci-vnet \
     --subnet aci-subnet
 ```
-
 After this second container deployment has completed, pull its logs so you can see the output of the `wget` command it executed:
 
 ```azurecli
@@ -169,6 +168,38 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 ```
 
 The log output should show that `wget` was able to connect and download the index file from the first container using its private IP address on the local subnet. Network traffic between the two container groups remained within the virtual network.
+
+## Deploy to existing Virtual Network using YAML
+
+```YAML
+apiVersion: '2018-09-01'
+location: westus
+name: appcontainer
+properties:
+  containers:
+  - name: appcontainer
+    properties:
+      image: microsoft/aci-helloworld
+      ports:
+      - port: 80
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  ipAddress:
+    ip: 10.0.0.4
+    type: Private
+    ports:
+    - protocol: tcp
+      port: '80'
+  networkProfile:
+    id: /subscriptions/abcd7dc89-fbf7-5f99-1234-567badefgh1a/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
 
 ## Clean up resources
 
