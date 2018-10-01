@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-On the workspace page, click on `Explore your Azure Machine Learning Workspace`
+On the workspace page, click on `Explore your Azure Machine Learning service workspace`
 
  ![explore workspace](./media/quickstart-get-started/explore_aml.png)
 

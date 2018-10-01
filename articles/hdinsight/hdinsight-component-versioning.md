@@ -78,7 +78,7 @@ The following table lists the versions of HDInsight that are available in the Az
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | | |Yes |Yes |
 | HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |September 30, 2016 |March 13, 2019 |March 13, 2019 |Yes |Yes |
 
-*HDInsight 3.5 support was extended only for Spark cluster types*
+*&ast; HDInsight 3.5 support was extended only for Spark cluster types*
 
 > [!NOTE]
 > After support for a version has expired, it might not be available through the Microsoft Azure portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) command and the .NET SDK until the version retirement date.
