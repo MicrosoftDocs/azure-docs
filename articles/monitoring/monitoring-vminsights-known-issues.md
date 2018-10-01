@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/30/2018
 ms.author: magoedte
 
 ---
@@ -33,9 +33,30 @@ The following are known issues with the Health feature of Azure Monitor for VMs:
 - Shutting down VMs will update some of its health criteria to a critical state and others to a healthy state with net state of the VM in a critical state.
 - Health alert severity cannot be modified, they can only be enabled or disabled.  Additionally, some severities update based on the state of health criteria.
 - Modifying any setting of a health criterion instance, will lead to modification of the same setting across all the health criteria instances of the same type on the VM. For example, if the threshold of disk free space health criterion instance corresponding to logical disk C: is modified, then this threshold will apply to all other logical disks discovered and monitored for the same VM.   
-- Thresholds for some Windows health criteria like DNS Client Service Health aren’t modifiable, since their healthy state is already locked to the **running**, **available** state of the service or entity depending upon the context.  Instead the value is represented by number 4, it will be converted to the actual display string in a future release.  
-- Thresholds for some Linux health criteria aren’t modifiable such as Logical Disk Health, as they are already set to trigger on unhealthy state.  These indicate whether something is online/offline, or on or off, and are represented and indicate the same by showing the value 1 or 0.
-- Updating the Resource group filter in any resource group while using the at scale Azure monitor -> Virtual Machines -> Health -> Any list view with preselected subscription and resource group, will cause the list view to show **no result**.  Go back to the Azure Monitor -> Virtual Machines -> Health tab and select the desired subscription and resource group, and then navigate to the list view.
+- Thresholds for the following health criteria targeting a Windows VM aren’t modifiable, since their healthy state are already set to **running** or **available**. The health state shows the value **not equal to 4** for the service or entity depending upon its context:
+   - DNS Client Service Health – Service is not running 
+   - DHCP client service health – Service is not running 
+   - RPC Service Health – Service is not running 
+   - Windows firewall service health – Service is not running
+   - Windows event log service health – Service is not running 
+   - Server service health – Service is not running 
+   - Windows  remote management service health – Service is not running 
+   - File system error or corruption – Logical Disk is unavailable
+
+    A value of **4** indicates the health criteria is in a healthy state.
+
+- Thresholds for the following Linux health criteria aren’t modifiable, since their health state are already set to **true**.  The health state shows the value **less than 1** for the entity depending on its context:
+   - Logical Disk Status – Logical disk is not online/ available
+   - Disk Status – Disk is not online/ available
+   - Network Adapter Status -  Network adapter is disabled  
+
+    A value of **true** indicates the health criteria is in a healthy state.  
+    
+- **Total CPU Utilization** health criterion in Windows shows a threshold of **not equal to 4** when CPU Utilization is greater than 95% and system queue length is larger than 15. This health criterion cannot be modified in this release.  
+- Configuration changes, such as updating a threshold, takes up to 30 minutes to take effect even though the portal or Workload Monitor API might update immediately.  
+- Individual processor and logical processor level health criteria are not available in Windows, only **Total CPU utilization** is available for Windows VMs.  
+- Alert rules defined for each health criterion aren't exposed in the Azure portal. They are only configurable from the [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager) to enable or disable a health alert rule.  
+- Assigning an [Azure Monitor action group](../monitoring-and-diagnostics/monitoring-action-groups.md) for health alerts isn’t possible from the Azure portal. You have to use the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, action groups can be assigned against a VM, such that all *health alerts* fired against the VM triggered the same action group(s). There is no concept of a separate action group for every health alert rule, like traditional Azure alerts. Additionally, only action groups configured to notify by sending an email or SMS are supported when health alerts are triggered. 
 
 ## Next steps
 Review [Onboard Azure Monitor for VMs](monitoring-vminsights-onboard.md) to understand requirements and methods to enable monitoring of your virtual machines.
