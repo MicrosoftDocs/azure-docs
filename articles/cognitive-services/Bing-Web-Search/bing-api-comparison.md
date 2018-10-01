@@ -26,51 +26,22 @@ By creating a custom search instance with [Bing Custom Search](../Bing-Custom-Se
 
 Use these APIs in applications that may need to search for all types of relevant web content. If your application searches for a specific type of content, consider one of the search APIs below: 
 
-### Try it
+## Content-specific Bing Search APIs
 
-#### Bing Web Search
-
-* The Bing Web Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/).
-* [What is the Bing Web Search API?](../Bing-Web-Search/overview.md)
-
-#### Bing Custom Search
-
-* The Custom Search [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-custom-search-api/).
-* [What is Bing Custom Search?](../Bing-custom-Search/overview.md)
-
-## Entity Search
-
-The [Bing Entity Search API](../Bing-Entity-Search/index.yml) returns search results containing *entities* which can be people, places, or things. Depending on the search query sent to the API, it will return one or more entities that satisfy the search query, which can include noteworthy individuals, local businesses, landmarks, destinations, and more.
-
-### Try it
-
-* The Bing Entity Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/).
-* [What is the Bing Entity Search API?](../Bing-Entity-Search/overview.md)
-
-## Image Search
-
-The [Bing Image Search API](../Bing-Image-Search/index.yml) enables you search for, and find high-quality static and animated images similar to [Bing.com/images](Bing.com/images). You can refine searches to include or exclude images by attribute, including: size, color, license, and freshness. You can also search for trending images, upload images to gain insights about them, and display thumbnail previews.
-
-### Try it
-
-* The Bing Image Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
-* [What is the Bing Image Search API?](../Bing-Image-Search/overview.md)
-
-## News Search
-
-The [Bing News Search API](../Bing-News-Search/index.yml) enables you find news stories similar to [Bing.com/news](Bing.com/news). Sending a search query to the API will return a general news search from either multiple sources or a specific domain, if specified. Additionally, you can search all news or by category to get trending articles, top stories, and headlines.
-
-## Video Search 
-
-The [Bing Video Search API](../Bing-Video-Search/index.yml) enables you to find videos across the web, similar to [Bing.com/videos](Bing.com/videos). 
-
-## Visual Search
+| API | Description |
+| -- | -- | 
+| Entity Search | The [Bing Entity Search API](../Bing-Entity-Search/index.yml) returns search results containing *entities* which can be people, places, or things. Depending on the search query sent to the API, it will return one or more entities that satisfy the search query, which can include noteworthy individuals, local businesses, landmarks, destinations, and more. |
+| Image Search | The [Bing Image Search API](../Bing-Image-Search/index.yml) enables you search for, and find high-quality static and animated images similar to [Bing.com/images](Bing.com/images). You can refine searches to include or exclude images by attribute, including: size, color, license, and freshness. You can also search for trending images, upload images to gain insights about them, and display thumbnail previews. |
+| News Search | The [Bing News Search API](../Bing-News-Search/index.yml) enables you find news stories similar to [Bing.com/news](Bing.com/news). Sending a search query to the API will return a general news search from either multiple sources or a specific domain, if specified. Additionally, you can search all news or by category to get trending articles, top stories, and headlines.
+| Video Search | The [Bing Video Search API](../Bing-Video-Search/index.yml) enables you to find videos across the web, similar to [Bing.com/videos](Bing.com/videos). |
+| Visual Search | TBD |
 
 ## Additional Bing Search APIs
 
-### Bing Autosuggest
-
-### Bing Statistics
+| API | Description |
+| -- | -- | 
+| Bing Autosuggest | TBD |
+| Bing Statistics | TBD |
 
 ## Next steps
 
