@@ -14,6 +14,9 @@ ms.author: lesun
 
 # Part-of-Speech Tagging
 
+> [!IMPORTANT]
+> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
+
 ## Background and Motivation
 
 Once a text has been separated into sentences and tokens, the next step of analysis is to identify the category or part-of-speech of each word.
@@ -42,7 +45,7 @@ For some words, the part-of-speech is unambiguous (for instance, *quagmire* is r
 | IN | preposition or subordinating conjunction| in inside if upon whether |
 | JJ | adjective or numeral, ordinal | ninth pretty execrable multimodal |
 | JJR | adjective, comparative | better faster cheaper |
-| JJS | adjective, superlative | best fastest cheapest | 
+| JJS | adjective, superlative | best fastest cheapest |
 | LS | list item marker | (a) (b) 1 2 A B A. B. |
 | MD | modal auxiliary | can may shall will could might should ought |
 | NN | noun, common, singular or mass | potato money shoe |

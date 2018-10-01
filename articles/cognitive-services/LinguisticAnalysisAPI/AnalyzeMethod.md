@@ -15,6 +15,9 @@ ms.author: lesun
 
 # Analyze Method
 
+> [!IMPORTANT]
+> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
+
 The **analyze** REST API is used to analyze a given natural language input.
 That might involve just finding the [sentences and tokens](Sentences-and-Tokens.md) within that input, finding the [part-of-speech tags](POS-tagging.md), or finding the [constitutency tree](Constituency-Parsing.md).
 You can specify which results you want by picking the relevant analyzers.
@@ -146,7 +149,7 @@ Request Body: JSON payload
   "analyzerIds": [
     "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "22A6B758-420F-4745-8A3C-46835A67C0D2" ],
-  "text": "Hi, Tom! How are you today?" 
+  "text": "Hi, Tom! How are you today?"
 }
 ```
 
@@ -154,13 +157,12 @@ Response: JSON
 ```json
 [
   {
-    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04", 
+    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "result": [ ["NNP",",","NNP","."], ["WRB","VBP","PRP","NN","."] ]
   },
   {
-    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2", 
+    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2",
     "result":["(TOP (S (NNP Hi) (, ,) (NNP Tom) (. !)))","(TOP (SBARQ (WHADVP (WRB How)) (SQ (VP (VBP are)) (NP (PRP you)) (NN today) (. ?))))"]
   }
 ]
 ```
-

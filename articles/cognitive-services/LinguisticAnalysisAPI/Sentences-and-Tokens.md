@@ -15,6 +15,9 @@ ms.author: davl
 
 # Sentence Separation and Tokenization
 
+> [!IMPORTANT]
+> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
+
 ## Background and motivation
 
 Given a body of text, the first step of linguistic analysis is to break it into sentences and tokens.
@@ -49,7 +52,7 @@ The first sentence might be written as "Whatdidyousay?")
 
 There are a few difficult cases.
 First, punctuation often (but not always) should be split away from it surrounding context.
-Second, English has *contractions*, like "didn't" or "it's", where words have been compressed and abbreviated into smaller pieces. 
+Second, English has *contractions*, like "didn't" or "it's", where words have been compressed and abbreviated into smaller pieces.
 The goal of the tokenizer is to break the character sequence into words.
 
 Let's return to the example sentences from above.

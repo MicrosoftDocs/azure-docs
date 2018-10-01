@@ -15,6 +15,9 @@ ms.author: lesun
 
 # Constituency Parsing
 
+> [!IMPORTANT]
+> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
+
 The goal of constituency parsing (also known as "phrase structure parsing") is to identify the phrases in the text.
 This can be useful when extracting information from text.
 Customers might want to find feature names or key phrases from a big body of text, and to see the modifiers and actions surrounding each such phrase.

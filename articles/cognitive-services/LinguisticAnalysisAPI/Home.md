@@ -12,10 +12,11 @@ ms.topic: overview
 ms.date: 10/10/2016
 ms.author: lesun
 ---
+
 # What is the Linguistic Analysis API? (Preview)
 
-> [!WARNING]
-> The Linguistic Analysis API was deprecated May 24,2018. Use the [Text Analytics API](https://docs.microsoft.com/en-us/azure/cognitive-services/Text-Analytics/overview) for sentiment analysis, key phrase extraction, language detection, and entity linking.
+> [!IMPORTANT]
+> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
 
 The Linguistic Analysis API provides access to natural language processing (NLP) tools that identify the structure of text. The current release provides three types of analysis:
 
