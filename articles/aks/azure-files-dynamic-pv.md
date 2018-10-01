@@ -1,12 +1,12 @@
 ---
-title: Use Azure File with AKS
-description: Use Azure Disks with AKS
+title: Create a dynamic volume for multiple pods in Azure Kubernetes Service (AKS)
+description: Learn how to dynamically create a volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/01/2018
 ms.author: iainfou
 ---
 
@@ -15,6 +15,12 @@ ms.author: iainfou
 A persistent volume is a piece of storage that has been created for use in a Kubernetes cluster. A persistent volume can be used by one or many pods and can be dynamically or statically created. This document details **dynamic creation** of an Azure file share as a persistent volume.
 
 For more information on Kubernetes persistent volumes, including static creation, see [Kubernetes persistent volumes][kubernetes-volumes].
+
+## Before you begin
+
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+
+You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Create a storage account
 
