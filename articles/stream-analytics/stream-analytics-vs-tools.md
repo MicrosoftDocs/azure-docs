@@ -48,7 +48,7 @@ Azure Stream Analytics jobs can be fully managed from the job view in Visual Stu
 
 ## Check job results
 
-Stream Analytics tools for Visual Studio currently supports output preview for Azure Data Lake Storage Storage and blob storage. To view result, simply double click the output node of the job diagram in **Job View** and enter the appropriate credentials.
+Stream Analytics tools for Visual Studio currently supports output preview for Azure Data Lake Storage and blob storage. To view result, simply double click the output node of the job diagram in **Job View** and enter the appropriate credentials.
 
    ![Stream Analytics job blob output](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
 
