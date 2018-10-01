@@ -54,8 +54,7 @@ Since most users are accustomed to using only passwords to authenticate, it is i
 
 * Train your support staff to handle scenarios where the user can't sign in because they do not have access to their authentication methods or they are not working correctly.
    * Using conditional access policies for Azure MFA Service, your support staff can add a user to a group that is excluded from a policy requiring MFA.
-   * Support staff can enable a temporary one-time bypass for Azure MFA Server users to allow a user to authenticate without two-step verification. The bypass is temporary and expires after a specified number of seconds.
-   * Using conditional access policies for Azure MFA Service your support staff can add a user to a group that is excluded from a policy requiring MFA.
+   * Support staff can enable a temporary one-time bypass for Azure MFA Server users to allow a user to authenticate without two-step verification. The bypass is temporary and expires after a specified number of seconds.   
 * Consider using Trusted IPs or named locations as a way to minimize two-step verification prompts. With this feature, administrators of a managed or federated tenant can bypass two-step verification for users that are signing in from a trusted network location such as their organization's intranet.
 * Deploy [Azure AD Identity Protection](../active-directory-identityprotection.md) and trigger two-step verification based on risk events.
 
