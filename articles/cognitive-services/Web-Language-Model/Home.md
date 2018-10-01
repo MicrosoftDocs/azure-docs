@@ -1,16 +1,21 @@
 ---
-title: Overview of the Web Language Model API - Azure Cognitive Services | Microsoft Docs
+title: Overview of the Web Language Model API
+titleSuffix: Azure Cognitive Services
 description: Web Language Model API in Microsoft Cognitive Services provides state-of-the-art tools for natural language processing.
 services: cognitive-services
 author: piyushbehre
-manager: yanbo
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: web-language-model
 ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
+ROBOTS: NOINDEX
 ---
 # What is the Web Language Model API? (Preview)
+
+> [!IMPORTANT]
+> The Web Language Model preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
 
 The Microsoft Web Language Model API is a REST-based cloud service providing state-of-the-art tools for natural language processing. Using this API, your application can leverage the power of big data through language models trained on web-scale corpora collected by Bing in the en-US market.
 
