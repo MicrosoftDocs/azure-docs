@@ -5,12 +5,12 @@ description: How to use the Analyze method in Linguistic Analysis API to analyze
 services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
+ROBOTS: NOINDEX
 ---
 
 # Analyze Method

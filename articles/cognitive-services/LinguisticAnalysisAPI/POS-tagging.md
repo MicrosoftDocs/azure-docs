@@ -4,12 +4,12 @@ description: Learn how Part-of-Speech Tagging in the Linguistic Analysis API ide
 services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
+ROBOTS: NOINDEX
 ---
 
 # Part-of-Speech Tagging

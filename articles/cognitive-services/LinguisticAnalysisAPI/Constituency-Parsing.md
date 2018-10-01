@@ -5,12 +5,12 @@ description: Learn about how constituency parsing, also known as "phrase structu
 services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
+ROBOTS: NOINDEX
 ---
 
 # Constituency Parsing

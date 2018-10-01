@@ -5,12 +5,12 @@ description: Learn how the Linguistic Analysis API Analyzer naming structure all
 services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
+ROBOTS: NOINDEX
 ---
 
 # Analyzer Names

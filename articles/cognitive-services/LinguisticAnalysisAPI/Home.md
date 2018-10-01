@@ -5,12 +5,12 @@ description: Learn how the Linguistic Analysis API provides access to natural la
 services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: linguistic-analysis
 ms.topic: overview
 ms.date: 10/10/2016
 ms.author: lesun
+ROBOTS: NOINDEX
 ---
 
 # What is the Linguistic Analysis API? (Preview)
