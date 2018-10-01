@@ -17,11 +17,11 @@
   items:
   - name: Monitor facilities with Digital Twins
     items:
-      - name: Provision a sample venue
+      - name: Provision a sample building
         href: tutorial-facilities-setup.md
-      - name: Create customized monitoring system
+      - name: Create customized notifications
         href: tutorial-facilities-udf.md
-      - name: Receive notifictions from your venue
+      - name: Receive events from your building
         href: tutorial-facilities-events.md
 - name: Concepts
   items:
