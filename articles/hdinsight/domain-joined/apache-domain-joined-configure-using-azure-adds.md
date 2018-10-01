@@ -39,7 +39,11 @@ View the health status of your Azure Active Directory Domain Services by selecti
 
 ## Add managed identity
 
-After you enabled Azure AD-DS, create a user-assigned managed identity and assign it to the **HDInsight Domain Services Contributor** role in Azure AD-DS Access control.
+Create a user-assigned managed identity if you don’t have one already. See [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) for instructions. 
+
+The managed identity is used to simplify domain services operations. This identity has access to read, create, modify, and delete domain services operations that are needed for the HDInsight Enterprise Security Package such as creating OUs and service principles.
+
+After you enable Azure AD-DS, create a user-assigned managed identity and assign it to the **HDInsight Domain Services Contributor** role in Azure AD-DS Access control.
 
 ![Azure Active Directory Domain Services Access control](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
