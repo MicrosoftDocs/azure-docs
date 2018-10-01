@@ -25,13 +25,15 @@ Your generated Management API Swagger documentation can be accessed publicly at:
 https://{{your-instance-name}}.{{your-instance-location}}.azuresmartspaces.net/management/swagger
 ```
 
-## More about Swagger
+## Swagger summary
 
 Swagger provides an interactive summary of your API including:
 
 * REST API endpoints specifying required request payloads, headers, parameters, context paths, and HTTP methods.
 * Example response information for validating and confirming HTTP responses.
 * Error code information.
+
+Swagger therefore provides a convenient tool to assist with development and testing calls to the Management API.
 
 ## Reference material
 
