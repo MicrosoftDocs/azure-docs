@@ -37,7 +37,7 @@ Managed Instances has two default subscription-level limits per Azure region. Di
 - **Instance number limit**: The maximum number of instances per region
 
 > [!IMPORTANT]
-> When planning your deployments, consider that a Business Critical (BC) instance (due to added redundancy) generally consumes 4x more capacity than a General Purpose (GP) instance. So, for your calcutations, 1 GP instance = 1 instance unit and 1 BC instnace = 4 instance units. To simplify your consumption analysis against the default limits, summarize the instance units across all subnets in the region where Managed Instances are deployed and compare the results with the instance unit limits for your subscription type.
+> When planning your deployments, consider that a Business Critical (BC) instance (due to added redundancy) generally consumes 4x more capacity than a General Purpose (GP) instance. So, for your calculations, 1 GP instance = 1 instance unit and 1 BC instance = 4 instance units. To simplify your consumption analysis against the default limits, summarize the instance units across all subnets in the region where Managed Instances are deployed and compare the results with the instance unit limits for your subscription type.
 
 ## Default limits by subscription type
 
@@ -53,7 +53,7 @@ Managed Instances has two default subscription-level limits per Azure region. Di
 
 ## Deployment options for GP and BC deployments within the same subnet
 
-The following examples cover deployment cases with non-empty subnets. 
+The following examples cover deployment cases with non-empty subnets and mixed GP and BC service tiers.
 
 |Number of subnets|Subnet 1|Subnet 2|Subnet 3|
 |:---|:---|:---|:---|
@@ -92,7 +92,7 @@ To initiate the process of obtaining a larger quota:
      > A valid request should include:
      > - Region in which subscription limit needs to be increased
      > - Required number of instances, per service tier in existing subnets after the quota increase (if any of the existing subnets needs to be expanded
-     > - Required number of additional instances, per service tier in existing subnets (if any of the existing subnets needs to be expanded)
+     > - Required number of new subnets and total number of instances per service tier within the new subnets (if you need to deploy managed instances in new subnets).
 5. Click **Next**.
 6. On the Contact Information tab for the new support request, enter preferred contact method (email or phone) and the contact details.
 7. Click **Create**.
