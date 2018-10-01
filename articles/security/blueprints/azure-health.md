@@ -28,7 +28,9 @@ The Azure Security and Compliance Blueprint - HIPAA/HITRUST Health Data and AI B
 deploy a secure,  Health Insurance Portability and Accountability Act (HIPAA), and Health Information Trust Alliance (HITRUST) ready platform-as-a-service
 (PaaS) environment for ingesting, storing, analyzing, and interacting
 with personal and non-personal medical records in a secure,
-multi-tier cloud environment, deployed as an end-to-end solution. IaaS solution will demonstarte how to migrate an on-premises SQL based solution to Azure, and to implement a Privileged Access Workstation (PAW) to securely manage cloud-based services and solutions. The IaaS SQL Server database adds potential experimentation data is imported into a SQL IaaS VM, and that VM uses MSI authenticated access to interact a SQL Azure PaaS service.Both these showcases a common reference architecture and is designed to simplify
+multi-tier cloud environment, deployed as an end-to-end solution. 
+
+IaaS solution will demonstrate how to migrate an on-premises SQL based solution to Azure, and to implement a Privileged Access Workstation (PAW) to securely manage cloud-based services and solutions. The IaaS SQL Server database adds potential experimentation data is imported into a SQL IaaS VM, and that VM uses MSI authenticated access to interact a SQL Azure PaaS service.Both these showcases a common reference architecture and is designed to simplify
 adoption of Microsoft Azure. This provided architecture illustrates a
  solution to meet the needs of organizations seeking a
 cloud-based approach to reducing the burden and cost of deployment.
