@@ -32,7 +32,7 @@ In this guide, you will learn how to:
 
     ```cmd
     az group create --name MyResourceGroup --region <region>
-    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2
+    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
     ```
 
 ## Set up Azure Dev Spaces

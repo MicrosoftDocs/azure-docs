@@ -134,7 +134,7 @@ For information about how to use the gateway with other services, see these arti
 
 ## Install data gateway
 
-1. [Download, save, and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Download, save, and run the gateway installer on a local computer](https://aka.ms/on-premises-data-gateway-installer).
 
 2. Accept the default installation path, 
 or specify the location on your computer 
@@ -253,7 +253,7 @@ This action disconnects the old gateway.
 1. From your computer's **Control Panel**, go to **Programs and Features**. 
 In the programs list, select **On-premises data gateway**, and then choose **Uninstall**.
 
-2. [Reinstall the on-premises data gateway](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [Reinstall the on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer).
 
 3. After the installer opens, sign in with the same work 
 or school account that was previously used to install the gateway.
