@@ -24,9 +24,9 @@ Ansible needs a resource group in which your resources are deployed. The followi
 
 ```yaml
 - name: Create resource group
-    azure_rm_resourcegroup:
-      name: myResourceGroup
-      location: eastus
+  azure_rm_resourcegroup:
+    name: myResourceGroup
+    location: eastus
 ```
 
 ## Create a virtual network

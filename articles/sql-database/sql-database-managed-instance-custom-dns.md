@@ -32,7 +32,7 @@ To make a custom DNS configuration is compatible with the Managed Instance, you 
    ![custom dns option](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Not setting Azure’s recursive resolver in DNS list causes the Managed Instance to enter faulty state. Recovering from that state may require you to create new instance in a VNet with the compliant networking policies, create instance level data, and restore your databases. See [VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
+   > Not setting Azure’s recursive resolver in the DNS list can cause the Managed Instance to enter a faulty state when the custom DNS servers are unavailable for some reason. Recovering from that state may require you to create new instance in a VNet with the compliant networking policies, create instance level data, and restore your databases. Setting the Azure’s recursive resolver as the last entry in the DNS list ensures, even when all custom DNS servers fail, public names can still be resolved. See [VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
 
 ## Next steps
 

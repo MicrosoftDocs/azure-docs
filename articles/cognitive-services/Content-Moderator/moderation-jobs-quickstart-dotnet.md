@@ -1,17 +1,19 @@
 ---
-title: Azure Content Moderator - Start moderation jobs using .NET | Microsoft Docs
-description: How to initiate moderation jobs using Azure Content Moderator SDK for .NET
+title: "Quickstart: Start moderation jobs using .NET - Content Moderator"
+titlesuffix: Azure Cognitive Services
+description: How to initiate moderation jobs using Azure Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
 ---
 
-# Start moderation jobs using .NET
+# Quickstart: Start moderation jobs using .NET
 
 This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
  
@@ -121,7 +123,7 @@ Add the following code to create a Content Moderator client for your subscriptio
             // Create and initialize an instance of the Content Moderator API wrapper.
             ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-            client.BaseUrl = AzureBaseURL;
+            client.Endpoint = AzureBaseURL;
             return client;
         }
     }

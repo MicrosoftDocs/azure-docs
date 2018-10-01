@@ -29,8 +29,6 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Understand spending limit
     href: billing-spending-limit.md
-  - name: Set up billing alerts
-    href: billing-set-up-alerts.md
   - name: Save with Azure Reservations
     items:
     - name: What are Azure Reservations?

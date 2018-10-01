@@ -26,7 +26,7 @@ ms.author: carolz
 <h2>Step-by-Step Tutorials</h2>
 <p>Learn how to use Docker in your application and as part of your CI/CD pipeline:</p>
 <ol>
-  <li><a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Build Python and PostgreSQL with Docker</a></li>
+  <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Build Python and PostgreSQL with Docker</a></li>
   <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD with Docker Swarm and Azure DevOps Services</a></li>
   <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrate Docker, Jenkins, and Linux VMs</a></li>
 </ol>

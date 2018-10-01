@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: iot-accelerators
  ms.topic: include
- ms.date: 08/16/2018
+ ms.date: 09/28/2018
  ms.author: dobett
  ms.custom: include file
 ---
@@ -85,7 +85,9 @@ The instructions in this article assume you're using Windows. If you're using an
 
 ### Download the microservices
 
-Download and unzip the [remote monitoring microservices](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) from GitHub to a suitable location on your local machine.
+Download and unzip the [remote monitoring microservices](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) from GitHub to a suitable location on your local machine. The article assumes the name of this folder is **remote-monitoring-services-dotnet-master**.
+
+Download and unzip the [device simulation microservice](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) from GitHub to a suitable location on your local machine. The article assumes the name of this folder is **device-simulation-dotnet-master**.
 
 ### Run the storage adapter microservice
 
@@ -111,20 +113,14 @@ In this section, you add a new **Internal Temperature** telemetry type to the ex
 
     | Source | Destination |
     | ------ | ----------- |
-    | Services\Data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
-    | Services\Data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
-    | Services\Data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
-    | Services\Data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
-    | Services\Data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
-    | Services\Data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
+    | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
+    | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
+    | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
 1. Open the **C:\temp\devicemodels\chiller-01.json** file.
-
-1. Update the **SchemaVersion** value as follows:
-
-    ```json
-    "SchemaVersion": "1.0.0",
-    ```
 
 1. In the **InitialState** section, add the following two definitions:
 
@@ -414,9 +410,9 @@ In this section, you test the device types you created in the previous sections 
 
 ### Run the device simulation microservice
 
-Open the **remote-monitoring-services-dotnet-master\device-simulation** folder you downloaded from GitHub in a new instance of Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
+Open the **device-simulation-dotnet-master** folder you downloaded from GitHub in a new instance of Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
 
-Open the **.vscode/launch.json** file and assign your IoT Hub connection string to the **PCS_IOTHUB_CONNSTRING** environment variable.
+Open the **.vscode/launch.json** file and assign your IoT Hub connection string to the **PCS_IOTHUB_CONNSTRING** environment variable. In the same file, add the **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** environment variable and assign the connection string for your Cosmos DB database.
 
 Open the **WebService/Properties/launchSettings.json** file and assign your IoT Hub connection string to the **PCS_IOTHUB_CONNSTRING** environment variable.
 
@@ -460,7 +456,7 @@ To set up Postman:
 
 1. Click **File > Import**. Then click **Choose Files**.
 
-1. Navigate to the **device-simulation-dotnet/docs/postman** folder. Select **Azure IoT Device Simulation solution accelerator.postman_collection** and **Azure IoT Device Simulation solution accelerator.postman_environment** and click **Open**.
+1. Navigate to the **device-simulation-dotnet-master/docs/postman** folder. Select **Azure IoT Device Simulation solution accelerator.postman_collection** and **Azure IoT Device Simulation solution accelerator.postman_environment** and click **Open**.
 
 1. Expand the **Azure IoT Device Simulation solution accelerator** to the requests you can send.
 

@@ -70,13 +70,13 @@ To use Azure PowerShell to sign in with an Azure AD identity:
     ```
 1. Close and reopen the PowerShell window after installing PowerShellGet. 
 
-1. Install AzureRM:
+1. Install the latest version of Azure PowerShell:
 
     ```powershell
     Install-Module AzureRM –Repository PSGallery –AllowClobber
     ```
 
-1. Install one of the preview modules:
+1. Install one of the Azure Storage preview modules that supports Azure AD:
 
     ```powershell
     Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 
