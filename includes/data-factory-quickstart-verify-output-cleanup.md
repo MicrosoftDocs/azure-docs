@@ -17,6 +17,8 @@ Deleting a resource group deletes all resources including data factories in it. 
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
+Note: dropping a resource group may take some time. Please be patient with the process
+
 If you want to delete just the data factory, not the entire resource group, run the following command: 
 
 ```powershell
