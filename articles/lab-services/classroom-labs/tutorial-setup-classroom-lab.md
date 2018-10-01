@@ -36,25 +36,28 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
-    1. Specify a **name** for the classroom lab. 
-    2. Specify the **maximum number of users allowed into the lab**. 
+    1. Specify a **name** for your lab. 
+    2. Specify the maximum **number of users** allowed into the lab. 
     6. Select **Save**.
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-4. On the **Select virtual machine specifications** page of the lab creation wizard, do the following steps:
-    1. Select a **size** for virtual machines (VMs) created in the lab. 
-    2. Select the **region** in which you want the VMs to be created. 
-    3. Select the **VM image** to be used to create VMs in the lab. 
-    4. Select **Next**.
+4. On the **Select virtual machine specifications** page, do the following steps:
+    a. Select a **size** for virtual machines (VMs) created in the lab. 
+    b. Select the **region** in which you want the VMs to be created. 
+    c. Select the **VM image** to be used to create VMs in the lab. 
+    d. Select **Next**.
 
         ![Specify VM specifications](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
 5. On the **Set credentials** page, specify default credentials for all VMs in the lab. 
-    1. Specify the **name of the default user** for all VMs in the lab.
-    2. Specify the **password** for the user. Make a note of the user name and password. They won't be shown again. 
+    1. Specify the **name of the user** for all VMs in the lab.
+    2. Specify the **password** for the user. 
+
+        > [!IMPORTANT]
+        > Make a note of user name and password. They won't be shown again.
     3. Select **Create**. 
 
         ![Set credentials](../media/tutorial-setup-classroom-lab/set-credentials.png)
-6. On the **Configure template** page, you see the status of lab creation process. The creation of the template that's used to create VMs in the lab takes up to 20 minutes. 
+6. On the **Configure template** page, you see the status of lab creation process. The creation of the template in the lab takes up to 20 minutes. 
 
     ![Configure template](../media/tutorial-setup-classroom-lab/configure-template.png)
 7. After the configuration of the template is complete, you see the following page: 
@@ -70,9 +73,11 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
         ![Next on Configure template page](../media/tutorial-setup-classroom-lab/configure-template-next.png)
 9. Select **Next** on the template page. 
 10. On **Publish the template** page, do the following actions. 
-    1. **Review** name, description, size, and image of the template VM, and the number of VMs allowed in the lab. 
-    2. To publish immediately, Select the checkbox for *I understand I can't modify the template after publishing. This process can only be done once and can take up to an hour*, and select **Publish**. 
-    3. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. 
+    1. To publish the template immediately, select the checkbox for *I understand I can't modify the template after publishing. This process can only be done once and can take up to an hour*, and select **Publish**.  
+
+        > [!WARNING]
+        > Once you publish, you can't unpublish. 
+    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see [Publish the template](how-to-manage-classroom-labs.md#publish-the-template) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
 
         ![Publish template](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. You see the **progress of publishing** the template. This process can take up to an hour. 
@@ -98,6 +103,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
     ![Student registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. On the **User registration** dialog box, select **Close**. 
+3. Share the registration link with a student so that the student can register for the class. 
 
 
 ## Next steps
