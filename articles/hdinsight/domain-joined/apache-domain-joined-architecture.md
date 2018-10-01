@@ -24,7 +24,10 @@ The virtual machines (VMs) in HDInsight are domain joined to your provided domai
 
 Open-source Hadoop relies on Kerberos for authentication and security. Therefore, HDInsight cluster nodes with Enterprise Security Package (ESP) are joined to a domain that's managed by Azure AD DS. Kerberos security is configured for the Hadoop components on the cluster. 
 
-For each Hadoop component, a service principal is created automatically. A corresponding machine principal is also created for each machine that's joined to the domain. An Organizational Unit (OU) is also created automatically for each cluster to store these service and machine principals. 
+The following things are created automatically:
+- a service principal for each Hadoop component 
+- a machine principal for each machine that's joined to the domain
+- an Organizational Unit (OU) for each cluster to store these service and machine principals 
 
 To summarize, you need to set up an environment with:
 
