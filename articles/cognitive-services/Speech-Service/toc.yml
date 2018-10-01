@@ -106,7 +106,7 @@
     href: how-to-use-audio-input-streams.md
 - name: Concepts
   items:
-  - name: Speech-to-Text
+  - name: Speech to Text
     href: speech-to-text.md
     displayName: recognize speech, speech recognition, speech to text, stt
   - name: Text to Speech
