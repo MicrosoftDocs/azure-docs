@@ -4,8 +4,6 @@
   items:
   - name: About Media Services
     href: media-services-overview.md
-  - name: Compare VI and AMS presets
-    href: ../../media-services/video-indexer/compare-video-indexer-with-media-services-presets.md?toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json    
 - name: Quickstarts
   expanded: true
   items:
@@ -36,7 +34,7 @@
 - name: Concepts
   items:
   - name: Analyzing content
-    href: analyzing-video-audio-files-concept  
+    href: analyzing-video-audio-files-concept.md
   - name: Encoding content
     items:
     - name: Overview
