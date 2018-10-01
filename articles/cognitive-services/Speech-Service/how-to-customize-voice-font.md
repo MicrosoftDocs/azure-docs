@@ -50,7 +50,7 @@ To create a voice for production use, we recommend you use a professional record
 
 ### Audio files
 
-Each audio file should contain a single utterance (for example, a single sentence or a single turn of a dialog system). All files must be in the same language. (Multilanguage custom voices are not supported.)The audio files must also each have a unique numeric filename with the filename extension `.wav`.
+Each audio file should contain a single utterance (for example, a single sentence or a single turn of a dialog system). All files must be in the same language. (Multilanguage custom voices are not supported.) The audio files must also each have a unique numeric filename with the filename extension `.wav`.
 
 Audio files should be prepared as follows. Other formats are unsupported and will be rejected.
 
