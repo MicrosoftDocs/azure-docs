@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -27,7 +27,7 @@ The cmdlets in the following table are used to create and manage schedules with 
 | [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Creates a new schedule. |
 | [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Removes a schedule. |
 | [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Sets the properties for an existing schedule. |
-| [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/set-azurermautomationscheduledrunbook) |Retrieves scheduled runbooks. |
+| [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/get-azurermautomationscheduledrunbook) |Retrieves scheduled runbooks. |
 | [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Associates a runbook with a schedule. |
 | [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Dissociates a runbook from a schedule. |
 
@@ -44,7 +44,10 @@ You can create a new schedule for runbooks in the Azure portal or with Windows P
 1. In the Azure portal, from your automation account, select **Schedules** under the section **Shared Resources** on the left.
 1. Click **Add a schedule** at the top of the page.
 1. On the **New schedule** pane, type a **Name** and optionally a **Description** for the new schedule.
-1. Select whether the schedule runs one time, or on a reoccurring schedule by selecting **Once** or **Recurrence**. If you select **Once** specify a **Start time**, and then click **Create**. If you select **Recurrence**, specify a **Start time** and the frequency for how often you want the runbook to repeat - by **hour**, **day**, **week**, or by **month**. If you select **week** or **month** from the drop-down list, the **Recurrence option**  appears in the pane and upon selection, the **Recurrence option** pane is presented and you can select the day of week if you selected **week**. If you selected **month**, you can choose by **weekdays** or specific days of the month on the calendar and finally, do you want to run it on the last day of the month or not and then click **OK**.
+1. Select whether the schedule runs one time, or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once** specify a **Start time**, and then click **Create**. If you select **Recurring**, specify a **Start time** and for **Recur every**, select the frequency for how often you want the runbook to repeat - by **hour**, **day**, **week**, or by **month**.
+    1. If you select **week**, you are provided a list of the days of the week to choose from. Select as many days as you want. The first run of your schedule will happen on the first day selected after the start time.
+    2. If you select **month**, you are given different options. For the **Monthly occurrances** option, select either **Month days** or **Week days**. If you choose **Month days** a calendar is shown that allows you to choose as many days as you want. If you choose a date such as the 31st that doesn't occur in the current month, the schedule will not run. If you want the schedule to run on the last day, choose **Yes** under **Run on last day of month**. If you choose **Week days**, the **Recur every** option is presented. Choose **First**, **Second**, **Third**, **Fourth**, or **Last**. Finally choose a day to repeat on.
+1. When done click **Create**.
 
 ### To create a new schedule with Windows PowerShell
 
@@ -67,9 +70,9 @@ A runbook can be linked to multiple schedules, and a schedule can have multiple 
 ### To link a schedule to a runbook with the Azure portal
 
 1. In the Azure portal, from your automation account, select **Runbooks** under the section **Process Automation** on the left.
-1. Click on the name of the runbook to schedule.
-1. If the runbook is not currently linked to a schedule, then you are offered the option to create a new schedule or link to an existing schedule.
-1. If the runbook has parameters, you can select the option **Modify run settings (Default:Azure)** and the **Parameters** pane is presented where you can enter the information accordingly.
+2. Click on the name of the runbook to schedule.
+3. If the runbook is not currently linked to a schedule, then you are offered the option to create a new schedule or link to an existing schedule.
+4. If the runbook has parameters, you can select the option **Modify run settings (Default:Azure)** and the **Parameters** pane is presented where you can enter the information accordingly.
 
 ### To link a schedule to a runbook with Windows PowerShell
 

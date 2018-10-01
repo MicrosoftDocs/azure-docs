@@ -1,20 +1,12 @@
 ---
-title: Troubleshoot YARN by using Azure HDInsight | Microsoft Docs
+title: Troubleshoot YARN in Azure HDInsight
 description: Get answers to common questions about working with Apache Hadoop YARN and Azure HDInsight.
-keywords: Azure HDInsight, YARN, FAQ, troubleshooting guide, common questions
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-
-ms.assetid: F76786A9-99AB-4B85-9B15-CA03528FC4CD
+services: hdinsight
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
+author: jasonwhowell
+ms.author: jasonh
+ms.topic: conceptual
 ms.date: 11/2/2017
-ms.author: arijitt
-
 ---
 
 # Troubleshoot YARN by using Azure HDInsight

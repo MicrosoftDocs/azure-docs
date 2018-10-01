@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 09/28/2018
 ms.author: patricka
 
 ---
@@ -98,6 +98,8 @@ Register-AzSWithMyDirectoryTenant `
 > If your Azure Stack administrator installs new services or updates in the future, you may need to run this script again.
 >
 > Run this script again at any time to check the status of the Azure Stack applications in your directory.
+> 
+> If you have noticed issues with creating VMs in Managed Disks (introduced in the 1808 update), a new **Disk Resource Provider** was added, requiring this script to be run again.
 
 ### Direct users to sign in
 

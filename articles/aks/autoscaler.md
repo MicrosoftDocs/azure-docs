@@ -14,7 +14,9 @@ ms.custom: mvc
 
 # Cluster Autoscaler on Azure Kubernetes Service (AKS) - Preview
 
-Azure Kubernetes Service (AKS) provides a flexible solution to deploy a managed Kubernetes cluster in Azure. As resource demands increase, the cluster autoscaler allows your cluster to grow to meet that demand based on constraints you set. The cluster autoscaler (CA) does this by scaling your agent nodes based on pending pods. It scans the cluster periodically to check for pending pods or empty nodes and increases the size if possible. By default, the CA scans for pending pods every 10 seconds and removes a node if it's unneeded for more than 10 minutes. When used with the horizontal pod autoscaler (HPA), the HPA will update pod replicas and resources as per demand. If there are not enough nodes or unneeded nodes following this pod scaling, the CA will respond and schedule the pods on the new set of nodes.
+Azure Kubernetes Service (AKS) provides a flexible solution to deploy a managed Kubernetes cluster in Azure. As resource demands increase, the cluster autoscaler allows your cluster to grow to meet that demand based on constraints you set. The cluster autoscaler (CA) does this by scaling your agent nodes based on pending pods. It scans the cluster periodically to check for pending pods or empty nodes and increases the size if possible. By default, the CA scans for pending pods every 10 seconds and removes a node if it's unneeded for more than 10 minutes. When used with the [horizontal pod autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA), the HPA will update pod replicas and resources as per demand. If there aren't enough nodes or unneeded nodes following this pod scaling, the CA will respond and schedule the pods on the new set of nodes.
+
+This article describes how to deploy the cluster autoscaler on the agent nodes. However, since the cluster autoscaler is deployed in the kube-system namespace, the autoscaler will not scale down the node running that pod.
 
 > [!IMPORTANT]
 > Azure Kubernetes Service (AKS) cluster autoscaler integration is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
@@ -28,41 +30,69 @@ This document assumes that you have an RBAC-enabled AKS cluster. If you need an 
 
 ## Gather information
 
-The following list shows all of the information you must provide in the autoscaler definition.
+To generate the permissions for your cluster autoscaler to run in your cluster, run this bash script:
 
-- *Subscription ID*: ID corresponding to the subscription used for this cluster
-- *Resource Group Name* : Name of resource group the cluster belongs to 
-- *Cluster Name*: Name of the cluster
-- *Client ID*: App ID granted by permission generating step
-- *Client Secret*: App secret granted by permission generating step
-- *Tenant ID*: ID of the tenant (account owner)
-- *Node Resource Group*: Name of resource group containing the agent nodes in the cluster
-- *Node Pool Name*: Name of the node pool you would like the scale
-- *Minimum Number of Nodes*: Minimum number of nodes to exist in the cluster
-- *Maximum Number of Nodes*: Maximum number of nodes to exist in the cluster
-- *VM Type*: Service used to generate the Kubernetes cluster
+```sh
+#! /bin/bash
+ID=`az account show --query id -o json`
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' `
 
-Get your subscription ID with: 
+TENANT=`az account show --query tenantId -o json`
+TENANT_ID=`echo $TENANT | tr -d '"' | base64`
 
-``` azurecli
-az account show --query id
+read -p "What's your cluster name? " cluster_name
+read -p "Resource group name? " resource_group
+
+CLUSTER_NAME=`echo $cluster_name | base64`
+RESOURCE_GROUP=`echo $resource_group | base64`
+
+PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID" -o json`
+CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
+
+NODE_RESOURCE_GROUP=`az aks show --name $cluster_name  --resource-group $resource_group -o tsv --query 'nodeResourceGroup' | base64`
+
+echo "---
+apiVersion: v1
+kind: Secret
+metadata:
+	name: cluster-autoscaler-azure
+	namespace: kube-system
+data:
+	ClientID: $CLIENT_ID
+	ClientSecret: $CLIENT_SECRET
+	ResourceGroup: $RESOURCE_GROUP
+	SubscriptionID: $SUBSCRIPTION_ID
+	TenantID: $TENANT_ID
+	VMType: QUtTCg==
+	ClusterName: $CLUSTER_NAME
+	NodeResourceGroup: $NODE_RESOURCE_GROUP
+---"
 ```
 
-Generate a set of Azure credentials by running the following command:
+After following the steps in the script, the script will output your details in the form of a secret, like so:
 
-```console
-$ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
-
-"appId": <app-id>,
-"displayName": <display-name>,
-"name": <name>,
-"password": <app-password>,
-"tenant": <tenant-id>
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-autoscaler-azure
+  namespace: kube-system
+data:
+  ClientID: <base64-encoded-client-id>
+  ClientSecret: <base64-encoded-client-secret>$
+  ResourceGroup: <base64-encoded-resource-group>  SubscriptionID: <base64-encode-subscription-id>
+  TenantID: <base64-encoded-tenant-id>
+  VMType: QUtTCg==
+  ClusterName: <base64-encoded-clustername>
+  NodeResourceGroup: <base64-encoded-node-resource-group>
+---
 ```
 
-The App ID, Password, and Tenant ID will be your clientID, clientSecret, and tenantID in the following steps.
-
-Get the name of your node pool by running the following command. 
+Next, get the name of your node pool by running the following command. 
 
 ```console
 $ kubectl get nodes --show-labels
@@ -77,49 +107,7 @@ aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nod
 
 Then, extract the value of the label **agentpool**. The default name for the node pool of a cluster is "nodepool1".
 
-To get the name of your node resource group, extract the value of the label **kubernetes.azure.com<span></span>/cluster**. The node resource group name is generally of the form MC_[resource-group]\_[cluster-name]_[location].
-
-The vmType parameter refers to the service being used, which here, is AKS.
-
-Now, you should have the following information:
-
-- SubscriptionID
-- ResourceGroup
-- ClusterName
-- ClientID
-- ClientSecret
-- TenantID
-- NodeResourceGroup
-- VMType
-
-Next, encode all of these values with base64. For example, to encode the VMType value with base64:
-
-```console
-$ echo AKS | base64
-QUtTCg==
-```
-
-## Create secret
-Using this data, create a secret for the deployment using the values found in the previous steps in the following format:
-
-```yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cluster-autoscaler-azure
-  namespace: kube-system
-data:
-  ClientID: <base64-encoded-client-id>
-  ClientSecret: <base64-encoded-client-secret>
-  ResourceGroup: <base64-encoded-resource-group>
-  SubscriptionID: <base64-encode-subscription-id>
-  TenantID: <base64-encoded-tenant-id>
-  VMType: QUtTCg==
-  ClusterName: <base64-encoded-clustername>
-  NodeResourceGroup: <base64-encoded-node-resource-group>
----
-```
+Now using your secret and node pool, you can create a deployment chart.
 
 ## Create a deployment chart
 
@@ -309,7 +297,7 @@ spec:
       restartPolicy: Always
 ```
 
-Copy and paste the secret created in the previous step and insert it at the start of the file.
+Copy and paste the secret created in the previous step, and insert it at the start of the file.
 
 Next, to set the range of nodes, fill in the argument for `--nodes` under `command` in the form MIN:MAX:NODE_POOL_NAME. For example: `--nodes=3:10:nodepool1` sets the minimum number of nodes to 3, the maximum number of nodes to 10, and the node pool name to nodepool1.
 
@@ -320,10 +308,10 @@ Then, fill in the image field under **containers** with the version of the clust
 Deploy cluster-autoscaler by running
 
 ```console
-kubectl create -f cluster-autoscaler-containerservice.yaml
+kubectl create -f aks-cluster-autoscaler.yaml
 ```
 
-To check if the cluster autoscaler is running, use the following command and check the list of pods. If there's a pod prefixed with "cluster-autoscaler" running, your cluster autoscaler has been deployed.
+To check if the cluster autoscaler is running, use the following command and check the list of pods. There should be a pod prefixed with "cluster-autoscaler" running. If you see this, your cluster autoscaler has been deployed.
 
 ```console
 kubectl -n kube-system get pods
@@ -334,6 +322,68 @@ To view the status of the cluster autoscaler, run
 ```console
 kubectl -n kube-system describe configmap cluster-autoscaler-status
 ```
+
+## Interpreting the cluster autoscaler status
+
+```console
+$ kubectl -n kube-system describe configmap cluster-autoscaler-status
+Name:         cluster-autoscaler-status
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  cluster-autoscaler.kubernetes.io/last-updated=2018-07-25 22:59:22.661669494 +0000 UTC
+
+Data
+====
+status:
+----
+Cluster-autoscaler status at 2018-07-25 22:59:22.661669494 +0000 UTC:
+Cluster-wide:
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 registered=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+NodeGroups:
+  Name:        nodepool1
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0 cloudProviderTarget=1 (minSize=1, maxSize=5))
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 cloudProviderTarget=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+
+Events:  <none>
+```
+
+The cluster autoscaler status allows you to see the state of the cluster autoscaler on two different levels: cluster-wide and within each node group. Since AKS currently only supports one node pool, these metrics are the same.
+
+* Health indicates the overall health of the nodes. If the cluster autoscaler struggles to create or removes nodes in the cluster, this status will change to "Unhealthy". There's also a breakdown of the status of different nodes:
+    * "Ready" means a node is a ready to have pods scheduled on it.
+    * "Unready" means a node that broke down after it started.
+    * "NotStarted" means a node isn't fully started yet.
+    * "LongNotStarted" means a node failed to start within a reasonable limit.
+    * "Registered means a node is registered in the group
+    * "Unregistered" means a node is present on the cluster provider side but failed to register in Kubernetes.
+  
+* ScaleUp allows you to check when the cluster determines a scale up should occur in your cluster.
+    * A transition is when the number of nodes in the cluster changes or the status of a node changes.
+    * The number of ready nodes is the number of nodes available and ready in the cluster. 
+    * The cloudProviderTarget is the number of nodes the cluster autoscaler has determined the cluster needs to handle its workload.
+
+* ScaleDown allows you to check if there are candidates for scale down. 
+    * A candidate for scale down is a node the cluster autoscaler has determined can be removed without affecting the cluster's ability to handle its workload. 
+    * The times provided show the last time the cluster was checked for scale down candidates and its last transition time.
+
+Finally, under Events, you can see up any scale or scale down events, failed or successful, and their times, that the cluster autoscaler has carried out.
 
 ## Next steps
 

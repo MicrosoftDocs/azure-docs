@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up security info to use security questions - Azure Active Directory | Microsoft Docs
 description: Set up your security info to verify your identity using pre-defined security questions.
 services: active-directory
@@ -16,7 +16,7 @@ ms.author: lizross
 
 # Set up security info to use pre-defined security questions (preview)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
 
@@ -24,8 +24,10 @@ Setting up your security info requires you to sign in to your work or school acc
 
 Depending on your organization’s settings, you may be prompted to add security questions to your security info when you sign in. Otherwise, to begin setting up security questions in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
 
+If you use security questions, we recommend using them in conjunction with another method. Security questions can be less secure than other methods because some people might know the answers to another person's questions.
+
 >[!Note]
->If you don't see the security questions option, it's possible that your organization doesn't allow you to use security questions for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+>Security questions are stored privately and securely on a user object in the directory and can only be answered by you during registration. There is no way for your administrator to read or modify your questions or answers.<br>If you don't see the security questions option, it's possible that your organization doesn't allow you to use security questions for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
 
 ### To choose and answer your security questions
 

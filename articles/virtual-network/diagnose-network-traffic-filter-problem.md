@@ -107,7 +107,7 @@ In the previous output, the network interface name is *myVMVMNic*.
 
 ## Diagnose using Azure CLI
 
-If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` and log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
+If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` and log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
 Get the effective security rules for a network interface with [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). The following example gets the effective security rules for a network interface named *myVMVMNic* that is in a resource group named *myResourceGroup*:
 
@@ -148,7 +148,7 @@ In the previous output, the network interface name is *myVMVMNic interface*.
 
 ## Interpret command output
 
-Regardless of whether you used the [PowerShell](#diangose-using-powershell), or the [Azure CLI](#diagnose-using-azure-cli) to diagnose the problem, you receive output that contains the following information:
+Regardless of whether you used the [PowerShell](#diagnose-using-powershell), or the [Azure CLI](#diagnose-using-azure-cli) to diagnose the problem, you receive output that contains the following information:
 
 - **NetworkSecurityGroup**: The ID of the network security group.
 - **Association**: Whether the network security group is associated to a *NetworkInterface* or *Subnet*. If an NSG is associated to both, output is returned with **NetworkSecurityGroup**, **Association**, and **EffectiveSecurityRules**, for each NSG. If the NSG is associated or disassociated immediately before running the command to view the effective security rules, you may need to wait a few seconds for the change to reflect in the command output.

@@ -19,7 +19,7 @@ ms.reviewer: johnhas
 
 # Monitor and manage tests in the VaaS portal
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 After scheduling tests against your Azure Stack solution, Validation as a Service (VaaS) will begin reporting test execution status. This information is available in the VaaS portal along with actions such as rescheduling and cancelling tests.
 

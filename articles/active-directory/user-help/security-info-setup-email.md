@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up security info to use email - Azure Active Directory | Microsoft Docs
 description: Set up your security info to verify your identity using your work or school email address.
 services: active-directory
@@ -16,7 +16,7 @@ ms.author: lizross
 
 # Set up security info to use email (preview)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
 
@@ -25,7 +25,7 @@ Setting up your security info requires you to sign in to your work or school acc
 Depending on your organization’s settings, you may be prompted to add an email address to your security info when you sign in. Otherwise, to begin setting up email in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
 
 >[!Note]
->If you don't see the email option, it's possible that your organization doesn't allow you to use an email for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+>We recommend using an email account that doesn't require your network password to access.<br>If you don't see the email option, it's possible that your organization doesn't allow you to use an email for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
 
 ### To use your email address
 

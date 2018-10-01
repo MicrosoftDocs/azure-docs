@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up security info to use an authenticator app - Azure Active Directory | Microsoft Docs
 description: Set up your security info to verify your identity using the Microsoft Authenticator app.
 services: active-directory
@@ -16,7 +16,7 @@ ms.author: lizross
 
 # Set up security info to use an authenticator app (preview)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
 
@@ -56,6 +56,9 @@ To download and learn more about the Microsoft Authenticator app, see [Get start
 6. Use the Microsoft Authenticator app to approve the notification to activate the app.
 
     Your security info is updated to use the Microsoft Authenticator app to verify your identity when using two-step verification or self-service password reset.
+
+    >[!Note]
+    >If your organization allows it, you'll also get a verification code along with the Microsoft Authenticator app notification. If you want to make the code your default method, follow the instructions in [Manage your security info](security-info-setup-auth-app.md).
 
 ## Additional security info options
 

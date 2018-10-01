@@ -39,6 +39,8 @@
     items:
     - name: Overview
       href: content-protection-overview.md
+    - name: Multi-DRM system with access control
+      href: design-multi-drm-system-with-access-control.md
   - name: Encoding  
     items:
     - name: Overview
@@ -53,6 +55,8 @@
     href: reacting-to-media-services-events.md
   - name: Storage accounts
     href: storage-account-concept.md
+  - name: Streaming endpoints
+    href: streaming-endpoint-concept.md
   - name: Transforms and jobs
     href: transform-concept.md
 - name: How-to guides
@@ -69,7 +73,7 @@
     href: customize-encoder-presets-how-to.md
   - name: Upload content 
     items:
-    - name: From HTTP(s) - .NET
+    - name: From HTTPS - .NET
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md  
@@ -95,6 +99,8 @@
     href: https://aka.ms/ams-v3-python-ref
   - name: Node .js
     href: https://aka.ms/ams-v3-nodejs-ref
+  - name: Go
+    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/mediaservices/mgmt/2018-06-01-preview/media      
   - name: Event schemas
     href: media-services-event-schemas.md
   - name: DRM licenses
@@ -128,8 +134,7 @@
     - name: Python
       href: https://aka.ms/ams-v3-python-sdk
     - name: Node .js
-      href: https://aka.ms/ams-v3-nodejs-sdk
-  - name: Release notes    
+      href: https://aka.ms/ams-v3-nodejs-sdk   
   - name: Release notes
     href: release-notes.md
   - name: Quotas and limitations

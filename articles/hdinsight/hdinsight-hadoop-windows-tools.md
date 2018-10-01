@@ -1,16 +1,13 @@
 ---
-title: Use a Windows PC with Hadoop on HDInsight - Azure | Microsoft Docs
+title: Use a Windows PC with Hadoop on HDInsight - Azure
 description: Work from a Windows PC in Hadoop on HDInsight. Manage and query clusters with PowerShell, Visual Studio, and Linux tools. Develop big data solutions with .NET.
 services: hdinsight
-keywords: hadoop on windows,hadoop for windows
-author: cjgronlund
-manager: jhubbard
-
-ms.author: cgronlun
-ms.date: 05/17/2017
+author: jasonwhowell
+ms.author: jasonh
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 05/17/2017
 ---
 
 # Work in the Hadoop ecosystem on HDInsight from a Windows PC

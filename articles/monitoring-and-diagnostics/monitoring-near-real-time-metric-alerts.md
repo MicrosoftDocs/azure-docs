@@ -1,6 +1,6 @@
 ---
-title: Supported resources for newer Azure Monitor metric alerts
-description: Reference on support metrics and logs for newer Azure near real-time metric alerts.
+title: Supported resources for metric alerts in Azure Monitor
+description: Reference on support metrics and logs for metric alerts in Azure Monitor
 author: snehithm
 services: monitoring
 ms.service: azure-monitor
@@ -10,10 +10,11 @@ ms.author: snmuvva
 ms.component: alerts
 ---
 
-# Introduction
-Azure Monitor now supports a [new metric alert type](monitoring-overview-unified-alerts.md) which has significant benefits over the older [classic metric alerts](insights-alerts-portal.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset. 
+# Supported resources for metric alerts in Azure Monitor
 
-You can also use newer metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs (Preview)  
+Azure Monitor now supports a [new metric alert type](monitoring-overview-unified-alerts.md) which has significant benefits over the older [classic metric alerts](insights-alerts-portal.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
+
+You can also use newer metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs 
 - [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
 - [Heartbeat records for Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
 - [Update management](../operations-management-suite/oms-solution-update-management.md) records
@@ -23,10 +24,10 @@ You can also use newer metric alerts on popular Log Analytics logs extracted as 
 > Specific metric and/or dimension will only be shown if data for it exists in chosen period. These metrics are available for customers with Azure Log Analytics workspaces in East US, West Central US and West Europe. Metrics from Log Analytics is currently in public preview and subject to changes.
 
 ## Portal, PowerShell, CLI, REST support
-Currently, you can create newer metric alerts only in the Azure portal, [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) or [Resource Manager Templates](monitoring-create-metric-alerts-with-templates.md). Support for configuring newer alerts  using PowerShell and the Azure command-line interface (Azure CLI 2.0) is coming soon.
+Currently, you can create newer metric alerts only in the Azure portal, [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) or [Resource Manager Templates](monitoring-create-metric-alerts-with-templates.md). Support for configuring newer alerts  using PowerShell and Azure CLI versions 2.0 and higher is coming soon.
 
 ## Metrics and Dimensions Supported
-Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
+Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer](monitoring-metric-charts.md).
 
 Here's the full list of Azure monitor metric sources supported by the newer alerts:
 
@@ -61,7 +62,9 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Storage/storageAccounts/services     |     Yes    | [Blob Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [File Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [Queue Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) and [Table Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 | Microsoft.Web/serverfarms | Yes | [App Service Plans](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
-|Microsoft.OperationalInsights/workspaces (Preview) | Yes|[Log Analytics workspaces](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
+| Microsoft.Web/sites | Yes | [App Services](monitoring-supported-metrics.md#microsoftwebsites-excluding-functions) and [Functions](monitoring-supported-metrics.md#microsoftwebsites-functions)|
+| Microsoft.Web/sites/slots | Yes | [App Service slots](monitoring-supported-metrics.md#microsoftwebsitesslots)|
+|Microsoft.OperationalInsights/workspaces| Yes|[Log Analytics workspaces](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
 
 
 

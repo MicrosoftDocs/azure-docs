@@ -7,42 +7,30 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 06/01/2018
+ms.date: 08/17/2018
 ms.author: babanisa
 ---
 
 # An introduction to Azure Event Grid
 
-Azure Event Grid allows you to easily build applications with event-based architectures. You select the Azure resource you would like to subscribe to, and give the event handler or WebHook endpoint to send the event to. Event Grid has built-in support for events coming from Azure services, like storage blobs and resource groups. Event Grid also has custom support for application and third-party events, using custom topics and custom webhooks. 
+Azure Event Grid allows you to easily build applications with event-based architectures. First select the Azure resource you would like to subscribe to, and then give the event handler or WebHook endpoint to send the event to. Event Grid has built-in support for events coming from Azure services, like storage blobs and resource groups. Event Grid also has support for your own events, using custom topics. 
 
-You can use filters to route specific events to different endpoints, multicast to multiple endpoints, and make sure your events are reliably delivered. Event Grid also has built in support for custom and third-party events.
+You can use filters to route specific events to different endpoints, multicast to multiple endpoints, and make sure your events are reliably delivered.
 
-Currently, Event Grid supports the following regions:
+Currently, Azure Event Grid is available in all public regions. It is not yet available in the Azure Germany, Azure China, or Azure Government clouds.
 
-* Asia Southeast
-* Asia East
-* Australia East
-* Australia Southeast
-* Central US
-*	East US
-*	East US 2
-* Europe West
-* Europe North
-* Japan East
-* Japan West
-*	West Central US
-*	West US
-*	West US 2
-
-This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). The following image shows how Event Grid connects sources and handlers, but it does not provide a comprehensive list of supported options.
+This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). 
 
 ![Event Grid functional model](./media/overview/functional-model.png)
 
+Please note: this image shows how Event Grid connects sources and handlers, and is not a comprehensive list of supported integrations.
+
 ## Event sources
 
-Currently, the following Azure services support sending events to Event Grid:
+For full details on the capabilities of each source as well as related articles, see [event sources](event-sources.md). Currently, the following Azure services support sending events to Event Grid:
 
 * Azure Subscriptions (management operations)
+* Container Registry
 * Custom Topics
 * Event Hubs
 * IoT Hub
@@ -52,11 +40,9 @@ Currently, the following Azure services support sending events to Event Grid:
 * Storage Blob
 * Storage General-purpose v2 (GPv2)
 
-For links to articles that show how to use each event source, see [Event sources in Azure Event Grid](event-sources.md).
-
 ## Event handlers
 
-Currently, the following Azure services support handling events from Event Grid: 
+For full details on the capabilities of each handler as well as related articles, see [event handlers](event-handlers.md). Currently, the following Azure services support handling events from Event Grid: 
 
 * Azure Automation
 * Azure Functions
@@ -66,8 +52,6 @@ Currently, the following Azure services support handling events from Event Grid:
 * Microsoft Flow
 * Queue Storage
 * WebHooks
-
-For links to articles that show how to use each event handler, see [Event handlers in Azure Event Grid](event-handlers.md).
 
 ## Concepts
 
@@ -92,7 +76,7 @@ Here are some of the key features of Azure Event Grid:
 * **Pay-per-event** - Pay only for the amount you use Event Grid.
 * **High throughput** - Build high-volume workloads on Event Grid with support for millions of events per second.
 * **Built-in Events** - Get up and running quickly with resource-defined built-in events.
-* **Custom Events** - use Event Grid route, filter, and reliably deliver custom events in your app.
+* **Custom Events** - Use Event Grid route, filter, and reliably deliver custom events in your app.
 
 For a comparison of Event Grid, Event Hubs, and Service Bus, see [Choose between Azure services that deliver messages](compare-messaging-services.md).
 

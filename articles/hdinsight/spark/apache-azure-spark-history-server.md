@@ -1,35 +1,31 @@
 ---
-title: 'Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight | Microsoft Docs'
+title: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight 
 description: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight.
 services: hdinsight
-author: jejiang
-manager: DJ
-editor: Jenny Jiang
-tags: azure-portal
-ms.assetid: 
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: 
-ms.topic: article
-ms.date: 07/12/2018
+author: jejiang
 ms.author: jejiang
+ms.reviewer: jasonh
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.topic: conceptual
+ms.date: 09/14/2018
 ---
 # Use extended Spark History Server to debug and diagnose Spark applications
 
-This article provides guidance on how to use extended Spark History Server to debug and diagnose completed and running Spark applications. The extension currently includes data tab and graph tab. In data tab, users can check the input and output data of the Spark job. In graph tab, users can check the data flow and replay the job graph.
+This article provides guidance on how to use extended Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
 
-## Open the Spark History Server
+## Get access to Spark History Server
 
 Spark History Server is the web UI for completed and running Spark applications. 
 
-### To open the Spark History Server Web UI from Azure portal
+### Open the Spark History Server Web UI from Azure portal
 
 1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. From **Quick Links**, click **Cluster Dashboard**, and then click **Spark History Server**. When prompted, enter the admin credentials for the Spark cluster. 
 
     ![Spark History Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark History Server")
 
-### To open the Spark History Server Web UI by URL
+### Open the Spark History Server Web UI by URL
 Open the Spark History Server by browsing to the following URL, replace <ClusterName> with Spark cluster name of customer.
 
    ```
@@ -41,7 +37,7 @@ The Spark History Server web UI looks like:
 ![HDInsight Spark History Server](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
 
-## Open the Data tab from Spark History Server
+## Data tab in Spark History Server
 Select job ID then click **Data** on the tool menu to get the data view.
 
 + Check the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
@@ -85,7 +81,7 @@ Select job ID then click **Data** on the tool menu to get the data view.
     ![graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## Open the Graph tab from Spark History Server
+## Graph tab in Spark History Server
 Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 + Check overview of your job by the generated job graph. 
@@ -106,16 +102,19 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
     + Green for succeeded: The job has completed successfully.
     + Orange for retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.
-    + Red for failed: The task has failed.
     + Blue for running: The task is running.
-    + White for skipped or waiting: The task is waiting to run, or the stage has skipped.
+    + White for waiting or skipped: The task is waiting to run, or the stage has skipped.
+    + Red for failed: The task has failed.
 
     ![graph color sample, running](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
+    The skipped stage display in white.
+    ![graph color sample, skip](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+
     ![graph color sample, failed](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
     > [!NOTE]
-    > Playback for each job is allowed. When a job does not have any stage or haven’t complete, playback is not supported.
+    > Playback for each job is allowed. For incomplete job, playback is not supported.
 
 
 + Mouse scrolls to zoom in/out the job graph, or click **Zoom to fit** to make it fit to screen.
@@ -125,6 +124,12 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 + Hover on graph node to see the tooltip when there are failed tasks, and click on stage to open stage page.
 
     ![graph tooltip](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+
++ In job graph tab, stages will have tooltip and small icon displayed if they have tasks meet the below conditions:
+    + Data skew: data read size > average data read size of all tasks inside this stage * 2 and data read size > 10 MB
+    + Time skew: execution time > average execution time of all tasks inside this stage * 2 and execution time > 2 mins
+
+    ![graph skew icon](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + The job graph node will display the following information of each stage:
     + ID.
@@ -145,6 +150,47 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 + Send feedback with issues by clicking **Provide us feedback**.
 
     ![graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+
+
+## Diagnosis tab in Spark History Server
+Select job ID then click **Diagnosis** on the tool menu to get the job Diagnosis view. The diagnosis tab includes **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
+    
++ Check the **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
+
+    ![Diagnosis tabs](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+
+### Data Skew
+Click **Data Skew** tab, the corresponding skewed tasks are displayed based on the specified parameters. 
+
++ **Specify Parameters** - The first section displays the parameters which are used to detect Data Skew. The built-in rule is: Task Data Read is greater than 3 times of the average task data read, and the task data read is more than 10MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage**, and **Skew Char** section will be refreshed accordingly.
+
++ **Skewed Stage** - The second section displays stages which have skewed tasks meeting the criteria specified above. If there are more than one skewed task in a stage, the skewed stage table only displays the most skewed task (e.g. the largest data for data skew).
+
+    ![Data skew section2](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+
++ **Skew Chart** – When a row in the skew stage table is selected, the skew chart displays more task distributions details based on data read and execution time. The skewed tasks are marked in red and the normal tasks are marked in blue. For performance consideration, the chart only displays up to 100 sample tasks. The task details are displayed in right bottom panel.
+
+    ![Data skew section3](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+
+### Time Skew
+The **Time Skew** tab displays skewed tasks based on task execution time. 
+
++ **Specify Parameters** - The first section displays the parameters which are used to detect Time Skew. The default criteria to detect time skew is: task execution time is greater than 3 times of average execution time and task execution time is greater than 30 seconds. You can change the parameters based on your needs. The **Skewed Stage** and **Skew Chart** display the corresponding stages and tasks information just like the **Data Skew** tab above.
+
++ Click **Time Skew**, then filtered result is displayed in **Skewed Stage** section according to the parameters set in section **Specify Parameters**. Click one item in **Skewed Stage** section, then the corresponding chart is drafted in section3, and the task details are displayed in right bottom panel.
+
+    ![Time skew section2](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+
+### Executor Usage Analysis
+The Executor Usage Graph visualizes the Spark job actual executor allocation and running status.  
+
++ Click **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**,**idle Executors**, and **Max Executor Instances**. Regarding allocated executors, each "Executor added" or "Executor removed" event will increase or decrease the allocated executors, you can check "Event Timeline" in the “Jobs" tab for more comparison.
+
+    ![Executors tab](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+
++ Click the color icon to select or unselect the corresponding content in all drafts.
+
+    ![Select chart](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
 
 ## FAQ
@@ -245,7 +291,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 **Example**:
 
-`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.tgz` 
+`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar` 
 
 **To use the bash file from Azure portal**
 
@@ -266,7 +312,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
     ![upload log or upgrade hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
-## Known issue
+## Known issues
 
 1.	Currently, it only works for Spark 2.3 cluster.
 

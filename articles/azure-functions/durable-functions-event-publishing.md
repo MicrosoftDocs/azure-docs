@@ -3,15 +3,11 @@ title: Durable Functions publishing to Azure Event Grid (preview)
 description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: glenga
 ---
@@ -32,7 +28,7 @@ Following are some scenarios where this feature is useful:
 
 * Install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc or later in your Durable Functions project.
 * Install [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
-* Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* Install [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ## Create a custom Event Grid topic
 

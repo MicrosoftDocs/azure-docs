@@ -34,16 +34,16 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Implementing Microsoft Azure Networking
-      href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
+    - title: Azure Administrator
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
-    - title: Planning and Designing Microsoft Azure Networking Solutions
-      href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
+    - title: Azure Solution Architect
+      href: https://go.microsoft.com/fwlink/?linkid=2012824
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+        href: https://go.microsoft.com/fwlink/?linkid=2012824
 - title: Reference
   items:
   - type: list

@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 ---
@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-* **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+* **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-quickstart-create-account.md) article for steps to create one.
 * **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
 * **Visual Studio** 2013, 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.
 * **Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
@@ -89,6 +89,7 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```
 
 2. Add these static variables to the **Program class**. Replace place-holders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
@@ -498,7 +499,7 @@ Dictionary<string, object> arguments = new Dictionary<string, object>
     { "sinkBlobContainer", outputBlobPath },
     { "receiver", emailReceiver }
 };
-
+ 
 CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```

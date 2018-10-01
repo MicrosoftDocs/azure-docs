@@ -180,7 +180,9 @@
 
 ### Migrate
 #### [Subscriptions and storage accounts](storsimple-8000-migrate-classic-azure-portal.md)
-#### [From 5000/7000 series devices](storsimple-8000-migrate-from-5000-7000.md)
+#### [From 5000/7000 series devices](storsimple-8000-migration-options.md)
+##### [To StorSimple 8000 series devices](storsimple-8000-migrate-from-5000-7000.md)
+##### [To Azure File Sync](storsimple-5000-7000-afs-migration.md)
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update

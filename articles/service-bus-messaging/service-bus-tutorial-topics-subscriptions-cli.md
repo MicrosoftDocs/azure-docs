@@ -2,11 +2,11 @@
 title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with Azure CLI | Microsoft Docs
 description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using Azure CLI
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 
-ms.author: sethm
-ms.date: 05/22/2018
+ms.author: spelluru
+ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
@@ -42,17 +42,17 @@ To develop a Service Bus app with Java, you must have the following installed:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Service Bus topics and subscriptions
 
 Each [subscription to a topic](service-bus-messaging-overview.md#topics) can receive a copy of each message. Topics are fully protocol and semantically compatible with Service Bus queues. Service Bus topics support a wide array of selection rules with filter conditions, with optional actions that set or modify message properties. Each time a rule matches, it produces a message. To learn more about rules, filters, and actions, follow this [link](topic-filters.md).
 
-## Log in to Azure
+## Sign in to Azure
 
-Once CLI is installed, open a command prompt and issue the following commands to log in to Azure. These steps are not necessary if you're using Cloud Shell:
+Once CLI is installed, open a command prompt and issue the following commands to sign in to Azure. These steps are not necessary if you're using Cloud Shell:
 
-1. If you are using Azure CLI locally, run the following command to log in to Azure. This login step is not necessary if you're running these commands in Cloud Shell:
+1. If you are using Azure CLI locally, run the following command to sign in to Azure. This sign on step is not necessary if you're running these commands in Cloud Shell:
 
    ```azurecli-interactive
    az login
@@ -343,5 +343,5 @@ Advance to the next tutorial to learn more about using the publish/subscribe cap
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
+[Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

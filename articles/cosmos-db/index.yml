@@ -6,18 +6,18 @@ metadata:
   title: Azure Cosmos DB Documentation - Tutorials, API Reference
   description: Learn how to use Azure Cosmos DB to build globally distributed multi-model databases. Tutorials show you how to build and query document, key/value, and graph databases.
   services: cosmos-db
-  author: mimig1
+  author: SnehaGunda
   manager: kfile
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/26/2018
-  ms.author: mimig
+  ms.author: sngun
   experimental: true
   experiment_id: "414cc76e-9d52-4a"
 abstract:
-  description: Azure Cosmos DB is a globally distributed, multi-model database service. Use these quickstarts, tutorials, and samples to develop document, key-value, wide-column, and graph databases by using popular APIs and programming models. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage, while benefiting from comprehensive SLAs. 
+  description: Azure Cosmos DB is a globally distributed, multi-model database service that supports document, key-value, wide-column, and graph databases. Learn how to use Azure Cosmos DB with our quickstarts, tutorials, and samples.
   aside:
     image:
       alt: 
@@ -149,11 +149,36 @@ sections:
       style: ordered
       items:
       - html: Develop an app with Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Gremlin</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
-      - html: Import data into Azure Cosmos DB&#58; <a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>
+      - html: Migrate data to Azure Cosmos DB&#58; <a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>
       - html: Query data with Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Gremlin</a>
-      - html: Global database replication with Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Gremlin</a>
+      - html: Global database replication with Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> 
       - html: <a href="local-emulator">Develop your application locally using the emulator</a>
       - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Create an HTTP Trigger with an Azure Cosmos DB input binding</a>
+
+  - title: Build your skills with Microsoft Learn
+    items:
+    - type: list
+      style: cards
+      className: cardsFTitle
+      items:
+      - title:  Create an Azure Cosmos DB database built to scale
+        href: /learn/modules/create-cosmos-db-for-scale/
+        image: 
+          src: /learn/achievements/create-cosmos-db-for-scale.svg
+          href: /learn/modules/create-cosmos-db-for-scale/
+      - title:  Insert and query data in your Azure Cosmos DB database
+        href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+        image: 
+          src: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg
+          href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+      - title: Build a .NET Core app for Azure Cosmos DB in Visual Studio Code
+        href: /learn/modules/build-cosmos-db-app-with-vscode
+        image: 
+          src: /learn/achievements/build-cosmos-db-app-with-vscode.svg
+          href: /learn/modules/build-cosmos-db-app-with-vscode
+    - type: paragraph
+      text: <a href="/learn/browse/?products=azure-cosmos-db">More interactive learning...</a>
+
 
   - title: Reference
     items:

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 07/13/2018 
+ms.date: 09/13/2018 
 ms.author: jeffgilb 
 ms.reviewer: jeffgo
 ---
@@ -19,6 +19,9 @@ ms.reviewer: jeffgo
 # Deploy the MySQL resource provider on Azure Stack
 
 Use the MySQL Server resource provider to expose MySQL databases as an Azure Stack service. The MySQL resource provider runs as a service on a Windows Server 2016 Server Core virtual machine (VM).
+
+> [!IMPORTANT]
+> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.
 
 ## Prerequisites
 
@@ -33,21 +36,20 @@ There are several prerequisites that need to be in place before you can deploy t
   >[!NOTE]
   >To deploy the MySQL provider on a system that doesn't have Internet access, copy the [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) file to a local path. Provide the path name using the **DependencyFilesLocalPath** parameter.
 
-* The resource provider has a minimum corresponding Azure Stack build. Make sure you download the correct binary for the version of Azure Stack that you're running:
+* The resource provider has a minimum corresponding Azure Stack build.
 
-    | Azure Stack version | MySQL RP version|
+    | Minimum Azure Stack version | MySQL RP version|
     | --- | --- |
     | Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
     |     |     |
 
-- Ensure datacenter integration prerequisites are met:
+* Ensure datacenter integration prerequisites are met:
 
     |Prerequisite|Reference|
     |-----|-----|
     |Conditional DNS forwarding is set correctly.|[Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md)|
     |Inbound ports for resource providers are open.|[Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI certificate subject and SAN are set correctly.|[Azure Stack deployment mandatory PKI prerequisites](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack deployment PaaS certificate prerequisites](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |PKI certificate subject and SAN are set correctly.|[Azure Stack deployment mandatory PKI prerequisites](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack deployment PaaS certificate prerequisites](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### Certificates
@@ -82,6 +84,7 @@ You can specify these parameters from the command line. If you don't, or if any 
 | **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
 | **VMLocalCredential** | The credentials for the local administrator account of the MySQL resource provider VM. | _Required_ |
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
+| **AzureEnvironment** | The Azure environment of the service admin account which you used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure AD, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | For integrated systems only, your certificate .pfx file must be placed in this directory. For disconnected enviroments, download [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) to this directory. You can optionally copy one Windows Update MSU package here. | _Optional_ (_mandatory_ for integrated systems or disconnected environments) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
 | **MaxRetryCount** | The number of times you want to retry each operation if there is a failure.| 2 |
@@ -98,13 +101,16 @@ To eliminate any manual configuration when deploying the resource provider, you 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.3.0
+Install-Module -Name AzureStack -RequiredVersion 1.4.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines
+# For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\MYSQLRP'
@@ -131,6 +137,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
+    -AzureEnvironment $AzureEnvironment `
     -DefaultSSLCertificatePassword $PfxPass `
     -DependencyFilesLocalPath $tempDir\cert `
     -AcceptLicense
@@ -145,6 +152,7 @@ When the resource provider installation script finishes, refresh your browser to
 2. Select **Resource Groups**
 3. Select the **system.\<location\>.mysqladapter** resource group.
 4. On the summary page for Resource group Overview, there should be no failed deployments.
+5. Finally, select **Virtual machines** in the admin portal to verify that the MySQL resource provider VM was successfully created and is running.
 
 ## Next steps
 

@@ -95,7 +95,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 4. Now you can quickly start a local copy of Service Fabric, whenever you need it, by running:
 
     ```bash 
-    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
     >[!TIP]
@@ -114,7 +114,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 
 
 
-6. When your done you can stop and cleanup the container with this command:
+6. When you are done, stop and cleanup the container with this command:
 
     ```bash 
     docker rm -f sftestcluster
@@ -125,8 +125,6 @@ To set up a local Docker container and have a Service Fabric cluster running on 
  The following are known limitations of the local cluster running in a container for Mac's: 
  
  * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
-
- * Container applications cannot be deployed to this local cluster currently
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 
@@ -155,14 +153,16 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     ```bash
     npm install -g yo
     ```
-3. Install the Yeoman generator that you prefer by following the steps in the getting started [documentation](service-fabric-get-started-linux.md). To create Service Fabric applications by using Yeoman, follow these steps:
+3. Install the Yeoman generator that you prefer by following the steps in the getting started [documentation](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables). To create Service Fabric applications by using Yeoman, follow these steps:
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. To build a Service Fabric Java application on your Mac, JDK version 1.8 and Gradle must be installed on the host machine. The software can be installed by using [HomeBrew](https://brew.sh/), as follows: 
+4. After you install the generators, create guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`, respectively.
+
+5. To build a Service Fabric Java application on your Mac, JDK version 1.8 and Gradle must be installed on the host machine. The software can be installed by using [HomeBrew](https://brew.sh/), as follows: 
 
     ```bash
     brew update

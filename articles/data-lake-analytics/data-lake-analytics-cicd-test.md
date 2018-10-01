@@ -1,21 +1,15 @@
 ---
-title: How to test your Azure Data Lake Analytics code | Microsoft Docs
+title: How to test your Azure Data Lake Analytics code
 description: 'Learn how to add test cases for U-SQL and extended C# code for Azure Data Lake Analytics.'
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager:  
-editor: 
-
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-
 ---
 # Test your Azure Data Lake Analytics code
 
@@ -111,11 +105,11 @@ After you call UDO functions, you can verify the results through the schema and 
 
 After you build the test project, you can run all test cases though **Test Explorer > Playlist**, or right-click the .cs file and choose **Run Tests**.
 
-## Run test cases in Visual Studio Team Service
+## Run test cases in Azure DevOps
 
-Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Visual Studio Team Services can run these test cases. 
+Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Azure DevOps can run these test cases. 
 
-### Run U-SQL test cases in Visual Studio Team Service
+### Run U-SQL test cases in Azure DevOps
 
 For a U-SQL test, make sure you load `CPPSDK` on your build machine, and then pass the `CPPSDK` path to USqlScriptTestRunner(cppSdkFolderFullPath: @"").
 
@@ -126,16 +120,16 @@ CPPSDK is a package that includes Microsoft Visual C++ 14 and Windows SDK 10.0.1
 - For Visual Studio 2015, it is under `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK`
 - For Visual Studio 2017, it is under `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\SDK\ScopeCppSDK`
 
-**Prepare CPPSDK in the Visual Studio Team Services build agent**
+**Prepare CPPSDK in the Azure DevOps build agent**
 
-The most common way to prepare the CPPSDK dependency in Visual Studio Team Service is as follows:
+The most common way to prepare the CPPSDK dependency in Azure DevOps is as follows:
 
 1.	Zip the folder  that includes the CPPSDK libraries.
 2.	Check in the .zip file to your source control system. (The .zip file ensures that you check in all libraries under the CPPSDK folder so that some files aren't ignored by ".gitignore".)   
 3.	Unzip the .zip file in the build pipeline.
 4.	Point `USqlScriptTestRunner` to this unzipped folder on the build machine.
 
-### Run C# UDO test cases in Visual Studio Team Services
+### Run C# UDO test cases in Azure DevOps
 
 For a C# UDO test, make sure to reference the following assemblies, which  are needed for UDOs. If you reference them through [the Nuget package Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), make sure you add a NuGet Restore task in your build pipeline.
 

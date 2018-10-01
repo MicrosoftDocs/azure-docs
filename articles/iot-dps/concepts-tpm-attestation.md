@@ -14,7 +14,7 @@ manager: briz
 
 IoT Hub Device Provisioning Service is a helper service for IoT Hub that you use to configure zero-touch device provisioning to a specified IoT hub. With the Device Provisioning Service, you can provision millions of devices in a secure manner.
 
-This article describes the identity attestation process when using a [TPM](./concepts-device.md). TPM stands for Trusted Platform Module and is a type of hardware security module (HSM). This article assumes you are using a discrete, firmware, or integrated TPM. Software emulated TPMs are well-suited for prototyping or testing, but they do not provide the same level of security as discrete, firmware, or integrated TPMs do. We do not recommend using software TPMs in production. [Learn more](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf) about the types of TPMs.
+This article describes the identity attestation process when using a [TPM](./concepts-device.md). TPM stands for Trusted Platform Module and is a type of hardware security module (HSM). This article assumes you are using a discrete, firmware, or integrated TPM. Software emulated TPMs are well-suited for prototyping or testing, but they do not provide the same level of security as discrete, firmware, or integrated TPMs do. We do not recommend using software TPMs in production. For more information about types of TPMs, see [A Brief Introduction to TPM](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 This article is only relevant for devices using TPM 2.0 with HMAC key support and their endorsement keys. It is not for devices using X.509 certificates for authentication. TPM is an industry-wide, ISO standard from the Trusted Computing Group, and you can read more about TPM at the [complete TPM 2.0 spec](https://trustedcomputinggroup.org/tpm-library-specification/) or the [ISO/IEC 11889 spec](https://www.iso.org/standard/66510.html). This article also assumes you are familiar with public and private key pairs, and how they are used for encryption.
 
@@ -56,7 +56,7 @@ The device takes the nonce and uses the private portions of the EK and SRK to de
 
 The device can then sign a SAS token using the decrypted nonce and reestablish a connection to the Device Provisioning Service using the signed SAS token. With the Nonce challenge completed, the service allows the device to provision.
 
-![Device reestablishes connection to DPS to validate EK ownership](./media/concepts-tpm-attestation/step-three-validation.png)
+![Device reestablishes connection to Device Provisioning Service to validate EK ownership](./media/concepts-tpm-attestation/step-three-validation.png)
 
 ## Next steps
 

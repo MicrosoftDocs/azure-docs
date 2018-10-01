@@ -2,7 +2,7 @@
 title: Connect a Windows IoT Core device to your Azure IoT Central application | Microsoft Docs
 description: As a device developer, learn how to connect an MXChip IoT DevKit device to your Azure IoT Central application.
 author: miriambrus
-ms.author: mriamb
+ms.author: miriamb
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-central
@@ -39,11 +39,14 @@ In your Azure IoT Central application, add a real device from the **Windows IoT 
 
 ### Prepare the Windows IoT Core device
 
-To set up a Windows IoT Core device please follow the step by step guide at [Set up a Windows IoT Core device] (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+To set up a Windows IoT Core device please follow the step by step guide at [Set up a Windows IoT Core device] (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
 ### Add a real device
 
-In your Azure IoT Central application, add a real device from the **Windows IoT Core** device template and make a note of the device connection string. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
+In your Azure IoT Central application, add a real device from the **Windows IoT Core** device template and make a note of the device connection details(**Scope ID, Device ID, Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
+
+ > [!NOTE]
+   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
 
 ## Prepare the Windows 10 IoT Core device
 
@@ -62,7 +65,7 @@ To deploy the client application from the previous step to your Windows 10 IoT d
 * Copy the text file to the device’s document folder: 
 `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
-Once you've done that, you'll need to open the [Windows Device Portal](https://docs.microsoft.com/en-us/windows/iot-core/manage-your-device/deviceportal) by typing in http://[device-IP-address]:8080 into any browser.
+Once you've done that, you'll need to open the [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) by typing in http://[device-IP-address]:8080 into any browser.
 
 From there and, as shown in the if below, you'll want to:
 1. Expand the "Apps" node on the left.

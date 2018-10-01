@@ -19,6 +19,6 @@ ms.reviewer: johnhas
 
 # Known issues for Validation as a Service
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 - [Troubleshoot Validation as a Service](azure-stack-vaas-troubleshoot.md)

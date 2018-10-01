@@ -90,4 +90,4 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Azure Traffic Manager Cmdlets][1]
 
-[1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
+[1]: https://docs.microsoft.com/powershell/module/azurerm.trafficmanager

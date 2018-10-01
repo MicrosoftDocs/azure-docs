@@ -1,20 +1,13 @@
 ---
-title: Supported data sources in Azure Data Catalog | Microsoft Docs
+title: Supported data sources in Azure Data Catalog
 description: This article lists specifications of the currently supported data sources.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: jstevens
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 
 # Supported data sources in Azure Data Catalog
@@ -371,7 +364,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td></td>
+      <td>Only legacy collections from Azure DocumentDB and SQL API collections in Azure Cosmos DB are compatible. Newer Cosmos DB APIs are not yet supported. Choose Azure DocumentDB in the Data Source list.</td>
     </tr>
     <tr>
       <td>Generic ODBC table</td>
@@ -536,32 +529,6 @@ If you want to see a specific data source supported, suggest it (or voice your s
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual cluster</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream, stream set, view</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
         
       </td>
     </tr>

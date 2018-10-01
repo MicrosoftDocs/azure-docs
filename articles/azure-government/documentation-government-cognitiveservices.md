@@ -5,7 +5,7 @@ services: azure-government
 cloud: gov
 documentationcenter: ''
 author: yujhongmicrosoft
-manager: zakramer
+
 
 ms.assetid: cba97199-851d-43ae-a75a-c601f3f81601
 ms.service: azure-government
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/09/2017
+ms.date: 9/28/2018
 ms.author: yujhong
 
 ---
@@ -21,6 +21,9 @@ ms.author: yujhong
 # Cognitive Services on Azure Government – Computer Vision, Face, Translator Text APIs
 
 To see an overview of Cognitive Services on Azure Government, [click here](documentation-government-services-aiandcognitiveservices.md).
+
+> [!IMPORTANT]
+> Billing for the Computer Vision API, Face API, and Translator Text API will begin on 11/1/2018.
 
 ## Prerequisites
 * Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
@@ -693,7 +696,7 @@ namespace TextTranslator
     }
 }
 ```
-For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](http://docs.microsofttranslator.com/text-translate.html) for Translator Text API.
+For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) for Translator Text API.
 
 ### Next Steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

@@ -120,7 +120,7 @@ If the Microsoft Azure Active Directory PowerShell Module is not already present
 
 To use the NPS extension, on-premises users must be synced with Azure Active Directory and enabled for MFA. This guide assumes that on-premises users are synced with Azure Active Directory via Azure AD Connect. Instructions for enabling users for MFA are provided below.
 
-For information about Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md). 
+For information about Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### Azure Active Directory GUID ID 
 
@@ -451,5 +451,5 @@ For more information, see [Integrate your existing NPS infrastructure with Azure
 
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

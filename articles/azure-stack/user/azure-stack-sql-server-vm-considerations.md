@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ---
@@ -141,7 +141,7 @@ Some deployments may achieve additional performance benefits using more advanced
 
 - **Back up to Azure** **storage.** When performing backups for SQL Server running in Azure Stack virtual machines, you can use SQL Server Backup to URL. This feature is available starting with SQL Server 2012 SP1 CU2 and recommended for backing up to the attached data disks.
 
-    When your backup or restore using Azure storage, follow the recommendations provided in [SQL Server Backup to URL Best Practices and Troubleshooting](https://msdn.microsoft.com/library/jj919149.aspx) and [Restoring From Backups Stored in Microsoft Azure](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). You can also automate these backups using [Automated Backup for SQL Server in Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup).
+    When your backup or restore using Azure storage, follow the recommendations provided in [SQL Server Backup to URL Best Practices and Troubleshooting](https://msdn.microsoft.com/library/jj919149.aspx) and [Restoring From Backups Stored in Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). You can also automate these backups using [Automated Backup for SQL Server in Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup).
 
 -   **Back up to Azure Stack storage.** You can back up to Azure Stack storage in a similar fashion as with backing up to Azure Storage. When you create a backup inside SQL Server Management Studio (SSMS), you need to enter the configuration information manually. You cannot use SSMS to create the storage container or the Shared Access Signature. SSMS only connects to Azure subscriptions, not Azure Stack subscriptions. Instead, you need to create the storage account, container, and Shared Access Signature in the Azure Stack portal or with PowerShell.
 

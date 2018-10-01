@@ -22,7 +22,7 @@ Log alert for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-view
 ### Using Azure Resource Manager Template
 Log alerts for Log Analytics are created by alert rules that run a saved search on a regular interval. If the results of the query match specified criteria, an alert record is created and one or more actions are run. 
 
-Resource template for [Log analytics saved search](../log-analytics/log-analytics-log-searches.md) and [Log analytics alerts](../log-analytics/log-analytics-alerts.md) are available in Log Analytics section of documentation. Learn more about, [Adding Log Analytics saved searches and alerts](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
+Resource template for Log analytics saved search and Log analytics alertsare available in Log Analytics section of documentation. To learn more see, [Adding Log Analytics saved searches and alerts](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
 
 ### Using Resource Template via API/Powershell
 The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Resource Manager REST API. The API can thus be accessed from a PowerShell command line and will output search results to you in JSON format, allowing you to use the results in many different ways programmatically.
@@ -30,12 +30,12 @@ The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Re
 Learn more  about [create and manage alert rules in Log Analytics with REST API](../log-analytics/log-analytics-api-alerts.md); including examples of accessing the API from Powershell.
 
 ## Managing log alert on Application Insights
-Log alerts for Azure Application Insights have been introduced as part of the new Azure alerts under Azure Monitor. Hence it runs under Azure Monitor API as [Scheduled Query Rules](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) REST operation group.
+Log alerts for Azure Application Insights have been introduced as part of the new Azure alerts under Azure Monitor. Hence it runs under Azure Monitor API as [Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST operation group.
 
 ### Using Azure Resource Manager Template
-Log alert for Application Insights resources has a type of `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+Log alert for Application Insights resources has a type of `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template, with sample data set as variables.
+The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template, with sample data set as variables.
 
 ```json
 {
@@ -108,7 +108,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 }
 ```
 > [!IMPORTANT]
-> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
+> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
 
 The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walkthrough and can be deployed using [Azure Resource Manager in Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

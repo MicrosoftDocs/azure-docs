@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2017
+ms.date: 08/09/2018
 ms.author: kgremban
 ---
 
@@ -41,6 +41,9 @@ Azure Monitor tracks different operations that occur in IoT Hub. Each category h
 #### Connections
 
 The connections category tracks device connect and disconnect events from an IoT hub as well as errors. Tracking this category is useful for identifying unauthorized connection attempts and for tracking when a connection is lost for devices in areas of poor connectivity.
+
+> [!NOTE]
+> For reliable connection status of devices check [Device heartbeat][lnk-devguide-heartbeat].
 
 ```json
 {
@@ -151,7 +154,7 @@ This category cannot catch errors that directly occur while the device is upload
 
 #### Cloud-to-device twin operations
 
-The cloud-to-device twin operations category tracks service-initiated events on device twins. These operations can include get twin, update reported properties, and subscribe to desired properties
+The cloud-to-device twin operations category tracks service-initiated events on device twins. These operations can include get twin, update or replace tags, and update or replace desired properties. 
 
 ```json
 {
@@ -168,7 +171,7 @@ The cloud-to-device twin operations category tracks service-initiated events on 
 
 #### Device-to-cloud twin operations
 
-The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include get twin, update or replace tags, and update or replace desired properties. 
+The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include get twin, update reported properties, and subscribe to desired properties.
 
 ```json
 {
@@ -219,7 +222,7 @@ The jobs operations category reports on job requests to update device twins or i
 
 #### Direct Methods
 
-The direct methods category tracks request-reponse interactions sent to individual devices. These requests are initiated in the cloud. 
+The direct methods category tracks request-response interactions sent to individual devices. These requests are initiated in the cloud. 
 
 ```json
 {
@@ -322,7 +325,7 @@ To learn more about how to interpret health data, see [Azure resource health ove
 - [IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox][lnk-monitoring-notifications]
 
 
-[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-AM]: ../azure-monitor/index.yml
 [lnk-ARH]: ../service-health/resource-health-overview.md
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md
@@ -330,3 +333,4 @@ To learn more about how to interpret health data, see [Azure resource health ove
 [lnk-AM-schemas]: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md
 [lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
 [lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

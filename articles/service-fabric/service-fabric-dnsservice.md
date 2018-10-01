@@ -155,7 +155,7 @@ You can set the DNS name for a service when creating it using the `New-ServiceFa
     -ServiceDnsName service1.application1
 ```
 
-## Making DNS queries on a stateful service partition
+## [Preview] Making DNS queries on a stateful service partition
 Beginning with Service Fabric version 6.3, the Service Fabric DNS service supports queries for service partitions.
 
 For partitions that will be used in DNS queries, the following naming restrictions apply:
@@ -245,6 +245,8 @@ public class ValuesController : Controller
 }
 ```
 
+## Known Issues
+* For Service Fabric versions 6.3 and higher, there is a problem with DNS lookups for service names containing a hyphen in the DNS name. For more information on this issue, please track the following [GitHub Issue](https://github.com/Azure/service-fabric-issues/issues/1197). A fix for this is coming in the next 6.3 update. 
 
 ## Next steps
 Learn more about service communication within the cluster with  [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)

@@ -129,7 +129,7 @@ Click through to an occurrence of a failed request, and look at its associated e
 ![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## Analytics
-You can track dependencies in the [Log Analytics query language](https://docs.loganalytics.io/). Here are some examples.
+You can track dependencies in the [Log Analytics query language](https://aka.ms/LogAnalyticsLanguage). Here are some examples.
 
 * Find any failed dependency calls:
 

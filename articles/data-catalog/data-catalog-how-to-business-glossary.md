@@ -1,20 +1,13 @@
 ---
-title: Set up the business glossary for governed tagging in Azure Data Catalog | Microsoft Docs
+title: Set up the business glossary for governed tagging in Azure Data Catalog
 description: How-to article highlighting the business glossary in Azure Data Catalog for defining and using a common business vocabulary to tag registered data assets.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: b3d63dbe-1ae7-499f-bc46-42124e950cd6
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # Set up the business glossary for governed tagging
 ## Introduction

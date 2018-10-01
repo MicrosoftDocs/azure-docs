@@ -3,7 +3,7 @@ title: Manage VM disks in Azure Stack | Microsoft Docs
 description: Provision disks for virtual machines in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/11/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+ms.author: mabrigg
 ms.reviewer: jiahan
 ---
 
@@ -26,9 +26,13 @@ This article describes how to provision virtual machine disk storage by using th
 
 ## Overview
 
-Azure Stack supports the use of [unmanaged disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) on virtual machines, as both an operating system (OS) and a data disk.
+Beginning with version 1808, Azure Stack supports the use of managed disks and unmanaged disks on virtual machines, as both an operating system (OS) and a data disk. Prior to version 1808, only unmanaged disks are supported. 
 
-To use unmanaged disks, you create a [storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to store the disks. The disks you create are referred to as VM disks and are stored in containers in the storage account.
+**[Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)** simplify disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. You only have to specify the size of disk you need, and Azure Stack creates and manages the disk for you.
+
+**[Unmanaged disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, require that you create a [storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to store the disks. The disks you create are referred to as VM disks and are stored in containers in the storage account.
+
+ 
 
 ### Best practice guidelines
 

@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Correct misspelled words in utterances by adding Bing Spell Check API V7 to LUIS endpoint queries.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -59,7 +59,7 @@ The endpoint query needs the key passed in the query string parameters for each 
 
 The endpoint URL has several values that need to be passed correctly. The Bing Spell Check API v7 key is just another one of these. You must set the **spellCheck** parameter to true and you must set the value of **bing-spell-check-subscription-key** to the key value:
 
-https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## Send misspelled utterance to LUIS
 1. In a web browser, copy the preceding string and replace the `region`, `appId`, `luisKey`, and `bingKey` with your own values. Make sure to use the endpoint region, if it is different from your publishing [region](luis-reference-regions.md).

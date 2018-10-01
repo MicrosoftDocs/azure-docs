@@ -19,7 +19,7 @@ This article describes the device model schema that specifies the capabilities a
 The following articles are related to the current article:
 
 * [Implement the device model behavior](iot-accelerators-device-simulation-device-behavior.md) describes the JavaScript files you use to implement the behavior of a simulated device.
-* [Create a new simulated device](iot-accelerators-remote-monitoring-test.md) puts it all together and shows you how to deploy a new simulated device type to your solution.
+* [Create a new simulated device](iot-accelerators-device-simulation-create-simulated-device.md) puts it all together and shows you how to deploy a new simulated device type to your solution.
 
 In this article, you learn how to:
 

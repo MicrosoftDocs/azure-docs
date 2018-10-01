@@ -1,5 +1,5 @@
 ---
-title: Manage Azure microservice load using metrics | Microsoft Docs
+title: Manage Azure Service Fabric app load using metrics | Microsoft Docs
 description: Learn about how to configure and use metrics in Service Fabric to manage service resource consumption.
 services: service-fabric
 documentationcenter: .net

@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: douglasl
 

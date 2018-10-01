@@ -27,7 +27,7 @@ Azure Cosmos DB and Azure Functions enable you to integrate your databases and s
 * Bind a function to an Azure Cosmos DB container using an **output binding**. Output bindings write data to a container when a function completes.
 
 > [!NOTE]
-> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only.
+> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Gremlin API accounts only.
 
 The following diagram illustrates each of these three integrations: 
 
@@ -78,7 +78,7 @@ The following images show the code in the Azure portal for this scenario.
 
 ### Gaming use case - Azure Cosmos DB trigger and output binding
 
-In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Graph API](graph-introduction.md). You can then write the results to an [Azure Cosmos DB SQL database] for easy retrieval.
+In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Gremlin API](graph-introduction.md). You can then write the results to an [Azure Cosmos DB SQL database] for easy retrieval.
 
 **Implementation:** Use an Azure Cosmos DB trigger and an output binding
 
@@ -106,16 +106,12 @@ In all of these use cases, because the function has decoupled the app itself, yo
 ## Tooling
 
 Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio 2017.
-* In the Azure Functions portal, you can create an Azure Cosmos DB trigger. For quickstart instructions, see [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
-    ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
-* In the Azure Functions portal, you can also add Azure Cosmos DB input bindings and output bindings to other types of triggers. For quickstart instructions, see [Store unstructured data using Azure Functions and Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
-    ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/function-portal-input-binding.png)
-*   In the Azure Cosmos DB portal, you can add an Azure Cosmos DB trigger to an existing Azure Function app in the same resource group.
-    ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/cosmos-db-portal.png)
-* In Visual Studio 2017, you can create an Azure Cosmos DB trigger using the integrated template:
+
+* In the Azure Functions portal, you can create an Azure Cosmos DB trigger. For quickstart instructions, see [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc).
+* In the Azure Cosmos DB portal, you can add an Azure Cosmos DB trigger to an existing Azure Function app in the same resource group.
+* In Visual Studio 2017, you can create an Azure Cosmos DB trigger using the [Azure Functions Tools for Visual Studio 2017](../azure-functions/functions-develop-vs.md):
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
-
 
 ## Why choose Azure Functions integration for serverless computing?
 
@@ -149,7 +145,6 @@ Now let's connect Azure Cosmos DB and Azure Functions for real:
 
 * [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](https://aka.ms/cosmosdbinputbind)
-* [Store unstructured data using Azure Functions and Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
 * [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-cosmosdb.md)
 
 

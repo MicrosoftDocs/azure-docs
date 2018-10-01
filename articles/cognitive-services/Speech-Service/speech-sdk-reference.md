@@ -8,7 +8,7 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
 ---
 
@@ -16,7 +16,7 @@ ms.author: v-jerkin
 
 The Speech Software Development Kit (SDK) provides your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**.
 
-[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
+[!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## Next steps
 

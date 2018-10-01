@@ -1,14 +1,17 @@
 ---
-title: Glossary of terms for the Custom Speech Service on Azure | Microsoft Docs
+title: Glossary of terms - Custom Speech Service
+titlesuffix: Azure Cognitive Services
 description: Terminology in the glossary defines terms that you'll encounter as you work with the Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Glossary

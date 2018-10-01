@@ -19,7 +19,7 @@ ms.reviewer: johnhas
 
 # Troubleshoot Validation as a Service
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 The following are common problems unrelated to software releases and their solutions.
 

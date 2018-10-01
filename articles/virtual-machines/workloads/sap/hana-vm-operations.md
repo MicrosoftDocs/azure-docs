@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2018
+ms.date: 09/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
 
@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 # SAP HANA infrastructure configurations and operations on Azure
 This document provides guidance for configuring Azure infrastructure and operating SAP HANA systems that are deployed on Azure native virtual machines (VMs). The document also includes configuration information for SAP HANA scale-out for the M128s VM SKU. This document is not intended to replace the standard SAP documentation, which includes the following content:
 
-- [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
+- [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP installation guides](https://service.sap.com/instguides)
 - [SAP notes](https://sservice.sap.com/notes)
 
@@ -78,14 +78,14 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 So far as you bought SAP HANA appliances for on-premises, you never had to care about the I/O subsystems and its capabilities. Because the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements. And also understand the configuration requirements suggested in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
 
-- Enable read/write volume on **/hana/log** of a 250MB/sec at minimum with 1MB I/O sizes
-- Enable read activity of at least 400MB/sec for **/hana/data** for 16MB and 64MB I/O sizes
-- Enable write activity of at least 250MB/sec for **/hana/data** with 16MB and 64MB I/O sizes
+- Enable read/write volume on **/hana/log** of a 250 MB/sec at minimum with 1 MB I/O sizes
+- Enable read activity of at least 400 MB/sec for **/hana/data** for 16 MB and 64 MB I/O sizes
+- Enable write activity of at least 250 MB/sec for **/hana/data** with 16 MB and 64 MB I/O sizes
 
 Given that low storage latency is critical for DBMS systems, even as those DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is mandatory to leverage Azure Premium Disks for **/hana/data** and **/hana/log** volumes. In order to achieve the minimum throughput of **/hana/log** and **/hana/data** as desired by SAP, you need to build a RAID 0 using MDADM or LVM over multiple Azure Premium Storage disks. And use the RAID volumes as **/hana/data** and **/hana/log** volumes. As stripe sizes for the RAID 0 the recommendation is to use:
 
-- 64KB or 128KB for **/hana/data**
-- 32KB for **/hana/log**
+- 64 KB or 128 KB for **/hana/data**
+- 32 KB for **/hana/log**
 
 > [!NOTE]
 > You don't need to configure any redundancy level using RAID volumes since Azure Premium and Standard storage keep three images of a VHD. The usage of a RAID volume is purely to configure volumes that provide sufficient I/O throughput.
@@ -165,6 +165,8 @@ The disks recommended for the smaller VM types with 3 x P20 oversize the volumes
 Check whether the storage throughput for the different suggested volumes will meet the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed will increase the IOPS and I/O throughput within the limits of the Azure virtual machine type. 
 
 
+
+
 #### Storage solution with Azure Write Accelerator for Azure M-Series virtual machines
 Azure Write Accelerator is a functionality that is getting rolled out for M-Series VMs exclusively. As the name states, the purpose of the functionality is to improve I/O latency of Writes against the Azure Premium Storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore the configurations shown so far need to be changed. The main change is the breakup between the **/hana/data** and **/hana/log** in order to use Azure Write Accelerator against the **/hana/log** volume only. 
 
@@ -200,7 +202,9 @@ More detailed instructions on how to enable Azure Write Accelerator can be found
 
 Details and restrictions for Azure Write Accelerator can be found in the same documentation.
 
-
+> [!NOTE]
+> The disk configuration recommendations stated are targeting minimum requirements SAP expresses towards  their infrastructure providers. In real customer deployments and workload scenarios, situations were encountered where these recommendations still did not provide sufficient capabilities. These could be situations where a customer required a faster reload of the data after a HANA restart or where backup configurations required higher bandwidth to the storage. Other cases included **/hana/log** where 5000 IOPS was not sufficient for the specific workload. So take these recommendations as a starting point and adapt based on the requirements of the workload.
+>  
 
 ### Set up Azure virtual networks
 When you have site-to-site connectivity into Azure via VPN or ExpressRoute, you must have at least one Azure virtual network that is connected through a Virtual Gateway to the VPN or ExpressRoute circuit. In simple deployments, the Virtual Gateway can be deployed in a subnet of the Azure virtual network (VNet) that hosts the SAP HANA instances as well. To install SAP HANA, you create two additional subnets within the Azure virtual network. One subnet hosts the VMs to run the SAP HANA instances. The other subnet runs Jumpbox or Management VMs to host SAP HANA Studio, other management software, or your application software.
@@ -210,9 +214,14 @@ When you install the VMs to run SAP HANA, the VMs need:
 - Two virtual NICs installed: one NIC to connect to the management subnet, and one NIC to connect from the on-premises network or other networks, to the SAP HANA instance in the Azure VM.
 - Static private IP addresses that are deployed for both virtual NICs.
 
+> [!NOTE]
+> You should assign static IP addresses through Azure means to individual vNICs. You should not assign static IP addresses within the guest OS to a vNIC. Some Azure services like Azure Backup Service rely on the fact that at least the primary vNIC is set to DHCP and not to static IP addresses. See also the document [Troubleshoot Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). If you need to assign multiple static IP addresses to a VM, you need to assign multiple vNICs to a VM.
+>
+>
+
 However, for deployments that are enduring, you need to create a virtual datacenter network architecture in Azure. This architecture recommends the separation of the Azure VNet Gateway that connects to on-premise into a separate Azure VNet. This separate VNet should host all the traffic that leaves either to on-premise or to the internet. This approach allows you to deploy software for auditing and logging traffic that enters the virtual datacenter in Azure in this separate hub VNet. So you have one VNet that hosts all the software and configurations that relates to in- and outgoing traffic to your Azure deployment.
 
-The articles [Azure Virtual Datacenter: A Network Perspective](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) and [Azure Virtual Datacenter and the Enterprise Control Plane](https://docs.microsoft.com/azure/architecture/vdc/) give more  information on the virtual datacenter approach and related Azure VNet design.
+The articles [Azure Virtual Datacenter: A Network Perspective](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) and [Azure Virtual Datacenter and the Enterprise Control Plane](https://docs.microsoft.com/azure/architecture/vdc/) give more  information on the virtual datacenter approach and related Azure VNet design.
 
 
 >[!NOTE]
@@ -286,7 +295,7 @@ In the document [SAP HANA TDI Storage Requirements](https://www.sap.com/document
 
 Assuming you take the SAP HANA scale-out certified M128s Azure VM with roughly 2 TB memory, the SAP recommendations can be summarized like:
 
-- One master node and up to four worker node, the **/hana/shared** volume would need to be 2TB of size. 
+- One master node and up to four worker node, the **/hana/shared** volume would need to be 2 TB of size. 
 - One master node and five and eight worker nodes, the size of **/hana/shared** should be 4 TB. 
 - One master node and 9 to 12 worker nodes, a size of 6 TB for **/hana/shared** would be required. 
 - One master node and using between 12 and 15 worker nodes, you are required to provide a **/hana/shared** volume that is 8 TB in size.
@@ -344,10 +353,133 @@ As your Azure VM infrastructure is deployed, and all other preparations are done
 - Install the SAP HANA master node according to SAP's documentation
 - **After the installation, you need to change the global.ini file and add the parameter 'basepath_shared = no' to the global.ini**. This parameter will enable SAP HANA to run in scale-out without 'shared' **/hana/data** and **/hana/log** volumes between the nodes. Details are documented in [SAP Note #2080991](https://launchpad.support.sap.com/#/notes/2080991).
 - After changing the global.ini parameter, restart the SAP HANA instance
-- Add additional worker nodes. See also <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Specify the internal network for SAP HANA inter-node communication during the installation or afterwards using, e.g. the local hdblcm. For more detailed documentation, see also [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
+- Add additional worker nodes. See also <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Specify the internal network for SAP HANA inter-node communication during the installation or afterwards using, for example, the local hdblcm. For more detailed documentation, see also [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
 Following this setup routine, the scale-out configuration you installed is going to use non-shared disks for running **/hana/data** and **/hana/log**. Whereas the **/hana/shared** volume will be placed on the highly available NFS share.
-  
+
+
+## SAP HANA Dynamic Tiering 2.0 for Azure virtual machines
+
+In addition to the SAP HANA certifications on Azure M-series VMs, SAP HANA Dynamic Tiering 2.0 is also supported on Microsoft Azure
+(see SAP HANA Dynamic Tiering documentation links further down). While there is no difference in installing the product or 
+operating it, for example, via SAP HANA Cockpit inside an Azure Virtual Machine, there are a few important items, which are mandatory for official support on Azure. These key points are described below. Throughout the article, the abbreviation "DT 2.0" will be used
+instead of the full name Dynamic Tiering 2.0.
+
+SAP HANA Dynamic Tiering 2.0 isn't supported by SAP BW or S4HANA. Main use cases right now are native HANA applications.
+
+
+### Overview
+
+The picture below gives an overview regarding DT 2.0 support on Microsoft Azure. There is a set of mandatory requirements, which
+has to be followed to comply with the official certification :
+
+- DT 2.0 must be installed on a dedicated Azure VM. It may not run on the same VM where SAP HANA runs
+- SAP HANA and DT 2.0 VMs must be deployed within the same Azure Vnet
+- The SAP HANA and DT 2.0 VMs must be deployed with Azure accelerated networking enabled
+- Storage type for the DT 2.0 VMs must be Azure Premium Storage
+- Multiple Azure disks must be attached to the DT 2.0 VM
+- It's required to create a software raid / striped volume ( either via lvm or mdadm ) using striping across the Azure disks
+
+More details will be explained in the following sections.
+
+![SAP HANA DT 2.0 Architecture Overview](media/hana-vm-operations/hana-dt-20.PNG)
+
+
+
+### Dedicated Azure VM for SAP HANA DT 2.0
+
+On Azure IaaS, DT 2.0 is only supported on a dedicated VM. It is not allowed to run DT 2.0 on the same Azure VM where the HANA
+instance is running. Initially two VM types can be used to run SAP HANA DT 2.0 :
+
+M64-32ms, E32sv3 
+
+See VM type description [here](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+
+Given the basic idea of DT 2.0, which is about offloading "warm" data in order to save costs it makes sense to use corresponding
+VM sizes. There is no strict rule though regarding the possible combinations. It depends on the specific customer workload.
+
+Recommended configurations would be :
+
+| SAP HANA VM type | DT 2.0 VM type |
+| --- | --- | 
+| M128ms | M64-32ms |
+| M128s | M64-32ms |
+| M64ms | E32sv3 |
+| M64s | E32sv3 |
+
+
+All combinations of SAP HANA-certified M-series VMs with supported DT 2.0 VMs (M64-32ms, E32sv3) are possible.
+
+
+### Azure networking and SAP HANA DT 2.0
+
+Installing DT 2.0 on a dedicated VM requires network throughput between the DT 2.0 VM and the SAP HANA VM of 10 Gb minimum. 
+Therefore it's mandatory to place all VMs within the same Azure Vnet and enable Azure accelerated networking.
+
+See additional information about Azure accelerated networking [here](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)
+
+### VM Storage for SAP HANA DT 2.0
+
+According to DT 2.0 best practice guidance, the disk IO throughput should be minimum 50 MB/sec per physical core. Looking at the spec for the two 
+Azure VM types, which are supported for DT 2.0 one will see the maximum disk IO throughput limit for the VM :
+
+- E32sv3    :   768 MB/sec ( uncached ) which means a ratio of 48 MB/sec per physical core
+- M64-32ms  :  1000 MB/sec ( uncached ) which means a ratio of 62.5 MB/sec per physical core
+
+It is required to attach multiple Azure disks to the DT 2.0 VM and create a software raid (striping) on OS level to achieve the max limit of disk throughput 
+per VM. A single Azure disk cannot provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
+
+- Details about available Azure disk types can be found [here](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Details about creating software raid via mdadm can be found [here](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
+- Details about configuring LVM to create a striped volume for max throughput can be found [here](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
+
+Depending on size requirements, there are different options to reach the max throughput of a VM. Here are possible data volume disk configurations 
+for every DT 2.0 VM type to achieve the upper VM throughput limit. The E32sv3 VM should be considered as an entry level for smaller workloads. In case it
+should turn out that it's not fast enough it might be necessary to resize the VM to M64-32ms.
+As the M64-32ms VM has much memory, the IO load might not reach the limit especially for read intensive workloads. Therefore less disks in the stripe set
+might be sufficient depending on the customer specific workload. But to be on the safe side the disk configurations below were chosen to guarantee the
+maximum throughput :
+
+
+| VM SKU | Disk Config 1 | Disk Config 2 | Disk Config 3 | Disk Config 4 | Disk Config 5 | 
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3.5 TB | 8 x P15 -> 2 TB | 
+| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2.5 TB | 6 x P15 -> 1.5 TB | 
+
+
+Especially in case the workload is read-intense it could boost IO performance to turn on Azure host cache "read-only" as recommended for the 
+data volumes of database software. Whereas for the transaction log Azure host disk cache must be "none". 
+
+Regarding the size of the log volume a recommended starting point is a heuristic of 15% of the data size. The creation of the log volume  can be accomplished by using different
+Azure disk types depending on cost and throughput requirements. Also for the log volume high throughput is preferred and in case of M64-32ms it is 
+strongly recommended to turn Write Accelerator on (which is mandatory for SAP HANA). This provides optimal disk write latency for the transaction
+log (only available for M-series). There are some items to consider though like the maximum number of disks per VM type. Details about WA can be
+found [here](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+
+Here are a few examples about sizing the log volume :
+
+| data volume size and disk type | log volume and disk type config 1 | log volume and disk type config 2 |
+| --- | --- | --- |
+| 4 x P50 -> 16 TB | 5 x P20 -> 2.5 TB | 3 x P30 -> 3 TB |
+| 6 x P15 -> 1.5 TB | 4 x P6 -> 256 GB | 1 x P15 -> 256 GB |
+
+
+Like for SAP HANA scale-out, the /hana/shared directory has to be shared between the SAP HANA VM and the DT 2.0 VM. The same architecture as for
+SAP HANA scale-out using dedicated VMs, which act as a highly available NFS server is recommended. In order to provide a shared backup volume,
+the identical design can be used. But it is up to the customer if HA would be necessary or if it is sufficient to just use a dedicated VM with
+enough storage capacity to act as a backup server.
+
+
+
+### Links to DT 2.0 documentation 
+
+- [SAP HANA Dynamic Tiering installation and update guide](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
+- [SAP HANA Dynamic Tiering tutorials and resources](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
+- [SAP HANA Dynamic Tiering PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
+- [SAP HANA 2.0 SPS 02 dynamic tiering enhancements](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
+
+
 
 
 ## Operations for deploying SAP HANA on Azure VMs
@@ -380,4 +512,4 @@ Be sure to install SAProuter in a separate VM and not in your Jumpbox VM. The se
 For more information on how to set up and maintain remote support connections through SAProuter, see the [SAP documentation](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### High-availability with SAP HANA on Azure native VMs
-If you're running SUSE Linux 12 SP1 or later, you can establish a Pacemaker cluster with STONITH devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information about the setup procedure, see [SAP HANA High Availability guide for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+If you're running SUSE Linux Enterprise Server for SAP Applications 12 SP1 or later, you can establish a Pacemaker cluster with STONITH devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information about the setup procedure, see [SAP HANA High Availability guide for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

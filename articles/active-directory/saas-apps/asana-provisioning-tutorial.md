@@ -59,15 +59,15 @@ This section guides you through connecting your Azure AD to Asana user account p
 
 1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory** > **Enterprise Apps** > **All applications** section.
 
-2. If you already configured Asana for single sign-on, search for your instance of Asana by using the search field. Otherwise, select **Add** and search for **Asana** in the application gallery. Select **Asana** from the search results, and add it to your list of applications.
+1. If you already configured Asana for single sign-on, search for your instance of Asana by using the search field. Otherwise, select **Add** and search for **Asana** in the application gallery. Select **Asana** from the search results, and add it to your list of applications.
 
-3. Select your instance of Asana, and then select the **Provisioning** tab.
+1. Select your instance of Asana, and then select the **Provisioning** tab.
 
-4. Set **Provisioning Mode** to **Automatic**.
+1. Set **Provisioning Mode** to **Automatic**.
 
     ![Asana Provisioning](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-5. Under the **Admin Credentials** section, follow these instructions to generate the token and enter it in  **Secret Token**:
+1. Under the **Admin Credentials** section, follow these instructions to generate the token and enter it in  **Secret Token**:
 
     a. Sign in to [Asana](https://app.asana.com) by using your admin account.
 
@@ -79,23 +79,23 @@ This section guides you through connecting your Azure AD to Asana user account p
 
     e. Update **Name** and **About** and the profile photo as needed. Copy the token in **Token**, and select it in **Save Changes**.
 
-6. In the Azure portal, select **Test Connection** to ensure that Azure AD can connect to your Asana app. If the connection fails, ensure that your Asana account has admin permissions, and try the **Test Connection** step again.
+1. In the Azure portal, select **Test Connection** to ensure that Azure AD can connect to your Asana app. If the connection fails, ensure that your Asana account has admin permissions, and try the **Test Connection** step again.
 
-7. Enter the email address of a person or group that you want to receive provisioning error notifications in  **Notification Email**. Select the check box underneath.
+1. Enter the email address of a person or group that you want to receive provisioning error notifications in  **Notification Email**. Select the check box underneath.
 
-8. Select **Save**. 
+1. Select **Save**. 
 
-9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Asana**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Asana**.
 
-10. In the **Attribute Mappings** section, review the user attributes to be synchronized from Azure AD to Asana. The attributes selected as **Matching** properties are used to match the user accounts in Asana for update operations. Select **Save** to commit any changes. For more information, see [Customize user provision attribute mappings](../active-directory-saas-customizing-attribute-mappings.md).
+1. In the **Attribute Mappings** section, review the user attributes to be synchronized from Azure AD to Asana. The attributes selected as **Matching** properties are used to match the user accounts in Asana for update operations. Select **Save** to commit any changes. For more information, see [Customize user provision attribute mappings](../manage-apps/customize-application-attributes.md).
 
-11. To enable the Azure AD provisioning service for Asana, in the **Settings** section, change **Provisioning Status** to **On**.
+1. To enable the Azure AD provisioning service for Asana, in the **Settings** section, change **Provisioning Status** to **On**.
 
-12. Select **Save**. 
+1. Select **Save**. 
 
 Now the initial synchronization starts for any users assigned to Asana in the **Users** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. The audit logs describe all actions performed by the provisioning service on your Asana app.
 
-For more information on how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+For more information on how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Additional resources
 

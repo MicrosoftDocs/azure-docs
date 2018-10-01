@@ -56,6 +56,8 @@ dotnet new web
 
 ## Run the app locally
 
+Run the application locally so that you see how it should look when you deploy it to Azure. 
+
 Restore the NuGet packages and run the app.
 
 ```bash

@@ -1,19 +1,14 @@
 ---
-title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight | Microsoft Docs
+title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight 
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
+author: omidm1
+ms.author: omidm
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-
 ---
 # Use Oozie with Hadoop to define and run a workflow on Linux-based Azure HDInsight
 
@@ -34,7 +29,7 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 ## Prerequisites
 
-* **An HDInsight cluster**: See [Get Started with HDInsight on Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).

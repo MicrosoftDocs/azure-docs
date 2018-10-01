@@ -1,5 +1,5 @@
 ---
-title: PowerShell in Azure Cloud Shell (Preview) Quickstart | Microsoft Docs
+title: PowerShell in Azure Cloud Shell Quickstart | Microsoft Docs
 description: Quickstart for PowerShell in Cloud Shell
 services: Azure
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 07/27/2018
 ms.author: damaerte
 ---
 
-# Quickstart for PowerShell in Azure Cloud Shell (Preview)
+# Quickstart for PowerShell in Azure Cloud Shell
 
-This document details how to use the PowerShell in Cloud Shell in the [Azure portal](https://aka.ms/PSCloudPreview).
+This document details how to use the PowerShell in Cloud Shell in the [Azure portal](https://portal.azure.com/).
 
 > [!NOTE]
 > A [Bash in Azure Cloud Shell](quickstart.md) Quickstart is also available.
@@ -115,7 +115,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 ```
 
 > [!NOTE]
-> You may notice that the second time when you type `dir`, the cloud shell is able to display the items much faster.
+> You may notice that the second time when you type `dir`, the Cloud Shell is able to display the items much faster.
 > This is because the child items are cached in memory for a better user experience.
 However, you can always use `dir -Force` to get fresh data.
 
@@ -254,7 +254,6 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## SSH
 
-[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) is available in PowerShell Cloud Shell.
 To authenticate to servers or VMs using SSH, generate the public-private key pair in Cloud Shell and
 publish the public key to `authorized_keys` on the remote machine, such as `/home/user/.ssh/authorized_keys`.
 

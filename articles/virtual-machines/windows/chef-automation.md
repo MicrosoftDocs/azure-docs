@@ -23,7 +23,7 @@ ms.author: diviso
 
 Chef is a great tool for delivering automation and desired state configurations.
 
-With the latest cloud api release, Chef provides seamless integration with Azure, giving you the ability to provision and deploy configuration states through a single command.
+With the latest cloud API release, Chef provides seamless integration with Azure, giving you the ability to provision and deploy configuration states through a single command.
 
 In this article, you set up your Chef environment to provision Azure virtual machines and walk through creating a policy or “CookBook” and then deploying this cookbook to an Azure virtual machine.
 
@@ -38,7 +38,7 @@ The following diagram depicts the high-level Chef architecture.
 
 Chef has three main architectural components: Chef Server, Chef Client (node), and Chef Workstation.
 
-The Chef Server is the management point and there are two options for the Chef Server: a hosted solution or an on-premises solution. We will be using a hosted solution.
+The Chef Server is the management point and there are two options for the Chef Server: a hosted solution or an on-premises solution. We will be using a hosted solution for this tutorial.
 
 The Chef Client (node) is the agent that sits on the servers you are managing.
 
@@ -55,7 +55,7 @@ Then create a second directory called c:\chef\cookbooks.
 
 We now need to download the Azure settings file so Chef can communicate with the Azure subscription.
 
-Download your publish settings using the PowerShell Azure [Get-​Azure​Publish​Settings​File](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) command. 
+Download your publish settings using the PowerShell Azure [Get-​Azure​Publish​Settings​File](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) command. 
 
 Save the publish settings file in C:\chef.
 
@@ -71,7 +71,7 @@ Once your organization is created, download the starter kit.
 ![][4]
 
 > [!NOTE]
-> If you receive a prompt warning you that your keys will be reset, it’s ok to proceed as we have no existing infrastructure configured as yet.
+> If you receive a prompt warning you that your keys will be reset, it’s okay to proceed as we have no existing infrastructure configured as yet.
 > 
 > 
 
@@ -90,7 +90,7 @@ You should now have four files including the Azure publishing file in the root o
 
 The PEM files contain your organization and admin private keys for communication while the knife.rb file contains your knife configuration. We will need to edit the knife.rb file.
 
-Open the file in your editor of choice and modify the “cookbook_path” by removing the /../ from the path so it appears as shown next.
+Open the file in your editor of choice and modify the “cookbook_path” by removing the /../ from the path so it appears as:
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -105,7 +105,7 @@ Your knife.rb file should now look similar to the following example.
 These lines will ensure that Knife references the cookbooks directory under c:\chef\cookbooks, and also uses our Azure Publish Settings file during Azure operations.
 
 ## Installing the Chef Development Kit
-Next [download and install](http://downloads.getchef.com/chef-dk/windows) the ChefDK (Chef Development Kit) to set up your Chef Workstation.
+Next, [download and install](http://downloads.getchef.com/chef-dk/windows) the ChefDK (Chef Development Kit) to set up your Chef Workstation.
 
 ![][7]
 
@@ -115,7 +115,9 @@ Confirm your PATH variable contains entries for C:\opscode\chefdk\bin;C:\opscode
 
 If they are not there, make sure you add these paths!
 
-*NOTE THE ORDER OF THE PATH IS IMPORTANT!* If your opscode paths are not in the correct order you will have issues.
+> [!NOTE]
+> The order of the path is important! If your opscode paths are not in the correct order you will have issues. 
+> 
 
 Reboot your workstation before you continue.
 
@@ -219,7 +221,7 @@ As you can see, I got creative with my HTML code.
 
 Don’t forget we can also connect through an RDP session from the Azure portal via port 3389.
 
-I hope this has been helpful! Go  and start your infrastructure as code journey with Azure today!
+I hope this has been helpful! Go and start your infrastructure as code journey with Azure today!
 
 <!--Image references-->
 [2]: media/chef-automation/2.png

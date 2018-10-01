@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Resource Graph Documentation
+metadata:
+  title: Azure Resource Graph Documentation - Tutorials, API Reference
+  description: Azure Resource Graph is a service in Azure that enables complex querying of resources at scale.
+  services: resource-graph
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: resource-graph
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Azure Resource Graph Documentation helps you configure and learn the query language to discover and explore your resources at scale.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Configure Resource Graph and run your first query.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/cli.svg
+      text: Azure CLI
+      href: first-query-azurecli.md
+    - image:
+        src: ./media/powershell.svg
+      text: Azure PowerShell
+      href: first-query-powershell.md
+- title: Feedback
+  items:
+  - type: paragraph
+    text: To provide feedback on this feature or to get assistance with queries, visit the <b>Resource Graph (preview)</b> page from <b>Azure Policy</b> in the Azure portal and click feedback. You can also send us suggestions on <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.

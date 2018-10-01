@@ -4,8 +4,8 @@ description: Learn how to use the intelligence of Cognitive capabilities in U-SQ
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
@@ -16,12 +16,12 @@ ms.date: 06/05/2018
 ## Overview
 Cognitive capabilities for U-SQL enable developers to use put intelligence in their big data programs. 
 
-The following cognitive capabilities are available:
-* Imaging: Detect faces [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Imaging: Detect emotion [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
-* Imaging: Detect objects (tagging) [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
-* Imaging: OCR (optical character recognition) [Sample](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Text: Key Phrase Extraction & Sentiment Analysis [Sample](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
+The following samples using cognitive capabilities are available:
+* Imaging: [Detect faces](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Imaging: [Detect emotion](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Imaging: [Detect objects (tagging)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Imaging: [OCR (optical character recognition)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Text: [Key Phrase Extraction & Sentiment Analysis](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## Registering Cognitive Extensions in U-SQL
 Before you begin, follow the steps in this article to register Cognitive Extensions in U-SQL: [Registering Cognitive Extensions in U-SQL](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/cognitive-capabilities-in-u-sql#registeringExtensions).

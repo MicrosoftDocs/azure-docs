@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 09/05/2018
 ms.author: anwestg
 
 ---
@@ -44,12 +44,12 @@ To redistribute the scale sets deployed for the App Service resource provider, y
 To scale out the scale sets, follow these steps:
 
 1. Sign in to the Azure Stack Administrator Portal.
-2. Select **More services**.
-3. Under COMPUTE, select **Virtual machine scale sets**. Existing scale sets deployed as part of the App Service deployment will be listed with instance count information. The following screen capture shows an example of scale sets.
+1. Select **All services**.
+2. In the **COMPUTE** category, select **Virtual machine scale sets**. Existing scale sets deployed as part of the App Service deployment will be listed with instance count information. The following screen capture shows an example of scale sets.
 
       ![Azure App Service Scale Sets listed in Virtual Machine Scale Sets UX][1]
 
-4. Scale out each set. For example, if you have three existing instances in the scale set you must scale out to 6 so the three new instances are deployed across fault domains. The following PowerShell example shows out to scale out the scale set.
+1. Scale out each set. For example, if you have three existing instances in the scale set you must scale out to 6 so the three new instances are deployed across fault domains. The following PowerShell example shows out to scale out the scale set.
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
@@ -65,13 +65,13 @@ To scale out the scale sets, follow these steps:
    >[!NOTE]
    >This step can take several of hours to finish, depending on the type of role and the number of instances.
 
-5. In **App Service Administration Roles**, monitor the status of the new role instances. To check the status of a role instance, select the role type in the list
+1. In **App Service Administration Roles**, monitor the status of the new role instances. To check the status of a role instance, select the role type in the list
 
     ![Azure App Service on Azure Stack Roles][2]
 
-6. When the status of the new role instances is **Ready**, go back to **Virtual Machine Scale Set** and **delete** the old role instances.
+1. When the status of the new role instances is **Ready**, go back to **Virtual Machine Scale Set** and **delete** the old role instances.
 
-7. Repeat these steps for **each** virtual machine scale set.
+1. Repeat these steps for **each** virtual machine scale set.
 
 ## Next steps
 

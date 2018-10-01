@@ -9,11 +9,11 @@ editor: curtand
 
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: ergreenl
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center security policies integration with Azure Policy | Microsoft Docs
-description: This document helps you to configure Azure Security Center security policies integration with Azure Policy.
+title: Azure Security Center security policies can be set individually or as part of Azure Policies | Microsoft Docs
+description: This document helps you to set policies in Azure Security Center or in Azure Policy.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -10,15 +10,22 @@ editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 09/5/2018
 ms.author: terrylan
 ---
 
-# Integrate Security Center security policies with Azure Policy
-This article helps you configure Azure Security Center security policies, which are powered by [Azure Policy](../azure-policy/azure-policy-introduction.md).
+# Setting security policies in Security Center or in Azure Policy
+
+This article helps you configure Azure Security Center security policies. Azure Scurity Center policies integrate with Azure Policies, so you can set them either in Security Center on a specific subscription, or in [Azure Policy](../azure-policy/azure-policy-introduction.md), which enables you to set policies across Management groups and across multiple subscriptions..
+
+## What are security policies?
+A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Security Center, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personally identifiable information, might require a higher level of security than other workloads. To set a policy across subscriptions or on Management groups, set them in [Azure Policy](../azure-policy/azure-policy-introduction.md).
+
+> [!NOTE]
+> If you previously configured security policies on a subscription that is part of a management group, or has multiple policy assigments, those policies appear greyed out in Security Center so that you can manage the policy at the management group level via the Azure Policy page. 
 
 ## How security policies work
 Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policies in Security Center or use Azure Policy to do the following things:
@@ -36,8 +43,17 @@ An Azure policy consists of the following components:
 
 A resource is evaluated against the policies that are assigned to it and receives a compliance ratio according to the number of policies the resource is compliant to.
 
+## Who can edit security policies?
+Security Center uses Role-Based Access Control (RBAC), which provides built-in roles that can be assigned to users, groups, and services in Azure. When users open Security Center, they see only information that's related to resources they have access to. Which means that users are assigned the role of owner, contributor, or reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two specific Security Center roles:
+
+- Security reader: Have view rights to Security Center, which includes recommendations, alerts, policy, and health, but they can't make changes.
+- Security admin: Have the same view rights as security reader, and they can also update the security policy and dismiss recommendations and alerts.
+
 ## Edit security policies
 You can edit the default security policy for each of your Azure subscriptions and management groups in Security Center. To modify a security policy, you must be an owner, contributor, or security administrator of the subscription or the containing management group. To view your security policies in Security Center:
+
+> [!NOTE]
+> Any policies set on a subscription that is part of a management group, or has multiple policy assigments, will appear greyed out in Security Center. You can edit these policies in [Azure Policy](../azure-policy/azure-policy-introduction.md). 
 
 1. On the **Security Center** dashboard, under **POLICY & COMPLIANCE**, select **Security policy**. **Policy Management** opens.
 
@@ -91,7 +107,7 @@ To understand the policy definitions that are available in the default security 
 If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure Management Groups provides a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. Each directory is given a single top-level management group called the "root" management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This root management group allows for global policies and RBAC assignments to be applied at the directory level. To set up management groups for use with Azure Security Center, follow the instructions in the [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md) article. 
 
 > [!NOTE]
-> It’s important that you understand the hierarchy of management groups and subscriptions. See [Organize your resources with Azure Management Groups](../azure-resource-manager/management-groups-overview.md#root-management-group-for-each-directory) to learn more about management groups, root management, and management group access.
+> It’s important that you understand the hierarchy of management groups and subscriptions. See [Organize your resources with Azure Management Groups](../governance/management-groups/index.md#root-management-group-for-each-directory) to learn more about management groups, root management, and management group access.
 >
 >
 

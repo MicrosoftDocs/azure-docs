@@ -25,10 +25,10 @@ The cmdlets in the following table are used to create and manage automation cred
 
 | Cmdlets | Description |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Retrieves information about a credential asset. You can only retrieve the credential itself from **Get-AutomationPSCredential** activity. |
-| [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Creates a new Automation credential. |
-| [Remove- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Removes an Automation credential. |
-| [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Sets the properties for an existing Automation credential. |
+| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Retrieves information about a credential asset. You can only retrieve the credential itself from **Get-AutomationPSCredential** activity. |
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Creates a new Automation credential. |
+| [Remove- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Removes an Automation credential. |
+| [Set- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Sets the properties for an existing Automation credential. |
 
 ## AzureRM PowerShell cmdlets
 
@@ -72,11 +72,14 @@ The function in the following table is used to access credentials in a Python2 r
 3. Click **Add a credential** at the top of the blade.
 4. Complete the form and click **Create** to save the new credential.
 
+> [!NOTE]
+> User accounts that use multi-factor authentication are not supported for use in Azure Automation.
+
 ### To create a new credential asset with Windows PowerShell
 
 The following sample commands show how to create a new automation credential. A PSCredential object is first created with the name and password and then used to create the credential asset. Alternatively, you could use the **Get-Credential** cmdlet to be prompted to type in a name and password.
 
-```azurepowershell
+```powershell
 $user = "MyDomain\MyUser"
 $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
 $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
@@ -126,7 +129,7 @@ print cred["username"]
 print cred["password"]
 ```
 
-## Next Steps
+## Next steps
 
 * To learn more about links in graphical authoring, see [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow)
 * To understand the different authentication methods with Automation, see [Azure Automation Security](automation-security-overview.md)

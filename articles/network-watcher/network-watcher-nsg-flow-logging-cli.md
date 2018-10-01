@@ -29,9 +29,7 @@ ms.author: jdial
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-This article uses our next generation CLI for the resource management deployment model, Azure CLI 2.0, which is available for Windows, Mac and Linux.
-
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## Register Insights provider
 
@@ -49,7 +47,9 @@ The command to enable flow logs is shown in the following example:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-The storage account that you specify cannot have network rules configured for it that restrict network access to only Microsoft services or specific virtual networks. The storage account can be in the same, or a different Azure subscription, than the NSG that you enable the flow log for. If you use different subscriptions, they must both be associated to the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+The storage account that you specify cannot have network rules configured for it that restrict network access to only Microsoft services or specific virtual networks. The storage account can be in the same, or a different Azure subscription, than the NSG that you enable the flow log for. If you use different subscriptions, they must both be associated to the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md). 
+
+If the storage account is in a different resource group, or subscription, than the network security group, specify the full ID of the storage account, rather than its name. For example, if the storage account is in a resource group named *RG-Storage*, rather than specifying *storageAccountName* in the previous command, you'd specify */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
 
 ## Disable Network Security Group Flow logs
 

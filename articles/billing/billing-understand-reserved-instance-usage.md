@@ -1,6 +1,6 @@
 ---
-title: Understand Azure reserved instance usage for your Pay-As-You-Go subscription | Microsoft Docs
-description: Learn how to read your usage to understand how the Azure Reserved VM Instance for your Pay-As-You-Go subscription is applied.
+title: Understand Azure Reservations usage for Pay-As-You-Go subscription | Microsoft Docs
+description: Learn how to read your usage to understand how the Azure reservation for your Pay-As-You-Go subscription is applied.
 services: 'billing'
 documentationcenter: ''
 author: manish-shukla01
@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
-ms.author: manshuk
+ms.date: 09/28/2018
+ms.author: cwatson
 
 ---
-# Understand reserved instance usage for your Pay-As-You-Go subscription
+# Understand Azure reservation usage for your Pay-As-You-Go subscription
 
-Understand the usage of an Azure Reserved VM Instance by using the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [Azure Accounts portal](https://account.azure.com).
+Use the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [Azure Accounts portal](https://account.azure.com) to evaluate your reservation usage.
 
+If you are a customer with an Enterprise Agreement, see [Understand reservation usage for your Enterprise enrollment.](billing-understand-reserved-instance-usage-ea.md).
 
->[!NOTE]
->This article does not apply to EA customers. If you are an EA customer, see [Understand  Reserved Instance usage for your Enterprise enrollment.](billing-understand-reserved-instance-usage-ea.md) 
->This article also assumes that the reserved instance is applied to a single subscription. If the reserved instance is applied to more than one subscription, reserved instance benefit may span multiple usage csv files. 
+This article assumes that the reservation is applied to a single subscription. If the reservation is applied to more than one subscription, your reservation benefit may span multiple usage CSV files.
 
-For the following section, assume that you are running a Standard_DS1_v2 Windows VM in the east US region and your reserved instance information looks like the following table:
+## Usage for Reserved Virtual Machine Instances
+
+For the following sections, assume that you are running a Standard_DS1_v2 Windows VM in the east US region and your reserved VM instance information looks like the following table:
 
 | Field | Value |
 |---| :---: |
@@ -35,37 +36,73 @@ For the following section, assume that you are running a Standard_DS1_v2 Windows
 |SKU | Standard_DS1_v2|
 |Region | eastus |
 
-## Reserved instance application
+The hardware portion of the VM is covered because the deployed VM matches the reservation attributes. To see what Windows software isn't covered by the reserved VM instance, see [Azure Reserve VM Instances Windows software costs](billing-reserved-instance-windows-software-costs.md)
 
-The hardware portion of the VM is covered because the deployed VM matches the reserved instance attributes. To see what Windows software isn't covered by the Reserved Instance, go to [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md)
+### Statement section of CSV file for VMs
 
-### Statement section of csv
-This section of your csv shows the total  usage for your reserved instance. Apply the filter on Meter Subcategory field that contains "Reservation-" and your data looks like the following screenshot:
-![Screenshot of filtered reserved instance usage details and charges](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
+This section of your CSV file shows the total usage for your reservation. Apply the filter on the **Meter Subcategory** field that contains **"Reservation-"**. You see something like the following screenshot:
 
-Reservation-Base VM line has the total number of hours that are covered by the reserved instance. This line is $0.00 because the reserved instance covers it. Reservation-Windows Svr (1 Core) line covers the cost of Windows software.
+![Screenshot of filtered reservation usage details and charges](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
-### Daily usage section of csv
-Filter on additional info and type in your **Reservation ID**. The following screenshot shows the fields related to the reserved instance. 
+The **Reservation-Base VM** line has the total number of hours that are covered by the reservation. This line is $0.00 because the reservation covers it. The **Reservation-Windows Svr (1 Core)** line covers the cost of Windows software.
+
+### Daily usage section of CSV file
+
+Filter on **Additional Info** and type in your **Reservation ID**. The following screenshot shows the fields related to the reservation.
 
 ![Screenshot of daily usage details and charges](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
 
-1. **ReservationId** in Additional Info field is the reserved instance that was used to apply benefit to the VM.
-2. ConsumptionMeter is the Meter Id for the VM.
-3. Reservation-Base VM Meter Subcategory line represents the $0 cost line in statement section. Cost of running this VM is already paid by the reserved instance.
-4. This is the Meter Id for reserved instance. Cost of this meter is $0. Any VM that qualifies for reserved instance has this MeterId in the csv to account for the cost. 
-5. Standard_DS1_v2 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. Therefore, this meter covers the extra charge of Windows software. See [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md) to find the meter corresponding to D series 1 core VM. If Azure Hybrid Benefit is used, this extra charge is not applied. 
+1. **ReservationId** in the **Additional Info** field is the reservation that's applied to the VM.
+2. **ConsumptionMeter** is the meter ID for the VM.
+3. The **Reservation-Base VM** **Meter Subcategory** line represents the $0 cost in statement section. The cost of running this VM is already paid by the reservation.
+4. **Meter ID** is the meter ID for the reservation. The cost of this meter is $0. This meter id appears for any VM that qualifies for the reservation discount.
+5. Standard_DS1_v2 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. So, this meter covers the extra charge of the Windows software. To find the meter corresponding to D series 1 core VM, see [Azure Reserve VM Instances Windows software costs](billing-reserved-instance-windows-software-costs.md). If you have the Azure Hybrid Benefit, this extra charge is not applied.
+
+## Usage for SQL Database & Cosmos DB reserved capacity reservations
+
+The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well. 
+
+Assume that you are running a SQL Database Gen 4 in the east US region and your reservation information looks like the following table:
+
+| Field | Value |
+|---| --- |
+|ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
+|Quantity |2|
+|Product| SQL Database Gen 4 (2 Core)|
+|Region | eastus |
+
+### Statement section of CSV file
+
+Filter on **Reserved Instance Usage** meter name, and choose the required **Meter Category** - Azure SQL database or Azure Cosmos DB. You see something like the following screenshot:
+
+![CSV file for SQL Database reserved capacity](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+
+The **Reserved Instance Usage** line has the total number of core hours covered by the reservation. The rate is $0 for this line as the reservation covered the cost.
+
+### Detail section of CSV file
+
+Filter on **Additional Info** and type in your **Reservation ID**. The following screenshot shows the fields related to the SQL Database reserved capacity reservation.
+
+![CSV file for SQL Database reserved capacity](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+
+1. **ReservationId** in the **Additional Info** field is the SQL Database reserved capacity reservation that's applied to the SQL database resource.
+2. **ConsumptionMeter** is the meter ID for the SQL Database resource.
+3. The **Meter Id** is the reservation meter. The cost of this meter is $0. Any SQL Database resources that qualify for the reservation discount shows this meter ID in the CSV file.
 
 ## Next steps
-To learn more about reserved instances, see the following articles:
 
-- [What are Azure Reserved VM Instances?](billing-save-compute-costs-reservations.md)
+To learn more about Azure Reservations, see the following articles:
+
+- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage reserved instances in Azure](billing-manage-reserved-vm-instance.md)
-- [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
-- [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
-- [Windows software costs not included with reserved instances](billing-reserved-instance-windows-software-costs.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
+- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
+- [Understand how the reservation discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
 
 ## Need help? Contact support
 
 If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+
