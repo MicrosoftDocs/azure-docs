@@ -3,7 +3,7 @@ title: Azure SQL Database resource limits - managed instance | Microsoft Docs
 description: This article provides an overview of the Azure SQL Database resource limits for managed instances. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: managed-instance
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
