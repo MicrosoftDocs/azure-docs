@@ -26,7 +26,7 @@ Managed Instance currently supports deployment only on the following types of su
 
 - Enterprise Agreement (EA)
 - Pay-as-you-go
-- Cload Service Provider (CSP)
+- Cloud Service Provider (CSP)
 
 > [!NOTE]
 > This limitation on support for only some subscription types is temporary.
@@ -49,9 +49,9 @@ Managed Instances has two default subscription-level limits per Azure region. Di
 
 \* You can either deploy 1 BC or 4 GP instances in one subnet, so that total number of “instance units” in a region never exceeds 4.
 
-** Maximum number of instances in one service tier applies if there are no instances in another service tier. In case you plan to mix GP and BC instances within same subnet, use the following section as a reference for allowed combinations. As a simple rule, by default total number of subnets cannon exceed 3, while total number of “instance units” cannot exceed 12. 
+** Maximum number of instances in one service tier applies if there are no instances in another service tier. In case you plan to mix GP and BC instances within same subnet, use the following section as a reference for allowed combinations. As a simple rule, the total number of subnets cannot exceed 3, and the total number of instance units cannot exceed 12.
 
-## Deployment options for GP and BC deployments within the same subnet 
+## Deployment options for GP and BC deployments within the same subnet
 
 The following examples cover deployment cases with non-empty subnets. 
 
@@ -99,6 +99,6 @@ To initiate the process of obtaining a larger quota:
 
 ## Next steps
 
-- For more information about Managed Instance see [What is a Managed Instance?](sql-database-managed-instance.md). 
+- For more information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md). 
 - For pricing information, see [SQL Database Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 - To learn how to create your first Managed Instance, see [Quick-start guide](sql-database-managed-instance-get-started.md).
