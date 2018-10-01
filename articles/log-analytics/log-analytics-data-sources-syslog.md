@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Syslog data sources in Log Analytics
