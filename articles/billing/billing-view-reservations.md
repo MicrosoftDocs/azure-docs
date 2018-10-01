@@ -28,6 +28,8 @@ To view a reservation as an Owner or Reader,
 1. Sign in to the [Azure portal]( http://portal.azure.com).
 1. Search on **Reservations**.
 
+    ![Screenshot that shows Azure portal search](./media/billing-view-reservation/portal-reservation-search.png)
+
 You see a list of the reservations where you have the Owner or Reader role.
 
 If you need to change the scope of a reservation, split a reservation, or change who can manage a reservation, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
@@ -57,7 +59,7 @@ To get the data by using an API, see [Get Reserved Instance transaction charges 
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-- [Prepay for Cosmos DB reserved capacity](../cosmos-db/prepay-cosmos-db-reserved-capacity.md)
+- [Prepay for Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
