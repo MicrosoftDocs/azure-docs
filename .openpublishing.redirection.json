@@ -28017,7 +28017,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-users.mdd",
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-users.md",
             "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
             "redirect_document_id": false
         },
