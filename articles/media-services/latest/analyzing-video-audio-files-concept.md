@@ -1,23 +1,25 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure media intelligence | Microsoft Docs
+title: Analyzing video and audio files with Azure Media Services | Microsoft Docs
 description: When using Azure Media Services, you can analyze your audio and video contnet using AudioAnalyzerPreset and VideoAnalyzerPreset.  
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/24/2018
+ms.date: 09/30/2018
 ms.author: juliako
 ---
 
-# Media intelligence
+# Analyzing video and audio files
 
-Azure Media Services REST v3 API enables you to analyze audio and video content. To analyze your content, you create a **Transform** and submit a **Job** that uses one of these presets: **AudioAnalyzerPreset** or **VideoAnalyzerPreset**. 
+Azure Media Services v3 enables you to extract insights from your video and audio files with [Video Indexer]() through AMS v3 analyzer presets (described in this article). If you want more detailed insights, use Video Indexer directly. To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document]().
+
+To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: **AudioAnalyzerPreset** or **VideoAnalyzerPreset**. The following article demonstrates how to use **VideoAnalyzerPreset**: [Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 ## AudioAnalyzerPreset
 

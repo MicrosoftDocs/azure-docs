@@ -29548,6 +29548,11 @@
         {    "source_path": "articles/billing/billing-set-up-alerts.md",
             "redirect_url": "/azure/billing/billing-getting-started",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/media-services/latest/intelligence-concept.md",
+            "redirect_url": "/azure/media-services/latest/analyzing-video-audio-files-concept",
+            "redirect_document_id": true
+        }        
     ]
 }
