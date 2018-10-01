@@ -25,7 +25,9 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. A resource group is a logical container into which Azure resources are deployed and managed.
+Azure container instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
+
+First, create a resource group named *myResourceGroup* in the *eastus* location with the following [New-AzureRmResourceGroup][New-AzureRmResourceGroup] command:
 
  ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -33,15 +35,15 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## Create a container
 
-You can create a container by providing a name, a Docker image, and an Azure resource group to the [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet. You can optionally expose the container to the internet with a DNS name label.
+Now that you have a resource group, you can run a container in Azure. To create a container instance with Azure PowerShell, provide a resource group name, container instance name, and Docker container image to the [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet. You can expose your containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container with a DNS name label that hosts Internet Information Services (IIS) running in Nano Server.
 
-Execute the following command to launch a Nano Server container running Internet Information Services (IIS). The `-DnsNameLabel` value must be unique within the Azure region you create the instance, so you might need to modify this value to ensure uniqueness.
+Execute the following command to start a container instance. The `-DnsNameLabel` value must be unique within the Azure region you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Within a few seconds, you should receive a response to your request. The container is initially in the **Creating** state, but it should start within a minute or two. You can check the deployment status by using the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] cmdlet:
+Within a few seconds, you should receive a response from Azure. The container's `ProvisioningState` is initially **Creating**, but should move to **Succeeded** within a minute or two. Check the deployment state with the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] cmdlet:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -73,7 +75,7 @@ State                    : Pending
 Events                   : {}
 ```
 
-Once the container **ProvisioningState** moves to `Succeeded`, navigate to its `Fqdn` in your browser:
+Once the container's `ProvisioningState` is **Succeeded**, navigate to its `Fqdn` in your browser. If you see a web page similar to the following, congratulations! You've successfully deployed an application running in a Docker container to Azure.
 
 ![IIS deployed using Azure Container Instances viewed in browser][qs-powershell-01]
 
