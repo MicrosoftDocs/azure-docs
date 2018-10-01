@@ -44,7 +44,7 @@ Here are the functions to use when breaking the deployment steps down:
 
     ```python
     # register a model out of a run record
-    model = best_un.register_model(model_name='my_best_model', model_path='outputs/my_model.pkl')
+    model = best_run.register_model(model_name='my_best_model', model_path='outputs/my_model.pkl')
 
     # or, you can register a file or a folder of files as a model
     model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
@@ -179,7 +179,7 @@ $ docker run -p 8000:5001 <image_id>
 ```
 
 ## Function fails: get_model_path()
-Often, in the `init()` function in the scoring script, `Model.get_model_path()` function is called to locate a model file or (a folder of files) in the container. This is often a source of failure if the model file or folder cannot be found. The easiest way to debug this error is to run the below Python code in the Container shell:
+Often, in the `init()` function in the scoring script, `Model.get_model_path()` function is called to locate a model file or a folder of files in the container. This is often a source of failure if the model file or folder cannot be found. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 ```python
 from azureml.core.model import Model
