@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a machine learning workspace in the Azure portal - Azure Machine Learning"
+title: "Quickstart: Create a machine learning service workspace in the Azure portal - Azure Machine Learning"
 description: Use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.  
 services: machine-learning
 ms.service: machine-learning
@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-On the workspace page, click on `Explore your Azure Machine Learning Workspace`
+On the workspace page, click on `Explore your Azure Machine Learning service workspace`
 
  ![explore workspace](./media/quickstart-get-started/explore_aml.png)
 

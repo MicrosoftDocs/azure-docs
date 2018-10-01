@@ -39,7 +39,7 @@ For your convenience, this tutorial is available as a Jupyter notebook. Run the 
 
 ## Prerequisites
 
-Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) notebook.  
+Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) notebook.  
 
 
 ## Set up the environment
@@ -372,7 +372,7 @@ service.delete()
 
 ## Next steps
 
-In this Azure Machine Learning tutorial, you used Python to:
+In this Azure Machine Learning service tutorial, you used Python to:
 
 > [!div class="checklist"]
 > * Set up your testing environment
@@ -381,4 +381,4 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Deploy the model to ACI
 > * Test the deployed model
  
-You can also try out the [Automatic algorithm selection]() tutorial to see how Azure Machine Learning can auto-select and tune the best algorithm for your model and build that model for you.
+You can also try out the [Automatic algorithm selection]() tutorial to see how Azure Machine Learning service can auto-select and tune the best algorithm for your model and build that model for you.

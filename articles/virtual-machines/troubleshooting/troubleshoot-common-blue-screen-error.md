@@ -47,8 +47,8 @@ To resolve this problem, you would need first to gather dump file for the crash 
 
 ### Attach the OS disk to a recovery VM
 
-1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](snapshot-copy-managed-disk.md).
-2. [Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal.md). 
+1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
+2. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md). 
 3. Remote desktop to the recovery VM.
 
 ### Locate dump file and submit a support ticket
@@ -99,7 +99,7 @@ To enable dump log and Serial Console, run the following script.
 
             reg unload HKLM\BROKENSYSTEM
 
-3. [Detach the OS disk and then Re-attach the OS disk to the affected VM](troubleshoot-recovery-disks-portal.md).
+3. [Detach the OS disk and then Re-attach the OS disk to the affected VM](../windows/troubleshoot-recovery-disks-portal.md).
 4. Start the VM to reproduce the issue, then a dump file will be generated.
 5. Attach the OS disk to a recovery VM, collect dump file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the dump file.
 
