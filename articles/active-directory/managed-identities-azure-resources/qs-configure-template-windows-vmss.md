@@ -142,7 +142,7 @@ If you have a virtual machine scale set that no longer needs a system-assigned m
 
    If your apiVersion is `2018-06-01` and your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the userAssignedIdentities dictionary values.
 
-   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01 and earlier**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
    If your apiVersion is `2017-12-01` and your virtual machine scale set has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user-assigned managed identities. 
    
@@ -275,7 +275,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
     ]
    ```
 
-   **Microsoft.Compute/virtualMachines API version 2017-12-01 eand earlier**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
 
    ```json
    "resources": [

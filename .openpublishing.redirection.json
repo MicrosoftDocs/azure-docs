@@ -27261,6 +27261,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/ms-confluence-jira-plugin-adminguide.md",
+            "redirect_url": "/azure/active-directory/saas-apps/ms-confluence-jira-plugin-adminguide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/ms-confluence-jira-plugin-faq.md",
+            "redirect_url": "/azure/active-directory/saas-apps/ms-confluence-jira-plugin-adminguide",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/saas-apps/index.md",
             "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
             "redirect_document_id": false
