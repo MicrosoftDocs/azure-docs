@@ -133,6 +133,7 @@ Example of a simple run function processing the input and returning the predicti
 
 ```python
 def run(input_df):
+    # clf2 is the same model as clf1, but loaded from the model.pkl file
     global clf2, inputs_dc, prediction_dc
     try:
         prediction = model.predict(input_df)
