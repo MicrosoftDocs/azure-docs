@@ -24,9 +24,9 @@ This article provides an overview of the Azure SQL Database Managed Instance res
 
 Managed Instance currently supports deployment only on the following types of subscriptions:
 
-- Enterprise Agreement (EA)
-- Pay-as-you-go
-- Cloud Service Provider (CSP)
+- [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
+- [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 
 > [!NOTE]
 > This limitation on support for only some subscription types is temporary.
