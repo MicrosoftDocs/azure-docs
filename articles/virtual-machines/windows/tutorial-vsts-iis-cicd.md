@@ -34,8 +34,9 @@ To automate the build, test, and deployment phases of application development, y
 
 This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-## Create a project in Azure DevOps Services
-Azure DevOps Services allows for easy collaboration and development without maintaining an on-premises code management solution. Azure DevOps Services provides cloud code testing, build, and application insights. You can choose a version control repo and IDE that best fits your code development. For this tutorial, you can use a free organization to create a basic ASP.NET web app and CI/CD pipeline. If you do not already have a Azure DevOps Services organization, [create one](http://go.microsoft.com/fwlink/?LinkId=307137).
+## Create a project 
+
+Azure DevOps Services allows for easy collaboration and development without maintaining an on-premises code management solution. Azure DevOps Services provides cloud code testing, build, and application insights. You can choose a version control repo and IDE that best fits your code development. For this tutorial, you can use a free organization to create a basic ASP.NET web app and CI/CD pipeline. If you do not already have a Azure DevOps Services organization, [create one]( https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=vsts&tabs=new-nav).
 
 To manage the code commit process, build pipelines, and release pipelines, create a project in Azure DevOps Services as follows:
 
