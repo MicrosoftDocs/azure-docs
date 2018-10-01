@@ -97,7 +97,9 @@
     - name: Deploy to FPGAs
       href: how-to-deploy-fpga-web-service.md  
     - name: Deploy to IoT Edge
-      href: how-to-deploy-to-iot.md  
+      href: how-to-deploy-to-iot.md 
+    - name: Troubleshoot
+      href: how-to-troubleshoot-deployment.md 
   - name: Monitor models
     items:  
     - name: Collect data in production  
