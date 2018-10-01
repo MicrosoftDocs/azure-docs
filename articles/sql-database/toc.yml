@@ -106,7 +106,7 @@
       href: sql-database-connectivity-architecture.md 
     - name: T-SQL differences
       href: sql-database-transact-sql-information.md
-    - name: Transactional replication - single DBS and elastic pools
+    - name: Transactional replication - single DBs and elastic pools
       href: replication-to-sql-database.md  
   - name: Single databases
     items:

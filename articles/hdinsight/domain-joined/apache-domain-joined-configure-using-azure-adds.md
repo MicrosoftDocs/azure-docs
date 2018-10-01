@@ -22,6 +22,10 @@ In this article, you learn how to configure a HDInsight cluster with ESP by usin
 
 Enabling Azure AD-DS is a prerequisite before you can create a HDInsight cluster with ESP. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
+When Azure AD-DS is enabled, all users and objects start synchronizing from Azure Active Directory (AAD) to Azure AD-DS by default. The length of the sync operation depends on the number of objects in AAD. The sync could take a few days for hundreds of thousands of objects. 
+
+Customers can choose to sync only the groups that need access to the HDInsight clusters. This option of syncing only certain groups is called *scoped synchronization*. See [Configure Scoped Synchronization from Azure AD to your managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) for instructions.
+
 > [!NOTE]
 > Only tenant administrators have the privileges to create an Azure AD-DS instance. Multi-factor authentication needs to be disabled only for users who will access the cluster.
 
@@ -35,7 +39,11 @@ View the health status of your Azure Active Directory Domain Services by selecti
 
 ## Add managed identity
 
-After you enabled Azure AD-DS, create a user-assigned managed identity and assign it to the **HDInsight Domain Services Contributor** role in Azure AD-DS Access control.
+Create a user-assigned managed identity if you don’t have one already. See [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) for instructions. 
+
+The managed identity is used to simplify domain services operations. This identity has access to read, create, modify, and delete domain services operations that are needed for the HDInsight Enterprise Security Package such as creating OUs and service principles.
+
+After you enable Azure AD-DS, create a user-assigned managed identity and assign it to the **HDInsight Domain Services Contributor** role in Azure AD-DS Access control.
 
 ![Azure Active Directory Domain Services Access control](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 

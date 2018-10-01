@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
+ms.date: 10/01/2018
 ---
 # What is a Managed Instance?
 
@@ -69,7 +69,7 @@ Managed Instance is available in two service tiers:
 Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. For more information on the high availability architecture of Azure SQL Database, see [High Availability and Azure SQL Database](sql-database-high-availability.md).
 
 > [!IMPORTANT]
-> Changing your service tier from General Purpose to Business Critical or vice versa is not supported in Public Preview. If you want to migrate your databases to an instance in different service tier, you can create new instance, restore databases with point in time restore from the original instance and then drop original instance if it is not needed anymore. 
+> Changing your service tier from General Purpose to Business Critical or vice versa is not supported in Public Preview. If you want to migrate your databases to an instance in different service tier, you can create new instance, restore databases with point in time restore from the original instance and then drop original instance if it is not needed anymore. However, you can scale your number of vCores and storage up or down within a service tier with no downtime.
 
 ### General Purpose service tier
 
@@ -102,7 +102,7 @@ The following list outlines the key characteristics of the General Purpose servi
 
 \* A virtual core represents the logical CPU offered with an option to choose between generations of hardware. Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors and Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. 
 
-For more information see [Standard/General Purpose availability and architecture](sql-database-high-availability.md#standardgeneral-purpose-availability) in Azure SQL Database.
+For more information, see [Standard/General Purpose availability and architecture](sql-database-high-availability.md#standardgeneral-purpose-availability) in Azure SQL Database and [Storage performance best practices and considerations for Azure SQL DB Managed Instance (General Purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
 ### Business Critical service tier (preview)
 
@@ -200,7 +200,10 @@ Managed Instance targets user scenarios with mass database migration from on-pre
 The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
   - For a quickstart showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a Managed Instance](sql-database-managed-instance-get-started-restore.md). This quickstart shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
   - For information about restore from URL, see [Native RESTORE from URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-  
+
+> [!IMPORTANT]
+> Backups from a Managed Instance can only be restored to another Managed Instance. They cannot be restored to an on-premises SQL Server or to an Azure SQL Database logical server single or pooled database.
+
 ### Data Migration Service
 
 The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options include Azure SQL Database, Managed Instance, and SQL Server in Azure VM at Public Preview. See [How to migrate your on-premises database to Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).

@@ -35,7 +35,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
@@ -177,7 +177,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
@@ -218,7 +218,7 @@ where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
@@ -243,7 +243,7 @@ where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile
 az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
@@ -282,7 +282,7 @@ only one record would be returned and the **type** property on it provides that 
 az graph query -q "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 

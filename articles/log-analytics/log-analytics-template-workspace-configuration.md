@@ -93,7 +93,7 @@ The following parameters set a default value:
 	        "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
 		}
-          },
+          }
     },
     "resources": [
         {

@@ -108,7 +108,7 @@ Claims are present only if a value exists to fill it. Thus, your app should not 
 
 #### v1.0 basic claims
 
-The following claims will be included in v1.0 tokens if applicable, but are not included in v2.0 tokens by default. If you are using v2.0 and need one of these claims, request them using using [optional claims](active-directory-optional-claims.md).
+The following claims will be included in v1.0 tokens if applicable, but are not included in v2.0 tokens by default. If you are using v2.0 and need one of these claims, request them using [optional claims](active-directory-optional-claims.md).
 
 | Claim | Format | Description |
 |-----|--------|-------------|

@@ -22,9 +22,9 @@ ms.author: wolfma
 
     ![Right-click Manage NuGet Packages for Solution](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "Manage NuGet Packages for Solution")
 
-1. In the upper-right corner, in the **Package Source** field, select **Nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package and install it into the **helloworld** project.
+1. In the upper-right corner, in the **Package Source** field, select **nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package and install it into the **helloworld** project.
 
-    ![Install Microsoft.CognitiveServices.Speech NuGet Package](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "Install Nuget package")
+    ![Install Microsoft.CognitiveServices.Speech NuGet Package](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png "Install NuGet package")
 
 1. Accept the displayed license to begin installation of the NuGet package.
 
