@@ -33,32 +33,32 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Assets
-    href: assets-concept.md
-  - name: Content protection
-    items:
-    - name: Overview
-      href: content-protection-overview.md
-    - name: Multi-DRM system with access control
-      href: design-multi-drm-system-with-access-control.md
-  - name: Encoding  
+  - name: Analyzing content
+    href: analyzing-video-audio-files-concept.md
+  - name: Encoding content
     items:
     - name: Overview
       href: encoding-concept.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
-  - name: Live streaming
-    href: live-streaming-overview.md
-  - name: Media intelligence
-    href: intelligence-concept.md
-  - name: Reacting to events
-    href: reacting-to-media-services-events.md
-  - name: Storage accounts
+  - name: Examining assets
+    href: assets-concept.md
+  - name: Examining storage accounts
     href: storage-account-concept.md
-  - name: Streaming endpoints
+  - name: Examining streaming endpoints
     href: streaming-endpoint-concept.md
-  - name: Transforms and jobs
+  - name: Examining transforms and jobs
     href: transform-concept.md
+  - name: Handling Event Grid events
+    href: reacting-to-media-services-events.md      
+  - name: Protecting content
+    items:
+    - name: Overview
+      href: content-protection-overview.md
+    - name: Multi-DRM system with access control
+      href: design-multi-drm-system-with-access-control.md
+  - name: Streaming live 
+    href: live-streaming-overview.md
 - name: How-to guides
   items:
   - name: Migrate from v2 to v3
