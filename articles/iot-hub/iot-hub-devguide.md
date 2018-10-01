@@ -19,8 +19,11 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 Azure IoT Hub provides you with:
 
 * Secure communications by using per-device security credentials and access control.
+
 * Multiple device-to-cloud and cloud-to-device hyper-scale communication options.
+
 * Queryable storage of per-device state information and meta-data.
+
 * Easy device connectivity with device libraries for the most popular languages and platforms.
 
 This IoT Hub developer guide includes the following articles:
