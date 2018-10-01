@@ -61,11 +61,12 @@ In previous schema versions, conditions and loops were parameters
 associated with a single action. This schema lifts this limitation, 
 so conditions and loops are now available as action types. 
 Learn more about [loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md), 
-or review this basic example for a condition action:
+[conditions](../logic-apps/logic-apps-control-flow-conditional-statement.md), 
+or review this basic example that shows a condition action:
 
 ```json
 {
-   "Condition - If_trigger_is_some-trigger": {
+   "Condition - If trigger is some trigger": {
       "type": "If",
       "expression": "@equals(triggerBody(), '<trigger-name>')",
       "runAfter": {},
@@ -81,7 +82,7 @@ or review this basic example for a condition action:
       },
       "else": 
       {
-         "If_trigger_is_another-trigger": "<...>"
+         "Condition - If trigger is another trigger": {}
       }  
    }
 }
