@@ -18,7 +18,6 @@ Use the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python
 
 To load your data, you have two approaches:
 + Specify the data file type and its parameters
-+ Use the SDK smart reading functionality to automatically detect the type of a file
 
 ## Use text line data 
 One of the simplest ways to load data is to read it as text lines.
