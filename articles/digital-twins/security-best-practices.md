@@ -27,17 +27,17 @@ Some key practices to safely secure your IoT devices include:
 
 > [!div class="checklist"]
 > * Secure each device that's connected to your IoT space in a tamper-proof way.
-> * Limit I/O and device bandwidth to improve performance. Rate-limiting and throttling can improve security by preventing denial-of-service attacks.
 > * Limit the role of each device, sensor, and person within your IoT space. If compromised, the impact is minimized.
 > * Potential use of device IP address filtering.
+> * Limit I/O and device bandwidth to improve performance. Rate-limiting and throttling can improve security by preventing denial-of-service attacks.
 
 Some key practices to safely secure an IoT space include:
 
 > [!div class="checklist"]
-> * Use powerful encryption wherever possible. That means requiring long passwords, using secure protocols, and two-factor authentication.
 > * Encrypt saved, stored, or persistent data.
 > * Require passwords or keys to be periodically changed or refreshed.
 > * Carefully restrict access and permissions by role (see Role-Based Access Control best practices below).
+> * Use powerful encryption wherever possible. That means requiring long passwords, using secure protocols, and two-factor authentication.
 
 Monitoring IoT resources to watch for outliers, threats, or resource parameters that fall outside the range of usual operation is managed through Azure Analytics.
 
@@ -65,12 +65,12 @@ Learn more about Azure IoT best practices:
 > [!div class="nextstepaction"]
 > [IoT security best practices](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/)
 
-Read more about authenticating to APIs:
-
-> [!div class="nextstepaction"]
-> [Authenticating with APIs](./security-authenticating-apis.md)
-
 Read more about Role-Based Access Control:
 
 > [!div class="nextstepaction"]
 > [Role-Based Access Control](./security-role-based-access-control.md)
+
+Read more about authenticating to APIs:
+
+> [!div class="nextstepaction"]
+> [Authenticating with APIs](./security-authenticating-apis.md)
