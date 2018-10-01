@@ -35,15 +35,7 @@ This quickstart calls Qna Maker APIs:
 
 ## Add the required dependencies
 
-At the top of **Program.cs**, replace the single _using_ statement with the following lines to add necessary dependencies to the project:
-
-```csharp
-using System;
-using System.Net.Http;
-
-// NOTE: Install the Newtonsoft.Json NuGet package.
-using Newtonsoft.Json;
-```
+[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-constants.md)]  
 
 ## Add the required constants
 
