@@ -46,13 +46,12 @@ To view reservations transactions in the Azure portal, you must be an EA adminis
 1. Select **Reservation transactions**.
 1. To filter the results, select  **Timespan**, **Type**, or **Description**.
 1. Select **Apply**.
- 
+
     ![Screenshot that shows Reservation transactions results](./media/billing-view-reservation/portal-billing-reservation-transaction-results.png)
 
 As an EA administrator, you can also view reservation transactions by going to **Reports** in the EA portal.
 
 To get the data by using an API, see [Get Reserved Instance transaction charges for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges).
-
 
 ## Next steps
 
@@ -66,7 +65,6 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
-
 
 ## Need help? Contact support
 
