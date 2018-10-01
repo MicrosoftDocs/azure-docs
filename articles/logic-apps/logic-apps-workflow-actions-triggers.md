@@ -1463,7 +1463,7 @@ based on a specified condition or filter.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Array | The array or expression that provides the source items. If you specify an expression, enclose that expression with double quotes. |
-| <*condition-or-filter*> | String | The condition used for filtering items in the source array <p>**Note**: If no values satisfy the condition, the action creates an empty array. |
+| <*condition-or-filter*> | String | The condition used for filtering items in the source array <p>**Note**: If no values satisfy the condition, then the action creates an empty array. |
 |||| 
 
 *Example*
@@ -2575,7 +2575,7 @@ in trigger or action definition.
 
 By default, logic app instances run at the same time, concurrently, or in parallel up to the 
 [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
-So, each trigger instance fires before the previously active logic app instance finishes running. 
+So, each trigger instance fires before the preceding logic app instance finishes running. 
 This limit helps control the number of requests that backend systems receive. 
 
 To change the default limit, you can use either the code view editor or Logic Apps Designer 
@@ -2666,7 +2666,7 @@ Here is an example that limits concurrent runs to 10 iterations:
 
 #### Edit in Logic Apps Designer
 
-1. In the **For each** action's upper-right corner, 
+1. In the **For each** action, from the upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
 2. Under **Concurrency Control**, set **Override Default** to **On**. 
@@ -2691,8 +2691,8 @@ the Logic Apps engine no longer accepts new runs. Request and webhook triggers r
 and recurring triggers start skipping polling attempts.
 
 To change the default limit on waiting runs, in the underlying trigger definition, 
-add and set the `runtimeConfiguration.concurency.maximumWaitingRuns` property 
-to a value between `0` and `100`. 
+add the `runtimeConfiguration.concurency.maximumWaitingRuns` property with 
+a value between `0` and `100`. 
 
 ```json
 "<trigger-name>": {
