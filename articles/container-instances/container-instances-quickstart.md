@@ -1,9 +1,8 @@
 ---
-title: Quickstart - Create your first Azure Container Instances container
-description: In this quickstart, you use the Azure CLI to deploy a container in Azure Container Instances
+title: Quickstart - Run an application in Azure Container Instances
+description: In this quickstart, you use the Azure CLI to deploy an application running in a Docker container to Azure Container Instances
 services: container-instances
 author: mmacy
-manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: quickstart
@@ -12,17 +11,17 @@ ms.author: marsma
 ms.custom: mvc
 ---
 
-# Quickstart: Create your first container in Azure Container Instances
+# Quickstart: Run an application in Azure Container Instances
 
-Run Docker containers in Azure quickly and easily, without having to provision virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you create a container in Azure and expose it to the internet with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can view the container's application in your browser:
+Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to provision virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you create a container in Azure and expose it to the internet with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the running application:
 
-![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
+![App deployed to Azure Container Instances viewed in browser][aci-app-browser]
 
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you'd like to use it locally, you need version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create a resource group
 
