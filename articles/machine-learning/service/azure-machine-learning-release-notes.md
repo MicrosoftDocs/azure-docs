@@ -14,7 +14,7 @@ ms.date: 03/28/2018
 
 In this article, learn about the Azure Machine Learning service releases. 
 
-## 2018-10 - SDK version 0.1.65
+## 2018-10-01: Azure Machine Larning SDK version 0.1.65
 
 This [release](https://pypi.org/project/azureml-sdk/0.1.65) includes new features, more documentation, bug fixes, and more [sample notebooks](https://aka.ms/aml-notebooks).
 
@@ -65,6 +65,19 @@ This [release](https://pypi.org/project/azureml-sdk/0.1.65) includes new feature
 
 ### Project-Brainwave
  * Updated support for new AI models available on FPGAs.
+
+## 2018-10-01 Azure ML Data Preparation SDK version 0.2.0
+
+This [release](https://pypi.org/project/azureml-dataprep/0.2.0/) includes following features and bugfixes:
+
+**New features** 
+ * Support for one-hot encoding.
+ * Support for quantile transform.
+
+  
+**Bug fixes**
+ * Works with any Tornado version: no more need for the Tornado-downgrade workaround. 
+ * Value counts for all values, not just the top three. 
 
 ## 2018-09 (Public preview refresh)
 
