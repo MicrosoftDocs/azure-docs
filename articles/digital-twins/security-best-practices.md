@@ -40,7 +40,7 @@ Some key practices to safely secure an IoT space include:
 Monitoring IoT resources to watch for outliers, threats, or resource parameters that fall outside the range of usual operation is managed through Azure Analytics.
 
 > [!NOTE]
-> For more on event processing and monitoring, see our article on [event > routing](./concepts-event-routing.md).
+> For more on event processing and monitoring, see our article on [event > routing](./concepts-events-routing.md).
 
 ## Azure Active Directory best practices
 
