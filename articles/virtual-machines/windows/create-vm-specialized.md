@@ -1,6 +1,6 @@
 ﻿---
 title: Create a Windows VM from a specialized VHD in Azure | Microsoft Docs
-description: Create a new Windows VM by attaching a specialized managed disk as the OS disk using in the Resource Manager deployment model.
+description: Create a new Windows VM by attaching a specialized managed disk as the OS disk by using the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,20 +14,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/01/2018
 ms.author: cynthn
 
 ---
-# Create a Windows VM from a specialized disk using PowerShell
+# Create a Windows VM from a specialized disk by using PowerShell
 
-Create a new VM by attaching a *specialized managed disk* as the OS disk. A specialized disk is a copy of a virtual hard disk (VHD) from an existing VM that contains the user accounts, applications, and other state data from your original VM. 
+Create a new VM by attaching a specialized managed disk as the OS disk. A specialized disk is a copy of a virtual hard disk (VHD) from an existing VM that contains the user accounts, applications, and other state data from your original VM. 
 
-When you use a specialized VHD to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information is also be kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.
+When you use a specialized VHD to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.
 
 You have several options:
-* [Use an existing managed disk](#option-1-use-an-existing-disk). This is useful if you have a VM that isn't working correctly. You can delete the VM and then reuse the managed disk to create a new VM. 
+* [Use an existing managed disk](#option-1-use-an-existing-disk). This option is useful if you have a VM that isn't working correctly. You can delete the VM and then reuse the managed disk to create a new VM. 
 * [Upload a VHD](#option-2-upload-a-specialized-vhd) 
-* [Copy an existing Azure VM using snapshots](#option-3-copy-an-existing-azure-vm)
+* [Copy an existing Azure VM by using snapshots](#option-3-copy-an-existing-azure-vm)
 
 You can also use the Azure portal to [create a new VM from a specialized VHD](create-vm-specialized-portal.md).
 
@@ -39,7 +39,7 @@ To use PowerShell, make sure that you have the latest version of the AzureRM.Com
 ```powershell
 Install-Module AzureRM -RequiredVersion 6.0.0
 ```
-For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
+For more information, see [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 ## Option 1: Use an existing disk
 
@@ -59,17 +59,17 @@ You can now attach this disk as the OS disk to a [new VM](#create-the-new-vm).
 You can upload the VHD from a specialized VM created with an on-premises virtualization tool, like Hyper-V, or a VM exported from another cloud.
 
 ### Prepare the VM
-To use the VHD as-is to create a new VM: 
+Use the VHD as-is to create a new VM. 
   
-  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
+  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM by using Sysprep.
   * Remove any guest virtualization tools and agents that are installed on the VM (such as VMware tools).
-  * Ensure the VM is configured to acquire its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
+  * Ensure the VM is configured to acquire its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the virtual network when it starts up. 
 
 
 ### Get the storage account
 You'll need a storage account in Azure to store the uploaded VHD. You can either use an existing storage account or create a new one. 
 
-To show the available storage accounts:
+Show the available storage accounts.
 
 ```powershell
 Get-AzureRmStorageAccount
@@ -77,15 +77,15 @@ Get-AzureRmStorageAccount
 
 To use an existing storage account, proceed to the [Upload the VHD](#upload-the-vhd-to-your-storage-account) section.
 
-To create a storage account:
+Create a storage account.
 
-1. You'll need the name of the resource group where the storage account will be created. To see all the resource groups that are in your subscription:
+1. You'll need the name of the resource group where the storage account will be created. Use Get-AzureRmResourceGroup see all the resource groups that are in your subscription.
    
     ```powershell
     Get-AzureRmResourceGroup
     ```
 
-    Create a resource group named *myResourceGroup* in the *West US* region:
+    Create a resource group named *myResourceGroup* in the *West US* region.
 
     ```powershell
     New-AzureRmResourceGroup `
@@ -93,7 +93,7 @@ To create a storage account:
 	   -Location "West US"
     ```
 
-2. Create a storage account named *mystorageaccount* in the new resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
+2. Create a storage account named *mystorageaccount* in the new resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet.
    
     ```powershell
     New-AzureRmStorageAccount `
@@ -116,7 +116,7 @@ Add-AzureRmVhd -ResourceGroupName $resourceGroupName `
 ```
 
 
-If successful, you'll get a response that looks similar to this:
+If the commands are successful, you'll get a response that looks similar to this:
 
 ```powershell
 MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
@@ -158,12 +158,12 @@ $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
 
 ## Option 3: Copy an existing Azure VM
 
-You can create a copy of a VM that uses managed disks by taking a snapshot of the VM, then using that snapshot to create a new managed disk and a new VM.
+You can create a copy of a VM that uses managed disks by taking a snapshot of the VM, and then by using that snapshot to create a new managed disk and a new VM.
 
 
 ### Take a snapshot of the OS disk
 
-You can take a snapshot of an entire VM (including all disks) or of just a single disk. The following steps show you how to take a snapshot of just the OS disk of your VM using the [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
+You can take a snapshot of an entire VM (including all disks) or of just a single disk. The following steps show you how to take a snapshot of just the OS disk of your VM with the [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
 First, set some parameters. 
 
@@ -241,11 +241,11 @@ $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
 
 Create networking and other VM resources to be used by the new VM.
 
-### Create the subNet and vNet
+### Create the subnet and virtual network
 
-Create the vNet and subNet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
+Create the virtual network and subnet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
-1. Create the subNet. This example creates a subnet named *mySubNet*, in the resource group *myDestinationResourceGroup*, and sets the subnet address prefix to *10.0.0.0/24*.
+1. Create the subnet. This example creates a subnet named *mySubNet*, in the resource group *myDestinationResourceGroup*, and sets the subnet address prefix to *10.0.0.0/24*.
    
     ```powershell
     $subnetName = 'mySubNet'
@@ -254,7 +254,7 @@ Create the vNet and subNet of the [virtual network](../../virtual-network/virtua
        -AddressPrefix 10.0.0.0/24
     ```
     
-2. Create the vNet. This example sets the virtual network name to *myVnetName*, the location to *West US*, and the address prefix for the virtual network to *10.0.0.0/16*. 
+2. Create the virtual network. This example sets the virtual network name to *myVnetName*, the location to *West US*, and the address prefix for the virtual network to *10.0.0.0/16*. 
    
     ```powershell
     $vnetName = "myVnetName"
@@ -267,9 +267,9 @@ Create the vNet and subNet of the [virtual network](../../virtual-network/virtua
     
 
 ### Create the network security group and an RDP rule
-To be able to sign in to your VM with *remote desktop protocol* (RDP), you'll need to have a security rule that allows RDP access on port 3389. In our example, the VHD for the new VM was created from an existing specialized VM, you can use an account from the source virtual machine for RDP.
+To be able to sign in to your VM with remote desktop protocol (RDP), you'll need to have a security rule that allows RDP access on port 3389. In our example, the VHD for the new VM was created from an existing specialized VM, you can use an account from the source virtual machine for RDP.
 
-This example sets the *network security group* (NSG) name to *myNsg* and the RDP rule name to *myRdpRule*.
+This example sets the network security group (NSG) name to *myNsg* and the RDP rule name to *myRdpRule*.
 
 ```powershell
 $nsgName = "myNsg"
@@ -285,7 +285,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 	
 ```
 
-For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Create a public IP address and NIC
 To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
@@ -356,7 +356,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### Verify that the VM was created
-You should see the newly created VM either in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+You should see the newly created VM either in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands.
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $destinationResourceGroup
