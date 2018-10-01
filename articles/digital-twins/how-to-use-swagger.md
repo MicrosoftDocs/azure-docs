@@ -20,11 +20,13 @@ Each provisioned Azure Digital Twins instance includes its own automatically gen
 
 Swagger provides an interactive summary of your API including:
 
+* API and Object Model information.
 * REST API endpoints specifying required request payloads, headers, parameters, context paths, and HTTP methods.
+* Testing of API functionalities.
 * Example response information for validating and confirming HTTP responses.
 * Error code information.
 
-Swagger therefore provides a convenient tool to assist with development and testing calls to the Management API.
+Swagger is therefore a convenient tool to assist with development and testing calls made to the Management API.
 
 >[!NOTE]
 > No configuration is required to use your digital twin Swagger reference material.
