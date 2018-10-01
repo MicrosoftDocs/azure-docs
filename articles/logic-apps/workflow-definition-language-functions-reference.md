@@ -3231,7 +3231,7 @@ based on the specified character as the delimiter:
 split('a_b_c', '_')
 ```
 
-And returns this result: '["a","b","c"]`
+And returns this array as the result: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 
