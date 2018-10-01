@@ -549,8 +549,6 @@
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
   - name: Setup and configure reverse proxy
     items:
-    - name: Setup and configure reverse proxy
-      href: service-fabric-reverseproxy-setup.md
     - name: Set up and configure reverse proxy 
       href: service-fabric-reverseproxy-setup.md
     - name: Configure reverse proxy for secure communication
