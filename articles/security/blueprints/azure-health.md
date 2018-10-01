@@ -122,7 +122,7 @@ The foundational architecture is composed of the following components:
 # Architectural diagram
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## Roles
 
