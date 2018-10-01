@@ -245,7 +245,7 @@ The steps to follow are:
 1. Enable broker mode in your application code's call to the MS SDK.
 2. Establish a new redirect URI and provide that to both the app and your app registration.
 3. Registering a URL Scheme.
-4. iOS9 Support: Add a permission to your info.plist file.
+4. Add a permission to your info.plist file.
 
 #### Step 1: Enable broker mode in your application
 
@@ -302,12 +302,16 @@ To support cert-based authentication a second "msauth"  needs to be registered i
 
 ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### Step 4: iOS9: Add a configuration parameter to your app
+#### Step 4: Add a configuration parameter to your app
 
-ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 Apple locked down what schemes an application can query for. You will need to add “msauth” to the LSApplicationQueriesSchemes section of your `info.plist file`.
+ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 on, Apple locked down what schemes an application can query for. You will need to add “msauth” to the LSApplicationQueriesSchemes section of your `info.plist file`.
 
 ```
-<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>msauth</string>
+    </array>
+
 ```
 
 ### You've configured SSO!

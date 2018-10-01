@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/18/2018
+ms.date: 9/28/2018
 ms.author: rithorn
 ---
 # Organize your resources with Azure management groups
@@ -81,15 +81,11 @@ role to other directory users or groups to manage the hierarchy.
   - Everyone who has access to a subscription can see the context of where that subscription is in the hierarchy.  
   - No one is given default access to the root management group. Directory Global Administrators are the only users that can elevate themselves to gain access.  Once they have access, the directory administrators can assign any RBAC role to other users to manage.  
 
-> [!NOTE]
-> If your directory started using the management groups service before 6/25/2018, your directory
-> might not be set up with all subscriptions in the hierarchy. The management group team is
-> retroactively updating each directory that started using management groups in the Public Preview
-> prior to that date within July/August 2018. All subscriptions in the directories will be made
-> children under the root management group prior.
->
-> If you have questions on this retroactive process, contact: managementgroups@microsoft.com  
-  
+> [!IMPORTANT]
+> Any assignment of user access or policy assignment on the root management group **applies to all resources within the directory**.
+> Because of this, all customers should evaluate the need to have items defined on this scope.
+> User access and policy assignments should be "Must Have" only at this scope.  
+
 ## Initial setup of management groups
 
 When any user starts using management groups, there's an initial setup process that happens. The
@@ -101,10 +97,21 @@ apply global access and policies that other customers within the directory can't
 assigned on the root will apply across all management groups, subscriptions, resource groups, and
 resources within the directory by having one hierarchy within the directory.
 
-> [!IMPORTANT]
-> Any assignment of user access or policy assignment on the root management group **applies to all resources within the directory**.
-> Because of this, all customers should evaluate the need to have items defined on this scope.
-> User access and policy assignments should be "Must Have" only at this scope.  
+## Trouble seeing all subscriptions
+
+A few directories that starting using management groups early in the preview before (June 25 2018) could see an issue where all the subscriptions are not enforced into the hierarchy.  This reason is because the processes to enforce subscriptions into the hierarchy was implemented after a role or policy assignment was done on the root management group in the directory.
+
+### How to resolve the issue
+
+There are two self serve options to resolve this.
+
+1. Remove all Role and Policy assignments from the root management group
+    1. By removing any policy and role assignments from the root management group, the service will backfill all subscriptions into the hierarchy the next overnight cycle.  The reason for this check is to ensure there is no accidental access given or policy assignment to all of the tenants subscriptions.
+    1. The best way to do this process without impacting your services is to apply the role or policy assignments one level below the Root management group. Then you can remove all assignments from the root scope.
+1. Call the API directly to start the backfill process
+    1. Any authorized customer in the directory can call the *TenantBackfillStatusRequest* or *StartTenantBackfillRequest* APIs. When the StartTenantBackfillRequest API is called, it kicks off the initial setup process of moving all the subscriptions into the hierarchy. This process also starts the enforcement of all new subscription to be a child of the root management group. This process can be done without changing any assignments on the root level as you are saying it is okay that any policy or access assignment on the root can be applied to all subscriptions.
+
+If you have questions on this backfill process, please contact: managementgroups@microsoft.com  
   
 ## Management group access
 
