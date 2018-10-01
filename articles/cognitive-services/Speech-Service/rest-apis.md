@@ -27,7 +27,7 @@ This API supports only short utterances. Requests may contain up to 10 seconds o
 
 ### Query parameters
 
-The following parameters might be included in the query string of the REST request.
+The following parameters may be included in the query string of the REST request.
 
 |Parameter name|Required/optional|Meaning|
 |-|-|-|
@@ -190,9 +190,6 @@ The following are the REST endpoints for the Speech service's Text to Speech API
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> If you created a custom voice font, use the associated custom endpoint instead.
-
 The Speech service supports 24-KHz audio output in addition to the 16-Khz output supported by Bing Speech. Four 24-KHz output formats are available for use in the `X-Microsoft-OutputFormat` HTTP header, as are two 24-KHz voices, `Jessa24kRUS` and `Guy24kRUS`.
 
 Locale | Language   | Gender | Service name mapping
@@ -259,8 +256,9 @@ HTTP code|Meaning|Possible reason
 200|OK|The request was successful; the response body is an audio file.
 400 |Bad Request |A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long.
 401|Unauthorized |The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region.
-413|Request entity too large|The SSML input is longer than 1024 characters.
-|502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
+413|Request Entity Too Large|The SSML input is longer than 1024 characters.
+429|Too Many Requests|You have exceeded the quota or rate of requests allowed for your subscription.
+502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred or saved to a buffer or file for later playback or other use.
 
