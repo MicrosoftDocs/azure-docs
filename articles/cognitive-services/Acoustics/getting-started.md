@@ -88,9 +88,9 @@ Create an audio source. Click the checkbox at the bottom of the AudioSource's in
 ![Audio Source](media/AudioSource.png)
 
 ## Apply post-bake design
-You can attach the script **AcousticsSourceCustomization** to a sound source in your scene to enable additional source design parameters, by clicking **Add Component** and choosing **Scripts > Acoustics Source Customization**:
+You can attach the script **AcousticsDesign** to a sound source in your scene to enable additional source design parameters, by clicking **Add Component** and choosing **Scripts > Acoustics Design**:
 
-![Source Customization](media/SourceCustomization.png)
+![Source Customization](media/AcousticsDesign.png)
 
 There are also parameters on the **Microsoft Acoustics Mixer**. For more information about post-bake design, see [design parameters](design-process.md).
 
