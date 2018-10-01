@@ -50,8 +50,6 @@ When you're running Windows VM instances, the reservation is applied to cover th
 
 ## Discount applies to different sizes with instance size flexibility
 
-When you buy a reservation, the discount can apply to other instances with attributes that are within the same size  group. The flexibility of the discount coverage depends on the type of reservation and the attributes you pick when you buy the reservation.
-
 When you buy a Reserved VM Instance, if you select **Optimized for**: **instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
 ## Next steps
