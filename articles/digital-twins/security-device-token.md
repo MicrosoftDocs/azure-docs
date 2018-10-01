@@ -1,33 +1,28 @@
 ---
 title: Understanding Azure Digital Twins device connectivity and authentication | Microsoft Docs
 description: Using Azure Digital Twins to connect and authenticate devices
-author: adamgerard
+author: lyrana
 manager: alinast
 ms.service: azure-digital-twins
 services: azure-digital-twins
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.author: adgera
+ms.date: 09/28/2018
+ms.author: lyrana
 ---
 
 # Device connectivity and authentication
 
-Physical devices can be manufactured with the information needed to connect to the service on (first) power up.
+Physical devices can be manufactured with the information needed to connect to the Azure Digital Twins service on (first) power up.
 
-A SAS Token installed on a physical device allows it to auto-discover its associated Digital Device Twin object from the Topology API and obtain configuration data, including which IoT Hub to communicate with. Only a Hardware ID, such as a MAC address is needed to perform these steps.
+Physical devices should have a SAS Token installed. The SAS Token is an authorization token, which allows a physical device to access its device twin in the Digital Twins spatial graph. This device twin contains configuration information, including its IoT Hub connection string.
 
-It is possible to create and install the SAS Token before a Device is created in the Topology and associated with a Space object.
-
-The SAS Token is an authorization token which allows a device to access its Device in the Topology and obtain configuration information, including its IoT Hub connection string.
-
->[!NOTE]
->The generation of the SAS Token can take place before a Device is created in the Topology and associated with a Space object, to simplify provisioning.
+It is possible to create and install the SAS Token before a Device is created in the spatial graph and associated with a Space object.
 
 ## SAS tokens
 
 The SAS token is composed of:
 
-* 'SharedAccessSignature' prefix:
+* 'SharedAccessSignature' prefix
 
 * Ampersand-connected string that consists of:
   * Device hardware ID (MAC address or other hardware ID, ideally one that is fixed in the hardware).
@@ -43,7 +38,7 @@ SharedAccessSignature id=010203040506&sig=dD80ihBh5jfNpymO5Hg1IdiJIEvHcJpCMiCMnN
 
 ## Obtain a SAS token
 
-Getting a valid SAS Token involves the following steps:
+To obtain a valid SAS Token, follow these steps:
 
 1. Create a Key Store
 1. Create a Key

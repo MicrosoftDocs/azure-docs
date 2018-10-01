@@ -25,7 +25,7 @@
         href: tutorial-facilities-events.md
 - name: Concepts
   items:
-  - name: Object Model and Spatial Intelligence Graph
+  - name: Digital Twins Object Models and Spatial Intelligence Graph
     href: concepts-objectmodel-spatialgraph.md
   - name: Device Connectivity and Telemetry Ingress
     href: concepts-device-ingress.md

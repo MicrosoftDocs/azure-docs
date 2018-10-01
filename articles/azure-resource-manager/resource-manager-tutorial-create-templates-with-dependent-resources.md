@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: create Azure Resource Manager templates with dependent resources
+# Tutorial: Create Azure Resource Manager templates with dependent resources
 
 Learn how to create an Azure Resource Manager template to deploy multiple resources.  After you create the template, you deploy the template using the Cloud shell from the Azure portal.
 
-Some of the resources cannot be deployed until another resource exists. For example, you can't create the virtual machine until its storage account and network interface exist. You define this relationship by making one resource as dependent on the other resources. Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. For more information, see [Define the order for deploying resources in Azure Resource Manager Templates](./resource-group-define-dependencies.md).
+In this tutorial, you create a storage account, a virtual machine, a virtual network, and some other dependent resources. Some of the resources cannot be deployed until another resource exists. For example, you can't create the virtual machine until its storage account and network interface exist. You define this relationship by making one resource as dependent on the other resources. Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. For more information, see [Define the order for deploying resources in Azure Resource Manager Templates](./resource-group-define-dependencies.md).
 
 This tutorial covers the following tasks:
 
@@ -29,7 +29,7 @@ This tutorial covers the following tasks:
 > * Explore the template
 > * Deploy the template
 
-The instructions in this tutorial create a virtual machine, a virtual network, and some other dependent resources. 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -173,4 +173,9 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager Templates](./resource-group-authoring-templates.md).
+In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn how to deploy Azure resources based on conditions, see:
+
+
+> [!div class="nextstepaction"]
+> [Use conditions](./resource-manager-tutorial-use-conditions.md)
+
