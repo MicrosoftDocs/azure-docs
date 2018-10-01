@@ -157,8 +157,6 @@ Voice customization is available for US English (en-US), mainland Chinese (zh-CN
 
 The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the following Speech language table. The available target languages depend on whether the translation target is speech or text.
 
-You can obtain the list of languages programmatically by using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English, or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
-
 ### Speech languages
 
 | Speech language   | Language code |
