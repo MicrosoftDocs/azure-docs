@@ -247,7 +247,7 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 >
 > If you do not use network security groups or user-defined routes to control traffic, you can ignore this section.
 
-If you use network security groups or user-defined routes, you must allow traffic from the Azure health and management services to reach HDInsight. Use the following steps to find the IP addresses that must be allowed:
+If you use network security groups or user-defined routes, you must allow traffic from the Azure health and management services to reach HDInsight. You must also allow traffic between VMs inside the subnet. Use the following steps to find the IP addresses that must be allowed:
 
 1. You must always allow traffic from the following IP addresses:
 
