@@ -9,14 +9,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 09/27/2018
+ms.date: 10/01/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically create a knowledge base using C#. 
 ---
 
 # Quickstart: Create a Qna Maker knowledge base in C#
 
-This quickstart walks you through creating a sample QnA maker knowledge base, programmatically. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
+This quickstart walks you through programmatically creating a sample QnA maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
 
 This quickstart calls Qna Maker APIs:
 * [Create KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
@@ -29,11 +29,11 @@ This quickstart calls Qna Maker APIs:
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
 * You must have a [Qna Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
 
-## Create knowledge base project
+## Create a knowledge base project
 
 [!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
 
-## Add required dependencies
+## Add the required dependencies
 
 At the top of **Program.cs**, replace the single _using_ statement with the following lines to add necessary dependencies to the project:
 
@@ -45,7 +45,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 ```
 
-## Add required constants
+## Add the required constants
 
 [!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-constants.md)] 
 
@@ -86,7 +86,7 @@ static string kb = @"
 
 [!INCLUDE [Add supporting functions and structures](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-supporting-fns.md)] 
 
-## Add POST request to create KB
+## Add a POST request to create KB
 
 The following code makes an HTTPS request to the Qna Maker API to create a KB and receives the response:
 
@@ -130,7 +130,7 @@ This API call returns a JSON response that includes the operation ID. Use the op
 
 ## Add GET request to determine creation status
 
-The creation of a KB gets all the documents, URLs, and custom editorials and creates a KB. Because this may take some time, the code needs to repeat the call until the status is either successful or fails. 
+The API that creates the KB gets all the documents, URLs, and custom editorials and creates a KB. 
 
 ```csharp
 async static Task<Response> GetStatus(string operationID)
@@ -184,7 +184,7 @@ Repeat the call until success or failure:
 
 ## Add CreateKB method
 
-The following method controls the preceding methods:
+The following method creates the KB and repeats checks on the status. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
 ```csharp
 async static void CreateKB()
@@ -270,7 +270,9 @@ static void Main(string[] args)
 
 ## Build and run the program
 
-[!INCLUDE [Build and run Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-build-and-run.md)] 
+Build and run the program. It will automatically send the request to the Qna Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
+
+Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 
 
 ## Next steps
 

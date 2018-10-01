@@ -9,14 +9,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/27/2018
+ms.date: 10/01/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically modify a knowledge base using C#. 
 ---
 
 # Quickstart: Update a Qna Maker knowledge base in C#
 
-This quickstart walks you through updating your sample QnA maker knowledge base (KB), programmatically.  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
+This quickstart walks you through programmatically updating an existing QnA maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
 
 This API is equivalent to editing, then using the **Save and train** button in the QnA Maker portal.
 
@@ -43,7 +43,7 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
 ## Add required dependencies
 
-[!INCLUDE [Add required dependencies to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
+[!INCLUDE [Add required dependencies to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-deps.md)] 
 
 ## Add required constants
 
@@ -124,7 +124,7 @@ async static Task<Response> PatchUpdateKB(string kb, string new_kb)
 
 ## Add GET request to determine creation status
 
-The update of a KB adds, updates, and deletes question and answer pairs. Because this may take some time, the code needs to repeat the call until the status is either successful or fails. 
+The update of a KB adds, updates, and deletes question and answer pairs. 
 
 ```csharp
 async static Task<Response> GetStatus(string operation)
@@ -172,8 +172,7 @@ Repeat the call until success or failure:
 ```
 
 ## Add UpdateKB method
-
-The following method controls the preceding methods:
+The following method updates the KB and repeats checks on the status. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
 ```csharp
 async static void UpdateKB(string kb, string new_kb)
@@ -259,7 +258,9 @@ static void Main(string[] args)
 
 ## Build and run the program
 
-[!INCLUDE [Build and run Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-build-and-run.md)] 
+Build and run the program. It will automatically send the request to the Qna Maker API to update the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
+
+Once your knowledge base is updated, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 
 
 ## Next steps
 
