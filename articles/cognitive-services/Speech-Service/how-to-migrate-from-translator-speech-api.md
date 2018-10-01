@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/01/2018
 ms.author: aahi
 ---
 

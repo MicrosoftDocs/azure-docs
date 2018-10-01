@@ -8,7 +8,7 @@ author: wsturman
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/01/2018
 ms.author: gracez
 
 # Customer intent: As a developer currently using the deprecated Bing Speech, I want to learn the differences between Bing Speech and the Speech Service so that I can migrate my application to the Speech Service.
