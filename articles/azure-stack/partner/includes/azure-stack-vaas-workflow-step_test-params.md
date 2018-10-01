@@ -1,1 +1,1 @@
-Enter the test parameters. For additional details and instructions, see [Test parameters](azure-stack-vaas-parameters.md#test-parameters).
+Enter the test parameters. For additional details and instructions, see [Test parameters](../azure-stack-vaas-parameters.md#test-parameters).
