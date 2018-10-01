@@ -30,7 +30,7 @@ Before deploying a model to an edge device, use the steps in this document to pr
 
 * An [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription. 
 
-* A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document.
+* A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document. A pre-trained model is available on the [AI Toolkit for Azure IoT Edge GitHub repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
 ## Prepare the IoT device
 
