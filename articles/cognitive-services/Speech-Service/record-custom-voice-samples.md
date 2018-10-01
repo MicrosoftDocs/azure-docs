@@ -33,7 +33,7 @@ Recording engineer  |Oversees the technical aspects of the recording and operate
 Director            |Prepares the script and coaches the voice talent's performance.
 Editor              |Finalizes the audio files and prepares them for upload to the Custom Voice portal.
 
-An individual may fill more than one role. This guide assumes that you will be primarily filling the director role and hiring both a voice talent and a recording engineer. If you want to make the recordings yourself, this article includes some information about the recording engineer role. The editor role isn't needed until after the session, so can be performed by the director recording engineer.
+An individual may fill more than one role. This guide assumes that you will be primarily filling the director role and hiring both a voice talent and a recording engineer. If you want to make the recordings yourself, this article includes some information about the recording engineer role. The editor role isn't needed until after the session, so can be performed by the director or the recording engineer.
 
 ## Choose your voice talent
 

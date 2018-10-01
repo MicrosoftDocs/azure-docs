@@ -1,12 +1,14 @@
 ---
-title: Azure Content Moderator - Create video transcript reviews using .NET | Microsoft Docs
-description: How to create video transcript reviews using Azure Content Moderator SDK for .NET
+title: Create video transcript reviews using .NET - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Create video transcript reviews using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: sajagtap
 ---

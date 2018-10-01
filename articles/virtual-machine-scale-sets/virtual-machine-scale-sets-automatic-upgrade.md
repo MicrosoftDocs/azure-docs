@@ -34,17 +34,15 @@ Automatic OS upgrade has the following characteristics:
 
 ## How does automatic OS image upgrade work?
 
-An upgrade works by replacing the OS disk of a VM with a new one created using the latest image version. Any configured extensions and custom data scripts are run, while persisted data disks are retained. To minimize the application downtime, upgrades take place in batches of machines, with no more than 20% of the scale set upgrading at any time. You also have the option to integrate an Azure Load Balancer application health probe. This is highly recommended to incorporate an application heartbeat and validate upgrade success for each batch in the upgrade process.
+An upgrade works by replacing the OS disk of a VM with a new one created using the latest image version. Any configured extensions and custom data scripts are run, while persisted data disks are retained. To minimize the application downtime, upgrades take place in batches of machines, with no more than 20% of the scale set upgrading at any time. You also have the option to integrate an Azure Load Balancer application health probe. It is highly recommended to incorporate an application heartbeat and validate upgrade success for each batch in the upgrade process. The execution steps are: 
 
-These are the execution steps: 
-
-1. Before beginning the upgrade process, ensure that no more than 20% of instances are unhealthy. 
+1. Before beginning the upgrade process, the orchestrator will ensure that no more than 20% of instances are unhealthy. 
 2. Identify the batch of VM instances to upgrade, with a batch having maximum of 20% of the total instance count.
 3. Upgrade the OS image of this batch of VM instances.
-4. If the customer has configured Application Health Probes, the upgrade waits up to 5 minutes for probes to become healthy, then immediately continues onto the next batch. 
+4. If the customer has configured Application health probes, the upgrade waits up to 5 minutes for probes to become healthy, before moving on to upgrade the next batch. 
 5. If there are remaining instances to upgrade, goto step 1) for the next batch; otherwise the upgrade is complete.
 
-The scale set OS Upgrade Engine checks for the overall VM instance health before upgrading every batch. While upgrading a batch, there may be other concurrent Planned or Unplanned maintenance happening in Azure Datacenters that may impact availability of your VMs. Hence, it is possible that temporarily more than 20% instances may be down. In such cases, at the end of current batch, the scale set upgrade stops.
+The scale set OS upgrade orchestrator checks for the overall VM instance health before upgrading every batch. While upgrading a batch, there may be other concurrent Planned or Unplanned maintenance happening in Azure Datacenters that may impact availability of your VMs. Hence, it is possible that temporarily more than 20% instances may be down. In such cases, at the end of current batch, the scale set upgrade stops.
 
 ## Supported OS images
 Only certain OS platform images are currently supported. You cannot currently use custom images that you have you created yourself. 
@@ -68,7 +66,8 @@ The following SKUs are currently supported (more will be added in the future):
 
 - The *version* property of the platform image must be set to *latest*.
 - Use application health probes for non Service Fabric scale sets.
-- Ensure that the resources that the scale set model is referring to is available and kept up to date. Exa.SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model. 
+- Ensure that the resources that the scale set model is referring to is available and kept up-to-date. 
+  Exa.SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model. 
 
 ## Configure automatic OS image upgrade
 To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition. 
@@ -113,7 +112,7 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
   ...
 ```
 > [!NOTE]
-> This section only applies for scale sets without Service Fabric. Service Fabric has its own notion of application health. When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### Keep credentials up-to-date
 If your scale set uses any credentials to access external resources, for example if a VM extension is configured which uses a SAS token for storage account, you will need to make sure the credentials are kept up-to-date. If any credentials, including certificates and tokens have expired, the upgrade will fail, and the first batch of VMs will be left in a failed state.
@@ -126,7 +125,7 @@ The recommended steps to recover VMs and re-enable automatic OS upgrade if there
 * Deploy the updated scale set, which will update all VM instances including the failed ones. 
 
 ## Get the history of automatic OS image upgrades 
-You can check the history of the most recent OS upgrade performed on your scale set with Azure PowerShell, Azure CLI 2.0, or the REST APIs. You can get history for the last 5 OS upgrade attempts within the past 2 months.
+You can check the history of the most recent OS upgrade performed on your scale set with Azure PowerShell, Azure CLI 2.0, or the REST APIs. You can get history for the last five OS upgrade attempts within the past two months.
 
 ### Azure PowerShell
 To following example uses Azure PowerShell to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:

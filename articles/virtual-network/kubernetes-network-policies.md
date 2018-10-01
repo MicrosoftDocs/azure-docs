@@ -89,11 +89,11 @@ The implementation can be used to provide Network Policies for Pods in Kubernete
 Once the cluster is deployed run the following `kubectl` command to download and apply the Azure network policy *daemonset* to the cluster.
 
   ```
-  kubectl apply -f https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-waf-configuration
+  kubectl apply -f https://raw.githubusercontent.com/Azure/acs-engine/master/parts/k8s/addons/kubernetesmasteraddons-azure-npm-daemonset.yaml
 
   ```
 The solution is also open source and the code is available on the [Azure Container Networking repository](https://github.com/Azure/azure-container-networking/tree/master/npm).
-AKS
+
 
 
 ## Next steps
