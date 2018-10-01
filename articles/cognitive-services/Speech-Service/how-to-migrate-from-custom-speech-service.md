@@ -44,7 +44,8 @@ The pricing model is simpler, moving to an hour-based pricing model for the Spee
 
 Existing customers are required to migrate their existing resource keys to the new service on the Speech Service portal. Use the following steps: 
 
-> [!NOTE] Resource keys can only be migrated within the same region. 
+> [!NOTE] 
+> Resource keys can only be migrated within the same region. 
 
 1. Sign in to the [cris.ai](http://www.cris.ai) portal and select the subscription in the top right menu. 
 
