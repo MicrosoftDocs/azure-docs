@@ -26,6 +26,8 @@
     href: virtual-wan-route-table.md
 - name: Reference
   items:
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.network#networking
   - name: REST
     href: /rest/api/azure
 - name: Resources
