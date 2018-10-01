@@ -43,7 +43,7 @@ ssh-keygen -t rsa -b 2048
 
     `az login`
 
-![Alt image text](media/deploy/az-login-output.png "Azure CLI login")
+    ![Alt image text](media/deploy/az-login-output.png "Azure CLI login")
  
 Copy the “id” value as your **subscription ID** and the **tenantId** value to be used later.
 
@@ -74,7 +74,7 @@ Or you can also use…
 
     `az role assignment create --assignee {service-princ-name} --role “Contributor” `
 
-![Alt image text](media/deploy/svc-princ3.png "Service Principal role assignment")
+    ![Alt image text](media/deploy/svc-princ3.png "Service Principal role assignment")
 
 6. Verify that you can successfully log into your Service Principal using the appId, password & tenantId.
 
