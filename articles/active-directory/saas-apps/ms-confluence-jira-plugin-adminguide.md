@@ -1,6 +1,6 @@
 ---
-title: 'Admin guide for the Azure Active Directory SSO plug-in | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Jira/Confluence.
+title: 'Atlassian Jira/Confluence admin guide - Azure Active Directory| Microsoft Docs'
+description: Admin guide to use Atlassian Jira and Confluence with Azure Active Directory (Azure AD)..
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,7 +16,7 @@ ms.date: 09/28/2018
 ms.author: jeedes
 
 ---
-# Admin guide for the Azure Active Directory SSO plug-in
+# Atlassian Jira and Confluence admin guide for Azure Active Directory
 
 ## Overview
 
