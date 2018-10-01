@@ -36,8 +36,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this tutorial, you will need:
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
-- [Azure CLI](/cli/azure/install-azure-cli) installed locally.
+- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
+- [Azure CLI](/cli/azure/install-azure-cli) installed locally
 
 ## Sign in to Azure CLI
 
@@ -287,4 +287,4 @@ To update the custom role, update the JSON file and then update the custom role.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Custom roles in Azure](custom-roles.md)
+> [Create custom roles using Azure CLI](custom-roles-cli.md)

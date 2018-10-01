@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: asgang
 
 ---
@@ -95,7 +95,7 @@ You can select the VM in the replicated items to configure the network settings,
 
 * If you're using a static IP, specify the IP that you want the VM to take in the **Target IP** text box.
 
-    ![Network settings ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![Network settings ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### 5. Create a recovery plan

@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 07/16/2018
 ms.author: gokuma
 
 ---
@@ -38,7 +38,7 @@ Before you can use a Linux Data Science Virtual Machine, you must have the follo
 The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains only 4601 examples. This is a convenient size to use when demonstrating that some of the key features of the Data Science VM as it keeps the resource requirements modest.
 
 > [!NOTE]
-> This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This size DSVM is capable of handling the procedures in this walkthrough.
+> This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine (CentOS Edition). This size DSVM is capable of handling the procedures in this walkthrough.
 >
 >
 
@@ -73,12 +73,8 @@ To get copies of the code samples used in this walkthrough, clone the **Azure-Ma
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Open a terminal window and start a new R session with the R interactive console.
+Open a terminal window and start a new R session with the R interactive console or use RStudio preinstalled on the machine.
 
-> [!NOTE]
-> You can also use RStudio for the following procedures. To install RStudio, execute this command at a terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
->
->
 
 To import the data and set up the environment, run:
 
@@ -189,6 +185,7 @@ Select **Authorization Tokens** from the overhead menu and note your **Primary A
 
 Load the **AzureML** package and then set values of the variables with your token and workspace ID in your R session on the DSVM:
 
+    if(!require("AzureML")) install.packages("AzureML")
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
@@ -203,29 +200,28 @@ Let's simplify the model to make this demonstration easier to implement. Pick th
 
 We need a prediction function that takes the features as an input and returns the predicted values:
 
-    predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
-        predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
-        "word_freq_remove" = word_freq_remove, "word_freq_hp" = word_freq_hp))
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
+    predictSpam <- function(newdata) {
+      predictDF <- predict(model.rpart, newdata = newdata)
+      return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
+
 
 Publish the predictSpam function to AzureML using the **publishWebService** function:
 
-    spamWebService <- publishWebService("predictSpam",
-        "spamWebService",
-        list("char_freq_dollar"="float", "word_freq_remove"="float","word_freq_hp"="float"),
-        list("spam"="int"),
-        wsID, wsAuth)
+    spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
+
 
 This function takes the **predictSpam** function, creates a web service named **spamWebService** with defined inputs and outputs, and returns information about the new endpoint.
 
-View details of the published web service, including its API endpoint and access keys with the command:
+View details of the latest published web service, including its API endpoint and access keys with the command:
 
-    spamWebService[[2]]
+    s<-tail(services(ws, name = "spamWebService"), 1)
+    ep <- endpoints(ws,s)
+    ep
 
 To try it out on the first 10 rows of the test set:
 
-    consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
+    consume(ep, smallTestSet[1:10, ])
 
 
 ## Use other tools available
@@ -281,7 +277,7 @@ To make predictions:
 
 To show how to publish an AzureML endpoint, let's make a simpler model the three variables as we did when we published the R model previously.
 
-    X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)

@@ -72,10 +72,10 @@ The previous example showed a standard sign-in, which requires the client to con
         {
             createTable();
         }
-        // If we failed to load a token cache, login and create a token cache
+        // If we failed to load a token cache, sign in and create a token cache
         else
         {
-            // Login using the Google provider.
+            // Sign in using the Google provider.
             mClient.login(MobileServiceAuthenticationProvider.Google, "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
         }
     }
@@ -84,16 +84,16 @@ The previous example showed a standard sign-in, which requires the client to con
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // When request completes
         if (resultCode == RESULT_OK) {
-            // Check the request code matches the one we send in the login request
+            // Check the request code matches the one we send in the sign-in request
             if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
                 MobileServiceActivityResult result = mClient.onActivityResult(data);
                 if (result.isLoggedIn()) {
-                    // login succeeded
-                    createAndShowDialog(String.format("You are now logged in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
+                    // sign-in succeeded
+                    createAndShowDialog(String.format("You are now signed in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
                     cacheUserToken(mClient.getCurrentUser());
                     createTable();
                 } else {
-                    // login failed, check the error message
+                    // sign-in failed, check the error message
                     String errorMessage = result.getErrorMessage();
                     createAndShowDialog(errorMessage, "Error");
                 }

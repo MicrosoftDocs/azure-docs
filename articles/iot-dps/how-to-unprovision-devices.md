@@ -1,8 +1,8 @@
 ---
 title: How to deprovision devices that have been provisioned with Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: How to deprovision devices that have been provisioned with Azure IoT Hub Device Provisioning Service
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps

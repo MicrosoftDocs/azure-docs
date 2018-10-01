@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
 	> [!NOTE]
-	> Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see  [Roles-based access control in cloud applications using Azure AD](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/).
+	> Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 	
 5. In the **User Attributes** section in the **Single sign-on** dialog box, configure the SAML token attribute as shown in the previous image.  Then take the following steps:
 
@@ -223,7 +223,7 @@ In this section, you test your Azure AD single sign-on configuration by using th
 
 When you select the **Shmoop For Schools** tile in the Access Panel, you should get automatically signed in to your Shmoop For Schools application.
 
-For more information about the access panel, see [Introduction to the access panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the access panel, see [Introduction to the access panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

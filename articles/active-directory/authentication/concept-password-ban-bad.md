@@ -5,8 +5,8 @@ description: Ban weak passwords from your environment with Azure AD dynamically 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -37,7 +37,7 @@ The custom banned password list and the ability to enable on-premises Active Dir
 
 ## On-premises hybrid scenarios
 
-Protecting cloud-only accounts is helpful but many organizations maintain hybrid scenarios including on-premises Windows Server Active Directory. It is possible to install Azure AD password protection (preview) agents on-premises to extend the banned password lists to your existing infrastructure. Now users and administrators who change, set, or reset passwords on-premises are required to comply with the same password policy as cloud-only users.
+Protecting cloud-only accounts is helpful but many organizations maintain hybrid scenarios including on-premises Windows Server Active Directory. It is possible to install Azure AD password protection for Windows Server Active Directory (preview) agents on-premises to extend the banned password lists to your existing infrastructure. Now users and administrators who change, set, or reset passwords on-premises are required to comply with the same password policy as cloud-only users.
 
 ## How does the banned password list work
 
@@ -51,9 +51,12 @@ Each time a user resets or changes their Azure AD password it flows through this
 
 ## License requirements
 
-The benefits of the global and customized banned password lists apply to all cloud-only users of Azure Active Directory (Azure AD).
+|   | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
+| --- | --- | --- |
+| Cloud-only users | Azure AD Free | Azure AD Basic |
+| Users synchronized from on-premises Windows Server Active Directory | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |
 
-The customizable custom banned password list requires Azure AD Basic licenses. Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## What do users see
 

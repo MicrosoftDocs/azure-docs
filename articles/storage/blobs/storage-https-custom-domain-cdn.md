@@ -2,23 +2,17 @@
 title: Using the Azure CDN to access blobs with custom domains over HTTPS
 description: Learn how to integrate the Azure CDN with blob storage to access blobs with custom domains over HTTPS
 services: storage
-documentationcenter: ''
 author: michaelhauss
-manager: vamshik
-editor: tysonn
 
-ms.assetid:
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 06/26/2018
 ms.author: mihauss
+ms.component: blobs
 ---
 
 # Using the Azure CDN to access blobs with custom domains over HTTPS
-Azure Content Delivery Network (CDN) now supports HTTPS for custom domain names. You can leverage this feature to access storage blobs using your custom domain over HTTPS. To do so, you'll first need to enable Azure CDN on your blob endpoint and map the CDN to a custom domain name. Once you take these steps, enabling HTTPS for your custom domain is simplified via one-click enablement, complete certificate management, and all with no additional cost to normal CDN pricing.
+Azure Content Delivery Network (CDN) now supports HTTPS for custom domain names. You can leverage this feature to access storage blobs using your custom domain over HTTPS. To do so, you'll first need to enable Azure CDN on your blob or web endpoint and map the CDN to a custom domain name. Once you take these steps, enabling HTTPS for your custom domain is simplified via one-click enablement, complete certificate management, and all with no additional cost to normal CDN pricing.
 
 This ability is important because it enables you to protect the privacy and data integrity of your sensitive web application data while in transit. Using the SSL protocol to serve traffic via HTTPS ensures that data is encrypted when it is sent across the internet. HTTPS provides trust and authentication, and protects your web applications from attacks.
 
@@ -30,6 +24,10 @@ These are the steps required to enable HTTPS for your custom blob storage endpoi
 
 1.  [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
     This article walks you through creating a storage account in the Azure Portal if you have not done so already.
+
+    > [!NOTE]  
+    > During preview of static websites support in Azure Storage, select "custom origin" from the "origin type" drop down menu to add your storage web endpoint. In Azure Portal, you will need to do this from your CDN Profile instead of directly in your storage account.
+
 2.  [Map Azure CDN content to a custom domain](../../cdn/cdn-map-content-to-custom-domain.md).
 3.  [Enable HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
 
@@ -57,4 +55,5 @@ For example, say you have a storage account in West US that is being accessed us
 When looking at the [CDN pricing page](https://azure.microsoft.com/pricing/details/cdn/), note that HTTPS support for custom domain names is only available for Azure CDN from Verizon products (Standard and Premium).
 
 ## Next steps
-[Configure a custom domain name for your Blob storage endpoint](storage-custom-domain-name.md)
+* [Configure a custom domain name for your Blob storage endpoint](storage-custom-domain-name.md)
+* [Static website hosting in Azure Storage (Preview)](storage-blob-static-website.md)

@@ -10,8 +10,8 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
@@ -40,6 +40,8 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 
 ## Requirements
 
+- Use a client other than the Remote Desktop web client, since the web client does not support Application Proxy.
+
 - Both the RD Web and RD Gateway endpoints must be located on the same machine, and with a common root. RD Web and RD Gateway are published as a single application with Application Proxy so that you can have a single sign-on experience between the two applications.
 
 - You should already have [deployed RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](application-proxy-enable.md).
@@ -57,14 +59,14 @@ After setting up RDS and Azure AD Application Proxy for your environment, follow
 ### Publish the RD host endpoint
 
 1. [Publish a new Application Proxy application](application-proxy-publish-azure-portal.md) with the following values:
-   - Internal URL: https://\<rdhost\>.com/, where \<rdhost\> is the common root that RD Web and RD Gateway share.
+   - Internal URL: `https://\<rdhost\>.com/`, where `\<rdhost\>` is the common root that RD Web and RD Gateway share.
    - External URL: This field is automatically populated based on the name of the application, but you can modify it. Your users will go to this URL when they access RDS.
    - Preauthentication method: Azure Active Directory
    - Translate URL headers: No
 2. Assign users to the published RD application. Make sure they all have access to RDS, too.
 3. Leave the single sign-on method for the application as **Azure AD single sign-on disabled**. Your users are asked to authenticate once to Azure AD and once to RD Web, but have single sign-on to RD Gateway.
 4. Go to **Azure Active Directory** > **App Registrations** > *Your application* > **Settings**.
-5. Select **Properties** and update the **Home-page URL** field to point to your RD Web endpoint (like https://\<rdhost\>.com/RDWeb).
+5. Select **Properties** and update the **Home-page URL** field to point to your RD Web endpoint (like `https://\<rdhost\>.com/RDWeb`).
 
 ### Direct RDS traffic to Application Proxy
 

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
@@ -40,6 +40,10 @@ Your requirements determine which of the following tools works best for you:
 * [Microsoft storage explorer](#microsoft-azure-storage-explorer)
 
     An easy-to-use stand-alone app with a user interface.
+
+* [Blobfuse ](#blobfuse)
+
+    A virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. 
 
 Due to the storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure Stack storage: Differences and considerations](azure-stack-acs-differences.md).
 
@@ -214,9 +218,9 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 ### PowerShell known issues
 
-The current compatible Azure PowerShell module version for Azure Stack is 1.3.0. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
+The current compatible Azure PowerShell module version for Azure Stack is 1.2.11 for the user operations. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
 
-* The return value format of `Get-AzureRmStorageAccountKey` in version 1.3.0 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
+* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.11 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
 
    ```
    # This command gets a specific key for a storage account, 
@@ -239,7 +243,7 @@ The Azure CLI is Azure’s command-line experience for managing Azure resources.
 
 Azure CLI is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager. It provides many of the same functions found in the Azure Stack portal, including rich data access.
 
-Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). For more information about how to use the Azure CLI 2.0 to perform several tasks working with resources in your Azure Stack storage account, see [Using the Azure CLI2.0 with Azure storage](../../storage/storage-azure-cli.md)
+Azure Stack requires Azure CLI version 2.0 or later. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). For more information about how to use the Azure CLI to perform several tasks working with resources in your Azure Stack storage account, see [Using the Azure CLI with Azure storage](../../storage/storage-azure-cli.md)
 
 ### Azure CLI sample script for Azure Stack
 
@@ -297,6 +301,34 @@ Microsoft Azure storage explorer is a standalone app from Microsoft. It allows y
 
 * To learn more about configuring Azure storage explorer to work with Azure Stack, see [Connect storage explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
 * To learn more about Microsoft Azure storage explorer, see [Get started with storage explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+
+## Blobfuse 
+
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual direcectory scheme with the use of forward-slash `/` as a delimiter. Blobfuse works on both Azure and Azure Stack. 
+
+To learn more about mounting Blob storage as a file system with Blobfuse on Linux, see [How to mount Blob storage as a file system with Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
+
+For Azure Stack, **blobEndpoint** needs to be specified besides accountName, accountKey/sasToken, containerName, while configuring your Storage account credentials in the step of preparing for mounting. 
+
+In the Azure Stack development Kit, the blobEndpoint should be `myaccount.blob.local.azurestack.external`. In Azure Stack integrated system, contact your cloud administrator if you’re not sure about your endpoint. 
+
+Please be aware that accountKey and sasToken can only be configured one at a time. When storage account key is given, the credentials configuration file is in the following format: 
+
+```text  
+    accountName myaccount 
+    accountKey myaccesskey== 
+    containerName mycontainer 
+    blobEndpoint myaccount.blob.local.azurestack.external
+```
+
+When shared access token is given, the credentials configuration file is in the following format:
+
+```text  
+    accountName myaccount 
+    sasToken ?mysastoken 
+    containerName mycontainer 
+    blobEndpoint myaccount.blob.local.azurestack.external
+```
 
 ## Next steps
 

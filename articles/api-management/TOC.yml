@@ -17,7 +17,7 @@
     href: import-and-publish.md
   - name: 2 - Create and publish a product
     href: api-management-howto-add-products.md
-  - name: 3 - Mock an API responses
+  - name: 3 - Mock API responses
     href: mock-api-responses.md
   - name: 4 - Protect your API
     href: transform-api.md
@@ -77,8 +77,12 @@
       href: edit-api.md
   - name: Provision and scale
     items:
+    - name: Capacity metric
+      href: api-management-capacity.md
     - name: Upgrade and scale
       href: upgrade-and-scale.md
+    - name: Configure autoscale
+      href: api-management-howto-autoscale.md
     - name: Configure a custom domain
       href: configure-custom-domain.md
   - name: Cache
@@ -97,6 +101,8 @@
       href: api-management-howto-integrate-internal-vnet-appgateway.md
     - name: Mutual Certificate authentication
       href: api-management-howto-mutual-certificates.md
+    - name: Manage CA certificates
+      href: api-management-howto-ca-certificates.md
     - name: Manage protocols and ciphers
       href: api-management-howto-manage-protocols-ciphers.md
   - name: Customize the developer experience
@@ -175,6 +181,8 @@
       href: api-management-howto-deploy-multi-region.md
     - name: Log events to Azure Event Hubs
       href: api-management-howto-log-event-hubs.md
+    - name: Log requests with Azure Application Insights
+      href: api-management-howto-app-insights.md
     - name: Set up DR using backup/restore
       href: api-management-howto-disaster-recovery-backup-restore.md
     - name: Manage user accounts

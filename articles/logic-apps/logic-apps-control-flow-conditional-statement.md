@@ -61,40 +61,33 @@ open your logic app in Logic App Designer.
    at the bottom of your logic app, 
    choose  **+ New step** > **Add a condition**.
 
-3. Under **Condition**, create your condition. 
+3. Under **Condition**, build your condition. 
 
    1. In the left box, specify the data or field that you want to compare.
 
-      From the **Add dynamic content** list, 
-      you can select existing fields from your logic app.
+      When you click inside the left box, the dynamic content list appears 
+      so you can select outputs from previous steps in your logic app. 
+      For this example, select the RSS feed summary.
+
+      ![Build your condition](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
    2. In the middle list, select the operation to perform. 
-   3. In the right box, specify a value or field as your criteria.
+   For this example, select "**contains**". 
 
-   For example:
-
-   ![Edit condition in basic mode](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode.png)
+   3. In the right box, specify a value or field as your criteria. 
+   For this example, specify this string: **Microsoft**
 
    Here's the complete condition:
 
-   ![Complete condition](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Complete condition](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   > [!TIP]
-   > To create a more advanced condition or use expressions, 
-   > choose **Edit in advanced mode**. You can use 
-   > expressions defined by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
-   > 
-   > For example:
-   >
-   > ![Edit condition in code](./media/logic-apps-control-flow-conditional-statement/edit-condition-advanced-mode.png)
-
-5. Under **IF YES** and **IF NO**, add the steps to perform 
+5. Under **If true** and **If false**, add the steps to perform 
 based on whether the condition is met. For example:
 
-   ![Condition with YES and NO paths](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
+   ![Condition with "If true" and "If false" paths](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > You can drag existing actions into the **IF YES** and **IF NO** paths.
+   > You can drag existing actions into the **If true** and **If false** paths.
 
 6. Save your logic app.
 
@@ -108,14 +101,21 @@ let's look at the high-level code definition behind the conditional statement.
 
 ``` json
 "actions": {
-  "myConditionName": {
+  "Condition": {
     "type": "If",
-    "expression": "@contains(triggerBody()?['summary'], 'Microsoft')",
     "actions": {
       "Send_an_email": {
-        "inputs": { },
+        "inputs": {},
         "runAfter": {}
-      }
+    },
+    "expression": {
+      "and": [ 
+        { 
+          "contains": [ 
+            "@triggerBody()?['summary']", "Microsoft"
+          ]
+        } 
+      ]
     },
     "runAfter": {}
   }

@@ -1,0 +1,40 @@
+- name: Azure Blueprints documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Overview of Azure Blueprints
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a blueprint - Portal
+    href: create-blueprint-portal.md
+  - name: Create a blueprint - REST API
+    href: create-blueprint-rest-api.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Lifecycle of a blueprint
+    href: ./concepts/lifecycle.md
+  - name: Dynamic parameters in a blueprint
+    href: ./concepts/parameters.md
+  - name: Sequencing order of blueprint deployment
+    href: ./concepts/sequencing-order.md
+  - name: Resource locking in Blueprints
+    href: ./concepts/resource-locking.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Update existing assignments
+    href: ./how-to/update-existing-assignments.md
+- name: Troubleshoot
+  href: ./troubleshoot/general.md
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: UserVoice
+    href: https://feedback.azure.com/forums/915958-azure-governance

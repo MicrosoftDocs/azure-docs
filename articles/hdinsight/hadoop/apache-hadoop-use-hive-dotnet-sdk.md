@@ -1,20 +1,15 @@
 ---
-title: Run Hive queries using HDInsight .NET SDK - Azure | Microsoft Docs
+title: Run Hive queries using HDInsight .NET SDK - Azure 
 description: Learn how to submit Hadoop jobs to Azure HDInsight Hadoop using HDInsight .NET SDK.
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
+author: jasonwhowell
 
-ms.assetid: 4e291890-f8b4-426c-b5e8-d4fd512ff042
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Run Hive queries using HDInsight .NET SDK
@@ -141,7 +136,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Manage Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-management-portal.md)
-* [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use Sqoop with HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Create non-interactive authentication .NET HDInsight applications](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

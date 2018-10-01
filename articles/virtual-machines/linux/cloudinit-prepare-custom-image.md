@@ -93,7 +93,7 @@ EOF
 
 If your existing Azure image has a swap file configured and you want to change the swap file configuration for new images using cloud-init, you need to remove the existing swap file.
 
-For Red Hat based images - follow the instructions in the following Red Hat document explaining how to [remove the swap file](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/s2-swap-removing-file.html).
+For Red Hat based images - follow the instructions in the following Red Hat document explaining how to [remove the swap file](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
 
 For CentOS images with swapfile enabled, you can run the following command to turn off the swapfile:
 ```bash

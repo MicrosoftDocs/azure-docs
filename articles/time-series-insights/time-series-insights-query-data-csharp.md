@@ -3,9 +3,9 @@ title: Query data from an Azure Time Series Insights environment using C# code |
 description: This article describes how to query data from an Azure Time Series Insights environment by coding a custom app written in the  C# (C-sharp) .NET language.
 ms.service: time-series-insights
 services: time-series-insights
-author: ankryach
-ms.author: ankryach
-manager: jhubbard
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data

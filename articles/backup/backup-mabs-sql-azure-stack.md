@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
 ---
-# Back up SQL Server on Azure Stack
+# Back up SQL Server on Stack
 Use this article to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 
 The management of SQL Server database backup to Azure and recovery from Azure involves three steps:
 
-1. Create a backup policy to protect SQL Server databases to Azure.
-2. Create on-demand backup copies to Azure.
-3. Recover the database from Azure.
+1. Create a backup policy to protect SQL Server databases
+2. Create on-demand backup copies
+3. Recover the database from Disks, and from Azure
 
 ## Before you start
 
@@ -57,12 +57,6 @@ The management of SQL Server database backup to Azure and recovery from Azure in
    >
 
 7. On the **Review disk allocation** screen, verify the overall storage space available, and the potential disk space. Click **Next**.
-
-    ![Disk allocation](./media/backup-azure-backup-sql/pg-storage.png)
-
-    By default, Azure Backup Server creates one volume per data source (SQL Server database), which is used for the initial backup copy. Using this approach, the Logical Disk Manager (LDM) limits Azure Backup protection to 300 data sources (SQL Server databases). To work around this limitation, select **Co-locate data in DPM Storage Pool**. With co-location, Azure Backup Server uses a single volume for multiple data sources, and can protect up to 2000 SQL Server databases.
-
-    If you select **Automatically grow the volumes**, Azure Backup Server accounts for the increased backup volume as production data grows. If you don't select the option, Azure Backup Server limits the backup storage used to the data sources in the protection group.
 
 8. In the **Choose Replica Creation Method**, choose how to create your first recovery point. You can transfer the initial backup manually (off network) to avoid bandwidth congestion or over the network. If you choose to wait to transfer the first backup, you can specify the time for the initial transfer. Click **Next**.
 
@@ -105,12 +99,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
     * The backup on Saturday at 12:00 P.M. is retained for 104 weeks
     * The backup on Last Saturday at 12:00 P.M. is retained for 60 months
     * The backup on Last Saturday of March at 12:00 P.M. is retained for 10 years
-13. Click **Next** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network** or **Offline Backup**.
-
-    * **Automatically over the network** transfers the backup data to Azure as per the schedule chosen for backup.
-    * **Offline Backup** is explained at [Offline Backup workflow in Azure Backup](backup-azure-backup-import-export.md).
-
-    Choose the relevant transfer mechanism to send the initial backup copy to Azure and click **Next**.
+13. Click **Next** and select the appropriate option for transferring the initial backup copy to Azure. You can choose **Automatically over the network**
 
 14. Once you review the policy details in the **Summary** screen, click **Create group** to complete the workflow. You can click **Close** and monitor the job progress in Monitoring workspace.
 
@@ -141,11 +130,11 @@ The following steps are required to recover a protected entity (SQL Server datab
 2. Right-click the database name and click **Recover**.
 
     ![Recover from Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM shows the details of the recovery point. Click **Next**. To overwrite the database, select the recovery type **Recover to original instance of SQL Server**. Click **Next**.
+3. MABS shows the details of the recovery point. Click **Next**. To overwrite the database, select the recovery type **Recover to original instance of SQL Server**. Click **Next**.
 
     ![Recover to Original Location](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    In this example, DPM recovers the database to another SQL Server instance, or to a standalone network folder.
+    In this example, MABS recovers the database to another SQL Server instance, or to a standalone network folder.
 
 4. In the **Specify Recovery options** screen, you can select the recovery options like Network bandwidth usage throttling to throttle the bandwidth used by recovery. Click **Next**.
 

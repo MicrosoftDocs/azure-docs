@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/apptio-tutorial/tutorial_apptio_attributes.png)		
 	
 	> [!NOTE]
-	> Please click [here](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to know how to configure **Role** in Azure AD
+	> Please click [here](../../role-based-access-control/role-assignments-portal.md) to know how to configure **Role** in Azure AD
 	
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 
@@ -220,7 +220,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Apptio tile in the Access Panel, you should get automatically signed-on to your Apptio application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
@@ -240,4 +240,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/apptio-tutorial/tutorial_general_201.png
 [202]: ./media/apptio-tutorial/tutorial_general_202.png
 [203]: ./media/apptio-tutorial/tutorial_general_203.png
-

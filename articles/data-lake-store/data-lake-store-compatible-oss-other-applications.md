@@ -1,22 +1,23 @@
 ---
-title: Big data applications compatible with Data Lake Store | Microsoft Docs
-description: List of open source applications that work with Azure Data Lake Store
+title: Big data applications compatible with Data Lake Storage Gen1 | Microsoft Docs
+description: List of open source applications that work with Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
 
-ms.assetid: 699e1805-cb76-4807-9ac1-8bd9d9bbb72b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
-# Open Source Big Data applications that work with Azure Data Lake Store
-This article lists the open source big data applications that work with Azure Data Lake Store. For the applications in the table below, only the versions available with the listed distribution are supported. For information on what versions of these applications are available with HDInsight, see [HDInsight component versioning](../hdinsight/hdinsight-component-versioning.md).
+# Open Source Big Data applications that work with Azure Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+This article lists the open source big data applications that work with Azure Data Lake Storage Gen1. For the applications in the table below, only the versions available with the listed distribution are supported. For information on what versions of these applications are available with HDInsight, see [HDInsight component versioning](../hdinsight/hdinsight-component-versioning.md).
 
 | Open Source Software | Distribution |
 | --- | --- |
@@ -34,5 +35,5 @@ This article lists the open source big data applications that work with Azure Da
 
 
 ## See also
-* [Overview of Azure Data Lake Store](data-lake-store-overview.md)
+* [Overview of Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 

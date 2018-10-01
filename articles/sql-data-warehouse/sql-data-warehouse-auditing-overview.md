@@ -3,7 +3,7 @@ title: Auditing in Azure SQL Data Warehouse  | Microsoft Docs
 description: Learn about auditing, and how to set up auditing in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
@@ -47,8 +47,9 @@ An auditing policy can be defined for a specific database or as a default server
 > * You want to use a different *storage account* or *retention period* for a specific database.
 > * You want to audit event types or categories for a specific database that differ from the rest of the databases on the server. For example, you might have table inserts that need to be audited only for a specific database.
 > * You want to use Threat Detection, which is currently only supported with database-level auditing.
->
 
+> [!IMPORTANT]
+>Enabling auditing on an Azure SQL Data Warehouse, or on a server that has an Azure SQL Data Warehouse on it, **will result in the Data Warehouse being resumed**, even in the case where it was previously paused. **Please make sure to pause the Data Warehouse again after enabling auditing**.
 
 ## <a id="subheading-5"></a>Set up server-level auditing for all databases
 

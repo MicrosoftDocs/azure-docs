@@ -1,17 +1,17 @@
-# [Data Lake Store Documentation](index.md)
+# [Data Lake Storage Gen1 Documentation](index.md)
+# [Switch to Data Lake Storage Gen2 (preview) documentation](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # Overview
-## [Overview of Azure Data Lake Store](data-lake-store-overview.md)
-## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
-## [Open source applications working with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
-## [Best practices for using Data Lake Store](data-lake-store-best-practices.md)
+## [Overview of Data Lake Storage Gen1](data-lake-store-overview.md)
+## [Compare with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
+## [Processing big data](data-lake-store-data-scenarios.md)
+## [Working with open source applications](data-lake-store-compatible-oss-other-applications.md)
+## [Best practices](data-lake-store-best-practices.md)
 
 # Get started
-## [Using Portal](data-lake-store-get-started-portal.md)
-## [Using PowerShell](data-lake-store-get-started-powershell.md)
-## [Using Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-
+## [Using Azure Portal](data-lake-store-get-started-portal.md)
+## [Using Azure PowerShell](data-lake-store-get-started-powershell.md)
+## [Using Azure CLI](data-lake-store-get-started-cli-2.0.md)
 
 # How to
 ## Load and move data
@@ -21,15 +21,15 @@
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Upload data from offline sources](data-lake-store-offline-bulk-data-upload.md)
-### [Migrate Azure Data Lake Store across regions](data-lake-store-migration-cross-region.md)
+### [Migrate Data Lake Storage Gen1 across regions](data-lake-store-migration-cross-region.md)
 
 ## Secure data
 ### [Security overview](data-lake-store-security-overview.md)
-### [Access control in Data Lake Store](data-lake-store-access-control.md)
-### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
+### [Access control](data-lake-store-access-control.md)
+### [Securing stored data](data-lake-store-secure-data.md)
 ### [Encryption](data-lake-store-encryption.md)
 
-## Authenticate with Data Lake Store
+## Authenticate with Data Lake Storage Gen1
 ### [Authentication options](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
 #### [Using Java](data-lake-store-end-user-authenticate-java-sdk.md)
@@ -42,7 +42,7 @@
 #### [Using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
 #### [Using Python](data-lake-store-service-to-service-authenticate-python.md)
 
-## Work with Data Lake Store
+## Work with Data Lake Storage Gen1
 ### Account management operations
 #### [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 #### [Using REST API](data-lake-store-get-started-rest-api.md)
@@ -54,18 +54,18 @@
 #### [Using Python](data-lake-store-data-operations-python.md)
 
 ## Performance
-### [Performance tuning guidance for Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
-### [Performance tuning guidance for using PowerShell with Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
-### [Performance tuning guidance for Spark on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
-### [Performance tuning guidance for Hive on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
-### [Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
-### [Performance tuning guidance for Storm on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
+### [Overview](data-lake-store-performance-tuning-guidance.md)
+### [Using Azure PowerShell](data-lake-store-performance-tuning-powershell.md)
+### [Using Spark on HDInsight](data-lake-store-performance-tuning-spark.md)
+### [Using Hive on HDInsight](data-lake-store-performance-tuning-hive.md)
+### [Using MapReduce on HDInsight](data-lake-store-performance-tuning-mapreduce.md)
+### [Using Storm on HDInsight](data-lake-store-performance-tuning-storm.md)
 
-## Integrate with Azure Services
+## Integrate with Azure services
 ### With HDInsight
 #### [Using Azure portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 #### [Using Azure PowerShell (default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [Using Azure PowerShell (additonal storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Using Azure PowerShell (additional storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Using Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

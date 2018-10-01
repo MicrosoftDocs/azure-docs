@@ -1,130 +1,71 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service Documentation (Preview)
+title: Speech Service SDK Documentation
 metadata:
-  title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
-  meta.description: Speech SDK provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
+  title: Speech Service SDK Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
+  meta.description: |
+    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
+    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: nitinme
+  manager: cgronlun
   layout: LandingPage
   ms.service: cognitive-services
   ms.component: speech-service
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/01/2018
-  ms.author: nolachar
+  ms.date: 09/24/2018
+  ms.author: nitinme
 
 abstract:
-  description: The Microsoft Speech Service and SDK provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, transcription, and dictation. Cortana, Microsoft Office, and others use the same technology. A key differentiator of Microsoft Speech Service is the ability to customize <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. In fact, customized <a href="http://aka.ms/customvoice">Text-to-speech</a> and <a href="http://aka.ms/customtranslator">Speech-Translation</a> are available as well.<br/><br/>Our Speech SDK is available on multiple platforms in several programming languages, so you can take care of live microphone management, real-time streaming, or batch-based file communication, depending on your application needs.
+  description: Learn how to use the Speech Service and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Service also has a REST API that works with any programming language that can make HTTP requests.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/speech-landing-page-video.png
+      width: 250  
+    title: Speech Service overview (10:34)
+    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-overview-of-advanced-speech-capabilities/
+    width: 250
 sections:
-- title: 10-Minute Quickstarts - New SDKs
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/speech-service/overview
+          html: <p>Learn about Azure Speech Service.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Speech Service?
+        - href: /azure/cognitive-services/speech-service/get-started
+          html: <p>Learn how to sign up for the Speech service for free.</p>
+          image:
+            src: ../media/index/i_get-started.svg
+          title: Sign up for Speech Service
+        - href: /azure/cognitive-services/speech-service/speech-devices-sdk
+          html: <p>Learn about the speech-enabled hardware reference.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Speech Devices SDK
+- title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to install and use the Speech SDK with our quickstarts:'
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/logo_csharp.svg
-      - image:
-          src: media/index/logo_cplusplus.svg
-      - image:
-          src: media/index/logo_java.jpg
-    rows:
-      - title: Windows
-        values:
-        - href: quickstart-csharp-windows
-        - href: cpp-windows
-        - href:
-      - title: Linux
-        values:
-        - href:
-        - href: cpp-linux
-        - href:
-      - title: Devices SDK (Android)
-        values:
-        - href:
-        - href:
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
-
-- title: Samples and Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Examples
-      html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
-    - title: API Reference
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Devices SDK)</a></li></ul>
-
-- title: Speech-to-Text
-  items:
-  - type: paragraph
-    text: Our Speech SDK supports <b>Speech-to-Text</b> (STT), or speech recognition.  The Speech SDK transcribes audio streams into text that your application can accept as input. Your application can then, for example, enter the text into a document or act upon it as a command.
-  - type: paragraph
-    text: The following are common use cases for <b>Speech-to-Text</b> via the Speech SDK&#58;
-  - type: list
-    style: unordered
-    items:
-    - text: 'Recognize a brief utterance, such as a command, without interim results.'
-    - text: 'Transcribe a long, previously-recorded utterance, such as a voicemail message.'
-    - text: 'Transcribe streaming speech in real-time, with partial results, for dictation.'
-    - text: 'Determine what users want to do based on a spoken natural-language request.'
-  - type: paragraph
-    text: The Speech SDK supports interactive speech transcription with real-time continuous <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">Speech-to-Text</a> and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.
-  - type: paragraph
-    text: A key differentiator of Microsoft Speech Service is the ability to customize <a href="http://aka.ms/customspeech">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
-
-- title: Speech-Translation
-  items:
-  - type: paragraph
-    text: The Speech SDK can be used for <a href="https://azure.microsoft.com/services/cognitive-services/speech-translation">Speech-Translation</a> as well.  With streaming <b>Speech-Translation</b> via the Speech SDK, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
-  - type: paragraph
-    text: Use cases for <b>Speech-Translation</b> via the Speech SDK include the following&#58;
-  - type: list
-    style: unordered
-    items:
-    - text: Implement a conversational translation mobile app or device for travelers.
-    - text: Provide automatic translations for subtitling of audio and video recordings.
-  - type: paragraph
-    text: <b>Speech-Translation</b> models can also be <a href="http://aka.ms/customtranslator">customized</a>.
-
-- title: Text-to-Speech
-  items:
-  - type: paragraph
-    text: 'Currently, <a href="https://azure.microsoft.com/services/cognitive-services/text-to-speech">Text-to-Speech</a> (TTS), or speech synthesis, is supported via a REST API that converts plain text to natural-sounding speech that''s delivered to your application in an audio file. Multiple voices, varying in gender or accent, are available for many languages.'
-  - type: paragraph
-    text: Our Speech SDK provides access to Speech-to-Text and Speech-Translation. Text-to-Speech employs REST POST calls over HTTP.
-  - type: paragraph
-    text: The <b>Text-to-Speech</b> REST API supports <b>Speech-Synthesis-Markup-Language</b> (SSML) tags, so you can specify the exact phonetic pronunciation for troublesome words. SSML can also indicate speech characteristics (including emphasis, rate, volume, gender, and pitch) right in the text.
-  - type: paragraph
-    text: If you want an unsupported dialect or unique voice for your application, you can create <a href="http://aka.ms/customvoice">custom voice fonts</a> from your own speech samples.
-  - type: paragraph
-    text: The following are common use cases for the <b>Text-to-Speech</b> REST API&#58;
-  - type: list
-    style: unordered
-    items:
-    - text: Speech output as an alternative screen output for visually-impaired users.
-    - text: Voice prompting for in-car applications, such as navigation.
-    - text: Conversational user interfaces in concert with the <b>Speech-to-Text</b> API.
-
-- title: Speech Devices SDK
-  items:
-  - type: paragraph
-    text: "With the introduction of the unified Speech Service, Microsoft and its partners now offer an integrated hardware/software platform that's optimized for developing speech-enabled devices&#58; the <b>Speech Devices SDK</b>. This SDK is suitable for developing smart speech devices for all types of applications."
-  - type: paragraph
-    text: The <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Speech Devices SDK</a> allows you to build your own ambient devices with a customized wake word unique to your brand that triggers audio capture. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
-
-- title: Older SDKs
-  items:
+    text: Learn how to download, install, and use by clicking on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
   - type: table
     style: dataMatrix
     columns:
       - image:
           src: media/index/uwp.jpg
+      - image:
+          src: media/index/logo_csharp.svg
+      - image:
+          src: media/index/logo_cplusplus.svg
+      - image:
+          src: media/index/logo_netcore.svg
       - image:
           src: media/index/logo_java.jpg
       - image:
@@ -136,27 +77,80 @@ sections:
       - image:
           src: media/index/logo_rest_tts.svg
     rows:
-      - title: Windows
+      - title: Windows 10 (x64)
         values:
-        - href: https://docs.microsoft.com/windows/uwp/design/input/speech-recognition
+        - href: quickstart-csharp-uwp
+        - href: quickstart-csharp-windows
+        - href: quickstart-cpp-windows
+        - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-java-jre
+        - href:
+        - href:
+        - href:
+        - href:
+      - title: Windows 10 (x86)
+        values:
+        - href: quickstart-csharp-uwp
+        - href: quickstart-csharp-windows
+        - href: quickstart-cpp-windows
+        - href: quickstart-csharp-dotnetcore-windows
         - href:
         - href:
         - href:
         - href:
         - href:
-      - title: Android
+      - title: Linux (x64)
         values:
         - href:
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjavaandroid
+        - href:
+        - href: quickstart-cpp-linux
+        - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-java-jre
         - href:
         - href:
         - href:
         - href:
-      - title: iOS
+      - title: Linux (x86)
         values:
         - href:
         - href:
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/get-started-objectivec-ios
+        - href: quickstart-cpp-linux
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+      - title: Android (ARM32/ARM64)
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: quickstart-java-android
+        - href:
+        - href:
+        - href:
+        - href:
+      - title: Devices SDK (ARM64)
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: speech-devices-sdk
+        - href:
+        - href:
+        - href:
+        - href:
+      - title: iOS (ARM64)
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: quickstart-objectivec-ios
         - href:
         - href:
         - href:
@@ -165,28 +159,51 @@ sections:
         - href:
         - href:
         - href:
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjswebsockets
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
-
-- title: SDKs in Consideration
+        - href:
+        - href:
+        - href:
+        - href: quickstart-js-browser
+        - href: rest-apis
+        - href: rest-apis
+- title: Step-by-Step Tutorials
   items:
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/logo_python.svg
-      - image:
-          src: media/index/logo_swift.jpg
-      - image:
-          src: media/index/logo_gopher.svg
-      - image:
-          src: media/index/c.jpg
-    rows:
-      - title: SDK
-        values:
-        - href:
-        - href:
-        - href:
-        - href:
-
+  - type: paragraph
+    text: 'Learn how to develop applications using Speech Service:'
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
+    - html: <a href="intent.md">Intent Recognition</a><br/>
+    - html: <a href="translation.md">Translation</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Find samples on Github for Speech Service:'
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Service SDK Samples</a><br/>
+    - html: <a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Device SDK Samples</a><br/>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: SDK Reference 
+      html: |
+        <p><a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a></p>
+        <p><a href="https://aka.ms/csspeech/cppref">C++ API</a></p>
+        <p><a href="https://aka.ms/csspeech/javaref">Java API</a></p>
+        <p><a href="https://aka.ms/csspeech/objectivecref">Objective-C API</a></p>
+        <p><a href="https://aka.ms/csspeech/javascriptref">JavaScript API</a></p>
+    - title: REST API 
+      html: |
+        <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">REST API</a></p>
+    - title: PowerShell 
+      html: |
+        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI 
+      html: |
+        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+    

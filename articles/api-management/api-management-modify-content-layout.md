@@ -3,7 +3,7 @@ title: Modify page contents in the developer portal in Azure API Management | Mi
 description: Learn how to edit page contents on the developer portal in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: vlvinogr
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
-ms.author: antonba
+ms.author: vlvinogr
 
 ---
 # Modify the content and layout of pages on the developer portal in Azure API Management
@@ -30,7 +30,7 @@ The developer portal is based on a content management system. The layout of ever
 
 ![Developer portal page structure][api-management-customization-widget-structure]
 
-All widgets are editable. 
+All widgets are editable.
 * The core contents specific to each individual page reside in the "Contents" widget. Editing a page means editing the contents of this widget.
 * All page layout elements are contained with the remaining widgets. Changes made to these widgets are applied to all pages. They are referred to as "layout widgets."
 
@@ -38,12 +38,12 @@ In day-to-day page editing one would often modify just the Content widget, which
 
 ## <a name="modify-layout-widget"> </a>Modifying the contents of a layout widget
 
-The Developer portal is accessible from the Azure Portal. 
+The Developer portal is accessible from the Azure Portal.
 
 1. Click **Developer Portal** from the toolbar of your API Management instance.
-2. To edit the contents of widgets, click the icon comprised of two paint brushes from the **Developer** portal menu on the left. 
+2. To edit the contents of widgets, click the icon comprised of two paint brushes from the **Developer** portal menu on the left.
 3. To modify the contents of the header, scroll to the **Header** section in the list on the left.
-    
+
     The widgets are editable from within the fields.
 4. Once you are ready to publish your changes, click **Publish** at the bottom of the page.
 

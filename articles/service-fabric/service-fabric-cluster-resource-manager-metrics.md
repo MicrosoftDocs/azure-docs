@@ -1,5 +1,5 @@
 ---
-title: Manage Azure microservice load using metrics | Microsoft Docs
+title: Manage Azure Service Fabric app load using metrics | Microsoft Docs
 description: Learn about how to configure and use metrics in Service Fabric to manage service resource consumption.
 services: service-fabric
 documentationcenter: .net
@@ -31,9 +31,9 @@ Let’s say that you want to get started writing and deploying your service. At 
 
 | Metric | Stateless Instance Load | Stateful Secondary Load | Stateful Primary Load | Weight |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |0 |
-| ReplicaCount |0 |1 |1 |0 |
-| Count |1 |1 |1 |0 |
+| PrimaryCount |0 |0 |1 |High |
+| ReplicaCount |0 |1 |1 |Medium |
+| Count |1 |1 |1 |Low |
 
 
 For basic workloads, the default metrics provide a decent distribution of work in the cluster. In the following example, let’s see what happens when we create two services and rely on the default metrics for balancing. The first service is a stateful service with three partitions and a target replica set size of three. The second service is a stateless service with one partition and an instance count of three.

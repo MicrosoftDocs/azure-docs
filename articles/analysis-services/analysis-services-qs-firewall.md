@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 05/23/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to secure my server by configuring a server firewall and create open IP address ranges for client computers in my organization.

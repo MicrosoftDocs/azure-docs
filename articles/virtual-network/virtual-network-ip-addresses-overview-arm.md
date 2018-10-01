@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 09/24/2018
 ms.author: jdial
 
 ---
@@ -24,6 +24,8 @@ You can assign IP addresses to Azure resources to communicate with other Azure r
 
 * **Public IP addresses**: Used for communication with the Internet, including Azure public-facing services.
 * **Private IP addresses**: Used for communication within an Azure virtual network (VNet), and your on-premises network, when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
+
+You can also create a contiguous range of static public IP addresses through a public IP prefix. [Learn about a public IP prefix.](public-ip-address-prefix.md)
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
@@ -93,7 +95,7 @@ Static public IP addresses are commonly used in the following scenarios:
 * You use SSL certificates linked to an IP address.
 
 > [!NOTE]
-> Azure allocates public IP addresses from a range unique to each Azure region. For details, see [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+> Azure allocates public IP addresses from a range unique to each region in each Azure cloud. You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
 >
 
 ### DNS hostname resolution

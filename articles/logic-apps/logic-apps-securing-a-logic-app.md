@@ -1,32 +1,26 @@
 ---
 title: Secure access to Azure Logic Apps | Microsoft Docs
-description: Add security for protecting access to triggers, inputs and outputs, action parameters, and services used with workflows in Azure Logic Apps.
+description: Protect access to triggers, inputs and outputs, action parameters, and services in workflows for Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 11/22/2016
-ms.author: LADocs; jehollan
-
 ---
 
-# Secure access to your logic apps
+# Secure access in Azure Logic Apps
 
-There are many tools available to help you secure your logic app.
+Here are ways that you can secure access to different components in your logic app:
 
-* Securing access to trigger a logic app (HTTP Request Trigger)
-* Securing access to manage, edit, or read a logic app
-* Securing access to contents of inputs and outputs for a run
-* Securing parameters or inputs within actions in a workflow
-* Securing access to services that receive requests from a workflow
+* Secure access for triggering a logic app workflow with the HTTP request trigger.
+* Secure access for managing, editing, or reading a logic app.
+* Secure access to the contents inside inputs and outputs for a logic app run.
+* Secure parameters or inputs for actions in a logic app workflow.
+* Secure access to services that receive requests from a logic app workflow.
 
 ## Secure access to trigger
 
@@ -99,7 +93,7 @@ This setting can be configured within the logic app settings:
 1. Click the **Workflow Settings** menu item under **Settings**
 1. Specify the list of IP address ranges to be accepted by the trigger
 
-A valid IP range takes the format `192.168.1.1/255`. 
+A valid IP range takes the format `192.168.1.1/32`. 
 If you want the logic app to only fire as a nested logic app, 
 select the **Only other logic apps** option. 
 This option writes an empty array to the resource, 

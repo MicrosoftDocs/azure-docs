@@ -4,17 +4,13 @@ description: Learn how to build an Azure Resource Manager template that deploys 
 services: Functions
 documtationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, serverless architecture, infrastructure as code, azure resource manager
 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
 

@@ -263,7 +263,7 @@ To assign user Britta Simon to Absorb LMS, do the following:
 
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
-In the Access Panel, selecting the **Absorb LMS** tile automatically signs you in to your Absorb LMS application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+In the Access Panel, selecting the **Absorb LMS** tile automatically signs you in to your Absorb LMS application. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
@@ -285,4 +285,3 @@ In the Access Panel, selecting the **Absorb LMS** tile automatically signs you i
 [201]: ./media/absorblms-tutorial/tutorial_general_201.png
 [202]: ./media/absorblms-tutorial/tutorial_general_202.png
 [203]: ./media/absorblms-tutorial/tutorial_general_203.png
-

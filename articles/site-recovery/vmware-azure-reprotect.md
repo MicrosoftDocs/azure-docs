@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
 ---
 
@@ -58,7 +58,7 @@ To deploy a process server in Azure:
 The master target server receives failback data. By default, the master target server runs on the on-premises configuration server. However, depending on the volume of failed-back traffic, you might need to create a separate master target server for failback. Here's how to create one:
 
 * [Create a Linux master target server](vmware-azure-install-linux-master-target.md) for failback of Linux VMs. This is required.
-* Optionally, create a separate master target server for Windows VM failback. To do this, run Unified Setup again, and select to create a master target server. [Learn more](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup).
+* Optionally, create a separate master target server for Windows VM failback. To do this, run Unified Setup again, and select to create a master target server. [Learn more](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
 
 After you create a master target server, do the following tasks:
 

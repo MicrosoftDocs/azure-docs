@@ -84,17 +84,17 @@ For a comprehensive article about how to create custom roles and assign permissi
 
 **CI/CD integration and automation**
 ## Does DevTest Labs integrate with my CI/CD toolchain?
-If you are using Visual Studio Team Services, you can use a [DevTest Labs Tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) to automate your release pipeline in DevTest Labs. Some of the tasks that you can do with this extension include:
+If you are using Azure DevOps, you can use a [DevTest Labs Tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) to automate your release pipeline in DevTest Labs. Some of the tasks that you can do with this extension include:
 
-* Create and deploy a VM automatically. You also can configure the VM with the latest build by using Azure File Copy or PowerShell Team Services tasks.
+* Create and deploy a VM automatically. You also can configure the VM with the latest build by using Azure File Copy or PowerShell Azure DevOps Services tasks.
 * Automatically capture the state of a VM after testing to reproduce a bug on the same VM for further investigation.
 * Delete the VM at the end of the release pipeline, when it is no longer needed.
 
-The following blog posts offer guidance and information about using the Team Services extension:
+The following blog posts offer guidance and information about using the Azure DevOps Services extension:
 
-* [DevTest Labs and the Visual Studio Team Services extension](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Deploy a new VM in an existing DevTest Labs lab from Team Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [Using Team Services release management for continuous deployments to DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [DevTest Labs and the Azure DevOps extension](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
+* [Deploy a new VM in an existing DevTest Labs lab from Azure DevOps Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [Using Azure DevOps Services release management for continuous deployments to DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 For other continuous integration (CI)/continuous delivery (CD) toolchains, you can achieve the same scenarios by deploying [Azure Resource Manager templates](https://aka.ms/dtlquickstarttemplate) by using [Azure PowerShell cmdlets](../azure-resource-manager/resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You also can use [REST APIs for DevTest Labs](http://aka.ms/dtlrestapis) to integrate with your toolchain.  
 
@@ -108,7 +108,7 @@ A custom image is a virtual hard disk (VHD). A formula is an image that you can 
 
 ## How do I create multiple VMs from the same template at once?
 You have two options for simultaneously creating multiple VMs from the same template:
-* You can use the [Visual Studio Team Services Tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
+* You can use the [Azure DevOps Tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
 * You can [generate a Resource Manager template](devtest-lab-add-vm.md#save-azure-resource-manager-template) while you are creating a VM, and [deploy the Resource Manager template from Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## How do I move my existing Azure VMs into my DevTest Labs lab?
@@ -168,7 +168,7 @@ You can delete VMs from your lab in the Azure portal. You also can delete all th
     # Get the VMs from that lab.
     $labVMs = Get-AzureRmResource | Where-Object {
               $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
-              $_.ResourceName -like "$($lab.ResourceName)/*"}
+              $_.Name -like "$($lab.Name)/*"}
 
     # Delete the VMs.
     foreach($labVM in $labVMs)

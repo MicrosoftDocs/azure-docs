@@ -27,6 +27,8 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
+  - name: Access to Azure Virtual Networks (VNETs)
+    href: connect-virtual-network-vnet-isolated-environment-overview.md
 - name: How-to guides
   items:
   - name: Develop
@@ -35,6 +37,8 @@
       href: logic-apps-create-logic-apps-from-templates.md
     - name: Migrate from BizTalk Services
       href: logic-apps-move-from-mabs.md
+    - name: Create logic apps - Visual Studio Code
+      href: create-logic-apps-visual-studio-code.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
@@ -48,7 +52,9 @@
       - name: Scopes
         href: logic-apps-control-flow-run-steps-group-scopes.md
     - name: Create variables for saving values
-      href: logic-apps-create-variables-store-values.md        
+      href: logic-apps-create-variables-store-values.md
+    - name: Perform data operations
+      href: logic-apps-perform-data-operations.md  
     - name: Add custom code with Azure Functions
       href: logic-apps-azure-functions.md
     - name: Call logic apps with Azure Functions
@@ -65,8 +71,12 @@
       href: logic-apps-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
-    - name: Secure your logic apps
-      href: logic-apps-securing-a-logic-app.md
+    - name: Secure
+      items:
+      - name: Secure your logic apps
+        href: logic-apps-securing-a-logic-app.md
+      - name: Authenticate with managed identities
+        href: create-managed-service-identity.md
     - name: Develop custom connectors
       href: custom-connector-overview.md
     - name: Develop custom APIs
@@ -136,6 +146,8 @@
         href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
       - name: Build a disaster recovery plan
         href: logic-apps-enterprise-integration-b2b-business-continuity.md
+  - name: Connect to virtual networks with isolated environments
+    href: connect-virtual-network-vnet-isolated-environment.md
   - name: Access on-premises data
     items: 
       - name: Install data gateway
@@ -172,11 +184,11 @@
         href: ../connectors/connectors-create-api-crmonline.md
       - name: EDIFACT
         href: logic-apps-enterprise-integration-edifact.md
-      - name: Excel
+      - name: Excel Online for Business or OneDrive
         href: ../connectors/connectors-create-api-excel.md
       - name: Facebook
         href: ../connectors/connectors-create-api-facebook.md
-      - name: File System
+      - name: File system
         href: logic-apps-using-file-connector.md
       - name: Flat file
         href: logic-apps-enterprise-integration-flatfile.md
@@ -214,6 +226,8 @@
         href: ../connectors/connectors-create-api-onedriveforbusiness.md
       - name: Oracle Database
         href: ../connectors/connectors-create-api-oracledatabase.md
+      - name: Outlook.com
+        href: ../connectors/connectors-create-api-outlook.md
       - name: Project Online
         href: ../connectors/connectors-create-api-projectonline.md
       - name: Request / Response
@@ -222,19 +236,25 @@
         href: ../connectors/connectors-create-api-rss.md
       - name: Salesforce
         href: ../connectors/connectors-create-api-salesforce.md
-      - name: SAP
+      - name: SAP (New)
         href: logic-apps-using-sap-connector.md
+      - name: SAP
+        href: logic-apps-using-sap-connector-old.md
       - name: Schedule
         href: ../connectors/connectors-native-recurrence.md
       - name: SendGrid
         href: ../connectors/connectors-create-api-sendgrid.md
-      - name: SharePoint Online
-        href: ../connectors/connectors-create-api-sharepointonline.md
-      - name: SharePoint Server
-        href: ../connectors/connectors-create-api-sharepointserver.md
+      - name: SFTP
+        href: ../connectors/connectors-create-api-sftp.md  
+      - name: SFTP - SSH
+        href: ../connectors/connectors-sftp-ssh.md  
+      - name: SharePoint
+        href: ../connectors/connectors-create-api-sharepoint.md
       - name: Slack
         href: ../connectors/connectors-create-api-slack.md
-      - name: SQL Azure & SQL Server
+      - name: SMTP
+        href: ../connectors/connectors-create-api-smtp.md
+      - name: SQL Server
         href: ../connectors/connectors-create-api-sqlazure.md
       - name: Transform XML
         href: logic-apps-enterprise-integration-transform.md
@@ -258,6 +278,8 @@
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-accounts.md
+    - name: Migrate to latest schema
+      href: ../connectors/connectors-schema-migration.md  
   - name: Deploy
     items:
       - name: Define and deploy logic apps
@@ -268,18 +290,20 @@
     items: 
       - name: Monitor logic app status
         href: logic-apps-monitor-your-logic-apps.md
-      - name: Monitor logic app status in OMS with Log Analytics
+      - name: Monitor logic app status with Azure Log Analytics
         href: logic-apps-monitor-your-logic-apps-oms.md
       - name: Monitor B2B messages
         href: logic-apps-monitor-b2b-message.md
         items:
-        - name: Track B2B messages in OMS
+        - name: Track B2B messages in Azure Log Analytics
           href: logic-apps-track-b2b-messages-omsportal.md
-        - name: Query OMS for B2B messages
+        - name: Query Azure Log Analytics for B2B messages
           href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
     items: 
+      - name: Data operations - code examples
+        href: logic-apps-data-operations-code-samples.md
       - name: Monitor social media
         href: logic-apps-scenario-social-serverless.md
       - name: Build a serverless app - Visual Studio
@@ -310,9 +334,9 @@
   - name: Workflow Definition Language schema
     href: logic-apps-workflow-definition-language.md
     items: 
-      - name: Workflow actions and triggers
+      - name: Trigger and action types reference
         href: logic-apps-workflow-actions-triggers.md
-      - name: Workflow Definition Language functions
+      - name: Functions reference
         href: workflow-definition-language-functions-reference.md
       - name: GA - Schema history
         href: logic-apps-schema-2016-04-01.md

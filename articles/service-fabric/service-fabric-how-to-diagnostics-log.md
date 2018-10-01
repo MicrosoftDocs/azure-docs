@@ -3,7 +3,7 @@ title: Generate log events from a .NET Service Fabric app in Azure or a standalo
 description: Learn about how to add logging to your .NET Service Fabric application hosted on an Azure cluster or a standalone-cluster.
 services: service-fabric
 documentationcenter: .net
-author: thraka
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
-ms.author: adegeo
+ms.author: ryanwi
 ---
 
 # Add logging to your Service Fabric application

@@ -2,24 +2,25 @@
 title: FAQ for ClearDB MySql databases with Azure App Service | Microsoft Docs
 description: Answers to common questions about using ClearDB MySQL databases with Azure App Service.
 documentationcenter: php
-services: ''
+services: mysql
 author: sunbuild
 manager: yochayk
-editor: ''
 tags: mysql
-
-ms.assetid: c2ed5e78-6d7d-4d0c-b7ee-a52ae41ceab8
 ms.service: multiple
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # FAQ for ClearDB MySql databases with Azure App Service
 This FAQ answers common questions about using and purchasing ClearDB MySQL databases for Azure Web Apps.
+
+> [!IMPORTANT]
+> As of June 13, 2018, ClearDB transitioned Azure-based customers currently billed by Microsoft to a direct billing model with ClearDB. The information in this article is now out of date. You will no longer be able to create or upgrade a ClearDB database that was created in Azure.
+>
+> For more details and next steps, see [Changes to ClearDB service plans](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
+
 
 ## What options do I have for MySQL on Azure?
 You have several options:
@@ -34,11 +35,10 @@ ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you.
 ## Do I need a credit card for the Web app + MySQL template in the Azure Marketplace?
 This depends on the type of subscription you are using. Here are some commonly used subscription types:
 
-* [Pay as you Go](/offers/ms-azr-0003p/): Requires a credit card, and when you purchase a paid MySQL database your credit card is charged.
+* [Pay as you Go](https://azure.microsoft.com/offers/ms-azr-0003p/): Requires a credit card, and when you purchase a paid MySQL database your credit card is charged.
 * [Free trial](https://azure.microsoft.com/pricing/free-trial/): Includes credits for use with Microsoft Azure services but doesn't allow purchase of third-party resources. To purchase third-party services or a paid MySQL database you need to use a credit card enabled subscription. For Web Apps, you can create a FREE ClearDB MySQL database.
 * [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) and **MSDN Dev Test Pay as you go**: Similar to Free trial, an MSDN subscription requires you to have a credit card to purchase a paid MySQL solution from ClearDB.
 * [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA customers are billed against their EA each quarter for all of their Azure Marketplace (third-party) purchases on a separate, consolidated invoice. You are billed outside the monetary commitment for any marketplace purchases. Please note that, at this time, Azure Store is not available to customers enrolled in Azerbaijan, Croatia, Norway and Puerto Rico. 
-* [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): You can create only FREE ClearDB databases for Web Apps. There is no limit on the number of Free ClearDB MySQL databases you can create. Note that Free databases are not to be used for production web apps, as this service is intended only for trial.
 
 ## Why was I charged $3.50 for a Web app + MySQL from the Azure Marketplace?
 The default database option is Titan, which is $3.50. We don’t show the cost during database creation, and you may mistakenly purchase a database you didn’t intend to. We are trying to find a way to improve the experience but until then you must check all your selected pricing tiers for web app and database before clicking **Create** and starting the deployment of the resources.
@@ -103,5 +103,5 @@ Access to Azure Marketplace for third-party services can be managed by your EA A
 Contact [Enterprise Customer Support](http://aka.ms/AzureEntSupport) with regards to billing under their EA enrollment. The EA Portal Support Team will answer your question or help resolve your issue.
 
 ## More information
-[Azure Marketplace FAQ](/marketplace/faq/)
+[Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/)
 

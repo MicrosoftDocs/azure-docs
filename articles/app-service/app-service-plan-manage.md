@@ -31,7 +31,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 1. In the [Azure portal](https://portal.azure.com), select **New** > **Web + mobile**, and then select **Web App** or another kind of App Service app.
 
-2. Select an existing App Service plan or create a plan for the new app.
+1. Select an existing App Service plan or create a plan for the new app.
 
    ![Create an app in the Azure portal.][createWebApp]
 
@@ -55,13 +55,13 @@ You can move an app to another App Service plan, as long as the source plan and 
 
 1. In the [Azure portal](https://portal.azure.com), browse to the app that you want to move.
 
-2. On the menu, look for the **App Service Plan** section.
+1. On the menu, look for the **App Service Plan** section.
 
-3. Select **Change App Service plan** to open the **App Service plan** selector.
+1. Select **Change App Service plan** to open the **App Service plan** selector.
 
    ![App Service plan selector.][change] 
 
-4. In the **App Service plan** selector, select an existing plan to move this app into.   
+1. In the **App Service plan** selector, select an existing plan to move this app into.   
 
 > [!IMPORTANT]
 > The **Select App Service plan** page is filtered by the following criteria: 

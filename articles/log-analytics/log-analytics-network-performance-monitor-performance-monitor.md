@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-
+ms.component: na
 ---
+
 # Network Performance Monitor solution: Performance monitoring
 
 The Performance Monitor capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) helps you monitor network connectivity across various points in your network. You can monitor cloud deployments and on-premises locations, multiple data centers and branch offices, and mission-critical multitier applications or microservices. With Performance Monitor, you can detect network issues before your users complain. Key advantages are that you can: 

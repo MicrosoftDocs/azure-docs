@@ -1,20 +1,15 @@
 ---
-title: Apache Storm example Java topology - Azure HDInsight | Microsoft Docs
+title: Apache Storm example Java topology - Azure HDInsight 
 description: Learn how to create Apache Storm topologies in Java by creating an example word count topology.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: apache storm,apache storm example,storm java,storm topology example
 
-ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
 ---
@@ -593,10 +588,10 @@ Flux is a new framework available with Storm 0.10.0 and higher, which allows you
 
 The YAML file defines the components to use for the topology and the data flow between them. You can include a YAML file as part of the jar file or you can use an external YAML file.
 
-For more information on Flux, see [Flux framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+For more information on Flux, see [Flux framework (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
 
 > [!WARNING]
-> Due to a [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) with Storm 1.0.1, you may need to install a [Storm development environment](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) to run Flux topologies locally.
+> Due to a [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) with Storm 1.0.1, you may need to install a [Storm development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html) to run Flux topologies locally.
 
 1. Move the `WordCountTopology.java` file out of the project. Previously, this file defined the topology, but isn't needed with Flux.
 
@@ -715,9 +710,9 @@ For more information on Flux, see [Flux framework (https://storm.apache.org/rele
     ```
 
     > [!WARNING]
-    > If your topology uses Storm 1.0.1 bits, this command fails. This failure is caused by [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Instead, [install Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) and use the following steps:
+    > If your topology uses Storm 1.0.1 bits, this command fails. This failure is caused by [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Instead, [install Storm in your development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html) and use the following steps:
     >
-    > If you have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following commands instead:
+    > If you have [installed Storm in your development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html), you can use the following commands instead:
     >
     > ```bash
     > mvn compile package
@@ -763,7 +758,7 @@ For more information on Flux, see [Flux framework (https://storm.apache.org/rele
 
     Once the topology starts, you should notice that the time between emitted batches has changed to reflect the value in newtopology.yaml. So you can see that you can change your configuration through a YAML file without having to recompile the topology.
 
-For more information on these and other features of the Flux framework, see [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+For more information on these and other features of the Flux framework, see [Flux (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
 
 ## Trident
 

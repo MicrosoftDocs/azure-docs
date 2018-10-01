@@ -1,25 +1,25 @@
 ---
-title: Add example utterances in LUIS apps | Microsoft Docs
-titleSuffix: Azure
+title: Add example utterances in LUIS apps
+titleSuffix: Azure Cognitive Services
 description: Learn how to add utterances in Language Understanding (LUIS) applications.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-geberr
+ms.date: 09/06/2018
+ms.author: diberry
 ---
 
 # Add example utterances and label with entities
 
-Utterances are examples of user questions or commands. To teach Language Understanding (LUIS), you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
+Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
-Generally, you add an utterance first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
+Generally, add an example utterance to an intent first, and then create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
 
 ## Add an utterance
-On an intent page, enter a relevant utterance you expect from your users, such as `book 2 adult business tickets to Paris tomorrow on Air France` in the text box below the intent name, and then press Enter. 
+On an intent page, enter a relevant example utterance you expect from your users, such as `book 2 adult business tickets to Paris tomorrow on Air France` in the text box below the intent name, and then press Enter. 
  
 >[!NOTE]
 >LUIS converts all utterances to lowercase.
@@ -27,6 +27,9 @@ On an intent page, enter a relevant utterance you expect from your users, such a
 ![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
 
 Utterances are added to the utterances list for the current intent. 
+
+## Ignoring words and punctuation
+If you want to ignore specific words or punctuation in the example utterance, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax. 
 
 ## Add simple entity label
 In the following procedure, you create and label custom entities within the following utterance on the intent page:
@@ -186,7 +189,7 @@ Fix this - moved to luis-how-to-add-intents.md - how ?
 
 -->
 ## Train your app after changing model with utterances
-After you add, edit, or remove utterances, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
+After you add, edit, or remove utterances, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
 

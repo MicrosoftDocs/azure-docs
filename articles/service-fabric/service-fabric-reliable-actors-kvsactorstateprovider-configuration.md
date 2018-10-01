@@ -1,5 +1,5 @@
 ---
-title: Change KVSActorStateProvider settings in Azure microservices | Microsoft Docs
+title: Change KVSActorStateProvider settings in Azure Service Fabric actors | Microsoft Docs
 description: Learn about configuring Azure Service Fabric stateful actors of type KVSActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
@@ -30,6 +30,10 @@ The Azure Service Fabric runtime looks for predefined section names in the setti
 ## Replicator security configuration
 Replicator security configurations are used to secure the communication channel that is used during replication. This means that services cannot see each other's replication traffic, ensuring that the data that is made highly available is also secure.
 By default, an empty security configuration section prevents replication security.
+
+> [!IMPORTANT]
+> On Linux nodes, certificates must be PEM-formatted. To learn more about locating and configuring certificates for Linux, see [Configure certificates on Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### Section name
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig

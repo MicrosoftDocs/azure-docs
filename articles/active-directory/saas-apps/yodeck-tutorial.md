@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Yodeck | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Yodeck.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Yodeck from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Yodeck from the gallery
 To configure the integration of Yodeck into Azure AD, you need to add Yodeck from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Yodeck into Azure AD, you need to add Yodeck fro
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Yodeck**, select **Yodeck** from result panel then click **Add** button to add the application.
+1. In the search box, type **Yodeck**, select **Yodeck** from result panel then click **Add** button to add the application.
 
 	![Yodeck in the results list](./media/yodeck-tutorial/tutorial_yodeck_addfromgallery.png)
 
@@ -82,10 +82,10 @@ For single sign-on to work, Azure AD needs to know what the counterpart user in 
 To configure and test Azure AD single sign-on with Yodeck, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Yodeck test user](#create-a-yodeck-test-user)** - to have a counterpart of Britta Simon in Yodeck that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Yodeck test user](#create-a-yodeck-test-user)** - to have a counterpart of Britta Simon in Yodeck that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -97,37 +97,37 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
 
 	![Single sign-on dialog box](./media/yodeck-tutorial/tutorial_yodeck_samlbase.png)
 
-3. On the **Yodeck Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+1. On the **Yodeck Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Yodeck Domain and URLs single sign-on information](./media/yodeck-tutorial/tutorial_yodeck_url.png)
 
     In the **Identifier (Entity ID)** textbox, type the URL: `https://app.yodeck.com/api/v1/account/metadata/`
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Yodeck Domain and URLs single sign-on information](./media/yodeck-tutorial/tutorial_yodeck_url1.png)
 
     In the **Sign-on URL** textbox, type the URL: `https://app.yodeck.com/login`
 
-5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+1. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
 	![The Certificate download link](./media/yodeck-tutorial/tutorial_yodeck_certificate.png)
 
-6. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/yodeck-tutorial/tutorial_general_400.png)
 	
-7. In a different web browser window, log in to your Yodeck company site as an administrator.
+1. In a different web browser window, log in to your Yodeck company site as an administrator.
 
-8. Click on **User Settings** option form the top right corner of the page and select **Account Settings**.
+1. Click on **User Settings** option form the top right corner of the page and select **Account Settings**.
 
 	![Yodeck Configuration](./media/yodeck-tutorial/configure1.png)
 
-9. Select **SAML** and perform the following steps:
+1. Select **SAML** and perform the following steps:
 
 	![Yodeck Configuration](./media/yodeck-tutorial/configure2.png)
 
@@ -151,15 +151,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/yodeck-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/yodeck-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/yodeck-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/yodeck-tutorial/create_aaduser_04.png)
 
@@ -180,15 +180,15 @@ In the case of Yodeck, provisioning is a manual task.
 
 1. Log in to your Yodeck company site as an administrator.
 
-2. Click on **User Settings** option form the top right corner of the page and select **Users**.
+1. Click on **User Settings** option form the top right corner of the page and select **Users**.
 
 	![Add Employee](./media/yodeck-tutorial/user1.png)
 
-3. Click on **+User** to open the **User Details** tab.
+1. Click on **+User** to open the **User Details** tab.
 
 	![Add Employee](./media/yodeck-tutorial/user2.png)
 
-4. On the **User Details** dialog page, perform the following steps:
+1. On the **User Details** dialog page, perform the following steps:
 
 	![Add Employee](./media/yodeck-tutorial/user3.png)
 
@@ -214,30 +214,30 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201]
 
-2. In the applications list, select **Yodeck**.
+1. In the applications list, select **Yodeck**.
 
 	![The Yodeck link in the Applications list](./media/yodeck-tutorial/tutorial_yodeck_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Yodeck tile in the Access Panel, you should get automatically signed-on to your Yodeck application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

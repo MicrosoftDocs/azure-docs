@@ -5,7 +5,7 @@ description: Get answers to frequently asked questions about Azure Active Direct
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: reference
 ms.date: 05/11/2018
 
 ms.author: mimart
@@ -42,6 +42,9 @@ This feature is planned for a future release, so that then you can select specif
 
 ### How can I use delayed invitations?
 An organization might want to add B2B collaboration users, provision them to applications as needed, and then send invitations. You can use the B2B collaboration invitation API to customize the onboarding workflow.
+
+### Can I make guest users visible in the Exchange Global Address List?
+Yes. By default, guest objects are not visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Guest access in Office 365 Groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ).
 
 ### Can I make a guest user a limited administrator?
 Absolutely. For more information, see [Adding guest users to a role](add-guest-to-role.md).

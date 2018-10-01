@@ -3,12 +3,11 @@ title: Data replication in Azure Storage | Microsoft Docs
 description: Data in your Microsoft Azure Storage account is replicated for durability and high availability. Replication options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS).
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Azure Storage replication

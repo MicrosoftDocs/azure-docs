@@ -3,7 +3,7 @@ title: Create DNS zones and record sets in Azure DNS using the .NET SDK | Micros
 description: How to create DNS zones and record sets in Azure DNS by using the .NET SDK.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Create DNS zones and record sets using the .NET SDK

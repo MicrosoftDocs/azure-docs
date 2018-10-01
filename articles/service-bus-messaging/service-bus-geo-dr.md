@@ -2,18 +2,13 @@
 title: Azure Service Bus Geo-disaster recovery | Microsoft Docs
 description: How to use geographical regions to failover and perform disaster recovery in Azure Service Bus
 services: service-bus-messaging
-documentationcenter: ''
-author: christianwolf42
+author: spelluru
 manager: timlt
-editor: ''
 
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: sethm
+ms.date: 09/14/2018
+ms.author: spelluru
 
 ---
 
@@ -65,7 +60,7 @@ You can automate failover either with monitoring systems, or with custom-built m
 
 If you initiate the failover, two steps are required:
 
-1. If another outage occurs, you want to be able to failover again. Therefore, set up another passive namespace and update the pairing. 
+1. If another outage occurs, you want to be able to fail over again. Therefore, set up another passive namespace and update the pairing. 
 
 2. Pull messages from the former primary namespace once it is available again. After that, use that namespace for regular messaging outside of your geo-recovery setup, or delete the old primary namespace.
 
@@ -86,9 +81,9 @@ If you have a scenario in which you cannot change the connections of producers a
 
 The [samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) show how to set up and initiate a failover. These samples demonstrate the following concepts:
 
-- A .Net sample and settings required in Azure Active Directory to use Azure Resource Manager with Service Bus to setup and enable Geo-disaster recovery.
+- A .NET sample and settings that are required in Azure Active Directory to use Azure Resource Manager with Service Bus, to set up and enable Geo-disaster recovery.
 - Steps required to execute the sample code.
-- How to use an existing namespace as alias.
+- How to use an existing namespace as an alias.
 - Steps to alternatively enable Geo-disaster recovery via PowerShell or CLI.
 - [Send and receive](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) from the current primary or secondary namespace using the alias.
 
@@ -103,6 +98,17 @@ Note the following considerations to keep in mind with this release:
 3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) at least once. 
 
 4. Synchronizing entities can take some time, approximately 50-100 entities per minute. Subscriptions and rules also count as entities. 
+
+## Availability Zones (preview)
+
+The Service Bus Premium SKU also supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
+
+> [!NOTE]
+> The Availability Zones preview is supported only in the **Central US**, **East US 2**, and **France Central** regions.
+
+You can enable Availability Zones on new namespaces only, using the Azure portal. Service Bus does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
+
+![3][]
 
 ## Next steps
 
@@ -120,3 +126,4 @@ To learn more about Service Bus messaging, see the following articles:
 
 [1]: ./media/service-bus-geo-dr/geo1.png
 [2]: ./media/service-bus-geo-dr/geo2.png
+[3]: ./media/service-bus-geo-dr/az.png

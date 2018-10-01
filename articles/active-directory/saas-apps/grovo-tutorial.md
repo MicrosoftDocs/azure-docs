@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Grovo | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Grovo.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Grovo from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Grovo from the gallery
 To configure the integration of Grovo into Azure AD, you need to add Grovo from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Grovo into Azure AD, you need to add Grovo from 
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Grovo**, select **Grovo** from result panel then click **Add** button to add the application.
+1. In the search box, type **Grovo**, select **Grovo** from result panel then click **Add** button to add the application.
 
 	![Grovo in the results list](./media/grovo-tutorial/tutorial_grovo_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In Grovo, assign the value of the **user name** in Azure AD as the value of the 
 To configure and test Azure AD single sign-on with Grovo, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Grovo test user](#create-a-grovo-test-user)** - to have a counterpart of Britta Simon in Grovo that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Grovo test user](#create-a-grovo-test-user)** - to have a counterpart of Britta Simon in Grovo that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/grovo-tutorial/tutorial_grovo_samlbase.png)
 
-3. On the **Grovo Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+1. On the **Grovo Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Grovo Domain and URLs single sign-on information](./media/grovo-tutorial/tutorial_grovo_url.png)
 
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4. Check **Show advanced URL settings**, perform the following step:
+1. Check **Show advanced URL settings**, perform the following step:
 
     ![Grovo Domain and URLs single sign-on information](./media/grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -126,11 +126,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign on URL and Relay state. Contact [Grovo support team](https://www.grovo.com/contact-us) to get these values.
  
-5. Grovo application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. Please map **User Identifier** with **user.mail** and configure other attributes as shown in below screenshot.
+1. Grovo application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. Please map **User Identifier** with **user.mail** and configure other attributes as shown in below screenshot.
 	
 	![Configure Single Sign-On attb](./media/grovo-tutorial/tutorial_grovo_attribute.png)
 	
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
+1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 	
 	| Attribute Name | Attribute Value |
 	| ------------------- | -------------------- |    
@@ -154,29 +154,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	e. Click **Ok**.
 
 
-7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/grovo-tutorial/tutorial_grovo_certificate.png) 
 
-8. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/grovo-tutorial/tutorial_general_400.png)
 
-9. On the **Grovo Configuration** section, click **Configure Grovo** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Grovo Configuration** section, click **Configure Grovo** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Grovo Configuration](./media/grovo-tutorial/tutorial_grovo_configure.png) 
 
-10. In a different web browser window, login to Grovo as Administrator.
+1. In a different web browser window, login to Grovo as Administrator.
 
-11. Go to **Admin** > **Integrations**.
+1. Go to **Admin** > **Integrations**.
  
 	![Grovo Configuration](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 
-12. Click **SET UP** under **SP Initiated SAML 2.0** section.
+1. Click **SET UP** under **SP Initiated SAML 2.0** section.
 
 	![Grovo Configuration](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
-13. In **SP Initiated SAML 2.0** popup window perform the following steps:
+1. In **SP Initiated SAML 2.0** popup window perform the following steps:
 
 	![Grovo Configuration](./media/grovo-tutorial/tutorial_grovo_saml.png)
 
@@ -205,15 +205,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/grovo-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/grovo-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/grovo-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/grovo-tutorial/create_aaduser_04.png)
 
@@ -243,30 +243,30 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Grovo**.
+1. In the applications list, select **Grovo**.
 
 	![The Grovo link in the Applications list](./media/grovo-tutorial/tutorial_grovo_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Grovo tile in the Access Panel, you should get automatically signed-on to your Grovo application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

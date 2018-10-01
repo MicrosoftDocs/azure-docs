@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -23,6 +23,8 @@ To deploy your solution, you can use either a single template or a main template
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components, and reuse templates.
 
 When using linked template, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
+
+For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
 
 ## Link or nest a template
 
@@ -43,6 +45,8 @@ To link to another template, add a **deployments** resource to your main templat
 ```
 
 The properties you provide for the deployment resource vary based on whether you are linking to an external template or nesting an inline template in the main template.
+
+For both linked and nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
 
 ### Nested template
 
@@ -490,6 +494,7 @@ The following examples show common uses of linked templates.
 
 ## Next steps
 
+* To go through a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
 * To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
 * To learn how to define one resource but create many instances of it, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 * For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md).

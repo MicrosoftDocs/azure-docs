@@ -3,7 +3,7 @@ title: Protecting DNS Zones and Records | Microsoft Docs
 description: How to protect DNS zones and record sets in Microsoft Azure DNS.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 
 ms.assetid: 190e69eb-e820-4fc8-8e9a-baaf0b3fb74a
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2016
-ms.author: kumud
+ms.author: victorh
 ---
 
 # How to protect DNS zones and records

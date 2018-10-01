@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 08/26/2018
 ms.author: juliako
 ---
 
@@ -21,23 +21,22 @@ This article describes quotas and limitations in Azure Media Services v3.
 | Resource | Default Limit | 
 | --- | --- | 
 | Assets per Azure Media Services account | 1,000,000|
-| JobInputs per Job | 50 |
-| JobOutputs per Job | 20 (fixed) |
+| Dynamic Manifest Filters|100|
+| JobInputs per Job | 50  (fixed)|
+| JobOutputs per Job/TransformOutputs in a Transform | 20 (fixed) |
+| Files per JobInput|10 (fixed)|
 | File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>(1)</sup> |
-| Jobs per Media Services account | 500,000 <sup>(2)</sup>|
+| Jobs per Media Services account | 500,000 <sup>(2)</sup> (fixed)|
 | Listing Transforms|Paginate the response, with 1000 Transforms per page|
 | Listing Jobs|Paginate the response, with 500 Jobs per page|
 | LiveEvents per Media Services account |5|
 | Media Services accounts in a single subscription | 25 (fixed) |
-| StreamingPolicies | 1,000,000<sup>(3)</sup> |
 | LiveOutputs in running state per LiveEvent |3|
-| LiveOutputs in stopped state per LiveEvent |50|
-| Number of files per JobInput|10|
 | Storage accounts | 100<sup>(4)</sup> (fixed) |
 | Streaming Endpoints in running state per Media Services account|2|
-| Transforms per Media Services account | 100 |
-| TransformOutputs in a Transform| 20|
-| Unique StreamingLocators associated with an Asset at one time | 20<sup>(5)</sup> |
+| StreamingPolicies | 100 <sup>(3)</sup> |
+| Transforms per Media Services account | 100  (fixed)|
+| Unique StreamingLocators associated with an Asset at one time | 100<sup>(5)</sup> (fixed) |
 
 <sup>1</sup> The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. However, additional limits apply in Azure Media Services based on the VM sizes that are used by the service. If your source file is larger than 260-GB, your Job will likely fail. If you have 4K content that is larger than 260-GB limit, contact us at amshelp@microsoft.com for potential mitigations to support your scenario.
 

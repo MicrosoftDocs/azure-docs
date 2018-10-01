@@ -2,13 +2,13 @@
 title: Request units and estimating throughput - Azure Cosmos DB | Microsoft Docs
 description: Learn about how to understand, specify, and estimate request unit requirements in Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
 
 ---
@@ -36,12 +36,6 @@ Because Azure Cosmos DB is a multimodel database, it's important to note that th
 Azure Cosmos DB delivers fast, predictable performance by reserving resources to satisfy the throughput needs of your application. Application load and access patterns change over time. Azure Cosmos DB can help you easily increase or decrease the amount of reserved throughput available to your application.
 
 With Azure Cosmos DB, reserved throughput is specified in terms of request unit processing per second. You can think of request units as throughput currency. You reserve a number of guaranteed request units to be available to your application on a per-second basis. Each operation in Azure Cosmos DB, including writing a document, performing a query, and updating a document, consumes CPU, memory, and IOPS. That is, each operation incurs a request charge, which is expressed in request units. When you understand the factors that affect request unit charges and your application's throughput requirements, you can run your application as cost effectively as possible. 
-
-To help you get started, Azure Cosmos DB Program Manager Andrew Liu discusses request units in the following video: <br /><br />
-
-> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
-> 
-> 
 
 ## Throughput isolation in globally distributed databases
 

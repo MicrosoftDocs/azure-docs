@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 08/15/2018
 ms.author: danlep
 ---
 

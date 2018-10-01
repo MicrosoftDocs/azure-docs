@@ -36,8 +36,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this tutorial, you will need:
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
-- [Azure PowerShell](/powershell/azure/install-azurerm-ps) installed locally.
+- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
+- [Azure PowerShell](/powershell/azure/install-azurerm-ps) installed locally
 
 ## Sign in to Azure PowerShell
 
@@ -97,7 +97,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     
 1. Edit the JSON file to add the `"Microsoft.Support/*"` operation to the `Actions` property. Be sure to include a comma after the read operation. This action will allow the user to create support tickets.
 
-1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) command.
+1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) command.
 
     ```azurepowershell
     Get-AzureRmSubscription
@@ -291,4 +291,4 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Custom roles in Azure](custom-roles.md)
+> [Create custom roles using PowerShell](custom-roles-powershell.md)

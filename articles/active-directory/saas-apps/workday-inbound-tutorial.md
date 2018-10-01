@@ -17,31 +17,31 @@ ms.date: 06/18/2018
 ms.author: asmalser
 
 ---
-# Tutorial: Configure Workday for automatic user provisioning
+# Tutorial: Configure Workday for automatic user provisioning (preview)
 
 The objective of this tutorial is to show you the steps you need to perform to import people from Workday into both Active Directory and Azure Active Directory, with optional writeback of some attributes to Workday.
 
 ## Overview
 
-The [Azure Active Directory user provisioning service](../active-directory-saas-app-provisioning.md) integrates with the [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) in order to provision user accounts. Azure AD uses this connection to enable the following user provisioning workflows:
+The [Azure Active Directory user provisioning service](../manage-apps/user-provisioning.md) integrates with the [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) in order to provision user accounts. Azure AD uses this connection to enable the following user provisioning workflows:
 
 * **Provisioning users to Active Directory** - Synchronize selected sets of users from Workday into one or more Active Directory forests.
 
-* **Provisioning cloud-only users to Azure Active Directory** - Hybrid users who exist in both Active Directory and Azure Active Directory can be provisioned into the latter using [AAD Connect](../connect/active-directory-aadconnect.md). However, users that are cloud-only can be provisioned directly from Workday to Azure Active Directory using the Azure AD user provisioning service.
+* **Provisioning cloud-only users to Azure Active Directory** - In scenarios where on-premises Active Directory is not used, users can be provisioned directly from Workday to Azure Active Directory using the Azure AD user provisioning service. 
 
-* **Writeback of email addresses to Workday** - the Azure AD user provisioning service can write selected Azure AD user attributes back to Workday, such as the email address.
+* **Writeback of email addresses to Workday** - The Azure AD user provisioning service can write the email addresses of Azure AD users  back to Workday. 
 
 ### What human resources scenarios does it cover?
 
 The Workday user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
 
-* **Hiring new employees** - When a new employee is added to Workday, a user account is automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../active-directory-saas-app-provisioning.md), with write-back of the email address to Workday.
+* **Hiring new employees** - When a new employee is added to Workday, a user account is automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md), with write-back of the email address to Workday.
 
-* **Employee attribute and profile updates** - When an employee record is updated in Workday (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../active-directory-saas-app-provisioning.md).
+* **Employee attribute and profile updates** - When an employee record is updated in Workday (such as their name, title, or manager), their user account will be automatically updated in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md).
 
-* **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../active-directory-saas-app-provisioning.md).
+* **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md).
 
-* **Employee re-hires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../active-directory-saas-app-provisioning.md).
+* **Employee re-hires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md).
 
 ### Who is this user provisioning solution best suited for?
 
@@ -57,6 +57,8 @@ This Workday user provisioning solution is presently in public preview, and is i
 
 * Organizations using Office 365 for email
 
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
+
 ## Planning your solution
 
 Before beginning your Workday integration, check the prerequisites below and read the following guidance on how to match your current Active Directory architecture and user provisioning requirements with the solution(s) provided by Azure Active Directory.
@@ -69,7 +71,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A Workday implementation tenant for testing and integration purposes
 * Administrator permissions in Workday to create a system integration user, and make changes to test employee data for testing purposes
 * For user provisioning to Active Directory, a domain-joined server running Windows Service 2012 or greater is required to host the [on-premises synchronization agent](https://go.microsoft.com/fwlink/?linkid=847801)
-* [Azure AD Connect](../connect/active-directory-aadconnect.md) for synchronizing between Active Directory and Azure AD
+* [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) for synchronizing between Active Directory and Azure AD
 
 ### Solution architecture
 
@@ -280,7 +282,7 @@ Before configuring user provisioning to an Active Directory forest, consider the
 
    * **Tenant URL –** Enter the URL to the Workday web services
         endpoint for your tenant. This should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
         where contoso4 is replaced with your correct tenant name and
         wd3-impl is replaced with the correct environment string.
 
@@ -350,7 +352,7 @@ Active Directory.
          * **Expression** – Allows you to write a custom value to
                 the AD attribute, based on one or more Workday
                 attributes. [For more info, see this article on
-                expressions](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+                expressions](../manage-apps/functions-for-customizing-application-data.md).
 
       * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
@@ -395,7 +397,7 @@ Directory, with some common expressions**
 
 -   The userPrincipalName attribute in Active Directory is generated by concatenating the Workday user ID with a domain suffix
 
--   [There is documentation on writing expressions here](../active-directory-saas-writing-expressions-for-attribute-mappings.md). This includes examples on how to remove special characters.
+-   [There is documentation on writing expressions here](../manage-apps/functions-for-customizing-application-data.md). This includes examples on how to remove special characters.
 
   
 | WORKDAY ATTRIBUTE | ACTIVE DIRECTORY ATTRIBUTE |  MATCHING ID? | CREATE / UPDATE |
@@ -450,6 +452,9 @@ Agent\\Modules\\AADSyncAgent
 * Input: For "Directory Name", enter the AD Forest name, as entered in part \#2
 * Input: Admin username and password for Active Directory forest
 
+>[!TIP]
+> If you receive the error message "The relationship between the primary domain and the trusted domain failed", it is because the local machine is in an environment where multiple Active Directory forests or domains are configured, and at least one configured trust relationship is either failing or not operational. To resolve the issue, either correct or remove the broken trust relationship.
+
 **Command #3**
 
 > Add-ADSyncAgentAzureActiveDirectoryConfiguration
@@ -461,7 +466,6 @@ Agent\\Modules\\AADSyncAgent
 
 >[!IMPORTANT]
 >There is presently a known issue with global administrator credentials not working if they have multi-factor authentication enabled. As a workaround, disable multi-factor authentication for the global administrator.
-
 
 **Command #4**
 
@@ -531,7 +535,7 @@ Once parts 1-3 have been completed, you can start the provisioning service back 
 
 3. This will start the initial sync, which can take a variable number of hours depending on how many users are in Workday.
 
-4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](../active-directory-saas-provisioning-reporting.md)**
+4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](../manage-apps/check-status-user-account-provisioning.md)**
 
 1.  Check the [Windows Event Log](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) on the Windows Server machine hosting the agent for any new errors or warnings. These events are viewable by launching **Eventvwr.msc** on the server and selecting **Windows Logs > Application**. All provisioning-related messages are logged under the source **AADSyncAgent**.
 
@@ -546,11 +550,11 @@ How you configure provisioning to Azure Active Directory will depend on your pro
 
 | Scenario | Solution |
 | -------- | -------- |
-| **Users need to be provisioned to Active Directory and Azure AD** | Use **[AAD Connect](../connect/active-directory-aadconnect.md)** |
-| **Users need to be provisioned to Active Directory only** | Use **[AAD Connect](../connect/active-directory-aadconnect.md)** |
+| **Users need to be provisioned to Active Directory and Azure AD** | Use **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
+| **Users need to be provisioned to Active Directory only** | Use **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
 | **Users need to be provisioned to Azure AD only (cloud only)** | Use the **Workday to Azure Active Directory provisioning** app in the app gallery |
 
-For instructions on setting up Azure AD Connect, see the [Azure AD Connect documentation](../connect/active-directory-aadconnect.md).
+For instructions on setting up Azure AD Connect, see the [Azure AD Connect documentation](../hybrid/whatis-hybrid-identity.md).
 
 The following sections describe setting up a connection between Workday and Azure AD to provision cloud-only users.
 
@@ -586,7 +590,7 @@ The following sections describe setting up a connection between Workday and Azur
 
    * **Tenant URL –** Enter the URL to the Workday web services
         endpoint for your tenant. This should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
         where contoso4 is replaced with your correct tenant name and
         wd3-impl is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representative to determine the correct URL to use.
 
@@ -599,16 +603,15 @@ The following sections describe setting up a connection between Workday and Azur
         the top. If it fails, double-check that the Workday URL and credentials are valid
         in Workday.
 
-
 ### Part 2: Configure attribute mappings 
 
 In this section, you will configure how user data flows from Workday to
 Azure Active Directory for cloud-only users.
 
-1.  On the Provisioning tab under **Mappings**, click **Synchronize
+1. On the Provisioning tab under **Mappings**, click **Synchronize
     Workers to Azure AD**.
 
-2.   In the **Source Object Scope** field, you can select which sets of
+2. In the **Source Object Scope** field, you can select which sets of
     users in Workday should be in scope for provisioning to Azure AD, by
     defining a set of attribute-based filters. The default scope is “all
     users in Workday”. Example filters:
@@ -628,11 +631,11 @@ Azure Active Directory for cloud-only users.
 
       * Operator: IS NOT NULL
 
-3.  In the **Target Object Actions** field, you can globally filter what
+3. In the **Target Object Actions** field, you can globally filter what
     actions are allowed to be performed on Azure AD. **Create**
     and **Update** are most common.
 
-4.  In the **Attribute mappings** section, you can define how individual
+4. In the **Attribute mappings** section, you can define how individual
     Workday attributes map to Active Directory attributes.
 
 5. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
@@ -649,7 +652,7 @@ Azure Active Directory for cloud-only users.
       * **Expression** – Allows you to write a custom value to
                 the AD attribute, based on one or more Workday
                 attributes. [For more info, see this article on
-                expressions](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+                expressions](../manage-apps/functions-for-customizing-application-data.md).
 
    * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
@@ -684,7 +687,7 @@ Azure Active Directory for cloud-only users.
 ### Part 3: Start the service
 Once parts 1-2 have been completed, you can start the provisioning service.
 
-1.  In the **Provisioning** tab, set the **Provisioning Status** to
+1. In the **Provisioning** tab, set the **Provisioning Status** to
     **On**.
 
 2. Click **Save**.
@@ -692,11 +695,10 @@ Once parts 1-2 have been completed, you can start the provisioning service.
 3. This will start the initial sync, which can take a variable number
     of hours depending on how many users are in Workday.
 
-4. Individual sync events can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](../active-directory-saas-provisioning-reporting.md)**
+4. Individual sync events can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
-
 
 ## Configuring writeback of email addresses to Workday
 Follow these instructions to configure writeback of user email addresses from Azure Active Directory to Workday.
@@ -705,21 +707,21 @@ Follow these instructions to configure writeback of user email addresses from Az
 
 **To configure Workday to Active Directory provisioning:**
 
-1.  Go to <https://portal.azure.com>
+1. Go to <https://portal.azure.com>
 
-2.  In the left navigation bar, select **Azure Active Directory**
+2. In the left navigation bar, select **Azure Active Directory**
 
-3.  Select **Enterprise Applications**, then **All Applications**.
+3. Select **Enterprise Applications**, then **All Applications**.
 
-4.  Select **Add an application**, then select the **All** category.
+4. Select **Add an application**, then select the **All** category.
 
-5.  Search for **Workday Writeback**, and add that app from the gallery.
+5. Search for **Workday Writeback**, and add that app from the gallery.
 
-6.  After the app is added and the app details screen is shown, select **Provisioning**
+6. After the app is added and the app details screen is shown, select **Provisioning**
 
-7.  Change the **Provisioning** **Mode** to **Automatic**
+7. Change the **Provisioning** **Mode** to **Automatic**
 
-8.  Complete the **Admin Credentials** section as follows:
+8. Complete the **Admin Credentials** section as follows:
 
    * **Admin Username** – Enter the username of the Workday
         integration system account, with the tenant domain name
@@ -730,7 +732,7 @@ Follow these instructions to configure writeback of user email addresses from Az
 
    * **Tenant URL –** Enter the URL to the Workday web services
         endpoint for your tenant. This should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
         where contoso4 is replaced with your correct tenant name and
         wd3-impl is replaced with the correct environment string (if
         necessary).
@@ -742,29 +744,26 @@ Follow these instructions to configure writeback of user email addresses from Az
         the top. If it fails, double-check that the Workday URL and credentials are valid
         in Workday.
 
-
 ### Part 2: Configure attribute mappings 
-
 
 In this section, you will configure how user data flows from Workday to
 Active Directory.
 
-1.  On the Provisioning tab under **Mappings**, click **Synchronize
+1. On the Provisioning tab under **Mappings**, click **Synchronize
     Azure AD Users to Workday**.
 
-2.  In the **Source Object Scope** field, you can optionally filter which sets of
+2. In the **Source Object Scope** field, you can optionally filter which sets of
     users in Azure Active Directory should have their email addresses written back to Workday. The default scope is “all
     users in Azure AD”. 
 
-3.  In the **Attribute mappings** section, you can define how individual
-    Workday attributes map to Active Directory attributes. There is a mapping for the email address by default. However, the matching ID must be updated to match users in Azure AD with their corresponding entries in Workday. A popular matching method is to synchronize the Workday worker ID or employee ID to extensionAttribute1-15 in Azure AD, and then use this attribute in Azure AD to match users back in Workday.
+3. In the **Attribute mappings** section, update the matching ID to indicate the attribute in Azure Active Directory where the Workday worker ID or employee ID is stored. A popular matching method is to synchronize the Workday worker ID or employee ID to extensionAttribute1-15 in Azure AD, and then use this attribute in Azure AD to match users back in Workday. 
 
-4.  To save your mappings, click **Save** at the top of the Attribute-Mapping section.
+4. To save your mappings, click **Save** at the top of the Attribute-Mapping section.
 
 ### Part 3: Start the service
 Once parts 1-2 have been completed, you can start the provisioning service.
 
-1.  In the **Provisioning** tab, set the **Provisioning Status** to
+1. In the **Provisioning** tab, set the **Provisioning Status** to
     **On**.
 
 2. Click **Save**.
@@ -772,11 +771,10 @@ Once parts 1-2 have been completed, you can start the provisioning service.
 3. This will start the initial sync, which can take a variable number
     of hours depending on how many users are in Workday.
 
-4. Individual sync events can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](../active-directory-saas-provisioning-reporting.md)**
+4. Individual sync events can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
-
 
 ## Customizing the list of Workday user attributes
 The Workday provisioning apps for Active Directory and Azure AD both include a default list of Workday user attributes you can select from. However, these lists are not comprehensive. Workday supports many hundreds of possible user attributes, which can either be standard or unique to your Workday tenant. 
@@ -901,20 +899,19 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 * When running the **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell command, there is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account in Azure AD with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com).
 
-* A previous issue with audit logs not appearing in Azure AD tenants located in the European Union has been resolved. However, additional agent configuration is required for Azure AD tenants in the EU. For details, see [Part 3: Configure the on-premises synchronization agent](#Part 3: Configure the on-premises synchronization agent)
+* Writing data to the thumbnailPhoto user attribute in on-premises Active Directory is not currently supported.
 
+* The "Workday to Azure AD" connector is not currently supported on Azure AD tenants where AAD Connect is enabled.  
+
+* A previous issue with audit logs not appearing in Azure AD tenants located in the European Union has been resolved. However, additional agent configuration is required for Azure AD tenants in the EU. For details, see [Part 3: Configure the on-premises synchronization agent](#Part 3: Configure the on-premises synchronization agent)
 
 ## Managing personal data
 
 The Workday provisioning solution for Active Directory requires a synchronization agent to be installed on a domain-joined server, and this agent creates logs in the Windows Event log which can contain personally-identifiable information.
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]  where the ../ references matching the hierarchy structure of your article
-
-> [!NOTE]
-> If you’re interested in viewing or deleting personal data, please review Microsoft's guidance in the [Windows data subject requests for the GDPR](https://review.docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows) site. If you’re looking for general information about GDPR, see the [GDPR section of the Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
-
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../active-directory-saas-provisioning-reporting.md)
+* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
+

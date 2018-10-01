@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/30/2018
+  ms.date: 07/06/2018
   ms.author: mlearned
 abstract:
   description: The Azure DevOps Project presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
@@ -20,9 +20,9 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/_img/azure-devops-project-aspnetcore/fullbrowser.png
+      src: _img\video-devops-project.png
       width: 250  
-    title: Create CI/CD with the Azure DevOps Project (8:53)
+    title: Create CI/CD with the Azure DevOps Project Video (8:53)
     href: https://channel9.msdn.com/Events/Connect/2017/T174/player/
     width: 250
 sections:
@@ -36,31 +36,31 @@ sections:
     - image: 
         src: media\logo_net.svg
       text: .NET
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
+      href: /azure/devops-project/azure-devops-project-aspnet-core
     - image: 
         src: media\logo_nodejs.svg
       text: Node.js
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
+      href: /azure/devops-project/azure-devops-project-nodejs
     - image: 
         src: media\logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-java
+      href: /azure/devops-project/azure-devops-project-java
     - image: 
         src: media\logo_python.svg
       text: Python
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-python
+      href: /azure/devops-project/azure-devops-project-python
     - image: 
         src: media\logo_php.svg
       text: PHP
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-php
+      href: /azure/devops-project/azure-devops-project-php
     - image: 
         src: media\logo_ruby.svg
       text: Ruby
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+      href: /azure/devops-project/azure-devops-project-ruby
     - image: 
         src: media\logo_gopher.svg
       text: Go
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-go
+      href: /azure/devops-project/azure-devops-project-go
 
 
 
@@ -68,13 +68,13 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to use the Azure DevOps Project to create VSTS Release pipelines
+    text: Learn how to use the Azure DevOps Project to create Azure Release pipelines
   - type: list
     style: ordered
     items:
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github">Bring your own code with GitHub</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-vms">Deploy your ASP.NET App to Azure Virtual Machines</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-sqldb">Deploy your ASP.NET App and Azure SQL Database</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-aks">Deploy your App to Azure Container Service and Kubernetes</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-servicefabric">Deploy your App to Azure Service Fabric</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-github">Bring your own code with GitHub</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-vms">Deploy your ASP.NET App to Azure Virtual Machines</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-sql-database">Deploy your ASP.NET App and Azure SQL Database</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-aks">Deploy your App to Azure Container Service and Kubernetes</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Deploy your App to Azure Service Fabric</a>
 

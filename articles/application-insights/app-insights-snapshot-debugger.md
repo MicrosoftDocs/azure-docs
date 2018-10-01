@@ -31,7 +31,7 @@ The following environments are supported:
 * Azure Cloud Service running OS family 4 or later.
 * Azure Service Fabric services running on Windows Server 2012 R2 or later.
 * Azure Virtual Machines running Windows Server 2012 R2 or later.
-* On-premise virtual or physical machines running Windows Server 2012 R2 or later.
+* On-premises virtual or physical machines running Windows Server 2012 R2 or later.
 
 > [!NOTE]
 > Client applications (for example, WPF, Windows Forms or UWP) are not supported.
@@ -161,7 +161,7 @@ The following environments are supported:
 
 ### Configure snapshot collection for other .NET applications
 
-1. If your application is not already instrumented with Application Insights, get started by [enabling Application Insights and setting the instrumentation key](app-insights-windows-desktop.md).
+1. If your application isn't already instrumented with Application Insights, get started by [enabling Application Insights and setting the instrumentation key](app-insights-windows-desktop.md).
 
 2. Add the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
@@ -231,7 +231,7 @@ The Snapshot Collector is implemented as an [Application Insights Telemetry Proc
 Each time your application calls [TrackException](app-insights-asp-net-exceptions.md#exceptions), the Snapshot Collector computes a Problem ID from the type of exception being thrown and the throwing method.
 Each time your application calls TrackException, a counter is incremented for the appropriate Problem ID. When the counter reaches the `ThresholdForSnapshotting` value, the Problem ID is added to a Collection Plan.
 
-The Snapshot Collector also monitors exceptions as they are thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
+The Snapshot Collector also monitors exceptions as they're thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
 If there's a match, then a snapshot of the running process is created. The snapshot is assigned a unique identifier and the exception is stamped with that identifier. After the FirstChanceException handler returns, the thrown exception is processed as normal. Eventually, the exception reaches the TrackException method again where it, along with the snapshot identifier, is reported to Application Insights.
 
 The main process continues to run and serve traffic to users with little interruption. Meanwhile, the snapshot is handed off to the Snapshot Uploader process. The Snapshot Uploader creates a minidump and uploads it to Application Insights along with any relevant symbol (.pdb) files.
@@ -247,13 +247,14 @@ The main process continues to run and serve traffic to users with little interru
 ## Current limitations
 
 ### Publish symbols
-The Snapshot Debugger requires symbol files on the production server to decode variables and to provide a debugging experience in Visual Studio. The 15.2 release of Visual Studio 2017 publishes symbols for release builds by default when it publishes to App Service. In prior versions, you need to add the following line to your publish profile `.pubxml` file so that symbols are published in release mode:
+The Snapshot Debugger requires symbol files on the production server to decode variables and to provide a debugging experience in Visual Studio.
+Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release builds by default when it publishes to App Service. In prior versions, you need to add the following line to your publish profile `.pubxml` file so that symbols are published in release mode:
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
 ```
 
-For Azure Compute and other types, ensure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
+For Azure Compute and other types, make sure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 ### Optimized builds
 In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.
@@ -344,14 +345,14 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
     DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
-For applications that are _not_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
+For applications that _aren't_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
 
 ### Troubleshooting Cloud Services
 For roles in Cloud Services, the default temporary folder may be too small to hold the minidump files, leading to lost snapshots.
 The space needed depends on the total working set of your application and the number of concurrent snapshots.
 The working set of a 32-bit ASP.NET web role is typically between 200 MB and 500 MB.
 Allow for at least two concurrent snapshots.
-For example, if your application uses 1 GB of total working set, you should ensure that there is at least 2 GB of disk space to store snapshots.
+For example, if your application uses 1 GB of total working set, you should make sure that there is at least 2 GB of disk space to store snapshots.
 Follow these steps to configure your Cloud Service role with a dedicated local resource for snapshots.
 
 1. Add a new local resource to your Cloud Service by editing the Cloud Service definition (.csdef) file. The following example defines a resource called `SnapshotStore` with a size of 5 GB.
@@ -396,6 +397,49 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
       <!-- Other SnapshotCollector configuration options -->
     </Add>
    </TelemetryProcessors>
+   ```
+
+### Overriding the Shadow Copy folder
+
+When the Snapshot Collector starts up, it tries to find a folder on disk that is suitable for running the Snapshot Uploader process. The chosen folder is known as the Shadow Copy folder.
+
+The Snapshot Collector checks a few well-known locations, making sure it has permissions to copy the Snapshot Uploader binaries. The following environment variables are used:
+- Fabric_Folder_App_Temp
+- LOCALAPPDATA
+- APPDATA
+- TEMP
+
+If a suitable folder can't be found, Snapshot Collector reports an error saying _"Could not find a suitable shadow copy folder."_
+
+If the copy fails, Snapshot Collector reports a `ShadowCopyFailed` error.
+
+If the uploader can't be launched, Snapshot Collector reports an `UploaderCannotStartFromShadowCopy` error. The body of the message often contains `System.UnauthorizedAccessException`. This error usually occurs because the application is running under an account with reduced permissions. The account has permission to write to the shadow copy folder, but it doesn't have permission to execute code.
+
+Since these errors usually happen during startup, they'll usually be followed by an `ExceptionDuringConnect` error saying _"Uploader failed to start."_
+
+To work around these errors, you can specify the shadow copy folder manually via the `ShadowCopyFolder` configuration option. For example, using ApplicationInsights.config:
+
+   ```xml
+   <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Override the default shadow copy folder. -->
+      <ShadowCopyFolder>D:\SnapshotUploader</ShadowCopyFolder>
+      <!-- Other SnapshotCollector configuration options -->
+    </Add>
+   </TelemetryProcessors>
+   ```
+
+Or, if you're using appsettings.json with a .NET Core application:
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "ShadowCopyFolder": "D:\\SnapshotUploader"
+     }
+   }
    ```
 
 ### Use Application Insights search to find exceptions with snapshots

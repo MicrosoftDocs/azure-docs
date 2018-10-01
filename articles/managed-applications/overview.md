@@ -9,7 +9,7 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 04/13/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
 ---
 
@@ -21,7 +21,7 @@ A managed application is similar to a solution template in the Marketplace, with
 
 ## Advantages of managed applications
 
-Managed applications reduce barriers to consumers using your solutions. They do not need expertise in cloud infrastructure to use your solution. Consumers have limited access to the critical resources. They do not need to worry about making a mistake when managing it. 
+Managed applications reduce barriers to consumers using your solutions. They don't need expertise in cloud infrastructure to use your solution. Consumers have limited access to the critical resources. They don't need to worry about making a mistake when managing it. 
 
 Managed applications enable you to establish an ongoing relationship with your consumers. You define terms for managing the application, and all charges are handled through Azure billing.
 
@@ -37,7 +37,7 @@ You can publish your managed application either externally or internally.
 
 ### Service catalog
 
-The service catalog is an internal catalog of approved solutions for users in an organization. You use the catalog to ensure compliance with certain organizational standards while they providing solutions for the organizations. Employees use the catalog to easily discover the rich set of applications that are recommended and approved by their IT departments. They see the managed applications that other people in their organization share with them.
+The service catalog is an internal catalog of approved solutions for users in an organization. You use the catalog to ensure compliance with certain organizational standards while they providing solutions for the organizations. Employees use the catalog to easily discover applications that are recommended and approved by their IT departments. They see the managed applications that other people in their organization share with them.
 
 For information about publishing a Service Catalog managed application, see [Create service catalog application](publish-service-catalog-app.md).
 
@@ -63,9 +63,13 @@ The consumer has full access to the resource group and uses it to manage the lif
 
 ### Managed resource group
 
-This resource group holds all the resources that are required by the managed application. For example, this resource group contains the virtual machines, storage accounts, and virtual networks for the solution. The consumer has limited access to this resource group because the consumer does not manage the individual resources for the managed application. The publisher's access to this resource group corresponds to the role specified in the managed application definition. For example, the publisher might request the Owner or Contributor role for this resource group.
+This resource group holds all the resources that are required by the managed application. For example, this resource group contains the virtual machines, storage accounts, and virtual networks for the solution. The consumer has limited access to this resource group because the consumer doesn't manage the individual resources for the managed application. The publisher's access to this resource group corresponds to the role specified in the managed application definition. For example, the publisher might request the Owner or Contributor role for this resource group.
 
 When the consumer deletes the managed application, the managed resource group is also deleted.
+
+## Azure Policy
+
+You can apply an [Azure Policy](../azure-policy/azure-policy-introduction.md) to your managed application. You apply policies to ensure that deployed instances of your managed application comply with data and security requirements. If your application interacts with sensitive data, make sure you have evaluated how that should be protected. For example, if your application interacts with data from Office 365, apply a policy to make sure data encryption is enabled.
 
 ## Next steps
 

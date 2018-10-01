@@ -3,7 +3,7 @@ title: Azure DNS metrics and alerts | Microsoft Docs
 description: Learn about Azure DNS metrics and alerts.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jennoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Azure DNS metrics and alerts
@@ -22,7 +22,7 @@ Azure DNS is a hosting service for DNS domains that provides name resolution usi
 
 ## Azure DNS metrics
 
-Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS ones hosted in the service. In addition, with Azure DNS metrics, you can configure and receive alerts based on conditions of interest. The metrics are provided via the [Azure Monitor service](../monitoring-and-diagnostics/index.yml). 
+Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS ones hosted in the service. In addition, with Azure DNS metrics, you can configure and receive alerts based on conditions of interest. The metrics are provided via the [Azure Monitor service](../azure-monitor/index.yml). 
 Azure DNS provides the following metrics via Azure Monitor for your DNS zones:
 
 -	QueryVolume
