@@ -28,6 +28,7 @@ Metrics are numerical values that describe some aspect of a system at a particul
 
 For example, you might collect processor utilization from a virtual machine every minute or the number of users logged in to your application every 10 minutes. You could fire an alert when one of those collected values or even the difference between two values exceeds a defined threshold.
 
+
 Specific attributes of metrics in Azure include the following:
 
 * Collected at one-minute frequency unless specified otherwise in the metric's definition.
@@ -41,6 +42,8 @@ Each metric value has the following properties:
 * The value itself.
 * Some metrics may have multiple dimensions as described in the next section. Custom metrics can have up to 10 dimensions.
 
+
+
 ### Multi-dimensional metrics
 Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. For example, a metric _Available disk space_ can have a dimension called _Drive_ with values _C:_, _D:_, which would allow viewing either available disk space across all drives or for each drive individually. 
 
@@ -48,7 +51,7 @@ The example below illustrates two datasets for a hypothetical metric called _Net
 
 ### Network Throughput
 
- |Timestamp        | Metric Value | 
+|Timestamp        | Metric Value | 
    | ------------- |:-------------| 
    | 8/9/2017 8:14 | 1,331.8 Kbps | 
    | 8/9/2017 8:15 | 1,141.4 Kbps |
@@ -115,6 +118,7 @@ Metric data is used in a variety of ways as described above. Use [Metrics explor
 
 
 
+
 ## Logs
 Logs contain different kinds of data organized into records with different sets of properties for each type. Logs can contain numeric values like metrics but typically contain text data with detailed descriptions. They further differ from metrics in that they vary in their structure and are often not collected at regular intervals.
 
@@ -176,10 +180,11 @@ The explanation of this feature is available at [Create Metric Alerts for Logs i
 [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## Stream data to external systems
-In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 
+In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a Security Information and Event Management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 
 
-You can get guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+You can find guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 
 ## Next steps
 
 - Learn about the [monitoring data available](monitoring-data-sources.md) for different resources in Azure.
+
