@@ -3203,34 +3203,35 @@ And returns this array with the remaining items: `[1,2,3]`
 
 ### split
 
-Return an array that has all the characters from a 
-string and has each character separated by a *delimiter*.
+Return an array that separates a string into substrings 
+that are separated by commas, based on the specified 
+delimiter character from that string. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | Parameter | Required | Type | Description | 
 | --------- | -------- | ---- | ----------- | 
-| <*text*> | Yes | String | The string that has the characters to split |  
-| <*separator*> | Yes | String | The separator that appears between each character in the resulting array | 
+| <*text*> | Yes | String | The string to separate into substrings based on the specified delimiter in the original string |  
+| <*delimiter*> | Yes | String | The character in the original string to use as the delimiter | 
 ||||| 
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separator*><*char2*><*separator*>...] | Array | The resulting array created from all the items in the specified string |
+| [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings from the original string, separated by commas |
 |||| 
 
 *Example* 
 
-This example creates an array from the specified string, 
-separating each character with a comma as the delimiter:
+This example creates an array with substrings from the specified string 
+based on the specified character as the delimiter: 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-And returns this result: `[a, b, c]`
+And returns this result: '["a","b","c"]`
 
 <a name="startOfDay"></a>
 
