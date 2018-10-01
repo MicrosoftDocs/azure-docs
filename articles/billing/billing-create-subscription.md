@@ -17,14 +17,17 @@ ms.date: 09/26/2018
 ms.author: cwatson
 
 ---
-# Create a subscription in the Azure portal 
+# Create a subscription in the Azure portal
 
-To create an Azure subscription, you need to be an account owner.
+To create an Azure subscription for your organization, you must have the Owner role on the account you use to create the subscription.
 
 ## Create an Azure subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Subscriptions**.
+
+   ![Screenshot that shows search in portal for subscription](./media/billing-create-subscription/billing-search-subscription-portal.png)
+
 1. Select **Add**.
 1. Select an offer.
 1. Fill in required information.
@@ -36,7 +39,8 @@ To create an Azure subscription, you need to be an account owner.
 - [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json)
 - [Create management groups for resource organization and management](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
 - [Azure enterprise scaffold: Prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance.md)
+- [Cancel your subscription for Azure](billing-how-to-cancel-azure-subscription.md)
 
-## Need help? Contact support.
+## Need help? Contact support
 
 If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
