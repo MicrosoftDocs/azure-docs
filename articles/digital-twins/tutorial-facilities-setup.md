@@ -12,34 +12,33 @@ ms.author: dkshir
 
 # Tutorial: Set up and provision Azure Digital Twins 
 
-Azure Digital Twins service allows you to bring together people, places and things in a coherant spatial system. This series of tutorials demonstrate how to use the Digital Twins to detect room occupancy with optimal conditions of temperature and air quality. This series shows you how to deploy Digital Twins using the portal[https://portal.azure.com], create a provisioning application using Digital Twins REST APIs in a .Net application, monitor the sensor coming from your devices and rooms, and create customized notifications on that data. This will walk you through a scenario where you have a sample building, with the hierarchy of floors, conference rooms and devices with sensors for temperature and air quality in these rooms. We will show you how to set notifications for room availability with optimal conditions. As a facilities administrator, you can use this information to book meeting rooms.  
+Azure Digital Twins service allows you to bring together people, places and devices in a coherant spatial system. This series of tutorials demonstrate how to use the Digital Twins to detect room occupancy with optimal conditions of temperature and air quality. This will walk you through a scenario of a sample building, containing multiple floors and rooms within each floor. The rooms contain devices with sensor to detect motion, ambient temperature and air quality in the form of carbon dioxide. This series will show you how to represent the rooms in the building to the Digital Twins service, as well as how to connect the sensors to this service, so you can monitor the data coming in near real-time. As a facilities administrator, you can use this information to book meeting rooms with optimal conditions. 
 
-In this tutorial, you learn how to:
+In the first tutorial of this series, you learn how to:
 
 > [!div class="checklist"]
-> * Create your instance of Azure Digital Twins service
-> * Grant permissions to an application to access your instance
-> * Explore the .Net sample
-> * Understand spatial object model
+> * Deploy your Digital Twins instance
+> * Connect your application to Digital Twins 
+> * Download and explore the Digital Twins sample
 > * Provision your spaces and devices
 
-If you don’t have an Azure, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
 - [.NET Core SDK](https://www.microsoft.com/net/download) should be installed on your development machine.
 
 
-## Create your instance of Azure Digital Twins service
+## Deploy your Digital Twins instance
 
 Create a new instance of the Digital Twins in the [portal](https://portal.azure.com) using the steps in this section. 
 
 [!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
 
 
-## Grant permissions to an application to access your instance
+## Connect your application to Digital Twins
 
-Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) to provide centralized access to the service. Use the steps in this section to grant access rights to your application.
+Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) to control access to the service. Grant access rights to your application using the steps in this section.
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
@@ -53,24 +52,22 @@ git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
 ``` 
 
 ### Explore the sample
-The sample allows you to configure and provision a spatial topology. Explore the contents of the *src* folder to find the following:
-- *models*: This folder replicates the object model used by the Digital Twins, for spaces and other resources. 
-- *api*: This folder contains wrapper functions for Digital Twins REST APIs. This is not a complete library. For a complete list of features, visit the swagger URL created for your Digital Twins instance.
-- *actions*: It provides an interface to the Digital Twins service to perform tasks like:
-    - get information about the provisioned spaces using the *getSpaces.cs*, or 
-    - provision your spatial graph using the *provisionSample.cs*.
+The sample allows you to configure and provision a spatial topology. Take your time to explore the contents of the *src* folder and notice the following folders:
+- *models*: Explore the code in this folder and notice how this replicates the object model used by the Digital Twins, for spaces and other resources. 
+- *api*: This folder contains wrapper functions for Digital Twins REST APIs. This is not a complete library. For a complete list of features, visit the swagger URL created for your Digital Twins instance which has this format: `yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`.
+- *actions*: The code in this folder performs advanced tasks using the Digital Twins REST APIs, for example:
+    - provision your spatial graph using the *provisionSample.cs*, and
+    - get information about the provisioned spaces using the *getSpaces.cs*. 
 
 ### Configure the sample
-1. In command window, navigate to the *digital-twins-samples-csharp-master\occupancy-quickstart\src* in the sample downloaded in the prerequisite section.
+1. In a command window, navigate to the *digital-twins-samples-csharp-master\occupancy-quickstart\src* in the Digital Twins sample.
 2. Run `dotnet restore` to restore dependencies to the sample project.
 3. Open the *appSettings.json* file and update the following values:
     a. *ClientId*: Enter the AAD application id that you noted in the preceding section.
-    b. *ClientSecret*: Enter the key that you generated in the preceding section.
-    c. *Tenant*: Enter the *Directory Id* of your [AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+    b. *Tenant*: Enter the *Directory Id* of your [AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+    c. *BaseUrl*: The URL of your Digital Twins instance, which will be in the following format, `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/api/v1.0/`.
 4. Run `dotnet run` to see a list of Digital Twins features that you can explore using the sample.
 
-## Understand spatial object model
-In this section, we will learn about the object model that the Digital Twins uses to define a spatial graph. 
 
 ## Provision your spaces and devices
 In this section, we will learn how to provision a spatial graph for a Smart Building using the .Net sample we downloaded in the previous sections.
@@ -106,6 +103,7 @@ This function uses the *provisionSample.yaml* in the same folder to start provis
 ```
 
 - Run `dotnet run ProvisionSample` at the command line to provision your spatial topology. Observe the messages in the command window and notice how your spatial graph gets created. Notice how it creates an IoT hub at the root node or the `Venue`. 
+- From the output in the command window, copy the value of the `ConnectionString`, under the `Devices` section, to your clipboard. You will need this value to simulate the device connection in the following tutorial.
 
 
 ## Clean up resources
@@ -113,7 +111,7 @@ This function uses the *provisionSample.yaml* in the same folder to start provis
 If you wish to stop exploring Azure Digital Twins beyond this point, feel free to delete resources created in this tutorial:
 
 1. From the left-hand menu in the [Azure portal](http://portal.azure.com), click **All resources**, select and **Delete** your Digital Twins resource group.
-2. If you need to, you may proceed to delete the sample applications on your work machine as well. 
+2. If you need to, you may proceed to delete the sample application on your work machine as well. 
 
 
 ## Next steps
