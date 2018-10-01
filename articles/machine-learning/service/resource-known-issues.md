@@ -16,7 +16,7 @@ This article helps you find and correct errors or failures encountered when usin
 
 ## Image building failure
 
-Image building failure when deploying web service. Workaround is to add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration.  [Learn more about deployment troubleshooting](how-to-troubleshoot-deployment.md)
+Image building failure when deploying web service. Workaround is to add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration.  
 
 ## Pipelines
 An error occurs when calling PythonScriptStep multiple times in a row without changing the script or parameters. Workaround is to rebuild the PipelineData object.
