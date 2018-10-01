@@ -14,26 +14,18 @@ ms.date: 03/28/2018
 
 In this article, learn about the Azure Machine Learning service releases. 
 
-## 2018-10
+## 2018-10-01
 
-### Azure Machine Learning SDK for Python
-[Version 0.1.65](https://pypi.org/project/azureml-sdk/0.1.65) of this SDK was released. This release includes new features, more documentation, bug fixes, and more [sample notebooks](https://aka.ms/aml-notebooks).
+### Azure Machine Learning SDK for Python v0.1.65
+[Version 0.1.65](https://pypi.org/project/azureml-sdk/0.1.65) includes new features, more documentation, bug fixes, and more [sample notebooks](https://aka.ms/aml-notebooks).
 
-**Breaking changes and known issues**
+See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+#### Breaking changes
  * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, previously returned list. See [azureml.core.Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API documentation.
 
  * Automated Machine Learning removed normalized mean square error from the primary metrics.
 
- * Image building failure when deploying web service. Workaround is to add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration.
-
- * For Pipelines, error when calling PythonScriptStep multiple times in a row without changing the script or parameters. Workaround is to rebuild the PipelineData object.
-
- * You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
-
-See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
-
-**Notable new features**
 
 #### HyperDrive
  * Various HyperDrive bug fixes for Bayesian, Performance improvements for get Metrics calls. 
@@ -68,6 +60,17 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 #### Project Brainwave
  * Updated support for new AI models available on FPGAs.
+
+### Azure Machine Learning Data Prep SDK v0.2.0
+[Version 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) includes following features and bugfixes:
+
+**New features:** 
+ * Support for one-hot encoding
+ * Support for quantile transform
+   
+**Bug fixed:**
+ * Works with any Tornado version, no need to downgrade your Tornado version
+ * Value counts for all values, not just the top three
 
 ## 2018-09 (Public preview refresh)
 
