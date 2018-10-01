@@ -12,13 +12,13 @@ ms.author: alinast
 
 # Guide for Using User-Defined Functions
 
-[User-defined functions](./concepts-user-defined-functions.md) enable user to run custom logic against incoming telemetry messages and spatial graph metadata, allowing to send events to pre-defined endpoints. In this guide, we'll walk through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
+[User-defined functions](./concepts-user-defined-functions.md) enable the user to run custom logic against incoming telemetry messages and spatial graph metadata, allowing the user to send events to pre-defined endpoints. In this guide, we'll walk through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
 
 In the examples below, `https://{{your-management-api-url}}` refers to the URI of the Digital Twins APIs `https://{{yourDigitalTwinsName}}.{{yourLocation}}.azuresmartspaces.net/management`.
 
 ### Client library reference
 
-The functions available as helper methods in the user-defined functions runtime are enumerated in the following [Client Reference](#Client-Reference).
+The functions that are available as helper methods in the user-defined functions runtime are enumerated in the following [Client Reference](#Client-Reference).
 
 ### Create a Matcher
 
@@ -108,7 +108,8 @@ Log a message if the sensor telemetry reading surpasses a pre-defined threshold.
 ```Javascript
 function process(telemetry, executionContext) {
 
-  ...
+  // Retrieve the sensor value
+  var parseReading = JSON.parse(telemetry.Message);
 
   // Example sensor telemetry reading range is greater than 0.5
   if(parseFloat(parseReading.SensorValue) > 0.5) {
@@ -122,41 +123,30 @@ The following will trigger a notification if the temperature level rises above t
 ```Javascript
 function process(telemetry, executionContext) {
 
-  // Log sensor id and reading value
-  log(`Sensor ID: ${telemetry.SensorId}. `);
-  log(`Sensor value: ${JSON.stringify(telemetry.Message)}.`);
-
-    // Get sensor metadata
-  var sensor = getSensorMetadata(telemetry.SensorId);
-
   // Retrieve the sensor value
   var parseReading = JSON.parse(telemetry.Message);
 
   // Define threshold
   var threshold = 70;
 
-  var alert = {
-    message: 'Temperature reading has surpassed threshold',
-    sensorId: telemetry.SensorId,
-    reading: parseReading
-  };
+  // Trigger notification 
+  if(parseInt(parseReading) > threshold) {
+    var alert = {
+      message: 'Temperature reading has surpassed threshold',
+      sensorId: telemetry.SensorId,
+      reading: parseReading
+    };
 
-  if(parseInt(parseReading) > threshold) 
-  {
-    log(`Alert fired! Sensor ${telemetry.SensorId} reported reading of ${parseReading}.`);
     sendNotification(telemetry.SensorId, "Sensor", JSON.stringify(alert));
-  } else 
-  {
-    log(`Current reading: ${parseReading}. Threshold: ${threshold}.`);
   }
 }
 ```
 
-For a more complex UDF code, refer to [Check available spaces with fresh air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)
+For a more complex UDF code sample, refer to [Check available spaces with fresh air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)
 
 ### Create a Role Assignment
 
-We need to create a role assignment for the user-defined function to execute under or it will not have the proper permissions to interact with the Management API to perform actions on graph objects. The actions that the user-defined function performs are not exempt from the role-based access control within the Digital Twins Management APIs. They can be limited in scope by specifying certain roles, or certain access control paths. See [Role Based Access Control](./security-role-based-access-control.md) documentation for further information.
+We need to create a role assignment for the user-defined function to execute under. If we do not, it will not have the proper permissions to interact with the Management API to perform actions on graph objects. The actions that the user-defined function performs are not exempt from the role-based access control within the Digital Twins Management APIs. They can be limited in scope by specifying certain roles, or certain access control paths. See [Role Based Access Control](./security-role-based-access-control.md) documentation for further information.
 
 - Query for roles and get the ID of the role you want to assign to the UDF; pass it to RoleId below.
 
