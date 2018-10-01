@@ -50,8 +50,6 @@ Existing customers are required to migrate their existing resource keys to the n
 
 2. Select **Migrate selected subscription**.
 
-    ![Enter subscription to migrate](./media/migrate-from-custom-speech-service/migrate-selected-subscriptions.png)
-
 3. Enter the subscription key in the text box and select **Migrate**.
 
     ![Enter subscription to migrate](./media/migrate-from-custom-speech-service/migrate-dialog.png)
