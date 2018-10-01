@@ -4,7 +4,7 @@ description: Review the specific properties and their values for the edgeAgent a
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -104,9 +104,9 @@ The module twin for the Edge hub is called `$edgeHub` and coordinates the commun
 | lastDesiredVersion | This integer refers to the last version of the desired properties processed by the Edge hub. |
 | lastDesiredStatus.code | This is the status code referring to last desired properties seen by the Edge hub. Allowed values: `200` Success, `400` Invalid configuration, `500` Failed |
 | lastDesiredStatus.description | Text description of the status |
-| clients.{device or module identity}.status | The connectivity status of this device or module. Possible values {"connected" \| "disconnected"}. Only module identities can be in disconnected state. Downstream devices connecting to Edge hub appear only when connected. |
-| clients.{device or module identity}.lastConnectTime | Last time the device or module connected |
-| clients.{device or module identity}.lastDisconnectTime | Last time the device or module disconnected |
+| clients.{device or moduleId}.status | The connectivity status of this device or module. Possible values {"connected" \| "disconnected"}. Only module identities can be in disconnected state. Downstream devices connecting to Edge hub appear only when connected. |
+| clients.{device or moduleId}.lastConnectTime | Last time the device or module connected |
+| clients.{device or moduleId}.lastDisconnectTime | Last time the device or module disconnected |
 
 ## Next steps
 
