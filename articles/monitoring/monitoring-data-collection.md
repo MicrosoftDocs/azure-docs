@@ -39,7 +39,7 @@ A common type of log entry is an event. Events are collected sporadically as the
 Logs are particularly useful for combining data from a variety of sources for complex analysis and trending over time. Because the format of the data can vary, applications can create custom logs using the structure that they require. Metrics can even be replicated in logs to combine it with other monitoring data for trending and other data analysis.
 
 
-## Monitoring Tools in Azure
+## Monitoring tools in Azure
 Monitoring data in Azure is collected and analyzed using multiple sources that are described in the following sections.
 
 ### Azure Metrics
@@ -90,10 +90,10 @@ As described above, metrics are more responsive than logs allowing you to create
 The explanation of this feature is available at [Faster Metric Alerts for Logs now in limited public preview](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/). The list of values support is available at 
 [Supported metrics and creation methods for new metric alerts](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
 
-### Event Hub
+### Event Hubs
 In addition to using the tools in Azure to analyze monitoring data, you may want to forward it to an external tool such as a Security Information and Event Management (SIEM) product. This is typically done using [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). 
 
-You can find guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an Event Hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+You can find guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 
 ## Next steps
 
