@@ -69,7 +69,7 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-The policy with remaining call count of 0 is the one due to which the throttling error is returned. In this case that is `HighCostGet30Min`. The overall format of the response body is the general Azure Resource Manager API error format (conformant with OData). The main error code, `OperationNotAllowed`, is the one Compute Resource Provider uses to report throttling errors (among other types of client errors). The 'message' property of the inner error(s) contains a serialized JSON structure with the details of the throttling violation.
+The policy with remaining call count of 0 is the one due to which the throttling error is returned. In this case that is `HighCostGet30Min`. The overall format of the response body is the general Azure Resource Manager API error format (conformant with OData). The main error code, `OperationNotAllowed`, is the one Compute Resource Provider uses to report throttling errors (among other types of client errors). The `message` property of the inner error(s) contains a serialized JSON structure with the details of the throttling violation.
 
 As illustrated above, every throttling error includes the `Retry-After` header, which provides the minimum number of seconds the client should wait before retrying the request. 
 
