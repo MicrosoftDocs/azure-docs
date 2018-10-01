@@ -1,4 +1,4 @@
-﻿---
+---
 title: Prevent unexpected costs, manage billing in Azure | Microsoft Docs
 description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for a Microsoft Azure subscription.
 services: ''
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
+ms.author: cwatson
 ---
 # Prevent unexpected charges with Azure billing and cost management
 
@@ -26,6 +26,9 @@ When you sign up for Azure, there are several things you can do to get a better 
 - If your subscription is a Free Trial, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO), or BizSpark, your subscription is automatically disabled when all your credits are used. Learn about [spending limits](#spending-limit) to avoid having your subscription unexpectantly disabled.
 
 - If you have signed up for [Azure free account](https://azure.microsoft.com/free/), [you can use some of the most popular Azure services for free for 12 months](billing-create-free-services-included-free-account.md). Along with the recommendations listed below, see [Avoid getting charged for free account](billing-avoid-charges-free-account.md).
+
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## Get estimated costs before adding Azure services
 
@@ -46,17 +49,6 @@ For more information on pricing, see this [FAQ](https://azure.microsoft.com/pric
 Typically when you add a service in the Azure portal, there's a view that shows you a similar estimated cost per month. For example, when you choose the size of your Windows VM, you see the estimated monthly cost for the compute hours:
 
 ![Example: an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/vm-size-cost.PNG)
-
-### Set up billing alerts
-
-Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md).
-
-![Screenshot of a billing alert email](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> This feature is still in preview so you should check your usage regularly.
-
-You might want to use the cost estimate from the pricing calculator as a guideline for your first alert.
 
 ### <a name="spending-limit"></a> Check if you have a spending limit on
 
@@ -116,7 +108,7 @@ For more cost-cutting features for your development and test environments, check
 
 ### Turn on and check out Azure Advisor recommendations
 
-[Azure Advisor](../advisor/advisor-overview.md) is a preview feature that helps you reduce costs by identifying resources with low usage. Turn it on in the Azure portal:
+[Azure Advisor](../advisor/advisor-overview.md) is a feature that helps you reduce costs by identifying resources with low usage. Visit Advisor in the Azure portal:
 
 ![Screenshot of Azure Advisor button in Azure portal](./media/billing-getting-started/advisor-button.PNG)
 
@@ -158,7 +150,7 @@ Enterprise cost views are currently in Public Preview. Items to note:
     - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
     - You purchased Azure through a channel partner, and the partner has not released pricing information.  
 - When settings related to cost access are updated within the Enterprise portal, there is a delay of a few minutes before the changes are reflected in the Azure portal.
-- Spending limit, billing alerts, and invoice guidance do not pertain to EA Subscriptions.
+- Spending limit, and invoice guidance don't apply to EA Subscriptions.
 
 ### Check your subscription and access
 

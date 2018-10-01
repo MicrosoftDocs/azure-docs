@@ -81,7 +81,7 @@ To help verify that you are not logged into a personal browser account, open a n
 
 ---  
 
-## Issue: Dev Center Registration  
+## Get Help with Dev Center Registration  
 If you have issues with Dev Center registration, then follow these steps to submit a support ticket.  
 1.  Go to Dev Center support.  
     *   To access support, visit the Windows developer support page located at [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support).  
@@ -105,12 +105,12 @@ If you have issues with Dev Center registration, then follow these steps to subm
 > Publisher who are publishing in Transact listing type: VM, Azure apps: solution templates and managed apps.  
 
 *	**Why is Dev Center account required?**
-> Dev Center account is a required to enable Microsoft to bill the customer on the publisher’s behalf for Transact listing type. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information for your company. To learn more click [here.](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#register-in-dev-center)
+> Dev Center account is a required to enable Microsoft to bill the customer on the publisher’s behalf for Transact listing type. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information for your company. To learn more click [here.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
 
 *	**How do I get started with Dev Center registration?**
 > To prevent duplication, verify that your company does not already have a Dev Center account registered. 
 You must be signed in with the Microsoft account that you want to associate with your developer account. If you don’t already have a Microsoft account, you can create a new account [here.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (example: contoso_marketplace@live.com) To sign in and register, go to https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>To learn more on registration process click [here.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center)</br>
+<br>To learn more on registration process click [here.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 *	**Should I choose 'Individual' or 'Company' account type?**
 > To publish a transact offer on Marketplace, you need to select Company account when registering for your Dev Center account.
@@ -141,7 +141,7 @@ You must be signed in with the Microsoft account that you want to associate with
 > Assign a temporary company name, contact support at [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) and provide them your business registration documents.
 
 *	**How do I add my tax and payout information?**
-> You will not be able to publish transact offers without completing the tax and bank information in your Dev Center account.  For more information about adding account information, visit [How to Add bank and tax information.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
+> You will not be able to publish transact offers without completing the tax and bank information in your Dev Center account.  For more information about adding account information, visit [How to Add bank and tax information.](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
 
 *	**Can I change the Dev Center Microsoft login account?**
 > No. Once a Dev Center is created, the owner account cannot be changed. You would have to start over with a brand-new Dev Center account with the desired Microsoft account.
@@ -149,6 +149,41 @@ You must be signed in with the Microsoft account that you want to associate with
 *	**Where do I contact support with issues regarding Dev Center registration?**
 To access support, visit the Windows developer support page located at [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
+## Issue: Add bank and tax information for publisher payouts  
+The bank and tax information is required for all commercial offers using the transact listing type.  
+*   If you are publishing commercial offers for purchase, then you must add payout and tax information and request validation in Dev Center.  
+    >[!IMPORTANT]
+    >For commercial offers (transact), you must complete the bank and tax information before you are able to push your offers to production.  
+
+*   If you are publishing only free or BYOL offers, then you are not required to add the information. You may add the information later, but validation of the tax information takes some time. If you plan to offer commercial offers for purchase, then you should add the information as soon as possible.  
+
+## Add bank information  
+1.  Sign into Dev Center using your Microsoft ID.  
+    *   To sign into Dev Center, visit the Windows Dev Center page located at [dev.windows.com](https://dev.windows.com).  
+2.  Select Payout account on the left menu.
+3.  On the `Choose payment method` page, select `Bank account` or `PayPal`.  
+    >[!IMPORTANT]
+    >If you have commercial offers that customers purchase on the Marketplace, then your payout account is where you receive payout for the purchases.  
+
+4.  Enter the payment information. After you have verified that the information is correct, click on the Save button.  
+    >[!IMPORTANT]
+    >If you update or change your payout account, then you must follow the same steps replacing the current information with the new information. Changes to your payout account may delay payments up to one payment cycle. This delay occurs because Microsoft must verify the account change, this is the same as when you first set-up your payout account. You get paid the full amount after your account has been verified. Any payments due from the current payment cycle are added to the next cycle.  
+
+4.  Click on the Next button. 
+
+---   
+
+## Add tax information  
+1.  Sign into Dev Center using your Microsoft ID.  
+    *   To sign into Dev Center, visit the Windows Dev Center page located at [dev.windows.com](https://dev.windows.com).  
+2.  Select Tax profile on the left menu. 
+3.  On the `Set up your tax form` page, select the country or region where you have permanent residency.  
+    
+    Select the country or region where you hold primary citizenship.  
+    
+    Click on the Next button. 
+4.  Enter your tax details.  
+5.  Click on the Next button.  
 
 ## Next steps
 *   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  

@@ -1,20 +1,15 @@
 ---
-title: Manage Hadoop clusters in HDInsight using Azure portal | Microsoft Docs
+title: Manage Hadoop clusters in HDInsight using Azure portal 
 description: Learn how to create and manage HDInsight clusters using the Azure portal.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Manage Hadoop clusters in HDInsight by using the Azure portal
@@ -210,7 +205,7 @@ There are many ways you can program the process:
 
 * User Azure Data Factory. See [Create on-demand Linux-based Hadoop clusters in HDInsight using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) for creating on-demand HDInsight linked services.
 * Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
-* Use Azure CLI. See [Manage HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
+* Use Azure Classic CLI. See [Manage HDInsight clusters using Azure Classic CLI](hdinsight-administer-use-command-line.md).
 * Use HDInsight .NET SDK. See [Submit Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
@@ -294,7 +289,7 @@ HDInsight clusters have the following HTTP web services (all of these services h
 * Oozie
 * Templeton
 
-By default, these services are granted for access. You can revoke/grant the access using [Azure CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) and [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+By default, these services are granted for access. You can revoke/grant the access using [Azure Classic CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) and [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## Find the subscription ID
 
@@ -366,7 +361,7 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 In this article, you have learned some basic administrative functions. To learn more, see the following articles:
 
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
+* [Administer HDInsight Using Azure Classic CLI](hdinsight-administer-use-command-line.md)
 * [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Read more about using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [Details on using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

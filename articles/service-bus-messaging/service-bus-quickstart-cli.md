@@ -2,14 +2,14 @@
 title: Quickstart - Use Azure CLI and Java to send and receive messages from Azure Service Bus | Microsoft Docs
 description: In this quickstart, you learn to send and receive Azure Service Bus messages using Azure CLI and a sample Java application
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/22/2018
-ms.author: sethm
+ms.date: 09/22/2018
+ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
@@ -268,5 +268,5 @@ In this article, you created a Service Bus namespace and other resources require
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
+[Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

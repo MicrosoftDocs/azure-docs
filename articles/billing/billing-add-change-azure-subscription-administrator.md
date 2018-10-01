@@ -15,12 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: genli
+ms.author: cwatson
 
 ---
 # Add or change Azure subscription administrators
 
 To manage access to Azure resources, you must have the appropriate administrator role. This article describes how to add or change the administrator role for a user at the subscription level.
+
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## What administrator role do I use?
 

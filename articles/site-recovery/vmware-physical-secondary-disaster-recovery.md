@@ -8,17 +8,54 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
 
 ---
 # Set up disaster recovery of on-premises VMware virtual machines or physical servers to a secondary site
 
-InMage Scout in [Azure Site Recovery](site-recovery-overview.md) provides real-time replication between on-premises VMware sites. InMage Scout is included in Azure Site Recovery service subscriptions. 
+InMage Scout in [Azure Site Recovery](site-recovery-overview.md) provides real-time replication between on-premises VMware sites. InMage Scout is included in Azure Site Recovery service subscriptions.
+
+## End-of-support announcement
+
+The Azure Site Recovery scenario for replication between on-premises VMware or physical datacenters is reaching end-of-support.
+
+-	From August 2018, the scenario can’t be configured in the Recovery Services vault, and the  InMage Scout software can’t be downloaded from the vault. Existing deployments will be supported. 
+-	From December 31 2020, the scenario won’t be supported.
+- Existing partners can onboard new customers to the scenario until support ends.
+
+During 2018 and 2019, two updates will be released: 
+
+-	Update 7: Fixes network configuration and compliance issues, and provides TLS 1.2 support.
+-	Update 8: Adds support for Linux operating systems RHEL/CentOS 7.3/7.4/7.5, and for SUSE 12
+
+After Update 8, no further updates will be released. There will be limited hotfix support for the operating systems added in Update 8, and bug fixes based on best effort.
+
+Azure Site Recovery continues to innovate by providing VMware and Hyper-V customers a seamless and best-in-class DRaaS solution with Azure as a disaster recovery site. Microsoft recommends that existing InMage / ASR Scout customers consider using Azure Site Recovery’s VMware to Azure scenario for their business continuity needs. Azure Site Recovery's VMware to Azure scenario is an enterprise-class DR solution for VMware applications, which offers RPO and RTO of minutes, support for multi-VM application replication and recovery, seamless onboarding, comprehensive monitoring, and significant TCO advantage.
+
+### Scenario migration
+As an alternative, we recommend setting up disaster recovery for on-premises VMware VMs and physical machines by replicating them to Azure. Do this as follows:
+
+1.	Review the quick comparison below. Before you can replicate on-premises machines, you need check that they meet [requirements](./vmware-physical-azure-support-matrix.md#replicated-machines) for replication to Azure. If you’re replicating VMware VMs, we recommend that you review [capacity planning guidelines](./site-recovery-plan-capacity-vmware.md), and run the [Deployment Planner tool](./site-recovery-deployment-planner.md) to identity capacity requirements, and verify compliance.
+2.	After running the Deployment Planner, you can set up replication:
+o	For VMware VMs, follow these tutorials to [prepare Azure](./tutorial-prepare-azure.md), [prepare your on-premises VMware environment](./vmware-azure-tutorial-prepare-on-premises.md), and [set up disaster recovery](./vmware-azure-tutorial-prepare-on-premises.md).
+o	For physical machines, follow this [tutorial](./physical-azure-disaster-recovery.md).
+3.	After machines are replicating to Azure, you can run a [disaster recovery drill](./site-recovery-test-failover-to-azure.md) to make sure everything’s working as expected.
+
+### Quick comparison
+
+**Feature** | **Replication to Azure** |**Replication between VMware datacenters**
+--|--|--
+**Required components** |Mobility service on replicated machines. On-premises configuration server, process server, master target server.Temporary process server in Azure for failback.|Mobility service, Process Server, Configuration Server and Master Target
+**Configuration and orchestration** |Recovery Services vault in the Azure portal | Using vContinuum 
+**Replicated**|Disk (Windows and Linux) |Volume-Windows<br> Disk-Linux
+**Shared disk cluster**|Not supported|Supported
+**Data churn limits (average)** |10 MB/s data per disk<br> 25MB/s data per VM<br> [Learn more](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s data per VM
+**Monitoring** |From Azure portal|From CX (Configuration Server)
+**Support Matrix**| [Click here for details](./vmware-physical-azure-support-matrix.md)|[Download ASR Scout compatible matrix](https://aka.ms/asr-scout-cm)
 
 
 ## Prerequisites
-
 To complete this tutorial:
 
 - [Review](vmware-physical-secondary-support-matrix.md) the support requirements for all components.
@@ -70,12 +107,12 @@ Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file cont
 6. **Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.
 7. **Windows source server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click on the file to run it. 
 	You don't need to install the Update 5 agent on the source server if it has already been updated to Update 4 or source agent is installed with latest base installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
+8. **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64-bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
 
 ## Enable replication
 
 1. Set up replication between the source and target VMware sites.
-2. Refer to following documents to learn more about installation, protection and recovery:
+2. Refer to following documents to learn more about installation, protection, and recovery:
 
    * [Release notes](https://aka.ms/asr-scout-release-notes)
    * [Compatibility matrix](https://aka.ms/asr-scout-cm)
@@ -155,7 +192,7 @@ Scout Update 4 is a cumulative update. It includes all fixes from Update 1 to Up
 
 #### Bug fixes and enhancements
 
-* Improved shutdown handling for the following Linux operating systems and clones, to prevent unwanted re-synchronization issues:
+* Improved shutdown handling for the following Linux operating systems and clones, to prevent unwanted resynchronization issues:
 	* Red Hat Enterprise Linux (RHEL) 6.x
 	* Oracle Linux (OL) 6.x
 * For Linux, all folder access permissions in the unified agent installation directory are now restricted to the local user only.
@@ -217,7 +254,7 @@ Update 3 fixes the following issues:
 
 Fixes in Update 2 include:
 
-* **Configuration server**:Issues that prevented the 31-day free metering feature from working as expected, when the configuration server was registered in Site Recovery.
+* **Configuration server**: Issues that prevented the 31-day free metering feature from working as expected, when the configuration server was registered to Azure Site Recovery vault.
 * **Unified agent**: Fix for an issue in Update 1 that resulted in the update not being installed on the master target server, during upgrade from version 8.0 to 8.0.1.
 
 ### Azure Site Recovery Scout 8.0.1 Update 1

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 
 ---
 # Submit a request to pay Azure subscription by invoice
@@ -23,7 +23,7 @@ You can change the payment method for your Azure subscription to invoice by subm
 
 > [!IMPORTANT]
 > * Invoice pay is only available for business accounts.
-> * [Third party and external services](billing-understand-your-azure-marketplace-charges.md) cannot be purchased or paid for using invoice pay. If your subscription contains resources from external services like ClearDB or SendGrid, they need be deleted before changing to invoice pay. To purchase external services after switching to invoice pay, you need a separate subscription with a credit or debit card.
+> * [Third party and external services](billing-understand-your-azure-marketplace-charges.md) cannot be purchased or paid for using invoice pay. If your subscription contains resources from external services like SendGrid, they need be deleted before changing to invoice pay. To purchase external services after switching to invoice pay, you need a separate subscription with a credit or debit card.
 > * Once you switch to invoice pay, you can't switch back to credit or debit card payment.
 
 ## Request pay by invoice

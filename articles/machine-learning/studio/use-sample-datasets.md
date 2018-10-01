@@ -338,7 +338,7 @@ Also, note that the number of background events (h, for hadronic showers) is und
 <tr>
   <td>Weather Dataset</td>
   <td>
-Hourly land-based weather observations from NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">merged data from 201304 to 201310</a>).
+Hourly land-based weather observations from NOAA (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">merged data from 201304 to 201310</a>).
 <p></p>
 The weather data covers observations made from airport weather stations, covering the time period April-October 2013. Before uploading to Azure Machine Learning Studio, the dataset was processed as follows:
 <ul>

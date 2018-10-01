@@ -2,14 +2,14 @@
 title: Receive events from Azure Event Hubs using Java | Microsoft Docs
 description: Get started receiving from Event Hubs using Java
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 06/12/2018
-ms.author: sethm
+ms.date: 08/26/2018
+ms.author: shvija
 
 ---
 
@@ -51,18 +51,18 @@ To use EventProcessorHost, you must have an [Azure Storage account][Azure Storag
 
 ### Create a Java project using the EventProcessor Host
 
-The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository][Maven Package], and can be referenced using the following dependency declaration inside your Maven project file. The current version is 1.0.0:    
+The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository][Maven Package], and can be referenced using the following dependency declaration inside your Maven project file. The current version is for the artifact azure-eventhubs-eph is 2.0.1 and the current version for the artifact azure-eventhubs is 1.0.2:    
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.1</version>
 </dependency>
 ```
 
@@ -239,6 +239,46 @@ For different types of build environments, you can explicitly obtain the latest 
     ```
 
 This tutorial uses a single instance of EventProcessorHost. To increase throughput, it is recommended that you run multiple instances of EventProcessorHost, preferably on separate machines.  This provides redundancy as well. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for EventProcessorHost instances based on the machines (or roles) in which they are deployed.
+
+## Publishing Messages to EventHub
+
+Before messages are retrieved by consumers, they have to be published to the partitions first by the publishers. It is worth noting that when messages are published to event hub synchronously using the sendSync() method on the com.microsoft.azure.eventhubs.EventHubClient object, the message could be sent to a specific partition or distributed to all available partitions in a round-robin manner depending on whether the partition key is specified or not.
+
+When a string representing the partition key is specified, the key will be hashed to determine which partition to send the event to.
+
+When the partition key is not set, then messages will round-robined to all available partitions
+
+```java
+// Serialize the event into bytes
+byte[] payloadBytes = gson.toJson(messagePayload).getBytes(Charset.defaultCharset());
+
+// Use the bytes to construct an {@link EventData} object
+EventData sendEvent = EventData.create(payloadBytes);
+
+// Transmits the event to event hub without a partition key
+// If a partition key is not set, then we will round-robin to all topic partitions
+eventHubClient.sendSync(sendEvent);
+
+//  the partitionKey will be hash'ed to determine the partitionId to send the eventData to.
+eventHubClient.sendSync(sendEvent, partitionKey);
+
+```
+
+## Implementing a Custom CheckpointManager for EventProcessorHost (EPH)
+
+The API provides a mechanism to implement your custom checkpoint manager for scenarios where the default implementation is not compatible with your use case.
+
+The default checkpoint manager uses blob storage but if you override the checkpoint manager used by EPH with your own implementation, you can use any store you want to back the your checkpoint manager implementation.
+
+You have to create a class that implements the interface com.microsoft.azure.eventprocessorhost.ICheckpointManager
+
+Use your custom implementation of the checkpoint manager (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
+
+Within your implementation, you can override the default checkpointing mechanism and implement our own checkpoints based on your own data store (SQL Server, CosmosDB, Redis Cache etc). It is recommended that the store used to back your checkpoint manager implementation be accessible to all EPH instances that are processing events for the consumer group.
+
+You can use any datastore that will be available in your environment.
+
+The com.microsoft.azure.eventprocessorhost.EventProcessorHost class provides you with 2 constructors that allow you to override the checkpoint manager for your EventProcessorHost.
 
 ## Next steps
 

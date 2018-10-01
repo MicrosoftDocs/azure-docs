@@ -44,7 +44,7 @@ To complete this tutorial, you need the following:
 ## Simulate an IoT device
 In this section, you simulate an iOS device running a Swift application to receive cloud-to-device messages from the IoT hub. 
 
-This is the sample sample device that you create in the article [Send telemetry from a device to an IoT hub]. If you already have that running, you can skip this section.
+This is the sample device that you create in the article [Send telemetry from a device to an IoT hub]. If you already have that running, you can skip this section.
 
 ### Install CocoaPods
 
@@ -173,6 +173,5 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
 [Azure IoT Remote Monitoring solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/

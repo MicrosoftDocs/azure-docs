@@ -114,14 +114,14 @@ In addition, you can work with storage accounts in global and national Azure:
 
 ## Work with local development storage
 
-With Storage Explorer, you can work against local storage by using an emulator. This approach lets you simulate working with Azure Storage without necessarily having a storage account deployed on Azure.
+With Storage Explorer, you can work with local storage by using an emulator. This approach lets you simulate working with Azure Storage without necessarily having a storage account deployed on Azure.
 
 Starting with version 1.1.0, local storage emulator is supported on all platforms. Storage Explorer can connect to any emulated service listening to its default local storage endpoints.
 
 > [!NOTE]
 > Support for storage services and features may vary widely depending on your choice of emulator. Make sure your emulator supports the services and features you intend to work with.
 
-1. Configure your emulator of choice to listen at the default endpoints.
+1. Configure the services of your emulator of choice to listen to an unused port.
 
    Emulated Service | Default Endpoint
    -----------------|-------------------------
@@ -130,16 +130,19 @@ Starting with version 1.1.0, local storage emulator is supported on all platform
    Tables           | `http://127.0.0.1:10002`
 
 2. Start the emulator.
+   > [!IMPORTANT]
+   > Storage Explorer does not automatically start your emulator. You must start it yourself.
 
-3. In the left pane of Storage Explorer, expand the **(Local and Attached)** > **Storage Accounts** > **(Development)** node.
+3. In Storage Explorer, click the **Add Account** button. Select **Attach to a local emulator** and click **Next**.
+
+4. Enter the port numbers for the services you configured above (leave blank if you don't intend to use that service). Click **Next** then **Connect** to create the connection.
+
+5. Expand the **Local & Attached** > **Storage Accounts** > nodes, then expand the service nodes underneath the node corresponding to your emulator connection.
 
    You can use this node to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, refer to the following guides:
 
    * [Manage Azure Blob storage resources](vs-azure-tools-storage-explorer-blobs.md)
    * [Manage Azure File storage resources](vs-azure-tools-storage-explorer-files.md)
-
-> [!NOTE]
-> Storage Explorer only supports connecting to local emulators using the default endpoints. When starting the emulator, make sure only the default endpoints are configured.
 
 ## Attach or detach an external storage account
 

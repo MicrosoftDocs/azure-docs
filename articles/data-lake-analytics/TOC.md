@@ -8,7 +8,7 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI](data-lake-analytics-get-started-cli2.md)
+## [Azure CLI](data-lake-analytics-get-started-cli.md)
 
 # How to
 
@@ -58,6 +58,9 @@
 #### [Authoring](data-lake-analytics-data-lake-tools-for-vscode.md)
 #### [Custom code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Local run & debug](data-lake-tools-for-vscode-local-run-and-debug.md)
+
+## Schedule U-SQL jobs
+### [Schedule jobs using SSIS](data-lake-analytics-schedule-jobs-ssis.md)
 
 ## Continuous integration and continuous deployment
 ### [Overview](data-lake-analytics-cicd-overview.md)

@@ -1,0 +1,69 @@
+- name: Azure Stack Partner Documentation
+  href: index.yml
+- name: Overview
+  href: index.yml
+  expanded: true
+  items:
+  - name: Validation as a service for Azure Stack
+    href: azure-stack-vaas-overview.md
+  - name: Release notes
+    href: azure-stack-vaas-release-notes.md
+    items:
+    - name: 2018-04-02 update 
+      href: azure-stack-partner-update-1803.md
+    - name: 2018-01-30 update 
+      href: azure-stack-partner-update-1802.md
+  - name: Known issues
+    href: azure-stack-vaas-known-issues.md
+- name: Quickstart
+  items:
+    - name: Schedule your first test pass
+      href: azure-stack-vaas-schedule-your-first-test.md
+- name: Tutorial
+  items:
+  - name: Set up your account with Azure Stack Validation
+    href: azure-stack-vaas-set-up-account.md
+  - name: Automate Azure Stack validation with PowerShell
+    href: azure-stack-vaas-automate-with-powershell.md
+  - name: Validate a new Azure Stack solution
+    href: azure-stack-vaas-validate-solution-new.md
+  - name: Validate OEM packages
+    href: azure-stack-vaas-validate-oem-package.md
+  - name: Validate software updates from Microsoft
+    href: azure-stack-vaas-validate-microsoft-updates.md
+  - name: Test VMs
+    href: azure-stack-vaas-test-vm.md
+- name: Concepts
+  items:
+  - name: Monitor a test
+    href: azure-stack-vaas-monitor-test.md
+  - name: Validation configuration file
+    href: azure-stack-vaas-parameters.md
+  - name: Test pass parameters
+    href: azure-stack-vaas-parameters-test.md
+  - name: Troubleshoot validation as a service
+    href: azure-stack-vaas-troubleshoot.md
+- name: Reference
+  items:
+  - name: (Item coming from JH)
+- name: Related
+  items:
+  - name: Azure Stack Documentation
+    href: /azure/azure-stack
+  - name: Azure Active Directory
+    href: /azure/active-directory/
+    maintainContext: true
+- name: Resources
+  items:
+  - name: Azure Stack roadmap
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Azure Stack MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureStack
+  - name: Azure Stack Documentation feedback
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+  - name: Pricing information
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Training and certification
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert

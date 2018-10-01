@@ -30,11 +30,11 @@ The gray items represent components that implement *device management* capabilit
 
 In the Azure portal, navigate to the resource group with the solution name you chose to view your provisioned resources.
 
-![][img-resource-group]
+![Accelerator resources][img-resource-group]
 
-When you provision the solution accelerator, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the [azureiotsolutions.com][lnk-azureiotsuite] page for your provisioned solution. A tile is available on this page when the solution is in the **Ready** state.
+When you provision the solution accelerator, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the [Microsoft Azure IoT Solution Accelerators][lnk-azureiotsuite] page for your provisioned solution. A tile is available on this page when the solution is in the **Ready** state.
 
-![][img-machine-learning]
+![Machine learning model][img-machine-learning]
 
 ## Simulated devices
 

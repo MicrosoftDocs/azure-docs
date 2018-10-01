@@ -13,13 +13,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
 
 ---
 
 # sfctl
-Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 6.2 runtime.
+Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 6.3 runtime.
 
 Commands follow the noun-verb pattern. For more information, see subgroups.
 

@@ -72,7 +72,8 @@ On Windows:
    -FilterHashtable @{ProviderName= "iotedged";
      LogName = "application"; StartTime = [datetime]::Today} |
    select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false}
+   sort-object @{Expression="TimeCreated";Descending=$false} |
+   format-table -autosize -wrap
    ```
 
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file
@@ -287,6 +288,24 @@ In the deployment manifest:
       }
     },
 ```
+## Can't get the IoT Edge daemon logs on Windows
+If you get an EventLogException when using `Get-WinEvent` on Windows, check your registry entries.
+
+### Root cause
+The `Get-WinEvent` PowerShell command relies on an registry entry to be present to find logs by a specific `ProviderName`.
+
+### Resolution
+Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
+"CustomSource"=dword:00000001
+"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
+"TypesSupported"=dword:00000007
+```
+
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 

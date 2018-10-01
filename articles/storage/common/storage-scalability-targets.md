@@ -2,20 +2,12 @@
 title: Azure Storage Scalability and Performance Targets | Microsoft Docs
 description: Learn about the scalability and performance targets for Azure Storage, including capacity, request rate, and inbound and outbound bandwidth for both standard and premium storage accounts. Understand performance targets for partitions within each of the Azure Storage services.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-editor: tysonn
-
-ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 10/24/2017
 ms.author: rogarana
-
+ms.component: common
 ---
 # Azure Storage Scalability and Performance Targets
 ## Overview
@@ -37,6 +29,8 @@ If the needs of your application exceed the scalability targets of a single stor
 ## Scalability targets for a storage account
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
+### Storage resource provider limits 
+
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## Azure Blob storage scale targets
@@ -48,6 +42,8 @@ For more information on the scale and performance targets for Azure Files and Az
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### Azure File Sync scale targets
+With Azure File Sync, we have tried as much as possible to design for limitless usage, however this is not always possible. The below table indicates the boundaries of our testing and which targets are actually hard limits:
+
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ## Azure Queue storage scale targets

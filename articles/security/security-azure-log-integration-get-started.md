@@ -229,6 +229,7 @@ The Azure Activity Log is a subscription log that provides insight into subscrip
 Example:
 
 ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+
 4.	Check the following folders to confirm that the Azure Active Directory audit log JSON files are created in them:
     - C:\Users\azlog\AzureResourceManagerJson
     - C:\Users\azlog\AzureResourceManagerJsonLD

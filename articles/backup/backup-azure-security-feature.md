@@ -75,6 +75,10 @@ Checks have been added to make sure only valid users can perform various operati
 ### Authentication to perform critical operations
 As part of adding an extra layer of authentication for critical operations, you are prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations.
 
+> [!NOTE]
+
+> Currently, security pin is not supported for **Stop Protection with Delete data** for DPM and MABS. 
+
 To receive this PIN:
 
 1. Sign in to the Azure portal.

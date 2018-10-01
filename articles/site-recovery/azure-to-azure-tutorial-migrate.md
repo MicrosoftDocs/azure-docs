@@ -62,7 +62,7 @@ If you have just created your free Azure account then you are the administrator 
 ### Verify VM outbound access
 
 1. Make sure you're not using an authentication proxy to control network connectivity for VMs you want to migrate. 
-2. For the purposes of this tutorial we assume that the VMs you want to migrate can access the internet, and are not using a a firewall proxy to control outbound access. If you are, check the requirements [here](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+2. For the purposes of this tutorial we assume that the VMs you want to migrate can access the internet, and are not using a firewall proxy to control outbound access. If you are, check the requirements [here](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
 
 ### Verify VM certificates
 

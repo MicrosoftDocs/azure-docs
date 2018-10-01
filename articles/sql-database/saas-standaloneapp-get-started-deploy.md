@@ -1,15 +1,17 @@
 ---
-title: Multi-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs
+title: Single-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs
 description: "Deploy and explore a standalone single-tenant SaaS application, that uses Azure SQL Database."
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
+ms.reviewer: sstein
+manager: craigg
+ms.date: 09/19/2018
 ---
 # Deploy and explore a standalone single-tenant application that uses Azure SQL Database
 
@@ -19,7 +21,7 @@ The standalone application or app-per-tenant pattern deploys an application inst
 
 In this tutorial, you will deploy three standalone applications for three tenants into your Azure subscription.  You have full access to explore and work with the individual application components.
 
-The application source code and management scripts are available in the [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub repo.
+The application source code and management scripts are available in the [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub repo. The application was created using Visual Studio 2015, and does not successfully open and compile in Visual Studio 2017 without updating.
 
 
 In this tutorial you learn:

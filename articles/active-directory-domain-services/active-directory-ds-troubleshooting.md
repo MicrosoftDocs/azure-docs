@@ -13,7 +13,7 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: maheshu
 
@@ -135,7 +135,7 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
 * **External accounts:** Ensure that the affected user account is not an external account in the Azure AD tenant. Examples of external accounts include Microsoft accounts (for example, 'joe@live.com') or user accounts from an external Azure AD directory. Since Azure AD Domain Services does not have credentials for such user accounts, these users cannot sign in to the managed domain.
 * **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, verify that:
 
-  * You have deployed or updated to the [latest recommended release of Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+  * You have deployed or updated to the [latest recommended release of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
   * You have configured Azure AD Connect to [perform a full synchronization](active-directory-ds-getting-started-password-sync.md).
   * Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD Domain Services. Ensure you wait long enough before retrying authentication.
   * If the issue persists after verifying the preceding steps, try restarting the Microsoft Azure AD Sync Service. From your sync machine, launch a command prompt and execute the following commands:

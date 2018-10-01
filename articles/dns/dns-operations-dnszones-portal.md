@@ -3,7 +3,7 @@ title: Manage DNS zones in Azure DNS - Azure portal | Microsoft Docs
 description: You can manage DNS zones using the Azure portal. This article describes how to update, delete and create DNS zones on Azure DNS
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 
 ms.service: dns
@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
-ms.author: kumud
+ms.author: victorh
 ---
 # How to manage DNS Zones in the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+> * [Azure classic CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI](dns-operations-dnszones-cli.md)
 
 This article shows you how to manage your DNS zones by using the Azure portal. You can also manage your DNS zones using the cross-platform [Azure CLI](dns-operations-dnszones-cli.md) or the Azure [PowerShell](dns-operations-dnszones.md).
 

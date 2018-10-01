@@ -1,20 +1,23 @@
 ---
-title: Update Knowledge Base, Java Quickstart - Azure Cognitive Services | Microsoft Docs
+title: "Quickstart: Java Update knowledge base - QnA Maker"
+titleSuffix: Azure Cognitive Services
 description: How to update a knowledge base in Java for QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
+ms.date: 09/12/2018
+ms.author: diberry
 ---
 
 # Update a knowledge base in Java
 
 The following code updates an existing knowledge base, using the [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) method.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-java.md).
 
@@ -174,9 +177,9 @@ public class UpdateKB {
     }
 
     /**
-     * Formats and indents JSON for display.
-     * @param url The string request
-     * @return Response A Response object with the header and body of the response
+     * Sends a GET HTTP request.
+     * @param url The string URL request
+     * @return A Response object with the header and body of the response
      */
     public static Response Get (URL url) throws Exception {
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -284,8 +287,8 @@ public class UpdateKB {
     }
 
     /**
-     * Sends an HTTP GET request.
-     * @return The Request object that represents the HTTP response.
+     * Compiles the details of the request.
+     * @return The Request object with request details.
      */
     public static Request GetRequest () {
         Request req = new Request ();

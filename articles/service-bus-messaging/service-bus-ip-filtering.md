@@ -9,7 +9,7 @@ manager: timlt
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/26/2018
 ms.author: clemensv
 
 ---

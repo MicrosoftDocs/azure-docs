@@ -1,6 +1,6 @@
 ---
 title: Lookup activity in Azure Data Factory | Microsoft Docs
-description: Learn how to use lookup activity to look up a value from an external source. This output can further be referenced by succeeding activities. 
+description: Learn how to use Lookup activity to look up a value from an external source. This output can be further referenced by succeeding activities. 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -18,14 +18,14 @@ ms.author: shlo
 ---
 # Lookup activity in Azure Data Factory
 
-Lookup activity can be used to retrieve a dataset from any of the ADF-supported data source.  It can be used in the following scenario:
-- Dynamically determine which objects (files, tables, etc) to operate on in a subsequent activity, instead of hard-coding the object name
+Lookup activity can retrieve a dataset from any of the Azure Data Factory-supported data sources. Use it in the following scenario:
+- Dynamically determine which objects to operate on in a subsequent activity, instead of hard coding the object name. Some object examples are files and tables.
 
-Lookup activity can read and return the content of a configuration file, a configuration table, or the result of executing a query or stored procedure.  The output from Lookup activity can be used in a subsequent copy or transformation activity if it is a singleton value, or used in a ForEach activity if it is an array of attributes.
+Lookup activity reads and returns the content of a configuration file or table. It also returns the result of executing a query or stored procedure. The output from Lookup activity can be used in a subsequent copy or transformation activity if it's a singleton value. The output can be used in a ForEach activity if it's an array of attributes.
 
 ## Supported capabilities
 
-The following data sources are supported for lookup. The maximum number of rows can be returned by Lookup activity is **5000**, and up to **2MB** in size. And currently the max duration for Lookup activity before timeout is one hour.
+The following data sources are supported for Lookup activity. The largest number of rows that can be returned by Lookup activity is 5,000, up to 2 MB in size. Currently, the longest duration for Lookup activity before timeout is one hour.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -52,17 +52,17 @@ The following data sources are supported for lookup. The maximum number of rows 
 ## Type properties
 Name | Description | Type | Required?
 ---- | ----------- | ---- | --------
-dataset | Provides the dataset reference for the lookup. Get details from the "Dataset properties" section in each corresponding connector article. | Key/value pair | Yes
-source | Contains dataset-specific source properties, the same as the copy activity source. Get details from the "Copy activity properties" section in each corresponding connector article. | Key/value pair | Yes
-firstRowOnly | Indicates whether to return only the first row or all rows. | Boolean | No. Default is `true`.
+dataset | Provides the dataset reference for the lookup. Get details from the **Dataset properties** section in each corresponding connector article. | Key/value pair | Yes
+source | Contains dataset-specific source properties, the same as the Copy Activity source. Get details from the **Copy Activity properties** section in each corresponding connector article. | Key/value pair | Yes
+firstRowOnly | Indicates whether to return only the first row or all rows. | Boolean | No. The default is `true`.
 
-**Note the following points:**
+> [!NOTE]
 
-1. Source column with ByteArray type is not supported.
-2. Structure is not supported in dataset definition. For text format files specifically, you can use the header row to provide the column name.
-3. If your lookup source is a JSON file(s), the `jsonPathDefinition` setting for re-shaping the JSON object is not supported, the entire objects will be retrieved.
+> * Source columns with **ByteArray** type aren't supported.
+> * **Structure** isn't supported in dataset definitions. For text-format files, use the header row to provide the column name.
+> * If your lookup source is a JSON file, the `jsonPathDefinition` setting for reshaping the JSON object isn't supported. The entire objects will be retrieved.
 
-## Use the lookup activity result in a subsequent activity
+## Use the Lookup activity result in a subsequent activity
 
 The lookup result is returned in the `output` section of the activity run result.
 
@@ -78,7 +78,7 @@ The lookup result is returned in the `output` section of the activity run result
     }
     ```
 
-* **When `firstRowOnly` is set to `false`**, the output format is as shown in the following code. A `count` field indicates how many records are returned, and detailed values are displayed under a fixed `value` array. In such a case, the lookup activity is usually followed by a [Foreach activity](control-flow-for-each-activity.md). You can pass the `value` array to the ForEach activity `items` field by using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value` array, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Here is an example: `@{activity('lookupActivity').output.value[0].tablename}`.
+* **When `firstRowOnly` is set to `false`**, the output format is as shown in the following code. A `count` field indicates how many records are returned. Detailed values are displayed under a fixed `value` array. In such a case, the Lookup activity is followed by a [Foreach activity](control-flow-for-each-activity.md). You pass the `value` array to the ForEach activity `items` field by using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value` array, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. An example is `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -96,17 +96,16 @@ The lookup result is returned in the `output` section of the activity run result
     } 
     ```
 
-## Example
-In this example, the copy activity copies data from a SQL table in your Azure SQL Database instance to Azure Blob storage. The name of the SQL table is stored in a JSON file in Blob storage. The lookup activity looks up the table name at runtime. This approach allows JSON to be modified dynamically without your having to redeploy pipelines or datasets. 
+### Copy Activity example
+In this example, Copy Activity copies data from a SQL table in your Azure SQL Database instance to Azure Blob storage. The name of the SQL table is stored in a JSON file in Blob storage. The Lookup activity looks up the table name at runtime. JSON is modified dynamically by using this approach. You don't need to redeploy pipelines or datasets. 
 
 This example demonstrates lookup for the first row only. For lookup for all rows and to chain the results with ForEach activity, see the samples in [Copy multiple tables in bulk by using Azure Data Factory](tutorial-bulk-copy.md).
 
 ### Pipeline
-This pipeline contains two activities: *lookup* and *copy*. 
+This pipeline contains two activities: Lookup and Copy. 
 
-- The lookup activity is configured to use LookupDataset, which refers to a location in Azure Blob storage. The lookup activity reads the name of the SQL table from a JSON file in this location. 
-- The copy activity uses the output of the lookup activity (name of the SQL table). The tableName property in the source dataset (SourceDataset) is configured to use the output from the lookup activity. The copy activity copies data from the SQL table to a location in Azure Blob storage that is specified by the SinkDataset property. 
-
+- The Lookup activity is configured to use **LookupDataset**, which refers to a location in Azure Blob storage. The Lookup activity reads the name of the SQL table from a JSON file in this location. 
+- Copy Activity uses the output of the Lookup activity, which is the name of the SQL table. The **tableName** property in the **SourceDataset** is configured to use the output from the Lookup activity. Copy Activity copies data from the SQL table to a location in Azure Blob storage. The location is specified by the **SinkDataset** property. 
 
 ```json
 {
@@ -163,7 +162,7 @@ This pipeline contains two activities: *lookup* and *copy*.
 ```
 
 ### Lookup dataset
-The lookup dataset refers to the *sourcetable.json* file in the Azure Storage lookup folder that's specified by the AzureStorageLinkedService type. 
+The **lookup** dataset is the **sourcetable.json** file in the Azure Storage lookup folder specified by the **AzureStorageLinkedService** type. 
 
 ```json
 {
@@ -186,8 +185,8 @@ The lookup dataset refers to the *sourcetable.json* file in the Azure Storage lo
 }
 ```
 
-### Source dataset for the copy activity
-The source dataset uses the output of the lookup activity, which is the name of the SQL table. The copy activity copies data from this SQL table to a location in Azure Blob storage that's specified by the sink dataset. 
+### **Source** dataset for Copy Activity
+The **source** dataset uses the output of the Lookup activity, which is the name of the SQL table. Copy Activity copies data from this SQL table to a location in Azure Blob storage. The location is specified by the **sink** dataset. 
 
 ```json
 {
@@ -205,8 +204,8 @@ The source dataset uses the output of the lookup activity, which is the name of 
 }
 ```
 
-### Sink dataset for the copy activity
-The copy activity copies data from the SQL table to the *filebylookup.csv* file in the *csv* folder in the Azure storage that's specified by the AzureStorageLinkedService property. 
+### **Sink** dataset for Copy Activity
+Copy Activity copies data from the SQL table to the **filebylookup.csv** file in the **csv** folder in Azure Storage. The file is specified by the **AzureStorageLinkedService** property. 
 
 ```json
 {
@@ -296,9 +295,9 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
 ```
 
 ## Next steps
-See other control flow activities that are supported by Data Factory: 
+See other control flow activities supported by Data Factory: 
 
 - [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)
-- [For Each activity](control-flow-for-each-activity.md)
-- [Get Metadata activity](control-flow-get-metadata-activity.md)
+- [ForEach activity](control-flow-for-each-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
 - [Web activity](control-flow-web-activity.md)

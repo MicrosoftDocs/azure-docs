@@ -2,14 +2,15 @@
 title: Cortana Intelligence Solution Template architecture for demand forecasting of energy | Microsoft Docs
 description: Architecture of the Microsoft Cortana Intelligence Solution Template that helps forecast demand for an energy utility company.
 keywords: solution accelerator;cortana analytics;energy forecasting
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: jhubbard
-editor: cgronlun
+manager: cgronlun
+
 
 ms.assetid: 745db9da-9ca1-421a-aa76-13c992f6513d
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

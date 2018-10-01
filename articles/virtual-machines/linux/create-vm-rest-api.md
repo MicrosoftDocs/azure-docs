@@ -21,7 +21,23 @@ ms.author: cynthn
 
 # Create a Linux virtual machine that uses SSH authentication with the REST API
 
-A virtual machine (VM) in Azure is defined by various parameters such as location, hardware size, operating system image, and logon credentials. This article shows you how to use the REST API to create a Linux virtual machine that uses SSH authentication.
+A Linux virtual machine (VM) in Azure consists of various resources such as disks and network interfaces and defines parameters such as location, size and operating system image and authentication settings.
+
+You can create a Linux VM via the Azure portal, Azure CLI 2.0, many Azure SDKs, Azure Resource Manager templates and many third-party tools such as Ansible or Terraform. All these tools ultimately use the REST API to create the Linux VM.
+
+This article shows you how to use the REST API to create a Linux VM running Ubuntu 18.04-LTS with managed disks and SSH authentication.
+
+## Before you start
+
+Before you create and submit the request, you will need:
+
+* The `{subscription-id}` for your subscription
+  * If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+* A `{resourceGroupName}` you've created ahead of time
+* A [virtual network interface](../../virtual-network/virtual-network-network-interface.md) in the same resource group
+* An SSH key pair (you can [generate a new one](mac-create-ssh-keys.md) if you don't have one)
+
+## Request basics
 
 To create or update a virtual machine, use the following *PUT* operation:
 
@@ -29,9 +45,7 @@ To create or update a virtual machine, use the following *PUT* operation:
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-## Create a request
-
-To create the *PUT* request, the `{subscription-id}` parameter is required. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). You define a `{resourceGroupName}` and `{vmName}` for your resources, along with the `api-version` parameter. This article uses `api-version=2017-12-01`.
+In addition to the `{subscription-id}` and `{resourceGroupName}` parameters, you'll need to specify the `{vmName}` (`api-version` is optional, but this article was tested with `api-version=2017-12-01`)
 
 The following headers are required:
 
@@ -40,7 +54,7 @@ The following headers are required:
 | *Content-Type:*  | Required. Set to `application/json`. |
 | *Authorization:* | Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
-For more information about how to create the request, see [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse).
+For general information about working with REST API requests, see [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
 ## Create the request body
 
@@ -55,15 +69,12 @@ The following common definitions are used to build a request body:
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Specifies the operating system settings for the virtual machine. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Specifies the network interfaces of the virtual machine. |
 
-For a complete list of the available definitions in the request body, see [Virtual machines create or update request body defintions](/rest/api/compute/virtualmachines/createorupdate#definitions).
-
-### Example request body
-
-The following example request body defines an Ubuntu 18.04-LTS image that uses Premium managed disks. SSH public key authentication is used, and the VM uses an existing virtual network interface card (NIC) that you have [previously created](../../virtual-network/virtual-network-network-interface.md). Provide your SSH public key in the *osProfile.linuxConfiguration.ssh.publicKeys.keyData* field. If needed, you can [generate an SSH key pair](mac-create-ssh-keys.md).
+An example request body is below. Make sure you specify the VM name in the `{computerName}` and `{name}` parameters, the name of the network interface you've created under `networkInterfaces`, your username in `adminUsername` and `path`, and the *public* portion of your SSH keypair (located in, for example, `~/.ssh/id_rsa.pub`) in `keyData`. Other parameters you might want to modify include `location` and `vmSize`.  
 
 ```json
 {
   "location": "eastus",
+  "name": "{vmName}",
   "properties": {
     "hardwareProfile": {
       "vmSize": "Standard_DS1_v2"
@@ -86,7 +97,7 @@ The following example request body defines an Ubuntu 18.04-LTS image that uses P
     },
     "osProfile": {
       "adminUsername": "{your-username}",
-      "computerName": "myVM",
+      "computerName": "{vmName}",
       "linuxConfiguration": {
         "ssh": {
           "publicKeys": [
@@ -102,19 +113,24 @@ The following example request body defines an Ubuntu 18.04-LTS image that uses P
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+          "id": "/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
           "properties": {
             "primary": true
           }
         }
       ]
     }
-  },
-  "name": "myVM"
+  }
 }
 ```
 
-## Responses
+For a complete list of the available definitions in the request body, see [Virtual machines create or update request body defintions](/rest/api/compute/virtualmachines/createorupdate#definitions).
+
+## Sending the request
+
+You may use the client of your preference for sending this HTTP request. You may also use an [in-browser tool](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) by clicking the **Try it** button.
+
+### Responses
 
 There are two successful responses for the operation to create or update a virtual machine:
 
@@ -122,10 +138,6 @@ There are two successful responses for the operation to create or update a virtu
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Created | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Created     |
-
-For more information about REST API responses, see [Process the response message](/rest/api/azure/#process-the-response-message).
-
-### Example response
 
 A condensed *201 Created* response from the previous example request body that creates a VM shows a *vmId* has been assigned and the *provisioningState* is *Creating*:
 
@@ -136,11 +148,13 @@ A condensed *201 Created* response from the previous example request body that c
 }
 ```
 
+For more information about REST API responses, see [Process the response message](/rest/api/azure/#process-the-response-message).
+
 ## Next steps
 
-For more information on the Azure REST APIs or other management tools such as Azure CLI 2.0 or Azure PowerShell, see the following:
+For more information on the Azure REST APIs or other management tools such as Azure CLI or Azure PowerShell, see the following:
 
 - [Azure Compute provider REST API](/rest/api/compute/)
 - [Get started with Azure REST API](/rest/api/azure/)
-- [Azure CLI 2.0](/cli/azure/)
+- [Azure CLI](/cli/azure/)
 - [Azure PowerShell module](/powershell/azure/overview)

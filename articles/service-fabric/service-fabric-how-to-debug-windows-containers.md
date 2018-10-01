@@ -32,20 +32,20 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
 
 1. Make sure the Docker for Window service is running before proceeding with the next step.
 
-1. In order to support DNS resolution between containers, you will have to set up your local development cluster, using the machine name.
+1. In order to support DNS resolution between containers, you will have to set up your local development cluster, using the machine name. These steps are also necessary if you want to address services through the reverse proxy.
     1. Open PowerShell as administrator
-    1. Navigate to the SDK Cluster setup folder, typically `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`
-    1. Run the script `DevClusterSetup.ps1` with the parameter `-UseMachineName`
+    2. Navigate to the SDK Cluster setup folder, typically `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
+    3. Run the script `DevClusterSetup.ps1` with the parameter `-UseMachineName`
 
-    ``` PowerShell
-      C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
-    ```
+       ``` PowerShell
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+       ```
 
     > [!NOTE]
     > You can use the `-CreateOneNodeCluster` to setup a one-node cluster. The default will create a local five-node cluster.
     >
 
-    To learn more about the DNS Service in Service Fabric, see [DNS Service in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice).
+    To learn more about the DNS Service in Service Fabric, see [DNS Service in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). To learn more about using Service Fabric reverse proxy from services running in a container, see [Reverse proxy special handling for services running in containers](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### Known limitations when debugging containers in Service Fabric
 

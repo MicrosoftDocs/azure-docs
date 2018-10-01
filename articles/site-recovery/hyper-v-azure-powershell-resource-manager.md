@@ -204,4 +204,4 @@ Before you start, note that the storage account specified should be in the same 
         $TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
 ## Next steps
-[Learn more](https://msdn.microsoft.com/library/azure/mt637930.aspx) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
+[Learn more](https://docs.microsoft.com/powershell/module/azurerm.siterecovery) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.

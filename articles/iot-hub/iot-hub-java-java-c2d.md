@@ -36,7 +36,7 @@ At the end of this tutorial, you run two Java console apps:
 
 To complete this tutorial, you need the following:
 
-* A complete working version of the [Get started with IoT Hub](iot-hub-java-java-getstarted.md) or [Process IoT Hub device-to-cloud messages](tutorial-routing.md) tutorial.
+* A complete working version of the [Get started with IoT Hub](quickstart-send-telemetry-java.md) or [Process IoT Hub device-to-cloud messages](tutorial-routing.md) tutorial.
 * The latest [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
@@ -156,7 +156,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     ```
 
     > [!NOTE]
-    > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
+    > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 
 9. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
@@ -198,13 +198,12 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [img-send-command]:  media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
-[Get started with IoT Hub]: iot-hub-java-java-getstarted.md
+[Get started with IoT Hub]: quickstart-send-telemetry-java.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT Hub developer guide]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
 [Azure IoT Remote Monitoring solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

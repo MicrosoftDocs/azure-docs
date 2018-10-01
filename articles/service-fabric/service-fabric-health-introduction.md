@@ -183,8 +183,8 @@ After the health store has evaluated all the children, it aggregates their healt
 
 * If all children have OK states, the child aggregated health state is OK.
 * If children have both OK and warning states, the child aggregated health state is warning.
-* If there are children with error states that do not respect the maximum allowed percentage of unhealthy children, the aggregated health state is an error.
-* If the children with error states respect the maximum allowed percentage of unhealthy children, the aggregated health state is warning.
+* If there are children with error states that do not respect the maximum allowed percentage of unhealthy children, the aggregated parent health state is an error.
+* If the children with error states respect the maximum allowed percentage of unhealthy children, the aggregated parent health state is warning.
 
 ## Health reporting
 System components, System Fabric applications, and internal/external watchdogs can report against Service Fabric entities. The reporters make *local* determinations of the health of the monitored entities, based on the conditions they are monitoring. They don't need to look at any global state or aggregate data. The desired behavior is to have simple reporters, and not complex organisms that need to look at many things to infer what information to send.

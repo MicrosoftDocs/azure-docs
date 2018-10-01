@@ -1,7 +1,7 @@
 ---
 title: Zoom levels and tile grid in Azure Maps | Microsoft Docs
 description: Learn about zoom levels and tile grid in Azure Maps
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
@@ -13,7 +13,7 @@ manager:
 # Zoom levels and tile grid
 Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857).
 
-The world is divided into square tiles. Render (Raster) has 19 zoom levels, numbered 0 through 18. Render (Vector) has 21 zoom levels, numbered 0 through 20. At zoom level 0, the entire world fits on a single tile:
+The world is divided into square tiles. Render (Raster) has 21 zoom levels, numbered 0 through 20. Render (Vector) has 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
 
 ![World tile](./media/zoom-levels-and-tile-grid/world0.png)
 
@@ -24,7 +24,7 @@ Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 ![World tile bottom left](./media/zoom-levels-and-tile-grid/world1b.png)     ![World tile bottom right](./media/zoom-levels-and-tile-grid/world1d.png) 
 
 
-Each subsequent zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 20 is a grid 2<sup>20</sup> x 2<sup>20</sup>, or 1,048,576 x 1,048,576 tiles (109,951,162,778 tiles in total).
+Each subsequent zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 22 is a grid 2<sup>22</sup> x 2<sup>22</sup>, or 4,194,304 x 4,194,304 tiles (17,592,186,044,416 tiles in total).
 
 The following table provides the full list values for zoom levels:
 
@@ -51,6 +51,8 @@ The following table provides the full list values for zoom levels:
 |18|0.6|152.8|
 |19|0.3|76.4|
 |20|0.15|38.2|
+|21|0.075|19.1|
+|22|0.0375|9.55|
 
 Tiles are called by zoom level and the x and y coordinates corresponding to the tile's position on the grid for that zoom level.
 

@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 
@@ -22,7 +22,7 @@ ms.reviewer: thoroet
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-**AzureStack-Tools** is a GitHub repository that hosts PowerShell modules for managing and deploying resources to Azure Stack. If you are planning to establish VPN connectivity, you can download these PowerShell modules to the Azure Stack Development Kit, or to a Windows-based external client. To obtain these tools, clone the GitHub repository or download the **AzureStack-Tools** folder by running the following script:
+**AzureStack-Tools** is a [GitHub repository](https://github.com/Azure/AzureStack-Tools) that hosts PowerShell modules for managing and deploying resources to Azure Stack. If you are planning to establish VPN connectivity, you can download these PowerShell modules to the Azure Stack Development Kit, or to a Windows-based external client. To obtain these tools, clone the GitHub repository or download the **AzureStack-Tools** folder by running the following script:
 
 ```PowerShell
 # Change directory to the root directory. 

@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
 ---
@@ -32,10 +32,10 @@ Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-We have three versions available for upgrade: 1.9.1, 1.9.2 and 1.9.6. We can use the `az aks upgrade` command to upgrade to the latest available version.  During the upgrade process, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.  Before initiating a cluster upgrade, ensure that you have enough additional compute capacity to handle your workload as cluster nodes are added and removed.
+We have three versions available for upgrade: 1.9.1, 1.9.2 and 1.9.6. We can use the `az aks upgrade` command to upgrade to the latest available version.  During the upgrade process, AKS will add a new node to the cluster, then carefully [cordon and drain][kubernetes-drain] one node at a time to minimize disruption to running applications.
 
 > [!NOTE]
-> When upgrading an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between 1.7.x > 1.8.x or 1.8.x > 1.9.x are allowed, however 1.7 > 1.9 is not.
+> When upgrading an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between 1.8.x -> 1.9.x or 1.9.x -> 1.10.x are allowed, however 1.8 -> 1.10 is not. To upgrade, from 1.8 -> 1.10, you need to upgrade first from 1.8 -> 1.9 and then another do another upgrade from 1.9 -> 1.10
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6

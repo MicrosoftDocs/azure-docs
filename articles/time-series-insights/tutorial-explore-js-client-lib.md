@@ -2,12 +2,12 @@
 title: Explore the Azure Time Series Insights JavaScript client library
 description: Learn about the Azure Time Series Insights JavaScript client library and the related programming model.
 author: ashannon7
-manager: timlt
+manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
-ms.author: bryanla
+ms.author: anshan
 # Customer intent: As a developer, I want to learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
 ---
 
@@ -23,6 +23,12 @@ In this tutorial, you learn about:
 > * The TSI sample application.
 > * The TSI JavaScript client library.
 > * How the sample application uses the library to visualize TSI data.
+
+## Video: 
+
+### In this video, we introduce the open source Time Series Insights JavaScript SDK.</br>
+
+> [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
 ## Prerequisites
 

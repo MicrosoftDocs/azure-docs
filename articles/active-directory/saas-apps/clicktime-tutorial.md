@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with ClickTime | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ClickTime.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding ClickTime from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding ClickTime from the gallery
 To configure the integration of ClickTime into Azure AD, you need to add ClickTime from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of ClickTime into Azure AD, you need to add ClickTi
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **ClickTime**, select **ClickTime** from result panel then click **Add** button to add the application.
+1. In the search box, type **ClickTime**, select **ClickTime** from result panel then click **Add** button to add the application.
 
 	![ClickTime in the results list](./media/clicktime-tutorial/tutorial_clicktime_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In ClickTime, assign the value of the **user name** in Azure AD as the value of 
 To configure and test Azure AD single sign-on with ClickTime, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a ClickTime test user](#create-a-clicktime-test-user)** - to have a counterpart of Britta Simon in ClickTime that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a ClickTime test user](#create-a-clicktime-test-user)** - to have a counterpart of Britta Simon in ClickTime that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/clicktime-tutorial/tutorial_clicktime_samlbase.png)
 
-3. On the **ClickTime Domain and URLs** section, perform the following steps:
+1. On the **ClickTime Domain and URLs** section, perform the following steps:
 
 	![ClickTime Domain and URLs single sign-on information](./media/clicktime-tutorial/tutorial_clicktime_url.png)
 
@@ -116,23 +116,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://app.clicktime.com/Login/` |
 	| `https://app.clicktime.com/App/Login/Consume.aspx` |
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/clicktime-tutorial/tutorial_clicktime_certificate.png) 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/clicktime-tutorial/tutorial_general_400.png)
 
-6. On the **ClickTime Configuration** section, click **Configure ClickTime** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **ClickTime Configuration** section, click **Configure ClickTime** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![ClickTime configuration](./media/clicktime-tutorial/tutorial_clicktime_configure.png) 
 
-7. In a different web browser window, log into your ClickTime company site as an administrator.
+1. In a different web browser window, log into your ClickTime company site as an administrator.
 
-8. In the toolbar on the top, click **Preferences**, and then click **Security Settings**.
+1. In the toolbar on the top, click **Preferences**, and then click **Security Settings**.
 
-9. In the **Single Sign-On Preferences** configuration section, perform the following steps:
+1. In the **Single Sign-On Preferences** configuration section, perform the following steps:
    
     ![Security Settings](./media/clicktime-tutorial/tic777280.png "Security Settings")
    
@@ -158,15 +158,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![The Azure Active Directory button](./media/clicktime-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 	
 	![The "Users and groups" and "All users" links](./media/clicktime-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
  
 	![The Add button](./media/clicktime-tutorial/create_aaduser_03.png) 
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
  
 	![The User dialog box](./media/clicktime-tutorial/create_aaduser_04.png) 
 
@@ -188,13 +188,13 @@ In the case of ClickTime, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 1. Log in to your **ClickTime** tenant.
-2. In the toolbar on the top, click **Company**, and then click **People**.
+1. In the toolbar on the top, click **Company**, and then click **People**.
    
     ![People](./media/clicktime-tutorial/tic777282.png "People")
-3. Click **Add Person**.
+1. Click **Add Person**.
    
     ![Add Person](./media/clicktime-tutorial/tic777283.png "Add Person")
-4. In the New Person section, perform the following steps:
+1. In the New Person section, perform the following steps:
    
     ![People](./media/clicktime-tutorial/tic777284.png "People")
    
@@ -219,30 +219,30 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **ClickTime**.
+1. In the applications list, select **ClickTime**.
 
 	![ClickTimne link in the Applications list](./media/clicktime-tutorial/tutorial_clicktime_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the ClickTime tile in the Access Panel, you should get automatically signed-on to your ClickTime application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

@@ -10,25 +10,25 @@ metadata:
   ms.service: data-factory
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 09/08/2017
+  ms.topic: overview
+  ms.date: 08/06/2018
   ms.author: douglasl
 abstract:
-  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation.</a></p> 
+  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, and how to move and transform data for analysis. <p>If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation.</a></p> 
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250  
-    title: Visually build pipelines for Azure Data Factory (19:31)
-    href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
+    title: New capabilities for modern data integration in the cloud (1:19:22)
+    href: https://channel9.msdn.com/Events/Build/2018/BRK2204/player
     width: 250
 sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to create a data factory using:'
+    text: 'Learn how to create a Data Factory pipeline to move and process data with one of the following quickstarts:'
   - type: list
     style: icon48
     items: 
@@ -65,16 +65,16 @@ sections:
   - type: paragraph
     text: 'Learn how to create and monitor a data factory:'
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: Deploy SSIS packages to Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
     - html: Copy data in cloud - <a href="/azure/data-factory/tutorial-copy-data-tool">Copy Data tool</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">.NET</a>
     - html: Copy on-premises data to cloud - <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">Copy Data tool | <a href="/azure/data-factory/tutorial-hybrid-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
     - html: Copy data in bulk - <a href="/azure/data-factory/tutorial-bulk-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
     - html: Copy data incrementally - <a href="/azure/data-factory/tutorial-incremental-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
     - html: Transform data in cloud using Spark - <a href="/azure/data-factory/tutorial-transform-data-spark-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a> 
     - html: Transform data in virtual network - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
-    - html: Control flow - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a> 
+    - html: Add branching and chaining - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a> 
+    - html: Run SSIS packages in Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
 - title: Samples
   items:
   - type: paragraph
