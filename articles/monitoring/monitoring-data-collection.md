@@ -35,6 +35,14 @@ Specific attributes of metrics in Azure include the following:
 * Uniquely identified by a metric name and a namespace that acts as a category.
 * Stored for 93 days. You can copy metrics to Log Analytics for long term trending.
 
+Each metric value has the following properties:
+* The time the value was collected.
+* The type of measurement the value represents.
+* The resource the value is associated with.
+* The value itself.
+* Some metrics may have multiple dimensions as described in the next section. Custom metrics can have up to 10 dimensions.
+
+
 
 ### Multi-dimensional metrics
 Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. For example, a metric _Available disk space_ can have a dimension called _Drive_ with values _C:_, _D:_, which would allow viewing either available disk space across all drives or for each drive individually. 
