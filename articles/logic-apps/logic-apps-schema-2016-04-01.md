@@ -33,23 +33,23 @@ or nest actions inside each other. For example, a condition can contain another 
 Learn more about [scope syntax](../logic-apps/logic-apps-loops-and-scopes.md), 
 or review this basic scope example:
 
-```
+``` json
 {
-    "actions": {
-        "My_Scope": {
-            "type": "scope",
-            "actions": {                
-                "Http": {
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "http://www.bing.com"
-                    },
-                    "runAfter": {},
-                    "type": "Http"
-                }
+   "actions": {
+      "Scope": {
+         "type": "Scope",
+         "actions": {                
+            "Http": {
+               "inputs": {
+                   "method": "GET",
+                   "uri": "http://www.bing.com"
+               },
+               "runAfter": {},
+               "type": "Http"
             }
-        }
-    }
+         }
+      }
+   }
 }
 ```
 
