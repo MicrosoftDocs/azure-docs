@@ -107,9 +107,9 @@ Replace the placeholders in this method with your LUIS subscription key, region,
 
 |Placeholder|Replace with|
 |-----------|------------|
-|YourLanguageUnderstandingSubscriptionKey|Your LUIS endpoint key. As previously noted, this must be a key obtained from your Azure dashboard, not a "starter key." You can find it on your app's Publish page in the [LUIS portal](https://www.luis.ai/home).|
-|YourLanguageUnderstandingServiceRegion|The short identifier for the region your LUIS subscription is in, such as `westus` for West US. See [Regions](regions.md).|
-|YourLanguageUnderstandingAppId|The LUIS app ID. You can find it on your app's Settings page of the [LUIS portal](https://www.luis.ai/home).|
+|`YourLanguageUnderstandingSubscriptionKey`|Your LUIS endpoint key. As previously noted, this must be a key obtained from your Azure dashboard, not a "starter key." You can find it on your app's Keys and Endpoints page (under Manage) in the [LUIS portal](https://www.luis.ai/home).|
+|`YourLanguageUnderstandingServiceRegion`|The short identifier for the region your LUIS subscription is in, such as `westus` for West US. See [Regions](regions.md).|
+|`YourLanguageUnderstandingAppId`|The LUIS app ID. You can find it on your app's Settings page of the [LUIS portal](https://www.luis.ai/home).|
 
 With these changes made, you can build (Control-Shift-B) and run (F5) the tutorial application. When prompted, try saying "Turn off the lights" into your PC's  microphone. The result is displayed in the console window.
 
@@ -164,7 +164,7 @@ The tutorial application doesn't parse the JSON result, only displaying it in th
 
 ## Specify recognition language
 
-By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our tutorial application before creating the recognizer to recognize intents in German.
+By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our tutorial application before creating the recognizer to recognize intents in German. See [Supported Languages](supported-languages.md#speech-to-text).
 
 ## Continuous recognition from a file
 

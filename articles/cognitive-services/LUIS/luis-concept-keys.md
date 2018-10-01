@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: LUIS uses two keys, authoring and endpoint. The authoring key is created for you automatically when you create your LUIS account. When you are ready to publish your LUIS app, you need to create the endpoint key, assign it to your LUIS app, and use it with the endpoint query.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

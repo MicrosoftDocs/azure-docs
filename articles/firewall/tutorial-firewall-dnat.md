@@ -6,21 +6,17 @@ author: vhorne
 
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 9/27/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound access to resources located in a subnet.
 ---
 # Tutorial: Filter inbound traffic with Azure Firewall DNAT using the Azure portal
 
-You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound traffic to your subnets. Azure Firewall does not have a concept of inbound rules and outbound rules. There are application rules and network rules, and they are applied to any traffic that comes into the firewall. Network rules are applied first, then application rules, and the rules are terminating.
+You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound traffic to your subnets. When you configure DNAT, the NAT rule collection action is set to **Destination Network Address Translation (DNAT)**. Each rule in the NAT rule collection can then be used to translate your firewall public IP and port to a private IP and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
->[!NOTE]
->The Firewall DNAT feature is currently available in Azure PowerShell and REST only.
-
-For example, if a network rule is matched, the packet will not be evaluated by application rules. If there is no network rule match, and if the packet protocol is HTTP/HTTPS, the packet is then evaluated by the application rules. If still no match is found, then the packet is evaluated agains the [infrastructure rule collection](infrastructure-fqdns.md). If there is still no match, then the packet is denied by default.
-
-When you configure DNAT, the NAT rule collection action is set to **Destination Network Address Translation (DNAT)**. The firewall public IP and port translates to a private IP address and port. Then rules are applied as usual, network rules first and then application rules. For example, you might configure a network rule to allow Remote Desktop traffic on TCP port 3389. Address translation happens first and then the network and application rules are applied using the translated addresses.
+> [!NOTE]
+> DNAT doesn’t work for port 80 and 22. We are working to fix this in the near future. Meanwhile, use any other port as the destination port in NAT rules. Port 80 or 22 can still be used as the translated port. For example, you can map public ip:81 to private ip:80.
 
 In this tutorial, you learn how to:
 
@@ -29,7 +25,6 @@ In this tutorial, you learn how to:
 > * Deploy a firewall
 > * Create a default route
 > * Configure a DNAT rule
-> * Configure a network rule
 > * Test the firewall
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -195,48 +190,18 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 
 ## Configure a DNAT rule
 
-```azurepowershell-interactive
- $rgName  = "RG-DNAT-Test"
- $firewallName = "FW-DNAT-test"
- $publicip = type the Firewall public ip
- $newAddress = type the private IP address for the Srv-Workload virtual machine 
- 
-# Get Firewall
-    $firewall = Get-AzureRmFirewall -ResourceGroupName $rgName -Name $firewallName
-  # Create NAT rule
-    $natRule = New-AzureRmFirewallNatRule -Name RL-01 -SourceAddress * -DestinationAddress $publicip -DestinationPort 3389 -Protocol TCP -TranslatedAddress $newAddress -TranslatedPort 3389
-  # Create NAT rule collection
-    $natRuleCollection = New-AzureRmFirewallNatRuleCollection -Name RC-DNAT-01 -Priority 200 -Rule $natRule
-  # Add NAT Rule collection to firewall:
-    $firewall.AddNatRuleCollection($natRuleCollection)
-  # Save:
-    $firewall | Set-AzureRmFirewall
-```
-## Configure a network rule
-
-1. Open the **RG-DNAT-Test**, and click the **FW-DNAT-test** firewall.
-1. On the **FW-DNAT-test** page, under **Settings**, click **Rules**.
-2. Click **Add network rule collection**.
-
-Configure the rule using the following table and then click **Add**:
-
-
-|Parameter  |Value  |
-|---------|---------|
-|Name     |**RC-Net-01**|
-|Priority     |**200**|
-|Action     |**Allow**|
-
-Under **Rules**:
-
-|Parameter  |Setting  |
-|---------|---------|
-|Name     |**RL-RDP**|
-|Protocol     |**TCP**|
-|Source Addresses     |*|
-|Destination Addresses     |**Srv-Workload** private IP address|
-|Destination ports|**3389**|
-
+1. Open the **RG-DNAT-Test**, and click the **FW-DNAT-test** firewall. 
+1. On the **FW-DNAT-test** page, under **Settings**, click **Rules**. 
+2. Click **Add DNAT rule collection**. 
+3. For **Name**, type **RC-DNAT-01**. 
+1. For **Priority**, type **200**. 
+6. Under **Rules**, for **Name**, type **RL-01**. 
+7. For **Source Addresses**, type *. 
+8. For **Destination Addresses** type the firewall's public IP address. 
+9. For **Destination ports**, type **3389**. 
+10. For **Translated Address** type the private IP address for the Srv-Workload virtual machine. 
+11. For **Translated port**, type **3389**. 
+12. Click **Add**. 
 
 ## Test the firewall
 
@@ -258,7 +223,6 @@ In this tutorial, you learned how to:
 > * Deploy a firewall
 > * Create a default route
 > * Configure a DNAT rule
-> * Configure a network rule
 > * Test the firewall
 
 Next, you can monitor the Azure Firewall logs.

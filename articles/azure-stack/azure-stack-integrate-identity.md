@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -168,9 +168,9 @@ For the following procedure, you must use a computer that has network connectivi
 1. Open an elevated Windows PowerShell session, and run the following command, using the parameters appropriate for your environment:
 
    ```PowerShell  
-   [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
+    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
+    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
 
-   $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
 2. Copy the metadata file to a computer that can communicate with the privileged endpoint.
@@ -235,24 +235,27 @@ If you decide to manually run the commands, follow these steps:
    => issue(claim = c);
    ```
 
-2. To enable Windows Forms-based authentication, open a Windows PowerShell session as an elevated user, and run the following command:
+2. Validate that Windows Forms-based authentication for extranet and intranet is enabled. First validate if its already enabled by running the following cmdlet:
 
    ```PowerShell  
-   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
+
+    > [!Note]  
+    > The Windows Integrated Authentication (WIA) supported user agent strings may outdated for you AD FS deployment may require to be updated to support latest clients. You can read more about updating the WIA supported user agent strings in the article [Configuring intranet forms-based authentication for devices that do not support WIA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br>The steps to enable Form-based authentication policy are documented in the article, [Configure Authentication Policies](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. To add the relying party trust, run the following Windows PowerShell command on your AD FS instance or a farm member. Make sure to update the AD FS endpoint, and point to the file created in Step 1.
 
    **For AD FS 2016**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
    **For AD FS 2012/2012 R2**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
    > [!IMPORTANT]
@@ -265,12 +268,6 @@ If you decide to manually run the commands, follow these steps:
 
    ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
-   ```
-
-5. The Azure Stack portals and tooling (Visual Studio) require refresh tokens. These must be configured by relying on party trust. Open an elevated Windows PowerShell session, and run the following command:
-
-   ```PowerShell  
-   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
 ## SPN creation

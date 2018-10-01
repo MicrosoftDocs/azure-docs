@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Windows and Linux performance data sources in Log Analytics
