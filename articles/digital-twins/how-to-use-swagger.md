@@ -33,7 +33,7 @@ Swagger provides an interactive summary of your API including:
 * Example response information for validating and confirming HTTP responses.
 * Error code information.
 
-### Reference material
+## Reference material
 
 Automatically generated reference material is supplied explaining critical concepts and Object Models.
 
@@ -51,7 +51,7 @@ You can click into each listed Object Model for a more detailed summary of key a
 
 The generated Swagger Object Models provides a convenient location to see all available Azure Digital Twins [Ontology objects](./concepts-objectmodel-spatialgraph.md). It's therefore a great resource for developers to use when building solutions on Azure Digital Twins.
 
-### Endpoint summary
+## Endpoint summary
 
 Swagger also provides a thorough overview of all endpoints that comprise the API.
 
@@ -65,7 +65,7 @@ Each listed endpoint also includes required request information such as:
 
 Each resource can be clicked to gain a more detailed overview.
 
-### Using Swagger to test endpoints
+## Using Swagger to test endpoints
 
 One of the powerful functionalities Swagger provides is the ability to **Try it out** or test an API endpoint directly through the documentation UI.
 
@@ -79,7 +79,7 @@ Expanding that button brings up input fields for each required and optional para
 
 After executing the test, you can validate the response data.
 
-### Swagger response data
+## Swagger response data
 
 Each listed endpoint also includes valid response body data to validate your development and tests. These examples include the desired status codes and JSON for successful HTTP requests.
 
@@ -87,7 +87,7 @@ Each listed endpoint also includes valid response body data to validate your dev
 
 The examples also include error codes to help debug or improve failing tests.
 
-### Swagger OAuth 2.0 authorization
+## Swagger OAuth 2.0 authorization
 
 To interactively test requests against API resources protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
 
