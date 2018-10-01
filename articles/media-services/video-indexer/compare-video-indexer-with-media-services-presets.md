@@ -17,9 +17,9 @@ ms.author: juliako
 
 ---
 
-# Compare Media Services v3 presets and Video Indexer 
+# Compare Azure Media Services v3 presets and Video Indexer 
 
-This topic compares the capabilities of **Video Indexer** and **Media Services v3 presets**.
+This article compares the capabilities of **Video Indexer** and **Media Services v3 presets**.
 
 |Feature|Video Indexer|AMS v3 presets|
 |---|---|---|
