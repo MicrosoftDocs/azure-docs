@@ -16,15 +16,6 @@ Each provisioned Azure Digital Twins instance includes its own automatically gen
 
 [Swagger](https://swagger.io/) (or [OpenAPI](https://www.openapis.org/)) unites complex API information into an interactive and language-agnostic reference resource. Specifically, Swagger provides critical reference material about which JSON payloads, HTTP methods, and specific endpoints to use to perform operations against an API.
 
->[!NOTE]
-> No configuration is required to use your digital twin Swagger reference material.
-
-Your generated Management API Swagger documentation can be accessed publicly at:
-
-```plaintext
-https://{{your-instance-name}}.{{your-instance-location}}.azuresmartspaces.net/management/swagger
-```
-
 ## Swagger summary
 
 Swagger provides an interactive summary of your API including:
@@ -34,6 +25,15 @@ Swagger provides an interactive summary of your API including:
 * Error code information.
 
 Swagger therefore provides a convenient tool to assist with development and testing calls to the Management API.
+
+>[!NOTE]
+> No configuration is required to use your digital twin Swagger reference material.
+
+Your generated Management API Swagger documentation can be accessed publicly at:
+
+```plaintext
+https://{{your-instance-name}}.{{your-instance-location}}.azuresmartspaces.net/management/swagger
+```
 
 ## Reference material
 
@@ -51,7 +51,7 @@ You can click into each listed Object Model for a more detailed summary of key a
 
 ![Swagger model][3]
 
-The generated Swagger Object Models provides a convenient location to see all available Azure Digital Twins [Ontology objects](./concepts-objectmodel-spatialgraph.md). It's therefore a great resource for developers to use when building solutions on Azure Digital Twins.
+The generated Swagger Object Models is convenient to see all available Azure Digital Twins [Ontology objects](./concepts-objectmodel-spatialgraph.md). It's therefore a great resource for developers to use when building solutions on Azure Digital Twins.
 
 ## Endpoint summary
 
