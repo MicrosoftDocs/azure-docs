@@ -92,4 +92,4 @@ Perform the following steps to delete a bandwidth schedule associated with your 
 
 ## Next steps
 
-- Learn how to [Manage bandwidth](data-box-gateway-manage-bandwidth.md).
+- Learn how to [Manage bandwidth](data-box-gateway-manage-bandwidth-schedules.md).

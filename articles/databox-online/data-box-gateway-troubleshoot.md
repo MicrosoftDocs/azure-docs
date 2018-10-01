@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Gateway manage users | Microsoft Docs 
-description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Data Box Gateway.
+title: Azure Data Box Gateway troubleshoot | Micruse the Azure portal to tosoft Docs 
+description: Describes how to troubleshoot Azure Data Box Gateway issues.
 services: databox-edge-gateway
 documentationcenter: NA
 author: alkohli
@@ -17,11 +17,9 @@ ms.workload: TBD
 ms.date: 10/01/2018
 ms.author: alkohli
 ---
-# Use the Azure portal to manage bandwidth schedules on your Azure Data Box Gateway 
+# Troubleshoot your Azure Data Box Gateway issues 
 
-This article describes how to manage users on your Azure Data Box Gateway. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules for upload and download operations from your device to the cloud. 
-
-You can add, modify, or delete the bandwidth schedules for your Azure Data Box Gateway via the Azure portal.
+This article describes how to troubleshoot any issues on your Azure Data Box Gateway. 
 
 > [!IMPORTANT]
 > - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
@@ -29,64 +27,56 @@ You can add, modify, or delete the bandwidth schedules for your Azure Data Box G
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Add a schedule
-> * Modify schedule
-> * Delete a schedule 
-
-## About bandwidth schedules
+> * Run diagnostics
+> * Collect Support package
+> * Use logs to troubleshoot
 
 
-## Add a schedule
+## Run diagnostics
 
-Perform the following steps in the Azure portal to add a user.
+To diagnose and troubleshoot any errors that you face during device configuration and operation, you can run the diagnostics tests. Perform the following steps in the local web UI of your device to run diagnostic tests.
 
-1. In the Azure portal for your Data Box Gateway resource, go to **Bandwidth**.
-2. In the right pane, click **+ Add schedule**.
-
+1. In the local web UI, go to Troubleshooting > Diagnostic tests. Select the test you want to run and click Run test. This runs the tests to diagnose any possible issues with your network, device, web proxy, time, or cloud settings. You are notified that the device is running tests.
 
     ![Click add user](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-1.png)
+ 
+2. After the tests have completed, the results are displayed. The following example shows the results of diagnostic tests run on a virtual device. 
+If a test fails, then a URL for recommended action is presented. You can click the URL to view the recommended action. 
+ 
+    ![Click add user](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-1.png)
 
-2. In the Add schedule: 
-
-    1. Provide the **Start day**, **End day**, **Start time**, and **End time** of the schedule. 
-    2. If this schedule runs all day, then you can check the **All day** option. 
-    3. **Bandwidth rate** is the bandwidth in Megabits per second (Mbps) used by your device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field. 
-    4. Check **Unlimited** bandwidth if you do not want to throttle the date upload and download. 
-    5. Click **Add**.
-
-    ![Click add user](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
-
-3. A schedule is created with the specified parameters. This schedule is then displayed in the list of bandwidth schedules in the portal.
+NOTE:
+If you are using a virtual device, then the hardware diagnostics tests are not available.
 
 
-## Edit schedule
+## Collect Support package
 
-Perform the following steps to edit a bandwidth schedule. 
+Perform the following steps to collect a Support package. 
 
-1. In the Azure portal, go to your Data Box Gateway resource and then go to Bandwidth. 
-2. From the list of bandwidth schedules, select and click a schedule that you want to modify.
-    ![Modify user](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-1.png)
+A log package is comprised of all the relevant logs that can assist Data Box Gateway Support with troubleshooting any device issues. In this release, a log package can be generated via the local web UI.
 
-3. Make the desired changes and save the changes.
-
-    ![Modify user](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
-
-4. After the schedule is modified, the list of schedules is updated to reflect the modified schedule.
-
-    ![Modify user](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
+1.	In the local web UI, go to Troubleshooting > Support. Click Create support package. The system starts collecting support package. The package collection may take several minutes.
+ 
+2.	After the Support package is created, click Download Support package. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
 
 
-## Delete a schedule
+## Use logs to troubleshoot
 
-Perform the following steps to delete a bandwidth schedule associated with your Data Box Gateway device.
+Any errors experienced during the upload and refresh processes are included in the respective error files.
 
-1. In the Azure portal, go to your Data Box Gateway resource and then go to **Bandwidth**.  
+To view the error files, go to your share and click the share to view the contents. 
+  
 
-2. From the list of bandwidth schedules, select a schedule that you want to delete. Right-click to invoke the context menu and click **Delete**. 
+Click the _Microsoft Data Box Gateway folder_. This folder contains two subfolders – Upload containing log files for upload errors and Refresh for errors during refresh.
 
-   ![Delete a user](media/data-box-gateway-manage-bandwidth-schedules/delete-schedule-1.png)
+Here is a sample log file for refresh.
+<root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+<file item="test.txt" local="False" remote="True" error="16001" />
+<summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
 
-3.	After the schedule is deleted, the list of schedules is updated to reflect the deletion.
+When you see an error in this file (highlighted in the sample), note down the error code, in this case it is 16001. You need to look up the description of this error code against the following error reference.
+
+
 
 
 

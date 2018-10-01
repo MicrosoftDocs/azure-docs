@@ -83,4 +83,4 @@ The list of users is updated to reflect the deleted user.
 
 ## Next steps
 
-- Learn how to [Manage bandwidth](data-box-gateway-manage-bandwidth.md).
+- Learn how to [Manage bandwidth](data-box-gateway-manage-bandwidth-schedules.md).
