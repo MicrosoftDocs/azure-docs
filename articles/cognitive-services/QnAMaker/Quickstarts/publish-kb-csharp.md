@@ -39,7 +39,7 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
 ## Add required dependencies
 
-[!INCLUDE [Add required dependencies to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-deps.md)] 
+[!INCLUDE [Add required dependencies to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-dependencies.md)] 
 
 ## Add required constants
 
@@ -47,7 +47,7 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
 ## Add knowledge base ID
 
-[!INCLUDE [Add knowledge base ID as constant](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-kbid.md)] 
+[!INCLUDE [Add knowledge base ID as constant](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-kb-id.md)] 
 
 ## Add supporting functions and structures
 

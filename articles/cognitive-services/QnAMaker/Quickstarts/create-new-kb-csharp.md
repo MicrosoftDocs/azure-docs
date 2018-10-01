@@ -84,7 +84,7 @@ static string kb = @"
 
 ## Add supporting functions and structures
 
-[!INCLUDE [Add supporting functions and structures](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-supporting-fns.md)] 
+[!INCLUDE [Add supporting functions and structures](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-support-functions.md)] 
 
 ## Add a POST request to create KB
 
