@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Which Azure AD tools help manage users?
+  - name: Users, groups, licensing, and roles for large organizations
     href: directory-overview-user-model.md
 - name: Quickstarts
   items:
