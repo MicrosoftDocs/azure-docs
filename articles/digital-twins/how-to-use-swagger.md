@@ -6,23 +6,23 @@ manager: alinast
 ms.service: azure-digital-twins
 services: azure-digital-twins
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/1/2018
 ms.author: adgera
 ---
 
 # Azure Digital Twins Swagger
 
-Each provisioned Azure Digital Twins instance includes its own automatically-generated Swagger reference documentation.
+Each provisioned Azure Digital Twins instance includes its own automatically generated Swagger reference documentation.
 
 [Swagger](https://swagger.io/) (or [OpenAPI](https://www.openapis.org/)) unites complex API information into an interactive and language-agnostic reference resource. Specifically, Swagger provides critical reference material about which JSON payloads, HTTP methods, and specific endpoints to use to perform operations against an API.
 
 >[!NOTE]
-> No configuration is required to use your digital twin Swagger reference material
+> No configuration is required to use your digital twin Swagger reference material.
 
 Your generated Management API Swagger documentation can be accessed publicly at:
 
 ```plaintext
-https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger
+https://{{your-instance-name}}.{{your-instance-location}}.azuresmartspaces.net/management/swagger
 ```
 
 ## More about Swagger
@@ -37,35 +37,59 @@ Swagger provides an interactive summary of your API including:
 
 Automatically generated reference material is supplied explaining critical concepts and Object Models.
 
-![Swagger reference][1]
+A concise summary describing API use is provided:
 
-![Swagger reference][2]
+![Swagger top][1]
 
-![Swagger reference][3]
+Core API Object Models are also listed:
+
+![Swagger models][2]
+
+You can click into each listed Object Model for a more detailed summary of key attributes:
+
+![Swagger model][3]
+
+The generated Swagger Object Models provides a convenient location to see all available Azure Digital Twins [Ontology objects](./concepts-objectmodel-spatialgraph.md). It's therefore a great resource for developers to use when building solutions on Azure Digital Twins.
+
+### Endpoint summary
+
+Swagger also provides a thorough overview of all endpoints that comprise the API.
+
+Each listed endpoint also includes required request information such as:
+
+* Required parameters.
+* Required parameter data types.
+* The HTTP method to access the resource.
+
+![Swagger endpoints][6]
+
+Each resource can be clicked to gain a more detailed overview.
 
 ### Using Swagger to test endpoints
 
-One of the powerful functionalities Swagger provides is the ability to **Try it out** on directly through the documentation UI.
+One of the powerful functionalities Swagger provides is the ability to **Try it out** or test an API endpoint directly through the documentation UI.
 
-![Swagger reference][4]
+After clicking into a specific endpoint, you'll see a  **Try it out** button:
 
-![Swagger reference][5]
+![Swagger try][4]
 
-### Understand request requirements
+Expanding that button brings up input fields for each required and optional parameter. Enter the values accordingly and click **Execute**:
 
-Each listed endpoint includes all required request information including required parameters, their types, and which HTTP method is required to access the resource.
+![Swagger tried][5]
 
-![Swagger reference][6]
+After executing the test, you can validate the response data.
 
 ### Swagger response data
 
-Each listed endpoint also includes valid response body data to validate your development and tests.
+Each listed endpoint also includes valid response body data to validate your development and tests. These examples include the desired status codes and JSON for successful HTTP requests.
 
-![Swagger reference][7]
+![Swagger response][7]
+
+The examples also include error codes to help debug or improve failing tests.
 
 ### Swagger OAuth 2.0 authorization
 
-To interactively test requests against API resources protected by OAuth 2.0 see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
+To interactively test requests against API resources protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## Next steps
 
