@@ -41,7 +41,7 @@ ssh-keygen -t rsa -b 2048
 
 1. Log into your Azure account.
 
-`az login`
+    `az login`
 
 ![Alt image text](media/deploy/az-login-output.png "Azure CLI login")
  
@@ -49,11 +49,11 @@ Copy the “id” value as your **subscription ID** and the **tenantId** value t
 
 2. Set your default subscription for this configuration.
 
-`az account set -s {id}`
+    `az account set -s {id}`
 
 3. Create an AAD application for your PCF and specify a unique alpha-numeric password.  Store the password as your **clientSecret** to be used later.
 
-`az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    `az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
 
 The copy “appId” value in the output as your **ClientID** to be used later.
 
@@ -64,32 +64,32 @@ The copy “appId” value in the output as your **ClientID** to be used later.
 
 4. Create a service principal with your new “appId”.
 
-`az ad sp create --id {appId}`
+    `az ad sp create --id {appId}`
 
 5. Set the permission role of your service principal as a **Contributor**.
 
-`az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
+    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
 
 Or you can also use…
 
-`az role assignment create --assignee {service-princ-name} --role “Contributor” `
+    `az role assignment create --assignee {service-princ-name} --role “Contributor” `
 
 ![Alt image text](media/deploy/svc-princ3.png "Service Principal role assignment")
 
 6. Verify that you can successfully log into your Service Principal using the appId, password & tenantId.
 
-`az login --service-principal -u {appId} -p {your-passward}  --tenant {tenantId}`
+    `az login --service-principal -u {appId} -p {your-passward}  --tenant {tenantId}`
 
 7. Create a .json file in the following format using Use all the above **subscription ID**, **tenantId**, **clientID** and **clientSecret** values you’ve copied above.  Save the file.
-{
-```json
-{
-    "subscriptionID": "{enter-your-subscription-Id-here}",
-    "tenantID": "{enter-your-tenant-Id-here}",
-    "clientID": "{enter-your-app-Id-here}",
-    "clientSecret": "{enter-your-key-here}"
-}
-```
+
+    ```json
+    {
+        "subscriptionID": "{enter-your-subscription-Id-here}",
+        "tenantID": "{enter-your-tenant-Id-here}",
+        "clientID": "{enter-your-app-Id-here}",
+        "clientSecret": "{enter-your-key-here}"
+    }
+    ```
 
 ## Get the Pivotal Network Token
 
@@ -105,17 +105,16 @@ Or you can also use…
 
 1. Your PCF cluster should show a deployment status.
 
-![Alt image text](media/deploy/deployment.png "Azure deployment status")
-
+    ![Alt image text](media/deploy/deployment.png "Azure deployment status")
 
 2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then click on the **Deployment Name** on the next page.
 3. On the left-hand navigation, click on the **Outputs** link to display the URL, Username and Password to the PCF Ops Manager.  The “OPSMAN-FQDN” value is the URL.
  
-![Alt image text](media/deploy/deploy-outputs.png "Cloud Foundry deployment output")
+    ![Alt image text](media/deploy/deploy-outputs.png "Cloud Foundry deployment output")
  
 4. Launch the URL in a web browser and enter the credentials from the previous step to login.
 
-![Alt image text](media/deploy/pivotal-login.png "Pivotal Login page")
+    ![Alt image text](media/deploy/pivotal-login.png "Pivotal Login page")
          
 > [!NOTE]
 >
@@ -123,5 +122,5 @@ Or you can also use…
 
 5. Your PCF Ops Manager should display the deployed Azure instances. Now you can start deploying and managing your applications here!
                
-![Alt image text](media/deploy/Ops-Mgr7.png "Deployed Azure imstance in Pivotal")
+    ![Alt image text](media/deploy/Ops-Mgr7.png "Deployed Azure imstance in Pivotal")
  
