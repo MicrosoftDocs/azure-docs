@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 09/29/2018
 ms.author: tomfitz
 
 ---
@@ -49,8 +49,8 @@ For Windows, use the following schema:
   },
   "constraints": {
     "required": true,
-    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-    "customValidationMessage": "The password must contain at least 8 characters, with at least 1 letter and 1 number."
+    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
+    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false
@@ -79,8 +79,8 @@ For **Linux**, use the following schema:
   },
   "constraints": {
     "required": true,
-    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-    "customValidationMessage": "The password must contain at least 8 characters, with at least 1 letter and 1 number."
+    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
+    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false,
@@ -104,7 +104,7 @@ If `osPlatform` is **Windows**, or `osPlatform` is **Linux** and the user provid
 ```json
 {
   "authenticationType": "password",
-  "password": "p4ssw0rd",
+  "password": "p4ssw0rddem0",
 }
 ```
 

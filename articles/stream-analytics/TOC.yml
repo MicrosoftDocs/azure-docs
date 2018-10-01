@@ -98,6 +98,9 @@
       href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
     - name: Threshold based rules
       href: stream-analytics-threshold-based-rules.md
+    - name: Process Kafka events
+      href: ../event-hubs/event-hubs-kafka-stream-analytics.md
+      maintainContext: true
   - name: Monitor
     items:
     - name: Monitor jobs- Azure portal
