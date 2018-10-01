@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Expensify | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Expensify.
 services: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 10/01/2018
 ms.author: jeedes
 
 ---
@@ -112,7 +112,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.<companyname>.expensify.com`
 
 	> [!NOTE] 
-	> Replace the `<companyname>` section of the Identifier URL with your company's domain. See the example of `https://contoso.expensify.com` above. Contact [Expensify Client support team](mailto:help@expensify.com) to get this value.
+	> Replace the <companyname> section of the Identifier URL with your company's domain. See the example of `https://contoso.expensify.com` above. In Expensify, this is the name of your domain as shown from **Settings > Domain Control**.
+
+	![Expensify Domain information](./media/expensify-tutorial/tutorial_expensify_domain.png)
 
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -128,19 +130,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a. Sign on to your Expensify application.
 	
-	b. In the toolbar on the top, click **Admin**.
+	b. In the left panel, click **Settings** and navigate to **SAML**.
 	
-	c. In the left panel, click **Domain**.
-	
-	d. Click your verified domain name.
-	
-	e. In the left panel, click **SAML**, and then select **Enabled**.
+	c. Toggle the **SAML Login** option as **Enabled**.
 	
 	f. Open the downloaded Federation Metadata from Azure AD in notepad, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Create an Azure AD test user
 
