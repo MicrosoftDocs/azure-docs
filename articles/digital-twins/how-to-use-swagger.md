@@ -104,10 +104,10 @@ Learn how to authenticate with your Management API:
 > [Authenticating with APIs](./security-authenticating-apis.md)
 
 <!-- Images -->
-[1]: media/concepts/swagger_management_top.png
-[2]: media/concepts/swagger_management_models.png
-[3]: media/concepts/swagger_management_model.png
-[4]: media/concepts/swagger_management_endpoints.png
-[5]: media/concepts/swagger_management_try.png
-[6]: media/concepts/swagger_management_tried.png
-[7]: media/concepts/swagger_management_response.png
+[1]: media/how-to-use-swagger/swagger_management_top.png
+[2]: media/how-to-use-swagger/swagger_management_models.png
+[3]: media/how-to-use-swagger/swagger_management_model.png
+[4]: media/how-to-use-swagger/swagger_management_endpoints.png
+[5]: media/how-to-use-swagger/swagger_management_try.png
+[6]: media/how-to-use-swagger/swagger_management_tried.png
+[7]: media/how-to-use-swagger/swagger_management_response.png
