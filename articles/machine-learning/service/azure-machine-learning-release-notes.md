@@ -14,9 +14,65 @@ ms.date: 03/28/2018
 
 In this article, learn about the Azure Machine Learning service releases. 
 
-## 2018-10
+## 2018-10 - SDK version 0.1.65
 
-This release includes more documentation, bug fixes, and more [sample notebooks](https://aka.ms/aml-notebooks). 
+This release includes new features, more documentation, bug fixes, and more [sample notebooks](https://aka.ms/aml-notebooks).
+
+**Breaking changes and known issues**
+
+ * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, previously returned list.
+
+ * Automated Machine Learning removed normalized mean square error from the primary metrics
+
+ * Image building failure when deploying web service. Workaround is to add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration.
+
+ * For Pipelines, error when calling PythonScriptStep multiple times in a row without changing the script or parameters. Workaround is to rebuild the PipelineData object.
+
+ * You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
+
+**Notable new features**
+
+### HyperDrive
+ * Various HyperDrive bug fixes for Bayesian, Performance improvements for get Metrics calls. 
+ * Tensorflow 1.10 upgrade from 1.9 
+ * Docker image optimization for cold start. 
+ * Job’s now report correct status even if they exit with error code other than 0. 
+ * RunConfig attribute validation in SDK. 
+ * HyperDrive run object supports cancel similar to a regular run: no need to pass any parameters. 
+ * Widget improvements for maintaining state of drop-down values for distributed runs and HyperDrive runs. 
+ * TensorBoard and other log files support fixed for Parameter server. 
+ * Intel(R) MPI support on service side. 
+ * Bugfix to parameter tuning for distributed run fix during validation in BatchAI. 
+ * Context Manager now identifies the primary instance. 
+
+### Azure Portal experience
+ * log_table() and log_row() are supported in Run details. 
+ * Automatically create graphs for tables and rows with 1,2 or 3 numerical columns and an optional categorical column.
+
+### Automated Machine Learning
+ * Improved error handling and documentation 
+ * Fixed run property retrieval performance issues. 
+ * Fixed AutoML continue run issue. 
+ * Fixed ensembling iteration issues.
+ * Fixed training hanging bug on MAC OS.
+ * Downsampling macro average PR/ROC curve in custom validation scenario.
+ * Removed extra index logic.
+ * Removed filter from get_output API.
+
+### Pipelines
+ * Added a method Pipeline.publish() to publish a pipeline directly, without requiring an execution run first.   
+ * Added a method PipelineRun.get_pipeline_runs() to fetch the pipeline runs which were generated from a published pipeline.
+
+### Project-Brainwave
+ * Updated support for new AI models available on FPGAs.
+
+### Data Preparation
+ * Support for one-hot encoding. 
+ * Support for quantile transform.
+ * Data Prep works with any Tornado version (no more need for the Tornado-downgrade workaround)
+ * Value counts for all values, not just the top three
+
+## 2018-10 - SDK version 0.1.65
 
 ## 2018-09 (Public preview refresh)
 
