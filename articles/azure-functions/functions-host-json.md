@@ -438,6 +438,12 @@ Configuration settings for logs that you create by using a `TraceWriter` object.
 |consoleLevel|info|The tracing level for console logging. Options are: `off`, `error`, `warning`, `info`, and `verbose`.|
 |fileLoggingMode|debugOnly|The tracing level for file logging. Options are `never`, `always`, `debugOnly`.| 
 
+## version
+
+*Version 2.x*
+
+The version string `"version": "2.0"` is required for a function app that targets the v2 runtime.
+
 ## watchDirectories
 
 A set of [shared code directories](functions-reference-csharp.md#watched-directories) that should be monitored for changes.  Ensures that when code in these directories is changed, the changes are picked up by your functions.

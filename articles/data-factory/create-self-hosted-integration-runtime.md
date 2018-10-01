@@ -29,7 +29,7 @@ This document introduces how you can create and configure Self-hosted IR.
 	```powershell
 	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
-2. Download and install self-hosted integration runtime (on local machine).
+2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) and install self-hosted integration runtime (on local machine).
 3. Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
@@ -92,7 +92,7 @@ Self-hosted integration runtime can be installed by downloading an MSI setup pac
 9. Get the Authentication key using Azure PowerShell. PowerShell example for retrieving authentication key:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
 	```
 11. On the **Register Integration Runtime (Self-hosted)** page of Microsoft Integration Runtime Configuration Manager running on your machine, do the following steps:
 	1. Paste the **authentication key** in the text area.
@@ -184,21 +184,23 @@ In the Data Factory to which the permissions were granted,
 
 1. Default number of linked IR that can be created under single self-hosted IR is **20**. If you require more then contact Support. 
 
-2. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default, the data factories created in Ibiza portal or PowerShell cmdlets will have MSI 
+2. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default, the data factories created in Azure portal or PowerShell cmdlets will have MSI 
   created implicitly. However, in some cases when data factory is created using an Azure Resorce Manager template or SDK, the “**Identity**” **property must be set** explicitly to ensure Azure Resorce Manager creates a data factory containing an MSI. 
 
 3. The self-hosted IR version must be equal or greater than 3.8.xxxx.xx. Please [download the latest version](https://www.microsoft.com/download/details.aspx?id=39717) of self-hosted IR
 
 4. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default,
-the data factories created in Ibiza portal or PowerShell cmdlets will have MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
-created implicitly, however, data factories created with Azure Resource Manager (ARM) template or SDK requires “Identity” property to be set to ensure an MSI is created.
+  the data factories created in Azure portal or PowerShell cmdlets will have MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
+  created implicitly, however, data factories created with Azure Resource Manager template or SDK requires “**Identity**” property to be set to ensure an MSI is created.
 
 5. The ADF .Net SDK which support this feature is version >= 1.1.0
 
 6. The Azure PowerShell which support this feature is version >= 6.6.0
-(AzureRM.DataFactoryV2 >= 0.5.7)
+  (AzureRM.DataFactoryV2 >= 0.5.7)
 
-7. To Grant permission, the user will require "Owner" role or inherited "Owner" role in the Data Factory where the Shared IR exists. 
+7. To Grant permission, the user will require "**Owner**" role or inherited "**Owner**" role in the Data Factory where the Shared IR exists. 
+
+8. For Active Directory **[Guest Users](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)**, the search functionality (listing all Data Factories using search keyword) in the UI [does not work](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the "**Owner**" of the Data Factory, they can share the IR without the search functionality, by directly typing the Managed Service Identity of the Data Factory with which the IR needs to be shared in "**Assign Pemission**" textbox and selecting "**Add**" in ADF UI. 
 
   > [!NOTE]
   > This feature is only available in Azure Data Factory version 2 

@@ -102,7 +102,7 @@ Perform the following steps to create an import job in the Azure portal.
 
     - Upload the drive journal files that you obtained during the drive preparation step. If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml` also created with the journal file. 
     - Select the destination storage account where data will reside. 
-    - The drop-off location is automatically populated based on the region of the storage account selected.
+    - The dropoff location is automatically populated based on the region of the storage account selected.
    
    ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

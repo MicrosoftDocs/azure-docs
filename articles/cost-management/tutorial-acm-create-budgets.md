@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 10/01/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 Budgets are available to all Azure EA customers. You must have read access to an Azure EA subscription to create and manage budgets. EA billing accounts are not supported by budgets.
 
-The following Azure permissions are supported per subscription for budgets by user, group, and app:
+Budgets are created at either the subscription or resource group level, individually. The following Azure permissions are supported per subscription for budgets by user and group:
 
 - Owner – Can create, modify, or delete budgets for a subscription.
 - Contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
@@ -42,7 +42,7 @@ The following Azure permissions are supported per subscription for budgets by us
 
 ## Create a budget in the Azure portal
 
-You can create an Azure subscription budget for a monthly, quarterly, or annual period. Budgets are created at either the subscription or resource group level, individually. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a resource group.
+You can create an Azure subscription budget for a monthly, quarterly, or annual period. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a resource group.
 
 In the Azure portal, navigate to **Cost Management + Billing** &gt; **Subscriptions** &gt; Select a subscription &gt; **Budgets**. In this example, the budget that you create is for the subscription that you selected.
 
@@ -52,7 +52,7 @@ Click **Add**.
 
 ![Cost Management budgets](./media/tutorial-acm-create-budgets/budgets01.png)
 
-In the **Create budget** window, enter a budget name and budget amount. Then, choose either a monthly, quarterly, or annual duration period. Next, select an end date. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget.
+In the **Create budget** window, enter a budget name and budget amount. Then, choose either a monthly, quarterly, or annual duration period. Next, select an end date. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than eight hours.
 
 Here's an example of creating a monthly budget for $4,500. An email alert gets generated when 90% of the budget is reached.
 
@@ -66,7 +66,7 @@ Current spending against budgets is updated whenever Cost Management receives up
 
 After you create a budget, it is shown in cost analysis. Viewing your budget in relation to your spending trend is one of the first steps when you start to [analyze your costs and spending](quick-acm-cost-analysis.md).
 
-![Budget show in cost analysis](./media/tutorial-acm-create-budgets/cost-analysis.png)
+![Budget shown in cost analysis](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 In the preceding example, you created a budget for a subscription. However, you can also create a budget for a resource group. If you want to create a budget for a resource group, navigate to **Cost Management + Billing** &gt; **Subscriptions** &gt; select a subscription > **Resource groups** > select a resource group > **Budgets** > and then **Add** a budget.
 

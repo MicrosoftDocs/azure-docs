@@ -17,7 +17,7 @@ With the Azure Machine Learning service, you can train your model in several dif
 
 A compute target is the resource that runs your training script or hosts your model when it's deployed as a web service. They can be created and managed using the Azure Machine Learning SDK or CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can use them by attaching them to your Azure Machine Learning service workspace.
 
-You can start with local runs on your machine, and then scaling up and out to other environments such as remote Data Science virtual machines with GPU or Azure Batch AI. 
+You can start with local runs on your machine, and then scale up and out to other environments such as remote Data Science virtual machines with GPU or Azure Batch AI. 
 
 ## Supported compute targets
 
@@ -84,6 +84,8 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
+
+For a Jupyter Notebook that demonstrates training in a user-managed environment, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### System-managed environment
 
@@ -104,6 +106,9 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
+
+For a Jupyter Notebook that demonstrates training in a system-managed environment, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
 Your local machine may not have the compute or GPU resources required to train the model. In this situation, You can scale up or scale out the training process by adding additional compute targets such as a Data Science Virtual Machines (DSVM).
@@ -132,7 +137,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
             dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
             dsvm_compute.wait_for_completion(show_output = True)
         ```
-    * To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name,login name, and password for the virtual machine.  In the example, replace ```<fqdn>``` with public fully qualified domain name of the VM, or the public IP address. Replace ```<username>``` and ```<password>``` with the SSH user and password for the VM:
+    * To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name, login name, and password for the virtual machine.  In the example, replace ```<fqdn>``` with public fully qualified domain name of the VM, or the public IP address. Replace ```<username>``` and ```<password>``` with the SSH user and password for the VM:
 
         ```python
         from azureml.core.compute import RemoteCompute
@@ -184,6 +189,8 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     dsvm_compute.delete()
     ```
 
+For a Jupyter Notebook that demonstrates training on a Data Science Virtual Machine, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
+
 ## <a id="batch"></a>Azure Batch AI
 
 If it takes a long time to train your model, you can use Azure Batch AI to distribute the training across a cluster of compute resources in the cloud. Batch AI can also be configured to enable a GPU resource.
@@ -226,14 +233,14 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-To attach an existing Batch AI cluster as a compute target, you must provide the Azure resource id. To get the resource id from the Azure portal, you will need to :
+To attach an existing Batch AI cluster as a compute target, you must provide the Azure resource ID. To get the resource ID from the Azure portal, use the following steps:
 1. Search for `Batch AI` service under **All Services**
 1. Click on the workspace name in which your cluster belongs
 1. Select the cluster
 1. Click on **Properties**
-1. Copy the **Id**
+1. Copy the **ID**
 
-The following example uses the SDK to attach a cluster to your workspace. In the example, replace `<name>` with any name for the compute. This does not have to match the name of the cluster. Replace `<resource-id>` with the Azure resource id detailed above:
+The following example uses the SDK to attach a cluster to your workspace. In the example, replace `<name>` with any name for the compute. The name does not have to match the name of the cluster. Replace `<resource-id>` with the Azure resource ID detailed above:
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -247,7 +254,9 @@ You can also check the Batch AI cluster and job status using the following Azure
 - Check cluster status. You can see how many nodes are running by using `az batchai cluster list`.
 - Check job status. You can see how many jobs are running by using `az batchai job list`.
 
-It takes around 5 minutes to create the Batch AI cluster
+It takes around 5 minutes to create the Batch AI cluster.
+
+For a Jupyter Notebook that demonstrates training in a Batch AI cluster, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
 
 ## <a name='aci'></a>Azure Container Instance (ACI)
 
@@ -290,6 +299,8 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ```
 
 It can take from a few seconds to a few minutes to create an ACI compute target.
+
+For a Jupyter Notebook that demonstrates training on Azure Container Instance, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
 ## <a id="hdinsight"></a>Attach an HDInsight cluster 
 
@@ -346,6 +357,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+For a Jupyter Notebook that demonstrates training with Spark on HDInsight, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
 ## View and set up compute using the Azure portal
 
 You can view what compute targets are associated with your workspace from the Azure portal. To get to the list, use the following steps:
@@ -353,7 +366,7 @@ You can view what compute targets are associated with your workspace from the Az
 1. Visit the [Azure portal](https://portal.azure.com) and navigate to your workspace.
 2. Click on the __Compute__ link under the __Applications__ section.
 
-    ![View compute tab](./media/how-to-set-up-training-targets/compute_tab.png)
+    ![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
 ### Create a compute target
 
@@ -361,7 +374,7 @@ Follow the above steps to view the list of compute targets, and then use the fol
 
 1. Click the __+__ sign to add a compute target.
 
-    ![Add compute ](./media/how-to-set-up-training-targets/add_compute.png)
+    ![Add compute ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. Enter a name for the compute target.
 1. Select the type of compute to attach for __Training__. 
@@ -398,6 +411,7 @@ Follow the above steps to view the list of compute targets, then use the followi
 The following notebooks demonstrate concepts in this article:
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 * `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
 * `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
 * `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 

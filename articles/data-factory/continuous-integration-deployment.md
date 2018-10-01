@@ -1,6 +1,6 @@
 ﻿---
-title: Continuous integration and deployment in Azure Data Factory | Microsoft Docs
-description: Learn how to use continuous integration and deployment to move Data Factory pipelines from one environment (development, test, production) to another.
+title: Continuous integration and delivery in Azure Data Factory | Microsoft Docs
+description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 10/01/2018
 ms.author: douglasl
 ---
-# Continuous integration and deployment in Azure Data Factory
+# Continuous integration and delivery (CI/CD) in Azure Data Factory
 
-Continuous Integration is the practice of testing each change done to your codebase automatically and as early as possible. Continuous Deployment follows the testing that happens during Continuous Integration and pushes changes to a staging or production system.
+Continuous Integration is the practice of testing each change done to your codebase automatically and as early as possible. Continuous Delivery follows the testing that happens during Continuous Integration and pushes changes to a staging or production system.
 
-For Azure Data Factory, continuous integration & deployment means moving Data Factory pipelines from one environment (development, test, production) to another. To do continuous integration & deployment, you can use Data Factory UI integration with Azure Resource Manager templates. The Data Factory UI can generate a Resource Manager template when you select the **ARM template** options. When you select **Export ARM template**, the portal generates the Resource Manager template for the data factory and a configuration file that includes all your connections strings and other parameters. Then you have to create one configuration file for each environment (development, test, production). The main Resource Manager template file remains the same for all the environments.
+For Azure Data Factory, continuous integration & delivery means moving Data Factory pipelines from one environment (development, test, production) to another. To do continuous integration & delivery, you can use Data Factory UI integration with Azure Resource Manager templates. The Data Factory UI can generate a Resource Manager template when you select the **ARM template** options. When you select **Export ARM template**, the portal generates the Resource Manager template for the data factory and a configuration file that includes all your connections strings and other parameters. Then you have to create one configuration file for each environment (development, test, production). The main Resource Manager template file remains the same for all the environments.
 
 For a nine-minute introduction and demonstration of this feature, watch the following video:
 
@@ -48,10 +48,9 @@ Select **Load file** to select the exported Resource Manager template and provid
 ![Open code view to see connection string](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## Continuous integration lifecycle
-Here is the entire lifecycle for continuous integration & deployment
-that you can use after you enable Azure DevOps Services GIT integration in the Data Factory UI:
+Here is the entire lifecycle for continuous integration & delivery that you can use after you enable Azure Repos Git integration in the Data Factory UI:
 
-1.  Set up a development data factory with Azure DevOps Services in which all developers can author Data Factory resources like pipelines, datasets, and so forth.
+1.  Set up a development data factory with Azure Repos in which all developers can author Data Factory resources like pipelines, datasets, and so forth.
 
 1.  Then developers can modify resources such as pipelines. As they make their modifications, they can select **Debug** to see how the pipeline runs with the most recent changes.
 
@@ -63,23 +62,23 @@ that you can use after you enable Azure DevOps Services GIT integration in the D
 
 1.  The exported Resource Manager template can be deployed with different parameter files to the test factory and the production factory.
 
-## Automate continuous integration with Azure DevOps Services Releases
+## Automate continuous integration with Azure Pipelines releases
 
-Here are the steps to set up an Azure DevOps Services Release so you can automate the deployment of a data factory to multiple environments.
+Here are the steps to set up an Azure Pipelines release so you can automate the deployment of a data factory to multiple environments.
 
-![Diagram of continuous integration with Azure DevOps Services](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram of continuous integration with Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### Requirements
 
--   An Azure subscription linked to Team Foundation Server or Azure DevOps Services using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   An Azure subscription linked to Team Foundation Server or Azure Repos using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   A Data Factory with Azure DevOps Services Git configured.
+-   A Data Factory with Azure Repos Git integration configured.
 
 -   An [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) containing the secrets.
 
-### Set up an Azure DevOps Services Release
+### Set up an Azure Pipelines release
 
-1.  Go to your Azure DevOps Services page in the same project as the one configured with the Data Factory.
+1.  Go to your Azure Repos page in the same project as the one configured with the Data Factory.
 
 1.  Click on the top menu **Azure Pipelines** &gt; **Releases** &gt; **Create release definition**.
 
@@ -109,6 +108,11 @@ Here are the steps to set up an Azure DevOps Services Release so you can automat
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
+    g. Select the **Incremental** Deployment Mode.
+
+    > [!WARNING]
+    > If you select **Complete** deployment mode, existing resources may be deleted, including the target resource group.
+
 1.  Save the release pipeline.
 
 1.  Create a new release from this release pipeline.
@@ -117,7 +121,7 @@ Here are the steps to set up an Azure DevOps Services Release so you can automat
 
 ### Optional - Get the secrets from Azure Key Vault
 
-If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the Azure DevOps Services release.
+If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the Azure Pipelines release.
 
 There are two ways to handle the secrets:
 
@@ -152,13 +156,13 @@ There are two ways to handle the secrets:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### Grant permissions to the Azure DevOps Services agent
-The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure DevOps Services agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
+### Grant permissions to the Azure Pipelines agent
+The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure Pipelines agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
 
 ### Update active triggers
 Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and start them after the deployment. You can add an Azure Powershell task for this purpose, as shown in the following example:
 
-1.  In the Tasks tab of the Azure DevOps Services Release, search for **Azure Powershell** and add it.
+1.  In the Tasks tab of the release, search for **Azure Powershell** and add it.
 
 1.  Choose **Azure Resource Manager** as the connection type and select your subscription.
 
@@ -176,7 +180,7 @@ You can follow similar steps and use similar code (with the `Start-AzureRmDataFa
 
 ## Sample deployment template
 
-Here is a sample deployment template that you can import in Azure DevOps Services.
+Here is a sample deployment template that you can import in Azure Pipelines.
 
 ```json
 {
@@ -716,7 +720,7 @@ Here is a sample deployment template that you can import in Azure DevOps Service
 
 ## Sample script to stop and restart triggers and clean up
 
-Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed.
+Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param

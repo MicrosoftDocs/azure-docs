@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: A guide to choosing capacity for your QnA Maker deployment
 services: cognitive-services
 author: tulasim88
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
@@ -33,7 +33,7 @@ The following table gives you some high-level guidelines.
 |                        | QnA Maker Management | App Service | Azure Search | Limitations                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Experimentation        | Free SKU             | Free Tier   | Free Tier    | Publish Up to 2 KBs, 50 MB size  |
-| Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 4 KBs, 2 GB size    |
+| Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
 | Production Environment | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
 For upgrading your QnA Maker stack, see [Upgrade your QnA Maker service](../How-To/upgrade-qnamaker-service.md).
