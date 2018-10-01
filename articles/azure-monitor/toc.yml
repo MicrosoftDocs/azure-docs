@@ -64,7 +64,7 @@
 - name: Concepts
   items:
   - name: Azure management
-    href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md?toc=/azure/azure-monitor/toc.json
   - name: Monitoring data
     items: 
     - name: Metrics and logs
@@ -102,9 +102,9 @@
       - name: Log-based & pre-aggregated metrics
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Containers
-      href: https://aka.ms/AzureMonitorContainers
+      href: ../monitoring/monitoring-container-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Virtual Machines
-      href: https://aka.ms/AzureMonitorVirtualMachines
+      href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Monitoring solutions
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
   - name: Analyze data
@@ -503,10 +503,16 @@
         href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor containers
       items:
-      - name: Monitoring Containers overview
-        href: ../monitoring/monitoring-container-overview.md?toc=/azure/azure-monitor/toc.json
-      - name: AKS container health
-        href: ../monitoring/monitoring-container-health.md?toc=/azure/azure-monitor/toc.json
+      - name: Azure Monitor for containers 
+        items:
+        - name: Onboard 
+          href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Analyze 
+          href: ../monitoring/monitoring-container-insights-analyze.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Stop monitoring
+          href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Troubleshooting
+          href: ../monitoring/monitoring-container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Monitor Docker applications
@@ -537,6 +543,22 @@
           href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor virtual machines
       items:
+      - name: Azure Monitor for VMs
+        items:
+        - name: Known issues
+          href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
+        - name: FAQ
+          href: ../monitoring/monitoring-vminsights-faq.md?toc=/azure/azure-monitor/toc.json
+        - name: Onboard
+          href: ../monitoring/monitoring-vminsights-onboard.md?toc=/azure/azure-monitor/toc.json
+        - name: Monitor health
+          href: ../monitoring/monitoring-vminsights-health.md?toc=/azure/azure-monitor/toc.json
+        - name: Map dependencies
+          href: ../monitoring/monitoring-vminsights-maps.md?toc=/azure/azure-monitor/toc.json
+        - name: Monitor performance
+          href: ../monitoring/monitoring-vminsights-performance.md?toc=/azure/azure-monitor/toc.json
+        - name: Query data with Log Analytics
+          href: ../monitoring/monitoring-vminsights-log-search.md?toc=/azure/azure-monitor/toc.json
       - name: Agent Health
         href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: Capacity and performance
@@ -614,8 +636,6 @@
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Query log data
       items:
-      - name: Language reference
-        href: https://docs.loganalytics.io
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -650,8 +670,18 @@
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+      - name: Language reference
+        items:
+        - name: Language reference
+          href: ../log-analytics/query-language/kusto.md
+        - name: app expression
+          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
+        - name: workspace expression
+          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
       - name: Application data
         href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+      - name: Standard properties
+        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Cross-resource searches
         href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
       - name: Take action from search results

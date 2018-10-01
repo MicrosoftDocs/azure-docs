@@ -2,14 +2,17 @@
 title: Scaling out with Azure SQL Database | Microsoft Docs
 description: Software as a Service (SaaS) developers can easily create elastic, scalable databases in the cloud using these tools
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.service: sql-database
+ms.subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 09/14/2018
 ---
 # Scaling out with Azure SQL Database
 You can easily scale out Azure SQL databases using the **Elastic Database** tools. These tools and features let you use the database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the:

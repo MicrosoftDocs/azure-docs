@@ -50,7 +50,7 @@ Connection failures can happen in many levels:
 - Protocol-level errors for HTTP, AMQP, and MQTT transport such as links detached or sessions expired
 - Application-level errors that result from either local mistakes such as invalid credentials or service behavior such as exceeding quota or throttling
 
-The device SDKs detect errors in all three levels.  OS-related errors and hardware errors are not detected and handled by the device SDKs.  The design is based on [The Transient Fault Handling Guidance](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) from Azure Architecture Center.
+The device SDKs detect errors in all three levels.  OS-related errors and hardware errors are not detected and handled by the device SDKs.  The design is based on [The Transient Fault Handling Guidance](/azure/architecture/best-practices/transient-faults#general-guidelines) from Azure Architecture Center.
 
 ### Retry patterns
 

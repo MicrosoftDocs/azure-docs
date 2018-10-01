@@ -1,13 +1,11 @@
-- name: QnA Maker Documentation 
+- name: QnA Maker Documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is QnA Maker?
     href: Overview/overview.md
-  - name: Supported languages
-    href: Overview/languages-supported.md
 - name: Quickstarts
-  items: 
+  items:
   - name: Create a new knowledge base
     items:
     - name: C#
@@ -64,7 +62,7 @@
     href: Quickstarts/create-publish-knowledge-base.md
   - name: Create a knowledge base
     href: How-To/create-knowledge-base.md
-  - name: How to add chit-chat to knowledge base
+  - name: Add chit-chat to knowledge base
     href: How-to/chit-chat-knowledge-base.md
   - name: Use metadata with GenerateAnswer API
     href: How-To/metadata-generateanswer-usage.md
@@ -109,7 +107,7 @@
     - name: Go
       href: Quickstarts/go.md
 - name: Reference
-  items: 
+  items:
   - name: API Reference
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
   - name: FAQ
@@ -126,8 +124,10 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://aka.ms/qnamaker-pricing
+  - name: Language and region support
+    href: Overview/language-support.md
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/QnAMaker 
+    href: https://stackoverflow.com/questions/tagged/QnAMaker
   - name: UserVoice
     href: https://aka.ms/qnamaker-uservoice
   - name: Search
