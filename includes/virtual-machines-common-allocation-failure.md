@@ -75,9 +75,10 @@ As we expand Azure infrastructure, we deploy newer-generation hardware that’s 
 |Legacy VM-series/size|Recommended newer VM-series/size|More information|
 |----------------------|----------------------------|--------------------|
 |Av1-series|[Av2-series](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 or DSv1-series (D1 to D5)|[Dv3 or DSv3-series](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Dv1 or DSv1-series (D11 to D14)|[Ev3 or ESv3-series](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)|
-|D15v2 or DS15v2|If you are using theResource Manager deployment model in order to take advantage of the larger VM sizes, consider moving to D16v3/DS16v3 or D32v3/DS32v3. These are designed to run on the latest generation hardware. If you are using the Resource Manager deployment model to make sure your VM instance is isolated to hardware dedicated to a single customer, consider moving to the new isolated VM sizes, E64i_v3 or E64is_v3, which are designed to run on the latest generation hardware. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+|Dv1 or DSv1-series (D1 to D5)|[Dv3 or Dsv3-series](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 or DSv1-series (D11 to D14)|[Ev3 or Esv3-series](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
+|D15v2 or DS15v2|If you are using theResource Manager deployment model in order to take advantage of the larger VM sizes, consider moving to E16v3/E16sv3 or E32v3/E32sv3. These are designed to run on the latest generation hardware. If you are using the Resource Manager deployment model to make sure your VM instance is isolated to hardware dedicated to a single customer, consider moving to the new isolated VM sizes, E64i_v3 or E64is_v3, which are designed to run on the latest generation hardware. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+
 
 ## Allocation failures for large deployments (more than 500 cores)
 

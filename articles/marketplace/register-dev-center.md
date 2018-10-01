@@ -105,12 +105,12 @@ If you have issues with Dev Center registration, then follow these steps to subm
 > Publisher who are publishing in Transact listing type: VM, Azure apps: solution templates and managed apps.  
 
 *	**Why is Dev Center account required?**
-> Dev Center account is a required to enable Microsoft to bill the customer on the publisher’s behalf for Transact listing type. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information for your company. To learn more click [here.](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#register-in-dev-center)
+> Dev Center account is a required to enable Microsoft to bill the customer on the publisher’s behalf for Transact listing type. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information for your company. To learn more click [here.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
 
 *	**How do I get started with Dev Center registration?**
 > To prevent duplication, verify that your company does not already have a Dev Center account registered. 
 You must be signed in with the Microsoft account that you want to associate with your developer account. If you don’t already have a Microsoft account, you can create a new account [here.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (example: contoso_marketplace@live.com) To sign in and register, go to https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>To learn more on registration process click [here.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center)</br>
+<br>To learn more on registration process click [here.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 *	**Should I choose 'Individual' or 'Company' account type?**
 > To publish a transact offer on Marketplace, you need to select Company account when registering for your Dev Center account.
@@ -141,7 +141,7 @@ You must be signed in with the Microsoft account that you want to associate with
 > Assign a temporary company name, contact support at [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) and provide them your business registration documents.
 
 *	**How do I add my tax and payout information?**
-> You will not be able to publish transact offers without completing the tax and bank information in your Dev Center account.  For more information about adding account information, visit [How to Add bank and tax information.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
+> You will not be able to publish transact offers without completing the tax and bank information in your Dev Center account.  For more information about adding account information, visit [How to Add bank and tax information.](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
 
 *	**Can I change the Dev Center Microsoft login account?**
 > No. Once a Dev Center is created, the owner account cannot be changed. You would have to start over with a brand-new Dev Center account with the desired Microsoft account.

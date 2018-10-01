@@ -1,21 +1,14 @@
 ---
-title: Install Jupyter locally & connect to an Azure HDInsight Spark cluster | Microsoft Docs
-description: Learn how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster on Azure HDInsight.
+title: Install Jupyter locally and connect to Spark in Azure HDInsight
+description: Learn how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: nitinme
-
+ms.author: jasonh
 ---
 # Install Jupyter notebook on your computer and connect to Apache Spark on HDInsight
 
@@ -40,7 +33,7 @@ The prerequisites listed here are not for installing Jupyter. These are for conn
 You  must install Python before you can install Jupyter notebooks. Both Python and Jupyter are available as part of the [Anaconda distribution](https://www.continuum.io/downloads). When you install Anaconda, you install a distribution of Python. Once Anaconda is installed, you add the Jupyter installation by running appropriate commands.
 
 1. Download the [Anaconda installer](https://www.continuum.io/downloads) for your platform and run the setup. While running the setup wizard, make sure you select the option to add Anaconda to your PATH variable.
-2. Run the following command to install Jupyter.
+1. Run the following command to install Jupyter.
 
         conda install jupyter
 
@@ -69,8 +62,8 @@ In this section you configure the Spark magic that you installed earlier to conn
         import os
         print(os.path.expanduser('~'))
 
-2. Navigate to the home directory and create a folder called **.sparkmagic** if it does not already exist.
-3. Within the folder, create a file called **config.json** and add the following JSON snippet inside it.
+1. Navigate to the home directory and create a folder called **.sparkmagic** if it does not already exist.
+1. Within the folder, create a file called **config.json** and add the following JSON snippet inside it.
 
         {
           "kernel_python_credentials" : {
@@ -85,9 +78,9 @@ In this section you configure the Spark magic that you installed earlier to conn
           }
         }
 
-4. Substitute **{USERNAME}**, **{CLUSTERDNSNAME}**, and **{BASE64ENCODEDPASSWORD}** with appropriate values. You can use a number of utilities in your favorite programming language or online to generate a base64 encoded password for your actual password.
+1. Substitute **{USERNAME}**, **{CLUSTERDNSNAME}**, and **{BASE64ENCODEDPASSWORD}** with appropriate values. You can use a number of utilities in your favorite programming language or online to generate a base64 encoded password for your actual password.
 
-5. Configure the right Heartbeat settings in `config.json`. You should add these settings at the same level as the `kernel_python_credentials` and `kernel_scala_credentials` snippets your added earlier. For an example on how and where to add the heartbeat settings, see this [sample config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+1. Configure the right Heartbeat settings in `config.json`. You should add these settings at the same level as the `kernel_python_credentials` and `kernel_scala_credentials` snippets your added earlier. For an example on how and where to add the heartbeat settings, see this [sample config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
     * For `sparkmagic 0.2.3` (clusters v3.4), include:
 
@@ -104,11 +97,11 @@ In this section you configure the Spark magic that you installed earlier to conn
     >[!TIP]
     >Heartbeats are sent to ensure that sessions are not leaked. When a computer goes to sleep or is shut down, the heartbeat is not sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
 
-6. Start Jupyter. Use the following command from the command prompt.
+1. Start Jupyter. Use the following command from the command prompt.
 
         jupyter notebook
 
-7. Verify that you can connect to the cluster using the Jupyter notebook and that you can use the Spark magic available with the kernels. Perform the following steps.
+1. Verify that you can connect to the cluster using the Jupyter notebook and that you can use the Spark magic available with the kernels. Perform the following steps.
 
 	a. Create a new notebook. From the right-hand corner, click **New**. You should see the default kernel **Python2** and the two new kernels that you install, **PySpark** and **Spark**. Click **PySpark**.
 

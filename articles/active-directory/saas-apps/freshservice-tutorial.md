@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/16/2017
 ms.author: jeedes
 
 ---
@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Freshservice from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Freshservice from the gallery
 To configure the integration of Freshservice into Azure AD, you need to add Freshservice from the gallery to your list of managed SaaS apps.
@@ -60,19 +60,19 @@ To configure the integration of Freshservice into Azure AD, you need to add Fres
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
 
-4. In the search box, type **Freshservice**.
+1. In the search box, type **Freshservice**.
 
 	![Creating an Azure AD test user](./media/freshservice-tutorial/tutorial_freshservice_search.png)
 
-5. In the results panel, select **Freshservice**, and then click **Add** button to add the application.
+1. In the results panel, select **Freshservice**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/freshservice-tutorial/tutorial_freshservice_addfromgallery.png)
 
@@ -86,10 +86,10 @@ In Freshservice, assign the value of the **user name** in Azure AD as the value 
 To configure and test Azure AD single sign-on with Freshservice, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Freshservice test user](#creating-a-freshservice-test-user)** - to have a counterpart of Britta Simon in Freshservice that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a Freshservice test user](#creating-a-freshservice-test-user)** - to have a counterpart of Britta Simon in Freshservice that is linked to the Azure AD representation of user.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -101,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_samlbase.png)
 
-3. On the **Freshservice Domain and URLs** section, perform the following steps:
+1. On the **Freshservice Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_url.png)
 
@@ -116,29 +116,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Freshservice Client support team](https://support.freshservice.com/) to get these values. 
  
-4. On the **SAML Signing Certificate** section, copy **THUMBPRINT** value of certificate.
+1. On the **SAML Signing Certificate** section, copy **THUMBPRINT** value of certificate.
 
-	![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_certificate.png) 
+	![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_general_400.png)
 
-6. On the **Freshservice Configuration** section, click **Configure Freshservice** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Freshservice Configuration** section, click **Configure Freshservice** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_configure.png) 
 
-7. In a different web browser window, log in to your Freshservice company site as an administrator.
+1. In a different web browser window, log in to your Freshservice company site as an administrator.
 
-8. In the menu on the top, click **Admin**.
+1. In the menu on the top, click **Admin**.
    
     ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
 
-9. In the **Customer Portal**, click **Security**.
+1. In the **Customer Portal**, click **Security**.
    
     ![Security](./media/freshservice-tutorial/ic790815.png "Security")
 
-10. In the **Security** section, perform the following steps:
+1. In the **Security** section, perform the following steps:
    
     ![Single Sign On](./media/freshservice-tutorial/ic790816.png "Single Sign On")
    
@@ -146,17 +146,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. Select **SAML SSO**.
 
-    c. In the **SAML Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+    c. In the **SAML Login URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
-    d. In the **Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
+    d. In the **Logout URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
 
-    e. In **Security Certificate Fingerprint** textbox, paste the **THUMBPRINT** value of certificate which you have copied from Azure portal.
+    e. In **Security Certificate Fingerprint** textbox, paste the **THUMBPRINT** value of certificate, which you have copied from Azure portal.
 
 	f. Click **Save**
-   
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -169,15 +165,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/freshservice-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
+1. To display the list of users, go to **Users and groups** and click **All users**.
 	
 	![Creating an Azure AD test user](./media/freshservice-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+1. To open the **User** dialog, click **Add** on the top of the dialog.
  
 	![Creating an Azure AD test user](./media/freshservice-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/freshservice-tutorial/create_aaduser_04.png) 
 
@@ -197,19 +193,19 @@ To enable Azure AD users to log in to FreshService, they must be provisioned int
 
 1. Log in to your **FreshService** company site as an administrator.
 
-2. In the menu on the top, click **Admin**.
+1. In the menu on the top, click **Admin**.
    
     ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
 
-3. In the **User Management** section, click **Requesters**.
+1. In the **User Management** section, click **Requesters**.
    
     ![Requesters](./media/freshservice-tutorial/ic790818.png "Requesters")
 
-4. Click **New Requester**.
+1. Click **New Requester**.
    
     ![New Requesters](./media/freshservice-tutorial/ic790819.png "New Requesters")
 
-5. In the **New Requester** section, perform the following steps:
+1. In the **New Requester** section, perform the following steps:
    
     ![New Requester](./media/freshservice-tutorial/ic790820.png "New Requester")   
 
@@ -233,23 +229,23 @@ To enable Azure AD users to log in to FreshService, they must be provisioned int
 
 	![Assign User][201] 
 
-2. In the applications list, select **Freshservice**.
+1. In the applications list, select **Freshservice**.
 
 	![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Testing single sign-on
 

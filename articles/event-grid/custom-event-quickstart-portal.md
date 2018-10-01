@@ -35,7 +35,7 @@ An event grid topic provides a user-defined endpoint that you post your events t
 
    ![Start steps](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Provide a unique name for the custom topic. The topic name must be unique because it is represented by a DNS entry. Do not use the name shown in the image. Instead, create your own name. Select one of the [supported regions](overview.md). Provide a name for the resource group. Select **Create**.
+1. Provide a unique name for the custom topic. The topic name must be unique because it is represented by a DNS entry. Do not use the name shown in the image. Instead, create your own name. Provide a name for the resource group. Select **Create**.
 
    ![Provide event grid topic values](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

@@ -35,9 +35,9 @@ In this tutorial, you learn how to:
 
 ## Register web API
 
-Web API resources need to be registered in your tenant before they can accept and respond to [protected resource requests](../active-directory/develop/active-directory-dev-glossary.md#resource-server) by [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application) that present an [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. Registration establishes the [application and service principal object](../active-directory/develop/active-directory-dev-glossary.md#application-object) in your tenant. 
+Web API resources need to be registered in your tenant before they can accept and respond to [protected resource requests](../active-directory/develop/developer-glossary.md#resource-server) by [client applications](../active-directory/develop/developer-glossary.md#client-application) that present an [access token](../active-directory/develop/developer-glossary.md#access-token) from Azure Active Directory. Registration establishes the [application and service principal object](../active-directory/develop/developer-glossary.md#application-object) in your tenant. 
 
-Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -55,7 +55,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
     | **Include web app / web API** | Yes | Select **Yes** for a web API. |
     | **Allow implicit flow** | Yes | Select **Yes** since the API uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
     | **Reply URL** | `http://localhost:5000` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your API requests. In this tutorial, the sample web API runs locally (localhost) and listens on port 5000. |
-    | **App ID URI** | demoapi | The URI uniquely identifies the API in the tenant. This allows you to register multiple APIs per tenant. [Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) govern access to the protected API resource and are defined per App ID URI. |
+    | **App ID URI** | demoapi | The URI uniquely identifies the API in the tenant. This allows you to register multiple APIs per tenant. [Scopes](../active-directory/develop/developer-glossary.md#scopes) govern access to the protected API resource and are defined per App ID URI. |
     | **Native client** | No | Since this is a web API and not a native client, select No. |
     
 3. Click **Create** to register your API.
@@ -70,7 +70,7 @@ Registering your web API with Azure AD B2C defines a trust relationship. Since t
 
 ## Define and configure scopes
 
-[Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define read and write permissions for the web API.
+[Scopes](../active-directory/develop/developer-glossary.md#scopes) provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define read and write permissions for the web API.
 
 ### Define scopes for the web API
 
@@ -106,7 +106,7 @@ To call a protected web API from an app, you need to grant your app permissions 
 
 5. Click **OK**.
 
-Your **My Sample WPF App** is registered to call the protected **My sample Node.js web API**. A user [authenticates](../active-directory/develop/active-directory-dev-glossary.md#authentication) with Azure AD B2C to use the WPF deskop app app. The desktop app obtains an [authorization grant](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
+Your **My Sample WPF App** is registered to call the protected **My sample Node.js web API**. A user [authenticates](../active-directory/develop/developer-glossary.md#authentication) with Azure AD B2C to use the WPF desktop application. The desktop application obtains an [authorization grant](../active-directory/develop/developer-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
 
 ## Update web API code
 

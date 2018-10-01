@@ -41,7 +41,7 @@ The native model is not supported in the Service Fabric Mesh environment.
 
 ## Environments
 
-Service Fabric is an open source platform technology that several different services and products are based on. Microsoft provides the following options:
+Service Fabric is an open-source platform technology that several different services and products are based on. Microsoft provides the following options:
 
  - **Service Fabric Mesh**: A fully managed service for running Service Fabric applications in Microsoft Azure.
  - **Azure Service Fabric**: The Azure hosted Service Fabric cluster offering. It provides integration between Service Fabric and the Azure infrastructure, along with upgrade and configuration management of Service Fabric clusters.
@@ -51,17 +51,17 @@ Service Fabric is an open source platform technology that several different serv
 ## Environment, framework, and deployment model support matrix
 Different environments have different level of support for frameworks and deployment models. The following table describes the supported framework and deployment model combinations.
 
-|Frameworks\Deployment model |Resource model |Native model | Compose|
-|---|---|---|---|
-|Reliable Actors and Reliable Services |Not supported |Supported |Not supported |
-|Any other framework or language |Supported in containers |Supported as processes and in containers |Supported in containers |
+| Type of Application | Described By | Azure Service Fabric Mesh | Azure Service Clusters (Any OS)| Local cluster - Windows | Local cluster - Linux | Local cluster - Mac | Standalone cluster (Windows)
+|---|---|---|---|---|---|---|---|---|---|
+| Service Fabric Mesh Applications | Resource Model (YAML & JSON) | Supported |Not supported | Supported |Not supported | Not supported | Not supported |
+|Service Fabric Native Applications | Native Application Model (XML) | Not Supported| Supported|Supported|Supported|Supported|Supported|
 
-The following table describes the supported environment and deployment model combinations.
+The following table describes the different application models and the tooling that exists for them against Service Fabric.
 
-|Environment\Deployment model |Resource model |Native model |Compose |
-|---|---|---|---|
-|Azure Service Fabric Mesh |Supported |Not supported|Not supported |
-|All other environments |Supported (Some resources have prerequisites to work in an environment) |Supported |Limited Support |
+| Type of Application | Described By | Visual Studio 2017 | Visual Studio 2015 | Eclipse | VS Code | SFCTL | AZ CLI | Powershell
+|---|---|---|---|---|---|---|---|---|---|
+| Service Fabric Mesh Applications | Resource Model (YAML & JSON) | Supported |Not supported |Not supported |Not supported |Not supported | Supported - Mesh environment only | Not Supported
+|Service Fabric Native Applications | Native Application Model (XML) | Supported| Supported|Supported|Supported|Supported|Supported|Supported|
 
 ## Next steps
 

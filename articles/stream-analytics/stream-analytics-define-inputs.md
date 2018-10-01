@@ -23,7 +23,7 @@ These input resources can live in the same Azure subscription as your Stream Ana
 Stream Analytics supports compression across all data stream input sources. Currently supported reference types are: None, GZip, and Deflate compression. Support for compression is not available for reference data. If the input format is Avro data that is compressed, it's handled transparently. You don't need to specify compression type with Avro serialization. 
 
 ## Create, edit, or test inputs
-You can use the [Azure portal](https://portal.azure.com) to [create new inputs](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) and view or edit existing inputs on your streaming job. You can also test input connections and [test queries](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-manage-job#test-your-query) from sample data. When you write a query, you will list the input in the FROM clause. You can get the list of available inputs from the **Query** page in the portal. If you wish to use multiple inputs, you can `JOIN` them or write multiple `SELECT` queries.
+You can use the [Azure portal](https://portal.azure.com) to [create new inputs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) and view or edit existing inputs on your streaming job. You can also test input connections and [test queries](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) from sample data. When you write a query, you will list the input in the FROM clause. You can get the list of available inputs from the **Query** page in the portal. If you wish to use multiple inputs, you can `JOIN` them or write multiple `SELECT` queries.
 
 
 ## Stream data from Event Hubs
@@ -117,7 +117,7 @@ For scenarios with large quantities of unstructured data to store in the cloud, 
 
 Log processing is a commonly used scenario for using Blob storage inputs with Stream Analytics. In this scenario, telemetry data files have been captured from a system and need to be parsed and processed to extract meaningful data.
 
-The default timestamp of Blob storage events in Stream Analytics is the timestamp that the blob was last modified, which is `BlobLastModifiedUtcTime`. To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword.
+The default timestamp of Blob storage events in Stream Analytics is the timestamp that the blob was last modified, which is `BlobLastModifiedUtcTime`. To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword. A Stream Analytics job pulls data from Azure Blob storage input every second if the blob file is available. If the blob file is unavailable, there is an exponential backoff with a maximum time delay of 90 seconds.
 
 CSV-formatted inputs *require* a header row to define fields for the data set, and all header row fields must be unique.
 

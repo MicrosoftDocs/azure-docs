@@ -1,20 +1,13 @@
 ---
-title: Manage Azure file shares using Azure Storage Explorer 
+title: Manage Azure file shares using Azure Storage Explorer
 description: Learn how to use Azure Storage Explorer to manage Azure Files.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Manage Azure file shares with Azure Storage Explorer 
@@ -93,7 +86,7 @@ The progress of the download appears in the **Activities** pane at the bottom of
 
 ## Create and modify share snapshots
 A snapshot preserves a point-in-time copy of an Azure file share. File share snapshots are similar to other technologies that you might already be familiar with:
-- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems, such as NTFS and ReFS
+- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems, such as NTFS and ReFS
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS
 

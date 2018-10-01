@@ -5,7 +5,7 @@ description: Guest user properties are configurable in Azure Active Directory B2
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 
 ms.author: mimart

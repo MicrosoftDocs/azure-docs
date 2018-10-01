@@ -13,8 +13,8 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2018
+ms.topic: conceptual
+ms.date: 09/25/2018
 ms.author: maheshu
 
 ---
@@ -77,7 +77,7 @@ On your Windows computer, open a new PowerShell window as **Administrator** and 
 
 ```powershell
 $lifetime=Get-Date
-New-SelfSignedCertificate -Subject *.contoso100.com `
+New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```

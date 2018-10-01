@@ -1,16 +1,16 @@
 ---
 title: Virtual Network service endpoints and rules for Azure Event Hubs | Microsoft Docs
-description: Add a Microsoft.ServiceBus service endpoint to a virtual network. 
+description: Add a Microsoft.EventHub service endpoint to a virtual network. 
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
-ms.author: clemensv
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
@@ -34,7 +34,7 @@ That means your security sensitive cloud solutions not only gain access to Azure
 
 *Virtual network rules* are the firewall security feature that controls whether your Azure Event Hubs server accepts connections from a particular virtual network subnet.
 
-Binding an Event Hubs namespace to a virtual network is a two-step process. You first need to create a **Virtual Network service endpoint** on a Virtual Network subnet and enable it for "Microsoft.ServiceBus" as explained in the [service endpoint overview][vnet-sep]. Once you have added the service endpoint, you bind the Event Hubs namespace to it with a *virtual network rule*.
+Binding an Event Hubs namespace to a virtual network is a two-step process. You first need to create a **Virtual Network service endpoint** on a Virtual Network subnet and enable it for "Microsoft.EventHub" as explained in the [service endpoint overview][vnet-sep]. Once you have added the service endpoint, you bind the Event Hubs namespace to it with a *virtual network rule*.
 
 The virtual network rule is a named association of the Event Hubs namespace with a virtual network subnet. While the rule exists, all workloads bound to the subnet are granted access to the Event Hubs namespace. Event Hubs itself never establishes outbound connections, does not need to gain access, and is therefore never granted access to your subnet by enabling this rule.
 

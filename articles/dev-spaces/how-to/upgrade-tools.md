@@ -4,14 +4,14 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "07/03/2018"
 ms.topic: "article"
 ms.technology: "azds-kubernetes"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
-manager: "douge"
+manager: douge
 ---
 # How to upgrade Azure Dev Spaces tools
 

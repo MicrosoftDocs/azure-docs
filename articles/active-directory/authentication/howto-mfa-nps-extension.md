@@ -5,13 +5,13 @@ description: Add cloud-based two-step verification capabilities to your existing
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 05/01/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
@@ -102,7 +102,7 @@ This step may already be complete on your tenant, but it's good to double-check 
 2. Select **Azure Active Directory** > **Azure AD Connect**
 3. Verify that your sync status is **Enabled** and that your last sync was less than an hour ago.
 
-If you need to kick off a new round of synchronization, us the instructions in [Azure AD Connect sync: Scheduler](../connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
+If you need to kick off a new round of synchronization, us the instructions in [Azure AD Connect sync: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 
 ### Determine which authentication methods your users can use
 

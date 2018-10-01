@@ -18,12 +18,12 @@ ms.author: tomfitz
 ---
 # Use portal to create an Azure Active Directory application and service principal that can access resources
 
-When you have code that needs to access or modify resources, you must set up an Azure Active Directory (AD) application. You assign the required permissions to AD application. This approach is preferable to running the app under your own credentials because you can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
+When you have code that needs to access or modify resources, you must set up an Azure Active Directory (AD) application. You can then assign the required permissions to the AD application. This approach is preferable to running the app under your own credentials because you can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
 
-This article shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
+This article shows you how to perform these steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
 
 > [!IMPORTANT]
-> Instead of creating a service principal, consider using Azure AD Managed Service Identity for your application identity. Azure AD MSI is a public preview feature of Azure Active Directory that simplifies creating an identity for code. If your code runs on a service that supports Azure AD MSI and accesses resources that support Azure Active Directory authentication, Azure AD MSI is a better option for you. To learn more about Azure AD MSI, including which services currently support it, see [Managed Service Identity for Azure resources](../active-directory/managed-service-identity/overview.md).
+> Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure Active Directory authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Required permissions
 
@@ -49,7 +49,7 @@ To complete this article, you must have sufficient permissions to register an ap
 
 ### Check Azure subscription permissions
 
-In your Azure subscription, your account must have `Microsoft.Authorization/*/Write` access to assign an AD app to a role. This action is granted through the [Owner](../role-based-access-control/built-in-roles.md#owner) role or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) role. If your account is assigned to the **Contributor** role, you do not have adequate permission. You receive an error when attempting to assign the service principal to a role.
+In your Azure subscription, your account must have `Microsoft.Authorization/*/Write` access to assign an AD app to a role. This action is granted through the [Owner](../role-based-access-control/built-in-roles.md#owner) role or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) role. If your account is assigned to the **Contributor** role, you don't have adequate permission. You receive an error when attempting to assign the service principal to a role.
 
 To check your subscription permissions:
 
@@ -67,7 +67,7 @@ To check your subscription permissions:
 
 ## Create an Azure Active Directory application
 
-1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
+1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
 1. Select **Azure Active Directory**.
 
    ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
@@ -80,11 +80,11 @@ To check your subscription permissions:
 
    ![add app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Provide a name and URL for the application. Select **Web app / API** for the type of application you want to create. You cannot create credentials for a [Native application](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); therefore, that type does not work for an automated application. After setting the values, select **Create**.
+1. Provide a name and URL for the application. Select **Web app / API** for the type of application you want to create. You can't create credentials for a [Native application](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); therefore, that type doesn't work for an automated application. After setting the values, select **Create**.
 
    ![name application](./media/resource-group-create-service-principal-portal/create-app.png)
 
-You have created your application.
+You've created your application.
 
 ## Get application ID and authentication key
 
@@ -110,7 +110,7 @@ When programmatically logging in, you need the ID for your application and an au
 
    ![save key](./media/resource-group-create-service-principal-portal/save-key.png)
 
-   After saving the key, the value of the key is displayed. Copy this value because you are not able to retrieve the key later. You provide the key value with the application ID to log in as the application. Store the key value where your application can retrieve it.
+   After saving the key, the value of the key is displayed. Copy this value because you aren't able to retrieve the key later. You provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
    ![saved key](./media/resource-group-create-service-principal-portal/copy-key.png)
 
@@ -152,7 +152,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
    ![select add](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Select the role you wish to assign to the application. The following image shows the **Reader** role.
+1. Select the role you wish to assign to the application. In order to allow the application execute actions like **reboot**, **start** and **stop** instances, you must have to select the role **Contributor**. The following image shows the **Reader** role.
 
    ![select role](./media/resource-group-create-service-principal-portal/select-role.png)
 

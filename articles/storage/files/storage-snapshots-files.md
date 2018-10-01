@@ -2,20 +2,12 @@
 title: Overview of share snapshots for Azure Files | Microsoft Docs
 description: A share snapshot is a read-only version of an Azure Files share that's taken at a point in time, as a way to back up the share.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-
-ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-
+ms.component: files
 ---
 
 # Overview of share snapshots for Azure Files 
@@ -35,7 +27,7 @@ After you create a file share, you can periodically create a share snapshot of t
 ## Capabilities
 A share snapshot is a point-in-time, read-only copy of your data. You can create, delete, and manage snapshots by using the REST API. Same capabilities are also available in the client library, Azure CLI, and Azure portal. 
 
-You can view snapshots of a share by using both the REST API and SMB. You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive. 
+You can view snapshots of a share by using both the REST API and SMB. You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive (only available on Windows - see [Limits](#limits)). 
 
 After a share snapshot is created, it can be read, copied, or deleted, but not modified. You can't copy a whole share snapshot to another storage account. You have to do that file by file, by using AzCopy or other copying mechanisms.
 
@@ -67,6 +59,8 @@ The maximum number of share snapshots that Azure Files allows today is 200. Afte
 
 There is no limit to the simultaneous calls for creating share snapshots. There is no limit to amount of space that share snapshots of a particular file share can consume. 
 
+Today, it is not possible to mount share snapshots on Linux. This is because the Linux SMB client does not support mounting snapshots like Windows does.
+
 ## Copying data back to a share from share snapshot
 Copy operations that involve files and share snapshots follow these rules:
 
@@ -92,4 +86,5 @@ Share snapshots provide only file-level protection. Share snapshots don't preven
     - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
     - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
     - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+    - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
 - [Share snapshot FAQ](storage-files-faq.md#share-snapshots)

@@ -2,14 +2,14 @@
 title: Regional failover in Azure Cosmos DB | Microsoft Docs
 description: Learn about how manual and automatic failover works with Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: sngun
+ms.author: govindk
 ms.custom: H1Hack27Feb2017
 
 ---

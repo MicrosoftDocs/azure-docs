@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 09/13/2018
 ms.author: jingwang
 
 ---
@@ -31,7 +31,10 @@ Specifically, this Amazon S3 connector supports copying files as-is or parsing f
 To copy data from Amazon S3, make sure you have been granted the following permissions:
 
 - `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 Object Operations.
-- `s3:ListBucket` or `s3:GetBucketLocation` for Amazon S3 Bucket Operations. If you are using the Data Factory Copy Wizard, `s3:ListAllMyBuckets` is also required.
+- `s3:ListBucket` or `s3:GetBucketLocation` for Amazon S3 Bucket Operations. 
+
+>[!NOTE]
+>When using Data Factory GUI for authoring, `s3:ListAllMyBuckets` permission is also required for operations like test connection and browse/navigate file paths. If you don't want to grant this permission, skip test connection in linked service creation page and speicify the path directly in dataset settings.
 
 For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 

@@ -39,6 +39,16 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.1.0"/>2.1.0
+* Added new API, Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). This can be used to get estimated work for each partition.
+* Supports Microsoft.Azure.DocumentDB SDK 2.0. Requires Microsoft.Azure.DocumentDB 2.0 or later.
+
+### <a name="2.0.6"/>2.0.6
+* Added ChangeFeedEventHost.HostName public property for compativility with v1.
+
+### <a name="2.0.5"/>2.0.5
+* Fixed a race condition that occurs during partition split. The race condition may lead to acquiring lease and immediately losing it during partition split and causing contention. The race condition issue is fixed with this release.
+
 ### <a name="2.0.4"/>2.0.4
 * GA SDK
 

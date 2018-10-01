@@ -36,7 +36,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> You can use the "az mesh servicereplica" command to get the replica name. Replica names are incrementing numbers from 0.*
+> You can use the "az mesh service-replica" command to get the replica name. Replica names are incrementing numbers from 0.*
 
 Here is what this looks like for seeing the logs from the VotingWeb.Code container from the voting application:
 

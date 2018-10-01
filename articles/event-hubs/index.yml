@@ -13,7 +13,7 @@ metadata:
   ms.date: 05/14/2018
   ms.author: sethm
 abstract:
-  description: Azure Event Hubs is a data streaming platform and event processing service, capable of receiving and processing millions of events per second. The service supports HTTPS and AMQP 1.0 protocols, and the Apache Kafka ecosystem, for event publishing.
+  description: Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters. <p>The service supports HTTPS, AMQP 1.0, and Apache Kafka 1.0 protocols for publishing events to an event hub. It supports Apache Kafka MirrorMaker, Apache Flink, and Akka Streams in the Apache Kafka ecosystems.</p>
   aside:
     image:
       alt: 
@@ -50,7 +50,20 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://review.docs.microsoft.com/en-us/azure/event-hubs/event-hubs-tutorial-visualize-anomalies?branch=release-mvc-event-hubs">Read a stream of Event Hubs data with Azure Stream Analytics and visualize the anomalies</a>
+    - html: <a href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-tutorial-visualize-anomalies">Read a stream of Event Hubs data with Azure Stream Analytics and visualize the anomalies</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Enable reliable messaging for Big Data Applications using Azure Event Hubs
+      href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
+      image: 
+        src: /learn/achievements/enable-reliable-messaging-for-big-data-apps-using-azure-event-hubs.svg
+        href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-event-hubs">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

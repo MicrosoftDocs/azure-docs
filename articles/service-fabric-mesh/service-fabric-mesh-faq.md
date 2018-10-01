@@ -13,6 +13,10 @@ manager: timlt
 # Commonly asked Service Fabric Mesh questions
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. This article has answers to commonly asked questions.
 
+## How do I report an issue or ask a question?
+
+Ask questions, get answers from Microsoft engineers, and report issues in the [service-fabric-mesh-preview GitHub repo](https://aka.ms/sfmeshissues).
+
 ## Quota and Cost
 
 **What is the cost of participating in the preview?**
@@ -73,7 +77,7 @@ There is a known issue, where you might have to reference services differently i
 
 For other known DNS issues with running a Service Fabric development cluster on Windows 10, see here: [Debug Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers).
 
-**I get this error when using the CLI module _ImportError: cannot import name 'sdk_no_wait'**
+**I get this error when using the CLI module, ImportError: cannot import name 'sdk_no_wait'**
 
 If you are using older CLI version than 2.0.30, you may get this error -
 

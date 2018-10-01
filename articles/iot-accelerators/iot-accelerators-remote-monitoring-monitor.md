@@ -1,23 +1,23 @@
 ---
-title: Monitor your IoT devices from an Azure solution | Microsoft Docs
+title: Monitor your IoT devices from an Azure solution tutorial | Microsoft Docs
 description: In this tutorial you learn how to monitor your IoT devices using the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
 
-# As an operator of an IoT monitoring solution, I need to monitor my connected devices. 
+# As an operator of an IoT monitoring solution, I need to monitor my connected devices, to understand the health of my fleet of devices.
 ---
 
 # Tutorial: Monitor your IoT devices
 
 In this tutorial, you use the Remote Monitoring solution accelerator to monitor your connected IoT devices. You use the solution dashboard to view telemetry, device information, alerts, and KPIs.
 
-To introduce these monitoring features, the tutorial uses two simulated truck devices. The trucks are managed by an organization called Contoso and are connected to the Remote Monitoring solution accelerator. As a Contoso operator, you need to monitor the location and behavior of your trucks in the field.
+The tutorial uses two simulated truck devices that send location, speed, and cargo temperature telemetry. The trucks are managed by an organization called Contoso and are connected to the Remote Monitoring solution accelerator. As a Contoso operator, you need to monitor the location and behavior of one of your trucks (truck-02) in the field.
 
 In this tutorial, you:
 
@@ -28,11 +28,9 @@ In this tutorial, you:
 > * View alerts from your devices
 > * View the system KPIs
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To follow this tutorial, you need a deployed instance of the Remote Monitoring solution accelerator in your Azure subscription.
-
-If you haven't deployed the Remote Monitoring solution accelerator yet, you should complete the [Deploy a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md) quickstart.
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## Choose the devices to display
 
@@ -40,31 +38,27 @@ To select which connected devices display on the **Dashboard** page, use filters
 
 [![Filter for trucks on the dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-When you apply a filter, only those devices that match the filter conditions are displayed on the map on the **Dashboard** page:
+When you apply a filter, only those devices that match the filter conditions are displayed on the map and in the telemetry panel on the **Dashboard** page. You can see that there are two trucks connected to the solution accelerator, including truck-02:
 
 [![Only trucks are displayed on the map](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 
-The filter also determines which devices you see in the **Telemetry** chart:
-
-[![Truck telemetry is displayed on the dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-expanded.png#lightbox)
-
-To create, edit, and delete filters, choose **Manage device groups**.
+To create, edit, and delete filters, click **Manage device groups**.
 
 ## View real-time telemetry
 
-The solution accelerator plots real-time telemetry in the chart on the **Dashboard** page. The top of the telemetry chart shows available telemetry types for the devices selected by the current filter:
+The solution accelerator plots real-time telemetry in the chart on the **Dashboard** page. The top of the telemetry chart shows available telemetry types for the devices, including truck-02, selected by the current filter. By default, the chart is showing the latitude of the trucks and truck-02 appears to be stationary:
 
 [![Truck telemetry types](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
 
-To view temperature telemetry, click **Temperature**:
+To view temperature telemetry for the trucks, click **Temperature**. You can see how the temperature for truck-02 has varied over the last hour:
 
 [![Truck temperature telemetry plot](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
 
-## Use the map
+## View the map
 
-The map displays information about the simulated trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The color of a device icon on the map indicates whether any **Alerts** or **Warnings** are active for the device. A summary of the number of **Alerts** and **Warnings** is displayed to the left of the map.
+The map displays information about the simulated trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The color of a device icon on the map indicates whether any **Alerts** (dark blue) or **Warnings** (red) are active for the device. A summary of the number of **Alerts** and **Warnings** is displayed to the left of the map.
 
-To view the device details, pan and zoom the map to locate the device, then select the device on the map. Then click on the device label to open the **Device details** panel. Device details include:
+To view the details for truck-02, pan and zoom the map to locate it, then select the truck on the map. Then click on the device label to open the **Device details** panel. Device details include:
 
 * Recent telemetry values
 * Methods the device supports
@@ -74,13 +68,11 @@ To view the device details, pan and zoom the map to locate the device, then sele
 
 ## View alerts
 
-The **Alerts** panel displays detailed information about the most recent alerts from your devices:
+The **Alerts** panel displays detailed information about the most recent alerts from your devices. The alerts from truck-02 indicate higher than normal cargo temperature:
 
 [![View device alerts on the dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
 
-You can use a filter to adjust the time span for recent alerts. By default, the panel displays alerts from the last hour:
-
-[![Filter the alerts by time](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-expanded.png#lightbox)
+You can use a filter to adjust the time span for recent alerts. By default, the panel displays alerts from the last hour.
 
 ## View the system KPIs
 
@@ -94,19 +86,11 @@ The dashboard shows three KPIs for the alerts selected by the current device and
 * The proportion of alerts by device type.
 * The percentage of alerts that are critical alerts.
 
+For truck-02, all the alerts are warnings of higher than normal cargo temperature.
+
 The same filters that set the time span for alerts and control which devices are displayed determine how the KPIs are aggregated. By default, the panel displays KPIs aggregated over the last hour.
 
-## Clean up resources
-
-If you plan to move on to the next tutorial, leave the Remote Monitoring solution accelerator deployed. To reduce the costs of running the solution accelerator while you're not using it, you can stop the simulated devices in the settings panel:
-
-[![Pause telemetry](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-expanded.png#lightbox)
-
-You can restart the simulated devices when you're ready to start the next tutorial.
-
-If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page:
-
-![Delete solution](media/iot-accelerators-remote-monitoring-monitor/deletesolution.png)
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## Next steps
 

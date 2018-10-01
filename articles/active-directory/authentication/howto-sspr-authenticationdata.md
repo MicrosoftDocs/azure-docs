@@ -5,8 +5,8 @@ description: Data requirements for Azure AD self-service password reset and how 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -18,7 +18,7 @@ ms.reviewer: sahenry
 
 To deploy Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication data needs to be present. Some organizations have their users enter their authentication data themselves. But many organizations prefer to synchronize with data that already exists in Active Directory. The synced data is made available to Azure AD and SSPR without requiring user interaction if you:
    * Properly format the data in your on-premises directory.
-   * Configure [Azure AD Connect by using the express settings](./../connect/active-directory-aadconnect-get-started-express.md).
+   * Configure [Azure AD Connect by using the express settings](../hybrid/how-to-connect-install-express.md).
 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
 
@@ -44,20 +44,19 @@ A Global Administrator can manually set the Authentication contact info for a us
 
 ![Contact][Contact]
 
-If the Phone field is populated and Mobile phone is enabled in the SSPR policy, the user will see that number on the password reset registration page and during the password reset workflow. 
+If the Phone field is populated and Mobile phone is enabled in the SSPR policy, the user will see that number on the password reset registration page and during the password reset workflow.
 
 The Alternate phone field is not used for password reset.
 
 If the Email field is populated and Email is enabled in the SSPR policy, the user will see that email on the password reset registration page and during the password reset workflow.
 
-If the Alternate email field is populated and Email is enabled in the SSPR policy, the user will **not** see that email on the password reset registration page, but they will see it during the password reset workflow. 
-
+If the Alternate email field is populated and Email is enabled in the SSPR policy, the user will **not** see that email on the password reset registration page, but they will see it during the password reset workflow.
 
 ## Security questions and answers
 
-The security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via the [SSPR registration portal](https://aka.ms/ssprsetup). Administrators can't see or modify the contents of another users' questions and answers.
+The security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via the [SSPR registration portal](https://aka.ms/ssprsetup). Administrators can't see, set, or modify the contents of another users' questions and answers.
 
-### What happens when a user registers
+## What happens when a user registers
 
 When a user registers, the registration page sets the following fields:
 

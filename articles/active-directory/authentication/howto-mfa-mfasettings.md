@@ -5,13 +5,13 @@ description: This article describes how to configure Azure Multi-Factor Authenti
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/03/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Configure Azure Multi-Factor Authentication settings
@@ -177,7 +177,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**.
 3. Select **Configure MFA trusted IPs**.
-4. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options:
+4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
    
    * **For requests from federated users originating from my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 
@@ -197,10 +197,10 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable the Trusted IPs feature by using service settings
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
+2. On the left, select **Azure Active Directory** > **Users**.
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options:
+5. On the **Service Settings** page, under **Trusted IPs**, choose one (or both) of the following two options:
    
    * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 

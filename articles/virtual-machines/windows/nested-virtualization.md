@@ -17,13 +17,15 @@ ms.workload: infrastructure
 ---
 # How to enable nested virtualization in an Azure VM
 
-Nested virtualization is supported in the Dv3 and Ev3 series of Azure virtual machines. This capability provides great flexibility in supporting scenarios such as development, testing, training, and demonstration environments. 
+Nested virtualization is supported in several Azure virtual machine families. This capability provides great flexibility in supporting scenarios such as development, testing, training, and demonstration environments.   
 
-All Dv3 and Ev3 series virtual machines support nested virtualization with no added configuration.  This article steps through enabling Hyper-V on an Azure VM and configuring Internet connectivity to that guest virtual machine.
+This article steps through enabling Hyper-V on an Azure VM and configuring Internet connectivity to that guest virtual machine.
 
-## Create a Dv3 or Ev3 series Azure VM
+## Create a nesting capable Azure VM
 
-Create a new Windows Server 2016 Azure VM and choose a size from the Dv3 or Ev3 series. Ensure you choose a size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
+Create a new Windows Server 2016 Azure VM.  For quick refernce, all v3 virtual machines support nested virtualization. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](acu.md).
+
+Remember to choose a VM size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
 
 You can view the regional availability of Dv3 or Ev3 series virtual machines [here](https://azure.microsoft.com/regions/services/).
 

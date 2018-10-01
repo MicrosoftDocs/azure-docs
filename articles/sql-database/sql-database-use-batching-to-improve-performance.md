@@ -2,14 +2,16 @@
 title: How to use batching to improve Azure SQL Database application performance
 description: The topic provides evidence that batching database operations greatly imroves the speed and scalability of your Azure SQL Database applications. Although these batching techniques work for any SQL Server database, the focus of the article is on Azure.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/20/2018
 ---
 # How to use batching to improve SQL Database application performance
 Batching operations to Azure SQL Database significantly improves the performance and scalability of your applications. In order to understand the benefits, the first part of this article covers some sample test results that compare sequential and batched requests to a SQL Database. The remainder of the article shows the techniques, scenarios, and considerations to help you to use batching successfully in your Azure applications.
@@ -99,9 +101,7 @@ The following table shows some ad-hoc testing results. The tests performed the s
 | 1000 |21479 |2756 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
-> 
-> 
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 
 Based on the previous test results, wrapping a single operation in a transaction actually decreases performance. But as you increase the number of operations within a single transaction, the performance improvement becomes more marked. The performance difference is also more noticeable when all operations occur within the Microsoft Azure datacenter. The increased latency of using SQL Database from outside the Microsoft Azure datacenter overshadows the performance gain of using transactions.
 
@@ -181,7 +181,7 @@ The following table shows ad-hoc test results for the use of table-valued parame
 | 10000 |23830 |3586 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -218,7 +218,7 @@ The following ad-hoc test results show the performance of batching with **SqlBul
 | 10000 |21605 |2737 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -259,7 +259,7 @@ The following ad-hoc test results show the performance of this type of insert st
 | 100 |33 |51 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -301,7 +301,7 @@ In our tests, there was typically no advantage to breaking large batches into sm
 | 50 |20 |630 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -322,7 +322,7 @@ What if you took the approach of reducing the batch size but used multiple threa
 | 100 [10] |488 |439 |391 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 > 
 > 
 

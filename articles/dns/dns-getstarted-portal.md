@@ -2,13 +2,13 @@
 title: Quickstart - Create a DNS zone and record using the Azure Portal
 description: Use this quickstart to learn how to create a DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS zone and record using the Azure portal.
 services: dns
-author: KumudD
+author: vhorne
 manager: jeconnoc
 
 ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
-ms.author: kumud
+ms.author: victorh
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS so I can connect to my web server using a friendly name.
 ---
 
@@ -21,7 +21,7 @@ In this quickstart, you create a test domain, and then create an  address record
 It is important to know that all the names and IP addresses used in this quickstart are examples only, and are not meant to represent a real-world scenario. However, where applicable, real-world scenarios are also described.
 
 <!---
-You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
 A DNS zone is used to contain the DNS entries for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS entry (or record) for your domain is then created inside this DNS zone. The following steps show you how to do this.

@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: sujayt
 
 ---
@@ -143,12 +143,44 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 ## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
 
-For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might see one of these error messages:
+For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
 
-**Error codes** | **Possible causes** | **Recommendations**
---- | --- | ---
-151037<br></br>**Message**: Failed to register Azure virtual machine with Site Recovery. | - You're using NSG to control outbound access on the VM and the required IP ranges aren't whitelisted for outbound access.</br></br>- You're using third-party firewall tools and the required IP ranges/URLs are not whitelisted.</br>| - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>- If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
-151072<br></br>**Message**: Site Recovery configuration failed. | Connection cannot be established to Site Recovery service endpoints. | - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>- If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
+### Issue 1: Failed to register Azure virtual machine with Site Recovery (151037) </br>
+- **Possible cause** </br>
+  - You're using NSG to control outbound access on the VM and the required IP ranges aren't whitelisted for outbound access.
+  - You're using third-party firewall tools and the required IP ranges/URLs are not whitelisted.
+
+
+- **Resolution**
+   - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).
+   - If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
+   - To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+
+### Issue 2: Site Recovery configuration failed (151072)
+- **Possible cause** </br>
+  - Connection cannot be established to Site Recovery service endpoints
+
+
+- **Resolution**
+   - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).
+   - If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
+   - To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+
+### Issue 3: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
+ - **Possible cause** </br>
+   - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
+
+
+ - **Resolution**
+  1.	Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
+  2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
+      - ``/usr/local/InMage/config/`` on ***Linux***
+      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
+  3.	The ProxyInfo.conf should have the proxy settings in the following INI format. </br>
+                   *[proxy]*</br>
+                   *Address=http://1.2.3.4*</br>
+                   *Port=567*</br>
+  4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
 
 ### Fix the problem
 To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
@@ -208,6 +240,20 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 - If **provisioningState** is **Failed**, contact support with details to troubleshoot.
 - If **provisioningState** is **Updating**, another extension could be getting deployed. Check if there are any ongoing operations on the VM, wait for them to complete and retry the failed Site Recovery **Enable replication** job.
 
+## Unable to select Target virtual network - network selection tab is grayed out.
+
+**Cause 1: If your VM is attached to a network that is already mapped to a 'Target network'.**
+- If the source VM is part of a virtual network and another VM from the same virtual network is already mapped with a network in target resource group, then by default network selection drop down will be disabled.
+
+![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
+
+**Cause 2: If you previously protected the VM using Azure Site Recovery and disabled the replication.**
+ - Disabling replication of a VM does not delete the Network Mapping. It has to be deleted from the recovery service vault where the VM was protected. </br>
+ Navigate to recovery service vault > Site Recovery Infrastructure > Network mapping. </br>
+ ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+ - Target network configured during the disaster recovery setup can be changed after the initial set up, after the VM is protected. </br>
+ ![Modify_NW_mapping](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+ - Note that changing network mapping affects all protected VMs that use that specific network mapping.
 
 
 ## COM+/Volume Shadow Copy service error (error code 151025)

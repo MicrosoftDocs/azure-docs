@@ -1,15 +1,14 @@
 ---
-title: The Speech Synthesis Markup Language | Microsoft Docs
+title: The Speech Synthesis Markup Language
 description: Using the Speech Synthesis Markup language to control pronunciation and prosody in text-to-speech.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
 ---
 
@@ -70,6 +69,17 @@ The following examples show how to use SSML for common speech synthesis needs.
 <prosody contour="(80%,+20%) (90%,+30%)" >
     Good morning.
 </prosody></voice> </speak>
+```
+
+## Use multiple voices
+```xml
+<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+    Good morning!
+</voice>
+<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
+    Good morning to you too Jessa!
+</voice> </speak>
 ```
 
 ## Next steps

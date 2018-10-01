@@ -1,19 +1,14 @@
 ---
-title: Set up HBase cluster replication in Azure virtual networks | Microsoft Docs
+title: Set up HBase cluster replication in Azure virtual networks 
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: jgao
-
+ms.date: 09/15/2018
 ---
 # Set up HBase cluster replication in Azure virtual networks
 
@@ -108,6 +103,7 @@ To install Bind, yon need to find the public IP address of the two DNS virtual m
 2. Open the DNS virtual machine by selecting **Resources groups > [resource group name] > [vnet1DNS]**.  The resource group name is the one you create in the last procedure. The default DNS virtual machine names are *vnet1DNS* and *vnet2NDS*.
 3. Select **Properties** to open the properties page of the virtual network.
 4. Write down the **Public IP address**, and also verify the **Private IP address**.  The private IP address shall be **10.1.0.4** for vnet1DNS and **10.2.0.4** for vnet2DNS.  
+5. Change the DNS Servers for both virtual networks to use Default (Azure-Provided) DNS servers to allow inbound and outbound access to download packages to install Bind in the following steps.
 
 To install Bind, use the following procedure:
 
@@ -134,7 +130,7 @@ To install Bind, use the following procedure:
 	sudo apt-get install bind9 -y
     ```
 
-3. To configure Bind to forward name resolution requests to your on-prem DNS server, use the following text as the contents of the `/etc/bind/named.conf.options` file:
+3. Configure Bind to forward name resolution requests to your on-prem DNS server. To do so, use the following text as the contents of the `/etc/bind/named.conf.options` file:
 
     ```
     acl goodclients {
@@ -150,7 +146,7 @@ To install Bind, use the following procedure:
         allow-query { goodclients; };
 
         forwarders {
-            168.63.129.16 #This is the Azure DNS server
+            168.63.129.16; #This is the Azure DNS server
         };
 
         dnssec-validation auto;
@@ -216,7 +212,7 @@ To install Bind, use the following procedure:
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]
@@ -276,7 +272,7 @@ To create a **Contacts** table and insert some data in the table, follow the ins
 
 ## Enable replication
 
-The following steps describe how to call the script action script from the Azure portal. For information about running a script action by using Azure PowerShell and the Azure command-line tool (Azure CLI), see [Customize HDInsight clusters by using script action](../hdinsight-hadoop-customize-cluster-linux.md).
+The following steps describe how to call the script action script from the Azure portal. For information about running a script action by using Azure PowerShell and the Azure Classic CLI, see [Customize HDInsight clusters by using script action](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **To enable HBase replication from the Azure portal**
 
