@@ -106,7 +106,7 @@ String functions work only on strings.
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Replace a substring with the specified string, and return the updated string. | 
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Return an array that has all the characters from a string and separates each character with the specific delimiter character. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Return an array that contains substrings, separated by commas, from a larger string based on a specified delimiter character in the original string. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Check whether a string starts with a specific substring. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Return a string in lowercase format. | 
@@ -3203,9 +3203,8 @@ And returns this array with the remaining items: `[1,2,3]`
 
 ### split
 
-Return an array that separates a string into substrings 
-that are separated by commas, based on the specified 
-delimiter character from that string. 
+Return an array that contains substrings, separated by commas, 
+based on the specified delimiter charcter in the original string. 
 
 ```
 split('<text>', '<delimiter>')
@@ -3224,8 +3223,8 @@ split('<text>', '<delimiter>')
 
 *Example* 
 
-This example creates an array with substrings from the specified string 
-based on the specified character as the delimiter: 
+This example creates an array with substrings from the specified 
+string based on the specified character as the delimiter: 
 
 ```
 split('a_b_c', '_')
