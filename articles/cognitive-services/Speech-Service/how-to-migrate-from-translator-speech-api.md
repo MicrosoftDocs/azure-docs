@@ -14,8 +14,10 @@ ms.author: aahi
 
 # Migrate from the Translator Speech API to the Speech Service
 
-Use this article to migrate your applications from the Microsoft Translator Speech API to the [Speech Service](index.yml). This guide outlines the differences between the Translator Speech API and Speech Service, and suggests strategies for migrating your applications. 
-Note that your Translator Speech API subscription key won't be accepted by the Speech Service, and that you will need a new subscription.
+Use this article to migrate your applications from the Microsoft Translator Speech API to the [Speech Service](index.yml). This guide outlines the differences between the Translator Speech API and Speech Service, and suggests strategies for migrating your applications.
+
+> [!NOTE]
+> Your Translator Speech API subscription key won't be accepted by the Speech Service. You will need to start a new Speech Service subscription.
 
 ## Comparison of features
 
