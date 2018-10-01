@@ -31,7 +31,7 @@ Combining global and regional services in your application provides an end-to-en
 - Performance routing to send the requestor to the closest backend in terms of latency.
 - Priority routing to direct all traffic to a backend, with other backends as back up.
 - Weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each backend.
-- Geographic routing to ensure that requestors located in specific geographic regions are directed to the backends mapped to those regions (for example, all requests from Spain should be directed to the US-East Azure region)
+- Geographic routing to ensure that requestors located in specific geographic regions are directed to the backends mapped to those regions (for example, all requests from Spain should be directed to the France Central Azure region)
 - Subnet routing that allows you to map IP address ranges to backends so that requests coming from those will be sent to the specified backend (for example, all users connecting from your corporate HQ’s IP address range should get different web content than the general users)
 
 The client connects directly to that backend. Azure Traffic Manager detects when a backend is unhealthy and then redirects the clients to another healthy instance. Refer to [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) documentation to learn more about the service.
