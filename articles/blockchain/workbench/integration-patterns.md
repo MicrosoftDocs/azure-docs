@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/1/2018
+ms.date: 10/1/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
@@ -29,7 +29,7 @@ This section includes the patterns identified for implementing each of these typ
 
 ## REST API-based integration
 
-Capabilities within the Azure Blockchain Workbench generated web application are exposed via the REST API. This includes Azure Blockchain Workbench uploading, configuration and administration of applications, sending transactions to a distributed ledger, and the querying of application metadata and ledger data.
+Capabilities within the Azure Blockchain Workbench generated web application are exposed via the REST API. Capabilities include Azure Blockchain Workbench uploading, configuration and administration of applications, sending transactions to a distributed ledger, and the querying of application metadata and ledger data.
 
 The REST API is primarily used for interactive clients such as web, mobile, and bot applications.
 
@@ -79,7 +79,7 @@ An example of this scenario is that when a transaction occurs, a consumer would 
 
 Another would be if a smart contract transitions to a particular state, for example when a contract goes into an *OutOfCompliance*. When this state change happens, it could trigger an alert to be sent to an administrator's mobile phone.
 
-![One way event delivery](./media/integration-patterns/one-way-event-delivery.png)
+![One-way event delivery](./media/integration-patterns/one-way-event-delivery.png)
 
 This occurs using the process depicted above, where:
 
