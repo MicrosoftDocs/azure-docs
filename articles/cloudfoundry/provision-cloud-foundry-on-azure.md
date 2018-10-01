@@ -45,7 +45,7 @@ ssh-keygen -t rsa -b 2048
 
     ![Alt image text](media/deploy/az-login-output.png "Azure CLI login")
  
-Copy the “id” value as your **subscription ID** and the **tenantId** value to be used later.
+    Copy the “id” value as your **subscription ID** and the **tenantId** value to be used later.
 
 2. Set your default subscription for this configuration.
 
@@ -55,12 +55,11 @@ Copy the “id” value as your **subscription ID** and the **tenantId** value t
 
     `az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
 
-The copy “appId” value in the output as your **ClientID** to be used later.
+    The copy “appId” value in the output as your **ClientID** to be used later.
 
-
-> [!NOTE]
->
-> Choose your own application homepage and identifier URI.  e.g. http://www.contoso.com.
+    > [!NOTE]
+    >
+    > Choose your own application homepage and identifier URI.  e.g. http://www.contoso.com.
 
 4. Create a service principal with your new “appId”.
 
@@ -70,7 +69,7 @@ The copy “appId” value in the output as your **ClientID** to be used later.
 
     `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
 
-Or you can also use…
+    Or you can also use…
 
     `az role assignment create --assignee {service-princ-name} --role “Contributor” `
 
@@ -116,9 +115,9 @@ Or you can also use…
 
     ![Alt image text](media/deploy/pivotal-login.png "Pivotal Login page")
          
-> [!NOTE]
->
-> If Internet Explorer browser fails due to site not secure warning message, click on “More information” and “Go on to the webpage.  For Firefox, click on Advance and add the certification to proceed.
+    > [!NOTE]
+    >
+    > If Internet Explorer browser fails due to site not secure warning message, click on “More information” and “Go on to the webpage.  For Firefox, click on Advance and add the certification to proceed.
 
 5. Your PCF Ops Manager should display the deployed Azure instances. Now you can start deploying and managing your applications here!
                
