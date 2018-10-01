@@ -21,11 +21,13 @@ ms.author: juliako
 
 This article compares the capabilities of **Video Indexer** and **Media Services v3 presets**.
 
+## Compare
+
 |Feature|Video Indexer|AMS v3 presets|
 |---|---|---|
 |Richer insights|Yes|No|
 |Compliance|ISO, SOC|ISO, SOC, FedRAMP, HIPPA|
-|Availability |Regions: East US (trial)) <br/>West US, East Asia, North Europe (paid))|Almost all regions (no trial)|
+|Availability |Regions: East US (trial) <br/>West US, East Asia, North Europe (paid)|Almost all regions (no trial)|
 
 ## Next steps
 
