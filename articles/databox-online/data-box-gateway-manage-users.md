@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/25/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Data Box Gateway 
@@ -35,10 +35,11 @@ In this article, you learn how to:
 
 Users can be read-only or full privilege. As the names indicate the read-only users can only view the share data whereas the full privilege users can read share data, write to these shares, and modify or delete the share data. 
 
- - **Full privilege user** - Create a local user with full access. 
- - **Read-only user** - Create a local user with read-only access. These users are associated with shares that allow read only operations.
+ - **Full privilege user** - A local user with full access. 
+ - **Read-only user** - A local user with read-only access. These users are associated with shares that allow read only operations.
 
 The user permissions are first defined when the user is created during share creation. After the permissions associated with a user are defined, these can be modified by using File Explorer. 
+
 
 ## Add a user
 
@@ -51,6 +52,8 @@ Perform the following steps in the Azure portal to add a user.
 2. Specify the username and password for the user you want to add. Confirm the password and click **Add**.
 
     ![Click add user](media/data-box-gateway-manage-users/add-user-2.png)
+
+    >[!IMPORTANT] These users are reserved by the system and should not be used: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
 
 3. You are notified when the user creation starts and is completed. Once the user is created, from the command bar, click **Refresh** to view the updated list of users.
 
@@ -80,4 +83,4 @@ The list of users is updated to reflect the deleted user.
 
 ## Next steps
 
-- Learn how to [Troubleshoot Data Box issues](data-box-faq.md).
+- Learn how to [Manage bandwidth](data-box-gateway-manage-bandwidth.md).

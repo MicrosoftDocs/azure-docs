@@ -136,4 +136,4 @@ Perform the following steps in the Azure portal to sync your storage access key.
 
 ## Next steps
 
-- Learn how to [Troubleshoot Data Box issues](data-box-faq.md).
+- Learn how to [Manage users via Azure portal](data-box-gateway-manage-users.md).
