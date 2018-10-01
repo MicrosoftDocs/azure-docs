@@ -141,7 +141,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. Toggle the **SAML Login** option as **Enabled**.
 	
-	f. Open the downloaded Federation Metadata from Azure AD in notepad, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
+	d. Open the downloaded Federation Metadata from Azure AD in notepad, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
 
 ### Create an Azure AD test user 
 
