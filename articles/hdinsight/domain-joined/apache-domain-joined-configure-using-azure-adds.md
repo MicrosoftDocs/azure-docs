@@ -39,7 +39,7 @@ View the health status of your Azure Active Directory Domain Services by selecti
 
 ## Add managed identity
 
-Customers should create a user-assigned managed identity if they don’t have one already. See [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) for instructions. 
+Create a user-assigned managed identity if you don’t have one already. See [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) for instructions. 
 
 The managed identity is used to simplify domain services operations. This identity has access to read, create, modify and delete Domain Services operations that are needed for the HDInsight Enterprise Security Package such as creating OUs, service principles, etc.
 
