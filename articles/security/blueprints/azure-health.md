@@ -19,8 +19,8 @@ ms.author: rarangap
 ## Overview
 
 **The Azure Security and Compliance Blueprint - HIPAA/HITRUST Health Data and AI offers a turn-key deployment of
-an Azure PaaS solution to demonstrate how to securely ingest, store, 
-analyze, and interact with health data while being able to meet industry
+an Azure PaaS and IaaS solution to demonstrate how to securely ingest, store, 
+analyze, interact, identity and Security solutions with health data while being able to meet industry
 compliance requirements. The blueprint helps accelerate cloud adoption
 and utilization for customers with data that is regulated.**
 
@@ -28,8 +28,7 @@ The Azure Security and Compliance Blueprint - HIPAA/HITRUST Health Data and AI B
 deploy a secure,  Health Insurance Portability and Accountability Act (HIPAA), and Health Information Trust Alliance (HITRUST) ready platform-as-a-service
 (PaaS) environment for ingesting, storing, analyzing, and interacting
 with personal and non-personal medical records in a secure,
-multi-tier cloud environment, deployed as an end-to-end solution. It
-showcases a common reference architecture and is designed to simplify
+multi-tier cloud environment, deployed as an end-to-end solution. IaaS solution will demonstarte how to migrate an on-premises SQL based solution to Azure, and to implement a Privileged Access Workstation (PAW) to securely manage cloud-based services and solutions. The IaaS SQL Server database adds potential experimentation data is imported into a SQL IaaS VM, and that VM uses MSI authenticated access to interact a SQL Azure PaaS service.Both these showcases a common reference architecture and is designed to simplify
 adoption of Microsoft Azure. This provided architecture illustrates a
  solution to meet the needs of organizations seeking a
 cloud-based approach to reducing the burden and cost of deployment.
