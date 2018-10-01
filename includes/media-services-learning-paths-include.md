@@ -1,4 +1,1 @@
-Read about the Azure Media Services learning paths:
-
-* [Media Services live streaming workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Media Services on-demand streaming workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+Check out the latest version of Azure Media Services: [Azure Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)
