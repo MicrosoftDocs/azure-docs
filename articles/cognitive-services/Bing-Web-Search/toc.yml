@@ -5,6 +5,8 @@
   - name: What is Bing Web Search?
     href: overview.md
     expanded: true
+  - name: What are the Bing Search APIs?
+    href: bing-api-comparison.md
 - name: Quickstarts
   items:
   - name: REST APIs
