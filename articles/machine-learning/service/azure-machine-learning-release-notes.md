@@ -16,13 +16,13 @@ In this article, learn about the Azure Machine Learning service releases.
 
 ## 2018-10 - SDK version 0.1.65
 
-This release includes new features, more documentation, bug fixes, and more [sample notebooks](https://aka.ms/aml-notebooks).
+This [release](https://pypi.org/project/azureml-sdk/0.1.65) includes new features, more documentation, bug fixes, and more [sample notebooks](https://aka.ms/aml-notebooks).
 
 **Breaking changes and known issues**
 
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, previously returned list.
+ * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, previously returned list. See [azureml.core.Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API documentation.
 
- * Automated Machine Learning removed normalized mean square error from the primary metrics
+ * Automated Machine Learning removed normalized mean square error from the primary metrics.
 
  * Image building failure when deploying web service. Workaround is to add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration.
 
@@ -52,7 +52,7 @@ This release includes new features, more documentation, bug fixes, and more [sam
 ### Automated Machine Learning
  * Improved error handling and documentation 
  * Fixed run property retrieval performance issues. 
- * Fixed AutoML continue run issue. 
+ * Fixed continue run issue. 
  * Fixed ensembling iteration issues.
  * Fixed training hanging bug on MAC OS.
  * Downsampling macro average PR/ROC curve in custom validation scenario.
@@ -65,14 +65,6 @@ This release includes new features, more documentation, bug fixes, and more [sam
 
 ### Project-Brainwave
  * Updated support for new AI models available on FPGAs.
-
-### Data Preparation
- * Support for one-hot encoding. 
- * Support for quantile transform.
- * Data Prep works with any Tornado version (no more need for the Tornado-downgrade workaround)
- * Value counts for all values, not just the top three
-
-## 2018-10 - SDK version 0.1.65
 
 ## 2018-09 (Public preview refresh)
 
