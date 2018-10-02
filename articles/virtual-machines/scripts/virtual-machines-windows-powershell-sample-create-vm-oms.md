@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Monitor a PowerShell-created VM with Log Analytics
+# Create a Log Analytics-monitored VM with PowerShell 
 
 This script creates an Azure Virtual Machine, installs the Log Analytics agent, and enrolls the system with a Log Analytics workspace. Once the script has run, the virtual machine will be visible in the Azure portal. Also, you need to update the Log Analytics workspace ID and workspace key.
 
