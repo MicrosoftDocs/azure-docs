@@ -66,8 +66,22 @@ Right-click the Visual Studio icon in the Start Menu and choose **Run as adminis
 
 Open the **Voting.sln** Visual Studio solution from the repository you cloned.
 
-By default, the Voting application is set to listen on port 8080.  The application port is set in the */VotingWeb/PackageRoot/ServiceManifest.xml* file.  You can change the application port by updating the **Port** attribute of the **Endpoint** element.  To deploy and run the application locally, the application port must be open and available on your computer.  If you change the application port, substitute the new application port value for "8080" throughout this article.
-
+### Configuration
+By default, the Voting application endpoint is set to listen on port 8080.  The application port is set in the [../VotingWeb/PackageRoot/ServiceManifest.xml](https://raw.githubusercontent.com/Azure-Samples/service-fabric-dotnet-quickstart/master/VotingWeb/PackageRoot/ServiceManifest.xml) file.  You can change the application port by updating the **Port** attribute of the **Endpoint** element.  To deploy and run the application locally, the application port must be open and available on your computer.  If you change the application port, substitute the new application port value for "8080" throughout this article.
+```xml
+<Endpoints>
+    <!-- This endpoint is used by the communication listener to obtain the port on which to 
+        listen. Please note that if your service is partitioned, this port is shared with 
+        replicas of different partitions that are placed in your code. -->
+    <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
+</Endpoints>
+```
+By default, the Voting application uses the default reverse proxy URI 'http://localhost:19081' .  This base URI is set in the [../VotingWeb/PackageRoot/ServiceManifest.xml](https://raw.githubusercontent.com/Azure-Samples/service-fabric-dotnet-quickstart/master/VotingWeb/PackageRoot/ServiceManifest.xml) file.  You can change the URI by updating the **Value** attribute of the **ReverseProxyBaseUri** named EnvironmentVariable element.  To deploy and run the application, reverse proxy must be enabled in the cluster and the reverse proxy port must be open and available on your computer. The front-end relies on the reverse proxy to connect to the backend. See [service-fabric-reverseproxy#setup-and-configuration](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reverseproxy#setup-and-configuration) for additional information.
+```xml
+<EnvironmentVariables>
+    <EnvironmentVariable Name="ReverseProxyBaseUri" Value="http://localhost:19081"/>
+</EnvironmentVariables>
+```
 To deploy the application, press **F5**.
 
 > [!NOTE]
