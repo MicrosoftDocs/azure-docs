@@ -13,7 +13,7 @@ ms.date: 10/01/2018
 ms.author: ashmaka
 ---
 
-# Entity Recognition in Text Analytics (Preview)
+# How to use Named Entity Recognition in Text Analytics (Preview)
 
 The [Entity Recognition API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) takes unstructured text, and for each JSON document, returns a list of disambiguated entities with links to more information on the web (Wikipedia and Bing). 
 
