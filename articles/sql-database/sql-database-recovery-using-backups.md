@@ -20,7 +20,7 @@ By default, SQL Database backups are stored in geo-replicated blob storage (RA-G
 * Create a database on the same logical server recovered to the deletion time for a deleted database.
 * Create a new database on any logical server in any region recovered to the point of the most recent backups.
 
-If you configured [backup long-term retention](sql-database-long-term-retention.md) you can also create a new database from any LTR backup on the same logical server.  
+If you configured [backup long-term retention](sql-database-long-term-retention.md) you can also create a new database from any LTR backup on any logical server in any region.  
 
 > [!IMPORTANT]
 > You cannot overwrite an existing database during restore.
