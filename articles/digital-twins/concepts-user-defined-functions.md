@@ -35,11 +35,11 @@ Data processing in Azure Digital Twins consists of defining three objects: _matc
 
 _Matchers_ define a set of conditions that evaluate what actions will take place based on incoming sensor telemetry. These conditions to determine the match could include properties from the sensor, the sensor's parent device, and the sensor's parent space. The conditions are expressed as comparisons against a [JSON path](http://jsonpath.com/) as outlined in the example below:
 
-- All sensors of datatype `Temperature`
-- Having `01` in their port
-- Which belong to devices with the extended property key `Manufacturer` set to the value `GoodCorp`
-- Which belong to spaces of type `Venue`
-- Which are descendants of parent `SpaceId` DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
+- All sensors of datatype `Temperature`.
+- Having `01` in their port.
+- Which belong to devices with the extended property key `Manufacturer` set to the value `GoodCorp`.
+- Which belong to spaces of type `Venue`.
+- Which are descendants of parent `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
 
 ```JSON
 {
