@@ -99,7 +99,7 @@ You can replicate any app or workload running a Hyper-V VM that complies with [r
 
 ### What's the replication process?
 
-1. When initial replication is triggered, a Hyper-V VM snapshot snapshot is taken.
+1. When initial replication is triggered, a Hyper-V VM snapshot is taken.
 2. Virtual hard disks on the VM are replicated one by one, until they're all copied to Azure. This might take a while, depending on the VM size, and network bandwidth. Learn how to increase network bandwidth.
 3. If disk changes occur while initial replication is in progress, the Hyper-V Replica Replication Tracker tracks the changes as Hyper-V replication logs (.hrl). These log files are located in the same folder as the disks. Each disk has an associated .hrl file that's sent to secondary storage. The snapshot and log files consume disk resources while initial replication is in progress.
 4. When the initial replication finishes, the VM snapshot is deleted.

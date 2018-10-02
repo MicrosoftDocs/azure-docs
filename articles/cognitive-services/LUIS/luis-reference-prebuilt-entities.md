@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: This article contains lists of the prebuilt entities that are included in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

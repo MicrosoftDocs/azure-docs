@@ -73,7 +73,7 @@
     href: customize-encoder-presets-how-to.md
   - name: Upload content 
     items:
-    - name: From HTTP(s) - .NET
+    - name: From HTTPS - .NET
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md  

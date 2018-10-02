@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
 ---
 
@@ -49,17 +49,18 @@ To enable the solution, you need to be a member of the Log Analytics contributor
 
 ### Supported operating systems
 
-The following versions of the Windows and Linux operating systems are officially supported with Azure Monitor for VMs:
+The following table lists the Windows and Linux operating systems that are supported with Azure Monitor for VMs.  A full list detailing the major and minor Linux OS release and kernel versions supported are provided later in this section.
 
 |OS version |Performance |Maps |Health |  
 |-----------|------------|-----|-------|  
+|Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |  
 |Windows Server 2012 R2 | X | X | |  
 |Windows Server 2012 | X | X | |  
 |Windows Server 2008 R2 | X | X| |  
 |RHEL 7, 6| X | X| X |  
-|Ubuntu 18.04, 16.04, 14.04 | X | X| X |  
-|Cent OS Linux 7, 6 | X | X| X |  
+|Ubuntu 18.04, 16.04, 14.04 | X | X | X |  
+|Cent OS Linux 7, 6 | X | X | X |  
 |SLES 12 | X | X | X |  
 |Oracle Linux 7 | X<sup>1</sup> | | X |  
 |Oracle Linux 6 | X | X | X |  
@@ -67,6 +68,72 @@ The following versions of the Windows and Linux operating systems are officially
 
 <sup>1</sup> 
 The Performance feature of Azure Monitor for VMs is only available from Azure Monitor, it is not available when you access it from the left-hand pane of the Azure VM directly.  
+
+>[!NOTE]
+>The following information applies to support of the Linux operating system:  
+> - Only default and SMP Linux kernel releases are supported.  
+> - Nonstandard kernel releases, such as PAE and Xen, are not supported for any Linux distribution. For example, a system with the release string of "2.6.16.21-0.8-xen" is not supported.  
+> - Custom kernels, including recompiles of standard kernels, are not supported.  
+> - CentOSPlus kernel is not supported.  
+
+
+#### Red Hat Linux 7
+
+| OS version | Kernel version |
+|:--|:--|
+| 7.0 | 3.10.0-123 |
+| 7.1 | 3.10.0-229 |
+| 7.2 | 3.10.0-327 |
+| 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
+
+#### Red Hat Linux 6
+
+| OS version | Kernel version |
+|:--|:--|
+| 6.0 | 2.6.32-71 |
+| 6.1 | 2.6.32-131 |
+| 6.2 | 2.6.32-220 |
+| 6.3 | 2.6.32-279 |
+| 6.4 | 2.6.32-358 |
+| 6.5 | 2.6.32-431 |
+| 6.6 | 2.6.32-504 |
+| 6.7 | 2.6.32-573 |
+| 6.8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
+
+#### Ubuntu Server
+
+| OS version | Kernel version |
+|:--|:--|
+| Ubuntu 18.04 | kernel 4.15.* |
+| Ubuntu 16.04.3 | kernel 4.15.* |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
+
+#### Oracle Enterprise Linux 6 with Unbreakable Enterprise Kernel
+| OS version | Kernel version
+|:--|:--|
+| 6.2 | Oracle 2.6.32-300 (UEK R1) |
+| 6.3 | Oracle 2.6.39-200 (UEK R2) |
+| 6.4 | Oracle 2.6.39-400 (UEK R2) |
+| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
+| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
+
+#### Oracle Enterprise Linux 5 with Unbreakable Enterprise Kernel
+
+| OS version | Kernel version
+|:--|:--|
+| 5.10 | Oracle 2.6.39-400 (UEK R2) |
+| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+
+#### SUSE Linux 12 Enterprise Server
+
+| OS version | Kernel version
+|:--|:--|
+|12 SP2 | 4.4.* |
+|12 SP3 | 4.4.* |
 
 ### Hybrid environment connected sources
 Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. This means that a system must have the Log Analytics agent installed and configured with the Dependency agent.  The following table describes the connected sources that the Map feature supports in a hybrid environment.
@@ -87,8 +154,8 @@ The Dependency agent can be downloaded from the following location.
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
 ## Diagnostic and usage data
 Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, data from the Map feature includes information about the configuration of your software, such as operating system and version, IP address, DNS name, and workstation name. Microsoft does not collect names, addresses, or other contact information.
@@ -150,7 +217,7 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
 5. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
     >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). Be sure to create the workspace in the same subscription that the VM is deployed to. 
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md) in one of the supported regions listed earlier.   
 
 After you've enabled monitoring, it might take about 10 minutes before you can view health metrics for the virtual machine. 
 

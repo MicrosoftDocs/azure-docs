@@ -85,7 +85,7 @@ Before you begin, make sure that:
 
 ## Create a new resource
 
-A single instance of the Data Box Gateway resource can manage multiple Data Box Gateway virtual devices. Perform the following steps to create a new Data Box Gateway resource. 
+Perform the following steps to create a new Data Box Gateway resource. 
 
 If you have an existing Data Box Gateway resource to manage your virtual devices, skip this step and go to [Get the activation key](#get-the-activation-key).
 

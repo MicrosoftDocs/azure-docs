@@ -1,6 +1,6 @@
 ---
-title: Azure Policy Samples Index
-description: Index of Samples for Azure Policy
+title: Azure Policy samples index
+description: Index of samples for Azure Policy
 services: azure-policy
 author: DCtheGeek
 manager: carmonm

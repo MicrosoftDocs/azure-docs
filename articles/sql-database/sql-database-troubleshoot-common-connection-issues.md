@@ -2,14 +2,16 @@
 title: Troubleshoot common connection issues to Azure SQL Database
 description: Steps to identify and resolve common connection errors for Azure SQL Database.
 services: sql-database
-author: dalechen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: dalechen
 ms.author: daleche
-
+ms.reviewer: 
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Troubleshoot connection issues to Azure SQL Database
 When the connection to Azure SQL Database fails, you receive [error messages](sql-database-develop-error-messages.md). This article is a centralized topic that helps you troubleshoot Azure SQL Database connectivity issues. It introduces [the common causes](#cause) of connection issues, recommends [a troubleshooting tool](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) that helps you identity the problem, and provides troubleshooting steps to solve [transient errors](#troubleshoot-transient-errors) and [persistent or non-transient errors](#troubleshoot-persistent-errors). 

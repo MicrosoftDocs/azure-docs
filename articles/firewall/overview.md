@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 9/24/2018
+ms.date: 9/26/2018
 ms.author: victorh
 #Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -63,7 +63,9 @@ Azure Firewall has the following known issues:
 |Hub and spoke with global peering doesn’t work|The hub and spoke model, where the hub and firewall are deployed in one Azure region, with the spokes in another Azure region, connected to the hub via Global VNet Peering is not supported.|For more information, see [Create, change, or delete a virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
 Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work for Internet bound traffic|Network filtering rules for non-TCP/UDP protocols don’t work with SNAT to your public IP address. Non-TCP/UDP protocols are supported between spoke subnets and VNets.|Azure Firewall uses the Standard Load Balancer, [which doesn't support SNAT for IP protocols today](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). We are exploring options to support this scenario in a future release.|
 |Destination NAT (DNAT) doesn’t work for port 80 and 22.|Destination Port field in NAT rule collection cannot include port 80 or port 22.|We are working to fix this in the near future. Meanwhile, use any other port as the destination port in NAT rules. Port 80 or 22 can still be used as the translated port (for example, you can map public ip:81 to private ip:80).|
-|
+|Missing PowerShell and CLI support for ICMP|Azure PowerShell and CLI don’t support ICMP as a valid protocol in network rules.|It is still possible to use ICMP as a protocol via the portal and the REST API. We are working to add ICMP in PowerShell and CLI soon.|
+|FQDN tags require a protocol: port to be set|Application rules with FQDN tags require port:protocol definition.|You can use **https** as the port: protocol value. We are working to make this field optional when FQDN tags are used.|
+|Moving a firewall to a different resource group or subscription is not supported.|Moving a firewall to a different resource group or subscription is not supported.|Supporting this functionality is on our roadmap. To move a firewall to a different resource group or subscription, you must delete the current instance and recreate it in the new resource group or subscription.|
 
 ## Next steps
 

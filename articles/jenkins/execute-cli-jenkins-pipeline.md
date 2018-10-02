@@ -21,7 +21,7 @@ To deploy a Java web app to Azure, you can use Azure CLI in [Jenkins Pipeline](h
 > * Create Jenkins pipeline
 > * Run the pipeline and verify the web app
 
-This tutorial requires the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

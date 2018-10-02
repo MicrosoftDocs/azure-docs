@@ -2,14 +2,16 @@
 title: 'Azure SQL Database purchasing models | Microsoft Docs'
 description: Learn about the purchasing models model that are available databases in the Azure SQL Database service.  
 services: sql-database
-author: CarlRabeler
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: 
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
-manager: craigg
+author: CarlRabeler
 ms.author: carlrab
-
+ms.reviewer:
+manager: craigg
+ms.date: 09/14/2018
 ---
 # Azure SQL Database purchasing models and resources 
 

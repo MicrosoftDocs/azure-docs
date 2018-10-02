@@ -26,7 +26,7 @@
     href: how-to-use-classroom-lab.md
 - name: Reference
   items:
-  - name: CLI 2.0
+  - name: CLI
     href: /cli/azure/lab
   - name: PowerShell
     href: /powershell/module/azurerm.devtestlabs/#devtest_labs
