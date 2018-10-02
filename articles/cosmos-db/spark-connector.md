@@ -176,7 +176,7 @@ Communication between Spark and Azure Cosmos DB is significantly faster, because
 
 4. Extract the contents of the Twitter feed sample and open the config.py file. Update the masterKey, host, databaseId, collectionId, and preferredLocations values.  
 
-5. Go to `http://apps.twitter.com/`, and register the Twitter feed script as a new application. After choosing a name and application for your app, you will be provided with a **consumer key, consumer secret, access token and access token secret**. Copy these values and update them in config.py file to provide the application programmatic access to Twitter.   
+5. Go to `http://apps.twitter.com/`, and register the Twitter feed script as a new application. After choosing a name for your app, you will be provided with a **consumer key, consumer secret, access token and access token secret**. Copy these values and update them in config.py file to provide the application programmatic access to Twitter.   
 
 6. Save the config.py file. Open a command prompt, and run the Python application by using the following command:
 
