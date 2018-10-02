@@ -58,7 +58,7 @@ When the text is imported, it is text-normalized so it can be processed by the s
 
 ## Language support
 
-See the full list of [supported languages](supported-languages.md) for custom **Speech to Text** language models.
+See the full list of [supported languages](language-support.md#text-to-speech) for custom **Speech to Text** language models.
 
 
 

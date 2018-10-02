@@ -55,6 +55,7 @@ You can build and run the occupancy application using the outlined steps:
 This step provisions your Digital Twins spatial graph with several spaces, one device, two sensors, one matcher, one user-defined function and one role assignment.
 1. Run `dotnet run ProvisionSample`
     >[!NOTE]
+    >We use Device Login Azure CLI tool to authenticate the user to Azure AD. The user needs to enter a given code to authenticate using https://microsoft.com/devicelogin page. After code is entered, follow steps to authenticate. The user is requested to authenticate everytime when the tool is running.
     >The provisioning step might take a minute or so. It will also provision an IoT Hub within your Digital Twins instance.
 1. After running this step, copy the `ConnectionString` of the device for use in device simulator sample. See image below:
     ![Provision Sample][3]
@@ -72,10 +73,17 @@ You can build and run the sensor simulator application using the steps below:
 
  ![Device Connectivity][4]
 
-## Find unoccupied spaces with good air quality
+## Find available spaces with fresh air
+
+The sensor telemetry sample is simulating random data values for two sensors, motion, and carbon dioxide. Available spaces with fresh air are defined in our sample by no presence in the room and carbon dioxide level is under 1000 ppm. If the condition is not fulfilled, then the space is not available, or the air quality is poor.
+
 1. Go to the `occupancy-quickstart` command prompt.
-1. Run `dotnet run GetOccupancy`.
-1. You should see available spaces with carbon dioxide within normal range as outlined in below image.
+1. Run `dotnet run GetAvailableAndFreshSpaces`.
+1. Look at the command prompt and the sensor telemetry command prompt side by side as outlined below. It will display one of these conditions in near real-time based on what the sensor telemetry has last sent:
+    - Available rooms with fresh air
+    - Occupied or poor air quality of the room
+
+ ![Get available spaces with fresh air][5]
 
 ## Clean up resources
 
@@ -101,3 +109,4 @@ See full code samples:
 [2]: media/quickstart-view-occupancy-dotnet/create-digital-twins-param.png
 [3]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
 [4]: media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png
+[5]: media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png
