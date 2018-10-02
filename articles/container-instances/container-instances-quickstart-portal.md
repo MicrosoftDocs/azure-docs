@@ -33,7 +33,7 @@ Enter the following values in the **Container name**, **Container image**, and *
 
 * Container name: `mycontainer`
 * Container image: `microsoft/aci-helloworld`
-* Resource group: `myResourceGroup`
+* Resource group: **Create new** > `myResourceGroup`
 
 ![Configuring basic settings for a new container instance in the Azure portal][aci-portal-03]
 
