@@ -57,6 +57,18 @@ module.exports = function (context, input) {
 };
 ```
 
+For the durable function to be invoked the  function.json should be modified to have a binding for orchestration client as described below
+
+```js
+{
+    "bindings": [{
+        "name":"starter",
+        "type":"orchestrationClient",
+        "direction":"out"
+    }]
+}
+```
+
 > [!NOTE]
 > We recommend that you use a random identifier for the instance ID. This will help ensure an equal load distribution when scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source or when implementing the [singleton orchestrator](durable-functions-singletons.md) pattern.
 
