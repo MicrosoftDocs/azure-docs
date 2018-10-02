@@ -81,7 +81,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
    2. Specify the **Secret Access Key** value.
    3. Select **Finish**.
    
-   ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+     ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. You will see a new connection. Select **Next**.
    
