@@ -40,7 +40,8 @@ To diagnose and troubleshoot any errors that you face during device configuratio
 
     ![Click add user](media/data-box-gateway-troubleshoot/run-diag-1.png)
  
-2. After the tests have completed, the results are displayed. If a test fails, then a URL for recommended action is presented. You can click the URL to view the recommended action. 
+2. After the tests have completed, the results are displayed. The following example shows the results of diagnostic tests run on a virtual device. 
+If a test fails, then a URL for recommended action is presented. You can click the URL to view the recommended action. 
  
     ![Click add user](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
@@ -51,7 +52,7 @@ For a Data Box Gateway, the hardware diagnostics tests are not available.
 
 Perform the following steps to collect a Support package. 
 
-A log package is comprised of all the relevant logs that can assist Data Box Gateway Support with troubleshooting any device issues. You can generate a log package via the local web UI.
+A log package is comprised of all the relevant logs that can assist Data Box Gateway Support with troubleshooting any device issues. In this release, a log package can be generated via the local web UI.
 
 1. In the local web UI, go to **Troubleshooting > Support**. Click **Create support package**. The system starts collecting support package. The package collection may take several minutes.
 

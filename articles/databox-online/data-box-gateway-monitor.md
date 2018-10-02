@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Gateway troubleshoot | Micruse the Azure portal to tosoft Docs 
-description: Describes how to troubleshoot Azure Data Box Gateway issues.
+title: Monitor Azure Data Box Gateway| Micruse the Azure portal to tosoft Docs 
+description: Describes how to monitor your Azure Data Box Gateway.
 services: databox-edge-gateway
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/01/2018
+ms.date: 10/02/2018
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Data Box Gateway issues 
 
-This article describes how to troubleshoot issues on your Azure Data Box Gateway. 
+This article describes how to monitor your Azure Data Box Gateway. 
 
 > [!IMPORTANT]
 > - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
@@ -27,12 +27,14 @@ This article describes how to troubleshoot issues on your Azure Data Box Gateway
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Run diagnostics
-> * Collect Support package
-> * Use logs to troubleshoot
+> * View hardware status
+> * View alerts
+> * Monitor capacity
+> * View device events
+> * Use charts
 
 
-## Run diagnostics
+## View hardware status
 
 To diagnose and troubleshoot any errors that you face during device configuration and operation, you can run the diagnostics tests. Perform the following steps in the local web UI of your device to run diagnostic tests.
 
@@ -40,18 +42,19 @@ To diagnose and troubleshoot any errors that you face during device configuratio
 
     ![Click add user](media/data-box-gateway-troubleshoot/run-diag-1.png)
  
-2. After the tests have completed, the results are displayed. If a test fails, then a URL for recommended action is presented. You can click the URL to view the recommended action. 
+2. After the tests have completed, the results are displayed. The following example shows the results of diagnostic tests run on a virtual device. 
+If a test fails, then a URL for recommended action is presented. You can click the URL to view the recommended action. 
  
     ![Click add user](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 For a Data Box Gateway, the hardware diagnostics tests are not available.
 
 
-## Collect Support package
+## View alerts
 
 Perform the following steps to collect a Support package. 
 
-A log package is comprised of all the relevant logs that can assist Data Box Gateway Support with troubleshooting any device issues. You can generate a log package via the local web UI.
+A log package is comprised of all the relevant logs that can assist Data Box Gateway Support with troubleshooting any device issues. In this release, a log package can be generated via the local web UI.
 
 1. In the local web UI, go to **Troubleshooting > Support**. Click **Create support package**. The system starts collecting support package. The package collection may take several minutes.
 
@@ -61,7 +64,7 @@ A log package is comprised of all the relevant logs that can assist Data Box Gat
 
     ![Click add user](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
-## Use logs to troubleshoot
+## View device events
 
 Any errors experienced during the upload and refresh processes are included in the respective error files.
 
@@ -108,6 +111,8 @@ Any errors experienced during the upload and refresh processes are included in t
     |    16000           |    RefreshException                                        |    Could not bring down this file.                                                                                                                                                                                                        |
     |    16001           |    RefreshAlreadyExistsException                           |    Could not bring down this file since it   already exists on your local system.                                                                                                                                                         |
     |    16002           |    RefreshWorkNeededException                              |    Could not refresh this file since it is not   fully uploaded.                                                                                                                                                                          | 
+
+## View metrics
 
 
 ## Next steps
