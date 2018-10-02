@@ -18,7 +18,7 @@ ms.author: shlo
 ---
 # How to read or write partitioned data in Azure Data Factory
 
-In version 1, Azure Data Factory supported reading or writing partitioned data by using the **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd** system variables. In the current version of Data Factory, you can achieve this behavior by using a **pipeline** parameter and a trigger's start time or scheduled time as a value of the parameter. 
+In version 1, Azure Data Factory supported reading or writing partitioned data by using the **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd** system variables. In the current version of Data Factory, you can achieve this behavior by using a pipeline parameter and a trigger's start time or scheduled time as a value of the parameter. 
 
 ## Use a pipeline parameter 
 
@@ -37,9 +37,9 @@ For more information about the **partitonedBy** property, see [Copy data to or f
 
 In the current version of Data Factory, you can achieve this behavior by completing the following steps: 
 
-1. Define a **pipeline parameter** of type **string**. In the following example, the name of the pipeline parameter is **windowStartTime**. 
-2. Set **folderPath** in the dataset definition to reference the value of the **pipeline** parameter. 
-3. Pass the actual value for the parameter when invoking the pipeline on demand, or pass a trigger's start time/scheduled time dynamically at runtime. 
+1. Define a *pipeline parameter* of type **string**. In the following example, the name of the pipeline parameter is **windowStartTime**. 
+2. Set **folderPath** in the dataset definition to reference the value of the pipeline parameter. 
+3. Pass the actual value for the parameter when you invoke the pipeline on demand or pass a trigger's start time or scheduled time dynamically at runtime. 
 
 ```json
 "folderPath": {
@@ -50,7 +50,7 @@ In the current version of Data Factory, you can achieve this behavior by complet
 
 ## Pass in a value from a trigger
 
-In the following tumbling window trigger definition, the window start time of the trigger is passed as a value for the **pipeline** parameter **windowStartTime**: 
+In the following tumbling window trigger definition, the window start time of the trigger is passed as a value for the pipeline parameter **windowStartTime**: 
 
 ```json
 {
