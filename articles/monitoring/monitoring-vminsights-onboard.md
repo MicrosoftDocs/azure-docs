@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 10/02/2018
 ms.author: magoedte
 ---
 
@@ -331,18 +331,18 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 
 ### Enable using Azure Policy
-To enable Azure Monitor for VMs at scale that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended.  These policies:
+To enable Azure Monitor for VMs at scale that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended. These policies:
 
-* Deploy Log Analytics Agent and Dependency agent 
+* Deploy Log Analytics agent and Dependency agent 
 * Report on compliance results 
 * Remediate for non-compliant VMs
 
 Enable Azure Monitor for VMs via policy to your tenant requires: 
 
 - Assign the initiative to a scope – management group, subscription, or resource group 
-- Review and remediate the compliance results  
+- Review and remediation of compliance results  
 
-For more information on Azure Policy, see [Azure Policy Introduction](../azure-policy/azure-policy-introduction.md)
+For more information on Azure Policy assignment, see [Azure Policy overview](../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../governance/management-groups/index.md) before continuing.  
 
 The following table lists the policy definitions provided.  
 
@@ -368,15 +368,15 @@ With this initial release, you can only create the policy assignment from the Az
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**. 
 2. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that has been assigned to take place within a specific scope.
 3. Select **Assign Initiative** from the top of the **Policy - Assignments** page.
-4. On the **Assign Initiative** page, select the **Scope** by clicking the ellipsis and select either a management group or subscription. Optionally, select a resource group. A scope determines what resources or grouping of resources the policy assignment gets enforced on. Then click **Select** at the bottom of the **Scope** page.
-5. Resources can be excluded based on the **Scope**. **Exclusions** start at one level lower than the level of the **Scope**. **Exclusions** are optional, so leave it blank for now.
+4. On the **Assign Initiative** page, select the **Scope** by clicking the ellipsis and select either a management group, or subscription and optionally a resource group. A scope limits the policy assignment in our case to a grouping of virtual machines for enforcement. Click **Select** at the bottom of the **Scope** page to save your changes.
+5. **Exclusions** allow you to omit one or more resources from the scope, which is optional. 
 6. Select the **Initiative definition** ellipsis to open the list of available definitions and select **[Preview] Enable Azure Monitor for VMs** from the list, and then click **Select**.
 7. The **Assignment name** is automatically populated with the initiative name you selected, but you can change it. You can also add an optional **Description**. **Assigned by** is automatically populated based on who is logged in, and this field is optional.
 8. Select a **Log Analytics workspace** from the dropdown list that is available in the supported region.
 
     >[!NOTE]
     >If the workspace is outside of the scope of the assignment, you must grant **Log Analytics Contributor** permissions to the policy assignment's Principal ID. If you don't do this you may see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` 
-    >You can find the Principal Id by selecting the assignment in order to select the **Edit Assignment** option. It is listed at the bottom under the **Managed Identity** section. For example, if the workspace is in a Resource Group named *contoso-wcus*, run following PowerShell command: `New-AzureRmRoleAssignment -ObjectId <GUID of Principal Id> -RoleDefinitionName "Log Analytics Contributor" -ResourceGroupName contoso-wcus`
+    >Review [how to manually configure the managed identity](../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity) to grant access.
     >
 
 9. Notice the **Managed Identity** option is checked. This is checked when the initiative being assigned includes a policy with the deployIfNotExists effect. From the **Manage Identity location** dropdown list, select the appropriate region.  
@@ -384,7 +384,7 @@ With this initial release, you can only create the policy assignment from the Az
 
 #### Review and remediate the compliance results 
 
-VMs are reported as non-compliant in following scenarios:  
+You can learn how to review compliance results by reading [identify non-compliance results](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources).  Based on the results of the policies included with the **[Preview] Enable Azure Monitor for VMs** initiative, VMs are reported as non-compliant in following scenarios:  
   
 1. Log Analytics or Dependency Agent is not deployed.  
    This is typical for a scope with existing VMs. To mitigate it, [create remediation tasks](../governance/policy/how-to/remediate-resources.md) on non-compliant policy to deploy the required agents.    
@@ -394,7 +394,7 @@ VMs are reported as non-compliant in following scenarios:
     - [Preview]: Deploy Log Analytics Agent for Linux VMs  
     - [Preview]: Deploy Log Analytics Agent for Windows VMs  
 
-2. VM Image (OS) is not in the list identified in Policy definition.  
+2. VM Image (OS) is not in the list identified in policy definition.  
    Criteria of the deployment policy only includes VMs that are deployed from well-known Azure VM images. Check the documentation if the VM OS is supported or not. If it is not, then you need to duplicate the deployment policy and update/modify it to make the image in scope. 
   
     - [Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted  
