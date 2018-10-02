@@ -17,7 +17,7 @@ Microsoft supports a variety of operating systems/platforms/frameworks and can b
 
     * Continuously builds and runs end-to-end test against master and the LTS supported version(s).
     * Provides installation guidance or packages if applicable.
-    * Fully supported on GitHub.
+    * Fully supports the platforms on GitHub.
 
 In addition, a list of partners has ported our C SDK on to more platforms and they are maintaining the platform abstraction layer (PAL). [Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/) also features a list of OS platforms the various SDKs have been tested against. The SDKs also regularly build on these platforms, with limited testing and support:
 
