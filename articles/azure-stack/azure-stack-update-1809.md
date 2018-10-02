@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -30,7 +30,7 @@ This article describes the contents of the 1809 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1809 update build number is **1.1809.x.xx**.  
+The Azure Stack 1809 update build number is **1.1809.0.70**.  
 
 ### New features
 
@@ -186,6 +186,8 @@ The following are post-installation known issues for this build version.
 
 
 ### Compute
+
+- <!-- 3099544 – IS, ASDK --> When you create a new virtual machine (VM) using the Azure Stack portal, and you select the VM size, the USD/Month column is displayed with an **Unavailable** message. This column should not appear; displaying the VM pricing column is not supported in Azure Stack.
 
 - <!-- 2869209 – IS, ASDK --> When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
 
