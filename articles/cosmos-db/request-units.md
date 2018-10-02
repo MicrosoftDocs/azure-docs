@@ -37,15 +37,6 @@ Azure Cosmos DB delivers fast, predictable performance by reserving resources to
 
 With Azure Cosmos DB, reserved throughput is specified in terms of request unit processing per second. You can think of request units as throughput currency. You reserve a number of guaranteed request units to be available to your application on a per-second basis. Each operation in Azure Cosmos DB, including writing a document, performing a query, and updating a document, consumes CPU, memory, and IOPS. That is, each operation incurs a request charge, which is expressed in request units. When you understand the factors that affect request unit charges and your application's throughput requirements, you can run your application as cost effectively as possible. 
 
-<<<<<<< HEAD
-To help you get started, Azure Cosmos DB Program Manager Andrew Liu discusses request units in the following video (there is a minor typo in the request units example of the video. When 1 KB data with 100,000 records is used, the total storage is 100 MB and not 100 GB): <br /><br />
-
-> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
-> 
-> 
-
-=======
->>>>>>> 1e9d49904d87311102a6853587a77512167313ec
 ## Throughput isolation in globally distributed databases
 
 If you replicate your database to more than one region, Azure Cosmos DB provides throughput isolation to ensure that request unit usage in one region doesn't affect request unit usage in another region. For example, if you write data to one region and read data from another region, the request units that are used to perform the write operation in region A don't take away from the request units that are used for the read operation in region B. Request units aren't split across the regions in which you've deployed your database. Each region in which the database is replicated has the full number of request units provisioned. For more information about global replication, see [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
