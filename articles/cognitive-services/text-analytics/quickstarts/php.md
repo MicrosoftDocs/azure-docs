@@ -1,14 +1,16 @@
 ---
-title: PHP Quickstart for Azure Cognitive Services, Text Analytics API | Microsoft Docs
+title: 'Quickstart: Using PHP to call the Text Analytics API'
+titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: ashmaka
+author: noellelacharite
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
+ms.topic: quickstart
 ms.date: 10/01/2018
-ms.author: ashmaka
+ms.author: nolachar
 ---
 # Quickstart for Text Analytics API with PHP 
 <a name="HOLTop"></a>
