@@ -65,7 +65,6 @@ Learn more about the different VM sizes that are available:
 - [Storage optimized](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
-- [Confidential computing](sizes-confidential-compute.md)
 - Check the [Previous generation](sizes-previous-gen.md) page for A Standard, Dv1 (D1-4 and D11-14 v1), and A8-A11 series
 
 
