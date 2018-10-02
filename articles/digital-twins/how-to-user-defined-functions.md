@@ -14,7 +14,7 @@ ms.author: alinast
 
 [User-defined functions](./concepts-user-defined-functions.md) enable the user to run custom logic against incoming telemetry messages and spatial graph metadata, allowing the user to send events to pre-defined endpoints. In this guide, we'll walk through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
 
-In the examples below, `https://{{your-management-api-url}}` refers to the URI of the Digital Twins APIs `https://{{yourDigitalTwinsName}}.{{yourLocation}}.azuresmartspaces.net/management`.
+In the examples below, `https://yourManagementApiUrl` refers to the URI of the Digital Twins APIs `https://yourDigitalTwinsName.yourLocation .azuresmartspaces.net/management`. Replace `yourManagementApiUrl`, `yourDigitalTwinsName`, and `yourLocation` with your custom values.
 
 ## Client Library Reference
 
@@ -39,7 +39,7 @@ Valid matcher condition targets:
 The following example matcher will evaluate to true on any sensor telemetry event with 'Temperature' as its data type. You can create multiple matchers on a user-defined function.
 
 ```text
-POST https://{{your-management-api-url}}/api/v1.0/matchers
+POST https://yourManagementApiUrl/api/v1.0/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -50,31 +50,41 @@ POST https://{{your-management-api-url}}/api/v1.0/matchers
       "comparison": "Equals"
     }
   ],
-  "SpaceId": "<spaceIdentifier>"
+  "SpaceId": "yourSpaceIdentifier"
 }
 ```
 
-### Create a User-Defined Function (UDF)
+Replace `yourManagementApiUrl` and `yourSpaceIdentifier` with your custom values.
+
+## Create a User-Defined Function (UDF)
 
 After the matchers have been created, upload the function snippet with the following POST call:
->[!NOTE]
-In the Headers, set the following `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`. The Body is multi-part, first part is about metadata needed for UDF, second part is the javascript compute logic. Replace in `userDefinedBoundary` section `SpaceId` and `Machers` Guids
 
-```
-POST https://{{your-management-api-url}}/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
-```
-Body: 
+> [!NOTE]
+> - In the Headers, set the following `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
+> - The Body is multi-part:
+>   - The first part is about metadata needed for UDF.
+>   - The second part is the javascript compute logic.
+> - Replace in `userDefinedBoundary` section `SpaceId` and `Machers` Guids.
 
-```text
+```plaintext
+POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+```
+
+Replace `yourManagementApiUrl` with your custom value.
+
+Body:
+
+```plaintext
 --userDefinedBoundary
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
 {
-  "SpaceId": "<spaceIdentifier>",
+  "SpaceId": "yourSpaceIdentifier",
   "Name": "User Defined Function",
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
-  "Matchers": ["<matcherIdentifier>"]
+  "Matchers": ["yourMatcherIdentifier"]
 }
 --userDefinedBoundary
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
@@ -87,11 +97,13 @@ function process(telemetry, executionContext) {
 --userDefinedBoundary--
 ```
 
+Replace `yourSpaceIdentifier` and `yourMatcherIdentifier` with your custom values.
+
 ### Example Functions
 
 Set the sensor telemetry reading directly for the sensor with data type `Temperature`, which is sensor.DataType:
 
-```Javascript
+```javascript
 function process(telemetry, executionContext) {
 
   // Get sensor metadata
@@ -107,7 +119,7 @@ function process(telemetry, executionContext) {
 
 Log a message if the sensor telemetry reading surpasses a pre-defined threshold. If your diagnostic settings are enabled on the Digital Twins instance, logs from user-defined functions will be forwarded:
 
-```Javascript
+```javascript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -122,7 +134,7 @@ function process(telemetry, executionContext) {
 
 The following code will trigger a notification if the temperature level rises above the pre-defined constant.
 
-```Javascript
+```javascript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -146,33 +158,40 @@ function process(telemetry, executionContext) {
 
 For a more complex UDF code sample, refer to [Check available spaces with fresh air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)
 
-### Create a Role Assignment
+## Create a Role Assignment
 
 We need to create a role assignment for the user-defined function to execute under. If we do not, it will not have the proper permissions to interact with the Management API to perform actions on graph objects. The actions that the user-defined function performs are not exempt from the role-based access control within the Digital Twins Management APIs. They can be limited in scope by specifying certain roles, or certain access control paths. For more information, see [Role Based Access Control](./security-role-based-access-control.md) documentation.
 
 - Query for roles and get the ID of the role you want to assign to the UDF; pass it to RoleId below.
 
-```text
-GET https://{{your-management-api-url}}/api/v1.0/system/roles
+```plaintext
+GET https://yourManagementApiUrl/api/v1.0/system/roles
 ```
+
+Replace `yourManagementApiUrl` with your custom value.
 
 - ObjectId will be the UDF ID that was created earlier
 - Find `Path` by querying the Spaces with their full path and copy the `spacePaths` value. Paste it in Path below when creating the UDF role assignment
-```text
-GET https://{{your-management-api-url}}/api/v1.0/spaces?name=<space_name>&includes=fullpath
+
+```plaintext
+GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
 ```
 
-```text
-POST https://{{your-management-api-url}}/api/v1.0/roleassignments
+Replace `yourManagementApiUrl` and `yourSpaceName` with your custom value.
+
+```plaintext
+POST https://yourManagementApiUrl/api/v1.0/roleassignments
 {
-  "RoleId": "<desiredRoleIdentifier>",
-  "ObjectId": "<userDefinedFunctionId>",
+  "RoleId": "yourDesiredRoleIdentifier",
+  "ObjectId": "yourUserDefinedFunctionId",
   "ObjectIdType": "UserDefinedFunctionId",
-  "Path": "<accessControlPath>"
+  "Path": "yourAccessControlPath"
 }
 ```
 
-### Send Telemetry to be Processed
+Replace `yourManagementApiUrl`, `yourDesiredRoleIdentifier`, `yourUserDefinedFunctionId`, `yourAccessControlPath` with your custom values.
+
+## Send Telemetry to be Processed
 
 Telemetry generated by the sensor described in the graph should trigger the execution of the user-defined function that was uploaded. Once the telemetry is picked up by the data processor, an execution plan is created for the invocation of the user-defined function.
 
@@ -180,9 +199,9 @@ Telemetry generated by the sensor described in the graph should trigger the exec
 1. Depending on what matchers evaluated successfully, retrieve the associated user-defined functions.
 1. Execute each user-defined function.
 
-### Client Reference
+## Client Reference
 
-#### getSpaceMetadata(id) ⇒ `space`
+### getSpaceMetadata(id) ⇒ `space`
 
 Given a space identifier, retrieves the space from the graph.
 
@@ -192,7 +211,7 @@ Given a space identifier, retrieves the space from the graph.
 | ------ | ------------------- | ------------ |
 | id  | `guid` | space identifier |
 
-#### getSensorMetadata(id) ⇒ `sensor`
+### getSensorMetadata(id) ⇒ `sensor`
 
 Given a sensor identifier, retrieves the sensor from the graph.
 
@@ -202,7 +221,7 @@ Given a sensor identifier, retrieves the sensor from the graph.
 | ------ | ------------------- | ------------ |
 | id  | `guid` | sensor identifier |
 
-#### getDeviceMetadata(id) ⇒ `device`
+### getDeviceMetadata(id) ⇒ `device`
 
 Given a device identifier, retrieves the device from the graph.
 
@@ -212,7 +231,7 @@ Given a device identifier, retrieves the device from the graph.
 | ------ | ------------------- | ------------ |
 | id  | `guid` | device identifier |
 
-#### getSensorValue(sensorId, dataType) ⇒ `value`
+### getSensorValue(sensorId, dataType) ⇒ `value`
 
 Given a sensor identifier and its data type, retrieve the current value for that sensor.
 
@@ -223,7 +242,7 @@ Given a sensor identifier and its data type, retrieve the current value for that
 | sensorId  | `guid` | sensor identifier |
 | dataType  | `string` | sensor data type |
 
-#### getSpaceValue(spaceId, valueName) ⇒ `value`
+### getSpaceValue(spaceId, valueName) ⇒ `value`
 
 Given a space identifier and the value name, retrieve the current value for that space property.
 
@@ -234,7 +253,7 @@ Given a space identifier and the value name, retrieve the current value for that
 | spaceId  | `guid` | space identifier |
 | valueName  | `string` | space property name |
 
-#### getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
+### getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
 
 Given a sensor identifier and its data type, retrieve the historical values for that sensor.
 
@@ -245,7 +264,7 @@ Given a sensor identifier and its data type, retrieve the historical values for 
 | sensorId  | `guid` | sensor identifier |
 | dataType  | `string` | sensor data type |
 
-#### getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
+### getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
 
 Given a space identifier and the value name, retrieve the historical values for that property on the space.
 
@@ -256,7 +275,7 @@ Given a space identifier and the value name, retrieve the historical values for 
 | spaceId  | `guid` | space identifier |
 | valueName  | `string` | space property name |
 
-#### getSpaceChildSpaces(spaceId) ⇒ `space[]`
+### getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
 Given a space identifier, retrieve the child spaces for that parent space.
 
@@ -266,7 +285,7 @@ Given a space identifier, retrieve the child spaces for that parent space.
 | ------ | ------------------- | ------------ |
 | spaceId  | `guid` | space identifier |
 
-#### getSpaceChildSensors(spaceId) ⇒ `sensor[]`
+### getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
 Given a space identifier, retrieve the child sensors for that parent space.
 
@@ -276,7 +295,7 @@ Given a space identifier, retrieve the child sensors for that parent space.
 | ------ | ------------------- | ------------ |
 | spaceId  | `guid` | space identifier |
 
-#### getSpaceChildDevices(spaceId) ⇒ `device[]`
+### getSpaceChildDevices(spaceId) ⇒ `device[]`
 
 Given a space identifier, retrieve the child devices for that parent space.
 
@@ -286,7 +305,7 @@ Given a space identifier, retrieve the child devices for that parent space.
 | ------ | ------------------- | ------------ |
 | spaceId  | `guid` | space identifier |
 
-#### getDeviceChildSensors(deviceId) ⇒ `sensor[]`
+### getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
 Given a device identifier, retrieve the child sensors for that parent device.
 
@@ -296,7 +315,7 @@ Given a device identifier, retrieve the child sensors for that parent device.
 | ------ | ------------------- | ------------ |
 | deviceId  | `guid` | device identifier |
 
-#### getSpaceParentSpace(childSpaceId) ⇒ `space`
+### getSpaceParentSpace(childSpaceId) ⇒ `space`
 
 Given a space identifier, retrieve its parent space.
 
@@ -306,7 +325,7 @@ Given a space identifier, retrieve its parent space.
 | ------ | ------------------- | ------------ |
 | childSpaceId  | `guid` | space identifier |
 
-#### getSensorParentSpace(childSensorId) ⇒ `space`
+### getSensorParentSpace(childSensorId) ⇒ `space`
 
 Given a sensor identifier, retrieve its parent space.
 
@@ -316,7 +335,7 @@ Given a sensor identifier, retrieve its parent space.
 | ------ | ------------------- | ------------ |
 | childSensorId  | `guid` | sensor identifier |
 
-#### getDeviceParentSpace(childDeviceId) ⇒ `space`
+### getDeviceParentSpace(childDeviceId) ⇒ `space`
 
 Given a device identifier, retrieve its parent space.
 
@@ -326,7 +345,7 @@ Given a device identifier, retrieve its parent space.
 | ------ | ------------------- | ------------ |
 | childDeviceId  | `guid` | device identifier |
 
-#### getSensorParentDevice(childSensorId) ⇒ `space`
+### getSensorParentDevice(childSensorId) ⇒ `space`
 
 Given a sensor identifier, retrieve its parent device.
 
@@ -336,7 +355,7 @@ Given a sensor identifier, retrieve its parent device.
 | ------ | ------------------- | ------------ |
 | childSensorId  | `guid` | sensor identifier |
 
-#### getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
+### getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
 
 Given a space identifier, retrieve the property and its value from the space.
 
@@ -347,7 +366,7 @@ Given a space identifier, retrieve the property and its value from the space.
 | spaceId  | `guid` | space identifier |
 | propertyName  | `string` | space property name |
 
-#### getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
+### getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
 Given a sensor identifier, retrieve the property and its value from the sensor.
 
@@ -358,7 +377,7 @@ Given a sensor identifier, retrieve the property and its value from the sensor.
 | sensorId  | `guid` | sensor identifier |
 | propertyName  | `string` | sensor property name |
 
-#### getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
+### getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
 
 Given a device identifier, retrieve the property and its value from the device.
 
@@ -369,7 +388,7 @@ Given a device identifier, retrieve the property and its value from the device.
 | deviceId  | `guid` | device identifier |
 | propertyName  | `string` | device property name |
 
-#### setSensorValue(sensorId, dataType, value)
+### setSensorValue(sensorId, dataType, value)
 
 Sets a value on the sensor object with the given data type.
 
@@ -381,7 +400,7 @@ Sets a value on the sensor object with the given data type.
 | dataType  | `string` | sensor data type |
 | value  | `string` | value |
 
-#### setSpaceValue(spaceId, dataType, value)
+### setSpaceValue(spaceId, dataType, value)
 
 Sets a value on the space object with the given data type.
 
@@ -393,7 +412,7 @@ Sets a value on the space object with the given data type.
 | dataType  | `string` | data type |
 | value  | `string` | value |
 
-#### log(message)
+### log(message)
 
 Logs the following message within the user-defined function.
 
@@ -403,7 +422,7 @@ Logs the following message within the user-defined function.
 | ------ | ------------------- | ------------ |
 | message  | `string` | message to be logged |
 
-#### sendNotification(topologyObjectId, topologyObjectType, payload)
+### sendNotification(topologyObjectId, topologyObjectType, payload)
 
 Sends a custom notification out to be dispatched.
 
@@ -421,7 +440,7 @@ The following are models describing the return objects from the above client ref
 
 ### Space
 
-```json
+```JSON
 {
   "Id": "00000000-0000-0000-0000-000000000000",
   "Name": "Space",
@@ -480,7 +499,7 @@ Sends a notification with the specified payload.
 
 ### Device
 
-```json
+```JSON
 {
   "Id": "00000000-0000-0000-0000-000000000002",
   "Name": "Device",
@@ -524,7 +543,7 @@ Sends a notification with the specified payload.
 
 ### Sensor
 
-```json
+```JSON
 {
   "Id": "00000000-0000-0000-0000-000000000003",
   "Port": "30",
@@ -580,7 +599,7 @@ Sends a notification with the specified payload.
 
 ### Value
 
-```json
+```JSON
 {
   "DataType": "Temperature",
   "Value": "70",
@@ -590,7 +609,7 @@ Sends a notification with the specified payload.
 
 ### Extended Property
 
-```json
+```JSON
 {
   "Name": "OccupancyStatus",
   "Value": "Occupied"
@@ -599,8 +618,7 @@ Sends a notification with the specified payload.
 
 ## Next steps
 
+Learn how to create Digital Twins Endpoints to send events to:
+
 > [!div class="nextstepaction"]
-> [Authenticating with APIs](./security-authenticating-apis.md)
-
-
-  - Learn how to [Create Digital Twins Endpoints](concepts-events-routing.md) to further send events to pre-defined endpoints.
+> [Create Digital Twins Endpoints](concepts-events-routing.md)
