@@ -31,7 +31,7 @@ If you don’t have an Azure account, create a [free account](https://azure.micr
 
 ## Deploy your Digital Twins instance
 
-Create a new instance of the Digital Twins in the [portal](https://portal.azure.com) using the steps in this section. 
+Use the steps in this section to create a new instance of the Digital Twins service. 
 
 [!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
 
@@ -52,25 +52,25 @@ git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
 ``` 
 
 ### Explore the sample
-The sample allows you to configure and provision a spatial topology. Take your time to explore the contents of the *src* folder and notice the following folders:
-- *models*: Explore the code in this folder and notice how this replicates the object model used by the Digital Twins, for spaces and other resources. 
+The sample allows you to configure and provision a spatial intelligence graph. Take your time to explore the contents of the *src* folder. It contains the following:
+- *models*: Explore the code in this folder. This replicates the object model used by the Digital Twins, for spaces and other resources. 
 - *api*: This folder contains wrapper functions for Digital Twins REST APIs. This is not a complete library. For a complete list of features, visit the swagger URL created for your Digital Twins instance which has this format: `yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`.
 - *actions*: The code in this folder performs advanced tasks using the Digital Twins REST APIs, for example:
     - provision your spatial graph using the *provisionSample.cs*, and
     - get information about the provisioned spaces using the *getSpaces.cs*. 
 
 ### Configure the sample
-1. In a command window, navigate to the *digital-twins-samples-csharp-master\occupancy-quickstart\src* in the Digital Twins sample.
+1. Open a command window, and navigate to the *digital-twins-samples-csharp-master/occupancy-quickstart/src* in the downloaded sample folder.
 2. Run `dotnet restore` to restore dependencies to the sample project.
-3. Open the *appSettings.json* file and update the following values:
-    a. *ClientId*: Enter the AAD application id that you noted in the preceding section.
-    b. *Tenant*: Enter the *Directory Id* of your [AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-    c. *BaseUrl*: The URL of your Digital Twins instance, which will be in the following format, `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/api/v1.0/`.
+3. In the same folder, open the *appSettings.json* file, and update the following values:
+    a. *ClientId*: Enter the *Application ID* of your AAD app registration, noted in the preceding section.
+    b. *Tenant*: Enter the *Directory Id* of your [AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant), also noted in the previous section.
+    c. *BaseUrl*: The *Management API* URL of your Digital Twins instance, which will be in the following format, `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`.
 4. Run `dotnet run` to see a list of Digital Twins features that you can explore using the sample.
 
 
 ## Provision your spaces and devices
-In this section, we will learn how to provision a spatial graph for a Smart Building using the .Net sample we downloaded in the previous sections.
+This section shows how to provision a spatial graph for a sample building, using the sample we downloaded in the previous section.
 
 - Navigate to the *src\actions* folder in the .Net sample. Open the file *provisionSample.cs* in an editor and note the following function.
 
@@ -93,17 +93,20 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 ```
 This function uses the *provisionSample.yaml* in the same folder to start provisioning a spatial graph. 
 
-- Open the file *provisionSample.yaml* in your editor. Note the plan of rooms, sensors and devices in a fictitious building. Each of the entry is of a predefined `type` or a Digital Twin object, for example, *Venue*, *Floor*, *Area*, *Room*. A spatial intelligence graph for a particular *space* is built using the  objects relevant to that space. For example, for a regular building, the objects or types used in the provisionSample.yaml will be sufficient. For a spatial graph for another type of space, for example, a factory or a mine, a different set of objects make sense. For more detailed information on spatial graphs and the object model that builds it, read the [Understanding Digital Twins Object Model and Spatial Intelligence Graph](concepts-objectmodel-spatialgraph.md).
+- Open the file *provisionSample.yaml* in your editor. Note the hierarchy of rooms, sensors and devices in a fictitious building. Each of the entry is of a predefined `type` or a Digital Twin object, for example, *Venue*, *Floor*, *Area*, *Room*. A spatial intelligence graph for a particular *space* is built using the  objects relevant to that space. For a building, the objects or types used in the provisionSample.yaml will be sufficient. A spatial graph for another type of space, for example, a factory or a mine, will use a different set of objects that is more relevant. For more detailed information on spatial graphs and the object model that builds it, read [Understanding Digital Twins Object Model and Spatial Intelligence Graph](concepts-objectmodel-spatialgraph.md).
 
-- The *provisionSample.yaml* contains an easy-to-visualize sample spatial graph. The `resources` node lets you create an IoT hub to communicate with the devices in your setup. You would typically create an IoT Hub resource at the root node of your graph, which here is `Venue` type. Since this graph is relevant to a Smart Building application, notice how objects of type `spaces` are nested within each other as logical nesting of `Floor`, `Area` in that floor, and a `Room` in that area. Some of the space objects can have subtypes relevant to a particular building. For a particular `space`, for example a conference room, you could add objects of type `devices`, which are identified by a unique `hardwareId`, and a device will have `sensors` to detect physical changes like temperature or motion. Try adding more spaces, devices and sensors at any level in this graph to better suit your sample scenario. For example, add a second conference room entry below the first one:
-```yaml
-   - name: Conference Room 2
-      type: Room
-      subType: ConferenceRoom
-```
+- The *provisionSample.yaml* contains an easy-to-visualize sample spatial graph. 
+    - The `resources` node lets you create an IoT hub to communicate with the devices in your setup. You would typically create an IoT Hub resource at the root node of your graph, which here is `Venue` type. 
+    - Since this graph is relevant to a building, notice the logical nesting of spaces of type `Floor` within the `Venue`, `Area` in a floor, and `Room` in an area. 
+    - Some of the spaces will contain *devices* and *sensors*. For example in a room named *FocusRoom*, note the addition of objects of type `devices`, which are identified by a unique `hardwareId`, and devices containing `sensors` that detect physical changes like temperature or motion. 
+    - Try adding more spaces, devices and sensors at any level in this graph to get a better idea of how the graph might work.
 
-- Run `dotnet run ProvisionSample` at the command line to provision your spatial topology. Observe the messages in the command window and notice how your spatial graph gets created. Notice how it creates an IoT hub at the root node or the `Venue`. 
+- Run `dotnet run ProvisionSample` at the command line to provision your spatial topology. 
+- Follow the prompt to authenticate your application, by pasting the code at `https://microsoft.com/devicelogin`, and then signing in with your Azure account. 
+- Once your login is authenticated, the application creates a sample spatial graph as configured in the *provisionSample.yaml*. Observe the messages in the command window and notice how your spatial graph gets created. Notice how it creates an IoT hub at the root node or the `Venue`. 
 - From the output in the command window, copy the value of the `ConnectionString`, under the `Devices` section, to your clipboard. You will need this value to simulate the device connection in the following tutorial.
+
+    ![Provision Sample](./media/tutorial-facilities-setup/run-provision-sample.png)
 
 
 ## Clean up resources

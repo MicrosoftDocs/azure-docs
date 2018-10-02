@@ -12,9 +12,7 @@
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
-1. Select **Create a resource** > **Internet of Things** > **Digital Twins**. 
-
-    ![Select to install Digital Twins](./media/create-digital-twins-portal/create-digital-twins-portal.png)
+1. From the left side navigation pane, click **Create a resource**. Then select **Internet of Things** > **Digital Twins**, or search for *Digital Twins*. Click **Create** to start the deployment process.
 
 1. In the **Digital Twins** pane, enter the following information:
    * **Subscription**: Choose the subscription that you want to use to create this Digital Twins instance. 
@@ -26,4 +24,4 @@
 
 1. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 
-1. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs. The URL is generated in portal in **Overview** section and has the following format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. Note down this URL; you will need this in the proceeding steps.
+1. Open the **Overview** pane of your Digital Twins instance. Copy the link that shows under **Management API** to your clipboard. The URL is of the format  `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` and represents the Digital Twins REST APIs for management and interaction with your space resources. You will need this URL in the proceeding steps.

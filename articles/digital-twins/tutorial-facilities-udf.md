@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Custom monitor your Azure Digital Twins setup
 
-Azure Digital Twins service allows you to bring together people, places and things in a coherant spatial system. This series of tutorials demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. This series shows you how to deploy Digital Twins using the portal[https://portal.azure.com], create a provisioning application using Digital Twins REST APIs in a .Net application, monitor the telemetry coming from your devices and rooms, and create customized analyses on the telemetry data. This will walk you through a scenario where you have a sample building, with the hierarchy of floors, rooms and devices with sensors in these rooms. The steps in these tutorials show you how to monitor the transient state of the rooms in the sample building, like occupancy and temperature, and receive alerts for abnormal conditions. You will use a sample application, and can choose to customize it for better understanding. 
+Azure Digital Twins service allows you to bring together people, places and things in a coherant spatial system. This is the second tutorial in a series that demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned your sample building using the steps It shows how you can run custom computations on your sensor data 
 
 In this tutorial, you learn how to:
 
@@ -30,14 +30,10 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 - an instance of Digital Twins running, and 
 - the [Azure Digital Twins sample application](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded or cloned on your work machine.
  
-## Understand a User Defined Function
-*User-defined functions* (or UDFs) allow you to customize the processing of telemetry data from your sensors. It  In this section, we will use the .Net sample used in the previous sections to understand how to create and configure a UDF. 
+## User-Defined Function
+*User-defined functions* (or UDFs) allow you to customize the processing of telemetry data from your sensors. It is a custom JavaScript code that runs within your Digital Twins instance. It runs in tandem with a *matcher* that looks for specific conditions in the device data. You can create *matchers* and *user-defined functions* for each sensor that you want to monitor. For more detailed information, read [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
 
-- In the *provisionSample.yaml* file, note the entries  of type `userdefinedfunctions`
-
-## Create Matchers 
-
-## Create User-Defined Functions
+In this section, we will use the Digital Twins sample downloaded in the [previous tutorial](tutorial-facilities-setup.md) to understand how to create and configure a UDF. 
 
 ## Simulate sensor data
 <!--TBD This should be in a proper app in Azure Samples -->
