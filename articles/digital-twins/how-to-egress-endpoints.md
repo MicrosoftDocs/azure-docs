@@ -24,7 +24,7 @@ Here are the events' format for each of the event types:
 
 - `TopologyOperation`
 
-  Applies for graph changes, the `subject` property will contain the type of object affected. These are the types of objects that could trigger this event: `Device, DeviceBlobMetadata, DeviceExtendedProperty, ExtendedPropertyKey, ExtendedType, KeyStore, Report, RoleDefinition, Sensor, SensorBlobMetadata, SensorExtendedProperty, Space,  SpaceBlobMetadata, SpaceExtendedProperty, SpaceResource, SpaceRoleAssignment, System, User, UserBlobMetadata, UserExtendedProperty`.
+  Applies for graph changes, the `subject` property will contain the type of object affected. Types of objects that could trigger this event are: `Device, DeviceBlobMetadata, DeviceExtendedProperty, ExtendedPropertyKey, ExtendedType, KeyStore, Report, RoleDefinition, Sensor, SensorBlobMetadata, SensorExtendedProperty, Space,  SpaceBlobMetadata, SpaceExtendedProperty, SpaceResource, SpaceRoleAssignment, System, User, UserBlobMetadata, UserExtendedProperty`.
 
   Example:
 
@@ -44,7 +44,7 @@ Here are the events' format for each of the event types:
     "eventTime": "2018-04-17T17:41:54.9400177Z",
     "dataVersion": "1",
     "metadataVersion": "1",
-    "topic": "/subscriptions/<TOPICNAME>"
+    "topic": "/subscriptions/{{your-topic-name}}"
   }
   ```
 
@@ -68,7 +68,7 @@ Here are the events' format for each of the event types:
     "eventTime": "2018-10-02T06:50:15.198Z",
     "dataVersion": "1.0",
     "metadataVersion": "1",
-    "topic": "/subscriptions/<TOPICNAME>"
+    "topic": "/subscriptions/{{your-topic-name}}"
   }
   ```
 
@@ -99,7 +99,7 @@ Here are the events' format for each of the event types:
     "eventTime": "2018-04-17T17:46:18.5452993Z",
     "dataVersion": "1",
     "metadataVersion": "1",
-    "topic": "/subscriptions/<TOPICNAME>"
+    "topic": "/subscriptions/{{your-topic-name}}"
   }
   ```
 
@@ -130,7 +130,7 @@ Here are the events' format for each of the event types:
     "eventTime": "2018-10-02T06:50:20.128Z",
     "dataVersion": "1.0",
     "metadataVersion": "1",
-    "topic": "/subscriptions/<TOPICNAME>"
+    "topic": "/subscriptions/{{your-topic-name}}"
   }
   ```
 
@@ -142,7 +142,9 @@ Here are the events' format for each of the event types:
 
 Endpoint management is exercised through the endpoints API, here are some examples on how to configure the different supported endpoints, pay special attention to the event types array as it specifies the routing for the endpoint:
 
-`POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints`
+```plaintext
+POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+```
 
 - Route to **Service Bus** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
@@ -154,9 +156,9 @@ Endpoint management is exercised through the endpoints API, here are some exampl
               "SpaceChange",
               "TopologyOperation"
           ],
-          "connectionString": "Endpoint=sb://<YourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<PrimaryKey>",
-          "secondaryConnectionString": "Endpoint=sb://<YourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SecondaryKey>",
-          "path": "<TopicName>"
+          "connectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-primary-key}}",
+          "secondaryConnectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-secondary-key}}",
+          "path": "{{your-topic-name}}"
           }
   ```
 
@@ -170,9 +172,9 @@ Endpoint management is exercised through the endpoints API, here are some exampl
               "SpaceChange",
               "TopologyOperation"
           ],
-      "connectionString": "<Primary Key>",
-      "secondaryConnectionString": "<Secondary Key>",
-      "path": "<TopicName>.westus-1.eventgrid.azure.net"
+      "connectionString": "{{your-primary-key}}",
+      "secondaryConnectionString": "{{your-secondary-key}}",
+      "path": "{{your-topic-name}}.westus-1.eventgrid.azure.net"
   }
   ```
 
@@ -186,9 +188,9 @@ Endpoint management is exercised through the endpoints API, here are some exampl
               "SpaceChange",
               "TopologyOperation"
           ],
-          "connectionString": "Endpoint=sb://<YourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<PrimaryKey>",
-          "secondaryConnectionString": "Endpoint=sb://<YourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SecondaryKey>",
-          "path": "<EventHub Name>"
+          "connectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-primary-key}}",
+          "secondaryConnectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-secondary-key}}",
+          "path": "{{your-event-hub-name}}"
           }
   ```
 
@@ -200,9 +202,9 @@ Endpoint management is exercised through the endpoints API, here are some exampl
           "eventTypes": [
               "DeviceMessage"
           ],
-          "connectionString": "Endpoint=sb://<YourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<PrimaryKey>;EntityPath=<EventHub Name>",
-          "secondaryConnectionString": "Endpoint=sb://<YourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SecondaryKey>;EntityPath=<EventHub Name>",
-          "path": "<EventHub Name>"
+          "connectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-primary-key}};EntityPath={{your-event-hub-name}}",
+          "secondaryConnectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-secondary-key}};EntityPath={{your-event-hub-name}}",
+          "path": "{{your-event-hub-name}}"
           }
   ```
 
