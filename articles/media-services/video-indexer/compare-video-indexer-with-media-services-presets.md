@@ -27,14 +27,14 @@ Currently, there is an overlap between features offered by the [Video Indexer v2
 
 |Feature|Video Indexer APIs |Video Analyzer and Audio Analyzer Presets<br/>in Media Services v3 APIs|
 |---|---|---|
-|Media Insights|[Enhanced](../../cognitive-services/video-indexer/video-indexer-output-json-v2.md?toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json) |[Fundamentals](../latest/intelligence-concept.md)|
-|Experiences|See the full list of supported features: <br/> [Overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json)|Returns video insights only|
+|Media Insights|[Enhanced](../../cognitive-services/video-indexer/video-indexer-output-json-v2.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json) |[Fundamentals](../latest/intelligence-concept.md)|
+|Experiences|See the full list of supported features: <br/> [Overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)|Returns video insights only|
 |Compliance|TBD|ISO, SOC, FedRAMP, HIPPA|
 |Free Trial|East US|Not available|
 |Availability |West US, East Asia, North Europe|See [Azure status](https://azure.microsoft.com/status/).|
 
 ## Next steps
 
-[Video Indexer overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json)
+[Video Indexer overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)
 
 [Media Services v3 overview](../../media-services/latest/media-services-overview.md)
