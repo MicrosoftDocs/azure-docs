@@ -37,7 +37,7 @@ This extension supports several different remote compute targets for Azure Machi
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure: Machine Learning sidebar appears.
 
-2. In the tree view, expand your Azure subscription and Azure Machine Learning workspace. In the animated image, the subscription name is 'OpenMind Studio' and the workspace is 'MyWorkspace'. 
+2. In the tree view, expand your Azure subscription and Azure Machine Learning service workspace. In the animated image, the subscription name is 'OpenMind Studio' and the workspace is 'MyWorkspace'. 
 
 3. Under the workspace node, right-click the **Compute** node and choose **Create Compute**.
 
@@ -114,7 +114,7 @@ Use Azure Machine Learning from VS Code to rapidly iterate on your code, step th
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure: Machine Learning sidebar appears.
 
-1. In the tree view, expand your Azure subscription and Azure Machine Learning workspace. In the animated image, the subscription name is 'OpenMind Studio' and the workspace is 'MyWorkspace'. 
+1. In the tree view, expand your Azure subscription and Azure Machine Learning service workspace. In the animated image, the subscription name is 'OpenMind Studio' and the workspace is 'MyWorkspace'. 
 
 1. Under the workspace node, expand the **Compute** node and right-click the **Run Config** of compute you want to use. 
 
@@ -129,14 +129,14 @@ Azure Machine Learning enables deploying and managing your machine learning mode
 
 ### Register your model to Azure Machine Learning from VS Code
 
-Now that you have trained your model, you can register it in your Azure Machine Learning Workspace.
+Now that you have trained your model, you can register it in your workspace.
 Registered models can be tracked and deployed.
 
 **To register your model:**
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure: Machine Learning sidebar appears.
 
-1. In the tree view, expand your Azure subscription and Azure Machine Learning workspace.
+1. In the tree view, expand your Azure subscription and Azure Machine Learning service workspace.
 
 1. Under the workspace node, right-click **Models** and choose **Register Model**.
 
@@ -163,7 +163,7 @@ Learn more about [deployment with Azure Machine Learning](how-to-deploy-and-wher
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure: Machine Learning sidebar appears.
 
-1. In the tree view, expand your Azure subscription and your Azure Machine Learning workspace.
+1. In the tree view, expand your Azure subscription and your Azure Machine Learning service workspace.
 
 1. Under the workspace node, expand the **Models** node.
 
