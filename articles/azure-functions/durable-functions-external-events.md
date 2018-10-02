@@ -44,7 +44,7 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const approved = yield context.df.waitForExternalEvent("Approval");
     if (approved) {
         // approval granted - do the approved action
@@ -90,7 +90,7 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const event1 = context.df.waitForExternalEvent("Event1");
     const event2 = context.df.waitForExternalEvent("Event2");
     const event3 = context.df.waitForExternalEvent("Event3");
@@ -131,7 +131,7 @@ public static async Task Run(
 #### JavaScript (Functions v2 only)
 
 ```javascript
-const df = require("durable-functions");
+const df = require.orchestrator("durable-functions");
 
 module.exports = df(function*(context) {
     const applicationId = context.df.getInput();
@@ -169,6 +169,35 @@ public static async Task Run(
     await client.RaiseEventAsync(instanceId, "Approval", true);
 }
 ```
+
+#### JavaScript (Functions v2 only)
+In JavaScript we will have to invoke a rest api to trigger an event for which the durable function is waiting for.
+The code below uses the "request" package. The method below can be used to raise any event for any durable function instance
+
+```js
+function raiseEvent(instanceId, eventName) {
+        var url = `<<BASE_URL>>/runtime/webhooks/durabletask/instances/${instanceId}/raiseEvent/${eventName}?taskHub=DurableFunctionsHub`;
+        var body = <<BODY>>
+            
+        return new Promise((resolve, reject) => {
+            request({
+                url,
+                json: body,
+                method: "POST"
+            }, (e, response) => {
+                if (e) {
+                    return reject(e);
+                }
+
+                resolve();
+            })
+        });
+    }
+```
+
+<<BASE_URL>> will be the base url of the your function app. If you are running code locally, then it will look something like
+http://localhost:7071 or in Azure as https://<<functionappname>>.azurewebsites.net
+
 
 Internally, `RaiseEventAsync` enqueues a message that gets picked up by the waiting orchestrator function.
 
