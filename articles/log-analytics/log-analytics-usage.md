@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Analyze data usage in Log Analytics

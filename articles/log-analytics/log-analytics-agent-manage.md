@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
