@@ -15,17 +15,7 @@ ms.author: andrl
 
 # Set and get throughput for Azure Cosmos DB containers and database
 
-You can set throughput for an Azure Cosmos DB container or a set of containers by using Azure portal or by using the client SDKs. 
-
-**Provision throughput for an individual container:** When you provision throughput for a set of containers, all those containers share the provisioned throughput. Provisioning throughput for individual containers will guarantee the reservation of throughput for that specific container. When assigning RU/sec at the individual container level, the containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container, you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values, you ensure that your container/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
-
-**Provision throughput for a set of containers or a database:** Provisioning throughput for a database allows you to share the throughput among all the containers that belong to that database. Within an Azure Cosmos DB database, you can have a set of containers which shares the throughput as well as containers, which have dedicated throughput. When assigning RU/sec across a set of containers, the containers belonging to this set are treated as *unlimited* containers and must specify a partition key.
-
-Based on the provisioned throughput, Azure Cosmos DB will allocate physical partitions to host your container(s) and splits/rebalances data across partitions as it grows. Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new collection and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). The following image illustrates provisioning throughput at different levels:
-
-![Provisioning request units for individual containers and set of containers](./media/request-units/provisioning_set_containers.png)
-
-In the next sections, you will learn the steps required to configure throughput at different levels for an Azure Cosmos DB account. 
+You can set throughput for an Azure Cosmos DB container or a set of containers by using Azure portal or by using the client SDKs. This article describes the steps required to configure throughput at different granularities for an Azure Cosmos DB account.
 
 ## Provision throughput by using Azure portal
 
