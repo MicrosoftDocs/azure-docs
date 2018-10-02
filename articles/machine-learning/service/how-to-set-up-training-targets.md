@@ -366,7 +366,7 @@ You can view what compute targets are associated with your workspace from the Az
 1. Visit the [Azure portal](https://portal.azure.com) and navigate to your workspace.
 2. Click on the __Compute__ link under the __Applications__ section.
 
-    ![View compute tab](./media/how-to-set-up-training-targets/compute_tab.png)
+    ![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
 ### Create a compute target
 
@@ -374,7 +374,7 @@ Follow the above steps to view the list of compute targets, and then use the fol
 
 1. Click the __+__ sign to add a compute target.
 
-    ![Add compute ](./media/how-to-set-up-training-targets/add_compute.png)
+    ![Add compute ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. Enter a name for the compute target.
 1. Select the type of compute to attach for __Training__. 
