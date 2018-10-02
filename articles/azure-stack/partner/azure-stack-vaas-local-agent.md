@@ -104,7 +104,7 @@ The tests perform remote operations. The machine that runs the tests must have a
 
 3. Sign in using the Azure AD service administrator name and password values provided when creating the test pass.
 
-4. Check the system's health by running the **Test-AzureStack** PowerShell cmdlet as described in [Run a validation test for Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-diagnostic-test). Fix any warnings and errors before launching any tests.
+4. Check the system's health by running the **Test-AzureStack** PowerShell cmdlet as described in [Run a validation test for Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test). Fix any warnings and errors before launching any tests.
 
 ## Run the agent
 

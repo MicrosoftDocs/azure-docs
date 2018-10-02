@@ -74,7 +74,7 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 > [!CAUTION]
 > Note: This option opens up your container for anonymous read-only access.
 
-1. Grant **public read access for blobs only** to the package container by following the instructions in section [Grant anonymous users permissions to containers and blobs](https://docs.microsoft.com/en-us/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+1. Grant **public read access for blobs only** to the package container by following the instructions in section [Grant anonymous users permissions to containers and blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 2. In the package container, click on the package blob in the container to open the properties pane.
 3. Copy the **URL**. Use this value when starting a new **Package Validation** workflow in the VaaS portal.
 

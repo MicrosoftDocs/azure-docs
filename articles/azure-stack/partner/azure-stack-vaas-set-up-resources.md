@@ -67,7 +67,7 @@ As the AAD administrator, give the VaaS AAD application the required permissions
 
 2. The site will prompt you to grant VaaS the listed AAD permissions. Accept the terms to proceed.
 
-For more information on the consent framework, see [Overview of the consent framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#overview-of-the-consent-framework).
+For more information on the consent framework, see [Overview of the consent framework](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#overview-of-the-consent-framework).
 
 ### Assign user roles
 
@@ -94,7 +94,7 @@ During test execution, VaaS outputs diagnostic logs to an Azure Storage account.
 > [!NOTE]
 > This Azure Storage account is hosted in the Azure public cloud, not on your Azure Stack environment.
 
-1. To create a storage account, follow the instructions at [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account).
+1. To create a storage account, follow the instructions at [Create a storage account](https://docs.microsoft.com/azure/storage/storage-create-storage-account#create-a-storage-account).
 2. When selecting the type of storage account, select the **Blob storage** account type.
     > [!TIP]
     > In order to ensure that networking charges are not incurred for storing logs, it is recommended that the Azure Storage account be configured to use only the **US West** region. Data replication and the hot storage tier feature are not necessary for this data. Enabling either feature will dramatically increase partner costs.
