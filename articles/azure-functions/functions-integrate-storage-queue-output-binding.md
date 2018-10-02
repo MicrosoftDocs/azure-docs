@@ -56,8 +56,8 @@ In this section, you use the portal UI to add a queue storage output binding to 
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
     | **Queue name**   | outqueue    | The name of the queue to connect to in your Storage account. |
 
-4. Click **Save** to add the binding.
- 
+1. Click **Save** to add the binding.
+
 Now that you have an output binding defined, you need to update the code to use the binding to add messages to a queue.  
 
 ## Add code that uses the output binding
