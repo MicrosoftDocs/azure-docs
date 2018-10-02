@@ -47,6 +47,8 @@
     href: how-to-multitenant-applications.md
   - name: Guide for Using User-Defined Functions with Azure Digital Twins
     href: how-to-user-defined-functions.md
+  - name: How to egress endpoints in Azure Digital Twins
+    href: how-to-user-egress-endpoints.md
 #- name: Reference
 #  items:
 - name: Related
