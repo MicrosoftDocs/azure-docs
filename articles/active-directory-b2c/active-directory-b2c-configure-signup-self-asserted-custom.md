@@ -106,6 +106,14 @@ Allows for the selection of one or more values.
 </ClaimType>
 ```
 
+Other than providing a default value by setting "SelectByDefault" to be true,  you can also do it in InputClaim or OutputClaim where you can also specify the DefaultValue. In the latter case, the delimitor "," can be used and all default values will get preselected at the front-end.
+
+```xml
+<TechnicalProfile>
+  <InputClaim ClaimTypeReferenceId="city" Required="true" DefaultValue="redmond,bellevue" />
+<TechnicalProfile>
+```
+
 ## Add the claim to the sign up/sign in user journey
 
 1. Add the claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the TechnicalProfile `LocalAccountSignUpWithLogonEmail` (found in the TrustFrameworkBase policy file).  Note this TechnicalProfile uses the SelfAssertedAttributeProvider.
