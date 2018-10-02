@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -182,7 +182,7 @@ For this procedure, use a computer that can communicate with the privileged endp
 1. Open an elevated Windows PowerShell session.
 
    ```PowerShell  
-   $federationMetadataFileContent = get-content c:\metadata.cml
+   $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
