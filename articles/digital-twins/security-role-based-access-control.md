@@ -24,8 +24,8 @@ A developer might use Role-Based Access Control to:
 
 * Grant a user the ability to manage devices for an entire building, or only for a particular room or floor.
 * Grant an administrator global access to all spatial graph nodes for an entire graph, or only for a section of the graph.
-* Grant a support specialist read access to the topology, except for access keys.
-* Grant every member of a domain read access to all topology objects.
+* Grant a support specialist read access to the graph, except for access keys.
+* Grant every member of a domain read access to all graph objects.
 
 ## Role-based access control best practices
 
