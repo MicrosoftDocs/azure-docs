@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Using PHP to call the Text Analytics API'
+title: 'Quickstart: Using Python to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
