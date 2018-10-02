@@ -19,15 +19,19 @@ ms.author: juliako
 
 # Compare Azure Media Services v3 presets and Video Indexer 
 
-This article compares the capabilities of **Video Indexer** and **Media Services v3 presets**.
+This article compares the capabilities of **Video Indexer APIs** and **Media Services v3 APIs**. 
+
+Currently, there is an overlap between features offered by the [Video Indexer v2 APIs](https://api-portal.videoindexer.ai/) and the [Media Services v3 APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). The following table offers the current guideline for understanding the differences and similarities. 
 
 ## Compare
 
-|Feature|Video Indexer|AMS v3 presets|
+|Feature|Video Indexer APIs |Video Analyzer and Audio Analyzer Presets<br/>in Media Services v3 APIs|
 |---|---|---|
-|Richer insights|Yes|No|
-|Compliance|ISO, SOC|ISO, SOC, FedRAMP, HIPPA|
-|Availability |Regions: East US (trial) <br/>West US, East Asia, North Europe (paid)|Almost all regions (no trial)|
+|Media Insights|[Enhanced]() |[Fundamentals]()|
+|Experiences||Returns video insights only|
+|Compliance|TBD|Get the complete list from [https://ecosystemmanager.azurewebsites.net/v2/compliance/customer-promise](https://ecosystemmanager.azurewebsites.net/v2/compliance/customer-promise)|
+|Free Trial|East US|Not available|
+|Availability |West US, East Asia, North Europe|See [Azure status](https://azure.microsoft.com/status/).|
 
 ## Next steps
 
