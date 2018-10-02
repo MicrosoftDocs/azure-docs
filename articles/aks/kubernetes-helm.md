@@ -20,7 +20,7 @@ This article shows you how to configure and use Helm in a Kubernetes cluster on 
 
 The steps detailed in this document assume that you have created an AKS cluster and have established a `kubectl` connection with the cluster. If you need these items see, the [AKS quickstart][aks-quickstart].
 
-You also need the Helm CLI installed, the client that runs on your development system and allows you to start, stop, and manage applications with Helm. If you use the Azure Cloud Shell, the Helm CLI is already installed. For installation instructions on your local platform see, [Installing Helm][helm-install-options].
+You also need the Helm CLI installed, the client that runs on your development system and allows you to start, stop, and manage applications with Helm. If you use the Azure Cloud Shell, the Helm CLI is already installed. For installation instructions on your local platform see, [Installing Helm][helm-install].
 
 ## Create a service account
 
