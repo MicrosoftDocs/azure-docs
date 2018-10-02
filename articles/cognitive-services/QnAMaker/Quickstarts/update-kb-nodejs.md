@@ -43,18 +43,18 @@ Create a file named `update-knowledge-base.js`.
 
 At the top of `update-knowledge-base.js`, add the following lines to add necessary dependencies to the project:
 
-   [!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=1-4 "Add the dependencies")]
+   [!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=1-4 "Add the dependencies")]
 
 ## Add required constants
 After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key. 
 
-   [!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=10-17 "Add required constants")]
+   [!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=10-17 "Add required constants")]
 
 ## Add knowledge base ID
 
 After the previous constants, add the knowledge base ID and add it to the path:
 
-   [!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=19-23 "Add knowledge base ID")]
+   [!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
 ## Add the KB update definition
 
@@ -66,7 +66,7 @@ After the constants, add the following KB update definition. The update definiti
 
 Each section can be used in the same single request to the API. 
 
-   [!code-nodejs[Add the KB update definition](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=23-53 "Add the KB update definition")]
+   [!code-nodejs[Add the KB update definition](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=23-53 "Add the KB update definition")]
 
 
 ## Add supporting functions
@@ -75,11 +75,11 @@ Next, add the following supporting functions.
 
 1. Add the following function to print out JSON in a readable format:
 
-   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=55-58 "Add supporting functions, step 1")]
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=55-58 "Add supporting functions, step 1")]
 
 2. Add the following functions to manage the HTTP response to get the creation operation status:
 
-   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=60-82 "Add supporting functions, step 2")]
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=60-82 "Add supporting functions, step 2")]
 
 ## Add PATCH request to update KB
 

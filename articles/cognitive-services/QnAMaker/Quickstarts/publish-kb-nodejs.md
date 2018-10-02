@@ -40,19 +40,19 @@ Create a file named `publish-knowledge-base.js`.
 
 At the top of `publish-knowledge-base.js`, add the following lines to add necessary dependencies to the project:
 
-   [!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/publish-knowledge-base.js?range=1-4 "Add the dependencies")]
+   [!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=1-4 "Add the dependencies")]
 
 ## Add required constants
 
 After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key. 
 
-   [!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/publish-knowledge-base.js?range=10-17 "Add required constants")]
+   [!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=10-17 "Add required constants")]
 
 ## Add knowledge base ID
 
 After the previous constants, add the knowledge base ID and add it to the path:
 
-   [!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/publish-knowledge-base.js?range=19-23 "Add knowledge base ID")]
+   [!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
 ## Add supporting functions
 
@@ -60,22 +60,22 @@ Next, add the following supporting functions.
 
 1. Add the following function to print out JSON in a readable format:
 
-   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=25-28 "Add supporting functions, step 1")]
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/update-knowledge-base.js?range=25-28 "Add supporting functions, step 1")]
 
 2. Add the following functions to manage the HTTP response to get the creation operation status:
 
-   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=30-52 "Add supporting functions, step 2")]
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/update-knowledge-base.js?range=30-52 "Add supporting functions, step 2")]
 
 
 ## Add POST request to publish KB
 The following code makes an HTTPS request to the Qna Maker API to publish a KB and receives the response:
 
-   [!code-nodejs[Add POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=54-71 "Add POST request to publish KB")]
+   [!code-nodejs[Add POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/update-knowledge-base.js?range=54-71 "Add POST request to publish KB")]
 
 ## Add the publish_kb function and main function
 Execute the publish _kb function.
 
-   [!code-nodejs[Add the publish_kb function and main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=73-97 "Add the publish_kb function and main function")]
+   [!code-nodejs[Add the publish_kb function and main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/update-knowledge-base.js?range=73-97 "Add the publish_kb function and main function")]
 
 ## Run the program
 
