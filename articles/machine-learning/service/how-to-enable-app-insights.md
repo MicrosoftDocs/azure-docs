@@ -25,7 +25,7 @@ Learn more about Application Insights [here](../../application-insights/app-insi
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS). If you don't have one, see the [train image classification model](tutorial-train-models-with-aml.md) tutorial.
 * An [AKS cluster](how-to-deploy-to-aks.md).
 
-## Enable Application Insights from Azure portal
+## Enable & disable in the portal
 1. In [Azure portal](https://portal.azure.com), open your workspace.
 
 1. Go into your deployments and select the service where you want to enable Application Insights.
@@ -42,9 +42,9 @@ Learn more about Application Insights [here](../../application-insights/app-insi
 
 5. At the bottom of the page click **Update**.
 
-## Enable Application Insights from the SDK
+## Enable & disable from the SDK
 
-### Update a deployed service:
+### Update a deployed service
 1. Identify the service in your workspace (ws= name of your workspace)
 
     ```python
@@ -56,7 +56,7 @@ Learn more about Application Insights [here](../../application-insights/app-insi
     aks_service.update(enable_app_insights=True)
     ```
 
-### Enable custom traces in your service:
+### Log custom traces in your service
 If you want to log custom traces, you will follow the [standard deployment process for AKS](how-to-deploy-to-aks.md) and you will:
 
 1. Update scoring file by adding print statements.
@@ -72,6 +72,15 @@ If you want to log custom traces, you will follow the [standard deployment proce
     ```
 
 3. [Build image and deploy it.](how-to-deploy-to-aks.md)  
+
+### Disable tracking in Python
+
+To disable Application Insights, use the following code:
+
+```python 
+## replace <service_name> with the name of the web service
+<service_name>.update(enable_app_insights=False)
+```
 	
 
 ## Evaluate data
