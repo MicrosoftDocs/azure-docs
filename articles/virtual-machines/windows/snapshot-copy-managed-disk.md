@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/01/2018
 ms.author: cynthn
 
 ---
 # Create a snapshot
 
-A snapshot is a full, read-only copy of a virtual hard drive (VHD). You can take a snapshot of an OS or data disk VHD to use as a backup or to troubleshoot virtual machine (VM) issues. 
+A snapshot is a full, read-only copy of a virtual hard drive (VHD). You can take a snapshot of an OS or data disk VHD to use as a backup, or to troubleshoot virtual machine (VM) issues. 
 
 You can take a snapshot in the following ways:
 
@@ -35,14 +35,14 @@ You can take a snapshot in the following ways:
 5. Select an existing [Resource group](../../azure-resource-manager/resource-group-overview.md#resource-groups) or enter the name of a new one. 
 6. Select an Azure datacenter **Location**.  
 7. For **Source disk**, select the managed disk to snapshot.
-8. Select the **Account type** to use to store the snapshot. Select **Standard_HDD**, unless you need the snapshot stored on a high performing disk.
+8. Select the **Account type** to use to store the snapshot. Select **Standard_HDD**, unless you need the snapshot to be stored on a high-performing disk.
 9. Select **Create**.
 
 ## Take a snapshot by using PowerShell
 
 The following steps show how to copy the VHD disk, create the snapshot configuration, and take a snapshot of the disk by using the [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
-Before you begin, ensure that you have the latest version of the AzureRM.Compute PowerShell module. This article assumes an AzureRM module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+Before you begin, ensure you have the latest version of the AzureRM.Compute PowerShell module, which must be version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you're running PowerShell locally, run [Connect-AzureRmAccount](https://docs.microsoft.com/en-us/powershell/module/azurerm.profile/connect-azurermaccount) to create a connection with Azure.
 
 1. Set some parameters: 
 
