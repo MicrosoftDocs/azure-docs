@@ -9,6 +9,20 @@
     href: about-digital-twins.md
   # - name: Smart Spaces in the Azure IoT ecosystem
   #  href: smart-spaces-in-iot.md
+- name: Quickstarts
+  items:
+  - name: View space occupancy
+    href: quickstart-view-occupancy-dotnet.md
+- name: Tutorials
+  items:
+  - name: Monitor facilities with Digital Twins
+    items:
+      - name: Provision a sample building
+        href: tutorial-facilities-setup.md
+      - name: Create customized notifications
+        href: tutorial-facilities-udf.md
+      - name: Receive events from your building
+        href: tutorial-facilities-events.md
 - name: Concepts
   items:
   - name: Digital Twins Object Models and Spatial Intelligence Graph
@@ -33,14 +47,6 @@
       href: security-authenticating-apis.md
     - name: Device connectivity
       href: security-device-token.md
-- name: Quickstarts
-  items:
-  - name: View space occupancy
-    href: quickstart-view-occupancy-dotnet.md
-- name: Tutorials
-  items:
-  - name: Facilities app
-    href: tutorial-facilities-app.md
 - name: How-to guides
   items:
   - name: Enable multitenant applications with Azure Digital Twins

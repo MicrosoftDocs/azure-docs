@@ -30,25 +30,9 @@ This article shows how you can achieve both goals using Azure Digital Twins. The
     ```
 
 ## Create a Digital Twins instance in Azure Portal
+Create a new instance of the Digital Twins in the [portal](https://portal.azure.com) using the steps in this section. 
 
-1. Sign into the [Azure portal](https://portal.azure.com).
-
-1. Select **Create a resource** > **Internet of Things** > **Digital Twins** (or search by **Digital Twins**).
-
-    ![Select to install Digital Twins][1]
-
-1. In the **Digital Twins** pane, enter the following information for your Digital Twins service:
-
-   * **Subscription**: Choose the subscription that you want to use to create this Digital Twins instance.
-   * **Resource group**: Select or create a resource group for the Digital Twins instance. For more information on resource groups, see [Use resource groups to manage your Azure resources][lnk-resource-groups].
-   * **Location**: Select the closest location to your devices.
-   * **Name**: Create a unique name for your Digital Twins instance. If the name you enter is available, a green check mark appears.
-
-   ![Create Digital Twins][2]
-
-1. Review your Digital Twins information, then click **Create**. Your Digital Twins instance might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
-
-1. Digital Twins provides a collection of REST APIs for management and interaction with your graph. These APIs are called Management APIs. The URL is generated in the **Overview** section of the Digital Twins resource view and has the following format: `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`. You will need this URL in the proceeding steps.
+[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
 
 ## Grant permissions to the console applications to interact with Digital Twins Management APIs
 
@@ -118,7 +102,7 @@ See full code samples:
 > [C# code samples](https://github.com/Azure-Samples/digital-twins-samples-csharp)
 
 > [!div class="nextstepaction"]
-> [Facility Management Tutorial](tutorial-facilities-app.md)
+> [Facility Management Tutorial](tutorial-facilities-setup.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/create-digital-twins-portal.png
