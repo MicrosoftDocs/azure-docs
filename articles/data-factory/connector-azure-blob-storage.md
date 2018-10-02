@@ -187,7 +187,7 @@ These properties are supported for an Azure Blob storage linked service:
 }
 ```
 
-### Managed identities for Azure resources authentication
+### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
 A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Blob storage authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Blob storage.
 
