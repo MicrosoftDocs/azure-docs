@@ -85,7 +85,7 @@ Next, add the following supporting functions.
 
 Add the following functions to make an HTTP PATCH request to update the knowledge base. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication.
 
-   [!code-nodejs[Add PATCH request to update KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=84-111 "Add PATCH request to update KB")]
+   [!code-nodejs[Add PATCH request to update KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=84-111 "Add PATCH request to update KB")]
 
     This API call returns a JSON response that includes the operation ID. The operation ID is necessary to request status if the operation is not complete. 
     
@@ -103,7 +103,7 @@ Add the following functions to make an HTTP PATCH request to update the knowledg
 
 Check the status of the operation.
     
-   [!code-nodejs[Add GET request to determine operation status](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=113-137 "Add GET request to determine operation status")]
+   [!code-nodejs[Add GET request to determine operation status](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=113-137 "Add GET request to determine operation status")]
 
 This API call returns a JSON response that includes the operation status: 
 
@@ -134,7 +134,7 @@ Repeat the call until success or failure:
 
 The following method updates the KB and repeats checks on the status. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
-   [!code-nodejs[Add update_kb method](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=139-169 "Add update_kb method")]
+   [!code-nodejs[Add update_kb method](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=139-169 "Add update_kb method")]
 
 ## Run the program
 
