@@ -69,7 +69,7 @@ The following steps show you how to create a static HTML page embedded with the 
     </html>
     ```
     The HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. The *script* segment in the body of the HTML will contain the inline JavaScript code for the map.
-3. Add the following JavaScript code to the *script* block of the HTML file. Replace the string **\<your account key\>** with the primary key that you copied from your Maps account. If you don't tell the map where to focus, you see the whole world view. Set a center point and a zoom level on your map. This code sets the center point for the map, and declares a zoom level so that you can focus on a particular area by default.
+3. Add the following JavaScript code to the *script* block of the HTML file. Replace the string **\<your account key\>** with the primary key that you copied from your Maps account. If you don't tell the map where to focus, you see the whole world view. This code sets the center point for the map, and declares a zoom level so that you can focus on a particular area by default.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
