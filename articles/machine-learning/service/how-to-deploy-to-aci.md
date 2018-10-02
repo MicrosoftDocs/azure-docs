@@ -28,9 +28,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-- An Azure Machine Learning Workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Get started with Azure Machine Learning quickstart](quickstart-get-started.md).
+- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Get started with Azure Machine Learning quickstart](quickstart-get-started.md).
 
-- The Azure Machine Learning workspace object
+- The Azure Machine Learning service workspace object
 
     ```python
     from azureml.core import Workspace

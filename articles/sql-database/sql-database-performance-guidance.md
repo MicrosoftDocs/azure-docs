@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 09/24/2018
 ---
 # Tuning performance in Azure SQL Database
 
@@ -24,29 +24,18 @@ In you don't have any applicable recommendations, and you still have performance
 
 These are manual methods because you need to decide the amount of resources meet your needs. Otherwise, you would need to rewrite the application or database code and deploy the changes.
 
-## Increasing servicce tier of your database
+## Increasing service tier of your database
 
-Azure SQL Database offers two purchasing models, a [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and a [vCore-based purchasing model](sql-database-service-tiers-vcore.md) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service tier. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
+Azure SQL Database offers [two purchasing models](sql-database-service-tiers.md), a [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and a [vCore-based purchasing model](sql-database-service-tiers-vcore.md) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service tier. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database. Each service tier has its own [resource limits](sql-database-resource-limits.md). For more information, see [vCore-based resource limits](sql-database-vcore-resource-limits-single-databases.md) and [DTU-based resource limits](sql-database-dtu-resource-limits-single-databases.md).
 
 > [!NOTE]
 > This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
-> 
-
-* **Basic**: The Basic service tier offers good performance predictability for each database, hour over hour. In a Basic database, sufficient resources support good performance in a small database that doesn't have multiple concurrent requests. Typical use cases when you would use Basic service tier are:
-  * **You're just getting started with Azure SQL Database**. Applications that are in development often don't need high-compute sizes. Basic databases are an ideal environment for database development or testing, at a low price point.
-  * **You have a database with a single user**. Applications that associate a single user with a database typically don’t have high concurrency and performance requirements. These applications are candidates for the Basic service tier.
-* **Standard**: The Standard service tier offers improved performance predictability and provides good performance for databases that have multiple concurrent requests, like workgroup and web applications. When you choose a Standard service tier database, you can size your database application based on predictable performance, minute over minute.
-  * **Your database has multiple concurrent requests**. Applications that service more than one user at a time usually need higher compute sizes. For example, workgroup or web applications that have low to medium IO traffic requirements supporting multiple concurrent queries are good candidates for the Standard service tier.
-* **Premium**: The Premium service tier provides predictable performance, second over second, for each Premium or Business Critical database. When you choose the Premium service tier, you can size your database application based on the peak load for that database. The plan removes cases in which performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles for applications that need to make strong statements about peak resource needs, performance variance, or query latency. Most Premium service tier use cases have one or more of these characteristics:
-  * **High peak load**. An application that requires substantial CPU, memory, or input/output (IO) to complete its operations requires a dedicated, high-compute size. For example, a database operation known to consume several CPU cores for an extended time is a candidate for the Premium service tier.
-  * **Many concurrent requests**. Some database applications service many concurrent requests, for example, when serving a website that has a high traffic volume. Basic and Standard service tiers limit the number of concurrent requests per database. Applications that require more connections would need to choose an appropriate reservation size to handle the maximum number of needed requests.
-  * **Low latency**. Some applications need to guarantee a response from the database in minimal time. If a specific stored procedure is called as part of a broader customer operation, you might have a requirement to have a return from that call in no more than 20 milliseconds, 99 percent of the time. This type of application benefits from the Premium service tier, to make sure that the required computing power is available.
 
 The service tier that you need for your SQL database depends on the peak load requirements for each resource dimension. Some applications use a trivial amount of a single resource, but have significant requirements for other resources.
 
 ### Service tier capabilities and limits
 
-At each service tier, you set the compute size, so you have the flexibility to pay only for the capacity you need. You can [adjust capacity](sql-database-service-tiers-dtu.md), up or down, as workload changes. For example, if your database workload is high during the back-to-school shopping season, you might increase the compute size for the database for a set time, July through September. You can reduce it when your peak season ends. You can minimize what you pay by optimizing your cloud environment to the seasonality of your business. This model also works well for software product release cycles. A test team might allocate capacity while it does test runs, and then release that capacity when they finish testing. In a capacity request model, you pay for capacity as you need it, and avoid spending on dedicated resources that you might rarely use.
+At each service tier, you set the compute size, so you have the flexibility to pay only for the capacity you need. You can [adjust capacity](sql-database-single-database-scale.md), up or down, as workload changes. For example, if your database workload is high during the back-to-school shopping season, you might increase the compute size for the database for a set time, July through September. You can reduce it when your peak season ends. You can minimize what you pay by optimizing your cloud environment to the seasonality of your business. This model also works well for software product release cycles. A test team might allocate capacity while it does test runs, and then release that capacity when they finish testing. In a capacity request model, you pay for capacity as you need it, and avoid spending on dedicated resources that you might rarely use.
 
 ### Why service tiers?
 Although each database workload can differ, the purpose of service tiers is to provide performance predictability at various compute sizes. Customers with large-scale database resource requirements can work in a more dedicated computing environment.
