@@ -94,7 +94,7 @@ For VS Code you may also need to update the user setting for the `azureFunctions
 
 ### Changing version of apps in Azure
 
-Published app versions are set through the application setting `FUNCTIONS_RUNTIME_VERSION`.  This is set to `~2` for v2 apps, and `~1` for v1 apps.  It is strongly discouraged to change the runtime version of an app that has existing functions published to it without also changing the code of those functions.  The recommended path is to create a new function app and set to the appropriate version, test changes, and then disable or delete the previous app.
+Published app versions are set through the application setting `FUNCTIONS_EXTENSION_VERSION`.  This is set to `~2` for v2 apps, and `~1` for v1 apps.  It is strongly discouraged to change the runtime version of an app that has existing functions published to it without also changing the code of those functions.  The recommended path is to create a new function app and set to the appropriate version, test changes, and then disable or delete the previous app.
 
 ## Bindings 
 
