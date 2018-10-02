@@ -26,7 +26,7 @@ Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate tha
 The readiness checker validates:
 
 * The *federation metadata* contains the valid XML elements for federation.
-* The *ADFS SSL certificate* can be retrieved and chain of trust can be built. On stamp ADFS must trust the SSL certificates chain. The certificate must be signed by the same *certificate authority* as the Azure Stack deployment certificates by a trusted root authority partner. For the full list of trusted root authority partners, see: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca
+* The *ADFS SSL certificate* can be retrieved and chain of trust can be built. On stamp ADFS must trust the SSL certificates chain. The certificate must be signed by the same *certificate authority* as the Azure Stack deployment certificates or by a trusted root authority partner. For the full list of trusted root authority partners, see: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca
 * *ADFS signing certificate* is trusted and not nearing expiry.
 
 For more information about Azure Stack data center integration, see [Azure Stack datacenter integration - Identity](azure-stack-integrate-identity.md)
@@ -44,7 +44,6 @@ The following prerequisites must be in place.
 * Windows 10 or Windows Server 2016, with domain connectivity.
 * PowerShell 5.1 or later. To check your version, run the following PowerShell cmd and then review the *Major* version and *Minor* versions:  
    > `$PSVersionTable.PSVersion`
-* Configure [PowerShell for Azure Stack](azure-stack-powershell-install.md). 
 * The latest version of the [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker) tool.
 
 **Active Directory Federation Services environment:**
@@ -62,13 +61,34 @@ You need one of the following:
 
 1. From the PowerShell prompt, run the following to start validation for !!!!graph!!!!. Specify the value for **-CustomADFSFederationMetadataEndpointUri** as the URI for the federation metadata:
 
-     !!!! Is this correct? !!! Shouldn't it be ADFS? `Invoke-AzsGraphValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
+     `Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
 1. After the tool runs, review the output. Confirm the status is OK for ADFS integration requirements. A successful validation appears similar to the following.
 
-    ![Successful ADFS integration validation](media/azure-stack-validate-adfs/verified-adfs-integration.png)
+`     Invoke-AzsADFSValidation v1.1809.1001.1 started. `
 
-    In production environments, testing certificate chains of trust from an operators workstation cannot be considered fully indicative of the PKI trust posture in the Azure Stack infrastructure. The Azure Stack stamp’s Public VIP network needs the connectivity to the CRL for the PKI infrastructure.
+`Testing ADFS Endpoint https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml `
+
+`        Read Metadata:                         OK `
+
+`        Test Metadata Elements:                OK `
+
+`        Test SSL ADFS Certificate:             OK `
+
+`        Test Certificate Chain:                OK `
+
+`        Test Certificate Expiry:               OK `
+
+`Details: `
+`[-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration. `
+`Additional help URL: https://aka.ms/AzsADFSIntegration`
+
+`Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log `
+`Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json `
+
+`Invoke-AzsADFSValidation Completed `
+     
+In production environments, testing certificate chains of trust from an operators workstation cannot be considered fully indicative of the PKI trust posture in the Azure Stack infrastructure. The Azure Stack stamp’s Public VIP network needs the connectivity to the CRL for the PKI infrastructure.
 
 ## Report and log file
 
@@ -77,7 +97,7 @@ Each time validation runs, it logs results to **AzsReadinessChecker.log** and **
 The validation files can help you share status before you deploy Azure Stack or investigate validation problems. Both files persist the results of each subsequent validation check. The report provides your deployment team confirmation of the identity configuration. The log file can help your deployment or support team investigate validation issues.
 
 By default, both files are written to
-`C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`.
+`C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`.
 
 Use:
 
@@ -87,20 +107,21 @@ Use:
 
 ## Validation failures
 
-If a validation check fails, details about the failure display in the PowerShell window. The tool also logs information to the *AzsGraphIntegration.log*.  !!!! Should this be ADFS? !!!!
+If a validation check fails, details about the failure display in the PowerShell window. The tool also logs information to the *AzsReadinessChecker.log*.
 
 The following examples provide guidance on common validation failures.
 
-PLACEHOLDER XXXXX – failure name
+Command Not Found
 
-*image*
+`Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is
+correct and try again.`
 
-Cause - xxxxxxxxxxxxxxxxxxxxxx.
+Cause - PowerShell Autoload failed to load Readiness Checker module correctly.
 
-Resolution – xxxxxxxxxxxxxxxxxxxxxx.
+Resolution – Import Readiness Checker module explicitly. Copy and paste the code below into PowerShell and update the <version> with the version number for the currently installed version. 
+`Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 
 ## Next Steps
 
-[Validate Azure registration](azure-stack-validate-registration.md)  
 [View the readiness report](azure-stack-validation-report.md)  
 [General Azure Stack integration considerations](azure-stack-datacenter-integration.md)  
