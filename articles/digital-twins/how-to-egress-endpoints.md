@@ -50,7 +50,7 @@ Here are the events' format for each of the event types:
 
 - `UdfCustom`
 
-  Represents an event sent by an user-defined function (UDF). Note, this event has to be explicitly sent from the UDF itself.
+  Represents an event sent by a user-defined function (UDF). Note, this event has to be explicitly sent from the UDF itself.
 
   Example:
 
@@ -136,11 +136,16 @@ Here are the events' format for each of the event types:
 
 - `DeviceMessage`
 
-  Allows you to specify an EventHub connection to which raw telemetry events can be routed as well from Azure Digital Twins. Please note that DeviceMessage is combinable only with EventHub and nothing else. Also, you will not be able to combine DeviceMessage with any of the other event types. You will be able to specify only one endpoint of the combination of type EventHub/DeviceMessage.
+  Allows you to specify an EventHub connection to which raw telemetry events can be routed as well from Azure Digital Twins.
+
+> [!NOTE]
+> - `DeviceMessage` is combinable only with `EventHub` and nothing else.
+> - You will not be able to combine `DeviceMessage` with any of the other event types.
+> - You will be able to specify only one endpoint of the combination of type `EventHub`/`DeviceMessage`.
 
 ## Configuring Endpoints
 
-Endpoint management is exercised through the endpoints API, here are some examples on how to configure the different supported endpoints, pay special attention to the event types array as it specifies the routing for the endpoint:
+Endpoint management is exercised through the endpoints API. Here are some examples about how to configure the different supported endpoints. Pay special attention to the event types array as it specifies the routing for the endpoint:
 
 ```plaintext
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
@@ -194,7 +199,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
           }
   ```
 
-- Route to **Event Hub** event types `DeviceMessage`. Note the inclusion of _EntityPath_ in the `connectionString` which is mandatory.
+- Route to **Event Hub** event types `DeviceMessage`. Note the inclusion of _EntityPath_ in the `connectionString`, which is mandatory.
 
   ```json
           {
@@ -212,9 +217,8 @@ Upon the creation of a new Endpoint, it may take up to 5 to 10 minutes to start 
 
 ### Primary and secondary connection strings/keys
 
-When a primary connection string/key becomes unauthorized the system will automatically roll to the secondary connection string/key allowing for updating the primary key through the Endpoints API. 
-When both primary and secondary connection strings/keys are unauthorized the system will enter an exponential back off wait of up to 30 minutes and events will be dropped on each retry. When the system is on a back off wait state updating connections strings/keys through the Endpoints API may take up to 30 minutes to take effect.
+When a primary connection string/key becomes unauthorized, the system will automatically roll to the secondary connection string/key allowing for updating the primary key through the Endpoints API. When both primary and secondary connection strings/keys are unauthorized, the system will enter an exponential back off wait of up to 30 minutes and events will be dropped on each retry. When the system is on a back off wait state, updating connections strings/keys through the Endpoints API may take up to 30 minutes to take effect.
 
 ### Unreachable endpoints
 
-When an endpoint becomes unreachable the system will enter an exponential back off wait of up to 30 minutes where events will be dropped on each retry.
+When an endpoint becomes unreachable, the system will enter an exponential back off wait of up to 30 minutes where events will be dropped on each retry.
