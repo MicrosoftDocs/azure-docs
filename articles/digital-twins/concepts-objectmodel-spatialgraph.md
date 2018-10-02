@@ -47,7 +47,7 @@ Other categories of objects are:
 
 **Spatial Graph** is the hierarchical graph of spaces, devices, and people defined in the **Digital Twins Object Model**. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. Users can manage and interact with their spatial graph with a collection of REST APIs (see below). 
 
-The user who deploys a Digital Twins service in their subscription becomes the global administrator of the root node, automatically granting full access to entire structure. This user can then provision the entire graph using the `Space` Management APIs. We also offer [open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) to provision the graph in bulk.
+The user who deploys a Digital Twins service in their subscription becomes the global administrator of the root node, automatically granting full access to entire structure. This user can then provision spaces in the graph using the `Space` API. Devices could be provisioned using the `Device` API, sensors could be provisioned using `Sensor` API, etc. We also offer [open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) to provision the graph in bulk.
 
 Graph _inheritance_ applies to the permissions and properties that descend from a parent node to all nodes beneath it. For example, when a role is assigned to a user on a given node, the user will have that role's permissions to the given node and every node below it. Additionally, each property key and extended type defined for a given node will be inherited by all the nodes beneath that node.
 
@@ -61,12 +61,31 @@ Graph _extensibility_ allows users to customize the underlying Digital Twins Obj
 
 ### Spatial Intelligence Graph Management APIs
 
-Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure.com), the URL of the Management APIs is automatically generated and will be displayed in the Azure portal's **Overview** section with the following format `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`. Browse the URL to learn more about the APIs you'll use to build with Azure Digital Twins.
+Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure.com), the [Swagger](https://swagger.io/tools/swagger-ui/) URL of the Management APIs is automatically generated and will be displayed in the Azure portal's **Overview** section with the following format `https://{{yourDigitalTwinsName}}.{{yourLocation}}.azuresmartspaces.net/management/swagger` as seen in image below:
+
+![Digital Twins Portal Management API][2]
+
+For more details on how to use the Spatial Intelligence Graph, please visit your Digital Twins Management APIs Swagger URL. You can browse swagger UI of your deployed instanced to learn the specifications of each API as outlined in image below:
+
+![Digital Twins Management API Swagger][3]
+![Digital Twins Management API Swagger][4]
 
 All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). The APIs follow [Microsoft REST API Guidelines conventions](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Most of the APIs that return collections support [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) system query options.
 
->[!NOTE]
->For more details on how to use the Spatial Intelligence Graph, please visit your Digital Twins Management APIs URL.
+## Next steps
+
+Read more about device connectivity and how to send telemetry messages to Azure Digital Twins service:
+
+> [!div class="nextstepaction"]
+> [Azure Digital Twins Device Connectivity and Telemetry Ingress] (concepts-device-ingress.md)
+
+Read more about Management API limitations and throttles:
+
+> [!div class="nextstepaction"]
+> [Azure Digital Twins API Management and Limitations] (concepts-management-api-limits.md)
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png
+[2]: media/concepts/digital-twins-spatial-graph-management-api-url.png
+[3]: media/concepts/digital-twins-management-swagger.png
+[4]: media/concepts/digital-twins-management-swagger-cont.png

@@ -45,6 +45,8 @@
   items:
   - name: Enable multitenant applications with Azure Digital Twins
     href: how-to-multitenant-applications.md
+  - name: Guide for Using User-Defined Functions with Azure Digital Twins
+    href: how-to-user-defined-functions.md
 #- name: Reference
 #  items:
 - name: Related
