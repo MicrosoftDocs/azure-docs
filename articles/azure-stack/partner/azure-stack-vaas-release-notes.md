@@ -65,3 +65,7 @@ This article contains the release notes for Azure Stack Validation as a Service.
   - Interactive Feature Verification
 
     The ability to provide focused feedback for certain features is now available in the Test Pass workflow. The `OEM Update on Azure Stack 1806 RC Validation 5.1.4.0` test checks to see if specific updates were correctly applied and then collects feedback.
+
+## Next steps
+
+- [Troubleshoot Validation as a Service](azure-stack-vaas-troubleshoot.md)

@@ -82,3 +82,7 @@ The diagnostics connection string is required for storing diagnostics logs durin
 > [!NOTE]  
 > The SAS URL expires at the end time specified when the URL was generated.  
 When scheduling tests, ensure that the URL is valid for at least 30 days plus the time required for test execution (three months is suggested).
+
+## Next steps
+
+- Learn about [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md)

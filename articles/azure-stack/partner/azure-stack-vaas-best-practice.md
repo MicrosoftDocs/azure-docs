@@ -46,3 +46,7 @@ We recommend using a consistent naming convention for all VaaS workflow runs. Fo
 |Build Number (Major) | Date | Solution Size | Workflow Name
 |---|---|---| ---|
 1808 | 081518 | 4NODE | 1808_081518_4NODE
+
+## Next steps
+
+- Learn about [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md)
