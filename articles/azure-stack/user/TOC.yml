@@ -31,7 +31,7 @@
         href: azure-stack-tutorial-sql.md
       - name: Create highly available MySQL databases
         href: azure-stack-tutorial-mysql.md
-    - name: Edge cloud patterns
+    - name: Hybrid cloud patterns
       items:
       - name: Deploy apps to Azure and Azure Stack
         href: azure-stack-solution-pipeline.md
