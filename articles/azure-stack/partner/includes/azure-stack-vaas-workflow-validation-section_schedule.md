@@ -1,3 +1,11 @@
+---
+ author: mattbriggs
+ ms.service: azure-stack
+ ms.topic: include
+ ms.date: 07/24/2018
+ ms.author: mabrigg
+---
+
 In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](../azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](../azure-stack-vaas-monitor-test.md#modify-workflow-parameters).
 
 > [!NOTE]
