@@ -28022,6 +28022,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-requiring-user-assignment.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-users.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-groups.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-error.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-error",
             "redirect_document_id": true
