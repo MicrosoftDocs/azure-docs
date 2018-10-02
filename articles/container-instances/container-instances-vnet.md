@@ -171,13 +171,25 @@ The log output should show that `wget` was able to connect and download the inde
 
 ## Deploy to existing Virtual Network using YAML
 
+Similarly, this section details out how we can use an YAML configuration file create container attached to an existing Virtual Network. 
+In this file you will find additional parameters that need to be defined such as:
+**IP Address**: This parameter allows you to specify the IP of the container
+**Port**: specifies the ports to be open
+**Protocol** : Specifies the protocols in use for this container
+**NetworkProfile ID**: is the VNET and Subnet profile that this container will be attached to, you can find the profile ID by running the below CLI command and providing the resource group that hosts the virtual network.
+
+``` azurecli
+az network profile list --resource-group myResourceGroup --output tsv
+```
+Below is a example that will create a container named **yamlappcontainer** with an internal IP 10.2.1.4 with TCP Port 80 open. Copy the contents of this example into a new file named **vnet-deployaci.yaml**.
+
 ```YAML
 apiVersion: '2018-09-01'
 location: westus
-name: appcontainer
+name: yamlappcontainer
 properties:
   containers:
-  - name: appcontainer
+  - name: yamlappcontainer
     properties:
       image: microsoft/aci-helloworld
       ports:
@@ -188,7 +200,7 @@ properties:
           cpu: 1.0
           memoryInGB: 1.5
   ipAddress:
-    ip: 10.0.0.4
+    ip: 10.2.1.4
     type: Private
     ports:
     - protocol: tcp
@@ -200,6 +212,22 @@ properties:
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
+
+Deploy the container with the az container create command, passing the YAML file as an argument:
+
+``` azurecli
+az container create --resource-group myResourceGroup --file vnet-deployaci.yaml
+```
+Within a few seconds, you should receive an initial response from Azure, later you can verify the deployment by running the below command
+
+```azurecli
+az container show --resource-group myResourceGroup --name yamlappcontainer --output table
+```
+Output:
+
+Name          ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
+------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
+yamlappcontainer  container        Running   microsoft/aci-helloworld  10.2.1.4:80  Private    1.0 core/1.5 gb  Linux     westus
 
 ## Clean up resources
 
