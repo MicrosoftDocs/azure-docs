@@ -33,19 +33,14 @@ Create a file named `create-new-knowledge-base.js`.
 
 ## Add the required dependencies
 
-```nodejs
-'use strict';
+At the top of `create-new-knowledge-base.js`, add the following lines to add necessary dependencies to the project:
 
-let fs = require ('fs');
-let https = require ('https');
-```
+   [!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=1-4 "Add the dependencies")]
 
 ## Add the required constants
+After the precediing required dependencies, add the required constants to access QnA Maker:
 
 ```nodejs
-// Replace this with a valid subscription key.
-let subscriptionKey = 'ADD KEY HERE';
-
 // Represents the various elements used to create HTTP request URIs
 // for QnA Maker operations.
 let host = 'westus.api.cognitive.microsoft.com';
@@ -53,8 +48,10 @@ let service = '/qnamaker/v4.0';
 let method = '/knowledgebases/';
 
 // Build your path URL.
-var path = service + method;
+let path = service + method;
 
+// Replace this with a valid subscription key.
+let subscriptionKey = '<your-qna-maker-subscription-key>';
 ```
 
 ## Add the KB definition
@@ -90,9 +87,10 @@ let req = {
     "files": []
 };
 ```
-## Add supporting functions and structures
 
-Add the following supporting functions:
+## Add supporting functions
+
+Next, add the following supporting functions.
 
 1. Add the following function to print out JSON in a readable format:
 
@@ -103,7 +101,7 @@ Add the following supporting functions:
     };
     ```
 
-2. Add the following function to manage the HTTP response to get the creation operation status:
+2. Add the following functions to manage the HTTP response to get the creation operation status:
 
     ```nodejs
     // The 'callback' is called from the entire response.
@@ -130,32 +128,7 @@ Add the following supporting functions:
         };
     };
     ```
-
-    This API call returns a JSON response that includes the operation status: 
-
-    ```JSON
-    {
-      "operationState": "NotStarted",
-      "createdTimestamp": "2018-09-26T05:22:53Z",
-      "lastActionTimestamp": "2018-09-26T05:22:53Z",
-      "userId": "XXX9549466094e1cb4fd063b646e1ad6",
-      "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
-    }
-    ```
-    
-    Repeat the call until success or failure: 
-    
-    ```JSON
-    {
-      "operationState": "Succeeded",
-      "createdTimestamp": "2018-09-26T05:22:53Z",
-      "lastActionTimestamp": "2018-09-26T05:23:08Z",
-      "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
-      "userId": "XXX9549466094e1cb4fd063b646e1ad6",
-      "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
-    }
-    ```
-    
+  
 3. Add the following function to make an HTTP POST request to create the knowledge base. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication. 
 
     ```nodejs
@@ -191,7 +164,7 @@ Add the following supporting functions:
     }
     ```
 
-4. Add the following function to make an HTTP GET request. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication. 
+4. Add the following function to make an HTTP GET request to check the operation status. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication. 
 
     ```nodejs
     // Call 'callback' when we have the entire response from the GET request.
@@ -209,6 +182,19 @@ Add the following supporting functions:
         let req = https.request(request_params, get_response_handler(callback));
         req.end();
     };
+    ```
+
+    Repeat the call until success or failure: 
+    
+    ```JSON
+    {
+      "operationState": "Succeeded",
+      "createdTimestamp": "2018-09-26T05:22:53Z",
+      "lastActionTimestamp": "2018-09-26T05:23:08Z",
+      "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
+      "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+      "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
+    }
     ```
 
 ## Add a method to create KB
@@ -258,6 +244,8 @@ create_kb(path, content, function (result) {
 
     // Loop until the operation is complete.
     let loop = function () {
+
+        // add operation ID to the path
         path = service + result.operation;
 
         // Check the status of the operation.
@@ -271,6 +259,7 @@ create_kb(path, content, function (result) {
 
             // If the operation isn't complete, wait and query again.
             if (state === 'Running' || state === 'NotStarted') {
+
                 console.log('Waiting ' + status.wait + ' seconds...');
                 setTimeout(loop, status.wait * 1000);
             }

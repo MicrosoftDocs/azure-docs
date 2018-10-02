@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/02/2018
 ms.author: diberry
 ---
 
@@ -51,20 +51,22 @@ let https = require ('https');
 ## Add required constants
 
 ```nodejs
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
 // Represents the various elements used to create HTTP request URIs
 // for QnA Maker operations.
 let host = 'westus.api.cognitive.microsoft.com';
 let service = '/qnamaker/v4.0';
 let method = '/knowledgebases/';
 
+// Build your path URL.
+let path = service + method + kb;
+
 // Replace this with a valid subscription key.
-let subscriptionKey = 'ADD KEY HERE';
+let subscriptionKey = '<your-qna-maker-subscription-key>';
 ```
 
 ## Add knowledge base ID
+
+After the previous constants, add the knowledge base ID:
 
 ```nodejs
 // Replace this with a valid knowledge base ID.
@@ -83,7 +85,7 @@ Each section can be used in the same single request to the API.
 
 ```nodejs
 // Dictionary that holds the knowledge base. Modify knowledge base here.
-let req = {
+let update_definition = {
   'add': {
     'qnaList': [
       {
@@ -111,54 +113,47 @@ let req = {
 
 ## Add supporting functions
 
-```nodejs
-// Formats and indents JSON for display.
-let pretty_print = function(s) {
-    return JSON.stringify(JSON.parse(s), null, 4);
-}
+Next, add the following supporting functions.
 
-// Call 'callback' after we have the entire response.
-let response_handler = function (callback, response) {
-    let body = '';
-    response.on('data', function(d) {
-        body += d;
-    });
-    response.on('end', function() {
-    // Calls 'callback' with the status code, headers, and body of the response.
-    callback ({ status : response.statusCode, headers : response.headers, body : body });
-    });
-    response.on('error', function(e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+1. Add the following function to print out JSON in a readable format:
 
-// HTTP response handler calls 'callback' after we have the entire response.
-let get_response_handler = function(callback) {
-    // Return a function that takes an HTTP response and is closed over the specified callback.
-    // This function signature is required by https.request, hence the need for the closure.
-    return function(response) {
-        response_handler(callback, response);
+    ```nodejs
+    // Formats and indents JSON for display.
+    let pretty_print = function(s) {
+        return JSON.stringify(JSON.parse(s), null, 4);
     }
-}
+    ```
 
-// Calls 'callback' after we have the entire PATCH request response.
-let patch = function(path, content, callback) {
-    let request_params = {
-        method : 'PATCH',
-        hostname : host,
-        path : path,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
+2. Add the following functions to manage the HTTP response to get the creation operation status:
+
+    ```nodejs
+    // Call 'callback' after we have the entire response.
+    let response_handler = function (callback, response) {
+        let body = '';
+        response.on('data', function(d) {
+            body += d;
+        });
+        response.on('end', function() {
+        // Calls 'callback' with the status code, headers, and body of the response.
+        callback ({ status : response.statusCode, headers : response.headers, body : body });
+        });
+        response.on('error', function(e) {
+            console.log ('Error: ' + e.message);
+        });
     };
 
-    // Pass the callback function to the response handler.
-    let req = https.request(request_params, get_response_handler(callback));
-    req.write(content);
-    req.end ();
-}
+    // HTTP response handler calls 'callback' after we have the entire response.
+    let get_response_handler = function(callback) {
+        // Return a function that takes an HTTP response and is closed over the specified callback.
+        // This function signature is required by https.request, hence the need for the closure.
+        return function(response) {
+            response_handler(callback, response);
+        }
+    }
+    ```
+
+3. 
+    ```
 
 // Calls 'callback' after we have the entire GET request response.
 let get = function(path, callback) {
@@ -179,35 +174,54 @@ let get = function(path, callback) {
 
 ## Add PATCH request to update KB
 
-The following code makes an HTTPS request to the Qna Maker API to update question and answer groups in a KB and receives the response:
+Add the following functions to make an HTTP PATCH request to update the knowledge base. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication.
 
-```nodejs
-// Calls 'callback' after we have the response from the /knowledgebases PATCH method.
-let update_kb = function(path, req, callback) {
-    console.log('Calling ' + host + path + '.');
-    // Send the PATCH request.
-    patch(path, req, function (response) {
-        // Extract the data we want from the PATCH response and pass it to the callback function.
-        callback({ operation : response.headers.location, response : response.body });
-    });
-}
-```
+    ```nodejs
+    // Calls 'callback' after we have the entire PATCH request response.
+    let patch = function(path, content, callback) {
+        let request_params = {
+            method : 'PATCH',
+            hostname : host,
+            path : path,
+            headers : {
+                'Content-Type' : 'application/json',
+                'Content-Length' : content.length,
+                'Ocp-Apim-Subscription-Key' : subscriptionKey,
+            }
+        };
+    
+        // Pass the callback function to the response handler.
+        let req = https.request(request_params, get_response_handler(callback));
+        req.write(content);
+        req.end ();
+    }
 
-This API call returns a JSON response that includes the operation status: 
+    // Calls 'callback' after we have the response from the /knowledgebases PATCH method.
+    let update_kb = function(path, req, callback) {
+        console.log('Calling ' + host + path + '.');
+        // Send the PATCH request.
+        patch(path, req, function (response) {
+            // Extract the data we want from the PATCH response and pass it to the callback function.
+            callback({ operation : response.headers.location, response : response.body });
+        });
+    }
+    ```
 
-```JSON
-{
-  "operationState": "NotStarted",
-  "createdTimestamp": "2018-10-02T01:23:00Z",
-  "lastActionTimestamp": "2018-10-02T01:23:00Z",
-  "userId": "335c3841df0b42cdb00f53a49d51a89c",
-  "operationId": "e7be3897-88ff-44e5-a06c-01df0e05b78c"
-}
-```
+    This API call returns a JSON response that includes the operation ID. The operation ID is necessary to request status if the operation is not complete. 
+    
+    ```JSON
+    {
+      "operationState": "NotStarted",
+      "createdTimestamp": "2018-10-02T01:23:00Z",
+      "lastActionTimestamp": "2018-10-02T01:23:00Z",
+      "userId": "335c3841df0b42cdb00f53a49d51a89c",
+      "operationId": "e7be3897-88ff-44e5-a06c-01df0e05b78c"
+    }
+    ```
 
-## Add GET request to determine creation status
+## Add GET request to determine operation status
 
-The update of a KB adds, updates, and deletes question and answer pairs.
+The operation status may need to be requested again. 
 
 ```nodejs
 // Calls 'callback' after we have the response from the GET request to check the status.
@@ -251,24 +265,33 @@ Repeat the call until success or failure:
 The following method updates the KB and repeats checks on the status. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
 ```nodejs
-var path = service + method + kb;
-// Convert the request to a string.
-let content = JSON.stringify(req);
+
+// Convert the update_definition to a string.
+let content = JSON.stringify(update_definition);
 
 // Sends the request to update the knowledge base.
 update_kb(path, content, function (result) {
+
     console.log(pretty_print(result.response));
+
     // Loop until the operation is complete.
     let loop = function() {
+
+        // add operation ID to the path        
         path = service + result.operation;
+
         // Check the status of the operation.
         check_status(path, function(status) {
+
             // Write out the status.
             console.log(pretty_print(status.response));
+
             // Convert the status into an object and get the value of the operationState field.
             var state = (JSON.parse(status.response)).operationState;
+
             // If the operation isn't complete, wait and query again.
             if (state == 'Running' || state == 'NotStarted') {
+
                 console.log('Waiting ' + status.wait + ' seconds...');
                 setTimeout(loop, status.wait * 1000);
             }
