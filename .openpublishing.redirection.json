@@ -11579,6 +11579,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-resource-limits.md",
+            "redirect_url": "/azure/sql-database/sql-database-resource-limits-logical-server",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-vcore-resource-limits.md",
             "redirect_url": "/azure/sql-database/sql-database-vcore-resource-limits-single-databases",
             "redirect_document_id": false

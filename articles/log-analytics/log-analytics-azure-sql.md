@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
-ms.component: na
+ms.component: 
 ---
 
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview)
