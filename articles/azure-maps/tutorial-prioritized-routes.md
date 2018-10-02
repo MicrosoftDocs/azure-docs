@@ -255,6 +255,10 @@ In this tutorial, you learned how to:
 > * Create route queries that declare mode of travel
 > * Display multiple routes on your map
 
+You can access the code sample for this tutorial here:
+
+> [Multiple routes with Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/truckRoute.html)
+
 To learn more about the coverage and capabilities of Azure Maps:
 
 > [!div class="nextstepaction"]
