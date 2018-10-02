@@ -117,4 +117,4 @@ Any errors experienced during the upload and refresh processes are included in t
 
 ## Next steps
 
-- Learn how to [Manage bandwidth](data-box-gateway-manage-bandwidth.md).
+- Learn how to [Manage bandwidth](data-box-gateway-manage-bandwidth-schedules.md).

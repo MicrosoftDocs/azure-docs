@@ -53,7 +53,8 @@ Perform the following steps in the Azure portal to add a user.
 
     ![Click add user](media/data-box-gateway-manage-users/add-user-2.png)
 
-    >[!IMPORTANT] These users are reserved by the system and should not be used: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
+    > [!IMPORTANT] 
+    > These users are reserved by the system and should not be used: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
 
 3. You are notified when the user creation starts and is completed. Once the user is created, from the command bar, click **Refresh** to view the updated list of users.
 
