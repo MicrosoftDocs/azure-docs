@@ -30,6 +30,9 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
  * For Visual Studio Code environment, the [Python Extension](https://code.visualstudio.com/docs/python/python-tutorial).
 
+> [!NOTE]
+> Shell commands used in this document are tested with bash on Linux and macOS. The commands are also tested with cmd.exe on Windows.
+
 ## Create workspace configuration file
 
 The workspace configuration file is used by the SDK to communicate with your Azure Machine Learning service workspace.  There are two ways to get this file:
@@ -44,7 +47,8 @@ The workspace configuration file is used by the SDK to communicate with your Azu
         ![Azure portal](./media/how-to-configure-environment/configure.png) 
     
     1. Create the file with this Python code. Run the code in the same directory as the scripts or notebooks that reference the workspace:
-        ```
+
+        ```python
         from azureml.core import Workspace
 
         subscription_id ='<subscription-id>'
