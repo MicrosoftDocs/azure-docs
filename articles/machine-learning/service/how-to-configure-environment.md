@@ -13,7 +13,7 @@ ms.date: 8/6/2018
 
 # Configure a development environment for the Azure Machine Learning service
 
-Learn how to configure your development environment to work with the Azure Machine Learning service. You will learn how to create a configuration file that associates your environment with an Azure Machine Learning workspace. You'll also learn how to configure the following development environments:
+Learn how to configure your development environment to work with the Azure Machine Learning service. You will learn how to create a configuration file that associates your environment with an Azure Machine Learning service workspace. You'll also learn how to configure the following development environments:
 
 * Jupyter Notebooks on your own computer
 * Visual Studio Code
@@ -30,6 +30,9 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
  * For Visual Studio Code environment, the [Python Extension](https://code.visualstudio.com/docs/python/python-tutorial).
 
+> [!NOTE]
+> Shell commands used in this document are tested with bash on Linux and macOS. The commands are also tested with cmd.exe on Windows.
+
 ## Create workspace configuration file
 
 The workspace configuration file is used by the SDK to communicate with your Azure Machine Learning service workspace.  There are two ways to get this file:
@@ -44,7 +47,8 @@ The workspace configuration file is used by the SDK to communicate with your Azu
         ![Azure portal](./media/how-to-configure-environment/configure.png) 
     
     1. Create the file with this Python code. Run the code in the same directory as the scripts or notebooks that reference the workspace:
-        ```
+
+        ```python
         from azureml.core import Workspace
 
         subscription_id ='<subscription-id>'

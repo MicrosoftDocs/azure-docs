@@ -40,6 +40,8 @@ The audio DSP provided by the **Microsoft Acoustics** Unity spatializer plugin r
 
 ![Distance Attenuation](media/distanceattenuation.png)
 
+Acoustics performs computation in a "simulation region" box centered around the player location. If a sound source is distant from the player, located outside this simulation region, only geometry within the box will affect the sound propagation (such as causing occlusion) which works reasonably well when occluders are in the vicinity of the player. However, in cases when the player is in open space but the occluders are near the distant sound source, the sound can become unrealistically disoccluded. Our suggested workaround is to ensure in such cases that the sound attenuation falls off to 0 at about 45m, the default horizontal distance of the player to the edge of the box.
+
 ### Tuning scene parameters
 To adjust parameters for all sources, click on the channel strip in Unity's **Audio Mixer**, and adjust the parameters on the **Acoustics Mixer** effect.
 
