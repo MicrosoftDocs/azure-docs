@@ -4,48 +4,48 @@
   expanded: true
   items:
   - name: About Azure Blockchain Workbench
-    href: blockchain-workbench-overview.md
+    href: overview.md
 - name: Concepts
   items:
   - name: Architecture
-    href: blockchain-workbench-architecture.md
+    href: architecture.md
   - name: Integration patterns
-    href: blockchain-workbench-integration-patterns.md
+    href: integration-patterns.md
 - name: How-to guides
   expanded: true
   items: 
   - name: Deploy Workbench
-    href: blockchain-workbench-deploy.md
+    href: deploy.md
   - name: Create blockchain app
-    href: blockchain-workbench-create-app.md
+    href: create-app.md
   - name: Manage Workbench users
-    href: blockchain-workbench-manage-users.md
+    href: manage-users.md
   - name: Use blockchain app
-    href: blockchain-workbench-use.md
+    href: use.md
   - name: Use Workbench API
-    href: blockchain-workbench-use-API.md
+    href: use-api.md
   - name: Troubleshoot apps
-    href: blockchain-workbench-troubleshooting.md
+    href: troubleshooting.md
   - name: Use Workbench data
     items:
     - name: Configure DB firewall
-      href: blockchain-workbench-database-firewall.md
+      href: database-firewall.md
     - name: Get DB details
-      href: blockchain-workbench-getdb-details.md
+      href: getdb-details.md
     - name: Use data in Excel
-      href: blockchain-workbench-data-excel.md
+      href: data-excel.md
     - name: Use data in Power BI
-      href: blockchain-workbench-data-powerbi.md
+      href: data-powerbi.md
     - name: Use data in SQL Management Studio
-      href: blockchain-workbench-data-sql-management-studio.md
+      href: data-sql-management-studio.md
 - name: Reference
   items:
   - name: Configuration
-    href: blockchain-workbench-configuration-overview.md
+    href: configuration.md
   - name: Database views
-    href: blockchain-workbench-database-views.md
+    href: database-views.md
   - name: Messaging API
-    href: blockchain-workbench-messages-overview.md
+    href: messages-overview.md
   - name: REST API
     href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
 - name: Resources
@@ -60,11 +60,11 @@
     href: https://aka.ms/workbenchforum
   - name: Product feedback
     href: https://aka.ms/blockchainuservoice
-- name: Ethereum Proof-of-Authority Consortium
-  href: ethereum-poa-deployment.md
 - name: Solution templates
   items:
+  - name: Ethereum Proof-of-Authority Consortium
+    href: ../templates/ethereum-poa-deployment.md
   - name: Ethereum Proof-of-Work Consortium
-    href: ethereum-deployment-guide.md
+    href: ../templates/ethereum-deployment.md
   - name: Hyperledger Fabric Consortium
-    href: hyperledger-fabric-single-member-blockchain.md
+    href: ../templates/hyperledger-fabric-single-member-blockchain.md

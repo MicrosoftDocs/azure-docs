@@ -49,11 +49,11 @@ This solution template can deploy single or multi region-based multi member Ethe
 
 ### Standalone and consortium leader overview
 
-![Standalone and Consortium Leader Overview](./media/ethereum-deployment-guide/leader-overview.png)
+![Standalone and Consortium Leader Overview](./media/ethereum-deployment/leader-overview.png)
 
 ### Joining consortium member overview
 
-![Joining Consortium Member Overview](./media/ethereum-deployment-guide/member-overview.png)
+![Joining Consortium Member Overview](./media/ethereum-deployment/member-overview.png)
 
 ## Getting started
 
@@ -67,7 +67,7 @@ The template deployment will walk you through configuring the first member's foo
 
 Under **Basics**, specify values for standard parameters for any deployment, such as subscription, resource group, and basic virtual machine properties.
 
-![Basics](./media/ethereum-deployment-guide/sample-deployment.png)
+![Basics](./media/ethereum-deployment/sample-deployment.png)
 
 Parameter Name|Description| Allowed Values|Default Values
 ---|---|---|---
@@ -88,7 +88,7 @@ Location| The Azure region for resource group. ||NA
 
 The Operations Management Suite (OMS) blade allows you to configure an OMS resource for your network. OMS will collect and surface useful metrics and logs from your network, providing the ability to quickly check the network health or debug issues. The free offering of OMS will fail gracefully once capacity is reached.
 
-![Creating new OMS](./media/ethereum-deployment-guide/new-oms.png)
+![Creating new OMS](./media/ethereum-deployment/new-oms.png)
 
 Parameter Name|Description| Allowed Values|Default Values
 ---|---|---|---
@@ -100,7 +100,7 @@ Existing OMS Primary Key|The primary key used to connect to the existing OMS ins
 
 Next, under **Deployment regions**, specify inputs for **Number of region(s)** to deploy the consortium network and selection of Azure regions based on the number of regions given. User can deploy in maximum of five regions.
 
-![Deployment regions](./media/ethereum-deployment-guide/deployment-regions.png)
+![Deployment regions](./media/ethereum-deployment/deployment-regions.png)
 
 Parameter Name| Description| Allowed Values |Default Values
 ---|---|---|---
@@ -115,7 +115,7 @@ Fifth region| Fifth region to deploy the consortium network (Visible only when n
 
 Next, under **Network size and performance** specify inputs for the size of the consortium network, such as number and size of mining nodes and transaction nodes.
 
-![Network size and performance](./media/ethereum-deployment-guide/network-size-performance.png)
+![Network size and performance](./media/ethereum-deployment/network-size-performance.png)
 
 Parameter Name |Description |Allowed Values| Default Values
 ---|---|---|---
@@ -130,7 +130,7 @@ Transaction node virtual machine size|The virtual machine size used for transact
 
 Next, under **Ethereum settings**, specify Ethereum-related configuration settings, like the network ID and Ethereum account password or genesis block.
 
-![Ethereum settings](./media/ethereum-deployment-guide/standalone-leader-deployment.png)
+![Ethereum settings](./media/ethereum-deployment/standalone-leader-deployment.png)
 
 Parameter Name |Description |Allowed Values|Default Values
 ---|---|---|---
@@ -150,7 +150,7 @@ Key of Peer information registrar|Peer info primary key provided by another memb
 
 Click through the summary blade to review the inputs specified and to run basic pre-deployment validation.
 
-![Summary](./media/ethereum-deployment-guide/summary.png)
+![Summary](./media/ethereum-deployment/summary.png)
 
 Review legal and privacy terms and click **Purchase** to deploy. If the deployment has more than one region, or is for a consortium network, then this template pre-deploys the necessary VPN gateways to support network connectivity with other members. Deployment of the gateway can take up to 45 to 50 minutes.
 
@@ -162,20 +162,20 @@ Once the deployment has completed successfully and all resources have been provi
 
 To find it, select the resource group that was deployed. Then, select **Overview**, and click on the link immediately under **Deployments** that shows the number that succeeded.
 
-![Resource group overview](./media/ethereum-deployment-guide/resource-overview.png)
+![Resource group overview](./media/ethereum-deployment/resource-overview.png)
 
 The new screen shows deployment history. Select the first deployment resource (For example, microsoft-azure-blockchain.azure-blockchain-servi...) and look for the **Outputs** section in the lower half of the page. You`ll see the URL for the admin page listed in the template deployment output parameter as ADMIN_SITE.
 
-![Resource deployments](./media/ethereum-deployment-guide/resource-deployments.png)
+![Resource deployments](./media/ethereum-deployment/resource-deployments.png)
 
-![Deployment output](./media/ethereum-deployment-guide/deployment-output.png)
+![Deployment output](./media/ethereum-deployment/deployment-output.png)
 
 To get to the admin page, copy the **ADMIN-SITE** output and open it in another tab.
 
 On the admin page, you can get a high-level overview of the topology you deployed by reviewing the Ethereum Node Status section. It includes all node hostnames, their peer count, and the latest block seen. The peer count for each node is between the minimum of one less than the *total node count* and the configured maximum peer count. Note, that the peer count does not restrict the number of nodes that can be deployed within the network.
 Occasionally, you will see the peer count fluctuate and be less than the (total number of nodes - 1). The difference in the count is not always a sign that the nodes are unhealthy, since forks in the ledger can cause minor changes in peer count. Finally, you can inspect the latest block seen by each node in the network to determine forks or lags in the system.
 
-![Node status](./media/ethereum-deployment-guide/node-status.png)
+![Node status](./media/ethereum-deployment/node-status.png)
 
 The node status is refreshed every 10 seconds. Reload the page via the browser or **Reload** button to update the view.
 
@@ -183,17 +183,17 @@ The node status is refreshed every 10 seconds. Reload the page via the browser o
 
 You can locate your OMS portal either by following the link in the deployment output (OMSPORTALURL) or by selecting the OMS resource in your deployed resource group.
 
-![OMS URL](./media/ethereum-deployment-guide/oms-url.png)
+![OMS URL](./media/ethereum-deployment/oms-url.png)
 
-![OMS resource](./media/ethereum-deployment-guide/oms-resource.png)
+![OMS resource](./media/ethereum-deployment/oms-resource.png)
 
 The portal will first display high-level network statistics as an overview.
 
-![OMS Overview](./media/ethereum-deployment-guide/oms-overview.png)
+![OMS Overview](./media/ethereum-deployment/oms-overview.png)
 
 Clicking on the overview will direct you to a portal to view per-node statistics.
 
-![Per-node stats](./media/ethereum-deployment-guide/per-node-stats.png)
+![Per-node stats](./media/ethereum-deployment/per-node-stats.png)
 
 ### Accessing nodes
 
@@ -308,7 +308,7 @@ gateway2 $OtherGatewayResourceId --enable-bgp
 
 The architecture will be as follows after you have successfully configured connection between **leader** and **member** deployments.
 
-![Leader and member architecture](./media/ethereum-deployment-guide/leader-member.png)
+![Leader and member architecture](./media/ethereum-deployment/leader-member.png)
 
 ## Fund new member account
 
@@ -330,33 +330,33 @@ To create an additional account, you can use a variety of solutions. One such so
 
 This transaction, like any other transaction, will go to one of the transaction nodes, and eventually be mined into a block as illustrated below.
 
-![Transaction node](./media/ethereum-deployment-guide/transaction-node.png)
+![Transaction node](./media/ethereum-deployment/transaction-node.png)
 
 To install the extension in Chrome, go to Customize and control Google Chrome (overflow button) > More Tools > Extensions > Get More Extensions, and search for MetaMask.
 
-![MetaMask extension](./media/ethereum-deployment-guide/metamask-extension.png)
+![MetaMask extension](./media/ethereum-deployment/metamask-extension.png)
 
 Once installed, open MetaMask and create a new vault. By default, the vault will be connected to the Morden Test Network. You will need to change this to connect to the deployed private consortium network, specifically to the load balancer in front of the transaction nodes. From the template output, retrieve the exposed Ethereum RPC endpoint at port 8545, named as `ETHEREUM-RPC-ENDPOINT`, and enter it in custom RPC as shown below.
 
-![MetaMask settings](./media/ethereum-deployment-guide/metamask-settings.png)
+![MetaMask settings](./media/ethereum-deployment/metamask-settings.png)
 
 By creating the vault, you create a wallet containing an account. To create additional accounts, select **Switch Accounts** and then the **+** button.
 
-![MetaMask create account](./media/ethereum-deployment-guide/metamask-create-account.png)
+![MetaMask create account](./media/ethereum-deployment/metamask-create-account.png)
 
 ### Initiate initial Ether allocation
 
 Through the administrator page, you can formulate a transaction to transfer Ether from the pre-allocated account to another Ethereum account. This Ether transfer is a transaction that is sent to the transaction node and mined into a block as illustrated below.
 
-![Transaction node](./media/ethereum-deployment-guide/transaction-node-mined.png)
+![Transaction node](./media/ethereum-deployment/transaction-node-mined.png)
 
 Via the clipboard icon in the MetaMask wallet, copy the address of the Ethereum account to which you want to transfer ether and go back to the administrator page. Paste the copied account into the input field to transfer 1000 ether from the pre-allocated Ethereum account to your newly created account. Click **Submit** and wait for the transaction to be mined into a block.
 
-![Node status](./media/ethereum-deployment-guide/node-status2.png)
+![Node status](./media/ethereum-deployment/node-status2.png)
 
 Once the transaction is committed into a mined block, the account balance in MetaMask for your account will reflect the transfer of 1000 Ether.
 
-![MetaMask transfer](./media/ethereum-deployment-guide/metamask-transfer.png)
+![MetaMask transfer](./media/ethereum-deployment/metamask-transfer.png)
 
 ### Transfer of Ether between accounts
 
@@ -364,13 +364,13 @@ At this point, you are ready to execute transactions within your private consort
 
 From **Wallet 1** in MetaMask, click on send. Copy the address of the second wallet created into **Recipient Address** input field and amount of Ether to transfer in the **Amount** input field. Click **Send** and accept the transaction.
 
-![MetaMask send transaction](./media/ethereum-deployment-guide/metamask-send.png)
+![MetaMask send transaction](./media/ethereum-deployment/metamask-send.png)
 
 Once again, when the transaction is mined and committed into a block, the account balances are reflected accordingly. Note, **Wallet 1**'s balance is deducted more than 15 Ether, since you had to pay a mining fee to process the transaction.
 
-![Wallet 1](./media/ethereum-deployment-guide/wallet1.png)
+![Wallet 1](./media/ethereum-deployment/wallet1.png)
 
-![Wallet 2](./media/ethereum-deployment-guide/wallet2.png)
+![Wallet 2](./media/ethereum-deployment/wallet2.png)
 
 ## Next steps
 

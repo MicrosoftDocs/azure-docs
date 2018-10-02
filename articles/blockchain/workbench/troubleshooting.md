@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/21/2018
+ms.date: 10/1/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -32,7 +32,7 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ```
 
 ## Run the script
-[!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 Run the `collectBlockchainWorkbenchTroubleshooting.ps1` script to collect logs and create a ZIP file containing a folder of troubleshooting information. For example:
 
@@ -71,4 +71,4 @@ The **Details** folder contains detailed logs for troubleshooting specific issue
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)
+> [Azure Blockchain Workbench architecture](architecture.md)

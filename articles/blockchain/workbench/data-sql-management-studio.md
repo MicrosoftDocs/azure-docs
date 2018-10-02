@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords:
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/3/2018
+ms.date: 10/1/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
@@ -25,18 +25,18 @@ write and test queries against Azure Blockhain Workbench's SQL DB. This section 
 1. Open the SQL Server Management Studio and select **Connect**.
 2. Select **Database Engine**.
 
-    ![Database engine](media/blockchain-workbench-data-sql-management-studio/database-engine.png)
+    ![Database engine](./media/data-sql-management-studio/database-engine.png)
 
 3. In the **Connect to Server** dialog, enter the server name and your
 database credentials.
 
     If you are using the credentials created by the Azure Blockchain Workbench deployment process, the username will be **dbadmin** and the password will be the one you provided during deployment.
 
-    ![Enter SQL credentials](media/blockchain-workbench-data-sql-management-studio/sql-creds.png)
+    ![Enter SQL credentials](./media/data-sql-management-studio/sql-creds.png)
 
  4. SQL Server Management Studio displays the list of databases, database views, and stored procedures in the Azure Blockchain Workbench database.
 
-    ![Database list](media/blockchain-workbench-data-sql-management-studio/db-list.png)
+    ![Database list](./media/data-sql-management-studio/db-list.png)
 
 5. To view the data associated with any of the database views, you can automatically generate a select statement using the following steps.
 6. Right click on any of the database views in the Object Explorer.
@@ -48,4 +48,4 @@ database credentials.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [Database views in Azure Blockchain Workbench](database-views.md)
