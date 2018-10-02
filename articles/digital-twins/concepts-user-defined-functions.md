@@ -6,13 +6,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/27/2018
+ms.date: 10/02/2018
 ms.author: alinast
 ---
 
 # Data Processing and User-Defined Functions
 
-Azure Digital Twins offers advanced compute capabilities. Developers can define and run custom functions against incoming telemetry messages to send events to pre-defined endpoints. 
+Azure Digital Twins offers advanced compute capabilities. Developers can define and run custom functions against incoming telemetry messages to send events to pre-defined endpoints.
 
 ## Data processing flow
 
@@ -29,23 +29,23 @@ Once devices send telemetry data to Digital Twins, developers can process data i
 
 Data processing in Azure Digital Twins consists of defining three objects: _matchers_, _user-defined functions_, and _role assignments_:
 
-![Digital Twins Data Processing Flow][2] 
+![Digital Twins Data Processing Flow][2]
 
 ### Matchers
 
 _Matchers_ define a set of conditions that evaluate what actions will take place based on incoming sensor telemetry. These conditions to determine the match could include properties from the sensor, the sensor's parent device, and the sensor's parent space. The conditions are expressed as comparisons against a [JSON path](http://jsonpath.com/) as outlined in the example below:
 
 - All sensors of datatype `Temperature`
-- Having `01` in their port 
-- Which belong to devices with the extended property key `Manufacturer` set to the value `Contoso`
+- Having `01` in their port
+- Which belong to devices with the extended property key `Manufacturer` set to the value `GoodCorp`
 - Which belong to spaces of type `Venue`
-- Which are descendants of parent `SpaceId` DE8F06CA-1138-4AD7-89F4-F782CC6F69FD"
+- Which are descendants of parent `SpaceId` DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
-```{json}
+```JSON
 {
-  "SpaceId": DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "SpaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
   "Name": "My custom matcher",
-  "Description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value Contoso and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "Description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value GoodCorp and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
   "Conditions": [
     {
       "target": "Sensor",
@@ -62,7 +62,7 @@ _Matchers_ define a set of conditions that evaluate what actions will take place
     {
       "target": "SensorDevice",
       "path": "$.properties[?(@.name == 'Manufacturer')].value",
-      "value": "\"Contoso\"",
+      "value": "\"GoodCorp\"",
       "comparison": "Equals"
     },
     {
@@ -75,15 +75,18 @@ _Matchers_ define a set of conditions that evaluate what actions will take place
 }
 ```
 
->[!NOTE]
-- JSON paths are case-sensitive
-- The JSON payload is the same as the payload that would be returned by `/sensors/{id}?includes=properties,types`, `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes`, or `/spaces/{id}?includes=properties,types,location,timezone` for the sensor, the sensor's parent device, or the sensor's parent space, respectively.
-- The comparisons are case-insensitive.
+> [!NOTE]
+> - JSON paths are case-sensitive.
+> - The JSON payload is the same as the payload that would be returned by:
+>   - `/sensors/{id}?includes=properties,types` for the sensor.
+>   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes` for the sensor's parent device.
+>   - `/spaces/{id}?includes=properties,types,location,timezone` for the sensor's parent space.
+> - The comparisons are case-insensitive.
 
 ### User-Defined Functions
 
 A _User-Defined Function_, or _UDF_, is a custom function that runs within an isolated environment in Azure Digital Twins. UDFs have access to both the raw sensor telemetry message as it was received, as well as to the spatial graph and dispatcher service. Once the UDF is registered within the graph, a matcher (detailed above) must be created to specify when to run the UDF. When Digital Twins receives new telemetry from a given sensor, the matched UDF can calculate a moving average of the last few sensor readings, for example.
- 
+
 UDFs can be written in JavaScript and allow developers to execute custom snippets of code against sensor telemetry messages. There are also helper methods to interact with the graph in the user-defined execution environment. With a UDF, developers can:
 
 - Set the sensor reading directly onto the sensor object within the graph.
