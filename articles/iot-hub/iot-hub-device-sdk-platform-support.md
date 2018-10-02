@@ -15,7 +15,7 @@ The [Azure IoT SDKs](iot-hub-devguide-sdks.md) are a set of libraries to interac
 
 Microsoft supports a variety of operating systems/platforms/frameworks and can be extended using the Azure IoT C SDK. Some are supported officially by the team, grouped into tiers that represent the level of support users can expect. *Fully supported platforms* means that Microsoft:
 
-    * Continuously builds and runs end-to-end test against master and the LTS supported version(s).
+    * Continuously builds and runs end-to-end tests against master and the LTS supported version(s).
     * Provides installation guidance or packages if applicable.
     * Fully supports the platforms on GitHub.
 
