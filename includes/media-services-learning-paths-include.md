@@ -6,4 +6,4 @@ You can start with the following topics:
 * [Upload, encode, and stream videos using APIs](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
 * [Analyze](https://docs.microsoft.com/azure/media-services/latest/analyze-videos-tutorial-with-api)
 * [Stream live](https://docs.microsoft.com/azure/media-services/latest/stream-live-tutorial-with-api)
-* [Protect your content(https://docs.microsoft.com/azure/media-services/latest/protect-with-aes128)
+* [Protect your content](https://docs.microsoft.com/azure/media-services/latest/protect-with-aes128)
