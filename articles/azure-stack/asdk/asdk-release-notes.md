@@ -23,7 +23,7 @@ This article provides information about improvements, fixes, and known issues in
 
 > Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## Build 1.1809.x.xx
+## Build 1.1809.0.70
 
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
