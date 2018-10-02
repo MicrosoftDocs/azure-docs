@@ -99,7 +99,7 @@ Source Control Sync Summary:
 
 ## Personal access token permissions
 
-The following sections describe the necessary personal access token permissions needed for source control for GitHub and Azure DevOps
+The following sections describe the minimum required personal access token permissions needed for source control for GitHub and Azure DevOps.
 
 ### GitHub
 
