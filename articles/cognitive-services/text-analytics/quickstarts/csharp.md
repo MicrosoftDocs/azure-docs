@@ -13,7 +13,7 @@ ms.date: 10/01/2018
 ms.author: ashmaka
 ---
 
-# Quickstart for Text Analytics API with C# 
+# Quickstart: Using C# to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
 This article shows you how to detect language, analyze sentiment, and extract key phrases using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with C#. The code was written to work on a .Net Core application, with minimal references to external libraries, so you could also run it on Linux or MacOS.
