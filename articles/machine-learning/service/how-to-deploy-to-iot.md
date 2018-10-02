@@ -38,7 +38,7 @@ To learn how to register your device and install the IoT runtime, follow the ste
 
 ## Register the model
 
-Azure IoT Edge modules are based on container images. To deploy your model to an IoT Edge device, use the following steps to register your model on an Azure Machine Learning workspace and create a Docker image. 
+Azure IoT Edge modules are based on container images. To deploy your model to an IoT Edge device, use the following steps to register your model on an Azure Machine Learning service workspace and create a Docker image. 
 
 > [!IMPORTANT]
 > If you used Azure Machine Learning to train your model it may already be registered in your workspace, in this case skip step 3.
@@ -117,7 +117,7 @@ Azure IoT needs the credentials for the container registry that Azure Machine Le
 
 1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
 
-1. Go to your Azure Machine Learning workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
+1. Go to your Azure Machine Learning service workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
 
     ![An image of the container registry entry](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 
