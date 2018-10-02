@@ -43,18 +43,18 @@ Create a file named `update-knowledge-base.js`.
 
 At the top of `update-knowledge-base.js`, add the following lines to add necessary dependencies to the project:
 
-   [!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=1-4 "Add the dependencies")]
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=1-4 "Add the dependencies")]
 
 ## Add required constants
 After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key. 
 
-   [!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=10-17 "Add required constants")]
+[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=10-17 "Add required constants")]
 
 ## Add knowledge base ID
 
 After the previous constants, add the knowledge base ID and add it to the path:
 
-   [!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=19-23 "Add knowledge base ID")]
+[!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
 ## Add the KB update model definition
 
@@ -66,7 +66,7 @@ After the constants, add the following KB update definition. The update definiti
 
 Each section can be used in the same single request to the API. 
 
-   [!code-nodejs[Add the KB update definition](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=25-53 "Add the KB update definition")]
+[!code-nodejs[Add the KB update definition](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=25-53 "Add the KB update definition")]
 
 
 ## Add supporting functions
@@ -85,25 +85,25 @@ Next, add the following supporting functions.
 
 Add the following functions to make an HTTP PATCH request to update the knowledge base. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication.
 
-   [!code-nodejs[Add PATCH request to update KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=84-111 "Add PATCH request to update KB")]
+[!code-nodejs[Add PATCH request to update KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=84-111 "Add PATCH request to update KB")]
 
-    This API call returns a JSON response that includes the operation ID. The operation ID is necessary to request status if the operation is not complete.
+This API call returns a JSON response that includes the operation ID. The operation ID is necessary to request status if the operation is not complete.
 
-    ```JSON
-    {
-      "operationState": "NotStarted",
-      "createdTimestamp": "2018-10-02T01:23:00Z",
-      "lastActionTimestamp": "2018-10-02T01:23:00Z",
-      "userId": "335c3841df0b42cdb00f53a49d51a89c",
-      "operationId": "e7be3897-88ff-44e5-a06c-01df0e05b78c"
-    }
-    ```
+```JSON
+{
+  "operationState": "NotStarted",
+  "createdTimestamp": "2018-10-02T01:23:00Z",
+  "lastActionTimestamp": "2018-10-02T01:23:00Z",
+  "userId": "335c3841df0b42cdb00f53a49d51a89c",
+  "operationId": "e7be3897-88ff-44e5-a06c-01df0e05b78c"
+}
+```
 
 ## Add GET request to determine operation status
 
 Check the status of the operation.
     
-   [!code-nodejs[Add GET request to determine operation status](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=113-137 "Add GET request to determine operation status")]
+[!code-nodejs[Add GET request to determine operation status](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=113-137 "Add GET request to determine operation status")]
 
 This API call returns a JSON response that includes the operation status: 
 
@@ -134,7 +134,7 @@ Repeat the call until success or failure:
 
 The following method updates the KB and repeats checks on the status. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
-   [!code-nodejs[Add update_kb method](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=139-169 "Add update_kb method")]
+[!code-nodejs[Add update_kb method](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=139-169 "Add update_kb method")]
 
 ## Run the program
 
