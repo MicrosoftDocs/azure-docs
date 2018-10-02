@@ -22,12 +22,12 @@ This quickstart calls Qna Maker APIs:
 * [Create KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 * [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
-
 ## Prerequisites
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
 * You must have a [Qna Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## Create a knowledge base project
 
@@ -122,7 +122,7 @@ This API call returns a JSON response that includes the operation ID. Use the op
 
 ## Add GET request to determine creation status
 
-The API that creates the KB gets all the documents, URLs, and custom editorials and creates a KB. 
+Check the status of the operation.
 
 ```csharp
 async static Task<Response> GetStatus(string operationID)

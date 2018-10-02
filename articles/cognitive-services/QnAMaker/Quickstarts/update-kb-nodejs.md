@@ -23,8 +23,6 @@ This quickstart calls Qna Maker APIs:
 * [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - The model for the knowledge base is defined in the JSON sent in the body of the API request. 
 * [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
-
 ## Prerequisites
 
 * [Node.js 6+](https://nodejs.org/en/download/)
@@ -35,43 +33,28 @@ This quickstart calls Qna Maker APIs:
 
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-nodejs.md).
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+
 ## Create a knowledge base Node.js file
 
 Create a file named `update-knowledge-base.js`.
 
 ## Add the required dependencies
 
-```nodejs
-'use strict';
+At the top of `update-knowledge-base.js`, add the following lines to add necessary dependencies to the project:
 
-let fs = require ('fs');
-let https = require ('https');
-```
+   [!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=1-4 "Add the dependencies")]
 
 ## Add required constants
+After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key. 
 
-```nodejs
-// Represents the various elements used to create HTTP request URIs
-// for QnA Maker operations.
-let host = 'westus.api.cognitive.microsoft.com';
-let service = '/qnamaker/v4.0';
-let method = '/knowledgebases/';
-
-// Build your path URL.
-let path = service + method + kb;
-
-// Replace this with a valid subscription key.
-let subscriptionKey = '<your-qna-maker-subscription-key>';
-```
+   [!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=10-17 "Add required constants")]
 
 ## Add knowledge base ID
 
-After the previous constants, add the knowledge base ID:
+After the previous constants, add the knowledge base ID and add it to the path:
 
-```nodejs
-// Replace this with a valid knowledge base ID.
-let kb = 'ADD ID HERE';
-```
+   [!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
 ## Add the KB update definition
 
@@ -83,33 +66,8 @@ After the constants, add the following KB update definition. The update definiti
 
 Each section can be used in the same single request to the API. 
 
-```nodejs
-// Dictionary that holds the knowledge base. Modify knowledge base here.
-let update_definition = {
-  'add': {
-    'qnaList': [
-      {
-        'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
-        'source': 'Custom Editorial',
-        'questions': [
-          'How can I change the default message from QnA Maker?'
-        ],
-        'metadata': []
-      }
-    ],
-    'urls': []
-  },
-  'update' : {
-    'name' : 'New KB Name'
-  },
-  'delete': {
-    'ids': [
-      0
-    ]
-  }
-};
-```
+   [!code-nodejs[Add the KB update definition](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=23-53 "Add the KB update definition")]
+
 
 ## Add supporting functions
 
@@ -117,95 +75,17 @@ Next, add the following supporting functions.
 
 1. Add the following function to print out JSON in a readable format:
 
-    ```nodejs
-    // Formats and indents JSON for display.
-    let pretty_print = function(s) {
-        return JSON.stringify(JSON.parse(s), null, 4);
-    }
-    ```
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=55-58 "Add supporting functions, step 1")]
 
 2. Add the following functions to manage the HTTP response to get the creation operation status:
 
-    ```nodejs
-    // Call 'callback' after we have the entire response.
-    let response_handler = function (callback, response) {
-        let body = '';
-        response.on('data', function(d) {
-            body += d;
-        });
-        response.on('end', function() {
-        // Calls 'callback' with the status code, headers, and body of the response.
-        callback ({ status : response.statusCode, headers : response.headers, body : body });
-        });
-        response.on('error', function(e) {
-            console.log ('Error: ' + e.message);
-        });
-    };
-
-    // HTTP response handler calls 'callback' after we have the entire response.
-    let get_response_handler = function(callback) {
-        // Return a function that takes an HTTP response and is closed over the specified callback.
-        // This function signature is required by https.request, hence the need for the closure.
-        return function(response) {
-            response_handler(callback, response);
-        }
-    }
-    ```
-
-3. 
-    ```
-
-// Calls 'callback' after we have the entire GET request response.
-let get = function(path, callback) {
-    let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path,
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
-
-    // Pass the callback function to the response handler.
-    let req = https.request(request_params, get_response_handler(callback));
-    req.end ();
-}
-```
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=60-82 "Add supporting functions, step 2")]
 
 ## Add PATCH request to update KB
 
 Add the following functions to make an HTTP PATCH request to update the knowledge base. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication.
 
-    ```nodejs
-    // Calls 'callback' after we have the entire PATCH request response.
-    let patch = function(path, content, callback) {
-        let request_params = {
-            method : 'PATCH',
-            hostname : host,
-            path : path,
-            headers : {
-                'Content-Type' : 'application/json',
-                'Content-Length' : content.length,
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
-    
-        // Pass the callback function to the response handler.
-        let req = https.request(request_params, get_response_handler(callback));
-        req.write(content);
-        req.end ();
-    }
-
-    // Calls 'callback' after we have the response from the /knowledgebases PATCH method.
-    let update_kb = function(path, req, callback) {
-        console.log('Calling ' + host + path + '.');
-        // Send the PATCH request.
-        patch(path, req, function (response) {
-            // Extract the data we want from the PATCH response and pass it to the callback function.
-            callback({ operation : response.headers.location, response : response.body });
-        });
-    }
-    ```
+   [!code-nodejs[Add PATCH request to update KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=84-111 "Add PATCH request to update KB")]
 
     This API call returns a JSON response that includes the operation ID. The operation ID is necessary to request status if the operation is not complete. 
     
@@ -221,19 +101,9 @@ Add the following functions to make an HTTP PATCH request to update the knowledg
 
 ## Add GET request to determine operation status
 
-The operation status may need to be requested again. 
-
-```nodejs
-// Calls 'callback' after we have the response from the GET request to check the status.
-let check_status = function(path, callback) {
-    console.log('Calling ' + host + path + '.');
-    // Send the GET request.
-    get(path, function (response) {
-        // Extract the data we want from the GET response and pass it to the callback function.
-        callback({ wait : response.headers['retry-after'], response : response.body });
-    });
-}
-```
+Check the status of the operation.
+    
+   [!code-nodejs[Add GET request to determine operation status](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=113-137 "Add GET request to determine operation status")]
 
 This API call returns a JSON response that includes the operation status: 
 
@@ -264,43 +134,7 @@ Repeat the call until success or failure:
 
 The following method updates the KB and repeats checks on the status. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
-```nodejs
-
-// Convert the update_definition to a string.
-let content = JSON.stringify(update_definition);
-
-// Sends the request to update the knowledge base.
-update_kb(path, content, function (result) {
-
-    console.log(pretty_print(result.response));
-
-    // Loop until the operation is complete.
-    let loop = function() {
-
-        // add operation ID to the path        
-        path = service + result.operation;
-
-        // Check the status of the operation.
-        check_status(path, function(status) {
-
-            // Write out the status.
-            console.log(pretty_print(status.response));
-
-            // Convert the status into an object and get the value of the operationState field.
-            var state = (JSON.parse(status.response)).operationState;
-
-            // If the operation isn't complete, wait and query again.
-            if (state == 'Running' || state == 'NotStarted') {
-
-                console.log('Waiting ' + status.wait + ' seconds...');
-                setTimeout(loop, status.wait * 1000);
-            }
-        });
-    }
-    // Begin the loop.
-    loop();
-});
-```
+   [!code-nodejs[Add update_kb method](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=139-169 "Add update_kb method")]
 
 ## Run the program
 

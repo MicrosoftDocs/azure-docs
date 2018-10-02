@@ -20,9 +20,6 @@ This quickstart walks you through programmatically publishing your knowledge bas
 This quickstart calls Qna Maker APIs:
 * [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - this API doesn't require any information in the body of the request.
 
-
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
-
 ## Prerequisites
 
 * [Node.js 6+](https://nodejs.org/en/download/)
@@ -33,117 +30,52 @@ This quickstart calls Qna Maker APIs:
 
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-nodejs.md).
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+
 ## Create a knowledge base Node.js file
 
-Create a file named `update-knowledge-base.js`.
+Create a file named `publish-knowledge-base.js`.
 
 ## Add required dependencies
 
-``` Node.js
-'use strict';
+At the top of `publish-knowledge-base.js`, add the following lines to add necessary dependencies to the project:
 
-let fs = require ('fs');
-let https = require ('https');
-```
+   [!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/publish-knowledge-base.js?range=1-4 "Add the dependencies")]
 
 ## Add required constants
 
-```nodejs
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key. 
 
-let host = 'westus.api.cognitive.microsoft.com';
-let service = '/qnamaker/v4.0';
-let method = '/knowledgebases/';
-var path = service + method + kb;
-
-// Replace this with a valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
-```
+   [!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/publish-knowledge-base.js?range=10-17 "Add required constants")]
 
 ## Add knowledge base ID
 
-```nodejs
-// NOTE: Replace this with a valid knowledge base ID.
-let kb = 'ENTER ID HERE';
-```
+After the previous constants, add the knowledge base ID and add it to the path:
 
-## Add supporting functions and structures
+   [!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/publish-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
-```nodejs
-let pretty_print = function (s) {
-    return JSON.stringify(JSON.parse(s), null, 4);
-}
+## Add supporting functions
 
-// callback is the function to call when we have the entire response.
-let response_handler = function (callback, response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-// Call the callback function with the status code, headers, and body of the response.
-        callback ({ status : response.statusCode, headers : response.headers, body : body });
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+Next, add the following supporting functions.
 
-// Get an HTTP response handler that calls the specified callback function when we have the entire response.
-let get_response_handler = function (callback) {
-// Return a function that takes an HTTP response, and is closed over the specified callback.
-// This function signature is required by https.request, hence the need for the closure.
-    return function (response) {
-        response_handler (callback, response);
-    }
-}
+1. Add the following function to print out JSON in a readable format:
 
-// callback is the function to call when we have the entire response from the POST request.
-let post = function (path, content, callback) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=25-28 "Add supporting functions, step 1")]
 
-// Pass the callback function to the response handler.
-    let req = https.request (request_params, get_response_handler (callback));
-    req.write (content);
-    req.end ();
-}
+2. Add the following functions to manage the HTTP response to get the creation operation status:
 
-// callback is the function to call when we have the response from the /knowledgebases POST method.
-let publish_kb = function (path, req, callback) {
-    console.log ('Calling ' + host + path + '.');
-// Send the POST request.
-    post (path, req, function (response) {
-// Extract the data we want from the POST response and pass it to the callback function.
-        if (response.status == '204') {
-            let result = {'result':'Success'};
-            callback (JSON.stringify(result));
-        }
-        else {
-            callback (response.body);
-        }
-    });
-}
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=30-52 "Add supporting functions, step 2")]
 
-```
 
-## Add main code to publish KB
+## Add POST request to publish KB
+The following code makes an HTTPS request to the Qna Maker API to publish a KB and receives the response:
 
-```nodejs
-publish_kb (path, '', function (result) {
-    console.log (pretty_print(result));
-});
-```
+   [!code-nodejs[Add POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=54-71 "Add POST request to publish KB")]
+
+## Add the publish_kb function and main function
+Execute the publish _kb function.
+
+   [!code-nodejs[Add the publish_kb function and main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/update-knowledge-base.js?range=73-97 "Add the publish_kb function and main function")]
 
 ## Run the program
 
