@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: diberry
 ---
 
@@ -183,8 +183,8 @@ Before changing any code or settings, verify the bot works.
 
     ```JSON
     {
-    "botFileSecret": "J2pU6SRynDYEUmvoo7KFRj687/3xPI5mlUALwh1I71E=",
-    "botFilePath": "./diberry-csharp-basic-bot.bot"
+    "botFileSecret": "",
+    "botFilePath": ""
 
     }
     ```

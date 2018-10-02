@@ -1,12 +1,14 @@
 ---
-title: Use a custom speech endpoint with Custom Speech Service on Azure | Microsoft Docs
-description: Learn how to use a custom speech-to-text endpoint with the Custom Speech Service in Cognitive Services.
+title: Use a custom speech endpoint - Custom Speech Service
+titlesuffix: Azure Cognitive Services
+description: Learn how to use a custom speech-to-text endpoint with the Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX

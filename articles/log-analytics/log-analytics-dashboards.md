@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Create a custom dashboard for use in Log Analytics

@@ -104,7 +104,7 @@ If you chose to write audit logs to Log Analytics:
 
     ![open in OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
-- Alternatively, you can also access the audit logs from Log Analytics blade. Open your Log Analytics workspace and under **General** section, click **Logs**. You can start with a simple query, such as: search *"SQLSecurityAuditEvents"* to view the audit logs.
+- Alternatively, you can also access the audit logs from Log Analytics blade. Open your Log Analytics workspace and under **General** section, click **Logs**. You can start with a simple query, such as: *search "SQLSecurityAuditEvents"* to view the audit logs.
     From here, you can also use [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md)  to run advanced searches on your audit log data. Log Analytics gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about OMS Log Analytics search language and commands, see [Log Analytics search reference](../log-analytics/log-analytics-log-search.md).
 
 If you chose to write audit logs to Event Hub:

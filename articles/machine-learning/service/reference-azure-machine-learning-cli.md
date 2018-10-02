@@ -61,7 +61,7 @@ Here is a sample of common commands:
 
 ### Workspace creation & compute setup
 
-+ Create an Azure Machine Learning Workspace, the top level resource for machine learning.
++ Create an Azure Machine Learning service workspace, the top level resource for machine learning.
    ```AzureCLI
    az ml workspace create -n myworkspace -g myresourcegroup
    ```

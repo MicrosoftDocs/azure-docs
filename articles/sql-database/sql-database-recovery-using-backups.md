@@ -2,28 +2,31 @@
 title: Restore an Azure SQL database from a backup | Microsoft Docs
 description: Learn about Point-in-Time Restore, that enables you to roll back an Azure SQL Database to a previous point in time (up to 35 days).
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-
+manager: craigg
+ms.date: 10/01/2018
 ---
 # Recover an Azure SQL database using automated database backups
-SQL Database provides these options for database recovery using [automated database backups](sql-database-automated-backups.md) and [backups in long-term retention](sql-database-long-term-retention.md). You can restore from a database backup to:
+By default, SQL Database backups are stored in geo-replicated blob storage (RA-GRS). The following options are available for database recovery using [automated database backups](sql-database-automated-backups.md):
 
-* A new database on the same logical server recovered to a specified point in time within the retention period. 
-* A database on the same logical server recovered to the deletion time for a deleted database.
-* A new database on any logical server in any region recovered to the point of the most recent daily backups in geo-replicated blob storage (RA-GRS).
+* Create a new database on the same logical server recovered to a specified point in time within the retention period. 
+* Create a database on the same logical server recovered to the deletion time for a deleted database.
+* Create a new database on any logical server in any region recovered to the point of the most recent backups.
+
+If you configured [backup long-term retention](sql-database-long-term-retention.md) you can also create a new database from any LTR backup on any logical server in any region.  
 
 > [!IMPORTANT]
 > You cannot overwrite an existing database during restore.
 >
 
-A restored database incurs an extra storage cost under the following conditions: 
+When using Standard or Premium service tier, a restored database incurs an extra storage cost under the following conditions: 
 - Restore of P11–P15 to S4-S12 or P1–P6 if the database max size is greater than 500 GB.
 - Restore of P1–P6 to S4-S12 if the database max size is greater than 250 GB.
 

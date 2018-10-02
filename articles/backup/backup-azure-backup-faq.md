@@ -142,7 +142,7 @@ The following table explains how each data source size is determined.
 | Microsoft Exchange |Sum of all Exchange databases in an Exchange server being backed up |
 | BMR/System State |Each individual copy of BMR or system state of the machine being backed up |
 
-For Azure IaaS VM backup, each VM can have up to 16 data disks, and each data disk can be up to 4095 GB.
+For Azure IaaS VM backup, each VM can have up to 32 data disks, and each data disk can be up to 4095 GB.
 
 ### Is there a limit on the amount of data held in a Recovery Services vault?
 There is no limit on the amount of data you can back up to a Recovery Services vault.

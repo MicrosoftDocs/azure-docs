@@ -22,11 +22,11 @@ In order to troubleshoot problems more effectively, it may help to create more d
 
 For the Visual Studio extension, set the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs will be written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
-In the CLI, you can output more information during command execution by using the `--verbose` switch.
+In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the TEMP directory is usually `/tmp`.
 
 ## Debugging services with multiple instances
 
-At this time, Azure Dev Spaces supports debugging only on a single instance (pod). The azds.yaml file contains a setting, replicaCount, that indicates the number of instances that will be run for your service. If you change the replicaCount to configure your app to run multiple instances for a given service, the behavior of the debugger might not be as expected.
+At this time, Azure Dev Spaces works best when debugging a single instance (pod). The azds.yaml file contains a setting, replicaCount, that indicates the number of pods that will be run for your service. If you change the replicaCount to configure your app to run multiple pods for a given service, the debugger will attach to the first pod (when listed alphabetically). If that pod recycles for any reason, the debugger will attach to a different pod, possibly resulting in unexpected behavior.
 
 ## Error 'Failed to create Azure Dev Spaces controller'
 

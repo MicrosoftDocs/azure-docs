@@ -83,7 +83,7 @@ Now that you have added the Log Analytics agent, head on over to the Log Analyti
 
 6. Close the Advanced Settings blade.
 
-7. Under the General heading, click **Overview**.
+7. Under the General heading, click **Workspace summary**.
 
 8. You will see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 

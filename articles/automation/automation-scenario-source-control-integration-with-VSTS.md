@@ -46,7 +46,7 @@ Create a [secure variable](automation-variables.md) in your automation account t
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Import the runbook that syncs your runbooks or configurations into the automation account. You can use the [Azure DevOps sample runbook](https://www.powershellgallery.com/packages/Sync-VSTS) or the [Azure DevOps with Git sample runbook](https://www.powershellgallery.com/packages/Sync-VSTSGit) from the PowerShellGallery.com depending on if you use Azure DevOps source control or Azure DevOps with Git and deploy to your automation account.
+Import the runbook that syncs your runbooks or configurations into the automation account. You can use the [Azure DevOps sample runbook](https://www.powershellgallery.com/packages/Sync-VSTS) or the [Azure DevOps with Git sample runbook](https://www.powershellgallery.com/packages/Sync-VSTSGit) from the [PowerShell Gallery](https://www.powershellgallery.com) depending on if you use Azure DevOps source control or Azure DevOps with Git and deploy to your automation account.
 
 ![PowerShell Gallery](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 

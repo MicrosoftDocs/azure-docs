@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
 ms.custom:
 #Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Gateway so I can use it to transfer data to Azure. 
