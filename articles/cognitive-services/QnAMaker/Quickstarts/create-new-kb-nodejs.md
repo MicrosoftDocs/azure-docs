@@ -56,7 +56,7 @@ Next, add the following supporting functions.
 
    [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=53-56 "Add supporting functions, step 1")]
 
-2. Add the following functions to manage the HTTP response to get the creation operation status:
+2. Add the following functions to manage the HTTP response:
 
    [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=58-80 "Add supporting functions, step 2")]
 
@@ -64,41 +64,37 @@ Next, add the following supporting functions.
 
 Add the following functions to make an HTTP POST request to create the knowledge base. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication. 
 
-   [!code-nodejs[POST Request to API](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=82-99 "POST Request to API")]
+[!code-nodejs[POST Request to API](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=82-109 "POST Request to API")]
 
-   [!code-nodejs[Add a function to create KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=117-125 "Add a function to create KB")]
+This API call returns a JSON response that includes the operation ID. Use the operation ID to determine if the KB is successfully created. 
 
-    This API call returns a JSON response that includes the operation ID. Use the operation ID to determine if the KB is successfully created. 
-    
-    ```JSON
-    {
-      "operationState": "NotStarted",
-      "createdTimestamp": "2018-09-26T05:19:01Z",
-      "lastActionTimestamp": "2018-09-26T05:19:01Z",
-      "userId": "XXX9549466094e1cb4fd063b646e1ad6",
-      "operationId": "8dfb6a82-ae58-4bcb-95b7-d1239ae25681"
-    }
-    ```
+```JSON
+{
+  "operationState": "NotStarted",
+  "createdTimestamp": "2018-09-26T05:19:01Z",
+  "lastActionTimestamp": "2018-09-26T05:19:01Z",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "8dfb6a82-ae58-4bcb-95b7-d1239ae25681"
+}
+```
 
 ## Add functions to determine creation status
 
 Add the following function to make an HTTP GET request to check the operation status. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication. 
 
-   [!code-nodejs[GET Request to API](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=101-115 "GET Request to API")]
+[!code-nodejs[GET Request to API](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=111-135 "GET Request to API")]
 
-   [!code-nodejs[Add function to determine creation status](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=127-135 "Add function to determine creation status")]
+Repeat the call until success or failure: 
 
-    Repeat the call until success or failure: 
-    
-    ```JSON
-    {
-      "operationState": "Succeeded",
-      "createdTimestamp": "2018-09-26T05:22:53Z",
-      "lastActionTimestamp": "2018-09-26T05:23:08Z",
-      "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
-      "userId": "XXX9549466094e1cb4fd063b646e1ad6",
-      "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
-    }
+```JSON
+{
+  "operationState": "Succeeded",
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:23:08Z",
+  "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
+}
 
 ## Add create-kb function
 
