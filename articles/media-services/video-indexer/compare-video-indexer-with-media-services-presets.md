@@ -27,9 +27,9 @@ Currently, there is an overlap between features offered by the [Video Indexer v2
 
 |Feature|Video Indexer APIs |Video Analyzer and Audio Analyzer Presets<br/>in Media Services v3 APIs|
 |---|---|---|
-|Media Insights|[Enhanced]() |[Fundamentals]()|
-|Experiences||Returns video insights only|
-|Compliance|TBD|Get the complete list from [https://ecosystemmanager.azurewebsites.net/v2/compliance/customer-promise](https://ecosystemmanager.azurewebsites.net/v2/compliance/customer-promise)|
+|Media Insights|[Enhanced](../../cognitive-services/video-indexer/video-indexer-output-json-v2.md?toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json) |[Fundamentals](../latest/intelligence-concept.md)|
+|Experiences|See the full list of supported features: <br/> [Overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json)|Returns video insights only|
+|Compliance|TBD|ISO, SOC, FedRAMP, HIPPA|
 |Free Trial|East US|Not available|
 |Availability |West US, East Asia, North Europe|See [Azure status](https://azure.microsoft.com/status/).|
 

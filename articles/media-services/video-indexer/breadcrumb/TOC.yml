@@ -1,11 +1,7 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
+- name: Media Services
+  tocHref: /azure/media-services
+  topicHref: /azure/media-services/index
   items:
-   - name: Azure Stack
-     tocHref: /azure/site-recovery/
-     topicHref: /azure/azure-stack/index
-   - name: Azure Stack
-     tocHref: /azure/backup/
-     topicHref: /azure/azure-stack/index
-     
+   - name: Video Indexer
+     tocHref: /azure/cognitive-services/video-indexer
+     topicHref: /azure/media-services/video-indexer/index
