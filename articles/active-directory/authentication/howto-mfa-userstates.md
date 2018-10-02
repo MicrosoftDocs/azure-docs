@@ -84,8 +84,17 @@ To change the user state by using [Azure AD PowerShell](/powershell/azure/overvi
 
 Don't move users directly to the *Enforced* state. If you do, non-browser-based apps stop working because the user has not gone through Azure MFA registration and obtained an [app password](howto-mfa-mfasettings.md#app-passwords).
 
+Install the Module first, using:
+
+       Install-Module MSOnline
+       
+> [!TIP]
+> Don't forget to connect first using **Connect-MSOnline**
+
+
 Using PowerShell is a good option when you need to bulk enabling users. Create a PowerShell script that loops through a list of users and enables them:
 
+        Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
         $st.State = “Enabled”
