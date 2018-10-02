@@ -1,12 +1,13 @@
 ---
-title: How-to use Entity Recognition in Text Analytics REST API (Microsoft Cognitive Services on Azure) | Microsoft Docs
-description: Learn how to extract entities in your text using the Text Analytics REST API in Microsoft Cognitive Services on Azure in this walkthrough tutorial.
+title: Use entity recognition with the Text Analytics API 
+titleSuffix: Azure Cognitive Services
+description: Learn how to recognize entities using the Text Analytics REST API.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
 
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
