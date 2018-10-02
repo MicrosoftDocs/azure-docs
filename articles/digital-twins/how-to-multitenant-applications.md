@@ -37,11 +37,11 @@ To solve the scenario above, the following actions are needed to create a Digita
   - Customer C's Azure AD Tenant Admin will need to acquire a [pay-as-you-go Azure subscription](https://azure.microsoft.com/offers/ms-azr-0003p/).
   - Customer C's Azure AD Tenant Admin will then have to [link their tenant with the new subscription](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 - From the [Azure Portal](https://portal.azure.com), Customer C's Azure AD Tenant Admin should then:
-  - Open Subscriptions
-  - Select the Subscription that has the Azure AD tenant to be used in Developer D's application
-  - Select Resource Providers
-  - Search for Microsoft.IoTSpaces
-  - Click Register
+  1. Open **Subscriptions**.
+  1. Select the Subscription that has the Azure AD tenant to be used in Developer D's application.
+  1. Select **Resource Providers**.
+  1. Search for **Microsoft.IoTSpaces**.
+  1. Click **Register**.
   
 ## Next steps
 
