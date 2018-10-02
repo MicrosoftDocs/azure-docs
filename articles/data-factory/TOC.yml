@@ -358,6 +358,10 @@
       href: control-flow-wait-activity.md
     - name: Web Activity
       href: control-flow-web-activity.md
+  - name: Parameterize
+    items:
+    - name: Parameterize linked services
+      href: parameterize-linked-services.md
     - name: Expression Language
       href: control-flow-expression-language-functions.md
     - name: System variables
