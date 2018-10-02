@@ -238,7 +238,7 @@ For an example step-by-step deployment plan for outbound user provisioning to an
 
 Yes, it is possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications.
 
-However, for B2B users to be able to to sign-in to the SaaS application using Azure AD, the SaaS application must have it's SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+However, for B2B users to be able to sign-in to the SaaS application using Azure AD, the SaaS application must have it's SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
 ###Does automatic user provisioning to SaaS apps work with dynamic groups in Azure AD?
 
