@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/4/2018
+ms.date: 10/1/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
@@ -35,15 +35,15 @@ To connect to the database:
 3. Choose the name of the resource group for your Blockchain Workbench deployment.
 4. Select **Type** to sort the resource list, and then choose your **SQL server**. The sorted list in the next screen capture shows two SQL databases, "master" and one that uses "lhgn" as the **Resource prefix**.
 
-   ![Sorted Blockchain Workbench resource list](media/blockchain-workbench-getdb-details/sorted-workbench-resource-list.png)
+   ![Sorted Blockchain Workbench resource list](./media/getdb-details/sorted-workbench-resource-list.png)
 
 5. To see detailed information about the Blockchain Workbench database, select the link for the database with the **Resource prefix** you provided for deploying Blockchain Workbench.
 
-   ![Database details](media/blockchain-workbench-getdb-details/workbench-db-details.png)
+   ![Database details](./media/getdb-details/workbench-db-details.png)
 
 The database server name and database name let you connect to the Blockchain Workbench database using your development or reporting tool.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [Database views in Azure Blockchain Workbench](database-views.md)

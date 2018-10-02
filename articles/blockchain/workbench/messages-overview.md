@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/16/2018
+ms.date: 10/1/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
@@ -303,4 +303,4 @@ public class ContractProperty
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Smart contract integration patterns](blockchain-workbench-integration-patterns.md)
+> [Smart contract integration patterns](integration-patterns.md)

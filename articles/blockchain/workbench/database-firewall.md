@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/4/2018
+ms.date: 10/1/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
@@ -27,7 +27,7 @@ To connect to the database where you want to configure a rule:
 4. Select **Type** to sort the list of resources, and then choose your **SQL server**.
 5. The resource list example in the following screen capture shows two databases: *master* and *lsgn-sdk*. You configure the firewall rule on  *lsgn-sdk*.
 
-![List Blockchain Workbench resources](media/blockchain-workbench-database-firewall/list-database-resources.png)
+![List Blockchain Workbench resources](./media/database-firewall/list-database-resources.png)
 
 ## Create a database firewall rule
 
@@ -36,7 +36,7 @@ To create a firewall rule:
 1. Choose the link to the "lsgn-sdk" database.
 2. On the menu bar, select **Set server firewall**.
 
-   ![Set server firewall](media/blockchain-workbench-database-firewall/configure-server-firewall.png)
+   ![Set server firewall](./media/database-firewall/configure-server-firewall.png)
 
 3. To create a rule for your organization:
 
@@ -44,7 +44,7 @@ To create a firewall rule:
    * Enter an IP address for the **START IP** of the address range
    * Enter an IP address for the **END IP** of the address range
 
-   ![Create firewall rule](media/blockchain-workbench-database-firewall/create-firewall-rule.png)
+   ![Create firewall rule](./media/database-firewall/create-firewall-rule.png)
 
     > [!NOTE]
     > If you only want to add the IP address of your computer, choose **+ Add client IP**.
@@ -56,4 +56,4 @@ To create a firewall rule:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [Database views in Azure Blockchain Workbench](database-views.md)

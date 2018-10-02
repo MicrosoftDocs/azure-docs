@@ -1,4 +1,4 @@
-﻿---
+---
 title: Ethereum Proof-of-Authority Consortium - Azure
 description: Use the Etherereum Proof-of-Authority Consortium solution to deploy and configure a multi-member consortium Ethereum network
 services: azure-blockchain
@@ -190,7 +190,7 @@ Each consortium member deployment includes:
 -   VNet Gateway (optional) for allowing VPN connections across private
     VNets
 
-![deployment architecture](./media/ethereum-poa-deployment-guide/deployment-architecture.png)
+![deployment architecture](./media/ethereum-poa-deployment/deployment-architecture.png)
 
 We leverage Docker containers for reliability and modularity. We use
 Azure Container Registry to host and serve versioned images as part of
@@ -230,7 +230,7 @@ Admins have the power to delegate consensus participation to a set of
 Validator nodes. Admins also may vote other admins into or out of the
 network.
 
-![governance dapp](./media/ethereum-poa-deployment-guide/governance-dapp.png)
+![governance dapp](./media/ethereum-poa-deployment/governance-dapp.png)
 
 -   **Decentralized Governance -** Changes in network authorities are
     administered through on-chain voting by select administrators.
@@ -249,25 +249,25 @@ After installing MetaMask, navigate to the Governance DApp in the browser.  You 
 #### Becoming an admin
 If you are the first member that deployed on the network, then you will automatically become an Admin and your Parity nodes will be listed as Validators.  If you are joining the network, you will need to get voted in as an Admin by a majority (greater than 50%) of the existing Admin set.  If you choose not to become an Admin then your nodes will still sync and validate the blockchain; however, they will not participate in the block creation process. To start the voting process to become an Admin, click __Nominate__ and enter your Ethereum address and alias.
 
-![Nominate](./media/ethereum-poa-deployment-guide/governance-dapp-nominate.png)
+![Nominate](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
 #### Candidates
 Selecting the __Candidates__ tab will show you the current set of candidate administrators.  Once a Candidate reaches a majority vote by the current Admins, the Candidate will get promoted to an Admin.  To vote on a Candidate, select the row and click "Vote in" at the top.  If you change your mind on a vote, you may select the candidate and click "Rescind vote".
 
-![Candidates](./media/ethereum-poa-deployment-guide/governance-dapp-candidates.png)
+![Candidates](./media/ethereum-poa-deployment/governance-dapp-candidates.png)
 
 
 #### Admins
 The __Admins__ tab will show the current set of Admins and provide you the ability to vote against.  Once an Admin loses more than 50% support, they will be removed as an Admin on the network.  Any validator nodes that this Admin owns will lose validator status and become transaction nodes on the network.  An Admin may be removed for any number of reasons; however, it is up to the consortium to agree on a policy in advance.
 
-![Admins](./media/ethereum-poa-deployment-guide/governance-dapp-admins.png)
+![Admins](./media/ethereum-poa-deployment/governance-dapp-admins.png)
 
 #### Validators
 Selecting the __Validators__ tab in the left menu will display the current deployed Parity nodes for this instance and their current status (Node type).  Note that each consortium member will have a different set of validators in this list, since this view represents the current deployed consortium member.  If this is a newly deployed instance and you have not yet added your validators, you will be shown the option to 'Add Validators'.  Selecting this will automatically choose a regionally-balanced set of Parity nodes and assign them to your validator set.  If you have deployed more nodes than the allowed capacity, the remaining nodes will become transaction nodes on the network.
 
 The address of each validator is automatically assigned via the [identity store](#identity-store) in Azure.  If a node goes down, it will relinquish its identity, allowing another node in your deployment to take its place.  This ensures that your consensus participation is highly available.
 
-![Validators](./media/ethereum-poa-deployment-guide/governance-dapp-validators.png)
+![Validators](./media/ethereum-poa-deployment/governance-dapp-validators.png)
 
 #### Consortium name
 Any Admin may update the Consortium Name, displayed at the top of the page.  Select the gear icon in the top left to update the Consortium Name.
@@ -275,7 +275,7 @@ Any Admin may update the Consortium Name, displayed at the top of the page.  Sel
 #### Account menu
 In the top-right is your Ethereum account alias and identicon.  If you are an Admin you will have the ability to update your alias.
 
-![Account](./media/ethereum-poa-deployment-guide/governance-dapp-account.png)
+![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
 ### Deploy Ethereum Proof-of-Authority
 
@@ -329,7 +329,7 @@ Resource Group|The resource group to which to deploy the consortium network.||NA
 Location|The Azure region for resource group.||NA
 
 A sample deployment is shown below:
-![basic blade](./media/ethereum-poa-deployment-guide/basic-blade.png)
+![basic blade](./media/ethereum-poa-deployment/basic-blade.png)
 
 #### Deployment regions
 
@@ -353,7 +353,7 @@ A detailed description of each parameter follows:
   Fifth region|Fifth region to deploy the consortium network (Visible only when number of regions is selected as 5)|All allowed Azure regions|NA
 
 A sample deployment is shown below:
-![deployment regions](./media/ethereum-poa-deployment-guide/deployment-regions.png)
+![deployment regions](./media/ethereum-poa-deployment/deployment-regions.png)
 
 #### Network size and performance
 
@@ -383,7 +383,7 @@ Note that Virtual Machine and Storage Tier will affect network performance.  We 
   F16s|Premium SSD|high|high|low
 
 A sample deployment is shown below:
-![network size and performance](./media/ethereum-poa-deployment-guide/network-size-and-performance.png)
+![network size and performance](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
 #### Ethereum settings
 
@@ -405,7 +405,7 @@ Block Reseal Period (sec)|The frequency at which empty blocks will be created wh
 Transaction Permission Contract (Advanced Options = Enable)|Bytecode for the Transaction Permissioning contract. Restricts smart contract deployment and execution to a permissioned list of Ethereum accounts.|Contract bytecode|NA
 
 A sample deployment is shown below:
-![ethereum settings](./media/ethereum-poa-deployment-guide/ethereum-settings.png)
+![ethereum settings](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### Monitoring
 
@@ -424,7 +424,7 @@ Existing Log Analytics Primary Key (Connect to existing Log Analytics = Join Exi
 
 
 A sample deployment is shown below:
-![azure monitor](./media/ethereum-poa-deployment-guide/azure-monitor.png)
+![azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### Summary
 
@@ -460,7 +460,7 @@ If you provide an email address ([Basics Section](#basics)), an email
 would be sent to the email address with the deployment output
 information.
 
-![deployment email](./media/ethereum-poa-deployment-guide/deployment-email.png)
+![deployment email](./media/ethereum-poa-deployment/deployment-email.png)
 
 ##### Portal
 
@@ -535,7 +535,7 @@ the connection. We recommend using Azure Cloud Shell located in the top
 right navigation bar in the
 portal.
 
-![cloud shell](./media/ethereum-poa-deployment-guide/cloud-shell.png)
+![cloud shell](./media/ethereum-poa-deployment/cloud-shell.png)
 
 ```Powershell
 $MyGatewayResourceId = "<EXISTING_MEMBER_RESOURCEID>"
@@ -576,17 +576,17 @@ the deployment email or locating the parameter in the deployment output
 The portal will first display high-level network statistics and node
 overview.
 
-![monitor categories](./media/ethereum-poa-deployment-guide/monitor-categories.png)
+![monitor categories](./media/ethereum-poa-deployment/monitor-categories.png)
 
 Selecting **Node Overview** will direct you to a portal to view per-node
 infrastructure statistics.
 
-![node stats](./media/ethereum-poa-deployment-guide/node-stats.png)
+![node stats](./media/ethereum-poa-deployment/node-stats.png)
 
 Selecting **Network Stats** will direct you to view Ethereum network
 statistics.
 
-![network stats](./media/ethereum-poa-deployment-guide/network-stats.png)
+![network stats](./media/ethereum-poa-deployment/network-stats.png)
 
 #### Sample Log Analytics queries
 
@@ -624,19 +624,19 @@ network, you will need to change this rule to \"Allow\"
 1.  Start in the Overview section of the deployed resource group from
     Azure portal.
 
-    ![ssh overview](./media/ethereum-poa-deployment-guide/ssh-overview.png)
+    ![ssh overview](./media/ethereum-poa-deployment/ssh-overview.png)
 
 2.  Select the Network Security Group for the region of the VM that you are wanting to access
 
-    ![ssh nsg](./media/ethereum-poa-deployment-guide/ssh-nsg.png)
+    ![ssh nsg](./media/ethereum-poa-deployment/ssh-nsg.png)
 
 3.  Select the \"allow-ssh\" rule
 
-    ![ssh-allow](./media/ethereum-poa-deployment-guide/ssh-allow.png)
+    ![ssh-allow](./media/ethereum-poa-deployment/ssh-allow.png)
 
 4.  Change \"Action\" to Allow
 
-    ![ssh enable allow](./media/ethereum-poa-deployment-guide/ssh-enable-allow.png)
+    ![ssh enable allow](./media/ethereum-poa-deployment/ssh-enable-allow.png)
 
 5.  Click \"Save\" (Changes may take a few minutes to apply)
 
@@ -682,23 +682,23 @@ validators.
 Search for and select \"Traffic Manager profile\" after clicking the
 \"Create a resource\" button in the Azure portal.
 
-![search for azure traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-search.png)
+![search for azure traffic manager](./media/ethereum-poa-deployment/traffic-manager-search.png)
 
 Give the profile a unique name and select the Resource Group that was
 created during the PoA deployment. Click the "Create" button to deploy.
 
-![create traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-create.png)
+![create traffic manager](./media/ethereum-poa-deployment/traffic-manager-create.png)
 
 Once it is deployed, then select the instance in the resource group. The
 DNS name to access the traffic manager can be found in the Overview tab
 
-![Locate traffic manager DNS](./media/ethereum-poa-deployment-guide/traffic-manager-dns.png)
+![Locate traffic manager DNS](./media/ethereum-poa-deployment/traffic-manager-dns.png)
 
 Select the Endpoints tab and click the Add button. Give the endpoint a unique name. Change the
 Target resource type to Public IP address. Then select the public IP
 address of the first region\'s load balancer.
 
-![Routing traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-routing.png)
+![Routing traffic manager](./media/ethereum-poa-deployment/traffic-manager-routing.png)
 
 Repeat for each region in the deployed network. Once the endpoints are
 in the \"enabled\" status, they will be automatically load and region

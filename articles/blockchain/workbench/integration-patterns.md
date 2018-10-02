@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/1/2018
+ms.date: 10/1/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
@@ -29,7 +29,7 @@ This section includes the patterns identified for implementing each of these typ
 
 ## REST API-based integration
 
-Capabilities within the Azure Blockchain Workbench generated web application are exposed via the REST API. This includes Azure Blockchain Workbench uploading, configuration and administration of applications, sending transactions to a distributed ledger, and the querying of application metadata and ledger data.
+Capabilities within the Azure Blockchain Workbench generated web application are exposed via the REST API. Capabilities include Azure Blockchain Workbench uploading, configuration and administration of applications, sending transactions to a distributed ledger, and the querying of application metadata and ledger data.
 
 The REST API is primarily used for interactive clients such as web, mobile, and bot applications.
 
@@ -39,7 +39,7 @@ This section looks at patterns focused on the aspects of the REST API that send 
 
 The Azure Blockchain Workbench REST API provides the ability to send authenticated requests to execute transactions on a distributed ledger.
 
-![Sending transactions to a distributed ledger](media/blockchain-workbench-integration-patterns/send-transactions-ledger.png)
+![Sending transactions to a distributed ledger](./media/integration-patterns/send-transactions-ledger.png)
 
 This occurs using the process depicted above, where:
 
@@ -54,7 +54,7 @@ This occurs using the process depicted above, where:
 
 The Azure Blockchain Workbench REST API provides the ability to send authenticated requests to query details related to smart contract execution on a distributed ledger.
 
-![Querying metadata](media/blockchain-workbench-integration-patterns/querying-metadata.png)
+![Querying metadata](./media/integration-patterns/querying-metadata.png)
 
 This occurs using the process depicted above, where:
 
@@ -79,7 +79,7 @@ An example of this scenario is that when a transaction occurs, a consumer would 
 
 Another would be if a smart contract transitions to a particular state, for example when a contract goes into an *OutOfCompliance*. When this state change happens, it could trigger an alert to be sent to an administrator's mobile phone.
 
-![One way event delivery](media/blockchain-workbench-integration-patterns/one-way-event-delivery.png)
+![One-way event delivery](./media/integration-patterns/one-way-event-delivery.png)
 
 This occurs using the process depicted above, where:
 
@@ -99,7 +99,7 @@ A common example is the delivery of data from financial markets, for example, pr
 
 Some applications are built to integrate with Azure Blockchain Workbench and directly generates and send messages in the expected formats.
 
-![Direct delivery](media/blockchain-workbench-integration-patterns/direct-delivery.png)
+![Direct delivery](./media/integration-patterns/direct-delivery.png)
 
 This occurs using the process depicted above, where:
 
@@ -114,7 +114,7 @@ This occurs using the process depicted above, where:
 Some systems cannot be modified to deliver messages in the standard formats used by Azure Blockchain Workbench. In these cases, existing mechanisms and message formats from these systems can often be used. Specifically, the native message types of these systems can be
 transformed using Logic Apps, Azure Functions, or other custom code to map to one of the standard messaging formats expected.
 
-![Unknown message format](media/blockchain-workbench-integration-patterns/unknown-message-format.png)
+![Unknown message format](./media/integration-patterns/unknown-message-format.png)
 
 This occurs using the process depicted above, where:
 
@@ -138,7 +138,7 @@ This pattern is typically implemented using the following approach:
 -   The change of state is surfaced as an event to a downstream consumer.
 -   The downstream consumer receives the event and triggers external code execution.
 
-![Transition control to external process](media/blockchain-workbench-integration-patterns/transition-external-process.png)
+![Transition control to external process](./media/integration-patterns/transition-external-process.png)
 
 #### Return of control from the smart contract
 
@@ -146,7 +146,7 @@ Depending on the ability to customize the external system it may or may not be a
 
 ##### Direct delivery of an Azure Blockchain Workbench in the expected format
 
-![](media/blockchain-workbench-integration-patterns/direct-delivery.png)
+![](./media/integration-patterns/direct-delivery.png)
 
 In this model, the communication to the contract and subsequent state
 change occurs following the above process where -
@@ -171,7 +171,7 @@ change occurs following the above process where -
 
 ### Delivery of a message in a format unknown to Azure Blockchain Workbench
 
-![Unknown message format](media/blockchain-workbench-integration-patterns/unknown-message-format.png)
+![Unknown message format](./media/integration-patterns/unknown-message-format.png)
 
 In this model where a message in a standard format cannot be sent directly, the communication to the contract and subsequent state change occurs following the above process where:
 
@@ -194,7 +194,7 @@ The challenge is that these sensors can be delivering data on a constant basis a
 
 On the Azure platform, integration with devices is typically done with IoT Hub. IoT Hub provides the ability to route messages based on content, and enables the type of functionality described above.
 
-![IoT messages](media/blockchain-workbench-integration-patterns/iot.png)
+![IoT messages](./media/integration-patterns/iot.png)
 
 The process above depicts a pattern for this is implemented:
 
@@ -212,7 +212,7 @@ The process above depicts a pattern for this is implemented:
 
 In addition to REST and message-based API, Azure Blockchain Workbench also provides access to a SQL DB populated with application and contract meta-data as well as transactional data from distributed ledgers.
 
-![Data integration](media/blockchain-workbench-integration-patterns/data-integration.png)
+![Data integration](./media/integration-patterns/data-integration.png)
 
 The data integration is well known:
 
@@ -225,7 +225,7 @@ The data integration is well known:
 Many scenarios may require the need to incorporate attestable files. For multiple reasons, it will be inappropriate to put files on a blockchain. Instead, a common approach is to perform a cryptographic hash (for example, SHA-256)  against a file and share that hash on a distributed ledger. Performing the hash again at any future time should return the same result. If the file is
 modified, even if just one pixel is modified in an image, the hash will return a different value.
 
-![Storage integration](media/blockchain-workbench-integration-patterns/storage-integration.png)
+![Storage integration](./media/integration-patterns/storage-integration.png)
 
 The pattern can be implemented where:
 
