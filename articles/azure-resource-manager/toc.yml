@@ -21,6 +21,10 @@
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: Set resource deployment order
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+  - name: Use conditions
+    href: resource-manager-tutorial-use-conditions.md
+  - name: Integrate Key Vault
+    href: resource-manager-tutorial-use-key-vault.md
   - name: Create linked templates
     href: resource-manager-tutorial-create-linked-templates.md
   - name: Use safe deployment practices

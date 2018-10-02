@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/22/2018
+ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
 ---
@@ -76,10 +76,10 @@ This tutorial displays a cluster with five nodes in a single node type. For any 
 
 Download the following Resource Manager template files:
 
-* [vnet-cluster.json][template]
-* [vnet-cluster.parameters.json][parameters]
+* [azuredeploy.json][template]
+* [azuredeploy.parameters.json][parameters]
 
-The [vnet-cluster.json][template] deploys a number resources, including the following.
+This template deploys a secure cluster of five virtual machines and a single node type into a virtual network and a network security group.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates).  The [azuredeploy.json][template] deploys a number resources, including the following.
 
 ### Service Fabric cluster
 
@@ -92,7 +92,7 @@ A Windows cluster is deployed with the following characteristics:
 * [reverse proxy](service-fabric-reverseproxy.md) is enabled
 * [DNS service](service-fabric-dnsservice.md) is enabled
 * [Durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)
- * [Reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
+* [Reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
 * client connection endpoint: 19000 (configurable in the template parameters)
 * HTTP gateway endpoint: 19080 (configurable in the template parameters)
 
@@ -130,7 +130,7 @@ If any other application ports are needed, then you will need to adjust the Micr
 
 ## Set template parameters
 
-The [vnet-cluster.parameters.json][parameters] parameters file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
+The [azuredeploy.parameters.json][parameters] parameters file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
 
 |Parameter|Example value|Notes|
 |---|---||
@@ -146,7 +146,7 @@ The [vnet-cluster.parameters.json][parameters] parameters file declares many val
 
 ## Deploy the virtual network and cluster
 
-Next, set up the network topology and deploy the Service Fabric cluster. The [vnet-cluster.json][template] Resource Manager template creates a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
+Next, set up the network topology and deploy the Service Fabric cluster. The [azuredeploy.json][template] Resource Manager template creates a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
 
 ### Create a cluster using an existing certificate
 
@@ -173,8 +173,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
@@ -204,8 +204,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 
 ```
@@ -259,5 +259,5 @@ Next, advance to the following tutorial to learn how to scale your cluster.
 > [!div class="nextstepaction"]
 > [Scale a Cluster](service-fabric-tutorial-scale-cluster.md)
 
-[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.json
-[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.parameters.json

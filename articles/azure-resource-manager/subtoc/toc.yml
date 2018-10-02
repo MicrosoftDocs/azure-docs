@@ -435,6 +435,9 @@
     - name: TrustedID Providers
       href: /azure/templates/Microsoft.DataLakeStore/accounts/trustedIdProviders
       maintainContext: true
+    - name: Virtual Network Rules
+      href: /azure/templates/Microsoft.DataLakeStore/accounts/virtualNetworkRules
+      maintainContext: true
 - name: Deployment Manager
   items:
   - name: Artifact Sources
@@ -755,6 +758,16 @@
     - name: Peerings
       href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings
       maintainContext: true
+  - name: Express Route Gateways
+    href: /azure/templates/microsoft.Network/expressroutegateways
+    maintainContext: true
+    items:
+    - name: Express Route Connections
+      href: /azure/templates/microsoft.network/expressroutegateways/expressRouteConnections
+      maintainContext: true
+  - name: Interface Endpoints
+    href: /azure/templates/microsoft.network/expressroutegateways
+    maintainContext: true
   - name: Load Balancers
     href: /azure/templates/Microsoft.Network/loadBalancers
     maintainContext: true
@@ -767,6 +780,13 @@
     maintainContext: true
   - name: Network Interfaces
     href: /azure/templates/Microsoft.Network/networkInterfaces
+    maintainContext: true
+    items:
+    - name: TAP Configurations
+      href: /azure/templates/microsoft.network/networkinterfaces/tapconfigurations
+      maintainContext: true
+  - name: Network Profiles
+    href: /azure/templates/microsoft.network/networkprofiles
     maintainContext: true
   - name: Network Security Groups
     href: /azure/templates/Microsoft.Network/networkSecurityGroups
@@ -785,6 +805,9 @@
     - name: Packet Captures
       href: /azure/templates/Microsoft.Network/networkWatchers/packetCaptures
       maintainContext: true
+  - name: P2s VPN Gateways
+    href: /azure/templates/microsoft.network/p2svpngateways
+    maintainContext: true
   - name: Public IP Addresses
     href: /azure/templates/Microsoft.Network/publicIPAddresses
     maintainContext: true
@@ -831,9 +854,16 @@
     - name: Virtual Network Peerings
       href: /azure/templates/Microsoft.Network/virtualNetworks/virtualNetworkPeerings
       maintainContext: true
+  - name: Virtual Network Taps
+    href: /azure/templates/microsoft.network/virtualnetworktaps
+    maintainContext: true
   - name: Virtual WANs
     href: /azure/templates/Microsoft.Network/virtualWans
     maintainContext: true
+    items:
+    - name: P2s VPN Server Configurations
+      href: /azure/templates/microsoft.network/virtualwans/p2svpnserverconfigurations
+      maintainContext: true
   - name: VPN Gateways
     href: /azure/templates/Microsoft.Network/vpnGateways
     maintainContext: true

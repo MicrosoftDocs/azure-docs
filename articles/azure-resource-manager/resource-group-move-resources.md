@@ -192,6 +192,7 @@ The following list provides a general summary of Azure services that can be move
 * DNS
 * Event Grid
 * Event Hubs
+* Front Door
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
@@ -203,7 +204,6 @@ The following list provides a general summary of Azure services that can be move
 * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)
 * Managed Identity - user-assigned
 * Media Services
-* Mobile Engagement
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -263,37 +263,39 @@ The following list provides a general summary of Azure services that can't be mo
 
 ## Virtual Machines limitations
 
-Managed disks are supported for move as of September 24, 2018. You'll have to register to enable this feature.
+Managed disks are supported for move as of September 24, 2018. 
 
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. You'll have to register to enable this feature.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-The registration request initially returns a state of `Registering`. You can check the current status with:
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. The registration request initially returns a state of `Registering`. You can check the current status with:
 
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-Wait several minutes for the status to change to `Registered`.
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-After the feature is registered, register the `Microsoft.Compute` resource provider. Perform this step even if the resource provider was previously registered.
+1. Wait several minutes for the status to change to `Registered`.
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-```
+1. After the feature is registered, register the `Microsoft.Compute` resource provider. Perform this step even if the resource provider was previously registered.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
 
 This support means you can also move:
 
