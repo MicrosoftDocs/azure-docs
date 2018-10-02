@@ -44,9 +44,11 @@ Here are the events' format for each of the event types:
     "eventTime": "2018-04-17T17:41:54.9400177Z",
     "dataVersion": "1",
     "metadataVersion": "1",
-    "topic": "/subscriptions/{{your-topic-name}}"
+    "topic": "/subscriptions/yourTopicName"
   }
   ```
+
+Replace `yourTopicName` with your customized topic.
 
 - `UdfCustom`
 
@@ -68,9 +70,11 @@ Here are the events' format for each of the event types:
     "eventTime": "2018-10-02T06:50:15.198Z",
     "dataVersion": "1.0",
     "metadataVersion": "1",
-    "topic": "/subscriptions/{{your-topic-name}}"
+    "topic": "/subscriptions/yourTopicName"
   }
   ```
+
+Replace `yourTopicName` with your customized topic.
 
 - `SensorChange`
 
@@ -99,9 +103,11 @@ Here are the events' format for each of the event types:
     "eventTime": "2018-04-17T17:46:18.5452993Z",
     "dataVersion": "1",
     "metadataVersion": "1",
-    "topic": "/subscriptions/{{your-topic-name}}"
+    "topic": "/subscriptions/yourTopicName"
   }
   ```
+
+Replace `yourTopicName` with your customized topic.
 
 - `SpaceChange`
 
@@ -130,9 +136,11 @@ Here are the events' format for each of the event types:
     "eventTime": "2018-10-02T06:50:20.128Z",
     "dataVersion": "1.0",
     "metadataVersion": "1",
-    "topic": "/subscriptions/{{your-topic-name}}"
+    "topic": "/subscriptions/yourTopicName"
   }
   ```
+
+Replace `yourTopicName` with your customized topic.
 
 - `DeviceMessage`
 
@@ -154,71 +162,86 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 - Route to **Service Bus** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
   ```json
-          {
-          "type": "ServiceBus",
-          "eventTypes": [
-              "SensorChange",
-              "SpaceChange",
-              "TopologyOperation"
-          ],
-          "connectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-primary-key}}",
-          "secondaryConnectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-secondary-key}}",
-          "path": "{{your-topic-name}}"
-          }
+  {
+    "type": "ServiceBus",
+    "eventTypes": [
+      "SensorChange",
+      "SpaceChange",
+      "TopologyOperation"
+    ],
+    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
+    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
+    "path": "yourTopicName"
+  }
   ```
+
+Replace `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your custom values.
 
 - Route to **Event Grid** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
   ```json
   {
-      "type": "EventGrid",
-      "eventTypes": [
-              "SensorChange",
-              "SpaceChange",
-              "TopologyOperation"
-          ],
-      "connectionString": "{{your-primary-key}}",
-      "secondaryConnectionString": "{{your-secondary-key}}",
-      "path": "{{your-topic-name}}.westus-1.eventgrid.azure.net"
+    "type": "EventGrid",
+    "eventTypes": [
+      "SensorChange",
+      "SpaceChange",
+      "TopologyOperation"
+    ],
+    "connectionString": "yourPrimaryKey",
+    "secondaryConnectionString": "yourSecondaryKey",
+    "path": "yourTopicName.westus-1.eventgrid.azure.net"
   }
   ```
+
+Replace `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your custom values.
 
 - Route to **Event Hub** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
   ```json
-          {
-          "type": "EventHub",
-          "eventTypes": [
-              "SensorChange",
-              "SpaceChange",
-              "TopologyOperation"
-          ],
-          "connectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-primary-key}}",
-          "secondaryConnectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-secondary-key}}",
-          "path": "{{your-event-hub-name}}"
-          }
+  {
+    "type": "EventHub",
+    "eventTypes": [
+      "SensorChange",
+      "SpaceChange",
+      "TopologyOperation"
+    ],
+    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
+    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
+    "path": "yourEventHubName"
+  }
   ```
+
+Replace  `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourEventHubName` with your custom values.
 
 - Route to **Event Hub** event types `DeviceMessage`. Note the inclusion of _EntityPath_ in the `connectionString`, which is mandatory.
 
   ```json
-          {
-          "type": "EventHub",
-          "eventTypes": [
-              "DeviceMessage"
-          ],
-          "connectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-primary-key}};EntityPath={{your-event-hub-name}}",
-          "secondaryConnectionString": "Endpoint=sb://{{your-namespace}}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={{your-secondary-key}};EntityPath={{your-event-hub-name}}",
-          "path": "{{your-event-hub-name}}"
-          }
+  {
+    "type": "EventHub",
+    "eventTypes": [
+      "DeviceMessage"
+    ],
+    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey;EntityPath=yourEventHubName",
+    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey;EntityPath=yourEventHubName",
+    "path": "yourEventHubName"
+  }
   ```
+
+Replace  `yourNamespace`, `yourPrimaryKey`,  `yourEventHubName`, and `yourSecondaryKey` with your custom values.
 
 Upon the creation of a new Endpoint, it may take up to 5 to 10 minutes to start receiving events on the endpoint.
 
-### Primary and secondary connection strings/keys
+## Primary and secondary connection strings/keys
 
 When a primary connection string/key becomes unauthorized, the system will automatically roll to the secondary connection string/key allowing for updating the primary key through the Endpoints API. When both primary and secondary connection strings/keys are unauthorized, the system will enter an exponential back off wait of up to 30 minutes and events will be dropped on each retry. When the system is on a back off wait state, updating connections strings/keys through the Endpoints API may take up to 30 minutes to take effect.
 
-### Unreachable endpoints
+## Unreachable endpoints
 
 When an endpoint becomes unreachable, the system will enter an exponential back off wait of up to 30 minutes where events will be dropped on each retry.
+
+## Next steps
+
+Learn more about routing events and messages in Azure Digital Twins:
+
+> [!div class="nextstepaction"]
+> [Routing events and messages](concepts-events-routing.md)
