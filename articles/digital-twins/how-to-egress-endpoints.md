@@ -136,7 +136,7 @@ Here are the events' format for each of the event types:
 
 - `DeviceMessage`
 
-  Allows you to specify an EventHub connection to which raw telemetry events can be routed as well from Azure Digital Twins.
+  Allows you to specify an `EventHub` connection to which raw telemetry events can be routed as well from Azure Digital Twins.
 
 > [!NOTE]
 > - `DeviceMessage` is combinable only with `EventHub` and nothing else.
