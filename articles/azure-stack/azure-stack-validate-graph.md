@@ -69,9 +69,33 @@ The following prerequisites must be in place.
 
 1. After the tool runs, review the output. Confirm the status is OK for graph integration requirements. A successful validation appears similar to the following.
 
-    ![Successful graph integration validation](media/azure-stack-validate-graph/verified-graph-integration.png)
+`Testing Graph Integration (v1.0)`
 
-    In production environments, testing network connectivity from an operators workstation cannot be considered fully indicative of the connectivity available to Azure Stack. The Azure Stack stamp’s public VIP network will need the connectivity for LDAP traffic to perform identity integration.
+`        Test Forest Root:            OK`
+
+`        Test Graph Credential:       OK`
+
+`        Test Global Catalog:         OK`
+
+`        Test KDC:                    OK`
+
+`        Test LDAP Search:            OK`
+
+`        Test Network Connectivity:   OK`
+
+`Details:`
+
+`[-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration.`
+
+`Additional help URL: https://aka.ms/AzsGraphIntegration`
+
+`AzsReadinessChecker Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log`
+
+`AzsReadinessChecker Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`
+
+`Invoke-AzsGraphValidation Completed`
+
+In production environments, testing network connectivity from an operators workstation cannot be considered fully indicative of the connectivity available to Azure Stack. The Azure Stack stamp’s public VIP network will need the connectivity for LDAP traffic to perform identity integration.
 
 ## Report and log file
 
@@ -80,7 +104,7 @@ Each time validation runs, it logs results to **AzsReadinessChecker.log** and **
 The validation files can help you share status before you deploy Azure Stack or investigate validation problems. Both files persist the results of each subsequent validation check. The report provides your deployment team confirmation of the identity configuration. The log file can help your deployment or support team investigate validation issues.
 
 By default, both files are written to
-`C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`.
+`C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`
 
 Use:
 
@@ -92,18 +116,7 @@ Use:
 
 If a validation check fails, details about the failure display in the PowerShell window. The tool also logs information to the *AzsGraphIntegration.log*.
 
-The following examples provide guidance on common validation failures.
-
-PLACEHOLDER XXXXX – failure name
-
-*image*
-
-Cause - xxxxxxxxxxxxxxxxxxxxxx.
-
-Resolution – xxxxxxxxxxxxxxxxxxxxxx.
-
 ## Next Steps
 
-[Validate Azure registration](azure-stack-validate-registration.md)  
 [View the readiness report](azure-stack-validation-report.md)  
 [General Azure Stack integration considerations](azure-stack-datacenter-integration.md)  
