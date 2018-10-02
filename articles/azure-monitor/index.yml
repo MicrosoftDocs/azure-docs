@@ -56,23 +56,23 @@ sections:
     - image: 
         src: https://docs.microsoft.com/media/common/dotnet.svg
       text: .NET
-      href: quick-monitor-portal
+      href: /azure/application-insights/quick-monitor-portal
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
       text: .NET Core
-      href: app-insights-dotnetcore-quick-start
+      href: /azure/application-insights/app-insights-dotnetcore-quick-start
     - image: 
         src: https://docs.microsoft.com/media/common/nodejs.svg
       text: Node.js
-      href: app-insights-nodejs-quick-start
+      href: /azure/application-insights/app-insights-nodejs-quick-start
     - image: 
         src: https://docs.microsoft.com/media/common/java.svg
       text: Java
-      href: app-insights-java-quick-start
+      href: /azure/application-insights/app-insights-java-quick-start
     - image:
         src: /azure/application-insights/media/index/mobile-center.png
       text: Mobile
-      href: app-insights-mobile-center-quickstart
+      href: /azure/application-insights/app-insights-mobile-center-quickstart
 - title: Step-by-step Tutorials
   items:
   - type: paragraph

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Application Insights Connector management solution (Preview)
