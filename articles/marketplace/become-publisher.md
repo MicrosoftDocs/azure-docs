@@ -72,14 +72,7 @@ You will be asked to include the following information:
 ---  
 ## 4. Sign into Cloud Partner Portal
 | 1-3 days | <br>
-Our Marketplace Onboarding Team will 
-
-
-
-
-
-
-Fand validate the marketplace registration details provided in step 3. Once approved, you will receive a welcome email with account credentials and guidance on signing-in to the [Cloud Partner Portal](https://cloudpartner.azure.com).
+Our Marketplace Onboarding Team will and validate the marketplace registration details provided in step 3. Once approved, you will receive a welcome email with account credentials and guidance on signing-in to the [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 You will use the [Cloud Partner Portal](https://cloudpartner.azure.com) to create, publish, and manage marketplace offers. Once you receive the approval welcome email, you can immediately log into the [Cloud Partner Portal](https://cloudpartner.azure.com) with your Microsoft account to access additional technical information about publishing to marketplace and creating your offer. 
 *	For more information about using Cloud Partner Portal, [visit the Getting Started article in Learn section](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). You must be logged in to the Cloud Partner Portal to access these details.
