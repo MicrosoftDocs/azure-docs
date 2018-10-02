@@ -61,6 +61,16 @@ SigninLogs
 | sort by signInCount desc 
 ```
 
+To get the top audit events over the last week, use the following query:
+
+```
+AuditLogs 
+| where TimeGenerated >= ago(7d)
+| summarize auditCount = count() by OperationName 
+| sort by auditCount desc 
+```
+
+
 ## Alert on Azure AD activity log data
 
 You can also set up alerts on your query. For example, to configure an alert when more than 10 applications have been used in the last week:
