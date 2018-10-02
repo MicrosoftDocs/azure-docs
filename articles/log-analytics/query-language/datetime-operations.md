@@ -42,35 +42,35 @@ Timespans are expressed as a decimal followed by a time unit:
 |microsecond | microsecond  |
 |tick        | nanosecond   |
 
-Datetimes can be created by casting a string using the `todatetime` operator. For example, to review the VM heartbeats sent in a specific timeframe, you can make use of the [between operator](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator) which is convenient to specify a time range..
+Datetimes can be created by casting a string using the `todatetime` operator. For example, to review the VM heartbeats sent in a specific timeframe, you can make use of the [between operator](/azure/kusto/query/betweenoperator) which is convenient to specify a time range..
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
 Another common scenario is comparing a datetime to the present. For example, to see all heartbeats over the last two minutes, you can use the `now` operator together with a timespan that represents two minutes:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now() - 2m
 ```
 
 A shortcut is also available for this function:
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
 The shortest and most readable method though is using the `ago` operator:
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(2m)
 ```
 
 Suppose that instead of knowing the start and end time, you know the start time and the duration. You can rewrite the query as follows:
 
-```KQL
+```Kusto
 let startDatetime = todatetime("2018-06-30 20:12:42.9");
 let duration = totimespan(25m);
 Heartbeat
@@ -81,7 +81,7 @@ Heartbeat
 ## Converting time units
 It can be useful to express a datetime or timespan in a time unit other than the default one. For example, suppose you're reviewing error events from the last 30 minutes, and need a calculated column that shows how long ago the event happened:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -90,7 +90,7 @@ Event
 
 You can see the _timeAgo_ column holds values such as: "00:09:31.5118992", meaning they are formatted as hh:mm:ss.fffffff. If you'd like to format these values to the _numver_ of minutes since the start time, simply divide that value by "1 minute":
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -104,7 +104,7 @@ Another very common scenario is the need to obtain statistics over a certain tim
 
 Use the following query to get the number of events that occurred every 5 minutes during the last half hour:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
@@ -122,7 +122,7 @@ This produces the following table:
 
 Another way to create buckets of results is to use functions, such as `startofday`:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(4d)
 | summarize events_count=count() by startofday(TimeGenerated) 
@@ -142,7 +142,7 @@ This produces the following results:
 ## Time zones
 Since all datetime values are expressed in UTC, it's often useful to convert these into the local timezone. For example, use this calculation to convert UTC to PST times:
 
-```KQL
+```Kusto
 Event
 | extend localTimestamp = TimeGenerated - 8h
 ```
@@ -151,11 +151,11 @@ Event
 
 | Category | Function |
 |:---|:---|
-| Convert data types | [todatetime](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/todatetime())  [totimespan](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/totimespan())  |
-| Round value to bin size | [bin](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/bin()) |
-| Get a specific date or time | [ago](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/ago()) [now](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/now())   |
-| Get part of value | [datetime_part](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/datetime_part()) [getmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getmonth()) [monthofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/monthofyear()) [getyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getyear()) [dayofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofmonth()) [dayofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofweek()) [dayofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofyear()) [weekofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/weekofyear()) |
-| Get a date relative to value  | [endofday](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofday()) [endofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofweek()) [endofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofmonth()) [endofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofyear()) [startofday](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofday()) [startofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofweek()) [startofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofmonth()) [startofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofyear()) |
+| Convert data types | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
+| Round value to bin size | [bin](/azure/kusto/query/binfunction) |
+| Get a specific date or time | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
+| Get part of value | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweek) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
+| Get a date relative to value  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## Next steps
 See other lessons for using the Log Analytics query language:

@@ -115,7 +115,24 @@ Together, these experiences provide you with a comprehensive view into the healt
         </div>
         </a>
     </li>
-
+    <li>
+        <a href="./resource-health-alert-arm-template-guide.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/article.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get notified next time your Azure resource becomes unavailable</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---

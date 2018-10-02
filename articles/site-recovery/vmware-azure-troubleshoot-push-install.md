@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery troubleshooting from VMware to Azure | Microsoft Docs
-description: Troubleshoot errors when you replicate Azure virtual machines.
+title: Troubleshoot Mobility Service push installation failures during Enable Replication(VMware to Azure) | Microsoft Docs
+description: Troubleshoot mobility service/push installation errors when you replicate Azure virtual machines.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,7 +8,7 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 09/17/2018
+ms.date: 09/19/2018
 
 
 ---
@@ -16,10 +16,11 @@ ms.date: 09/17/2018
 
 Installation of Mobility service is a key step during Enable Replication. The success of this step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to
 
-* Connectivity/Credential errors
+* Credential/Privilege errors
+* Connectivity errors
 * Unsupported Operating systems
 
-When you enable replication, Azure Site Recovery tries to push install mobility service agent on your virtual machine. As part of this, Configuration server tries to connect with the virtual machine and copy the Agent. To enable successful installation, follow the step by step troubleshooting guidance given below
+When you enable replication, Azure Site Recovery tries to push install mobility service agent on your virtual machine. As part of this, Configuration server tries to connect with the virtual machine and copy the Agent. To enable successful installation, follow the step by step troubleshooting guidance given below.
 
 ## Credentials check (ErrorID: 95107 & 95108)
 

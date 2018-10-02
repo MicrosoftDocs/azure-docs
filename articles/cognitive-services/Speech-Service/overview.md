@@ -1,24 +1,22 @@
 ---
-title: What is the Speech service (preview)?
-description: "The Speech service, part of Microsoft Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation."
-titleSuffix: "Microsoft Cognitive Services"
+title: What is the Speech service?
+description: "The Speech service, part of Microsoft's Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation."
+titleSuffix: "Azure Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
-ms.date: 05/07/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
 ---
+
 # What is the Speech service?
 
 The Speech service unites the Azure speech features previously available via the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), and [Custom Voice](http://customvoice.ai/) services. Now, one subscription provides access to all of these capabilities.
 
 Like the other Azure speech services, the Speech service is powered by the speech technologies used in products like Cortana and Microsoft Office. You can count on the quality of the results and the reliability of the cloud platform.
-
-> [!NOTE]
-> The Speech service is currently in public preview. Return here for documentation updates, new code samples, and more.
 
 ## Main Speech service functions
 
@@ -26,12 +24,11 @@ The primary functions of the Speech service are Speech to Text (also called spee
 
 |Function|Features|
 |-|-|
-|[Speech to Text](speech-to-text.md)| <ul><li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Offers recognition modes for interactive, conversation, and dictation use cases.<li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
+|[Speech to Text](speech-to-text.md)| <ul><li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
 |[Text to Speech](text-to-speech.md)| <ul><li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |
 |[Speech Translation](speech-translation.md)| <ul><li>Translates streaming audio in near-real-time.<li> Can also process recorded speech.<li>Provides results as text or synthesized speech. |
 
 \* *Intent recognition requires a LUIS subscription.*
-
 
 ## Customize speech features
 
@@ -45,7 +42,6 @@ You can use your own data to train the models that underlie the Speech service's
 |Text to Speech|[Voice font](how-to-customize-voice-font.md)|Gives your app a voice of its own by training the model on samples of human speech.|
 
 You can use your custom models anywhere you use the standard models in your app's Speech-to-Text or Text-to-Speech functionality.
-
 
 ## Use the Speech service
 
@@ -67,7 +63,6 @@ If you already have code that uses Bing Speech or Translator Speech via WebSocke
 ### Speech Devices SDK
 
 The [Speech Devices SDK](speech-devices-sdk.md) is an integrated hardware and software platform for developers of speech-enabled devices. Our hardware partner provides reference designs and development units. Microsoft provides a device-optimized SDK that takes full advantage of the hardware's capabilities.
-
 
 ## Speech scenarios
 

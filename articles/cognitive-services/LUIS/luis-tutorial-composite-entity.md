@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
 author: diberry
-manager: cjgronlund 
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: language-understanding

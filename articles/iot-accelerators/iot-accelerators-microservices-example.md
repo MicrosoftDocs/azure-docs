@@ -53,13 +53,13 @@ Now change the status message of the Iot Hub Manager microservice to "New Edits 
 3. Open StatusController.cs in any text editor or IDE that you like. 
 4. Locate the following code:
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "Alive and well");
     ```
 
     and change it to the code below and save it.
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "New Edits Made Here!");
     ```
 
@@ -115,13 +115,13 @@ You now need to update your local docker-compose.yml to pull your new docker ima
 3. Locate the following code:
 
     ```docker
-    image: azureiotpcs/pcs-auth-dotnet:testing
+    image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     and change it to look like the image below and save it.
 
     ```cmd/sh
-    image: [docker ID]/pcs-auth-dotnet:testing
+    image: [docker ID]/iothub-manager-dotnet:testing
     ```
 
 ## View the new response status

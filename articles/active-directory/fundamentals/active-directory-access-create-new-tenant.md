@@ -34,7 +34,7 @@ Sign in to your organization's [Azure portal](https://portal.azure.com/) using a
 ![Azure portal screen](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
 ## Create a new tenant for your organization
-After you sign in to the Azure AD portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
+After you sign in to the Azure portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
 
 ### To create a new tenant
 1. Select **Azure Active Directory**, select **Create resources**, select **Identity**, and then select **Azure Active Directory**.

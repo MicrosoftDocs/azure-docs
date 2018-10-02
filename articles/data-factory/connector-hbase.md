@@ -41,7 +41,7 @@ The following properties are supported for HBase linked service:
 | type | The type property must be set to: **HBase** | Yes |
 | host | The IP address or host name of the HBase server. (i.e.  `[clustername].azurehdinsight.net`， `192.168.222.160·)  | Yes |
 | port | The TCP port that the HBase instance uses to listen for client connections. The default value is 9090. If you connect to Azure HDInsights, specify port as 443. | No |
-| httpPath | The partial URL corresponding to the HBase server. (i.e. `/hbaserest0`)  | No |
+| httpPath | The partial URL corresponding to the HBase server, e.g. `/hbaserest0` when using HDInsights cluster. | No |
 | authenticationType | The authentication mechanism to use to connect to the HBase server. <br/>Allowed values are: **Anonymous**, **Basic** | Yes |
 | username | The user name used to connect to the HBase instance.  | No |
 | password | The password corresponding to the user name. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
@@ -52,7 +52,7 @@ The following properties are supported for HBase linked service:
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
->If your cluster doesn't support sticky session like HDInsight, explicitly add node index at the end of the http path setting, e.g. specify `/hbaserest0` instead of `/hbaserest`.
+>If your cluster doesn't support sticky session e.g. HDInsight, explicitly add node index at the end of the http path setting, e.g. specify `/hbaserest0` instead of `/hbaserest`.
 
 **Example for HDInsights HBase:**
 

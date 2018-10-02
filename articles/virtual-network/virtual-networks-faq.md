@@ -256,5 +256,26 @@ VNet peering connections go into *Disconnected* state when one VNet peering link
 No. Transitive peering is not supported. You must peer VNetA and VNetC for this to take place.
 
 ### Are there any bandwidth limitations for peering connections?
-No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limites by the VM or compute resource.
+No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limits by the VM or compute resource.
 
+## Virtual network TAP
+
+### Which Azure regions are available for virtual network TAP?
+During developer preview, the capability is available in the West Central US region. The monitored network interfaces , the virtual network TAP resource, and the collector or analytics solution must be deployed in the same region.
+
+### Does Virtual Network TAP support any filtering capabilities on the mirrored packets?
+Filtering capabilities are not supported with the virtual network TAP preview. When a TAP configuration is added to a network interface a deep copy of all the ingress and egress traffic on the network interface is streamed to the TAP destination.
+
+### Can multiple TAP configurations be added to a monitored network interface?
+A monitored network interface can have only one TAP configuration. Check with the individual [partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) for the capability to stream multiple copies of the TAP traffic to the analytics tools of your choice.
+
+### Can the same virtual network TAP resource aggregate traffic from monitored network interfaces in more than one virtual network?
+Yes. The same virtual network TAP resource can be used to aggregate mirrored traffic from monitored network interfaces in peered virtual networks in the same subscription or a different subscription. The virtual network TAP resource and the destination load balancer or destination network interface must be in the same subscription. All subscriptions must be under the same Azure Active Directory tenant.
+
+### Are there any performance considerations on production traffic if I enable a virtual network TAP configuration on a network interface?
+
+Virtual network TAP is in developer preview. During preview, there is no service level agreement. The capability should not be used for production workloads. When a virtual machine network interface is enabled with a TAP configuration, the same resources on the azure host allocated to the virtual machine to send the production traffic is used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
+
+### Is accelerated networking for [Linux](create-vm-accelerated-networking-cli.md) or [Windows](create-vm-accelerated-networking-powershell.md) supported with virtual network TAP?
+
+You will be able to add a TAP configuration on a network interface attached to a virtual machine that is enabled with accelerated networking. But the performance and latency on the virtual machine will be affected by adding TAP configuration since the offload for mirroring traffic is currently not supported by Azure accelerated networking.

@@ -59,6 +59,7 @@ To learn about mapping global Azure and Azure SQL Database endpoints to Azure Ge
 | TrafficManagerDnsSuffix                  | azuretrafficmanager.de |
 | AzureKeyVaultDnsSuffix                   | vault.microsoftazure.de |
 | AzureKeyVaultServiceEndpointResourceId   | https://vault.microsoftazure.de |
+| Service Bus Suffix                       | servicebus.cloudapi.de |
 
 
 ## Next steps

@@ -11,6 +11,7 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
+ROBOTS: NOINDEX
 ---
 
 # How to sign up for the Translator Speech API

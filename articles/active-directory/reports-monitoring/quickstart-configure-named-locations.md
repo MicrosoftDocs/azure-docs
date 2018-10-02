@@ -54,7 +54,6 @@ To complete this quickstart, you need:
     
 	![The New blade](./media/quickstart-configure-named-locations/61.png)
 
-
 ## Next steps
 
 For more information, see:

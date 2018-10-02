@@ -3,13 +3,13 @@ title: FAQ - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: List of frequently asked questions for QnA Maker service
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nstulasi
+ms.author: tulasim
 ---
 # Frequently Asked Questions
 
