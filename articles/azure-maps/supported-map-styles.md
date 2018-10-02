@@ -11,10 +11,10 @@ manager: timlt
 ---
 
 # Azure Maps supported map styles
-Azure maps support four different built-in map styles. The styles along with their descriptions are listed below.
+Azure maps support four different built-in map styles. The styles with their descriptions are listed below.
 
 ## road
-A **road** map is a standard map that displays roads, natural and man-made features along with the labels for those features.
+A **road** map is a standard map that displays roads, natural and artificial features along with the labels for those features.
 
 ![road](./media/supported-map-styles/road.png)
 
