@@ -1,5 +1,5 @@
 ---
-title: Understanding Cloud Tiering | Microsoft Docs
+title: Understanding Azure File Sync Cloud Tiering | Microsoft Docs
 description: Learn about Azure File Sync's feature Cloud Tiering
 services: storage
 author: sikoo
@@ -10,7 +10,7 @@ ms.author: sikoo
 ms.component: files
 ---
 
-# Cloud tiering overview
+# Cloud Tiering Overview
 Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer, or reparse point. The reparse point represents a URL to the file in Azure Files. A tiered file has both the "offline" attribute and the FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attribute set in NTFS so that third-party applications can securely identify tiered files.
  
 When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know that the file is actually stored in Azure. 
@@ -19,6 +19,8 @@ When a user opens a tiered file, Azure File Sync seamlessly recalls the file dat
     > Important: Cloud tiering is not supported for server endpoints on the Windows system volumes, and only files greater than 64 KiB in size can be tiered to Azure Files.
     
 Azure File Sync does not support tiering files smaller than 64 KiB as the performance overhead of tiering and recalling such small files would outweigh the space savings.
+
+## Cloud Tiering FAQ
 
 <a id="afs-cloud-tiering"></a>
 ### How does cloud tiering work?
