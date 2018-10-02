@@ -25,7 +25,7 @@ ms.component: na
 
 
 This example relies on the fixed structure of the **Activity** column: \<ID\>-\<Name\>.
-It parses the **Activity** value into 2 new columns, and counts the occurrence of each **activityID**.
+It parses the **Activity** value into two new columns, and counts the occurrence of each **activityID**.
 
 ```Kusto
 SecurityEvent
@@ -36,8 +36,7 @@ SecurityEvent
 ```
 
 ## Count security events related to permissions
-This example show the number of **securityEvent** records, in which the **Activity** column contains the whole term _Permissions_.
-The query applies to records created over the last 30m.
+This example shows the number of **securityEvent** records, in which the **Activity** column contains the whole term _Permissions_. The query applies to records created over the last 30 minutes.
 
 ```Kusto
 SecurityEvent
@@ -45,8 +44,8 @@ SecurityEvent
 | summarize EventCount = countif(Activity has "Permissions")
 ```
 
-## Find accounts that failed to logon from computers with a security detection
-This example finds and counts accounts that failed to logon from computers on which we identify a security detection.
+## Find accounts that failed to log in from computers with a security detection
+This example finds and counts accounts that failed to log in from computers on which we identify a security detection.
 
 ```Kusto
 let detections = toscalar(SecurityDetection
@@ -98,9 +97,10 @@ SecurityEvent
 
 ## Top running processes
 
-The following example shows a time line of activity for the 5 most common processes, over the last 3 days.
+The following example shows a time line of activity for the five most common processes, over the last three days.
+
 ```Kusto
-// Find all processes that started in the last 3 days. ID 4688: A new process has been created.
+// Find all processes that started in the last three days. ID 4688: A new process has been created.
 let RunProcesses = 
     SecurityEvent
     | where TimeGenerated > ago(3d)
@@ -118,9 +118,9 @@ RunProcesses
 ```
 
 
-## Find repeating failed login attempts by the same account from different IPs
+## Find repeating failed log in attempts by the same account from different IPs
 
-The following examples finds failed login attempts by the same account from more than 5 different IPs, in the last 6 hours, and the enumerates the IPs.
+The following example finds failed log in attempts by the same account from more than 5 different IPs, in the last 6 hours, and then enumerates the IPs.
 
 ```Kusto
 SecurityEvent 
@@ -130,20 +130,21 @@ SecurityEvent
 | sort by IPCount desc
 ```
 
-## Find user accounts that failed to login 
-The following example identifies user accounts that failed to login more than 5 times in the last day, and when they last attempted to login.
+## Find user accounts that failed to log in 
+The following example identifies user accounts that failed to log in more than five times in the last day, and when they last attempted to log in.
 
 ```Kusto
 let timeframe = 1d;
 SecurityEvent
 | where TimeGenerated > ago(1d)
-| where AccountType == 'User' and EventID == 4625 // 4625 - failed login
+| where AccountType == 'User' and EventID == 4625 // 4625 - failed log in
 | summarize failed_login_attempts=count(), latest_failed_login=arg_max(TimeGenerated, Account) by Account 
 | where failed_login_attempts > 5
 | project-away Account1
 ```
 
-Using **join**, and **let** statements we can check if the same suspicious accounts were later able to login successfully
+Using **join**, and **let** statements we can check if the same suspicious accounts were later able to log in successfully.
+
 ```Kusto
 let timeframe = 1d;
 let suspicious_users = 
