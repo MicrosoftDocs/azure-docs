@@ -3,10 +3,10 @@ title: Understanding how to use Azure Digital Twins Swagger | Microsoft Docs
 description: How to use Azure Digital Twins Swagger
 author: kingdomofends
 manager: alinast
-ms.service: azure-digital-twins
-services: azure-digital-twins
+ms.service: digital-twins
+services: digital-twins
 ms.topic: conceptual
-ms.date: 10/2/2018
+ms.date: 10/02/2018
 ms.author: adgera
 ---
 
