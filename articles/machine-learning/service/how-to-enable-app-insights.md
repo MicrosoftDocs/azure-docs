@@ -26,6 +26,11 @@ Learn more about Application Insights [here](../../application-insights/app-insi
 * An [AKS cluster](how-to-deploy-to-aks.md).
 
 ## Enable & disable in the portal
+
+You can enable and disable Application Insights in Azure portal.
+
+### Enable
+
 1. In [Azure portal](https://portal.azure.com), open your workspace.
 
 1. Go into your deployments and select the service where you want to enable Application Insights.
@@ -40,7 +45,22 @@ Learn more about Application Insights [here](../../application-insights/app-insi
 
    [![Edit](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png)#lightbox)
 
-5. At the bottom of the page click **Update**.
+1. Select **Update** at the bottom of the screen to apply the changes. 
+
+### Disable
+To disable Application Insights in Azure portal, do the following steps:
+
+1. Sign in to Azure portal at https://portal.azure.com.
+1. Go to your workspace.
+1. Choose **Deployments**, then **Select service**, and then **Edit**.
+
+   [![Edit](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+
+1. In **Advanced Settings**, deselect the option **Enable AppInsights diagnostics**. 
+
+   [![uncheck](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+
+1. Select **Update** at the bottom of the screen to apply the changes. 
 
 ## Enable & disable from the SDK
 
@@ -97,27 +117,7 @@ To view it:
    [![Custom traces](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Click [here](../../application-insights/app-insights-overview.md) to learn more about how to use Application Insights.
-
-## Disable Application Insights
-To disable Application Insights, follow the next steps:
-* Option 1 - Disable in the [Azure Portal](https://portal.azure.com): 
-    1. Go to Workspace
-    2. Deployments-> Select service-> Edit
-
-       [![Edit](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-    3. In **Advanced Settings**, remove  "Enable AppInsights diagnostics". 
-
-       [![uncheck](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-    4. Select **update** at the bottom of the page.       
-
-* Option 2- Use Python to disable Application Insights:
-         
-    ```python 
-    ## replace <service_name> with the name of the web service
-    <service_name>.update(enable_app_insights=False)
-    ```
+    
 
 ## Example Notebook
 

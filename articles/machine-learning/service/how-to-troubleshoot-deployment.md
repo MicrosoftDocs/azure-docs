@@ -11,7 +11,7 @@ ms.reviewer: jmartens
 ms.date: 10/01/2018
 ---
 
-# Troubleshooting Azure Machine Learning service deployments
+# Troubleshoot your Azure Machine Learning service deployments
 
 In this article, you will learn how to work around or solve the common Docker deployment errors with Azure Machine Learning service.
 
