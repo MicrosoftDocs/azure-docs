@@ -67,7 +67,7 @@ Diagnostics Connection String          | A SAS URL to an Azure Storage Account t
 
 The diagnostics connection string is required for storing diagnostics logs during test execution. Use the Azure Storage Account created during setup (see [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)) to create a shared access signature (SAS) URL to give VaaS access to upload logs to your storage account.
 
-[!INCLUDE [azure-stack-vaas-sas-steps_12num-navigate](includes/azure-stack-vaas-sas-steps_12num-navigate.md)]
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
 1. Select **Blob** from **Allowed Services options**. Deselect any remaining options.
 

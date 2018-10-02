@@ -46,18 +46,18 @@ To certify your solution, run the Solution Validation workflow twice. Run it onc
 
 6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
-> [!NOTE]
-> Environment parameters cannot be modified after creating a workflow.
+    > [!NOTE]
+    > Environment parameters cannot be modified after creating a workflow.
 
 7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
-8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)] You will be redirected to the tests summary page.
+8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+    You will be redirected to the tests summary page.
 
 ## Execute Solution Validation tests
 
 In the **Solution validation tests summary** page, you will see a list of the tests required for completing validation.
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
-
 
 ![Schedule Solution Validation test](media/workflow_validation-solution_schedule-test.png)
 

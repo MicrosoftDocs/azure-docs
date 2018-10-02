@@ -1,4 +1,4 @@
- ---
+---
  author: mattbriggs
  ms.service: azure-stack
  ms.topic: include

@@ -26,7 +26,7 @@ You can test a new OEM package when there has been a change to the firmware or d
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
 > [!IMPORTANT]
-> Be sure to review [Create an OEM package](azure-stack-vaas-create-oem-package.md) for the expected package format and contents before uploading or submitting packages.
+> Before uploading or submitting packages, review [Create an OEM package](azure-stack-vaas-create-oem-package.md) for the expected package format and contents.
 
 ## Managing packages for validation
 
@@ -53,15 +53,20 @@ Create a container in your storage account for package blobs. This container can
 
 When creating a **Package Validation** workflow in the VaaS portal, you will need to provide a URL to the Azure Storage blob containing your package.
 
-#### Option 1: Generating SAS URL for container
+#### Option 1: Generating an account SAS URL
 
-[!INCLUDE [azure-stack-vaas-sas-steps_12num-navigate](includes/azure-stack-vaas-sas-steps_12num-navigate.md)]
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
 1. Select **Blob** from **Allowed Services options**. Deselect any remaining options.
+
 1. Select **Container** and **Object** from **Allowed resource types**. Deselect any remaining options.
+
 1. Select **Read** and **List** from **Allowed permissions**. Deselect any remaining options.
+
 1. Set **Start time** to the current time, and **End time** to 1 hour from the current time.
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)] The format should appear as follows:
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+    The format should appear as follows:
     `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
 1. Modify the generated SAS URL to include the package container, `{containername}`, and the name of your package blob, `{mypackage.zip}`, as follows:
@@ -75,7 +80,9 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 > This option opens up your container for anonymous read-only access.
 
 1. Grant **public read access for blobs only** to the package container by following the instructions in section [Grant anonymous users permissions to containers and blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+
 2. In the package container, click on the package blob in the container to open the properties pane.
+
 3. Copy the **URL**. Use this value when starting a new **Package Validation** workflow in the VaaS portal.
 
 ## Apply monthly update
@@ -100,12 +107,13 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 
 7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
-> [!NOTE]
-> Environment parameters cannot be modified after creating a workflow.
+    > [!NOTE]
+    > Environment parameters cannot be modified after creating a workflow.
 
 8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 
-9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)] You will be redirected to the tests summary page.
+9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+    You will be redirected to the tests summary page.
 
 ## Execute Package Validation tests
 
@@ -113,7 +121,7 @@ In the **Package validation tests summary** page, you will see a list of the tes
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
 
-4. When all tests have successfully completed, send the name of your VaaS Solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
+When all tests have successfully completed, send the name of your VaaS Solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
 
 ## Next steps
 
