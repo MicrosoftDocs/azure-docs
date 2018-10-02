@@ -48,7 +48,7 @@
   - name: Guide for Using User-Defined Functions with Azure Digital Twins
     href: how-to-user-defined-functions.md
   - name: How to egress endpoints in Azure Digital Twins
-    href: how-to-user-egress-endpoints.md
+    href: how-to-egress-endpoints.md
   - name: How to use Azure Digital Twins Swagger
     href: how-to-use-swagger.md
 #- name: Reference
