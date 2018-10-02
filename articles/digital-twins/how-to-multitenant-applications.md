@@ -24,7 +24,10 @@ In this scenario, consider Developer D and Customer C:
 - Developer D now creates a mobile app that directly integrates with Digital Twins' Management API.
 - Developer D then allows Customer C the use of the mobile application.
 - Now, Customer C will need to be authorized to use the Digital Twins' Management API within Developer D's application.
-  - Note that otherwise, when Customer C logs into Developer D's application, the app won't be able to acquire tokens for Customer C's users to talk to the Digital Twins' Management API.  Azure AD will then throw an error indicating that Digital Twins isn't recognized within Customer C's directory.
+
+  > [!NOTE]
+  > - When Customer C logs into Developer D's application, the app won't be able to acquire tokens for Customer C's users to talk to the Management API.
+  > - Azure AD will then throw an error indicating that Digital Twins isn't recognized within Customer C's directory.
 
 ## Solution
 
