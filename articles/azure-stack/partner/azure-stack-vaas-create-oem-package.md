@@ -1,4 +1,23 @@
-# Creating a zipped package for VaaS
+---
+title: Azure Stack Validation Best Practices. | Microsoft Docs
+description: This article describes how to create an OEM package for Validation as a Service.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/24/2018
+ms.author: mabrigg
+ms.reviewer: John.Haskin
+
+---
+
+# Create an OEM package
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
