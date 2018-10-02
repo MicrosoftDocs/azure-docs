@@ -68,7 +68,7 @@ Set **authenticationType** to **Basic**, **Digest**, or **Windows**. In addition
 | username | The user name to use to access the HTTP endpoint. | Yes |
 | password | The password for the user (**username**). | Yes |
 
-#### Example: Using Basic, Digest, or Windows authentication
+**Example: Using Basic, Digest, or Windows authentication**
 
 ```json
 {
@@ -104,7 +104,7 @@ If you use **certThumbprint** for authentication and the certificate is installe
 3. Right-click the certificate from the personal store, and then select **All Tasks** >**Manage Private Keys**.
 3. On the **Security** tab, add the user account under which the Data Management Gateway Host Service is running, with read access to the certificate.  
 
-#### Example: Using a client certificate
+**Example: Using a client certificate**
 
 This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate that is installed on the machine that has Data Management Gateway installed.
 
@@ -126,7 +126,7 @@ This linked service links your data factory to an on-premises HTTP web server. I
 }
 ```
 
-#### Example: Using a client certificate in a file
+**Example: Using a client certificate in a file**
 
 This linked service links your data factory to an on-premises HTTP web server. It uses a client certificate file on the machine that has Data Management Gateway installed.
 
@@ -165,7 +165,7 @@ The **typeProperties** section is different for each type of dataset. The **type
 | format | If you want to *retrieve the data from an HTTP endpoint as-is* without parsing it, skip the **format** setting. <br><br> If you want to parse the HTTP response content during copy, the following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. For more information, see [Text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format). |No |
 | compression | Specify the type and level of compression for the data. Supported types: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
-### Example: Using the GET (default) method
+**Example: Using the GET (default) method**
 
 ```json
 {
@@ -186,7 +186,7 @@ The **typeProperties** section is different for each type of dataset. The **type
 }
 ```
 
-### Example: Using the POST method
+**Example: Using the POST method**
 
 ```json
 {
@@ -230,7 +230,7 @@ See [File and compression formats in Azure Data Factory](data-factory-supported-
 
 The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data from an HTTP source to Azure Blob storage. However, data can be copied *directly* from any of the sources to any of the sinks [that are supported](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
 
-### Example: Copy data from an HTTP source to Azure Blob storage
+**Example: Copy data from an HTTP source to Azure Blob storage**
 
 The Data Factory solution for this sample contains the following Data Factory entities:
 

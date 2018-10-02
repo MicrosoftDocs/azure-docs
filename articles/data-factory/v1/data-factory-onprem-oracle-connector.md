@@ -59,12 +59,12 @@ This Oracle connector support two versions of drivers:
     - Oracle 9i R1, R2 (9.0.1, 9.2)
     - Oracle 8i R3 (8.1.7)
 
-> [!NOTE]
-> Oracle proxy server isn't supported.
+    > [!NOTE]
+    > Oracle proxy server isn't supported.
 
-> [!IMPORTANT]
-> Currently, the Microsoft driver for Oracle supports only copying data from Oracle. The driver doesn't support writing to Oracle. The test connection capability on the Data Management Gateway **Diagnostics** tab doesn't support this driver. Alternatively, you can use the Copy wizard to validate connectivity.
->
+    > [!IMPORTANT]
+    > Currently, the Microsoft driver for Oracle supports only copying data from Oracle. The driver doesn't support writing to Oracle. The test connection capability on the Data Management Gateway **Diagnostics** tab doesn't support this driver. Alternatively, you can use the Copy wizard to validate connectivity.
+    >
 
 - **Oracle Data Provider for .NET**: You can use Oracle Data Provider to copy data from or to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the relevant version (32-bit or 64-bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access Oracle Database 10g Release 2 and later versions.
 
@@ -187,7 +187,7 @@ In Copy Activity, when the source is the **OracleSource** type, the following pr
 
 The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data from or to an Oracle database and to or from Azure Blob storage. However, data can be copied to any of the sinks listed in [Supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.   
 
-### Example: Copy data from Oracle to Azure Blob storage
+**Example: Copy data from Oracle to Azure Blob storage**
 
 The sample has the following Data Factory entities:
 
@@ -373,7 +373,7 @@ The pipeline contains a copy activity that's configured to use the input and out
 }
 ```
 
-### Example: Copy data from Azure Blob storage to Oracle
+**Example: Copy data from Azure Blob storage to Oracle**
 
 This sample shows how to copy data from an Azure Blob storage account to an on-premises Oracle database. However, you can copy data *directly* from any of the sources listed in [Supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.  
 

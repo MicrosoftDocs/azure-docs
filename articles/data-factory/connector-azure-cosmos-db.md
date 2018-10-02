@@ -180,7 +180,7 @@ The following properties are supported in the Copy Activity **source** section:
 | writeBatchSize | Data Factory uses the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data to Azure Cosmos DB. The **writeBatchSize** property controls the size of documents that we provide to the library. You can try increasing the value for **writeBatchSize** to improve performance. |No<br />(the default is **10,000**) |
 | nestingSeparator |A special character in the **source** column name that indicates that a nested document is needed. <br/><br/>For example, `Name.First` in the output dataset structure generates the following JSON structure in the Azure Cosmos DB document when the **nestedSeparator** is **.** (dot): `"Name": {"First": "[value maps to this column from source]"}`  |No<br />(the default is **.** (dot)) |
 
-**Example:**
+**Example**
 
 ```json
 "activities":[
