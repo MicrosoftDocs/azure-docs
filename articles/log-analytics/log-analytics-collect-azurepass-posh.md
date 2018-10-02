@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Configure collection of Azure PaaS resource metrics with Log Analytics
