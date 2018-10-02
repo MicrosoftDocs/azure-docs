@@ -14,25 +14,20 @@ ms.date: 03/28/2018
 
 In this article, learn about the Azure Machine Learning service releases. 
 
-## 2018-10 - SDK version 0.1.65
+## 2018-10-01
 
-This [release](https://pypi.org/project/azureml-sdk/0.1.65) includes new features, more documentation, bug fixes, and more [sample notebooks](https://aka.ms/aml-notebooks).
+### Azure Machine Learning SDK for Python v0.1.65
+[Version 0.1.65](https://pypi.org/project/azureml-sdk/0.1.65) includes new features, more documentation, bug fixes, and more [sample notebooks](https://aka.ms/aml-notebooks).
 
-**Breaking changes and known issues**
+See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+#### Breaking changes
  * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services return dictionary, previously returned list. See [azureml.core.Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API documentation.
 
  * Automated Machine Learning removed normalized mean square error from the primary metrics.
 
- * Image building failure when deploying web service. Workaround is to add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration.
 
- * For Pipelines, error when calling PythonScriptStep multiple times in a row without changing the script or parameters. Workaround is to rebuild the PipelineData object.
-
- * You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
-
-**Notable new features**
-
-### HyperDrive
+#### HyperDrive
  * Various HyperDrive bug fixes for Bayesian, Performance improvements for get Metrics calls. 
  * Tensorflow 1.10 upgrade from 1.9 
  * Docker image optimization for cold start. 
@@ -45,11 +40,11 @@ This [release](https://pypi.org/project/azureml-sdk/0.1.65) includes new feature
  * Bugfix to parameter tuning for distributed run fix during validation in BatchAI. 
  * Context Manager now identifies the primary instance. 
 
-### Azure Portal experience
+#### Azure portal experience
  * log_table() and log_row() are supported in Run details. 
  * Automatically create graphs for tables and rows with 1,2 or 3 numerical columns and an optional categorical column.
 
-### Automated Machine Learning
+#### Automated Machine Learning
  * Improved error handling and documentation 
  * Fixed run property retrieval performance issues. 
  * Fixed continue run issue. 
@@ -59,12 +54,23 @@ This [release](https://pypi.org/project/azureml-sdk/0.1.65) includes new feature
  * Removed extra index logic.
  * Removed filter from get_output API.
 
-### Pipelines
+#### Pipelines
  * Added a method Pipeline.publish() to publish a pipeline directly, without requiring an execution run first.   
  * Added a method PipelineRun.get_pipeline_runs() to fetch the pipeline runs which were generated from a published pipeline.
 
-### Project-Brainwave
+#### Project Brainwave
  * Updated support for new AI models available on FPGAs.
+
+### Azure Machine Learning Data Prep SDK v0.2.0
+[Version 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) includes following features and bugfixes:
+
+**New features:** 
+ * Support for one-hot encoding
+ * Support for quantile transform
+   
+**Bug fixed:**
+ * Works with any Tornado version, no need to downgrade your Tornado version
+ * Value counts for all values, not just the top three
 
 ## 2018-09 (Public preview refresh)
 
