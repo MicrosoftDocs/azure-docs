@@ -12,7 +12,7 @@ ms.author: yizhon
 
 # Azure IoT device SDK for C – more about IoTHubClient
 
-[Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) is the first article in this series introducing the **Azure IoT device SDK for C**. That article explained that there are two architectural layers in SDK. At the base is the **IoTHubClient** library which directly manages communication with IoT Hub. There's also the **serializer** library that builds on top of that to provide serialization services. In this article we'll provide additional detail on the **IoTHubClient** library.
+[Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) is the first article in this series introducing the **Azure IoT device SDK for C**. That article explained that there are two architectural layers in SDK. At the base is the **IoTHubClient** library that directly manages communication with IoT Hub. There's also the **serializer** library that builds on top of that to provide serialization services. In this article, we'll provide additional detail on the **IoTHubClient** library.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -59,11 +59,11 @@ There are companion functions for each of these APIs:
 * IoTHubClient\_LL\_SetMessageCallback
 * IoTHubClient\_LL\_Destroy
 
-These functions all include **LL** in the API name. Other than that, the parameters of each of these functions are identical to their non-LL counterparts. However, the behavior of these functions is different in one important way.
+These functions all include **LL** in the API name. Other the **LL** part of the name, the parameters of each of these functions are identical to their non-LL counterparts. However, the behavior of these functions is different in one important way.
 
 When you call **IoTHubClient\_CreateFromConnectionString**, the underlying libraries create a new thread that runs in the background. This thread sends events to, and receives messages from, IoT Hub. No such thread is created when working with the **LL** APIs. The creation of the background thread is a convenience to the developer. You don’t have to worry about explicitly sending events and receiving messages from IoT Hub -- it happens automatically in the background. In contrast, the **LL** APIs give you explicit control over communication with IoT Hub, if you need it.
 
-To understand this better, let’s look at an example:
+To understand this concept better, let’s look at an example:
 
 When you call **IoTHubClient\_SendEventAsync**, what you're actually doing is putting the event in a buffer. The background thread created when you call **IoTHubClient\_CreateFromConnectionString** continually monitors this buffer and sends any data that it contains to IoT Hub. This happens in the background at the same time that the main thread is performing other work.
 
