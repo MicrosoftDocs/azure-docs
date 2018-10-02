@@ -213,7 +213,7 @@ Add the following supporting functions:
 
 ## Add a method to create KB
 
-Add the following function to create the knowledge base, calling into the post method:
+Add the following function to create the knowledge base, calling into the **post** method:
 
 ```nodejs
 // Call 'callback' when we have the response from the /knowledgebases/create POST method.
@@ -229,7 +229,7 @@ let create_kb = function (path, req, callback) {
 
 ## Add method to determine creation status
 
-Add the following function to check the status of the creation operation, calling into the get method
+Add the following function to check the status of the creation operation, calling into the **get** method
     
 ```nodejs
 // Call 'callback' when we have the response from the GET request to check the status.
@@ -250,18 +250,25 @@ The following method is the main method and creates the KB and repeats checks on
 ```nodejs
 // Convert the request to a string.
 let content = JSON.stringify(req);
+
 create_kb(path, content, function (result) {
+
     // Formats and indents the JSON response from the /knowledgebases/create method for display.
     console.log(pretty_print(result.response));
+
     // Loop until the operation is complete.
     let loop = function () {
         path = service + result.operation;
+
         // Check the status of the operation.
         check_status(path, function (status) {
+
             // Formats and indents the JSON for display.
             console.log(pretty_print(status.response));
+
             // Convert the status into an object and get the value of the 'operationState'.
             var state = (JSON.parse(status.response)).operationState;
+
             // If the operation isn't complete, wait and query again.
             if (state === 'Running' || state === 'NotStarted') {
                 console.log('Waiting ' + status.wait + ' seconds...');
@@ -269,6 +276,7 @@ create_kb(path, content, function (result) {
             }
         });
     };
+
     // Begin the loop.
     loop();
 });
@@ -276,7 +284,7 @@ create_kb(path, content, function (result) {
 
 ## Build and run the program
 
-Enter the following command at a terminal or command-line to run the program. It will automatically send the request to the Qna Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
+Enter the following command at a command-line to run the program. It will send the request to the Qna Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
 ```bash
 npm start
