@@ -3131,29 +3131,9 @@
             "redirect_url": "/azure/azure-functions/functions-create-first-azure-function",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/azure-functions/functions-create-cosmos-db-triggered-function.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb-v2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-functions/functions-create-storage-blob-triggered-function.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-storage-blob",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-functions/functions-create-storage-queue-triggered-function.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-storage-queue",
-            "redirect_document_id": false
-        },
-        {
+                {
             "source_path": "articles/azure-functions/functions-how-to-use-sendgrid.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb-v2",
             "redirect_document_id": false
         },
        {

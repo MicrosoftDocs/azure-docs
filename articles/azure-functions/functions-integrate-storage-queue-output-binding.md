@@ -34,15 +34,19 @@ In this section, you use the portal UI to add a queue storage output binding to 
 
 1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](functions-create-first-azure-function.md). To do this, select **All services > Function Apps**, and then select your function app.
 
-2. Select the function that you created in that earlier quickstart.
+1. Select the function that you created in that earlier quickstart.
 
 1. Select **Integrate > New output > Azure Queue storage**.
 
 1. Click **Select**.
-    
+
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Under **Azure Queue Storage output**, use the settings as specified in the table that follows this screenshot: 
+1. If you get an **Extensions not installed** message, choose **Install** to install the Storage bindings extension in the function app. This may take a minute or two.
+
+    ![Install the Storage binding extension](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. Under **Azure Queue Storage output**, use the settings as specified in the table that follows this screenshot: 
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 

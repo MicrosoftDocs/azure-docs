@@ -22,7 +22,7 @@ ms.custom: mvc
 > [!NOTE]
 > At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only.
 
-In Azure Functions, input and output bindings provide a declarative way to connect to external service data from your function. In this topic, learn how to update an existing C# function to add an output binding that stores unstructured data in an Azure Cosmos DB document.
+In Azure Functions, input and output bindings provide a declarative way to connect to external service data from your function. In this article, learn how to update an existing C# function to add an output binding that stores unstructured data in an Azure Cosmos DB document.
 
 ![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
@@ -44,7 +44,11 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 1. Select **Integrate** and **+ New Output**, which is at the top right of the page. Choose **Azure Cosmos DB**, and click **Select**.
 
-    ![Add a Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+    ![Add an Azure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+
+1. If you get an **Extensions not installed** message, choose **Install** to install the Azure Cosmos DB bindings extension in the function app. This may take a minute or two.
+
+    ![Install the Azure Cosmos DB binding extension](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-install-binding-extension.png)
 
 1. Use the **Azure Cosmos DB output** settings as specified in the table:
 
@@ -56,7 +60,7 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
     | **Database name** | taskDatabase | Name of database to save documents. |
     | **Collection name** | TaskCollection | Name of the database collection. |
     | **If true, creates the Cosmos DB database and collection** | Checked | The collection doesn't already exist, so create it. |
-    | **Azure Cosmos DB account connection** | New setting | Select **New**, then choose your **Subscription**, the **Database account** you created earlier, and **Select**. This creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
+    | **Azure Cosmos DB account connection** | New setting | Select **New**, then choose your **Subscription**, the **Database account** you created earlier, and **Select**. Creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
     | **Collection throughput** |400 RU| If you want to reduce latency, you can scale up the throughput later. |
 
 1. Select **Save** to create the binding.
@@ -97,6 +101,8 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
 }
 ```
 
+# [JavaScript](#tab/nodejs)
+
 ---
 
 This code sample reads the HTTP Request query strings and assigns them to fields in the `taskDocument` object. The `taskDocument` binding sends the object data from this binding parameter to be stored in the bound document database. The database is created the first time the function runs.
@@ -123,7 +129,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
     ![Verify Cosmos DB entry](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-You have successfully added a binding to your HTTP trigger that stores unstructured data in a Azure Cosmos DB.
+You've successfully added a binding to your HTTP trigger to store unstructured data in an Azure Cosmos DB.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
