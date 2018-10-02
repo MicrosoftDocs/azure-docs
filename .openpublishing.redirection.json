@@ -11579,6 +11579,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-resource-limits.md",
+            "redirect_url": "/azure/sql-database/sql-database-resource-limits-logical-server",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-vcore-resource-limits.md",
             "redirect_url": "/azure/sql-database/sql-database-vcore-resource-limits-single-databases",
             "redirect_document_id": false
@@ -17934,6 +17939,16 @@
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-migrate-single-classic-to-resource-manager.md",
             "redirect_url": "/azure/virtual-machines/windows/migrate-single-classic-to-resource-manager",
+            "redirect_document_id": false
+        },
+		        {
+            "source_path": "articles/virtual-machines/windows/performance-diagnostics.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/performance-diagnostics",
+            "redirect_document_id": false
+        },		
+        {
+            "source_path": "articles/virtual-machines/linux/performance-diagnostics.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/performance-diagnostics",
             "redirect_document_id": false
         },
         {
@@ -28020,6 +28035,21 @@
             "source_path": "articles/active-directory/application-sign-in-problem-password-sso-non-gallery.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-non-gallery",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-requiring-user-assignment.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-users.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-groups.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-error.md",
