@@ -6,6 +6,7 @@ documentationcenter:
 author: ellacroi
 manager: 
 editor: v-brela
+ROBOTS: NOINDEX
 
 ms.assetid: 
 ms.service: marketplace
