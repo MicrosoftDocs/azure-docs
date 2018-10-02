@@ -99,5 +99,5 @@ When the cloud tiering feature is enabled, cloud tiering automatically tiers fil
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
 
-## Next steps
+## Next Steps
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)
