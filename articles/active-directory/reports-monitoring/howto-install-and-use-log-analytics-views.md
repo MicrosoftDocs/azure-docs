@@ -33,10 +33,13 @@ To use the management solution, you need:
 
 * A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * First, complete the steps to [route the Azure AD activity logs to your Log Analytics workspace](howto-integrate-activity-logs-with-log-analytics.md).
+* Download the views from the [GitHub repository](TODOGitHub) to your local computer.
 
 ## Install the management solution
 
-
+1. Navigate to your Log Analytics workspace. To do this, first navigate to the [Azure portal](https://portal.azure.com) and select **All services**. Type **Log Analytics** in the text box, and select **Log Analytics**. Select the workspace you routed the activity logs to, as part of the prerequisites.
+2. Select **View Designer**, select **Import** and then select **Choose File** to import the views from your local computer.
+3. Select the views you downloaded from the prerequisites and select **Save** to save the import. Do this for both the **Azure AD Account Provisioning Events Copy** view and the **Sign-ins Events** view.
 
 ## Use the views
 
