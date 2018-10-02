@@ -16,7 +16,7 @@ ROBOTS: NOINDEX
 # Analyzers Method
 
 > [!IMPORTANT]
-> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
+> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
 
 The **analyzers** REST API provides a list of analyzers currently supported by the service.
 The response includes their [names](Analyzer-Names.md) and the languages supported by each (such as "en" for English).
