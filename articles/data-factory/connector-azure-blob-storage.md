@@ -26,7 +26,7 @@ You can copy data from any supported source data store to Blob storage. You also
 Specifically, this Blob storage connector supports:
 
 - Copying blobs to and from general-purpose Azure storage accounts and hot/cool blob storage. 
-- Copying blobs by using account key, service shared access signature, service principal or managed service identity authentications.
+- Copying blobs by using account key, service shared access signature, service principal or managed identities for Azure resources authentications.
 - Copying blobs from block, append, or page blobs and copying data to only block blobs. Azure Premium Storage isn't supported as a sink because it's backed by page blobs.
 - Copying blobs as is or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
@@ -43,7 +43,7 @@ Azure Blob connector support the following authentication types, refer to the co
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
 - [Service principal authentication](#service-principal-authentication)
-- [Managed service identity authentication](#managed-service-identity-authentication)
+- [Managed identities for Azure resources authentication](#managed-service-identity-authentication)
 
 >[!NOTE]
 >HDInsights, Azure Machine Learning and Azure SQL Data Warehouse PolyBase load only support Azure Blob storage account key authentication.
@@ -187,13 +187,13 @@ These properties are supported for an Azure Blob storage linked service:
 }
 ```
 
-### Managed service identity authentication
+### Managed identities for Azure resources authentication
 
-A data factory can be associated with a [managed service identity](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Blob storage authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Blob storage.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Blob storage authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Blob storage.
 
 For Azure Storage MSI authentication in general, refer to [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md).
 
-To use managed service identity (MSI) authentication, follow these steps:
+To use managed identities for Azure resources authentication, follow these steps:
 
 1. [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
 
@@ -210,8 +210,8 @@ These properties are supported for an Azure Blob storage linked service:
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
->[!NOTE]
->Managed service identity authentication is only supported by "AzureBlobStorage" type linked service but not previous "AzureStorage" type linked service. 
+> [!NOTE]
+> Managed identities for Azure resources authentication is only supported by "AzureBlobStorage" type linked service but not previous "AzureStorage" type linked service. 
 
 **Example:**
 
