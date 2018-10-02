@@ -1,8 +1,8 @@
 ---
 title: Provision a device using Azure IoT Hub Device Provisioning Service (.NET) | Microsoft Docs
 description: Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
@@ -59,7 +59,7 @@ There are two ways to enroll the device to the Device Provisioning Service:
     
 1. In Solution Explorer, right-click the **DeviceProvisioning** project, and then click **Manage NuGet Packages...**.
 
-1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.provisioning.service**. Select the entry and click **Install** to install the **Microsoft.Azure.Devices.Provisioning.Service** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device provisioning service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
+1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.provisioning.service**. Select the entry and click **Install** to install the **Microsoft.Azure.Devices.Provisioning.Service** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT Device Provisioning Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
    
@@ -67,10 +67,10 @@ There are two ways to enroll the device to the Device Provisioning Service:
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the DPS connection string noted in the previous section.
+1. Add the following fields to the **Program** class. Replace the placeholder value with the Device Provisioning Service connection string noted in the previous section.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =
@@ -219,10 +219,10 @@ When the device is successfully enrolled, you should see it displayed in the por
 
 At this point, the following setup is ready for device registration:
 
-1. Your device or group of devices are enrolled to your Device Provisioning Service, and 
+1. Your device or group of devices are enrolled to your Device Provisioning service, and 
 2. Your device is ready with the security configured and accessible through the application using the Device Provisioning Service client SDK.
 
-Start the device to allow your client application to start the registration with your Device Provisioning Service.  
+Start the device to allow your client application to start the registration with your Device Provisioning service.  
 
 
 ## Verify the device is registered

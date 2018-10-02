@@ -16,7 +16,7 @@ The following single-page application uses JavaScript to create a URL Preview fo
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 
 ## Code scenario
 The following javascript example includes a textbox input object where the user enters the URL to preview.  When the user clicks the **Preview** button, the onclick method routes to `getPreview` where code generates a Web request to the **UrlPreview** endpoint.

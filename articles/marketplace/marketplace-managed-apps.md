@@ -20,7 +20,7 @@ ms.author: ellacroi
 
 # Azure Applications: Managed Application Offer Publishing Guide
 
-Solution Templates are one of the main ways to publish a solution in the Marketplace. Use this guide to understand the requirements for this offer. 
+A managed application is one of the main ways to publish a solution in the Marketplace. Use this guide to understand the requirements for this offer. 
 
 These are transaction offers which are deployed and billed through the Marketplace. The call to action that a user sees is "Get It Now."
 

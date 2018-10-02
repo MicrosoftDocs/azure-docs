@@ -1,15 +1,9 @@
 ---
 title: Using the HDFS CLI with Azure Data Lake Storage Gen2 Preview
-description:  Introduction to HDFS CLI for Data Lake Storage Gen2 Preview
+description: Introduction to HDFS CLI for Data Lake Storage Gen2 Preview
 services: storage
-documentationcenter: ''
 author: artemuwka
-manager: jahogg
-
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
@@ -38,7 +32,7 @@ To delete a file or a directory:
     hdfs dfs -rm [-skipTrash] URI [URI ...]
 
 
-Let's now take HDInsight Hadoop cluster on Linux as an example. To use the HDFS CLI, you first need to establish [remote access to services](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). If you pick [SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) the sample PowerShell code would look as follows:
+Let's now take HDInsight Hadoop cluster on Linux as an example. To use the HDFS CLI, you first need to establish [remote access to services](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). If you pick [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) the sample PowerShell code would look as follows:
 ```PowerShell
 #Connect to the cluster via SSH.
 ssh sshuser@clustername-ssh.azurehdinsight.net

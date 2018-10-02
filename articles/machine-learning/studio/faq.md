@@ -6,8 +6,6 @@ services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
 ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
 
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -15,7 +13,7 @@ ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/02/2017
 
 ---
@@ -308,7 +306,7 @@ You can also find training at [Microsoft Virtual Academy](http://www.microsoftvi
 
 **How do I get support for Azure Machine Learning?**
 
-To get technical support for Azure Machine Learning, go to [Azure Support](/support/options/), and select **Machine Learning**.
+To get technical support for Azure Machine Learning, go to [Azure Support](https://azure.microsoft.com/support/options/), and select **Machine Learning**.
 
 Azure Machine Learning also has a community forum on MSDN where you can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 

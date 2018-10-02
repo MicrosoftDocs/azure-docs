@@ -20,7 +20,8 @@ ms.custom:
 ---
 # Batch metrics, alerts, and logs for diagnostic evaluation and monitoring
 
-This article explains how to monitor a Batch account using features of [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor collects [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) so you receive notifications when a metric reaches a specified value. 
+ 
+This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../monitoring/monitoring-data-collection.md#metrics) and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) so you receive notifications when a metric reaches a specified value. 
 
 ## Batch metrics
 
@@ -60,7 +61,8 @@ To configure a metric alert in the portal:
 2. Under **Monitoring**, click **Alert rules** > **Add metric alert**.
 3. Select a metric, an alert condition (such as when a metric exceeds a particular value during a period), and one or more notifications.
 
-You can also configure a near real-time alert using the [REST API](). For more information, see [Use the newer metric alerts for Azure services in Azure portal](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+You can also configure a near real-time alert using the [REST API](https://docs.microsoft.com/rest/api/monitor/). For more information, see [Alerts Overview](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 ## Batch diagnostics
 
 Diagnostic logs contain information emitted by Azure resources that describe the operation of each resource. For Batch, you can collect the following logs:

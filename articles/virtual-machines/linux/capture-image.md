@@ -1,6 +1,6 @@
 ---
-title: Capture an image of a Linux VM in Azure using CLI 2.0 | Microsoft Docs
-description: Capture an image of an Azure VM to use for mass deployments using the Azure CLI 2.0.
+title: Capture an image of a Linux VM in Azure using Azure CLI | Microsoft Docs
+description: Capture an image of an Azure VM to use for mass deployments using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -34,7 +34,7 @@ Ensure that you meet the following prerequisites:
 
 * You need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
 
-* You also need to have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+* You also need to have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 ## Quick commands
 
@@ -58,7 +58,7 @@ You deprovision the VM, using the Azure VM agent, to delete machine specific fil
 4. After the command completes, type **exit**. This step closes the SSH client.
 
 ## Step 2: Create VM image
-Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
+Use the Azure CLI to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
 1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli//azure/vm#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
    
@@ -142,4 +142,4 @@ You can create multiple VMs from your source VM image. If you need to make chang
 - Follow the steps again to deprovision, deallocate, generalize, and create an image.
 - Use this new image for future deployments. If desired, delete the original image.
 
-For more information on managing your VMs with the CLI, see [Azure CLI 2.0](/cli/azure).
+For more information on managing your VMs with the CLI, see [Azure CLI](/cli/azure).

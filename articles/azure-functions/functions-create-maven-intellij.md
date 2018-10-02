@@ -6,12 +6,10 @@ documentationcenter: na
 author: jeffhollan
 manager: jpconnock
 keywords: azure functions, functions, event processing, compute, serverless architecture, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
+ms.topic: conceptual
 ms.devlang: java
-ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
@@ -70,10 +68,17 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 Close the run dialog when you're done testing your function. Only one function host can be active and running locally at a time.
 
 ### Debug the function in IntelliJ
+To start the function host in debug mode, add **-DenableDebug** as the argument when you run your function. You could run below command line in terminal or configure it in [maven goals](https://www.jetbrains.com/help/idea/maven-support.html#run_goal). Then the function host will open a debug port at 5005. 
 
-You can debug functions in IntelliJ by attaching to the function host after startup.  Run the Azure Function locally using the steps above, and then in the **Run** menu select **Attach to local process**.  You should see a process on port 5005 available.  After attaching you can have breakpoints hit and debug inside your function app.
+```
+mvn azure-functions:run -DenableDebug
+```
 
-When finished stop the debugger and the running process. Only one function host can be active and running locally at at time.
+To debug in IntelliJ, In the **Run** menu select **Edit Configurations**. Click **+** to add a **Remote**. Fill in **Name** and **Settings**, and then click **OK** to save the configuration. After setup, click **Debug** 'Your Remote Configuration Name' or hit **Shift+F9** to start debugging.
+
+![Debug functions in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
+
+When finished stop the debugger and the running process. Only one function host can be active and running locally at a time.
 
 ## Deploy the function to Azure
 

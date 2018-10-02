@@ -34,8 +34,15 @@
       href: storage-files-planning.md
     - name: Planning for an Azure File Sync deployment
       href: storage-sync-files-planning.md
+    - name: Understanding Cloud Tiering
+      href: storage-sync-cloud-tiering.md
     - name: Understanding storage accounts
-      href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      items:
+      - name: Manage a storage account
+        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Upgrade a storage account
+        href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Understanding file share snapshots
       href: storage-snapshots-files.md
     - name: Data redundancy
@@ -92,7 +99,7 @@
         href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Configure connection strings
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
-  - name: Secure
+  - name: Security and access control
     items:
     - name: Security guide
       href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
@@ -101,7 +108,13 @@
     - name: Encryption for data at rest
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Require secure transfer
-      href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Azure AD authentication over SMB
+      items: 
+      - name: Overview of Azure AD authentication over SMB
+        href: storage-files-active-directory-overview.md
+      - name: Enable Azure AD authentication over SMB
+        href: storage-files-active-directory-enable.md
     - name: Shared key authentication
       href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
     - name: Shared access signatures (SAS)
@@ -125,13 +138,13 @@
     - name: Metrics and logging
       items:
       - name: Metrics in Azure Monitor
-        href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Migrate to new metrics
-        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Storage Analytics
-        href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Enable and view metrics (classic)
-        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Transfer Data
     items:
     - name: Move data to and from Storage

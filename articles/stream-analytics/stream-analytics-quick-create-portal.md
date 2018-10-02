@@ -4,7 +4,7 @@ description: This quickstart shows you how to get started by creating a Stream A
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
@@ -30,7 +30,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
    ```json
    {
-     "time": "2018-01-26T21:18:52.0000000",
+     "time": "2018-08-19T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
@@ -142,6 +142,16 @@ In this section, you will configure blob storage as an input to the Stream Analy
 3. In this example, the query reads the data from blob and copies it to a new file in the blob select **Save**.  
 
    ![Configure job transformation](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+
+## Configure late arrival policy
+
+1. Navigate to the Stream Analytics job that you created earlier.
+
+2. Under **Configure**, select **Event ordering**.
+
+3. Set **Events that arrive late** to 20 days, and select **Save**.
+
+   ![Configure late arrival policy](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
 
 ## Start the Stream Analytics job and check the output
 

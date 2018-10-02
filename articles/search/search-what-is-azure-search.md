@@ -6,11 +6,16 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: heidist
 ---
 # What is Azure Search?
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. Query execution is over a user-defined index.
+
++ Build a search corpus containing only your data, sourced from multiple content types and platforms. 
++ Leverage AI-powered indexing to extract text and features from image files, or entities and key phrases from raw text.
++ Create intuitive search experiences with facet navigation and filters, synonyms, auto-complete, and text analysis for "did you mean" auto-corrected search terms.
++ Add geo-search for "find near me", language analyzers for non-English full text search, and scoring logic for search rank.
 
 Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. In addition to APIs, the Azure portal provides administration and content management support, with tools for prototyping and querying your indexes. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
@@ -45,7 +50,7 @@ Before you can upload searchable content, you must first define an Azure Search 
 
 A schema can be created in the Azure portal, or programmatically using the [.NET SDK](search-howto-dotnet-sdk.md) or [REST API](/rest/api/searchservice/).
 
-### Step 3: Index data
+### Step 3: Load data
 After you define an index, you're ready to upload content. You can use either a push or pull model.
 
 The pull model retrieves data from external data sources. It's supported through *indexers* that streamline and automate aspects of data ingestion, such as connecting to, reading, and serializing data. [Indexers](/rest/api/searchservice/Indexer-operations) are available for Azure Cosmos DB, Azure SQL Database, Azure Blob Storage, and SQL Server hosted in an Azure VM. You can configure an indexer for on demand or scheduled data refresh.
@@ -55,7 +60,7 @@ The push model is provided through the SDK or REST APIs, used for sending update
 ### Step 4: Search
 After populating an index, you can [issue search queries](/rest/api/searchservice/Search-Documents) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
 
-## How Azure Search compares
+## How it compares
 
 Customers often ask how Azure Search compares with other search-related solutions. The following table summarizes key differences.
 
@@ -98,13 +103,16 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 
 ## How to get started
 
-1. Create a service in the [Free tier](search-create-service-portal.md).
+1. Create a [free service](search-create-service-portal.md). All quickstarts and tutorials can be completed on the free service.
 
-2. Step through one or more of the following tutorials. 
+2. Step through the [tutorial on using built-in tools for indexing and queries](search-get-started-portal.md). Learn important concepts and gain familiarity with information the portal provides.
 
-  + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main steps in managed code.  
-  + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API.  
-  + [Create your first index in the portal](search-get-started-portal.md) using built-in indexing and prototype features.   
+3. Move forward with code using either the .NET or REST API:
+
+  + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main workflow in managed code.  
+  + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API. You can also use this quickstart to call REST APIs from Postman or Fiddler: [Explore Azure Search REST APIs](search-fiddler.md).
+
+## Watch this video
 
 Search engines are the common drivers of information retrieval in mobile apps, on the web, and in corporate data stores. Azure Search gives you tools for creating a search experience similar to those on large commercial web sites.
 
@@ -116,5 +124,3 @@ In this 9-minute video from program manager Liam Cavanagh, learn how integrating
 + 3-4 minutes covers service provisioning. 
 + 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
 + 6-9 minutes covers Search explorer and various queries.
-
-

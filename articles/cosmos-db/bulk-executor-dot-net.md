@@ -14,7 +14,7 @@ ms.author: ramkris
 
 ---
 
-# Using bulk executor .NET library to perform bulk operations in Azure Cosmos DB
+# Use bulk executor .NET library to perform bulk operations in Azure Cosmos DB
 
 This tutorial provides instructions on using the Azure Cosmos DB’s bulk executor .NET library to import and update documents to Azure Cosmos DB container. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor library overview](bulk-executor-overview.md) article. This tutorial will walk you through a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos DB container. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
 
@@ -36,13 +36,13 @@ Now let's switch to working with code by downloading some sample .NET applicatio
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-The cloned repository contains two samples “BulkImportSample” and “BulkUpdateSample.” You can open either of the sample applications, update the connection strings in App.config file with your Azure Cosmos DB account’s connection strings, build the solution, and run it. 
+The cloned repository contains two samples "BulkImportSample" and "BulkUpdateSample." You can open either of the sample applications, update the connection strings in App.config file with your Azure Cosmos DB account’s connection strings, build the solution, and run it. 
 
-The “BulkImportSample” application generates random documents and bulk imports them to Azure Cosmos DB. The “BulkUpdateSample” application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you will review the code in each of these sample apps.
+The "BulkImportSample" application generates random documents and bulk imports them to Azure Cosmos DB. The "BulkUpdateSample" application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you will review the code in each of these sample apps.
 
 ## Bulk import data to Azure Cosmos DB
 
-1. Navigate to the “BulkImportSample” folder and open the “BulkImportSample.sln” file.  
+1. Navigate to the "BulkImportSample" folder and open the "BulkImportSample.sln" file.  
 
 2. The Azure Cosmos DB’s connection strings are retrieved from the App.config file as shown in the following code:  
 
@@ -118,7 +118,7 @@ The “BulkImportSample” application generates random documents and bulk impor
 
 You can update existing documents by using the BulkUpdateAsync API. In this example, you will set the Name field to a new value and remove the Description field from the existing documents. For the full set of supported field update operations, refer to [API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet). 
 
-1. Navigate to the “BulkUpdateSample” folder and open the “BulkUpdateSample.sln” file.  
+1. Navigate to the "BulkUpdateSample" folder and open the "BulkUpdateSample.sln" file.  
 
 2. Define the update items along with corresponding field update operations. In this example, you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, refer to the [API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 

@@ -1,34 +1,34 @@
 ---
-title: Configure storage accounts for Azure Cost Management | Microsoft Docs
-description: This article describes how you configure Azure storage accounts and AWS storage buckets for Azure Cost Management.
+title: Configure storage accounts for Cloudyn in Azure | Microsoft Docs
+description: This article describes how you configure Azure storage accounts and AWS storage buckets for Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom:
 ---
 
-# Configure storage accounts for Cost Management
+# Configure storage accounts for Cloudyn
 
-<!--- intent: As a Cost Management user, I want to configure Cost Management to use my cloud service provider storage account to store my reports. -->
+<!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-You can save Cost Management reports in the Cloudyn portal, Azure storage, or AWS storage buckets. Saving your reports to the Cloudyn portal is free of charge. However, saving your reports to your cloud service provider's storage is optional and incurs additional cost. This article helps you configure Azure storage accounts and Amazon Web Services (AWS) storage buckets to store your reports.
+You can save Cloudyn reports in the Cloudyn portal, Azure storage, or AWS storage buckets. Saving your reports to the Cloudyn portal is free of charge. However, saving your reports to your cloud service provider's storage is optional and incurs additional cost. This article helps you configure Azure storage accounts and Amazon Web Services (AWS) storage buckets to store your reports.
 
 ## Prerequisites
 
 You must have either an Azure storage account or an Amazon storage bucket.
 
-If you don't have an Azure storage account, you need to create one. For more information about creating an Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+If you don't have an Azure storage account, you need to create one. For more information about creating an Azure storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
 If you don't have an AWS simple storage service (S3) bucket, you need to create one. For more information about creating an S3 bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html).
 
 ## Configure your Azure storage account
 
-Configuring you Azure storage for use by Cost Management is straightforward. Gather details about the storage account and copy them in the Cloudyn portal.
+Configuring you Azure storage for use by Cloudyn is straightforward. Gather details about the storage account and copy them in the Cloudyn portal.
 
 1. Sign in to the Azure portal at http://portal.azure.com.
 2. Click **All Services**, select **Storage accounts**, scroll to the storage account that you want to use, and then select the account.
@@ -159,4 +159,4 @@ You can now save reports to Azure storage. In any report, click **Actions**  and
 
 ## Next steps
 
-- Review [Understanding cost management reports](understanding-cost-reports.md) to learn about the basic structure and functions of cost management reports.
+- Review [Understanding Cloudyn reports](understanding-cost-reports.md) to learn about the basic structure and functions of Cloudyn reports.

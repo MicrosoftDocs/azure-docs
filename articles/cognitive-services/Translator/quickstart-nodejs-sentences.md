@@ -1,10 +1,10 @@
 ---
-title: Translator Text get sentence lengths with Node.js | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Node.js in Cognitive Services.
+title: "Quickstart: Get sentence lengths - Translator Text, Node.js"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: translator-text

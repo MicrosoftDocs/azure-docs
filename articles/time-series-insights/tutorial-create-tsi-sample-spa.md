@@ -5,7 +5,8 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/14/2018
-ms.author: bryanla
+ms.author: anshan
+manager: cshankar
 # Customer intent: As a developer, I want learn how to create a Time Series Insights single-page web application (SPA), so I can apply the principles to building my own SPA.
 ---
 
@@ -38,11 +39,11 @@ This tutorial will also use the data from the sample application's TSI environme
 Before building the application, you need to register it with Azure AD. Registration provides the identity configuration for an application, allowing it to use OAuth support for single sign-on. OAuth requires SPAs to use the "implicit" authorization grant, which you'll update in the application manifest. An application manifest is a JSON representation of the application's identity configuration. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription account.  
-2. Select the **Azure Active Directory** resource in the left pane, then **App registrations**, then **+ New application registration**:  
+1. Select the **Azure Active Directory** resource in the left pane, then **App registrations**, then **+ New application registration**:  
    
    ![Azure portal Azure AD application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)
 
-3. On the **Create** page, fill in the required parameters:
+1. On the **Create** page, fill in the required parameters:
    
    Parameter|Description
    ---|---
@@ -54,27 +55,27 @@ Before building the application, you need to register it with Azure AD. Registra
 
    ![Azure portal Azure AD application registration - creation](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)
 
-4. Resource applications provide REST APIs for use by other applications, and are also registered with Azure AD. APIs provide granular/secured access to client applications, by exposing "scopes." Because your application will call the "Azure Time Series Insights" API, you need to specify the API and scope, for which permission will be requested/granted at runtime. Select **Settings**, then **Required permissions**, then **+ Add**:
+1. Resource applications provide REST APIs for use by other applications, and are also registered with Azure AD. APIs provide granular/secured access to client applications, by exposing "scopes." Because your application will call the "Azure Time Series Insights" API, you need to specify the API and scope, for which permission will be requested/granted at runtime. Select **Settings**, then **Required permissions**, then **+ Add**:
 
    ![Azure portal Azure AD add permissions](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)
 
-5. From the **Add API access** page, click **1 Select an API** to specify the TSI API. On the **Select an API** page, enter "azure time" in the search field. Then select the "Azure Time Series Insights" API in the results list, and click **Select**: 
+1. From the **Add API access** page, click **1 Select an API** to specify the TSI API. On the **Select an API** page, enter "azure time" in the search field. Then select the "Azure Time Series Insights" API in the results list, and click **Select**: 
 
    ![Azure portal Azure AD add permissions - API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
 
-6. Now you specify a scope on the API. On the **Add API access** page again, click **2 Select permissions**. On the **Enable Access** page, select the "Access Azure Time Series Insights service" scope. Click **Select**, which will return you to the **Add API access** page, where you click **Done**:
+1. Now you specify a scope on the API. On the **Add API access** page again, click **2 Select permissions**. On the **Enable Access** page, select the "Access Azure Time Series Insights service" scope. Click **Select**, which will return you to the **Add API access** page, where you click **Done**:
 
    ![Azure portal Azure AD add permissions - scope](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
 
-7. When you return to the **Required permissions** page, notice that the "Azure Time Series Insights" API is now listed. You also need to pre-consent permission for the application to access the API and scope, for all users. Click the **Grant permissions** button at the top, and select **Yes**:
+1. When you return to the **Required permissions** page, notice that the "Azure Time Series Insights" API is now listed. You also need to pre-consent permission for the application to access the API and scope, for all users. Click the **Grant permissions** button at the top, and select **Yes**:
 
    ![Azure portal Azure AD required permissions - consent](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
 
-8. As mentioned previously, you also need to update the application manifest. Click on the application name in the breadcrumb to go back to the **Registered app** page. Select **Manifest**, change the `oauth2AllowImplicitFlow` property to `true`, then click **Save**:
+1. As mentioned previously, you also need to update the application manifest. Click on the application name in the breadcrumb to go back to the **Registered app** page. Select **Manifest**, change the `oauth2AllowImplicitFlow` property to `true`, then click **Save**:
 
    ![Azure portal Azure AD update manifest](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
 
-9. Finally, click on the breadcrumb to go back to the **Registered app** page again, and copy the **Home page** URL and **Application ID** properties for your application. You'll use these properties in a later step:
+1. Finally, click on the breadcrumb to go back to the **Registered app** page again, and copy the **Home page** URL and **Application ID** properties for your application. You'll use these properties in a later step:
 
    ![Azure portal Azure AD properties](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
 
@@ -88,15 +89,15 @@ Before building the application, you need to register it with Azure AD. Registra
    - **index.html** HTML and JavaScript for the page https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
    - **sampleStyles.css:** CSS style sheet: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
-2. Start and sign in to Visual Studio, to create a project for the web application. On the **File** menu, select the **Open**, **Web Site** option. On the **Open Web Site** dialog, select the working directory where you stored the HTML and CSS files, then click **Open**:
+1. Start and sign in to Visual Studio, to create a project for the web application. On the **File** menu, select the **Open**, **Web Site** option. On the **Open Web Site** dialog, select the working directory where you stored the HTML and CSS files, then click **Open**:
 
    ![VS - File open web site](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
-3. Open **Solution Explorer** from the Visual Studio **View** menu. You should see your new solution, containing a web site project (globe icon), which contains the HTML and CSS files:
+1. Open **Solution Explorer** from the Visual Studio **View** menu. You should see your new solution, containing a web site project (globe icon), which contains the HTML and CSS files:
 
    ![VS - Solution explorer new solution](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
-4. Before you can publish the application, you need to update portions of the JavaScript code in **index.html**: 
+1. Before you can publish the application, you need to update portions of the JavaScript code in **index.html**: 
 
    a. First, change the paths for the JavaScript and style sheet files reference in the `<head>` element. Open the **index.html** file in your Visual Studio solution, and find the following lines of JavaScript code. Uncomment the three lines under  "PROD RESOURCE LINKS", and comment out the three lines under the "DEV RESOURCE LINKS":
    
@@ -129,7 +130,7 @@ Before building the application, you need to register it with Azure AD. Registra
 
    c. Save the **index.html** when you've finished editing.
 
-5. Now publish the web application into your Azure subscription as an Azure App Service:  
+1. Now publish the web application into your Azure subscription as an Azure App Service:  
 
    > [!NOTE]
    > Several of the fields on the following dialog boxes are populated with data from your Azure subscription. As such, it may take a few seconds for each dialog to load completely, before you're able to continue.  
@@ -183,7 +184,7 @@ This tutorial creates several running Azure services. If you don't plan to compl
 From the left-hand menu in the Azure portal:
 
 1. Click the **Resource groups** icon, then select the resource group you created for the TSI Environment. At the top of the page, click **Delete resource group**, enter the name of the resource group, then click **Delete**. 
-2. Click the **Resource groups** icon, then select the resource group that was created by the device simulation solution accelerator. At the top of the page, click **Delete resource group**, enter the name of the resource group, then click **Delete**. 
+1. Click the **Resource groups** icon, then select the resource group that was created by the device simulation solution accelerator. At the top of the page, click **Delete resource group**, enter the name of the resource group, then click **Delete**. 
 
 ## Next steps
 

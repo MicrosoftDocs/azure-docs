@@ -97,7 +97,6 @@ See [Search Documents (Azure Search API)](https://docs.microsoft.com/rest/api/se
 * [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice)
 * [Index Operations](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 * [Document Operations](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-* [Video and tutorials about Azure Search](search-video-demo-tutorial-list.md)
 * [Faceted Navigation in Azure Search](search-faceted-navigation.md)
 
 <!--Image references-->

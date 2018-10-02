@@ -1,6 +1,6 @@
 ---
-title: How to configure security alerts | Microsoft Docs
-description: Learn how to configure security alerts for Azure Privileged Identity Management extension.
+title: Configure security alerts for Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to configure security alerts for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,12 +10,12 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ---
-# How to configure security alerts in Azure AD Privileged Identity Management
+# Configure security alerts for Azure AD directory roles in PIM
 ## Security alerts
 Azure Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the PIM dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
 
@@ -60,4 +60,5 @@ This alert triggers if a user goes a certain amount of time without activating a
 * **Number of days**: Specify the number of days, from 0 to 100, that a user can go without activating a role.
 
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Configure Azure AD directory role settings in PIM](pim-how-to-change-default-settings.md)

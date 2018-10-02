@@ -13,7 +13,7 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
 
@@ -61,7 +61,7 @@ A few salient aspects of the managed domain that is provisioned by Azure AD Doma
 ### Azure AD Domain Services for hybrid organizations
 Organizations with a hybrid IT infrastructure consume a mix of cloud resources and on-premises resources. Such organizations synchronize identity information from their on-premises directory to their Azure AD tenant. As hybrid organizations look to migrate more of their on-premises applications to the cloud, especially legacy directory-aware applications, Azure AD Domain Services can be useful to them.
 
-Litware Corporation has deployed [Azure AD Connect](../active-directory/active-directory-aadconnect.md), to synchronize identity information from their on-premises directory to their Azure AD tenant. The identity information that is synchronized includes user accounts, their credential hashes for authentication (password sync) and group memberships.
+Litware Corporation has deployed [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md), to synchronize identity information from their on-premises directory to their Azure AD tenant. The identity information that is synchronized includes user accounts, their credential hashes for authentication (password sync) and group memberships.
 
 > [!NOTE]
 > **Password synchronization is mandatory for hybrid organizations to use Azure AD Domain Services**. This requirement is because users' credentials are needed in the managed domain provided by Azure AD Domain Services, to authenticate these users via NTLM or Kerberos authentication methods.

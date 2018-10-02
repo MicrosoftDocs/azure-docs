@@ -75,6 +75,9 @@ When you see the following notification, the scale operation is complete.
 
 ## Buy the domain
 
+### Pricing Information
+For pricing information on Azure App Service Domains, please visit the [App Service Pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/) and scroll down to App Service Domain.
+
 ### Sign in to Azure
 Open the [Azure portal](https://portal.azure.com/) and sign in with your Azure account.
 

@@ -3,7 +3,7 @@ title: Azure Event Hubs Capture walkthrough | Microsoft Docs
 description: Sample that uses the Azure Python SDK to demonstrate using the Event Hubs Capture feature.
 services: event-hubs
 documentationcenter: ''
-author: djrosanova
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
