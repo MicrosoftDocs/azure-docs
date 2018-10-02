@@ -80,6 +80,10 @@
     items:
     - name: Integrate activity logs with Log Analytics
       href: howto-integrate-activity-logs-with-log-analytics.md    
+    - name: Analyze activity logs in Log Analytics
+      href: howto-analyze-activity-logs-in-log-analytics.md
+    - name: Install and use the Log Analytics views for Azure AD
+      href: howto-install-and-use-log-analytics-views.md
     - name: Integrate activity logs with SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md
 
