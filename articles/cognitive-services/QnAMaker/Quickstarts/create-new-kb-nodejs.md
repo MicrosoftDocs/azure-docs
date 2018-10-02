@@ -95,6 +95,7 @@ Repeat the call until success or failure:
   "userId": "XXX9549466094e1cb4fd063b646e1ad6",
   "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
+```
 
 ## Add create-kb function
 
