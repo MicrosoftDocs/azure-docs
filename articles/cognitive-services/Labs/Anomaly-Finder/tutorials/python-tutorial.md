@@ -14,7 +14,7 @@ ms.author:  chliang
 
 # Anomaly Detection Python application
 
-[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 The tutorial shows how to use the Anomaly Detection API in Python and how to visualize your results using popular libraries. Using Jupyter to run the tutorial and trying your own data with your subscription key. To learn how to get started
 with interactive Jupyter notebooks, refer to [Jupyter Documentation](http://jupyter.readthedocs.io/en/latest/index.html). 

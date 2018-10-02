@@ -14,7 +14,7 @@ ms.author: wenya
 
 # Anomaly Detection Javascript application
 
-[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Explore a Web application that uses the Anomaly Detection REST API to detect an anomaly. The example submits the time series data to the Anomaly Detection API with your subscription key, then gets all the anomaly points and the expected value for each data point from the API.
 

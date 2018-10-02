@@ -14,7 +14,7 @@ ms.author: chliang
 
 # Anomaly Detection C# application
 
-[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Explore a basic Windows application that uses Anomaly Detection API to detect anomalies from the input. 
 The example submits the time series data to the Anomaly Detection API with your subscription key, then gets all the anomaly points and expected value for each data point from the API.

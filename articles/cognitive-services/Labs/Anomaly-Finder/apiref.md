@@ -13,7 +13,7 @@ ms.author: tonyxing
 
 # Anomaly Finder API reference
 
-[!INCLUDE [PrivatePreviewNote](./includes/private-preview-note.md)]
+[!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 [!INCLUDE [overview](./includes/overview.md)]
 [!INCLUDE [overview](./includes/definitions.md)]
