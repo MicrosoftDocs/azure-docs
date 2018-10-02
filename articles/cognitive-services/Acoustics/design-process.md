@@ -48,12 +48,22 @@ To adjust parameters for all sources, click on the channel strip in Unity's **Au
 ![Mixer Customization](media/MixerParameters.png)
 
 ### Tuning source parameters
-Attaching the **AcousticsSourceCustomization** script to a source enables tuning parameters for that source. To attach the script, click **Add Component** on the bottom of the **Inspector** panel and navigate to **Scripts > Acoustics Source Customization**. The script has three parameters:
+Attaching the **AcousticsDesign** script to a source enables tuning parameters for that source. To attach the script, click **Add Component** on the bottom of the **Inspector** panel and navigate to **Scripts > Acoustics Design**. The script has six controls:
 
-![Source Customization](media/SourceCustomization.png)
+![AcousticsDesign](media/AcousticsDesign.png)
 
-* **Reverb Power Adjust** - Adjusts the reverb power, in dB. Positive values make a sound more reverberant, while negative values make a sound more dry.
+* **Occlusion Factor** - Apply a multiplier to the occlusion dB level computed by the acoustics system. If this multiplier is greater than 1, occlusion will be exaggerated, while values less than 1 make the occlusion effect more subtle, and a value of 0 disables occlusion.
+* **Transmission (dB)** - Set the attenuation (in dB) caused by transmission through geometry. Set this slider to its lowest level to disable transmission. Acoustics spatializes the initial dry audio as arriving around scene geometry (portaling). Transmission provides an additional dry arrival that is spatialized in the line-of-sight direction. Note that the distance attenuation curve for the source is also applied.
+* **Wetness Adjust (dB)** - Adjusts the reverb power, in dB, according to distance from source. Positive values make a sound more reverberant, while negative values make a sound more dry. Click on the curve control (green line) to bring up the curve editor. Modify the curve by left-clicking to add points and dragging those points to form the function you want. The x-axis is distance from source and the y-axis is reverb adjustment in dB. See this [Unity Manual](https://docs.unity3d.com/Manual/EditingCurves.html) for more details on editing curves. To reset the curve back to default, right click on **Wetness Adjust** and select **Reset**.
 * **Decay Time Scale** - Adjusts a multiplier for the decay time. For example, if the bake result specifies a decay time of 750 milliseconds, but this value is set to 1.5, the decay time applied to the source is 1,125 milliseconds.
 * **Enable Acoustics** - Controls whether acoustics is applied to this source. When unchecked, the source will be spatialized with HRTFs, but without acoustics, meaning without obstruction, occlusion, and dynamic reverberation parameters such as level and decay time. Reverberation is still applied with a fixed level and decay time.
+* **Outdoorness Adjustment** - An additive adjustment on the acoustics system’s estimate of how "outdoors" the reverberation on a source should sound. Setting this to 1 will make a source always sound completely outdoors, while setting it to -1 will make a source sound indoors.
 
-Different sources may require different settings to achieve certain aesthetic or gameplay effects. Dialog is one possible example. The human ear is more attuned to reverberation in speech, while dialog often needs to be intelligible for gameplay. You can account for this without making the dialog non-diegetic by adjusting the reverb power downwards.
+Different sources may require different settings to achieve certain aesthetic or gameplay effects. Dialog is one possible example. The human ear is more attuned to reverberation in speech, while dialog often needs to be intelligible for gameplay. You can account for this without making the dialog non-diegetic by moving the **Wetness Adjust** downwards, adjusting the **Perceptual Distance Warp** parameter described below, adding some **Transmission** for some dry audio boost propagating through walls, and/or reducing the **Occlusion Factor** from 1 to have more sound arrive through portals.
+
+Attaching the **AcousticsDesignExperimental** script to a source enables additional experimental tuning parameters for that source. To attach the script, click **Add Component** on the bottom of the **Inspector** panel and navigate to **Scripts > Acoustics Design Experimental**. There is currently one experimental control:
+
+![AcousticsDesignExperimental](media/AcousticsDesignExperimental.png)
+
+* **Perceptual Distance Warp** - Apply an exponential warping to the distance used to compute the dry-wet ratio. The acoustics system computes wet levels throughout the space, which vary smoothly with distance and provide perceptual distance cues. Warping values greater than 1 exaggerate this effect by increasing distance-related reverberation levels, making the sound "distant", while warping values less than 1 make the distance-based reverberation change more subtle, making the sound more "present".
+
