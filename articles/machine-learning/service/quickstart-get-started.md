@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a machine learning workspace - Azure"
-description: Use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.  
+title: "Quickstart: Create a machine learning service workspace in the Azure portal - Azure Machine Learning"
+description: Use the Azure portal to create an Azure Machine Learning service workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.  
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,9 +11,9 @@ ms.author: roastala
 ms.date: 09/24/2018
 ---
 
-# Quickstart: Get started with Azure Machine Learning service
+# Quickstart: use the Azure portal to started with Azure Machine Learning service
 
-In this quickstart, you'll use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service. 
+In this quickstart, you'll use the Azure portal to create an Azure Machine Learning service workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service. 
 
 In this tutorial, you will:
 
@@ -23,7 +23,7 @@ In this tutorial, you will:
 
 For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
 
-The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Please read [this](how-to-manage-quotas.md) article on the default limits and how to request more quota.
+The resources you create can be used as prerequisites to other Azure Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Please read [this](how-to-manage-quotas.md) article on the default limits and how to request more quota.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-On the workspace page, click on `Explore your Azure Machine Learning Workspace`
+On the workspace page, click on `Explore your Azure Machine Learning service workspace`
 
  ![explore workspace](./media/quickstart-get-started/explore_aml.png)
 
