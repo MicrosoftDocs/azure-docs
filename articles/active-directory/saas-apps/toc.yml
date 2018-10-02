@@ -5,8 +5,6 @@
     items:
     - name: 0 - 9
       items:
-      - name: Andfrankly
-        href: andfrankly-tutorial.md
       - name: 10,000ft Plans
         href: 10000ftplans-tutorial.md
       - name: 123ContactForm
@@ -97,6 +95,8 @@
         href: assetbank-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-tutorial.md
+      - name: Atlassian Jira and Confluence
+        href: ms-confluence-jira-plugin-adminguide.md
       - name: Atomic Learning
         href: atomiclearning-tutorial.md
       - name: Attendance Management Services

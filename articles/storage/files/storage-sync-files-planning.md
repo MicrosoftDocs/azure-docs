@@ -57,10 +57,7 @@ A cloud endpoint is an Azure file share that is part of a sync group. The entire
 > Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync. For more information, see [Azure Files frequently asked questions](storage-files-faq.md#afs-change-detection).
 
 ### Cloud tiering 
-Cloud tiering is an optional feature of Azure File Sync in which infrequently used or accessed files greater than 64 KiB in size can be tiered to Azure Files. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer, or reparse point. The reparse point represents a URL to the file in Azure Files. A tiered file has the "offline" attribute set in NTFS so third-party applications can identify tiered files. When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know that the file is not stored locally on the system. This functionality is also known as Hierarchical Storage Management (HSM).
-
-> [!Important]  
-> Cloud tiering is not supported for server endpoints on the Windows system volumes.
+Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings. For more information, see [Understanding Cloud Tiering](storage-sync-cloud-tiering.md).
 
 ## Azure File Sync system requirements and interoperability 
 This section covers Azure File Sync agent system requirements and interoperability with Windows Server features and roles and third-party solutions.
