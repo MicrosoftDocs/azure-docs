@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Collecting custom JSON data sources with the OMS Agent for Linux in Log Analytics
