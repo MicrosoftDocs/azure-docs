@@ -16,7 +16,7 @@
       href: tutorial-acm-create-budgets.md
     - name: 2 - Export data
       href: tutorial-export-acm-data.md
-    - name: 3 - Optimization recommendations
+    - name: 3 - Act on recommendations
       href: tutorial-acm-opt-recommendations.md
   - name: Concepts
     items:
@@ -24,13 +24,10 @@
       href: cost-mgt-best-practices.md
   - name: Reference
     items:
-    - name: Azure Consumption API overview
-      href: ../billing/billing-consumption-api-overview.md
-      items:
-      - name: Azure Consumption REST API
-        href: https://docs.microsoft.com/rest/api/consumption
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
+    - name: Azure Cost Management REST API
+      href: https://docs.microsoft.com/rest/api/cost-management
+    - name: Azure Consumption REST API
+      href: https://docs.microsoft.com/rest/api/consumption
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn

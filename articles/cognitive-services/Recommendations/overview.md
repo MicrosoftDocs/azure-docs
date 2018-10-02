@@ -1,12 +1,13 @@
 ---
-title: Recommendations API | Microsoft Docs
+title: What is the Recommendations API?
+titlesuffix: Azure Cognitive Services
 description: Preview API is now discontinued, replaced by the Recommendations Solution template.
 services: cognitive-services
 author: LuisCabrer
-manager: mwinkle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: recommendations
-ms.topic: article
+ms.topic: overview
 ms.date: 02/15/2018
 ms.author: luisca
 ---

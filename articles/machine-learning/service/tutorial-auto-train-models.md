@@ -1,21 +1,20 @@
 ---
-title: "Tutorial: Train a classification model with automated machine learning in Azure Machine Learning service"
-description: Learn how to generate a machine learning model using automated machine learning. The automated process performs data preprocessing, algorithm selection and hyperparameter selection for you. 
-author: nacharya1
-ms.author: nilesha
+title: "Tutorial: Train a classification model with automated machine learning - Azure Machine Learning service"
+description: Learn how to generate a machine learning model using automated machine learning.  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
-ms.reviewer: sgilley
 ms.topic: tutorial
+author: nacharya1
+ms.author: nilesha
+ms.reviewer: sgilley
 ms.date: 09/24/2018
 # As an app developer or data scientist I can generate a  machine learning model using Automated ML.
 ---
 
-# Tutorial: Train a classification model with automated machine learning
+# Tutorial: Train a classification model with automated machine learning in Azure Machine Learning
 
-In this tutorial, you'll learn how to generate a machine learning model using automated machine learning (ML). The automated process performs data preprocessing, algorithm selection and hyperparameter selection for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
+In this tutorial, you'll learn how to generate a  machine learning model using automated machine learning (automated ML).  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
 [ ![flow diagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
 
@@ -74,6 +73,8 @@ Once you have a workspace object, specify a name for the experiment and create a
 
 ```python
 ws = Workspace.from_config()
+# project folder to save your local files
+project_folder = './sample_projects/automl-local-classification'
 # choose a name for the run history container in the workspace
 experiment_name = 'automl-classifier'
 
@@ -100,8 +101,8 @@ from sklearn import datasets
 digits = datasets.load_digits()
 
 # only take the first 100 rows if you want the training steps to run faster
-X_digits = digits.data[100:,:]
-y_digits = digits.target[100:]
+X_digits = digits.data[:100,:]
+y_digits = digits.target[:100]
 
 # use full dataset
 #X_digits = digits.data
@@ -146,9 +147,9 @@ Define the experiment settings and model settings.
 |**primary_metric**|AUC Weighted | Metric that you want to optimize.|
 |**max_time_sec**|12,000|Time limit in seconds for each iteration|
 |**iterations**|20|Number of iterations. In each iteration, the model trains with the data with a specific pipeline|
-|**n_cross_validations**|5|Number of cross validation splits|
-|**preprocess**|True| *True/False* Enables experiment to perform preprocessing on the input.  Preprocessing handles *missing data*, and performs some common *feature extraction*|
-|**exit_score**|0.994|*double* value indicating the target for *primary_metric*. Once the target is surpassed the run terminates|
+|**n_cross_validations**|3|Number of cross validation splits|
+|**preprocess**|False| *True/False* Enables experiment to perform preprocessing on the input.  Preprocessing handles *missing data*, and performs some common *feature extraction*|
+|**exit_score**|0.995|*double* value indicating the target for *primary_metric*. Once the target is surpassed the run terminates|
 |**blacklist_algos**|['kNN','LinearSVM']|*Array* of *strings* indicating algorithms to ignore.
 |
 
@@ -161,6 +162,8 @@ Automl_config = AutoMLConfig(task = 'classification',
                              max_time_sec = 12000,
                              iterations = 20,
                              n_cross_validations = 3,
+                             preprocess = False,
+                             exit_score = 0.995,
                              blacklist_algos = ['kNN','LinearSVM'],
                              X = X_digits,
                              y = y_digits,

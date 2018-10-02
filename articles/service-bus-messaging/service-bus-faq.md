@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: spelluru
 
 ---

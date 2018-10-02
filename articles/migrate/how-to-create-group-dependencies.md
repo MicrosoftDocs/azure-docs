@@ -4,7 +4,7 @@ description: Describes how to refine an assessment using group dependency mappin
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/25/2018
 ms.author: raynew
 ---
 
@@ -97,5 +97,5 @@ If you want to check the dependencies of a specific machine that appears in the 
 
 
 ## Next steps
-
-[Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
+- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.
+- [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.

@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: expressroute
  ms.topic: include
- ms.date: 09/12/2018
+ ms.date: 09/24/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -32,6 +32,10 @@ ExpressRoute Global Reach is supported in the following countries. The ExpressRo
 * United States
 * United Kingdom
 * Hong Kong
+* Ireland
+* Netherlands
+* Japan
+
 
 ### I have more than two on-premises networks, each connected to an ExpressRoute circuit. Can I enable ExpressRoute Global Reach to connect all of my on-premises networks together?
 

@@ -86,7 +86,7 @@
     href: get-speech-devices-sdk.md
     displayName: roobo, speech devices sdk, download
   - name: Customize
-    items: 
+    items:
     - name: Customize acoustic models
       href: how-to-customize-acoustic-models.md
     - name: Customize language models
@@ -106,7 +106,7 @@
     href: how-to-use-audio-input-streams.md
 - name: Concepts
   items:
-  - name: Speech-to-Text
+  - name: Speech to Text
     href: speech-to-text.md
     displayName: recognize speech, speech recognition, speech to text, stt
   - name: Text to Speech
@@ -121,14 +121,14 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: Supported languages
-    href: supported-languages.md
+  - name: Language and region support
+    href: language-support.md
   - name: Regions
     href: regions.md
   - name: REST APIs
     href: rest-apis.md
 #  - name: Swagger Reference
-#    href: https://cris.ai/swagger/ui/index 
+#    href: https://cris.ai/swagger/ui/index
 #  - name: WebSockets protocols
 #    href: websockets.md
   - name: Speech SDK API
@@ -163,17 +163,17 @@
     - name: Release notes
       href: releasenotes.md
     - name: License
-      href: license.md
-    - name: Third party notices
-      href: third-party-notices.md
+      href: https://aka.ms/csspeech/license201809
+    - name: Third-party notices
+      href: https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html
   - name: Speech Devices SDK
     href: speech-devices-sdk.md
     displayName: roobo, speech devices sdk
     items:
-    - name: Download 
+    - name: Download
       href: 'get-speech-devices-sdk.md#download-the-speech-devices-sdk'
     - name: Samples
-      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK 
+      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
     - name: Release notes
       href: devices-sdk-release-notes.md
     - name: License

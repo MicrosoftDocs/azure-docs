@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2017
+ms.date: 09/24/2018
 ms.author: gokuma
 
 ---
@@ -44,7 +44,7 @@ In this article, you will learn how to use your DSVM to perform various data sci
 **Prerequisites**
 
 * You need an Azure subscription. You can sign up for a free trial [here](https://azure.microsoft.com/free/).
-* Instructions for provisioning a Data Science Virtual Machine on the Azure portal are available at [Creating a virtual machine](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+* Instructions for provisioning a Data Science Virtual Machine on the Azure portal are available at [Creating a virtual machine](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
 
 ## 1. Explore data and develop models using Microsoft ML Server or Python
 You can use languages like R and Python to do your data analytics right on the DSVM.
@@ -53,7 +53,7 @@ For R, you can use an IDE like RStudio that can be found on the start menu or th
 
 For Python, you can use an IDE like Visual Studio Community Edition, which has the Python Tools for Visual Studio (PTVS) extension pre-installed. By default, only Python 3.6, the root conda environment is configured on PTVS. In order to enable Anaconda Python 2.7, you need to do the following steps:
 
-* Create custom environments for each version by navigating to **Tools** -> **Python Tools** -> **Python Environments** and then clicking "**+ Custom**" in the Visual Studio 2015 Community Edition
+* Create custom environments for each version by navigating to **Tools** -> **Python Tools** -> **Python Environments** and then clicking "**+ Custom**" in the Visual Studio Community Edition
 * Give a description and set the environment prefix path as *c:\anaconda\envs\python2* for Anaconda Python 2.7
 * Click **Auto Detect** and then **Apply** to save the environment.
 
@@ -63,7 +63,7 @@ Here is what the custom environment setup looks like in Visual Studio.
 
 See the [PTVS documentation](http://aka.ms/ptvsdocs) for additional details on how to create Python Environments.
 
-Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Anaconda 2.7 or 3.6) by right clicking the **Python environment**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS in the product [documentation](http://aka.ms/ptvsdocs).
+Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right clicking the **Python environments**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS in the product [documentation](http://aka.ms/ptvsdocs).
 
 ## 2. Using a Jupyter Notebook to explore and model your data with Python or R
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.

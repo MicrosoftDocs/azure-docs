@@ -120,7 +120,7 @@ To configure a hybrid Azure AD join using Azure AD Connect, you need:
 
     a. Select the forest.
 
-    b. Select the authentication service.
+    b. Select the authentication service. You must select AD FS server unless your organization has exclusively Windows 10 clients.
 
     c. Click **Add** to enter the enterprise administrator credentials.
 

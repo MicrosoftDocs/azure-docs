@@ -140,20 +140,20 @@ When the subscription is completed, you should output similar to the following:
 
 ## Trigger registry events
 
-Now that the sample app is up and running and you've subscribed to your registry with Event Grid, you're ready to generate some events. In this section, you use ACR Build to build and push a container image to your registry. ACR Build is a feature of Azure Container Registry that allows you to build container images in the cloud, without needing the Docker Engine installed on your local machine.
+Now that the sample app is up and running and you've subscribed to your registry with Event Grid, you're ready to generate some events. In this section, you use ACR Tasks to build and push a container image to your registry. ACR Tasks is a feature of Azure Container Registry that allows you to build container images in the cloud, without needing the Docker Engine installed on your local machine.
 
 ### Build and push image
 
-Execute the following Azure CLI command to build a container image from the contents of a GitHub repository. By default, ACR Build automatically pushes a successfully built image to your registry, which generates the `ImagePushed` event.
+Execute the following Azure CLI command to build a container image from the contents of a GitHub repository. By default, ACR Tasks automatically pushes a successfully built image to your registry, which generates the `ImagePushed` event.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-You should see output similar to the following while ACR Build builds and then pushes your image. The following sample output has been truncated for brevity.
+You should see output similar to the following while ACR Tasks builds and then pushes your image. The following sample output has been truncated for brevity.
 
 ```console
-$ az acr build -r $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -226,10 +226,10 @@ You can find the Azure Container Registry event message schema reference in the 
 
 ## Next steps
 
-In this quickstart, you deployed a container registry, built an image with ACR Build, deleted it, and have consumed your registry's events from Event Grid with a sample application. Next, move on to the ACR Build tutorial to learn more about building container images in the cloud, including automated builds on base image update:
+In this quickstart, you deployed a container registry, built an image with ACR Tasks, deleted it, and have consumed your registry's events from Event Grid with a sample application. Next, move on to the ACR Tasks tutorial to learn more about building container images in the cloud, including automated builds on base image update:
 
 > [!div class="nextstepaction"]
-> [Build container images in the cloud with ACR Build](container-registry-tutorial-quick-build.md)
+> [Build container images in the cloud with ACR Tasks](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

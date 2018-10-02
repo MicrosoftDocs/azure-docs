@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018 
+ms.date: 10/01/2018 
 git ms.author: sethm
 ms.reviewer: misainat
 
@@ -110,6 +110,16 @@ This build includes the following improvements and fixes for Azure Stack.
 
 
 #### Compute  
+
+- <!-- 3090289 – IS, ASDK --> After applying the 1808 update, you may encounter the following issues when deploying VMs with Managed Disks:
+
+   1. If the subscription was created before the 1808 update, deploying VM with Managed Disks may fail with an internal error message. To resolve the error, follow these steps for each subscription:
+      1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+   2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
+      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      2. Follow the steps in [this article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+
 - <!-- 2869209 – IS, ASDK --> When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
 
 - <!--  2966665 – IS, ASDK --> Attaching SSD data disks to premium size managed disk virtual machines  (DS, DSv2, Fs, Fs_V2) fails with an error:  *Failed to update disks for the virtual machine ‘vmname’ Error: Requested operation cannot be performed because storage account type ‘Premium_LRS’ is not supported for VM size ‘Standard_DS/Ds_V2/FS/Fs_v2)*
@@ -286,7 +296,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
-- <!-- TBD - IS. ASDK --> When running the Test-AzureStack cmdlet on the privilege endpoint (PEP), the test will generate a WARN/FAIL message for the ERCS VM. You can continue to use the ASDK.
+- <!-- TBD - IS. ASDK --> When running the **Test-AzureStack** cmdlet on the privileged endpoint (PEP), the **Azure Stack Infrastructure Role Instance Performance** test will generate a WARN message for the ERCS VM. You can safely ignore the WARN message and continue to use the ASDK.
 
 #### Compute
 - <!-- 2494144 - IS, ASDK --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
