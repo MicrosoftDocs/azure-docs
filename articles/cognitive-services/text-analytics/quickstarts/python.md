@@ -13,7 +13,7 @@ ms.date: 10/01/2018
 ms.author: ashmaka
 ---
 
-# Quickstart for Text Analytics API with Python 
+# Quickstart: Using Python to call the Text Analytics Cognitive Service 
 <a name="HOLTop"></a>
 
 This walkthrough shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), and [extract key phrases](#KeyPhraseExtraction) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Python.
