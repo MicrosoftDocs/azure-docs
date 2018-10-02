@@ -57,7 +57,7 @@ az login
 
 ## Add your VM's identity to a group in Azure AD
 
-When you enabled system-assigned managed identity on the Linux VM, it created a service principal in Azure AD.  You need to add the the VM to a group. Refer to the following article for instructions on how to add your VM to a group in Azure AD:
+When you enabled system-assigned managed identity on the Linux VM, it created a service principal in Azure AD.  You need to add the VM to a group. Refer to the following article for instructions on how to add your VM to a group in Azure AD:
 
 - [Add group members](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add)
 
