@@ -154,6 +154,7 @@ else
 }
 
 Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
 if($addNewCertKeyCredential)
 {
@@ -164,7 +165,6 @@ if($addNewCertKeyCredential)
     Start-Sleep -s 30
 }
 
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
 Write-Host "Updating the certificate on HDInsight cluster..."
 
 Invoke-AzureRmResourceAction `

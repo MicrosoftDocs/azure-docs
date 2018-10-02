@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018 
+ms.date: 10/01/2018 
 ms.author: sethm
 ms.reviewer: misainat
 
@@ -83,6 +83,16 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 
 
 #### Compute  
+
+- <!-- 3090289 – IS, ASDK --> After applying the 1808 update, you may encounter the following issues when deploying VMs with Managed Disks:
+
+   1. If the subscription was created before the 1808 update, deploying VM with Managed Disks may fail with an internal error message. To resolve the error, follow these steps for each subscription:
+      1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+   2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
+      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      2. Follow the steps in [this article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+
 - <!-- 2869209 – IS, ASDK --> When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
 
 - <!--  2966665 – IS, ASDK --> Attaching SSD data disks to premium size managed disk virtual machines  (DS, DSv2, Fs, Fs_V2) fails with an error:  *Failed to update disks for the virtual machine ‘vmname’ Error: Requested operation cannot be performed because storage account type ‘Premium_LRS’ is not supported for VM size ‘Standard_DS/Ds_V2/FS/Fs_v2)*
