@@ -406,7 +406,7 @@ Contoso runs the installation on each VM.
 3. Contoso installs the MMA:
     - Contoso enters the workspace ID and key in the command.
     - Commands are for 64-bit.
-    - The workspace ID and primary key are located in the Log Analytics workspace. Select **Settings**, and then select the **Connected Sources** tab.
+    - The workspace ID and primary key are located in the Log Analytics workspace in the Azure portal. Select **Settings**, and then select the **Connected Sources** tab.
     - Run the following commands to download the Log Analytics agent, validate the checksum, and install and onboard the agent:
 
     ```
