@@ -38,7 +38,7 @@ This text contains three sentences:
 - It's important to Mr. and Mrs. Smith.
 
 Note how the ends of sentences are marked in very different ways.
-The first ends in an combination of question marks and exclamation points (sometimes called an interrobang).
+The first ends in a combination of question marks and exclamation points (sometimes called an interrobang).
 The second ends with a period or full stop, but the following quotation mark should be pulled into the prior sentence.
 In the third sentence, you can see how that same period character can be used to mark abbreviations as well.
 Looking just at punctuation provides a good candidate set, but further work is required to identify the true sentence boundaries.
@@ -62,10 +62,10 @@ Now we've placed a "center dot" (&middot;) between each distinct token.
 - I &middot; did &middot; n't &middot; hear &middot; about &middot; the &middot; director &middot; 's &middot; " &middot; new &middot; proposal &middot; . &middot; "
 - It &middot; 's &middot; important &middot; to &middot; Mr. &middot; and &middot; Mrs. &middot; Smith &middot; .
 
-Note how most tokens are words you'd find in the dictionary (e.g., *important*, *director*).
+Note how most tokens are words you'd find in the dictionary (for example, *important*, *director*).
 Others solely consist of punctuation.
-Finally, there are more unusual tokens to represent contractions like *n't* for *not*, possessives like *'s*, etc.
-This tokenization allows us to handle the word *didn't* and the phrase *did not* in a more consistent way, for instance.
+Finally, there are more unusual tokens to represent contractions like *n't* for *not*, and possessives like *'s*.
+This tokenization allows us to handle the word *didn't* and the phrase *did not* in a more consistent way.
 
 ## Specification
 
