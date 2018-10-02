@@ -23,7 +23,7 @@ If you're new to Resource Manager templates,  learn about [template deployments]
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1). 
 
-- You need to have either [Azure PowerShell(https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md) installed. 
+- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md) installed. 
 
  
 ## Set up Azure Monitor as a data sink 
