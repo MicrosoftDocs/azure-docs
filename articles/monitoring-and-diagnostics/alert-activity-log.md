@@ -19,7 +19,7 @@ These alerts are for Azure resources, can be created by using an Azure Resource 
 > [!IMPORTANT]
 > Alerts on Service Health notification can not be created via the interface for activity log alert creation. To learn more about creating and using service health notifications, see [Receive activity log alerts on service health notifications](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## Manage alert rules for activity log using Azure portal
+## Azure portal
 
 > [!NOTE]
 
@@ -122,7 +122,7 @@ Alternatively, a simple analogy for understanding conditions on which alert rule
 4.  You can disable, enable, or delete a rule. Select the appropriate option at the top of the window, after selecting the rule as detailed in step 2.
 
 
-## Manage with an Azure Resource Template
+## Azure Resource Template
 To create an activity log alert by using a Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert.
 
 ```json
@@ -195,17 +195,17 @@ The sample json above can be saved as (say) sampleActivityLogAlert.json for the 
 > [!NOTE]
 > It may take up to 5 minutes for the a new activity log alert rule to become active
 
-## Manage using REST API 
+## REST API 
 [Azure Monitor - Activity Log Alerts API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
 
-## Manage using PowerShell
+## PowerShell
 Illustrated below usage via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleActivityLogAlert.json) in the [Resource Template section](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 Wherein the sampleActivityLogAlert.parameters.json has the values provided for the parameters needed for alert rule creation.
 
-## Manage using CLI
+## CLI
 Illustrated below usage via Azure Resource Manager command in Azure CLI for sample Resource Template shown earlier (sampleActivityLogAlert.json) in the [Resource Template section](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 
 ```azurecli
