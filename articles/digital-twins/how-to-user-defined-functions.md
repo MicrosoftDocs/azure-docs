@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/02/2018
 ms.author: alinast
 ---
 
@@ -16,20 +16,22 @@ ms.author: alinast
 
 In the examples below, `https://{{your-management-api-url}}` refers to the URI of the Digital Twins APIs `https://{{yourDigitalTwinsName}}.{{yourLocation}}.azuresmartspaces.net/management`.
 
-### Client Library Reference
+## Client Library Reference
 
 The functions that are available as helper methods in the user-defined functions runtime are enumerated in the following [Client Reference](#Client-Reference).
 
-### Create a Matcher
+## Create a Matcher
 
 Matchers are graph objects, which determine what user-defined functions will be executed for a given telemetry message.
 
 Valid matcher condition comparisons:
+
 - `Equals`
 - `NotEquals`
 - `Contains`
 
 Valid matcher condition targets:
+
 - `Sensor`
 - `SensorDevice`
 - `SensorSpace`
@@ -595,5 +597,10 @@ Sends a notification with the specified payload.
 }
 ```
 
-## Next Steps
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Authenticating with APIs](./security-authenticating-apis.md)
+
+
   - Learn how to [Create Digital Twins Endpoints](concepts-events-routing.md) to further send events to pre-defined endpoints.

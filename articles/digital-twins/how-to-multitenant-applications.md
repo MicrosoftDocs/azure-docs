@@ -6,17 +6,18 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: mavoge
 ---
 
-# How to enable multitenant applications with Azure Digital Twins
+# How to enable multi-tenant applications with Azure Digital Twins
 
 As a developer using the Azure Digital Twins service, you'll likely want to build one application that you'll then provide to your customers.  This document details how you can set up your application to authenticate with numerous customers across various Azure Active Directory (AD) tenants.
 
 ## Scenario summary
 
 In this scenario, consider Developer D and Customer C:
+
 - Developer D has an Azure Subscription with an Azure AD tenant.
 - Developer D has deployed a Digital Twins instance into their Azure subscription.
 - Users within Developer D's Azure AD tenant can get tokens against the Digital Twins service since Azure AD has created a service principal in Developer D's Azure AD tenant.
@@ -28,10 +29,10 @@ In this scenario, consider Developer D and Customer C:
 ## Solution
 
 To solve the scenario above, the following actions are needed to create a Digital Twins service principal within Customer C's Azure AD tenant:
+
 - If Customer C doesn't already have an Azure subscription with Azure AD tenant:
   - Customer C's Azure AD Tenant Admin will need to acquire a [pay-as-you-go Azure subscription](https://azure.microsoft.com/offers/ms-azr-0003p/).
-  - Customer C's Azure AD Tenant Admin will then have to [link their 
-  tenant with the new subscription](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). 
+  - Customer C's Azure AD Tenant Admin will then have to [link their tenant with the new subscription](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 - From the [Azure Portal](https://portal.azure.com), Customer C's Azure AD Tenant Admin should then:
   - Open Subscriptions
   - Select the Subscription that has the Azure AD tenant to be used in Developer D's application
@@ -39,5 +40,9 @@ To solve the scenario above, the following actions are needed to create a Digita
   - Search for Microsoft.IoTSpaces
   - Click Register
   
-## Next Steps
-  - Learn how to use [Digital Twins' RBAC APIs](security-create-manage-role-assignments.md) to further secure the application with role assignments.
+## Next steps
+
+Learn how to use role-based access control to further secure the application with role assignments:
+
+> [!div class="nextstepaction"]
+> [Digital Twins role-based access control](security-create-manage-role-assignments.md)
