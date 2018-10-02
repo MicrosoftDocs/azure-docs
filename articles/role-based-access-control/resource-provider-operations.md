@@ -3941,16 +3941,16 @@ The resource provider operations are always evolving. To get the latest operatio
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.OperationsManagement/managementAssociations/delete | Delete existing Management Association |
-> | Action | Microsoft.OperationsManagement/managementAssociations/read | Get Existing Management Association |
-> | Action | Microsoft.OperationsManagement/managementAssociations/write | Create a new Management Association |
-> | Action | Microsoft.OperationsManagement/managementConfigurations/delete | Delete existing Management Configuratin |
-> | Action | Microsoft.OperationsManagement/managementConfigurations/read | Get Existing Management Configuration |
-> | Action | Microsoft.OperationsManagement/managementConfigurations/write | Create a new Management Configuration |
+> | Action | Microsoft.OperationsManagement/managementAssociations/delete | Delete existing Management Association. |
+> | Action | Microsoft.OperationsManagement/managementAssociations/read | Get Existing Management Association. |
+> | Action | Microsoft.OperationsManagement/managementAssociations/write | Create a new Management Association. |
+> | Action | Microsoft.OperationsManagement/managementConfigurations/delete | Delete existing Management Configuratin. |
+> | Action | Microsoft.OperationsManagement/managementConfigurations/read | Get Existing Management Configuration. |
+> | Action | Microsoft.OperationsManagement/managementConfigurations/write | Create a new Management Configuration. |
 > | Action | Microsoft.OperationsManagement/register/action | Register a subscription to a resource provider. |
-> | Action | Microsoft.OperationsManagement/solutions/delete | Delete existing Log Analytics solution |
-> | Action | Microsoft.OperationsManagement/solutions/read | Get exiting Log Analytics solution |
-> | Action | Microsoft.OperationsManagement/solutions/write | Create new Log Analytics solution |
+> | Action | Microsoft.OperationsManagement/solutions/delete | Delete existing monitoring solution. |
+> | Action | Microsoft.OperationsManagement/solutions/read | Get exiting monitoring solution. |
+> | Action | Microsoft.OperationsManagement/solutions/write | Create new monitoring solution. |
 
 ## Microsoft.PolicyInsights
 
