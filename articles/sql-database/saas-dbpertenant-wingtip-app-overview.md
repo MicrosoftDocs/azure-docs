@@ -1,16 +1,17 @@
 ---
 title: Azure SQL Database multitenant app example - Wingtip SaaS | Microsoft Docs 
 description: Learn by using a sample multitenant application that uses Azure SQL Database, the Wingtip SaaS example
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Introduction to a multitenant SaaS app that uses the database-per-tenant pattern with SQL Database
 

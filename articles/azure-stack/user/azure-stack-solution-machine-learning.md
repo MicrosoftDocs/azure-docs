@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
@@ -67,7 +67,7 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
  -  [Azure Stack Key Concepts](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
 
- -  [Azure Stack Hybrid CI/CD Solution Guide](/azure-stack-solution-pipeline.md)
+ -  [Azure Stack Hybrid CI/CD Solution Guide](/azure/azure-stack/user/azure-stack-solution-pipeline)
 
 **Azure**
 

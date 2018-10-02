@@ -10,7 +10,7 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/24/2018
 ms.author: glenga
 ---
 
@@ -34,7 +34,6 @@ Unless otherwise noted, the examples in this article are for version 2.x.
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
-
 ### <a name="v1"></a>Version 1.x
 
 The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework (4.7) and is only supported on Windows computers. Before you install the version 1.x tools, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.
@@ -44,6 +43,7 @@ Use the following command to install the version 1.x tools:
 ```bash
 npm install -g azure-functions-core-tools@v1
 ```
+
 ### <a name="v2"></a>Version 2.x
 
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux).
@@ -99,6 +99,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
     | Linux distribution | Version |
     | --------------- | ----------- |
+    | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
@@ -108,7 +109,6 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
-
 
 ### <a name="v1"></a>Version 1.x
 
@@ -218,7 +218,7 @@ Settings in the local.settings.json file are only used by Functions tools when r
 
 When no valid storage connection string is set for **AzureWebJobsStorage** and the emulator isn't being used, the following error message is shown:  
 
->Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
+> Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
 
 ### Get your storage connection strings
 
@@ -480,7 +480,7 @@ The following custom container deployment options are available:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--registry`** | The name of a Docker Registry the the current user signed-in to. |
+| **`--registry`** | The name of a Docker Registry the current user signed-in to. |
 | **`--platform`** | Hosting platform for the function app. Valid options are `kubernetes` |
 | **`--name`** | Function app name. |
 | **`--max`**  | Optionally, sets the maximum number of function app instances to deploy to. |

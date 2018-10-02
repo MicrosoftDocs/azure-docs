@@ -87,11 +87,18 @@ This error occurs if the subscription name is not valid or if the Azure Active D
 
 In order to determine if you have properly authenticated to Azure and have access to the subscription you are trying to select, take the following steps:  
 
-1. Make sure that you run the **Add-AzureAccount** before running the **Select-AzureSubscription** cmdlet.  
-2. If you still see this error message, modify your code by adding the **Get-AzureSubscription** cmdlet following the **Add-AzureAccount** cmdlet and then execute the code. Now verify if the output of Get-AzureSubscription contains your subscription details.  
+1. Make sure that you run the **Add-AzureAccount** cmdlet before running the **Select-AzureSubscription** cmdlet.  
+2. If you still see this error message, modify your code by adding the **-AzureRmContext** parameter following the **Add-AzureAccount** cmdlet and then execute the code.
 
-   * If you don't see any subscription details in the output, this means that the subscription isn’t initialized yet.  
-   * If you do see the subscription details in the output, confirm that you are using the correct subscription name or ID with the **Select-AzureSubscription** cmdlet.
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $context = Get-AzureRmContext
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   ```
 
 ### <a name="auth-failed-mfa"></a>Scenario: Authentication to Azure failed because multi-factor authentication is enabled
 
@@ -145,7 +152,7 @@ The child runbook is not using the correct context when running.
 
 #### Resolution
 
-When working with multiple subscriptions the subscription context might be lost when invoking child runbooks. To ensure that the subscription context is passed to the child runbooks, add the `DefaultProfile` parameter to the cmdlet and pass the context to it.
+When working with multiple subscriptions the subscription context might be lost when invoking child runbooks. To ensure that the subscription context is passed to the child runbooks, add the `AzureRmContext` parameter to the cmdlet and pass the context to it.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -165,7 +172,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRmContext $AzureContext `
     –Parameters $params –wait
 ```
 

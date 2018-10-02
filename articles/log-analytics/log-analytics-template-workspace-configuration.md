@@ -15,7 +15,7 @@ ms.devlang: json
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Manage Log Analytics using Azure Resource Manager templates
@@ -93,7 +93,7 @@ The following parameters set a default value:
 	        "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
 		}
-          },
+          }
     },
     "resources": [
         {

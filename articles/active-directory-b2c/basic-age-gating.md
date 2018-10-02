@@ -16,7 +16,7 @@ ms.component: B2C
 #Using age gating in Azure AD B2C
 
 >[!IMPORTANT]
->This feature is in private preview.  Please see our [service blog](https://blogs.msdn.microsoft.com/azureadb2c/) for details as this becomes available, or contact AADB2CFeedback@microsoft.com.  Do NOT use this on production directories, using these new features can result in data loss and may have unexpected changes in behavior until we go into general availability.  
+>This feature is in private preview.  Please see our [service blog](https://blogs.msdn.microsoft.com/azureadb2c/) for details as this becomes available, or contact AADB2CPreview@microsoft.com.  Do NOT use this on production directories, using these new features can result in data loss and may have unexpected changes in behavior until we go into general availability.  
 >
 
 ##Age gating
@@ -52,13 +52,3 @@ For user flows that allow either sign up, sign in or both, you can choose to all
 For user flows that allow either sign up, sign in or both, you can choose to block minors without consent from application.  There are two options for handling blocked users in Azure AD B2C:
 * Send a JSON back to the application - this option will send a response back to the application that a minor was blocked.
 * Show an error page -  the user will be shown a page informing them that they can't access the application
-
-##Known issues
-###Format for the response when a minor is blocked.
-The response currently is not correctly formed, this bug will be addressed in a coming update.
-
-###Deleting specific attributes that were added during setup can make your directory unable to use age gating.
-In the setup for age gating, you configured your directory through an option in your `Properties`.  If you delete either `legalCountry` or `dateOfBirth` through Graph, your directory can no longer use age gating and these properties can't be recreated.
-
-###List of countries is incomplete
-Currently the list of countries for legalCountry is incomplete, we will add the rest of the countries in a coming update.

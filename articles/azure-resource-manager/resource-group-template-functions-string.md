@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/28/2018
 ms.author: tomfitz
 
 ---
@@ -403,7 +403,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## contains
 `contains (container, itemToFind)`
 
-Checks whether an array contains a value, an object contains a key, or a string contains a substring.
+Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
 
 ### Parameters
 

@@ -36,3 +36,6 @@ The following are known issues with the Health feature of Azure Monitor for VMs:
 - Thresholds for some Windows health criteria like DNS Client Service Health aren’t modifiable, since their healthy state is already locked to the **running**, **available** state of the service or entity depending upon the context.  Instead the value is represented by number 4, it will be converted to the actual display string in a future release.  
 - Thresholds for some Linux health criteria aren’t modifiable such as Logical Disk Health, as they are already set to trigger on unhealthy state.  These indicate whether something is online/offline, or on or off, and are represented and indicate the same by showing the value 1 or 0.
 - Updating the Resource group filter in any resource group while using the at scale Azure monitor -> Virtual Machines -> Health -> Any list view with preselected subscription and resource group, will cause the list view to show **no result**.  Go back to the Azure Monitor -> Virtual Machines -> Health tab and select the desired subscription and resource group, and then navigate to the list view.
+
+## Next steps
+Review [Onboard Azure Monitor for VMs](monitoring-vminsights-onboard.md) to understand requirements and methods to enable monitoring of your virtual machines.

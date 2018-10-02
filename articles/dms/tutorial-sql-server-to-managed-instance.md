@@ -94,7 +94,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
     ![Locate all instances of the Azure Database Migration Service](media\tutorial-sql-server-to-managed-instance\dms-search.png)
 
-2. On the **Azure Database Migration Service screen**, search for the name of the instance that you created, and then select the instance.
+2. On the **Azure Database Migration Service** screen, search for the name of the instance that you created, and then select the instance.
  
 3. Select + **New Migration Project**.
 

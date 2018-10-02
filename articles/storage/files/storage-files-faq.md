@@ -338,7 +338,7 @@ This article answers common questions about Azure Files features and functionali
 ### Manage share snapshots
 * <a id="browse-snapshots-linux"></a>
 **Can I browse my share snapshots from Linux?**  
-    You can use Azure CLI 2.0 to create, list, browse, and restore share snapshots in Linux.
+    You can use Azure CLI to create, list, browse, and restore share snapshots in Linux.
 
 * <a id="copy-snapshots-to-other-storage-account"></a>
 **Can I copy the share snapshots to a different storage account?**  

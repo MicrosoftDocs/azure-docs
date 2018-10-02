@@ -92,17 +92,23 @@ To use Log Analytics to store the logs, follow these steps:
 
 2. Select **Configure** to configure Log Analytics logging. 
 
-   The **OMS Workspaces** page appears.
+   The **Log Analytics workspaces** page appears.
+
+    >[!NOTE] 
+    >OMS workspaces are now referred to as Log Analytics workspaces.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Select **Create New Workspace**.
 
-    The **OMS Workspace** page appears.
+    The **Log Analytics workspace** page appears.
+
+    >[!NOTE] 
+    >OMS workspaces are now referred to as Log Analytics workspaces.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. For **OMS Workspace**, enter an OMS Workspace name. The OMS Workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
+4. For **Log Analytics workspace**, enter a Log Analytics workspace name. The Log Analytics workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
 
 5. For **Subscription**, select an existing subscription from the drop-down list. 
 

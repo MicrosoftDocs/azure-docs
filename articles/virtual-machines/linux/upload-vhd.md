@@ -1,6 +1,6 @@
 ---
-title: Upload or copy a custom Linux VM with Azure CLI 2.0 | Microsoft Docs
-description: Upload or copy a customized virtual machine using the Resource Manager deployment model and the Azure CLI 2.0
+title: Upload or copy a custom Linux VM with Azure CLI | Microsoft Docs
+description: Upload or copy a customized virtual machine using the Resource Manager deployment model and the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -18,7 +18,7 @@ ms.date: 07/06/2017
 ms.author: cynthn
 
 ---
-# Create a Linux VM from custom disk with the Azure CLI 2.0
+# Create a Linux VM from custom disk with the Azure CLI
 
 <!-- rename to create-vm-specialized -->
 
@@ -53,7 +53,7 @@ To complete the following steps, you need:
 > 
 
 
-* Make sure that you have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+* Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *mystorageaccount*, and *mydisks*.
 

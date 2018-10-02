@@ -3,12 +3,16 @@ title: What is the Azure SQL Database service? | Microsoft Docs
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.topic: overview
-ms.date: 09/14/2018
+ms.subservice: 
+ms.custom:
+ms.devlang: 
+ms.topic: conceptual
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer:
+manager: craigg
+ms.date: 09/14/2018
 ---
 # What is the Azure SQL Database service? 
 
@@ -78,7 +82,7 @@ Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-m
 
 - **Azure Storage**: For archiving vast amounts of telemetry for a small price
 - **Azure Event Hub**: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines
-- **Azure Log Analytics**: For built-in monitoring solution with reporting, alerting, and mitigating capabilities. Azure Log Analytics is a feature of the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+- **Azure Log Analytics**: For built-in monitoring solution with reporting, alerting, and mitigating capabilities.
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 

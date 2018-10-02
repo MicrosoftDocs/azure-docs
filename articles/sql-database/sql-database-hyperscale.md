@@ -2,15 +2,16 @@
 title: Azure SQL Database Hyperscale Overview | Microsoft Docs
 description: This topic describes the Hyperscale service tier in the vCore-based purchasing model in Azure SQL Database and explains how it is different from the General Purpose and Business Critical service tiers.
 services: sql-database
-author: CarlRabeler
-ms.reviewer: carlrab
-manager: craigg
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: DBs & servers
+ms.subservice: 
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/23/2018
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer: 
+manager: craigg
+ms.date: 09/23/2018
 ---
 
 # What is the Hyperscale service tier (preview) in Azure SQL Database?
@@ -81,5 +82,6 @@ With the ability to rapidly spin up/down additional read-only compute nodes, the
 ## Next steps
 
 - For information about service tiers, see [Service tiers](sql-database-service-tiers.md)
-- For details regarding resource limits, see [vCore resource limits](sql-database-resource-limits.md)
+- See [Overview of resource limits on a logical server](sql-database-resource-limits-logical-server.md) for information about limits at the server and subscription levels.
+- For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](sql-database-vcore-resource-limits-single-databases.md).
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
