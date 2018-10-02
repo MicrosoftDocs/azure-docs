@@ -32,7 +32,7 @@ You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure
 
 The latest version of the libraries can be found in the **master** branch of the repository:
 
-  ![Screenshot of the master branch of the repository](./media/iot-hub-device-sdk-c-intro/01-MasterBranch.PNG)
+  ![Screenshot of the master branch of the repository](./media/iot-hub-device-sdk-c-intro/RepoMasterBranch.png)
 
 * The core implementation of the SDK is in the **iothub\_client** folder that contains the implementation of the lowest API layer in the SDK: the **IoTHubClient** library. The **IoTHubClient** library contains APIs implementing raw messaging for sending messages to IoT Hub and receiving messages from IoT Hub. When using this library, you are responsible for implementing message serialization, but other details of communicating with IoT Hub are handled for you.
 
@@ -84,7 +84,7 @@ If you're not familiar with the device explorer tool, the following procedure de
 
 2. When you run the program, you see this interface:
 
-  ![Device Explorer Twin screenshot](./media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
+  ![Device Explorer Twin screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
 3. Enter your **IoT Hub Connection String** in the first field and click **Update**. This step configures the tool so that it can communicate with IoT Hub. 
 
@@ -92,17 +92,17 @@ The **Connection String** can be found under **IoT Hub Service** > **Settings** 
 
 4. When the IoT Hub connection string is configured, click the **Management** tab:
 
-  ![Device Explorer Twin / Management screenshot](./media/iot-hub-device-sdk-c-intro/04-ManagementTab.PNG)
+  ![Device Explorer Twin / Management screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 This tab is where you manage the devices registered in your IoT hub.
 
 5. You create a device by clicking the **Create** button. A dialog displays with a set of pre-populated keys (primary and secondary). Enter a **Device ID** and then click **Create**.
 
-  ![Create Device screenshot](./media/iot-hub-device-sdk-c-intro/05-CreateDevice.PNG)
+  ![Create Device screenshot](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
 6. When the device is created, the Devices list updates with all the registered devices, including the one you just created. If you right-click your new device, you see this menu:
 
-  ![Device Explorer Twin right-click result](./media/iot-hub-device-sdk-c-intro/06-RightClickDevice.PNG)
+  ![Device Explorer Twin right-click result](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
 7. If you choose **Copy connection string for selected device**, the device connection string is copied to the clipboard. Keep a copy of the device connection string. You need it when running the sample applications described in the following sections.
 
@@ -118,7 +118,7 @@ Within the **iothub\_client** folder in the [azure-iot-sdk-c](https://github.com
 
 The Windows version of the **iothub\_client\_sample\_mqtt** application includes the following Visual Studio solution:
 
-  ![Visual Studio Solution Explorer](./media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-mqtt.PNG)
+  ![Visual Studio Solution Explorer](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
 > If you open this project in Visual Studio 2017, accept the prompts to retarget the project to the latest version.
@@ -331,7 +331,7 @@ Conceptually the **serializer** library sits on top of the **IoTHubClient** libr
 
 Inside the **serializer** folder in the [azure-iot-sdk-c repository](https://github.com/Azure/azure-iot-sdk-c), is a **samples** folder that contains an application called **simplesample\_mqtt**. The Windows version of this sample includes the following Visual Studio solution:
 
-  ![Visual Studio Solution for sample](./media/iot-hub-device-sdk-c-intro/14-simplesample_mqtt.PNG)
+  ![Visual Studio Solution for mqtt sample](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
 > If you open this project in Visual Studio 2017, accept the prompts to retarget the project to the latest version.
