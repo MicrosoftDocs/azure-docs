@@ -116,7 +116,7 @@ Scaling in is the same as scaling out, except you use a lower **capacity** value
 > [!NOTE]
 > This part only applies to the *Bronze* durability tier. For more information about durability, see [Service Fabric cluster capacity planning][durability].
 
-When you scale in a virtual machine scale set, the scale set (in most cases) removes the virtual machine instance that was last created. So you need to find the matching, last created, Service Fabric node. You can find this last node by checking the biggest `VM scale set ID` property value on the Service Fabric nodes. The code examples below sort by the node instance and return the details about the instance with the largest id value.
+To keep the nodes of the cluster evenly distributed across upgrade and fault domains, and hence enable their even utilization, the most recently created node should be removed first. In other words, the nodes should be removed in the reverse order of their creation. The most recently created node is the one with the greatest `virtual machine scale set InstanceId` property value. The code examples below return the most recently created node.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
