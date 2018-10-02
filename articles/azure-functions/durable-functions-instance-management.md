@@ -56,6 +56,7 @@ module.exports = function (context, input) {
     context.done(null);
 };
 ```
+The code above assumes that in the function.json file you have defined an out binding with name as "starter" and type as "orchestrationClient". If the binding is not defined, then the durable function instance will not be created.
 
 For the durable function to be invoked the  function.json should be modified to have a binding for orchestration client as described below
 
