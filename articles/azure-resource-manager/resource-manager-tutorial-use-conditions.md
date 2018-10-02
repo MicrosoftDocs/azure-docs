@@ -20,7 +20,7 @@ ms.author: jgao
 
 Learn how to deploy Azure resources based on conditions. 
 
-The scenario used in this tutorial is similar to the one used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). In that tutorial, you create a storage account, a virtual machine, a virtual network, and some other dependent resources. Instead of creating a new storage account, you let people to choose between creating a new storage account and using an existing storage account. To accomplish this, you define an additional parameter. If the value of the parameter is "new", a new storage account is created.
+The scenario used in this tutorial is similar to the one used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). In that tutorial, you create a storage account, a virtual machine, a virtual network, and some other dependent resources. Instead of creating a new storage account, you let people choose between creating a new storage account and using an existing storage account. To accomplish this goal, you define an additional parameter. If the value of the parameter is "new", a new storage account is created.
 
 This tutorial covers the following tasks:
 
@@ -53,12 +53,12 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 
 ## Modify the template
 
-You need to make two changes to the existing template:
+Make two changes to the existing template:
 
 * Add a parameter used to provide a storage account name. This parameter gives user the option to specify an existing storage account name. It can be also used as the new storage account name.
 * Add a new parameter called **newOrExisting**. The deployment uses this parameter to determine where to create a new storage account or use an existing storage account.
 
-1. Open **azuredeploy.json** if it is not opened.
+1. Open **azuredeploy.json** in Visual Studio Code.
 2. Replace **variables('storageAccountName')** with **parameters('storageAccountName')** in the whole template.  There are three appearances of **variables('storageAccountName')**.
 3. Remove the following variable definition:
 
@@ -75,7 +75,7 @@ You need to make two changes to the existing template:
       "type": "string"
     },
     ```
-    After you are done, the updated parameters definition looks like:
+    The updated parameters definition looks like:
 
     ![Resource Manager use condition](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
 
@@ -87,7 +87,7 @@ You need to make two changes to the existing template:
 
     The condition checks the value of a parameter called **newOrExisting**. If the parameter value is **new**, the deployment creates the storage account.
 
-    After you are done, the updated storage account definition looks like:
+    The updated storage account definition looks like:
 
     ![Resource Manager use condition](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 
@@ -130,7 +130,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn how to retrieve secrets from Azure Key Vault, and use the secrets in the template deployment, see:
+In this tutorial, you develop a template that allows users to choose between creating a new storage account and using an existing storage account. The virtual machine created in this tutorial requires an administrator username and password. Instead of passing the password during the deployment, you can pre-store the password using Azure Key Vault, and retrieve the password during the deployment. To learn how to retrieve secrets from Azure Key Vault, and use the secrets in the template deployment, see:
 
 > [!div class="nextstepaction"]
 > [Integrate Key Vault in template deployment](./resource-manager-tutorial-use-key-vault.md)
