@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Custom monitor your Azure Digital Twins setup
 
-Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This is the second tutorial in a series that demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned your sample building using the steps It shows how you can run custom computations on your sensor data 
+Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This is the second tutorial in a series that demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned your sample building using the steps in the previous tutorial, you can create and run custom computations on your sensor data using this tutorial.
 
 In this tutorial, you learn how to:
 

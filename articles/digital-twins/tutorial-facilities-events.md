@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Receive notifications from your Azure Digital Twins setup
 
-Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This series of tutorials demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. This series shows you how to deploy Digital Twins using the portal[https://portal.azure.com], create a provisioning application using Digital Twins REST APIs in a .Net application, monitor the telemetry coming from your devices and rooms, and create customized analyses on the telemetry data. This will walk you through a scenario where you have a sample building, with the hierarchy of floors, rooms and devices with sensors in these rooms. The steps in these tutorials show you how to monitor the transient state of the rooms in the sample building, like occupancy and temperature, and receive alerts for abnormal conditions. You will use a sample application, and can choose to customize it for better understanding. 
+Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This series of tutorials demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. This series shows you how to deploy Digital Twins using the portal[https://portal.azure.com], create a provisioning application using Digital Twins REST APIs in a .Net application, monitor the telemetry coming from your devices and rooms, and create customized analyses on the telemetry data. These tutorials will walk you through a scenario where you have a sample building, with the hierarchy of floors, rooms and devices with sensors in these rooms. The steps in these tutorials show you how to monitor the transient state of the rooms in the sample building, like occupancy and temperature, and receive alerts for abnormal conditions. You will use a sample application, and can choose to customize it for better understanding. 
 
 In this tutorial, you learn how to:
 
@@ -34,7 +34,7 @@ If you don’t have an Azure, create a [free account](https://azure.microsoft.co
 This section shows you how to create notifications for the simulated telemetry data using [Event Grid](https://docs.microsoft.com/azure/event-grid/overview). 
 
 1. Create an *Event Grid Topic*:
-    1. Log in to the [portal](https://portal.azure.com).
+    1. Sign in to the [portal](https://portal.azure.com).
     1. On the left on the portal, click on the **Resource groups** and then select the group you created for your Digital Twins instance. 
     1. Click **Add** and search for *Event grid* in the search box. Select **Event Grid Topic**. 
     1. Enter a name for the Event Grid topic, and select your subscription, the resource group and the location that you used for the Digital Twins. Click **Create**.
