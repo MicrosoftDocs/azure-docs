@@ -107,7 +107,7 @@ kind: Ingress
 metadata:
   name: party-clippy
   annotations:
-    kubernetes.io/ingress.class: addon-http-application-routing
+    kubernetes.io/ingress.class: addon-http-application-routing-nginx-ingress
 spec:
   rules:
   - host: party-clippy.<CLUSTER_SPECIFIC_DNS_ZONE>
