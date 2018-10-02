@@ -21,7 +21,7 @@ ms.workload: web
 
 This tutorial provides quick steps on creating and generated parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure.  The Pivotal Cloud Foundry solution can be found by performing a search on Azure [MarketPlace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
-![Alt image text](media/deploy/pcf-marketplace1.png "Search Pivotal Cloud Foundry in Azure")
+![Alt image text](media/deploy/pcf-marketplace.png "Search Pivotal Cloud Foundry in Azure")
 
 
 ## Generate an SSH public key
@@ -73,7 +73,7 @@ ssh-keygen -t rsa -b 2048
 
     `az role assignment create --assignee {service-princ-name} --role “Contributor” `
 
-    ![Alt image text](media/deploy/svc-princ3.png "Service Principal role assignment")
+    ![Alt image text](media/deploy/svc-princ.png "Service Principal role assignment")
 
 6. Verify that you can successfully log into your Service Principal using the appId, password & tenantId.
 
@@ -97,6 +97,7 @@ ssh-keygen -t rsa -b 2048
 3. Scroll to the bottom of the page and copy the **LEGACY API TOKEN** value.  This is your **Pivotal Network Token** value that will be used later.
 
 ## Provision your Cloud Foundry on Azure
+
 1. Now you have all the parameters needed to provision your [Pivotal Cloud Foundry on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry) cluster.
 2. Enter the parameters and create your PCF cluster.
 
@@ -121,5 +122,5 @@ ssh-keygen -t rsa -b 2048
 
 5. Your PCF Ops Manager should display the deployed Azure instances. Now you can start deploying and managing your applications here!
                
-    ![Alt image text](media/deploy/Ops-Mgr7.png "Deployed Azure imstance in Pivotal")
+    ![Alt image text](media/deploy/ops-mgr.png "Deployed Azure imstance in Pivotal")
  
