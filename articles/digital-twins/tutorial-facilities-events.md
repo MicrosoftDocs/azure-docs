@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Receive notifications from your Azure Digital Twins setup
 
-Azure Digital Twins service allows you to bring together people, places and things in a coherant spatial system. This series of tutorials demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. This series shows you how to deploy Digital Twins using the portal[https://portal.azure.com], create a provisioning application using Digital Twins REST APIs in a .Net application, monitor the telemetry coming from your devices and rooms, and create customized analyses on the telemetry data. This will walk you through a scenario where you have a sample building, with the hierarchy of floors, rooms and devices with sensors in these rooms. The steps in these tutorials show you how to monitor the transient state of the rooms in the sample building, like occupancy and temperature, and receive alerts for abnormal conditions. You will use a sample application, and can choose to customize it for better understanding. 
+Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This series of tutorials demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. This series shows you how to deploy Digital Twins using the portal[https://portal.azure.com], create a provisioning application using Digital Twins REST APIs in a .Net application, monitor the telemetry coming from your devices and rooms, and create customized analyses on the telemetry data. This will walk you through a scenario where you have a sample building, with the hierarchy of floors, rooms and devices with sensors in these rooms. The steps in these tutorials show you how to monitor the transient state of the rooms in the sample building, like occupancy and temperature, and receive alerts for abnormal conditions. You will use a sample application, and can choose to customize it for better understanding. 
 
 In this tutorial, you learn how to:
 
@@ -51,7 +51,7 @@ If you wish to stop exploring Azure Digital Twins beyond this point, feel free t
 
 ## Next steps
 
-Proceed to the learn more about the spatial intelligence graph and object model in Azure Digital Twins. 
+Proceed to the next article to learn more about the spatial intelligence graph and object model in Azure Digital Twins. 
 > [!div class="nextstepaction"]
 > [Next steps button](concepts-objectmodel-spatialgraph.md)
 

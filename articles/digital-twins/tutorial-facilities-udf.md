@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Custom monitor your Azure Digital Twins setup
 
-Azure Digital Twins service allows you to bring together people, places and things in a coherant spatial system. This is the second tutorial in a series that demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned your sample building using the steps It shows how you can run custom computations on your sensor data 
+Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This is the second tutorial in a series that demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned your sample building using the steps It shows how you can run custom computations on your sensor data 
 
 In this tutorial, you learn how to:
 
@@ -37,7 +37,7 @@ In this section, we will use the Digital Twins sample downloaded in the [previou
 
 ## Simulate sensor data
 <!--TBD This should be in a proper app in Azure Samples -->
-This section shows you how to simulate sensor data for detecting motion, temperature and carbon dioxide. It uses a sample .Net application that generates this data and sends it to your Digital Twins instance. It uses your work machine's MAC id to simulate as a unique device. 
+This section shows you how to simulate sensor data for detecting motion, temperature and carbon dioxide. It uses a sample .Net application that generates this data and sends it to your Digital Twins instance. It uses your work machine's MAC ID to simulate as a unique device. 
 
 1. Download the Azure-IoT-SSS-Samples-DeviceConnectivity sample <!--download link here-->
 2. Generate SAS token for your simulated device. Using a REST client such as Postman, POST a REST call for `https://{{endpoint-management}}/api/v1.0/keystores` to the Digital Twins service with the following payload:
