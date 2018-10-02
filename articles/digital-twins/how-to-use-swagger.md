@@ -34,8 +34,10 @@ Swagger is therefore a convenient tool to assist with development and testing ca
 Your generated Management API Swagger documentation can be accessed publicly at:
 
 ```plaintext
-https://{{your-instance-name}}.{{your-instance-location}}.azuresmartspaces.net/management/swagger
+https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger/ui/index
 ```
+
+`yourInstanceName` and `yourLocation` should be replaced with the name of your Digital Twins instance and the location of the servers it's hosted on, respectively.
 
 ## Reference material
 
