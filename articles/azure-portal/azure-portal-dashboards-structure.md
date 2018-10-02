@@ -3,7 +3,7 @@ title: The structure of Azure Dashboards | Microsoft Docs
 description: This article explains the JSON structure of an Azure Dashboard
 services: azure-portal
 documentationcenter: ''
-author: adamab
+author: adamabmsft
 manager: dougeby
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
+ms.author: cwatson
 
 ---
 # The structure of Azure Dashboards

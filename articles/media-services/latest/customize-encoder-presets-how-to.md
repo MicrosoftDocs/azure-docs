@@ -1,6 +1,6 @@
 ---
-title: Encode custom transform using Azure Media Services | Microsoft Docs
-description: This topic shows how to use Azure Media Services to encode a custom transform.
+title: Encode custom transform using Azure Media Services v3 | Microsoft Docs
+description: This topic shows how to use Azure Media Services v3 to encode a custom transform.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -20,7 +20,7 @@ ms.author: juliako
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets based on industry best practices as demonstrated in the [Streaming files](stream-files-tutorial-with-api.md) tutorial, or you can choose to build a custom preset to target your specific scenario or device requirements. 
 
 > [!Note]
->  All of the bitrates are in bits per second.  
+> In Azure Media Services v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, but in v3 it would be 128000.
 
 ## Download the sample
 

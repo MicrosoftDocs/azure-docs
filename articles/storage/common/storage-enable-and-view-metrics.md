@@ -2,20 +2,13 @@
 title: Enabling storage metrics in the Azure portal | Microsoft Docs
 description: How to enable storage metrics for the Blob, Queue, Table, and File services
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-
-ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
-
+ms.component: common
 ---
 # Enabling Azure Storage metrics and viewing metrics data
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -112,8 +105,8 @@ See [Azure Storage Client Tools](storage-explorers.md) for a list of available t
 
 > [!NOTE]
 > Starting with version 0.8.0 of the [Microsoft Azure Storage Explorer](http://storageexplorer.com/), you can view and download the analytics metrics tables.
-> 
-> 
+>
+>
 
 In order to access the analytics tables programmatically, do note that the analytics tables do not appear if you list all the tables in your storage account. You can either access them directly by name, or use the [CloudAnalyticsClient API](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) in the .NET client library to query the table names.
 
@@ -145,6 +138,8 @@ In this example minute metrics data, the partition key uses the time at minute r
 * The request type is either all in which case it is a summary line, or it identifies the specific API such as QueryEntity or UpdateEntity.
 
 The sample data above shows all the records for a single minute (starting at 11:00AM), so the number of QueryEntities requests plus the number of QueryEntity requests plus the number of UpdateEntity requests add up to seven, which is the total shown on the user:All row. Similarly, you can derive the average end-to-end latency 104.4286 on the user:All row by calculating ((143.8 * 5) + 3 + 9)/7.
+
+Please note that **Blob hourly metric settings** are applied to both **Blob capacity metric** ($MetricsCapacityBlob) and **hourly Blob transaction metrics** ($MetricsHourPrimaryTransactionsBlob). Both are enabled or disabled together and use same retention policy.
 
 ## Metrics alerts
 You should consider setting up alerts in the [Azure portal](https://portal.azure.com) so Storage Metrics can automatically notify you of important changes in the behavior of your storage services. If you use a storage explorer tool to download this metrics data in a delimited format, you can use Microsoft Excel to analyze the data. See [Azure Storage Client Tools](storage-explorers.md) for a list of available storage explorer tools. You can configure alerts in the **Alert rules** pane, accessible under **Monitoring** in the Storage account menu pane.

@@ -4,7 +4,7 @@ description: Azure CDN query string caching controls how files are cached when a
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
@@ -13,15 +13,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
+ms.date: 06/11/2018
+ms.author: v-deasim
 
 ---
 # Control Azure CDN caching behavior with query strings - premium tier
 > [!div class="op_single_selector"]
 > * [Standard tier](cdn-query-string.md)
 > * [Premium tier](cdn-query-string-premium.md)
-> 
 > 
 
 ## Overview
@@ -60,6 +59,6 @@ Three query string modes are available:
 3. Select a query string mode, then click **Update**.
 
 > [!IMPORTANT]
-> Because it takes time for the registration to propagate through the CDN, cache string settings changes might not be immediately visible. For **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes.
+> Because it takes time for the registration to propagate through the CDN, cache string settings changes might not be immediately visible. Propagation usually completes in 10 minutes.
  
 

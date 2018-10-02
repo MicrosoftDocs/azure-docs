@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/29/2018
 ms.author: juliako
 ---
 
@@ -27,7 +27,7 @@ Not yet. You can use one of the supported SDKs. See tutorials and samples in thi
 
 The Media Services team is eliminating RUs in v3. However the necessary service work is not complete. Until then, customers have to use the Azure portal or AMS v2 APIs to set RUs (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
 
-S3 RUs are necessary for the **VideoAnalyzerPreset** and **AudioAnalyzerPreset** V3 presets.
+When using **VideoAnalyzerPreset** and/or **AudioAnalyzerPreset**, set your Media Services account to 10 S3 Media Reserved Units.
 
 ## Does V3 Asset have no AssetFile concept?
 
@@ -35,7 +35,7 @@ The AssetFiles were removed from the AMS API in order to separate Media Services
 
 ## Where did client-side storage encryption go?
 
-We now recommend server-side storage encryption (which is on by default).
+We now recommend server-side storage encryption (which is on by default).For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 ## What is the recommended upload method?
 
@@ -48,6 +48,8 @@ Media Services supports $top for resources that support OData but the value pass
 This allows you to either get a small sample of items using $top (for example, the 100 most recent items) or to page though all items using pagination. 
 
 Media Services does not support paging through the data with a user specified page size.
+
+For more information, see [Filtering, ordering, paging](assets-concept.md#filtering-ordering-paging)
 
 ## How to retrieve an entity in Media Services v3?
 

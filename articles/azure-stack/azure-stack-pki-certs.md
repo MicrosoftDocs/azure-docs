@@ -3,7 +3,7 @@ title: Azure Stack Public Key Infrastructure certificate requirements for Azure 
 description: Describes the Azure Stack PKI certificate deployment requirements for Azure Stack integrated systems.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
-ms.author: jeffgilb
+ms.date: 09/28/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
 
 ---
@@ -27,7 +27,7 @@ Azure Stack has a public infrastructure network using externally accessible publ
 - The process of obtaining certificates matching those specifications
 - How to prepare, validate, and use those certificates during deployment
 
-> [!NOTE]
+> [!Note]  
 > During deployment you must copy certificates to the deployment folder that matches the identity provider you are deploying against (Azure AD or AD FS). If you use a single certificate for all endpoints, you must copy that certificate file into each deployment folder as outlined in the tables below. The folder structure is pre-built in the deployment virtual machine and can be found at: C:\CloudDeployment\Setup\Certificates. 
 
 ## Certificate requirements
@@ -36,20 +36,20 @@ The following list describes the certificate requirements that are needed to dep
 - Your Azure Stack infrastructure must have network access to the certificate authority's Certificate Revocation List (CRL) location published in the certificate. This CRL must be an http endpoint
 - When rotating certificates, certificates must be either issued from the same internal certificate authority used to sign certificates provided at deployment or any public certificate authority from above
 - The use of self-signed certificates are not supported
-- The certificate can be a single wild card certificate covering all name spaces in the Subject Alternative Name (SAN) field. Alternatively, you can use individual certificates using wild cards for endpoints such as **acs** and Key Vault where they are required. 
-- The certificate signature algorithm cannot be SHA1, as it must be stronger. 
+- For deployment and rotation you can either use a single certificate covering all name spaces in the certificate's Subject Name and Subject Alternative Name (SAN) fields OR you can use individual certificates for each of the namespaces below that the Azure Stack services you plan to utilize require. Both approaches require using wild cards for endpoints where they are required, such as **KeyVault** and **KeyVaultInternal**. 
+- The certificate signature algorithm must be 3DES. The algorithm cannot be SHA1, as it must be stronger. 
 - The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. 
 - The certificate pfx files must have a value "Digital Signature" and "KeyEncipherment" in its “Key Usage" field.
 - The certificate pfx files must have the values “Server Authentication (1.3.6.1.5.5.7.3.1)” and “Client Authentication (1.3.6.1.5.5.7.3.2)” in the "Enhanced Key Usage" field.
 - The certificate's "Issued to:" field must not be the same as its "Issued by:" field.
 - The passwords to all certificate pfx files must be the same at the time of deployment
 - Password to the certificate pfx has to be a complex password.
-- Ensure that the Subject Names and Subject Alternative Names of all certificates match the specifications described in this article to avoid failed deployments.
+- Ensure that the subject names and subject alternative names in the subject alternative name extension (x509v3_config) match. The subject alternative name field lets you specify additional host names (websites, IP addresses, common names) to be protected by a single SSL Certificate.
 
-> [!NOTE]
+> [!NOTE]  
 > Self Signed certificates are not supported.
 
-> [!NOTE]
+> [!NOTE]  
 > The presence of Intermediary Certificate Authorities in a certificate's chain-of-trusts IS supported. 
 
 ## Mandatory certificates
@@ -73,20 +73,8 @@ For your deployment, the [region] and [externalfqdn] values must match the regio
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) |  Internal Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
-
-### For Azure Stack environment on Pre-1803 versions
-
-|Deployment folder|Required certificate subject and subject alternative names (SAN)|Scope (per region)|SubDomain namespace|
-|-----|-----|-----|-----|
-|Public Portal|portal.*&lt;region>.&lt;fqdn>*|Portals|*&lt;region>.&lt;fqdn>*|
-|Admin Portal|adminportal.*&lt;region>.&lt;fqdn>*|Portals|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager Public|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager Admin|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|One multi-subdomain wildcard certificate with Subject Alternative names for:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Wildcard SSL Certificate)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Wildcard SSL Certificate)|Internal Keyvault|adminvault.*&lt;region>.&lt;fqdn>*|
-|
-<sup>1</sup> The ACS certificate requires three wildcard SANs on a single certificate. Multiple wildcard SANs on a single certificate might not be supported by all Public Certificate Authorities. 
+| Admin Extension Host | *.adminhosting.\<region>.\<fqdn> (Wildcard SSL Certificates) | Admin Extension Host | adminhosting.\<region>.\<fqdn> |
+| Public Extension Host | *.hosting.\<region>.\<fqdn> (Wildcard SSL Certificates) | Public Extension Host | hosting.\<region>.\<fqdn> |
 
 If you deploy Azure Stack using the Azure AD deployment mode, you only need to request the certificates listed in previous table. However, if you deploy Azure Stack using the AD FS deployment mode, you must also request the certificates described in the following table:
 

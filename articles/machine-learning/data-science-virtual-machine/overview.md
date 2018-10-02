@@ -47,7 +47,7 @@ Data science hackathons/competitions or large-scale data modeling and exploratio
 The Data Science VM can be used to evaluate or learn tools such as Microsoft ML Server, SQL Server, Visual Studio tools, Jupyter, deep learning / ML toolkits, and new tools popular in the community with minimal setup effort. Since the Data Science VM can be set up quickly, it can be applied in other short-term usage scenarios such as replicating published experiments, executing demos, following walkthroughs in online sessions or conference tutorials.
 
 ### Deep learning
-The data science VM can be used for training model using deep learning algorithms on GPU (Graphics processing units) based hardware. Utilizing VM scaling capabilites of Azure cloud, DSVM helps you use GPU-based hardware on the cloud as per need. One can switch to a GPU-based VM when training large models or need high-speed computations while keeping the same OS disk.  The Windows Server 2016 edition of DSVM comes pre-installed with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux, deep learning on GPU is enabled on both the CentOS and Ubuntu DSVMs. You can deploy the Ubuntu, CentOS, or Windows 2016 edition of Data Science VM to non GPU-based Azure virtual machine in which case all the deep learning frameworks will fallback to the CPU mode. 
+The data science VM can be used for training model using deep learning algorithms on GPU (Graphics processing units) based hardware. Utilizing VM scaling capabilities of Azure cloud, DSVM helps you use GPU-based hardware on the cloud as per need. One can switch to a GPU-based VM when training large models or need high-speed computations while keeping the same OS disk.  The Windows Server 2016 edition of DSVM comes pre-installed with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux, deep learning on GPU is enabled on both the CentOS and Ubuntu DSVMs. You can deploy the Ubuntu, CentOS, or Windows 2016 edition of Data Science VM to non GPU-based Azure virtual machine in which case all the deep learning frameworks will fallback to the CPU mode. 
 
 ## What's included in the Data Science VM?
 The Data Science Virtual Machine has many popular data science and deep learning tools already installed and configured. It also includes tools that make it easy to work with various Azure data and analytics products. You can explore and build predictive models on large-scale data sets using the Microsoft ML Server (R, Python) or using SQL Server 2017. A host of other tools from the open source community and from Microsoft are also included, as well as sample code and notebooks. The following table itemizes and compares the main components included in the Windows and Linux editions of the Data Science Virtual Machine.
@@ -102,7 +102,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](https://togaware.com/rattle/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (Ubuntu only) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/), [Deep Water](https://www.h2o.ai/deep-water/) | N | Y (Ubuntu only) |
 | **Deep Learning Tools** <br>All tools will work on a GPU or CPU |  |  |
@@ -134,3 +134,5 @@ The Data Science Virtual Machine has many popular data science and deep learning
 * For more information on how to create an Ubuntu DSVM and use it, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](dsvm-ubuntu-intro.md). For more information on how to create a CentOS DSVM and use it, see [Provision a Linux CentOS Data Science Virtual Machine on Azure](linux-dsvm-intro.md).
 * For a walkthrough that shows you how to perform several common data science tasks with the Linux VM, both CentOS and Ubuntu, see [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md).
 
+## Next steps
+[R developer's guide to Azure](../r-developers-guide.md)

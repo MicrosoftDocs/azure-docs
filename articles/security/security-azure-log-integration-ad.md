@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/25/2018
+ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
 
@@ -21,6 +21,10 @@ ms.custom: azlog
 # Integrate Azure Active Directory audit logs
 
 Azure Active Directory (Azure AD) audit events help you identify privileged actions that occurred in Azure Active Directory. You can see the types of events that you can track by reviewing [Azure Active Directory audit report events](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
+
+
+>[!IMPORTANT]
+> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads will be disabled by Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## Steps to integrate Azure Active Directory audit logs
 

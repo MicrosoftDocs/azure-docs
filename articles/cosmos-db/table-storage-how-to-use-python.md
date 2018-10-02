@@ -5,10 +5,10 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: python
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
 
@@ -36,7 +36,7 @@ You need the following to complete this sample successfully:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5, or 3.6
 - [Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
-- [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) or [Azure Cosmos DB account](https://azure.microsoft.com/try/cosmosdb/)
+- [Azure Storage account](../storage/common/storage-quickstart-create-account.md) or [Azure Cosmos DB account](https://azure.microsoft.com/try/cosmosdb/)
 
 ## Create an Azure service account
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]

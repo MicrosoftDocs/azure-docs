@@ -1,17 +1,16 @@
----
-title: 'Requesting access tokens - Azure AD B2C | Microsoft Docs'
+﻿---
+title: Requesting access tokens in Azure Active Directory B2C | Microsoft Docs
 description: This article will show you how to setup a client application and acquire an access token.
 services: active-directory-b2c
-documentationcenter: android
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
+ms.component: B2C
 
 ---
 # Azure AD B2C: Requesting access tokens
@@ -76,7 +75,7 @@ When requesting an access token, the client application needs to specify the des
 > Currently, custom domains are not supported along with access tokens. You must use your tenantName.onmicrosoft.com domain in the request URL.
 
 ```
-https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 To acquire multiple permissions in the same request, you can add multiple entries in the single **scope** parameter, separated by spaces. For example:

@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
-ms.author: mobandyo
+ms.author: erikre
 
 ---
 # Cloud Cruiser and Microsoft Azure Billing API Integration

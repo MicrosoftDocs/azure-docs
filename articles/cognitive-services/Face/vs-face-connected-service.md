@@ -1,13 +1,14 @@
 ---
-title: Face API C# tutorial | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Tutorial: Face API C#"
+titleSuffix: Azure Cognitive Services
 description: Create a simple Windows app that uses the Cognitive Services Face API to detect features of faces in an image.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
 ---
@@ -22,7 +23,7 @@ This article and its companion articles provide details for using the Visual Stu
 - **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
-[!INCLUDE [vs-install-cognitive-services-vsix](./includes/vs-install-cognitive-services-vsix.md)]
+[!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## Create a project and add support for Cognitive Services Face API
 
@@ -239,4 +240,4 @@ When no longer needed, delete the resource group. This deletes the cognitive ser
 
 ## Next steps
 
-Learn more about the Face API by reading the [Face API Documentation](index.md).
+Learn more about the Face API by reading the [Face API Documentation](Overview.md).

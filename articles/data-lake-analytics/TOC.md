@@ -8,7 +8,7 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI](data-lake-analytics-get-started-cli2.md)
+## [Azure CLI](data-lake-analytics-get-started-cli.md)
 
 # How to
 
@@ -22,7 +22,9 @@
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
 #### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Add users](data-lake-analytics-add-users.md)
 ### [Policies](data-lake-analytics-policies.md)
+### [Secure job folders](data-lake-analytics-secure.md)
 ### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
 ### [Adjust quota limits](data-lake-analytics-quota-limits.md)
 
@@ -38,12 +40,11 @@
 #### [Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 #### [Programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
 
-### U-SQL SDK
-#### [Local run & debug](data-lake-analytics-data-lake-tools-local-run.md)
-#### [Run & test](data-lake-analytics-u-sql-sdk.md) 
-
 ### Visual Studio
 #### [Install](data-lake-analytics-data-lake-tools-install.md)
+#### [Local run](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Local debug](data-lake-analytics-data-lake-tools-local-debug.md)
+#### [Develop U-SQL databases](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 #### [Browse and view jobs](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Debug custom C# code](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Troubleshoot recurring jobs](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
@@ -57,6 +58,14 @@
 #### [Authoring](data-lake-analytics-data-lake-tools-for-vscode.md)
 #### [Custom code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Local run & debug](data-lake-tools-for-vscode-local-run-and-debug.md)
+
+## Schedule U-SQL jobs
+### [Schedule jobs using SSIS](data-lake-analytics-schedule-jobs-ssis.md)
+
+## Continuous integration and continuous deployment
+### [Overview](data-lake-analytics-cicd-overview.md)
+### [Set up tests](data-lake-analytics-cicd-test.md)
+### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)

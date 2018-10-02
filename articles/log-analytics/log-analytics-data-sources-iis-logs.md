@@ -4,19 +4,20 @@ description: Internet Information Services (IIS) stores user activity in log fil
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/07/2018
+ms.date: 06/12/2018
 ms.author: bwren
-
+ms.comopnent: 
 ---
+
 # IIS logs in Log Analytics
 Internet Information Services (IIS) stores user activity in log files that can be collected by Log Analytics.  
 
@@ -30,10 +31,10 @@ Log Analytics does not collect logs in NCSA or IIS native format.
 
 Configure IIS logs in Log Analytics from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).  There is no configuration required other than selecting **Collect W3C format IIS log files**.
 
-We recommend that when you enable IIS log collection, you should configure the IIS log rollover setting on each server.
 
 ## Data collection
-Log Analytics collects IIS log entries from each connected source approximately every 15 minutes.  The agent records its place in each event log that it collects from.  If the agent goes offline, then Log Analytics collects events from where it last left off, even if those events were created while the agent was offline.
+Log Analytics collects IIS log entries from each agent each time the log is closed and a new one is created. This frequency is controlled by the **Log File Rollover Schedule** setting for the IIS site which is once a day by default. For example, if the settings is **Hourly**, then Log Analytics will collect the log each hour.  If the setting is **Daily**, then Log Analytics will collect the log every 24 hours.
+
 
 ## IIS log record properties
 IIS log records have a type of **W3CIISLog** and have the properties in the following table:

@@ -1,19 +1,13 @@
 ---
-title: Table design patterns | Microsoft Docs
-description: Use patterns for table service solutions.
+title: Azure storage table design patterns | Microsoft Docs
+description: Use patterns for Azure table service solutions.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
+ms.component: tables
 ---
 # Table design patterns
 This article describes some patterns appropriate for use with Table service solutions. Also, you will see how you can practically address some of the issues and trade-offs discussed in other Table storage design articles. The following diagram summarizes the relationships between the different patterns:  
@@ -21,31 +15,31 @@ This article describes some patterns appropriate for use with Table service solu
 ![to look up related data](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
 
 
-The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of course many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](https://msdn.microsoft.com/library/azure/dn589782.aspx) from the [Command Query Responsibility Segregation (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) pattern.  
+The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](https://msdn.microsoft.com/library/azure/dn589782.aspx) from the [Command Query Responsibility Segregation (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) pattern.  
 
 ## Intra-partition secondary index pattern
 Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values. Updates between copies can be kept consistent using EGT's.  
 
 ### Context and problem
-The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using these values. For example, using the table structure shown below, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee id (the **PartitionKey** and **RowKey** values). A client can also retrieve entities sorted by employee id within each department.
+The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using these values. For example, using the table structure shown below, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the **PartitionKey** and **RowKey** values). A client can also retrieve entities sorted by employee ID within each department.
 
 ![Image06](media/storage-table-design-guide/storage-table-design-IMAGE06.png)
 
 If you also want to be able to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because the table service does not provide secondary indexes. In addition, there is no option to request a list of employees sorted in a different order than **RowKey** order.  
 
 ### Solution
-To work around the lack of secondary indexes, you can store multiple copies of each entity with each copy using a different **RowKey** value. If you store an entity with the structures shown below, you can efficiently retrieve employee entities based on email address or employee id. The prefix values for the **RowKey**, "empid_" and "email_" enable you to query for a single employee or a range of employees by using a range of email addresses or employee ids.  
+To work around the lack of secondary indexes, you can store multiple copies of each entity with each copy using a different **RowKey** value. If you store an entity with the structures shown below, you can efficiently retrieve employee entities based on email address or employee ID. The prefix values for the **RowKey**, "empid_" and "email_" enable you to query for a single employee or a range of employees by using a range of email addresses or employee ids.  
 
 ![Employee entities](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
-The following two filter criteria (one looking up by employee id and one looking up by email address) both specify point queries:  
+The following two filter criteria (one looking up by employee ID and one looking up by email address) both specify point queries:  
 
 * $filter=(PartitionKey eq 'Sales') and (RowKey eq 'empid_000223')  
 * $filter=(PartitionKey eq 'Sales') and (RowKey eq 'email_jonesj@contoso.com')  
 
-If you query for a range of employee entities, you can specify a range sorted in employee id order, or a range sorted in email address order by querying for entities with the appropriate prefix in the **RowKey**.  
+If you query for a range of employee entities, you can specify a range sorted in employee ID order, or a range sorted in email address order by querying for entities with the appropriate prefix in the **RowKey**.  
 
-* To find all the employees in the Sales department with an employee id in the range 000100 to 000199 use:
+* To find all the employees in the Sales department with an employee ID in the range 000100 to 000199 use:
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * To find all the employees in the Sales department with an email address starting with the letter 'a' use:
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
@@ -59,7 +53,7 @@ Consider the following points when deciding how to implement this pattern:
 * Because the secondary index entities are stored in the same partition as the original entities, you should ensure that you do not exceed the scalability targets for an individual partition.  
 * You can keep your duplicate entities consistent with each other by using EGTs to update the two copies of the entity atomically. This implies that you should store all copies of an entity in the same partition. For more information, see the section [Using Entity Group Transactions](table-storage-design.md#entity-group-transactions).  
 * The value used for the **RowKey** must be unique for each entity. Consider using compound key values.  
-* Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
+* Padding numeric values in the **RowKey** (for example, the employee ID 000223), enables correct sorting and filtering based on upper and lower bounds.  
 * You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that lookup the entities using the email address in the **RowKey** never need the employee's age, these entities could have the following structure:
 
    ![Employee entity structure](media/storage-table-design-guide/storage-table-design-IMAGE08.png)
@@ -91,19 +85,19 @@ If you also want to be able to find an employee entity based on the value of ano
 You are anticipating a very high volume of transactions against these entities and want to minimize the risk of the Table service throttling your client.  
 
 ### Solution
-To work around the lack of secondary indexes, you can store multiple copies of each entity with each copy using different **PartitionKey** and **RowKey** values. If you store an entity with the structures shown below, you can efficiently retrieve employee entities based on email address or employee id. The prefix values for the **PartitionKey**, "empid_" and "email_" enable you to identify which index you want to use for a query.  
+To work around the lack of secondary indexes, you can store multiple copies of each entity with each copy using different **PartitionKey** and **RowKey** values. If you store an entity with the structures shown below, you can efficiently retrieve employee entities based on email address or employee ID. The prefix values for the **PartitionKey**, "empid_" and "email_" enable you to identify which index you want to use for a query.  
 
 ![Primary index and secondary index](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
 
 
-The following two filter criteria (one looking up by employee id and one looking up by email address) both specify point queries:  
+The following two filter criteria (one looking up by employee ID and one looking up by email address) both specify point queries:  
 
 * $filter=(PartitionKey eq 'empid_Sales') and (RowKey eq '000223')
 * $filter=(PartitionKey eq 'email_Sales') and (RowKey eq 'jonesj@contoso.com')  
 
-If you query for a range of employee entities, you can specify a range sorted in employee id order, or a range sorted in email address order by querying for entities with the appropriate prefix in the **RowKey**.  
+If you query for a range of employee entities, you can specify a range sorted in employee ID order, or a range sorted in email address order by querying for entities with the appropriate prefix in the **RowKey**.  
 
-* To find all the employees in the Sales department with an employee id in the range **000100** to **000199** sorted in employee id order use:
+* To find all the employees in the Sales department with an employee ID in the range **000100** to **000199** sorted in employee ID order use:
   $filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
 * To find all the employees in the Sales department with an email address that starts with 'a' sorted in email address order use:
   $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
@@ -116,7 +110,7 @@ Consider the following points when deciding how to implement this pattern:
 * You can keep your duplicate entities eventually consistent with each other by using the [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern) to maintain the primary and secondary index entities.  
 * Table storage is relatively cheap to use so the cost overhead of storing duplicate data should not be a major concern. However, you should always evaluate the cost of your design based on your anticipated storage requirements and only add duplicate entities to support the queries your client application will execute.  
 * The value used for the **RowKey** must be unique for each entity. Consider using compound key values.  
-* Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
+* Padding numeric values in the **RowKey** (for example, the employee ID 000223), enables correct sorting and filtering based on upper and lower bounds.  
 * You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that lookup the entities using the email address in the **RowKey** never need the employee's age, these entities could have the following structure:
   
    ![Employee entity (secondary index)](media/storage-table-design-guide/storage-table-design-IMAGE11.png)
@@ -141,7 +135,7 @@ Enable eventually consistent behavior across partition boundaries or storage sys
 ### Context and problem
 EGTs enable atomic transactions across multiple entities that share the same partition key. For performance and scalability reasons, you might decide to store entities that have consistency requirements in separate partitions or in a separate storage system: in such a scenario, you cannot use EGTs to maintain consistency. For example, you might have a requirement to maintain eventual consistency between:  
 
-* Entities stored in two different partitions in the same table, in different tables, in in different storage accounts.  
+* Entities stored in two different partitions in the same table, in different tables, or in different storage accounts.  
 * An entity stored in the Table service and a blob stored in the Blob service.  
 * An entity stored in the Table service and a file in a file system.  
 * An entity store in the Table service yet indexed using the Azure Search service.  
@@ -188,7 +182,7 @@ The following patterns and guidance may also be relevant when implementing this 
 Maintain index entities to enable efficient searches that return lists of entities.  
 
 ### Context and problem
-The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using a point query. For example, using the table structure shown below, a client application can efficiently retrieve an individual employee entity by using the department name and the employee id (the **PartitionKey** and **RowKey**).  
+The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using a point query. For example, using the table structure shown below, a client application can efficiently retrieve an individual employee entity by using the department name and the employee ID (the **PartitionKey** and **RowKey**).  
 
 ![Employee entity](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
@@ -203,7 +197,7 @@ To enable lookup by last name with the entity structure shown above, you must ma
 
 <u>Option #1: Use blob storage</u>  
 
-For the first option, you create a blob for every unique last name, and in each blob store a list of the **PartitionKey** (department) and **RowKey** (employee id) values for employees that have that last name. When you add or delete an employee you should ensure that the content of the relevant blob is eventually consistent with the employee entities.  
+For the first option, you create a blob for every unique last name, and in each blob store a list of the **PartitionKey** (department) and **RowKey** (employee ID) values for employees that have that last name. When you add or delete an employee you should ensure that the content of the relevant blob is eventually consistent with the employee entities.  
 
 <u>Option #2:</u> Create index entities in the same partition  
 
@@ -216,7 +210,7 @@ The **EmployeeIDs** property contains a list of employee ids for employees with 
 The following steps outline the process you should follow when you are adding a new employee if you are using the second option. In this example, we are adding an employee with Id 000152 and a last name Jones in the Sales department:  
 
 1. Retrieve the index entity with a **PartitionKey** value "Sales" and the **RowKey** value "Jones." Save the ETag of this entity to use in step 2.  
-2. Create an entity group transaction (that is, a batch operation) that inserts the new employee entity (**PartitionKey** value "Sales" and **RowKey** value "000152"), and updates the index entity (**PartitionKey** value "Sales" and **RowKey** value "Jones") by adding the new employee id to the list in the EmployeeIDs field. For more information about entity group transactions, see [Entity Group Transactions](#entity-group-transactions).  
+2. Create an entity group transaction (that is, a batch operation) that inserts the new employee entity (**PartitionKey** value "Sales" and **RowKey** value "000152"), and updates the index entity (**PartitionKey** value "Sales" and **RowKey** value "Jones") by adding the new employee ID to the list in the EmployeeIDs field. For more information about entity group transactions, see [Entity Group Transactions](#entity-group-transactions).  
 3. If the entity group transaction fails because of an optimistic concurrency error (someone else has just modified the index entity), then you need to start over at step 1 again.  
 
 You can use a similar approach to deleting an employee if you are using the second option. Changing an employee's last name is slightly more complex because you will need to execute an entity group transaction that updates three entities: the employee entity, the index entity for the old last name, and the index entity for the new last name. You must retrieve each entity before making any changes in order to retrieve the ETag values that you can then use to perform the updates using optimistic concurrency.  
@@ -293,7 +287,7 @@ The following patterns and guidance may also be relevant when implementing this 
 Use compound **RowKey** values to enable a client to lookup related data with a single point query.  
 
 ### Context and problem
-In a relational database, it is quite natural to use joins in queries to return related pieces of data to the client in a single query. For example, you might use the employee id to look up a list of related entities that contain performance and review data for that employee.  
+In a relational database, it is quite natural to use joins in queries to return related pieces of data to the client in a single query. For example, you might use the employee ID to look up a list of related entities that contain performance and review data for that employee.  
 
 Assume you are storing employee entities in the Table service using the following structure:  
 
@@ -310,7 +304,7 @@ Store a new entity type in your original table using entities with the following
 
 ![Solution for employee entity structure](media/storage-table-design-guide/storage-table-design-IMAGE20.png)
 
-Notice how the **RowKey** is now a compound key made up of the employee id and the year of the review data that enables you to retrieve the employee's performance and review data with a single request for a single entity.  
+Notice how the **RowKey** is now a compound key made up of the employee ID and the year of the review data that enables you to retrieve the employee's performance and review data with a single request for a single entity.  
 
 The following example outlines how you can retrieve all the review data for a particular employee (such as employee 000123 in the Sales department):  
 
@@ -502,7 +496,7 @@ The following alternative entity structure avoids a hotspot on any particular pa
 
 ![Alternative entity structure](media/storage-table-design-guide/storage-table-design-IMAGE27.png)
 
-Notice with this example how both the **PartitionKey** and **RowKey** are compound keys. The **PartitionKey** uses both the department and employee id to distribute the logging across multiple partitions.  
+Notice with this example how both the **PartitionKey** and **RowKey** are compound keys. The **PartitionKey** uses both the department and employee ID to distribute the logging across multiple partitions.  
 
 ### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -528,7 +522,7 @@ A common use case for log data is to retrieve a selection of log entries for a s
 
 ![Log message entity](media/storage-table-design-guide/storage-table-design-IMAGE28.png)
 
-In this example, the **RowKey** includes the date and time of the log message to ensure that log messages are stored sorted in date/time order, and includes a message id in case multiple log messages share the same date and time.  
+In this example, the **RowKey** includes the date and time of the log message to ensure that log messages are stored sorted in date/time order, and includes a message ID in case multiple log messages share the same date and time.  
 
 Another approach is to use a **PartitionKey** that ensures that the application writes messages across a range of partitions. For example, if the source of the log message provides a way to distribute messages across many partitions, you could use the following entity schema:  
 
@@ -1021,7 +1015,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## Controlling access with Shared Access Signatures
-You can use Shared Access Signature (SAS) tokens to enable client applications to modify (and query) table entities directly without the need to authenticate directly with the table service. Typically, there are three main benefits to using SAS in your application:  
+You can use Shared Access Signature (SAS) tokens to enable client applications to modify (and query) table entities without the need to include your storage account key in your code. Typically, there are three main benefits to using SAS in your application:  
 
 * You do not need to distribute your storage account key to an insecure platform (such as a mobile device) in order to allow that device to access and modify entities in the Table service.  
 * You can offload some of the work that web and worker roles perform in managing your entities to client devices such as end-user computers and mobile devices.  

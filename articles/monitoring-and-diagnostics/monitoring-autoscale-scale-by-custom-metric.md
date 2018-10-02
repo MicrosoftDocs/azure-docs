@@ -1,26 +1,18 @@
 ---
-title: Get started with auto scale by custom metric in Azure | Microsoft Docs
+title: Autoscale in Azure using a custom metric
 description: Learn how to scale your resource by custom metric in Azure.
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
-
+ms.component: autoscale
 ---
 # Get started with auto scale by custom metric in Azure
 This article describes how to scale your resource by a custom metric in Azure portal.
 
-Azure Monitor auto scale applies only to Virtual Machine Scale Sets (VMSS), cloud services, app service plans and app service environments. 
+Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # Lets get started
 This article assumes that you have a web app with application insights configured. If you don't have one already, you can [set up Application Insights for your ASP.NET website][1]
@@ -42,7 +34,7 @@ This article assumes that you have a web app with application insights configure
 > Note: In case there is a problem reading the resource metrics and the current capacity is below the default capacity, then to ensure the availability of the resource, Autoscale will scale out to the default value. If the current capacity is already higher than default capacity, Autoscale will not scale in.
 - Click on 'Save'
 
-Congratulations. You now now succesfully created your scale setting to auto scale your web app based on a custom metric.
+Congratulations. You now succesfully created your scale setting to auto scale your web app based on a custom metric.
 
 > Note: The same steps are applicable to get started with a VMSS or cloud service role.
 

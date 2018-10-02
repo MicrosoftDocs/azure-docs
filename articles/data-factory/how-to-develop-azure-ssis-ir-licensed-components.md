@@ -1,32 +1,34 @@
 ---
-title: "Develop paid or licensed components for the Azure-SSIS integration runtime  | Microsoft Docs"
-description: "This article describes how an ISV can develop and install paid or licensed custom components for the Azure-SSIS integration runtime"
+title: "Install licensed components for the Azure-SSIS integration runtime | Microsoft Docs"
+description: Learn how an ISV can develop and install paid or licensed custom components for the Azure-SSIS integration runtime
 services: data-factory
 documentationcenter: ""
-author: douglaslMS 
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: douglasl
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
 ---
-# Develop paid or licensed custom components for the Azure-SSIS integration runtime
+# Install paid or licensed custom components for the Azure-SSIS integration runtime
 
-## Problem - The Azure-SSIS IR requires a different approach
+This article describes how an ISV can develop and install paid or licensed custom components for SQL Server Integration Services (SSIS) packages that run in Azure in the Azure-SSIS integration runtime.
 
-The nature of the Azure-SSIS integration runtime presents several challenges, which make the typical licensing methods used for the on-premises installation of custom components inadequate.
+## The problem
+
+The nature of the Azure-SSIS integration runtime presents several challenges, which make the typical licensing methods used for the on-premises installation of custom components inadequate. As a result, the Azure-SSIS IR requires a different approach.
 
 -   The nodes of the Azure-SSIS IR are volatile and can be allocated or released at any time. For example, you can start or stop nodes to manage the cost, or scale up and down through various node sizes. As a result, binding a third-party component license to a particular node by using machine-specific info such as MAC address or CPU ID is no longer viable.
 
 -   You can also scale the Azure-SSIS IR in or out, so that the number of nodes can shrink or expand at any time.
 
-## Solution - Windows environment variables and SSIS system variables for license binding and validation
+## The solution
 
-As a result of the limitations of traditional licensing methods described in the previous section, the Azure-SSIS IR provides Windows environment variables and SSIS system variables for the license binding and validation of third-party components. ISVs can use these variables to obtain unique and persistent info for an Azure-SSIS IR, such as Cluster ID and Cluster Node Count. With this info, ISVs can bind the license for their component to an Azure-SSIS IR *as a cluster*, with an ID that doesn't change when customers start or stop, scale up or down, scale in or out, or reconfigure the Azure-SSIS IR in any way.
+As a result of the limitations of traditional licensing methods described in the previous section, the Azure-SSIS IR provides a new solution. This solution uses Windows environment variables and SSIS system variables for the license binding and validation of third-party components. ISVs can use these variables to obtain unique and persistent info for an Azure-SSIS IR, such as Cluster ID and Cluster Node Count. With this info, ISVs can then bind the license for their component to an Azure-SSIS IR *as a cluster*. This binding uses an ID that doesn't change when customers start or stop, scale up or down, scale in or out, or reconfigure the Azure-SSIS IR in any way.
 
 The following diagram shows the typical installation, activation and license binding, and validation flows for third-party components that use these new variables:
 
@@ -66,6 +68,10 @@ The following diagram shows the typical installation, activation and license bin
                                                                                                                                
     }
     ```
+
+## ISV partners
+
+You can find a list of ISV partners who have adapted their components and extensions for the Azure-SSIS IR at the end of this blog post - [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).
 
 ## Next steps
 

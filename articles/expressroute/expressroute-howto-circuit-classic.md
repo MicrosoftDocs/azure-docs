@@ -1,20 +1,12 @@
 ---
 title: 'Modify an ExpressRoute circuit: PowerShell: Azure classic| Microsoft Docs'
 description: This article walks you through the steps to check the status, update, or delete and deprovision your ExpressRoute classic deployment model circuit.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
 
-ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
 
 ---
@@ -38,8 +30,38 @@ This article also shows you how to check the status, update, or delete and depro
 
 ## Before you begin
 
-Install the latest versions of the Azure Service Management (SM) PowerShell modules
-Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+Install the latest versions of the Azure Service Management (SM) PowerShell modules and the ExpressRoute module.  When using the following example, note that the version number (in this example, 5.1.1) will change as newer versions of the cmdlets are released.
+
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
+
+If you need more information about Azure PowerShell, see [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+
+To sign in to your Azure account, use the following example:
+
+1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
+
+  ```powershel
+  Connect-AzureRmAccount
+  ```
+2. Check the subscriptions for the account.
+
+  ```powershell
+  Get-AzureRmSubscription
+  ```
+3. If you have more than one subscription, select the subscription that you want to use.
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
+
+4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
+
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ## Get the status of a circuit
 

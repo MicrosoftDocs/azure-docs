@@ -6,7 +6,7 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 04/30/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 ---
 
@@ -29,13 +29,16 @@ This section details the technology choices made in the Remote Monitoring soluti
 ![Core Diagram](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png) 
 
 ### Cloud Gateway
-The Azure IoT Hub is used as the the Remote Monitoring solution cloud gateway.  The IoT Hub offers secure, bi-directional communication with devices. You can learn more about IoT Hub [here](https://azure.microsoft.com/services/iot-hub/). For IoT device connectivity, the .NET Core and Java IoT Hub SDKs are used.  The SDKs offer wrappers around the IoT Hub REST API and handle scenarios such as retries.
+The Azure IoT Hub is used as the Remote Monitoring solution cloud gateway.  The IoT Hub offers secure, bi-directional communication with devices. You can learn more about IoT Hub [here](https://azure.microsoft.com/services/iot-hub/). For IoT device connectivity, the .NET Core and Java IoT Hub SDKs are used.  The SDKs offer wrappers around the IoT Hub REST API and handle scenarios such as retries.
 
 ### Stream processing
 For stream processing the Remote Monitoring solution uses Azure Stream Analytics for complex rule processing.  For customers wanting simpler rules, we also have a custom microservice with support for processing of simple rules, although this set-up not part of the out of the box deployment. The reference architecture recommends use of Azure Functions for simple rule processing and Azure Stream Analytics (ASA) for complex rule processing.  
 
 ### Storage
-For storage, Azure Cosmos DB is used for all storage needs: cold storage, warm storage, rules storage, and alarms. We are currently in the process of moving to Azure blob storage, as recommended by the reference architecture.  Azure Cosmos DB is the recommended general-purpose warm storage solution for IoT applications though solutions such as Azure Time Series Insights and Azure Data Lake are appropriate for many use cases.
+For storage, the Remote Monitoring solution accelerator uses both Azure Time Series Insights and Azure Cosmos DB. Azure Time Series Insights stores the messages coming through IoT Hub from your connected devices. The solution accelerator uses Azure Cosmos DB for all other storage such as cold storage, rules definitions, alarms, and configuration settings. Azure Cosmos DB is the recommended general-purpose warm storage solution for IoT applications though solutions such as Azure Time Series Insights and Azure Data Lake are appropriate for many use cases. With Azure Time Series Insights you can gain deeper insights into your time-series sensor data by spotting trends and anomalies, which allows you to conduct root-cause analyses and avoid costly downtime. 
+
+> [!NOTE]
+> Time Series Insights is not currently available in the Azure China cloud. New Remote Monitoring solution accelerator deployments in the Azure China cloud use Cosmos DB for all storage.
 
 ### Business integration
 Business integration in the Remote Monitoring solution is limited to generation of alarms, which are placed in warm storage. Further business integrations can be performed by integrating the solution with Azure Logic Apps.
@@ -47,6 +50,6 @@ The web UI is built with JavaScript React.  React offers a commonly used industr
 The application runtime chosen for subsystem implementation in the Remote Monitoring solution is Docker containers with Kubernetes as the orchestrator for horizontal scale.  This architecture allows for individual scale definition per subsystem however incurs DevOps costs in keeping VMs and containers up-to-date from a security perspective.  Alternatives to Docker and Kubernetes include hosting microservices in PaaS services (for example, Azure App Service) or using Service Fabric, DCOS, Swarm, etc. as an orchestrator.
 
 ## Next steps
-* Deploy your the Remote Monitoring solution [here](https://www.azureiotsuite.com/).
+* Deploy your Remote Monitoring solution [here](https://www.azureiotsolutions.com/).
 * Explore GitHub code in [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) and [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
 * Learn more about the IoT Reference Architecture [here](https://aka.ms/iotrefarchitecture).

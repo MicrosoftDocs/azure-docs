@@ -1,20 +1,15 @@
 ---
-title: Create Hadoop clusters using Azure REST API - Azure | Microsoft Docs
+title: Create Hadoop clusters using Azure REST API - Azure 
 description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Create Hadoop clusters using the Azure REST API
@@ -219,7 +214,7 @@ This example is used in the steps in this document. Replace the example *values*
 
 ## Log in to your Azure subscription
 
-Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
+Follow the steps documented in [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
 

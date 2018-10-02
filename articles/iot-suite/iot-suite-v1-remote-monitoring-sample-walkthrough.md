@@ -1,23 +1,14 @@
 ---
 title: Remote Monitoring preconfigured solution walkthrough | Microsoft Docs
 description: A description of the Azure IoT preconfigured solution remote monitoring and its architecture.
-services: ''
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-suite
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-
 ---
+
 # Remote monitoring preconfigured solution walkthrough
 
 The IoT Suite remote monitoring [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize][lnk-customize] it to meet your own specific business requirements.
@@ -276,8 +267,8 @@ From this page in the solution portal you can:
 
 The following TechNet blog posts provide more detail about the remote monitoring preconfigured solution:
 
-* [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-v1-under-the-hood-remote-monitoring.aspx)
-* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-v1-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](https://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
 You can continue getting started with IoT Suite by reading the following articles:
 

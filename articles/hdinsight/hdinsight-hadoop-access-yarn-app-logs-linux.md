@@ -1,20 +1,15 @@
 ---
-title: Access Hadoop YARN application logs on Linux-based HDInsight - Azure | Microsoft Docs
+title: Access Hadoop YARN application logs on Linux-based HDInsight - Azure 
 description: Learn how to access YARN application logs on a Linux-based HDInsight (Hadoop) cluster using both the command-line and a web browser.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Access YARN application logs on Linux-based HDInsight

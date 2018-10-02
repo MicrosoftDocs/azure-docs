@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 
 ---
@@ -28,7 +28,7 @@ If you're using an Azure Stack integrated system, updated versions of Azure Stac
  
 ### Development kit
 
-If you're using the Azure Stack Development Kit, review the [What is Azure Stack?](.\asdk\asdk-what-is.md) article to make sure you understand the purpose of the development kit, and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack Development Kit deployment](.\asdk\asdk-deploy.md) tutorial.)
+If you're using the Azure Stack Development Kit, review the [What is Azure Stack?](.\asdk\asdk-what-is.md) article to make sure you understand the purpose of the development kit, and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack Development Kit deployment](.\asdk\asdk-install.md) article.)
 
 Like Azure, we innovate rapidly. We'll regularly release new builds. If you're running the development kit and you want to move to the latest build, you must [redeploy Azure Stack](.\asdk\asdk-redeploy.md). You cannot apply update packages. This process takes time, but the benefit is that you can try out the latest features. The development kit documentation on our website reflects the latest release build.
 
@@ -68,8 +68,8 @@ There are a few account considerations you should be aware of when managing Azur
 |Account|Azure AD|AD FS|
 |-----|-----|-----|
 |Local Administrator (.\Administrator)|ASDK host administrator|ASDK host administrator|
-|AzureStack\AzureStackAdmin|ASDK host administrator<br><br>Can be used to log in to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings|ASDK host administrator<br><br>No access to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings<br><br>No longer owner of the Default Provider Subscription (DPS)|
-|AzureStack\CloudAdmin|Can access and run permitted commands within the Privileged Endpoint|Can access and run permitted commands within the Privileged Endpoint<br><br>Can not log in to the ASDK host<br><br>Owner of the Default Provider Subscription (DPS)|
+|AzureStack\AzureStackAdmin|ASDK host administrator<br><br>Can be used to sign in to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings|ASDK host administrator<br><br>No access to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings<br><br>No longer owner of the Default Provider Subscription (DPS)|
+|AzureStack\CloudAdmin|Can access and run permitted commands within the Privileged Endpoint|Can access and run permitted commands within the Privileged Endpoint<br><br>Can not sign in to the ASDK host<br><br>Owner of the Default Provider Subscription (DPS)|
 |Azure AD Global Administrator|Used during installation<br><br>Owner of the Default Provider Subscription (DPS)|Not applicable|
 |
 

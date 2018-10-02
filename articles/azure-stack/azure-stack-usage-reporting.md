@@ -3,7 +3,7 @@ title: Report Azure Stack usage data to Azure | Microsoft Docs
 description: Learn how to set up usage data reporting in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: sethm
 ms.reviewer: alfredop
 
 ---
@@ -40,7 +40,7 @@ To set up usage data reporting, you must [register your Azure Stack instance wit
 - **Quantity** – Amount of resource usage.
 - **Location** – Location where the current Azure Stack resource is deployed.
 - **Resource URI** – fully qualified URI of the resource for which usage is being reported.
-- **Subscription ID** – Subscription ID of the Azure Stack user. This is the local (Azure Stack) subscription.
+- **Subscription ID** – Subscription ID of the Azure Stack user, which is the local (Azure Stack) subscription.
 - **Time** – Start and end time of the usage data. There is some delay between the time when these resources are consumed in Azure Stack and when the usage data is reported to commerce. Azure Stack aggregates usage data for every 24 hours and reporting usage data to commerce pipeline in Azure takes another few hours. So, usage that occurs shortly before midnight may show up in Azure the following day.
 
 ## Generate usage data reporting
@@ -66,7 +66,7 @@ If you registered your Azure Stack using any other subscription type, for exampl
 
    ![billing flow](media/azure-stack-usage-reporting/pricing-details.png)
 
-For the Azure Stack Development Kit, Azure Stack resources are not charged so, the price is shown as $0.00. When Azure Stack multi-node becomes generally available, you can see the actual cost for each of these resources.
+For the Azure Stack Development Kit, Azure Stack resources are not charged so, the price is shown as $0.00.
 
 ## Which Azure Stack deployments are charged?
 
@@ -80,7 +80,7 @@ Users are only charged for VMs that run under tenant subscriptions. All workload
 
 ## I have a Windows Server license I want to use on Azure Stack, how do I do it?
 
-Using the existing licenses avoids generating usage meters. Existing Windows Server licenses can be used in Azure Stack, as described in the “Using existing software with Azure Stack” section of [the Azure Stack Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Customers need to deploy their Windows Server virtual machines as described in the [Hybrid benefit for Windows Server license](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) topic in order to use their existing licenses.
+Using the existing licenses avoids generating usage meters. Existing Windows Server licenses can be used in Azure Stack, as described in the “Using existing software with Azure Stack” section of [the Azure Stack Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Customers need to deploy their Windows Server virtual machines as described in the [Hybrid benefit for Windows Server license](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) article in order to use their existing licenses.
 
 ## Which subscription is charged for the resources consumed?
 The subscription that is provided when [registering Azure Stack with Azure](azure-stack-register.md) is charged.
@@ -99,7 +99,7 @@ Users can see the Azure Stack usage data in the usage details file. To know abou
 
 ## Why doesn’t the usage reported in Azure Stack match the report generated from Azure Account Center?
 
-There is always a delaybetween the usage data reported by the Azure Stack usage APIs and the usage data reported  by the Azure Account Center.. This delay is the time required to upload usage data from Azure Stack to Azure commerce. Due to this delay, usage that occurs shortly before midnight may show up in Azure the following day. If you use the [Azure Stack Usage APIs](azure-stack-provider-resource-api.md), and compare the results to the usage reported in the Azure billing portal, you can see a difference.
+There is always a delay between the usage data reported by the Azure Stack usage APIs and the usage data reported  by the Azure Account Center. This delay is the time required to upload usage data from Azure Stack to Azure commerce. Due to this delay, usage that occurs shortly before midnight may show up in Azure the following day. If you use the [Azure Stack Usage APIs](azure-stack-provider-resource-api.md), and compare the results to the usage reported in the Azure billing portal, you can see a difference.
 
 ## Next steps
 

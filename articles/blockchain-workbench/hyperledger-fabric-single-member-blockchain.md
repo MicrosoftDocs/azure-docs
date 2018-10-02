@@ -28,11 +28,11 @@ If you are new to the blockchain community, this is a great opportunity to learn
 
 This template deploys a topology to help test and simulate production for users within a single organization (single member). This deployment comprises of a multi-node network in a single region, soon to be expanded to multiple regions.
 
-The network comprises of three types of nodes:
+The network is comprised of three types of nodes:
 
-1. **Member Node** : A node running the Fabric membership service that registers and manages members of the network. This node can eventually be clustered for scalability and high availability, however in this lab, a single member node will be used.
-2. **Orderer Nodes** : A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
-3. **Peer Nodes** : A node that commits transactions and maintains the state and a copy of the distributed ledger.
+1. **Member Node**: A node running the Fabric membership service that registers and manages members of the network. This node can eventually be clustered for scalability and high availability, however in this lab, a single member node will be used.
+2. **Orderer Nodes**: A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
+3. **Peer Nodes**: A node that commits transactions and maintains the state and a copy of the distributed ledger.
 
 ## Getting started
 
@@ -45,7 +45,7 @@ By default, most subscription types support a small deployment topology without 
 - 1 load balancer
 - 1 public IP address
 
-Once you have a subscription, go to the [Azure portal](https://portal.azure.com). Select **+**, select Blockchain, and select **Hyperledger Fabric Single Member Blockchain**.
+Once you have a subscription, go to the [Azure portal](https://portal.azure.com). Select **+**, select **Blockchain**, and select **Hyperledger Fabric Single Member Blockchain**.
 
 ![Hyperledger Fabric Single Member Blockchain Marketplace template](./media/hyperledger-fabric-single-member-blockchain/marketplace-template.png)
 
@@ -83,7 +83,7 @@ Next, under **Network size and performance,** specify inputs for the size of the
 Parameter Name| Description| Allowed Values|Default Value
 ---|---|---|---
 **Number of Membership Nodes**|The number of nodes that run the membership service. For additional details on the membership service, look at Security & Membership Services under the Hyperledger [documentation](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf).<br /><br />This value is currently restricted to 1 node, but we plan to support scale out through clustering in the next revision.|1| 1
-**Number of Orderer Nodes** |The number of nodes that order (organize) transactions into a block.--> This statement is wordy and confusing. For additional details on the ordering service, visit the Hyperledger [documentation](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html).<br /><br />This value is currently restricted to 1 node, but we plan to support scale out in the next version.|1 |1
+**Number of Orderer Nodes** |The number of nodes that order (organize) transactions into a block.--> This statement is wordy and confusing. For additional details on the ordering service, visit the Hyperledger [documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html).<br /><br />This value is currently restricted to 1 node. |1 |1
 **Number of Peer Nodes**| Nodes that are owned by consortium members that execute transactions and maintain the state and a copy of the ledger.<br /><br />For additional details on the ordering service, visit the Hyperledger [documentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 - 9
 **Storage performance**|The type of storage backing each of the deployed nodes. To learn more about storage, visit [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) and [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard or Premium|Standard
 **Virtual machine size** |The virtual machine size used for all nodes in the network|Standard A,<br />Standard D,<br />Standard D-v2,<br />Standard F series,<br />Standard DS,<br />and Standard FS|Standard D1_v2
@@ -97,7 +97,7 @@ Finally, under **Fabric Settings**, specify Fabric-related configuration setting
 Parameter Name| Description| Allowed Values|Default Value
 ---|---|---|---
 **Bootstrap User Name**| The initial authorized user that will be registered with the member services in the deployed network.|9 or fewer characters|admin
-**Bootstrap User Password for Fabric CA**|The administrator password used to secure the Fabric CA account imported into the Membership node.<br /><br />The password must contain the following: 1 upper case character, 1 lower case character, and 1 number.|12 or more characters|NA
+**Bootstrap User Password for Fabric CA**|The administrator password used to secure the Fabric CA account imported into the Membership node.<br /><br />The password must contain one upper case character, one lower case character, and one number.|12 or more characters|NA
 
 ### Deploy
 
@@ -117,7 +117,7 @@ If the screen does not appear automatically (maybe because you moved around the 
 
 Overview lists all of the resources that were deployed by the solution template. You can explore them at will, but from this screen you can also access the _output parameters_ generated by the template. These output parameters will give you useful information when connecting to your Hyperledger Fabric network.
 
-To access the output parameters, first click on the Deployments tab in the Resource Group blade. This opens the Deployment History as shown below.
+To access the output parameters, first click on the **Deployments** tab in the Resource Group blade. The deployment history is displayed.
 
 ![Deployment history](./media/hyperledger-fabric-single-member-blockchain/deployment-history.png)
 

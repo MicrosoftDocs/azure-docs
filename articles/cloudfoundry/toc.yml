@@ -25,5 +25,5 @@
     href: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
   - name: Pivotal and Azure
     href: https://pivotal.io/partners/microsoft
-  - name: VSTS plugin for CF
+  - name: Azure DevOps plugin for CF
     href: https://github.com/Microsoft/vsts-cloudfoundry

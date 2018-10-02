@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Create a Linux VM with NGINX| Microsoft Docs
 description: Azure CLI Script Sample - Create a Linux VM with NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 ---
 
@@ -33,7 +33,7 @@ This script creates an Azure Virtual Machine and uses the Azure Virtual Machine 
 
 ## Custom Script Extension
 
-The custom script extension copies this script onto the virtual machine. The script is then run to install and configure an NGINX web server. 
+The custom script extension copies this script onto the virtual machine. The script is then run to install and configure an NGINX web server.
 
 ```bash
 #!/bin/bash
@@ -45,11 +45,11 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

@@ -3,7 +3,7 @@ title: Data loading best practices - Azure SQL Data Warehouse | Microsoft Docs
 description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
@@ -64,7 +64,7 @@ For example, consider database schemas, schema_A for dept A, and schema_B for de
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
-```   
+```
 
 User_A and user_B are now locked out from the other dept’s schema.
 
@@ -117,15 +117,15 @@ Example:
 
 Original key is created
 
-    ```sql
-    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-    ``` 
+```sql
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+``` 
 
 Rotate key from key 1 to key 2
 
-    ```sq;
-    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
-    ```
+```sql
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+```
 
 No other changes to underlying external data sources are needed.
 

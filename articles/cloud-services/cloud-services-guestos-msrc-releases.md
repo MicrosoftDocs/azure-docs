@@ -4,7 +4,6 @@ description: The list of updates applied to Guest OS releases
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: timlt
 editor: ''
 
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
@@ -13,12 +12,101 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2018
+ms.date: 9/13/2018
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## August Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-08 | [4343887] | Windows 10 Security | 5.22 | August 14, 2018 |
+| Rel 18-08 | [4343899] | Windows Security only | 2.77 | August 14, 2018 |
+| Rel 18-08 | [4343896] | Windows Security only | 3.64 | August 14, 2018 |
+| Rel 18-08 | [4343888] | Windows Security only | 4.57 | August 14, 2018 |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 Security | 2.77 | August 14, 2018 |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x Security | 3.64 | August 14, 2018 |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x Security | 4.57 | August 14, 2018 |
+| Rel 18-08 | [4346742], [4346739] | .NET 3.5, 4.x OOB release | 3.64 | July 30, 2018 |
+| Rel 18-08 | [4346745], [4346408] | .NET 3.5, 4.x OOB release | 4.57 | July 30, 2018 |
+| Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | August 14, 2018 |
+| Rel 18-08 | [4343205] | Internet Explorer | 2.77, 3.64, 4.57 | August 14, 2018 |
+| N/A | [4338818] |July Non-Security rollup |2.77 | July 10, 2018 |
+| N/A | [4019990] |D3D Compiler update for .NET |2.77 | July 10, 2018 |
+| N/A | [4338830] |July Non-Security rollup |3.64 | July 10, 2018 |
+| N/A | [4338421] |July Non-Security .NET 3.5 rollup |3.64 | July 10, 2018 |
+| N/A | [4338416] |July Non-Security .NET 4x rollup |3.64 | July 10, 2018 |
+| N/A | [4338815] |July Non-Security rollup |4.57 | July 10, 2018 |
+| N/A | [4338424] |July Non-Security .NET 3.5 rollup |3.64 | July 10, 2018 |
+| N/A | [4338415] |July Non-Security .NET 4x rollup |3.64 | July 10, 2018 |
+
+
+## July Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-07 | [4338814] |Windows 10 Security |5.21 |July 10, 2018 |
+| Rel 18-07 | [4338823] |Windows Security only |2.76 |July 10, 2018 |
+| Rel 18-07 | [4338820] |Windows Security only |3.63 |July 10, 2018 |
+| Rel 18-07 | [4338824] |Windows Security only |4.56 |July 10, 2018 |
+| Rel 18-07 | [4345459] |Security rollup refresh |2.76 |July 10, 2018 |
+| Rel 18-07 | [4345425] |Security rollup refresh |3.63 |July 10, 2018 |
+| Rel 18-07 | [4345424] |Security rollup refresh |4.56 |July 10, 2018 |
+| Rel 18-07 | [4345418] |Security rollup refresh |5.21 |July 10, 2018 |
+| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x Security |2.76 |July 10, 2018 |
+| Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x, 4.5x Security |3.63 |July 10, 2018 |
+| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5x Security |4.56|July 10, 2018 |
+| Rel 18-07 | [4338832] |Flash |3.63, 4.76, 5.21 |July 10, 2018 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |July 10, 2018 |
+| N/A | [4284826] |June non-security rollup |2.76 |June 12, 2018 |
+| N/A | [4284855] |June non-security rollup |3.63 |June 12, 2018 |
+| N/A | [4284815] |June non-security rollup |4.56 |June 12, 2018 |
+
+## June Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-06 | [4284880] |Windows 10 Security |5.20 |June 12, 2018 |
+| Rel 18-06 | [4284867] |Windows Security only |2.75 |June 12, 2018 |
+| Rel 18-06 | [4284846] |Windows Security only |3.62 |June 12, 2018 |
+| Rel 18-06 | [4284878] |Windows Security only |4.55 |June 12, 2018 |
+| Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |June 12, 2018 |
+| Rel 18-06 | [4287903] |Flash |3.62, 4.75, 5.20 |June 12, 2018 |
+| N/A | [4103718] |May non-security rollup |2.75 |May 8, 2018 |
+| N/A | [4103730] |May non-security rollup |3.62 |May 8, 2018 |
+| N/A | [4103725] |May non-security rollup |4.55 |May 8, 2018 |
+| N/A | [4040980], [4040977] |Sept ’17 .NET non-security rollup |2.75 |November 14, 2017 |
+| N/A | [4095874] |May .NET 3.5 non-security release |2.75 |May 8, 2018 |
+| N/A | [4096495] |May .NET 4.x non-security release |2.75 |May 8, 2018 |
+| N/A | [4040975] |Sept ’17 .NET non-security rollup |3.62 |November 14, 2017 |
+| N/A | [4095872] |May .NET 3.5 non-security release |3.62 |May 8, 2018 |
+| N/A | [4096494] |May .NET 4.x non-security release |3.62 |May 8, 2018 |
+| N/A | [4096416] |May .NET 4.5x non-security release |3.62 |May 8, 2018 |
+| N/A | [4040974], [4040972] |Sept ’17 .NET non-security rollup |4.55 |November 14, 2017 |
+| N/A | [4043763] |Oct ’17 .NET non-security rollup |4.55 |September 12, 2017 |
+| N/A | [4095876] |May .NET 4.x non-security release |4.55 |May 8, 2018 |
+| N/A | [4096417] |May .NET 4.5x non-security release |4.55 |May 8, 2018 |
+| N/A | [4132216] |May SSU |5.20 |May 8, 2018 |
+
+## May Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-05 | [4103721], [4103727], [4103723] |Windows 10 Security |5.19 |May 8, 2018 |
+| Rel 18-05 | [4103712] |Windows Security only |2.74 |May 8, 2018 |
+| Rel 18-05 | [4103726] |Windows Security only |3.61 |May 8, 2018 |
+| Rel 18-05 | [4103715] |Windows Security only |4.54 |May 8, 2018 |
+| Rel 18-05 | [4095514], [4095519] |.NET 3.5, 4.x Security |2.74 |May 8, 2018 |
+| Rel 18-05 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x, 4.5x Security |3.61 |May 8, 2018 |
+| Rel 18-05 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x, 4.5x Security |4.74|May 8, 2018 |
+| Rel 18-05 | [4054856] |.NET 4.7x Security |5.19 |May 8, 2018 |
+| Rel 18-05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |May 8, 2018 |
+| Rel 18-05 | [4103729] |Flash |3.61, 4.74, 5.19 |May 8, 2018 |
+| N/A | [4093118] |April non-security rollup |2.73 |April 10, 2018 |
+| N/A | [4093123] |April non-security rollup |3.61 |April 10, 2018 |
+| N/A | [4093114] |April non-security rollup |4.74 |April 10, 2018 |
+| N/A | [4093137] |April SSU |5.19 |April 10, 2018 |
+| N/A | [4093753] |Timezone update |2.74, 3.61, 4.74 |April 10, 2018 |
+
 
 ## April Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -626,6 +714,101 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
 
+[4343887]: http://support.microsoft.com/kb/4343887
+[4343899]: http://support.microsoft.com/kb/4343899
+[4343896]: http://support.microsoft.com/kb/4343896
+[4343888]: http://support.microsoft.com/kb/4343888
+[4344177]: http://support.microsoft.com/kb/4344177
+[4344173]: http://support.microsoft.com/kb/4344173
+[4344175]: http://support.microsoft.com/kb/4344175
+[4344172]: http://support.microsoft.com/kb/4344172
+[4344178]: http://support.microsoft.com/kb/4344178
+[4344171]: http://support.microsoft.com/kb/4344171
+[4346742]: http://support.microsoft.com/kb/4346742
+[4346739]: http://support.microsoft.com/kb/4346739
+[4346745]: http://support.microsoft.com/kb/4346745
+[4346408]: http://support.microsoft.com/kb/4346408
+[4343902]: http://support.microsoft.com/kb/4343902
+[4343205]: http://support.microsoft.com/kb/4343205
+[4338818]: http://support.microsoft.com/kb/4338818
+[4019990]: http://support.microsoft.com/kb/4019990
+[4338830]: http://support.microsoft.com/kb/4338830
+[4338421]: http://support.microsoft.com/kb/4338421
+[4338416]: http://support.microsoft.com/kb/4338416
+[4338815]: http://support.microsoft.com/kb/4338815
+[4338424]: http://support.microsoft.com/kb/4338424
+[4338415]: http://support.microsoft.com/kb/4338415
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
+
+[4284880]: http://support.microsoft.com/kb/4284880
+[4284867]: http://support.microsoft.com/kb/4284867
+[4284846]: http://support.microsoft.com/kb/4284846
+[4284878]: http://support.microsoft.com/kb/4284878
+[4230450]: http://support.microsoft.com/kb/4230450
+[4287903]: http://support.microsoft.com/kb/4287903
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103730]: http://support.microsoft.com/kb/4103730
+[4103725]: http://support.microsoft.com/kb/4103725
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040977]: http://support.microsoft.com/kb/4040977
+[4095874]: http://support.microsoft.com/kb/4095874
+[4096495]: http://support.microsoft.com/kb/4096495
+[4040975]: http://support.microsoft.com/kb/4040975
+[4095872]: http://support.microsoft.com/kb/4095872
+[4096494]: http://support.microsoft.com/kb/4096494
+[4096416]: http://support.microsoft.com/kb/4096416
+[4040974]: http://support.microsoft.com/kb/4040974
+[4040972]: http://support.microsoft.com/kb/4040972
+[4043763]: http://support.microsoft.com/kb/4043763
+[4095876]: http://support.microsoft.com/kb/4095876
+[4096417]: http://support.microsoft.com/kb/4096417
+[4132216]: http://support.microsoft.com/kb/4132216
+
+[4103721]: http://support.microsoft.com/kb/4103721
+[4103727]: http://support.microsoft.com/kb/4103727 
+[4103723]: http://support.microsoft.com/kb/4103723
+[4103712]: http://support.microsoft.com/kb/4103712
+[4103726]: http://support.microsoft.com/kb/4103726
+[4103715]: http://support.microsoft.com/kb/4103715
+[4095514]: http://support.microsoft.com/kb/4095514
+[4095519]: http://support.microsoft.com/kb/4095519
+[4095512]: http://support.microsoft.com/kb/4095512
+[4095518]: http://support.microsoft.com/kb/4095518
+[4096235]: http://support.microsoft.com/kb/4096235
+[4095515]: http://support.microsoft.com/kb/4095515
+[4095517]: http://support.microsoft.com/kb/4095517
+[4096236]: http://support.microsoft.com/kb/4096236
+[4054856]: http://support.microsoft.com/kb/4054856
+[4103768]: http://support.microsoft.com/kb/4103768
+[4103729]: http://support.microsoft.com/kb/4103729
+[4093118]: http://support.microsoft.com/kb/4093118
+[4093123]: http://support.microsoft.com/kb/4093123
+[4093114]: http://support.microsoft.com/kb/4093114
+[4093137]: http://support.microsoft.com/kb/4093137
+[4093753]: http://support.microsoft.com/kb/4093753
+
 [4093119]: http://support.microsoft.com/kb/4093119
 [4093108]: http://support.microsoft.com/kb/4093108 
 [4093122]: http://support.microsoft.com/kb/4093122
@@ -1163,7 +1346,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3057839]:http://support.microsoft.com/kb/3057839
 [3062577]:http://support.microsoft.com/kb/3062577
 [3063858]:http://support.microsoft.com/kb/3063858
-
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

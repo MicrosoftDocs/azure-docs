@@ -6,10 +6,10 @@ services: cosmos-db
 author: rafats
 manager: kfile
 
-ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
 
@@ -64,11 +64,11 @@ Azure Cosmos DB exposes resources through the REST APIs that can be called by an
 | Download | Documentation |
 | --- | --- |
 | [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js library](http://azure.github.io/azure-documentdb-node/) |
+| [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js library](https://github.com/Azure/azure-cosmosdb-node) |
 | [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java library](/java/api/com.microsoft.azure.documentdb) |
-| [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript library](http://azure.github.io/azure-documentdb-js/) |
-| n/a |[Server-side JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
-| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python library](http://azure.github.io/azure-documentdb-python/) |
+| [JavaScript SDK](https://github.com/Azure/azure-cosmos-js) |[JavaScript library](https://github.com/Azure/azure-cosmos-js) |
+| n/a |[Server-side JavaScript SDK](https://github.com/Azure/azure-cosmosdb-js-server) |
+| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python library](https://github.com/Azure/azure-cosmos-python) |
 | n/a | [API for MongoDB](mongodb-introduction.md)
 
 

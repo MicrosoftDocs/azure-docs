@@ -4,20 +4,20 @@ description: Extract semantic text through image analysis using the ImageAnalysi
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
 
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ---
 #	Image Analysis cognitive skill
 
 The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
+
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
 
 ## @odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
@@ -46,6 +46,7 @@ Parameters are case-sensitive.
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+    "context": "/document/normalized_images/*",
     "visualFeatures": [
         "Tags",
         "Faces",
@@ -131,7 +132,7 @@ Parameters are case-sensitive.
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
-                                    "faceRectangle": {
+                                    "faceBoundingBox": {
                                         "left": 597,
                                         "top": 162,
                                         "width": 248,
@@ -198,7 +199,7 @@ Parameters are case-sensitive.
                     {
                         "age": 44,
                         "gender": "Male",
-                    "faceRectangle": {
+                    "faceBoundingBox": {
                             "left": 593,
                             "top": 160,
                             "width": 250,
@@ -244,4 +245,4 @@ In the following error cases, no elements are extracted.
 
 + [Predefined skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](ref-create-indexer.md)
++ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

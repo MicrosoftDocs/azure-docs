@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 09/24/2018
 ms.author: crdun
 
 ---
@@ -84,6 +84,9 @@ In your main activity file, remember to add the following **using** statement:
 ```
 using Microsoft.WindowsAzure.MobileServices;
 ```
+
+> [!NOTE]
+> Please note that all the support packages referenced in your Android project must have the same version. The SDK has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
 
 ### <a name="symbolsource"></a>How to: Work with debug symbols in Visual Studio
 The symbols for the Microsoft.Azure.Mobile namespace are available on [SymbolSource][10].  Refer to the
@@ -905,8 +908,8 @@ private async Task AuthenticateAsync()
 To authenticate users, you must register your app at the Microsoft account Developer Center. Configure the
 registration details on your Mobile App backend. To create a Microsoft account registration and
 connect it to your Mobile App backend, complete the steps in
-[Register your app to use a Microsoft account login]. If you have both Windows Store and Windows Phone
-8/Silverlight versions of your app, register the Windows Store version first.
+[Register your app to use a Microsoft account login]. If you have both Microsoft Store and Windows Phone
+8/Silverlight versions of your app, register the Microsoft Store version first.
 
 The following code authenticates using Live SDK and uses the returned token to sign in to your Mobile
 App backend.
@@ -920,7 +923,7 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
     // Get the URL the Mobile App backend.
     var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
 
-    // Create the authentication client for Windows Store using the service URL.
+    // Create the authentication client for Microsoft Store using the service URL.
     LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
     //// Create the authentication client for Windows Phone using the client ID of the registration.
     //LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
@@ -1004,7 +1007,7 @@ cached and reused until it expires. For more information, see [Caching the authe
 
 ### <a name="caching"></a>Caching the authentication token
 In some cases, the call to the login method can be avoided after the first successful authentication by storing
-the authentication token from the provider.  Windows Store and UWP apps can use [PasswordVault] to cache the
+the authentication token from the provider.  Microsoft Store and UWP apps can use [PasswordVault] to cache the
 current authentication token after a successful sign-in, as follows:
 
 ```
@@ -1062,7 +1065,7 @@ await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 The following topics cover Push Notifications:
 
 * [Register for Push Notifications](#register-for-push)
-* [Obtain a Windows Store package SID](#package-sid)
+* [Obtain a Microsoft Store package SID](#package-sid)
 * [Register with Cross-platform templates](#register-xplat)
 
 ### <a name="register-for-push"></a>How to: Register for Push Notifications
@@ -1082,20 +1085,20 @@ private async void InitNotificationsAsync()
 }
 ```
 
-If you are pushing to WNS, then you MUST [obtain a Windows Store package SID](#package-sid).  For more information
+If you are pushing to WNS, then you MUST [obtain a Microsoft Store package SID](#package-sid).  For more information
 on Windows apps, including how to register for template registrations, see [Add push notifications to your app].
 
 Requesting tags from the client is not supported.  Tag Requests are silently dropped from registration.
 If you wish to register your device with tags, create a Custom API that uses the Notification Hubs API to perform
 the registration on your behalf.  [Call the Custom API](#customapi) instead of the `RegisterNativeAsync()` method.
 
-### <a name="package-sid"></a>How to: Obtain a Windows Store package SID
-A package SID is needed for enabling push notifications in Windows Store apps.  To receive a package SID, register your
-application with the Windows Store.
+### <a name="package-sid"></a>How to: Obtain a Microsoft Store package SID
+A package SID is needed for enabling push notifications in Microsoft Store apps.  To receive a package SID, register your
+application with the Microsoft Store.
 
 To obtain this value:
 
-1. In Visual Studio Solution Explorer, right-click the Windows Store app project, click **Store** > **Associate App with the Store...**.
+1. In Visual Studio Solution Explorer, right-click the Microsoft Store app project, click **Store** > **Associate App with the Store...**.
 2. In the wizard, click **Next**, sign in with your Microsoft account, type a name for your app in **Reserve a new app name**, then click **Reserve**.
 3. After the app registration is successfully created, select the app name, click **Next**, and then click **Associate**.
 4. Log in to the [Windows Dev Center] using your Microsoft Account. Under **My apps**, click the app registration you created.
@@ -1266,7 +1269,7 @@ public class MyHandler : DelegatingHandler
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
-[Windows Dev Center]: https://dev.windows.com/en-us/overview
+[Windows Dev Center]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [Windows Live SDK]: https://msdn.microsoft.com/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx

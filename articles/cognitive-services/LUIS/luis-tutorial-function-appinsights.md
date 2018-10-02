@@ -1,19 +1,21 @@
 ---
-title: Add LUIS data to Application Insights using Node.js | Microsoft Docs
-titleSuffix: Azure
+title: Application Insights data from LUIS using C# 
+titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application and Application Insights using Node.js.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/18/2018
-ms.author: v-geberr
+ms.date: 09/24/2018
+ms.author: diberry
 ---
 
-# Add LUIS results to Application Insights from a web app bot
+# Add LUIS results to Application Insights
 This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
+
+The bot is built with the Bot Framework 3.x and the Azure Web app bot.
 
 In this tutorial, you learn how to:
 
@@ -146,7 +148,7 @@ Application Insights gives you the power to query the data with the [Kusto](http
     ![Analytics top intent](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-Learn more about the [Kusto query language](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) or [export the data to PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Learn more about the [Kusto query language](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) or [export the data to PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 ## Next steps
 
@@ -155,4 +157,4 @@ Other information you may want to add to the application insights data includes 
 If you are using the same endpoint subscription for more than one LUIS app, you should also include the subscription ID and a property stating that it is a shared key. 
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](Add-example-utterances.md)
+> [Learn more about example utterances](luis-how-to-add-example-utterances.md)

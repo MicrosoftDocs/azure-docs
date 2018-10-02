@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 06/06/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Move data From MySQL using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-mysql-connector.md)
-> * [Version 2 - Preview](../connector-mysql.md)
+> * [Version 1](data-factory-onprem-mysql-connector.md)
+> * [Version 2 (current version)](../connector-mysql.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [MySQL connector in V2](../connector-mysql.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [MySQL connector in V2](../connector-mysql.md).
 
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises MySQL database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
@@ -40,7 +40,7 @@ Gateway is required even if the MySQL database is hosted in an Azure IaaS virtua
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version 6.6.5 or above) on the same system as the Data Management Gateway. This 32 bit driver is compatible with 64 bit Data Management Gateway. MySQL version 5.1 and above is supported.
+For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version between 6.6.5 and 6.10.7) on the same system as the Data Management Gateway. This 32 bit driver is compatible with 64 bit Data Management Gateway. MySQL version 5.1 and above is supported.
 
 > [!TIP]
 > If you hit error on "Authentication failed because the remote party has closed the transport stream.", consider to upgrade the MySQL Connector/Net to higher version.

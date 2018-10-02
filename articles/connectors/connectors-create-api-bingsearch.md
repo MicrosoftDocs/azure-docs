@@ -3,7 +3,7 @@
 title: Connect to Bing Search - Azure Logic Apps | Microsoft Docs
 description: Find news with Bing Search REST APIs and Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 05/21/2018
 ms.topic: article
@@ -140,7 +140,7 @@ provide the necessary information for the action.
 
    | Property | Required | Value | Description | 
    |----------|----------|-------|-------------| 
-   | Search Query | Yes | <*search-expression*> | Enter an expression for querying the trigger results. You can select from the fields om the dynamic content list, or create an expression with the expression builder. |
+   | Search Query | Yes | <*search-expression*> | Enter an expression for querying the trigger results. You can select from the fields in the dynamic content list, or create an expression with the expression builder. |
    | Market | Yes | <*locale*> | The search locale. The default is "en-US", but you can select another value. | 
    | Safe Search | Yes | <*search-level*> | The filter level for excluding adult content. The default is "Moderate", but you select another level. | 
    | Count | No | <*results-count*> | Return the specified number of results. The default is 20, but you can specify another value. The actual number of returned results might be less than the specified number. | 

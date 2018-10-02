@@ -1,17 +1,25 @@
-﻿---
-title: "PowerShell for Virtual Network service endpoints and rules in SQL | Microsoft Docs"
-description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database."
+---
+title: "PowerShell for Virtual Network service endpoints and rules in Azure SQL | Microsoft Docs"
+description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database and SQL Data Warehouse."
 services: sql-database
-author: MightyPen
+ms.service: sql-database
+ms.subservice: development
+ms.custom: 
+ms.devlang: PowerShell
+ms.topic: conceptual
+author: DhruvMsft
+ms.author: dmalik
+ms.reviewer: genemi, vanto
 manager: craigg
 ms.service: sql-database
-ms.custom: "VNet Service endpoints"
-ms.topic: conceptual
-ms.date: 02/05/2018
-ms.reviewer: genemi
-ms.author: dmalik
+ms.date: 06/14/2018
 ---
-# Use PowerShell to create a Virtual Service endpoint and rule for Azure SQL Database
+# Use PowerShell to create a Virtual Service endpoint and rule for Azure SQL Database and SQL Data Warehouse
+
+Both Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Virtual Service endpoints. 
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 This article provides and explains a PowerShell script that takes the following actions:
 

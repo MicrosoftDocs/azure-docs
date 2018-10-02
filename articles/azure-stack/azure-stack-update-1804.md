@@ -3,7 +3,7 @@ title: Azure Stack 1804 Update | Microsoft Docs
 description: Learn about what's in the 1804 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
 
 ---
@@ -77,7 +77,10 @@ The following are now available, but don't require Azure Stack update 1804.
 ## Before you begin    
 
 ### Prerequisites
-- Install the Azure Stack [1803 Update](azure-stack-update-1803.md) before you apply the Azure Stack 1804 update.    
+- Install the Azure Stack [1803 Update](azure-stack-update-1803.md) before you apply the Azure Stack 1804 update.  
+  
+- Install the latest available [update or hotfix for version 1803](azure-stack-update-1803.md#post-update-steps). 
+
 
 ### Known issues with the update process   
 - During installation of the 1804 update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after the update to 1804 completes.   
@@ -86,7 +89,9 @@ The following are now available, but don't require Azure Stack update 1804.
 
 
 ### Post-update steps
-*There are no post-update steps for update 1804.*
+After the installation of 1804, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+ - [KB 4344114 - Azure Stack Hotfix 1.0.180527.15](https://support.microsoft.com/help/4344114).
+
 
 
 
@@ -94,6 +99,17 @@ The following are now available, but don't require Azure Stack update 1804.
 The following are post-installation known issues for build  **20180513.1**.
 
 #### Portal
+
+- The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
+
+- <!-- TBD - IS ASDK --> You cannot apply driver updates by using an OEM Extension package with this version of Azure Stack.  There is no workaround for this problem.
+
+- <!-- 1272111 - IS --> After you install or update to this version of Azure Stack, you might not be able to view Azure Stack scale units in the Admin portal.  
+  Workaround: Use PowerShell to view information about Scale Units. For more information, see the [help](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) content for Azure Stack Module 1.3.0. 
+
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Workaround:  To resolve this issue after you install this update, use step 3 from the [Trigger automation to configure claims provider trust in Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure to reset the owner of the default provider subscription.   
+
 - <!-- TBD - IS ASDK --> Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
 
 

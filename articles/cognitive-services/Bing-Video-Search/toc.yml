@@ -27,11 +27,11 @@
     href: sdk.md
   - name: Video Search SDK C# quickstart
     href: video-search-sdk-quickstart.md 
-  - name: Video Search SDK Node quickstart (preview)
+  - name: Video Search SDK Node quickstart
     href: video-search-sdk-node-quickstart.md 
-  - name: Video Search SDK Python quickstart (preview)
+  - name: Video Search SDK Python quickstart
     href: video-sdk-python-quickstart.md
-  - name: Video Search SDK Java quickstart (preview)
+  - name: Video Search SDK Java quickstart
     href: video-sdk-java-quickstart.md 
 - name: Tutorials
   items:

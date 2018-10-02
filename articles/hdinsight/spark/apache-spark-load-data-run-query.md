@@ -1,17 +1,14 @@
 ---
-title: 'Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight '
 description: Learn how to load data and run interactive queries on Spark clusters in Azure HDInsight.
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jasonh
 ms.date: 05/17/2018
 
 #custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to load data into a Spark cluster, so I can run interactive SQL queries against the data.

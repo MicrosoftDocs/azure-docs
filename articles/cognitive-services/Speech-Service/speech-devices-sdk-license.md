@@ -1,10 +1,9 @@
 ---
-title: Speech Devices SDK license agreement | Microsoft Docs
+title: Speech Devices SDK license agreement
 description: Speech Devices SDK license agreement.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech

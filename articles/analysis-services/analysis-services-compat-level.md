@@ -3,9 +3,9 @@ title: Data model compatibility level in Azure Analysis Services | Microsoft Doc
 description: Understanding tabular data model compatibility level.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 

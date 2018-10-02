@@ -45,6 +45,18 @@ sections:
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Package an application into a container image</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Create an Azure Container Registry and upload the container image</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Deploy the container image to an Azure Container Instance</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Run Docker containers with Azure Container Instances
+      href: /learn/modules/run-docker-with-azure-container-instances/
+      image: 
+        src: /learn/achievements/run-docker-with-azure-container-instances.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-container-instances">More interactive learning...</a>
 - title: Reference
   items:
   - type: list
@@ -54,6 +66,6 @@ sections:
     - title: Command-Line
       html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstances">Node.js</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/containerinstance">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstances">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/container-instances">REST API Reference</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Resource Manager template</a></p>

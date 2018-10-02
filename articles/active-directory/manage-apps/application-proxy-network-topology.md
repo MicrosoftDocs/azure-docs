@@ -11,7 +11,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
@@ -172,4 +172,4 @@ You can also consider using one other variant in this situation. If most users i
 - [Enable Application Proxy](application-proxy-enable.md)
 - [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Enable conditional access](application-proxy-integrate-with-sharepoint-server.md)
-- [Troubleshoot issues you're having with Application Proxy](../active-directory-application-proxy-troubleshoot.md)
+- [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)

@@ -3,9 +3,11 @@
 title: Customer data request features​
 author: dominicbetts
 ms.author: dobett
+manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
+services: iot-dps
 ---
 
 # Summary of customer data request features​

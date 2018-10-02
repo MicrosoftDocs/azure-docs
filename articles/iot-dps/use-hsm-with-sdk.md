@@ -1,17 +1,13 @@
 ---
 title: Azure How to - How to use different attestation mechanisms with the Device Provisioning Service Client SDK in Azure 
 description: Azure How to - How to use different attestation mechanisms with the Device Provisioning Service Client SDK in Azure
-services: iot-dps 
-keywords: 
 author: yzhong94
 ms.author: yizhon
 ms.date: 03/30/2018
-ms.topic: hero-article
+ms.topic: conceptual
 ms.service: iot-dps
-
-documentationcenter: ''
-manager: 
-ms.devlang: na
+services: iot-dps 
+manager: arjmands
 ms.custom: mvc
 ---
 
@@ -146,7 +142,7 @@ If you are using TPM, follow instructions in ["Create and provision a simulated 
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your DPS service.
+2. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
    - X**.**509 Individual Enrollment: On the provisioning service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, upload the leaf certificate as required by the blade. Once complete, click the **Save** button. 
    - X**.**509 Group Enrollment: On the provisioning service  summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the CA/Intermediate certificate as required by the blade. Once complete, click the **Save** button. 
 

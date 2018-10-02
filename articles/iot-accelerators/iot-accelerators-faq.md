@@ -43,7 +43,7 @@ Yes, the new Remote Monitoring is available in the same geographic regions.
 
 ### What's the difference between deleting a resource group in the Azure portal and clicking delete on a solution accelerator in azureiotsuite.com?
 
-* If you delete the solution accelerator in [azureiotsuite.com](https://www.azureiotsuite.com/), you delete all the resources that were provisioned when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
+* If you delete the solution accelerator in [azureiotsuite.com](https://www.azureiotsolutions.com/), you delete all the resources that were provisioned when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
 * If you delete the resource group in the [Azure portal](https://portal.azure.com), you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the solution accelerator.
 
 ### Can I continue to leverage my existing investments in Azure IoT solution accelerators?
@@ -69,10 +69,6 @@ Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterpr
 
 Currently, you cannot create a solution accelerator with a [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) account. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a solution accelerator.
 
-### Can I create a solution accelerator if I have Cloud Solution Provider (CSP) subscription?
-
-Currently, you cannot create a solution accelerator with a Cloud Solution Provider (CSP) subscription. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a solution accelerator.
-
 ### How do I delete an AAD tenant?
 
 See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
@@ -81,7 +77,7 @@ See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://b
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Explore the capabilities of the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
 * [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
-* [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
-* [IoT security from the ground up](securing-iot-ground-up.md)
+* [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
+* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)

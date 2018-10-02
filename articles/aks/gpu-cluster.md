@@ -59,7 +59,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-Describe one of the nodes to confirm the GPUs are schedulable. This can be found under the `Capacity` section. For example, `alpha.kubernetes.io/nvidia-gpu:  1`.
+Describe one of the nodes to confirm the GPUs are schedulable. This can be found under the `Capacity` section. For example, `nvidia.com/gpu:  1`. If you do not see the GPUs, consult the **Troubleshoot** section below.
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -92,12 +92,12 @@ Addresses:
   InternalIP:  10.240.0.4
   Hostname:    aks-nodepool1-22139053-0
 Capacity:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57691688Ki
  pods:                            110
 Allocatable:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57589288Ki
  pods:                            110
@@ -131,7 +131,7 @@ Events:         <none>
 
 In order to demonstrate the GPUs are indeed working, schedule a GPU enabled workload with the appropriate resource request. This example will run a [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
-The following job manifest includes a resource limit of `alpha.kubernetes.io/nvidia-gpu: 1`. The appropriate CUDA libraries and debug tools will be available on the node at `/usr/local/nvidia` and must be mounted into the pod using the appropriate volume specification as seen below.
+The following job manifest includes a resource limit of `nvidia.com/gpu: 1`. 
 
 Copy the manifest and save as **samples-tf-mnist-demo.yaml**.
 ```
@@ -154,15 +154,8 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           limits:
-            alpha.kubernetes.io/nvidia-gpu: 1
-        volumeMounts:
-        - name: nvidia
-          mountPath: /usr/local/nvidia
+           nvidia.com/gpu: 1
       restartPolicy: OnFailure
-      volumes:
-        - name: nvidia
-          hostPath:
-            path: /usr/local/nvidia
 ```
 
 Use the [kubectl apply][kubectl-apply] command to run the job. This command parses the manifest file and creates the defined Kubernetes objects.
@@ -266,6 +259,64 @@ Remove the associated Kubernetes objects created in this step.
 ```
 $ kubectl delete jobs samples-tf-mnist-demo
 job "samples-tf-mnist-demo" deleted
+```
+
+## Troubleshoot
+
+In some scenarios, you might not see GPU resources under Capacity. For example: After upgrading a cluster to Kubernetes version 1.10 or creating a new Kubernetes version 1.10 cluster, the expected `nvidia.com/gpu` resource is missing from `Capacity` when running `kubectl describe node <node-name>`. 
+
+To resolve this, apply the following daemonset post provision or upgrade, then you will see `nvidia.com/gpu` as a schedulable resource. 
+
+Copy the manifest and save as **nvidia-device-plugin-ds.yaml**. For the image tag of `image: nvidia/k8s-device-plugin:1.10` below, update the tag to match your Kubernetes version. For example, use tag `1.11` for Kubernetes version 1.11.
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    kubernetes.io/cluster-service: "true"
+  name: nvidia-device-plugin
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      # Mark this pod as a critical add-on; when enabled, the critical add-on scheduler
+      # reserves resources for critical add-on pods so that they can be rescheduled after
+      # a failure.  This annotation works in tandem with the toleration below.
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
+      labels:
+        name: nvidia-device-plugin-ds
+    spec:
+      tolerations:
+      # Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
+      # This, along with the annotation above marks this pod as a critical add-on.
+      - key: CriticalAddonsOnly
+        operator: Exists
+      containers:
+      - image: nvidia/k8s-device-plugin:1.10 # Update this tag to match your Kubernetes version
+        name: nvidia-device-plugin-ctr
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+        volumeMounts:
+          - name: device-plugin
+            mountPath: /var/lib/kubelet/device-plugins
+      volumes:
+        - name: device-plugin
+          hostPath:
+            path: /var/lib/kubelet/device-plugins
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+        accelerator: nvidia
+```
+
+Use the [kubectl apply][kubectl-apply] command to create the daemonset.
+
+```
+$ kubectl apply -f nvidia-device-plugin-ds.yaml
+daemonset "nvidia-device-plugin" created
 ```
 
 ## Next steps

@@ -4,18 +4,15 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 services: functions
 documentationcenter: .net
 author: ggailey777  
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
-ms.date: 05/23/2018
+ms.service: azure-functions
+ms.custom: vs-azure
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: glenga
 ---
-# Azure Functions Tools for Visual Studio  
+# Develop Azure Functions using Visual Studio  
 
 Azure Functions Tools for Visual Studio 2017 is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 
@@ -46,7 +43,7 @@ To create and deploy functions, you also need:
 
 * An active Azure subscription. If you don't have an Azure subscription, [free accounts](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) are available.
 
-* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
 ### Check your tools version
 
@@ -84,19 +81,17 @@ For more information, see [Functions class library project](functions-dotnet-cla
 
 ## Configure the project for local development
 
-The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. 
+The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. Your function app can also use the [Azure storage emulator](../storage/common/storage-use-emulator.md) for the **AzureWebJobsStorage** connection setting that is required by the project. To use the emulator, set the value of **AzureWebJobsStorage** to `UseDevelopmentStorage=true`. You must change this setting to an actual storage connection before deployment.
 
-[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
-
- To set the storage account connection string:
+To set the storage account connection string:
 
 1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.
 
 2. In your project, open the local.settings.json file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
 
-3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.  
+3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.
 
-## Create a function
+## Add a function to your project
 
 In pre-compiled functions, the bindings used by the function are defined by applying attributes in the code. When you use the Azure Functions Tools to create your functions from the provided templates, these attributes are applied for you. 
 
@@ -106,7 +101,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
     ![Create a queue triggered function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the local.settings.json file.
+    This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the [local.settings.json file](functions-run-local.md#local-settings-file).
 
 3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function.
 
@@ -129,7 +124,9 @@ In pre-compiled functions, the bindings used by the function are defined by appl
         }
     }
     ````
-    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute.
+    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
+    
+You can use the above procedure to add more functions to your function app project. Each function in the project can have a different trigger, but a function must have exactly one trigger. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 ## Add bindings
 
@@ -137,7 +134,7 @@ As with triggers, input and output bindings are added to your function as bindin
 
 1. Make sure you have [configured the project for local development](#configure-the-project-for-local-development).
 
-2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding. For an example, see the [Queue storage bindings article](functions-bindings-storage-queue.md#packages).
+2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
 
 3. If there are app settings that the binding needs, add them to the **Values** collection in the [local setting file](functions-run-local.md#local-settings-file). These values are used when the function runs locally. When the function runs in the function app in Azure, the [function app settings](#function-app-settings) are used.
 
@@ -157,7 +154,7 @@ As with triggers, input and output bindings are added to your function as bindin
         }
     }
     ```
-The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding.
+The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -169,7 +166,9 @@ To test your function, press F5. If prompted, accept the request from Visual Stu
 
 With the project running, you can test your code as you would test deployed function. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). When running in debug mode, breakpoints are hit in Visual Studio as expected. 
 
+<!---
 For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 To learn more about using the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
 
@@ -193,7 +192,7 @@ You can also manage application settings in one of these other ways:
 
 * [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
-* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set). 
+* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
 
 ## Next steps
 

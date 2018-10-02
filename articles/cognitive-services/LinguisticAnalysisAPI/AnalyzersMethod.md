@@ -1,12 +1,14 @@
 ---
-title: The Analyzers method in the Lingistic Analysis API  | Microsoft Docs
-description: The analyzers REST API provides a list of analyzers that are currently supported by the service in Microsoft Cognitive Services.
+title: The Analyzers method - Lingistic Analysis API
+titlesuffix: Azure Cognitive Services
+description: The analyzers REST API provides a list of analyzers that are currently supported by the Linguistic Analysis API.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ---

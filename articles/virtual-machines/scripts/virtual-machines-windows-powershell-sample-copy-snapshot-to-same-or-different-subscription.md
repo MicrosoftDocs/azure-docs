@@ -20,7 +20,7 @@ ms.author: ramankum
 
 # Copy snapshot of a managed disk in same subscription or different subscription with PowerShell
 
-This script creates a copy of a snapshot in the same same subscription or different subscription. Use this script to move a snapshot to different subscription for data retention. Storing snapshots in different subscription protect you from accidental deletion of snapshots in your main subscription. 
+This script creates a copy of a snapshot in the same subscription or different subscription. Use this script to move a snapshot to different subscription for data retention. Storing snapshots in different subscription protect you from accidental deletion of snapshots in your main subscription. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 

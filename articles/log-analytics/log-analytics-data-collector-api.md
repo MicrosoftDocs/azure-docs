@@ -12,10 +12,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: bwren
-
+ms.component: 
 ---
 
 # Send data to Log Analytics with the HTTP Data Collector API (public preview)
@@ -57,7 +57,7 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 | Authorization |The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
 | Log-Type |Specify the record type of the data that is being submitted. Currently, the log type supports only alpha characters. It does not support numerics or special characters. The size limit for this parameter is 100 characters. |
 | x-ms-date |The date that the request was processed, in RFC 1123 format. |
-| time-generated-field |The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. It may not be null, and it must contain a valid date time. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| time-generated-field |The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
 
 ## Authorization
 Any request to the Log Analytics HTTP Data Collector API must include an authorization header. To authenticate a request, you must sign the request with either the primary or the secondary key for the workspace that is making the request. Then, pass that signature as part of the request.   
@@ -98,29 +98,33 @@ The samples in the next sections have sample code to help you create an authoriz
 The body of the message must be in JSON. It must include one or more records with the property name and value pairs in this format:
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 You can batch multiple records together in a single request by using the following format. All the records must be the same record type.
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-},
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    },
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 ## Record type and properties
@@ -271,7 +275,6 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
         -sharedKey $sharedKey `
         -date $rfc1123date `
         -contentLength $contentLength `
-        -fileName $fileName `
         -method $method `
         -contentType $contentType `
         -resource $resource
@@ -379,7 +382,7 @@ namespace OIAPIExample
 
 ```
 
-### Python sample
+### Python 2 sample
 ```
 import json
 import requests
@@ -464,3 +467,5 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## Next steps
 - Use the [Log Search API](log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.
+
+- Learn more about how [create a data pipeline with the Data Collector API](log-analytics-create-pipeline-datacollector-api.md) using Logic Apps workflow to Log Analytics.

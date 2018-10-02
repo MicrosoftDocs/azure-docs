@@ -1,36 +1,31 @@
 ---
-title: Run SSIS package using SSIS Activity in Azure Data Factory | Microsoft Docs
-description: This article describes how to run a SQL Server Integration Services (SSIS) package from an Azure Data Factory pipeline using the SSIS Activity.
+title: Run SSIS package with Execute SSIS Package Activity - Azure | Microsoft Docs
+description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package Activity.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: douglasl
-
+ms.date: 07/16/2018
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
 ---
-# Run an SSIS package using the SSIS Activity in Azure Data Factory
-This article describes how to run an SSIS package from an Azure Data Factory pipeline by using an SSIS activity. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. The SSIS Activity is not available in version 1 of the Data Factory service, which is generally available (GA). For an alternative method to run an SSIS package with version 1 of the Data Factory service, see [Run SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
+# Run an SSIS package with the Execute SSIS Package Activity in Azure Data Factory
+This article describes how to run an SSIS package in an Azure Data Factory pipeline by using an Execute SSIS Package activity. 
 
 ## Prerequisites
 
-### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Preview).
+**Azure SQL Database**. The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance.
 
 ## Create an Azure-SSIS integration runtime
 Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](tutorial-create-azure-ssis-runtime-portal.md).
 
-## Data Factory UI (Azure portal)
-In this section, you use Data Factory UI to create a Data Factory pipeline with an SSIS activity that runs an SSIS package.
+## Run a package in the Azure portal
+In this section, you use Data Factory UI to create a Data Factory pipeline with an Execute SSIS Package activity that runs an SSIS package.
 
 ### Create a data factory
 First step is to create a data factory by using the Azure portal. 
@@ -54,7 +49,7 @@ First step is to create a data factory by using the Azure portal.
       - Select **Create new**, and enter the name of a resource group.   
          
     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
+4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported by Data Factory are shown in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other locations.
 6. Select **Pin to dashboard**.     
 7. Click **Create**.
@@ -66,21 +61,21 @@ First step is to create a data factory by using the Azure portal.
     ![Data factory home page](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) application in a separate tab. 
 
-### Create a pipeline with an SSIS activity
-In this step, you use the Data Factory UI to create a pipeline. You add an SSIS activity to the pipeline and configure it to run the SSIS package. 
+### Create a pipeline with an Execute SSIS Package activity
+In this step, you use the Data Factory UI to create a pipeline. You add an Execute SSIS Package activity to the pipeline and configure it to run the SSIS package. 
 
 1. In the get started page, click **Create pipeline**: 
 
     ![Get started page](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 2. In the **Activities** toolbox, expand **General**, and drag and drop the **Execute SSIS Package** activity to the pipeline designer surface. 
 
-   ![Drag the SSIS Activity to the designer surface](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
+   ![Drag the Execute SSIS Package activity to the designer surface](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
-3. On the **General** tab of properties for the SSIS activity, provide a name and description for the activity. Set optional timeout and retry values.
+3. On the **General** tab of properties for the Execute SSIS Package activity, provide a name and description for the activity. Set optional timeout and retry values.
 
     ![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. On the **Settings** tab of properties for the SSIS activity, select the Azure-SSIS Integration Runtime associated with the `SSISDB` database where the package is deployed. Provide the package path in the `SSISDB` database in the format `<folder name>/<project name>/<package name>.dtsx`. Optionally specify 32-bit execution and a predefined or custom logging level, and provide an environment path in the format `<folder name>/<environment name>`.
+4. On the **Settings** tab of properties for the Execute SSIS Package activity, select the Azure-SSIS Integration Runtime associated with the `SSISDB` database where the package is deployed. Provide the package path in the `SSISDB` database in the format `<folder name>/<project name>/<package name>.dtsx`. Optionally specify 32-bit execution and a predefined or custom logging level, and provide an environment path in the format `<folder name>/<environment name>`.
 
     ![Set properties on the Settings tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
@@ -88,7 +83,15 @@ In this step, you use the Data Factory UI to create a pipeline. You add an SSIS 
 
 6. Publish the pipeline to Data Factory by clicking **Publish All** button. 
 
-### Run and monitor the pipeline
+### Optionally, parameterize the activity
+
+Optionally, assign values, expressions, or functions, which can refer to Data Factory system variables, to your project or package parameters in JSON format by using the **View Source Code** button on the bottom of the Execute SSIS Package activity box, or the **Code** button on the top right-hand corner of the pipeline area. For example, you can assign Data Factory pipeline parameters to your SSIS project or package parameters as shown in the following screenshots:
+
+![Edit JSON script for Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Add parameters to the Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
+
+### Run the pipeline
 In this section, you trigger a pipeline run and then monitor it. 
 
 1. To trigger a pipeline run, click **Trigger** on the toolbar, and click **Trigger now**. 
@@ -96,15 +99,18 @@ In this section, you trigger a pipeline run and then monitor it.
     ![Trigger now](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
 
 2. In the **Pipeline Run** window, select **Finish**. 
-3. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
+
+### Monitor the pipeline
+
+1. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
 
     ![Pipeline runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-3. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (the SSIS activity).
+2. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (the Execute SSIS Package activity).
 
     ![Activity runs](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-4. You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
+3. You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
 
     ```sql
     select * from catalog.executions
@@ -112,17 +118,21 @@ In this section, you trigger a pipeline run and then monitor it.
 
     ![Verify package executions](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
+4. You can also get the SSISDB execution ID from the output of the pipeline activity run, and use the ID to check more comprehensive execution logs and error messages in SSMS.
 
-> [!NOTE]
-> You can also create a scheduled trigger for your pipeline so that the pipeline runs on a schedule (hourly, daily, etc.). For an example, see [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+    ![Get the execution ID.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
-## Azure PowerShell
-In this section, you use Azure PowerShell to create a Data Factory pipeline with an SSIS activity that runs an SSIS package. 
+### Schedule the pipeline with a trigger
+
+You can also create a scheduled trigger for your pipeline so that the pipeline runs on a schedule (hourly, daily, etc.). For an example, see [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+## Run a package with PowerShell
+In this section, you use Azure PowerShell to create a Data Factory pipeline with an Execute SSIS Package activity that runs an SSIS package. 
 
 Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 ### Create a data factory
-You can either use the same data factory that has the Azure-SSIS IR or create a separate data factory. The following procedure provides steps to create a data factory. You create a pipeline with an SSIS activity in this data factory. The SSIS activity runs your SSIS package. 
+You can either use the same data factory that has the Azure-SSIS IR or create a separate data factory. The following procedure provides steps to create a data factory. You create a pipeline with an Execute SSIS Package activity in this data factory. The Execute SSIS Package activity runs your SSIS package. 
 
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
    
@@ -162,10 +172,10 @@ Note the following points:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, West Europe, and Southeast Asia regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+* For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
-### Create a pipeline with an SSIS activity 
-In this step, you create a pipeline with an SSIS activity. The activity runs your SSIS package. 
+### Create a pipeline with an Execute SSIS Package activity 
+In this step, you create a pipeline with an Execute SSIS Package activity. The activity runs your SSIS package. 
 
 1. Create a JSON file named **RunSSISPackagePipeline.json** in the **C:\ADF\RunSSISPackage** folder with content similar to the following example:
 
@@ -265,7 +275,7 @@ In this step, you create a pipeline with an SSIS activity. The activity runs you
     Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
     ```
 
-### Create a pipeline run
+### Run the pipeline
 Use the **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet to run the pipeline. The cmdlet returns the pipeline run ID for future monitoring.
 
 ```powershell
@@ -274,7 +284,7 @@ $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataF
                                              -PipelineName $DFPipeLine.Name
 ```
 
-### Monitor the pipeline run
+### Monitor the pipeline
 
 Run the following PowerShell script to continuously check the pipeline run status until it finishes copying the data. Copy/paste the following script in the PowerShell window, and press ENTER. 
 
@@ -297,7 +307,9 @@ while ($True) {
 }   
 ```
 
-### Create a trigger
+You can also monitor the pipeline using the Azure portal. For step-by-step instructions, see [Monitor the pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
+### Schedule the pipeline with a trigger
 In the previous step, you ran the pipeline on-demand. You can also create a schedule trigger to run the pipeline on a schedule (hourly, daily, etc.).
 
 1. Create a JSON file named **MyTrigger.json** in **C:\ADF\RunSSISPackage** folder with the following content: 
@@ -364,6 +376,6 @@ In the previous step, you ran the pipeline on-demand. You can also create a sche
     select * from catalog.executions
     ```
 
-
 ## Next steps
-You can also monitor the pipeline using the Azure portal. For step-by-step instructions, see [Monitor the pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+See the following blog post:
+-   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)

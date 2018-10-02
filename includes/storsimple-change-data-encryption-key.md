@@ -39,7 +39,7 @@ This step is performed in the Windows PowerShell for StorSimple interface on the
 If you are using the device serial console to connect to the Windows PowerShell interface, perform the following steps.
 
 #### To initiate the service data encryption key change
-1. Select option 1 to log on with full access.
+1. Select option 1, **Log in with full access**.
 2. At the command prompt, type:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
@@ -60,7 +60,7 @@ These steps must be performed in the Windows PowerShell interface of your StorSi
 Perform the following steps to update the service data encryption on your device.
 
 #### To update the service data encryption key
-1. Use Windows PowerShell for StorSimple to connect to the console. Select option 1 to log on with full access.
+1. Use Windows PowerShell for StorSimple to connect to the console. Select option 1, **Log in with full access**.
 2. At the command prompt, type:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`

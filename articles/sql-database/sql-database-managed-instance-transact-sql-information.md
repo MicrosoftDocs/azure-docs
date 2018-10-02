@@ -1,19 +1,21 @@
 ---
 title: Azure SQL Database Managed Instance T-SQL Differences | Microsoft Docs 
 description: This article discusses the T-SQL differences between Azure SQL Database Managed Instance and SQL Server. 
-services: sql-database 
+services: sql-database
+ms.service: sql-database
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
 author: jovanpop-msft
-ms.reviewer: carlrab, bonova 
-ms.service: sql-database 
-ms.custom: managed instance
-ms.topic: conceptual 
-ms.date: 05/24/2018 
 ms.author: jovanpop 
+ms.reviewer: carlrab, bonova 
 manager: craigg 
+ms.date: 08/13/2018 
 --- 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server 
 
-Azure SQL Database Managed Instance (preview) provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
+Azure SQL Database Managed Instance provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
  - [T-SQL differences and unsupported features](#Differences)
  - [Features that have different behavior in Managed Instance](#Changes)
  - [Temporary limitations and known issues](#Issues)
@@ -202,6 +204,10 @@ Undocumented DBCC statements that are enabled in SQL Server are not supported in
 - `DBCC TRACEOFF` is not supported. See [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
 - `DBCC TRACEON` is not supported. See [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
 
+### Distributed transactions
+
+Neither MSDTC nor [Elastic Transactions](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) are currently supported in Managed Instance.
+
 ### Extended Events 
 
 Some Windows-specific targets for XEvents are not supported:
@@ -257,7 +263,7 @@ External tables referencing the files in HDFS or Azure blob storage are not supp
 
 ### Replication 
  
-Replication is not yet supported. For information about Replication, see [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication).
+Replication is available for public preview on Managed Instance. For information about Replication, see [SQL Server Replication](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### RESTORE statement 
  
@@ -325,23 +331,24 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` are not supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` is not supported. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### SQL Server Agent 
- 
+### SQL Server Agent
+
 - SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
-- Jobs - only T-SQL job steps are currently supported (more steps will be added during public preview).
- - SSIS is not yet supported. 
- - Replication is not yet supported  
-  - Transaction-Log reader is not yet supported.  
-  - Snapshot is not yet supported.  
-  - Distributor is not yet supported.  
-  - Merge is not supported.  
+- Jobs - T-SQL job steps are currently supported
+- Other types of job steps are not currently supported (more step types will be added during public preview).
+  - Replication jobs not supported including:
+    - Transaction-log reader.  
+    - Snapshot.
+    - Distributor.  
+    - Merge.  
+  - SSIS is not yet supported. 
   - Queue Reader is not supported.  
- - Command shell is not yet supported. 
+  - Command shell is not yet supported. 
   - Managed Instance cannot access external resources (for example, network shares via robocopy).  
- - PowerShell is not yet supported.
- - Analysis Services are not supported.  
+  - PowerShell is not yet supported.
+  - Analysis Services are not supported.  
 - Notifications are partially supported.
- - Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
+- Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
  - Pager is not supported.  
  - NetSend is not supported. 
  - Alerts are not yet not supported.
@@ -361,19 +368,19 @@ For information about SQL Server Agent, see [SQL Server Agent](https://docs.micr
 The following are not supported: 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 For information about creating and altering tables, see [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
- 
+
 ## <a name="Changes"></a> Behavior changes 
  
 The following variables, functions, and views return different results:  
 - `SERVERPROPERTY('EngineEdition')` returns value 8. This property uniquely identifies Managed Instance. See [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` returns the short instance name, for example, 'myserver'. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` returns NULL, because the concept of instance as it exists for SQL Server does not apply to Managed Instance. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` returns full DNS 'connectable' name, for example, my-managed-instance.wcus17662feb9ce98.database.windows.net. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVICENAME` returns NULL, as it makes no sense in Managed Instance environment. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
+- `@@SERVICENAME` returns NULL, because the concept of service as it exists for SQL Server does not apply to Managed Instance. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` is supported. Returns NULL if AAD login is not in sys.syslogins. See [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` is not supported. Returns wrong data (temporary known issue). See [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 - `GETDATE()` and other built-in date/time functions always returns time in UTC time zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
@@ -388,9 +395,12 @@ The following variables, functions, and views return different results:
 
 Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation. 
 
-For example, a Managed Instance could have one file with 1.2 TB size that uses a 4 TB disk, and 248 files with 1 GB each that are placed on 248 disks with 128 GB size. In this example, the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB. However, total reserved instance size for databases is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB. This illustrates that under certain circumstance, due to a very specific distribution of files, a Managed Instance might reach Azure Premium Disk storage limit where you might not expect it to. 
+For example, a Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files each 1 GB ins size that are placed on separate 128 GB disks. In this example, 
+* the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB. 
+* the total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
+This illustrates that under certain circumstance, due to a very specific distribution of files, a Managed Instance might reach the 35TB reserved for attached Azure Premium Disk when you might not expect it to. 
 
-There would be no error on existing databases and they can grow without any problem if new files are not added, but the new databases cannot be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
+In this example existing databases will continue to work and can grow without any problem as long as new files are not added. However new databases could not be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
 
 ### Incorrect configuration of SAS key during database restore
 
@@ -401,15 +411,58 @@ Make sure that you remove leading `?` from the SAS key generated using Azure por
 
 SQL Server Management Studio and SQL Server Data Tools might have some issues while accessing Managed Instance. All tooling issues will be addressed before General Availability.
 
-### Incorrect database names
+### Incorrect database names in some views, logs, and messages
 
-Managed Instance might show guid value instead of database name during restore or in some error messages. These issues will be corrected before General Availability.
+Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Do not rely on these GUID identifiers because they would be replaced with actual database names in the future.
 
 ### Database mail profile
 There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile`. This is a temporary limitation that will be removed soon.
+
+### Error logs are not-persisted
+Error logs that are available in managed instance are not persisted and their size is not included in the max storage limit. Error logs might be automatically erased in case of failover.
+
+### Error logs are verbose
+Managed Instance places verbose information in error logs and many of them are not relevant. The amount of information in error logs will be decreased in the future.
+
+**Workaround**: Use a custom procedure for reading error logs that filter-out some non-relevant entries. For details, see [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+
+### Transaction Scope on two databases within the same instance is not supported
+`TransactionScope` class in .Net does not work if two queries are sent to the two databases within the same instance under the same transaction scope:
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+Although this code works with data within the same instance it required MSDTC.
+
+**Workaround**: Use [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) to use other database in connection context instead of using two connections.
+
+### CLR modules and linked servers sometime cannot reference local IP address
+CLR modules placed in Managed Instance and linked servers/distributed queries that are referencing current instance sometime cannot resolve the IP of the local instance. This is transient error.
+
+**Workaround**: Use context connections in CLR module if possible.
 
 ## Next steps
 
 - For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- For a quickstart showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-get-started.md).
