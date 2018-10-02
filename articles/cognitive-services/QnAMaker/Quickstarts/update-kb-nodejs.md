@@ -56,7 +56,7 @@ After the previous constants, add the knowledge base ID and add it to the path:
 
    [!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
-## Add the KB update definition
+## Add the KB update model definition
 
 After the constants, add the following KB update definition. The update definition has three sections:
 
@@ -66,7 +66,7 @@ After the constants, add the following KB update definition. The update definiti
 
 Each section can be used in the same single request to the API. 
 
-   [!code-nodejs[Add the KB update definition](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=23-53 "Add the KB update definition")]
+   [!code-nodejs[Add the KB update definition](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=25-53 "Add the KB update definition")]
 
 
 ## Add supporting functions
@@ -87,8 +87,8 @@ Add the following functions to make an HTTP PATCH request to update the knowledg
 
    [!code-nodejs[Add PATCH request to update KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=84-111 "Add PATCH request to update KB")]
 
-    This API call returns a JSON response that includes the operation ID. The operation ID is necessary to request status if the operation is not complete. 
-    
+    This API call returns a JSON response that includes the operation ID. The operation ID is necessary to request status if the operation is not complete.
+
     ```JSON
     {
       "operationState": "NotStarted",

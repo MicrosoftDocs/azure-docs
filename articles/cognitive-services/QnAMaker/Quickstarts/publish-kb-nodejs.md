@@ -66,16 +66,19 @@ Next, add the following supporting functions.
 
    [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=30-52 "Add supporting functions, step 2")]
 
+## Add the publish_kb function and main function
 
-## Add POST request to publish KB
 The following code makes an HTTPS request to the Qna Maker API to publish a KB and receives the response:
 
    [!code-nodejs[Add POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=54-71 "Add POST request to publish KB")]
 
-## Add the publish_kb function and main function
-Execute the publish _kb function.
+   [!code-nodejs[Add the publish_kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=73-91 "Add the publish_kb function and main function")]
 
-   [!code-nodejs[Add the publish_kb function and main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=73-97 "Add the publish_kb function and main function")]
+## Add the main function
+
+Add the following function to manage the request and response:
+
+   [!code-nodejs[Add the main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=94-97 "Add the main function")]
 
 ## Run the program
 

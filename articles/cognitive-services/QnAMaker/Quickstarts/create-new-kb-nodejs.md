@@ -60,9 +60,13 @@ Next, add the following supporting functions.
 
    [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=58-80 "Add supporting functions, step 2")]
 
-3. Add the following function to make an HTTP POST request to create the knowledge base. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication. 
+## Add functions to create KB
 
-   [!code-nodejs[Add supporting functions, step 3](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=82-99 "Add supporting functions, step 3")]
+Add the following functions to make an HTTP POST request to create the knowledge base. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication. 
+
+   [!code-nodejs[POST Request to API](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=82-99 "POST Request to API")]
+
+   [!code-nodejs[Add a function to create KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=117-125 "Add a function to create KB")]
 
     This API call returns a JSON response that includes the operation ID. Use the operation ID to determine if the KB is successfully created. 
     
@@ -76,9 +80,13 @@ Next, add the following supporting functions.
     }
     ```
 
-4. Add the following function to make an HTTP GET request to check the operation status. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication. 
+## Add functions to determine creation status
 
-   [!code-nodejs[Add supporting functions, step 4](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=101-115 "Add supporting functions, step 4")]
+Add the following function to make an HTTP GET request to check the operation status. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication. 
+
+   [!code-nodejs[GET Request to API](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=101-115 "GET Request to API")]
+
+   [!code-nodejs[Add function to determine creation status](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=127-135 "Add function to determine creation status")]
 
     Repeat the call until success or failure: 
     
@@ -91,25 +99,12 @@ Next, add the following supporting functions.
       "userId": "XXX9549466094e1cb4fd063b646e1ad6",
       "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
     }
-    ```
-
-## Add a function to create KB
-
-Add the following function to create the knowledge base, calling into the **post** function:
-
-   [!code-nodejs[Add a function to create KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=117-125 "Add a function to create KB")]
-
-## Add function to determine creation status
-
-Add the following function to check the status of the creation operation, calling into the **get** function
-    
-   [!code-nodejs[Add function to determine creation status](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=127-135 "Add function to determine creation status")]
 
 ## Add create-kb function
 
 The following function is the main function and creates the KB and repeats checks on the status. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
-   [!code-nodejs[Add create-kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=137-167 "Add create-kb function")]
+[!code-nodejs[Add create-kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=137-167 "Add create-kb function")]
 
 ## Run the program
 
