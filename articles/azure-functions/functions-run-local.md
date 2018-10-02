@@ -10,7 +10,7 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/24/2018
 ms.author: glenga
 ---
 
@@ -479,7 +479,7 @@ The following custom container deployment options are available:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--registry`** | The name of a Docker Registry the the current user signed-in to. |
+| **`--registry`** | The name of a Docker Registry the current user signed-in to. |
 | **`--platform`** | Hosting platform for the function app. Valid options are `kubernetes` |
 | **`--name`** | Function app name. |
 | **`--max`**  | Optionally, sets the maximum number of function app instances to deploy to. |

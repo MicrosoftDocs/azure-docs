@@ -13,9 +13,9 @@ ms.author: heidist
 
 # Choose a pricing tier for Azure Search
 
-In Azure Search, a [service is provisioned](search-create-service-portal.md) at a fixed pricing tier or SKU: **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
+In Azure Search, a [service is provisioned](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
 
-Tiers determine capacity, not features, with differentiation by:
+Tiers determine capacity, not features, and are differentiated by:
 
 + Number of indexes you can create
 + Size and speed of partitions (physical storage)
@@ -23,14 +23,10 @@ Tiers determine capacity, not features, with differentiation by:
 Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be very small.
 
 > [!NOTE] 
-> Feature parity exists across tiers with the exception of [indexers](search-indexer-overview.md), which is not available on S3HD.
+> The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3HD.
 >
 
-Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) for performance tuning. Whereas you might start with two or three of each, you could temporarily increase the resource level for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with higher resources/replicas offers better value and performance than a higher tier with lower resourcing. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
-
-> [!Important] 
-> Although estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then [reload your indexes](search-howto-reindex.md). There is no in-place upgrade of the same service from one SKU to another.
->
+Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) for performance tuning. Whereas you might start with two or three of each, you could temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with higher resources/replicas offers better value and performance than a higher tier with lower resourcing. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -48,22 +44,22 @@ The billing rate is **hourly per SU**, with each tier having a progressively hig
 
 Although each tier offers progressively higher capacity, you can bring a *portion* of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
 
-### Tips for lowering the bill
+### Tips for reducing costs
 
-You cannot shut down the service to lower the bill. Dedicated resources for partitions and replicas are operational 24-7, held in reserve for your exclusive use, for the lifetime of your service. The only way to lower a bill is to reduce replicas and partitions to the lowest level that still gives you acceptable performance. 
+You cannot shut down the service to lower the bill. Dedicated resources for partitions and replicas are operational 24-7, allocated for your exclusive use, for the lifetime of your service. The only way to lower a bill is by reducing replicas and partitions to a low level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Another lever is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 hourly rates. You could provision a service at the lower end of your projections, and then if you outgrow it, create a second larger tiered service, rebuild your indexes on that second service, and then delete the first one.
+Another lever for reducing costs is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 rates. You could provision a service aimed at the lower end of your load projections. If you outgrow the service, create a second larger-tiered service, rebuild your indexes on that second service, and then delete the first one. For on premises servers, it's common to "buy up" so that you can handle projected growth. But with a cloud service, you can pursue cost savings most aggressively, knowing that you can always switch to a higher-tiered service if the current one is insufficient.
 
 ### Capacity drill-down
 
-Capacity is structured as *replicas* and *partitions*. 
+In Azure Search, capacity is structured as *replicas* and *partitions*. 
 
 + Replicas are instances of the search service, where each replica hosts one load-balanced copy of an index. For example, a service with 6 replicas has 6 copies of every index loaded in the service. 
 
 + Partitions store indexes and automatically split searchable data: two partitions split your index in half, three partitions into thirds, and so forth. In terms of capacity, *partition size* is the primary differentiating feature across tiers.
 
 > [!NOTE]
-> All **Standard** tiers support [flexible combinations replica and partitions](search-capacity-planning.md#chart) so that you can [weight your system for speed or storage](search-performance-optimization.md) by changing the balance. **Basic** offers up three replicas for high availability but has only one partition. **Free** tiers do not provide dedicated resources: computing resources are shared by multiple free services.
+> All **Standard** tiers support [flexible combinations replica and partitions](search-capacity-planning.md#chart) so that you can [weight your system for speed or storage](search-performance-optimization.md) by changing the balance. **Basic** offers up three replicas for high availability but has only one partition. **Free** tiers do not provide dedicated resources: computing resources are shared by multiple subscribers.
 
 ### More about service limits
 
@@ -100,7 +96,11 @@ Capacity and costs of running the service go hand-in-hand. Tiers impose limits o
 
 Business requirements typically dictate the number of indexes you will need. For example, a global index for a large repository of documents, or perhaps multiple indexes based on region, application, or business niche.
 
-To determine the size of an index, you have to [build one](search-create-index-portal.md). The data structure in Azure Search is primarily an [inverted index](https://en.wikipedia.org/wiki/Inverted_index), which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily the amount of data you feed into it. A large data source with massive redundancy could result in a smaller index than a smaller dataset containing highly variable content.  As such, it's rarely possible to infer index size based on the size of the original data set.
+To determine the size of an index, you have to [build one](search-create-index-portal.md). The data structure in Azure Search is primarily an [inverted index](https://en.wikipedia.org/wiki/Inverted_index), which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily the amount of data you feed into it. A large data source with massive redundancy could result in a smaller index than a smaller dataset containing highly variable content. As such, it's rarely possible to infer index size based on the size of the original data set.
+
+> [!NOTE] 
+> Although estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then [reload your indexes](search-howto-reindex.md). There is no in-place upgrade of the same service from one SKU to another.
+>
 
 ### Step 1: Develop rough estimates using the Free tier
 
