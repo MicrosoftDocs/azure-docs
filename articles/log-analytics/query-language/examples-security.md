@@ -118,9 +118,9 @@ RunProcesses
 ```
 
 
-## Find repeating failed log in attempts by the same account from different IPs
+## Find repeating failed login attempts by the same account from different IPs
 
-The following example finds failed log in attempts by the same account from more than 5 different IPs, in the last 6 hours, and then enumerates the IPs.
+The following example finds failed login attempts by the same account from more than five different IPs in the last six hours.
 
 ```Kusto
 SecurityEvent 
