@@ -1,7 +1,11 @@
-- name: Media Services
-  tocHref: /azure/media-services
-  topicHref: /azure/media-services/index
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
   items:
-   - name: Video Indexer
-     tocHref: /azure/cognitive-services/video-indexer
-     topicHref: /azure/media-services/video-indexer/index
+  - name: Media Services
+    tocHref: /azure/media-services
+    topicHref: /azure/media-services/index
+    items:
+    - name: Video Indexer
+      tocHref: /azure/cognitive-services/video-indexer
+      topicHref: /azure/media-services/video-indexer/index
