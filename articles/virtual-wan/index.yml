@@ -23,11 +23,11 @@ sections:
     text: Learn how to configure, create, and manage connections using Azure Virtual WAN.
   - type: list
     style: unordered
-    className: spaced noBullet
+    className: spaced Bullet
     items:
-    - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">Create and manage a Site-to-Site connection with Virtual WAN</a>
-    - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">Create and manage a Point-to-Site connection with Virtual WAN</a>
-    - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">Create and manage an ExpressRoute connection with Virtual WAN</a>
+    - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">Site-to-Site connections</a>
+    - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">Point-to-Site connections</a>
+    - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">ExpressRoute connections</a>
 - title: Reference
   items:
   - type: list
