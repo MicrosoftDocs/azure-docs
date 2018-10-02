@@ -60,9 +60,9 @@ For example, a facilities management app could be configured to allow occupants 
 
 ### Ecosystem
 
-You can connect an Azure Digital Twins instance to many powerful Azure services including: Azure Analytics, AI, and Storage services, as well as Azure Maps, Microsoft Mixed Reality, Dynamics 365, or Office 365.
+You can connect an Azure Digital Twins instance to many powerful Azure services including: Azure Stream Analytics, AI, and Storage services, as well as Azure Maps, Microsoft Mixed Reality, Dynamics 365, or Office 365.
 
-For example, a smart office building application could use Azure Digital Twins to represent teams and devices located on many floors. As devices stream live data into the provisioned Digital Twin instance, Azure Analytics can process that data to provide key insights. Then, the data can be stored in Azure Storage and converted into a shareable file format to be distributed across the whole organization in Office 365.
+For example, a smart office building application could use Azure Digital Twins to represent teams and devices located on many floors. As devices stream live data into the provisioned Digital Twin instance, Azure Stream Analytics can process that data to provide actionable key insights. Then, the data can be stored in Azure Storage and converted into a shareable file format to be distributed across the whole organization in Office 365.
 
 ## Solutions that benefit from Azure Digital Twins
 
@@ -82,7 +82,10 @@ Azure Digital Twins uses Azure IoT Hub to connect the IoT devices and sensors th
 
 For a more detailed description about the rest of the IoT ecosystem, see [Azure IoT technologies and solutions](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
 
+
 ## Next steps
 
-* Learn about core Azure Digital Twins concepts: [Understanding the Digital Twins Object Model and Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md)
-* Try out an end-to-end IoT solution with Azure Digital Twins quick starts: [Find Available Rooms with Fresh Air](./quickstart-view-occupancy-dotnet.md)
+Learn about core Azure Digital Twins concepts:
+
+> [!div class="nextstepaction"]
+> [Understanding the Digital Twins Object Model and Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md)

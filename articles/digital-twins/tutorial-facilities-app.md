@@ -33,7 +33,7 @@ IoT apps often connect buildings, devices, data, and sensors. This tutorial demo
 
 1. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 
-1. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs.
+1. Digital Twins provides a collection of REST APIs for management and interaction with your graph. These APIs are called Management APIs.
 
 The URL is generated in the **Overview** section and has the following format: `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`.
 

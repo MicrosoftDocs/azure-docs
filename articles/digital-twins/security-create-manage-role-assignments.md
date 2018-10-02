@@ -12,7 +12,7 @@ ms.author: lyrana
 
 # Create and manage role assignments
 
-Azure Digital Twins uses [role-based access control](./security-role-based-access-control.md) to specify which Digital Twins topology resources are granted or revoked access, permissions, and roles.
+Azure Digital Twins uses [role-based access control](./security-role-based-access-control.md) to specify which Digital Twins graph resources are granted or revoked access, permissions, and roles.
 
 Each role assignment includes:
 
@@ -61,7 +61,7 @@ HTTP POST /api/v1.0/roleassignments
 |objectId | Yes |string | The object id for the role assignment that must be formatted according to its associated type. For the `DomainName` ObjectIdType, ObjectId must begin with the `“@”` character. |
 | objectIdType | Yes |string | The type of the role assignment. Must be one of the following rows in this table. |
 | tenantId | Varies | string |The tenant identifier. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
-| path* | Yes | string |The full access path to the `Space` object. Ex: `/{Guid}/{Guid}` If an identifier needs the role assignment for the entire topology specify `"/"` which designates the root. However, using that is discouraged and **you should always follow the Principle of Least Privilege** |
+| path* | Yes | string |The full access path to the `Space` object. Ex: `/{Guid}/{Guid}` If an identifier needs the role assignment for the entire graph specify `"/"` which designates the root. However, using that is discouraged and **you should always follow the Principle of Least Privilege** |
 
 ## Sample configuration
 
