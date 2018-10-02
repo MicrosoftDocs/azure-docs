@@ -1,5 +1,5 @@
 ---
-title: Aggregations in Azure Log Analytics queries| Microsoft Docs
+title: Log Analytics query examples - security records | Microsoft Docs
 description: Describes aggregation functions in Log Analytics queries that offer useful ways to analyze your data.
 services: log-analytics
 documentationcenter: ''
@@ -18,38 +18,12 @@ ms.component: na
 ---
 
 
-# Log Analytics query examples - security records
+# Log Analytics query examples
 
+## Multiple data type
 
-
-## Calculate the average size of perf usage reports per computer
-
-This example calculates the average size of perf usage reports per computer, over the last 3 hours.
-The results are shown in a bar chart.
-```Kusto
-Usage 
-| where TimeGenerated > ago(3h)
-| where DataType == "Perf" 
-| where QuantityUnit == "MBytes" 
-| summarize avg(Quantity) by Computer
-| sort by avg_Quantity desc nulls last
-| render barchart
-```
-
-## Chart a week-over-week view of the number of computers sending data
-
-The following example charts the number of distinct computers that sent heartbeats, each week.
-
-```Kusto
-Heartbeat
-| where TimeGenerated >= startofweek(ago(21d))
-| summarize dcount(Computer) by endofweek(TimeGenerated) | render barchart kind=default
-```
-
-## Chart the record-count per table in the last 5 hours
-
-The following example collects all records of all tables from the last 5 hours, and counts how many records were in each table, in each point in time.
-The results are shown in a timechart.
+### Chart the record-count per table
+The following example collects all records of all tables from the last five hours and counts how many records were in each table. The results are shown in a timechart.
 
 ```Kusto
 union withsource=sourceTable *
@@ -58,103 +32,26 @@ union withsource=sourceTable *
 | render timechart
 ```
 
-## Computers Still Missing Updates
-
-The following example shows a list of Computers that were missing one or more critical updates a few days ago and are still missing updates.
-```Kusto
-let ComputersMissingUpdates3DaysAgo = Update
-| where TimeGenerated between (ago(3d)..ago(2d))
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
-| summarize makeset(Computer);
-
-Update
-| where TimeGenerated > ago(1d)
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
-| where Computer in (ComputersMissingUpdates3DaysAgo)
-| summarize UniqueUpdatesCount = dcount(Product) by Computer, OSType
-```
-
-## Computers with non-reporting protection status duration
-
-The following example lists computers that had a list one "Not Reporting" protection status.
-It also measures the duration they were in this status (assuming it's a single event, not several "fragmentations" in reporting).
-```Kusto
-ProtectionStatus
-| where ProtectionStatus == "Not Reporting"
-| summarize count(), startNotReporting = min(TimeGenerated), endNotReporting = max(TimeGenerated) by Computer, ProtectionStatusDetails
-| join ProtectionStatus on Computer
-| summarize lastReporting = max(TimeGenerated), startNotReporting = any(startNotReporting), endNotReporting = any(endNotReporting) by Computer
-| extend durationNotReporting = endNotReporting - startNotReporting
-```
-
-## Computers with unhealthy latency
-
-The following example creates a list of distinct computers with unhealthy latency.
-```Kusto
-NetworkMonitoring 
-| where LatencyHealthState <> "Healthy" 
-| where Computer != "" 
-| distinct Computer
-```
-
-## Join computer perf records to correlate memory and CPU
-
-This example correlates a given computer's perf records, and creates 2 time charts: the average CPU and maximum memory, in 30-minute bins.
-
-```Kusto
-let StartTime = now()-5d;
-let EndTime = now()-4d;
-Perf
-| where CounterName == "% Processor Time"  
-| where TimeGenerated > StartTime and TimeGenerated < EndTime
-and TimeGenerated < EndTime
-| project TimeGenerated, Computer, cpu=CounterValue 
-| join kind= inner (
-   Perf
-    | where CounterName == "% Used Memory"  
-    | where TimeGenerated > StartTime and TimeGenerated < EndTime
-    | project TimeGenerated , Computer, mem=CounterValue 
-) on TimeGenerated, Computer
-| summarize avgCpu=avg(cpu), maxMem=max(mem) by TimeGenerated bin=30m  
-| render timechart
-```
-
-## Count all logs collected over the last hour, per type
-
-The following example search everything reported in the last hour and counts the records of each table using the system column $table.
-The results are displayed in a bar chart.
+### Count all logs collected over the last hour by type
+The following example searches everything reported in the last hour and counts the records of each table by **Type**. The results are displayed in a bar chart.
 
 ```Kusto
 search *
 | where TimeGenerated > ago(1h) 
-| summarize CountOfRecords = count() by $table
+| summarize CountOfRecords = count() by Type
 | render barchart
 ```
 
-## Count and chart alerts severity, per day
+## AzureDiagnostics
 
-The following example creates an unstacked bar chart of alert count by severity, per day:
-```Kusto
-Alert 
-| where TimeGenerated > ago(7d)
-| summarize count() by AlertSeverity, bin(TimeGenerated, 1d)
-| render barchart kind=unstacked
-```
+## Security records
 
-## Count Azure diagnostics records per category
+### Count security events by activity ID
 
-Count Azure diagnostics records for each unique category.
 
-```Kusto
-AzureDiagnostics 
-| where TimeGenerated > ago(1d)
-| summarize count() by Category
-```
+This example relies on the fixed structure of the **Activity** column: \<ID\>-\<Name\>.
+It parses the **Activity** value into two new columns, and counts the occurrence of each **activityID**.
 
-## Count security events by activity ID
-
-This example relies on the fixed structure of the Activity column: <ID>-<Name>.
-It parses the Activity value into 2 new columns, and counts the occurrence of each activity ID
 ```Kusto
 SecurityEvent
 | where TimeGenerated > ago(30m) 
@@ -163,17 +60,138 @@ SecurityEvent
 | summarize count() by activityID
 ```
 
-## Count security events related to permissions
+### Count security events related to permissions
+This example shows the number of **securityEvent** records, in which the **Activity** column contains the whole term _Permissions_. The query applies to records created over the last 30 minutes.
 
-This example show the number of securityEvent records, in which the Activity column contains the whole term "Permissions".
-The query applies to records created over the last 30m.
 ```Kusto
 SecurityEvent
 | where TimeGenerated > ago(30m)
 | summarize EventCount = countif(Activity has "Permissions")
 ```
 
+### Find accounts that failed to log in from computers with a security detection
+This example finds and counts accounts that failed to log in from computers on which we identify a security detection.
 
+```Kusto
+let detections = toscalar(SecurityDetection
+| summarize makeset(Computer));
+SecurityEvent
+| where Computer in (detections) and EventID == 4624
+| summarize count() by Account
+```
+
+### Is my security data available?
+Starting data exploration often starts with data availability check. This example shows the number of **SecurityEvent** records in the last 30 minutes.
+
+```Kusto
+SecurityEvent 
+| where TimeGenerated  > ago(30m) 
+| count
+```
+
+### Parse activity name and ID
+The two examples below rely on the fixed structure of the **Activity** column: \<ID\>-\<Name\>. The first example uses the **parse** operator to assign values to two new columns: **activityID** and **activityDesc**.
+
+```Kusto
+SecurityEvent
+| take 100
+| project Activity 
+| parse Activity with activityID " - " activityDesc
+```
+
+This example uses the **split** operator to create an array of separate values
+```Kusto
+SecurityEvent
+| take 100
+| project Activity 
+| extend activityArr=split(Activity, " - ") 
+| project Activity , activityArr, activityId=activityArr[0]
+```
+
+### Explicit credentials processes
+The following example shows a pie chart of processes that used explicit credentials in the last week
+
+```Kusto
+SecurityEvent
+| where TimeGenerated > ago(7d)
+// filter by id 4648 ("A logon was attempted using explicit credentials")
+| where EventID == 4648
+| summarize count() by Process
+| render piechart 
+```
+
+### Top running processes
+
+The following example shows a time line of activity for the five most common processes, over the last three days.
+
+```Kusto
+// Find all processes that started in the last three days. ID 4688: A new process has been created.
+let RunProcesses = 
+    SecurityEvent
+    | where TimeGenerated > ago(3d)
+    | where EventID == "4688";
+// Find the 5 processes that were run the most
+let Top5Processes =
+RunProcesses
+| summarize count() by Process
+| top 5 by count_;
+// Create a time chart of these 5 processes - hour by hour
+RunProcesses 
+| where Process in (Top5Processes) 
+| summarize count() by bin (TimeGenerated, 1h), Process
+| render timechart
+```
+
+
+### Find repeating failed login attempts by the same account from different IPs
+
+The following example finds failed login attempts by the same account from more than five different IPs in the last six hours.
+
+```Kusto
+SecurityEvent 
+| where AccountType == "User" and EventID == 4625 and TimeGenerated > ago(6h) 
+| summarize IPCount = dcount(IpAddress), makeset(IpAddress)  by Account
+| where IPCount > 5
+| sort by IPCount desc
+```
+
+### Find user accounts that failed to log in 
+The following example identifies user accounts that failed to log in more than five times in the last day, and when they last attempted to log in.
+
+```Kusto
+let timeframe = 1d;
+SecurityEvent
+| where TimeGenerated > ago(1d)
+| where AccountType == 'User' and EventID == 4625 // 4625 - failed log in
+| summarize failed_login_attempts=count(), latest_failed_login=arg_max(TimeGenerated, Account) by Account 
+| where failed_login_attempts > 5
+| project-away Account1
+```
+
+Using **join**, and **let** statements we can check if the same suspicious accounts were later able to log in successfully.
+
+```Kusto
+let timeframe = 1d;
+let suspicious_users = 
+	SecurityEvent
+	| where TimeGenerated > ago(timeframe)
+	| where AccountType == 'User' and EventID == 4625 // 4625 - failed login
+	| summarize failed_login_attempts=count(), latest_failed_login=arg_max(TimeGenerated, Account) by Account 
+	| where failed_login_attempts > 5
+	| project-away Account1;
+let suspicious_users_that_later_logged_in = 
+    suspicious_users 
+    | join kind=innerunique (
+        SecurityEvent
+        | where TimeGenerated > ago(timeframe)
+        | where AccountType == 'User' and EventID == 4624 // 4624 - successful login,
+        | summarize latest_successful_login=arg_max(TimeGenerated, Account) by Account
+    ) on Account
+    | extend was_login_after_failures = iif(latest_successful_login>latest_failed_login, 1, 0)
+    | where was_login_after_failures == 1
+;
+suspicious_users_that_later_logged_in
+```
 
 
 
