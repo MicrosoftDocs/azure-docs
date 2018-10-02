@@ -1,6 +1,6 @@
 ---
 title: Copy data from an HTTP source by using Azure Data Factory | Microsoft Docs
-description: Learn how to copy data from a cloud or on-premises HTTP source to supported sink data stores by using Copy Activity in an Azure Data Factory pipeline.
+description: Learn how to copy data from a cloud or on-premises HTTP source to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj

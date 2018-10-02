@@ -1,6 +1,6 @@
 ---
 title: Copy data from Netezza by using Azure Data Factory | Microsoft Docs
-description: Learn how to copy data from Netezza to supported sink data stores by using Copy Activity in an Azure Data Factory pipeline.
+description: Learn how to copy data from Netezza to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -45,7 +45,7 @@ The following properties are supported for the Netezza linked service:
 A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. The following table describes more properties that you can set:
 
 | Property | Description | Required |
-|:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |
 | SecurityLevel | The level of security (SSL/TLS) that the driver uses for the connection to the data store. Example: `SecurityLevel=preferredSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use SSL.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use SSL. <br/>- **Preferred secured (preferredSecured)**: If the server provides a choice, the driver uses SSL. <br/>- **Only secured (onlySecured)**: The driver doesn't connect unless an SSL connection is available. | No |
 | CaCertFile | The full path to the SSL certificate that's used by the server. Example: `CaCertFile=<cert path>;`| Yes, if SSL is enabled |
 
