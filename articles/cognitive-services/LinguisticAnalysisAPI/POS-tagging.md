@@ -21,7 +21,7 @@ ROBOTS: NOINDEX
 
 Once a text has been separated into sentences and tokens, the next step of analysis is to identify the category or part-of-speech of each word.
 These include categories like *noun* (generally representing people, places, things, ideas, etc.) and *verb* (generally representing actions, changes of state, etc.
-For some words, the part-of-speech is unambiguous (for instance, *quagmire* is really only a noun), but for many others, it's hard to tell.
+For some words, the part-of-speech is unambiguous (for instance, *quagmire* is only a noun), but for many others, it's hard to tell.
 *Table* could be a place where you sit (or 2-D layout of numbers), but you can also "table a discussion".
 
 ## List of Part-of-Speech Tags
@@ -48,7 +48,7 @@ For some words, the part-of-speech is unambiguous (for instance, *quagmire* is r
 | JJS | adjective, superlative | best fastest cheapest |
 | LS | list item marker | (a) (b) 1 2 A B A. B. |
 | MD | modal auxiliary | can may shall will could might should ought |
-| NN | noun, common, singular or mass | potato money shoe |
+| NN | noun, common, singular, or mass | potato money shoe |
 | NNP | noun, proper, singular | Kennedy Roosevelt Chicago Weehauken |
 | NNPS | noun, proper, plural | Springfields Bushes |
 | NNS | noun, common, plural | pieces mice fields |
