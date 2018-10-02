@@ -48,7 +48,7 @@ Here are the events' format for each of the event types:
   }
   ```
 
-Replace `yourTopicName` with your customized topic.
+    Replace `yourTopicName` with your customized topic.
 
 - `UdfCustom`
 
@@ -74,7 +74,7 @@ Replace `yourTopicName` with your customized topic.
   }
   ```
 
-Replace `yourTopicName` with your customized topic.
+    Replace `yourTopicName` with your customized topic.
 
 - `SensorChange`
 
@@ -107,7 +107,7 @@ Replace `yourTopicName` with your customized topic.
   }
   ```
 
-Replace `yourTopicName` with your customized topic.
+    Replace `yourTopicName` with your customized topic.
 
 - `SpaceChange`
 
@@ -140,7 +140,7 @@ Replace `yourTopicName` with your customized topic.
   }
   ```
 
-Replace `yourTopicName` with your customized topic.
+    Replace `yourTopicName` with your customized topic.
 
 - `DeviceMessage`
 
@@ -153,7 +153,7 @@ Replace `yourTopicName` with your customized topic.
 
 ## Configuring Endpoints
 
-Endpoint management is exercised through the endpoints API. Here are some examples about how to configure the different supported endpoints. Pay special attention to the event types array as it specifies the routing for the endpoint:
+Endpoint management is exercised through the Endpoints API. Here are some examples about how to configure the different supported endpoints. Pay special attention to the event types array as it specifies the routing for the endpoint:
 
 ```plaintext
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
@@ -175,7 +175,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-Replace `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your custom values.
+    Replace `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your custom values.
 
 - Route to **Event Grid** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
@@ -193,7 +193,7 @@ Replace `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicNam
   }
   ```
 
-Replace `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your custom values.
+    Replace `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your custom values.
 
 - Route to **Event Hub** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
@@ -211,7 +211,7 @@ Replace `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your cust
   }
   ```
 
-Replace  `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourEventHubName` with your custom values.
+    Replace  `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourEventHubName` with your custom values.
 
 - Route to **Event Hub** event types `DeviceMessage`. Note the inclusion of _EntityPath_ in the `connectionString`, which is mandatory.
 
@@ -227,9 +227,10 @@ Replace  `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourEventHu
   }
   ```
 
-Replace  `yourNamespace`, `yourPrimaryKey`,  `yourEventHubName`, and `yourSecondaryKey` with your custom values.
+    Replace  `yourNamespace`, `yourPrimaryKey`,  `yourEventHubName`, and `yourSecondaryKey` with your custom values.
 
-Upon the creation of a new Endpoint, it may take up to 5 to 10 minutes to start receiving events on the endpoint.
+> [!NOTE]
+> Upon the creation of a new Endpoint, it may take up to 5 to 10 minutes to start receiving events on the endpoint.
 
 ## Primary and secondary connection strings/keys
 
