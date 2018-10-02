@@ -6,7 +6,7 @@ manager: alinast
 ms.service: azure-digital-twins
 services: azure-digital-twins
 ms.topic: conceptual
-ms.date: 10/1/2018
+ms.date: 10/2/2018
 ms.author: adgera
 ---
 
@@ -97,10 +97,10 @@ To interactively test requests against API resources protected by OAuth 2.0, see
 
 ## Next steps
 
-Read more about the Management API:
+Read more about Azure Digital Twins Ontology:
 
 > [!div class="nextstepaction"]
-> [Azure Digital Twins Management API](./concepts-management-api-limits.md)
+> [Object Models](./concepts-objectmodel-spatialgraph.md)
 
 Learn how to authenticate with your Management API:
 
