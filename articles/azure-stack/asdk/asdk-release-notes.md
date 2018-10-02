@@ -84,6 +84,8 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 
 #### Compute  
 
+- <!-- 3099544 – IS, ASDK --> When you create a new virtual machine (VM) using the Azure Stack portal, and you select the VM size, the USD/Month column is displayed with an **Unavailable** message. This column should not appear; displaying the VM pricing column is not supported in Azure Stack.
+
 - <!-- 3090289 – IS, ASDK --> After applying the 1808 update, you may encounter the following issues when deploying VMs with Managed Disks:
 
    1. If the subscription was created before the 1808 update, deploying VM with Managed Disks may fail with an internal error message. To resolve the error, follow these steps for each subscription:
