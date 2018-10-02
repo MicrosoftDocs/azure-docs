@@ -30,7 +30,7 @@ Use the following steps to publish a new container image.
 
     ![Select containers option for new offer](media/cpp-containers-guide/azure-container-offer.png)
 
-2. In the Offer Settings tab, under Offer Identity, enter the **Offer ID**, **Publisher ID**, and **Name**. enter the show in the next screen capture.
+2. In the Offer Settings tab, under Offer Identity, enter the **Offer ID**, **Publisher ID**, and **Name**.
 
     ![Offer Identity](media/cpp-containers-guide/containers-offer-settings.png)
 
