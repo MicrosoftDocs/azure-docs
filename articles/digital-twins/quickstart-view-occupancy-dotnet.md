@@ -48,7 +48,7 @@ This article shows how you can achieve both goals using Azure Digital Twins. The
 
 1. Review your Digital Twins information, then click **Create**. Your Digital Twins instance might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 
-1. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs. The URL is generated in the **Overview** section of the Digital Twins resource view and has the following format: `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`. You will need this URL in the proceeding steps.
+1. Digital Twins provides a collection of REST APIs for management and interaction with your graph. These APIs are called Management APIs. The URL is generated in the **Overview** section of the Digital Twins resource view and has the following format: `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`. You will need this URL in the proceeding steps.
 
 ## Grant permissions to the console applications to interact with Digital Twins Management APIs
 
@@ -91,7 +91,7 @@ You can build and run the sensor simulator application using the steps below:
 
 ## Find available spaces with fresh air
 
-The sensor telemetry sample is simulating random data values for two sensors, motion and carbon dioxide. Available spaces with fresh air are defined in our sample by no presence in the room and carbon dioxide level is under 1000 ppm. If the condition is not fulfilled, then the space is not available, or the air quality is poor.
+The sensor telemetry sample is simulating random data values for two sensors, motion, and carbon dioxide. Available spaces with fresh air are defined in our sample by no presence in the room and carbon dioxide level is under 1000 ppm. If the condition is not fulfilled, then the space is not available, or the air quality is poor.
 
 1. Go to the `occupancy-quickstart` command prompt.
 1. Run `dotnet run GetAvailableAndFreshSpaces`.

@@ -84,7 +84,7 @@ _Matchers_ define a set of conditions that evaluate what actions will take place
 
 A _User-Defined Function_, or _UDF_, is a custom function that runs within an isolated environment in Azure Digital Twins. UDFs have access to both the raw sensor telemetry message as it was received, as well as to the spatial graph and dispatcher service. Once the UDF is registered within the graph, a matcher (detailed above) must be created to specify when to run the UDF. When Digital Twins receives new telemetry from a given sensor, the matched UDF can calculate a moving average of the last few sensor readings, for example.
  
-UDFs can be written in JavaScript and allow developers to execute custom snippets of code against sensor telemetry messages. There are also helper methods to interact with the topology in the user-defined execution environment. With a UDF, developers can:
+UDFs can be written in JavaScript and allow developers to execute custom snippets of code against sensor telemetry messages. There are also helper methods to interact with the graph in the user-defined execution environment. With a UDF, developers can:
 
 - Set the sensor reading directly onto the sensor object within the graph.
 - Perform an action based on different sensor readings within a space in the graph.
@@ -101,10 +101,15 @@ It's possible for a matcher to trigger a UDF that has no role assignments. In th
 
 ## Next steps
 
+Learn more about how to routing events and telemetry messages to other Azure services:
+
+> [!div class="nextstepaction"]
+> [Routing events and messages](concepts-events-routing.md)
+
 Learn more about how to create matchers, user-defined functions, and role assignments:
 
 > [!div class="nextstepaction"]
-> [Facility Management Tutorial](tutorial-facilities-app.md)
+> [Guide for Using User-Defined Functions](how-to-user-defined-functions.md)
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-data-processing-flow.png

@@ -50,3 +50,10 @@ Furthermore, not all **EndpointTypes** support all **EventTypes**. The **EventTy
 
 <!-- >[!NOTE]
 >For more details on how to create endpoints and examples of events' schema, please see [Endpoints and Egress]](how-to-create-event-endpoints.md). -->
+
+## Next steps
+
+Try out a quick start Azure Digital Twins sample:
+
+> [!div class="nextstepaction"]
+> [Find Available Rooms with Fresh Air](quickstart-view-occupancy-dotnet.md)
