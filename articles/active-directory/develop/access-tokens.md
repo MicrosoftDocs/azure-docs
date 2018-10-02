@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory access tokens reference | Microsoft Docs
-description: Accepting access tokens emitted by the v1.0 and v2.0 endpoints of Azure AD. 
+description: Learn about access tokens emitted by the v1.0 and v2.0 endpoints of Azure AD. 
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
