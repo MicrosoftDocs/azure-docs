@@ -3,7 +3,7 @@ title: Search with Azure Maps | Microsoft Docs
 description: Search nearby point of interest using Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/12/2018
+ms.date: 09/27/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -135,11 +135,6 @@ This section shows how to use the Maps Search API to find a point of interest on
     ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
-    map.addPins([], {
-        name: searchLayerName,
-        cluster: false,
-        icon: "pin-round-darkblue"
-    });
     ```
 
 2. To instantiate the client service, add the following Javascript code to the script block, after the code that initializes the map.
@@ -148,44 +143,56 @@ This section shows how to use the Maps Search API to find a point of interest on
     var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. Add the following script block to build the query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like any combination of address and point of interest (POI) tokens. It searches for nearby Gasoline Stations within the specified radius. The response is then parsed into GeoJSON format and converted into point features, which are added to the map as pins. The last part of the script adds camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property.
+3. All functions on the map should be loaded after the map is loaded. You can ensure that by putting all map functions inside the map eventListener block. Add the following lines of code to add an [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) to the map to ensure that the map gets loaded fully before adding functionalities.
+    
+    ```JavaScript
+         map.addEventListener("load", function() {
+         });
+    ```
+
+4. Add the following script block **within the eventListener** to build the query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like any combination of address and point of interest (POI) tokens. It searches for nearby Gasoline Stations within the specified radius. The response is then parsed into GeoJSON format and converted into point features, which are added to the map as pins. The last part of the script adds camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property.
 
     ```JavaScript
-    client.search.getSearchFuzzy("gasoline station", {
-     lat: 47.6292,
-     lon: -122.2337,
-     radius: 100000
-    }).then(response => {
-       // Parse the response into GeoJSON 
-       var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response);
 
-       // Create the point features that will be added to the map as pins
-       var searchPins = geojsonResponse.getGeoJsonResults().features.map(poiResult => {
-           var poiPosition = [poiResult.properties.position.lon, poiResult.properties.position.lat];
-           return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
+            // Execute a POI search query then add pins to the map for each result once a response is received
+            client.search.getSearchFuzzy("gasoline station", {
+            lat: 47.6292,
+            lon: -122.2337,
+            radius: 100000
+            }).then(response => {
+       
+            // Parse the response into GeoJSON 
+            var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response);
+
+            // Create the point features that will be added to the map as pins
+            var searchPins = geojsonResponse.getGeoJsonResults().features.map(poiResult => {
+               var poiPosition = [poiResult.properties.position.lon, poiResult.properties.position.lat];
+               return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
                 name: poiResult.properties.poi.name,
                 address: poiResult.properties.address.freeformAddress,
                 position: poiPosition[1] + ", " + poiPosition[0]
-           });
-       });
+               });
+            });
 
-       // Add pins to the map for each POI
-       map.addPins(searchPins, {
-           name: searchLayerName
-       });
+            // Add pins to the map for each POI
+            map.addPins(searchPins, {
+               name: searchLayerName,
+               cluster: false, 
+               icon: "pin-round-darkblue" 
+            });
 
-       // Set the camera bounds
-       map.setCameraBounds({
-           bounds: geojsonResponse.getGeoJsonResults().bbox,
-           padding: 50
-       );
-    });
+            // Set the camera bounds
+            map.setCameraBounds({
+               bounds: geojsonResponse.getGeoJsonResults().bbox,
+               padding: 50
+            );
+        });
     ```
-4. Save the **MapSearch.html** file and refresh your browser. You should now see that the map is centered on Seattle with blue pins marking the locations of gasoline stations in the area.
+5. Save the **MapSearch.html** file and refresh your browser. You should now see that the map is centered on Seattle with blue pins marking the locations of gasoline stations in the area.
 
    ![View the map with search results](./media/tutorial-search-location/pins-map.png)
 
-5. You can see the raw data that the map is rendering by entering the following HTTPRequest in your browser. Replace \<your account key\> with your primary key.
+6. You can see the raw data that the map is rendering by entering the following HTTPRequest in your browser. Replace \<your account key\> with your primary key.
 
    ```http
    https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&query=gasoline%20station&subscription-key=<your account key>&lat=47.6292&lon=-122.2337&radius=100000
