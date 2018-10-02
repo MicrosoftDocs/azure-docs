@@ -51,8 +51,8 @@ Recognition mode | Manual via endpoint URI | Automatic | Recognition mode is not
 Endpoint locality | Global | Regional | Regional endpoints improve latency. A global endpoint is under consideration for the Speech Service.
 REST APIs | :heavy_check_mark: | :heavy_check_mark: | Speech Service REST API is compatible with Bing Speech (different endpoint). REST APIs support text-to-speech and limited speech-to-text functionality.
 WebSockets protocols | :heavy_check_mark: | :heavy_check_mark: | Speech Service WebSockets API is compatible with Bing Speech (different endpoint). Migrate to the Speech SDK if possible to simplify your code.
-Service-to-service API calls | :heavy_check_mark: | :heavy_minus_sign: | Provided in Bing Speech via the C# Service Library. Speech Service may offer this feature in the future.
-Open source SDK | :heavy_check_mark: | :heavy_minus_sign: | An open-source Speech SDK is under consideration for the future.
+Service-to-service API calls | :heavy_check_mark: | :heavy_minus_sign: | Provided in Bing Speech via the C# Service Library. 
+Open source SDK | :heavy_check_mark: | :heavy_minus_sign: |
 
 The Speech Service uses a time-based pricing model (rather than a transaction-based model). See [Speech Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for details.
 
@@ -64,15 +64,13 @@ The Speech Service [REST APIs](rest-apis.md) are compatible with the Bing Speech
 
 The Speech Service WebSockets protocols are also compatible with those used by Bing Speech. We recommend that new development target the Speech Service SDK, rather than using WebSockets, and we encourage you to migrate existing code to the SDK as well. However, as with the REST APIs, existing code that uses Bing Speech via WebSockets requires only a change in endpoint and an updated key.
 
-If you're using a Bing Speech client library for a specific programming language, migrating to the [Speech SDK](speech-sdk.md) will require changes to your application because the API is different. The Speech SDK can make your code simpler while also giving you access to new features now and in the future.
+If you're using a Bing Speech client library for a specific programming language, migrating to the [Speech SDK](speech-sdk.md) will require changes to your application because the API is different. The Speech SDK can make your code simpler while also giving you access to new features.
 
-Currently, the Speech SDK supports C# (Windows 10, UWP, .NET Standard), Java (Android and custom devices), Objective C (iOS), C++ (Windows and Linux), and JavaScript. APIs on all platforms are similar, easing multi-platform development. Support for additional platforms may be added in future releases.
+Currently, the Speech SDK supports C# (Windows 10, UWP, .NET Standard), Java (Android and custom devices), Objective C (iOS), C++ (Windows and Linux), and JavaScript. APIs on all platforms are similar, easing multi-platform development.
 
 The Speech Service doesn't currently offer a global endpoint. You will need to determine if your application will function efficiently using a single regional endpoint for all of its traffic. If not, use geolocation to determine the most efficient endpoint. You will need a separate Speech Service subscription in each region you use.
 
 If your application uses long-lived connections and can't use an available SDK, you can use a WebsSockets connection and manage the 10-minute timeout limit by reconnecting at the appropriate times.
-
-A global endpoint, service-to-service functionality, and additional SDKs are being considered for future Speech Service releases. Check the [Speech Service release notes](releasenotes.md) often for updates.
 
 To get started with the new Speech SDK:
 
@@ -92,6 +90,6 @@ For Speech Service, SDK, and API support, visit the Speech Service [support page
 * [Quickstart: Recognize speech in a UWP app using the Speech SDK](quickstart-csharp-uwp.md)
 
 ## See also
-
+* [Speech Service release notes](releasenotes.md)
 * [What is the Speech service](overview.md)
 * [Speech Service and SDK documentation](speech-sdk.md#get-the-sdk)
