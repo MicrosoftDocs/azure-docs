@@ -50,7 +50,7 @@ and [how to set up monitoring and logging for that account](../logic-apps/logic-
 > If you don't have a Log Analytics workspace, 
 > learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## Add the Logic Apps B2B solution to Log Analytics
+## Add the Logic Apps B2B solution to Azure
 
 To have Log Analytics track B2B messages for your logic app, 
 you must add the **Logic Apps B2B** solution to Log Analytics. 
