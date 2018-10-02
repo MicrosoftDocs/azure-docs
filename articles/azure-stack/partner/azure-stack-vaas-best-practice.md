@@ -27,7 +27,7 @@ This article covers best practices for managing resources in Validation as a Ser
 
 ### Naming convention for VaaS solutions
 
-In order to facilitate the sharing of information about solutions, it is recommended that a consistent naming convention be used for all solutions registered in VaaS. For example, the solution name can be constructed from the hardware properties below as follows:
+We recommend using a consistent naming convention for all solutions registered in VaaS. For example, the solution name can be constructed from the hardware properties below as follows:
 
 |Product Name | Unique Hardware Element 1 | Unique Hardware Element 2 | Solution Name
 |---|---|---|---|
@@ -35,13 +35,13 @@ My Solution XYZ |  All Flash | My Switch X01 | MySolutionXYZ_AllFlash_MySwitchX0
 
 ### When to create a new VaaS solution
 
-In order to ensure that there is consistency in managing solutions, it is recommended that the same VaaS solution be used for running workflows against the same hardware SKU. A new VaaS solution should be created only when there is a change to the hardware SKU.
+We recommend using the same VaaS solution when running workflows against the same hardware SKU. A new VaaS solution should be created only when there is a change to the hardware SKU.
 
 ## Workflow management
 
 ### Naming convention for VaaS workflows
 
-In order to facilitate the sharing of information about specific test runs, it is recommended that a consistent naming convention be used for all workflows. For example, the workflow name can be constructed from the build properties below as follows:
+We recommend using a consistent naming convention for all VaaS workflow runs. For example, the workflow name can be constructed from the build properties below as follows:
 
 |Build Number (Major) | Date | Solution Size | Workflow Name
 |---|---|---| ---|

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Validation as a Service release notes  | Microsoft Docs
-description: Azure Stack Validation as a Service known issues.
+description: Azure Stack Validation as a Service release notes .
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -25,7 +25,7 @@ This article contains the release notes for Azure Stack Validation as a Service.
 
 ## Version 4.0.0
 
-2018-08-29
+2018 August 29
 
 - VaaS pre-requisite and VHD updates
 
@@ -46,7 +46,7 @@ This article contains the release notes for Azure Stack Validation as a Service.
 
 - Local agent update
 
-    The previous version of the local agent is not compatible with the 4.0.0 release of the service. All users must update the version of the agent they are using. See [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) for instructions on installing the newest agent.
+    The previous version of the local agent is not compatible with the current 4.0.0 release of the service. All users must update their local agents. See [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) for instructions on installing the newest agent.
 
 - PowerShell automation update
 
@@ -54,14 +54,14 @@ This article contains the release notes for Azure Stack Validation as a Service.
 
 - Validation as a Service Portal
 
-  - Package Signing Update
+  - Package signing notifications
 
-    When an OEM Customization package is submitted as part of the Package Validation Workflow the package format will be validated to ensure it follows the published specification. If the package does not comply the run will fail, and notification of failure will be sent via e-mail to the e-mail address of the registered Azure Active Directory contact for the tenant.
+    When an OEM customization package is submitted as part of the Package Validation workflow, the package format will be validated to ensure that it follows the published specification. If the package does not comply, the run will fail. E-mail notifications will be sent to the e-mail address of the registered Azure Active Directory contact for the tenant.
 
   - Interactive test category
 
-    The **Interactive** test category has been added to identify tests that enable partners to exercise non-automated (i.e., interactive) Azure Stack scenarios.
+    The **Interactive** test category has been added. These tests enable partners to exercise interactive, non-automated Azure Stack scenarios.
 
   - Interactive Feature Verification
 
-    The ability to provide focused feedback for certain features is now available in the Test Pass Workflow. The currently available test ("OEM Update on Azure Stack 1806 RC Validation 5.1.4.0") checks to see if specific updates were correctly applied and then collects feedback. The documentation can be found <TODO>.
+    The ability to provide focused feedback for certain features is now available in the Test Pass workflow. The `OEM Update on Azure Stack 1806 RC Validation 5.1.4.0` test checks to see if specific updates were correctly applied and then collects feedback.
