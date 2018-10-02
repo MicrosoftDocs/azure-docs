@@ -80,7 +80,7 @@ After you register your custom domain name, you need to make sure it's valid in 
 
     ![Contoso page with DNS entry information and the Verify button](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
-### Common verification issues
+## Common verification issues
 - If Azure AD can't verify a custom domain name, try the following suggestions:
     - **Wait at least an hour and try again**. DNS records must propagate before Azure AD can verify the domain and this process can take an hour or more.
 
