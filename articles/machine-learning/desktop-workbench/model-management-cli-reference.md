@@ -12,9 +12,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Model management command-line interface reference
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 
 ## Base CLI concepts:
 

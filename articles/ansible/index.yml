@@ -47,6 +47,7 @@ sections:
     - html: <a href="./ansible-create-configure-vmss">Create and manage virtual machine scale sets in Azure.</a>
     - html: <a href="./ansible-deploy-app-vmss">Deploy applications to virtual machine scale sets in Azure.</a>
     - html: <a href="./ansible-create-configure-aks">Create and manage Azure Kubernetes Service clusters.</a>
+    - html: <a href="./ansible-create-configure-application-gateway">Manage web traffic with an Azure application gateway.</a>
 - title: Reference
   items:
   - type: list

@@ -138,7 +138,7 @@ Internally this trigger binding polls a queue in the default storage account for
 Here are some notes about the activity trigger:
 
 * **Threading** - Unlike the orchestration trigger, activity triggers don't have any restrictions around threading or I/O. They can be treated like regular functions.
-* **Poising-message handling** - There is no poison message support in activity triggers.
+* **Poison-message handling** - There is no poison message support in activity triggers.
 * **Message visibility** - Activity trigger messages are dequeued and kept invisible for a configurable duration. The visibility of these messages is renewed automatically as long as the function app is running and healthy.
 * **Return values** - Return values are serialized to JSON and persisted to the orchestration history table in Azure Table storage.
 

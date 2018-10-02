@@ -48,7 +48,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step.
 
 > [!TIP]
-> The following example installs the ingress controller in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
+> The following examples install the ingress controller and certificates in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. Also, if your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
 
 ```console
 helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
@@ -95,16 +95,20 @@ The NGINX ingress controller supports TLS termination. There are several ways to
 > [!NOTE]
 > This article uses the `staging` environment for Let's Encrypt. In production deployments, use `letsencrypt-prod` and `https://acme-v02.api.letsencrypt.org/directory` in the resource definitions and when installing the Helm chart.
 
-To install the cert-manager controller in an RBAC-enabled cluster, use the following `helm install` command:
+To install the cert-manager controller in an RBAC-enabled cluster, use the following `helm install` command. Again, if desired, change `--namespace` to something other than *kube-system*:
 
 ```console
-helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging --set ingressShim.defaultIssuerKind=ClusterIssuer
+helm install stable/cert-manager \
+  --namespace kube-system \
+  --set ingressShim.defaultIssuerName=letsencrypt-staging \
+  --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
 If your cluster is not RBAC enabled, instead use the following command:
 
 ```console
 helm install stable/cert-manager \
+  --namespace kube-system \
   --set ingressShim.defaultIssuerName=letsencrypt-staging \
   --set ingressShim.defaultIssuerKind=ClusterIssuer \
   --set rbac.create=false \

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 09/24/2018
 ms.author: daseidma;bwren
 
 ---
@@ -37,12 +37,14 @@ The following section list the supported operating systems for the Dependency ag
 >
 
 ### Windows Server
+- Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
 ### Windows desktop
+- Windows 10 1803
 - Windows 10
 - Windows 8.1
 - Windows 8
@@ -119,8 +121,8 @@ The following section list the supported operating systems for the Dependency ag
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
 ## Connected sources
 Service Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connections to Log Analytics. This means that a server must have the Log Analytics agent installed and configured with the Dependency agent.  The following table describes the connected sources that the Service Map solution supports.

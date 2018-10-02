@@ -1,17 +1,18 @@
 ---
-title: Emotion API Java for Android quick start | Microsoft Docs
-description: Get information and a code sample to help you quickly get started using the Emotion API with Java for Android in Cognitive Services.
+title: "Quickstart: Recognize emotions on faces in an image - Emotion API, Java"
+description: Get information and a code sample to help you quickly get started using the Emotion API with Java for Android.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ---
 
-# Emotion API Java for Android Quick Start
+# Quickstart: Build an app to recognize emotions on faces in an image.
 
 > [!IMPORTANT]
 > Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 

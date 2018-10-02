@@ -89,6 +89,11 @@ Azure VM types that are certified by SAP for SAP NetWeaver or the S/4HANA applic
 >SAP-Linux-Azure integration is supported only on Azure Resource Manager and not the classic deployment model. 
 
 ## Manual installation of SAP HANA
+
+> [!IMPORTANT]
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type. Realize that in the example in this document we used a SLES OS release that is not supported by SAP for SAP HANA on M-Series VMs.
+>
+
 This guide describes how to manually install SAP HANA on Azure VMs in two different ways:
 
 * By using SAP Software Provisioning Manager (SWPM) as part of a distributed NetWeaver installation in the "install database instance" step

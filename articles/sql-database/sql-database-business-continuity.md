@@ -3,16 +3,16 @@ title: Cloud business continuity - database recovery - SQL Database | Microsoft 
 description: Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running.
 keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.workload: "On Demand"
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-
+manager: craigg
+ms.date: 09/19/2018
 ---
 # Overview of business continuity with Azure SQL Database
 
@@ -54,11 +54,11 @@ The following table compares the ERT and RPO for each service tier for the three
 
 ## Recover a database to the existing server
 
-SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every 5 - 10 minutes to protect your business from data loss. The backups are stored in RA-GRS storage for 35 days for all service tiers except Basic DTU service tiers where the backups are stored for 7 days. For more information, see [automatic database backups](sql-database-automated-backups.md). You can restore an existing database form the automated backups to an earlier point in time as a new database on the same logical server using the Azure portal, PowerShell, or the REST API. For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL Database automatically performs a combination of full database backups weekly, differential database backups generally taken every 12 hours, and transaction log backups every 5 - 10 minutes to protect your business from data loss. The backups are stored in RA-GRS storage for 35 days for all service tiers except Basic DTU service tiers where the backups are stored for 7 days. For more information, see [automatic database backups](sql-database-automated-backups.md). You can restore an existing database form the automated backups to an earlier point in time as a new database on the same logical server using the Azure portal, PowerShell, or the REST API. For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 If the maximum supported point-in-time restore (PITR) retention period is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
 
-You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. The recovery time is usually less than 12 hours. It may take longer to recover a very large or active database. For more information about recovery time, see [database recovery time](sql-database-recovery-using-backups.md#recovery-time). When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups.
+You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. The recovery time is usually less than 12 hours. It may take longer to recover a very large or active database. For more information about recovery time, see [database recovery time](sql-database-recovery-using-backups.md#recovery-time). When recovering to another data region, the potential data loss is limited to 1 hour with use of geo-redundant backups.
 
 Use automated backups and [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore) as your business continuity and recovery mechanism if your application:
 
@@ -117,12 +117,10 @@ If you are using active geo-replication and auto-failover groups as your recover
 > 
 
 ### Perform a geo-restore
-If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using geo-restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. While this restores a database to the last available point in time, restoring the geo-secondary to any point in time is not currently supported.
+If you are using the automated backups with geo-redundant storage (enabled by default), you can recover the database using [geo-restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last log backup was taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. Note, geo-restore only restores the database to the last available point in time.
 
 > [!NOTE]
 > If the data center comes back online before you switch your application over to the recovered database, you can cancel the recovery.  
->
->
 
 ### Perform post failover / recovery tasks
 After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:

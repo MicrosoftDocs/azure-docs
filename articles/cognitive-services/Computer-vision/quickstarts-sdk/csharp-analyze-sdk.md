@@ -16,7 +16,7 @@ ms.author: nolachar
 
 In this quickstart, you analyze both a local and a remote image to extract visual features using the Computer Vision Windows client library.
 
-Get the latest code as a Visual Studio solution from the [Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) GitHub repository.
+The source code for this sample is available on [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ namespace ImageAnalyze
             var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 

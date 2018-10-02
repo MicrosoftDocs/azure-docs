@@ -62,6 +62,6 @@ Remove an owner from a group using Azure AD.
 
 - [Use groups to assign access to an integrated SaaS app](../users-groups-roles/groups-saasapps.md)
 
-- [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+- [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 
 - [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-v2-cmdlets.md)

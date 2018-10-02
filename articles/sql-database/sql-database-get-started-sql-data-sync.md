@@ -2,14 +2,16 @@
 title: Set up Azure SQL Data Sync | Microsoft Docs
 description: This tutorial shows you how to set up Azure SQL Data Sync
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/10/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
+manager: craigg
+ms.date: 04/10/2018
 ---
 # Set up SQL Data Sync
 In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybrid sync group that contains both Azure SQL Database and SQL Server instances. The new sync group is fully configured and synchronizes on the schedule you set.

@@ -85,6 +85,8 @@
       href: diagnostics-template.md
   - name: Third-party extensions
     items:
+    - name: Chef
+      href: chef.md
     - name: Stackify Retrace
       href: stackify-retrace-linux.md
     - name: Symantec

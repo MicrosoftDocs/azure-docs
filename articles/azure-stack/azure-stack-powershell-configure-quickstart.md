@@ -54,21 +54,21 @@ Load the API profile and administrator module for your version of Azure Stack.
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.5.0
   ```
 
   - Azure Stack 1807 or earlier.
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.4.0 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.4.0
   ```
 
   - Azure Stack 1804 or earlier.
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.2.11
   ```
 
 Download the Azure Stack tools and connect.

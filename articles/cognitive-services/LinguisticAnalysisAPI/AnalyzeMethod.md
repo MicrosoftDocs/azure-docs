@@ -1,12 +1,14 @@
 ---
-title: Analyze method in the Linguistic Analysis API | Microsoft Docs
+title: Analyze method - Linguistic Analysis API
+titlesuffix: Azure Cognitive Services
 description: How to use the Analyze method in Linguistic Analysis API to analyze certain natural-language inputs.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ---
@@ -34,8 +36,8 @@ Name | Type | Required | Description
 **analyzerIds** | list of strings | Yes | List of GUIDs of analyzers to apply. See the Analyzers documentation for more information.
 **text**        | string | Yes | Raw input to be analyzed. This might be a short string such as a word or phrase, a full sentence, or a full paragraph or discourse.
 
-<br>
 ## Response (JSON)
+
 An array of analysis outputs, one for each attribute specified in the request.
 
 The results look as follows:
@@ -132,8 +134,6 @@ To find the token corresponding to each POS tag, you'll want to ask for a tokeni
 
 The result is a list of strings, one parse tree for each sentence found in the input.
 The parse trees are represented in a parenthesized form.
-
-<br>
 
 ## Example
 

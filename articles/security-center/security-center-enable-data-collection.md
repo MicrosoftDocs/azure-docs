@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
 
 ---
@@ -30,7 +30,8 @@ This article provides guidance on how to install a Microsoft Monitoring Agent an
 > - Data collection for Virtual machine scale set is not currently supported.
 
 
-## Enable automatic provisioning of Microsoft Monitoring Agent     
+## Enable automatic provisioning of Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
+
 To collect the data from the machines you should have the Microsoft Monitoring Agent installed.  Installation of the agent can be automatically (recommended) or you may choose to install the agent manually.  
 
 >[!NOTE]
@@ -294,9 +295,9 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
 -	To identify automatic provision installation issues, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent).
 
 -  To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](security-center-troubleshooting-guide.md#mon-network-req).
--	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
+-	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-- To identify Unmonitored VMs and computers issues, see [Unmonitored VMs and computers](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)
+- To identify Unmonitored VMs and computers issues, see [Unmonitored VMs and computers](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers).
 
 ## Next steps
 This article showed you how data collection and automatic provisioning in Security Center works. To learn more about Security Center, see the following:

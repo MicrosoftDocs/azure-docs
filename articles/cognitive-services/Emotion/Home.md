@@ -1,17 +1,19 @@
 ---
-title: Emotion API overview | Microsoft Docs
-description: Use the Microsoft cutting-edge, cloud-based emotion recognition algorithm to build more personalized apps, with the Emotion API in Cognitive Services.
+title: What is the Emotion API?
+titlesuffix: Azure Cognitive Services
+description: Use the cloud-based emotion recognition algorithm to build more personalized apps.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: overview
 ms.date: 02/06/2017
 ms.author: anroth
 ---
 
-# What is Emotion API?
+# What is the Emotion API?
 
 > [!IMPORTANT]
 > Emotion API was deprecated on October 30, 2017. The functionality is now part of [Face API](https://docs.microsoft.com/azure/cognitive-services/face/).

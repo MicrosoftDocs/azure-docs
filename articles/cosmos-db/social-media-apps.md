@@ -35,7 +35,7 @@ Why isn't SQL the best choice in this scenario? Let’s look at the structure of
 You could, of course, use a enormous SQL instance with enough power to solve thousands of queries with these many joins to serve your content, but truly, why would you, when a simpler solution exists?
 
 ## The NoSQL road
-This article will guide you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in a cost-effective way while leveraging other Azure Cosmos DB features like the  [Gremlin Gremlin API](../cosmos-db/graph-introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data, in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), the previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
+This article will guide you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in a cost-effective way while leveraging other Azure Cosmos DB features like the  [Gremlin API](../cosmos-db/graph-introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data, in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), the previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {

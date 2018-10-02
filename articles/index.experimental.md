@@ -900,12 +900,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/mobile-engagement/">
-                                                <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>Mobile Engagement</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Notification Hubs</p>
@@ -1633,25 +1627,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Search</h3>
                                                     <p>Fully managed search-as-a-service</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/mobile-engagement/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MobileEngagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Mobile Engagement</h3>
-                                                    <p>Increase app usage and user retention</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3311,13 +3286,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0
+                                                <h3>Azure CLI
                                                 </h3>
                                                 <p>
                                                     <a href="/cli/azure">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>
+                                                    <a href="/cli/azure/install-azure-cli">Download Azure CLI</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Reference</a>
@@ -3362,7 +3337,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI
+                                                <h3>Azure classic CLI
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Get Started</a>

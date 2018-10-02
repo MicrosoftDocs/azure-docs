@@ -46,7 +46,7 @@ Intune is a Microsoft product that allows you to centrally manage the Log Analyt
 1. Sign in to Intune.
 2. Navigate to **Settings** > **Connected Sources**.
 3. Create or edit a policy based on the Surface Hub template.
-4. Navigate to the OMS (Azure Operational Insights) section of the policy, and add the Log Analytics *Workspace ID* and *Workspace Key* to the policy.
+4. Navigate to the Log Analytics (Azure Operational Insights) section of the policy, and add the Log Analytics *Workspace ID* and *Workspace Key* to the policy.
 5. Save the policy.
 6. Associate the policy with the appropriate group of devices.
 
@@ -61,9 +61,9 @@ If you don't use Intune to manage your environment, you can enroll devices manua
 
 1. From your Surface Hub, open **Settings**.
 2. Enter the device admin credentials when prompted.
-3. Click **This device**, and the under **Monitoring**, click **Configure OMS Settings**.
+3. Click **This device**, and the under **Monitoring**, click **Configure Log Analytics Settings**.
 4. Select **Enable monitoring**.
-5. In the OMS settings dialog, type the Log Analytics **Workspace ID** and type the **Workspace Key**.  
+5. In the Log Analytics settings dialog, type the Log Analytics **Workspace ID** and type the **Workspace Key**.  
    ![settings](./media/log-analytics-surface-hubs/settings.png)
 6. Click **OK** to complete the configuration.
 

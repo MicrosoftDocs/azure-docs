@@ -27,6 +27,8 @@
     href: iot-accelerators-remote-monitoring-automate.md
   - name: Configure and manage devices
     href: iot-accelerators-remote-monitoring-manage.md
+  - name: Conduct a root cause analysis on an alert
+    href: iot-accelerators-remote-monitoring-root-cause-analysis.md
   - name: Use alerts and fix device issues
     href: iot-accelerators-remote-monitoring-maintain.md
 
@@ -97,6 +99,8 @@
       href: iot-accelerators-integrate-data-lake.md
     - name: Configure role-based access controls
       href: iot-accelerators-remote-monitoring-rbac.md
+    - name: Grant access to telemetry explorer
+      href: iot-accelerators-remote-monitoring-rbac-tsi.md
 
   - name: Remote Monitoring (previous version)
     items:

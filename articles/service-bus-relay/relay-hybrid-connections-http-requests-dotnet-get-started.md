@@ -61,9 +61,14 @@ In Visual Studio, write a C# console application to send messages to the relay.
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## 5. Run the applications
-1. Run the server application.
-2. Run the client application and enter some text.
-3. Ensure that the server application console displays the text that was entered in the client application.
+1. Run the server application. You see the following text in the console window:
+
+    ```
+    Online
+    Server listening
+    ```
+1. Run the client application. You see `hello!` in the client window. The client sent a HTTP request to the server, and server responded with a `hello!`. 
+3. Now, to close the console windows, press **ENTER** in both the console windows. 
 
 Congratulations, you have created an end-to-end Hybrid Connections application!
 
