@@ -431,6 +431,9 @@ This build includes the following improvements and fixes for Azure Stack.
 
 
 #### Compute
+
+- <!-- 3099544 – IS, ASDK --> When you create a new virtual machine (VM) using the Azure Stack portal, and you select the VM size, the USD/Month column is displayed with an **Unavailable** message. This column should not appear; displaying the VM pricing column is not supported in Azure Stack.
+
 - <!-- TBD - IS, ASDK --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
   As a workaround, use one of the following methods to deploy a VM. In each method, you need to specify the VM size you want to use.
 
