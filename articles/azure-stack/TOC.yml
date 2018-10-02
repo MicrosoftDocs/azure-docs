@@ -6,8 +6,6 @@
     href: azure-stack-poc.md
   - name: Release notes
     items:
-    - name: 1809 update 
-      href: azure-stack-update-1809.md
     - name: Recent updates
       href: azure-stack-servicing-policy.md#update-package-release-cadence 
     - name: 1808 update 
