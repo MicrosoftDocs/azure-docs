@@ -59,7 +59,7 @@ sections:
       - image:
           src: media/index/AMSIcons-media_analytics.svg
         text: Extract insights
-        href: ../../cognitive-services/video-indexer/video-indexer-get-started.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+        href: ../cognitive-services/video-indexer/video-indexer-get-started.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
   - title: Step-by-Step Tutorials
     items:
     - type: paragraph
@@ -87,5 +87,5 @@ sections:
       - image: 
           src: media/index/AMSIcons-media_analytics.svg
         text: Extract insights
-        href: ../../cognitive-services/video-indexer/video-indexer-use-apis.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json   
+        href: ../cognitive-services/video-indexer/video-indexer-use-apis.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json   
   
