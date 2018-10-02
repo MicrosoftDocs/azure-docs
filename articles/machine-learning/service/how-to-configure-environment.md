@@ -13,7 +13,7 @@ ms.date: 8/6/2018
 
 # Configure a development environment for the Azure Machine Learning service
 
-Learn how to configure your development environment to work with the Azure Machine Learning service. You will learn how to create a configuration file that associates your environment with an Azure Machine Learning workspace. You'll also learn how to configure the following development environments:
+Learn how to configure your development environment to work with the Azure Machine Learning service. You will learn how to create a configuration file that associates your environment with an Azure Machine Learning service workspace. You'll also learn how to configure the following development environments:
 
 * Jupyter Notebooks on your own computer
 * Visual Studio Code

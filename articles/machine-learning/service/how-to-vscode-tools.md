@@ -66,7 +66,7 @@ To work with Azure Machine Learning, we need to turn VS Code into a Python IDE. 
 
 ## Get started with Azure Machine Learning
 
-Before you start training and deploying ML models using VS Code, you need to create an [Azure Machine Learning workspace](concept-azure-machine-learning-architecture.md#workspace) in the cloud to contain your models and resources. Learn how to create one and create your first experiment in that workspace.
+Before you start training and deploying ML models using VS Code, you need to create an [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md#workspace) in the cloud to contain your models and resources. Learn how to create one and create your first experiment in that workspace.
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure: Machine Learning sidebar appears.
 

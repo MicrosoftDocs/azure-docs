@@ -22,7 +22,7 @@ You can deploy a model as a web service on [field programmable gate arrays (FPGA
 
 - You must request and be approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
 
-- An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
+- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
  
   - Your workspace needs to be in the *East US 2* region.
 
