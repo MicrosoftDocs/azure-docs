@@ -42,10 +42,10 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. On the **Select virtual machine specifications** page, do the following steps:
-    a. Select a **size** for virtual machines (VMs) created in the lab. 
-    b. Select the **region** in which you want the VMs to be created. 
-    c. Select the **VM image** to be used to create VMs in the lab. 
-    d. Select **Next**.
+    1. Select a **size** for virtual machines (VMs) created in the lab. 
+    2. Select the **region** in which you want the VMs to be created. 
+    3. Select the **VM image** to be used to create VMs in the lab. 
+    4. Select **Next**.
 
         ![Specify VM specifications](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
 5. On the **Set credentials** page, specify default credentials for all VMs in the lab. 
