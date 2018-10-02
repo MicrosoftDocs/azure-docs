@@ -98,7 +98,7 @@ You can set the Azure SQL Database to implement recommendations automatically. A
     ![Recommended Indexes](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Please note that **DROP_INDEX** option is currently not compatible with applications using partition switching and index hints.
+> Please note that **DROP_INDEX** option is currently not compatible with applications using partition switching and index hints. 
 >
 
 Once you have selected your desired configuration, click Apply.
