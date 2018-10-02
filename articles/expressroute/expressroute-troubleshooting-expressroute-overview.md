@@ -65,7 +65,7 @@ To validate an ExpressRoute circuit, the following steps are covered (with the n
 
 More validations and checks will be added in the future, check back monthly!
 
-##Validate circuit provisioning and state
+## Validate circuit provisioning and state
 Regardless of the connectivity model, an ExpressRoute circuit has to be created and thus a service key generated for circuit provisioning. Provisioning an ExpressRoute circuit establishes a redundant Layer 2 connections between PE-MSEEs (4) and MSEEs (5). For more information on how to create, modify, provision, and verify an ExpressRoute circuit, see the article [Create and modify an ExpressRoute circuit][CreateCircuit].
 
 >[!TIP]
@@ -73,7 +73,7 @@ Regardless of the connectivity model, an ExpressRoute circuit has to be created 
 >
 >
 
-###Verification via the Azure portal
+### Verification via the Azure portal
 In the Azure portal, the status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" opens the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials are listed as shown in the following screen shot:
 
 ![4][4]    
@@ -87,7 +87,7 @@ For an ExpressRoute circuit to be operational, the *Circuit status* must be *Ena
 >
 >
 
-###Verification via PowerShell
+### Verification via PowerShell
 To list all the ExpressRoute circuits in a Resource Group, use the following command:
 
 	Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -137,7 +137,7 @@ To confirm if an ExpressRoute circuit is operational, pay particular attention t
 >
 >
 
-###Verification via PowerShell (Classic)
+### Verification via PowerShell (Classic)
 To list all the ExpressRoute circuits under a subscription, use the following command:
 
 	Get-AzureDedicatedCircuit
@@ -167,13 +167,13 @@ To confirm if an ExpressRoute circuit is operational, pay particular attention t
 >
 >
 
-##Validate Peering Configuration
+## Validate Peering Configuration
 After the service provider has completed the provisioning the ExpressRoute circuit, a routing configuration can be created over the ExpressRoute circuit between MSEE-PRs (4) and MSEEs (5). Each ExpressRoute circuit can have one, two, or three routing contexts enabled: Azure private peering (traffic to private virtual networks in Azure), Azure public peering (traffic to public IP addresses in Azure), and Microsoft peering (traffic to Office 365 and Dynamics 365). For more information on how to create and modify routing configuration, see the article [Create and modify routing for an ExpressRoute circuit][CreatePeering].
 
-###Verification via the Azure portal
+### Verification via the Azure portal
 
 >[!NOTE]
->If layer 3 is provided by the service provider and the peerings are blank in the portal, refresh the Circuit configuration using the refresh button on the protal. This operation will apply the right routing configuration on your circuit. 
+>If layer 3 is provided by the service provider and the peerings are blank in the portal, refresh the Circuit configuration using the refresh button on the portal. This operation will apply the right routing configuration on your circuit. 
 >
 >
 
@@ -188,7 +188,7 @@ In the preceding example, as noted Azure private peering routing context is enab
 >
 >
 
-###Verification via PowerShell
+### Verification via PowerShell
 To get the Azure private peering configuration details, use the following commands:
 
 	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
@@ -216,12 +216,12 @@ A sample response, for a successfully configured private peering, is:
 To get the Azure public peering configuration details, use the following commands:
 
 	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
+	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 To get the Microsoft peering configuration details, use the following commands:
 
 	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
+	 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 If a peering is not configured, there would be an error message. A sample response, when the stated peering (Azure Public peering in this example) is not configured within the circuit:
 
@@ -364,7 +364,7 @@ The following example shows the response of the command for a peering does not e
 
 	Route Table Info:
 
-##Check the Traffic Statistics
+## Check the Traffic Statistics
 To get the combined primary and secondary path traffic statistics--bytes in and out--of a peering context, use the following command:
 
 	Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private

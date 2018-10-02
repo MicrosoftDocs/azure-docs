@@ -1,22 +1,19 @@
 ---
 title: Monitor virtual machine changes - Azure Event Grid & Logic Apps | Microsoft Docs
 description: Check for config changes in virtual machines (VMs) by using Azure Event Grid and Logic Apps
-keywords: logic apps, event grids, virtual machine, VM
 services: logic-apps
-author: ecfan
-manager: anneta
-
-ms.assetid:
-ms.workload: logic-apps
 ms.service: logic-apps
-ms.topic: article
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: tutorial
 ms.date: 11/30/2017
-ms.author: LADocs; estfan
 ---
 
 # Monitor virtual machine changes with Azure Event Grid and Logic Apps
 
-You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
+You can start an automated [logic app workflow](../logic-apps/logic-apps-overview.md) 
 when specific events happen in Azure resources or third-party resources. 
 These resources can publish those events to an [Azure event grid](../event-grid/overview.md). 
 In turn, the event grid pushes those events to subscribers that have queues, 
@@ -70,7 +67,7 @@ monitors the resource group for your virtual machine.
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 2. From the upper left corner of the main Azure menu, 
-choose **New** > **Enterprise Integration** > **Logic App**.
+choose **Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
@@ -105,7 +102,7 @@ so you can build your logic app from scratch.
    ![Choose logic app template](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
    The Logic Apps Designer now shows you [*connectors*](../connectors/apis-list.md) 
-   and [*triggers*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+   and [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
    that you can use to start your logic app, and also actions that you can 
    add after a trigger to perform tasks. A trigger is an event that creates 
    a logic app instance and starts your logic app workflow. 
@@ -213,7 +210,7 @@ automatically resolves as shown:
 
 ## Send email when your virtual machine changes
 
-Now add an [*action*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 so that you get an email when the specified condition is true.
 
 1. In the condition's **If true** box, choose **Add an action**.

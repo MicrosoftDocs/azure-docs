@@ -1,4 +1,4 @@
-- name: App Service on Linux
+- name: App Service on Linux Documentation
   href: index.yml
 - name: Overview
   items:
@@ -18,33 +18,41 @@
   - name: Create Node.js app
     href: quickstart-nodejs.md
   - name: Create Java app
-    href: ../../azure-toolkit-for-intellij-hello-world-web-app-linux.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: quickstart-java.md
+  - name: Create Python app
+    href: quickstart-python.md
   - name: Create Ruby app
     href: quickstart-ruby.md
-  - name: Deploy custom Docker image
-    href: quickstart-custom-docker-image.md
+  - name: Create Docker/Go app
+    href: quickstart-docker-go.md
+  - name: Create multi-container app
+    href: quickstart-multi-container.md
 - name: Tutorials
   items:
-  - name: 1 - App with DB
+  - name: App with DB
     items:
     - name: .NET Core with SQL DB
       href: tutorial-dotnetcore-sqldb-app.md 
-    - name: Ruby with MySQL
-      href: tutorial-ruby-mysql-app.md 
+    - name: Ruby with Postgres
+      href: tutorial-ruby-postgres-app.md 
     - name: PHP with MySQL
       href: tutorial-php-mysql-app.md 
     - name: Node.js with MongoDB
       href: tutorial-nodejs-mongodb-app.md
-    - name: Python custom container with PostgreSQL
-      href: tutorial-docker-python-postgresql-app.md
-  - name: 1 - Custom Docker image
+    - name: Python with Postgres
+      href: tutorial-python-postgresql-app.md
+  - name: Multi-container app
+    href: tutorial-multi-container-app.md
+  - name: Custom Docker image
     href: tutorial-custom-docker-image.md
-  - name: 2 - Map Custom Domain
+  - name: Map Custom Domain
     href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 3 - Bind SSL Certificate
+  - name: Bind SSL Certificate
     href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 4 - Add CDN
-    href: ../app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Add CDN
+    href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Authenticate users
+    href: tutorial-auth-aad.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -59,14 +67,22 @@
     href: ../azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service Environment
     href: ../environment/intro.md
+  - name: Java developer guide
+    href: app-service-linux-java.md
+  - name: Inbound and outbound IPs
+    href: ../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authentication and authorization
     href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Choose deployment type
     href: choose-deployment-type.md
+  - name: Diagnostics
+    href: ../app-service-diagnostics.md
 - name: How-To guides
   items:
-  - name: Configure application
+  - name: Configure app
     items:
+    - name: Python image
+      href: how-to-configure-python.md
     - name: Use app settings
       href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Deploy to Azure
@@ -78,7 +94,7 @@
       - name: Deploy via cloud sync
         href: ../app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy continuously
-        href: ../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        href: ../containers/app-service-linux-ci-cd.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy from local Git
         href: ../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy with template
@@ -111,6 +127,8 @@
         href: ../app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Authenticate with Twitter
         href: ../app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Customize auth
+      href: ../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Configure TLS mutual authentication
       href: ../app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Scale app
@@ -119,8 +137,12 @@
       href: ../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Scale out to multiple instances
       href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: High density hosting
+      href: ../app-service-high-density-hosting.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Monitor app
     items:
+    - name: Connect to app via SSH
+      href: app-service-linux-ssh-support.md
     - name: Quotas & alerts
       href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Enable logs
@@ -134,7 +156,7 @@
     - name: Clone an app
       href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Move resources
-      href: ../app-service-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations
 - name: Reference
   items:
   - name: Azure CLI
@@ -145,6 +167,8 @@
     href: /rest/api/appservice/
 - name: Resources
   items:
+  - name: App Service on Linux FAQ
+    href: app-service-linux-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
@@ -188,7 +212,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: ../../guidance/guidance-ra-app-service.md
+      href: /azure/architecture/reference-architectures/app-service-web-app/
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting

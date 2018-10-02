@@ -3,18 +3,19 @@ title: Access datasets with Machine Learning Python client library | Microsoft D
 description: Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment.
 services: machine-learning
 documentationcenter: python
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: huvalo;bradsev
+ms.author: deguhath
 
 ---
 # Access datasets with Python using the Azure Machine Learning Python client library
@@ -60,7 +61,7 @@ If you have git installed on your machine, you can use pip to install directly f
 ## <a name="datasetAccess"></a>Use Studio Code snippets to access datasets
 The Python client library gives you programmatic access to your existing datasets from experiments that have been run.
 
-From the Studio web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as Pandas DataFrame objects on your location machine.
+From the Studio web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as pandas DataFrame objects on your location machine.
 
 ### <a name="security"></a>Security for data access
 The code snippets provided by Studio for use with the Python client library includes your workspace id and authorization token. These provide full access to your workspace and must be protected, like a password.
@@ -192,7 +193,7 @@ Others are values assigned by Azure ML:
 See the `SourceDataset` class for more on the available metadata.
 
 ### Read contents
-The code snippets provided by Machine Learning Studio automatically download and deserialize the dataset to a Pandas DataFrame object. This is done with the `to_dataframe` method:
+The code snippets provided by Machine Learning Studio automatically download and deserialize the dataset to a pandas DataFrame object. This is done with the `to_dataframe` method:
 
     frame = ds.to_dataframe()
 
@@ -215,7 +216,7 @@ You can also just open a stream to the contents:
 ### Create a new dataset
 The Python client library allows you to upload datasets from your Python program. These datasets are then available for use in your workspace.
 
-If you have your data in a Pandas DataFrame, use the following code:
+If you have your data in a pandas DataFrame, use the following code:
 
     from azureml import DataTypeIds
 
@@ -237,7 +238,7 @@ If your data is already serialized, you can use:
         description='my description'
     )
 
-The Python client library is able to serialize a Pandas DataFrame to the following formats (constants for these are in the `azureml.DataTypeIds` class):
+The Python client library is able to serialize a pandas DataFrame to the following formats (constants for these are in the `azureml.DataTypeIds` class):
 
 * PlainText
 * GenericCSV

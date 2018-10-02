@@ -58,7 +58,7 @@ Note that at the time of this writing, Azure doesn’t allow the explicit mappin
 
 **Cluster Seeds:** It is important to select the most highly available nodes for seeds as the new nodes communicate with seed nodes to discover the topology of the cluster. One node from each availability set is designated as seed nodes to avoid single point of failure.
 
-**Replication Factor and Consistency Level:** Cassandra’s build-in high-availability and data durability is characterized by the Replication Factor (RF - number of copies of each row stored on the cluster) and Consistency Level (number of replicas to be read/written before returning the result to the caller). Replication factor is specified during the KEYSPACE (similar to a relational database) creation whereas the consistency level is specified while issuing the CRUD query. See Cassandra documentation at [Configuring for Consistency](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for consistency details and the formula for quorum computation.
+**Replication Factor and Consistency Level:** Cassandra’s build-in high-availability and data durability is characterized by the Replication Factor (RF - number of copies of each row stored on the cluster) and Consistency Level (number of replicas to be read/written before returning the result to the caller). Replication factor is specified during the KEYSPACE (similar to a relational database) creation whereas the consistency level is specified while issuing the CRUD query. See Cassandra documentation at [Configuring for Consistency](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) for consistency details and the formula for quorum computation.
 
 Cassandra supports two types of data integrity models – Consistency and Eventual Consistency; the Replication Factor and Consistency Level together determine if the data is consistent as soon as a write operation is complete or eventually consistent. For example, specifying QUORUM as the Consistency Level always ensures data Consistency while any consistency level, below the number of replicas to be written as needed to attain QUORUM (for example ONE) results in data being eventually consistent.
 
@@ -72,8 +72,8 @@ Single region Cassandra cluster configuration:
 | Replication Factor (RF) |3 |Number of replicas of a given row |
 | Consistency Level (Write) |QUORUM[(RF/2) +1) = 2] The result of the formula is rounded down |Writes at the most 2 replicas before the response is sent to the caller; 3rd replica is written in an eventually consistent manner. |
 | Consistency Level (Read) |QUORUM [(RF/2) +1= 2] The result of the formula is rounded down |Reads 2 replicas before sending response to the caller. |
-| Replication Strategy |NetworkTopologyStrategy see [Data Replication](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) in Cassandra documentation for more information |Understands the deployment topology and places replicas on nodes so that all the replicas don’t end up on the same rack |
-| Snitch |GossipingPropertyFileSnitch see [Switches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra documentation for more information |NetworkTopologyStrategy uses a concept of snitch to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to data center and rack. The cluster then uses gossip to propagate this information. This is much simpler in dynamic IP setting relative to PropertyFileSnitch |
+| Replication Strategy |NetworkTopologyStrategy see [Data Replication](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) in Cassandra documentation for more information |Understands the deployment topology and places replicas on nodes so that all the replicas don’t end up on the same rack |
+| Snitch |GossipingPropertyFileSnitch see [Switches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) in Cassandra documentation for more information |NetworkTopologyStrategy uses a concept of snitch to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to data center and rack. The cluster then uses gossip to propagate this information. This is much simpler in dynamic IP setting relative to PropertyFileSnitch |
 
 **Azure Considerations for Cassandra Cluster:** Microsoft Azure Virtual Machines capability uses Azure Blob storage for disk persistence; Azure Storage saves three replicas of each disk for high durability. That means each row of data inserted into a Cassandra table is already stored in three replicas. So data consistency is already taken care of even if the Replication Factor (RF) is 1. The main problem with Replication Factor being 1 is that the application experiences downtime even if a single Cassandra node fails. However, if a node is down for the problems (for example hardware, system software failures) recognized by Azure Fabric Controller, it provisions a new node in its place using the same storage drives. Provisioning a new node to replace the old one may take a few minutes.  Similarly for planned maintenance activities like guest OS changes, Cassandra upgrades and application changes Azure Fabric Controller performs rolling upgrades of the nodes in the cluster.  Rolling upgrades also may take down a few nodes at a time and hence the cluster may experience brief downtime for a few partitions. However, the data isn't lost due to the built-in Azure Storage redundancy.  
 
@@ -107,8 +107,8 @@ For a system that needs high consistency, a LOCAL_QUORUM for consistency level (
 | Replication Factor (RF) |3 |Number of replicas of a given row |
 | Consistency Level (Write) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] The result of the formula is rounded down |2 nodes is written to the first data center synchronously; the additional 2 nodes needed for quorum is written asynchronously to the 2nd data center. |
 | Consistency Level (Read) |LOCAL_QUORUM ((RF/2) +1) = 2 The result of the formula is rounded down |Read requests are satisfied from only one region; 2 nodes are read before the response is sent back to the client. |
-| Replication Strategy |NetworkTopologyStrategy see [Data Replication](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) in Cassandra documentation for more information |Understands the deployment topology and places replicas on nodes so that all the replicas don’t end up on the same rack |
-| Snitch |GossipingPropertyFileSnitch see [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra documentation for more information |NetworkTopologyStrategy uses a concept of snitch to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to data center and rack. The cluster then uses gossip to propagate this information. This is much simpler in dynamic IP setting relative to PropertyFileSnitch |
+| Replication Strategy |NetworkTopologyStrategy see [Data Replication](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) in Cassandra documentation for more information |Understands the deployment topology and places replicas on nodes so that all the replicas don’t end up on the same rack |
+| Snitch |GossipingPropertyFileSnitch see [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) in Cassandra documentation for more information |NetworkTopologyStrategy uses a concept of snitch to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to data center and rack. The cluster then uses gossip to propagate this information. This is much simpler in dynamic IP setting relative to PropertyFileSnitch |
 
 ## THE SOFTWARE CONFIGURATION
 The following software versions are used during the deployment:
@@ -117,7 +117,7 @@ The following software versions are used during the deployment:
 <tr><th>Software</th><th>Source</th><th>Version</th></tr>
 <tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
@@ -292,7 +292,7 @@ Log into the virtual machine using the hostname (hk-cas-template.cloudapp.net) a
 Execute the following sequence of actions to capture the image:
 
 ##### 1. Deprovision
-Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](capture-image.md) to Use as a Template more details on the image capture process.
+Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](capture-image-classic.md) to Use as a Template more details on the image capture process.
 
 ##### 2: Shut down the VM
 Make sure that the virtual machine is highlighted and click the SHUTDOWN link from the bottom command bar.
@@ -357,7 +357,7 @@ The above process can be executed using Azure portal; use a Windows machine (use
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
@@ -397,7 +397,7 @@ The above process can be executed using Azure portal; use a Windows machine (use
         #Create internal load balancer
         Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
         Write-Host "Created $ilbName"
-        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        #Add the thrift endpoint to the internal load balancer for all the VMs
         foreach($vmName in $vmNames)
         {
             Get-AzureVM -ServiceName $serviceName -Name $vmName |
@@ -607,7 +607,7 @@ You should see the same display as seen for the West region:
 Execute a few more inserts and see that those get replicated to west-us part of the cluster.
 
 ## Test Cassandra Cluster from Node.js
-Using one of the Linux VMs crated in the "web" tier previously, you execute a simple Node.js script to read the previously inserted data
+Using one of the Linux VMs created in the "web" tier previously, you execute a simple Node.js script to read the previously inserted data
 
 **Step 1: Install Node.js and Cassandra Client**
 

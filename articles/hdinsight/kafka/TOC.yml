@@ -1,19 +1,37 @@
 - name: Azure HDInsight documentation
   href: /azure/hdinsight
-- name: Kafka on HDInsight
+- name: Overview
   items:
-  - name: Overview
+  - name: About Kafka on HDInsight
     href: apache-kafka-introduction.md
   - name: Component versioning
     href: ../hdinsight-component-versioning.md
     maintainContext: true
-- name: Get started
-  items:
-  - name: Create a Kafka cluster
-    href: apache-kafka-get-started.md
-  - name: Install HDInsight apps
-    href: ../hdinsight-apps-install-applications.md
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
     maintainContext: true
+- name: Quickstarts
+  items:
+  - name: Create a Kafka cluster - Portal
+    href: apache-kafka-get-started.md
+  - name: Create a Kafka cluster - PowerShell
+    href: apache-kafka-quickstart-powershell.md
+  - name: Create a kafka cluster - Template
+    href: apache-kafka-quickstart-resource-manager-template.md
+- name: Tutorials
+  items:
+  - name: 1 - Use Spark structured streaming
+    href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+    maintainContext: true
+  - name: 2 - Write/read from Kafka with Storm
+    href: ../hdinsight-apache-storm-with-kafka.md
+    maintainContext: true
+  - name: 3 - Use Kafka Producer and Consumer API
+    href: apache-kafka-producer-consumer-api.md
+  - name: 4 - Develop app with Kafka Streams API
+    href: apache-kafka-streams-api.md
+- name: Concepts
+  items:
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
@@ -23,6 +41,13 @@
     href: apache-kafka-high-availability.md
 - name: How to
   items:
+  - name: Enable auto topic creation
+    href: apache-kafka-auto-create-topics.md
+  - name: Use Kafka with IoT Hub
+    href: apache-kafka-connector-iot-hub.md
+  - name: Install HDInsight apps
+    href: ../hdinsight-apps-install-applications.md
+    maintainContext: true
   - name: Use Kafka in a virtual network
     href: apache-kafka-connect-vpn-gateway.md
   - name: Replicate Kafka data
@@ -31,15 +56,14 @@
     href: apache-kafka-log-analytics-operations-management.md
   - name: Create streaming pipelines
     items:
-    - name: Kafka and Spark (Structured Streaming)
-      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+    - name: Spark, Kafka, and Azure Cosmos DB
+      href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
       maintainContext: true
     - name: Kafka and Spark (DStream)
       href: ../hdinsight-apache-spark-with-kafka.md
       maintainContext: true
-    - name: Kafka and Storm
-      href: ../hdinsight-apache-storm-with-kafka.md
-      maintainContext: true
+    - name: Use Kafka with Azure Container Service
+      href: apache-kafka-azure-container-services.md
   - name: Develop
     items:
     - name: Use empty edge nodes
@@ -66,6 +90,21 @@
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
+      - name: Install published app - Cask Data Application Platform (CDAP)
+        href: ../hdinsight-apps-install-cask.md
+        maintainContext: true
+      - name: Install published app - Dataiku
+        href: ../hdinsight-apps-install-dataiku.md
+        maintainContext: true
+      - name: Install published app - Datameer
+        href: ../hdinsight-apps-install-datameer.md
+        maintainContext: true
+      - name: Install published app - H2O
+        href: ../hdinsight-apps-install-h2o.md
+        maintainContext: true
+      - name: Install published app - Streamsets
+        href: ../hdinsight-apps-install-streamsets.md
+        maintainContext: true
   - name: Secure
     items:
     - name: Use SSH with HDInsight
@@ -74,6 +113,8 @@
     - name: Use SSH tunneling
       href: ../hdinsight-linux-ambari-ssh-tunnel.md
       maintainContext: true
+    - name: Bring your own key
+      href: apache-kafka-byok.md
   - name: Manage
     items:
     - name: Create Linux clusters
@@ -89,7 +130,7 @@
       - name: Use the .NET SDK
         href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
         maintainContext: true
-      - name: Use the Azure CLI
+      - name: Use the Azure Classic CLI
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
       - name: Use the Azure portal
@@ -108,16 +149,22 @@
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure CLI
+      - name: Use the Azure Classic CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Ambari web UI
       href: ../hdinsight-hadoop-manage-ambari.md
       maintainContext: true
       items:
+      - name: Optimize clusters with the Ambari web UI
+        href: ../hdinsight-changing-configs-via-ambari.md
+        maintainContext: true
       - name: Use Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Manage logs for an HDInsight cluster
+      href: ../hdinsight-log-management.md
+      maintainContext: true
     - name: Add storage accounts
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
@@ -143,6 +190,9 @@
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
     items:
+    - name: Troubleshoot a slow or failing HDInsight cluster
+      href: ../hdinsight-troubleshoot-failed-cluster.md
+      maintainContext: true
     - name: HDFS troubleshooting
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
@@ -176,13 +226,10 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using OMS
+  - name: Monitoring using Log Analytics
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Cluster-specific dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Use queries with Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -196,6 +243,14 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
+  - name: .NET SDK
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+  - name: Python SDK
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: Java SDK
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+  - name: Go SDK
+    href: ../hdinsight-go-sdk-overview.md
   - name: REST
     href: /rest/api/hdinsight/
   - name: REST (Spark)

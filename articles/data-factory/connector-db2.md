@@ -4,27 +4,25 @@ description: Learn how to copy data from DB2 to supported sink data stores by us
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.date: 08/17/2018
+
 ms.author: jingwang
 
 ---
 # Copy data from DB2 by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-onprem-db2-connector.md)
-> * [Version 2 - Preview](connector-db2.md)
+> * [Version 1](v1/data-factory-onprem-db2-connector.md)
+> * [Current version](connector-db2.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a DB2 database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [DB2 connector in V1](v1/data-factory-onprem-db2-connector.md).
 
 ## Supported capabilities
 
@@ -62,12 +60,11 @@ The following properties are supported for DB2 linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Db2** | Yes |
-| server |Name of the DB2 server. |Yes |
+| server |Name of the DB2 server. You can specify the port number following the server name delimited by colon e.g. `server:port`. |Yes |
 | database |Name of the DB2 database. |Yes |
-| schema |Name of the schema in the database. The schema name is case-sensitive. |No |
 | authenticationType |Type of authentication used to connect to the DB2 database.<br/>Allowed value is: **Basic**. |Yes |
 | username |Specify user name to connect to the DB2 database. |Yes |
-| password |Specify password for the user account you specified for the username. Mark this field as SecureString. |Yes |
+| password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -78,7 +75,7 @@ The following properties are supported for DB2 linked service:
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "server": "<servername>",
+            "server": "<servername:port>",
             "database": "<dbname>",
             "authenticationType": "Basic",
             "username": "<username>",

@@ -1,20 +1,16 @@
 ---
-title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery (Preview)
+title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery
 description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
-
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/08/2017
+ms.topic: tutorial
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
 ---
-# Set up disaster recovery for Azure VMs to a secondary Azure region (Preview)
+# Set up disaster recovery for Azure VMs to a secondary Azure region
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
@@ -25,6 +21,7 @@ This tutorial shows you how to set up disaster recovery to a secondary Azure reg
 > * Verify target resource settings
 > * Set up outbound access for VMs
 > * Enable replication for a VM
+
 
 ## Prerequisites
 
@@ -38,7 +35,7 @@ To complete this tutorial:
 Create the vault in any region, except the source region.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
+2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group or select an existing one. Specify an Azure region. To check supported
@@ -81,8 +78,7 @@ to the following URLs used by Site Recovery.
 
 ### Outbound connectivity for IP address ranges
 
-When using any IP-based firewall, proxy, or NSG rules to control outbound connectivity, the
-following IP address ranges need to be whitelisted. Download a list of ranges from the following links:
+If you want to control outbound connectivity using IP addresses instead of URLs, whitelist the appropriate datacenter ranges; Office 365 addresses; and service endpoint addresses, for IP-based firewalls, proxy, or NSG rules.
 
   - [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -90,8 +86,7 @@ following IP address ranges need to be whitelisted. Download a list of ranges fr
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
 
-Use these lists to configure the network access controls in your network. You can use this
-[script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to create
+You can use this [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to create
 required NSG rules.
 
 ## Verify Azure VM certificates
@@ -117,7 +112,7 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
   for disaster recovery administrators who can enable and manage disaster recovery for applications
   or entire organizations.
 
-- **Site Recovery Operator** - This role has permissions to execute and manager Failover and
+- **Site Recovery Operator** - This role has permissions to execute and manage Failover and
   Failback operations. A user with this role can't enable or disable replication, create or delete
   vaults, register new infrastructure, or assign access rights to other users. This role is best
   suited for a disaster recovery operator who can fail over virtual machines or applications when
@@ -128,20 +123,21 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
   operations. This role is best suited for an IT monitoring executive who can monitor the current
   state of protection and raise support tickets.
 
-Learn more on [Azure RBAC built-in roles](../active-directory/role-based-access-built-in-roles.md)
+Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 
 ## Enable replication
 
 ### Select the source
 
 1. In Recovery Services vaults, click the vault name > **+Replicate**.
-2. In **Source**, select **Azure - PREVIEW**.
+2. In **Source**, select **Azure**.
 3. In **Source location**, select the source Azure region where your VMs are currently running.
 4. Select the **Azure virtual machine deployment model** for VMs: **Resource Manager** or
    **Classic**.
-5. Select the **Source resource group** for Resource Manager VMs, or **cloud service** for classic
-   VMs.
-6. Click **OK** to save the settings.
+5. Select the **Source subscription** where the virtual machines are running. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
+6. Select the **Source resource group** for Resource Manager VMs, or **cloud service** for classic
+      VMs.
+7. Click **OK** to save the settings.
 
 ### Select the VMs
 
@@ -161,12 +157,15 @@ your requirements.
   ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
+- **Target subscription**: The target subscription used for disaster recovery. By default, the target subscription will be same as the source subscription. Click 'Customize' to select a different target subscription within the same Azure Active Directory tenant.
+
 - **Target location**: The target region used for disaster recovery. We recommend that the target
   location matches the location of the Site Recovery vault.
 
 - **Target resource group**: The resource group in the target region that holds Azure VMs after
   failover. By default, Site Recovery creates a new resource group in the target region with an
-  "asr" suffix.
+  "asr" suffix. resource group location of the target resource group can be any region except the
+region where your source virtual machines are hosted.
 
 - **Target virtual network**: The network in the target region that VMs are located after failover.
   By default, Site Recovery creates a new virtual network (and subnets) in the target region with
@@ -175,8 +174,11 @@ your requirements.
 - **Cache storage accounts**: Site Recovery uses a storage account in the source region. Changes to
   source VMs are sent to this account before replication to the target location.
 
-- **Target storage accounts**: By default, Site Recovery creates a new storage account in the
+- **Target storage accounts (If source VM does not use managed disks)**: By default, Site Recovery creates a new storage account in the
   target region to mirror the source VM storage account.
+
+- **Replica managed disks (If source VM uses managed disks)**: By default, Site Recovery creates replica managed disks in the
+  target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
 
 - **Target availability sets**: By default, Site Recovery creates a new availability set in the
   target region with the "asr" suffix. You can only add availability sets if VMs are part of a set in the source region.
@@ -200,6 +202,19 @@ To override the default replication policy settings, click **Customize** next to
 
 > [!IMPORTANT]
   If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Ensure that there is no firewall appliance blocking the internal communication between the VMs over port 20004. If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened as per the guidance of the specific Linux version.
+
+### Configure encryption settings
+
+If the source virtual machine has Azure disk encryption (ADE) enabled, the below encryption settings section will appear.
+
+- **Disk encryption key vaults**: By default, Azure Site Recovery creates a new key vault in the target region with name having "asr" suffix based on the source VM disk encryption keys. In case key vault created by Azure Site Recovery already exists, it is reused.
+- **Key encryption key vaults**: By default, Azure Site Recovery creates a new key vault in the target region with name having "asr" suffix based on the source VM key encryption keys. In case key vault created by Azure Site Recovery already exists, it is reused.
+
+Click 'Customize' next to encryption settings to override the defaults and select custom key vaults.
+
+>[!NOTE]
+>Only Azure VMs running Windows OS and [enabled for encryption with Azure AD app](https://aka.ms/ade-aad-app) are currently supported by Azure Site Recovery.
+>
 
 ### Track replication status
 

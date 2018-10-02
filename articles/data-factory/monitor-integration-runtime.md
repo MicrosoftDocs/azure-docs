@@ -3,17 +3,17 @@ title: Monitor integration runtime in Azure Data Factory | Microsoft Docs
 description: Learn how to monitor different types of integration runtime in Azure Data Factory.  
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: craigg
+editor: 
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/23/2017
-ms.author: spelluru
+ms.topic: conceptual
+ms.date: 07/25/2018
+ms.author: douglasl
 
 ---
 
@@ -23,9 +23,6 @@ ms.author: spelluru
 - Azure integration runtime
 - Self-hosted integration runtime
 - Azure-SSIS integration runtime
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
 
 To get the status of an instance of integration runtime (IR), run the following PowerShell command: 
 
@@ -76,10 +73,18 @@ The following table provides descriptions of monitoring Properties for **each no
 | Available memory | Available memory on a self-hosted integration runtime node. This value is a near real-time snapshot. | 
 | CPU utilization | CPU utilization of a self-hosted integration runtime node. This value is a near real-time snapshot. |
 | Networking (In/Out) | Network utilization of a self-hosted integration runtime node. This value is a near real-time snapshot. | 
-| Concurrent Jobs (Running/ Limit) | Number of jobs or tasks running on each node. This value is a near real-time snapshot. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, where CPU/memory/network is under-utilized, but activities are timing out. This capability is also available with a single-node self-hosted integration runtime. |
+| Concurrent Jobs (Running/ Limit) | **Running**. Number of jobs or tasks running on each node. This value is a near real-time snapshot. <br/><br/>**Limit**. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, when activities are timing out even when CPU, memory, or network is under-utilized. This capability is also available with a single-node self-hosted integration runtime. |
 | Role | There are two types of roles in a multi-node self-hosted integration runtime – dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes. The dispatcher node is also a worker node. |
 
-Some settings of the properties make more sense when there are two or more nodes (scale out scenario) in the self-hosted integration runtime. 
+Some settings of the properties make more sense when there are two or more nodes in the self-hosted integration runtime (that is, in a scale out scenario).
+
+#### Concurrent jobs limit
+
+The default value of the concurrent jobs limit is set based on the machine size. The factors used to calculate this value depend on the amount of RAM and the number of CPU cores of the machine. So the more cores and the more memory, the higher the default limit of concurrent jobs.
+
+You scale out by increasing the number of nodes. When you increase the number of nodes, the concurrent jobs limit is the sum of the concurrent job limit values of all the available nodes.  For example, if one node lets you run a maximum of twelve concurrent jobs, then adding three more similar nodes lets you run a maximum of  48 concurrent jobs (that is, 4 x 12). We recommend that you increase the concurrent jobs limit only when you see low resource usage with the default values on each node.
+
+You can override the calculated default value in the Azure portal. Select Author > Connections > Integration Runtimes > Edit > Nodes > Modify concurrent job value per node. You can also use the PowerShell [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) command.
   
 ### Status (per node)
 The following table provides possible statuses of a self-hosted integration runtime node:
@@ -163,8 +168,8 @@ Azure-SSIS integration runtime is a fully managed cluster of Azure virtual machi
 | CatalogServerEndpoint | The endpoint of your existing Azure SQL Database/Managed Instance server to host SSISDB. |
 | CatalogAdminUserName | The admin username of your existing Azure SQL Database/Managed Instance server. Data Factory service uses this information to prepare and manage SSISDB on your behalf. |
 | CatalogAdminPassword | The admin password of your existing Azure SQL Database/Managed Instance server. |
-| CatalogPricingTier | The pricing tier for SSISDB hosted by your existing Azure SQL Database server.  Not applicable to Azure SQL Managed Instance hosting SSISDB. |
-| VNetId | The virtual network (VNet) resource ID for your Azure-SSIS integration runtime to join. |
+| CatalogPricingTier | The pricing tier for SSISDB hosted by your existing Azure SQL Database server.  Not applicable to Azure SQL Database Managed Instance hosting SSISDB. |
+| VNetId | The virtual network resource ID for your Azure-SSIS integration runtime to join. |
 | Subnet | The subnet name for your Azure-SSIS integration runtime to join. |
 | ID | The resource ID of your Azure-SSIS integration runtime. |
 | Type | The type (Managed/Self-Hosted) of your Azure-SSIS integration runtime. |
@@ -193,13 +198,31 @@ Azure-SSIS integration runtime is a fully managed cluster of Azure virtual machi
 | Stopping  | The nodes of your Azure-SSIS integration runtime are being released. |
 | Stopped | The nodes of your Azure-SSIS integration runtime have been released and billing has stopped. |
 
+### Monitor the Azure-SSIS integration runtime in the Azure portal
+
+The following screenshots show how to select the Azure-SSIS IR to monitor, and provide an example of the information that's displayed.
+
+![Select the Azure-SSIS integration runtime to monitor](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+
+![View information about the Azure-SSIS integration runtime](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
+
+### Monitor the Azure-SSIS integration runtime with PowerShell
+
+Use a script like the following example to check the status of the Azure-SSIS IR.
+
+```powershell
+Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+```
+
+### More info about the Azure-SSIS integration runtime
+
 See the following articles to learn more about Azure-SSIS integration runtime:
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general including the Azure-SSIS IR. 
-- [Tutorial: deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL database to host the SSIS catalog. 
-- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Managed Instance (private preview) and joining the IR to a VNet. 
+- [Tutorial: deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL database to host the SSIS catalog. 
+- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Database Managed Instance and joining the IR to a virtual network. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or remove an Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding more nodes to the IR. 
-- [Join an Azure-SSIS IR to a VNet](join-azure-ssis-integration-runtime-virtual-network.md). This article provides conceptual information about joining an Azure-SSIS IR to an Azure virtual network (VNet). It also provides steps to use Azure portal to configure VNet so that Azure-SSIS IR can join the VNet. 
+- [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md). This article provides conceptual information about joining an Azure-SSIS IR to an Azure virtual network. It also provides steps to use Azure portal to configure the virtual network so that the Azure-SSIS IR can join the virtual network. 
 
 ## Next steps
 See the following articles for monitoring pipelines in different ways: 

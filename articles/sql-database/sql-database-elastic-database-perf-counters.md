@@ -2,21 +2,16 @@
 title: Performance counters for shard map manager
 description: ShardMapManager class and data dependent routing performance counters
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-editor: ''
-
-ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/23/2016
-ms.author: ddove
-
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang:
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
+manager: craigg
+ms.date: 03/31/2018
 ---
 # Performance counters for shard map manager
 You can capture the performance of a [shard map manager](sql-database-elastic-scale-shard-map-management.md), especially when using [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md). Counters are created with methods of the Microsoft.Azure.SqlDatabase.ElasticScale.Client class.  

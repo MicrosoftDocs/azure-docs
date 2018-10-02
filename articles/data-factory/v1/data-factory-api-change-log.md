@@ -3,24 +3,24 @@ title: Data Factory - .NET API Change Log | Microsoft Docs
 description: Describes breaking changes, feature additions, bug fixes etc... in a specific version of .NET API for the Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: craigg
+editor: 
 
 ms.assetid: 8208271b-7f4c-4214-b665-d2ff503c4470
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
-ms.author: spelluru
+ms.topic: conceptual
+ms.date: 01/22/2018
+ms.author: shlo
 
 robots: noindex
 ---
 # Azure Data Factory - .NET API change log
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). 
+> This article applies to version 1 of Data Factory. 
 
 This article provides information about changes to Azure Data Factory SDK in a specific version. You can find the latest NuGet package for Azure Data Factory [here](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 

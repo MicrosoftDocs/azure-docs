@@ -3,11 +3,11 @@ title: Azure Container Service tutorial - Update application
 description: Azure Container Service tutorial - Update Application
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 09/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -26,7 +26,7 @@ In this tutorial, part six of seven, the sample Azure Vote app is updated. Tasks
 > * Pushing the container image to Azure Container Registry
 > * Deploying the updated container image
 
-In subsequent tutorials, Operations Management Suite is configured to monitor the Kubernetes cluster.
+In subsequent tutorials, Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 
@@ -76,7 +76,7 @@ Browse to http://localhost:8080 to see the updated application.
 
 Tag the `azure-vote-front` image with the loginServer of the container registry. 
 
-Get the login server name with the [az acr list](/cli/azure/acr#list) command.
+Get the login server name with the [az acr list](/cli/azure/acr#az-acr-list) command.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -96,7 +96,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## Deploy update application
 
-To ensure maximum uptime, multiple instances of the application pod must be running. Verify this configuration with the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
+To ensure maximum uptime, multiple instances of the application pod must be running. Verify this configuration with the [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command.
 
 ```bash
 kubectl get pod
@@ -119,13 +119,13 @@ If you do not have multiple pods running the azure-vote-front image, scale the `
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-To update the application, use the [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) command. Update `<acrLoginServer>` with the login server or host name of your container registry.
+To update the application, use the [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set) command. Update `<acrLoginServer>` with the login server or host name of your container registry.
 
 ```azurecli-interactive
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-To monitor the deployment, use the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command. As the updated application is deployed, your pods are terminated and re-created with the new container image.
+To monitor the deployment, use the [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command. As the updated application is deployed, your pods are terminated and re-created with the new container image.
 
 ```azurecli-interactive
 kubectl get pod
@@ -163,7 +163,7 @@ In this tutorial, you updated an application and rolled out this update to a Kub
 > * Pushed the container image to Azure Container Registry
 > * Deployed the updated application
 
-Advance to the next tutorial to learn about how to monitor Kubernetes with Operations Management Suite.
+Advance to the next tutorial to learn about how to monitor Kubernetes with Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Monitor Kubernetes with OMS](./container-service-tutorial-kubernetes-monitor.md)
+> [Monitor Kubernetes with Log Analytics](./container-service-tutorial-kubernetes-monitor.md)

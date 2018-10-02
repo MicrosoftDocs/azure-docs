@@ -1,19 +1,21 @@
 ---
-title: Get started with the Microsoft Speech Recognition API by using REST | Microsoft Docs
+title: Get started with the Bing Speech Recognition API by using REST | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use REST to access the Speech Recognition API in Microsoft Cognitive Services to convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
-ms.date: 15/09/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
-# Get started with speech recognition by using the REST API
 
-With cloud-based Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
+# Quickstart: Use the Bing Speech recognition REST API
+
+With the cloud-based Bing Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
 
 ## Prerequisites
 
@@ -102,7 +104,7 @@ $SpeechServiceURI =
 # $OAuthToken is the authorization token returned by the token service.
 $RecoRequestHeader = @{
   'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY';
-  'Transfer-Encoding' = 'chunked'
+  'Transfer-Encoding' = 'chunked';
   'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
 }
 
@@ -140,7 +142,7 @@ request.ContentType = @"audio/wav; codec=audio/pcm; samplerate=16000";
 request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_SUBSCRIPTION_KEY";
 
 // Send an audio file by 1024 byte chunks
-using (fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess.Read))
+using (FileStream fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess.Read))
 {
 
     /*

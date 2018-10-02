@@ -4,15 +4,15 @@ description: Learn how to visually monitor Azure Data factories
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 07/12/2018
 ms.author: shlo
 
 ---
@@ -21,13 +21,11 @@ Azure Data Factory is a cloud-based data integration service that allows you to 
 In this quick start, you will learn how to visually monitor data factory v2 pipelines without writing a single line of code.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Monitor and manage pipelines in Data Factory version1](v1/data-factory-monitor-manage-app.md).
-
 ## Monitor data factory v2 pipelines
 
-1. Log in to the  [Azure portal](https://portal.azure.com/).
-2. Navigate to the created data factory blade in Azure portal and click the 'Monitor & Manage' tile. This will launch the ADF v2 visual monitoring experience.
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Log in to the  [Azure portal](https://portal.azure.com/).
+3. Navigate to the created data factory blade in Azure portal and click the 'Monitor & Manage' tile. This will launch the ADF v2 visual monitoring experience.
 
 ## List-View Monitoring
 
@@ -74,6 +72,11 @@ List view showcasing activity runs corresponding to each pipeline run. Click **'
 
 ## Features
 
+#### Select a data factory to monitor
+Hover on the **Data Factory** icon on the top left. Click on the 'Arrow' icon to see a list of azure subscriptions and data factories that you can monitor.
+
+![Select data factory](media/monitor-visually/select-datafactory.png)
+
 #### Rich ordering and filtering
 
 Order pipeline runs in desc/asc by Run Start and filter pipeline runs by following columns:
@@ -86,7 +89,7 @@ Order pipeline runs in desc/asc by Run Start and filter pipeline runs by followi
 
 ![Filter](media/monitor-visually/filter.png)
 
-#### Add/Remove columns to list view
+#### Add/Remove columns in list view
 Right click the list view header and choose columns that you want to appear in the list view
 
 ![Columns](media/monitor-visually/columns.png)
@@ -94,10 +97,22 @@ Right click the list view header and choose columns that you want to appear in t
 #### Reorder column widths in list view
 Increase and decrease the column widths in list view by simply hovering over the column header
 
-#### Select data factory
-Hover on the 'Data Factory' icon on the top left. Click on the 'Arrow' icon to see a list of azure subscriptions and data factories that you can monitor.
+#### User properties
 
-![Select data factory](media/monitor-visually/select-datafactory.png)
+You can promote any pipeline activity property as a user property so that it becomes an entity that you can monitor. For example, you can promote the **Source** and **Destination** properties of the Copy activity in your pipeline as user properties. You can also select **Auto Generate** to generate the **Source** and **Destination** user properties for a Copy activity.
+
+![Create user properties](media/monitor-visually/monitor-user-properties-image1.png)
+
+> [!NOTE]
+> You can only promote up to 5 pipeline activity properties as user properties.
+
+After you create the user properties, you can then monitor them in the monitoring list views. If the source for the Copy activity is a table name, you can monitor the source table name as a column in the activity runs list view.
+
+![Activity runs list without user properties](media/monitor-visually/monitor-user-properties-image2.png)
+
+![Add columns for user properties to activity runs list](media/monitor-visually/monitor-user-properties-image3.png)
+
+![Activity runs list with columns for user properties](media/monitor-visually/monitor-user-properties-image4.png)
 
 #### Guided Tours
 Click on the 'Information Icon' in lower left and click 'Guided Tours' to get step-by-step instructions on how to monitor your pipeline and activity runs.

@@ -4,27 +4,27 @@ description: Learn how to create datasets in Azure Data Factory, with examples t
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 0614cd24-2ff0-49d3-9301-06052fd4f92a
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: shlo
 
 robots: noindex
 ---
 # Datasets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-create-datasets.md)
-> * [Version 2 - Preview](../concepts-datasets-linked-services.md)
+> * [Version 1](data-factory-create-datasets.md)
+> * [Version 2 (current version)](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Datasets in V2](../concepts-datasets-linked-services.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Datasets in V2](../concepts-datasets-linked-services.md).
 
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines. It provides details about each section (for example, structure, availability, and policy) in the dataset JSON definition. The article also provides examples for using the **offset**, **anchorDateTime**, and **style** properties in a dataset JSON definition.
 

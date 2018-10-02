@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/16/2017
+ms.date: 08/02/2018
 ms.author: alkohli
 ---
 # Introduction to the StorSimple Virtual Array
@@ -71,7 +71,7 @@ A summary of supported StorSimple workloads is tabulated below.
 
 |Scenario     |Workload     |Supported      |Restrictions               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |File sharing     |Yes      |See [maximum limits for file server](storsimple-ova-limits.md).<br></br>See [system requirements for supported SMB versions](storsimple-ova-system-requirements.md).| All versions     |
+|Remote Office/Branch Office (ROBO)  |File sharing     |Yes      |See [maximum limits for file server](storsimple-ova-limits.md).<br></br>See [system requirements for supported SMB versions](storsimple-ova-system-requirements.md).| All versions     |
 |Cloud archiving  |Archival file sharing     |Yes      |See [maximum limits for file server](storsimple-ova-limits.md).<br></br>See [system requirements for supported SMB versions](storsimple-ova-system-requirements.md).| All versions     |
 
 The StorSimple Virtual Array is best suited for infrequently accessed data. While the virtual array has a local cache to boost performance, users should assume that the device services files at the lowest tier of storage (the cloud). Each virtual array can write and read to Azure storage at approximately 100 Mbps. That link is shared across all the requests coming into the device and can become a bottleneck as shown in the diagram below.
@@ -201,6 +201,14 @@ StorSimple uses deduplication and data compression to further reduce storage req
 ### Scheduled and on-demand backups
 
 StorSimple data protection features enable you to create on-demand backups. Additionally, a default backup schedule ensures that data is backed up daily. Backups are taken in the form of incremental snapshots, which are stored in the cloud. Snapshots, which record only the changes since the last backup, can be created and restored quickly. These snapshots can be critically important in disaster recovery scenarios because they replace secondary storage systems (such as tape backup), and allow you to restore data to your datacenter or to alternate sites if necessary.
+
+## Managing personal information
+
+The StorSimple Device Manager for virtual series collects personal information in two key instances:
+ - Alert user settings where email addresses of users are configured. This information can be cleared by the administrator. 
+ - Users who can access the data residing on the shares. A list of users who can access the share data is displayed and can be exported. This list is also deleted when the shares is deleted.
+
+For more information, review the [Microsoft Privacy policy at Trust Center](https://www.microsoft.com/trustcenter).
 
 ## Next steps
 

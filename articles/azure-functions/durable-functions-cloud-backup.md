@@ -3,16 +3,12 @@ title: Fan-out/fan-in scenarios in Durable Functions - Azure
 description: Learn how to implement a fan-out-fan-in scenario in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 03/19/2018
 ms.author: azfuncdf
 ---
 
@@ -22,8 +18,8 @@ ms.author: azfuncdf
 
 ## Prerequisites
 
-* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
-* This article assumes you have already gone through the [Hello Sequence](durable-functions-sequence.md) sample walkthrough.
+* [Install Durable Functions](durable-functions-install.md).
+* Complete the [Hello Sequence](durable-functions-sequence.md) walkthrough.
 
 ## Scenario overview
 
@@ -43,7 +39,7 @@ This article explains the following functions in the sample app:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
+The following sections explain the configuration and code that are used for C# scripting. The code for Visual Studio development is shown at the end of the article.
 
 ## The cloud backup orchestration (Visual Studio Code and Azure portal sample code)
 
@@ -53,7 +49,13 @@ The `E2_BackupSiteContent` function uses the standard *function.json* for orches
 
 Here is the code that implements the orchestrator function:
 
+### C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
+
+### JavaScript (Functions v2 only)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
 This orchestrator function essentially does the following:
 
@@ -63,9 +65,11 @@ This orchestrator function essentially does the following:
 4. Waits for all uploads to complete.
 5. Returns the sum total bytes that were uploaded to Azure Blob Storage.
 
-Notice the `await Task.WhenAll(tasks);` line. All the calls to the `E2_CopyFileToBlob` function were *not* awaited. This is intentional to allow them to run in parallel. When we pass this array of tasks to `Task.WhenAll`, we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with the Task Parallel Library (TPL) in .NET, then this is not new to you. The difference is that these tasks could be running on multiple VMs concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
+Notice the `await Task.WhenAll(tasks);` (C#) and `yield context.df.Task.all(tasks);` (JS) line. All the calls to the `E2_CopyFileToBlob` function were *not* awaited. This is intentional to allow them to run in parallel. When we pass this array of tasks to `Task.WhenAll`, we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with the Task Parallel Library (TPL) in .NET, then this is not new to you. The difference is that these tasks could be running on multiple VMs concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
 
-After awaiting from `Task.WhenAll`, we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
+Tasks are very similar to the JavaScript concept of promises. However, `Promise.all` has some differences from `Task.WhenAll`. The concept of `Task.WhenAll` has been ported over as part of the `durable-functions` JavaScript module and is exclusive to it.
+
+After awaiting from `Task.WhenAll` (or yielding from `context.df.Task.all`), we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
 
 ## Helper activity functions
 
@@ -75,7 +79,15 @@ The helper activity functions, as with other samples, are just regular functions
 
 And here is the implementation:
 
+### C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
+
+### JavaScript (Functions v2 only)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
+
+The JavaScript implementation of `E2_GetFileList` uses the `readdirp` module to recursively read the directory structure.
 
 > [!NOTE]
 > You might be wondering why you couldn't just put this code directly into the orchestrator function. You could, but this would break one of the fundamental rules of orchestrator functions, which is that they should never do I/O, including local file system access.
@@ -84,9 +96,17 @@ The *function.json* file for `E2_CopyFileToBlob` is similarly simple:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-The implementation is also pretty straightforward. It happens to use some advanced features of Azure Functions bindings (that is, the use of the `Binder` parameter), but you don't need to worry about those details for the purpose of this walkthrough.
+The C# implementation is also pretty straightforward. It happens to use some advanced features of Azure Functions bindings (that is, the use of the `Binder` parameter), but you don't need to worry about those details for the purpose of this walkthrough.
+
+### C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
+
+### JavaScript (Functions v2 only)
+
+The JavaScript implementation does not have access to the `Binder` feature of Azure Functions, so the [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) takes its place. Note that the SDK requires an `AZURE_STORAGE_CONNECTION_STRING` app setting.
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
 The implementation loads the file from disk and asynchronously streams the contents into a blob of the same name in the "backups" container. The return value is the number of bytes copied to storage, that is then used by the orchestrator function to compute the aggregate sum.
 
@@ -154,7 +174,7 @@ Here is the orchestration as a single C# file in a Visual Studio project:
 
 ## Next steps
 
-This sample has shown how to implement the fan-out/fan-in pattern. The next sample shows how to implement the [stateful singleton](durable-functions-singletons.md) pattern in an [eternal orchestration](durable-functions-eternal-orchestrations.md).
+This sample has shown how to implement the fan-out/fan-in pattern. The next sample shows how to implement the monitor pattern using [durable timers](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Run the stateful singleton sample](durable-functions-counter.md)
+> [Run the monitor sample](durable-functions-monitor.md)

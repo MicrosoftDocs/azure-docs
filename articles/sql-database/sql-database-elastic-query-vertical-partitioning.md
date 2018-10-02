@@ -2,21 +2,16 @@
 title: Query across cloud databases with different schema | Microsoft Docs
 description: how to set up cross-database queries over vertical partitions
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: MladjoA
-
-ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/12/2017
+subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MladjoA
 ms.author: mlandzic
-
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Query across cloud databases with different schemas (preview)
 ![Query across tables in different databases][1]
@@ -47,7 +42,7 @@ The credential is used by the elastic query to connect to your remote databases.
     [;]
 
 > [!NOTE]
-> Ensure that the `<username>` does not include any **"@servername"** suffix. 
+> Ensure that the `<username>` does not include any **"\@servername"** suffix. 
 >
 
 ## Create external data sources

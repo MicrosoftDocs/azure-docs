@@ -3,15 +3,11 @@ title: Eternal orchestrations in Durable Functions - Azure
 description: Learn how to implement eternal orchestrations by using the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ---
@@ -33,6 +29,9 @@ When `ContinueAsNew` is called, the instance enqueues a message to itself before
 > [!NOTE]
 > The Durable Task Framework maintains the same instance ID but internally creates a new *execution ID* for the orchestrator function that gets reset by `ContinueAsNew`. This execution ID is generally not exposed externally, but it may be useful to know about when debugging orchestration execution.
 
+> [!NOTE]
+> The `ContinueAsNew` method is not yet available in JavaScript.
+
 ## Periodic work example
 
 One use case for eternal orchestrations is code that needs to do periodic work indefinitely.
@@ -46,39 +45,13 @@ public static async Task Run(
 
     // sleep for one hour between cleanups
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
-    await context.CreateTimer<string>(nextCleanup);
+    await context.CreateTimer(nextCleanup, CancellationToken.None);
 
     context.ContinueAsNew(null);
 }
 ```
 
 The difference between this example and a timer-triggered function is that cleanup trigger times here are not based on a schedule. For example, a CRON schedule that executes a function every hour will execute it at 1:00, 2:00, 3:00 etc. and could potentially run into overlap issues. In this example, however, if the cleanup takes 30 minutes, then it will be scheduled at 1:00, 2:30, 4:00, etc. and there is no chance of overlap.
-
-## Counter example
-
-Here is a simplified example of a *counter* function that listens for *increment* and *decrement* events eternally.
-
-```csharp
-[FunctionName("SimpleCounter")]
-public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    int counterState = context.GetInput<int>();
-
-    string operation = await context.WaitForExternalEvent<string>("operation");
-
-    if (operation == "incr")
-    {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
-    }
-    
-    context.ContinueAsNew(counterState);
-}
-```
 
 ## Exit from an eternal orchestration
 
@@ -90,6 +63,3 @@ If an orchestrator function is in an infinite loop and needs to be stopped, use 
 
 > [!div class="nextstepaction"]
 > [Learn how to implement singleton orchestrations](durable-functions-singletons.md)
-
-> [!div class="nextstepaction"]
-> [Run a sample eternal orchestration](durable-functions-counter.md)

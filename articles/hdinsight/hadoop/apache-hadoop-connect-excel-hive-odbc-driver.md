@@ -1,24 +1,15 @@
 ---
-title: Connect Excel to Hadoop with the Hive ODBC Driver - Azure HDInsight | Microsoft Docs
+title: Connect Excel to Hadoop with the Hive ODBC Driver - Azure HDInsight 
 description: Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in HDInsight clusters from Microsoft Excel.
 keywords: hadoop excel,hive excel,hive odbc
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-tags: azure-portal
-editor: cgronlun
-
-ms.assetid: a7665a14-0211-4521-b3e7-3b26e8029cc0
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/06/2017
-ms.author: jgao
-
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: jasonh
 ---
 # Connect Excel to Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
 
@@ -28,10 +19,7 @@ Microsoft's Big Data solution integrates Microsoft Business Intelligence (BI) co
 
 It is also possible to connect the data associated with an HDInsight cluster and other data sources, including other (non-HDInsight) Hadoop clusters, from Excel using the Microsoft Power Query add-in for Excel. For information on installing and using Power Query, see [Connect Excel to HDInsight with Power Query][hdinsight-power-query].
 
-> [!NOTE]
-> While the steps in this article can be used with either a Linux or Windows-based HDInsight cluster, Windows is required for the client workstation.
-> 
-> 
+
 
 **Prerequisites**:
 
@@ -43,7 +31,7 @@ Before you begin this article, you must have the following items:
 ## Install Microsoft Hive ODBC driver
 Download and install Microsoft Hive ODBC Driver from the [Download Center][hive-odbc-driver-download].
 
-This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows 10, Windows Server 2008 R2, and Windows Server 2012. The driver allows connection to Azure HDInsight (version 1.6 and later) and Azure HDInsight Emulator (v.1.0.0.0 and later). You shall install the version that matches the version of the application where you use the ODBC driver. For this tutorial, the driver is used from Office Excel.
+This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows 10, Windows Server 2008 R2, and Windows Server 2012. The driver allows connection to Azure HDInsight. You shall install the version that matches the version of the application where you use the ODBC driver. For this tutorial, the driver is used from Office Excel.
 
 ## Create Hive ODBC data source
 The following steps show you how to create a Hive ODBC Data Source.

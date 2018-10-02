@@ -2,19 +2,12 @@
 title: Require secure transfer in Azure Storage | Microsoft Docs
 description: Learn about the "Secure transfer required" feature for Azure Storage, and how to enable it.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: Jason.Hogg
-editor: fhryo-msft
-
-ms.assetid:
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
+ms.component: common
 ---
 # Require secure transfer in Azure Storage
 
@@ -62,7 +55,7 @@ To require secure transfer programmatically, use the setting _supportsHttpsTraff
 
 This sample requires the Azure PowerShell module version 4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-Run `Login-AzureRmAccount` to create a connection with Azure.
+Run `Connect-AzureRmAccount` to create a connection with Azure.
 
  Use the following command line to check the setting:
 

@@ -1,21 +1,15 @@
 ---
-title: Azure Quickstart - Back up a VM with PowerShell | Microsoft Docs
+title: Azure Quickstart - Back up a VM with PowerShell
 description: Learn how to back up your virtual machines with Azure PowerShell
-services: virtual-machines-windows, azure-backup
-documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
-editor:
+services: backup
+author: markgalioto
+manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-
-ms.assetid: 
-ms.service: virtual-machines-windows, azure-backup
+ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 12/18/2017
-ms.author: iainfou
+ms.date: 2/14/2018
+ms.author: markgal
 ms.custom: mvc
 ---
 
@@ -28,10 +22,10 @@ This quickstart requires the Azure PowerShell module version 4.4 or later. Run `
 
 
 ## Log in to Azure
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).
@@ -41,7 +35,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 ```
 
 
-## Create a recovery services vault
+## Create a recovery services vaults
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
 Create a Recovery Services vault with [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault). Specify the same resource group and location as the VM you wish to protect. If you used the [sample script](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) to create your VM, the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *WestEurope* location.

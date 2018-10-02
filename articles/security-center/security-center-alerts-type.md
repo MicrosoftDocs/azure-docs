@@ -3,17 +3,17 @@ title: Security alerts by type in Azure Security Center | Microsoft Docs
 description: This article discusses the different kinds of security alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 02/21/2018
 ms.author: yurid
 
 ---
@@ -30,7 +30,7 @@ Azure Security Center uses a variety of [detection capabilities](security-center
 
 * Virtual Machine Behavioral Analysis (VMBA)
 * Network Analysis
-* Resource Analysis
+* SQL Database and SQL Data Warehouse Analysis
 * Contextual Information
 
 ## Virtual machine behavioral analysis
@@ -44,7 +44,7 @@ Azure Security Center can use behavioral analytics to identify compromised resou
 Security Center uses advanced analytics to identify compromised resources based on analysis of virtual machine event logs. For example, Process Creation Events and Login Events. In addition, there is correlation with other signals to check for supporting evidence of a widespread campaign.
 
 * **Suspicious process execution detected**: Attackers often try to execute malicious code without detection by masquerading as benign processes. These alerts indicate that a process execution matched one of the following patterns:
-	* A process known to be used for malicious purposes was executed. While individual commands may appear benign the alert is scored based on an aggregation of these commands. 
+	* A process known to be used for malicious purposes was executed. While individual commands may appear benign the alert is scored based on an aggregation of these commands.
 	* A process was executed from an uncommon location.
 	* A process was executed from a location in common with known suspicious files.
 	* A process was executed from a suspicious path.
@@ -65,7 +65,7 @@ Security Center uses advanced analytics to identify compromised resources based 
 	* An attempt to start all executables (*.exe) in a directory was executed from the command line.
 	* A process was executed by PsExec utility, which can be used to run processes remotely.
 	* The Apache Tomcat® Parent executable (Tomcat#.exe) was used to launch suspicious child processes, which can host or launch malicious commands.
-	* The Microsoft Windows "Program Compatibility Assistant" (pcalua.exe) was used to launch executable code, which could be malicious. 
+	* The Microsoft Windows "Program Compatibility Assistant" (pcalua.exe) was used to launch executable code, which could be malicious.
 	* A suspicious process termination burst was detected.
 	* The system process SVCHOST was executed in an abnormal context.
 	* The system process SVCHOST was executed in a rare service group.
@@ -90,45 +90,35 @@ Security Center uses advanced analytics to identify compromised resources based 
 * **Disabling and deleting IIS log files**: This alert indicates that IIS log file were disabled and/or deleted, which is often used by attackers to try to cover their tracks.
 * **Suspicious file deletion**: This alert indicates suspicious deletion of files, which can be used by an attacker to remove evidence of malicious binaries.
 * **All file shadow copies have been deleted**: This alert indicates that shadow copies have been deleted.
-* **A history file has been cleared**: This alert indicates that the command history log file has been cleared, which could be used by an attacker to cover its tracks.
 * **Suspicious file cleanup commands**: This alert indicates a combination of systeminfo commands used to perform post-compromise self-cleanup activity.  While *systeminfo.exe* is a legitimate Windows tool, executing it twice in succession, followed by a delete command in the way that has occurred here is rare.
-* **Suspicious account creation**: This alert indicates that an account was created with a close resemblance of an existing built in administrative privilege account. This technique can be used by attackers to create a rogue account without being detected. 
-* **Suspicious login activity**: This alert indicates an unusual login activity, which could indicate a Server Message Block (SMB) brute force attack. If the affected resource acts as an IIS server, this alert might be due to specific IIS authentication configuration that is legitimate.
+* **Suspicious account creation**: This alert indicates that an account was created with a close resemblance of an existing built in administrative privilege account. This technique can be used by attackers to create a rogue account without being detected.
 * **Suspicious volume shadow copy activity**: This alert indicates shadow copy deletion activity on the resource. Volume Shadow Copy (VSC) is an important artifact that stores data snapshots. This activity is usually associated with Ransowmare, but it could also be legitimate.
 * **Windows registry persistence method**: This alert indicates an attempt to persist an executable in the Windows registry. Malware often uses such a technique to survive a boot.
-* **Windows firewall was disabled**: This alert indicates that a Windows firewall was disabled.
 * **Suspicious new firewall rule**: This alert indicates that a new Firewall rule has been added via *netsh.exe* to allow traffic from an executable in a suspicious location.
-* **New user was added to administrators group**: This alert indicates that a new user was added to the local administrator’s group.
-* **A new service was created**: This alert indicates that a new service was created.
 * **Suspicious XCOPY executions**: This alert indicates a series of XCOPY executions which could signal that one of your machines has been compromised and was used to propagate malware.
 * **Suppression of legal notice displayed to users at logon**: This alert indicates a change to the registry key that controls whether a legal notice is displayed to users when they log on. This is a common activity undertaken by attackers after having compromised a host.
 * **Detected anomalous mix of upper and lower case characters in command line**: This alert indicates the use of a mix of upper and lower case characters at the command line, which is a technique used by attackers to hide from case-sensitive or hash-based machine rule.
 * **Obfuscated command line**: This alert indicates that suspicious indicators of obfuscation were detected at the command line.
 * **Multiple domain accounts queried**: Attackers often query AD domain accounts while performing reconnaissance on users, domain admin accounts, domain controllers, and trust relationships between domains. This alert indicates that an unusual number of distinct domain accounts were queried within a short time period.
 * **Possible local reconnaissance activity**: This alert indicates that a combination of systeminfo commands associated with reconnaissance activity have been executed.  While *systeminfo.exe* is a legitimate Windows tool, executing it twice in succession is rare.
-* **Possible execution of keygen executable**: This alert indicates that a process whose name is indicative of a keygen tool has been executed. Such tools are typically used to defeat software licensing mechanisms, but their download is often bundled with other malicious software. 
+* **Possible execution of keygen executable**: This alert indicates that a process whose name is indicative of a keygen tool has been executed. Such tools are typically used to defeat software licensing mechanisms, but their download is often bundled with other malicious software.
 * **Suspicious execution via rundll32.exe**: This alert indicates that rundll32.exe was used to execute a process with an uncommon name, consistent with the process naming scheme used by attackers to install a first stage implant on a compromised host.
 * **Suspicious combination of HTA and PowerShell**: This alert indicates that a Microsoft HTML Application Host (HTA) is launching PowerShell commands. This is a technique used by attackers to launch malicious PowerShell scripts.
 * **Change to a registry key that can be abused to bypass UAC**: This alert indicates that a registry key that can be abused to bypass UAC (User Account Control) was changed, which is often used by attackers to move from unprivileged (standard user) to privileged (for example administrator) access on a compromised host.
-* **Use of suspicious domain name within command line**: This alert indicates that a suspicious domain name was used, which can be evidence of an attacker is hosting malicious tools and as end-points for command-and-control and exfiltration of data. 
+* **Use of suspicious domain name within command line**: This alert indicates that a suspicious domain name was used, which can be evidence of an attacker is hosting malicious tools and as end-points for command-and-control and exfiltration of data.
 * **An account was created on multiple hosts within a 24-hour time period**: This alert indicates that an attempt was made to create the same user account on multiple hosts, which can be evidence of an attacker moving laterally across the network after one or more network entities have been compromised.
-* **Suspicious use of CACLS to lower the security state of the system**: This alert indicates that the change access control list (CACLS) was changed. This technique is often used by attackers to give full access system binaries like ftp.exe, net.exe, wscript.exe etc. 
-* **Suspected Kerberos Golden Ticket attack parameters**: This alert indicates that  command line parameters consistent with a Kerberos Golden Ticket attack were executed. A compromised krbtgt key can be used by an attacker to impersonate any user they wish. 
+* **Suspicious use of CACLS to lower the security state of the system**: This alert indicates that the change access control list (CACLS) was changed. This technique is often used by attackers to give full access system binaries like ftp.exe, net.exe, wscript.exe etc.
+* **Suspected Kerberos Golden Ticket attack parameters**: This alert indicates that  command line parameters consistent with a Kerberos Golden Ticket attack were executed. A compromised krbtgt key can be used by an attacker to impersonate any user they wish.
 * **Enabling of the WDigest UseLogonCredential registry key**: This alert indicates that the registry key was changed to allow logon credentials to be stored in clear text in LSA memory, which can then be harvested from memory.
 * **Potentially suspicious use of Telegram tool**: This alert indicates the installation of Telegram, a free cloud-based instant messaging service used by attackers to transfer malicious binaries to any other computer, phone, or tablet.
-* **New ASEP creation**: This alert indicates the creation of a new ASEP (Auto Start Extensibility Point), which causes the process name identified in the command line to be automatically started and can be used by an attacker to achieve persistence. 
+* **New ASEP creation**: This alert indicates the creation of a new ASEP (Auto Start Extensibility Point), which causes the process name identified in the command line to be automatically started and can be used by an attacker to achieve persistence.
 * **Suspicious Set-ExecutionPolicy and WinRM changes**: This alert indicates configuration changes, which are associated with the use of the malicious ChinaChopper webshell.
-* **Disabling of critical services**: This alert indicates that "net.exe stop" command was used to stop critical services like SharedAccess or Windows Security Center. 
+* **Disabling of critical services**: This alert indicates that "net.exe stop" command was used to stop critical services like SharedAccess or Windows Security Center.
 * **Suspicious use of FTP -s switch**: This alert indicates use of FTP's "-s" switch, which can be used by malware to connect to a remote FTP server and download additional malicious binaries.
-* **Preparation for document exfiltration via IIS backdoor**: This alert indicates documents are being gathered and prepared for exfiltration.
 * **Suspicious execution of VBScript.Encode command**: This alert indicates the *VBScript.Encode* command was executed, which encodes scripts into unreadable text, making it more difficult for users to examine the code.
 * **VBScript HTTP object allocation**: This alert indicates the creation of a VBScript file using Command Prompt; which can be used to download malicious files.
 * **Sticky keys attack**: This alert indicates that an attacker may be subverting an accessibility binary (for example sticky keys, onscreen keyboard, narrator) in order to provide backdoor access.
 * **Petya ransomware indicators**: This alert indicates the techniques associated with the Petya ransomware were observed.
-* **A kernel module was loaded**: This alert indicates that a kernel module was loaded.
-* **A kernel module was removed**: This alert indicates that a kernel module was removed.
-* **Anomalous login to a machine**: This alert indicates that a user logged in from an unusual IP address.
-* **A file was downloaded and executed**: This alert indicates a file was downloaded to the machine, given execution privileges, and then executed.
 * **Attempt to disable AMSI**: This alert indicates an attempt to disable the antimalware scan interface (AMSI), which would disable antimalware detection.
 * **Ransomware indicators**: This alert indicates suspicious activity traditionally associated with lock-screen and encryption ransomware.
 * **Suspicious trace collection output file**: This alert indicates that a trace (for example of network activity) was collected and output to an unusual file type.
@@ -142,14 +132,8 @@ Security Center uses advanced analytics to identify compromised resources based 
 * **Dynamic PS script construction**: This alert indicates a PowerShell script being constructed dynamically. Attackers use this technique to progressively build a script in order to evade IDS systems.
 * **Metaploit indicators**: This alert indicates activity associated with the Metasploit framework, which provides a range of attacker capabilities and tools.
 * **Suspicious account activity**: This alert indicates an attempt to connect to a machine using an account that was recently compromised.
-* **Possible suspicious scheduling tasks access**: This alert indicates that a cron job was executed, which can be used by attackers to execute malicious programs on a scheduled basis.
-* **Possible suspicious command history file access**: This alert indicates abnormal access to commands history file.
 * **Account creation**: This alert indicates a creation of a new account on the machine.
-* **Change of bash setting has been**: This alert indicates a Bash Profile file was accesses, which could be evidence that an attacker is trying to execute malicious programs on a scheduled basis.
-* **Suspicious sequence of failed sudo attempts**: This alert indicates a sequence of un-successful sudo commands, which is often observed in brute force attempts aimed to escalate privileges by un-authorized users.
-* **Suspicious successful sudo attempts**: This alert indicates a sequence of failed sudo attempts followed by a successful sudo attempt, which is often observed in brute force attempts aimed to escalate privileges by un-authorized users. 
-* **A new user was added to the sudoers group**: This alert indicates a user was added to the sudoers group, which enables its members to run commands with high privileges.
-* **Network logon with plaintext credentials**: This alert indicates a network logon was observed where the password was sent over the network in clear text format. This is common for logons from an ASP script using the ADVAPI or when a user logs on to IIS using IIS’s basic authentication mode. Basic authentication is not the recommended method unless it is wrapped in an encryption layer such as SSL (i.e. by using HTTPS connections only).
+
 
 ### Crash analysis
 
@@ -161,9 +145,9 @@ When software crashes, a crash dump captures a portion of memory at the time of 
 * **Code injection discovered**: Code injection is the insertion of executable modules into running processes or threads. This technique is used by malware to access data, hide or prevent its removal (e.g. persistence). This alert indicates that an injected module is present in the crash dump. Legitimate software developers occasionally perform code injection for non-malicious reasons, such as modifying or extending an existing application or operating system component. To help differentiate between malicious and non-malicious injected modules, Security Center checks whether or not the injected module conforms to a profile of suspicious behavior. The result of this check is indicated by the “SIGNATURE” field of the alert and is reflected in the severity of the alert, alert description, and alert remediation steps.
 * **Suspicious code segment**: The suspicious code segment alert indicates that a code segment has been allocated using non-standard methods, such as used by reflective injection and process hollowing. Additional characteristics of the code segment are processed to provide context as to the capabilities and behaviors of the reported code segment.
 * **Shellcode discovered**: Shellcode is the payload that is run after malware exploits a software vulnerability. This alert indicates that crash dump analysis has detected executable code that exhibits behavior that is commonly performed by malicious payloads. Although non-malicious software may perform this behavior, it is not typical of normal software development practices.
-* **Module hijacking discovered**: Windows uses dynamic-link libraries (DLLs) to allow software to utilize common Windows system functionality. DLL Hijacking occurs when malware changes the DLL load order to load malicious payloads into memory, where arbitrary code can be executed. This alert indicates that the crash dump analysis detected a similarly named module that is loaded from two different paths. One of the loaded paths comes from a common Windows system binary location. Legitimate software developers occasionally change the DLL load order for non-malicious reasons, such as instrumenting, extending the Windows OS, or extending a Windows application. To help differentiate between malicious and potentially benign changes to the DLL load order, Security Center checks whether a loaded module conforms to a suspicious profile. 
+* **Module hijacking discovered**: Windows uses dynamic-link libraries (DLLs) to allow software to utilize common Windows system functionality. DLL Hijacking occurs when malware changes the DLL load order to load malicious payloads into memory, where arbitrary code can be executed. This alert indicates that the crash dump analysis detected a similarly named module that is loaded from two different paths. One of the loaded paths comes from a common Windows system binary location. Legitimate software developers occasionally change the DLL load order for non-malicious reasons, such as instrumenting, extending the Windows OS, or extending a Windows application. To help differentiate between malicious and potentially benign changes to the DLL load order, Security Center checks whether a loaded module conforms to a suspicious profile.
 * **Masquerading Windows module detected**: Malware may use common names of Windows system binaries (for example, SVCHOST.EXE) or modules (for example, NTDLL.DLL) to blend in and obscure the nature of the malicious software from system administrators. This alert indicates that the crash dump file contains modules that use Windows system module names, but do not satisfy other criteria that are typical of Windows modules. Analyzing the on disk copy of the masquerading module may provide more information about the legitimate or malicious nature of this module.
-* **Modified system binary discovered**: Malware may modify core system binaries in order to covertly access data or surreptitiously persist on a compromised system. This alert indicates that the crash dump analysis has detected that core Windows OS binaries have been modified in memory or on disk. Legitimate software developers occasionally modify system modules in memory for non-malicious reasons, such as Detours or for application compatibility. To help differentiate between malicious and potentially legitimate modules, Security Center checks whether the modified module conforms to a suspicious profile. 
+* **Modified system binary discovered**: Malware may modify core system binaries in order to covertly access data or surreptitiously persist on a compromised system. This alert indicates that the crash dump analysis has detected that core Windows OS binaries have been modified in memory or on disk. Legitimate software developers occasionally modify system modules in memory for non-malicious reasons, such as Detours or for application compatibility. To help differentiate between malicious and potentially legitimate modules, Security Center checks whether the modified module conforms to a suspicious profile.
 
 ## Network analysis
 Security Center network threat detection works by automatically collecting security information from your Azure IPFIX (Internet Protocol Flow Information Export) traffic. It analyzes this information, often correlating information from multiple sources, to identify threats.
@@ -180,17 +164,20 @@ Security Center network threat detection works by automatically collecting secur
 * **Network communication with a malicious machine detected**: Network traffic analysis indicates that your machine has communicated with what is possibly a Command and Control center.
 * **Possible compromised machine detected**: Network traffic analysis detected outgoing activity, which may indicate it is acting as part of a botnet. The analysis is based on IPs accessed by your resource together with public DNS records.
 
- 
-## Resource analysis
 
-Security Center resource analysis focuses on platform as a service (PaaS) services, such as the integration with the [Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) feature. Based on the analysis’s results from these areas, Security Center triggers a resource-related alert.
+## SQL Database and SQL Data Warehouse analysis
 
-* **Potential SQL injection**: SQL injection is an attack where malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Because SQL Server executes all syntactically valid queries that it receives, any procedure that constructs SQL statements should be reviewed for injection vulnerabilities. SQL Threat Detection uses machine learning, behavioral analysis, and anomaly detection to determine suspicious events that might be taking place in your Azure SQL databases. For example: 
-	* Attempted database access by a former employee
-	* SQL injection attacks
-	* Unusual access to a production database from a user at home
-* **Vulnerability to SQL Injection**: This alert is triggered when an application error is detected on a database. This alert may indicate a possible vulnerability to SQL injection attacks.
-* **Unusual access from unfamiliar location**: This alert is triggered when an access event from an unfamiliar IP address was detected on the server, which was not seen in the last period.
+Security Center resource analysis focuses on platform as a service (PaaS) services, such as the integration with [Threat Detection for Azure SQL Database](../sql-database/sql-database-threat-detection.md) and Azure SQL Data Warehouse. SQL Threat Detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases and triggers the following alerts:
+
+* **Vulnerability to SQL Injection**: This alert is triggered when an application generates a faulty SQL statement in the database. This may indicate a possible vulnerability to SQL injection attacks. There are two possible reasons for the generation of a faulty statement:
+	* A defect in application code that constructs the faulty SQL statement
+	* Application code or stored procedures don't sanitize user input when constructing the faulty SQL statement, which may be exploited for SQL Injection
+* **Potential SQL injection**: This alert is triggered when an active exploit happens against an identified application vulnerability to SQL injection. This means the attacker is trying to inject malicious SQL statements using the vulnerable application code or stored procedures.
+* **Access from unusual location**: This alert is triggered when there is a change in the access pattern to SQL server, where someone has logged on to the SQL server from an unusual geographical location. In some cases, the alert detects a legitimate action (a new application or developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).
+* **Access from unusual Azure data center**: This alert is triggered when there is a change in the access pattern to SQL server, where someone has logged on to the SQL server from an unusual Azure data center that was seen on this server during the recent period. In some cases, the alert detects a legitimate action (your new application in Azure, Power BI, Azure SQL Query Editor). In other cases, the alert detects a malicious action from an Azure resource/service (former employee, external attacker).
+* **Access from unfamiliar principal**: This alert is triggered when there is a change in the access pattern to SQL server, where someone has logged on to the SQL server using an unusual principal (SQL user). In some cases, the alert detects a legitimate action (new application, developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).
+* **Access from a potentially harmful application**: This alert is triggered when a potentially harmful application is used to access the database. In some cases, the alert detects penetration testing in action. In other cases, the alert detects an attack using common attack tools.
+* **Brute force SQL credentials**: This alert is triggered when there is an abnormal high number of failed logins with different credentials. In some cases, the alert detects penetration testing in action. In other cases, the alert detects brute force attack.
 
 ## Contextual information
 During an investigation, analysts need extra context to reach a verdict about the nature of the threat and how to mitigate it.  For example, a network anomaly was detected, but without understanding what else is happening on the network or with regard to the targeted resource it is every hard to understand what actions to take next. To aid with that, a Security Incident may include artifacts, related events and information that may help the investigator. The availability of additional information will vary based on the type of threat detected and the configuration of your environment, and will not be available for all Security Incidents.
@@ -199,9 +186,11 @@ If additional information is available, it will be shown in the Security Inciden
 
 - Log clear events
 - PNP device plugged from unknown device
-- Alerts which are not actionable 
+- Alerts which are not actionable
+- New account creation
+- File decoded using certutil tool 
 
-![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
+![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 
 
 ## Next steps

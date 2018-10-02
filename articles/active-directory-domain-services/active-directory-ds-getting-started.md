@@ -8,22 +8,35 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/26/2017
+ms.topic: conceptual
+ms.date: 05/23/2018
 ms.author: maheshu
 
 ---
 # Enable Azure Active Directory Domain Services using the Azure portal
 This article shows how to enable Azure Active Directory Domain Services (Azure AD DS) using the Azure portal.
 
+
+## Before you begin
+To complete the tasks listed in this article, you need:
+
+* A valid **Azure subscription**.
+* An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
+* The **Azure subscription must be associated with the Azure AD directory**.
+* You need **global administrator** privileges in your Azure AD directory to enable Azure AD Domain Services.
+
+
+## Enable Azure AD Domain Services
+
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. In the left pane, click on **New**.
+2. In the left pane, click **Create a resource**.
 3. In the **New** page, type **Domain Services** into the search bar.
 
     ![Search for domain services](./media/getting-started/search-domain-services.png)
@@ -36,7 +49,7 @@ To launch the **Enable Azure AD Domain Services** wizard, complete the following
 
 
 ## Task 1: configure basic settings
-In the **Basics** page of the wizard, you can specify the DNS domain name for the managed domain. You can also choose the resource group and Azure location to which the managed domain should be deployed.
+In the **Basics** page of the wizard, specify the DNS domain name for the managed domain. You can also choose the resource group and Azure location to which the managed domain should be deployed.
 
 ![Configure basics](./media/getting-started/domain-services-blade-basics.png)
 
@@ -56,11 +69,11 @@ In the **Basics** page of the wizard, you can specify the DNS domain name for th
 
 2. Select the Azure **Subscription** in which you would like to create the managed domain.
 
-3. Select the **Resource group** to which the managed domain should belong. You can choose either the **Create new** or **Use existing** options to select the resource group.
+3. Select the **Resource group** to which the managed domain should belong. Choose either the **Create new** or **Use existing** options to select the resource group.
 
 4. Choose the Azure **Location** in which the managed domain should be created. On the **Network** page of the wizard, you see only virtual networks that belong to the location you have selected.
 
-5. When you are done, click **OK** to move on to the **Network** page of the wizard.
+5. Click **OK** to move on to the **Network** page of the wizard.
 
 
 ## Next step

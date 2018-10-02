@@ -4,16 +4,12 @@ description: Understand how to use Azure Notification Hub binding in Azure Funct
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
 ---
@@ -25,6 +21,16 @@ This article explains how to send push notifications by using [Azure Notificatio
 Azure Notification Hubs must be configured for the Platform Notifications Service (PNS) you want to use. To learn how to get push notifications in your client app from Notification Hubs, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) and select your target client platform from the drop-down list near the top of the page.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## Packages - Functions 1.x
+
+The Notification Hubs bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub repository.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+## Packages - Functions 2.x
+
+This binding is not available in Functions 2.x.
 
 ## Example - template
 
@@ -263,7 +269,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## Attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) attribute.
 
 The attribute's constructor parameters and properties are described in the [configuration](#configuration) section.
 
@@ -317,6 +323,12 @@ To configure the connection string to an existing notification hub:
 The name of this application setting is what goes in the output binding connection setting in *function.json* or the .NET attribute. See the [Configuration section](#configuration) earlier in this article.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## Exceptions and return codes
+
+| Binding | Reference |
+|---|---|
+| Notification Hub | [Operations Guide](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
 ## Next steps
 

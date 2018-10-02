@@ -3,11 +3,11 @@ title: Service principal for Azure Kubernetes cluster
 description: Create and manage an Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -16,12 +16,12 @@ ms.custom: mvc
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../../active-directory/develop/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage
+In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../../active-directory/develop/app-objects-and-service-principals.md) to interact with Azure APIs. The service principal is needed to dynamically manage
 resources such as [user-defined routes](../../virtual-network/virtual-networks-udr-overview.md)
 and the [Layer 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 
-This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
+This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#az_acs_create) command to create the Kubernetes cluster and the service principal at the same time.
 
 
 ## Requirements for the service principal
@@ -42,7 +42,7 @@ You can use an existing Azure AD service principal that meets the following requ
 
 If you want to create an Azure AD service principal before you deploy your Kubernetes cluster, Azure provides several methods.
 
-The following example commands show you how to do this with the [Azure CLI 2.0](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), the [portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
+The following example commands show you how to do this with the [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), the [portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
 
 ```azurecli
 az login
@@ -65,13 +65,13 @@ Highlighted are the **client ID** (`appId`) and the **client secret** (`password
 
 Provide the **client ID** (also called the `appId`, for Application ID) and **client secret** (`password`) of an existing service principal as parameters when you create the Kubernetes cluster. Make sure the service principal meets the requirements at the beginning this article.
 
-You can specify these parameters when deploying the Kubernetes cluster using the [Azure Command-Line Interface (CLI) 2.0](container-service-kubernetes-walkthrough.md), [Azure portal](../dcos-swarm/container-service-deployment.md), or other methods.
+You can specify these parameters when deploying the Kubernetes cluster using the [Azure Command-Line Interface (CLI)](container-service-kubernetes-walkthrough.md), [Azure portal](../dcos-swarm/container-service-deployment.md), or other methods.
 
 >[!TIP]
 >When specifying the **client ID**, be sure to use the `appId`, not the `ObjectId`, of the service principal.
 >
 
-The following example shows one way to pass the parameters with the Azure CLI 2.0. This example uses the [Kubernetes quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+The following example shows one way to pass the parameters with the Azure CLI. This example uses the [Kubernetes quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 1. [Download](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) the template parameters file `azuredeploy.parameters.json` from GitHub.
 
@@ -94,7 +94,7 @@ The following example shows one way to pass the parameters with the Azure CLI 2.
 
 ## Option 2: Generate a service principal when creating the cluster with `az acs create`
 
-If you run the [`az acs create`](/cli/azure/acs#create) command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
+If you run the [`az acs create`](/cli/azure/acs#az-acs-create) command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
 
 As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az acs create`. However, when you omit these parameters, the Azure CLI creates one automatically for use with Container Service. This takes place transparently during the deployment.
 
@@ -130,7 +130,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Unless you specify a custom validity window with the `--years` parameter when you create a service principal, its credentials are valid for 1 year from time of creation. When the credential expires, your cluster nodes might enter a **NotReady** state.
 
-To check the expiration date of a service principal, execute the [az ad app show](/cli/azure/ad/app#az_ad_app_show) command with the `--debug` parameter, and look for the `endDate` value of `passwordCredentials` near the bottom of the output:
+To check the expiration date of a service principal, execute the [az ad app show](/cli/azure/ad/app#az-ad-app-show) command with the `--debug` parameter, and look for the `endDate` value of `passwordCredentials` near the bottom of the output:
 
 ```azurecli
 az ad app show --id <appId> --debug
@@ -144,7 +144,7 @@ Output (shown here truncated):
 ...
 ```
 
-If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) command to update the credentials:
+If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) command to update the credentials:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

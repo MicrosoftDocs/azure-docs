@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot enterprise cost views - Azure | Microsoft Docs
+title: Troubleshoot Azure enterprise cost views | Microsoft Docs
 description: Learn how to resolve any issues you might have with organizational cost views within the Azure portal.  
 author: rthorn17
 manager: rithorn
@@ -8,23 +8,21 @@ editor: ''
 ms.assetid: 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
-ms.author: rithorn
+ms.date: 2/22/2017
+ms.author: cwatson
 ---
 
 # Troubleshoot enterprise cost views 
 
-Within enterprise enrollments, there are multiple settings that could cause users within the enrollment to not be able to view costs.  These settings are managed by the enrollment administrator, or by the partner if the enrollment is not purchased directly with Microsoft.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the [Azure RBAC Roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
+Within enterprise enrollments, there are multiple settings that could cause users within the enrollment to not be able to view costs.  These settings are managed by the enrollment administrator, or by the partner if the enrollment is not purchased directly with Microsoft.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the [Azure RBAC Roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
-> [!Note]
-> This feature is currently in a private preview. [Sign up here](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) to have your enrollment join the preview.     
 
 ## Enabling access to costs
 
-Are you are seeing a message Unauthorized, or *"Cost views are disabled in your enrollment."* when looking for cost information?
+Are you seeing a message Unauthorized, or *"Cost views are disabled in your enrollment."* when looking for cost information?
 ![unauthorized](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 It might be due to one of the following reasons:
@@ -44,5 +42,4 @@ If you are receiving an error message "This asset is unavailable" when trying to
 ![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Contact the administer of the subscription or management groups to be given access.  
-* For subscriptions, reference [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) document for help on which role is needed.
-* For management groups, RBAC access is not available and is coming soon. Contact your enterprise portal administer to have access assigned.   
+* For subscriptions, reference [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) document for help on which role is needed.

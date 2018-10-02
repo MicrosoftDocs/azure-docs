@@ -1,28 +1,20 @@
 ---
-title: Elastic Query Tutorial with Azure SQL Data Warehouse | Microsoft Docs
-description: Learn how to use Elastic Query with Azure SQL Data Warehouse
+title: 'Tutorial: Elastic Query with Azure SQL Data Warehouse | Microsoft Docs'
+description: This tutorial uses the Elastic Query feature to query Azure SQL Data Warehouse from Azure SQL Database. 
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: ''
-
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 11/03/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
 ms.author: elbutter
+ms.reviewer: igorstan
 ---
 
+# Tutorial: Use Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database
 
-
-# Configure Elastic Query with SQL Data Warehouse
-
-In this tutorial, you will learn how to use Elastic Query to submit a query from SQL Database to SQL Data Warehouse. Elastic Query is functionality that exists between Azure SQL products. For more information about Elastic Query as a concept, see [**How to use Elastic Query with SQL Data Warehouse**][How to use Elastic Query with SQL Data Warehouse].
+This tutorial uses the Elastic Query feature to query Azure SQL Data Warehouse from Azure SQL Database. 
 
 ## Prerequisites for the tutorial
 
@@ -127,7 +119,7 @@ In the next few steps we will create a table in our data warehouse instance with
 
 5. Observe that you now have an external table definition in your **SQL database instance**.
 
-   ![elastic query external table definition](./media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
+   ![elastic query external table definition](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
 6. Submit the following query, which queries the data warehouse instance. You should receive the five values that you inserted in Step 2. 
@@ -142,15 +134,5 @@ SELECT * FROM [dbo].[OrderInformation];
 
 Congratulations, you have set up the very basics of Elastic Query. 
 
-
-
-
-<!--Image references-->
-
-<!--Article references-->
-
-[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
+## Next steps
+For recommendations, see [Best practices for using Elastic Query with Azure SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md).

@@ -2,20 +2,16 @@
 title: Reporting across scaled-out cloud databases | Microsoft Docs
 description: how to set up elastic queries over horizontal partitions
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: MladjoA
-
-ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/27/2016
+subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MladjoA
 ms.author: mlandzic
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Reporting across scaled-out cloud databases (preview)
 ![Query across shards][1]
@@ -49,7 +45,7 @@ The credential is used by the elastic query to connect to your remote databases.
     [;]
 
 > [!NOTE]
-> Make sure that the *"\<username\>"* does not include any *"@servername"* suffix. 
+> Make sure that the *"\<username\>"* does not include any *"\@servername"* suffix. 
 > 
 > 
 

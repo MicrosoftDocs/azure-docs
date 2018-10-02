@@ -1,22 +1,14 @@
 ---
-title: Handling event order and lateness with Azure Stream Analytics | Microsoft Docs
-description: Learn about how Stream Analytics works with out-of-order or late events in data streams.
-keywords: out of order, late, events
-documentationcenter: ''
+title: Handling event order and lateness in Azure Stream Analytics
+description: This article describes how Stream Analytics handles out-of-order or late events in data streams.
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
 ---
 # Azure Stream Analytics event order considerations
 
@@ -24,7 +16,7 @@ ms.author: jeanb
 
 In a temporal data stream of events, each event is assigned a time stamp. Azure Stream Analytics assigns a time stamp to each event by using either arrival time or application time. The **System.Timestamp** column has the time stamp assigned to the event. 
 
-Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedTime** property for event hub input and using the [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) property for blob input. 
+Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedUtcTime** property for Event Hubs inputs, **IoTHub.EnqueuedTime** property for IoT Hub, and using the [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) property for blob input. 
 
 Application time is assigned when the event is generated and it is part of the payload. To process events by application time, use the **Timestamp by** clause in the select query. If the **Timestamp by** clause is absent, events are processed by arrival time. 
 
@@ -68,6 +60,9 @@ Events that arrive out of order but within the set out-of-order tolerance window
 
 When Stream Analytics reorders events that are received within the out-of-order tolerance window, the output of the query is delayed by the out-of-order tolerance window.
 
+### Early events
+When processing by application time, events whose application time is more than 5 minutes ahead of their arrival time are either dropped or adjusted according to the configuration option selected.
+
 ### Example
 
 * Late Arrival tolerance = 10 minutes<br/>
@@ -110,7 +105,7 @@ The query does not have a **Partition by PartitionId** clause, and there are at 
 
 Configuration is the same as example 2. However, absence of data in one of the partitions can delay the output by an additional late arrival tolerance window.
 
-## Handling event producers with differing timelines
+## Handling event producers with differing timelines with "substreams"
 A single input event stream often contains events that originate from multiple event producers, such as individual devices. These events might arrive out of order due to the reasons discussed earlier. In these scenarios, although the disorder across event producers might be large, the disorder within the events from a single producer is small (or even nonexistent).
 
 Azure Stream Analytics provides general mechanisms for dealing with out-of-order events. Such mechanisms result in processing delays (while waiting for the straggling events to reach the system), dropped or adjusted events, or both.
@@ -127,7 +122,7 @@ Azure Stream Analytics implements this functionality by using the [TIMESTAMP BY 
 * When you're combining multiple timelines, lack of data in one of the sources or partitions can delay the output by an additional late arrival tolerance window.
 
 ## Get help
-For additional assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For additional assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

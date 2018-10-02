@@ -3,7 +3,7 @@ title: Managing the Azure Log Analytics Agent | Microsoft Docs
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Microsoft Monitoring Agent (MMA) deployed on a machine.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,14 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2017
+ms.topic: conceptual
+ms.date: 03/30/2018
 ms.author: magoedte
+ms.component: na
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
 
-After initial deployment of the Windows or Linux agent for Log Analytics, you may need to reconfigure the agent depending on the situation, or remove it from the computer if has reached the retirement stage in its lifecycle.  You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+After initial deployment of the Windows or Linux agent for Log Analytics, you may need to reconfigure the agent, or remove it from the computer if has reached the retirement stage in its lifecycle.  You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
 ## Adding or removing a workspace 
 
@@ -66,6 +67,34 @@ $mma.ReloadConfiguration()
 >If you've used the command line or script previously to install or configure the agent, `EnableAzureOperationalInsights` was replaced by `AddCloudWorkspace` and `RemoveCloudWorkspace`.
 >
 
+### Linux agent
+The following steps demonstrate how to reconfigure the Linux agent if you decide to register it with a different workspace or want to remove a workspace from its configuration.  
+
+1.  To verify it is registered to a workspace, run the following command.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    It should return a status similar to the following example - 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+    It is important that the status also shows the agent is running, otherwise the following steps to reconfigure the agent will not complete successfully.  
+
+2. If it is already registered with a workspace, remove the registered workspace by running the following command.  Otherwise if it is not registered, proceed to the next step.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
+    
+3. To register with a different workspace, run the command `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
+4. To verify your changes took affect, run the command.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    It should return a status similar to the following example - 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+The agent service does not need to be restarted in order for the changes to take effect.
+
 ## Update proxy settings 
 To configure the agent to communicate to the service through a proxy server or [OMS Gateway](log-analytics-oms-gateway.md) after deployment, use one of the following methods to complete this task.
 
@@ -107,7 +136,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### Linux agent
-Perform the following steps if your Linux computers need to communicate through a proxy server or OMS Gateway to Log Analytics.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.
+Perform the following steps if your Linux computers need to communicate through a proxy server or OMS Gateway to Log Analytics.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.  The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server.
 
 1. Edit the file `/etc/opt/microsoft/omsagent/proxy.conf` by running the following commands and change the values to your specific settings.
 
@@ -144,12 +173,9 @@ The downloaded file for the agent is a self-contained installation package creat
 3. At the prompt, type `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### Linux agent
-To remove the agent, perform the following steps.
+To remove the agent, run the following command on the Linux computer.  The *--purge* argument completely removes the agent and its configuration.
 
-1. Download the the Linux agent [universal script](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) to the computer.
-2. Run the bundle .sh file w the *--purge* argument on the computer, which completely removes the agent and its configuration.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## Configure agent to report to an Operations Manager management group
 

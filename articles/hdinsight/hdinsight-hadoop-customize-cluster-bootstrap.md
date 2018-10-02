@@ -1,22 +1,15 @@
 ---
-title: Customize HDInsight Clusters using bootstrap - Azure | Microsoft Docs
+title: Customize HDInsight Clusters using bootstrap - Azure 
 description: Learn how to customize HDInsight clusters using bootstrap.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/03/2018
-ms.author: jgao
+ms.topic: conceptual
+ms.date: 05/14/2018
+ms.author: jasonh
 
 ---
 # Customize HDInsight clusters using Bootstrap
@@ -83,7 +76,7 @@ A complete working PowerShell script can be found in [Appendix](#appendix-powers
 **To verify the change:**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. From the left menu, click **HDInsight clusters**. If you don't see it, click **More services** first.
+2. From the left menu, click **HDInsight clusters**. If you don't see it, click **All services** first.
 3. Click the cluster you just created using the PowerShell script.
 4. Click **Dashboard** from the top of the blade to open the Ambari UI.
 5. Click **Hive** from the left menu.
@@ -119,7 +112,7 @@ You can use bootstrap in Resource Manager template:
 
 ```json
 "configurations": {
-    â€¦
+    …
     "hive-site": {
         "hive.metastore.client.connect.retry.delay": "5",
         "hive.execution.engine": "mr",
@@ -134,12 +127,10 @@ You can use bootstrap in Resource Manager template:
 * [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
 * [Develop Script Action scripts for HDInsight][hdinsight-write-script]
 * [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
-* [Install and use R on HDInsight clusters][hdinsight-install-r]
 * [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
 * [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
@@ -189,7 +180,7 @@ $ErrorActionPreference = "Stop"
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 #region - Create an HDInsight cluster

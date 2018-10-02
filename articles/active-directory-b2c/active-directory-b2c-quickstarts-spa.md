@@ -1,45 +1,39 @@
 ---
-title: Test drive an Azure AD B2C single-page application | Microsoft Docs
-description: Test drive sign in, sign up, edit profile, and reset password user journeys using a test Azure AD B2C environment
+title: Quickstart - Set up sign-in for a single-page app using Azure Active Directory B2C | Microsoft Docs
+description: Run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
-documentationcenter: ''
-author: saraford
+author: davidmu1
 manager: mtillman
-editor: PatAltimore
 
-ms.assetid: 5a8a46af-28bb-4b70-a7f0-01a5240d0255
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: saraford
-
+ms.topic: quickstart
+ms.date: 7/13/2018
+ms.author: davidmu
+ms.component: B2C
 ---
-# Test drive a single-page application configured with Azure AD B2C
 
-## About this sample
+# Quickstart: Set up sign-in for a single-page app using Azure Active Directory B2C
 
-Azure Active Directory B2C provides cloud identity management to keep your application, business, and customers protected.  This quickstart uses a sample single page application to demonstrate:
+Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols.
 
-* Using the **Sign Up or Sign In** policy to create or sign in with a social identity provider or a local account using an email address. 
-* **Calling an API** to retrieve your display name from an Azure AD B2C secured resource.
-
-## Prerequisites
-
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-    - **ASP.NET and web development**
-
-* Install [Node.js](https://nodejs.org/en/download/)
-
-* A social account from either Facebook, Google, Microsoft, or Twitter. If you don't have a social account, a valid email address is required.
+In this quickstart, you use an Azure AD B2C enabled sample single-page app to sign in using a social identity provider and call an Azure AD B2C protected web API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## Prerequisites
+
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
+* Install [Node.js](https://nodejs.org/en/download/)
+* A Facebook account.
+
 ## Download the sample
 
-[Download or clone the sample application](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) from GitHub.
+[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the sample web app from GitHub.
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+```
 
 ## Run the sample application
 
@@ -51,66 +45,55 @@ npm install && npm update
 node server.js
 ```
 
-The console window shows the port number for the web application running on your computer.
+The Node.js app outputs the port number it's listening on at localhost.
 
 ```
 Listening on port 6420...
 ```
 
-Open `http://localhost:6420` in a web browser to access the web application.
-
+Browse to the app's URL `http://localhost:6420` in a web browser.
 
 ![Sample app in browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
 ## Create an account
 
-Click the **Login** button to start the Azure AD B2C **Sign Up or Sign In** workflow. When creating an account, you can use an existing social identity provider account or an email account.
+Click the **Login** button to start the Azure AD B2C **Sign Up or Sign In** workflow based on an Azure AD B2C policy. 
+
+The sample is intended to support several sign-up options including creating a local account using an email address. For this quickstart, use a Facebook account. 
 
 ### Sign up using a social identity provider
 
-To sign up using a social identity provider, click the button of the identity provider you want to use. If you prefer to use an email address, jump to the [Sign up using an email address](#sign-up-using-an-email-address) section.
+Azure AD B2C presents a custom login page for a fictitious brand called Wingtip Toys for the sample web app. 
 
-![Sign In or Sign Up provider](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+1. To sign up using a social identity provider, click the button of the Facebook identity provider.
 
-You need to authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
+    You authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
-![Authenticate and authorize using a social account](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
+2. Finish the sign-in process for the identity provider by entering your credentials.
 
-Your new account profile details are pre-populated with information from your social account. 
+    Your new account profile details are pre-populated with information from your social account. 
 
-![New account sign-up profile details](media/active-directory-b2c-quickstarts-spa/new-account-sign-up-profile-details-spa.png)
+3. Update the Display Name, Job Title, and City fields and click **Continue**.  The values you enter are used for your Azure AD B2C user account profile.
 
-Update the Display Name, Job Title, and City fields and click **Continue**.  The values you enter are used for your Azure AD B2C user account profile.
+    You have successfully created a new Azure AD B2C user account that uses an identity provider. 
 
-You have successfully created a new Azure AD B2C user account that uses an identity provider. 
+## Access a protected web API resource
 
-Next step: [Call a resource](#call-a-resource) section.
-
-### Sign up using an email address
-
-If you choose to not use a social account to provide authentication, you can create an Azure AD B2C user account using a valid email address. An Azure AD B2C local user account uses Azure Active Directory as the identity provider. To use your email address, click the **Don't have an account? Sign up now** link.
-
-![Sign In or Sign Up using email](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-email-spa.png)
-
-Enter a valid email address and click **Send verification code**. A valid email address is required to receive the verification code from Azure AD B2C. 
-
-Enter the verification code you receive in email and click **Verify code**.
-
-Add your profile information and click **Create**.
-
-![Sign up with new account using email](media/active-directory-b2c-quickstarts-spa/sign-up-new-account-profile-email-web.png)
-
-You have successfully created a new Azure AD B2C local user account.
-
-## Call a resource
-
-Once signed in, you can click the **Call Web API** button to have your display name returned from the Web API call as a JSON object. 
+Click the **Call Web API** button to have your display name returned from the Web API call as a JSON object. 
 
 ![Web API response](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
+The sample single-page app includes an Azure AD access token in the request to the protected web API resource to perform the operation to return the JSON object.
+
+## Clean up resources
+
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+
 ## Next steps
+
+In this quickstart, you used an Azure AD B2C enabled sample ASP.NET app to sign in with a custom login page, sign in with a social identity provider, create an Azure AD B2C account, and call a web API protected by Azure AD B2C. 
 
 The next step is to create your own Azure AD B2C tenant and configure the sample to run using your tenant. 
 
 > [!div class="nextstepaction"]
-> [Create an Azure Active Directory B2C tenant in the Azure portal](active-directory-b2c-get-started.md)
+> [Create an Azure Active Directory B2C tenant in the Azure portal](tutorial-create-tenant.md)

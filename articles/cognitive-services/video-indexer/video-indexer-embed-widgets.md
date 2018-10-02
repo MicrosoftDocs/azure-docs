@@ -1,47 +1,72 @@
 ---
-title: Embed Azure Video Indexer widgets into your applications | Microsoft Docs
-description: 
+title: "Example: Embed Video Indexer widgets into your applications"
+titlesuffix: Azure Cognitive Services
+description: Learn how to embed Video Indexer widgets into your application.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 04/17/2017
-ms.author: juliako;
-
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
+ms.author: juliako
 ---
-# Embed Video Indexer widgets into your applications
 
-Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. A **Cognitive Insights** widget includes all visual insights that were extracted from your video indexing process. A **Player** widget enables you to stream the video using adaptive bit rate.
+# Example: Embed Video Indexer widgets into your applications
+
+This article shows how you can embed Video Indexer widgets into your applications. Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. 
+## Widget types
+
+### Cognitive Insights widget
+
+A **Cognitive Insights** widget includes all visual insights that were extracted from your video indexing process. The insights widget supports the following optional URL params:
+
+|Name|Definition|Description|
+|---|---|---|
+|widgets|Strings separated by comma|Allows you to control the insights you want to render. <br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` will render only people and brands UI insights<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>not supported via URL at version=2<br/><br/>**Note:** The **widgets** URL param is not supported if **version=2** is used. |
+|version|Versions of the **Cognitive Insights** widget|To get the latest insights widget updates, add `?version=2` query param to the embed url. For example, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> To get the older version, just remove the `version=2` from the URL.
+
+### Player widget
+
+A **Player** widget enables you to stream the video using adaptive bit rate. The player widget supports the following optional URL params:
+
+|Name|Definition|Description|
+|---|---|---|
+|t|Seconds from start|Makes the player start playing from the given time point.<br/>Example: t=60|
+|captions|Language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/>Example: captions=en-US|
+|showCaptions|A boolean value|Makes the player load with the captions already enabled.<br/>Example: showCaptions=true|
+|type||Activates an audio player skin (video part is removed).<br/>Example: type=audio|
+|autoplay|A boolean value|Indicates if the player should start playing the video when loaded (default is true).<br/>Example: autoplay=false|
+|language|Language code|Controls the player language (default is en-US)<br/>Example: language=de-DE|
 
 ## Embedding public content
 
-1. Sign in to your [Video Indexer](https://vi.microsoft.com) account. 
-2. Click the "embed" button that appears below the video.
+1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+2. Click on the video you want to work with.
+3. Click the "embed" button that appears below the video.
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
 	After clicking the button, an embed modal will appear on the screen where you can choose what widget you want to embed in your application.
 	Selecting a widget (**Player** or **Cognitive Insights**), generates the embedded code for you to paste in your application.
  
-3. Choose the type of widget you want (**Cognitive Insights** or **Player**).
-4. Copy the embed code, and add to your application. 
+4. Choose the type of widget you want (**Cognitive Insights** or **Player**).
+5. Copy the embed code, and add to your application. 
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
-## Embedding private (or Org) content
+## Embedding private content
 
 You can get embed codes from embed popups (as shown in the previous section) for **Public** videos only. 
 
 If you want to embed a **Private** video, you have to pass an access token in the **iframe**'s **src** attribute:
 
-     https://www.videobreakdown.com/embed/[insights | player]/<VideoId>/?accessToken=<accessToken>
+     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
     
-Use the **GetInsightsWidgetUrl** API to get a URL for a Cognitive Insights widget. The URL includes the access token. Specify this URL as the **iframe**'s **src** value.
+Use the [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API to get the Cognitive Insights widget content, or use [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) and add that as a query param to the URL, as shown above. Specify this URL as the **iframe**'s **src** value.
 
-If you want to provide editing insights capabilities (like we have in our web application) in your embedded widget, you will have to call **Get Insights Widget Url**  or **Get Insight Widget By External Id** and add **&allowEdit=true**. 
+If you want to provide editing insights capabilities (like we have in our web application) in your embedded widget, you will have to pass an access token with editing permissions. Use [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?)  or [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) with **&allowEdit=true**. 
 
 ## Widgets interaction
 
@@ -51,14 +76,12 @@ The **Cognitive Insights** widget can interact with a video on your application.
 
 ### Cross-origin communications
 
-
 To get Video Indexer widgets to communicate with other components, the Video Indexer service does the following:
 
 - Uses the cross-origin communication HTML5 method **postMessage** and 
-- Validates the message across videobreakdown.com origin. 
+- Validates the message across VideoIndexer.ai origin. 
 
-If you choose to implement your own player code and do the integration with **Cognitive Insights** widgets, it is your responsibility to validate the origin of the message that comes from videobreakdown.com.
-
+If you choose to implement your own player code and do the integration with **Cognitive Insights** widgets, it is your responsibility to validate the origin of the message that comes from VideoIndexer.ai.
 
 ### Embed both types of widgets in your application / blog (recommended) 
 
@@ -68,13 +91,13 @@ This section shows how to achieve interaction between two Video Indexer widgets 
 
 1. Copy the **Player** widget embed code.
 2. Copy the **Cognitive Insights** embed code.
-3. Add the https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js file to handle the communication between the two widgets.
+3. Add the [**Mediator file**](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js) to handle the communication between the two widgets:
 
 	<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
 
 Now when a user clicks the insight control on your application, the player jumps to the relevant moment.
 
-For more information, see [this demo](https://videobreakdown.portal.azure-api.net/demo-all-breakdown-widgets).
+For more information, see [this demo](https://codepen.io/videoindexer/pen/NzJeOb).
 
 ### Embed the Cognitive Insights widget and use Azure Media Player to play the content
 
@@ -132,7 +155,7 @@ This section shows how to achieve interaction between a **Cognitive Insights** w
 
 You should be able now to communicate with your Azure Media Player.
 
-For more information, see [this demo](https://videobreakdown.portal.azure-api.net/demo-your-amp).
+For more information, see [this demo](https://codepen.io/videoindexer/pen/rYONrO).
 
 ### Embed Video Indexer Cognitive Insights widget and use your own player (could be any player)
 
@@ -180,7 +203,7 @@ If you use your own player, you have to take care of manipulating your player yo
 		</script>
 
 
-For more information, see [this demo](https://videobreakdown.portal.azure-api.net/demo-your-player).
+For more information, see [this demo](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## Adding subtitles
 
@@ -189,40 +212,38 @@ If you embed Video Indexer insights with your own AMP player, you can use the **
 ## Customizing embeddable widgets
 
 ### Cognitive insights widget
-You can choose the types of insights you want by specifying them as a value to the following URL parameter added to the the embed code you get (from API or from the web application):
+You can choose the types of insights you want by specifying them as a value to the following URL parameter added to the embed code you get (from API or from the web application):
 
-**&widgets=**<list of wanted widgets>
+**&widgets=** \<list of wanted widgets>
 
 The possible values are: people, keywords, sentiments, transcript, search.
 
 For example, if you want to embed a widget containing only people and search insights the iframe embed URL will look like this:
-https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?widgets=people,search
+https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search
 
-The title of the iframe window can also be customized by providing **&title=**<YourTitle> to the iframe url. (It will customize the html <title> value ).
-For example, if you want to give your iframe window the title "MyInsights", the url will look like this:
-https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?title=MyInsights. 
+The title of the iframe window can also be customized by providing **&title=**<YourTitle> to the iframe URL. (It will customize the html \<title> value ).
+For example, if you want to give your iframe window the title "MyInsights", the URL will look like this:
+https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights. 
 Notice that this option is relevant only in cases when you need to open the insights in a new window.
 
 ### Player widget
-If you embed Video Indexer player you can choose the size of the player by specifying the size of the iframe.
+If you embed Video Indexer player, you can choose the size of the player by specifying the size of the iframe.
 
-For example :
+For example:
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
+    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
 
 By default Video Indexer player will have auto generated closed captions based on the transcript of the video that was extracted from the video with the source language that was selected when the video was uploaded.
 
-If you want to embed with a different language you can add **&captions=< Language | ”all” | “false” >** to the embed player URL or put “all” as the value if you want to have all available languages captions.
-If you want the captions to be displayed by default you can pass **&showCaptions=true**
+If you want to embed with a different language, you can add **&captions=< Language | ”all” | “false” >** to the embed player URL or put “all” as the value if you want to have all available languages captions.
+If you want the captions to be displayed by default, you can pass **&showCaptions=true**
 
-The embed URL then will look like this : https://www.videoindexer.ai/embed/player/9a296c6ec3/?captions=italian. If you want to disable captions you can pass “false” as value for captions parameter.
+The embed URL then will look like this : https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian. If you want to disable captions, you can pass “false” as value for captions parameter.
 
 Auto play – by default the player will start playing the video. you can choose not to by passing &autoplay=false to the embed URL above.
 
 ## Next steps
 
-For information about how to view and edit Video Indexer insights, see [this](video-indexer-view-edit.md) topic.
+For information about how to view and edit Video Indexer insights, see [this](video-indexer-view-edit.md) article.
 
-## See also
-
-[Video Indexer overview](video-indexer-overview.md)
+Also, check out [Video indexer codepen](https://codepen.io/videoindexer/pen/eGxebZ).

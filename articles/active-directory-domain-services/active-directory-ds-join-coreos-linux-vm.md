@@ -8,17 +8,20 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/16/2017
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: maheshu
 
 ---
 # Join a CoreOS Linux virtual machine to a managed domain
 This article shows you how to join a CoreOS Linux virtual machine in Azure to an Azure AD Domain Services managed domain.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## Before you begin
 To perform the tasks listed in this article, you need:
@@ -138,7 +141,7 @@ Verify whether the machine has been successfully joined to the managed domain. C
 
 
 ## Troubleshooting domain join
-Refer to the [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) article.
+Refer to the [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) article.
 
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)

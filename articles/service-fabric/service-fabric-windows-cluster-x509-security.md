@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
@@ -45,6 +45,12 @@ To start with, [download the Service Fabric for Windows Server package](service-
             ],
             "X509StoreName": "My"
         },
+        "ClusterCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -59,6 +65,12 @@ To start with, [download the Service Fabric for Windows Server package](service-
             ],
             "X509StoreName": "My"
         },
+        "ServerCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ClientCertificateThumbprints": [
             {
                 "CertificateThumbprint": "[Thumbprint]",
@@ -72,10 +84,16 @@ To start with, [download the Service Fabric for Windows Server package](service-
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]",
                 "IsAdmin": true
             }
         ],
+        "ClientCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames": "Root"
+            }
+        ]
         "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -107,10 +125,13 @@ The following table lists the certificates that you need on your cluster setup:
 | --- | --- |
 | ClusterCertificate |Recommended for a test environment. This certificate is required to secure the communication between the nodes on a cluster. You can use two different certificates, a primary and a secondary, for upgrade. Set the thumbprint of the primary certificate in the Thumbprint section and that of the secondary in the ThumbprintSecondary variables. |
 | ClusterCertificateCommonNames |Recommended for a production environment. This certificate is required to secure the communication between the nodes on a cluster. You can use one or two cluster certificate common names. The CertificateIssuerThumbprint corresponds to the thumbprint of the issuer of this certificate. If more than one certificate with the same common name is used, you can specify multiple issuer thumbprints.|
+| ClusterCertificateIssuerStores |Recommended for a production environment. This certificate corresponds to the issuer of the cluster certificate. You can provide the issuer common name and corresponding store name under this section instead of specifying the issuer thumbprint under ClusterCertificateCommonNames.  This makes it easy to rollover cluster issuer certificates. Multiple issuers can be specified if more than one cluster certificate is used. An empty IssuerCommonName whitelists all certificates in the corresponding stores specified under X509StoreNames.|
 | ServerCertificate |Recommended for a test environment. This certificate is presented to the client when it tries to connect to this cluster. For convenience, you can choose to use the same certificate for ClusterCertificate and ServerCertificate. You can use two different server certificates, a primary and a secondary, for upgrade. Set the thumbprint of the primary certificate in the Thumbprint section and that of the secondary in the ThumbprintSecondary variables. |
 | ServerCertificateCommonNames |Recommended for a production environment. This certificate is presented to the client when it tries to connect to this cluster. The CertificateIssuerThumbprint corresponds to the thumbprint of the issuer of this certificate. If more than one certificate with the same common name is used, you can specify multiple issuer thumbprints. For convenience, you can choose to use the same certificate for ClusterCertificateCommonNames and ServerCertificateCommonNames. You can use one or two server certificate common names. |
+| ServerCertificateIssuerStores |Recommended for a production environment. This certificate corresponds to the issuer of the server certificate. You can provide the issuer common name and corresponding store name under this section instead of specifying the issuer thumbprint under ServerCertificateCommonNames.  This makes it easy to rollover server issuer certificates. Multiple issuers can be specified if more than one server certificate is used. An empty IssuerCommonName whitelists all certificates in the corresponding stores specified under X509StoreNames.|
 | ClientCertificateThumbprints |Install this set of certificates on the authenticated clients. You can have a number of different client certificates installed on the machines that you want to allow access to the cluster. Set the thumbprint of each certificate in the CertificateThumbprint variable. If you set IsAdmin to *true*, the client with this certificate installed on it can do administrator management activities on the cluster. If IsAdmin is *false*, the client with this certificate can perform the actions only allowed for user-access rights, typically read-only. For more information on roles, see [Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
 | ClientCertificateCommonNames |Set the common name of the first client certificate for the CertificateCommonName. The CertificateIssuerThumbprint is the thumbprint for the issuer of this certificate. To learn more about common names and the issuer, see [Work with certificates](https://msdn.microsoft.com/library/ms731899.aspx). |
+| ClientCertificateIssuerStores |Recommended for a production environment. This certificate corresponds to the issuer of the client certificate (both admin and non-admin roles). You can provide the issuer common name and corresponding store name under this section instead of specifying the issuer thumbprint under ClientCertificateCommonNames.  This makes it easy to rollover client issuer certificates. Multiple issuers can be specified if more than one client certificate is used. An empty IssuerCommonName whitelists all certificates in the corresponding stores specified under X509StoreNames.|
 | ReverseProxyCertificate |Recommended for a test environment. This optional certificate can be specified if you want to secure your [reverse proxy](service-fabric-reverseproxy.md). Make sure that reverseProxyEndpointPort is set in nodeTypes if you use this certificate. |
 | ReverseProxyCertificateCommonNames |Recommended for a production environment. This optional certificate can be specified if you want to secure your [reverse proxy](service-fabric-reverseproxy.md). Make sure that reverseProxyEndpointPort is set in nodeTypes if you use this certificate. |
 
@@ -120,7 +141,7 @@ Here is an example cluster configuration where the cluster, server, and client c
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "10-2017",
     "nodes": [{
         "nodeName": "vm0",
         "metadata": "Replace the localhost below with valid IP address or FQDN",
@@ -159,12 +180,21 @@ Here is an example cluster configuration where the cluster, server, and client c
                 "ClusterCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myClusterCertCommonName",
-                      "CertificateIssuerThumbprint": "7c fc 91 97 13 66 8d 9f a8 ee 71 2b a2 f4 37 62 00 03 49 0d"
+                      "CertificateCommonName": "myClusterCertCommonName"
                     }
                   ],
                   "X509StoreName": "My"
                 },
+                "ClusterCertificateIssuerStores": [
+                    {
+                        "IssuerCommonName": "ClusterIssuer1",
+                        "X509StoreNames" : "Root"
+                    },
+                    {
+                        "IssuerCommonName": "ClusterIssuer2",
+                        "X509StoreNames" : "Root"
+                    }
+                ],
                 "ServerCertificateCommonNames": {
                   "CommonNames": [
                     {
@@ -218,6 +248,7 @@ Here is an example cluster configuration where the cluster, server, and client c
 
 ## Certificate rollover
 When you use a certificate common name instead of a thumbprint, certificate rollover doesn't require a cluster configuration upgrade. For issuer thumbprint upgrades, make sure that the new thumbprint list intersects with the old list. You first have to do a config upgrade with the new issuer thumbprints, and then install the new certificates (both cluster/server certificate and issuer certificates) in the store. Keep the old issuer certificate in the certificate store for at least two hours after you install the new issuer certificate.
+If you are using issuer stores, then no config upgrade needs to be performed for issuer certificate rollover. Install the new issuer certificate with a latter expiration date in the corresponding certificate store and remove the old issuer certificate after a few hours.
 
 ## Acquire the X.509 certificates
 To secure communication within the cluster, you first need to obtain X.509 certificates for your cluster nodes. Additionally, to limit connection to this cluster to authorized machines/users, you need to obtain and install certificates for the client machines.
@@ -319,7 +350,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-You can then run other PowerShell commands to work with this cluster. For example, you can run [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps) to show a list of nodes on this secure cluster.
+You can then run other PowerShell commands to work with this cluster. For example, you can run [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) to show a list of nodes on this secure cluster.
 
 
 To remove the cluster, connect to the node on the cluster where you downloaded the Service Fabric package, open a command line, and go to the package folder. Now run the following command:

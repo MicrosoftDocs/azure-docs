@@ -7,34 +7,43 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 21F7D599-1FEC-4827-A5C3-06495C5F53A4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 09/10/2018
 ms.author: mabrigg
 ms.custom: mvc
 ---
 
-# Create a Linux virtual machine by using Azure CLI in Azure Stack
+# Quickstart: create a Linux server virtual machine by using Azure CLI in Azure Stack
 
-*Applies to: Azure Stack integrated systems*
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure CLI is used to create and manage Azure Stack resources from the command line. This Quickstart details using Azure CLI to create a Linux virtual machine in Azure Stack.  Once the VM is created, a web server is installed, and port 80 is opened to allow web traffic.
+You can create a Ubuntu Server 16.04 LTS virtual machine by using the Azure CLI. Follow the steps in this article to create and use a virtual machine. This article also gives you the steps to:
 
-## Prerequisites 
+* Connect to the virtual machine with a remote client.
+* Install the NGINX web server and view the default home page.
+* Clean up unused resources.
 
-* Make sure that your Azure Stack operator has added the “Ubuntu Server 16.04 LTS” image to the Azure Stack marketplace. 
+## Prerequisites
 
-* Azure Stack requires a specific version of Azure CLI to create and manage the resources. If you don't have Azure CLI configured for Azure Stack, sign in to the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) and follow the steps to [install and configure Azure CLI](azure-stack-connect-cli.md).
+* **A Linux image in the Azure Stack marketplace**
 
-* A public SSH key with the name id_rsa.pub should be created in the .ssh directory of your Windows user profile. For detailed information on creating SSH keys, see [Creating SSH keys on Windows](../../virtual-machines/linux/ssh-from-windows.md). 
+   The Azure Stack marketplace doesn't contain a Linux image by default. Get the Azure Stack operator to provide the **Ubuntu Server 16.04 LTS** image you need. The operator can use the steps described in the [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) article.
+
+* Azure Stack requires a specific version of the Azure CLI to create and manage the resources. If you don't have the Azure CLI configured for Azure Stack, sign in to the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) and follow the steps to [install and configure Azure CLI](azure-stack-version-profiles-azurecli2.md).
+
+* A public SSH key with the name id_rsa.pub saved in the .ssh directory of your Windows user profile. For detailed information about creating SSH keys, see [Creating SSH keys on Windows](../../virtual-machines/linux/ssh-from-windows.md).
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure Stack resources are deployed and managed. From your development kit or the Azure Stack integrated system, run the [az group create](/cli/azure/group#create) command to create a resource group. We have assigned values for all variables in this document, you can use them as is or assign a different value. 
+A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group.
+
+>[!NOTE]
+ Values are assigned for all the variables in the code examples. However, you can assign new values if you want to.
+
 The following example creates a resource group named myResourceGroup in the local location.
 
 ```cli
@@ -43,7 +52,7 @@ az group create --name myResourceGroup --location local
 
 ## Create a virtual machine
 
-Create a VM by using the [az vm create](/cli/azure/vm#create) command. The following example creates a VM named myVM. This example uses Demouser for an administrative user name and Demouser@123 as the password. Update these values to something appropriate to your environment. These values are needed when connecting to the virtual machine.
+Create a virtual machine by using the [az vm create](/cli/azure/vm#az-vm-create) command. The following example creates a VM named myVM. This example uses Demouser for an administrative user name and Demouser@123 as the user password. Change these values to something that is appropriate for your environment.
 
 ```cli
 az vm create \
@@ -56,29 +65,29 @@ az vm create \
   --location local
 ```
 
-Once complete, the command will output parameters for your virtual machine.  Make note of the *PublicIPAddress*, since you use this to connect and manage your virtual machine.
+The public IP address is returned in the **PublicIpAddress** parameter. Write down this address because you need it to access the virtual machine.
 
 ## Open port 80 for web traffic
 
-By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.
+Because this virtual machine is going to run the IIS web server, you need to open port 80 to Internet traffic. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## SSH into your VM
+## Use SSH to connect to the virtual machine
 
-From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](http://www.putty.org/) can be used to create the connection. Make sure to replace with the correct public IP address of your virtual machine. In our example above, the IP address was 192.168.102.36.
+From a client computer with SSH installed, connect to the virtual machine. If you're working on a Windows client, use [Putty](http://www.putty.org/) to create the connection. To connect to the virtual machine, use the following command:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-## Install NGINX
+## Install the NGINX web server
 
-Use the following bash script to update package sources and install the latest NGINX package. 
+To update package resources and install the latest NGINX package, run the following script:
 
-```bash 
+```bash
 #!/bin/bash
 
 # update package source
@@ -90,13 +99,13 @@ apt-get -y install nginx
 
 ## View the NGINX welcome page
 
-With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the *publicIpAddress* you documented above to visit the default page. 
+With NGINX installed, and port 80 open on your virtual machine, you can access the web server using the virtual machine's public IP address. Open a web browser, and browse to ```http://<public IP address>```.
 
-![NGINX default site](./media/azure-stack-quick-create-vm-linux-cli/nginx.png) 
+![NGINX web server Welcome page](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
+Clean up the resources that you don't need any longer. You can use the [az group delete](/cli/azure/group#az-group-delete) command to remove these resources. To delete the resource group and all its resources, run the following command:
 
 ```cli
 az group delete --name myResourceGroup
@@ -104,5 +113,4 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you’ve deployed a simple Linux virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
-
+In this quickstart, you deployed a basic Linux server virtual machine with a web server. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).

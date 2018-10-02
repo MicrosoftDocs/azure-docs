@@ -1,29 +1,24 @@
 ---
-title: Set up Azure SQL Data Sync (Preview) | Microsoft Docs
-description: This tutorial shows you how to set up Azure SQL Data Sync (Preview)
+title: Set up Azure SQL Data Sync | Microsoft Docs
+description: This tutorial shows you how to set up Azure SQL Data Sync
 services: sql-database
-documentationcenter: ''
-author: douglaslms
-manager: craigg
-editor: ''
-
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
-ms.custom: load & move data
-ms.workload: "Active"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/13/2017
-ms.author: douglasl
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: allenwux
+ms.author: xiwu
 ms.reviewer: douglasl
+manager: craigg
+ms.date: 04/10/2018
 ---
-# Set up SQL Data Sync (Preview)
+# Set up SQL Data Sync
 In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybrid sync group that contains both Azure SQL Database and SQL Server instances. The new sync group is fully configured and synchronizes on the schedule you set.
 
 This tutorial assumes that you have at least some prior experience with SQL Database and with SQL Server. 
 
-For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
 
 For complete PowerShell examples that show how to configure SQL Data Sync, see the following articles:
 -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -40,6 +35,8 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
     ![List of Azure SQL databases](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  On the **SQL databases** page, select the existing SQL database that you want to use as the hub database for Data Sync. The SQL database page opens.
+
+    The hub database is the central endpoint of the sync topology, in which a sync group has multiple database endpoints. All other database endpoints in the same sync group - that is, all member databases - sync with the hub database.
 
 4.  On the SQL database page for the selected database, select **Sync to other databases**. The Data Sync page opens.
 
@@ -69,6 +66,8 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
         ![Specify sync frequency](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  In the **Conflict Resolution** section, select "Hub wins" or "Member wins."
+
+        "Hub wins" means that, when a conflict occurs, the data in the hub database overwrites the conflicting data in the member database. "Member wins" means that, when a conflict occurs, the data in the member database overwrites the conflicting data in the hub database. 
 
         ![Specify how conflicts are resolved](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
@@ -149,7 +148,7 @@ On the **Configure On-Premises** page, do the following things:
         ![Enter the agent key and server credentials](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can create the rule manually in the portal, but you may find it easier to create it in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database on Azure. Enter its name as \<hub_database_name\>.database.windows.net. To configure the Azure firewall rule, follow the steps in the dialog box. Then return to the Client Sync Agent app.
+        >   If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can create the rule manually in the portal, but you may find it easier to create it in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database on Azure. Enter its name as <hub_database_name>.database.windows.net. To configure the Azure firewall rule, follow the steps in the dialog box. Then return to the Client Sync Agent app.
 
     9.  In the Client Sync Agent app, click **Register** to register a SQL Server database with the agent. The **SQL Server Configuration** dialog box opens.
 
@@ -196,7 +195,7 @@ The minimum frequency is every five minutes.
 
 ### Does SQL Data Sync fully create and provision tables?
 
-If the sync schema tables are not already created in the destination database, SQL Data Sync (Preview) creates them with the columns that you selected. However, this behavior does not result in a full fidelity schema, for the following reasons:
+If the sync schema tables are not already created in the destination database, SQL Data Sync creates them with the columns that you selected. However, this behavior does not result in a full fidelity schema, for the following reasons:
 
 -   Only the columns that you selected are created in the destination table. If some columns in the source tables are not part of the sync group, those columns are not provisioned in the destination tables.
 
@@ -213,7 +212,7 @@ database.
 
 Because of these limitations, we recommend the following things:
 -   For production environments, provision the full-fidelity schema yourself.
--   For trying out the service, the auto-provisioning feature of SQL Data Sync (Preview) works well.
+-   For trying out the service, the auto-provisioning feature of SQL Data Sync works well.
 
 ### Why do I see tables that I did not create?  
 Data Sync creates side tables in your database for change tracking. Don't delete them or Data Sync stops working.
@@ -224,18 +223,27 @@ Not necessarily. In a sync group with a hub and three spokes (A, B, and C), the 
 
 ### How do I get schema changes into a sync group?
 
-You have to perform schema changes manually.
+You have to make and propagate all schema changes manually.
+1. Replicate the schema changes manually to the hub and to all sync members.
+2. Update the sync schema.
+
+**Adding new tables and columns**. New tables and columns don't impact the current sync. Data Sync ignores the new tables and columns until you add them to the sync schema. When you add new database objects, this is the best sequence to follow:
+1. Add the new tables or columns to the hub and to all sync members.
+2. Add the new tables or columns to the sync schema.
+3. Start to insert values into the new tables and columns.
+
+**Changing the data type of a column**. When you change the data type of an existing column, Data Sync continues to work as long as the new values fit the original data type defined in the sync schema. For example, if you change the type in the source database from **int** to **bigint**, Data Sync continues to work until you insert a value that's too large for the **int** data type. To complete the change, replicate the schema change manually to the hub and to all sync members, and then update the sync schema.
 
 ### How can I export and import a database with Data Sync?
 After you export a database as a `.bacpac` file and import the file to create a new database, you have to do the following two things to use Data Sync in the new database:
-1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). This script deletes all of the required Data Sync objects from the database.
+1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql). This script deletes all of the required Data Sync objects from the database.
 2.  Recreate the sync group with the new database. If you no longer need the old sync group, delete it.
 
 ## FAQ about the client agent
 
 ### Why do I need a client agent?
 
-The SQL Data Sync (Preview) service communicates with SQL Server databases via the client agent. This security feature prevents direct communication with databases behind a firewall. When the SQL Data Sync (Preview) service communicates with the agent, it does so using encrypted connections and a unique token or *agent key*. The SQL Server databases authenticate the agent using the connection string and agent key. This
+The SQL Data Sync service communicates with SQL Server databases via the client agent. This security feature prevents direct communication with databases behind a firewall. When the SQL Data Sync service communicates with the agent, it does so using encrypted connections and a unique token or *agent key*. The SQL Server databases authenticate the agent using the connection string and agent key. This
 design provides a high level of security for your data.
 
 ### How many instances of the local agent UI can be run?
@@ -248,7 +256,7 @@ After you install a client agent, the only way to change the service account is 
 
 ### How do I change my agent key?
 
-An agent key can only be used once by an agent. It cannot be reused when you remove then reinstall a new agent, nor can it be used by multiple agents. If you need to create a new key for an existing agent, you must be sure that the same key is recorded with the client agent and with the SQL Data Sync (Preview) service.
+An agent key can only be used once by an agent. It cannot be reused when you remove then reinstall a new agent, nor can it be used by multiple agents. If you need to create a new key for an existing agent, you must be sure that the same key is recorded with the client agent and with the SQL Data Sync service.
 
 ### How do I retire a client agent?
 
@@ -260,11 +268,11 @@ If you want to run the local agent from a different computer than it is currentl
 
 1. Install the agent on desired computer.
 
-2. Log in to the SQL Data Sync (Preview) portal and regenerate an agent key for the new agent.
+2. Log in to the SQL Data Sync portal and regenerate an agent key for the new agent.
 
 3. Use the new agent's UI to submit the new agent key.
 
-4. Wait while the client agent downloads the list of on-premise databases that were registered earlier.
+4. Wait while the client agent downloads the list of on-premises databases that were registered earlier.
 
 5. Provide database credentials for all databases that display as unreachable. These databases must be reachable from the new computer on which the agent is installed.
 
@@ -275,7 +283,7 @@ For more info about SQL Data Sync, see:
 
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
 -   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Monitor Azure SQL Data Sync with OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:

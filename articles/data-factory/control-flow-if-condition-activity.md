@@ -4,24 +4,20 @@ description: The If Condition activity allows you to control the processing flow
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/03/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: shlo
 
 ---
 # If Condition activity in Azure Data Factory
 The If Condition activity provides the same functionality that an if statement provides in programming languages. It evaluates a set of activities when the condition evaluates to `true` and another set of activities when the condition evaluates to `false`. 
-
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory V1 documentation](v1/data-factory-introduction.md).
 
 ## Syntax
 
@@ -69,9 +65,9 @@ Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the if-condition activity. | String | Yes
 type | Must be set to **IfCondition** | String | Yes
-expression | Expression that must evaluate to true or false | Yes
-ifTrueActivities | Set of activities that are executed when the expression evaluates to `true`. | Yes
-ifFalseActivities | Set of activities that are executed when the expression evaluates to `false`. | Yes
+expression | Expression that must evaluate to true or false | Expression with result type boolean | Yes
+ifTrueActivities | Set of activities that are executed when the expression evaluates to `true`. | Array | Yes
+ifFalseActivities | Set of activities that are executed when the expression evaluates to `false`. | Array | Yes
 
 ## Example
 The pipeline in this example copies data from an input folder to an output folder. The output folder is determined by the value of pipeline parameter: routeSelection. If the value of routeSelection is true, the data is copied to outputPath1. And, if the value of routeSelection is false, the data is copied to outputPath2. 
@@ -249,7 +245,7 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 These commands assume that you have saved the JSON files into the folder: C:\ADF. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"

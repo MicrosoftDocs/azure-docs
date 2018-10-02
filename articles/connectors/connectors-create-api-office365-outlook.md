@@ -1,23 +1,21 @@
 ---
-title: Add the Office 365 Outlook connector in your Logic Apps | Microsoft Docs
-description: 'Create logic apps with Office 365 connector to enable interaction with Office 365. For example: creating, editing, and updating contacts and calendar items.'
-services: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+# required metadata
+title: Connect to Office 365 Outlook - Azure Logic Apps | Microsoft Docs
+description: Manage email, contacts, and calendars with Office 365 REST APIs and Azure Logic Apps 
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Office 365 Outlook connector
 The Office 365 Outlook connector enables interaction with Outlook in Office 365. Use this connector to create, edit, and update contacts and calendar items, and also get, send, and reply to email.
 
@@ -27,14 +25,14 @@ With Office 365 Outlook, you:
 * Use triggers to start your workflow when there is a new email, when a calendar item is updated, and more.
 * Use actions to send an email, create a new calendar event, and more. For example, when there is a new object in Salesforce (a trigger), send an email to your Office 365 Outlook (an action). 
 
-This topic shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
+This article shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
 
 > [!NOTE]
 > This version of the article applies to Logic Apps general availability (GA).
 > 
 > 
 
-To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-overview.md) and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connect to Office 365
 Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Office 365 Outlook, you first need an Office 365 *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So with Office 365 Outlook, enter the credentials to your Office 365 account to create the connection.
@@ -45,7 +43,7 @@ Before your logic app can access any service, you first create a *connection* to
 > 
 
 ## Use a trigger
-A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. In the logic app, type "office 365" to get a list of the triggers:  
    
@@ -66,7 +64,7 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 ## Use an action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
    
@@ -82,7 +80,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
     If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic describes these properties. 
    
    > [!NOTE]
-   > In this example, we create a new contact in Office 365 Outlook. You can use output from another trigger to create the contact. For example, add the SalesForce *When an object is created* trigger. Then add the Office 365 Outlook *Create contact* action that uses the SalesForce fields to create the new new contact in Office 365. 
+   > In this example, we create a new contact in Office 365 Outlook. You can use output from another trigger to create the contact. For example, add the SalesForce *When an object is created* trigger. Then add the Office 365 Outlook *Create contact* action that uses the SalesForce fields to create the new contact in Office 365. 
    > 
    > 
 5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
@@ -92,5 +90,5 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/office365connector/). 
 
 ## Next Steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 

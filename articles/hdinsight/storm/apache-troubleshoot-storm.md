@@ -1,21 +1,14 @@
 ---
-title: Troubleshoot Storm by using Azure HDInsight | Microsoft Docs
+title: Troubleshoot Storm by using Azure HDInsight
 description: Get answers to common questions about using Apache Storm with Azure HDInsight.
 keywords: Azure HDInsight, Storm, FAQ, troubleshooting guide, common problems
-services: Azure HDInsight
-documentationcenter: na
-author: raviperi
-manager: ''
-editor: ''
-
-ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: hdinsight
+ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonwhowell
+ms.reviewer: jasonh
+ms.topic: conceptual
 ms.date: 11/2/2017
-ms.author: raviperi
 ---
 
 # Troubleshoot Storm by using Azure HDInsight
@@ -69,7 +62,7 @@ The export command writes the metadata to an Apache Hadoop Distributed File Syst
     ```
 
 #### Import offset metadata
-1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be exported.
+1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be imported.
 2. Run the following command (after you update the HDP version string) to import ZooKeeper offset data from the HDFS path /stormmetadata/zkdata to the ZooKeeper server on the target cluster:
 
     ```apache
@@ -77,7 +70,7 @@ The export command writes the metadata to an Apache Hadoop Distributed File Syst
     ```
    
 #### Delete offset metadata so that topologies can start processing data from the beginning, or from a timestamp that the user chooses
-1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be exported.
+1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be deleted.
 2. Run the following command (after you update the HDP version string) to delete all ZooKeeper offset data in the current cluster:
 
     ```apache

@@ -4,18 +4,19 @@ description: Machine learning and data science tools
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
+
 
 ms.assetid: 
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/11/2017
-ms.author: gokuma;bradsev
+ms.topic: conceptual
+ms.date: 03/16/2018
+ms.author: gokuma
 
 ---
 
@@ -23,6 +24,17 @@ ms.author: gokuma;bradsev
 The Data Science Virtual Machine (DSVM) has a rich set of tools and libraries for machine learning available in popular languages like Python, R, Julia. 
 
 Here are some of the machine learning tools and libraries on the DSVM. 
+
+## [Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) SDK
+|    |           |
+| ------------- | ------------- |
+| What is it?   |   Azure Machine Learning service is a cloud service that you can use to develop and deploy machine learning models.  You can track your models as you build, train, scale and manage them using Python SDK. Deploy models as containers and run them on cloud, onprem or the IoT Edge.   |
+| Supported DSVM Editions     | Windows (Conda environment: AzureML), Linux (Conda Environment: py36)    |
+| Typical Uses      | General ML Platform      |
+| How is it configured / installed on the DSVM?      |  Installed with GPU support   |
+| How to use / run it?      | As Python SDK, and Azure command line tool (AZ CLI). Activate to conda environment `AzureML` on Windows edition OR to `py36` on Linux edition.      |
+| Links to Samples      | Samples Jupyter notebooks are included in the `AzureML` directory under notebooks  |
+| Related Tools on the DSVM      | Visual Studio Code, Jupyter   |
 
 ## XGBoost 
 |    |           |

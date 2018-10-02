@@ -3,7 +3,7 @@ title: Azure Service Bus management libraries| Microsoft Docs
 description: Manage Service Bus namespaces and messaging entities from .NET.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2017
-ms.author: sethm
+ms.date: 09/05/2018
+ms.author: spelluru
 
 ---
 
@@ -31,7 +31,7 @@ The Azure Service Bus management libraries can dynamically provision Service Bus
 
 ## Prerequisites
 
-To get started using the Service Bus management libraries, you must authenticate with the Azure Active Directory (AAD) service. AAD requires that you authenticate as a service principal, which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
+To get started using the Service Bus management libraries, you must authenticate with the Azure Active Directory (Azure AD) service. Azure AD requires that you authenticate as a service principal, which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
 
 * [Use the Azure portal to create Active Directory application and service principal that can access resources](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Use Azure PowerShell to create a service principal to access resources](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
@@ -43,13 +43,13 @@ These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `Client
 
 The pattern to manipulate any Service Bus resource follows a common protocol:
 
-1. Obtain a token from Azure Active Directory using the **Microsoft.IdentityModel.Clients.ActiveDirectory** library.
+1. Obtain a token from Azure AD using the **Microsoft.IdentityModel.Clients.ActiveDirectory** library:
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
-2. Create the `ServiceBusManagementClient` object.
+2. Create the `ServiceBusManagementClient` object:
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -58,7 +58,7 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-3. Set the `CreateOrUpdate` parameters to your specified values.
+3. Set the `CreateOrUpdate` parameters to your specified values:
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -67,12 +67,13 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
        EnablePartitioning = true
    };
    ```
-4. Execute the call.
+4. Execute the call:
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
 ## Next steps
+
 * [.NET management sample](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Microsoft.Azure.Management.ServiceBus API reference](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

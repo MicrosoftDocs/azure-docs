@@ -1,22 +1,23 @@
 ---
-title: Face API Python tutorial | Microsoft Docs
-description: Learn how to use the Face API with the Python SDK to detect human faces in an image in Cognitive Services.
+title: "Tutorial: Detect and frame faces in an image - Face API, Python"
+titleSuffix: Azure Cognitive Services
+description: Learn how to use the Face API with the Python SDK to detect human faces in an image.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: SteveMSFT
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-ms.date: 02/24/2017
-ms.author: anroth
+ms.component: face-api
+ms.topic: tutorial
+ms.date: 03/01/2018
+ms.author: sbowles
 ---
 
-# Getting Started with Face API in Python Tutorial
+# Tutorial: Detect and frame faces with the Face API and Python 
 
 In this tutorial, you will learn to invoke the Face API via the Python SDK to detect human faces in an image.
 
-## <a name="prerequisites"></a> Prerequisites
+## Prerequisites
 
 To use the tutorial, you will need to do the following:
 
@@ -28,17 +29,15 @@ To use the tutorial, you will need to do the following:
 pip install cognitive_face
 ```
 
-- Obtain a [subscription key](https://azure.microsoft.com/en-us/try/cognitive-services/) for Microsoft Cognitive Services. You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
+- Obtain a [subscription key](https://azure.microsoft.com/try/cognitive-services/) for Microsoft Cognitive Services. You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
 
-## <a name="sdk-example"></a> Detect a Face in an Image
+## Detect a Face in an Image
 
 ```python
 import cognitive_face as CF
 
-KEY = 'subscription key'  # Replace with a valid subscription key (keeping the quotes in place).
+KEY = '<Subscription Key>'  # Replace with a valid subscription key (keeping the quotes in place).
 CF.Key.set(KEY)
-# If you need to, you can change your base API url with:
-#CF.BaseUrl.set('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/')
 
 BASE_URL = 'https://westus.api.cognitive.microsoft.com/face/v1.0/'  # Replace with your regional Base URL
 CF.BaseUrl.set(BASE_URL)
@@ -57,7 +56,7 @@ Below is an example result. It's a `list` of detected faces. Each item in the li
 
 ## Draw rectangles around the faces
 
-Using the json coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. At the top of the file, add the following:
+Using the json coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. You will need to `pip install Pillow` to use the `PIL` imaging module.  At the top of the file, add the following:
 
 ```python
 import requests
@@ -90,9 +89,9 @@ for face in faces:
 img.show()
 ```
 
-## <a name='further'></a> Further Exploration
+## Further Exploration
 
-To help you further explore the Face API, this tutorial provides a GUI sample. To run it, first install [wxPython](https://wxpython.org/) then run the commands below.
+To help you further explore the Face API, this tutorial provides a GUI sample. To run it, first install [wxPython](https://wxpython.org/pages/downloads/) then run the commands below.
 
 ```bash
 git clone https://github.com/Microsoft/Cognitive-Face-Python.git
@@ -100,11 +99,11 @@ cd Cognitive-Face-Python
 python sample
 ```
 
-## <a name="summary"></a> Summary
+## Summary
 
 In this tutorial, you have learned the basic process for using the Face API via invoking the Python SDK. For more information on API details, please refer to the How-To and [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="related"></a> Related Topics
+## Related Topics
 
 - [Getting Started with Face API in CSharp](FaceAPIinCSharpTutorial.md)
 - [Getting Started with Face API in Java for Android](FaceAPIinJavaForAndroidTutorial.md)

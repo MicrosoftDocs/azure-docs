@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/05/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
 
 ---
@@ -179,7 +179,7 @@ Run the [Register-ServiceFabricApplicationType](/powershell/module/servicefabric
 When a package was previously copied to the image store, the register operation specifies the relative path in the image store.
 
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
@@ -226,7 +226,7 @@ ApplicationParameters  : {}
 ```
 Multiple application instances can be created for any given version of a registered application type. Each application instance runs in isolation, with its own work directory and process.
 
-To see which named apps and services are running in the cluster, run the [Get-ServiceFabricApplication](/powershell/servicefabric/vlatest/get-servicefabricapplication) and [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdlets:
+To see which named apps and services are running in the cluster, run the [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication) and [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdlets:
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication  

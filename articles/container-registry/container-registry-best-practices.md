@@ -3,11 +3,11 @@ title: Best practices in Azure Container Registry
 description: Learn how to use your Azure container registry effectively by following these best practices.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-registry
-ms.topic: quickstart
-ms.date: 12/20/2017
+ms.topic: article
+ms.date: 09/27/2018
 ms.author: marsma
 ---
 
@@ -24,7 +24,7 @@ Additionally, all public clouds, Azure included, implement network egress fees. 
 
 ## Geo-replicate multi-region deployments
 
-Use Azure Container Registry's [geo-replication](container-registry-geo-replication.md) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Currently in preview, this feature is available with [Premium](container-registry-skus.md) registries.
+Use Azure Container Registry's [geo-replication](container-registry-geo-replication.md) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Geo-replication is available only with [Premium](container-registry-skus.md) registries.
 
 To learn how to use geo-replication, see the three-part tutorial, [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md).
 
@@ -53,7 +53,7 @@ When authenticating with an Azure container registry, there are two primary scen
 
 | Type | Example scenario | Recommended method |
 |---|---|---|
-| Individual identity | A developer pulling images to or pushing images from their development machine. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
+| Individual identity | A developer pulling images to or pushing images from their development machine. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Headless/service identity | Build and deployment pipelines where the user isn't directly involved. | [Service principal](container-registry-authentication.md#service-principal) |
 
 For in-depth information about Azure Container Registry authentication, see [Authenticate with an Azure container registry](container-registry-authentication.md).
@@ -62,31 +62,25 @@ For in-depth information about Azure Container Registry authentication, see [Aut
 
 The storage constraints of each [container registry SKU][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for the majority of production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Throughout the life of your registry, you should manage its size by periodically deleting unused content.
 
-You can find the current usage of a registry in the container registry **Overview** in the Azure portal:
+Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current size of your registry:
+
+```console
+$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+NAME      LIMIT         CURRENT VALUE    UNIT
+--------  ------------  ---------------  ------
+Size      536870912000  185444288        Bytes
+Webhooks  100                            Count
+```
+
+You can also find the current storage used in the **Overview** of your registry in the Azure portal:
 
 ![Registry usage information in the Azure portal][registry-overview-quotas]
 
-You can manage the size of your registry by using the [Azure CLI][azure-cli] or the [Azure portal][azure-portal]. Only the managed SKUs (Basic, Standard, Premium) support repository and image deletion--you cannot delete repositories, images, or tags in a Classic registry.
+### Delete image data
 
-### Delete in Azure CLI
+Azure Container Registry supports several methods for deleting image data from your container registry. You can delete images by tag or manifest digest, or delete a whole repository.
 
-Use the [az acr repository delete][az-acr-repository-delete] command to delete a repository, or content within a repository.
-
-To delete a repository, including all tags and image layer data within the repository, specify only the repository name when you execute [az acr repository delete][az-acr-repository-delete]. In the following example, we delete the *myapplication* repository, and all tags and image layer data within the repository:
-
-```azurecli
-az acr repository delete --name myregistry --repository myapplication
-```
-
-You can also delete image data from a repository by using the `--tag` and `--manifest` arguments. For details on these arguments, see the [az acr repository delete command reference][az-acr-repository-delete].
-
-### Delete in Azure portal
-
-To delete a repository from a registry in the Azure portal, first navigate to your container registry. Then, under **SERVICES**, select **Repositories**, and right-click the repository you want to delete. Select **Delete** to delete the repository and the Docker images it contains.
-
-![Delete a repository in the Azure portal][delete-repository-portal]
-
-In a similar manner, you can also delete tags from a repository. Navigate to the repository, right-click on the tag you wish to delete under **TAGS**, and select **Delete**.
+For details on deleting image data from your registry, including untagged (sometimes called "dangling" or "orphaned") images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
 
 ## Next steps
 
@@ -97,8 +91,9 @@ Azure Container Registry is available in several tiers, called SKUs, that each p
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[azure-cli]: /cli/azure/overview
+[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
+[azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-skus]: container-registry-skus.md

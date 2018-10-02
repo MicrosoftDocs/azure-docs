@@ -3,8 +3,8 @@ title: Detach a disk from a Linux VM in Azure | Microsoft Docs
 description: Learn to detach a data disk from an Azure virtual machine created using the classic deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # How to Detach a Disk from a Linux Virtual Machine
@@ -28,6 +28,6 @@ ms.author: iainfou
 ## Next steps
 You can read more about using your Linux VM in the following articles:
 
-* [How to Attach a Data Disk to a Linux Virtual Machine](attach-disk.md)
+* [How to Attach a Data Disk to a Linux Virtual Machine](attach-disk-classic.md)
 * [Using the Azure CLI with the Classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 

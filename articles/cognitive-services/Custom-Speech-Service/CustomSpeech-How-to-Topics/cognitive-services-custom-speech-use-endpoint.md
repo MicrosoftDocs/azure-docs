@@ -1,15 +1,17 @@
 ---
-title: Use a custom speech endpoint with Custom Speech Service on Azure | Microsoft Docs
-description: Learn how to use a custom speech-to-text endpoint with the Custom Speech Service in Cognitive Services.
+title: Use a custom speech endpoint - Custom Speech Service
+titlesuffix: Azure Cognitive Services
+description: Learn how to use a custom speech-to-text endpoint with the Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: custom-speech-service
-ms.topic: article
+ms.component: custom-speech
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Use a custom speech-to-text endpoint
@@ -126,7 +128,7 @@ For more information about HTTP post parameters and the response format, see the
 The Service Library enables your service to make use of the Microsoft Speech transcription cloud to convert spoken language to text in real-time, so that your client app can send audio and receive partial recognition results back simultaneously and asynchronously. Detail of the Service SDK can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedcsharpservicelibrary)
 
 > [!NOTE]
-> When using the Service librady you have to change the URI of the authorization provider in the implementation of **IAuthorizationProvider** to https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
+> When using the Service Library you have to change the URI of the authorization provider in the implementation of **IAuthorizationProvider** to https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
 
 ## Next steps
 * Improve accuracy with your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md).

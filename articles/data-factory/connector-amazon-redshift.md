@@ -4,28 +4,25 @@ description: Learn about how to copy data from Amazon Redshift to supported sink
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
 # Copy data from Amazon Redshift using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-amazon-redshift-connector.md)
-> * [Version 2 - Preview](connector-amazon-redshift.md)
+> * [Version 1](v1/data-factory-amazon-redshift-connector.md)
+> * [Current version](connector-amazon-redshift.md)
 
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an Amazon Redshift. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Amazon Redshift connnector in V1](v1/data-factory-amazon-redshift-connector.md).
 
 ## Supported capabilities
 
@@ -58,7 +55,7 @@ The following properties are supported for Amazon Redshift linked service:
 | port |The number of the TCP port that the Amazon Redshift server uses to listen for client connections. |No, default is 5439 |
 | database |Name of the Amazon Redshift database. |Yes |
 | username |Name of user who has access to the database. |Yes |
-| password |Password for the user account. Mark this field as a SecureString. |Yes |
+| password |Password for the user account. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -197,7 +194,7 @@ For this sample use case, copy activity unloads data from Amazon Redshift to Ama
                 "linkedServiceName": "AzureStorageLinkedService",
                 "path": "adfstagingcopydata"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]

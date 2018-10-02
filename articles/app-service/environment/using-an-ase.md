@@ -1,4 +1,4 @@
----
+﻿---
 title: Use an Azure App Service environment
 description: How to create, publish, and scale apps in an Azure App Service environment
 services: app-service
@@ -44,23 +44,28 @@ If you don't have an ASE, you can create one by following the instructions in [C
 
 To create a web app in an ASE:
 
-1. Select **New** > **Web + Mobile** > **Web App**.
+1. Select **Create a resource** > **Web + Mobile** > **Web App**.
 
-2. Enter a name for the web app. If you already selected an App Service plan in an ASE, the domain name for the app reflects the domain name of the ASE.
+1. Enter a name for the web app. If you already selected an App Service plan in an ASE, the domain name for the app reflects the domain name of the ASE.
 
 	![Web app name selection][1]
 
-3. Select a subscription.
+1. Select a subscription.
 
-4. Enter a name for a new resource group, or select **Use existing** and select one from the drop-down list.
+1. Enter a name for a new resource group, or select **Use existing** and select one from the drop-down list.
 
-5. Select an existing App Service plan in your ASE, or create a new one by following these steps:
+1. Select your OS. 
+
+    * Hosting a Linux app in an ASE is a new preview feature, so we suggest that you do not add Linux apps into an ASE that is currently running production workloads. 
+    * Adding a Linux app into an ASE means that the ASE will also be in preview mode. 
+
+1. Select an existing App Service plan in your ASE, or create a new one by following these steps:
 
 	a. Select **Create New**.
 
 	b. Enter the name for your App Service plan.
 
-	c. Select your ASE in the **Location** drop-down list.
+	c. Select your ASE in the **Location** drop-down list. Hosting a Linux app in an ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** 
 
 	d. Select an **Isolated** pricing tier. Select **Select**.
 
@@ -68,7 +73,11 @@ To create a web app in an ASE:
 	
 	![Isolated pricing tiers][2]
 
-6. Select **Create**.
+	> [!NOTE]
+	> Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. 
+	>
+
+1. Select **Create**.
 
 ## How scale works ##
 
@@ -122,7 +131,7 @@ With an External ASE, these publishing options all behave the same. For more inf
 
 The major difference with publishing is with respect to an ILB ASE. With an ILB ASE, the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don’t have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you need to configure DNS for the apps in the system. That includes the SCM endpoint. If they're not defined properly, you can't publish. Your IDEs also need to have network access to the ILB in order to publish directly to it.
 
-Internet-based CI systems, such as GitHub and Visual Studio Team Services, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
+Internet-based CI systems, such as GitHub and Azure DevOps, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. You can see it in the app's publishing profile and in the app's portal blade (in **Overview** > **Essentials** and also in **Properties**). 
 
@@ -146,7 +155,7 @@ To delete an ASE:
 
 1. Use **Delete** at the top of the **App Service Environment** blade. 
 
-2. Enter the name of your ASE to confirm that you want to delete it. When you delete an ASE, you delete all of the content within it as well. 
+1. Enter the name of your ASE to confirm that you want to delete it. When you delete an ASE, you delete all of the content within it as well. 
 
 	![ASE deletion][3]
 
@@ -164,7 +173,7 @@ To delete an ASE:
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml

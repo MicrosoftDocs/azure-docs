@@ -1,24 +1,18 @@
 ---
-title: Disaster recovery for B2B integration account - Azure Logic Apps | Microsoft Docs
-description: Logic Apps B2B disaster recovery
+title: Disaster recovery for B2B integration accounts - Azure Logic Apps | Microsoft Docs
+description: Get ready for cross-region disaster recovery in Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: ''
-
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.author: LADocs; padmavc
-
 ---
 
-# Logic Apps B2B cross-region disaster recovery
+# Cross-region disaster recovery for B2B integration accounts in Azure Logic Apps
 
 B2B workloads involve money transactions like orders and invoices. 
 During a disaster event, it's critical for a business to quickly 
@@ -116,7 +110,7 @@ region for pulling run status from the primary region is enabled.
 Business continuity for EDI X12 documents is based on control numbers:
 
 > [!TIP]
-> You can also use the [X12 quick start template](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/) 
+> You can also use the [X12 quick start template](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) 
 > to create logic apps. Creating primary and secondary 
 > integration accounts are prerequisites to use the template. 
 > The template helps to create two logic apps, 
@@ -132,7 +126,7 @@ select the duplicate check settings in the X12 agreement's Receive Settings.
 
 ![Select duplicate check settings](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) in a secondary region.    
+1. Create a [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) in a secondary region.    
 
 2. Search on **X12**, and select **X12 - When a control number is modified**.   
 
@@ -199,7 +193,7 @@ select the duplicate check settings in your EDIFACT agreement's Receive Settings
 
 ![Select duplicate check settings](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) in a secondary region.    
+1. Create a [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) in a secondary region.    
 
 2. Search on **EDIFACT**, and select **EDIFACT - When a control number is modified**.
 
@@ -267,7 +261,7 @@ is based on the message ID and the MIC value.
 > The logic app creates a connection from a trigger to a primary 
 > integration account and an action to a secondary integration account.
 
-1. Create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
+1. Create a [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 in the secondary region.  
 
 2. Search on **AS2**, and select **AS2 - When a MIC value is created**.   

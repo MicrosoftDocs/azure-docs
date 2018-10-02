@@ -1,21 +1,22 @@
 ---
-title: Ruby Quickstart for Azure Cognitive Services, Text Analytics API | Microsoft Docs
+title: 'Quickstart: Using Ruby to call the Text Analytics API'
+titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: luiscabrer
+author: ashmaka
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
-ms.date: 08/24/2017
-ms.author: luisca
-
+ms.component: text-analytics
+ms.topic: quickstart
+ms.date: 09/12/2018
+ms.author: ashmaka
 ---
-# Quickstart for Text Analytics API with Ruby 
+
+# Quickstart: Using Ruby to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
-This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), and [extract key phrases](#KeyPhraseExtraction) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Ruby.
+This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Ruby.
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -47,7 +48,7 @@ require 'json'
 # **********************************************
 
 # Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
+accessKey = 'ENTER KEY HERE'
 
 # Replace or verify the region.
 #
@@ -58,9 +59,9 @@ accessKey = 'enter key here'
 # NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 # a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/languages'
+path = '/text/analytics/v2.0/'
 
-uri = URI(uri + path)
+uri = URI(uri + path + 'languages')
 
 documents = { 'documents': [
 	{ 'id' => '1', 'text' => 'This is a document written in English.' },
@@ -134,36 +135,10 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
-1. Create a new Ruby project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
-5. Run the program.
+Add the following code to the code from the [previous section](#Detect).
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
-
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/sentiment'
-
-uri = URI(uri + path)
+uri = URI(uri + path + 'sentiment')
 
 documents = { 'documents': [
 	{ 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -210,37 +185,10 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
-1. Create a new Ruby project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
-5. Run the program.
-
+Add the following code to the code from the [previous section](#SentimentAnalysis).
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
-
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/keyPhrases'
-
-uri = URI(uri + path)
+uri = URI(uri + path + 'keyPhrases')
 
 documents = { 'documents': [
 	{ 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -301,7 +249,99 @@ A successful response is returned in JSON, as shown in the following example:
    "errors": [  ]
 }
 ```
+<a name="Entities"></a>
 
+## Identify linked entities
+
+The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
+
+Add the following code to the code from the [previous section](#KeyPhraseExtraction).
+
+```ruby
+uri = URI(uri + path + 'entities')
+
+documents = { 'documents': [
+	{ 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
+	{ 'id' => '2', 'language' => 'en', 'text' => 'The Seattle Seahawks won the Super Bowl in 2014.' },
+]}
+
+puts 'Please wait a moment for the results to appear.'
+
+request = Net::HTTP::Post.new(uri)
+request['Content-Type'] = "application/json"
+request['Ocp-Apim-Subscription-Key'] = accessKey
+request.body = documents.to_json
+
+response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+    http.request (request)
+end
+
+puts JSON::pretty_generate (JSON (response.body))
+```
+
+**Entity linking response**
+
+A successful response is returned in JSON, as shown in the following example: 
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "entities": [
+                {
+                    "name": "Xbox One",
+                    "matches": [
+                        {
+                            "text": "XBox One",
+                            "offset": 23,
+                            "length": 8
+                        }
+                    ],
+                    "wikipediaLanguage": "en",
+                    "wikipediaId": "Xbox One",
+                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
+                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                },
+                {
+                    "name": "Ultra-high-definition television",
+                    "matches": [
+                        {
+                            "text": "4K",
+                            "offset": 63,
+                            "length": 2
+                        }
+                    ],
+                    "wikipediaLanguage": "en",
+                    "wikipediaId": "Ultra-high-definition television",
+                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
+                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "entities": [
+                {
+                    "name": "2013 Seattle Seahawks season",
+                    "matches": [
+                        {
+                            "text": "Seattle Seahawks",
+                            "offset": 4,
+                            "length": 16
+                        }
+                    ],
+                    "wikipediaLanguage": "en",
+                    "wikipediaId": "2013 Seattle Seahawks season",
+                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
+                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
 
 ## Next steps
 

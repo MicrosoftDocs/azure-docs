@@ -3,22 +3,16 @@ title: Geo-replicating an Azure container registry
 description: Get started creating and managing geo-replicated Azure container registries.
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: overview-article
-ms.date: 10/24/2017
+ms.date: 04/10/2018
 ms.author: stevelas
 ---
 # Geo-replication in Azure Container Registry
 
-Companies that want a local presence, or a hot backup, choose to run services from multiple Azure regions. As a best practice, placing a container registry in each region where images are run allows network-close operations, enabling fast, reliable image layer transfers.
-
-Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-master regional registries.
-
-> [!IMPORTANT]
-> The geo-replication feature of Azure Container Registry is currently in **preview**. Previews are made available to you on the condition that you agree to the  [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
->
+Companies that want a local presence, or a hot backup, choose to run services from multiple Azure regions. As a best practice, placing a container registry in each region where images are run allows network-close operations, enabling fast, reliable image layer transfers. Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-master regional registries.
 
 A geo-replicated registry provides the following benefits:
 

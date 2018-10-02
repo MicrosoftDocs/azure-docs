@@ -3,16 +3,12 @@ title: Install the Durable Functions extension and samples - Azure
 description: Learn how to install the Durable Functions extension for Azure Functions, for portal development or Visual Studio development.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 08/31/2018
 ms.author: azfuncdf
 ---
 
@@ -20,8 +16,8 @@ ms.author: azfuncdf
 
 The [Durable Functions](durable-functions-overview.md) extension for Azure Functions is provided in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). This article shows how to install the package and a set of samples for the following development environments:
 
-* Visual Studio 2017 (Recommended) 
-
+* Visual Studio 2017 (Recommended for C#) 
+* Visual Studio Code (Recommended for JavaScript)
 * Azure portal
 
 ## Visual Studio 2017
@@ -30,12 +26,12 @@ Visual Studio currently provides the best experience for developing apps that us
 
 ### Prerequisites
 
-* Install the [latest version of Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 or greater). Include the **Azure development** workload in your setup options.
+* Install the [latest version of Visual Studio](https://www.visualstudio.com/downloads/) (version 15.6 or greater). Include the **Azure development** workload in your setup options.
 
-### Start with sample functions
+### Start with sample functions 
 
 1. Download the [Sample App .zip file for Visual Studio](https://azure.github.io/azure-functions-durable-extension/files/VSDFSampleApp.zip). You don't need to add the NuGet reference because the sample project already has it.
-2. Install and run [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/storage-use-emulator) version 5.2 or later. Alternatively, you can update the *local.appsettings.json* file with real Azure Storage connection strings.
+2. Install and run [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/storage-use-emulator) version 5.6 or later. Alternatively, you can update the *local.settings.json* file with real Azure Storage connection strings.
 3. Open the project in Visual Studio 2017. 
 4. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
 
@@ -44,15 +40,12 @@ Visual Studio currently provides the best experience for developing apps that us
 Follow the same directions as for starting with the sample, but do the following steps instead of downloading the *.zip* file:
 
 1. Create a Function App project.
-2. Add the following NuGet package reference to your *.csproj* file:
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. Search for the following NuGet package reference using *Manage NuGet Packages* and add it to the project: 
+Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
    
 ## Visual Studio Code
 
-Visual Studio Code provides a local development experience covering all major platforms - Windows, macOS, and Linux.  Your functions can be run locally and can also be published to Azure. You can start with an empty project or with a set of sample functions.
+Visual Studio Code provides a local development experience covering all major platforms - Windows, macOS, and Linux.  Your functions can be run locally and also be published to Azure. You can start with an empty project or with a set of sample functions.
 
 ### Prerequisites
 
@@ -63,63 +56,102 @@ Visual Studio Code provides a local development experience covering all major pl
     >[!IMPORTANT]
     > If you already have the Azure Functions Cross Platform Tools, update them to the latest available version.
 
-*  Install and run [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/storage-use-emulator) version 5.2 or later. Alternatively, you can update the *local.appsettings.json* file with real Azure Storage connection. 
+    >[!IMPORTANT]
+    >Durable Functions in JavaScript requires version 2.x of the Azure Functions Core Tools.
+
+*  If you are on a Windows machine, install and run [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/storage-use-emulator) version 5.6 or later. Alternatively, you can update the *local.settings.json* file with real Azure Storage connection. 
 
 
 ### Start with sample functions
+
+#### C#
 
 1. Clone the [Durable Functions repository](https://github.com/Azure/azure-functions-durable-extension.git).
 2. Navigate on your machine to the [C# script samples folder](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx). 
 3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
-4. Run Azure Storage Emulator or update the *local.appsettings.json* file with real Azure Storage connection string.
-3. Open the project in Visual Studio Code. 
-5. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
-6. Start the project by running in command prompt / terminal the following command:
+4. Install Azure Functions Twilio Extension by running the following in a command prompt / terminal window:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
+    ```
+5. Run Azure Storage Emulator or update the *local.settings.json* file with real Azure Storage connection string.
+6. Open the project in Visual Studio Code. 
+7. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
+8. Start the project by running in command prompt / terminal the following command:
     ```bash
     func host start
+    ```
+
+#### JavaScript (Functions v2 only)
+
+1. Clone the [Durable Functions repository](https://github.com/Azure/azure-functions-durable-extension.git).
+2. Navigate on your machine to the [JavaScript samples folder](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
+3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window
+
+    ```
+    func extensions install
+    ```
+    > [!NOTE] 
+    > This requires the [.NET Core SDK](https://www.microsoft.com/net/download) to be installed on the machine
+4. Restore the npm packages by running the following in a command prompt / terminal window:
+    
+    ```
+    npm install
+    ``` 
+5. Update the *local.settings.json* file with a connection string from an Azure storage account for `AzureWebJobsStorage`.  This storage account will be used for the durable function state.
+6. Open the project in an editor like Visual Studio Code. 
+7. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
+8. Start the project by running in command prompt / terminal the following command:
+    ```
+    func start
     ```
 
 ### Start with an empty project
  
 1. In command prompt / terminal navigate to the folder that will host your function app.
-2. Install the Azure Functions Durable Extension by running the following in a command prompt / terminal window:
-
-    ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
-    ```
 3. Create a Function App project by running the following command:
 
-    ```bash
+    ```
     func init
     ``` 
-4. Run Azure Storage Emulator or update the *local.appsettings.json* file with real Azure Storage connection string.
+4. Run Azure Storage Emulator (Windows only) or update the *local.settings.json* file with real Azure Storage connection string for `AzureWebJobsStorage`.
 5. Next, create a new function by running the following command and follow the wizard steps:
 
-    ```bash
+    ```
     func new
     ```
     >[!IMPORTANT]
     > Currently the Durable Function template is not available but you can start with one of the supported options and then modify the code. Use for reference the samples for [Orchestration Client](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/HttpStart), [Orchestration Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence), and [Activity Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence).
+2. Install the Azure Functions Durable Extension by running the following in a command prompt / terminal window in the function app directory:
+
+    ```
+    func extensions install
+    ```
 
 6. Open the project folder in Visual Studio Code and continue by modifying the template code. 
 7. Start the project by running in command prompt / terminal the following command:
-    ```bash
-    func host start
+    ```
+    func start
     ```
 
 ## Azure portal
 
-If you prefer, you can use the Azure portal for Durable Functions development.
+If you prefer, you can use the [Azure portal](https://portal.azure.com) for Durable Functions development.
+
+   > [!NOTE]
+   > Durable Functions in JavaScript are not yet available in the portal.
 
 ### Create an orchestrator function
 
-1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
+1. Create a new function app in the portal, as shown in the [Functions quickstart article](functions-create-first-azure-function.md#create-a-function-app).
 
-2. Configure the function app to [use the 2.0 runtime version](functions-versions.md).
+2. Configure the function app to [use the 2.0 runtime version](set-runtime-version.md).
+
+   The Durable Functions extension works on both the 1.X runtime and the 2.0 runtime, but the Azure Portal templates are only available when targeting the 2.0 runtime.
 
 3. Create a new function by selecting **"create your own custom function."**.
 

@@ -1,24 +1,15 @@
 ---
-title: Onboard update and change tracking solutions to Azure Automation | Microsoft Docs
+title: Onboard update and change tracking solutions to Azure Automation
 description: Learn how to onboard update and change tracking solutions to Azure Automation.
 services: automation
-documentationcenter: ''
-author: eamonoreilly
-manager: 
-editor: 
-
-ms.assetid: edae1156-2dc7-4dab-9e5c-bf253d3971d0
 ms.service: automation
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/11/2017
+author: eamonoreilly
 ms.author: eamono
+manager: carmonm
+ms.topic: tutorial
+ms.date: 05/10/2018
 ms.custom: mvc
-
 ---
-
 # Onboard update and change tracking solutions to Azure Automation
 
 In this tutorial, you learn how to automatically onboard Update, Change Tracking, and Inventory solutions for VMs to Azure Automation:
@@ -40,7 +31,7 @@ To complete this tutorial, the following are required:
 
 ## Onboard an Azure VM
 
-To onboard Azure Virtual Machines automatically, an existing VM must be onboarded with the Change tracking or Update management solution. In this step, you onboard a virtual machine with Update management, and Change tracking.
+There are multiple ways to onboard machines, you can onboard the solution [from a virtual machine](automation-onboard-solutions-from-vm.md), [from browsing multiple machines](automation-onboard-solutions-from-browse.md) [from your Automation account](automation-onboard-solutions-from-automation-account.md),  or by runbook. This tutorial walks through enabling Update Management through a runbook. To onboard Azure Virtual Machines at scale, an existing VM must be onboarded with the Change tracking or Update management solution. In this step, you onboard a virtual machine with Update management, and Change tracking.
 
 ### Enable Change Tracking and Inventory
 

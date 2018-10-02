@@ -3,7 +3,7 @@ title: Optimize your SQL Server environment with Azure Log Analytics | Microsoft
 description: With Azure Log Analytics, you can use the SQL Health Check solution to assess the risk and health of your environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -11,12 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2017
-ms.author: magoedte;banders
-ms.custom: H1Hack27Feb2017
-
+ms.topic: conceptual
+ms.date: 01/19/2018
+ms.author: magoedte
+ms.component: na
 ---
+
 # Optimize your SQL environment with the SQL Server Health Check solution in Log Analytics
 
 ![SQL Health Check symbol](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
@@ -39,7 +39,7 @@ After you've added the solution and an assessment is completed, summary informat
 
 * The SQL Health Check solution requires a supported version of .NET Framework 4 installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and the Log Analytics service.  
 * The solution supports SQL Server version 2012, 2014, and 2016.
-* A Log Analytics workspace to add the SQL Health Check solution from the Azure marketplace in the Azure portal.  In order to install the solution, you must be an administrator or contributor in the Azure subscription. 
+* A Log Analytics workspace to add the SQL Health Check solution from the Azure marketplace in the Azure portal.  In order to install the solution, you must be an administrator or contributor in the Azure subscription.
 
   > [!NOTE]
   > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
@@ -50,19 +50,19 @@ To perform the health check against your SQL Server servers, they require an age
 
 1. Install the [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) if the server is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with the Log Analytics service, the server can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-oms) after you enable the solution in your workspace.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) after you enable the solution in your workspace.  
 
 The agent on your SQL Server which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to the Log Analytics service.  The data is not written to the Operations Manager databases.  
 
 If the SQL Server is monitored by Operations Manager, you need to configure an Operations Manager Run As account. See [Operations Manager run-as accounts for Log Analytics](#operations-manager-run-as-accounts-for-log-analytics) below for more information.
 
 ## SQL Health Check data collection details
-SQL Health Check collects data from the following sources using the agent that you have enabled: 
+SQL Health Check collects data from the following sources using the agent that you have enabled:
 
-* Windows Management Instrumentation (WMI) 
-* Registry 
+* Windows Management Instrumentation (WMI)
+* Registry
 * Performance counters
-* SQL Server dynamic management view results 
+* SQL Server dynamic management view results
 
 Data is collected on the SQL Server and forwarded to Log Analytics every seven days.
 
@@ -159,18 +159,16 @@ Before you can use an assessment solution in Log Analytics, you must have the so
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
 ### To view recommendations for a focus area and take corrective action
-1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-3. In the Log Analytics subscriptions pane, select a workspace and then click the **OMS Portal** tile.  
-4. On the **Overview** page, click the **SQL Health Check** tile. 
+3. In the Log Analytics subscriptions pane, select a workspace and then click the **Overview** tile.  
+4. On the **Overview** page, click the **SQL Health Check** tile.
 5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
 6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of SQL Health Check recommendations](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
 ## Ignore recommendations
-If you have recommendations that you want to ignore, you can create a text file that OMS will use to prevent recommendations from appearing in your assessment results.
-
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+If you have recommendations that you want to ignore, you can create a text file that Log Analytics will use to prevent recommendations from appearing in your assessment results.
 
 ### To identify recommendations that you will ignore
 1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.

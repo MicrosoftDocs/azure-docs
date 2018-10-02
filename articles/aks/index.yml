@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Container Service (AKS)
+title: Azure Kubernetes Service (AKS)
 metadata:
   document_id:
-  title: Azure Container Service (AKS) Documentation - Tutorials, API Reference | Microsoft Docs
+  title: Azure Kubernetes Service (AKS) Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
@@ -15,7 +15,7 @@ metadata:
   ms.date: 07-21-2017
   ms.author: carolz
 abstract:
-  description: Azure Container Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
+  description: 'Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.'
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -25,9 +25,13 @@ sections:
     style: icon48
     items:
     - image:
-        src: /azure/media/index/ContainerService.svg
-      text: Create an AKS cluster
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Azure CLI
       href: /azure/aks/kubernetes-walkthrough
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/aks/kubernetes-walkthrough-portal
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -41,8 +45,30 @@ sections:
     - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitor Kubernetes with OMS</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Upgrade AKS cluster</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduction to containers on Azure
+      href: /learn/modules/intro-to-containers/
+      image: 
+        src: /learn/achievements/intro-to-containers.svg
+        href: /learn/modules/intro-to-containers/
+    - title: Run Docker containers with Azure Container Instances
+      href: /learn/modules/run-docker-with-azure-container-instances/
+      image: 
+        src: /learn/achievements/run-docker-with-azure-container-instances.svg
+        href: /learn/modules/run-docker-with-azure-container-instances/
+    - title: Build and store container images with Azure Container Registry
+      href: /learn/modules/build-and-store-container-images/
+      image: 
+        src: /learn/achievements/build-and-store-container-images.svg
+        href: /learn/modules/build-and-store-container-images/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">More interactive learning...</a>
 - title: Reference
   items:
   - type: list
@@ -51,5 +77,7 @@ sections:
     items:
     - title: Command line
       html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/aks">REST API</a></p>

@@ -3,28 +3,24 @@ title: Transform data using Spark activity in Azure Data Factory | Microsoft Doc
 description: Learn how to transform data by running Spark programs from an Azure data factory pipeline using the Spark Activity. 
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+author: douglaslMS
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/29/2017
-ms.author: shengc
+ms.topic: conceptual
+ms.date: 05/31/2018
+ms.author: douglasl
 
 ---
 # Transform data using Spark activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-spark.md)
-> * [Version 2 - Preview](transform-data-using-spark.md)
+> * [Version 1](v1/data-factory-spark.md)
+> * [Current version](transform-data-using-spark.md)
 
 The Spark activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, Data Factory automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Spark Activity in V1](v1/data-factory-spark.md).
 
 > [!IMPORTANT]
 > Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.
@@ -48,7 +44,6 @@ Here is the sample JSON definition of a Spark Activity:
         },
         "rootPath": "adfspark\\pyFiles",
         "entryFilePath": "test.py",
-        "arguments": [ "arg1", "arg2" ],
         "sparkConfig": {
             "ConfigItem1": "Value"
         },
@@ -68,9 +63,9 @@ The following table describes the JSON properties used in the JSON definition:
 | description           | Text describing what the activity does.  | No       |
 | type                  | For Spark Activity, the activity type is HDInsightSpark. | Yes      |
 | linkedServiceName     | Name of the HDInsight Spark Linked Service on which the Spark program runs. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
-| SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No       |
+| SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. The value of this property can only be an Azure Storage linked service. | No       |
 | rootPath              | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. Refer to folder structure section (next section) for details about the structure of this folder. | Yes      |
-| entryFilePath         | Relative path to the root folder of the Spark code/package. | Yes      |
+| entryFilePath         | Relative path to the root folder of the Spark code/package. The entry file must be either a Python file or a .jar file. | Yes      |
 | className             | Application's Java/Spark main class      | No       |
 | arguments             | A list of command-line arguments to the Spark program. | No       |
 | proxyUser             | The user account to impersonate to execute the Spark program | No       |

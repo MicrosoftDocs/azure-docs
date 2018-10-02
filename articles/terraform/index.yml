@@ -1,26 +1,19 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Terraform on Azure Documentation
+title: Terraform on Azure documentation
 metadata:
-  title: Terraform on Azure Documentation - Tutorials and reference
-  meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+  title: Terraform on Azure documentation - Tutorials, samples, reference, and resources
+  description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
   services: terraform
-  author: rloutlaw  
-  manager: justhe
   ms.service: terraform
-  ms.tgt_pltfrm: na
-  ms.devlang: devops
+  keywords: terraform, azure, devops, tutorials, samples, reference
+  author: tomarcher
+  manager: jeconnoc
+  ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 09/21/2017
-  ms.author: routlaw
+  ms.date: 08/31/2018
 abstract:
   description: Use Terraform to reliably version and create infrastructure on Azure. Learn how to create resources, use Azure Terraform modules, and maintain your infrastructure with code using our Quickstarts and tutorials.
-  aside:
-    image:
-      alt: Terraform logo.
-      height: 110
-      src: media/Terraform_VerticalLogo_FullColor.svg
-      width: 250  
 sections:
 - title: Quickstarts
   items:
@@ -30,11 +23,11 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg
+        src: https://docs.microsoft.com/azure/media/index/azure_dev-9.svg
       text: Install and configure Terraform
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg
+        src: https://docs.microsoft.com/azure/media/index/VirtualMachine.svg
       text: Create a Linux VM
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
 - title: Step-by-Step Tutorials
@@ -44,6 +37,8 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Create a Kubernetes cluster with AKS and Terraform</a>.
+    - html: <a href="/azure/terraform/terraform-vm-msi">Create a Terraform VM with MSI authentication enabled using an Azure Marketplace image</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Create a load balanced VM cluster using Azure Terraform modules</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Create a load balanced VM cluster in the Azure Cloud Shell</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configure a VM scale set with networking and storage.</a>

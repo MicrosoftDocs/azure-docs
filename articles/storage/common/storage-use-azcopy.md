@@ -2,29 +2,32 @@
 title: Copy or move data to Azure Storage with AzCopy on Windows| Microsoft Docs
 description: Use the AzCopy on Windows utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 08/13/2018
 ms.author: seguler
-
+ms.component: common
 ---
 # Transfer data with the AzCopy on Windows
 AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
-There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
+There are two versions of AzCopy that you can download. AzCopy on Windows offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
 
 ## Download and install AzCopy on Windows
 
-Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy).
+### Latest version (v8.1)
+Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy).
+
+#### AzCopy on Windows 8.1 Release Notes
+- Table service is no longer supported in the latest version. If you use Table export feature, download AzCopy 7.3 version.
+- Built with .NET Core 2.1, and all .NET Core dependencies are now packaged in the installation.
+- Added OAuth authentication support. Use ```azcopy login``` to log on using Azure Active Directory.
+
+### Azcopy with Table support (v7.3)
+Download the [AzCopy 7.3 with Table support](https://aka.ms/downloadazcopynet).
+
+### Post-installation Step
 
 After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
@@ -53,7 +56,7 @@ Note that if the folder `C:\myfolder` does not exist, AzCopy creates it and down
 ### Download a single blob from the secondary region
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 Note that you must have read-access geo-redundant storage enabled to access the secondary region.
@@ -103,7 +106,7 @@ After the download operation, the folder `C:\myfolder` includes the following fi
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-The prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not downloaded. In addition, if the option `\S` is not specified, AzCopy does not download any blobs.
+The prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not downloaded. In addition, if the option `/S` is not specified, AzCopy does not download any blobs.
 
 ### Set the last-modified time of exported files to be same as the source blobs
 
@@ -285,7 +288,7 @@ Let's look at several ways to download files using AzCopy.
 AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
 
-If the specified source is an Azure File share, then you must either specify the exact file name, (*e.g.* `abc.txt`) to download a single file, or specify option `/S` to download all files in the share recursively. Attempting to specify both a file pattern and option `/S` together results in an error.
+If the specified source is an Azure file share, then you must either specify the exact file name, (*e.g.* `abc.txt`) to download a single file, or specify option `/S` to download all files in the share recursively. Attempting to specify both a file pattern and option `/S` together results in an error.
 
 ### Download all files in a directory
 
@@ -295,7 +298,7 @@ AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myf
 
 Note that empty folders are not downloaded.
 
-## Upload files to an Azure File share
+## Upload files to an Azure file share
 
 Let's look at several ways to upload files using AzCopy.
 
@@ -321,7 +324,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfiles
 
 ## Copy files in File storage
 
-Let's look at several ways to copy files in an Azure File share using AzCopy.
+Let's look at several ways to copy files in an Azure file share using AzCopy.
 
 ### Copy from one file share to another
 
@@ -330,14 +333,14 @@ AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:http
 ```
 When you copy a file across file shares, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
-### Copy from an Azure File share to Blob storage
+### Copy from an Azure file share to Blob storage
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
 When you copy a file from file share to blob, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
-### Copy a blob from Blob storage to an Azure File share
+### Copy a blob from Blob storage to an Azure file share
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
@@ -607,13 +610,27 @@ You can also run it for tables:
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
 
+### Automatically determine Content Type of a Blob
+
+AzCopy determines content type of a blob based on a JSON file that stores content type to file extension mapping. This JSON file is named AzCopyConfig.json, and is located in the AzCopy directory. If you have a file type that is not in the list you can append the mapping to the JSON file:
+
+```
+{
+  "MIMETypeMapping": {
+    ".myext": "text/mycustomtype",
+    .
+    .
+  }
+}
+```     
+
 ## AzCopy Parameters
 
 Parameters for AzCopy are described below. You can also type one of the following commands from the command line for help in using AzCopy:
 
 * For detailed command-line help for AzCopy: `AzCopy /?`
 * For detailed help with any AzCopy parameter: `AzCopy /?:SourceKey`
-* For command-line examples: `AzCopy /?:Samples`
+* For command-line examples: `AzCopy /?:Sample`
 
 ### /Source:"source"
 
@@ -747,7 +764,7 @@ You can specify multiple response files. However, note that AzCopy does not supp
 
 ### /Y
 
-Suppresses all AzCopy confirmation prompts.
+Suppresses all AzCopy confirmation prompts. This option also allows the use of write-only SAS tokens for data upload scenarios, when /XO and /XN are not specified.
 
 **Applicable to:** Blobs, Files, Tables
 
@@ -939,10 +956,6 @@ Let's take a look at some of the known issues and best practices.
 When you copy blobs or files with AzCopy, keep in mind that another application may be modifying the data while you are copying it. If possible, ensure that the data you are copying is not being modified during the copy operation. For example, when copying a VHD associated with an Azure virtual machine, make sure that no other applications are currently writing to the VHD. A good way to do this is by leasing the resource to be copied. Alternately, you can create a snapshot of the VHD first and then copy the snapshot.
 
 If you cannot prevent other applications from writing to blobs or files while they are being copied, then keep in mind that by the time the job finishes, the copied resources may no longer have full parity with the source resources.
-
-### Run one AzCopy instance on one machine.
-
-AzCopy is designed to maximize the utilization of your machine resource to accelerate the data transfer, we recommend you run only one AzCopy instance on one machine, and specify the option `/NC` if you need more concurrent operations. For more details, type `AzCopy /?:NC` at the command line.
 
 ### Enable FIPS-compliant MD5 algorithms for AzCopy when you "Use FIPS-compliant algorithms for encryption, hashing and signing."
 

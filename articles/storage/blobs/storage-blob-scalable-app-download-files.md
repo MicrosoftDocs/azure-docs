@@ -2,19 +2,15 @@
 title: Download large amounts of random data from Azure Storage  | Microsoft Docs 
 description: Learn how to use the Azure SDK to download large amounts of random data from an Azure Storage account 
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: jeconnoc
-editor: ''
+author: roygara
 
 ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: rogarana
 ms.custom: mvc
+ms.component: blobs
 ---
 
 # Download large amounts of random data from Azure storage
@@ -60,7 +56,7 @@ public static void Main(string[] args)
         UploadFilesAsync().GetAwaiter().GetResult();
 
         // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
-        // initially to support the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files.
+        // initially to support the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scaleable-app-download-files.
         // DownloadFilesAsync().GetAwaiter().GetResult();
     }
     catch (Exception ex)
@@ -71,7 +67,7 @@ public static void Main(string[] args)
     finally
     {
         // The following function will delete the container and all files contained in them.  This is commented out initialy
-        // As the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
+        // As the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
         if (!exception)
         {
             // DeleteExistingContainersAsync().GetAwaiter().GetResult();

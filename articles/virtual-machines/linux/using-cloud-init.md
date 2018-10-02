@@ -28,13 +28,17 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 
  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and VM Scale Sets (VMSS). The following table outlines the current cloud-init enabled images availability on the Azure platform:
 
-| Publisher | Offer | SKU | Version | cloud-init ready
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| Publisher | Offer | SKU | Version | cloud-init ready |
+|:--- |:--- |:--- |:--- |:--- |
+|Canonical |UbuntuServer |18.04-LTS |latest |yes | 
+|Canonical |UbuntuServer |17.10 |latest |yes | 
 |Canonical |UbuntuServer |16.04-LTS |latest |yes | 
 |Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
 |CoreOS |CoreOS |Stable |latest |yes |
 |OpenLogic |CentOS |7-CI |latest |preview |
 |RedHat |RHEL |7-RAW-CI |latest |preview |
+
+Currently Azure Stack does not support the provisioning of RHEL 7.4 and CentOS 7.4 using cloud-init.
 
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle Azure extensions. We are enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts.  If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable them. 
@@ -46,7 +50,7 @@ WALA configurations of VMs are time-constrained to work within the maximum VM pr
 ## Deploying a cloud-init enabled Virtual Machine
 Deploying a cloud-init enabled virtual machine is as simple as referencing a cloud-init enabled distribution during deployment.  Linux distribution maintainers have to choose to enable and integrate cloud-init into their base Azure published images. Once you have confirmed the image you want to deploy is cloud-init enabled, you can use the Azure CLI to deploy the image. 
 
-The first step in deploying this image is to create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+The first step in deploying this image is to create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -59,7 +63,7 @@ The next step is to create a file in your current shell, named *cloud-init.txt* 
 #cloud-config
 package_upgrade: true
 packages:
-  -httpd
+  - httpd
 ```
 Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to confirm the file name on exit.
 

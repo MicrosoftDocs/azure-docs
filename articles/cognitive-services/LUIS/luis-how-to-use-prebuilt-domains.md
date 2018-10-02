@@ -1,21 +1,21 @@
 ---
-title: Use prebuilt domains in LUIS apps in Azure | Microsoft Docs
-description: Learn how to use prebuilt domains in Language Understanding Intelligent Service (LUIS) applications.
+title: Use prebuilt domains to build apps quicker in LUIS apps
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) provides prebuilt domains, which are prebuilt sets of intents and entities that work together for domains or common categories of client applications. The prebuilt domains have been pre-trained and are ready for you to add to your LUIS app. 
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
-
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: v-demak
+ms.date: 09/06/2018
+ms.author: diberry
 ---
 
 # Use prebuilt domains in LUIS apps  
 
-Language Understanding (LUIS) provides *prebuilt domains*, which are prebuilt sets of [intents](Add-intents.md) and [entities](luis-concept-entity-types.md) that work together for domains or common categories of client applications. 
-The prebuilt domains have been pre-trained and are ready for you to add to your LUIS app. The intents and entities in a prebuilt domain are fully customizable once you've added them to your app - you can train them with utterances from your system so they work for your users.  You can use an entire prebuilt domain as a starting point for customization, or just borrow a few intents or entities from a prebuilt domain. 
+Language Understanding (LUIS) provides *prebuilt domains*, which are prebuilt sets of [intents](luis-how-to-add-intents.md) and [entities](luis-concept-entity-types.md) that work together for domains or common categories of client applications. 
+The prebuilt domains have been pre-trained and are ready for you to add to your LUIS app. The intents and entities in a prebuilt domain are fully customizable once you've added them to your app - you can train them with utterances from your system so they work for your users. You can use an entire prebuilt domain as a starting point for customization, or just borrow a few intents or entities from a prebuilt domain. 
 
 Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to add it to your app, or click on **Learn more** in its tile to learn about its intents and entities.
 
@@ -35,7 +35,7 @@ In the **Prebuilt domains** tab, find the RestaurantReservation domain and click
 When using prebuilt domains in your LUIS app, you can customize an entire prebuilt domain, or just start with a few of its intents and entities.
 
 ## Customizing an entire prebuilt domain
-Prebuilt domains are designed to be general. They contain many intents and entities, that you can choose from to customize an app to your needs. If you start from customizing an entire prebuilt domain, delete the intents and entities that your app doesn't need to use. You can also add some intents or entities to the set that the prebuilt domain already provides. For example, if you are using the **Events** prebuilt domain for a sports event app, you can to add entities for sports teams. When you start [providing utterances](Add-example-utterances.md) to LUIS, include terms that are specific to your app. LUIS learns to recognize them and tailors the prebuilt domain's intents and entities to your app's needs. 
+Prebuilt domains are designed to be general. They contain many intents and entities, that you can choose from to customize an app to your needs. If you start from customizing an entire prebuilt domain, delete the intents and entities that your app doesn't need to use. You can also add some intents or entities to the set that the prebuilt domain already provides. For example, if you are using the **Events** prebuilt domain for a sports event app, you can to add entities for sports teams. When you start [providing utterances](luis-how-to-add-example-utterances.md) to LUIS, include terms that are specific to your app. LUIS learns to recognize them and tailors the prebuilt domain's intents and entities to your app's needs. 
 
 > [!TIP]
 > The intents and entities in a prebuilt domain work best together. It's better to combine intents and entities from the same domain when possible.
@@ -54,7 +54,7 @@ You might find that a prebuilt domain contains an intent that is similar to an i
 Customize a prebuilt domain by adding more example utterances to it.
 
 > [!div class="nextstepaction"]
-> [Add example utterances](./Add-example-utterances.md)
+> [Add example utterances](./luis-how-to-add-example-utterances.md)
 
 ## Additional resources
 

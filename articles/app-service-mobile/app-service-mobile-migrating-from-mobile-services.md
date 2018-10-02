@@ -32,7 +32,7 @@ continue to operate normally.  Migration restarts your service once it is transf
 Microsoft is recommending that you migrate your Azure Mobile Service to take advantage of the features of Azure App Service, including:
 
 * New host features, including [WebJobs] and [custom domain names].
-* Monitoring and troubleshooting with New Relic or [Application Insights].
+* Monitoring and troubleshooting with [Application Insights].
 * Built-in DevOps tooling, including [staging slots], roll-back, and in-production testing.
 * [Auto-scale], load balancing, and [performance monitoring].
 
@@ -409,16 +409,16 @@ Now that your application is migrated to App Service, there are even more featur
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Auto-scale]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
 [Azure Classic Portal]: https://manage.windowsazure.com
 [Azure portal]: https://portal.azure.com
-[Azure Region]: https://azure.microsoft.com/en-us/regions/
+[Azure Region]: https://azure.microsoft.com/regions/
 [Azure Scheduler Plans]: ../scheduler/scheduler-plans-billing.md
 [continuously deploy]: ../app-service/app-service-continuous-deployment.md
-[Convert your Mixed namespaces]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[Convert your Mixed namespaces]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [custom domain names]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler

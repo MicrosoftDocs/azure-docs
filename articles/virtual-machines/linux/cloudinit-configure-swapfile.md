@@ -1,6 +1,6 @@
 ---
 title: Use cloud-init to configure a swapfile on a Linux VM | Microsoft Docs
-description: How to use cloud-init to configure a swapfile in a Linux VM during creation with the Azure CLI 2.0
+description: How to use cloud-init to configure a swapfile in a Linux VM during creation with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -23,34 +23,34 @@ This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io)
 ## Create swapfile for Ubuntu based images
 By default on Azure, Ubuntu gallery images do not create swap files. To enable swap file configuration during VM provisioning time using cloud-init - please see the [AzureSwapPartitions document](https://wiki.ubuntu.com/AzureSwapPartitions) on the Ubuntu wiki.
 
-## Create swapfile for RedHat and CentOS based images
+## Create swapfile for Red Hat and CentOS based images
 
 Create a file in your current shell named *cloud_init_swapfile.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloud_init_swapfile.txt` to create the file and see a list of available editors. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
 
 ```yaml
 #cloud-config
 disk_setup:
-ephemeral0:
-table_type: gpt
-layout: [66, [33,82]]
-overwrite: True
+  ephemeral0:
+    table_type: gpt
+    layout: [66, [33,82]]
+    overwrite: true
 fs_setup:
-- device: ephemeral0.1
-filesystem: ext4
-- device: ephemeral0.2
-filesystem: swap
+  - device: ephemeral0.1
+    filesystem: ext4
+  - device: ephemeral0.2
+    filesystem: swap
 mounts:
-- ["ephemeral0.1", "/mnt"]
-- ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+  - ["ephemeral0.1", "/mnt"]
+  - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Now, create a VM with [az vm create](/cli/azure/vm#create) and specify the cloud-init file with `--custom-data cloud_init_swapfile.txt` as follows:
+Now, create a VM with [az vm create](/cli/azure/vm#az_vm_create) and specify the cloud-init file with `--custom-data cloud_init_swapfile.txt` as follows:
 
 ```azurecli-interactive 
 az vm create \

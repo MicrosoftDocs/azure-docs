@@ -1,31 +1,23 @@
 ---
 title: "Azure Analysis Services Adventure Works Tutorial | Microsoft Docs"
 description: Introduces the Adventure Works tutorial for Azure Analysis Services
-services: analysis-services
-documentationcenter: ''
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
+ms.reviewer: minewiskan
+
 ---
 # Azure Analysis Services - Adventure Works tutorial
 
-This tutorial provides lessons on how to create and deploy a tabular model at the 1400 compatibility level by using Visual Studio with [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
-If you're new to Analysis Services and tabular modeling, completing this tutorial is the quickest way to learn how to create and deploy a basic tabular model by usign Visual Studio. Once you have the prerequisites in-place, it should take between two to three hours to complete.  
+This tutorial provides lessons on how to create and deploy a tabular model at the 1400 compatibility level by using Visual Studio [Analysis Services projects](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects) or [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+If you're new to Analysis Services and tabular modeling, completing this tutorial is the quickest way to learn how to create and deploy a basic tabular model by using Visual Studio. Once you have the prerequisites in-place, it should take between two to three hours to complete.  
   
 ## What you learn   
   
--   How to create a new tabular model project at the **1400 compatibility level** in Visual Studio with SSDT.
+-   How to create a new tabular model project at the **1400 compatibility level** in Visual Studio.
   
 -   How to import data from a relational database into a tabular model project workspace database.  
   
@@ -39,14 +31,14 @@ If you're new to Analysis Services and tabular modeling, completing this tutoria
   
 -   How to secure model objects and data by creating roles with user members.  
   
--   How to deploy a tabular model to an **Azure Analysis Services** server or an on-premises SQL Server 2017 Analysis Services server.  
+-   How to deploy a tabular model to an **Azure Analysis Services** server or **SQL Server 2017 Analysis Services** server by using Visual Studio.  
   
 ## Prerequisites  
 To complete this tutorial, you need:  
   
 -   An Azure Analysis Services server. Sign up for a free [Azure Analysis Services trial](https://azure.microsoft.com/services/analysis-services/) and [create a server](../analysis-services-create-server.md). 
 
--   An [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) with the **sample AdventureWorksDW database**, or a SQL Server Data Warehouse with the [Adventure Works sample database](http://go.microsoft.com/fwlink/?LinkID=335807).
+-   An [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) with the **sample AdventureWorksDW database**, or a SQL Server Data Warehouse with the [Adventure Works sample database](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
     **Important:** If you install the sample database to an on-premises SQL Server Data Warehouse, and deploy your model to an Azure Analysis Services server, an [On-premises data gateway](../analysis-services-gateway.md) is required.
 

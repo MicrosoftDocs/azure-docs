@@ -2,19 +2,12 @@
 title: Deciding when to use Azure Blobs, Azure Files, or Azure Disks
 description: Learn about the different ways to store and access data in Azure to help you decide which technology to use.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Deciding when to use Azure Blobs, Azure Files, or Azure Disks
@@ -38,15 +31,15 @@ The following table compares Azure Files with Azure Blobs.
 ||||  
 |-|-|-|  
 |**Attribute**|**Azure Blobs**|**Azure Files**|  
-|Durability options|LRS, ZRS, GRS (and RA-GRS for higher availability)|LRS, GRS|  
+|Durability options|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Accessibility|REST APIs|REST APIs<br /><br /> SMB 2.1 and SMB 3.0 (standard file system APIs)|  
 |Connectivity|REST APIs -- Worldwide|REST APIs - Worldwide<br /><br /> SMB 2.1 -- Within region<br /><br /> SMB 3.0 -- Worldwide|  
 |Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Directories|Flat namespace|True directory objects|  
 |Case sensitivity of names|Case sensitive|Case insensitive, but case preserving|  
-|Capacity|Up to 500 TB containers|5 TB file shares|  
-|Throughput|Up to 60 MB/s per block blob|Up to 60 MB/s per share|  
-|Object Size|Up to 200 GB/block blob|Up to 1TB/file|  
+|Capacity|Up to 500 TiB containers|5 TiB file shares|  
+|Throughput|Up to 60 MiB/s per block blob|Up to 60 MiB/s per share|  
+|Object Size|Up to about 4.75 TiB per block blob|Up to 1 TiB per file|  
 |Billed capacity|Based on bytes written|Based on file size|  
 |Client libraries|Multiple languages|Multiple languages|  
   
@@ -60,14 +53,14 @@ The following table compares Azure Files with Azure Disks.
 |-|-|-|  
 |**Attribute**|**Azure Disks**|**Azure Files**|  
 |Scope|Exclusive to a single virtual machine|Shared access across multiple virtual machines|  
-|Snapshots and Copy|Yes|No|  
+|Snapshots and Copy|Yes|Yes|  
 |Configuration|Connected at startup of the virtual machine|Connected after the virtual machine has started|  
 |Authentication|Built-in|Set up with net use|  
 |Cleanup|Automatic|Manual|  
 |Access using REST|Files within the VHD cannot be accessed|Files stored in a share can be accessed|  
-|Max Size|4 TB disk|5 TB File Share and 1 TB file within share|  
+|Max Size|4 TiB disk|5 TiB File Share and 1 TiB file within share|  
 |Max 8KB IOps|500 IOps|1000 IOps|  
-|Throughput|Up to 60 MB/s per Disk|Up to 60 MB/s per File Share|  
+|Throughput|Up to 60 MiB/s per Disk|Up to 60 MiB/s per File Share|  
 
 ## Next steps
 
@@ -75,4 +68,4 @@ When making decisions about how your data is stored and accessed, you should als
   
 Some SMB features are not applicable to the cloud. For more information, see [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-For more information about disks, see [Managing disks and images](../../virtual-machines/windows/about-disks-and-vhds.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../../virtual-machines/windows/classic/attach-disk.md).
+For more information about disks, see [Managing disks and images](../../virtual-machines/windows/about-disks-and-vhds.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../../virtual-machines/windows/attach-managed-disk-portal.md).

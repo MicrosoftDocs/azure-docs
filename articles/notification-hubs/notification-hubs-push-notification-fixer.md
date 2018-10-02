@@ -3,9 +3,9 @@ title: Azure Notification Hubs dropped notification diagnosis
 description: Learn how to diagnose common issues with dropped notifications in Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: ''
+editor: spelluru
 
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
@@ -13,30 +13,30 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 12/22/2017
-ms.author: jawh
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # Diagnose dropped notifications in Notification Hubs
 
 One of the most common questions from Azure Notification Hubs customers is how to troubleshoot when notifications that are sent from an application don't appear on client devices. They want to know where and why notifications were dropped, and how to fix the issue. This article identifies why notifications might get dropped or not be received by devices. Learn how to analyze and determine the root cause. 
 
-It's critical to first understand how Notification Hubs pushes notifications to a device.
+It's critical to first understand how the Notification Hubs service pushes notifications to a device.
 
 ![Notification Hubs architecture][0]
 
 In a typical send notification flow, the message is sent from the *application back end* to Notification Hubs. Notification Hubs does some processing on all the registrations. The processing takes into account the configured tags and tag expressions to determine "targets." Targets are all the registrations that need to receive the push notification. These registrations can span any or all our supported platforms: iOS, Google, Windows, Windows Phone, Kindle, and Baidu for China Android.
 
-With the targets established, Notification Hubs pushes notifications to the *push notification service* for the device platform. Examples include the Apple Push Notification service (APNs) for Apple and Firebase Cloud Messaging (FCM) for Google. Notification Hubs pushes notifications split across multiple batches of registrations. Notification Hubs authenticates with the respective push notification service based on the credentials that you set in the Azure portal, under **Configure Notification Hub**. The push notification service then forwards the notifications to the respective *client devices*. 
+With the targets established, the Notification Hubs service pushes notifications to the *push notification service* for the device platform. Examples include the Apple Push Notification service (APNs) for Apple and Firebase Cloud Messaging (FCM) for Google. Notification Hubs pushes notifications split across multiple batches of registrations. Notification Hubs authenticates with the respective push notification service based on the credentials that you set in the Azure portal, under **Configure Notification Hub**. The push notification service then forwards the notifications to the respective *client devices*. 
 
-Note that the final leg of notification delivery takes place between the platform push notification service and the device. Any of the four major components in the push notification process (client, application back end, Notification Hubs, and the platform push notification service) might cause notifications to be dropped. For more information about the Notification Hubs architecture, see [Notification Hubs overview].
+The final leg of notification delivery takes place between the platform push notification service and the device. Any of the four major components in the push notification process (client, application back end, Notification Hubs, and the platform push notification service) might cause notifications to be dropped. For more information about the Notification Hubs architecture, see [Notification Hubs overview].
 
 Failure to deliver notifications might occur during the initial test/staging phase. Dropped notifications at this stage might indicate a configuration issue. If failure to deliver notifications occurs in production, either some or all of the notifications might be dropped. In this case, a deeper application or messaging pattern issue is indicated. 
 
 The next section looks at scenarios in which notifications might be dropped, ranging from common to more rare.
 
 ## Notification Hubs misconfiguration
-To successfully send notifications to the respective push notification service, Notification Hubs needs to authenticate itself in the context of the developer's application. For this to occur, the developer creates a developer account with the respective platform (Google, Apple, Windows, and so on). Then, the developer registers their application with the platform where they get credentials. 
+To successfully send notifications to the respective push notification service, the Notification Hubs service needs to authenticate itself in the context of the developer's application. For this to occur, the developer creates a developer account with the respective platform (Google, Apple, Windows, and so on). Then, the developer registers their application with the platform where they get credentials. 
 
 You must add platform credentials to the Azure portal. If no notifications are reaching the device, the first step should be to ensure that the correct credentials are configured in Notification Hubs. The credentials must match the application that is created under a platform-specific developer account. 
 
@@ -85,7 +85,7 @@ Here are some common misconfigurations to check for:
 
 * **Invalid registrations**
 
-    If the notification hub was configured correctly, and if any tags or tag expressions were used correctly, valid targets are found. Notifications should be sent to these targets. Notification Hubs then fires off several processing batches in parallel. Each batch sends messages to a set of registrations. 
+    If the notification hub was configured correctly, and if any tags or tag expressions were used correctly, valid targets are found. Notifications should be sent to these targets. The Notification Hubs service then fires off several processing batches in parallel. Each batch sends messages to a set of registrations. 
 
     > [!NOTE]
     > Because processing is performed in parallel, the order in which the notifications are delivered is not guaranteed. 
@@ -99,7 +99,7 @@ Here are some common misconfigurations to check for:
     To get more error information about the failed delivery attempt against a registration, you can use the Notification Hubs REST APIs [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx) and [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). For sample code, see the [Send REST example](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
 ## Push notification service issues
-After the notification message has been received by the platform push notification service, it's the responsibility of the push notification service to deliver the notification to the device. At this point, Notification Hubs is out of the picture and has no control over when or if the notification is delivered to the device. 
+After the notification message has been received by the platform push notification service, it's the responsibility of the push notification service to deliver the notification to the device. At this point, the Notification Hubs service is out of the picture and has no control over when or if the notification is delivered to the device. 
 
 Because platform notification services are robust, notifications tend to reach devices from the push notification service in a few seconds. If the push notification service is throttling,  Notification Hubs applies an exponential back-off strategy. If the push notification service remains unreachable for 30 minutes, we have a policy in place to expire and drop those messages permanently. 
 
@@ -223,7 +223,7 @@ This message indicates that either invalid credentials are configured in Notific
    
         ![Notification Hubs overview dashboard][5]
    
-    2. On the **Monitor** tab, you can add many other platform-specific metrics for a deeper look. You can look specifically at any errors related to the push notification service that are returned when Notification Hubs tries to send the notification to the push notification service. 
+    2. On the **Monitor** tab, you can add many other platform-specific metrics for a deeper look. You can look specifically at any errors related to the push notification service that are returned when the Notification Hubs service tries to send the notification to the push notification service. 
    
         ![Azure portal activity log][6]
    
@@ -269,7 +269,7 @@ This message indicates that either invalid credentials are configured in Notific
 [View device registrations for notification hubs]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
 [Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
 [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 
-[EnableTestSend]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Programmatic telemetry access]: http://msdn.microsoft.com/library/azure/dn458823.aspx
 [Telemetry access via APIs sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 

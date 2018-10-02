@@ -1,14 +1,14 @@
 ---
 title: Use Terraform modules to create a VM cluster on Azure
 description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, virtual machine, network, modules
-author: rloutlaw
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.workload: infrastructure
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/19/2017
-ms.custom: devops
-ms.author: routlaw
 ---
 
 # Create a VM cluster with Terraform using the Module Registry
@@ -57,6 +57,7 @@ module mycompute {
     vm_os_simple = "WindowsServer"
     remote_port = "3389"
     nb_instances = 2
+    public_ip_dns = ["unique_dns_name"]
     vnet_subnet_id = "${module.network.vnet_subnets[0]}"
 }
 
@@ -70,7 +71,7 @@ output "vm_public_name" {
     value = "${module.mycompute.public_ip_dns_name}"
 }
 
-output = "vm_public_ip" {
+output "vm_public_ip" {
     value = "${module.mycompute.public_ip_address}"
 }
 

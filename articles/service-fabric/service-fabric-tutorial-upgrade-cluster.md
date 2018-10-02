@@ -1,9 +1,9 @@
 ---
-title: Upgrade Azure Service Fabric runtime | Microsoft Docs
-description: Learn how to use PowerShell to upgrade the runtime of an Azure-hosted Service Fabric cluster.
+title: Upgrade the Service Fabric runtime in Azure | Microsoft Docs
+description: In this tutorial, you learn how to use PowerShell to upgrade the runtime of an Azure-hosted Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: Thraka
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,11 +14,10 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
-ms.author: adegeo
+ms.author: ryanwi
 ms.custom: mvc
 ---
-
-# Upgrade the runtime of a Service Fabric cluster
+# Tutorial: Upgrade the runtime of a Service Fabric cluster in Azure
 
 This tutorial is part three of a series, and shows you how to upgrade the Service Fabric runtime on an Azure Service Fabric cluster. This tutorial part is written for Service Fabric clusters running on Azure and does not apply to standalone Service Fabric clusters.
 
@@ -38,21 +37,24 @@ In this tutorial series you learn how to:
 > * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
 > * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * Upgrade the runtime of a cluster
-> * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## Prerequisites
+
 Before you begin this tutorial:
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
-- If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](http://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
-- If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md). 
+
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
+* If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](http://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
+* If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md).
 
 ### Sign in to Azure
+
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -94,7 +96,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > The cluster runtime upgrade may take a long time to complete. PowerShell is blocked while the upgrade is running. You can use another PowerShell session to check the status of the upgrade.
 
-The status of the upgrade can be monitored with either PowerShell or the `sfctl` CLI.
+The status of the upgrade can be monitored with either PowerShell or the Azure Service Fabric CLI (sfctl).
 
 First connect to the cluster with the SSL certificate created in the first part of the tutorial. Use the `Connect-ServiceFabricCluster` cmdlet or `sfctl cluster upgrade-status`.
 
@@ -188,7 +190,8 @@ sfctl cluster upgrade-status
 }
 ```
 
-## Conclusion
+## Next steps
+
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
@@ -196,6 +199,3 @@ In this tutorial, you learned how to:
 > * Upgrade the cluster runtime
 > * Monitor the upgrade
 
-Next, advance to the following tutorial to learn how to deploy API Management with a Service Fabric cluster.
-> [!div class="nextstepaction"]
-> [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)

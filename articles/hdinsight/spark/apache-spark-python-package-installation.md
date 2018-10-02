@@ -1,22 +1,15 @@
 ---
-title: Script action - Install Python packages with Jupyter on Azure HDInsight | Microsoft Docs
+title: Script action - Install Python packages with Jupyter on Azure HDInsight 
 description: Step-by-step instructions on how to use script action to configure Jupyter notebooks available with HDInsight Spark clusters to use external python packages.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 21978b71-eb53-480b-a3d1-c5d428a7eb5b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Use Script Action to install external Python packages for Jupyter notebooks in Apache Spark clusters on HDInsight
@@ -35,7 +28,7 @@ Learn how to use Script Actions to configure an Apache Spark cluster on HDInsigh
 
 You can search the [package index](https://pypi.python.org/pypi) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, you can install packages made available through [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) or [conda-forge](https://conda-forge.org/feedstocks/).
 
-In this article, you will learn how to install the [TensorFlow](https://www.tensorflow.org/) package using Script Action on your cluster and use it via the Jupyter notebook.
+In this article, you learn how to install the [TensorFlow](https://www.tensorflow.org/) package using Script Action on your cluster and use it via the Jupyter notebook.
 
 ## Prerequisites
 You must have the following:
@@ -77,7 +70,7 @@ Visit the documentation on [how to use custom script actions](https://docs.micro
 	    sess = tf.Session()
 	    print(sess.run(hello))
 
-	The result will look like this:
+	The result looks like this:
 	
 	![TensorFlow code execution](./media/apache-spark-python-package-installation/execution.png "Execute TensorFlow code")
 
@@ -88,7 +81,6 @@ Visit the documentation on [how to use custom script actions](https://docs.micro
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications

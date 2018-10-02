@@ -1,24 +1,25 @@
 ---
-title: "PowerShell for Virtual Network service endpoints and rules in SQL | Microsoft Docs"
-description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database."
+title: "PowerShell for Virtual Network service endpoints and rules in Azure SQL | Microsoft Docs"
+description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database and SQL Data Warehouse."
 services: sql-database
-documentationcenter: ''
-author: MightyPen
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: sql-database
-ms.custom: "VNet Service endpoints"
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Inactive"
-ms.date: 09/15/2017
-ms.author: genemi
+ms.subservice: development
+ms.custom: 
+ms.devlang: PowerShell
+ms.topic: conceptual
+author: DhruvMsft
+ms.author: dmalik
+ms.reviewer: genemi, vanto
+manager: craigg
+ms.service: sql-database
+ms.date: 06/14/2018
 ---
-# Use PowerShell to create a Virtual Service endpoint and rule for Azure SQL Database
+# Use PowerShell to create a Virtual Service endpoint and rule for Azure SQL Database and SQL Data Warehouse
+
+Both Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Virtual Service endpoints. 
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 This article provides and explains a PowerShell script that takes the following actions:
 
@@ -44,12 +45,17 @@ The following list shows the sequence of other *major* cmdlets that you must run
 
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): Persists updates made to your virtual network.
 
-5. **New-AzureRmSqlServerVirtualNetworkRule**: After your subnet is an endpoint, adds your subnet as a virtual network rule, into the ACL of your Azure SQL Database server.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): After your subnet is an endpoint, adds your subnet as a virtual network rule, into the ACL of your Azure SQL Database server.
+    - Offers the parameter **-IgnoreMissingVnetServiceEndpoint**, starting in Azure RM PowerShell Module version 5.1.1.
 
 #### Prerequisites for running PowerShell
 
 - You can already log in to Azure, such as through the [Azure portal][http-azure-portal-link-ref-477t].
 - You can already run PowerShell scripts.
+
+> [!NOTE]
+> Please ensure that service endpoints are turned on for the Vnet/Subnet that you want to add to your Server otherwise creation of the 
+> Vnet Firewall Rule will fail.
 
 #### One script divided into four chunks
 
@@ -80,7 +86,7 @@ This first PowerShell script assigns values to variables. The subsequent scripts
 ###########################################################
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 ###########################################################
 ##  Assignments to variables used by the later scripts.  ##
@@ -520,7 +526,7 @@ This PowerShell script does not update anything, unless you respond yes if is as
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 # Assignments to variables used by the later scripts.
 # You can EDIT these values, if necessary.

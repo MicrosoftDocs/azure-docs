@@ -1,10 +1,8 @@
-- name: Machine Learning Studio Documentation
-  href: index.md
+- name: Machine Learning Studio Documentation 
+  href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What's Machine Learning?
-    href: what-is-machine-learning.md
   - name: Machine Learning Studio
     href: what-is-ml-studio.md
   - name: ML Studio capabilities
@@ -63,8 +61,8 @@
         href: troubleshooting-creating-ml-workspace.md
       - name: Deploy using ARM
         href: deploy-with-resource-manager-template.md
-      - name: Create in another region
-        href: multi-geo.md
+      - name: View and delete Studio account data
+        href: export-delete-personal-data-dsr.md
   - name: Acquire and understand data
     items:
     - name: Import training data
@@ -184,7 +182,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell module (New)
-    href: /powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning
+    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
   - name: Azure PowerShell module (Classic)
     href: powershell-module.md
   - name: Algorithm & Module reference
@@ -217,8 +215,12 @@
       href: gallery-collections.md
     - name: Custom Modules
       href: gallery-custom-modules.md
+    - name: View and delete account data
+      href: ai-gallery-control-personal-data-dsr.md
 - name: Resources
   items:
+  - name: R developer's guide 
+    href: ../r-developers-guide.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Net# Neural Networks Language
@@ -235,6 +237,4 @@
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-  - name: Get help from live chat
-    href: live-chat.md
 

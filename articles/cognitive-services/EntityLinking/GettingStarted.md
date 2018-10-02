@@ -1,18 +1,19 @@
 ---
-title: Get started with the Entity Linking API | Microsoft Docs
-description: Analyze text and link named entities to relevant entries in a knowledge base by using the Entity Linking API in Cognition Services.
+title: "Tutorial: Build an Entity Linking app - C#"
+titlesuffix: Azure Cognitive Services
+description: Analyze text and link named entities to relevant entries in a knowledge base by using the Entity Linking API.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: entitylinking
-ms.topic: article
+ms.component: entity-linking-intelligence
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
 ---
 
-# Get Started with Entity Linking API in C&#35;
+# Tutorial: Build an Entity Linking app with C#
 
 Microsoft's Entity Linking is a natural language processing tool to analyze text and link named-entities to relevant entries in a knowledge base. 
 
@@ -85,7 +86,7 @@ Below is example code, which adds the "wikipediaId" to the response by using Ent
  private async void button_Click(object sender, RoutedEventArgs e)
 {
     var text = this.inputBox.Text;
-    var client = new EntityLinkingServiceClient("Your subscription key");
+    var client = new EntityLinkingServiceClient("Your subscription key","https://api.labs.cognitive.microsoft.com");
     var linkResponse = await client.LinkAsync(text);
     var result = string.Join(", ", linkResponse.Select(i => i.WikipediaID).ToList());
     this.outputBlock.Text = result;

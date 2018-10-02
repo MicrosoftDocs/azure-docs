@@ -4,28 +4,26 @@ description: Azure CLI Script Sample - Create an Azure Function that connects to
 services: functions
 documentationcenter: functions
 author: ggailey777
-manager: cfowler
-editor: 
-tags: functions
+manager: jeconnoc
 ms.assetid: 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: 
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
 ---
-# Integrate Function App into Azure Storage Account
+# Create a function app that connects to an Azure Storage account
 
-This sample script creates a Function App and Storage Account.
+This Azure Functions sample script creates a function app and connects the function to an Azure Storage account. The created app setting that contains the connection can be used with a [storage trigger or binding](..\functions-bindings-storage-blob.md). 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you use the CLI locally, make sure that you are running the Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you use the CLI locally, make sure that you are running the Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Sample script
 
@@ -46,14 +44,12 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#login) | Log in to Azure. |
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Create a resource group with location |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Create a storage account |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Create a new function app |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Clean up |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Create a resource group with location. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Create a storage account. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [consumption plan](../functions-scale.md#consumption-plan). |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).

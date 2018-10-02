@@ -1,68 +1,80 @@
 ---
-title: "Bing Custom Search: Call endpoint by using NodeJs | Microsoft Docs"
-description: Describes how to call Bing Custom Search endpoint with nodejs
+title: Call endpoint by using Node.js - Bing Custom Search - Microsoft Cognitive Services
+description: This quickstart shows how to request search results from your custom search instance by using Node.js to call the Bing Custom Search endpoint. 
 services: cognitive-services
 author: brapel
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-custom-search
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 05/07/2018
 ms.author: v-brapel
 ---
 
 # Call Bing Custom Search endpoint (Node.js)
 
-This example shows how to request search results from your custom search instance using Node.js. To create this example follow these steps:
+This quickstart shows how to request search results from your custom search instance using Node.js to call the Bing Custom Search endpoint. 
 
-1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
-2. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+## Prerequisites
 
-  >[!NOTE]  
-  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
+To complete this quickstart, you need:
 
-3. Install [Node.js](https://www.nodejs.org/).
-4. Create a folder for your code.
-5. From a command prompt or terminal, navigate to the folder you just created.
-6. Install the **request** node module:
+- A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
+- [Node.js](https://www.nodejs.org/) installed.
+- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+
+## Run the code
+
+To run this example, follow these steps:
+
+1. Create a folder for your code.  
+  
+2. From a command prompt or terminal, navigate to the folder you just created.  
+  
+3. Install the **request** node module:
     <pre>
     npm install request
-    </pre>
-7. Create the file BingCustomSearch.js and copy the following code to it.
-8. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
-
-``` Node.js
-var request = require("request");
-
-var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
-var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
-var searchTerm = 'microsoft';
-
-var options = {
-    url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
-      'q=' + searchTerm + 
-      '&customconfig=' + customConfigId,
-    headers: {
-        'Ocp-Apim-Subscription-Key' : subscriptionKey
+    </pre>  
+    
+4. Create a file named BingCustomSearch.js in the folder you created and copy the following code into it. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your subscription key and configuration ID.  
+  
+    ``` javascript
+    var request = require("request");
+    
+    var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
+    var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
+    var searchTerm = 'microsoft';
+    
+    var options = {
+        url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
+          'q=' + searchTerm + 
+          '&customconfig=' + customConfigId,
+        headers: {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey
+        }
     }
-}
+    
+    request(options, function(error, response, body){
+        var searchResponse = JSON.parse(body);
+        for(var i = 0; i < searchResponse.webPages.value.length; ++i){
+            var webPage = searchResponse.webPages.value[i];
+            console.log('name: ' + webPage.name);
+            console.log('url: ' + webPage.url);
+            console.log('displayUrl: ' + webPage.displayUrl);
+            console.log('snippet: ' + webPage.snippet);
+            console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
+            console.log();
+        }
+    })
+    ```  
+  
+6. Run the code using the following command:  
+  
+    ```    
+    node BingCustomSearch.js
+    ``` 
 
-request(options, function(error, response, body){
-    var searchResponse = JSON.parse(body);
-    for(var i = 0; i < searchResponse.webPages.value.length; ++i){
-        var webPage = searchResponse.webPages.value[i];
-        console.log('name: ' + webPage.name);
-        console.log('url: ' + webPage.url);
-        console.log('displayUrl: ' + webPage.displayUrl);
-        console.log('snippet: ' + webPage.snippet);
-        console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
-        console.log();
-    }
-})
-```
-
-### Next steps
-- [Configure and consume custom hosted UI](./hosted-ui.md)
+## Next steps
+- [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

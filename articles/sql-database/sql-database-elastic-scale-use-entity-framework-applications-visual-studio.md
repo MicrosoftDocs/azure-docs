@@ -2,21 +2,16 @@
 title: Using elastic database client library with Entity Framework | Microsoft Docs
 description: Use Elastic Database client library and Entity Framework for coding databases
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: torsteng
-editor: ''
-
-ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/06/2017
-ms.author: torsteng
-
+ms.subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Elastic Database client library with Entity Framework
 This document shows the changes in an Entity Framework application that are needed to integrate with the [Elastic Database tools](sql-database-elastic-scale-introduction.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach. The [Code First - New Database](http://msdn.microsoft.com/data/jj193542.aspx) tutorial for EF serves as the running example throughout this document. The sample code accompanying this document is part of elastic database tools' set of samples in the Visual Studio Code Samples.

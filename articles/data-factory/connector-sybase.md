@@ -4,27 +4,24 @@ description: Learn how to copy data from Sybase to supported sink data stores by
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
 # Copy data from Sybase using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-onprem-sybase-connector.md)
-> * [Version 2 - Preview](connector-sybase.md)
+> * [Version 1](v1/data-factory-onprem-sybase-connector.md)
+> * [Current version](connector-sybase.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Sybase database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Sybase connector in V1](v1/data-factory-onprem-sybase-connector.md).
 
 ## Supported capabilities
 
@@ -32,7 +29,7 @@ You can copy data from Sybase database to any supported sink data store. For a l
 
 Specifically, this Sybase connector supports:
 
-- Sybase **version 16 and above**.
+- SAP Sybase SQL Anywhere (ASA) **version 16 and above**; IQ and ASE are not supported.
 - Copying data using **Basic** or **Windows** authentication.
 
 ## Prerequisites
@@ -57,10 +54,9 @@ The following properties are supported for Sybase linked service:
 | type | The type property must be set to: **Sybase** | Yes |
 | server | Name of the Sybase server. |Yes |
 | database | Name of the Sybase database. |Yes |
-| schema | Name of the schema in the database. |No |
 | authenticationType | Type of authentication used to connect to the Sybase database.<br/>Allowed values are: **Basic**, and **Windows**. |Yes |
 | username | Specify user name to connect to the Sybase database. |Yes |
-| password | Specify password for the user account you specified for the username. Mark this field as a SecureString. |Yes |
+| password | Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**

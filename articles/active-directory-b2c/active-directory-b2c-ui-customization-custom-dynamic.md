@@ -1,22 +1,22 @@
 ---
-title: 'Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI) dynamically by using custom policies'
+title: Customize the Azure Active Directory B2C user interface (UI) dynamically by using custom policies | Microsoft Docs
 description: Support multiple branding experiences with HTML5/CSS content that changes dynamically at runtime.
 services: active-directory-b2c
-documentationcenter: ''
-author: yoelhor
+author: davidmu1
 manager: mtillman
-editor: 
 
-ms.assetid:
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 09/20/2017
-ms.author: yoelh
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Configure the UI with dynamic content by using custom policies
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 By using Azure Active Directory B2C (Azure AD B2C) custom policies, you can send a parameter in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application. 
 
 ## Prerequisites
@@ -101,7 +101,7 @@ Your custom HTML5 template is based on the Azure AD B2C built-in HTML5 template.
 
 7. For this walkthrough, we remove the reference to layout-page. Add the following code snippet to _unified.cshtml_:
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -260,7 +260,7 @@ Modify the HomeController `unified` method to accept the campaignId parameter. T
 
 1. Open the *Controllers\HomeController.cs* file, and then change the `unified` method by adding the following code snippet:
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background

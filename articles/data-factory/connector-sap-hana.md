@@ -4,27 +4,24 @@ description: Learn how to copy data from SAP HANA to supported sink data stores 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
 # Copy data from SAP HANA using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-sap-hana-connector.md)
-> * [Version 2 - Preview](connector-sap-hana.md)
+> * [Version 1](v1/data-factory-sap-hana-connector.md)
+> * [Current version](connector-sap-hana.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP HANA database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [SAP HANA connector in V1](v1/data-factory-sap-hana-connector.md).
 
 ## Supported capabilities
 
@@ -62,7 +59,7 @@ The following properties are supported for SAP HANA linked service:
 | server | Name of the server on which the SAP HANA instance resides. If your server is using a customized port, specify `server:port`. | Yes |
 | authenticationType | Type of authentication used to connect to the SAP HANA database.<br/>Allowed values are: **Basic**, and **Windows** | Yes |
 | userName | Name of the user who has access to the SAP server. | Yes |
-| password | Password for the user. Mark this field as a SecureString. | Yes |
+| password | Password for the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**

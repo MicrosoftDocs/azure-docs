@@ -2,19 +2,16 @@
 title: Exporting an Azure-hosted API to PowerApps and Microsoft Flow | Microsoft Docs
 description: Overview of how to expose an API hosted in App Service to PowerApps and Microsoft Flow
 services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: erikre
-editor: ''
+author: ggailey777
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
-ms.author: mahender; mblythe
+ms.author: glenga
+ms.reviewer: sunayv
 
 ---
 # Exporting an Azure-hosted API to PowerApps and Microsoft Flow
@@ -24,7 +21,7 @@ ms.author: mahender; mblythe
 Similarly, developers that want to expose their APIs more broadly within an organization can make their APIs available to app and flow builders. This topic shows you how to export an API built with [Azure Functions](../azure-functions/functions-overview.md) or [Azure App Service](../app-service/app-service-web-overview.md). The exported API becomes a *custom connector*, which is used in PowerApps and Microsoft Flow just like a built-in connector.
 
 ## Create and export an API definition
-Before exporting an API, you must describe the API using an OpenAPI definition (formerly known as a [Swagger](http://swagger.io/) file). This definition contains information about what operations are available in an API and how the request and response data for the API should be structured. PowerApps and Microsoft Flow can create custom connectors for any OpenAPI 2.0 definition. Azure Functions and Azure App Service have built-in support for creating, hosting, and managing OpenAPI definitions. For more information, see [Create a RESTful API in Azure Web Apps](../app-service/app-service-web-tutorial-rest-api.md).
+Before exporting an API, you must describe the API using an OpenAPI definition (formerly known as a [Swagger](http://swagger.io/) file). This definition contains information about what operations are available in an API and how the request and response data for the API should be structured. PowerApps and Microsoft Flow can create custom connectors for any OpenAPI 2.0 definition. Azure Functions and Azure App Service have built-in support for creating, hosting, and managing OpenAPI definitions. For more information, see [Host a RESTful API with CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
 > You can also build custom connectors in the PowerApps and Microsoft Flow UI, without using an OpenAPI definition. For more information, see [Register and use a custom connector (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) and [Register and use a custom connector (Microsoft  Flow)](https://flow.microsoft.com/documentation/register-custom-api/).

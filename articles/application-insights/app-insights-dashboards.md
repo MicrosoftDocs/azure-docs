@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 
@@ -59,7 +59,7 @@ The chart is automatically refreshed with a frequency that depends on the chart'
 * Time range above 24 hours: (Time range)/60.
 
 ### Pin any query in Analytics
-You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. 
+You can also [pin Analytics](../log-analytics/query-language/get-started-analytics-portal.md) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. 
 
 Results are automatically recalculated every hour. Click the Refresh icon on the chart to recalculate immediately. (Browser refresh doesn't recalculate.)
 
@@ -114,7 +114,6 @@ The overview blade is the gateway to more information about your app.
 
 ### Essentials tab
 * [Instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource.
-* Pricing - Make features available and set volume caps.
 
 ### App navigation bar
 ![Left navigation bar](./media/app-insights-dashboards/app-left-nav-bar.png)

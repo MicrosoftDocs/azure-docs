@@ -2,19 +2,15 @@
 title: Using the Mongoose framework with Azure Cosmos DB | Microsoft Docs
 description: Learn how to connect a Node.js Mongoose app to Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
-author: romitgirdhar
-manager: jhubbard
-editor: ''
+author: slyons
+manager: kfile
 
-ms.assetid: de5eea58-ee7c-4609-b1c9-4af3e61a5883
 ms.service: cosmos-db
-ms.workload: 
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 01/08/2018
-ms.author: rogirdh
+ms.author: sclyon
 
 ---
 # Azure Cosmos DB: Using the Mongoose framework with Azure Cosmos DB
@@ -52,7 +48,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 1. Install the necessary packages using one of the ```npm install``` options:
     * Mongoose: ```npm install mongoose --save```
     * Dotenv (if you'd like to load your secrets from an .env file): ```npm install dotenv --save```
-    
+
     >[!Note]
     > The ```--save``` flag adds the dependency to the package.json file.
 
@@ -83,7 +79,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     > Here, the environment variables are loaded using process.env.{variableName} using the 'dotenv' npm package.
 
     Once you are connected to Azure Cosmos DB, you can now start setting up object models in Mongoose.
-    
+
 ## Caveats to using Mongoose with Azure Cosmos DB
 
 For every model you create, Mongoose creates a new MongoDB collection underneath the covers. However, given the per-collection billing model of Azure Cosmos DB, it might not be the most cost-efficient way to go, if you've got multiple object models that are sparsely populated.
@@ -178,7 +174,7 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
 
 1. Now, going into the Azure portal, you notice two collections created in Azure Cosmos DB.
 
-    ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][alldata]
+    ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with multiple collection names highlighted - Node database][mutiple-coll]
 
 1. Finally, let's read the data from Azure Cosmos DB. Since we're using the default Mongoose operating model, the reads are the same as any other reads with Mongoose.
 
@@ -283,7 +279,7 @@ Here, we create a base object model, define a differentiating key and add 'Famil
 
 1. Now, if you go back to the Azure portal, you notice that you have only one collection called ```alldata``` with both 'Family' and 'VacationDestinations' data.
 
-    ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][mutiple-coll]
+    ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][alldata]
 
 1. Also, notice that each object has another attribute called as ```__type```, which help you differentiate between the two different object models.
 

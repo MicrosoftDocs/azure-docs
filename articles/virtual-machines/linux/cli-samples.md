@@ -3,8 +3,8 @@ title: Azure CLI Samples | Microsoft Docs
 description: Azure CLI Samples
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/08/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 
 ---
@@ -29,7 +29,6 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create a virtual machine](./../scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a Linux virtual machine with minimal configuration. |
 | [Create a fully configured virtual machine](./../scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|
 | [Create highly available virtual machines](./../scripts/virtual-machines-linux-cli-sample-nlb.md?toc=%2fcli%2fazure%2ftoc.json) | Creates several virtual machines in a highly available and load balanced configuration. |
-| [Create a VM with Docker enabled](./../scripts/virtual-machines-linux-cli-sample-create-docker-host.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine, configures this VM as a Docker host, and runs an NGINX container. |
 | [Create a VM and run configuration script](./../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install NGINX. |
 | [Create a VM with WordPress installed](./../scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install WordPress. |
 | [Create a VM from a managed OS disk](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json) | Creates a virtual machine by attaching an existing Managed Disk as OS disk. |

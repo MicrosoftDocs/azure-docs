@@ -4,27 +4,24 @@ description: Learn about how to move data to/from SQL Server database that is on
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/30/2017
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: jingwang
 
 ---
 # Copy data to and from SQL Server using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-sqlserver-connector.md)
-> * [Version 2 - Preview](connector-sql-server.md)
+> * [Version 1](v1/data-factory-sqlserver-connector.md)
+> * [Current version](connector-sql-server.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to an SQL Server database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [SQL Server connector in V1](v1/data-factory-sqlserver-connector.md).
 
 ## Supported capabilities
 
@@ -54,10 +51,13 @@ The following properties are supported for SQL Server linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SqlServer** | Yes |
-| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. Mark this field as a SecureString. |Yes |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. Refer to the following sample. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | userName |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
-| password |Specify password for the user account you specified for the userName. Mark this field as a SecureString. |No |
+| password |Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!TIP]
+>If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
 
 **Example 1: using SQL authentication**
 
@@ -253,10 +253,10 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
 | type | The type property of the copy activity sink must be set to: **SqlSink** | Yes |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: integer (number of rows). |No (default: 10000) |
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
-| sqlWriterStoredProcedureName |Name of the stored procedure that upserts (updates/inserts) data into the target table. |No |
+| preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into SQL Server. It will only be invoked once per copy run. You can use this property to clean up the pre-loaded data. |No |
+| sqlWriterStoredProcedureName |Name of the stored procedure that defines how to apply source data into target table, e.g. to do upserts or transform using your own business logic. <br/><br/>Note this stored procedure will be **invoked per batch**. If you want to do operation that only runs once and has nothing to do with source data e.g. delete/truncate, use `preCopyScript` property. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are: name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 | sqlWriterTableType |Specify a table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. |No |
-| preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into SQL Server in each run. You can use this property to clean up the pre-loaded data. |No |
 
 > [!TIP]
 > When copying data to SQL Server, the copy activity appends data to the sink table by default. To perform an UPSERT or additional business logic, use the stored procedure in SqlSink. Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
@@ -401,7 +401,7 @@ Notice that the target table has an identity column.
 
 Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
 
-## Invoke stored procedure from SQL sink
+## <a name="invoking-stored-procedure-for-sql-sink"></a> Invoke stored procedure from SQL sink
 
 When copying data into SQL Server database, a user specified stored procedure could be configured and invoked with additional parameters.
 
@@ -443,7 +443,7 @@ Define the SqlSink section in copy activity as follows.
 }
 ```
 
-In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and merge into the output table. Notice that the parameter name of the stored procedure should be the same as the "tableName" defined in dataset.
+In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and merge into the output table. The parameter name of the table type in the stored procedure should be the same as the "tableName" defined in dataset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -471,6 +471,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+
+>[!NOTE]
+>If you write to Money/Smallmoney data type by invoking Stored Procedure, values may be rounded. Specify the corresponding data type in TVP as Decimal instead of Money/Smallmoney to mitigate. 
 
 ## Data type mapping for SQL server
 

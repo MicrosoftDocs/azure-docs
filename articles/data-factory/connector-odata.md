@@ -4,27 +4,24 @@ description: Learn how to copy data from OData sources to supported sink data st
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 
 ---
 # Copy data from OData source using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-odata-connector.md)
-> * [Version 2 - Preview](connector-odata.md)
+> * [Version 1](v1/data-factory-odata-connector.md)
+> * [Current version](connector-odata.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an OData source. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [OData connector in V1](v1/data-factory-odata-connector.md).
 
 ## Supported capabilities
 
@@ -51,7 +48,7 @@ The following properties are supported for OData linked service:
 | url | Root URL of the OData service. |Yes |
 | authenticationType | Type of authentication used to connect to the OData source.<br/>Allowed values are: **Anonymous**, **Basic**, and **Windows**. Note OAuth is not supported. | Yes |
 | userName | Specify user name if you are using Basic or Windows authentication. | No |
-| password | Specify password for the user account you specified for the userName. Mark this field as SecureString. | No |
+| password | Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example 1: using Anonymous authentication**
@@ -130,7 +127,7 @@ To copy data from OData, set the type property of the dataset to **ODataResource
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **ODataResource** | Yes |
-| path | Path to the OData resource. | No |
+| path | Path to the OData resource. | Yes |
 
 **Example**
 

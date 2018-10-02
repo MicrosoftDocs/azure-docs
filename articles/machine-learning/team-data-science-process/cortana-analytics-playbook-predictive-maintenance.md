@@ -1,772 +1,464 @@
 ---
-title: Predictive maintenance in aerospace with Azure - Cortana Intelligence Solution template| Microsoft Docs
-description: A Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
-services: cortana-analytics
-documentationcenter: ''
+title: Azure AI guide for predictive maintenance solutions | Microsoft Docs
+description: A comprehensive description of the data science that powers predictive maintenance solutions in multiple vertical industries.
+services: machine-learning
 author: fboylu
-manager: jhubbard
-editor: cgronlun
+manager: cgronlun
+editor: 
 
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/11/2018
 ms.author: fboylu
-
 ---
-# Cortana Intelligence Solution Template Playbook for predictive maintenance in aerospace and other businesses
-## Executive summary
-Predictive maintenance is one of the most demanded applications of
-predictive analytics with unarguable benefits including tremendous
-amount of cost savings. This playbook aims at providing a reference for
-predictive maintenance solutions with the emphasis on major use cases.
-It is prepared to give the reader an understanding of the most common
-business scenarios of predictive maintenance, challenges of qualifying
-business problems for such solutions, data required to solve these
-business problems, predictive modeling techniques to build solutions
-using such data and best practices with sample solution architectures.
-It also describes the specifics of the predictive models developed such
-as feature engineering, model development and performance evaluation. In
-essence, this playbook brings together the business and analytical
-guidelines needed for a successful development and deployment of
-predictive maintenance solutions. These guidelines are prepared to help
-the audience create an initial solution using Cortana Intelligence Suite
-and specifically Azure Machine Learning as a starting point in their
-long-term predictive maintenance strategy. The documentation regarding
-Cortana Intelligence Suite and Azure Machine Learning can be found in
-[Cortana
-Analytics](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx)
-and [Azure Machine
-Learning](https://azure.microsoft.com/services/machine-learning/)
-pages.
+# Azure AI guide for predictive maintenance solutions
 
-> [!TIP]
-> For a technical guide to implementing this Solution Template, see [Technical guide to the Cortana Intelligence Solution Template for predictive maintenance](cortana-analytics-technical-guide-predictive-maintenance.md).
-> To download a diagram that provides an architectural overview of this template, see
-> [Architecture of the Cortana Intelligence Solution Template for predictive maintenance](cortana-analytics-architecture-predictive-maintenance.md).
-> 
-> 
+## Summary
 
-## Playbook overview and target audience
-This playbook is organized to benefit both technical
-and non-technical audience with varying backgrounds and interests in
-predictive maintenance space. The playbook covers both high-level
-aspects of the different types of predictive maintenance solutions and
-details of how to implement them. The content is balanced to
-cater both to the audience who are only interested in understanding the
-solution space and the type of applications as well as those who are
-looking to implement these solutions and are hence interested in the
-technical details.
+Predictive maintenance (**PdM**) is a popular application of predictive analytics that can help businesses in several industries achieve high asset utilization and savings in operational costs. This guide brings together the business and analytical guidelines and best practices to successfully develop and deploy PdM solutions using the [Microsoft Azure AI platform](https://azure.microsoft.com/overview/ai-platform) technology.
 
-Majority of the content in this playbook does not assume prior data
-science knowledge or expertise. However, some parts of the playbook will
-require somewhat familiarity with data science concepts to be able to
-follow implementation details. Introductory level data science skills
-are required to fully benefit from the material in those sections.
+For starters, this guide introduces industry-specific business scenarios and the process of qualifying these scenarios for PdM. The data requirements and modeling techniques to build PdM solutions are also provided. The main content of the guide is on the data science process - including the steps of data preparation, feature engineering, model creation, and model operationalization. To complement these key concepts, this guide lists a set of solution templates to help accelerate PdM application development. The guide also points to useful training resources for the practitioner to learn more about the AI behind the data science. 
 
-The first half of the playbook covers an introduction to predictive
-maintenance applications, how to qualify a predictive maintenance
-solution, a collection of common use cases with the details of the
-business problem, the data surrounding these use cases and the business
-benefits of implementing these predictive maintenance solutions. These
-sections don’t require any technical knowledge in the predictive
-analytics domain.
+### Data Science guide overview and target audience
+The first half of this guide describes typical business problems, the benefits of implementing PdM to address these problems, and lists some common use cases. Business decision makers (BDMs) will benefit from this content. The second half explains the data science behind PdM, and provides a list of PdM solutions built using the principles outlined in this guide. It also provides learning paths and pointers to training material. Technical decision makers (TDMs) will find this content useful.
 
-In the second half of the playbook, we cover the types of predictive
-modeling techniques for predictive maintenance applications and how to
-implement these models through examples from the use cases outlined in
-the first half of the playbook. This is illustrated by going through the
-steps of data preprocessing such as data labeling and feature
-engineering, model selection, training/testing and performance evaluation
-best practices. These sections are suitable for technical audience.
+| Start with ... | If you are ... |
+|:---------------|:---------------|
+| [Business case for predictive maintenance](#Business-case-for-predictive-maintenance) |a business decision maker (BDM) looking to reduce downtime and operational costs, and improve utilization of  equipment |
+| [Data Science for predictive maintenance](#Data-Science-for-predictive-maintenance) |a technical decision maker (TDM) evaluating PdM technologies to understand the unique data processing and AI requirements for predictive maintenance |
+| [Solution templates for predictive maintenance](#Solution-templates-for-predictive-maintenance)|a software architect or AI Developer looking to quickly stand up a demo or a proof-of-concept |
+| [Training resources for predictive maintenance](#Training-resources-for-predictive-maintenance) | any or all of the above, and want to learn the foundational concepts behind the data science, tools, and techniques.
 
-## Predictive maintenance in IoT
-The impact of unscheduled equipment downtime can be extremely
-destructive for businesses. It is critical to keep field equipment
-running in order to maximize utilization and performance and by minimizing costly, unscheduled downtime. Simply, waiting for the failure to occur is not affordable in today’s business operations
-scene. To remain competitive, companies look for new ways to maximize asset performance by making use of the data collected from various channels. One important way to analyze such information is to utilize predictive analytic techniques that use historical patterns to predict future outcomes. One of the most popular of these solutions is called Predictive Maintenance which can generally be defined as but not limited to predicting possibility of failure of an asset in the near future so that the assets can be monitored to proactively identify failures and take action before the failures occur. These solutions detect failure patterns to determine assets that are at the greatest risk of failure. This early identification of issues helps deploy limited maintenance resources in a more cost-effective way and enhance quality and supply chain processes.
+### Prerequisite knowledge
+The BDM content does not expect the reader to have any prior data science knowledge. For the TDM content, basic knowledge of statistics and data science is helpful. Knowledge of Azure Data and AI services, Python, R, XML, and JSON is recommended. AI techniques are implemented in Python and R packages. Solution templates are implemented using Azure services, development tools, and SDKs.
 
-With the rise of the Internet of Things (IoT) applications, predictive maintenance has been gaining increasing attention in the industry as the data collection and processing technologies has matured enough to generate, transmit, store and analyze all kinds of data in batches or in real-time. Such technologies enable easy development and deployment of end-to-end solutions with advanced analytics solutions, with predictive maintenance solutions providing arguably the largest benefit.
+## Business case for predictive maintenance
 
-Business problems in the predictive maintenance domain range from high operational risk due to unexpected failures and limited insight into the root cause of problems in complex business environments. The majority of these problems can be categorized to fall under the following business questions:
+Businesses require critical equipment to be running at peak efficiency and utilization to realize their return on capital investments. These assets could range from aircraft engines, turbines, elevators, or industrial chillers - that cost millions - down to everyday appliances like photocopiers, coffee machines, or water coolers.
+- By default, most businesses rely on _corrective maintenance_, where parts are replaced as and when they fail. Corrective maintenance ensures parts are used completely (therefore not wasting component life), but costs the business in downtime, labor, and unscheduled maintenance requirements (off hours, or inconvenient locations).
+- At the next level, businesses practice  _preventive maintenance_, where they determine the useful lifespan for a part, and maintain or replace it before a failure. Preventive maintenance avoids unscheduled and catastrophic failures. But the high costs of scheduled downtime, under-utilization of the component before its full lifetime of use, and labor still remain.
+- The goal of _predictive maintenance_ is to optimize the balance between corrective and preventative maintenance, by enabling _just in time_ replacement of components. This approach only replaces those components when they are close to a failure. By extending component lifespans (compared to preventive maintenance) and reducing unscheduled maintenance and labor costs (over corrective maintenance), businesses can gain cost savings and competitive advantages.
 
-* What is the probability that a piece of equipment fails in the near
-  future?
-* What is the remaining useful life of the equipment?
-* What are the causes of failures and what maintenance actions should
-  be performed to fix these issues?
+## Business problems in PdM
+Businesses face high operational risk due to unexpected failures and have limited insight into the root cause of problems in complex systems. Some of the key business questions are:
 
-By utilizing predictive maintenance to answer these questions,
-businesses can:
+- Detect anomalies in equipment or system performance or functionality.
+- Predict whether an asset may fail in the near future.
+- Estimate the remaining useful life of an asset.
+- Identify the main causes of failure of an asset.
+- Identify what maintenance actions need to be done, by when, on an asset.
 
-* Reduce operational risk and increase rate of return on assets by
-  spotting failures before they occurred
-* Reduce unnecessary time-based maintenance operations and control
-  cost of maintenance
-* Improve overall brand image, eliminate bad publicity and resulting
-  lost sales from customer attrition.
-* Lower inventory costs by reducing inventory levels by predicting the
-  reorder point
-* Discover patterns connected to various maintenance problems
+Typical goal statements from PdM are:
 
-Predictive maintenance solutions can provide businesses with key
-performance indicators such as health scores to monitor real-time asset condition, an estimate of the remaining lifespan of assets,
-recommendation for proactive maintenance activities and estimated order dates for replacement of parts.
+- Reduce operational risk of mission critical equipment.
+- Increase rate of return on assets by predicting  failures before they occur.
+- Control cost of maintenance by enabling just-in-time maintenance operations.
+- Lower customer attrition, improve brand image, and lost sales.
+- Lower inventory costs by reducing inventory levels by predicting the reorder point.
+- Discover patterns connected to various maintenance problems.
+- Provide KPIs (key performance indicators) such as health scores for asset conditions.
+- Estimate remaining lifespan of assets.
+- Recommend timely maintenance activities.
+- Enable just in time inventory by estimating order dates for replacement of parts.
 
-## Qualification criteria for predictive maintenance
-It is important to emphasize that not all use cases or business problems can be effectively solved by predictive maintenance. Important qualification criteria include whether the problem is predictive in nature, that a clear path of action exists in order to prevent failures when they are detected beforehand and most importantly, data with sufficient quality to support the use case is available. Here, we focus on the data requirements for building a successful predictive maintenance solution.
+These goal statements are the starting points for:
 
-When building predictive models, we use historical data to train the model which can then recognize hidden patterns and further identify these patterns in the future data. These models are trained with examples described by their features and the target of prediction. The trained model is expected to make predictions on the target by only looking at the features of the new examples. It is crucial that the model capture the relationship between features and the target of prediction. In order to train an effective machine learning model, we need training data which includes features that actually have predictive power towards the target of prediction meaning the data should be relevant to the prediction goal to expect accurate predictions.
+- _data scientists_ to analyze and solve specific predictive problems.
+- _cloud architects and developers_ to put together an end to end solution.
 
-For example, if the target is to predict failures of train wheels, the training data should contain wheel-related features (e.g. telemetry reflecting the health status of wheels, the mileage, car load, etc.). However, if the target is to predict train engine failures, we probably need another set of training data that has engine-related features. Before building predictive models, we expect the business expert to understand the data relevancy requirement and provide the domain knowledge that is needed to select relevant subsets of data for the analysis.
+## Qualifying problems for predictive maintenance
+It is important to emphasize that not all use cases or business problems can be effectively solved by PdM. There are three important qualifying criteria that need to be considered during problem selection:
 
-There are three essential data sources we look for when qualifying a business problem to be suitable for a predictive maintenance solution:
+- The problem has to be predictive in nature; that is, there should be a target or an outcome to predict. The problem should also have a clear path of action to prevent failures when they are detected.
+- The problem should have a record of the operational history of the equipment that contains _both good and bad outcomes_. The set of actions taken to mitigate bad outcomes should also be available as part of these records. Error reports, maintenance logs of performance degradation, repair, and replace logs are also important. In addition, repairs undertaken to improve them, and replacement records are also useful.
+- The recorded history should be reflected in _relevant_ data that is of _sufficient_ enough quality to support the use case. For more information about data relevance and sufficiency, see [Data requirements for predictive maintenance](#Data-requirements-for-predictive-maintenance).
+- Finally, the business should have domain experts who have a clear understanding of the problem. They should be aware of the internal processes and practices to be able to help the analyst understand and interpret the data. They should also be able to make the necessary changes to existing business processes to help collect the right data for the problems, if needed.
 
-1. Failure History: Typically, in predictive maintenance applications, failure events are very rare. However, when building predictive models that predict failures, the algorithm needs to learn the normal operation pattern as well as the failure pattern through the training process. Hence, it is essential that the training data contains sufficient number of examples in both categories in order to learn these two different patterns. For that reason, we require that data has sufficient number of failure events. Failure events can be found in maintenance records and parts replacement history or anomalies in the training data can also be used as failures as identified by the domain experts.
-2. Maintenance/Repair History: An essential source of data for predictive maintenance solutions is the detailed maintenance history of the asset containing information about the components replaced, preventive maintenance activates performed, etc. It is extremely important to capture these events as these affect the degradation patterns and absence of this information causes misleading results.
-3. Machine Conditions: In order to predict how many more days (hours, miles, transactions, etc.) a machine lasts before it fails, we assume the machine’s health status degrades over time during its operation. Therefore, we expect the data to contain time-varying features that capture this aging pattern and any anomalies that leads to degradation. In IoT applications, the telemetry data from different sensors represent one good example. In order to predict if a machine is going to fail within a time frame, ideally the data should capture degrading trend during this time frame before the actual failure event.
+## Sample PdM use cases
+This section focuses on a collection of PdM use cases from several industries such as Aerospace, Utilities, and Transportation. Each section starts with a business problem, and discusses the benefits of PdM, the relevant data surrounding the business problem, and finally the benefits of a PdM solution.
 
-Additionally, we require data that is directly related to the operating conditions of the target asset of prediction. The decision of target is based on both business needs and data availability. Taking the train wheel failure prediction as an example, we may predict "if the wheel is going to have a failure" or "if the whole train is going have a failure". The first one targets a more specific component whereas the
-second one targets failure of the train. The second one is a more general question that requires a lot more dispersed data elements than the first one, making it harder to build a model. Conversely, trying to predict wheel failures just by looking at the high-level train condition data may not be feasible as it does not contain information at the component level. In general, it is more sensible to predict specific failure events than
-more general ones.
+| Business Problem | Benefits from PdM |
+|:-----------------|-------------------|
+|**Aviation**      |                   |
+|_Flight delay and cancellations_ due to mechanical problems. Failures that cannot be repaired in time may cause flights to be canceled, and disrupt scheduling and operations. |PdM solutions can predict the probability of an aircraft being delayed or canceled due to mechanical failures.|
+|_Aircraft engine parts failure_: Aircraft engine part replacements are among the most common maintenance tasks within the airline industry. Maintenance solutions require careful management of component stock availability, delivery, and planning|Being able to gather intelligence on component reliability leads to substantial reduction on investment costs.|
+|**Finance** |                         |
+|_ATM failure_ is a common problem within the banking industry. The problem here is to report the probability that an ATM cash withdrawal transaction gets interrupted due to a paper jam or part failure in the cash dispenser. Based on predictions of transaction failures, ATMs can be serviced proactively to prevent failures from occurring.| Rather than allow the machine to fail midway through a transaction, the desirable alternative is to program the machine to deny service based on the prediction.|
+|**Energy** |                          |
+|_Wind turbine failures_: Wind turbines are the main energy source in environmentally responsible countries, and involve high capital costs. A key component in wind turbines is the generator motor. its failure renders the turbine ineffective. It is also highly expensive to fix.|Predicting KPIs such as MTTF (mean time to failure) can help the energy companies prevent turbine failures, and ensure minimal downtime. Failure probabilities will inform technicians to monitor turbines that are likely to fail soon, and schedule time-based maintenance regimes. Predictive models provide insights into different factors that contribute to the failure, which helps technicians better understand the root causes of problems.|
+|_Circuit breaker failures_: Distribution of electricity to homes and businesses requires power lines to be operational at all times to guarantee energy delivery. Circuit breakers help limit or avoid damage to power lines during overloading or adverse weather conditions. The business problem here is to predict circuit breaker failures.| PdM solutions help reduce repair costs and increase the lifespan of equipment such as circuit breakers. They help improve the quality of the power network by reducing unexpected failures and service interruptions.|
+|**Transportation and logistics** |    |
+|_Elevator door failures_: Large elevator companies provide a full stack service for millions of functional elevators around the world. Elevator safety, reliability, and uptime are the main concerns for their customers. These companies track these and various other attributes via sensors, to help them with corrective and preventive maintenance. In an elevator, the most prominent customer problem is malfunctioning elevator doors. The business problem in this case is to provide a knowledge base predictive application that predicts the potential causes of door failures.| Elevators are capital investments for potentially a 20-30 year lifespan. So each potential sale can be highly competitive; hence expectations for service and support are high. Predictive maintenance can provide these companies with an advantage over their competitors in their product and service offerings.|
+|_Wheel failures_: Wheel failures account for half of all train derailments and cost billions to the global rail industry. Wheel failures also cause rails to deteriorate, sometimes causing the rail to break prematurely. Rail breaks lead to catastrophic events such as derailments. To avoid such instances, railways monitor the performance of wheels and replace them in a preventive manner. The business problem here is the prediction of wheel failures.| Predictive maintenance of wheels will help with just-in-time replacement of wheels |
+|_Subway train door failures_: A major reason for delays in subway operations is door failures of train cars. The business problem here is to predict train door failures.|Early awareness of a door failure, or the number of days until a door failure, will help the business optimize train door servicing schedules.|
 
-One common question that is usually asked about failure history data is "How many failure events are required to train a model and how many is considered as "enough"? There is no clear answer to that question as in many predictive analytics scenarios, it is usually the quality of the data that dictates what is acceptable. If the dataset does not include features that are relevant to failure prediction, then even if there are many failure events, building a good model may not be possible. However, the rule of thumb is that the more the failure events the better the model is and a rough estimate of how many failure examples are required is a very context and data-dependent measure. This issue is discussed in the section for handling imbalanced datasets where we propose methods to cope with the problem of not having enough failures.
+The next section gets into the details of how to realize the PdM benefits discussed above.
 
-## Sample use cases
-This section focuses on a collection of predictive maintenance use cases from several industries such as Aerospace, Utilities and Transportation. Each subsection drills into the use-cases collected from these areas and discusses a business problem, the data surrounding the business problem and the benefits of a predictive maintenance solution.
+## Data Science for predictive maintenance
 
-### Aerospace
-#### Use Case 1: Flight delay and cancellations
-##### *Business problem and data sources*
-One of the major business problems that airlines face is the significant costs that are associated with flights being delayed due to mechanical problems. If the mechanical failures cannot be repaired, flights may
-even be canceled. This is extremely costly as delays create problems in scheduling and operations, causes bad reputation and customer dissatisfaction along with many other problems. Airlines are particularly interested in predicting such mechanical failures in advance so that they can reduce flight delays or cancellations. The goal of the predictive maintenance solution for these cases is to predict the probability of an aircraft being delayed or canceled, based on relevant data sources such as maintenance history and flight route information. The two major data sources for this use case are the flight legs and page logs. Flight leg data includes data about the flight route details such as the date and time of departure and arrival, departure and arrival airports, etc. Page log data includes a series of error and maintenance codes that are recorded by the maintenance personnel.
+This section provides general guidelines of data science principles and practice for PdM. It is intended to help a TDM, solution architect, or a developer understand the prerequisites and process for building end-to-end AI applications for PdM. You can read this section along with a review of the demos and proof-of-concept templates listed in [Solution Templates for predictive maintenance](#Solution-templates-for-predictive-maintenance). You can then use these principles and best practices to implement your PdM solution in Azure.
 
-##### *Business value of the predictive model*
-Using the available historical data, a predictive model was built using a multi-classification algorithm to predict the type of mechanical issue which results in a delay or cancellation of a flight within the next 24 hours. By making this prediction, necessary maintenance actions can be taken to mitigate the risk while an aircraft is being serviced and thus prevent possible delays or cancellations. Using Azure Machine Learning web service, the predictive models can seamlessly and easily be integrated
-into airlines’ existing operating platforms. 
+> [!NOTE]
+> This guide is NOT intended to teach the reader Data Science. Several
+> helpful sources are provided for further reading in the section for
+> [training resources for predictive maintenance](#Training-resources-for-predictive-maintenance). The 
+> [solution templates](#Solution-templates-for-predictive-maintenance) listed in the guide 
+> demonstrate some of these AI techniques for specific PdM problems.
 
-#### Use Case 2: Aircraft component failure
-##### *Business problem and data sources*
-Aircraft engines are very sensitive and expensive pieces of equipment and engine part replacements are among the most common maintenance tasks in the airline industry. Maintenance solutions for airlines require careful management of component stock availability, delivery and planning. Being able to gather intelligence on component reliability leads to substantial reduction on investment costs. The major data source for this use case is telemetry data collected from a number of sensors in the aircraft providing information on the condition of the aircraft. Maintenance records were also used to identify when component failures occurred and replacements were made.
+## Data requirements for predictive maintenance
 
-##### Business value of the predictive model
-A multi-class classification model was built that predicts the
-probability of a failure due to a certain component within the next
-month. By employing these solutions, airlines can reduce component
-repair costs, improve component stock availability, reduce inventory levels of related assets and improve maintenance planning.
+The success of any learning depends on (a) the quality of what is being taught, and (b) the ability of the learner. Predictive models learn patterns from historical data, and predict future outcomes with certain probability based on these observed patterns. A model's predictive accuracy depends on the relevancy, sufficiency, and quality of the training and test data. The new data that is 'scored' using this model should have the same features and schema as the training/test data. The feature characteristics (type, density, distribution, and so on) of new data should match that of the training and test data sets. The focus of this section is on such data requirements.
 
-### Utilities
-#### Use Case 1: ATM cash dispense failure
-##### *Business problem and data sources*
-Executives in asset intensive industries often state that primary
-operational risk to their businesses is unexpected failures of their assets. As an example, failure of machinery such as ATMs in banking industry is a very common problem that occurs frequently. These types of problems make predictive maintenance solutions very desirable for operators of such machinery. In this use-case, prediction problem is to calculate the probability that an ATM cash withdrawal transaction gets interrupted due to a failure in the cash dispenser such as a paper jam or a part failure. Major data sources for this case are sensor readings that collect measurements while cash notes are being dispensed and also maintenance records collected over time. Sensor data included sensor readings per each transaction completed and also sensor readings per each note dispensed. The sensor readings provided measurements such
-as gaps between notes, thickness, note arrival distance etc. Maintenance data included error codes and repair information. These were used to identify failure cases.
+### Relevant data
 
-##### *Business value of the predictive model*
-Two predictive models were built to predict failures in the cash
-withdrawal transactions and failures in the individual notes dispensed during a transaction. By being able to predict transaction failures beforehand, ATMs can be serviced proactively to prevent failures from occurring. Also, with note failure prediction, if a transaction is likely to fail before it is complete due to a note dispense failure, it may be best to stop the process and warn the customer for incomplete transaction rather than waiting for the maintenance service to arrive after the error occurs which may lead to larger customer
-dissatisfaction.
+First, the data has to be _relevant to the problem_. Consider the _wheel failure_ use case discussed above - the training data should contain features related to the wheel operations. If the problem was to predict the failure of the  _traction system_, the training data has to encompass all the different components for the traction system. The first case targets a specific component whereas the second case targets the failure of a larger subsystem. The general recommendation is to design prediction systems about specific components rather than larger subsystems, since the latter will have more dispersed data. The domain expert (see [Qualifying problems for predictive maintenance](#Qualifying-problems-for-predictive-maintenance)) should help in selecting the most relevant subsets of data for the analysis. The relevant data sources are discussed in greater detail in [Data preparation for predictive maintenance](#Data-preparation-for-predictive-maintenance).
 
-#### Use Case 2: Wind turbine failures
-##### *Business problem and data sources*
-With the raise of environmental awareness, wind turbines have become one of the major sources of energy generation and they usually cost millions of dollars. One of the key components of wind turbines is the generator motor which is equipped with many sensors that helps to monitor turbine conditions and status. The sensor readings contain valuable information which can be used to build a predictive model to predict critical Key Performance Indicators (KPIs) such as mean time to failure for components of the wind turbine. Data for this use case comes from multiple wind turbines that are located in three different farm locations. Measurements from close to a hundred sensors from each turbine were recorded every 10 seconds for one year. These readings include measurements such as temperature, generator speed, turbine power and generator winding.
+### Sufficient data
+Two questions are commonly asked with regard to failure history data: (1) "How many failure events are required to train a model?" (2) "How many records is considered as "enough"?" There are no definitive answers, but only rules of thumb. For (1), more the number of failure events, better the model. For (2),  and the exact number of failure events depends on the data and the context of the problem being solved. But on the flip side, if a machine fails too often then the business will replace it, which will reduce failure instances. Here again, the guidance from the domain expert is important. However, there are methods to cope with the issue of _rare events_. They are discussed in the section [Handling imbalanced data](#Handling-imbalanced-data).
 
-##### *Business value of the predictive model*
-Predictive models were built to estimate remaining useful life for
-generators and temperature sensors. By predicting the probability of
-failure, maintenance technicians can focus on suspicious turbines that
-are likely to fail soon to complement time-based maintenance regimes.
-Additionally, predictive models bring insight to the level of
-contribution for different factors to the probability of a failure which
-helps business to have a better understanding of the root cause of the
-problems.
+### Quality data
+The quality of the data is critical - each predictor attribute value must be _accurate_ in conjunction with the value of the target variable. Data quality is a well-studied area in statistics and data management, and hence out of scope for this guide.
 
-#### Use Case 3: Circuit breaker failures
-##### *Business problem and data sources*
-Electricity and gas operations that include generation, distribution and
-sale of electrical energy require significant amount of maintenance to
-ensure power lines are operational at all times to guarantee delivery of
-energy to households. Failure of such operations is critical as almost
-every entity is effected by power problems in the regions that they
-occur. Circuit breakers are critical for such operations as they are a
-piece of equipment that cut electrical current in case of problems and
-short circuits to prevent any damage to power lines from happening. The
-business problem for this use case is to predict circuit breaker
-failures given maintenance logs, command history and technical
-specifications.
+> [!NOTE]
+> There are several resources and enterprise products to deliver quality 
+> data. A sample of references is provided below:
+> - Dasu, T, Johnson, T., Exploratory Data Mining and Data Cleaning, 
+> Wiley, 2003.
+> - [Exploratory Data Analysis, Wikipedia](https://en.wikipedia.org/wiki/Exploratory_data_analysis)
+> - [Hellerstein, J, Quantitative Data Cleaning for Large Databases](http://db.cs.berkeley.edu/jmh/papers/cleaning-unece.pdf)
+> - [de Jonge, E, van der loo, M, Introduction to Data Cleaning with R](https://cran.r-project.org/doc/contrib/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf)
 
-Three major data sources for this case are maintenance logs that include
-corrective, preventive and systematic actions, operational data that
-includes automatic and manual commands send to circuit breakers such as
-for open and close actions and technical specification data about the
-properties of each circuit breaker such as year made, location, model,
-etc.
+## Data preparation for predictive maintenance
 
-##### *Business value of the predictive model*
-Predictive maintenance solutions help reduce repair costs and increase the lifecycle of equipment such as circuit breakers. These models also help improve the quality of the power network since models provide warnings ahead of time that reduce unexpected failures which lead to fewer interruptions to the service.
-
-#### Use Case 4: Elevator door failures
-##### *Business problem and data sources*
-Most large elevator companies typically have millions of elevators running around the world. To gain a competitive edge, they focus on reliability which is what matters most to their customers. Drawing on the potential of the Internet of Things, by connecting their elevators to the cloud and gathering data from elevator sensors and systems, they are able to transform data into valuable business intelligence which vastly improves operations by offering predictive and preemptive maintenance that is not something that is available to the competitors yet. The business requirement for this case is to provide a knowledge base predictive application that predicts the potential causes of door failures. The required data for this implementation consists of three parts which are elevator static features (e.g. identifiers, contract maintenance frequency, building type, etc.), usage information (e.g. number of door cycles, average door close time, etc.) and failure history (i.e. historical failure records and their causes).
-
-A multiclass logistic regression model was built with Azure Machine
-Learning to solve the prediction problem, with the integrated static features and usage data as features, and the causes of historical failure records as class labels. This predictive model is consumed by an app on a mobile device which is used by field technicians to help improve working efficiency. When a technician goes on site to repair an elevator, he/she can refer to this app for recommended causes and best courses of maintenance actions to fix the elevator doors as fast as possible.
-
-### Transportation and logistics
-#### Use Case 1: Brake disc failures
-##### *Business problem and data sources*
-Typical maintenance policies for vehicles include corrective and
-preventive maintenance. Corrective maintenance implies that the vehicle
-is repaired after a failure has occurred which can cause a severe
-inconvenience to the driver as a result of an unexpected malfunction and
-the time wasted on a visit to mechanic. Most vehicles are also subject
-to a preventive maintenance policy, which requires performing certain
-inspections at a schedule which does not take into account the actual
-condition of the car subsystems. None of these approaches are successful
-in fully eliminating problems. The specific use case here is brake disc
-failure prediction based on data collected through sensors installed in
-the tire system of a car which keeps track of historical driving patterns
-and other conditions that the car is exposed to. The most important data
-source for this case is the sensor data that measure, for instance,
-accelerations, braking patterns, driving distances, velocity, etc. This
-information, coupled with other static information such as car features,
-help build a good set of predictors that can be used in a predictive model. Another set of essential information is the failure data which is inferred from the
-part order database (used to keep the spare part order dates and
-quantities as cars are being serviced in the dealerships).
-
-##### *Business value of the predictive model*
-The business value of a predictive approach here is substantial. A
-predictive maintenance system can schedule a visit to the dealer based
-on a predictive model. The model can be based on sensory information that is representing the current condition of the car and the driving
-history. This approach can minimize the risk of unexpected failures,
-which may as well occur before the next periodic maintenance.
-It can also reduce the amount of unnecessary preventive maintenance. Driver can proactively be informed that a change of parts
-might be necessary in a few weeks and supply the dealer with that
-information. The dealer could then prepare an individual maintenance
-package for the driver in advance.
-
-#### Use Case 2: Subway train door failures
-##### *Business problem and data sources*
-One of the major reasons of delays and problems on subway operations is
-door failures of train cars. Predicting if a train car may have a door
-failure, or being able to forecast the number of days till the next
-door failure, is extremely important foresight. It provides the opportunity
-to optimize train door servicing and reduce the train's down time.
-
-#### Data sources
-Three sources of data in this use-case are 
-
-* **train event data**, which is the historical records of train events, 
-* **maintenance data** such as maintenance types, work order types, and priority codes,  
-* **records of failures**.
-
-##### *Business value of the predictive model*
-Two models were built to predict next day failure probability using
-binary classification and days till failure using regression. Similar to
-the earlier cases, the models create tremendous opportunity to improve
-quality of service and increase customer satisfaction by complementing
-the regular maintenance regimes.
-
-## Data preparation
 ### Data sources
-The common data elements for predictive maintenance problems can be
-summarized as follows:
 
-* Failure history: The failure history of a machine or component within the machine.
-* Maintenance history: The repair history of a machine, e.g. error codes, previous maintenance activities or component replacements.
-* Machine conditions and usage: The operating conditions of a machine e.g. data collected from sensors.
-* Machine features: The features of a machine, e.g. engine size, make and model, location.
-* Operator features: The features of the operator, e.g. gender, past experience.
+The relevant data sources for predictive maintenance include, but are not limited to:
+- Failure history
+- Maintenance/repair history
+- Machine operating conditions
+- Equipment metadata
 
-It is possible and usually the case that failure history is contained in
-maintenance history such as in the form of special error codes or order
-dates for spare parts. In those cases, failures can be extracted from
-the maintenance data. Additionally, different business domains may have
-a variety of other data sources that influence failure patterns which
-are not listed here exhaustively. These should be identified by
-consulting the domain experts when building predictive models.
+#### Failure history
+Failure events are rare in PdM applications. However, when building prediction models, the algorithm needs to learn about a component's normal operational pattern, as well as its failure  patterns. So the training data should contain sufficient number of examples from both categories. Maintenance records and parts replacement history are good sources to find failure events. With the help of some domain knowledge, anomalies in the training data can also be defined as failures.
 
-Some examples of above data elements from use cases are:
+#### Maintenance/repair history
+Maintenance history of an asset contains details about components replaced, repair activities performed etc. These events record degradation patterns. Absence of this crucial information in the training data can lead to misleading model results. Failure history can also be found within maintenance history as special error codes, or order dates for parts. Additional data sources that influence failure patterns should be investigated and provided by domain experts.
 
-Failure history: Flight delay dates, aircraft component failure dates and
-types, ATM cash withdrawal transaction failures, train/elevator door
-failures, brake disk replacement order dates, wind turbine failure dates
-and circuit breaker command failures.
+#### Machine operating conditions
+Sensor based (or other) streaming data of the equipment in operation is an important data source. A key assumption in PdM is that a machine’s health status degrades over time during its routine operation. The data is expected to contain time-varying features that capture this aging pattern, and any anomalies that leads to degradation. The temporal aspect of the data is required for the algorithm to learn the failure and non-failure patterns over time. Based on these data points, the algorithm learns to predict how many more units of time a machine can continue to work before it fails.
 
-Maintenance history: Flight error logs, ATM transaction error logs,
-train maintenance records including maintenance type, short description
-etc. and circuit breaker maintenance records.
+#### Static feature data
+Static features are metadata about the equipment. Examples are the equipment make, model, manufactured date, start date of service, location of the system, and other technical specifications.
 
-Machine conditions and usage: Flight routes and times, sensor data
-collected from aircraft engines, sensor readings from ATM transactions,
-train events data, sensor readings from wind turbines, elevators and
-connected cars.
+Examples of relevant data for the [sample PdM use cases](#Sample-PdM-use-cases) are tabulated below:
 
-Machine features: Circuit breaker technical specifications such as
-voltage levels, geolocation or car features such as make, model, engine
-size, tire types, production facility etc.
+| Use Case | Examples of relevant data |
+|:---------|---------------------------|
+|_Flight delay and cancellations_ | Flight route information in the form of flight legs and page logs. Flight leg data includes routing details such as departure/arrival date, time, airport, layovers etc. Page log includes a series of error and maintenance codes recorded by the ground maintenance personnel.|
+|_Aircraft engine parts failure_ | Data collected from sensors in the aircraft that provide information on the condition of the various parts. Maintenance records help identify when component failures occurred and when they were replaced.|
+|_ATM Failure_ | Sensor readings for each transaction (depositing cash/check) and dispensing of cash. Information on gap measurement between notes, note thickness, note arrival distance, check attributes etc. Maintenance records that provide error codes, repair information, last time the cash dispenser was refilled.|
+|_Wind turbine failure_ | Sensors monitor turbine conditions such as temperature, wind direction, power generated, generator speed etc. Data is gathered from multiple wind turbines from wind farms located in various regions. Typically, each turbine will have multiple sensor readings relaying measurements at a fixed time interval.|
+|_Circuit breaker failures_ | Maintenance logs that include corrective, preventive, and systematic actions. Operational data that includes automatic and manual commands sent to circuit breakers such as for open and close actions. Device metadata such as date of manufacture, location, model, etc. Circuit breaker specifications such as voltage levels, geolocation, ambient conditions.|
+|_Elevator door failures_| Elevator metadata such as type of elevator, manufactured date,  maintenance frequency, building type, and so on. Operational information such as number of door cycles, average door close time. Failure history with causes.|
+|_Wheel failures_ | Sensor data that measures wheel acceleration, braking instances, driving distance, velocity etc. Static information on wheels like manufacturer, manufactured date. Failure data inferred from part order database that track order dates and quantities.|
+|_Subway train door failures_ | Door opening and closing times, other operational data such as current condition of train doors. Static data would include asset identifier, time, and condition value columns.|
 
-Given the above data sources, the two main data types we observe in
-predictive maintenance domain are temporal data and static data.
-Failure history, machine conditions, repair history, usage history
-almost always come with time-stamps indicating the time of collection
-for each piece of data. Machine features and operator features in
-general are static since they usually describe the technical
-specifications of machines or operator’s properties. It is possible for
-these features to change over time and if so they should be treated as
-time stamped data sources.
+### Data types
+Given the above data sources, the two main data types observed in PdM domain are:
 
-### Merging data sources
-Before getting into any type of feature engineering or labeling process, we need to first prepare our data in the form required to create features from. The ultimate goal is to generate a record for each time unit for each asset with its features and labels to be fed into the machine learning algorithm. In order to prepare that clean final data set, some pre-processing steps should be taken. First step is to divide the duration of data collection into time units where each record belongs to a time unit for an asset. Data collection can also be divided into other units such as actions, however for simplicity we use time units for the rest of the explanations.
+- _Temporal data_: Operational telemetry, machine conditions, work order types, priority codes that will have timestamps at the time of recording. Failure,  maintenance/repair, and usage history will also have timestamps associated with each event.
+- _Static data_: Machine features and operator features in general are static since they describe the technical specifications of machines or operator attributes. If these features could change over time, they should also have timestamps associated with them.
 
-The measurement unit for time can be in seconds, minutes, hours, days, months, cycles, miles or transactions depending on the efficiency of data preparation and the changes observed in the conditions of the asset from a time unit to the other or other factors specific to the domain. In other words, the time unit does not have to be the same as the frequency of data collection as in many cases data may not show any difference from one unit to the other. For example, if temperature values were being collected every 10 seconds, picking a time unit of 10 seconds for the whole analysis inflates the number of examples without providing any additional information. Better strategy would be to use average over an hour as an example.
+Predictor and target variables should be preprocessed/transformed into [numerical, categorical, and other data types](https://www.statsdirect.com/help/basics/measurement_scales.htm) depending on the algorithm being used.
 
-Example generic data schemas for the possible data sources explained in
-the earlier section are:
+### Data preprocessing
+As a prerequisite to _feature engineering_, prepare the data from various streams to compose a schema from which it is easy to build features. Visualize the data first as a table of records. Each row in the table represents a training instance, and the columns represent _predictor_ features (also called independent attributes or variables). Organize the data such that the last column(s) is the _target_ (dependent variable). For each training instance, assign a _label_ as the value of this column.
 
-Maintenance records: These are the records of maintenance actions
-performed. The raw maintenance data usually comes with an Asset ID and
-time stamp with information about what maintenance activities have been
-performed at that time. In case of such raw data, maintenance activities
-need to be translated into categorical columns with each category
-corresponding to a maintenance action type. The basic data schema for
-maintenance records would include asset ID, time and maintenance action
-columns.
+For temporal data, divide the duration of sensor data into time units. Each record should belong to a time unit for an asset, _and should offer distinct information_. Time units are defined based on business needs in multiples of seconds, minutes, hours, days, months, and so on. The time unit _does not have to be the same as the frequency of data collection_. If the frequency is high, the data may not show any significant difference from one unit to the other. For example, assume that ambient temperature was collected every 10 seconds. Using that same interval for training data only inflates the number of examples without providing any additional information. For this case, a better strategy would be to use average the data over 10 minutes, or an hour based on the business justification.
 
-Failure records: These are the records that belong to the target of
-prediction which we call failures or failure reason. These can be
-specific error codes or events of failures defined by specific business
-condition. In some cases, data includes multiple error codes some of
-which correspond to failures of interest. Not all errors are target of
-prediction so other errors are usually used to construct features that
-may correlate with failures. The basic data schema for failure records
-would include asset ID, time and failure or failure reason columns if
-reason is available.
+For static data,
+- _Maintenance records_: Raw maintenance data has an asset identifier and timestamp with information on maintenance activities that have been performed at a given point in time. Transform maintenance activities into _categorical_ columns, where each category descriptor uniquely maps to a specific maintenance action. The schema for maintenance records would include asset identifier, time, and maintenance action.
 
-Machine conditions: These are preferably real-time monitoring data about
-the operating conditions of the data. For example, for door failures,
-door opening and closing times are good indicators about the current
-condition of doors. The basic data schema for machine conditions would
-include asset ID, time and condition value columns.
+- _Failure records_: Failures or failure reasons can be recorded as specific error codes or failure events defined by specific business conditions. In cases where the equipment has multiple error codes, the domain expert should help identify the ones that are pertinent to the target variable. Use the remaining error codes or conditions to construct _predictor_ features that correlate with these failures. The schema for failure records would include asset identifier, time, failure, or failure reason - if available.
 
-Machine and operator data: Machine and operator data can be merged into
-one schema to identify which asset was operated by which operator along
-with asset and operator properties. For example, a car is usually owned
-by a driver with attributes such as age, driving experience etc. If this
-data changes over time, this data should also include a time column and
-should be treated as time varying data for feature generation. The basic
-data schema for machine conditions would include asset ID, asset
-features, operator ID and operator features.
+- _Machine and operator metadata_: Merge the machine and operator data into one schema to associate an asset with its operator, along with their respective attributes. The schema for machine conditions would include asset identifier, asset features, operator identifier, and operator features.
 
-The final table before labeling and feature generation can be generated by left joining machine conditions table with failure records on Asset ID and time fields. This table can then be joined with maintenance records on Asset ID and Time fields and finally with machine and operator features on Asset ID. The first left join leaves null values for failure column when machine is in normal operation, these can be imputed by an indicator value for normal operation. This failure column is used to create labels for the predictive model.
+Other data preprocessing steps include _handling missing values_ and _normalization_ of attribute values. A detailed discussion is beyond the scope of this guide - see the next section for some useful references.
 
-### Feature engineering
-The first step in modeling is feature engineering. The idea of feature generation is to conceptually describe and abstract a machine’s health condition at a given time using historical data that was collected up to that point in time. In the next section, we provide an overview of the type of techniques that can be used for predictive maintenance and how the labeling is done for each technique. The exact technique that should be used depends on the data and business problem. However, the feature engineering methods described below can be used as baseline for creating features. Below, we discuss lag features that should be constructed from data sources that come with time-stamps and also static features created from static data sources and provide examples from the use cases.
+With the above preprocessed data sources in place, the final transformation before feature engineering is to join the above tables based on the asset identifier and timestamp. The resulting table would have null values for the failure column when machine is in normal operation. These null values can be imputed by an indicator for normal operation. Use this failure column to create _labels for the predictive model_. For more information, see the section on [modeling techniques for predictive maintenance](#Modeling-techniques-for-predictive-maintenance).
 
-#### Lag features
-As mentioned earlier, in predictive maintenance, historical data usually
-comes with timestamps indicating the time of collection for each piece
-of data. There are many ways of creating features from the data that
-comes with timestamped data. In this section, we discuss some of these methods
-used for predictive maintenance. However, we are not limited by these
-methods alone. Since feature engineering is considered to be one of the most
-creative areas of predictive modeling, there could be many other ways
-to create features. Here, we provide some general techniques.
+## Feature engineering
+Feature engineering is the first step prior to modeling the data. Its role in the data science process [is described here](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). A _feature_ is a predictive attribute for the model - such as temperature, pressure, vibration, and so on. For PdM, feature engineering involves abstracting a machine’s health over historical data collected over a sizable duration. In that sense, it is different from its peers such as remote monitoring, anomaly detection, and failure detection. 
 
-##### *Rolling aggregates*
-For each record of an asset, we pick a rolling window of size "W" which
-is the number of units of time that we would like to compute historical
-aggregates for. We then compute rolling aggregate features using the W
-periods before the date of that record. Some example rolling aggregates
-can be rolling counts, means, standard deviations, outliers based on
-standard deviations, CUSUM measures, minimum and maximum values for the
-window. Another interesting technique is to capture trend changes,
-spikes and level changes using algorithms that detect anomalies in data
-using anomaly detection algorithms.
+### Time windows
+Remote monitoring entails reporting the events that happen as of _points in time_. Anomaly detection models evaluate (score) incoming streams of data to flag anomalies as of points in time. Failure detection classifies failures to be of specific types as they occur points in time. In contrast, PdM involves predicting failures over a _future time period_, based on features that represent machine behavior over _historical time period_. For PdM, feature data from individual points of time are too noisy to be predictive. So the data for each feature needs to be _smoothened_ by aggregating data points over time windows.
 
-For demonstration, see Figure 1 where we represent sensor values
-recorded for an asset for each unit of time with the blue lines and mark
-the rolling average feature calculation for W=3 for the records at t<sub>1</sub>
-and t<sub>2</sub> which are indicated by orange and green groupings respectively.
+### Lag features
+The business requirements define how far the model has to predict into the future. In turn, this duration helps define 'how far back the model has to look' to make these predictions. This 'looking back' period is called the _lag_, and features engineered over this lag period are called _lag features_. This section discusses lag features that can be constructed from data sources with timestamps, and feature creation from static data sources. Lag features are typically _numerical_ in nature.
+
+> [!IMPORTANT]
+> The window size is determined via experimentation, and should be 
+> finalized with the help of a domain expert. The same caveat holds for 
+> the selection and definition of lag features, their aggregations, and 
+> the type of windows.
+
+#### Rolling aggregates
+For each record of an asset, a rolling window of size "W" is chosen as the number of units of time to compute the aggregates. Lag features are then computed using the W periods _before the date_ of that record. In Figure 1, the blue lines show sensor values recorded for an asset for each unit of time. They denote a rolling average of feature values over a window of size W=3. The rolling average is computed over all records with timestamps in the range t<sub>1</sub> (in orange) to t<sub>2</sub> (in green). The value for W is typically in minutes or hours depending on the nature of the data. But for certain problems, picking a large W (say 12 months) can provide the whole history of an asset until the time of the record.
 
 ![Figure 1. Rolling aggregate features](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
-
 Figure 1. Rolling aggregate features
 
-As examples, for aircraft component failure, sensor values from last week, last three days and last day were used to create rolling means, standard deviation and sum features. Similarly, for ATM failures, both raw sensor values and rolling means, median, range, standard deviations, number of outliers beyond three standard deviations, upper and lower CUMSUM features were used.
+Examples of rolling aggregates over a time window are count, average, CUMESUM (cumulative sum) measures, min/max values. In addition, variance, standard deviation, and count of outliers beyond N standard deviations are often used. Examples of aggregates that may be applied for the [use cases](#Sample-PdM-use-cases) in this guide are listed below. 
+- _Flight delay_: count of error codes over the last day/week.
+- _Aircraft engine part failure_: rolling means, standard deviation, and sum over the past day, week etc. This metric should be determined along with the business domain expert.
+- _ATM failures_: rolling means, median, range, standard deviations, count of outliers beyond three standard deviations, upper and lower CUMESUM.
+- _Subway train door failures_: Count of events over past day, week, two weeks etc.
+- _Circuit breaker failures_: Failure counts over past week, year, three years etc.
 
-For flight delay prediction, counts of error codes from last week were used to create features. For train door failures, counts of the events on the last day, counts of events over the previous 2 weeks and variance of counts of events of the previous 15 days were used to create lag features. Same counting was used for maintenance-related events.
+Another useful technique in PdM is to capture trend changes, spikes, and level changes using algorithms that detect anomalies in data.
 
-Additionally, by picking a W that is very large (ex. years), it is
-possible to look at the whole history of an asset such as counting all maintenance records, failures etc. up until the time of the record. This method was used for counting circuit breaker failures for the last three years. Also for train failures, all maintenance events were counted to create a feature to capture the long-term maintenance effects.
-
-##### *Tumbling aggregates*
-For each labeled record of an asset, we pick a window of size "W-<sub>k</sub>" where k is the number or windows of size "W" that we want to create lag
-features for. "k" can be picked as a large number to capture long-term
-degradation patterns or a small number to capture short-term effects. We
-then use k tumbling windows W-<sub>k</sub> , W-<sub>(k-1)</sub>, …, W-<sub>2</sub> , W-<sub>1</sub> to create aggregate features for the periods before the record date and time (see Figure 2). These are also rolling windows at the record level for a time unit which is not captured in Figure 2 but the idea is the same as in Figure 1 where t<sub>2</sub> is also used to demonstrate the rolling
-effect.
+#### Tumbling aggregates
+For each labeled record of an asset, a window of size _W-<sub>k</sub>_ is defined, where _k_ is the number of windows of size _W_. Aggregates are then created over _k_ _tumbling windows_ _W-k, W-<sub>(k-1)</sub>, …, W-<sub>2</sub>, W-<sub>1</sub>_ for the periods before a record's timestamp. _k_ can be a small number to capture short-term effects, or a large number to capture long-term degradation patterns. (see Figure 2).
 
 ![Figure 2. Tumbling aggregate features](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
-
 Figure 2. Tumbling aggregate features
 
-As an example, for wind turbines, W=1 and k=3 months were used to create lag features for each of the last 3 months using top and bottom outliers.
+For example, lag features for the wind turbines use case may be created with W=1 and k=3. They imply the lag for each of the past three months using top and bottom outliers.
 
-#### Static features
-These are technical specifications of the equipment such as manufacture date, model number, location, etc. While lag features are mostly numeric in nature, static features usually become categorical variables in the models. As an example, circuit breaker properties such as voltage, current and power specifications along with transformer types, power sources etc. were used. For brake disc failures, the type of tire wheels such as if they are alloy or steel were used as some of the static features.
+### Static features
 
-During feature generation, some other important steps such as handling missing values and normalization should be performed. There are numerous methods of missing value imputation and also data normalization which is not discussed here. However, it is beneficial to try different methods to see if an increase in prediction performance is possible.
+Technical specifications of the equipment such as date of manufacture, model number, location, are some examples of static features. They are treated as _categorical_ variables for modeling. Some examples for the circuit breaker use case are voltage, current, power capacity, transformer type, and power source. For wheel failures, the type of tire wheels (alloy vs steel) is an example.
 
-The final feature table after feature engineering steps discussed in the earlier section should resemble the following example data schema when time unit is a day:
+The data preparation efforts discussed so far should lead to the data being organized as shown below. Training, test, and validation data should have this logical schema (this example shows time in units of days).
 
-| Asset ID | Time | Feature Columns | Label |
-| --- | --- | --- | --- |
-| 1 |Day 1 | | |
-| 1 |Day 2 | | |
-| ... |... | | |
-| 2 |Day 1 | | |
-| 2 |Day 2 | | |
-| ... |... | | |
+| Asset ID | Time | <Feature Columns> | Label |
+| ---- | ---- | --- | --- |
+| A123 |Day 1 | . . . | . |
+| A123 |Day 2 | . . . | . |
+| ...  |...   | . . . | . |
+| B234 |Day 1 | . . . | . |
+| B234 |Day 2 | . . . | . |
+| ...  |...   | . . . | . |
 
-## Modeling techniques
-Predictive Maintenance is a very rich domain often employing business questions which may be approached from many different angles of the predictive modeling perspective. In the next sections, we provide main techniques that are used to model different business questions that can be answered with predictive maintenance solutions. Although there are similarities, each model has its own way of constructing labels which are described in detail. As an accompanying resource, you can refer to the predictive maintenance template that is included in the sample experiments provided within Azure Machine Learning. The links to the online material for this template are provided in the resources section. You can see how some of the feature engineering techniques discussed above and the modeling technique that is described in the next sections are applied to predict aircraft engine failures using Azure Machine Learning.
+The last step in feature engineering is the **labeling** of the target variable. This process is dependent on the modeling technique. In turn, the modeling technique depends on the business problem and nature of the available data. Labeling is discussed in the next section.
 
-### Binary classification for predictive maintenance
-Binary Classification for predictive maintenance is used to predict the probability that equipment fails within a future time period. The time period is determined by and based on business rules and the data at hand. Some common time periods are minimum lead time required to purchase spare parts to replace likely to damage components or time required to deploy maintenance resources to perform maintenance routines to fix the problem that is likely to occur within that time period. We call this future horizon period "X".
+> [!IMPORTANT]
+> Data preparation and feature engineering are as
+> important as modeling techniques to arrive at successful
+> PdM solutions. The domain expert and the practitioner should
+> invest significant time in arriving at the right features
+> and data for the model. A small sample from many books on 
+> feature engineering are listed below:
+> - Pyle, D. Data Preparation for Data Mining (The Morgan Kaufmann Series 
+> in Data Management Systems), 1999
+> - Zheng, A., Casari, A. Feature Engineering for Machine Learning: 
+> Principles and Techniques for Data Scientists, O'Reilly, 2018.
+> - Dong, G. Liu, H. (Editors), Feature Engineering for Machine
+> Learning and Data Analytics (Chapman & Hall/CRC Data Mining and 
+> Knowledge Discovery Series), CRC Press, 2018.
 
-In order to use binary classification, we need to identify two types of examples which we call positive and negative. Each example is a record that belongs to a time unit for an asset conceptually describing and abstracting its operating conditions up to that time unit through feature engineering using historical and other data sources described earlier. In the context of binary classification for predictive maintenance, positive type denotes failures (label 1) and negative type denotes normal operations (label = 0) where labels are of type categorical. The goal is to find a model that identifies each new example as likely to fail or operate normally within the next X units of time.
+## Modeling techniques for predictive maintenance
 
-#### Label construction
-In order to create a predictive model to answer the question "What is the probability that the asset fails in the next X units of time?", labeling is done by taking X records prior to the failure of an asset and labeling them as "about to fail" (label = 1) while labeling all other records as "normal" (label =0). In this method, labels are categorical variables (see Figure 3).
+This section discusses the main modeling techniques for PdM problems, along with their specific label construction methods. Notice that a single modeling technique can be used across different industries. The modeling technique is paired to the data science problem, rather than the context of the data at hand.
+
+> [!IMPORTANT]
+> The choice of labels for the failure cases and the labeling strategy  
+> should be determined in consultation with the domain expert.
+
+### Binary classification
+Binary classification is used to _predict the probability that a piece of equipment fails within a future time period_ - called the _future horizon period X_. X is determined by the business problem and the data at hand, in consultation with the domain expert. Examples are:
+- _minimum lead time_ required to replace components, deploy maintenance resources, perform maintenance to avoid a problem that is likely to occur in that period.
+- _minimum count of events_ that can happen before a problem occurs.
+
+In this technique, two types of training examples are identified. A positive example, _which indicates a failure_, with label = 1. A negative example, which indicates normal operations, with  label = 0. The target variable, and hence the label values, are _categorical_. The model should identify each new example as likely to fail or work normally over the next X time units.
+
+#### Label construction for binary classification
+The question here is: "What is the probability that the asset will fail in the next X units of time?" To answer this question, label X records prior to the failure of an asset as "about to fail" (label = 1), and label all other records as being "normal" (label =0). (see Figure 3).
 
 ![Figure 3. Labeling for binary classification](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
-
 Figure 3. Labeling for binary classification
 
-For flight delays and cancellations, X is picked as one day to predict delays in the next 24 hours. All flights that are within 24 hours before failures were labeled as 1s. For ATM cash dispense failures, two binary classification models were built to predict the failure probability of a transaction in the next 10 minutes and also to predict the probability of failure in the next 100 notes dispensed. All transactions that happened within the last 10 minutes of the failure are labeled as 1 for the first model. And all notes dispensed within the last 100 notes of a failure were labeled as 1 for the second model. For circuit breaker failures, the task is to predict the probability that the next circuit breaker command fails in which case X is chosen to be one future command. For train door failures, the binary classification model was built to predict failures within the next 7 days. For wind turbine failures, X was chosen as 3 months.
-
-Wind turbine and train door cases are also used for regression analysis
-to predict remaining useful life using the same data but by utilizing a
-different labeling strategy which is explained in the next section.
+Examples of labeling strategy for some of the use cases are listed below.
+- _Flight delays_: X may be chosen as 1 day, to predict delays in the next 24 hours. Then all flights that are within 24 hours before failures are labeled as 1.
+- _ATM cash dispense failures_: A goal may be to determine failure probability of a transaction in the next one hour. In that case, all transactions that happened within the past hour of the failure are labeled as 1. To predict failure probability over the next N currency notes dispensed, all notes dispensed within the last N notes of a failure are labeled as 1.
+- _Circuit breaker failures_: The goal may be to predict the next circuit breaker command failure. In that case, X is chosen to be one future command.
+- _Train door failures_: X may be chosen as two days.
+- _Wind turbine failures_: X may be chosen as two months.
 
 ### Regression for predictive maintenance
-Regression models in predictive maintenance are used to compute the
-remaining useful life (RUL) of an asset which is defined as the amount of time that the asset is operational before the next failure occurs. Same as binary classification, each example is a record that belongs to a time unit "Y" for an asset. However, in the context of regression, the goal is to find a model that calculates the remaining useful life of each new example as a continuous number which is the period of time remaining before the failure. We call this time period some multiple of Y. Each example also has a remaining useful life which can be calculated by measuring the amount of time remaining for that example before the next failure.
+Regression models are used to _compute the remaining useful life (RUL) of an asset_. RUL is defined as the amount of time that an asset is operational before the next failure occurs. Each training example is a record that belongs to a time unit _nY_ for an asset, where _n_ is the multiple. The model should calculate the RUL of each new example as a _continuous number_. This number denotes the period of time remaining before the failure.
 
-#### Label construction
-Given the question "What is the remaining useful life of the equipment?
-", labels for the regression model can be constructed by taking each
-record prior to the failure and labeling them by calculating how many
-units of time remain before the next failure. In this method, labels are
-continuous variables (See Figure 4).
+#### Label construction for regression
+The question here is: "What is the remaining useful life (RUL) of the equipment?" For each record prior to the failure, calculate the label to be the number of units of time remaining before the next failure. In this method, labels are continuous variables. (See Figure 4)
 
 ![Figure 4. Labeling for regression](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
-
 Figure 4. Labeling for regression
 
-Different than binary classification, for regression, assets without any
-failures in the data cannot be used for modeling as labeling is done
-in reference to a failure point and its calculation is not possible
-without knowing how long the asset survived before failure. This issue
-is best addressed by another statistical technique called Survival
-Analysis.
-We are not going to discuss Survival Analysis in this playbook because of the potential complications
-that may arise when applying the technique to predictive maintenance use cases
-that involve time-varying data with frequent intervals.
+For regression, labeling is done with reference to a failure point. Its calculation is not possible without knowing how long the asset has survived before a failure. So in contrast to binary classification, assets without any failures in the data cannot be used for modeling. This issue is best addressed by another statistical technique called [Survival Analysis](https://en.wikipedia.org/wiki/Survival_analysis). But potential complications may arise when applying this technique to PdM use cases that involve time-varying data with frequent intervals. For more information on Survival Analysis, see [this one-pager](https://www.cscu.cornell.edu/news/statnews/stnews78.pdf).
 
 ### Multi-class classification for predictive maintenance
-Multi-class classification for predictive maintenance can be used to
-predict two future outcomes. The first one is to assign an asset to one of
-the multiple possible periods of time to give a range of time to failure
-for each asset. The second one is to identify the likelihood of failure in a
-future period due to one of the multiple root causes. That allows
-maintenance personnel who are equipped with this knowledge to
-handle the problems in advance. Another multi-class modeling
-technique focuses on determining the most likely root
-cause of a given a failure. This allows
-recommendations to be given for the top maintenance actions
-to be taken in order to fix a failure.
-By having a ranked list of root causes and associated repair actions,  
-technicians can be more effective in taking
-their first repair actions after failures.
+Multi-class classification techniques can be used in PdM solutions for two scenarios:
+- Predict _two future outcomes_: The first outcome is _a range of time to failure_ for an asset. The asset is assigned to one of multiple possible periods of time. The second outcome is the likelihood of failure in a future period due to _one of the multiple root causes_. This prediction enables the maintenance crew to watch for symptoms and plan maintenance schedules.
+- Predict _the most likely root cause_ of a given failure. This outcome recommends the right set of maintenance actions to fix a failure. A ranked list of root causes and recommended repairs can help technicians prioritize their repair actions after a failure.
 
-#### Label construction
-Given the two questions which are "What is the probability that an asset fails in the next "aZ" units of time where "a" is the number of periods" and "What is the probability that the asset fails in the next X units of time due to problem "P<sub>i</sub>" where "i" is the number of possible root causes, labeling is done in the following way for these to techniques.
-
-For the first question, labeling is done by taking aZ records prior to
-the failure of an asset and labeling them using buckets of time (3Z, 2Z,
-Z) as their labels while labeling all other records as "normal" (label
-=0). In this method, label is categorical variable (See Figure 5).
+#### Label construction for multi-class classification
+The question here is: "What is the probability that an asset will fail in the next _nZ_ units of time where _n_ is the number of periods?" To answer this question, label nZ records prior to the failure of an asset using buckets of time (3Z, 2Z, Z). Label all other records as "normal" (label = 0). In this method, the target variable holds _categorical_ values. (See Figure 5).
 
 ![Figure 5. Labeling for multiclass classification for failure time prediction](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+Figure 5. Labeling for multi-class classification for failure time prediction
 
-Figure 5. Labeling for multiclass classification for failure time
-prediction
-
-For the second question, labeling is done by taking X records prior to
-the failure of an asset and labeling them as "about to fail due to
-problem P<sub>i</sub>" (label = P<sub>i</sub>) while labeling all other records as
-"normal" (label =0). In this method, labels are categorical variables
-(See Figure 6).
+The question here is: "What is the probability that the asset will fail in the next X units of time due to root cause/problem _P<sub>i</sub>_?" where _i_ is the number of possible root causes. To answer this question, label X records prior to the failure of an asset as "about to fail due to root cause _P<sub>i</sub>_" (label = _P<sub>i</sub>_). Label all other records as being "normal" (label = 0). In this method also, labels are categorical (See Figure 6).
 
 ![Figure 6. Labeling for multiclass classification for root cause prediction](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+Figure 6. Labeling for multi-class classification for root cause prediction
 
-Figure 6. Labeling for multiclass classification for root cause
-prediction
+The model assigns a failure probability due to each _P<sub>i</sub>_ as well as the probability of no failure. These probabilities can be ordered by magnitude to allow prediction of the problems that are most likely to occur in the future.
 
-The model assigns a failure probability due to each P<sub>i</sub> as well as the probability of no failure. These probabilities can be ordered by magnitude to allow prediction of the problems that are most likely to occur in the future. Aircraft component failure use case was structured as a multiclass classification problem. This enables the prediction of the probabilities of failure due to two different pressure valve components occurring within the next
-month.
+The question here is: "What maintenance actions do you recommend after a failure?" To answer this question, labeling _does not require a future horizon to be picked_, because the model is not predicting failure in the future. It is just predicting the most likely root cause _once the failure has already happened_.
 
-For recommending maintenance actions after failures, labeling does not
-require a future horizon to be picked. This is because the model is not predicting
-failure in the future but it is just predicting the most likely root
-cause once the failure has already happened. Elevator door failures
-fall into the third case where the goal is to predict the
-cause of the failure given historical data on operating conditions. This model is then used to predict the most likely root causes after a failure has occurred. One key benefit of this model is that it helps inexperienced technicians to easily diagnose and fix problems that would otherwise
-need years’ worth of experience.
-
-## Training, validation and testing methods in predictive maintenance
-In predictive maintenance, similar to any other solution space
-containing timestamped data, the typical training and testing routine needs to take account the time varying aspects to better generalize on unseen future data.
+## Training, validation, and testing methods for predictive maintenance
+The [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) provides a full coverage of the model train-test-validate cycle. This section discusses aspects unique to PdM.
 
 ### Cross validation
-Many machine learning algorithms depend on a number of hyperparameters that can change model performance significantly. The optimal values of these hyperparameters are not computed automatically when training the model, but should be specified by data scientist. There are several ways of finding good values of hyperparameters. The most common one is "k-fold cross-validation" which splits the examples randomly into "k" folds. For each set of hyperparameters values, learning algorithm is run
-k times. At each iteration, the examples in the current fold are used as a validation set, the rest of the examples are used as a training set. The algorithm trains over training examples and the performance metrics are computed over validation examples. At the end of this loop for each set of hyperparameter values, we compute average of the k performance metric values and choose hyperparameter values that have the best average performance.
+The goal of [cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) is to define a data set to "test" the model in the training phase. This data set is called the _validation set_. This technique helps limit problems like _overfitting_ and gives an insight on how the model will generalize to an independent data set. That is, an unknown data set, which could be from a real problem. The training and testing routine for PdM needs to take into account the time varying aspects to better generalize on unseen future data.
 
-As mentioned before, in predictive maintenance problems, data is
-recorded as a time series of events that come from several data sources. These records can be ordered according to the time of labeling a record or an example. Hence, if we split the dataset randomly into training and validation set, some of the training examples are later in time than some of validation examples. This results in estimating future performance of hyperparameter values based on the data that arrived before model was trained. These estimations might be overly optimistic, especially if time-series are not stationary and change their behavior over time. As a result, chosen hyperparameter values might be sub-optimal.
+Many machine learning algorithms depend on a number of hyperparameters that can change the model performance significantly. The optimal values of these hyperparameters are not computed automatically when training the model. They should be specified by the data scientist. There are several ways of finding good values of hyperparameters.
 
-A better way of finding good values of hyperparameters is to split the examples into training and validation set in a time-dependent way, such that all validation examples are later in time than all training examples. Then, for each set of values of hyperparameters we train the algorithm over training set, measure model’s performance over the same validation set and choose hyperparameter values that show the best performance. When time-series data is not stationary and evolves over time, the hyperparameter values chosen by train/validation split lead to a better future "model's performance than with the values chosen randomly by cross-validation.
+The most common one is _k-fold cross-validation_ that splits the examples randomly into _k_ folds. For each set of hyperparameters values, run the learning algorithm _k_ times. At each iteration, use the examples in the current fold as a validation set, and the rest of the examples as a training set. Train the algorithm over training examples and compute the performance metrics over validation examples. At the end of this loop, compute the average of _k_ performance metrics. For each set of hyperparameter values, choose the ones that have the best average performance. The task of choosing hyperparameters is often experimental in nature.
 
-The final model is generated by training a learning algorithm over
-entire data using the best hyperparameter values that are found by using training/validation split or cross-validation.
+In PdM problems, data is recorded as a time series of events that come from several data sources. These records may be ordered according to the time of labeling. Hence, if the dataset is split _randomly_ into training and validation set, _some of the training examples may be later in time than some of validation examples_. Future performance of hyperparameter values will be estimated based on some data that arrived _before_ model was trained. These estimations might be overly optimistic, especially if the time-series is not stationary and evolves over time. As a result, the chosen hyperparameter values might be suboptimal.
+
+The recommended way is to split the examples into training and validation set in a _time-dependent_ manner, where all validation examples are later in time than all training examples. For each set of hyperparameter values, train the algorithm over the training data set. Measure the model’s performance over the same validation set. Choose hyperparameter values that show the best performance. Hyperparameter values chosen by train/validation split result in better future model performance than with the values chosen randomly by cross-validation.
+
+The final model can be generated by training a learning algorithm over entire training data using the best hyperparameter values.
 
 ### Testing for model performance
-After building a model we need to estimate its future performance on new
-data. The simplest estimate could be the performance of the model over
-the training data. But this estimate is overly optimistic, because the
-model is tailored to the data that is used to estimate performance. A
-better estimate could be a performance metric of hyperparameter values
-computed over the validation set or an average performance metric
-computed from cross-validation. But for the same reasons as previously
-stated, these estimations are still overly optimistic. We need more
-realistic approaches for measuring model performance.
+Once a model is built, an estimate of its future performance on new data is required. A good estimate is the performance metric of hyperparameter values computed over the validation set, or an average performance metric computed from cross-validation. These estimations are often overly optimistic. The business might often have some additional guidelines on how they would like to test the model.
 
-One way is to split the data randomly into training, validation and test
-sets. The training and validation sets are used to select values of
-hyperparameters and train the model with them. The performance of the
-model is measured over the test set.
+The recommended way for PdM is to split the examples into training, validation, and test data sets in a _time-dependent_ manner. All test examples should be later in time than all the training and validation examples. After the split, generate the model and measure its performance as described earlier.
 
-Another way which is relevant to predictive maintenance, is to split the
-examples into training, validation and test sets in a time-dependent
-way, such that all test examples are later in time than all training and
-validation examples. After the split, model generation and performance
-measurement are done the same as described earlier.
-
-When time-series are stationary and easy to predict both approaches
-generate similar estimations of future performance. But when time-series
-are non-stationary and/or hard to predict, the second approach will
-generate more realistic estimates of future performance than the first
-one.
+When time-series are stationary and easy to predict, both random and time-dependent approaches generate similar estimations of future performance. But when time-series are non-stationary, and/or hard to predict, the time-dependent approach will generate more realistic estimates of future performance.
 
 ### Time-dependent split
-As a best practice, in this section we take a closer look at how to
-implement time-dependent split. We describe a time-dependent two-way
-split between training and test sets, however exactly the same logic
-should be applied for time-dependent split for training and validation
-sets.
+This section describes best practices to implement time-dependent split. A time-dependent two-way split between training and test sets is described below.
 
-Suppose we have a stream of timestamped events such as measurements from
-various sensors. Features of training and test examples, as well as
-their labels, are defined over timeframes that contain multiple events.
-For example, for binary classification, as described in Feature
-Engineering and Modeling Techniques sections, features are created
-based on the past events and labels are created based on future events
-within "X" units of time in the future. Thus, the labeling timeframe of
-an example comes later then the timeframe of its features. For time-
-dependent split, we pick a point in time at which we train a
-model with tuned hyperparameters by using historical data up to that
-point. To prevent leakage of future labels that are beyond the training
-cut-off into training data, we choose the latest timeframe to label
-training examples to be X units before the training cut-off date. In
-Figure 7, each solid circle represents a row in the final feature data
-set for which the features and labels are computed according to the
-method described above. Given that, the figure shows the records that
-should go into training and testing sets when implementing
-time-dependent split for X=2 and W=3:
+Assume a stream of timestamped events such as measurements from various sensors. Define features and labels of training and test examples over time frames that contain multiple events. For example, for binary classification, create features based on past events, and create labels  based on future events within "X" units of time in the future (see the sections on [feature engineering](#Feature-engineering) and [modeling techniques](#Modeling-techniques-applied-to-PdM-use-cases)). Thus, the labeling time frame of an example comes later than the time frame of its features.
+
+For time-dependent split, pick a _training cutoff time T<sub>c</sub>_ at which to train a model, with hyperparameters tuned using historical data up to T<sub>c</sub>. To prevent leakage of future labels that are beyond T<sub>c</sub> into the training data, choose the latest time to label training examples to be X units before T<sub>c</sub>. In the example shown in Figure 7, each square represents a record in the data set where features and labels are computed as described above. The figure shows the records that should go into training and testing sets for X=2 and W=3:
 
 ![Figure 7. Time-dependent split for binary classification](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
-
 Figure 7. Time-dependent split for binary classification
 
-The green squares represent the records belonging to the time units that
-can be used for training. As explained earlier, each training example in
-the final feature table is generated by looking at past 3 periods for
-feature generation and 2 future periods for labeling before the
-training day cut-off. We do not use examples in the training set when
-any part of the 2 future periods for that example is beyond the training
-cut-off since we assume that we do not have visibility beyond the
-training cut-off. Due to that constraint, black examples represent the records of the final labeled dataset that should not be used in the training data set. These records won’t be used in testing data either since they are before the training cut-off and their labeling timeframes partially depend on the training timeframe which should not be the case as we would like to completely separate labeling timeframes for training and testing to prevent label information leakage.
+The green squares represent records belonging to the time units that can be used for training. Each training example is generated by considering the past three periods for feature generation, and two future periods for labeling before T<sub>c</sub>. When any part of the two future periods is beyond T<sub>c</sub>, exclude that example from the training data set because no visibility is assumed beyond T<sub>c</sub>.
 
-This technique allows for overlap in the data used for feature
-generation between training and testing examples that are close to the
-training cut-off. Depending on data availability, an even more severe
-separation can be accomplished by not using any of the examples in the
-test set that are within W time units of the training cut-off.
+The black squares represent the records of the final labeled data set that should not be used in the training data set, given the above constraint. These records will also not be used in testing data, since they are before T<sub>c</sub>. In addition, their labeling time frames partially depend on the training time frame, which is not ideal. Training and test data should have separate labeling time frames to prevent label information leakage.
 
-From our work, we found that regression models used for predicting
-remaining useful life are more severely affected by the leakage problem
-and using a random split leads to extreme overfitting. Similarly, in
-regression problems, the split should be such that records belonging to
-assets with failures before training cut off should be used for the
-training set and assets that have failures after the cut-off should be
-used for testing set.
+The technique discussed so far allows for overlap between training and testing examples that have timestamps near T<sub>c</sub>. A solution to achieve greater separation is to exclude examples that are within W time units of T<sub>c</sub> from the test set. But such an aggressive split depends on ample data availability.
 
-As a general method, another important best practice for splitting data
-for training and testing is to use a split by asset ID so that none of
-the assets that were used in training are used for testing since the
-idea of testing is to make sure that when a new asset is used to make
-predictions on, the model provides realistic results.
+Regression models used for predicting RUL are more severely affected by the leakage problem. Using the random split method leads to extreme over-fitting. For regression problems, the split should be such that the records belonging to assets with failures before T<sub>c</sub> go into the training set. Records of assets that have failures after the cutoff go into the test set.
+
+Another best practice for splitting data for training and testing is to use a split by asset ID. The split should be such that none of the assets used in the training set are used in testing the model performance. Using this approach, a model has a better chance of providing more realistic results with new assets.
 
 ### Handling imbalanced data
-In classification problems, if there are more examples of one class than
-of the others, the data is said to be imbalanced. Ideally, we would like
-to have enough representatives of each class in the training data to be
-able to differentiate between different classes. If one class is less
-than 10% of the data, we can say that the data is imbalanced and we call
-the underrepresented dataset minority class. Drastically, in many cases
-we find imbalanced datasets where one class is severely underrepresented
-compared to others for example by only constituting 0.001% of the data
-points. Class imbalance is a problem in many domains including fraud
-detection, network intrusion and predictive maintenance where failures
-are usually rare occurrences in the lifetime of the assets which make up
-the minority class examples.
+In classification problems, if there are more examples of one class than of the others, the data set is said to be _imbalanced_. Ideally, enough representatives of each class in the training data are preferred to enable differentiation between different classes. If one class is less than 10% of the data, the data is deemed to be imbalanced. The underrepresented class is called a _minority class_.
 
-In case of class imbalance, performance of most standard learning algorithms is compromised as they aim to minimize the overall error rate. For example, for a data set with 99% negative class examples and 1% positive class examples, we can get 99% accuracy by simply labeling all instances as negative. However, this misclassifies all positive examples so the algorithm is not a useful one although the accuracy metric is very high. Consequently, conventional evaluation metrics such as overall accuracy on error rate, are not sufficient in case of
-imbalanced learning. Other metrics, such as precision, recall, F1 scores
-and cost adjusted ROC curves are used for evaluations in case of
-imbalanced datasets which is discussed in the Evaluation Metrics
-section.
+Many PdM problems face such imbalanced datasets, where one class is severely underrepresented compared to the other class, or classes. In some situations, the minority class may constitute only 0.001% of the total data points. Class imbalance is not unique to PdM. Other domains where failures and anomalies are rare occurrences face a similar problem, for examples, fraud detection and network intrusion. These failures make up the minority class examples.
 
-However, there are some methods that help remedy class imbalance
-problem. The two major ones are sampling techniques and cost sensitive
-learning.
+With class imbalance in data, performance of most standard learning algorithms is compromised, since they aim to minimize the overall error rate. For a data set with 99% negative and 1% positive examples, a model can be shown to have 99% accuracy by labeling all instances as negative. But the model will mis-classify all positive examples; so even if its accuracy is high, the algorithm is not a useful one. Consequently, conventional evaluation metrics such as _overall accuracy on error rate_ are insufficient for imbalanced learning. When faced with imbalanced datasets, other metrics are used for model evaluation:
+- Precision
+- Recall
+- F1 scores
+- Cost adjusted ROC (receiver operating characteristics)
+
+For more information about these metrics, see [model evaluation](#Model-evaluation).
+
+However, there are some methods that help remedy class imbalance problem. The two major ones are _sampling techniques_ and _cost sensitive learning_.
 
 #### Sampling methods
-The use of sampling methods in imbalanced learning consists of
-modification of the dataset by some mechanisms in order to provide a
-balanced dataset. Although there are a lot of different sampling
-techniques, most straight forward ones are random oversampling and under
-sampling.
+Imbalanced learning involves the use of sampling methods to modify the training data set to a balanced data set. Sampling methods are not to be applied to the test set. Although there are several sampling techniques, most straight forward ones are _random oversampling_ and _under sampling_.
 
-Simply stated, random oversampling is selecting a random sample from
-minority class, replicating these examples and adding them to training
-data set. This increases the number of total examples in minority class
-and eventually balance the number of examples of different classes. One
-danger of oversampling is that multiple instances of certain examples
-can cause the classifier to become too specific leading to overfitting.
-This would result in high training accuracy but performance on the
-unseen testing data may be very poor. Conversely, random under sampling
-is selecting a random sample from majority class and removing those
-examples from training data set. However, removing examples from
-majority class may cause the classifier to miss important concepts
-pertaining to the majority class. Hybrid sampling where minority class
-is oversampled and majority class is under sampled at the same time is
-another viable approach. There are many other more sophisticated
-sampling techniques are available and effective sampling methods for
-class imbalance is a popular research area receiving constant attention
-and contributions from many channels. Use of different techniques to
-decide on the most effective ones is usually left to the data scientist
-to research and experiment and are highly dependent on the data
-properties. Additionally, it is important to make sure that sampling
-methods are applied only to the training set but not the test set.
+_Random oversampling_ involves selecting a random sample from minority class, replicating these examples, and adding them to training data set. Consequently, the number of examples in minority class is increased, and eventually balance the number of examples of different classes. A drawback of oversampling is that multiple instances of certain examples can cause the classifier to become too specific, leading to over-fitting. The model may show high training accuracy, but its performance on unseen test data may be suboptimal.
+
+Conversely, _random under sampling_ is selecting a random sample from a majority class and removing those examples from training data set. However, removing examples from majority class may cause the classifier to miss important concepts pertaining to the majority class. _Hybrid sampling_ where minority class is over-sampled and majority class is under-sampled at the same time is another viable approach.
+
+There are many sophisticated sampling techniques. The technique chosen depends on the data properties and results of iterative experiments by the data scientist.
 
 #### Cost sensitive learning
-In predictive maintenance, failures which constitute the minority class
-are of more interest than normal examples and thus the focus is on the
-performance of the algorithm on failures is usually the focus. This is
-commonly referred as unequal loss or asymmetric costs of misclassifying
-elements of different classes wherein incorrectly predicting a positive
-as negative can cost more than vice versa. The desired classifier should
-be able to give high prediction accuracy over the minority class,
-without severely compromising on the accuracy for the majority class.
+In PdM, failures that constitute the minority class are of more interest than normal examples. So the focus is mainly on the algorithm's performance on failures. Incorrectly predicting a positive class as a negative class can cost more than vice-versa. This situation is commonly referred as unequal loss or asymmetric cost of mis-classifying elements to different classes. The ideal classifier should deliver high prediction accuracy over the minority class, without compromising on the accuracy for the majority class.
 
-There are several ways this can be achieved. By assigning a high cost to
-misclassification of the minority class, and trying to minimize the
-overall cost, the problem of unequal loses can be effectively dealt
-with. Some machine learning algorithms use this idea inherently such as
-SVMs (Support Vector Machines) where cost of positive and negative
-examples can be incorporated during training time. Similarly, boosting
-methods are used and usually show good performance in case of imbalanced
-data such as boosted decision tree algorithms.
+There are multiple ways to achieve this balance. To mitigate the problem of unequal loss, assign a high cost to mis-classification of the minority class, and try to minimize the overall cost. Algorithms like _SVMs (Support Vector Machines)_ adopt this method inherently, by allowing cost of positive and negative examples to be specified during training. Similarly, boosting methods such as _boosted decision trees_ usually show good performance with imbalanced data.
 
-## Evaluation metrics
-As mentioned earlier, class imbalance causes poor performance as
-algorithms tend to classify majority class examples better in expense of
-minority class cases as the total misclassification error is much
-improved when majority class is labeled correctly. This causes low
-recall rates and becomes a larger problem when the cost of false alarms
-to the business is very high. Accuracy is the most popular metric used
-for describing a classifier’s performance. However as explained above
-accuracy is ineffective and do not reflect the real performance of a
-classifier’s functionality as it is very sensitive to data
-distributions. Instead, other evaluation metrics are used to assess
-imbalanced learning problems. In those cases, precision, recall and F1
-scores should be the initial metrics to look at when evaluating
-predictive maintenance model performance. In predictive maintenance,
-recall rates denote how many of the failures in the test set were
-correctly identified by the model. Higher recall rates mean the model is
-successful in catching the true failures. Precision metric relates to
-the rate of false alarms where lower precision rates correspond to
-higher false alarms. F1 score considers both precision and recall rates
-with best value being 1 and worst being 0.
+## Model evaluation
+Mis-classification is a significant problem for PdM scenarios where the cost of false alarms to the business is high. For instance, a decision to ground an aircraft based on an incorrect prediction of engine failure can disrupt schedules and travel plans. Taking a machine offline from an assembly line can lead to loss of revenue. So model evaluation with the right performance metrics against new test data is critical.
 
-Moreover, for binary classification, decile tables and lift charts are
-very informative when evaluating performance. They focus only on the
-positive class (failures) and provide a more complex picture of the
-algorithm performance than what is seen by looking at just a fixed
-operating point on the ROC (Receiver Operating Characteristic) curve.
-Decile tables are obtained by ordering the test examples according to
-their predicted probabilities of failures computed by the model before
-thresholding to decide on the final label. The ordered samples are then
-grouped in deciles (i.e. the 10% samples with largest probability and
-then 20%, 30% and so on). By computing the ratio between true positive
-rate of each decile and its random baseline (i.e. 0.1, 0.2 ..) one can
-estimate how the algorithm performance changes at each decile. Lift
-charts are used to plot decile values by plotting decile true positive
-rate versus random true positive rate pairs for all deciles. Usually,
-the first deciles are the focus of the results since here we see the
-largest gains. First deciles can also be seen as representative for "at
-risk" when used for predictive maintenance.
+Typical performance metrics used to evaluate PdM models are discussed below:
 
-## Sample solution architecture
-When deploying a predictive maintenance solution, we are interested in
-an end to end solution that provides a continuous cycle of data
-ingestion, data storage for model training, feature generation,
-prediction and visualization of the results along with an alert
-generating mechanism such as an asset monitoring dashboard. We want a
-data pipeline that provides future insights to the user in a continuous
-automated manner. An example predictive maintenance architecture for
-such an IoT data pipeline is illustrated in Figure 8 below. In the
-architecture, real-time telemetry is collected into an Event Hub which
-stores streaming data. This data is ingested by stream analytics for
-real-time processing of data such as feature generation. The features
-are then used to call the predictive model web service and results are
-displayed on the dashboard. At the same time, ingested data is also
-stored in an historical database and merged with external data sources
-such as on-premises data bases to create training examples for modeling.
-Same data warehouses can be used for batch scoring of the examples and
-storing of the results which can again be used to provide predictive
-reports on the dashboard.
+- [Accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision) is the most popular metric used for describing a classifier’s performance. But accuracy is sensitive to data distributions, and is an ineffective measure for scenarios with imbalanced data sets. Other metrics are used instead. Tools like [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) are used to compute and reason about accuracy of the model.
+- [Precision](https://en.wikipedia.org/wiki/Precision_and_recall) of PdM models relate to the rate of false alarms. Lower precision of the model generally corresponds to a higher rate of false alarms.
+- [Recall](https://en.wikipedia.org/wiki/Precision_and_recall) rate denotes how many of the failures in the test set were correctly identified by the model. Higher recall rates mean the model is successful in identifying the true failures.
+- [F1 score](https://en.wikipedia.org/wiki/F1_score) is the harmonic average of precision and recall, with its value ranging between 0 (worst) to 1 (best).
 
-![Figure 8. Example solution architecture for predictive maintenance](./media/cortana-analytics-playbook-predictive-maintenance/example-solution-architecture-for-predictive-maintenance.png)
+For binary classification,
+- [Receiver operating curves (ROC)](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) is also a popular metric. In ROC curves, model performance is interpreted based on one fixed operating point on the ROC.
+- But for PdM problems, _decile tables_ and _lift charts_ are more informative. They focus only on the positive class (failures), and provide a more complex picture of the algorithm performance than ROC curves.
+  - _Decile tables_ are created using test examples in a descending order of  failure probabilities. The ordered samples are then grouped into deciles (10% of the samples with highest probability, then 20%, 30%, and so on). The ratio (true positive rate)/(random baseline) for each decile helps estimate the algorithm performance at each decile. The random baseline takes on values 0.1, 0.2, and so on.
+  - [Lift charts](http://www2.cs.uregina.ca/~dbd/cs831/notes/lift_chart/lift_chart.html) plot the decile true positive rate versus random true positive rate for all deciles. The first deciles are usually the focus of results, since they show the largest gains. First deciles can also be seen as representative for "at risk", when used for PdM.
 
-Figure 8. Example solution architecture for predictive maintenance
+## Model operationalization for predictive maintenance
 
-For more information about each of the components of the architecture
-please refer to [Azure](https://azure.microsoft.com/) documentation.
+The benefit the data science exercise is realized only when the trained model is made operational. That is, the model must be deployed into the business systems to make predictions based on new, previously unseen, data.  The new data must exactly conform to the _model signature_ of the trained model in two ways:
+- all the features must be present in every logical instance (say a row in a table) of the new data.
+- the new data must be pre-processed, and each of the features engineered, in exactly the same way as the training data.
 
+The above process is stated in many ways in academic and industry literature. But all the following statements mean the same thing:
+- _Score new data_ using the model
+- _Apply the model_ to new data
+- _Operationalize_ the model
+- _Deploy_ the model
+- _Run the model_ against new data
+
+As stated earlier, model operationalization for PdM is different from its peers. Scenarios involving anomaly detection and failure detection typically implement _online scoring_ (also called _real time scoring_). Here, the model _scores_ each incoming record, and returns a prediction. For anomaly detection, the prediction is an indication that an anomaly occurred (Example: One-class SVM). For failure detection, it would be the type or class of failure.
+
+In contrast, PdM involves _batch scoring_. To conform to the model signature, the features in the new data must be engineered in the same manner as the training data. For the large datasets that is typical for new data, features are aggregated over time windows and scored in batch. Batch scoring is typically done in distributed systems like [Spark](http://spark.apache.org/) or [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). There are a couple of alternatives - both suboptimal:
+- Streaming data engines support aggregation over windows in memory. So it could be argued that they support online scoring. But these systems are suitable for dense data in narrow windows of time, or sparse elements over wider windows. They may not scale well for the dense data over wider time windows, as seen in PdM scenarios.
+- If batch scoring is not available, the solution is to adapt online scoring to handle new data in small batches at a time.
+
+## Solution templates for predictive maintenance
+
+The final section of this guide provides a list of PdM solution templates, tutorials, and experiments implemented in Azure. These PdM applications can be deployed into an Azure subscription within minutes in some cases. They can be used as proof-of-concept demos, sandboxes to experiment with alternatives, or accelerators for actual production implementations. These templates are located in the [Azure AI Gallery](http://gallery.azure.ai) or [Azure GitHub](https://github.com/Azure). These different samples will be rolled into this solution template over time.
+
+| # | Title | Description |
+|--:|:------|-------------|
+| 1 | [Azure Predictive Maintenance Machine Learning Sample](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |PdM sample to predict failure over the next N time units. This sample is written as an Azure ML Workbench project, and is ideal for beginners to PdM. [Additional documentation](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) related to this sample.|
+| 2 | [Azure Predictive Maintenance Solution Template](https://github.com/Azure/AI-PredictiveMaintenance) | An open-source solution template which demonstrates ML modeling and a complete Azure infrastructure capable of supporting Predictive Maintenance scenarios in the context of IoT remote monitoring. |
+| 3 | [Deep Learning for Predictive Maintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook with a demo solution of using LSTM (Long Short-Term Memory) networks (a class of Recurrent Neural Networks) for Predictive Maintenance, with a [blog post on this sample](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
+| 4 | [Predictive Maintenance Modeling Guide in R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | PdM modeling guide with scripts in R.|
+| 5 | [Azure Predictive Maintenance for Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | One of the first PdM solution templates based on Azure ML v1.0 for aircraft maintenance. This guide originated from this project. |
+| 6 | [Azure AI Toolkit for IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI in the IoT edge using TensorFlow; toolkit packages deep learning models in Azure IoT Edge-compatible Docker containers and expose those models as REST APIs.
+| 7 | [Azure IoT Predictive Maintenance](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Preconfigured Solution. Aircraft maintenance PdM template with IoT Suite. [Another document](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) and [walkthrough](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) related to the same project. |
+| 8 | [Predictive Maintenance template using SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demo of remaining useful life scenario based on R services. |
+| 9 | [Predictive Maintenance Modeling Guide](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Aircraft maintenance dataset feature engineered using R with [experiments](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) and [datasets](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) and [Azure notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) and [experiments](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) in AzureML v1.0|
+
+## Training resources for predictive maintenance
+
+Microsoft Azure offers learning paths for the foundational concepts behind PdM techniques, besides  content and training on general AI concepts and practice.
+
+| Training resource  | Availability |
+|:-------------------|--------------|
+| [Learning Path for PdM using Trees and Random Forest](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Public | 
+| [Learning Path for PdM using Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Public |
+| [AI Developer on Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
+| [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Public |
+| [Azure AI Learning from GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
+| [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
+| [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
+| [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Public |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | Partners |
+| [Microsoft Partner Network](http://learningportal.microsoft.com) | Partners |
+
+In addition, free MOOCS (massive open online courses) on AI are offered online by academic  institutions like Stanford and MIT, and other educational companies.

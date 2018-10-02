@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
-ms.author: sethm
+ms.date: 09/26/2018
+ms.author: spelluru
 
 ---
 
 # Suspend and reactivate messaging entities (disable)
 
-Queues, topics, and subscriptions can be temporarily suspended. Suspension puts the entity into a disabled state, in which all messages are maintained in storage. However, messages cannot be removed or added, and the respective protocol operations yield errors.
+Queues, topics, and subscriptions can be temporarily suspended. Suspension puts the entity into a disabled state in which all messages are maintained in storage. However, messages cannot be removed or added, and the respective protocol operations yield errors.
 
 Suspending an entity is typically done for urgent administrative reasons. One scenario is having deployed a faulty receiver that takes messages off the queue, fails processing, and yet incorrectly completes the messages and removes them. If that behavior is diagnosed, the queue can be disabled for receives until corrected code is deployed and further data loss caused by the faulty code can be prevented.
 
@@ -29,7 +29,7 @@ In the portal, the **Properties** section for the respective entity enables chan
 
 ![][1]
 
-The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
+The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
 
 ## Suspension states
 

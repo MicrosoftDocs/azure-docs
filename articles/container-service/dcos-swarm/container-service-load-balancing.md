@@ -3,7 +3,7 @@ title: Load balance containers in Azure DC/OS cluster
 description: Load balance across multiple containers in an Azure Container Service DC/OS cluster.
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
@@ -24,7 +24,7 @@ advantage of the public and private agent clusters by placing your load balancer
 
 You need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) can create one for you.
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -92,7 +92,7 @@ Next, create a file named *hello-web.json* and copy in the following contents. T
 }
 ```
 
-Use the DC/OS CLI to run the application. By default Marathon deploys the the applicaton to the private cluster. This means that the above deployment is only accessible via your load balancer, which is usually the desired behavior.
+Use the DC/OS CLI to run the application. By default Marathon deploys the applicaton to the private cluster. This means that the above deployment is only accessible via your load balancer, which is usually the desired behavior.
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json

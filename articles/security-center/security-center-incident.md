@@ -3,13 +3,13 @@ title: Handling security alerts in Azure Security Center | Microsoft Docs
 description: This document helps you to use Azure Security Center capabilities to handle security incidents.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na

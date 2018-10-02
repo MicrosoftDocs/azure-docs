@@ -1,97 +1,179 @@
 ---
-title: Overview of Alerts in Microsoft Azure and Azure Monitor | Microsoft Docs
-description: Alerts enable you to monitor Azure resource metrics, events, or logs and be notified when a condition you specify is met.
+title: Overview of alerting and notification monitoring in Azure
+description: Overview of alerting in Azure. Alerts, classic alerts, the alerts interface. 
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: a6dea224-57bf-43d8-a292-06523037d70b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/02/2017
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: robb
-ms.custom: H1Hack27Feb2017
-
+ms.component: alerts
 ---
-# What are alerts in Microsoft Azure?
-This article describes the various sources of alerts in Microsoft Azure, what are the purposes for those alerts, their benefits, and how to get started with using them. It specifically applies to Azure Monitor, but provides pointers to other services with alerts as well. Alerts offer a method of monitoring in Azure that allows you to configure conditions over data and become notified when the conditions match the latest monitoring data.
+
+# Overview of alerts in Microsoft Azure 
+
+This article describes what alerts are, their benefits, and how to get started using them.  
 
 
-## Taxonomy of Azure Alerts
-Azure uses the following terms to describe alerts and their functions:
-* **Alert** - a definition of criteria (one or more rules or conditions) that becomes activated when met.
-* **Active** - the state when the criteria defined by an alert is met.
-* **Resolved** - the state when the criteria defined by an alert is no longer met after previously having been met.
-* **Notification** - the action taken based off of an alert becoming active.
-* **Action** - a specific call sent to a receiver of a notification (for example, emailing an address or posting to a webhook URL). Notifications can usually trigger multiple actions.
+## What are alerts in Microsoft Azure?
+Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. 
 
-    > [!NOTE]
-    > As part of the evolution of Alerts in Azure, a new unified experience is available in preview. The new Alerts (Preview) experience uses a different taxonomy. Learn more about [Alerts (Preview)](monitoring-overview-unified-alerts.md). 
-    >
-
-## Alerts in different Azure services
-Alerts are available across several Azure monitoring services. For information on how and when to use these services, [see this article](./monitoring-overview.md). Here is a breakdown of the alert types available across Azure:
+This article discusses the unified alert experience in Azure Monitor, which now includes Log Analytics and Application Insights. The [previous alert experience](monitoring-overview-alerts.md)and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page. 
 
 
-| Service | Alert type | Supported services | Description |
-|---|---|---|---|
-| Azure Monitor | [Metric alerts](./insights-alerts-portal.md) | [Supported metrics from Azure Monitor](./monitoring-supported-metrics.md) | Receive a notification when any platform-level metric meets a specific condition (for example, CPU % on a VM is greater than 90 for the past 5 minutes). |
-|Azure Monitor | [Near Real-Time Metric Alerts (preview)](./monitoring-near-real-time-metric-alerts.md)| [Supported resources from Azure Monitor](./monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for) | Receive a notification faster than metric alerts when one or more platform-level metrics meet specified conditions (for example, CPU % on a VM is greater than 90 and Network In is greater than 500 MB for the past 5 minutes). |
-| Azure Monitor | [Activity Log alerts](./monitoring-activity-log-alerts.md) | All resource types available in Azure Resource Manager | Receive a notification when any new event in the [Azure Activity Log](./monitoring-overview-activity-logs.md) matches specific conditions (for example, when a "Delete VM" operation occurs in myProductionResourceGroup or when a new Service Health event with "Active" as the status appears). |
-| Application Insights | [Metric alerts](../application-insights/app-insights-alerts.md) | Any application instrumented to send data to Application Insights | Receive a notification when any application-level metric meets a specific condition (for example, server response time is greater than 2 seconds). |
-| Application Insights | [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md) | Any website instrumented to send data to Application Insights | Receive a notification when availability or responsiveness of a website is below expectations. |
-| Log Analytics | [Log Analytics alerts](../log-analytics/log-analytics-alerts.md) | Any service configured to send data into Log Analytics | Receive a notification when a Log Analytics search query over metric and/or event data meets certain criteria. |
+## Overview
 
-## Alerts on Azure Monitor data
-There are three types of alerts off of data available from Azure Monitor -- metric alerts, near real-time metric alerts (preview) and Activity Log alerts.
+The diagram below represents the general terms and flow of alerts. 
 
-* **Metric alerts** - This alert triggers when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). For a growing list of available metrics supported by Azure monitor, see [List of metrics supported on Azure Monitor](monitoring-supported-metrics.md).
-* **Near real-time metric alerts (preview)**  - These alerts are similar to metric alerts but differ in a few ways. Firstly, as the name suggests these alerts can trigger in near real-time (as fast as 1 min). They also support monitoring multiple(currently two) metrics.  The alert generates a notification when the alert is "Activated" (when the thresholds for each metric are crossed at the same time and the alert condition is met) as well as when it is "Resolved" (when at least one metric crosses the threshold again and the condition is no longer met).
+![Alert Flow](media/monitoring-overview-alerts/Azure-Monitor-Alerts.svg)
 
-    > [!NOTE]
-    > Near real-time metric alerts are currently in public preview. The functionality and user experience is subject to change.
-    >
-    >
+Alert rules are separated from alerts and the action that are taken when an alert fires. 
 
-* **Activity log alerts** - A streaming log alert that triggers when an Activity Log event is generated that matches filter criteria that you have assigned. These alerts have only one state, "Activated," since the alert engine simply applies the filter criteria to any new event. These alerts can be used to become notified when a new Service Health incident occurs or when a user or application performs an operation in your subscription, for example, "Delete virtual machine."
+- **Alert rule** - The alert rule captures the target and criteria for alerting. The alert rule can be in an enabled or a disabled state. Alerts only fire when enabled. The key attributes of an alert rules are:
+    - **Target Resource** - A target can be any Azure resource. Target Resource defines the scope and signals available for alerting. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource. For certain resources (e.g. Virtual Machines), you can specify multiple resources as the target of an alert rule.
+    - **Signal** - Signals are emitted by the target resource and can be of several types. Metric, Activity log, Application Insights, and Log.
+    - **Criteria** - Criteria is combination of Signal and Logic applied on a Target resource. Examples: 
+         - Percentage CPU > 70%
+         - Server Response Time > 4 ms 
+         - Result count of a log query > 100
+- **Alert Name** – A specific name for the alert rule configured by the user
+- **Alert Description** – A description for the alert rule configured by the user
+- **Severity** – The severity of the alert once the criteria specified in the alert rule is met. Severity can range from 0 to 4.
+- **Action** - A specific action taken when the alert is fired. For more information, see Action Groups.
 
-For Diagnostic Log data available through Azure Monitor, we suggest routing the data into Log Analytics and using a Log Analytics alert. The following diagram summarizes sources of data in Azure Monitor and, conceptually, how you can alert off of that data.
+## What you can alert on
 
-![Alerts explained](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
+You can alert on metrics and logs as described in [monitoring data sources](monitoring-data-sources.md). These include but are not limited to:
+- Metric values
+- Log search queries
+- Activity Log events
+- Health of the underlying Azure platform
+- Tests for web site availability
 
-## How do I receive a notification on an Azure Monitor alert?
-Historically, Azure alerts from different services used their own built-in notification methods. Going forward, Azure Monitor offers a reusable notification grouping called Action Groups. Action Groups specify a set of receivers for a notification -- any number of email addresses, phone numbers (for SMS), or webhook URLs -- and any time an alert is activated that references the Action Group, all receivers receive that notification. This allows you to reuse a grouping of receivers (for example, your on call engineer list) across many alert objects. Currently, only Activity Log alerts make use of Action Groups, but several other Azure alert types are working on using Action Groups as well.
 
-Action Groups support notification by posting to a webhook URL in addition to email addresses and SMS numbers. This enables automation and remediation, for example, using:
-    - Azure Automation Runbook
-    - Azure Function
-    - Azure Logic App
-    - a third-party service
 
-Near real-time metric alerts (Preview), and Activity Log alerts use Action Groups.
+## Manage alerts
+You can set the state of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
 
-Metric alerts do not yet use Action Groups. On an individual metric alert you can configure notifications to:
-* Send email notifications to the service administrator, to co-administrators, or to additional email addresses that you specify.
-* Call a webhook, which enables you to launch additional automation actions.
+The following alert states are supported.
+
+| State | Description |
+|:---|:---|
+| New | The issue has just been detected and has not yet been reviewed. |
+| Acknowledged | An administrator has reviewed the alert and started working on it. |
+| Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another state. |
+
+The state of an alert is different than the monitor condition. Alert state is set by the user and is independent of the monitor condition. When the underlying condition for the fired alert clears, the monitor condition for the alert is set to resolved. Although the system can set the monitor condition to resolved, the alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
+
+## Smart groups 
+Smart Groups are in preview. 
+
+Smart groups are aggregations of alerts based on machine learning algorithms which can help reduce alert noise and aid in trouble-shooting. [Learn more about Smart Groups](https://aka.ms/smart-groups) and [how to manage your smart groups](https://aka.ms/managing-smart-groups).
+
+
+## Alerts experience 
+The default Alerts page provides a summary of alerts that are created within a particular time window. It displays the total alerts for each severity with columns that identify the total number of alerts in each state for each severity. Select any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
+
+It does not show or track older [classic alerts](#classic-alerts). You can change the subscriptions or filter parameters to update the page. 
+
+![Alerts page](media/monitoring-overview-alerts/alerts-page.png)
+
+You can filter this view by selecting values in the dropdown menus at the top of the page.
+
+| Column | Description |
+|:---|:---|
+| Subscription | Select up to five Azure subscriptions. Only alerts in the selected subscriptions are included in the view. |
+| Resource group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
+| Time range | Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. |
+
+Select the following values at the top of the Alerts page to open another page.
+
+| Value | Description |
+|:---|:---|
+| Total alerts | The total number of alerts that match the selected criteria. Select this value to open the All Alerts view with no filter. |
+| Smart groups | The total number of smart groups that were created from the alerts that match the selected criteria. Select this value to open the smart groups list in the All Alerts view.
+| Total alert rules | The total number of alert rules in the selected subscription and resource group. Select this value to open the Rules view filtered on the selected subscription and resource group.
+
+
+## Manage alert rules
+Click on **Manage alert rules** to show the **Rules** page. **Rules** is a single place for managing all alert rules across your Azure subscriptions. It lists all alert rules and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be edited, enabled, or disabled from this page.  
+
+ ![alerts-rules](./media/monitoring-overview-alerts/alerts-preview-rules.png)
+
+
+## Create an alert rule
+Alerts can be authored in a consistent manner regardless of the monitoring service or signal type. All fired alerts and related details are available in single page.
+ 
+You create a new alert rule with the following three steps:
+1. Pick the _target_ for the alert.
+1. Select the _signal_ from the available signals for the target.
+1. Specify the _logic_ to be applied to data from the signal.
+ 
+This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select, and it guides you through defining the logic of the alert rule.
+
+You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](monitor-alerts-unified-usage.md).
+
+Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](./monitoring-overview.md). The following table provides a listing of the types of alert rules that are available across Azure. It also lists what's currently supported in which alert experience.
+
+Previously, Azure Monitor, Application Insights, Log Analytics and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
+
+| **Monitor source** | **Signal type**  | **Description** | 
+|-------------|----------------|-------------|
+| Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Application Insights | Web availability tests | Not supported. See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
+
+
+## All alerts page 
+Click on Total Alerts to see the all alerts page. Here you can view a list of alerts that were created within the selected time window. You can view either a list of the individual alerts or a list of the smart groups that contain the alerts. Select the banner at the top of the page to toggle between views.
+
+![All Alerts page](media/monitoring-overview-alerts/all-alerts-page.png)
+
+You can filter the view by selecting the following values in the dropdown menus at the top of the page.
+
+| Column | Description |
+|:---|:---|
+| Subscription | Select up to five Azure subscriptions. Only alerts in the selected subscriptions are included in the view. |
+| Resource group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
+| Resource type | Select one or more resource types. Only alerts with targets of the selected type are included in the view. This column is only available after a resource group has been specified. |
+| Resource | Select a resource. Only alerts with that resource as a target are included in the view. This column is only available after a resource type has been specified. |
+| Severity | Select an alert severity, or select *All* to include alerts of all severities. |
+| Monitor condition | Select a monitor condition, or select *All* to include alerts of conditions. |
+| Alert state | Select an alert state, or select *All* to include alerts of states. |
+| Monitor service | Select a service, or select *All* to include all services. Only alerts created by rules that use service as a target are included. |
+| Time range | Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. |
+
+Select **Columns** at the top of the page to select which columns to display. 
+
+## Alert detail page
+The Alert detail page is displayed when you select an alert. It provides details of the alert and enables you to change its state.
+
+![Alert detail](media/monitoring-overview-alerts/alert-detail2.png)
+
+The Alert detail page includes the following sections.
+
+| Section | Description |
+|:---|:---|
+| Essentials | Displays the properties and other significant information about the alert. |
+| History | Lists each action taken by the alert and any changes made to the alert. This is currently limited to state changes. |
+| Smart group | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. This includes the other alerts in the same smart group that were created in the past 30 days.  This is regardless of the time filter in the alerts list page. Select an alert to view its detail. |
+| More details | Displays further contextual information for the alert, which is typically specific to the type of source that created the alert. |
+
+
+## Classic alerts 
+
+The Azure Monitor metrics and activity log alerting capability before June 2018 is called "Alerts (classic)". 
+
+For more information see [Alerts classic](./monitoring-overview-alerts-classic.md)
+
 
 ## Next steps
-Get information about alert rules and configuring them by using:
 
-* Learn more about [Metrics](monitoring-overview-metrics.md)
-* Configure [Metric Alerts via Azure portal](insights-alerts-portal.md)
-* Configure [Metric Alerts PowerShell](insights-alerts-powershell.md)
-* Configure [Metric Alerts Command-line interface (CLI)](insights-alerts-command-line-interface.md)
-* Configure [Metric Alerts Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Learn more about [Activity Log](monitoring-overview-activity-logs.md)
-* Configure [Activity Log Alerts via Azure portal](monitoring-activity-log-alerts.md)
-* Configure [Activity Log Alerts via Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-* Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
-* Learn more about [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md)
-* Learn more about [Service Notifications](monitoring-service-notifications.md)
-* Learn more about [Action Groups](monitoring-action-groups.md)
-* Configure [Alerts via Alerts (Preview)](monitor-alerts-unified-usage.md)
+- [Learn more about Smart Groups](https://aka.ms/smart-groups)
+- [Learn about action groups](monitoring-action-groups.md)
+- [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
+- [Managing Smart Groups](https://aka.ms/managing-smart-groups)
+
+
+
+
+

@@ -1,5 +1,5 @@
 ---
-title: Avoid charges for your Azure free account - Azure | Microsoft Docs
+title: Avoid charges for your Azure free account | Microsoft Docs
 description: Understand why you see charges for your Azure free account. Learn ways to avoid these charges.
 services: ''
 documentationcenter: ''
@@ -10,11 +10,11 @@ tags: billing
 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
+ms.author: cwatson
 ---
 # Avoid getting charged for your Azure free account
 
@@ -44,7 +44,7 @@ Your free services and quantities expire at the end of 12 months. You can find o
 
 1.	Log in to the [Azure portal](http://portal.azure.com).
 
-2.	From bottom of left navigation, select **More services**.
+2.	From left navigation area, select **All services**.
 
 3.	Select **Subscriptions**.
 

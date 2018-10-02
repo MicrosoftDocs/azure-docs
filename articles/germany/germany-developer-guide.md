@@ -59,6 +59,7 @@ To learn about mapping global Azure and Azure SQL Database endpoints to Azure Ge
 | TrafficManagerDnsSuffix                  | azuretrafficmanager.de |
 | AzureKeyVaultDnsSuffix                   | vault.microsoftazure.de |
 | AzureKeyVaultServiceEndpointResourceId   | https://vault.microsoftazure.de |
+| Service Bus Suffix                       | servicebus.cloudapi.de |
 
 
 ## Next steps
@@ -69,5 +70,5 @@ For more information about Azure Germany, see the following resources:
 * [Sign-in page](https://portal.microsoftazure.de/) if you already have an Azure Germany account
 * [Azure Germany overview](./germany-welcome.md)
 * [Azure Germany blog](http://blogs.msdn.microsoft.com/azuregermany/)
-* [Azure compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+* [Azure compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)
 

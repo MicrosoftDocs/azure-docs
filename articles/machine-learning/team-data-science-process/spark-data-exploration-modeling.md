@@ -3,18 +3,19 @@ title: Data exploration and modeling with Spark | Microsoft Docs
 description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on Azure.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
+ms.author: deguhath
 
 ---
 # Data exploration and modeling with Spark
@@ -966,7 +967,7 @@ Time taken to execute above cell: 49.21 seconds
 ### Gradient boosting trees regression
 The code in this section shows how to train, evaluate, and save a gradient boosting trees model that predicts tip amount for the NYC taxi trip data.
 
-**Train and evaluate **
+**Train and evaluate**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

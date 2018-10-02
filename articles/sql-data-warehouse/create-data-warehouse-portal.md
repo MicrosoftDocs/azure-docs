@@ -1,32 +1,31 @@
 ---
-title: 'Create an Azure SQL data warehouse - Azure Portal | Microsoft Docs'
-description: For Azure SQL Data Warehouse, create a SQL server, server-level firewall rule, and a data warehouse in the Azure portal. Then query it. 
-keywords: sql data warehouse tutorial, create a SQL data warehouse
-services: sql-database
-documentationcenter: ''
-author: barbkess
-manager: jhubbard
-editor: ''
-
-ms.service: sql-database
-ms.custom: mvc,DBs & servers
-ms.workload: "Active"
-ms.tgt_pltfrm: portal
-ms.devlang: na
-ms.topic: quickstart
-ms.date: 11/20/2017
-ms.author: barbkess
-
+title: 'Quickstart: Create and query Azure SQL Data Warehouse - Azure Portal | Microsoft Docs'
+description: Create and query a data warehouse with Azure SQL Data Warehouse in the Azure portal.
+services: sql-data-warehouse
+author: kevinvngo
+manager: craigg
+ms.service: sql-data-warehouse
+ms.topic: conceptual
+ms.component: manage
+ms.date: 08/01/2018
+ms.author: kevin
+ms.reviewer: igorstan
 ---
-# Create and query an Azure SQL data warehouse in the Azure portal
+
+# Quickstart: Create and query an Azure SQL data warehouse in the Azure portal
 
 Quickly create and query an Azure SQL data warehouse using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
+> [!NOTE]
+> Creating a SQL Data Warehouse may result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+>
+>
+
 ## Before you begin
 
-Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## Sign in to the Azure portal
 
@@ -34,11 +33,11 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a data warehouse
 
-An Azure SQL data warehouse is created with a defined set of [compute resources](performance-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+An Azure SQL data warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md). 
 
 Follow these steps to create a SQL data warehouse that contains the AdventureWorksDW sample data. 
 
-1. Click the **New** button in the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **SQL Data Warehouse** under **Featured** on the **New** page.
 
@@ -69,15 +68,15 @@ Follow these steps to create a SQL data warehouse that contains the AdventureWor
 
 5. Click **Select**.
 
-6. Click **Performance tier** to specify the performance configuration for the data warehouse.
+6. Click **Performance level** to specify the performance configuration for the data warehouse.
 
-7. For this tutorial, select the **Optimized for Elasticity** performance tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
+7. For this tutorial, select **Gen2**. The slider, by default, is set to **DW1000c**.  Try moving it up and down to see how it works. 
 
     ![configure performance](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Click **Apply**.
 
-9. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
+9. Now that you have completed the SQL Data Warehouse form, click **Create** to provision the database. Provisioning takes a few minutes. 
 
     ![click create](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -93,7 +92,7 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 > SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20171113.database.windows.net**) and provides options for further configuration. 
+1. After the deployment completes, click **SQL data warehouses** from the left-hand menu and then click **mySampleDatabase** on the **SQL data warehouses** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration. 
 
 2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. To open server settings, click the server name.
 
@@ -124,14 +123,14 @@ You can now connect to the SQL server and its data warehouses using this IP addr
 Get the fully qualified server name for your SQL server in the Azure portal. Later you use the fully qualified name when connecting to the server.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20171113.database.windows.net. 
+2. Select **SQL Data warehouses** from the left-hand menu, and click your data warehouse on the **SQL datawarehouses** page. 
+3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20180430.database.windows.net. 
 
     ![connection information](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
 ## Connect to the server as server admin
 
-This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to establish a connection to your Azure SQL server.
+This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to establish a connection to your Azure SQL server.
 
 1. Open SQL Server Management Studio.
 
@@ -140,7 +139,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Server type | Database engine | This value is required |
-   | Server name | The fully qualified server name | Here's an example: **mynewserver-20171113.database.windows.net**. |
+   | Server name | The fully qualified server name | Here's an example: **mynewserver-20180430.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
    | Login | The server admin account | This is the account that you specified when you created the server. |
    | Password | The password for your server admin account | This is the password that you specified when you created the server. |
@@ -194,7 +193,7 @@ Follow these steps to clean up resources as you desire.
 
 2. To remove the data warehouse so you are not charged for compute or storage, click **Delete**.
 
-3. To remove the SQL server you created, click **mynewserver-20171113.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
+3. To remove the SQL server you created, click **mynewserver-20180430.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
 4. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
 

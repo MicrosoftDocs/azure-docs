@@ -1,23 +1,18 @@
 ---
-title: Overview of Azure Serverless | Microsoft Docs
-description: Create powerful solutions in the cloud without having to think about infrastructure. 
-keywords: ''
+title: Azure Serverless overview | Microsoft Docs
+description: Learn about creating powerful solutions in the cloud without worrying about infrastructure
 services: logic-apps
-author: jeffhollan
-manager: anneta
-editor: ''
-documentationcenter: ''
-
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: klam, estfan, LADocs
+ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: LADocs; jehollan
 ---
-# Overview of Azure Serverless with Functions and Logic Apps
+
+# Overview: Azure Serverless with Azure Logic Apps and Azure Functions
 
 Serverless applications offer benefits of an increase in speed of development, reduction in required code, and simplicity with scale.  This article goes into the different attributes of serverless solutions, and Azure serverless offerings.
 
@@ -37,11 +32,11 @@ If you want to jump right in and get started with Azure Functions, start with [C
 
 Azure Logic Apps provides a way to simplify and implement scalable integrations and workflows in the cloud. It provides a visual designer to model and automate your process as a series of steps called a workflow.  There are [many connectors](../connectors/apis-list.md) across cloud and on-premises services to quickly connect a serverless app to other APIs.  A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.  Logic Apps is a great choice when orchestrating different Azure Functions in a process - especially when the process requires interacting with an external system or API.
 
-To get started with Logic Apps, start with [creating your first logic app](logic-apps-create-a-logic-app.md).  If you are looking for more technical information about Logic Apps, see the [developer reference](logic-apps-workflow-actions-triggers.md).
+To get started with Logic Apps, start with [creating your first logic app](quickstart-create-first-logic-app-workflow.md).  If you are looking for more technical information about Logic Apps, see the [developer reference](logic-apps-workflow-actions-triggers.md).
 
 ## How can I build and deploy Serverless applications in Azure?
 
-Azure provides a rich set of tools across development, deployment, and management of Serverless apps.  Apps can be built directly in the Azure portal, or with [tooling from Visual Studio](logic-apps-serverless-get-started-vs.md).  Once an application has been developed it can be [deployed instantly](logic-apps-create-deploy-template.md).  Azure also provides monitoring for serverless apps.  This monitoring can be accessed from the Azure portal, through the API or SDKs, or with integrated tooling to OMS and Application Insights.
+Azure provides a rich set of tools across development, deployment, and management of Serverless apps.  Apps can be built directly in the Azure portal, or with [tooling from Visual Studio](logic-apps-serverless-get-started-vs.md).  Once an application has been developed it can be [deployed instantly](logic-apps-create-deploy-template.md).  Azure also provides monitoring for serverless apps.  This monitoring can be accessed from the Azure portal, through the API or SDKs, or with integrated tooling to Log Analytics and Application Insights.
 
 ## Next steps
 

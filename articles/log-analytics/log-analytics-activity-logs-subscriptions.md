@@ -3,16 +3,17 @@ title: Collect Azure Activity Logs into Log Analytics across subscriptions | Mic
 description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to an Azure Log Analytics workspace in a different tenant.
 services: log-analytics, logic-apps, event-hubs 
 documentationcenter: ''
-author: richrundmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 03/26/2018
 ms.author: richrund; bwren
+ms.component: na
 
 ---
 # Collect Azure Activity Logs into Log Analytics across subscriptions
@@ -23,7 +24,7 @@ If the Log Analytics workspace is in the same Azure subscription, or in a differ
 
 ## Overview
 
-The strategy used in this scenario is to have Azure Activity Log send events to an [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md) where a [Logic App](../logic-apps/logic-apps-what-are-logic-apps.md) sends them to your Log Analytics workspace. 
+The strategy used in this scenario is to have Azure Activity Log send events to an [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md) where a [Logic App](../logic-apps/logic-apps-overview.md) sends them to your Log Analytics workspace. 
 
 ![image of data flow from activity log to log analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -49,7 +50,7 @@ Following are the requirements for the Azure resources used in this scenario.
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. In the Azure portal, select **New**> **Internet of Things** > **Event Hubs**.
+1. In the Azure portal, select **Create a resource** > **Internet of Things** > **Event Hubs**.
 
    ![Marketplace new event hub](media/log-analytics-activity-logs-subscriptions/marketplace-new-event-hub.png)
 
@@ -109,7 +110,7 @@ Before creating your Logic App, make sure you have the following information fro
 - Log Analytics workspace ID
 - Log Analytics shared key
 
-To get the event Hub name and connection string, follow the steps in [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#check-event-hubs-namespace-permissions-and-find-the-connection-string).
+To get the event Hub name and connection string, follow the steps in [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#permissions-connection-string).
 
 
 ### Create a new blank Logic App
@@ -137,7 +138,7 @@ To get the event Hub name and connection string, follow the steps in [Check Even
 
 The Logic Apps Designer now shows you available connectors and their triggers, which you use for starting your logic app workflow.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### Add Event Hub trigger
 
@@ -320,15 +321,15 @@ To see detailed information on each step, click on the step name to expand it. C
 ## Step 5 - View Azure Activity Log in Log Analytics
 The final step is to check the Log Analytics workspace to make sure that data is being collected as expected.
 
-1. In the Azure portal, select **Log Analytics**.
-2. Select your workspace and then the **Log Search** tile.
-3. In the search query bar, type `AzureActivity_CL` and click the search button. If you didn't name your custom log *AzureActivity*, type the name you chose and append `_CL`.
+1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+2. In your list of Log Analytics workspaces, select your workspace.
+3.  Click the **Log Search** tile and on the Log Search pane, in the query field type `AzureActivity_CL` and then hit enter or click the search button to the right of the query field. If you didn't name your custom log *AzureActivity*, type the name you chose and append `_CL`.
 
 >[!NOTE]
 > The first time a new custom log is sent to Log Analytics it may take up to an hour for the custom log to be searchable.
 
 >[!NOTE]
-> The activity logs are written to a custom table and do not show in the [Activity Log solution](./log-analytics-activity.md).
+> The activity logs are written to a custom table and do not appear in the [Activity Log solution](./log-analytics-activity.md).
 
 
 ![Test logic app](media/log-analytics-activity-logs-subscriptions/log-analytics-results.png)

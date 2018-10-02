@@ -1,7 +1,7 @@
 ---
-title: Create a Ruby App and deploy to App Service on Linux | Microsoft Docs
-description: Learn to create Ruby apps with App Service on Linux.
-keywords: azure app service, linux, oss, ruby
+title: Create a Ruby on Rails App and deploy to App Service on Linux | Microsoft Docs
+description: Learn to create a Ruby on Rails app with App Service on Linux.
+keywords: azure app service, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
 author: SyntaxC4
@@ -14,22 +14,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/10/2017
+ms.date: 08/24/2018
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Create a Ruby App in App Service on Linux
+# Create a Ruby on Rails App in App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
+[Azure App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic [Ruby on Rails](https://rubyonrails.org/) application that can then be deployed to Azure as a Web App on Linux.
+
+> [!NOTE]
+> The Ruby development stack only supports Ruby on Rails at this time. If you want to use a different platform, such as Sinatra, please see the quickstart for [Web App for Containers](https://docs.microsoft.com/azure/app-service/containers/).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.4.1 or higher</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.3 or higher</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -41,42 +44,21 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## Run the application locally
 
-Run the rails server in order for the application to work. Change to the *hello-world* directory, and the `rails server` command starts the server.
+Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window, change to the `hello-world` directory, and use the `rails server` command to start the server.
+
+The first step is to install the required gems. There's a `Gemfile` included in the sample so you don't need to specify the gems to install. We'll use bundler for this:
+
+```
+bundle install
+```
+
+Once the gems are installed, we'll use bundler to start the app:
 
 ```bash
-cd hello-world\bin
-rails server
+bundle exec rails server
 ```
 
 Using your web browser, navigate to `http://localhost:3000` to test the app locally.
-
-![Hello-world](./media/quickstart-ruby/hello-world.png)
-
-## Modify app to display welcome message
-
-Modify the application so it displays a welcome message. First, you must setup a route by modifying the *~/workspace/ruby-docs-hello-world/config/routes.rb* file to include a route named `hello`.
-
-  ```ruby
-  Rails.application.routes.draw do
-      #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-      root 'application#hello'
-  end
-  ```
-
-Change the application's controller so it returns the message as HTML to the browser. 
-
-Open *~/workspace/hello-world/app/controllers/application_controller.rb* for editing. Modify the `ApplicationController` class to look like the following code sample:
-
-  ```ruby
-  class ApplicationController > ActionController :: base
-    protect_from_forgery with: :exception
-    def hello
-      render html: "Hello, world from Azure Web App on Linux!"
-    end
-  end
-  ```
-
-Your app is now configured. Using your web browser, navigate to `http://localhost:3000` to confirm the root landing page.
 
 ![Hello World configured](./media/quickstart-ruby/hello-world-configured.png)
 
@@ -84,37 +66,23 @@ Your app is now configured. Using your web browser, navigate to `http://localhos
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## Create a Ruby web app on Azure
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-A resource group is required to contain the assets needed for your web app. To create a resource group, use the [az group create]() command.
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## Create a web app
 
-Use the [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command to create an app service plan for your web app.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-Next, issue the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command to create the web app that uses the newly created service plan. Notice that the runtime is set to `ruby|2.3`. Don't forget to replace `<app name>` with a unique app name.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-The output from the command reveals information about the newly created web app as well as the deployment URL. It should look similar to the following sample. Copy the URL for later use in this tutorial.
+Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-Once the web app is created, an **Overview** page is available to view. Navigate to it. The following splash page is displayed:
+Here is what your new web app should look like:
 
 ![Splash page](./media/quickstart-ruby/splash-page.png)
-
 
 ## Deploy your application
 
@@ -143,7 +111,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Once the deployment has completed, restart your web app for the deployment to take effect by using the [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) command, as shown here:
+Once the deployment has completed, restart your web app for the deployment to take effect by using the [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-restart) command, as shown here:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
@@ -166,4 +134,4 @@ http://<app name>.azurewebsites.net
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Ruby on Rails with MySQL](tutorial-ruby-mysql-app.md)
+> [Ruby on Rails with MySQL](tutorial-ruby-postgres-app.md)

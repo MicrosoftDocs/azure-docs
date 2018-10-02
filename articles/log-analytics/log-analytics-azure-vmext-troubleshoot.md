@@ -3,19 +3,19 @@ title: Troubleshoot Azure Log Analytics VM Extension | Microsoft Docs
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics VM extension for Windows and Linux Azure VMs.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 
 ms.assetid: 
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-
+ms.component: na
 ---
 
 # Troubleshooting the Log Analytics VM extension
@@ -24,7 +24,7 @@ This article provides help troubleshooting errors you might experience with the 
 To verify the status of the extension, perform the following steps from the Azure portal.
 
 1. Sign into the [Azure portal](http://portal.azure.com).
-2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **virtual machines**. As you begin typing, the list filters based on your input. Select **Virtual machines**.
+2. In the Azure portal, click **All services**. In the list of resources, type **virtual machines**. As you begin typing, the list filters based on your input. Select **Virtual machines**.
 3. In your list of virtual machines, find and select it.
 3. On the virtual machine, click **Extensions**.
 4. From the list, check to see if the Log Analytics extension is enabled or not.  For Linux, the agent is listed as **OMSAgentforLinux** and for Windows, the agent is listed as **MicrosoftMonitoringAgent**.

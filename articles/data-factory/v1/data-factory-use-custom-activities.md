@@ -3,28 +3,28 @@ title: Use custom activities in an Azure Data Factory pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: craigg
+
 
 ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/01/2017
-ms.author: spelluru
+ms.topic: conceptual
+ms.date: 01/10/2018
+ms.author: douglasl
 
 robots: noindex
 ---
 # Use custom activities in an Azure Data Factory pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-use-custom-activities.md)
-> * [Version 2 - Preview](../transform-data-using-dotnet-custom-activity.md)
+> * [Version 1](data-factory-use-custom-activities.md)
+> * [Version 2 (current version)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Custom activities in V2](../transform-data-using-dotnet-custom-activity.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Custom activities in V2](../transform-data-using-dotnet-custom-activity.md).
 
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
@@ -418,7 +418,7 @@ Here are the steps you perform in this section:
 
 ### Step 1: Create the data factory
 1. After logging in to the Azure portal, do the following steps:
-   1. Click **NEW** on the left menu.
+   1. Click **Create a resource** on the left menu.
    2. Click **Data + Analytics** in the **New** blade.
    3. Click **Data Factory** on the **Data analytics** blade.
    
@@ -442,7 +442,7 @@ Linked services link data stores or compute services to an Azure data factory. I
 2. Click **New data store** on the command bar and choose **Azure storage**. You should see the JSON script for creating an Azure Storage linked service in the editor.
 	
 	![New data store - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
 
 	![Azure Storage liked service](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Click **Deploy** on the command bar to deploy the linked service.

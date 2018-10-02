@@ -1,20 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Self-service password change| Microsoft Docs'
-description: A topic demonstrating how to set up self-service password change for your consumers in Azure Active Directory B2C
+title: Self-service password change in Azure Active Directory B2C | Microsoft Docs
+description: A topic demonstrating how to set up self-service password change for your consumers in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: vigunase
+author: davidmu1
 manager: mtillman
 
-ms.assetid: 712a7128-5788-4914-8a52-24e200aa4de1
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/05/2016
-ms.author: vigunase
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Configure password change in custom policies  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -83,8 +81,8 @@ Add the following claims provider to your extensions policy.
             <Item Key="UserMessageIfInvalidPassword">Your password is incorrect</Item>
             <Item Key="UserMessageIfOldPasswordUsed">Looks like you used an old password</Item>
             <Item Key="ProviderName">https://sts.windows.net/</Item>
-            <Item Key="METADATA">https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration</Item>
-            <Item Key="authorization_endpoint">https://login.microsoftonline.com/{tenant}/oauth2/token</Item>
+            <Item Key="METADATA">https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/.well-known/openid-configuration</Item>
+            <Item Key="authorization_endpoint">https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/token</Item>
             <Item Key="response_types">id_token</Item>
             <Item Key="response_mode">query</Item>
             <Item Key="scope">email openid</Item>

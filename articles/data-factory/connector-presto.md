@@ -1,30 +1,27 @@
 ---
-title: Copy data from Presto using Azure Data Factory (Beta) | Microsoft Docs
+title: Copy data from Presto using Azure Data Factory (Preview) | Microsoft Docs
 description: Learn how to copy data from Presto to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/30/2017
+ms.topic: conceptual
+ms.date: 06/15/2017
 ms.author: jingwang
 
 ---
-# Copy data from Presto using Azure Data Factory (Beta)
+# Copy data from Presto using Azure Data Factory (Preview)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Presto. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> This connector is currently in Beta. You can try it out and give us feedback. Do not use it in production environments.
+> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 
@@ -51,7 +48,7 @@ The following properties are supported for Presto linked service:
 | port | The TCP port that the Presto server uses to listen for client connections. The default value is 8080.  | No |
 | authenticationType | The authentication mechanism used to connect to the Presto server. <br/>Allowed values are: **Anonymous**, **LDAP** | Yes |
 | username | The user name used to connect to the Presto server.  | No |
-| password | The password corresponding to the user name. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password corresponding to the user name. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using SSL. The default value is false.  | No |
 | trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.  | No |
@@ -71,7 +68,7 @@ The following properties are supported for Presto linked service:
             "serverVersion" : "0.148-t",
             "catalog" : "<catalog>",
             "port" : "<port>",
-            "authenticationType" : "Anonymous",
+            "authenticationType" : "LDAP",
             "username" : "<username>",
             "password": {
                  "type": "SecureString",

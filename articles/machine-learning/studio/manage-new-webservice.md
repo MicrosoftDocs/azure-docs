@@ -3,18 +3,19 @@ title: Use the Azure Machine Learning Web Services portal | Microsoft Docs
 description: Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: v-donglo
 
 ---
 # Manage a Web service using the Azure Machine Learning Web Services portal
@@ -40,7 +41,7 @@ If the user does not have the correct permissions to access resources in the Azu
 
 For more information on creating a workspace, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
 
-For more information on setting access permissions, see [View access assignments for users and groups in the Azure portal - Public preview](../../active-directory/role-based-access-control-manage-assignments.md).
+For more information on setting access permissions, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## Manage New Web services

@@ -1,4 +1,5 @@
-- name: Team Data Science Process Documentation
+- name: Team Data Science Process Documentation 
+  href: index.yml
 - name: Overview
   href: overview.md
 - name: Lifecycle
@@ -14,8 +15,6 @@
     href: lifecycle-deployment.md
   - name: 5. Customer acceptance
     href: lifecycle-acceptance.md
-  - name: With Azure ML
-    href: http://aka.ms/datascienceprocess
 - name: Roles and tasks
   href: roles-tasks.md
   items:
@@ -27,11 +26,9 @@
     href: project-lead-tasks.md
   - name: Individual contributor
     href: project-ic-tasks.md
-- name: Project structure
-  href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
 - name: Project planning
   href: team-data-science-process-project-templates.md
-- name: Project execution
+- name: Development
   items:
   - name: Agile development
     href: agile-development.md
@@ -39,21 +36,32 @@
     href: collaborative-coding-with-git.md
   - name: Execute data science tasks
     href: execute-data-science-tasks.md
+  - name: Code testing
+    href: code-test.md
   - name: Track progress
     href: track-progress.md
-- name: Examples
+- name: Operationalization
+  items:
+  - name: DevOps - CI/CD
+    href: ci-cd-flask.md
+- name: Worked-out examples
   href: walkthroughs.md
   items:
   - name: Azure Machine Learning
     href: walkthroughs-aml-with-tdsp.md
     items:
-    - name: Sentiment classification
+    - name: Sentiment classification using Keras & Scikit Learn
       href: predict-twitter-sentiment.md
+    - name: Sentiment classification using AML text analytics package
+      href: predict-twitter-sentiment-amltextpackage.md
     - name: US income classification
-      href: ../preview/scenario-tdsp-classifying-us-incomes.md
+      href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
       maintainContext: true
     - name: Biomedical entity recognition
-      href: ../preview/scenario-tdsp-biomedical-recognition.md
+      href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
+      maintainContext: true
+    - name: Skin cancer image classification using AML vision package
+      href: isic-image-classification.md
       maintainContext: true
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
@@ -72,6 +80,10 @@
     href: walkthroughs-sql-server.md
   - name: T-SQL and Python with SQL DW
     href: walkthroughs-sql-data-warehouse.md
+- name: Utilities & tools
+  items:
+  - name: Data exploration & modeling utils (GitHub)
+    href: https://github.com/Azure/Azure-TDSP-Utilities
 - name: Training
   items:
   - name: For data scientists
@@ -80,9 +92,6 @@
     href: team-data-science-process-for-devops.md
 - name: How To
   items:
-  - name: Use TDSP in Azure ML
-    href: ../preview/how-to-use-tdsp-in-azure-ml.md
-    maintainContext: true
   - name: Set up data science environments
     href: environment-setup.md
     items:
@@ -111,20 +120,6 @@
     - name: Azure Machine Learning workspace
       href: ../studio/create-workspace.md
       maintainContext: true
-    - name: Set up a Data Science VM
-      items:
-      - name: Create a Windows Data Science VM
-        href: ../data-science-virtual-machine/provision-vm.md
-        maintainContext: true
-      - name: Create an Ubuntu Data Science VM
-        href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
-        maintainContext: true
-      - name: Create a CentOS Data Science VM
-        href: ../data-science-virtual-machine/linux-dsvm-intro.md
-        maintainContext: true
-      - name: Create a Deep Learning VM
-        href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
-        maintainContext: true
   - name: Analyze business needs
     items:
     - name: Identify your scenario
@@ -202,8 +197,6 @@
       items:
       - name: Overview
         href: create-features.md
-      - name: Use Pandas
-        href: create-features-blob.md
       - name: Use SQL+Python
         href: create-features-sql-server.md
       - name: Use Hive queries
@@ -220,59 +213,52 @@
         maintainContext: true
   - name: Deploy models in production
     href: deploy-models-in-production.md
+  - name: Use TDSP in Azure ML
+    href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
+    maintainContext: true
 - name: Related
   items:
+  - name: Azure Machine Learning - AML
+    href: https://docs.microsoft.com/azure/machine-learning/service/
   - name: Microsoft Cognitive Toolkit - CNTK
-    href: https://docs.microsoft.com/en-us/cognitive-toolkit/
+    href: https://docs.microsoft.com/cognitive-toolkit/
     maintainContext: true
-  - name: Cortana Intelligence Partner Solutions
-    items:
-    - name: Cortana Intelligence Gallery
-      href: https://gallery.cortanaintelligence.com
-    - name: Cortana Intelligence publishing guide
-      href: cortana-intelligence-appsource-publishing-guide.md
-    - name: Cortana Intelligence solution evaluation tool
-      href: cortana-intelligence-appsource-evaluation-tool.md
+  - name: Azure AI Gallery
+    href: https://gallery.azure.ai
   - name: Cortana Analytics
     items:
-    - name: APIs
+    - name: Anomaly detection
+      href: apps-anomaly-detection-api.md
+    - name: Cognitive Services
+      href: https://docs.microsoft.com/azure/cognitive-services/
+    - name: Predictive maintenance
       items:
-      - name: Anomaly detection
-        href: apps-anomaly-detection-api.md
-      - name: Cognitive Services
-        href: https://docs.microsoft.com/en-us/azure/cognitive-services/
-      - name: Predictive maintenance
-        items:
-        - name: Overview
-          href: cortana-analytics-playbook-predictive-maintenance.md
-        - name: Architecture
-          href: cortana-analytics-architecture-predictive-maintenance.md
-        - name: Technical guide
-          href: cortana-analytics-technical-guide-predictive-maintenance.md
-      - name: Vehicle telemetry
-        items:
-        - name: Overview
-          href: cortana-analytics-playbook-vehicle-telemetry.md
-        - name: Playbook
-          href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-        - name: Setup
-          href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
+      - name: Overview
+        href: cortana-analytics-playbook-predictive-maintenance.md
+      - name: Architecture
+        href: cortana-analytics-architecture-predictive-maintenance.md
+      - name: Technical guide
+        href: cortana-analytics-technical-guide-predictive-maintenance.md
+    - name: Vehicle telemetry
+      items:
+      - name: Overview
+        href: cortana-analytics-playbook-vehicle-telemetry.md
+      - name: Playbook
+        href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
+      - name: Setup
+        href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Resources
   items:
-  - name: TDSP tools and utilities
-    items:
-    - name: Download from GitHub
-      href: https://github.com/Azure/Azure-TDSP-Utilities
-    - name: Data Science Utilities v.0.11 for the TDSP
-      href: https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/
-    - name: Latest utilities for the TDSP
-      href: https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/
   - name: Blogs
     items:
     - name: Recent Updates for the TDSP
       href: https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/
     - name: Using the TDSP in Azure Machine Learning
       href: https://blogs.technet.microsoft.com/machinelearning/2017/09/25/using-the-team-data-science-process-tdsp-in-azure-machine-learning/
+    - name: Data Science Utilities v.0.11 for the TDSP
+      href: https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/
+    - name: Latest utilities for the TDSP
+      href: https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/
     - name: Data Science Project Planning Template
       href: https://blogs.msdn.microsoft.com/buckwoody/2017/10/24/a-data-science-microsoft-project-template-you-can-use-in-your-solutions/
     - name: Cortana Intelligence and Machine Learning Blog
@@ -283,8 +269,6 @@
       href: https://newsignature.com/services/professional-services/advanced-analytics/
     - name: Blue Granite
       href: https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations
-    - name: Microsoft Consulting Services
-      href: https://www.microsoft.com/en-us/microsoftservices/business-analytics.aspx
   - name: Related Microsoft resources
     items:
     - name: MSDN forum
@@ -293,4 +277,4 @@
       href: http://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-
+      

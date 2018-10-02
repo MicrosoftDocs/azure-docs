@@ -1,17 +1,18 @@
 ---
-title: Troubleshooting | Microsoft Docs
-description: How to resolve issues when using Microsoft Speech Service.
+title: Troubleshooting Bing Speech | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: How to resolve issues when using Bing Speech.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
-# Troubleshooting
+# Troubleshooting Bing Speech
 
 ## Error `HTTP 403 Forbidden`
 

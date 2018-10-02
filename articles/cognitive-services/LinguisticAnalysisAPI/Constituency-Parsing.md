@@ -1,13 +1,14 @@
 ---
-title: Constituency parsing in the Linguistic Analysis API | Microsoft Docs
+title: Constituency parsing - Linguistic Analysis API
+titlesuffix: Azure Cognitive Services
 description: Learn about how constituency parsing, also known as "phrase structure parsing," identifies phrases in text.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: linguistic-analysis-api
-ms.topic: article
+ms.component: linguistic-analysis
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ---
@@ -88,4 +89,4 @@ There are several such phrases: *I*, *a new hybrid automobile*, *Bluetooth*, and
 
 ## Specification
 
-Trees here use the S-expressions from the [Penn Treebank](https://www.cis.upenn.edu/~treebank/).
+Trees here use the S-expressions from the [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).

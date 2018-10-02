@@ -1,41 +1,32 @@
 ---
 title: Configure Reports for Azure Backup
-description: This article talks about configuring Power BI reports for Azure Backup using Recovery Services vault.
+description: Configure Power BI reports for Azure Backup using Recovery Services vault.
 services: backup
-documentationcenter: ''
-author: JPallavi
-manager: vijayts
-editor: ''
-
-ms.assetid: 86e465f1-8996-4a40-b582-ccf75c58ab87
+author: adiganmsft
+manager: shivamg
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/10/2017
-ms.author: pajosh
+ms.topic: conceptual
+ms.date: 07/26/2018
+ms.author: adigan
 ms.custom: H1Hack27Feb2017
-
 ---
 # Configure Azure Backup reports
-This article talks about steps to configure reports for Azure Backup using Recovery Services vault, and  to access these reports using Power BI. After performing these steps, you can directly go to Power BI to view all the reports, customize and create reports. 
+This article talks about steps to configure reports for Azure Backup using Recovery Services vault, and to access these reports using Power BI. After performing these steps, you can directly go to Power BI to view all the reports, customize and create reports. 
 
 ## Supported scenarios
 1. Azure Backup reports are supported for Azure virtual machine backup and file/folder backup to cloud using Azure Recovery Services Agent.
 2. Reports for Azure SQL, DPM and Azure Backup Server are not supported at this time.
 3. You can view reports across vaults and across subscriptions, if same storage account is configured for each of the vaults. Storage account selected should be in the same region as recovery services vault.
 4. The frequency of scheduled refresh for the reports is 24 hours in Power BI. You can also perform an ad-hoc refresh of the reports in Power BI, in which case latest data in customer storage account is used for rendering reports. 
-5. Azure Backup Reports are currently not supported in National clouds.
 
 ## Prerequisites
-1. Create an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) to configure it for reports. This storage account is used for storing reports related data.
+1. Create an [Azure storage account](../storage/common/storage-quickstart-create-account.md) to configure it for reports. This storage account is used for storing reports related data.
 2. [Create a Power BI account](https://powerbi.microsoft.com/landing/signin/) to view, customize, and create your own reports using Power BI portal.
 3. Register the resource provider **Microsoft.insights** if not registered already, with the subscription of storage account and also with the subscription of Recovery Services vault to enable reporting data to flow to the storage account. To do the same, you must go to Azure portal > Subscription > Resource providers and check for this provider to register it. 
 
 ## Configure storage account for reports
 Use the following steps to configure the storage account for recovery services vault using Azure portal. This is a one-time configuration and once storage account is configured, you can go to Power BI directly to view content pack and leverage reports.
-1. If you already have a Recovery Services vault open, proceed to next step. If you do not have a Recovery Services vault open, but are in the Azure portal, on the Hub menu, click **Browse**.
+1. If you already have a Recovery Services vault open, proceed to next step. If you do not have a Recovery Services vault open, but are in the Azure portal, click **All services**.
 
    * In the list of resources, type **Recovery Services**.
    * As you begin typing, the list filters based on your input. When you see **Recovery Services vaults**, click it.
@@ -77,7 +68,7 @@ Use the following steps to configure the storage account for recovery services v
 ## View reports in Power BI 
 After configuring storage account for reports using recovery services vault, it takes around 24 hours for reporting data to start flowing in. After 24 hours of setting up storage account, use the following steps to view reports in Power BI:
 1. [Sign in](https://powerbi.microsoft.com/landing/signin/) to Power BI.
-2. Click **Get Data** and click Get under **Services** in Content Pack Library. Use steps mentioned in [Power BI documentation to access content pack](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Click **Get Data** and click **Get** under **Services** in Content Pack Library. Use steps mentioned in [Power BI documentation to access content pack](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
      ![Import content pack](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Type **Azure Backup** in Search bar and click **Get it now**.
@@ -86,7 +77,7 @@ After configuring storage account for reports using recovery services vault, it 
 4. Enter the storage account name configured in step 5 above and click **Next** button.
 
     ![Enter storage account name](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Enter the storage account key for this storage account. You can [view and copy storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account) by navigating to your storage account in Azure portal. 
+5. Enter the storage account key for this storage account. You can [view and copy storage access keys](../storage/common/storage-account-manage.md#access-keys) by navigating to your storage account in Azure portal. 
 
      ![Enter storage account](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -120,7 +111,7 @@ After configuring storage account for reports using recovery services vault, it 
 
 2. **What is the frequency of data push to storage account and Azure Backup content pack in Power BI?**
 
-   For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is compelete, data is refreshed with the following frequency shown in the figure below. 
+   For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is complete, data is refreshed with the following frequency shown in the figure below. 
       * Data related to **Jobs, Alerts, Backup Items, Vaults, Protected Servers and Policies** is pushed to customer storage account as and when it is logged.
       * Data related to **Storage** is pushed to customer storage account every 24 hours.
    
@@ -147,7 +138,7 @@ After configuring storage account for reports using recovery services vault, it 
 ## Troubleshooting errors
 | Error details | Resolution |
 | --- | --- |
-| After setting up the storage account for Backup Reports, **Storage Account** still shows **Not Configured**. | If you configured storage account successfully, your reporting data will flow in despite this issue. To resolve this issue, go to Azure portal > More Services > Diagnostic settings > RS vault > Edit Setting. Delete the previously configured setting and create a new setting from the same blade. This time set the field **Name** to **service**. This should show the configured storage account. |
+| After setting up the storage account for Backup Reports, **Storage Account** still shows **Not Configured**. | If you configured storage account successfully, your reporting data will flow in despite this issue. To resolve this issue, go to Azure portal > All services > Diagnostic settings > RS vault > Edit Setting. Delete the previously configured setting and create a new setting from the same blade. This time set the field **Name** to **service**. This should show the configured storage account. |
 |After importing Azure Backup content pack in Power BI, the error **404- container is not found** comes up. | As suggested in this document, you must wait for 24 hours after configuring reports in Recovery Services vault to see them correctly in Power BI. If you try to access the reports before 24 hours, you will get this error since complete data is not yet present to show valid reports. |
 
 ## Next steps

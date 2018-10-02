@@ -1,8 +1,9 @@
+# [StorSimple Documentation](index.md)
+
 # StorSimple Virtual Array
 
 ## Overview
 ### [What is the solution?](storsimple-ova-overview.md)
-### [Region availability](storsimple-regions.md)
 
 ## Get started
 ### Plan
@@ -13,6 +14,7 @@
 ### Deploy
 #### [Prepare to deploy](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Deploy StorSimple Manager service](storsimple-virtual-array-manage-service.md)
+##### [New authentication](storsimple-virtual-array-aad-registration-key.md)
 #### [Provision in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Provision in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Set up as file server](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -20,7 +22,8 @@
 
 ## How to
 ### [Manage via Azure portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Install latest update](storsimple-virtual-array-install-update-1.md)
+#### [Install latest update](storsimple-virtual-array-install-update-11.md)
+##### [Install Update 1](storsimple-virtual-array-install-update-1.md)
 ##### [Install Update 0.6](storsimple-virtual-array-install-update-06.md)
 ##### Archive
 ###### [Install Update 0.5](storsimple-virtual-array-install-update-05.md)
@@ -45,7 +48,8 @@
 ### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
 
 ## Release notes
-### [Update 1 - current](storsimple-virtual-array-update-1-release-notes.md)
+### [Update 1.1 - current](storsimple-virtual-array-update-11-release-notes.md)
+### [Update 1](storsimple-virtual-array-update-1-release-notes.md)
 ### [Update 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Archive
 #### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
@@ -60,7 +64,7 @@
 ### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Security considerations](storsimple-8000-security.md)
 ### [Region availability](storsimple-regions.md)
-### [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md)
+
 
 ## Get started
 
@@ -79,6 +83,7 @@
 
 ### Deploy
 #### [StorSimple Device Manager service](storsimple-8000-manage-service.md)
+#### [New authentication for service](storsimple-8000-aad-registration-key.md)
 #### [Physical device in Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Physical device in Government Portal](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Cloud appliance in Azure](storsimple-8000-cloud-appliance-u2.md)
@@ -175,7 +180,9 @@
 
 ### Migrate
 #### [Subscriptions and storage accounts](storsimple-8000-migrate-classic-azure-portal.md)
-#### [From 5000/7000 series devices](storsimple-8000-migrate-from-5000-7000.md)
+#### [From 5000/7000 series devices](storsimple-8000-migration-options.md)
+##### [To StorSimple 8000 series devices](storsimple-8000-migrate-from-5000-7000.md)
+##### [To Azure File Sync](storsimple-5000-7000-afs-migration.md)
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
@@ -186,10 +193,11 @@
 ## Release notes
 ### [Update 5 - current](storsimple-update5-release-notes.md)
 ### [Update 4](storsimple-update4-release-notes.md)
-### [Update 3](storsimple-update3-release-notes.md)
-### [Update 2.2](storsimple-update21-release-notes.md)
+
 
 ### Archive
+#### [Update 3](storsimple-update3-release-notes.md)
+#### [Update 2.2](storsimple-update21-release-notes.md)
 #### [Update 2 ](storsimple-update2-release-notes.md)
 #### [Update 1 ](storsimple-update1-release-notes.md)
 #### [Update 0.3](storsimple-february-2015-release-notes.md)
@@ -202,7 +210,7 @@
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# StorSimple Data Manager (Private preview)
+# StorSimple Data Manager
 
 ## Overview
 ### [What is the solution?](storsimple-data-manager-overview.md)
@@ -235,6 +243,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Marketing blog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [StorSimple Support options](storsimple-8000-support-options.md)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Pricing](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

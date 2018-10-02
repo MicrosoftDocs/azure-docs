@@ -3,18 +3,19 @@ title: Sample data in Azure HDInsight Hive tables | Microsoft Docs
 description: Down sampling data in Azure HDInsight  (Hadopop) Hive Tables
 services: machine-learning,hdinsight
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: f31e8d01-0fd4-4a10-b1a7-35de3c327521
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Sample data in Azure HDInsight Hive tables

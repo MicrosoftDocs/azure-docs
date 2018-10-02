@@ -3,16 +3,12 @@ title: Function chaining in Durable Functions - Azure
 description: Learn how to run a Durable Functions sample that executes a sequence of functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
 ---
 
@@ -22,7 +18,7 @@ Function chaining refers to the pattern of executing a sequence of functions in 
 
 ## Prerequisites
 
-* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
+* [Install Durable Functions](durable-functions-install.md).
 
 ## The functions
 
@@ -31,9 +27,13 @@ This article explains the following functions in the sample app:
 * `E1_HelloSequence`: An orchestrator function that calls `E1_SayHello` multiple times in a sequence. It stores the outputs from the `E1_SayHello` calls and records the results.
 * `E1_SayHello`: An activity function that prepends a string with "Hello".
 
-The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
- 
-## function.json file
+The following sections explain the configuration and code that are used for C# scripting and JavaScript. The code for Visual Studio development is shown at the end of the article.
+
+> [!NOTE]
+> Durable Functions is available in JavaScript in the v2 Functions runtime only.
+
+## E1_HelloSequence
+### function.json file
 
 If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
 
@@ -44,7 +44,7 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 > [!WARNING]
 > To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions, which are called by the orchestrator.
 
-## C# script (Visual Studio Code and Azure portal sample code) 
+### C# script (Visual Studio Code and Azure portal sample code) 
 
 Here is the source code:
 
@@ -53,6 +53,23 @@ Here is the source code:
 All C# orchestration functions must have a parameter of type `DurableOrchestrationContext`, which exists in the `Microsoft.Azure.WebJobs.Extensions.DurableTask` assembly. If you're using C# script, the assembly can be referenced using the `#r` notation. This context object lets you call other *activity* functions and pass input parameters using its [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) method.
 
 The code calls `E1_SayHello` three times in sequence with different parameter values. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
+
+### Javascript
+
+Here is the source code:
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+
+All JavaScript orchestration functions must include the `durable-functions` module. This is a JavaScript library that translates the orchestration function's actions into Durable's execution protocol for out-of-proc languages. There are three significant differences between an orchestration function and other JavaScript functions:
+
+1. The function is a [generator function.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
+2. The function is wrapped in a call to the `durable-functions` module (here `df`).
+3. The function ends by calling `return`, not `context.done`.
+
+The `context` object contains a `df` object lets you call other *activity* functions and pass input parameters using its `callActivityAsync` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
+
+## E1_SayHello
+### function.json file
 
 The *function.json* file for the activity function `E1_SayHello` is similar to that of `E1_HelloSequence` except that it uses an `activityTrigger` binding type instead of an `orchestrationTrigger` binding type.
 
@@ -63,9 +80,17 @@ The *function.json* file for the activity function `E1_SayHello` is similar to t
 
 The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
 
+### C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
 This function has a parameter of type [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), which it uses to get the input that was passed to it by the orchestrator function's call to [`CallActivityAsync<T>`](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+
+### JavaScript
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+
+Unlike a JavaScript orchestration function, a JavaScript activity function needs no special setup. The input passed to it by the orchestrator function is located on the `context.bindings` object under the name of the `activitytrigger` binding - in this case, `context.bindings.name`. The binding name can be set as a parameter of the exported function and accessed directly, which is what the sample code does.
 
 ## Run the sample
 
@@ -74,6 +99,9 @@ To execute the `E1_HelloSequence` orchestration, send the following HTTP POST re
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+> [!NOTE]
+> The previous HTTP snippet assumes there is an entry in the `host.json` file which removes the default `api/` prefix from all HTTP trigger functions URLs. You can find the markup for this configuration in the `host.json` file in the samples.
 
 For example, if you're running the sample in a function app named "myfunctionapp", replace "{host}" with "myfunctionapp.azurewebsites.net".
 

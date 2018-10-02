@@ -1,27 +1,28 @@
 ---
-title: Alert Management solution in Operations Management Suite (OMS) | Microsoft Docs
-description: The Alert Management solution in Log Analytics helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within OMS, it imports alerts from connected System Center Operations Manager management groups into Log Analytics.
+title: Alert Management solution in Azure Log Analytics | Microsoft Docs
+description: The Alert Management solution in Log Analytics helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within Log Analytics, it imports alerts from connected System Center Operations Manager management groups into Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
-ms.service: operations-management-suite
+ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-
+ms.component: na
 ---
-# Alert Management solution in Operations Management Suite (OMS)
+
+# Alert Management solution in Azure Log Analytics
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
 
-The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md).  The solution also imports alerts from any [connected System Center Operations Manager management groups](log-analytics-om-agents.md).
+The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](log-analytics-om-agents.md).
 
 ## Prerequisites
 The solution works with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
@@ -31,10 +32,10 @@ The solution works with any records in the Log Analytics repository with a type 
 - For System Center Operations Manager alerts, [connect your Operations Manager management group to your Log Analytics workspace](log-analytics-om-agents.md).  Any alerts created in System Center Operations Manager are imported into Log Analytics.  
 
 ## Configuration
-Add the Alert Management solution to your OMS workspace using the process described in [Add solutions](log-analytics-add-solutions.md).  There is no further configuration required.
+Add the Alert Management solution to your Log Analytics workspace using the process described in [Add solutions](log-analytics-add-solutions.md). There is no further configuration required.
 
 ## Management packs
-If your System Center Operations Manager management group is connected to your OMS workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of the management packs required.  
+If your System Center Operations Manager management group is connected to your Log Analytics workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of the management packs required.
 
 * Microsoft System Center Advisor Alert Management (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -56,7 +57,7 @@ The following table describes the connected sources that are supported by this s
 - Alert data is sent from the Operations Manager management group to Log Analytics every three minutes.  
 
 ## Using the solution
-When you add the Alert Management solution to your OMS workspace, the **Alert Management** tile is added to your OMS dashboard.  This tile displays a count and graphical representation of the number of currently active alerts that were generated within the last 24 hours.  You cannot change this time range.
+When you add the Alert Management solution to your Log Analytics workspace, the **Alert Management** tile is added to your dashboard.  This tile displays a count and graphical representation of the number of currently active alerts that were generated within the last 24 hours.  You cannot change this time range.
 
 ![Alert Management tile](media/log-analytics-solution-alert-management/tile.png)
 
@@ -106,20 +107,6 @@ The solution does import alerts from System Center Operations Manager and create
 The following table provides sample log searches for alert records collected by this solution: 
 
 | Query | Description |
-|:--- |:--- |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Critical alerts raised during the past 24 hours |
-| Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR |Warning alerts raised during the past 24 hours |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName |Sources with active alerts raised during the past 24 hours |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed |Critical alerts raised during the past 24 hours that are still active |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Alerts raised during the past 24 hours that are now closed |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Alerts raised during the past 1 day grouped by their severity |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Alerts raised during the past 1 day sorted by their repeat count value |
-
-
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the preceding queries would change to the following:
->
->| Query | Description |
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |Critical alerts raised during the past 24 hours |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |Warning alerts raised during the past 24 hours |
@@ -128,6 +115,7 @@ The following table provides sample log searches for alert records collected by 
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(24h) and AlertState == "Closed" |Alerts raised during the past 24 hours that are now closed |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |Alerts raised during the past 1 day grouped by their severity |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |Alerts raised during the past 1 day sorted by their repeat count value |
+
 
 
 ## Next steps

@@ -1,26 +1,18 @@
 ---
-title: Publish a Web App to an Azure VM from Visual Studio| Microsoft Docs
+title: Publish a Web App to an Azure VM from Visual Studio
 description: Publish an ASP.NET Web Application to an Azure Virtual Machine from Visual Studio
 services: virtual-machines-windows
-documentationcenter: ''
-author:
-- kraigb
-- justcla
-manager: ghogen
-editor: ''
+author: ghogen
+manager: douge
 tags: azure-service-management
-
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: dotnet
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 11/03/2017
-ms.author:
-- kraigb
-- justcla
-
+ms.author: ghogen
 ---
 # Publish an ASP.NET Web App to an Azure VM from Visual Studio
 
@@ -116,7 +108,7 @@ Your settings should look something like this:
 
 ### Set up CI/CD for automated deployment to Azure VM
 
-To set up a continuous delivery pipeline with Visual Studio Team Service, see [Deploy to a Windows Virtual Machine](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+To set up a continuous delivery pipeline with Azure Pipelines, see [Deploy to a Windows Virtual Machine](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

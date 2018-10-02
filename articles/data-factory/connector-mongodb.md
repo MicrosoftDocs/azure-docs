@@ -4,28 +4,24 @@ description: Learn how to copy data from Mongo DB to supported sink data stores 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: jingwang
 
 ---
 # Copy data from MongoDB using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-on-premises-mongodb-connector.md)
-> * [Version 2 - Preview](connector-mongodb.md)
+> * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
+> * [Current version](connector-mongodb.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [MongoDB connector in V1](v1/data-factory-on-premises-mongodb-connector.md).
-
 
 ## Supported capabilities
 
@@ -33,12 +29,12 @@ You can copy data from MongoDB database to any supported sink data store. For a 
 
 Specifically, this MongoDB connector supports:
 
-- MongoDB **versions 2.4, 2.6, 3.0, and 3.2**.
+- MongoDB **versions 2.4, 2.6, 3.0, 3.2, 3.4 and 3.6**.
 - Copying data using **Basic** or **Anonymous** authentication.
 
 ## Prerequisites
 
-To copy data from a MongoDB database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details. The Integration Runtime provides a built-in MongoDB driver, therefore you don't need to manually install any driver when copying data from/to MongoDB.
+To copy data from a MongoDB database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details. The Integration Runtime provides a built-in MongoDB driver, therefore you don't need to manually install any driver when copying data from MongoDB.
 
 ## Getting started
 
@@ -58,8 +54,10 @@ The following properties are supported for MongoDB linked service:
 | databaseName |Name of the MongoDB database that you want to access. |Yes |
 | authenticationType | Type of authentication used to connect to the MongoDB database.<br/>Allowed values are: **Basic**, and **Anonymous**. |Yes |
 | username |User account to access MongoDB. |Yes (if basic authentication is used). |
-| password |Password for the user. Mark this field as SecureString. |Yes (if basic authentication is used). |
+| password |Password for the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes (if basic authentication is used). |
 | authSource |Name of the MongoDB database that you want to use to check your credentials for authentication. |No. For basic authentication, default is to use the admin account and the database specified using databaseName property. |
+| enableSsl | Specifies whether the connections to the server are encrypted using SSL. The default value is false.  | No |
+| allowSelfSignedServerCert | Specifies whether to allow self-signed certificates from the server. The default value is false.  | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -113,7 +111,7 @@ To copy data from MongoDB, set the type property of the dataset to **MongoDbColl
             "collectionName": "<Collection name>"
         }
     }
-
+}
 ```
 
 ## Copy activity properties
@@ -150,7 +148,7 @@ To copy data from MongoDB, set the source type in the copy activity to **MongoDb
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "MongoDbSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -162,7 +160,7 @@ To copy data from MongoDB, set the source type in the copy activity to **MongoDb
 ```
 
 > [!TIP]
-> When specify the SQL query, pay attention to the DateTime format. For example: `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', <datetime parameter>, <datetime parameter>)`
+> When specify the SQL query, pay attention to the DateTime format. For example: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` or to use parameter `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
 
 ## Schema by Data Factory
 
