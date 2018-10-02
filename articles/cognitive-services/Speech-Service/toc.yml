@@ -104,6 +104,14 @@
     href: prepare-transcription.md
   - name: Use custom audio streams
     href: how-to-use-audio-input-streams.md
+  - name: Migrate
+    items:
+    - name: From Bing Speech
+      href: how-to-migrate-from-bing-speech.md
+    - name: From the Custom Speech service
+      href: how-to-migrate-from-custom-speech-service.md
+    - name: From the Translator Speech API
+      href: how-to-migrate-from-translator-speech-api.md   
 - name: Concepts
   items:
   - name: Speech to Text
@@ -127,8 +135,8 @@
     href: regions.md
   - name: REST APIs
     href: rest-apis.md
-#  - name: Swagger Reference
-#    href: https://cris.ai/swagger/ui/index
+  - name: Swagger Reference
+    href: https://westus.cris.ai/swagger/ui/index
 #  - name: WebSockets protocols
 #    href: websockets.md
   - name: Speech SDK API
