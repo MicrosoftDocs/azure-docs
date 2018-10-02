@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
 ---
-# Supported languages in the Text Analytics API
+# Language and region support for the Text Analytics API
 
 This article explains which languages are supported for each operation: sentiment analysis, key phrase extraction, and language detection.
 
