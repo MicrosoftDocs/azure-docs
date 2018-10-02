@@ -23220,6 +23220,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/marketplace/marketplace-what-is-appsource.md",
+            "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/marketplace-publishing/marketplace-publishing-csp-incentive.md",
             "redirect_url": "https://cloudpartner.azure.com",
             "redirect_document_id": false
