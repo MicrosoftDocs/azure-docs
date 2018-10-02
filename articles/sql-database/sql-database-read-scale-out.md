@@ -2,18 +2,20 @@
 title: Azure SQL Database - read queries on replicas| Microsoft Docs
 description: The Azure SQL Database provides the ability to load balance read-only workloads using the capacity of read-only replicas - called Read Scale-Out.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: scale-out
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 8/27/2018
+author: anosov1960
 ms.author: sashan
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 10/01/2018
 ---
 # Use read-only replicas to load balance read-only query workloads (preview)
 
-**Read Scale-Out** allows you to load balance Azure SQL Database read-only workloads using the capacity of read-only replicas. 
+**Read Scale-Out** allows you to load balance Azure SQL Database read-only workloads using the capacity of one read-only replica. 
 
 ## Overview of Read Scale-Out
 
@@ -21,7 +23,7 @@ Each database in the Premium tier ([DTU-based purchasing model](sql-database-ser
 
 ![Readonly replicas](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-These replicas are provisioned with the same performance level as the read-write replica used by the regular database connections. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
+These replicas are provisioned with the same compute size as the read-write replica used by the regular database connections. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
 
 To use the Read Scale-Out feature with a particular database, you must explicitly enable it when creating the database or afterwards by altering its configuration using PowerShell by invoking the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) or the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets or through the Azure Resource Manager REST API using the [Databases - Create or Update](/rest/api/sql/databases/createorupdate) method. 
 
@@ -114,7 +116,7 @@ For more information, see [Databases - Create or Update](/rest/api/sql/databases
 If you are using read scale-out to load balance read-only workloads on a database that is geo-replicated (e.g. as a member of a failover group), make sure that read scale-out is enabled on both the primary and the geo-replicated secondary databases. This will ensure the same load-balancing effect when your application connects to the new primary after failover. If you are connecting to the geo-replicated secondary database with read-scale enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the  replicas the same way we route connections on the primary database.  The sessions without `ApplicationIntent=ReadOnly` will be routed to the primary replica of the geo-replicated secondary, which is also read-only. Because geo-replicated secondary database has a different end-point than the primary database, historically to access the secondary it wasn't required to set `ApplicationIntent=ReadOnly`. To ensure backward compatibility, `sys.geo_replication_links` DMV shows `secondary_allow_connections=2` (any client connection is allowed).
 
 > [!NOTE]
-> During preview, we will not perform round-robin or any other load balanced routing between the local replicas of the secondary database. 
+> During preview, round-robin or any other load balanced routing between the local replicas of the secondary database is not supported. 
 
 
 ## Next steps

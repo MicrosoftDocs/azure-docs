@@ -53,4 +53,4 @@ sections:
     - text: Generate Docker and Kubernetes configuration-as-code assets for you to use from development through to production.
     - text: Share a managed Kubernetes cluster with your team and collaboratively work together. Develop your code in isolation, and do end-to-end testing with other components without replicating or mocking up dependencies.
   - type: markdown
-    text: "![](media/azure-dev-spaces/vscode-overview.png)"
+    text: "![](media/azure-dev-spaces/collaborate-graphic.gif)"

@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
 
 ---
 
-## Problems signing in to a Microsoft application
+# Problems signing in to a Microsoft application
 
 Microsoft Applications (like Office 365 Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than 3rd party SaaS applications or other applications you integrate with Azure AD for single sign on.
 

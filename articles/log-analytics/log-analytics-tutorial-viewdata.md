@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: na
+ms.component: 
 ---
 
 # View or analyze data collected with Log Analytics log search
@@ -80,7 +80,7 @@ You can set the same filter by selecting **Filter** from the property menu for a
 
 You only have the **Filter** option for properties with their name in blue when you hover over them.  These are *searchable* fields which are indexed for search conditions.  Fields in grey are *free text searchable* fields which only have the **Show references** option.  This option returns records that have that value in any property.
 
-You can group the results on a single property by selecting the **Group by** option in the record menu.  This will add a [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) operator to your query that displays the results in a chart.  You can group on more than one property, but you would need to edit the query directly.  Select the record menu next the **Computer** property and select **Group by 'Computer'**.  
+You can group the results on a single property by selecting the **Group by** option in the record menu.  This will add a [summarize](/azure/kusto/query/summarizeoperator) operator to your query that displays the results in a chart.  You can group on more than one property, but you would need to edit the query directly.  Select the record menu next the **Computer** property and select **Group by 'Computer'**.  
 
 ![Group by computer](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
@@ -125,7 +125,7 @@ Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time
 
 ![Processor utilization](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
 
-This limits the data to a particular counter, but it still doesn't put it in a form that's particularly useful.  You can display the data in a line chart, but first need to group it by Computer and TimeGenerated.  To group on multiple fields, you need to modify the query directly, so modify the query to the following.  This uses the [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) function on the **CounterValue** property to calculate the average value over each hour.
+This limits the data to a particular counter, but it still doesn't put it in a form that's particularly useful.  You can display the data in a line chart, but first need to group it by Computer and TimeGenerated.  To group on multiple fields, you need to modify the query directly, so modify the query to the following.  This uses the [avg](/azure/kusto/query/avg-aggfunction) function on the **CounterValue** property to calculate the average value over each hour.
 
 ```
 Perf  
@@ -135,7 +135,7 @@ Perf
 
 ![Performance data chart](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
 
-Now that the data is suitably grouped, you can display it in a visual chart by adding the [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) operator.  
+Now that the data is suitably grouped, you can display it in a visual chart by adding the [render](/azure/kusto/query/renderoperator) operator.  
 
 ```
 Perf  

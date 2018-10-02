@@ -30,8 +30,10 @@ In this article, using the Azure Resource Manager deployment template, you learn
 - If you're unfamiliar with using Azure Resource Manager deployment template, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To perform the management operations in this article, your account needs the following Azure role based access control assignments:
+
     > [!NOTE]
     > No additional Azure AD directory role assignments required.
+
     - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a VM and enable and remove system and/or user-assigned managed identity from an Azure VM.
     - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user-assigned managed identity.
     - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a VM.
@@ -182,7 +184,7 @@ If you have a VM that no longer needs a system-assigned managed identity:
 
    If your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `userAssignedIdentities` dictionary values.
 
-   **Microsoft.Compute/virtualMachines API version 2018-06-01 and earlier**
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**
    
    If your `apiVersion` is `2017-12-01` and your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user-assigned managed identities.  
    
@@ -229,7 +231,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
    }
    ```
    
-   **Microsoft.Compute/virtualMachines API version 2017-12-01 and earlier**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
     
    If your `apiVersion` is `2017-12-01`, your user-assigned managed identities are stored in the `identityIds` array and the `<USERASSIGNEDIDENTITYNAME>` value must be stored in a variable defined in the `variables` section of your template.
     
@@ -310,7 +312,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
        }
     ]
    ```
-   **Microsoft.Compute/virtualMachines API version 2017-12-01 and earlier**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
    
    ```JSON
    "resources": [
@@ -354,7 +356,7 @@ If you have a VM that no longer needs a user-assigned managed identity:
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
 
-2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. If you have a VM that only has user-assigned managed identity, you can disable it by changing the the identity type to `None`.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. If you have a VM that only has user-assigned managed identity, you can disable it by changing the identity type to `None`.
  
    The following example shows you how remove all user-assigned managed identities from a VM with no system-assigned managed identities:
    
@@ -369,7 +371,7 @@ If you have a VM that no longer needs a user-assigned managed identity:
     }
    ```
    
-   **Microsoft.Compute/virtualMachines API version 2018-06-01 and earlier**
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**
     
    To remove a single user-assigned managed identity from a VM, remove it from the `useraAssignedIdentities` dictionary.
 
@@ -377,7 +379,7 @@ If you have a VM that no longer needs a user-assigned managed identity:
  
    **Microsoft.Compute/virtualMachines API version 2017-12-01**
 
-   To remove a a single user-assigned managed identity from a VM, remove it from the `identityIds` array.
+   To remove a single user-assigned managed identity from a VM, remove it from the `identityIds` array.
 
    If you have a system-assigned managed identity, keep it in the in the `type` value under the `identity` value.
    

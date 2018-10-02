@@ -28,7 +28,7 @@ Following are some scenarios where this feature is useful:
 
 * Install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc or later in your Durable Functions project.
 * Install [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
-* Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* Install [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ## Create a custom Event Grid topic
 

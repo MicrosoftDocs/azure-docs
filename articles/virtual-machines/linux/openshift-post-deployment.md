@@ -3,7 +3,7 @@ title: OpenShift on Azure post-deployment tasks | Microsoft Docs
 description: Additional tasks for after an OpenShift cluster has been deployed. 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
+author: haroldwongms
 manager: najoshi
 editor: 
 tags: azure-resource-manager
@@ -37,13 +37,13 @@ These steps use the Azure CLI to create the app registration, and the GUI (porta
 - Display name: App registration name (for example, OCPAzureAD)
 - Home page: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
 - Identifier URI: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Reply URL: Master public URL and the app registration name (for example, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Reply URL: Master public URL and the app registration name (for example, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Password: Secure password (use a strong password)
 
 The following example creates an app registration by using the preceding information:
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
 ```
 
 If the command is successful, you get a JSON output similar to:
@@ -61,7 +61,7 @@ If the command is successful, you get a JSON output similar to:
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
   "replyUrls": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD"
   ]
 }
 ```

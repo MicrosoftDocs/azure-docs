@@ -1,12 +1,14 @@
 ---
-title: Sentences and tokens in the Linguistic Analysis API | Microsoft Docs
-description: Learn about sentence separation and tokenization in the Linguistic Analysis API in Cognitive Services.
+title: Sentences and tokens - Linguistic Analysis API
+titlesuffix: Azure Cognitive Services
+description: Learn about sentence separation and tokenization in the Linguistic Analysis API.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
 ---

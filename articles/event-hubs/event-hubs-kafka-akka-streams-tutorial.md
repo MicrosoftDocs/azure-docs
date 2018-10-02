@@ -24,8 +24,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create an Event Hubs namespace
 > * Clone the example project
-> * Run Flink producer 
-> * Run Flink consumer
+> * Run Akka Streams producer 
+> * Run Akka Streams consumer
 
 ## Prerequisites
 
@@ -139,8 +139,8 @@ In this tutorial, you learned how to connect Akka Streams to Kafka-enabled event
 > [!div class="checklist"]
 > * Create an Event Hubs namespace
 > * Clone the example project
-> * Run Flink producer 
-> * Run Flink consumer
+> * Run Akka Streams producer 
+> * Run Akka Streams consumer
 
 To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
 

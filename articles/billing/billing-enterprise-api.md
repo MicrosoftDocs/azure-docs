@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
-ms.author: aedwin
+ms.author: erikre
 
 ---
 # Overview of Reporting APIs for Enterprise customers

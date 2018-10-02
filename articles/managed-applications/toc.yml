@@ -76,8 +76,6 @@
         href: microsoft-compute-usernametextbox.md
     - name: Network
       items:
-      - name: AvailabilityZoneDropDown
-        href: microsoft-network-availabilityzonedropdown.md
       - name: PublicIPAddressCombo
         href: microsoft-network-publicipaddresscombo.md
       - name: VirtualNetworkCombo

@@ -35,7 +35,7 @@ Azure Analysis Services is available in **Developer**, **Basic**, and **Standard
 
 ### Developer tier
 
-This tier is recommended for evaluation, development, and test scenarios. A single plan includes the same functionality of the standard tier, but is limited in processing power, QPUs, and memory size. Query replica scale out isn't available for this tier. This tier doesn't offer an SLA.
+This tier is recommended for evaluation, development, and test scenarios. A single plan includes the same functionality of the standard tier, but is limited in processing power, QPUs, and memory size. Query replica scale out *is not available* for this tier. This tier does not offer an SLA.
 
 |Plan  |QPUs  |Memory (GB)  |
 |---------|---------|---------|

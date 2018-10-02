@@ -1,17 +1,17 @@
 ---
 title: Use Log Analytics with a SQL Database multitenant app | Microsoft Docs 
 description: Set up and use Log Analytics with a multitenant Azure SQL Database SaaS app
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Set up and use Log Analytics with a multitenant SQL Database SaaS app
 

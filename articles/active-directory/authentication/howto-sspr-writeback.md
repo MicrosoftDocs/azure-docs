@@ -16,9 +16,9 @@ ms.reviewer: sahenry
 ---
 # How-to: Configure password writeback
 
-We recommend that you use the auto-update feature of [Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md) when using password writeback.
+We recommend that you use the auto-update feature of [Azure AD Connect](../hybrid/how-to-connect-install-express.md) when using password writeback.
 
-The following steps assume you have already configured Azure AD Connect in your environment by using the [Express](./../connect/active-directory-aadconnect-get-started-express.md) or [Custom](./../connect/active-directory-aadconnect-get-started-custom.md) settings.
+The following steps assume you have already configured Azure AD Connect in your environment by using the [Express](../hybrid/how-to-connect-install-express.md) or [Custom](../hybrid/how-to-connect-install-custom.md) settings.
 
 1. To configure and enable password writeback, sign in to your Azure AD Connect server and start the **Azure AD Connect** configuration wizard.
 2. On the **Welcome** page, select **Configure**.

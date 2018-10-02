@@ -58,7 +58,7 @@ In the next sections, you will learn the steps required to configure throughput 
 2. From the left nav, select **All resources** and find your Azure Cosmos DB account.  
 3. You can configure throughput while creating a database or update throughput for an existing database.  
 4. To assign throughput while creating a database, open the **Data Explorer** blade and select **New Database**  
-5. Fill the **Database id** value, check **Provision throughput** option, and configure throughput value. A database can be provisioned with minimum throughput value 50,000 RU/s.  
+5. Fill the **Database id** value, check **Provision throughput** option, and configure throughput value.  
 
    ![Set throughput with new database option](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -71,7 +71,7 @@ In the next sections, you will learn the steps required to configure throughput 
 1. Sign in to the [Azure portal](https://portal.azure.com).  
 2. From the left nav, select **All resources** and find your Azure Cosmos DB account.  
 3. Create a database and assign throughput to it. Open the **Data Explorer** blade and select **New Database**  
-4. Fill the **Database id** value, check **Provision throughput** option, and configure throughput value. A database can be provisioned with minimum throughput value 50,000 RU/s.  
+4. Fill the **Database id** value, check **Provision throughput** option, and configure throughput value.  
 
    ![Set throughput with new database option](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -104,33 +104,6 @@ Consider provisioning throughput at an individual container in the following cas
 * If you have less number of Azure Cosmos DB containers.  
 
 * If you want to get the guaranteed throughput on a given container backed by SLA.
-
-## Throughput ranges
-
-The following table lists the throughput available for containers:
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Single Partition Container</strong></p></td>
-            <td valign="top"><p><strong>Partitioned Container</strong></p></td>
-            <td valign="top"><p><strong>Set of Containers</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Minimum Throughput</p></td>
-            <td valign="top"><p>400 request units per second</p></td>
-            <td valign="top"><p>1,000 request units per second</p></td>
-            <td valign="top"><p>50,000 request units per second</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Maximum Throughput</p></td>
-            <td valign="top"><p>10,000 request units per second</p></td>
-            <td valign="top"><p>Unlimited</p></td>
-            <td valign="top"><p>Unlimited</p></td>
-        </tr>
-    </tbody>
-</table>
 
 <a id="set-throughput-sdk"></a>
 

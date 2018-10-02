@@ -41,7 +41,7 @@ If these conditions already exist in your environment, proceed to the [Back up y
 Before you prepare your environment, be sure to understand these limitations:
 
 * Backing up VMs with Standard SSD is not currently supported.
-* Backing up virtual machines with more than 16 data disks is not supported.
+* Backing up virtual machines with more than 32 data disks is not supported.
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backing up Linux VMs encrypted through Linux Unified Key Setup (LUKS) encryption is not supported.
 * We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. If done, failure of CSV writers is expected. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency. 
@@ -209,8 +209,8 @@ The following video walks you through the step by step procedure to configure se
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-> [!WARNING]
-> Storage service tags are available only in specific regions and are in preview. For a list of regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
+> [!NOTE]
+> For a list of storage service tags and regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
 
 ### Use an HTTP proxy for VM backups
 When you're backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage by using an HTTPS API. Route the backup extension traffic through the HTTP proxy, because it's the only component configured for access to the public internet.

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ---
@@ -40,9 +40,7 @@ There are three ways to resolve this issue. The choices below are in listed in i
 
     This option ensures that the links in your application are externally accessible through Application Proxy since the links within the application to internal URLs are also recognized externally. All links still need to belong to a published application. However, with this option the links do not need to belong to the same application and can belong to multiple applications.
 
-3.  If neither of these options are feasible, you can preview a new feature that does URL translation/rewriting. With this feature, internal URLs or links that exist in the HTML body of your applications are translated, or “mapped”, to the published external App Proxy URLs. This translation only works on links in the HTML or CSS, and doesn't help if your link is generated through JS. 
-
-As a result, we strongly recommend using the [custom domains](application-proxy-configure-custom-domain.md) solution if possible. If you do want to join the preview, email <aadapfeedback@microsoft.com> with the applicationId(s).
+3.  If neither of these options are feasible, there are multiple options for enabling inline link translation. These options include using the Intune Managed Browser, My Apps extension, or using the link translation setting on your application. To learn more about each of these options and how to enable them, see [Redirect hardcoded links for apps published with Azure AD Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
 
 ## Next steps
 [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)

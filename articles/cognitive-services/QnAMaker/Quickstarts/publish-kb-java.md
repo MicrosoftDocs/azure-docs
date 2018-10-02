@@ -3,19 +3,21 @@ title: "Quickstart: Java Publish Knowledge Base - Qna Maker"
 titleSuffix: Azure Cognitive Services 
 description: How to publish a knowledge base in Java for QnA Maker.
 services: cognitive-services
-author: nitinme
+author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
+ms.date: 09/12/2018
+ms.author: diberry
 ---
 
 # Publish a knowledge base in Java
 
 The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.

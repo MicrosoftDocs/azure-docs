@@ -1,18 +1,19 @@
 ---
-title: Upload and index your videos with Azure Video Indexer | Microsoft Docs
-description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Indexer 
+title: "Example: Upload and index videos with Video Indexer"
+titlesuffix: Azure Cognitive Services
+description: This topic demonstrates how to use APIs to upload and index your videos with Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 08/17/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-
 ---
-# Upload and index your videos  
+
+# Example: Upload and index your videos  
 
 This article shows how to upload a video with Azure Video Indexer. The Video Indexer API provides two uploading options: 
 
@@ -29,7 +30,7 @@ The article also discusses some of the parameters that you can set on the API to
 ## Uploading considerations
     
 - When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher)
-- The byte array option is limited to 4GB and times out after 30 min
+- The byte array option is limited to 2GB and times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
 
 ## Configurations and params

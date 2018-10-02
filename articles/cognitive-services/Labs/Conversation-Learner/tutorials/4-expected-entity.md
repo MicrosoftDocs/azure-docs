@@ -60,7 +60,7 @@ Concretely, if the "expected entity" field of an action is set to $entity, then 
 	- This value means that if this question is asked, and the user response does not have any entities detected, the bot should assume the whole of the user's response is this entity.
 2. Click Actions, then New Action to create a second action.
 3. In Response, type 'Hello $name'.
-	- The entity is automatically added as a required entity. 
+	- Note that the entity is automatically added as a required entity. 
 4. Click Save.
 
 Now you have two actions.

@@ -1,3 +1,12 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: brandwe
+manager: mtillman
+---
+
 ## Register your application
 You can register your application in either of two ways, as described in the next two sections.
 
@@ -11,7 +20,7 @@ Now you need to register your application in the *Microsoft Application Registra
 ### Option 2: Advanced mode
 
 1.	Go to [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app)
-2.	Enter a name for your application and your email
+2.	Enter a name for your application
 3.	Make sure the option for Guided Setup is unchecked
 4.	Click `Add Platform`, then select `Native Application` and click `Save`
 5.	Go back to Xcode. In `ViewController.swift`, replace the line starting with '`let kClientID`' with the application ID you just registered:
@@ -41,7 +50,6 @@ Under the <code>dict</code> root node, add the following:
         <key>CFBundleURLSchemes</key>
         <array>
             <string>msal[Your_Application_Id_Here]</string>
-            <string>auth</string>
         </array>
     </dict>
 </array>

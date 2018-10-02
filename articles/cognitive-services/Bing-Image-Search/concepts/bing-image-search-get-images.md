@@ -1,5 +1,6 @@
 ---
-title: Get images from the web with the Bing Image Search API | Microsoft Docs
+title: Get images from the web - Bing Image Search API
+titleSuffix: Azure Cognitive Services
 description: Use the Bing Image Search API to search for and get relevant images from the web.
 services: cognitive-services
 author: aahill

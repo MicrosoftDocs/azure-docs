@@ -30,12 +30,12 @@ The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Re
 Learn more  about [create and manage alert rules in Log Analytics with REST API](../log-analytics/log-analytics-api-alerts.md); including examples of accessing the API from Powershell.
 
 ## Managing log alert on Application Insights
-Log alerts for Azure Application Insights have been introduced as part of the new Azure alerts under Azure Monitor. Hence it runs under Azure Monitor API as [Scheduled Query Rules](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) REST operation group.
+Log alerts for Azure Application Insights have been introduced as part of the new Azure alerts under Azure Monitor. Hence it runs under Azure Monitor API as [Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST operation group.
 
 ### Using Azure Resource Manager Template
-Log alert for Application Insights resources has a type of `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+Log alert for Application Insights resources has a type of `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template, with sample data set as variables.
+The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template, with sample data set as variables.
 
 ```json
 {
@@ -108,7 +108,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 }
 ```
 > [!IMPORTANT]
-> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
+> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
 
 The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walkthrough and can be deployed using [Azure Resource Manager in Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
