@@ -18,6 +18,9 @@ ms.date: 09/23/2018
 
 The Hyperscale service tier in Azure SQL Database is the newest service tier in the vCore-based purchasing model. This service tier is a highly scalable storage and compute performance tier that leverages the Azure architecture to scale out the storage and compute resources for an Azure SQL Database substantially beyond the limits available for the General Purpose and Business Critical service tiers.
 
+> [!IMPORTANT]
+> Hyperscale service tier is currently in public preview and available in limited Azure regions. For the full region list, see [Hyperscale service tier available regions](#hyperscale-regions)
+
 ## What are the capabilities of the Hyperscale service tier
 
 The Hyperscale service tier in Azure SQL Database provides the following additional capabilities:
@@ -78,6 +81,8 @@ Backups are file-snapshot base and hence they are nearly instantaneous. Storage 
 
 With the ability to rapidly spin up/down additional read-only compute nodes, the Hyperscale architecture allows significant read scale capabilities and can also free up the primary compute node for serving more write requests. Also, the compute nodes can be scaled up/down rapidly due to the shared-storage architecture of the Hyperscale architecture. 
 
+### <a name="hyperscale-regions"> Hyperscale service tier available regions
+Hyperscale service tier is currently in public preview and available in following Azure regions: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## Next steps
 
