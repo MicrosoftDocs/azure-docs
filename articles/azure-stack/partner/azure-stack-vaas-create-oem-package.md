@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Validation Best Practices. | Microsoft Docs
-description: This article describes how to create an OEM package for Validation as a Service.
+title: Azure Stack Validation best practices | Microsoft Docs
+description: This article describes best practices for using Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
