@@ -117,20 +117,7 @@ To view it:
    [![Custom traces](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Click [here](../../application-insights/app-insights-overview.md) to learn more about how to use Application Insights.
-
-## Disable Application Insights
-To disable Application Insights, follow the next steps:
-* Option 1 - Disable in the [Azure Portal](https://portal.azure.com): 
-    1. Go to Workspace
-    2. Deployments-> Select service-> Edit
-
-       [![Edit](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-    3. In **Advanced Settings**, remove  "Enable AppInsights diagnostics". 
-
-       [![uncheck](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-    4. Select **update** at the bottom of the page.       
+    
 
 ## Example Notebook
 
