@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 10/01/2018
 ---
 # Recover an Azure SQL database using automated database backups
-By default, SQL Database backups are stored in geo-replicated blob storage (RA-GRS). The following options are availbel for database recovery using [automated database backups](sql-database-automated-backups.md):
+By default, SQL Database backups are stored in geo-replicated blob storage (RA-GRS). The following options are available for database recovery using [automated database backups](sql-database-automated-backups.md):
 
 * Create a new database on the same logical server recovered to a specified point in time within the retention period. 
 * Create a database on the same logical server recovered to the deletion time for a deleted database.
