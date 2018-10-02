@@ -57,7 +57,7 @@ If you accidentally delete your database or container, you can [file a support t
 If you need to restore your database because of data corruption issue (includes cases where documents within a container are deleted), see [Handling data corruption](#handling-data-corruption) as you need to take additional steps to prevent the corrupted data from overwriting the existing backups. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was available for the duration of the backup cycle for that snapshot.
 
 > [!NOTE]
-> Restore of collection or database is only done on demand from customer. It is customer's responsbility to delete the container or database immediately after restore's purpose is accomplished. Please remember if restored database or collections are not deleted they will incur cost at the rate of restored collection or database. It is super important to delete them immediately. 
+> Collections or databases can be restored only after a customer requests for restoring. It is the  customer's responsbility to delete the container or database immediately after restoring the data. If you don't delete the restored databases or collections, they will incur cost at the rate of restored collection or database. So, it is very important to delete them immediately. 
 
 ## Handling data corruption
 

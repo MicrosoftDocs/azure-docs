@@ -82,5 +82,6 @@ With the ability to rapidly spin up/down additional read-only compute nodes, the
 ## Next steps
 
 - For information about service tiers, see [Service tiers](sql-database-service-tiers.md)
-- For details regarding resource limits, see [vCore resource limits](sql-database-resource-limits.md)
+- See [Overview of resource limits on a logical server](sql-database-resource-limits-logical-server.md) for information about limits at the server and subscription levels.
+- For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](sql-database-vcore-resource-limits-single-databases.md).
 - For a features and comparison list, see [SQL common features](sql-database-features.md).

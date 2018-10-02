@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Send data to Log Analytics with the HTTP Data Collector API (public preview)
