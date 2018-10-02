@@ -23,7 +23,7 @@ If you're new to Resource Manager templates,  learn about [template deployments]
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1). 
 
-- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md) installed. 
+- You need to have either [Azure PowerShell(https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md) installed. 
 
  
 ## Set up Azure Monitor as a data sink 
@@ -50,7 +50,7 @@ Open the *azuredeploy.parameters.json* file
 
 Open the *azuredeploy.json* file 
 
-after the entry for **storageAccountName**, add a storage account ID to the **variables** section of the template .  
+Add a storage account ID to the **variables** section of the template after the entry for **storageAccountName**, add a storage account ID to the **variables** section of the template .  
 
 ```json
 // Find these lines. 
@@ -226,7 +226,7 @@ Save and close both files.
 ## Deploy the Resource Manager template 
 
 > [!NOTE]
-> You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you do not have these settings in your template, change them and redeploy the template. 
+> You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you don't have these settings in your template, change them and redeploy the template. 
 
 
 To deploy the Resource Manager template, we will leverage Azure PowerShell.  
@@ -234,7 +234,7 @@ To deploy the Resource Manager template, we will leverage Azure PowerShell.
 1. Launch PowerShell. 
 1. Log in to Azure using `Login-AzureRmAccount`.
 1. Get your list of subscriptions by using `Get-AzureRmSubscription`.
-1. Set the subscription that you're using to create/update the virtual machine in 
+1. Set the subscription that you're using to create/update the virtual machine in: 
 
    ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
@@ -258,13 +258,13 @@ To deploy the Resource Manager template, we will leverage Azure PowerShell.
 1. After your deployment succeeds, you should be able to find the VM in the Azure portal, and it should be emitting metrics to Azure Monitor. 
 
    > [!NOTE] 
-   > You might run into errors around the selected vmSkuSize. If this happens, go back to your azuredeploy.json file and update the default value of the vmSkuSize parameter. In this case, we recommend trying  "Standard_DS1_v2"). 
+   > You might run into errors around the selected vmSkuSize. If this happens, go back to your azuredeploy.json file, and update the default value of the vmSkuSize parameter. In this case, we recommend trying  "Standard_DS1_v2"). 
 
 ## Chart your metrics 
 
-1. Log in to the Azure Portal 
+1. Log in to the Azure portal. 
 
-1. In the menu on the left, select **Monitor**. 
+1.On the left menu, select **Monitor**. 
 
 1. On the Monitor page, select **Metrics**. 
 

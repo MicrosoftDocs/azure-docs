@@ -1,6 +1,6 @@
 ---
 title: Send Guest OS metrics to the Azure Monitor metric store classic cloud service 
-description: Send Guest OS metrics to the Azure Monitor metric store classic cloud cervice
+description: Send Guest OS metrics to the Azure Monitor metric store classic cloud service
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -109,7 +109,7 @@ In the "SinksConfig" section of your diagnostics file, define a new Azure Monito
   </SinksConfig> 
 ```
 
-In the section of your configuration file where you list the performance counters to be collected, add the Azure Monitor sink. This entry ensures that all the performance counters that you specifiedW are routed to Azure Monitor as metrics. You can add or remove performance counters according to your needs. 
+In the section of your configuration file where you list the performance counters to be collected, add the Azure Monitor sink. This entry ensures that all the performance counters that you specified are routed to Azure Monitor as metrics. You can add or remove performance counters according to your needs. 
 
 ```XML
 <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink"> 
@@ -169,7 +169,7 @@ Go to the Azure portal.
 
  ![Metrics Azure portal](./media/metrics-store-custom-guestos-classic-cloud-service/navigate-metrics.png)
 
-1. On the menu on the left, select **Monitor.**
+1. On the left menu, select **Monitor.**
 
 1. On the **Monitor** blade, select the **Metrics Preview** tab.
 
@@ -177,9 +177,9 @@ Go to the Azure portal.
 
 1. In the namespaces drop-down menu, select **azure.vm.windows.guest**. 
 
-1. In the metrics drop down menu, select **Memory\Committed Bytes in Use**. 
+1. In the metrics drop-down menu, select **Memory\Committed Bytes in Use**. 
 
-You use the dimension filtering and splitting capabilities to view the total memory used by a specific role or  role instance. 
+You use the dimension filtering and splitting capabilities to view the total memory that's used by a specific role or role instance. 
 
  ![Metrics Azure portal](./media/metrics-store-custom-guestos-classic-cloud-service/metrics-graph.png)
 
