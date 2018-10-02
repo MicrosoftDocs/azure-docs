@@ -20,7 +20,7 @@ Azure SQL Database enables you to easily purchase fully managed PaaS database en
  - [Managed Instances](sql-database-managed-instance.md) in Azure SQL Database only offer the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
-> [Hyperscale databases (preview)](sql-database-hyperscale.md) are only available with the vCore-based purchasing model for single databases with a logical server or within a Managed Instance. 
+> [Hyperscale databases (preview)](sql-database-hyperscale.md) are in public preview only for single databases using the vCore purchasing model. 
 
 The following table and chart compare and contrast these two purchasing models.
 
