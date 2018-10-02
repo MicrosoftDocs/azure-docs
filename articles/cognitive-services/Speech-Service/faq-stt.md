@@ -53,7 +53,7 @@ You can deploy baseline and customized models in the portal and then run accurac
 
 The old dataset and the new dataset must be combined in a single .zip file (for acoustic data) or in a .txt file (for language data). When adaptation is finished, the new, updated model needs to be redeployed to obtain a new endpoint
 
-**Q: When a new version of a baseilne is available is my deployment automatically updated?**
+**Q: When a new version of a baseline is available is my deployment automatically updated?**
 
 **A**: Deployments will NOT be automatically updated. 
 
