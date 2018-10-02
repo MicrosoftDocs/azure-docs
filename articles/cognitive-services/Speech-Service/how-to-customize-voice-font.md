@@ -50,7 +50,7 @@ To create a voice for production use, we recommend you use a professional record
 
 ### Audio files
 
-Each audio file should contain a single utterance (for example, a single sentence or a single turn of a dialog system). All files must be in the same language. (Multilanguage custom voices are not supported.)The audio files must also each have a unique numeric filename with the filename extension `.wav`.
+Each audio file should contain a single utterance (for example, a single sentence or a single turn of a dialog system). All files must be in the same language. (Multilanguage custom voices are not supported.) The audio files must also each have a unique numeric filename with the filename extension `.wav`.
 
 Audio files should be prepared as follows. Other formats are unsupported and will be rejected.
 
@@ -69,7 +69,7 @@ Audio files should be prepared as follows. Other formats are unsupported and wil
 
 ### Transcripts
 
-The transcription file is a plain text file (ANSI,UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE). Each line of the transcription file must have the name of an audio file, followed by a tab (code point 9) character, and finally its transcript. No blank lines are allowed.
+The transcription file is a plain text file (ANSI, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE). Each line of the transcription file must have the name of an audio file, followed by a tab (code point 9) character, and finally its transcript. No blank lines are allowed.
 
 For example:
 
@@ -86,7 +86,7 @@ The custom voice system normalizes transcripts by converting the text to lowerca
 
 ## Upload your datasets
 
-After you prepre your audio file archive and transcripts, upload them via the [Custom Voice service portal](https://customvoice.ai).
+After you prepare your audio file archive and transcripts, upload them via the [Custom Voice service portal](https://customvoice.ai).
 
 > [!NOTE]
 > Datasets cannot be edited after they have been uploaded. If you forget to include transcripts of some of the audio files, for example, or accidentally choose the wrong gender, you must upload the entire dataset again. Check your dataset and settings thoroughly before starting the upload.

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptal
 ms.date: 09/19/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Create a Log Analytics workspace with Azure CLI 2.0
