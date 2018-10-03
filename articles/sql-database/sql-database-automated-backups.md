@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 09/25/2018
 ---
 # Learn about automatic SQL Database backups
 
@@ -53,8 +53,7 @@ The default retention period for a database created using the DTU-based purchasi
 * Standard service tier is 5 weeks.
 * Premium service tier is 5 weeks.
 
-If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backups retention period is 7 days.
-On Logical Server you can [change backup retention period up to 35 days](#how-to-change-backup-retention-period). This feature is not enabled in Managed Instance. 
+If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the backups retention is configurable up to 35 days. 
 
 If you reduce the current PITR retention period, all existing backups older than the new retention period will no longer be available. 
 
@@ -79,6 +78,10 @@ For more information, see [Long-term backup retention](sql-database-long-term-re
 
 If your database is encrypted with TDE, the backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for an Azure SQL database, backups are also encrypted. All new Azure SQL databases are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
+## How does Microsoft ensure backup integrity
+
+On an ongoing basis, the Azure SQL Database engineering team automatically tests the restore of automated database backups of databases across the service. Upon restore, databases also receive integrity checks using DBCC CHECKDB. Any issues found during the integrity check will result in an alert to the engineering team. For more information about data integrity in Azure SQL Database, see [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+
 ## How do automated backups impact my compliance?
 
 When you migrate your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy is not compromised. If the default retention doesn't meet your compliance requirements, you can change the PITR retention period using PowerShell or REST API. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
@@ -86,10 +89,6 @@ When you migrate your database from a DTU-based service tier with the default PI
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## How to change backup retention period
-
-> [!Note]
-> Default backup retention period (7 days) cannot be changed on Managed Instance. 
-
 You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. The following examples illustrate how to change PITR retention to 28 days. 
 
 > [!NOTE]
