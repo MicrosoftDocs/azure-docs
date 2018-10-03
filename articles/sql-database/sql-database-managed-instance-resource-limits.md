@@ -43,7 +43,7 @@ Managed Instance has two service tiers - General Purpose and Business Critical (
 | Max database files per instance | Up to 280 | 280 |
 | Expected max storage IOPS | 500-7500 IOPS per data file ([depends on data file size](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Depends on the underlying SSD speed. |
 
-## Default subscription-level limits per region
+## Subscription-level limits
 
 Managed Instance currently supports deployment only on the following types of subscriptions:
 
@@ -52,17 +52,19 @@ Managed Instance currently supports deployment only on the following types of su
 - [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 
 > [!NOTE]
-> This limitation on support for only some subscription types is temporary.
+> This limitation is temporary. New subscription types will be enabled in the future.
 
-Managed Instances has two default subscription-level limits per Azure region. Different subscription types have different regional limits. These limits can be increased by creating special support request in the Azure portal for the subscription with issue type **Quota**:
+Managed Instances has two default subscription-level limits per Azure region. Different subscription types have different regional limits. These limits can be increased by creating special support request in the Azure portal for the subscription with issue type **Quota**: 
 
-- **Subnet limit**: The maximum number of subnets where managed instances are deployed
-- **Instance number limit**: The maximum number of instances per region
+- **Subnet limit**: The maximum number of subnets where managed instances are deployed in a single region.
+- **Instance number limit**: The maximum number of instances that can be deployed in a single region.
 
 > [!IMPORTANT]
 > When planning your deployments, consider that a Business Critical (BC) instance (due to added redundancy) generally consumes 4x more capacity than a General Purpose (GP) instance. So, for your calculations, 1 GP instance = 1 instance unit and 1 BC instance = 4 instance units. To simplify your consumption analysis against the default limits, summarize the instance units across all subnets in the region where Managed Instances are deployed and compare the results with the instance unit limits for your subscription type.
 
-## Default limits by subscription type
+## Default limits by subscription type 
+
+In the following table are shown default regional limits for supported subscriptions:
 
 |Subscription type| Max number of Managed Instance subnets | Max number of instances |Max number of GP managed instances*|Max number of BC managed instances*|
 | :---| :--- | :--- |:--- |:--- |
@@ -74,7 +76,9 @@ Managed Instances has two default subscription-level limits per Azure region. Di
 
 ** Maximum number of instances in one service tier applies if there are no instances in another service tier. In case you plan to mix GP and BC instances within same subnet, use the following section as a reference for allowed combinations. As a simple rule, the total number of subnets cannot exceed 3, and the total number of instance units cannot exceed 12.
 
-## Deployment options for GP and BC deployments within the same subnet
+These limits can be increased by creating special [support request in the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance). As an alternative, you can create more Managed Instances in another region without sending support requests.
+
+### Deployment options for GP and BC deployments within the same subnet
 
 The following examples cover deployment cases with non-empty subnets and mixed GP and BC service tiers.
 
@@ -88,7 +92,7 @@ The following examples cover deployment cases with non-empty subnets and mixed G
 |3|1BC, 0 GP|0 BC, up to 4 GP|1 BC, 0 GP|
 |3|0 BC, up to 4 GP|1 BC, 0 GP|1BC, 0 GP|
 
-## Obtaining a larger quota for SQL Managed Instance
+### Obtaining a larger quota for SQL Managed Instance
 
 To initiate the process of obtaining a larger quota:
 
