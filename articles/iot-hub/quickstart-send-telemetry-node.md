@@ -66,7 +66,11 @@ A device must be registered with your IoT hub before it can connect. In this qui
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
     
-    Make a note of the device connection string, which looks like `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`. You use this value later in the quickstart.
+    Make a note of the device connection string, which looks like:
+
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    You use this value later in the quickstart.
 
 1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub in order to retrieve the messages. The following command retrieves the service connection string for your IoT hub:
    
@@ -76,7 +80,11 @@ A device must be registered with your IoT hub before it can connect. In this qui
     az iot hub show-connection-string --hub-name YourIoTHubName --output table
     ```
      
-    Make a note of the service connection string, which looks like `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`. You use this value later in the quickstart. The service connection string is different from the device connection string.
+    Make a note of the service connection string, which looks like:
+
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+
+    You use this value later in the quickstart. The service connection string is different from the device connection string.
 
 
 ## Send simulated telemetry
