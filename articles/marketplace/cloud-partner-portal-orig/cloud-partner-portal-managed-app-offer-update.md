@@ -65,7 +65,7 @@ enable this, follow the below steps.
 3.  On the SKUs form, clik on Add new SKU and provide a SKU ID in the
     pop-up.
 4.  Follow the rest of the steps as specified
-    [here](https://cloudpartner.azure.com/#documentation/managed-app-publish.html).
+    [here](./cloud-partner-portal-managed-app-publish.md).
 5.  Click on Publish to kick off the publish workflow to have your new
     SKU go live.
 
