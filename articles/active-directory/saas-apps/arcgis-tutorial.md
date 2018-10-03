@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/03/2018
 ms.author: jeedes
 
 ---
@@ -136,7 +136,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. After adding extension to the browser, click on **setup ArcGIS Online** will direct you to the ArcGIS Online application. From there, provide the admin credentials to sign into ArcGIS Online. The browser extension will automatically configure the application for you and automate steps 9-13.
 
-9. In a different web browser window, log into your ArcGIS company site as an administrator.
+9. If you want to configure the steps manually, open a new web browser window and log into your ArcGIS company site as an administrator and perform the following steps:
 
 10. Click **EDIT SETTINGS**.
 
