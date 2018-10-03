@@ -331,7 +331,7 @@ Marketo, or Microsoft Dynamics CRM.
 
 To get more information about the CRM system you want to use, select one of the following links for supported systems.
 
--   [Azure Table](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table)
--   [Marketo](https://cloudpartner.azure.com/#documentation/lead-management-instructions-marketo)
--   [Microsoft Dynamics CRM](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)
--   [Salesforce](https://cloudpartner.azure.com/#documentation/lead-management-instructions-salesforce)
+-   [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
+-   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
+-   [Microsoft Dynamics CRM](./cloud-partner-portal-lead-management-instructions-dynamics.md)
+-   [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)
