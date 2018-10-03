@@ -8,33 +8,25 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 10/03/2018
 ms.author: tulasim
 #customer intent: As a developer, I want to know how to use QnA Maker for my FAQs and product manuals so that I can enable conversational question and answer sessions for my customers.
 ---
 
 # What is QnA Maker?
 
-QnA Maker is a cloud-based API service that applies custom machine-learning intelligence to a user's natural language question to provide the best answer.
+QnA Maker is a question and answer knowledge base (KB) service that applies custom machine-learning intelligence to a user's natural language question to determine the best answer.
 
-QnA Maker enables you to power a question and answer service from your semi-structured content such as Frequently Asked Question (FAQs) documents, URLs, and product manuals. You can build a model of questions and answers that is flexible to user queries, providing responses that a bot answers in a natural, conversational way.
-
-The easy-to-use [web portal](https://qnamaker.ai) enables you to create, manage, train and get your service up and running without any developer experience.
+QnA Maker enables you to power the cloud-based service from your semi-structured content such as Frequently Asked Question (FAQs) documents, URLs, product manuals and custom questions and answers. 
+The easy-to-use [web portal](https://qnamaker.ai) enables you to create, manage, train and publish your service without any developer experience. Once the service is published to an endpoint, a client application such as a chat bot can manage the conversation with a user to get questions and respond with the answers. 
 
 ![Overview](../media/qnamaker-overview-learnabout/overview.png)
-
-## Service highlights
-
-- A complete **no-code** experience to [create a FAQ bot](https://aka.ms/qnamaker-docs-create-faqbot).
-- **No more network throttling**. Pay for hosting the service and not for the number of transactions. See the [pricing page](https://aka.ms/qnamaker-docs-pricing) for more details. <!-- TBD: this doesn't make any sense, 3 tps is all they get no matter what other service settings there are. -->
-- **Scale as per your needs**. Choose the appropriate SKUs of the individual components that suit your scenario. See how to [choose capacity](https://aka.ms/qnamaker-docs-capacity) for your QnA Maker service.
-- **Full data compliance**. The data and runtime components are deployed in the user's Azure subscription and within their compliance boundary. Read below for more details.
 
 ## Key QnA Maker processes
 
 A QnA Maker provides two key services for your data:
 
-* **Extraction**: Structured question-answer data is extracted from semi-structured data sources like FAQs and product manuals. This extraction is done when creating the knowledge base. Create your knowledge base [here](https://aka.ms/qnamaker-docs-createkb).
+* **Extraction**: Structured question-answer data is extracted from semi-structured [data sources](data-sources-supported.md) like FAQs and product manuals. This extraction can be done when you [create](https://aka.ms/qnamaker-docs-createkb) the knowledge base or can be modify the KB afterward.
 
 * **Matching**: Once your knowledge base has been [trained and tested](https://aka.ms/qnamaker-docs-trainkb), you [publish](https://aka.ms/qnamaker-docs-publishkb) it. This enables an endpoint to your QnA Maker knowledge base, which you can then use in your bot or app. This endpoint accepts a user question and responds with the best question/answer match in the knowledge base, along with a confidence score for the match.
 
@@ -48,6 +40,13 @@ The QnA Maker stack consists of the following parts:
 
 ![Architecture](../media/qnamaker-overview-learnabout/architecture.png)
 
+
+## Service highlights
+
+- A complete **no-code** experience to [create a FAQ bot](https://aka.ms/qnamaker-docs-create-faqbot).
+- **No more network throttling**. Pay for hosting the service and not for the number of transactions. See the [pricing page](https://aka.ms/qnamaker-docs-pricing) for more details. <!-- TBD: this doesn't make any sense, 3 tps is all they get no matter what other service settings there are. -->
+- **Scale as per your needs**. Choose the appropriate SKUs of the individual components that suit your scenario. See how to [choose capacity](https://aka.ms/qnamaker-docs-capacity) for your QnA Maker service.
+- **Full data compliance**. The data and runtime components are deployed in the user's Azure subscription and within their compliance boundary. Read below for more details.
 ## Next steps
 
 > [!div class="nextstepaction"]
