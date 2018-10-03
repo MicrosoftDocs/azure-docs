@@ -3,32 +3,32 @@
         {
             "source_path": "articles/azure-stack/partner/azure-stack-partner-update-1802.md",
             "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-release-notes",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/partner/azure-stack-partner-update-1803.md",
             "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-release-notes",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/partner/azure-stack-vaas-parameters-test.md",
             "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-parameters",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/partner/azure-stack-vaas-schedule-your-first-test.md",
             "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-schedule-test-pass",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/partner/azure-stack-vaas-known-issues.md",
             "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-troubleshoot",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/partner/azure-stack-vaas-set-up-account.md",
             "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-set-up-resources",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/governance/management-groups/overview.md",
