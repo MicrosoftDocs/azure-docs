@@ -27,7 +27,9 @@ If you are a [Global Administrator](../active-directory/users-groups-roles/direc
 - See all Azure subscriptions in an organization
 - Allow an automation app (such as an invoicing or auditing app) to access all Azure subscriptions
 
-By default, Azure AD administrator roles and Azure role-based access control (RBAC) roles do not span Azure AD and Azure. However, if you are a Global Administrator in Azure AD, you can elevate your access to manage Azure subscriptions and management groups. When you elevate your access, you will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions and management groups for a particular Azure AD directory. The User Access Administrator role enables you to grant other users access to Azure resources at the root scope (`/`).
+By default, Azure AD administrator roles and Azure role-based access control (RBAC) roles do not span Azure AD and Azure. However, if you are a Global Administrator in Azure AD, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
+
+When you elevate your access, you will be assigned the [User Access Administrator](built-in-roles.md#user-access-administrator) role in Azure at root scope (`/`). This allows you to view all resources and assign access in any subscription or management group in the directory. You can view which users have the User Access Administrator role assignment at root scope using PowerShell. User Access Administrator role assignments can also be removed using PowerShell.
 
 This elevation should be temporary and only done when needed.
 
