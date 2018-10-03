@@ -30,7 +30,7 @@ Below you'll learn how to get the IoT Hub device connection string from the Digi
 
 ## Get the IoT Hub device connection string from the Management API
 
-Do a GET call on the Device API with an `includes=ConnectionString` parameter to get the IoT Hub device connection string. You can filter by `device-guid` or `hardware-id` to find the given device.
+Do a GET call on the Device API with an `includes=ConnectionString` parameter to get the IoT Hub device connection string. You can filter by `device-guid` or `hardware-id` to find the given device:
 
 ```plaintext
 https://yourManagementApi/api/v1.0/devices/yourDeviceGuid?includes=ConnectionString

@@ -25,8 +25,8 @@ With the _Digital Twins Object Models_ and _Ontology_ in place, you can now buil
 Digital Twins Object Models support these main categories of objects:
 
 - **Spaces** are virtual or physical locations, for example `Tenant`, `Customer`, `Region`, `Venue`.
-- **Devices** are virtual or physical pieces of equipment, for example `Contoso Device`, `Raspberry Pi 3`.
-- **Sensors** are objects that detect events, for example `Contoso Temperature Sensor`, `Contoso Presence Sensor`.
+- **Devices** are virtual or physical pieces of equipment, for example `AwesomeCompany Device`, `Raspberry Pi 3`.
+- **Sensors** are objects that detect events, for example `AwesomeCompany Temperature Sensor`, `AwesomeCompany Presence Sensor`.
 - **Users** identify occupants and their characteristics.
 
 Other categories of objects are:
@@ -45,7 +45,7 @@ Other categories of objects are:
 
 ## Spatial Intelligence Graph
 
-**Spatial Graph** is the hierarchical graph of spaces, devices, and people defined in the **Digital Twins Object Model**. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. Users can manage and interact with their spatial graph with a collection of REST APIs (see below). 
+**Spatial Graph** is the hierarchical graph of spaces, devices, and people defined in the **Digital Twins Object Model**. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. Users can manage and interact with their spatial graph with a collection of REST APIs (see below).
 
 The user who deploys a Digital Twins service in their subscription becomes the global administrator of the root node, automatically granting full access to entire structure. This user can then provision spaces in the graph using the `Space` API. Devices could be provisioned using the `Device` API, sensors could be provisioned using `Sensor` API, etc. We also offer [open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) to provision the graph in bulk.
 
@@ -61,7 +61,13 @@ Graph _extensibility_ allows users to customize the underlying Digital Twins Obj
 
 ### Spatial Intelligence Graph Management APIs
 
-Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure.com), the [Swagger](https://swagger.io/tools/swagger-ui/) URL of the Management APIs is automatically generated and will be displayed in the Azure portal's **Overview** section with the following format `https://{{yourDigitalTwinsName}}.{{yourLocation}}.azuresmartspaces.net/management/swagger` as seen in image below:
+Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure.com), the [Swagger](https://swagger.io/tools/swagger-ui/) URL of the Management APIs is automatically generated and will be displayed in the Azure portal's **Overview** section with the following format:
+
+```plaintext
+https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger
+```
+
+`yourDigitalTwinsName` and `yourLocation` should be replaced with your custom values. The full URL format can be seen being used in image below:
 
 ![Digital Twins Portal Management API][2]
 
