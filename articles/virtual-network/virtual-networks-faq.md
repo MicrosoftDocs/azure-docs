@@ -229,7 +229,7 @@ VNet peering (or virtual network peering) enables you to connect virtual network
 Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions. You cannot globally peer from Azure public regions to National clouds. Global peering is not currently available in national clouds.
 
 ### Can I enable VNet Peering if my virtual networks belong to subscriptions within different Azure Active Directory tenants?
-Currently it is not possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directory tenants.
+It is possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directory tenants.
 
 ### My VNet peering connection is in *Initiated* state, why can't I connect?
 If your peering connection is in an Initiated state, this means you have created only one link. A bidirectional link must be created in order to establish a successfuly connection. For example, to peer VNet A to VNet B, a link must be created from VNetA to VNetB and from VNetB to VNetA. Creating both links will change the state to *Connected.*
