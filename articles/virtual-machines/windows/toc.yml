@@ -62,28 +62,35 @@
     href: sizes.md
     items:
     - name: General purpose
-      href: sizes-general.md  
+      href: sizes-general.md
+      displayName: Dsv3 Dv3 DSv2 Dv2 Av2      
       items:
       - name: B-series burstable
         href: b-series-burstable.md
     - name: Compute optimized
-      href: sizes-compute.md    
+      href: sizes-compute.md  
+      displayName: Fsv2 Fs F-series     
     - name: Memory optimized
+      href: sizes-memory.md
+      displayName: Esv3 Ev3 M-series GS G-series DSv2 Dv2     
       items:
       - name: Constrained vCPUs
         href: constrained-vcpu.md
-      href: sizes-memory.md    
     - name: Storage optimized
+      displayName: ls
       href: sizes-storage.md    
     - name: GPU optimized
+      displayName: NV NVv2 NC NCv2 NCv3 ND
       href: sizes-gpu.md   
       items:
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
+      displayName: H-series
       href: sizes-hpc.md   
     - name: Previous generations
-      href: sizes-previous-gen.md      
+      href: sizes-previous-gen.md  
+      displayName: D-series Ds-series A-series Basic      
     - name: Azure compute units (ACU)
       href: acu.md 
     - name: Benchmark scores
