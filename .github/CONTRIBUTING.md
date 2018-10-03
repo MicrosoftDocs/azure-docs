@@ -21,8 +21,8 @@ Please use the Feedback tool at the bottom of any article to submit bugs and sug
 
 ## Editing in GitHub
 
-Follow the guidance for [Quick edits to existing documents](https://docs.microsoft.com/en-us/contribute/#quick-edits-to-existing-documents) in our contributors guide.
+Follow the guidance for [Quick edits to existing documents](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents) in our contributors guide.
 
 ### Pull Request
 
-Review the guidance for [Pull Requests](https://docs.microsoft.com/en-us/contribute/how-to-write-workflows-major#pull-request-processing) in our contributors guide.
+Review the guidance for [Pull Requests](https://docs.microsoft.com/contribute/how-to-write-workflows-major#pull-request-processing) in our contributors guide.
