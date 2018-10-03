@@ -18,7 +18,7 @@ ms.date: 10/01/2018
 Azure SQL Database Managed Instance is a new deployment model of Azure SQL Database, providing near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) Database Engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](sql-database-automated-backups.md), [high-availability](sql-database-high-availability.md) ), that drastically reduces management overhead and TCO.
 
 > [!IMPORTANT]
-> For a list of regions in which Managed Instance is currently available, see [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+> For a list of regions in which Managed Instance is currently available, see [supported regions](sql-database-managed-instance-resource-limits.md#supported-regions).
  
 The following diagram outlines key features of the Managed Instance:
 
@@ -35,7 +35,7 @@ To decide between Azure SQL Database Single Database, Azure SQL Database Managed
 Azure SQL Database Managed Instance combines the best features that are available both in Azure SQL Database and SQL Server Database Engine.
 
 > [!IMPORTANT]
-> A Managed Instance runs with all of the features of the most recent version of SQL Server, including online operations, automatic plan corrections, and other enterprise performance enhancements. 
+> A Managed Instance runs with all of the features of the most recent version of SQL Server, including online operations, automatic plan corrections, and other enterprise performance enhancements. A Comparison of the features available is explained in [Feature comparison: Azure SQL Database versus SQL Server](sql-database-features.md).
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
@@ -43,22 +43,34 @@ Azure SQL Database Managed Instance combines the best features that are availabl
 |**Security and compliance** | **Management**|
 |Isolated environment ([VNet integration](sql-database-managed-instance-vnet-configuration.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Threat Detection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service 
 
+The key features of Managed Instance are shown in the following table:
+
+|Feature | Description|
+|---|---|
+| SQL Server version / build | SQL Server Database Engine (latest stable) |
+| Managed automated backups | Yes |
+| Built-in instance and database monitoring and metrics | Yes |
+| Automatic software patching | Yes |
+| The latest Database Engine features | Yes | 
+| Number of data files (ROWS) per the database | Multiple | 
+| Number of log files (LOG) per database | 1 | 
+| VNet - Azure Resource Manager deployment | Yes |
+| VNet - Classic deployment model | No |
+| Portal support | Yes|
+| Built-in Integration Service (SSIS) | No - SSIS is a part of [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
+| Built-in Analysis Service (SSAS) | No - SSAS is separate [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
+| Built-in Reporting Service (SSRS) | No - use Power BI or SSRS IaaS |
+|||
+
 ## vCore-based purchasing model
 
-The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) in Managed Instance gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
-A virtual core represents the logical CPU offered with an option to choose between generations of hardware.
-- Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.
-- Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.
+In vCore model, you can choose between generations of hardware.
+- **Gen 4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7GB RAM per core, and compute sizes between 8 and 24 vCores.
+- **Gen 5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast eNVM SSD, hyper-threaded logical core, and compute sizes between 8 and 80 cores.
 
-The following table helps you understand how to select the optimal configuration of your compute, memory, storage, and I/O resources.
-
-||Gen 4|Gen 5|
-|----|------|-----|
-|Hardware|Intel E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD vCore = 1 PP (physical core)|Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread)|
-|Compute sizes|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
-|Memory|7 GB per vCore|5.5 GB per vCore|
-||||
+Find more information about the difference between hardware generations in [Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
 ## Managed Instance service tiers
 
@@ -77,32 +89,11 @@ The following list describes key characteristic of the General Purpose service t
 
 - Design for the majority of business applications with typical performance requirements 
 - High-performance Azure Premium storage (8 TB) 
-- 100 databases per instance 
+- Built-in [High-availability](sql-database-high-availability.md#standardgeneral-purpose-availability) based on reliable Azure Premium Storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
-The following list outlines the key characteristics of the General Purpose service tier:
+For more information, see [Storate layer in General purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) and [Storage performance best practices and considerations for Azure SQL DB Managed Instance (General Purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
-|Feature | Description|
-|---|---|
-| Number of vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
-| SQL Server version / build | SQL Server Database Engine (latest stable) |
-| Min storage size | 32 GB |
-| Max storage size | 8 TB |
-| Max storage per database | Determined by the max storage size per instance |
-| Expected storage IOPS | 500-7500 IOPS per data file (depends on data file). See [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
-| Number of data files (ROWS) per the database | Multiple | 
-| Number of log files (LOG) per database | 1 | 
-| Managed automated backups | Yes |
-| HA | Data stored in Azure Storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Built-in instance and database monitoring and metrics | Yes |
-| Automatic software patching | Yes |
-| VNet - Azure Resource Manager deployment | Yes |
-| VNet - Classic deployment model | No |
-| Portal support | Yes|
-|||
-
-\* A virtual core represents the logical CPU offered with an option to choose between generations of hardware. Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors and Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. 
-
-For more information, see [Standard/General Purpose availability and architecture](sql-database-high-availability.md#standardgeneral-purpose-availability) in Azure SQL Database and [Storage performance best practices and considerations for Azure SQL DB Managed Instance (General Purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Find more information about the difference between service tiers in [Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### Business Critical service tier (preview)
 
@@ -111,33 +102,14 @@ Business Critical service tier is built for applications with high IO requiremen
 The following list outlines the key characteristics of the Business Critical service tier: 
 -	Designed for business applications with highest performance and HA requirements 
 -	Comes with super-fast SSD storage (up to 1 TB on Gen 4 and up to 4 TB on Gen 5)
--	Supports up to 100 databases per instance 
-- Built-in additional read-only instance that can be used for reporting and other read-only workloads
+- Built-in [High availability](sql-database-high-availability.md#premiumbusiness-critical-availability) based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+- Built-in additional [Read-only database replica](sql-database-read-scale-out.md) that can be used for reporting and other read-only workloads
 - [In-Memory OLTP](sql-database-in-memory.md) that can be used for workload with high-prefrmance requirements  
-
-|Feature | Description|
-|---|---|
-| Number of vCores* | 8, 16, 24, 32 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
-| SQL Server version / build | SQL Server (latest available) |
-| Additional features | [In-Memory OLTP](sql-database-in-memory.md)<br> 1 additional read-only replica ([Read Scale-Out](sql-database-read-scale-out.md))
-| Min storage size | 32 GB |
-| Max storage size | Gen 4: 1 TB (all vCore sizes)<br> Gen 5:<ul><li>1 TB for 8, 16 vCores</li><li>2 TB for 24 vCores</li><li>4 TB for 32, 40, 64, 80 vCores</ul>|
-| Max storage per database | Determined by the max storage size per instance |
-| Number of data files (ROWS) per the database | Multiple | 
-| Number of log files (LOG) per database | 1 | 
-| Managed automated backups | Yes |
-| HA | Data stored in local SSD and use [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Built-in instance and database monitoring and metrics | Yes |
-| Automatic software patching | Yes |
-| VNet - Azure Resource Manager deployment | Yes |
-| VNet - Classic deployment model | No |
-| Portal support | Yes|
-|||
-
-For more information see [Premium/Business Critical availability and architecture](sql-database-high-availability.md#premiumbusiness-critical-availability) in Azure SQL Database.
 
 > [!IMPORTANT]
 > The **Business Critical** service tier is in preview.
+
+Find more information about the difference between service tiers in [Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ## Advanced security and compliance 
 
