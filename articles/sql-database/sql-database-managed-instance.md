@@ -59,16 +59,16 @@ The key features of Managed Instance are shown in the following table:
 | Portal support | Yes|
 | Built-in Integration Service (SSIS) | No - SSIS is a part of [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Built-in Analysis Service (SSAS) | No - SSAS is separate [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
-| Built-in Reporting Service (SSRS) | No - use PowerBI or SSRS IaaS |
+| Built-in Reporting Service (SSRS) | No - use Power BI or SSRS IaaS |
 |||
 
 ## vCore-based purchasing model
 
-The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) in Managed Instance gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) in Managed Instance gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 In vCore model, you can choose between generations of hardware.
-- **Gen 4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD, physical cores, 7GB RAM per core, and compute sizes between 8 and 24 vCores.
-- **Gen 5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, fast eNVM SSD, hyper-threaded logical core, and compute sizes between 8 and 80 cores.
+- **Gen 4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7GB RAM per core, and compute sizes between 8 and 24 vCores.
+- **Gen 5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast eNVM SSD, hyper-threaded logical core, and compute sizes between 8 and 80 cores.
 
 Find more information about the difference between hardware generations in [Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
