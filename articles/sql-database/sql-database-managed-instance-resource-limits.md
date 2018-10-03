@@ -22,7 +22,7 @@ This article provides an overview of the Azure SQL Database Managed Instance res
 
 ## Instance-level resource limits
 
-Azure SQL Database Managed Instance can be deployed on two hardware generation (Gen4 and Gen5). Hardware generations have different characteristic that are described in the following table:
+Azure SQL Database Managed Instance can be deployed on two hardware generation (Gen4 and Gen5). Hardware generations have different characteristics that are described in the following table:
 
 |   | **Gen 4** | **Gen 5** |
 | --- | --- | --- |
@@ -31,13 +31,17 @@ Azure SQL Database Managed Instance can be deployed on two hardware generation (
 | Memory | 7 GB per vCore | 5.5 GB per vCore |
 | Max storage (Business Critical) | 1TB | 1TB, 2TB, 4TB depending on the number of cores |
 
-Managed Instance has two sevice tiers - General Purpose and Business Critical (Public Preview). These tiers provide different capabilities of instances, as described in the table below:
+Managed Instance has two service tiers - General Purpose and Business Critical (Public Preview). These tiers provide different capabilities, as described in the table below:
 
 | **Feature** | **General Purpose** | **Business Critical (preview)** |
 | --- | --- | --- |
 | Number of vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
 | Memory | Gen4: 56GB-156GB<br/>Gen5: 44GB-440GB<br/>\*Proportional to the number of vCores | Gen4: 56GB-156GB <br/> Gen5: 44GB-440GB<br/>\*Proportional to the number of vCores |
 | Max storage size | 8 TB | Gen 4: 1 TB <br/> Gen 5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
+| Max storage per database | Determined by the max storage size per instance | Determined by the max storage size per instance |
+| Max number of databases per instance | 100 | 100 |
+| Max database files per instance | Up to 280 | 280 |
+| Expected max storage IOPS | 500-7500 IOPS per data file ([depends on data file size](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Depends on the underlying SSD speed. |
 
 ## Default subscription-level limits per region
 
