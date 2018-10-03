@@ -96,7 +96,7 @@ validate that your CRM integration is working by sending a test lead to
 your CRM. You will see a record with fake data populate in your CRM or
 Azure Table after this step is complete. All documentation for Lead
 Generation is located
-[here](https://cloudpartner.azure.com/#documentation/get-customer-leads).
+[here](./cloud-partner-portal-get-customer-leads.md).
 
 **Offer Available in Preview**
 
