@@ -44,9 +44,11 @@ Digital Twins currently supports the following **EventTypes** that will be sent 
 
 Furthermore, not all **EndpointTypes** support all **EventTypes**. The **EventTypes** allowed for each **EndpointType** are as follows:
 
-- **EventHub**: DeviceMessages, TopologyOperation, SpaceChange, SensorChange, UdfCustom
-- **ServiceBus**: TopologyOperation, SpaceChange, SensorChange, UdfCustom
-- **EventGrid**: TopologyOperation, SpaceChange, SensorChange, UdfCustom
+|             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
+| ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
+| **EventHub**|     X          |         X         |     X       |      X       |   X       |
+| **ServiceBus**|              |         X         |     X       |      X       |   X       |
+| **EventGrid**|               |         X         |     X       |      X       |   X       |
 
 <!-- >[!NOTE]
 >For more details on how to create endpoints and examples of events' schema, please see [Endpoints and Egress]](how-to-create-event-endpoints.md). -->
