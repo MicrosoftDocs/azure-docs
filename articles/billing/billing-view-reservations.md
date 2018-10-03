@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/1/2018
+ms.date: 10/03/2018
 ms.author: cwatson
 ---
 # View Azure Reservations in the Azure portal
@@ -30,13 +30,15 @@ To view a reservation as an Owner or Reader,
 
     ![Screenshot that shows Azure portal search](./media/billing-view-reservation/portal-reservation-search.png)
 
-You see a list of the reservations where you have the Owner or Reader role.
+1. You see a list of the reservations where you have the Owner or Reader role.
 
 If you need to change the scope of a reservation, split a reservation, or change who can manage a reservation, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
 
-## View Reservations for Enterprise enrollments
+## View Reservation transactions for Enterprise enrollments
 
-To view reservations transactions in the Azure portal, you must be an EA administrator with an Enterprise enrollment.
+ If you have a partner led EA enrollment and are an EA administrator, view reservation transactions by going to **Reports** in the EA portal. For other EA enrollments, if you're an EA administrator, you can view reservation transactions in the EA portal and in the Azure portal.
+
+To view reservation transactions in Azure portal,
 
 1. Sign in to the [Azure portal]( http://portal.azure.com).
 1. Search on **Cost Management + Billing**.
@@ -48,8 +50,6 @@ To view reservations transactions in the Azure portal, you must be an EA adminis
 1. Select **Apply**.
 
     ![Screenshot that shows Reservation transactions results](./media/billing-view-reservation/portal-billing-reservation-transaction-results.png)
-
-As an EA administrator, you can also view reservation transactions by going to **Reports** in the EA portal.
 
 To get the data by using an API, see [Get Reserved Instance transaction charges for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges).
 
