@@ -1,10 +1,11 @@
 ---
-title: What is Bing Video Search? | Microsoft Docs
+title: What is Bing Video Search?
+titlesuffix: Azure Cognitive Services
 description: Shows how to use the Bing Video Search API to search the web for videos.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 4A76718B-E32C-419F-98DF-19E877643378
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: overview

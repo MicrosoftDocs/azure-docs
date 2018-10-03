@@ -11,11 +11,11 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/18/2018
+ms.date: 10/01/2018
 ---
 # Use read-only replicas to load balance read-only query workloads (preview)
 
-**Read Scale-Out** allows you to load balance Azure SQL Database read-only workloads using the capacity of read-only replicas. 
+**Read Scale-Out** allows you to load balance Azure SQL Database read-only workloads using the capacity of one read-only replica. 
 
 ## Overview of Read Scale-Out
 

@@ -97,7 +97,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
 
 ### Subscription limits
-#### Subscription limits
+#### Subscription limits - Azure Service Management (Classic Resources)
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### Subscription limits - Azure Resource Manager
@@ -160,8 +160,6 @@ The following table details the features and limits of the Basic, Standard, and 
 ### Storage limits
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
-
-[!INCLUDE [storage-limits-increase-include](../includes/storage-limits-increase-include.md)]
 
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
 

@@ -12,17 +12,13 @@ ms.reviewer: jmartens
 ms.date: 09/24/2018
 ---
 
-#Load and read data with Azure Machine Learning
+# Load and read data with Azure Machine Learning
 
 Use the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) to load different types of input data. 
 
-To load your data, you have two approaches:
-+ Specify the data file type and its parameters
-+ Use the SDK smart reading functionality to automatically detect the type of a file
+In order to load your data, specify the data file type and its parameters
 
-## Specify type and parameters
-
-### Text line data 
+## Use text line data 
 One of the simplest ways to load data is to read it as text lines.
 
 Here is sample code:
@@ -54,7 +50,7 @@ Sample output:
 |3|2015-07-3\|\| 7.0\|\| 10.5|
 |4|2015-07-4\|\| 5.5\|\| 9.3|
 
-### CSV data
+## Use CSV data
 When reading delimited files, you can let the underlying runtime infer the parsing parameters (such as a separator, encoding, whether to use headers, etc.) rather than providing them. For this example, attempt to read a file by specifying only its location. 
 
 Here is sample code:
@@ -125,7 +121,6 @@ dtype: object
 Several of the columns were correctly detected as numbers and their type is set to float64. With ingestion done, you can retrieve a pandas DataFrame for the full dataset.
 Here is sample code:
 ```python
-```
 df = dataflow.to_pandas_dataframe()
 df
 ```
@@ -139,7 +134,7 @@ Sample output:
 |3|ALABAMA|Hale County|1.017100e+10|2.0|
 |4|ALABAMA|Hale County|1.017100e+10|23.0|
 
-### Excel data
+## Use Excel data
 The Azure Machine Learning Data Prep SDK includes a `read_excel` function to load Excel files. Here is sample code:
 ```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx')
@@ -186,7 +181,7 @@ Sample output:
 |3|4|Harry Potter and the Deathly Hallows Part 2|WB|1341.5|381|0.284|960.5|0.716|2011|
 |4|5|Frozen|BV|1274.2|400.7|0.314|873.5|0.686|2013|
 
-### Fixed-width data files
+## Use Fixed-width data files
 For fixed-width files, you can specify a list of offsets. The first column is always assumed to start at offset 0.For example:
 ```python
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
@@ -224,7 +219,7 @@ Sample output:
 |4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
 |5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
-### SQL data
+## Use SQL data
 The Azure Machine Learning Data Prep SDK can also load data from SQL servers. Currently, only Microsoft SQL Server is supported.
 To read data from a SQL server, create a data source object that contains the connection information. For example:
 ```python
@@ -281,12 +276,12 @@ ModifiedDate              datetime64[ns, UTC+00:00]
 dtype: object
 ```
 
-### Azure Data Lake Storage
+## Use Azure Data Lake Storage
 There are two ways the SDK can acquire the necessary OAuth token to access Azure Data Lake Storage:
 -	Retrieve the access token from a recent login session of the user's Azure CLI login
 -	Use a service principal (SP) and a certificate as secret
 
-#### Use an access token from a recent Azure CLI session
+### Use an access token from a recent Azure CLI session
 On your local machine, run the following command:
 
 > [!NOTE] 
@@ -299,7 +294,7 @@ az login
 az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
-#### Create a service principal with the Azure CLI
+### Create a service principal with the Azure CLI
 You can use the Azure CLI to create a service principal and the corresponding certificate. This particular service principal is configured as Reader, with its scope reduced to only the Azure Data Lake Storage account 'dpreptestfiles'.  For example:
 ```azurecli
 az account set --subscription "Data Wrangling development"
@@ -330,7 +325,7 @@ with open('./data/adls-dpreptestfiles.crt', 'rt', encoding='utf-8') as crtFile:
 
 servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 ```
-#### Acquire an OAuth access token
+### Acquire an OAuth access token
 Use the `adal` package (via: `pip install adal`) to create an authentication context on the MSFT tenant and acquire an OAuth access token. For ADLS, the resource in the token request must be for 'https://datalake.azure.net', which is different from most other Azure resources.
 
 ```python
@@ -350,7 +345,3 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|Six Mile|||
 |4|1010691|10th Steet Community Farmers Market|http://agrimissouri.com/mo-grown/grodetail.php... |10th Street and Poplar|Lamar|Barton|
-
-## Smart read the data
-
-Use the SDK smart reading functionality to automatically detect the type of a file.

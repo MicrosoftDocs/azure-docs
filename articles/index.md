@@ -313,12 +313,6 @@ featureFlags:
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/learn/modules/build-a-serverless-web-app/">
-                                                            <img src="/learn/achievements/build-a-serverless-web-app.svg" alt="">
-                                                             Build a serverless web app
-                                                        </a>
-                                                    </li>
-                                                    <li>
                                                         <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
                                                             <img src="/learn/achievements/control-azure-services-with-cli.svg" alt="">
                                                              Control Azure services with the CLI

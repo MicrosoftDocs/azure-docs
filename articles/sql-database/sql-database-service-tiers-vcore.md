@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 09/26/2018
 ---
 # Choosing a vCore service tier, compute, memory, storage, and IO resources
 
@@ -83,7 +83,7 @@ Storage for database backups is allocated to support the Point in Time Restore (
 
 ### Hyperscale service tier (preview)
 
-snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and not of size of data operations (in minutes not hours/days).
+In the hyperscale service tier, backups are snapshot-based and stored in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and not of size of data operations (in minutes not hours/days).
 
 ## Azure Hybrid Use Benefit
 

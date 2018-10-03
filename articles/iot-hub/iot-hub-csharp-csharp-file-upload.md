@@ -89,7 +89,7 @@ In this section, you modify the device app you created in [Send Cloud-to-Device 
     ```
 
 > [!NOTE]
-> For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling](https://msdn.microsoft.com/library/hh680901.aspx).
+> For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 ## Receive a file upload notification
 

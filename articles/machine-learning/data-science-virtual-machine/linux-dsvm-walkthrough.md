@@ -540,6 +540,6 @@ And query with sqlcmd:
 You could also query with Squirrel SQL. Follow similar steps for PostgreSQL, using the Microsoft MSSQL Server JDBC Driver, which can be found in ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
 ## Next steps
-For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
+For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 
 For a description of other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios, see [Team Data Science Process walkthroughs](../team-data-science-process/walkthroughs.md). The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.

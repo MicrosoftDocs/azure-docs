@@ -11,8 +11,8 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: conceptual
+ms.date: 09/26/2018
 ms.author: bwren
 
 ---
@@ -44,7 +44,7 @@ The Log Analytics query language is suitable for simple log queries but also inc
 ![Logs](media/overview/logs.png)
 
 ## What data does Azure Monitor collect?
-Log Analytics can collect data from a variety of sources. You can think of monitoring data for your applications in tiers ranging from your application, any operating and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:
+Azure Monitor can collect data from a variety of sources. You can think of monitoring data for your applications in tiers ranging from your application, any operating and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:
 
 - **Application monitoring data**: Data about the performance and functionality of the code you have written, regardless of its platform.
 - **Guest OS monitoring data**: Data about the operating system on which your application is running. This could be running in Azure, another cloud, or on-premises. 
@@ -142,9 +142,6 @@ Multiple APIs are available to read and write metrics and logs to and from Azure
 ## Next steps
 Learn more about:
 
-* [Azure Monitor](https://azure.microsoft.com/services/monitor/) to get started with core monitoring metrics and alerts.
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you're trying to diagnose problems in your App Service web app.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) for analyzing collected monitoring data and logs.
-
-
-
+* [Metrics and logs](../monitoring/monitoring-data-collection.md) for the data collected by Azure Monitor.
+* [Data sources](../monitoring/monitoring-data-sources.md) for how the different components of your application send telemetry.
+* [Log Analytics](../log-analytics/log-analytics-queries.md) for analyzing collected data.
