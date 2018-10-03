@@ -42,7 +42,10 @@ Digital Twins currently supports the following **EventTypes** that will be sent 
 - **SensorChange**: are changes in a sensor's computed value as a result of a device telemetry message.
 - **UdfCustom**: are custom notifications from a user-defined function.
 
-Furthermore, not all **EndpointTypes** support all **EventTypes**. The **EventTypes** allowed for each **EndpointType** are as follows:
+> [!IMPORTANT]
+> Not all **EndpointTypes** support all **EventTypes**. 
+
+The **EventTypes** allowed for each **EndpointType** are as follows:
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
