@@ -3,4 +3,4 @@
 - name: Azure Machine Learning Studio
   href: studio/index.yml
 - name: Compare ML products at Microsoft
-  href: overview-more-machine-learning.md   
+  href: service/overview-more-machine-learning.md   
