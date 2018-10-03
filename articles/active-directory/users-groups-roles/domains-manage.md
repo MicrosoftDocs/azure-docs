@@ -88,7 +88,7 @@ An error is returned when:
 **Q: I am logged in as admin@contoso.com but I cannot delete the domain name “contoso.com”?**<br>
 **A:** You cannot reference the custom domain name you are trying to delete in your user account name. Ensure that the Global Administrator account is using the initial default domain name (.onmicrosoft.com) such as admin@contoso.onmicrosoft.com. Sign in with a different Global Administrator account that such as admin@contoso.onmicrosoft.com or another custom domain name like “fabrikam.com” where the account is admin@fabrikam.com.
 
-**Q: I clicked the **Delete** domain button and see `In Progress` for the Delete operation. How long does it take? What happens if it fails?**<br>
+**Q: I clicked the Delete domain button and see `In Progress` status for the Delete operation. How long does it take? What happens if it fails?**<br>
 **A:** The delete domain operation is an asynchronous background task that renames all references to the domain name. It should complete within a minute or two. If domain deletion fails, ensure that you don’t have:
 
 * Apps configured on the domain name with the appIdentifierURI
