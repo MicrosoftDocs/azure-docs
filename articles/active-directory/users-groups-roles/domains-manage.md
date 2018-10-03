@@ -102,5 +102,5 @@ Most management tasks for domain names in Azure Active Directory can also be com
 
 * [Add custom domain names](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Remove Exchange mail-enabled security groups in Exchange Admin Center on a custom domain name in Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [Update your applications reference to another domain in Azure AD](../develop/active-directory-integrating-applications.md#updating-an-application)
+* [Update your applications reference to another domain in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#updating-an-application)
 * [ForceDelete a custom domain name with Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)
