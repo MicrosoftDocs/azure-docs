@@ -11,9 +11,9 @@ ms.component: metrics
 ---
 # Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
 
-The Azure Monitor [Diagnostics extension](azure-diagnostics.md) (Diagnostics) allows you to collect metrics and logs from the guest operating system (guest OS) that's running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
+The Azure Monitor [Diagnostics extension](azure-diagnostics.md) (Diagnostics) allows you to collect metrics and logs from the guest operating system (Guest OS) that's running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to many different locations that are listed in the previously linked article.  
 
-This article describes the process for sending Guest OS performance metrics for a Windows virtual machine to the Azure Monitor data store. Starting with Diagnostics version 1.11, you could write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
+This article describes the process for sending Guest OS performance metrics for a Windows virtual machine to the Azure Monitor data store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
 Storing them in this location allows you to access the same actions for platform metrics. Actions include near-real time alerting, charting, routing, and access from a REST API and more. In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store.   
 
@@ -23,7 +23,7 @@ If you're new to Resource Manager templates,  learn about [template deployments]
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1). 
 
-- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md) installed. 
+- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed. 
 
  
 ## Set up Azure Monitor as a data sink 
@@ -50,7 +50,7 @@ Open the *azuredeploy.parameters.json* file
 
 Open the *azuredeploy.json* file 
 
-Add a storage account ID to the **variables** section of the template after the entry for **storageAccountName**, add a storage account ID to the **variables** section of the template .  
+Add a storage account ID to the **variables** section of the template after the entry for **storageAccountName.**  
 
 ```json
 // Find these lines. 
@@ -229,7 +229,7 @@ Save and close both files.
 > You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you don't have these settings in your template, change them and redeploy the template. 
 
 
-To deploy the Resource Manager template, we will leverage Azure PowerShell.  
+To deploy the Resource Manager template, we leverage Azure PowerShell.  
 
 1. Launch PowerShell. 
 1. Log in to Azure using `Login-AzureRmAccount`.
@@ -255,7 +255,7 @@ To deploy the Resource Manager template, we will leverage Azure PowerShell.
    New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>" 
    ```
   
-1. After your deployment succeeds, you should be able to find the VM in the Azure portal, and it should be emitting metrics to Azure Monitor. 
+1. After your deployment succeeds, the VM should be in the Azure portal, emitting metrics to Azure Monitor. 
 
    > [!NOTE] 
    > You might run into errors around the selected vmSkuSize. If this happens, go back to your azuredeploy.json file, and update the default value of the vmSkuSize parameter. In this case, we recommend trying  "Standard_DS1_v2"). 
@@ -272,7 +272,7 @@ To deploy the Resource Manager template, we will leverage Azure PowerShell.
 
 1. Change the aggregation period to **Last 30 minutes**.  
 
-1. In the resource drop-down menu, select the VM that you just created. If you didn't change the name in the template, it should be *SimpleWinVM2*.  
+1. In the resource drop-down menu, select the VM that you created. If you didn't change the name in the template, it should be *SimpleWinVM2*.  
 
 1. In the namespaces drop-down menu, select **azure.vm.windows.guest** 
 

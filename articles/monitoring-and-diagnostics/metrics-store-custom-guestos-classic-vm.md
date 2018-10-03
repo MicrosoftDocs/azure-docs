@@ -12,7 +12,7 @@ ms.component: ""
 
 # Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
 
-The Azure Monitor [ Azure Diagnostics extension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (Diagnostics) allows you to collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to many different locations that are listed in the previously linked article.
+The Azure Monitor [Diagnostics extension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (Diagnostics) allows you to collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to many different locations that are listed in the previously linked article.
 
 This article describes the process for sending Guest OS performance metrics for a Windows virtual machine (classic) to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
@@ -26,7 +26,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1). 
 
-- You need to have either  [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md) installed.
+- You need to have either  [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
 
 ## Create a classic virtual machine and storage account
 
@@ -35,7 +35,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 1. When you're creating this VM, choose the option to create a new classic storage account. We use this storage account in later steps.
 
-1. In the Azure portal, go to the Storage Account resource blade. Select **Keys**, and take note of the storage account name and storage account key. You need these information in later steps.
+1. In the Azure portal, go to the **Storage accounts** resource blade. Select **Keys**, and take note of the storage account name and storage account key. You need this information in later steps.
    ![Storage access keys](./media/metrics-store-custom-guestos-classic-vm/storage-access-keys.png)
 
 ## Create a service principal
@@ -51,7 +51,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 ## Author Diagnostics extension configuration
 
-1. Prepare your Diagnostics extension configuration file. This file dictates which logs and performance counters the diagnostics extension should collect for your classic VM. Following is a sample.
+1. Prepare your Diagnostics extension configuration file. This file dictates which logs and performance counters the diagnostics extension should collect for your classic VM. Following is an example:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -180,12 +180,13 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 1.	Go to the Azure portal. 
 
-1.	In the menu on the left, select **Monitor.**
+1.	On the left menu, select **Monitor.**
 
 1.	On the **Monitor** blade, select **Metrics**
-   ![Navigate metrics](./media/metrics-store-custom-guestos-classic-vm/navigate-metrics.png)
 
-1. In the resource drop-down menu, select your classic VM.
+    ![Navigate metrics](./media/metrics-store-custom-guestos-classic-vm/navigate-metrics.png)
+
+1. In the resources drop-down menu, select your classic VM.
 
 1. In the namespaces drop-down menu, select **azure.vm.windows.guest**.
 
