@@ -36,7 +36,7 @@ If you need to change the scope of a reservation, split a reservation, or change
 
 ## View Reservation transactions for Enterprise enrollments
 
- If you have a partner led EA enrollment and are an EA administrator, view reservation transactions by going to **Reports** in the EA portal. For other EA enrollments, if you're an EA administrator, you can view reservation transactions in the EA portal and in the Azure portal.
+ If you have a partner led Enterprise enrollment, view reservations by going to **Reports** in the EA portal. For other Enterprise enrollments, you can view reservations in the EA portal and in the Azure portal. You must be an EA administrator to view reservation transactions.
 
 To view reservation transactions in Azure portal,
 
