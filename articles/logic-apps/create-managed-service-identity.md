@@ -20,7 +20,7 @@ authenticate your identity without signing in, your logic app can use a
 Azure manages this identity for you and helps secure your credentials because you don't 
 have to provide or rotate secrets. This article shows how you can create and use a 
 managed identity for your logic app. For more information about managed identities, see 
-[Manage identities for Azure resources](../app-service/app-service-managed-service-identity.md).
+[What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!NOTE]
 > You can currently have up to 10 logic app workflows 
@@ -138,15 +138,49 @@ workflow definition includes these additional properties:
 
 ## Access resources with managed identity
 
-After you create a managed identity for your logic app, you can 
-[give that identity access to other resources](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). 
+After you create a managed identity for your logic app, 
+you can [give that identity access to other Azure resources](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). 
 You can then use the managed identity for authentication, just like any other 
 [service principal](../active-directory/develop/app-objects-and-service-principals.md). 
 
-For example, suppose you've already set up a logic app 
-with a managed identity that has access to another resource. 
-You can now add an HTTP action so your logic app can send 
-an HTTP request or call to that resource. 
+> [!NOTE]
+> Both the managed identity and resource where you want to 
+> assign access must have the same Azure subscription.
+
+### Assign access to managed identity
+
+To give your logic app's managed identity access 
+to another Azure resource, follow these steps:
+
+1. In the Azure portal, go to the Azure resource where 
+you want to assign access for your managed identity. 
+
+1. From the resource's menu, select **Access control (IAM)**, 
+and choose **Add**. 
+
+   ![Add permissions](./media/create-managed-service-identity/add-permissions-logic-app.png)
+
+1. Under **Add permissions**, select the **Role** you want for the identity. 
+
+1. In the **Assign access to** property, 
+select **Azure AD user, group, or application**, 
+if not already selected.
+
+1. In the **Select** box, starting with the first character in 
+your logic app's name, enter your logic app's name. 
+When your logic app appears, select the logic app.
+
+   ![Select logic app with managed identity](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
+
+1. When you're done, choose **Save**.
+
+### Authenticate with managed identity in logic app
+
+After you set up your logic app with a managed identity 
+and assigned access to the resource you want for that identity, 
+you can now use that identity for authentication. For example, 
+you can use an HTTP action so your logic app can send an HTTP request 
+or call to that resource. 
 
 1. In your logic app, add the **HTTP** action. 
 
