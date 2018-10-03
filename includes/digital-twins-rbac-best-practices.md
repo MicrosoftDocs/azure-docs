@@ -24,5 +24,6 @@ In every case, roles should be granted **exactly and no more than the access req
 
 Two other important Role-Based Access Control practices to follow:
 
-* Periodically audit role assignments to verify that each role has the correct permissions.
-* Roles and assignments should be cleaned-up as individuals change roles or assignments.
+> [!div class="checklist"]
+> * Periodically audit role assignments to verify that each role has the correct permissions.
+> * Roles and assignments should be cleaned-up as individuals change roles or assignments.
