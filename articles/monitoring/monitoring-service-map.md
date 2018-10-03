@@ -361,16 +361,16 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 | Property | Description |
 |:--|:--|
 |MaliciousIp |The RemoteIp address |
-|IndicatorThreadType | |
-|Description | |
-|TLPLevel | |
-|Confidence | |
-|Severity | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Threat indicator detected is one of the following values, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+|Description |Description of the observed threat. |
+|TLPLevel |Traffic Light Protocol (TLP) Level is one of the defined values, *White*, *Green*, *Amber*, *Red*. |
+|Confidence |Values are *0 – 100*. |
+|Severity |Values are *0 – 5*, where *5* is the most severe and *0* is not severe at all. Default value is *3*.  |
+|FirstReportedDateTime |The first time the provider reported the indicator. |
+|LastReportedDateTime |The last time the indicator was seen by Interflow. |
+|IsActive |Indicates indicators are deactivated with *True* or *False* value. |
+|ReportReferenceLink |Links to reports related to a given observable. |
+|AdditionalInformation |Provides additional information, if applicable, about the observed threat. |
 
 ### ServiceMapComputer_CL records
 Records with a type of *ServiceMapComputer_CL* have inventory data for servers with Service Map agents. These records have the properties in the following table:
