@@ -51,7 +51,7 @@ The following limits apply in aggregate to all of the UDFs running within your A
 
 ## Next steps
 
-Try out a quick start Azure Digital Twins sample:
+Try out an Azure Digital Twins quickstart sample:
 
 > [!div class="nextstepaction"]
 > [Find Available Rooms with Fresh Air](./quickstart-view-occupancy-dotnet.md)
