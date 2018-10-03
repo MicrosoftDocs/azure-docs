@@ -8,13 +8,13 @@ manager: carmonm
 editor: tysonn
 
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
-ms.service:  monitoring
+ms.service: monitoring
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
-ms.author: daseidma;bwren
+ms.date: 10/03/2018
+ms.author: magoedte
 
 ---
 
@@ -22,6 +22,10 @@ ms.author: daseidma;bwren
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
 This article describes the details of onboarding and using Service Map. For information about configuring Service Map and onboarding agents, see [Configuring Service Map solution in Azure]( monitoring-service-map-configure.md).
+
+>[!NOTE]
+>If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](monitoring-vminsights-overview.md).
+
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
