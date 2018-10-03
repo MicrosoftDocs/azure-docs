@@ -101,7 +101,7 @@ When a profile is configured for geographic routing, each endpoint associated wi
 - World– any region
 - Regional Grouping – for example, Africa, Middle East, Australia/Pacific etc. 
 - Country/Region – for example, Ireland, Peru, Hong Kong SAR etc. 
-- State/Province – for example, USA-California, Australia-Queensland, Canada-Alberta etc. (note: this granularity level is supported only for states / provinces in Australia, Canada, UK, and USA).
+- State/Province – for example, USA-California, Australia-Queensland, Canada-Alberta etc. (note: this granularity level is supported only for states / provinces in Australia, Canada, and USA).
 
 When a region or a set of regions is assigned to an endpoint, any requests from those regions gets routed only to that endpoint. Traffic Manager uses the source IP address of the DNS query to determine the region from which a user is querying from – usually this is the IP address of the local DNS resolver doing the query on behalf of the user.  
 
