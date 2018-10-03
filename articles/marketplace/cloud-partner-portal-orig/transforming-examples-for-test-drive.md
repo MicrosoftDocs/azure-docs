@@ -38,4 +38,4 @@ Transform Existing Resource Manager templates into Test Drive
 
 <https://github.com/Azure/AzureTestDrive/wiki/Deploying-Existing-Solutions>
 
-If you have more questions, are looking for troubleshooting advice, or want to make your Test Drive more successful, please go to [FAQ,Troubleshooting, & Best Practices](https://cloudpartner.azure.com/#documentation/marketing-and-best-practices).
+If you have more questions, are looking for troubleshooting advice, or want to make your Test Drive more successful, please go to [Test Drive Marketing and Best Practices](./marketing-and-best-practices.md).
