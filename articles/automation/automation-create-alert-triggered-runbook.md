@@ -205,7 +205,7 @@ To create a notification action in the action group:
    ![Add action group page](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. To create the action group, select **OK**.
 
-You can use this action group in the [activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) and [near real-time alerts](../monitoring-and-diagnostics/monitoring-overview-alertsmd?toc=%2fazure%2fautomation%2ftoc.json) that you create.
+You can use this action group in the [activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) and [near real-time alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) that you create.
 
 ## Classic alert
 
