@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Standard properties in Log Analytics records
@@ -49,8 +49,8 @@ search *
 | summarize count() by Type 
 ```
 
-## _ResourceId
-The **_ResourceId** property holds a unique identifier for the resource that that the record is associated with. This gives you a standard property to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
+## \_ResourceId
+The **\_ResourceId** property holds a unique identifier for the resource that the record is associated with. This gives you a standard property to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
 
 For Azure resources, the value of **_ResourceId** is the [Azure resource ID URL](../azure-resource-manager/resource-group-template-functions-resource.md). The property is currently limited to Azure resources, but it will be extended to resources outside of Azure such as on-premises computers.
 

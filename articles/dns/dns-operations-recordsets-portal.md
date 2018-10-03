@@ -20,12 +20,6 @@ ms.author: victorh
 
 # Manage DNS records and record sets by using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure classic CLI](dns-operations-recordsets-cli-nodejs.md)
-> * [Azure CLI](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
-
 This article shows you how to manage record sets and records for your DNS zone by using the Azure portal.
 
 It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type. For more information, see [Create DNS record sets and records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
@@ -91,7 +85,7 @@ You can use the Azure portal to remove records from a record set. Note that remo
 
 1. On the **Record set properties** blade for your record set, click **Delete**.
 
-    ![Delete a record set](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+    ![Delete a record set](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
 2. A message appears asking if you want to delete the record set.
 3. Verify that the name matches the record set that you want to delete, and then click **Yes**.
