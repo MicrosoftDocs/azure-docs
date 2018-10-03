@@ -15,7 +15,7 @@ ms.date: 10/03/2018
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
-This article provides an overview of the Azure SQL Database Managed Instance resource limits and provides information how to create request to increase default subscription limits. 
+This article provides an overview of the Azure SQL Database Managed Instance resource limits and provides information how to create request to increase default regional subscription limits. 
 
 > [!NOTE]
 > For other Managed Instance limitations, see [vCore-based purchasing model](sql-database-managed-instance.md#vcore-based-purchasing-model) and [Managed Instance service tiers](sql-database-managed-instance.md#managed-instance-service-tiers).
@@ -57,6 +57,8 @@ Managed Instance currently supports deployment only on the following types of su
 
 > [!NOTE]
 > This limitation is temporary. New subscription types will be enabled in the future.
+
+## Regional resource limitations
 
 Supported subscription types can contain a limited number of resources per region. Managed Instance has two default limits per Azure region depending on a type of subscription type:
 
