@@ -69,18 +69,17 @@ To call **ForceDelete** in the Azure portal, you must ensure that there are fewe
 * You purchased a domain via Office 365 domain subscription services
 * You are a partner administering on behalf of another customer tenant
 
-The following actions are performed as part of the ForceDelete operation:
+The following actions are performed as part of the **ForceDelete** operation:
 
 * Renames the UPN, EmailAddress, and ProxyAddress of users with references to the custom domain name to the initial default domain name.
 * Renames the EmailAddress of groups with references to the custom domain name to the initial default domain name.
 * Renames the identifierUris of applications with references to the custom domain name to the initial default domain name.
-* An error is returned when:
 
-  * The number of objects to be renamed is greater than 1000
-  * One of the applications to be renamed is a multi-tenant app
+An error is returned when:
+
+* The number of objects to be renamed is greater than 1000
+* One of the applications to be renamed is a multi-tenant app
   
-![error when renaming multi-tenant app](./media/domains-manage/forcedelete.png)
-
 ### Frequently asked questions
 
 **Q: Why is the domain deletion failing with an error that states that I have Exchange mastered groups on this domain name?** <br>
