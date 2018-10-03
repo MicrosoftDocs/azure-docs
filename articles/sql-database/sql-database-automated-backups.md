@@ -53,7 +53,8 @@ The default retention period for a database created using the DTU-based purchasi
 * Standard service tier is 5 weeks.
 * Premium service tier is 5 weeks.
 
-If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the backups retention is configurable up to 35 days. 
+If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backups retention period is 7 days.
+On Logical Server you can [change backup retention period up to 35 days](#how-to-change-backup-retention-period). This feature is not enabled in Managed Instance. 
 
 If you reduce the current PITR retention period, all existing backups older than the new retention period will no longer be available. 
 
@@ -85,6 +86,10 @@ When you migrate your database from a DTU-based service tier with the default PI
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## How to change backup retention period
+
+> [!Note]
+> Default backup retention period (7 days) cannot be changed on Managed Instance. 
+
 You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. The following examples illustrate how to change PITR retention to 28 days. 
 
 > [!NOTE]
