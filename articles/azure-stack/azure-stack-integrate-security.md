@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Stack syslog forwarding
 description: Learn how to integrate Azure Stack with monitoring solutions by using syslog forwarding
 services: azure-stack
@@ -17,6 +17,9 @@ keywords:
 This article shows you how to use syslog to integrate Azure Stack infrastructure with external security solution(s) already deployed in your datacenter. For example, a Security Information Event Management (SIEM) system. The syslog channel exposes audits, alerts, and security logs from all the components of the Azure Stack infrastructure. Use syslog forwarding to integrate with security monitoring solutions and/or to retrieve all audits, alerts, and security logs to store them for retention. 
 
 Starting with the 1805 update, Azure Stack has an integrated syslog client that, once configured, emits syslog messages with the payload in Common Event Format (CEF). 
+
+> [!IMPORTANT] 
+> Syslog forwarding is in preview. It should not be relied upon in production environments.  
 
 The following diagram shows the main components that participate in the syslog integration.
 
@@ -44,7 +47,7 @@ Configuring syslog forwarding requires access to the privileged endpoint (PEP). 
 ```powershell
 ### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-Set-SyslogServer [-ServerName <String>] [-ServerPort <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
+Set-SyslogServer [-ServerName <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
 ### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
@@ -57,7 +60,6 @@ Parameters for *Set-SyslogServer* cmdlet:
 | Parameter | Description | Type | Required |
 |---------|---------|---------|---------|
 |*ServerName* | FQDN or IP address of the syslog server | String | yes|
-|*ServerPort* | Port number the syslog server is listening on | String | yes|
 |*NoEncryption*| Force the client to send syslog messages in clear text | flag | no|
 |*SkipCertificateCheck*| Skip validation of the certificate provided by the syslog server during initial TLS handshake | flag | no|
 |*SkipCNCheck*| Skip validation of the Common Name value of the certificate provided by the syslog server during initial TLS handshake | flag | no|
@@ -82,7 +84,7 @@ To configure syslog forwarding with TCP, mutual authentication, and TLS 1.2 encr
 
 ```powershell
 # Configure the server
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 
 # Provide certificate to the client to authenticate against the server
 Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
@@ -127,20 +129,22 @@ In this configuration, the syslog client in Azure Stack forwards the messages to
 TCP using authentication and encryption is the default configuration and represents the minimum level of security that Microsoft recommends for a production environment. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 ```
 
 In case you want to test the integration of your syslog server with the Azure Stack client by using a self-signed and/or untrusted certificate, you can use these flags to skip the server validation performed by the client during the initial handshake.
 
 ```powershell
  #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
- ```-SkipCNCheck
+ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck 
+ ```
  
  #Skip entirely the server certificate validation
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
-```-SkipCertificateCheck
+
+```powershell
+ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> 
 ```
+
 > [!IMPORTANT]
 > Microsoft recommends against the use of -SkipCertificateCheck flag for production environments. 
 
@@ -150,7 +154,7 @@ In case you want to test the integration of your syslog server with the Azure St
 In this configuration, the syslog client in Azure Stack forwards the messages to the syslog server over TCP, with no encryption. The client does not verify the identity of the server nor it provides its own identity to the server for verification. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -NoEncryption
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
 ```
 
 > [!IMPORTANT]
@@ -162,8 +166,9 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 In this configuration, the syslog client in Azure Stack forwards the messages to the syslog server over UDP, with no encryption. The client does not verify the identity of the server nor it provides its own identity to the server for verification. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -UseUDP
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -UseUDP
 ```
+
 While UDP with no encryption is the easiest to configure, it does not provide any protection against man-in-the-middle attacks and eavesdropping of messages. 
 
 > [!IMPORTANT]
@@ -221,72 +226,6 @@ CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|
 * Device Product: Microsoft Azure Stack
 * Device Version: 1.0
 ```
-
-### CEF mapping for privileged endpoint events
-
-```
-Prefix fields
-* Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>
-* Name: <PEP Task Name>
-* Severity: mapped from PEP Level (details see the PEP Severity table below)
-```
-
-Table of events for the privileged endpoint:
-
-| Event | PEP event ID | PEP task name | Severity |
-|-------|--------------| --------------|----------|
-|PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
-|SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
-|SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
-|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
-|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10|
-|PrivilegedEndpointClosed |1005|PrivilegedEndpointClosedEvent|5|
-|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10|
-|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10|
-|SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
-|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
-|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
-
-PEP Severity table:
-
-| Severity | Level | Numerical Value |
-|----------|-------| ----------------|
-|0|Undefined|Value: 0. Indicates logs at all levels|
-|10|Critical|Value: 1. Indicates logs for a critical alert|
-|8|Error| Value: 2. Indicates logs for an error|
-|5|Warning|Value: 3. Indicates logs for a warning|
-|2|Information|Value: 4. Indicates logs for an informational message|
-|0|Verbose|Value: 5. Indicates logs at all levels|
-
-### CEF mapping for recovery endpoint events
-
-```
-Prefix fields
-* Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <REP Event ID>
-* Name: <REP Task Name>
-* Severity: mapped from REP Level (details see the REP Severity table below)
-```
-
-Table of events for the recovery endpoint:
-
-| Event | REP event ID | REP task name | Severity |
-|-------|--------------| --------------|----------|
-|RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
-|RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
-|RecoverySessionDevelopmentTokenRequested |1013|RecoverySessionDevelopmentTokenRequestedEvent|5|
-|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10|
-|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10|
-|RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
-
-REP Severity table:
-| Severity | Level | Numerical value |
-|----------|-------| ----------------|
-|0|Undefined|Value: 0. Indicates logs at all levels|
-|10|Critical|Value: 1. Indicates logs for a critical alert|
-|8|Error| Value: 2. Indicates logs for an error|
-|5|Warning|Value: 3. Indicates logs for a warning|
-|2|Information|Value: 4. Indicates logs for an informational message|
-|0|Verbose|Value: 5. Indicates logs at all levels|
 
 ### CEF mapping for Windows events
 
