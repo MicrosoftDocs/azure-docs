@@ -19,18 +19,22 @@ ms.author: juliako
 
 # Compare Azure Media Services v3 presets and Video Indexer 
 
-This article compares the capabilities of **Video Indexer** and **Media Services v3 presets**.
+This article compares the capabilities of **Video Indexer APIs** and **Media Services v3 APIs**. 
+
+Currently, there is an overlap between features offered by the [Video Indexer v2 APIs](https://api-portal.videoindexer.ai/) and the [Media Services v3 APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). The following table offers the current guideline for understanding the differences and similarities. 
 
 ## Compare
 
-|Feature|Video Indexer|AMS v3 presets|
+|Feature|Video Indexer APIs |Video Analyzer and Audio Analyzer Presets<br/>in Media Services v3 APIs|
 |---|---|---|
-|Richer insights|Yes|No|
-|Compliance|ISO, SOC|ISO, SOC, FedRAMP, HIPPA|
-|Availability |Regions: East US (trial) <br/>West US, East Asia, North Europe (paid)|Almost all regions (no trial)|
+|Media Insights|[Enhanced](../../cognitive-services/video-indexer/video-indexer-output-json-v2.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json) |[Fundamentals](../latest/intelligence-concept.md)|
+|Experiences|See the full list of supported features: <br/> [Overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)|Returns video insights only|
+|Compliance|TBD|ISO, SOC, FedRAMP, HIPPA|
+|Free Trial|East US|Not available|
+|Availability |West US, East Asia, North Europe|See [Azure status](https://azure.microsoft.com/status/).|
 
 ## Next steps
 
-[Video Indexer overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json)
+[Video Indexer overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)
 
 [Media Services v3 overview](../../media-services/latest/media-services-overview.md)

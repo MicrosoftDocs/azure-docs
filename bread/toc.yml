@@ -476,7 +476,7 @@
       - name: v2
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
-      - name: VI
+      - name: Video Indexer
         tocHref: /azure/media-services/video-indexer/
         topicHref: /azure/media-services/video-indexer/        
   - name: Mobile Engagement
