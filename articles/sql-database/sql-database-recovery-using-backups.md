@@ -84,6 +84,9 @@ To recover to a point in time using the Azure portal, open the page for your dat
 ## Deleted database restore
 You can restore a deleted database to the deletion time for a deleted database on the same logical server using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). You can restore a deleted database to an earlier point in time during the retention using [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
+> [!Note]
+> Restoring deleted database is not available in Managed Instance.
+
 > [!TIP]
 > For a sample PowerShell script showing how to restore a deleted database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
 >
@@ -103,6 +106,9 @@ To recover a deleted database during its [DTU-based model retention period](sql-
 
 ## Geo-restore
 You can restore a SQL database on any server in any Azure region from the most recent geo-replicated full and differential backups. Geo-restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage. 
+
+> [!Note]
+> Geo-restoring is not available in Managed Instance.
 
 Geo-restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a database from the geo-replicated backups to a server in any other region. There is a delay between when a differential backup is taken and when it is geo-replicated to an Azure blob in a different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss. The following illustration shows restore of the database from the last available backup in another region.
 
