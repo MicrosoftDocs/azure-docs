@@ -277,8 +277,9 @@ if ($cert -eq $null)
     }
 }
 
-#Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
+
+#Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 
 ### Run the setup script as a local administrator
 
