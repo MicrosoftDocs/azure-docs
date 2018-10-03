@@ -87,7 +87,7 @@ For a more detailed description about the rest of the IoT ecosystem, see [Azure 
 Learn about core Azure Digital Twins concepts:
 
 > [!div class="nextstepaction"]
-> [Understanding the Digital Twins Object Model and Spatial Intelligence Graph](concepts-objectmodel-spatialgraph.md)
+> [Understanding the Digital Twins Object Model and Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md)
   
 > [!div class="nextstepaction"]
-> [Digital Twins Security Best Practices](security-best-practices.md)
+> [Digital Twins Security Best Practices](./security-best-practices.md)
