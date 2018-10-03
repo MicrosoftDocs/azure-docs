@@ -370,7 +370,7 @@ If, instead, you want only to create one VM from one disk, you don’t have to u
 For more information about how to create a VM from a specialized disk, see:
 
 - [Create a VM from a specialized disk](create-vm-specialized.md)
-- [Create a VM from a specialized VHD disk](https://review.docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
+- [Create a VM from a specialized VHD disk](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 If you want to create a generalized image, you need to run sysprep. For more information about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx). 
 

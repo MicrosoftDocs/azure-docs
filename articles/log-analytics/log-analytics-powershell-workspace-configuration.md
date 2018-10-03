@@ -15,7 +15,7 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.component: na
+ms.component: 
 ---
 
 # Manage Log Analytics using PowerShell

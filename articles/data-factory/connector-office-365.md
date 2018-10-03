@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.author: jingwang
 
 ---
 # Copy data from Office 365 into Azure using Azure Data Factory (Preview) 
 
-Azure Data Factory allows you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  For more information on Managed Access to Microsoft Graph in Microsoft Azure Preview, please refer to [this link](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
+Azure Data Factory allows you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  For more information on Microsoft Graph data connect, please refer to [this link](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Office 365. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -29,8 +29,8 @@ For now, within a single copy activity you can only **copy data from Office 365 
 >[!IMPORTANT]
 >- The Azure subscription containing the data factory and the sink data store must be under the same Azure Active Directory (Azure AD) tenant as Office 365 tenant.
 >- Ensure the Azure Integration Runtime region used for copy activity as well as the destination is in the same region where the Office 365 tenant users' mailbox is located. Refer [here](concepts-integration-runtime.md#integration-runtime-location) to understand how the Azure IR location is determined. Refer to [table here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) for the list of supported Office regions and corresponding Azure regions.
->-  If you are loading Office 365 data into **Azure Blob Storage** as destination, make sure you are using **[service principal authentication](connector-azure-blob-storage.md#service-principal-authentication)** when defining the Linked Service to Azure Blob Storage, and not using [account key](connector-azure-blob-storage.md#account-key-authentication), [shared access signature](connector-azure-blob-storage.md#shared-access-signature-authentication) or [managed service identity ](connector-azure-blob-storage.md#managed-service-identity-authentication) authentications.
->-  If you are loading Office 365 data into **Azure Data Lake Storage Gen1** as destination, make sure you are using [**service principal authentication**](connector-azure-data-lake-store.md#using-service-principal-authentication) when defining the Linked Service to Azure Data Lake Storage Gen1 and not using [managed service identity authentication](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+>-  If you are loading Office 365 data into **Azure Blob Storage** as destination, make sure you are using **[service principal authentication](connector-azure-blob-storage.md#service-principal-authentication)** when defining the Linked Service to Azure Blob Storage, and not using [account key](connector-azure-blob-storage.md#account-key-authentication), [shared access signature](connector-azure-blob-storage.md#shared-access-signature-authentication) or [managed identities for Azure resources](connector-azure-blob-storage.md#managed-identity) authentications.
+>-  If you are loading Office 365 data into **Azure Data Lake Storage Gen1** as destination, make sure you are using [**service principal authentication**](connector-azure-data-lake-store.md#using-service-principal-authentication) when defining the Linked Service to Azure Data Lake Storage Gen1 and not using [managed identities for Azure resources authentication](connector-azure-data-lake-store.md#managed-identity).
 
 ## Prerequisites
 

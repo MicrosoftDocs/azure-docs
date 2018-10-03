@@ -21,7 +21,7 @@ ms.author: daveba
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Storage. You learn how to:
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Storage. You learn how to:
 
 > [!div class="checklist"]
 > * Create a storage account

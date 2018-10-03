@@ -54,9 +54,9 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
     ![Screenshot of Solution Explorer, with Manage NuGet Packages for Solution option highlighted](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
 
-1. In the upper-right corner, in the **Package Source** field, select **Nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package, and install it into the **helloworld** project.
+1. In the upper-right corner, in the **Package Source** field, select **nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package, and install it into the **helloworld** project.
 
-    ![Screenshot of Manage Packages for Solution dialog box](media/sdk/qs-csharp-uwp-05-nuget-install-0.5.0.png "Install Nuget package")
+    ![Screenshot of Manage Packages for Solution dialog box](media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png "Install NuGet package")
 
 1. Accept the displayed license to begin installation of the NuGet package.
 
