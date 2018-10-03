@@ -31,6 +31,14 @@ Azure SQL Database Managed Instance can be deployed on two hardware generation (
 | Memory | 7 GB per vCore | 5.5 GB per vCore |
 | Max storage (Business Critical) | 1TB | 1TB, 2TB, 4TB depending on the number of cores |
 
+Managed Instance has two sevice tiers - General Purpose and Business Critical (Public Preview). These tiers provide different capabilities of instances, as described in the table below:
+
+| **Feature** | **General Purpose** | **Business Critical (preview)** |
+| --- | --- | --- |
+| Number of vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
+| Memory | Gen4: 56GB-156GB<br/>Gen5: 44GB-440GB<br/>\*Proportional to the number of vCores | Gen4: 56GB-156GB <br/> Gen5: 44GB-440GB<br/>\*Proportional to the number of vCores |
+| Max storage size | 8 TB | Gen 4: 1 TB <br/> Gen 5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
+
 ## Default subscription-level limits per region
 
 Managed Instance currently supports deployment only on the following types of subscriptions:
