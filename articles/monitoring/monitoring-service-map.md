@@ -232,6 +232,7 @@ To open the item in your connected ITSM solution, click **View Work Item**.
 
 To view the details of the item in Log Search, click **Show in Log Search**.
 Connection metrics are written to two new tables in Log Analytics 
+
 ## Change Tracking integration
 Service Map integration with Change Tracking is automatic when both solutions are enabled and configured in your Log Analytics workspace.
 
