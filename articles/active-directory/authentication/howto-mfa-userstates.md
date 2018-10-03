@@ -112,6 +112,14 @@ The following script is an example:
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
+    
+To disabled MFA, used this script:
+
+    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+    
+or also can be shorten to:
+
+    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 
 ## Next steps
 
