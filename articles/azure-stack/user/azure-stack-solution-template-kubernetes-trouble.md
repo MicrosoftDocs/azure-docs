@@ -27,21 +27,59 @@ ms.reviewer: waltero
 
 The following article looks troubleshooting your Kubernetes cluster. You can review the deployment alert and review the status of your deployment by the elements required for the deployment. You may need to collect the deployment logs from your Azure Stack or the Linux VMs that host Kubernetes.
 
-## Overview of the Kubernetes cluster deployment
+## Overview of deployment
 
-Before we get into the various steps you may need to take troubleshooting your cluster, you may need a broad understanding of how the solution template creates creates the VMs and installs the ACS Engine for your cluster. 
+Before we get into the various steps you may need to take troubleshooting your cluster, you may need a broad understanding of how the solution template creates the VMs and installs the ACS Engine for your cluster. 
 
 The following diagram shows the general process for deploying the cluster.
 
-`image`
+![Deploy Kubernetes process](media/azure-stack-solution-template-kubernetes-trouble/002-Kubernetes-Deploy-Flow.png)
 
-`Summarize the deployment process`
+1. Collect input from the market place item.
 
-## Heading 2
+    You enter the values you need to set up the Kubernetes cluster including:
+    -  User name
+    -  Public key
+    -  Service principle
+    -  Client secret
+    -  Tenant management URL
 
-![Troubleshooting Blade](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+2. Create deployment VM and custom script extension.
+    -  Create deployment VM (a Linux VM).
+    -  Download and execute customer script extension.
+    -  DVM custom script. The script:
+        1. Gets the gallery endpoint from Azure Resource Manager metadata endpoint.
+        2. Gets the active directory resource ID from Azure Resource Manager metadata endpoint.
+        3. Loads the API model for the ACS Engine.
+        4. Deploys the ACS Engine to the Kubernetes cluster, and saves the Azure Stack cloud profile to `/etc/kubernetes/azurestackcloud.json`.
+3. Create master VMs.
 
-1.  Consult the troubleshooting blade. Each resource that is deployed provides the following information.
+    Download and execute customer script extension.
+
+4. Run the master script.
+
+    The script:
+    - Installs etcd, Docker.
+    - Sets up the etcd service.
+    - Sets up Kubelet service.
+    - Starts kubelet. This involves the following:
+        1. Start api service.
+        2. Start controller service.
+        3. Start scheduler service.
+5. Create agent VMs.
+
+    Download and execute customer script extension.
+
+6. Run agent script. The agent custom script:
+    - Install etcd.
+    - Set up the Kubelet service.
+    - Joins the cluster.
+
+## Deployment status
+
+![Troubleshooting](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+
+1.  Consult the troubleshooting window. Each resource that is deployed provides the following information.
     
     | Property | Description |
     | ----     | ----        |
@@ -56,20 +94,24 @@ The following diagram shows the general process for deploying the cluster.
 2.  If you are unable to identify the issue and resolve it, what version of Azure Stack. You will need to ask your Azure Stack administrator. The Kubernetes Cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
 3.  Review your VM creation files. You may encounter the following issues:  
     a.  The public key may be invalid. Review the key that you have created.  
-    b.  The creation has trigged are an internal error or creation error.   
+    b.  The creation has trigger are an internal error or creation error.   
         i.  Collect the Azure Stack logs and send them to the CSS.  
         ii.  Does the fully qualified domain name (FDQN) for the VM begin with a duplicate prefix?  
-4.  If the VM is **OK** then, evaluate the DVM. If the DVM has an error message:
+4.  If the VM is OK,** then, evaluate the DVM. If the DVM has an error message:
     a.  Is the key valid?
     b.  Retrieve the logs for the Azure Stack using the Privileged End Points. 
 
-## Get the logs from a Linux VM
+## Get logs from a Linux VM
 
-### Prerequistes
+Summary of this section.
 
-You will need to have installed Git on your the machine you use to manage Azure Stack. You will be using Bash from the Git commandline. To get the most recent version of GIT, see X.
+For the Azure SDK user, if the VM failed to deploy to set up Kubernetes cluster, we will need collect azure stack log for all the RPs from the customer. 
 
-1. Open Git. You can liekly find bash with git at `c:\programfiles\git\bin\bash.exe`.
+### Prerequisites
+
+You will need to have Git installed on you are the machine you use to manage Azure Stack. You will be using Bash from the Git commandline. To get the most recent version of git, see [git downloads](https://git-scm.com/downloads).
+
+1. Open a bash prompt. With git, you can open it at the following path: `c:\programfiles\git\bin\bash.exe`.
 2. Run the following bash commands:
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
@@ -77,70 +119,34 @@ You will need to have installed Git on your the machine you use to manage Azure 
     curl -O https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/diagnosis/getkuberneteslogs.sh
     sudo chmod 744 getkuberneteslogs.sh
     ```
-3. In the same session run the following command with the paramaters updated to match your environment.
+3. In the same session, run the following command with the parameters updated to match your environment.
 
- 
- 
-VPN into the Azure Stack and then run the command on the local machine.
-Run bash.
-Run this command: 
- 
-1.  Open the bash shell
+    ```Bash  
+     ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
+     ```
 
- 
- 
-Run the command:
- 
- ./getkuberneteslogs.sh --identity-file AAAAB3NzaC1yc2EAAAABJQAAAQEAmVeC9wzK/Ektrb1IwMIV2lTANY1Mhgu3AZwjPqAIXXJzAwhcN9ETnba9dX6rkxTGjsJcvRSB35XqvBA7JoRCbRj5/iab9sQ4pYHIl3UxV7Rk0YxaT6l9zeQaWmokNHM4AJRMZH7uTGS0dj6jlBvS367l3ix+aye3PDSJwgHzHHYW36c7bg9W0zhU5fLaAkZKEvBQp37xgPsc+zcU4aopW6LKo9MBRNWctQPTV5WMIhXE/Xh3WiIv72NZpffREoC3v3ESq0PXOnp9Z0RTo32iBR5WymRX2qhwMeUSLI8eqCejQ51HrKbK4qmgXqmiVa4mOHhB1276CosThnBiYs0E2Q==  --user azureuser --vmdhost192.168.102.37/k8s-12345.local.cloudapp.azurestack.external # 192.168.102.32 192.168.102.37/k8s-12345.local.cloudapp.azurestack.external
+    | Parameter           | Description                                                                                                      | Example                                                                       |
+    |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+    | -i, --identity-file | the RSA Private Key file file to connect the kubernetes master VM, it starts with -----BEGIN RSA PRIVATE KEY----- | C:\data\privatekey.ppk                                                        |
+    | -h, --host          | public ip or FQDN of the Kubernetes cluster master VM. The VM name starts with k8s-master-                       | 192.168.102.37<br><br>(for k8s-12345.local.cloudapp.azurestack.external)      |
+    | -u, --user          | user name of the Kubernetes cluster master VM                                                                    | azureuser                                                                     |
+    | -d, --vmdhost       | public ip or FQDN of the DVM. The vm name start with vmd-)                                                       | 192.168.102.38<br><br>(for vmd-dnsk8-frog.local.cloudapp.azurestack.external) |
 
- ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
+    For example:
 
+    ```Bash  
+    ./getkuberneteslogs.sh --identity-file AAAAB3NzaC1yc2EAAAABJQAAAQEAmVeC9wzK/Ektrb1IwMIV2lTANY1Mhgu3AZwjPqAIXXJzAwhcN9ETnba9dX6rkxTGjsJcvRSB35XqvBA7JoRCbRj5/iab9sQ4pYHIl3UxV7Rk0YxaT6l9zeQaWmokNHM4AJRMZH7uTGS0dj6jlBvS367l3ix+aye3PDSJwgHzHHYW36c7bg9W0zhU5fLaAkZKEvBQp37xgPsc+zcU4aopW6LKo9MBRNWctQPTV5WMIhXE/Xh3WiIv72NZpffREoC3v3ESq0PXOnp9Z0RTo32iBR5WymRX2qhwMeUSLI8eqCejQ51HrKbK4qmgXqmiVa4mOHhB1276CosThnBiYs0E2Q==  --user azureuser --vmdhost192.168.102.37/k8s-12345.local.cloudapp.azurestack.external # 192.168.102.32 192.168.102.37/k8s-12345.local.cloudapp.azurestack.external
+     ```
 
-(Note from the cmdprompt:
+4. Retrieve the logs in the folders created by the command. The command will create a new folder and time stamp it.
+    - Dvmlog folder
+    - Acsengine-kuubernetes.log
 
-Incorrect parameter --dvmhost
+5. Upload your log files to the CSS. 
 
-      Usage:
-      ./getkuberneteslogs.sh -i id_rsa -h 192.168.102.34 -u azureuser
-      ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.32
-      ./getkuberneteslogs.sh --identity-file id_rsa --host 192.168.102.34 --user azureuser --vmdhost 192.168.102.32
+    - Creating a Helen workspace: https://www.csssupportwiki.com/index.php/curated:Azure_Stack/TSG/How_to_use_Helen#Create_a_workspace_for_ingestion
 
-| Parameter           | Description                                                                                                      | Example                                                                       |
-|---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| -i, --identity-file | the RSA Private Key filefile to connect the kubernetes master VM, it starts with -----BEGIN RSA PRIVATE KEY----- | C:\data\privatekey.ppk                                                        |
-| -h, --host          | public ip or FQDN of the Kubernetes cluster master VM. The VM name starts with k8s-master-                       | 192.168.102.37<br><br>(for k8s-12345.local.cloudapp.azurestack.external)      |
-| -u, --user          | user name of the Kubernetes cluster master VM                                                                    | azureuser                                                                     |
-| -d, --vmdhost       | public ip or FQDN of the DVM. The vm name start with vmd-)                                                       | 192.168.102.38<br><br>(for vmd-dnsk8-frog.local.cloudapp.azurestack.external) |
-
-## Heading 2
-
-Get the file with #3:
-The command will create a new folder and time stamp it.
-Dvmlog folder
-Acsengine-kuubernetes.log
- 
-List typical errors.
-
-
-Hey Hongbin,
-
-For ASDK/forum support customers have been sending email to ascustfeedback@microsoft.com to setup a  DTM workspace to upload the logs. This is done in the legacy DTM system. Once the customer upload has completed someone on the Microsoft side has to download, and will then need to create a Helen workspace and upload to Helen. I’m not sure how they were creating the DTM workspaces, CSS uses the ones that are auto generated. Customer instructions should be similar to this; https://support.microsoft.com/en-us/help/3027228/how-to-use-the-data-transfer-and-management-tool-in-office-365-dedicat
-
-For the Azure SDK user, if the VM failed to deploy to set up Kubernetes cluster, we will need collect azure stack log for all the RPs from the customer.
-Matt from content team will document that if there is no document yet.
-
-Could you please share the process and steps to collect azure stack the customer ?
-
-
-We can have the customers upload directly to Helen, but it would require a new limited rbac role to be created. Currently only CSS can create the Helen workspaces, and we get full access to all customer data. To allow the ASDK/forum support we’d need a role that can create workspaces but not see any other workspaces unless granted access. This was something we had been looking at for PFE staff, but was put on the back burner. @Shireen & @Yusuf regarding this request.
-
-Creating a Helen workspace;
-https://www.csssupportwiki.com/index.php/curated:Azure_Stack/TSG/How_to_use_Helen#Create_a_workspace_for_ingestion
-
-Upload instructions;
-https://www.csssupportwiki.com/index.php/curated:Azure_Stack/TSG/How_to_use_Helen#Ingestion_-_Upload_Data_Workflows
-
-
+    - Upload instructions; https://www.csssupportwiki.com/index.php/curated:Azure_Stack/TSG/How_to_use_Helen#Ingestion_-_Upload_Data_Workflows
 
 ## Next steps
 
