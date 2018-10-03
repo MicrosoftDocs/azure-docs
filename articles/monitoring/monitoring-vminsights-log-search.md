@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: magoedte
 ---
 
@@ -89,8 +89,8 @@ For convenience, the IP address of the remote end of a connection is included in
 | Property | Description |
 |:--|:--|
 |RemoteCountry |The name of the country hosting RemoteIp.  For example, *United States* |
-|RemoteLatitude |The geolocation latitude.  For example, *47.68* |
-|RemoteLongitude |The geolocation longitude.  For example, *-122.12* |
+|RemoteLatitude |The geolocation latitude. For example, *47.68* |
+|RemoteLongitude |The geolocation longitude. For example, *-122.12* |
 
 #### Malicious IP
 Every RemoteIp property in *VMConnection* table is checked against a set of IPs with known malicious activity. If the RemoteIp is identified as malicious the following properties will be populated (they are empty, when the IP is not considered malicious) in the following properties of the record:
@@ -98,16 +98,16 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 | Property | Description |
 |:--|:--|
 |MaliciousIp |The RemoteIp address |
-|IndicatorThreadType | |
-|Description | |
-|TLPLevel | |
-|Confidence | |
-|Severity | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Threat indicator detected is one of the following values, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+|Description |Description of the observed threat. |
+|TLPLevel |Traffic Light Protocol (TLP) Level is one of the defined values, *White*, *Green*, *Amber*, *Red*. |
+|Confidence |Values are *0 – 100*. |
+|Severity |Values are *0 – 5*, where *5* is the most severe and *0* is not severe at all. Default value is *3*.  |
+|FirstReportedDateTime |The first time the provider reported the indicator. |
+|LastReportedDateTime |The last time the indicator was seen by Interflow. |
+|IsActive |Indicates indicators are deactivated with *True* or *False* value. |
+|ReportReferenceLink |Links to reports related to a given observable. |
+|AdditionalInformation |Provides additional information, if applicable, about the observed threat. |
 
 ### ServiceMapComputer_CL records
 Records with a type of *ServiceMapComputer_CL* have inventory data for servers with the Dependency agent. These records have the properties in the following table:
@@ -162,34 +162,34 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 ## Sample log searches
 
 ### List all known machines
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### List the physical memory capacity of all managed computers.
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### List computer name, DNS, IP, and OS.
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### Find all processes with "sql" in the command line
-ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### Find a machine (most recent record) by resource name
-search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### Find a machine (most recent record) by IP address
-search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### List all known processes on a specified machine
-ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### List all computers running SQL
-ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### List all unique product versions of curl in my datacenter
-ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### Create a computer group of all computers running CentOS
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### Summarize the outbound connections from a group of machines
 ```
