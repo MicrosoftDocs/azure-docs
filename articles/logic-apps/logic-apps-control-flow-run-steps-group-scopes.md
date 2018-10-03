@@ -1,21 +1,18 @@
 ---
-# required metadata
 title: Add scopes that run actions based on group status - Azure Logic Apps | Microsoft Docs
 description: How to create scopes that run workflow actions based on group action status in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
-
-# optional metadata
 ms.reviewer: klam, LADocs
-ms.suite: integration
+ms.date: 10/03/2018
+ms.topic: article
 ---
 
-# Create scopes that run workflow actions based on group status in Azure Logic Apps
+# Run actions based on group status with scopes in Azure Logic Apps
 
 To run actions only after another group of actions succeed or fail, 
 group those actions inside a *scope*. This structure is useful when 
@@ -287,7 +284,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
         "type": "ApiConnection",
         "inputs": {
           "body": {
-            "Body": "Scope failed",
+            "Body": "Scope failed. Scope status: @{result('Scope')[0]['status']}",
             "Subject": "Scope failed",
             "To": "<your-email@domain.com>"
           },
@@ -308,7 +305,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
           "type": "ApiConnection",
           "inputs": {
             "body": {
-              "Body": "None",
+              "Body": "Scope succeeded. Scope status: @{result('Scope')[0]['status']}",
               "Subject": "Scope succeeded",
               "To": "<your-email@domain.com>"
             },
@@ -324,10 +321,20 @@ here is the JSON definition for trigger and actions in the previous logic app:
         }
       }
     },
-    "expression": "@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')",
+    "expression": {
+      "or": [ {
+         "equals": [ "@result('Scope')[0]['status']", "Failed"]
+      },
+      {
+         "equals": [ "@result('Scope')[0]['status']", "Aborted"]
+      } ]
+    },
     "runAfter": {
       "Scope": [
-        "Succeeded"
+        "Succeeded",
+        "Failed",
+        "Skipped",
+        "TimedOut"
       ]
     }
   },
