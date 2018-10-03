@@ -89,7 +89,7 @@ Install the Module first, using:
        Install-Module MSOnline
        
 > [!TIP]
-> Don't forget to connect first using **Connect-MSOnline**
+> Don't forget to connect first using **Connect-MsolService**
 
 
 Using PowerShell is a good option when you need to bulk enabling users. Create a PowerShell script that loops through a list of users and enables them:
