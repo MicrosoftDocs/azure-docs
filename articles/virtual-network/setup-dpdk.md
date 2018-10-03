@@ -109,7 +109,7 @@ zypper \
 4. Compile with `make`.
 5. Install with `make install DESTDIR=<output folder>`.
 
-# Configure the runtime environment
+## Configure the runtime environment
 
 After restarting, run the following commands once:
 
