@@ -91,7 +91,7 @@ The following list describes key characteristic of the General Purpose service t
 - High-performance Azure Premium storage (8 TB) 
 - Built-in [High-availability](sql-database-high-availability.md#standardgeneral-purpose-availability) based on reliable Azure Premium Storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
-For more information, see [Stogate layer in General purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) and [Storage performance best practices and considerations for Azure SQL DB Managed Instance (General Purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+For more information, see [Storate layer in General purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) and [Storage performance best practices and considerations for Azure SQL DB Managed Instance (General Purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
 Find more information about the difference between service tiers in [Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
