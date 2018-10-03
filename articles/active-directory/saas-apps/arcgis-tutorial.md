@@ -136,7 +136,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. After adding extension to the browser, click on **setup ArcGIS Online** will direct you to the ArcGIS Online application. From there, provide the admin credentials to sign into ArcGIS Online. The browser extension will automatically configure the application for you and automate steps 9-13.
 
-9. If you want to configure the steps manually, open a new web browser window and log into your ArcGIS company site as an administrator and perform the following steps:
+9. If you want to setup ArcGIS Online manually, open a new web browser window and log into your ArcGIS company site as an administrator and perform the following steps:
 
 10. Click **EDIT SETTINGS**.
 
