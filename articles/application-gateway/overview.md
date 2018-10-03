@@ -9,7 +9,7 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/4/2018
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
@@ -23,7 +23,34 @@ Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and
 
 This type of routing is known as application layer (OSI layer 7) load balancing. Azure Application Gateway can do URL-based routing and more. 
 
-The following features are included with Azure Application Gateway: 
+The following features are included with Azure Application Gateway:
+
+## Public preview
+
+The following features are available in the Application Gateway public preview:
+
+- **Autoscaling**
+Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. 
+
+   The autoscaling SKU provides faster deployment and update time as compared to the generally available SKU. Also, the autoscaling SKU offers up to 5X better SSL offload performance as compared to the generally available SKU.
+
+- **Zone redundancy**
+An Application Gateway or WAF deployment can span multiple Availability Zones, removing the need to provision and spin separate Application Gateway instances in each zone with a Traffic Manager.
+
+- **Static VIP**
+The application gateway VIP now supports the static VIP type exclusively. This ensures that the VIP associated with application gateway does not change even after a restart.
+
+For more information about the Application Gateway public preview features, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
+
+## Connection draining
+
+Connection draining helps customers achieve graceful removal of backend pool members during planned service updates. This setting is enabled via the backend http setting and can be applied to all members of a backend pool during rule creation. Once enabled, Application Gateway ensures that all deregistering  instances of backend pool do not receive any new request while allowing existing requests to complete within a configured time limit. This applies to both backend instances that are explicitly removed from the backend pool by an API call as well as backend instances that are reported as unhealthy as determined by the health probes.
+
+## Custom error pages
+TBD
+
+
+
 
 ## Secure Sockets Layer (SSL) termination
 

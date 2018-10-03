@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 10/4/2017
 ms.author: amsriva
 
 ---
@@ -49,6 +49,18 @@ The following are the core benefits that Application Gateway and web application
 * The ability to customize WAF rules and rule groups to suit your application requirements and eliminate false positives.
 
 ## Features
+
+### Public preview
+
+The current WAF public preview SKU incudes the following features:
+
+- **Request size limits** - Web Application Firewall allows users to configure request size limits within lower and upper bounds.
+- **Exclusion lists** - WAF exclusion lists allow users to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields.
+
+For more information about the WAF public preview, see [Web application firewall request size limits and exclusion lists (Public Preview)](application-gateway-waf-configuration.md).
+
+
+### Core rule sets
 
 Web application firewall comes preconfigured with CRS 3.0 by default or you can choose to use 2.2.9. CRS 3.0 offers reduced false positives over 2.2.9. The ability to [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md) is provided. Some of the common web vulnerabilities which web application firewall protects against includes:
 
