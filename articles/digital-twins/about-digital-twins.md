@@ -3,7 +3,7 @@ title: Overview of Azure Digital Twins | Microsoft Docs
 description: An introduction to Azure Digital Twins
 author: julieseto
 ms.author: jseto
-ms.date: 10/02/2018
+ms.date: 10/03/2018
 ms.topic: overview
 ms.service: azure-digital-twins
 services: azure-digital-twins
@@ -87,4 +87,7 @@ For a more detailed description about the rest of the IoT ecosystem, see [Azure 
 Learn about core Azure Digital Twins concepts:
 
 > [!div class="nextstepaction"]
-> [Understanding the Digital Twins Object Model and Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md)
+> [Understanding the Digital Twins Object Model and Spatial Intelligence Graph](concepts-objectmodel-spatialgraph.md)
+  
+> [!div class="nextstepaction"]
+> [Digital Twins Security Best Practices](security-best-practices.md)
