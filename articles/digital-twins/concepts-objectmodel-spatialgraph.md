@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/03/2018
 ms.author: alinast
 ---
 
@@ -64,10 +64,18 @@ Graph _extensibility_ allows users to customize the underlying Digital Twins Obj
 Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure.com), the [Swagger](https://swagger.io/tools/swagger-ui/) URL of the Management APIs is automatically generated and will be displayed in the Azure portal's **Overview** section with the following format:
 
 ```plaintext
-https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger
+https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
-`yourDigitalTwinsName` and `yourLocation` should be replaced with your custom values. The full URL format can be seen being used in image below:
+> [!NOTE]
+> Use the table below to customize your solution.
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourInstanceName` | The name of your Azure Digital Twins instance |
+| `yourLocation` | Which server region your instance is hosted on |
+
+ The full URL format can be seen being used in image below:
 
 ![Digital Twins Portal Management API][2]
 

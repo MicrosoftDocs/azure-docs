@@ -14,7 +14,19 @@ ms.author: alinast
 
 [User-defined functions](./concepts-user-defined-functions.md) enable the user to run custom logic against incoming telemetry messages and spatial graph metadata, allowing the user to send events to pre-defined endpoints. In this guide, we'll walk through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
 
-In the examples below, `https://yourManagementApiUrl` refers to the URI of the Digital Twins APIs `https://yourDigitalTwinsName.yourLocation .azuresmartspaces.net/management`. Replace `yourManagementApiUrl`, `yourDigitalTwinsName`, and `yourLocation` with your custom values.
+In the examples below, `https://yourManagementApiUrl` refers to the URI of the Digital Twins APIs:
+
+```plaintext
+https://yourInstanceName.yourLocation.azuresmartspaces.net/management
+```
+
+> [!NOTE]
+> Use the table below to customize your solution.
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourInstanceName` | The name of your Azure Digital Twins instance |
+| `yourLocation` | Which server region your instance is hosted on |
 
 ## Client Library Reference
 
@@ -54,7 +66,13 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 }
 ```
 
-Replace `yourManagementApiUrl` and `yourSpaceIdentifier` with your custom values.
+> [!NOTE]
+> Use the table below to customize your solution.
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourManagementApiUrl` | The full URL path for your Management API  |
+| `yourSpaceIdentifier` | Which server region your instance is hosted on |
 
 ## Create a User-Defined Function (UDF)
 
@@ -71,7 +89,12 @@ After the matchers have been created, upload the function snippet with the follo
 POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
 ```
 
-Replace `yourManagementApiUrl` with your custom value.
+> [!NOTE]
+> Use the table below to customize your solution.
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourManagementApiUrl` | The full URL path for your Management API  |
 
 Body:
 
@@ -97,7 +120,13 @@ function process(telemetry, executionContext) {
 --userDefinedBoundary--
 ```
 
-Replace `yourSpaceIdentifier` and `yourMatcherIdentifier` with your custom values.
+> [!NOTE]
+> Use the table below to customize your solution.
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourSpaceIdentifier` | The space identifier  |
+| `yourMatcherIdentifier` | The id of the matcher you wish to use |
 
 ### Example Functions
 
@@ -168,7 +197,12 @@ We need to create a role assignment for the user-defined function to execute und
 GET https://yourManagementApiUrl/api/v1.0/system/roles
 ```
 
-Replace `yourManagementApiUrl` with your custom value.
+> [!NOTE]
+> Use the table below to customize your solution.
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourManagementApiUrl` | The full URL path for your Management API  |
 
 - ObjectId will be the UDF ID that was created earlier
 - Find `Path` by querying the Spaces with their full path and copy the `spacePaths` value. Paste it in Path below when creating the UDF role assignment
@@ -177,7 +211,13 @@ Replace `yourManagementApiUrl` with your custom value.
 GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
 ```
 
-Replace `yourManagementApiUrl` and `yourSpaceName` with your custom value.
+> [!NOTE]
+> Use the table below to customize your solution.
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourManagementApiUrl` | The full URL path for your Management API  |
+| `yourSpaceName` | The name of the space you wish to use |
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/roleassignments
@@ -189,7 +229,15 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 }
 ```
 
-Replace `yourManagementApiUrl`, `yourDesiredRoleIdentifier`, `yourUserDefinedFunctionId`, `yourAccessControlPath` with your custom values.
+> [!NOTE]
+> Use the table below to customize your solution.
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourManagementApiUrl` | The full URL path for your Management API  |
+| `yourDesiredRoleIdentifier` | The identifier for the desired role |
+| `yourUserDefinedFunctionId` | The id for the UDF you want to use |
+| `yourAccessControlPath` | The access control path |
 
 ## Send Telemetry to be Processed
 

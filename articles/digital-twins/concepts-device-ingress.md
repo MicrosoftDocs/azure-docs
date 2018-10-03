@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/03/2018
 ms.author: alinast
 ---
 
@@ -33,14 +33,21 @@ Below you'll learn how to get the IoT Hub device connection string from the Digi
 Do a GET call on the Device API with an `includes=ConnectionString` parameter to get the IoT Hub device connection string. You can filter by `device-guid` or `hardware-id` to find the given device:
 
 ```plaintext
-https://yourManagementApi/api/v1.0/devices/yourDeviceGuid?includes=ConnectionString
+https://yourManagementApiUrl/api/v1.0/devices/yourDeviceGuid?includes=ConnectionString
 ```
 
 ```plaintext
-https://yourManagementApi/api/v1.0/devices?hardwareIds=yourHardwareId&includes=ConnectionString
+https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourHardwareId&includes=ConnectionString
 ```
 
-Replace `yourManagementApi`, `yourDeviceGuid`, and `yourHardwareId` with your custom values.
+> [!NOTE]
+> Use the table below to customize your solution.
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourManagementApiUrl` | The full URL path for your Management API |
+| `yourDeviceGuid` | The device id |
+| `yourHardwareId` | The hardware id |
 
 In the response payload, copy the device's `connectionString` property, which you'll use when calling the Azure IoT Device SDK to send data to Azure Digital Twins.
 

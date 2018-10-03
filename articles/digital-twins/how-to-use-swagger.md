@@ -37,7 +37,13 @@ Your generated Management API Swagger documentation can be accessed publicly at:
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger/ui/index
 ```
 
-`yourInstanceName` and `yourLocation` should be replaced with the name of your Digital Twins instance and the location of the servers it's hosted on, respectively.
+> [!NOTE]
+> Use the table below to customize your solution.
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourInstanceName` | The name of your Azure Digital Twins instance |
+| `yourLocation` | Which server region your instance is hosted on |
 
 ## Reference material
 
