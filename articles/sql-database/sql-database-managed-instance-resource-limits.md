@@ -54,9 +54,7 @@ Managed Instance currently supports deployment only on the following types of su
 > [!NOTE]
 > This limitation is temporary. New subscription types will be enabled in the future.
 
-## Default regional subscription-level limits
-
-Supported subscription types can contain a limited number of resources per region. Managed Instances has two default subscription-level limits per Azure region depending on a type of subscription type. :
+Managed Instances has two default subscription-level limits per Azure region. Different subscription types have different regional limits. These limits can be increased by creating special support request in the Azure portal for the subscription with issue type **Quota**: 
 
 - **Subnet limit**: The maximum number of subnets where managed instances are deployed in a single region.
 - **Instance number limit**: The maximum number of instances that can be deployed in a single region.
