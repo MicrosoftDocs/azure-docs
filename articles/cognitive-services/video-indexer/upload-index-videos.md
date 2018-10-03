@@ -245,8 +245,8 @@ The status codes listed in the following table may be returned by the Upload ope
 
 |Status code|ErrorType (in response body)|Description|
 |---|---|---|
-|400|VIDEO_ALREADY_IN_PROGRESS|Same video is already in progress of being uploaded in the given account.|
-|400|VIDEO_ALREADY_FAILED|Same video failed to upload in the given account less than 2 hours ago. API clients should wait at least 2 hours before re-uploading a video.|
+|400|VIDEO_ALREADY_IN_PROGRESS|Same video is already in progress of being processed in the given account.|
+|400|VIDEO_ALREADY_FAILED|Same video failed to process in the given account less than 2 hours ago. API clients should wait at least 2 hours before re-uploading a video.|
 
 ## Next steps
 

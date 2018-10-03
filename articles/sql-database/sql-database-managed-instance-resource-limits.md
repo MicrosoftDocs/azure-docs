@@ -15,21 +15,27 @@ ms.date: 10/03/2018
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
-This article provides an overview of the Azure SQL Database Managed Instance resource limits and provides information how to create request to increase default subscription limits. 
+This article provides an overview of the Azure SQL Database Managed Instance resource limits and provides information how to create request to increase default regional subscription limits. 
 
 > [!NOTE]
 > For other Managed Instance limitations, see [vCore-based purchasing model](sql-database-managed-instance.md#vcore-based-purchasing-model) and [Managed Instance service tiers](sql-database-managed-instance.md#managed-instance-service-tiers).
 
 ## Instance-level resource limits
 
+Managed Instance has characteristics and resource limits that depends on the underlying infrastructure and architecture. Limits depend on hardware generation and service tier.
+
+### Hardware generation characteristics
+
 Azure SQL Database Managed Instance can be deployed on two hardware generation (Gen4 and Gen5). Hardware generations have different characteristics that are described in the following table:
 
 |   | **Gen 4** | **Gen 5** |
 | --- | --- | --- |
-| Hardware | Intel E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread) |
+| Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread) |
 | Compute | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memory | 7 GB per vCore | 5.5 GB per vCore |
 | Max storage (Business Critical) | 1TB | 1TB, 2TB, 4TB depending on the number of cores |
+
+### Service tier characteristics
 
 Managed Instance has two service tiers - General Purpose and Business Critical (Public Preview). These tiers provide different capabilities, as described in the table below:
 
@@ -45,7 +51,7 @@ Managed Instance has two service tiers - General Purpose and Business Critical (
 
 ## Supported regions
 
-Managed Instanced are can be created only in [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database). I you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
+Managed Instanced can be created only in [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database). If you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
 
 ## Supported subscription types
 
@@ -57,6 +63,8 @@ Managed Instance currently supports deployment only on the following types of su
 
 > [!NOTE]
 > This limitation is temporary. New subscription types will be enabled in the future.
+
+## Regional resource limitations
 
 Supported subscription types can contain a limited number of resources per region. Managed Instance has two default limits per Azure region depending on a type of subscription type:
 
