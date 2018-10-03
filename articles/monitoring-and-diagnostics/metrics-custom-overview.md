@@ -17,7 +17,7 @@ These **custom** metrics can be collected via your application telemetry, an age
 ## Send custom metrics
 Custom metrics can be sent to Azure Monitor via a variety of methods:
 - Instrument your application by using the Azure Application Insights SDK and send custom telemetry to Azure Monitor. 
-- Install the Azure Diagnostics extension on your [Azure VM](metrics-store-custom-guestos-resource-manager-vm.md), [Azure Virtual Machines scale set](metrics-store-custom-guestos-resource-manager-vmss.md), [classic VM](metrics-store-custom-guestos-classic-vm.md), or [Azure Cloud Services (classic)](metrics-store-custom-guestos-classic-cloud-service.md) and send performance counters to Azure Monitor. 
+- Install the Azure Diagnostics extension on your [Azure VM](metrics-store-custom-guestos-resource-manager-vm.md), [virtual machine scale set](metrics-store-custom-guestos-resource-manager-vmss.md), [classic VM](metrics-store-custom-guestos-classic-vm.md), or [Azure Cloud Services (classic)](metrics-store-custom-guestos-classic-cloud-service.md) and send performance counters to Azure Monitor. 
 - Install the [InfluxData Telegraf Agent](metrics-store-custom-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
@@ -136,7 +136,7 @@ In the following example, you create a custom metric called **Memory Bytes in Us
     }
   }
 ```
-> [!NOTE]
+> [!NOTE]  
 > Application Insights, the Azure Diagnostics extension, and the InfluxData Telegraf Agent are already configured to emit metric values against the correct regional endpoint and carry all of the preceding properties in each emission.
 >
 >
@@ -144,7 +144,7 @@ In the following example, you create a custom metric called **Memory Bytes in Us
 ## Custom metric definitions
 There's no need to predefine a custom metric in Azure Monitor before it's emitted. Each metric data point published contains namespace, name, and dimension information. So the first time a custom metric is emitted to Azure Monitor, a metric definition is automatically created. This metric definition is then discoverable on any resource the metric was emitted against via the metric definitions.
 
-> [!NOTE]
+> [!NOTE]  
 > Azure Monitor doesn’t yet support defining **Units** for a custom metric.
 
 ## Using custom metrics
@@ -158,7 +158,7 @@ After custom metrics are submitted to Azure Monitor, you can browse them via the
 6.	Select the custom metric.
 
 ## Supported regions
-During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. The following table lists the set of supported Azure regions for custom metrics and the corresponding endpoint metrics for resources in those regions should be published to:
+During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:
 
 |Azure region|Regional endpoint prefix|
 |---|---|
