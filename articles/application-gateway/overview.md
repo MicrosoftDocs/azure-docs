@@ -29,15 +29,15 @@ The following features are included with Azure Application Gateway:
 
 The following features are available in the Application Gateway public preview:
 
-- **Autoscaling**
+- **Autoscaling** -
 Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. 
 
    The autoscaling SKU provides faster deployment and update time as compared to the generally available SKU. Also, the autoscaling SKU offers up to 5X better SSL offload performance as compared to the generally available SKU.
 
-- **Zone redundancy**
+- **Zone redundancy** -
 An Application Gateway or WAF deployment can span multiple Availability Zones, removing the need to provision and spin separate Application Gateway instances in each zone with a Traffic Manager.
 
-- **Static VIP**
+- **Static VIP** -
 The application gateway VIP now supports the static VIP type exclusively. This ensures that the VIP associated with application gateway does not change even after a restart.
 
 For more information about the Application Gateway public preview features, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
