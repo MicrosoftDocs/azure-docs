@@ -33,9 +33,9 @@ Because multiple records can exist for a specified process and computer in a spe
 ### Connections
 Connection metrics are written to a new table in Log Analytics - VMConnection. This table provides information about the connections for a machine (inbound and outbound). Connection Metrics are also exposed with APIs that provide the means to obtain a specific metric during a time window.  TCP connections resulting from "*accept*-ing on a listening socket are inbound, while those created by *connect*-ing to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
 
-Records in these tables are generated from data reported by the Dependency agent. Every record represents an observation over a one minute time interval. The TimeGenerated property indicates the start of the time interval. Each record contains information to identify the respective entity, that is, connection or port, as well as metrics associated with that entity. Currently, only network activity that occurs using TCP over IPv4 is reported.
+Records in these tables are generated from data reported by the Dependency agent. Every record represents an observation over a one-minute time interval. The TimeGenerated property indicates the start of the time interval. Each record contains information to identify the respective entity, that is, connection or port, as well as metrics associated with that entity. Currently, only network activity that occurs using TCP over IPv4 is reported.
 
-To manage cost and complexity, connection records do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection, which is then reflected in the respective table.  Meaning, records in *VMConnection* table represent a logical grouping and not the individual physical connections that are being observed. Physical network connection sharing the same value for the following attributes during a given one minute interval, are aggregated into a single logical record in *VMConnection*. 
+To manage cost and complexity, connection records do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection, which is then reflected in the respective table.  Meaning, records in *VMConnection* table represent a logical grouping and not the individual physical connections that are being observed. Physical network connection sharing the same value for the following attributes during a given one-minute interval, are aggregated into a single logical record in *VMConnection*. 
 
 | Property | Description |
 |:--|:--|
@@ -65,9 +65,9 @@ In addition to connection count metrics, information about the volume of data se
 |BytesSent |Total number of bytes that have been sent during the reporting time window |
 |BytesReceived |Total number of bytes that have been received during the reporting time window |
 |Responses |The number of responses observed during the reporting time window. 
-|ResponseTimeMax |The largest response time (milliseconds) observed during the reporting time window.  If no value, the property is blank.|
-|ResponseTimeMin |The smallest response time (milliseconds) observed during the reporting time window.  If no value, the property is blank.|
-|ResponseTimeSum |The sum of all response times (milliseconds) observed during the reporting time window.  If no value, the property is blank|
+|ResponseTimeMax |The largest response time (milliseconds) observed during the reporting time window. If no value, the property is blank.|
+|ResponseTimeMin |The smallest response time (milliseconds) observed during the reporting time window. If no value, the property is blank.|
+|ResponseTimeSum |The sum of all response times (milliseconds) observed during the reporting time window. If no value, the property is blank.|
 
 The third type of data being reported is response time - how long does a caller spend waiting for a request sent over a connection to be processed and responded to by the remote endpoint. The response time reported is an estimation of the true response time of the underlying application protocol. It is computed using heuristics based on the observation of the flow of data between the source and destination end of a physical network connection. Conceptually, it is the difference between the time the last byte of a request leaves the sender, and the time when the last byte of the response arrives back to it. These two timestamps are used to delineate request and response events on a given physical connection. The difference between them represents the response time of a single request. 
 
