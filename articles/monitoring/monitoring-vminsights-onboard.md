@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/02/2018
+ms.date: 10/03/2018
 ms.author: magoedte
 ---
 
@@ -384,10 +384,14 @@ With this initial release, you can only create the policy assignment from the Az
 
 #### Review and remediate the compliance results 
 
-You can learn how to review compliance results by reading [identify non-compliance results](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources).  Based on the results of the policies included with the **[Preview] Enable Azure Monitor for VMs** initiative, VMs are reported as non-compliant in following scenarios:  
+You can learn how to review compliance results by reading [identify non-compliance results](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). Select **Compliance** in the left side of the page and locate the **[Preview] Enable Azure Monitor for VMs** initiative that are not compliant per the assignment you created.
+
+![Policy compliance for Azure VMs](./media/monitoring-vminsights-onboard/policy-view-compliance-01.png)
+
+Based on the results of the policies included with the initiative, VMs are reported as non-compliant in following scenarios:  
   
 1. Log Analytics or Dependency Agent is not deployed.  
-   This is typical for a scope with existing VMs. To mitigate it, [create remediation tasks](../governance/policy/how-to/remediate-resources.md) on non-compliant policy to deploy the required agents.    
+   This is typical for a scope with existing VMs. To mitigate it, [create remediation tasks](../governance/policy/how-to/remediate-resources.md) on a non-compliant policy to deploy the required agents.    
  
     - [Preview]: Deploy Dependency Agent for Linux VMs   
     - [Preview]: Deploy Dependency Agent for Windows VMs  
@@ -395,13 +399,13 @@ You can learn how to review compliance results by reading [identify non-complian
     - [Preview]: Deploy Log Analytics Agent for Windows VMs  
 
 2. VM Image (OS) is not in the list identified in policy definition.  
-   Criteria of the deployment policy only includes VMs that are deployed from well-known Azure VM images. Check the documentation if the VM OS is supported or not. If it is not, then you need to duplicate the deployment policy and update/modify it to make the image in scope. 
+   Criteria of the deployment policy only includes VMs that are deployed from well-known Azure VM images. Check the documentation if the VM OS is supported or not. If it is not, then you need to duplicate the deployment policy and update/modify it to make the image compliant. 
   
     - [Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted  
     - [Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted
 
 3. VMs are not logging to the specified LA workspace.  
-It is possible that some VMs in the initiative scope are logging to a LA workspace different from the once specified in policy assignment. This policy is a tool to identify which VMs   
+It is possible that some VMs in the initiative scope are logging to a LA workspace different from the once specified in policy assignment. This policy is a tool to identify which VMs are reporting to a non-compliant workspace.  
  
     - [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch  
 
