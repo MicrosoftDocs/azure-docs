@@ -19,12 +19,7 @@ In this article, you will learn how to secure a web service deployed with the Az
 > [!Warning]
 > If you do not enable SSL, any user on the internet will be able to make calls to the web service.
 
-The steps to secure web services are similar from [one deployment target](how-to-deploy-and-where.md) to another, but not the same. 
-
-> [!IMPORTANT]
-> Authentication is only enabled for services that have provided an SSL certificate and key.  If you enable SSL, an authentication key is required when accessing the web service.
-
-SSL encrypts data sent between the client and the web service. It also used by the client to verify the identity of the server.
+SSL encrypts data sent between the client and the web service. It also used by the client to verify the identity of the server. Authentication is only enabled for services that have provided an SSL certificate and key.  If you enable SSL, an authentication key is required when accessing the web service.
 
 Whether you deploy a web service enabled with SSL or you enable SSL for existing deployed web service, the steps are the same:
 
@@ -35,6 +30,8 @@ Whether you deploy a web service enabled with SSL or you enable SSL for existing
 3. Deploy or update the web service with the SSL setting enabled.
 
 4. Update your DNS to point to the web service.
+
+There are slight differences when securing web services across the [deployment targets](how-to-deploy-and-where.md). 
 
 ## Get a domain name
 
@@ -80,7 +77,7 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **Deploy on Field programmable gamma arrays (FPGAs)**
++ **Deploy on field programmable gamma arrays (FPGAs)**
 
   The response of the `create_service` operation contains the IP address of the service. The IP address is used when mapping the DNS name to the IP address of the service. The response also contains a __primary key__ and __secondary key__ that are used to consume the service. Provide values for SSL-related parameters as shown in the code snippet:
 
@@ -108,79 +105,89 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
 
 Next, you must update your DNS to point to the web service.
 
-+ **For ACI and FPGA, update the DNS**:  
++ **For ACI and FPGA**:  
 
   Use the tools provided by your domain name registrar to update the DNS record for your domain name. The record must point to the IP address of the service.  
 
   Depending on the registrar, and the time to live (TTL) configured for the domain name, it can take several minutes to several hours before clients can resolve the domain name.
 
-+ **For AKS, update the DNS**: 
++ **For AKS**: 
 
   Update the DNS under the "Configuration" tab of the "Public IP Address" of the AKS cluster as shown in the image. You can find the Public IP Address as one of the resource types created under the resource group that contains the AKS agent nodes and other networking resources.
 
-  [![png](media/how-to-secure-web-service/aks-public-ip-address.png)]((.media/how-to-secure-web-service/aks-public-ip-address.png#lightbox)
+  [ ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png) ]((.media/how-to-secure-web-service/aks-public-ip-address.png#lightbox)
 
 ## Consume authenticated services
 
-The following examples demonstrate how to consume an authenticated FPGA service using Python and C#:
+### How to consume 
++ **For ACI and AKS**: 
 
+  For ACI and AKS web services, learn how to consume web services in these articles:
+  + [How to deploy to ACI](how-to-deploy-to-aci.md)
 
-```python
-# Replace `authkey` with the primary or secondary key 
-# that was returned when service was deployed.
-from amlrealtimeai import PredictionClient
-client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-image_file = R'C:\path_to_file\image.jpg'
-results = client.score_image(image_file)
-```
+  + [How to deploy to AKS](how-to-deploy-to-aks.md)
 
-```csharp
-var client = new ScoringClient(host, 50051, useSSL, "authKey");
-float[,] result;
-using (var content = File.OpenRead(image))
-    {
-        IScoringRequest request = new ImageRequest(content);
-        result = client.Score<float[,]>(request);
-    }
-```
++ **For ACI and FPGA**:  
 
+  The following examples demonstrate how to consume an authenticated FPGA service in Python and C#.
+  Replace `authkey` with the primary or secondary key that was returned when the service was deployed.
+
+  Python example:
+    ```python
+    from amlrealtimeai import PredictionClient
+    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
+    image_file = R'C:\path_to_file\image.jpg'
+    results = client.score_image(image_file)
+    ```
+
+  C# example:
+    ```csharp
+    var client = new ScoringClient(host, 50051, useSSL, "authKey");
+    float[,] result;
+    using (var content = File.OpenRead(image))
+        {
+            IScoringRequest request = new ImageRequest(content);
+            result = client.Score<float[,]>(request);
+        }
+    ```
+
+### Set the authorization header
 Other gRPC clients can authenticate requests by setting an authorization header. The general approach is to create a `ChannelCredentials` object that combines `SslCredentials` with `CallCredentials`. This is added to the authorization header of the request. For more information on implementing support for your specific headers, see [https://grpc.io/docs/guides/auth.html](https://grpc.io/docs/guides/auth.html).
 
 The following examples demonstrate how to set the header in C# and Go:
 
-```csharp
-creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                      async (context, metadata) =>
-                      {
-                          metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                          await Task.CompletedTask;
-                      }));
++ Use C# to set the header:
+    ```csharp
+    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
+                          async (context, metadata) =>
+                          {
+                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
+                              await Task.CompletedTask;
+                          }));
+    
+    ```
 
-```
-
-```go
-conn, err := grpc.Dial(serverAddr, 
-    grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-    grpc.WithPerRPCCredentials(&authCreds{
-    Key: "authKey"}))
-
-type authCreds struct {
-    Key string
-}
-
-func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-    return map[string]string{
-        "authorization": c.Key,
-    }, nil
-}
-
-func (c *authCreds) RequireTransportSecurity() bool {
-    return true
-}
-```
-
-> [!NOTE]
-> For ACI and AKS web services, you can consume them as shown in [How to deploy to ACI](how-to-deploy-to-aci.md) and [How to deploy to AKS](how-to-deploy-to-aks.md) documents.
++ Use Go to set the header:
+    ```go
+    conn, err := grpc.Dial(serverAddr, 
+        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
+        grpc.WithPerRPCCredentials(&authCreds{
+        Key: "authKey"}))
+    
+    type authCreds struct {
+        Key string
+    }
+    
+    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
+        return map[string]string{
+            "authorization": c.Key,
+        }, nil
+    }
+    
+    func (c *authCreds) RequireTransportSecurity() bool {
+        return true
+    }
+    ```
 
 <a id="self-signed"></a>
 
