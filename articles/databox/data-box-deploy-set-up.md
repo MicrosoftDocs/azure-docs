@@ -1,6 +1,6 @@
 ---
 title: Set up your Azure Data Box| Microsoft Docs
-description: Learn about the software and networking requirements for your Azure Data Box
+description: Learn how to cable and connect your Azure Data Box
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/03/2018
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to be able to set up Data Box Disk to upload on-premises data from my server onto Azure.
+#Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Cable and connect to your Azure Data Box
 
@@ -50,9 +50,9 @@ Perform the following steps to cable your device.
 
 1. Inspect the device for any evidence of tampering, or any other obvious damage. If the device is tampered or severely damaged, do not proceed. Contact Microsoft Support immediately to help you assess whether the device is in good working order and if they need to ship you a replacement.
 2. Transport the device to the location where you wish to power it on. Place the device on a flat surface. The device can also be placed on a standard rack shelf.
-3. Connect the power and network cables. The backplane of a connected device for a common configruation is shown below. 
+3. Connect the power and network cables. The backplane of a connected device for a common configuration is shown below. 
     
-    ![Data Box device backplane cabeled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
+    ![Data Box device backplane cabled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
     1. Connect the power cable to the labeled power input location. The other end of the power cable should be connected to a power distribution unit.
     2. Use the RJ-45 CAT 6 cable to connect the MGMT port on one end and a laptop on the other end.            
