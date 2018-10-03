@@ -62,15 +62,22 @@ You must change or delete any such resource in your Azure AD directory before yo
 
 ### ForceDelete option
 
-You can **ForceDelete** a domain name in the [Azure AD Admin Center](https://aad.portal.azure.com) or using [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete). These options use an asynchronous operation and update all references from the custom domain name like “user@contoso.com” to the initial default domain name such as “user@contoso.onmicrosoft.com.” To call ForceDelete in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists; for more information, see[Removing mail-enabled security groups](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Additionally, the ForceDelete domain operation will not succeed if you have purchased a domain via Office 365 domain subscription services, or if you are a partner administering on behalf of another customer tenant.
+You can **ForceDelete** a domain name in the [Azure AD Admin Center](https://aad.portal.azure.com) or using [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete). These options use an asynchronous operation and update all references from the custom domain name like “user@contoso.com” to the initial default domain name such as “user@contoso.onmicrosoft.com.” 
+
+To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists; for more information, see [Removing mail-enabled security groups](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Also, the **ForceDelete** operation won't succeed if either of the following is true:
+
+* You purchased a domain via Office 365 domain subscription services
+* You are a partner administering on behalf of another customer tenant
 
 The following actions are performed as part of the ForceDelete operation:
 
 * Renames the UPN, EmailAddress, and ProxyAddress of users with references to the custom domain name to the initial default domain name.
 * Renames the EmailAddress of groups with references to the custom domain name to the initial default domain name.
 * Renames the identifierUris of applications with references to the custom domain name to the initial default domain name.
-* If the number of objects to be renamed is greater than 1000, an error is returned.
-* If one of the applications to be renamed is a multi-tenant app, an error is returned.
+* An error is returned when:
+
+  * The number of objects to be renamed is greater than 1000
+  * One of the applications to be renamed is a multi-tenant app
   
 ![error when renaming multi-tenant app](./media/domains-manage/forcedelete.png)
 
