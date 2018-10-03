@@ -1,6 +1,6 @@
 ---
-title: Log Analytics query examples - security records | Microsoft Docs
-description: Describes aggregation functions in Log Analytics queries that offer useful ways to analyze your data.
+title: Azure Monitor Log Analytics query examples | Microsoft Docs
+description: Examples of queries in Log Analytics using the Kusto language.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,16 +11,99 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 08/16/2018
+ms.topic: article
+ms.date: 10/03/2018
 ms.author: bwren
 ms.component: na
 ---
 
 
 # Log Analytics query examples
+This article includes various examples of [queries](../log-analytics-queries.md) that retrieve different types of data from Log Analytics. These queries are all written using the [Kusto language]().
 
-## Multiple data type
+## Events
+
+### Search application-level events described as "Cryptographic"
+This example searches the **Events** table for records in which **EventLog** is _Application_ and **RenderedDescription** contains _cryptographic_. Includes records from the last 24 hours.
+
+```Kusto
+Event
+| where EventLog == "Application" 
+| where TimeGenerated > ago(24h) 
+| where RenderedDescription == "cryptographic"
+```
+
+## Search events related to unmarshaling
+Search tables **Event** and **SecurityEvents** for records that mention _unmashaling_.
+
+```Kusto
+search in (Event, SecurityEvent) "unmarshaling"
+```
+
+## Heartbeat
+
+### Chart a week-over-week view of the number of computers sending data
+
+The following example charts the number of distinct computers that sent heartbeats, each week.
+
+```Kusto
+Heartbeat
+| where TimeGenerated >= startofweek(ago(21d))
+| summarize dcount(Computer) by endofweek(TimeGenerated) | render barchart kind=default
+```
+
+### Find stale computers
+
+The following example finds computers that were active in the last day but did not send heartbeats in the last hour.
+
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(1d)
+| summarize LastHeartbeat = max(TimeGenerated) by Computer
+| where isnotempty(Computer)
+| where LastHeartbeat < ago(1h)
+```
+
+### Get the latest heartbeat record per computer IP
+
+This example returns the last heartbeat record for each computer IP.
+```Kusto
+Heartbeat
+| summarize arg_max(TimeGenerated, *) by ComputerIP
+```
+
+### Match protected status records with heartbeat records
+
+This example finds related protection status records and heartbeat records, matched on both Computer and time.
+Note the time field is rounded to the nearest minute. We used runtime bin calculation to do that: `round_time=bin(TimeGenerated, 1m)`.
+
+```Kusto
+let protection_data = ProtectionStatus
+    | project Computer, DetectionId, round_time=bin(TimeGenerated, 1m);
+let heartbeat_data = Heartbeat
+    | project Computer, Category, round_time=bin(TimeGenerated, 1m);
+protection_data | join (heartbeat_data) on Computer, round_time
+```
+
+### Server availability rate
+
+Calculate server availability rate based on heartbeat records. Availability is defined as "at least 1 heartbeat per hour".
+So, if a server was available 98 of 100 hours, the availability rate is 98%.
+
+```Kusto
+let start_time=startofday(datetime("2018-03-01"));
+let end_time=now();
+Heartbeat
+| where TimeGenerated > start_time and TimeGenerated < end_time
+| summarize heartbeat_per_hour=count() by bin_at(TimeGenerated, 1h, start_time), Computer
+| extend available_per_hour=iff(heartbeat_per_hour>0, true, false)
+| summarize total_available_hours=countif(available_per_hour==true) by Computer 
+| extend total_number_of_buckets=round((end_time-start_time)/1h)+1
+| extend availability_rate=total_available_hours*100/total_number_of_buckets
+```
+
+
+## Multiple data types
 
 ### Chart the record-count per table
 The following example collects all records of all tables from the last five hours and counts how many records were in each table. The results are shown in a timechart.
@@ -43,6 +126,107 @@ search *
 ```
 
 ## AzureDiagnostics
+
+### Count Azure diagnostics records per category
+This example counts all Azure diagnostics records for each unique category.
+
+```Kusto
+AzureDiagnostics 
+| where TimeGenerated > ago(1d)
+| summarize count() by Category
+```
+
+### Get a random record for each unique category
+This example gets a single random Azure diagnostics record for each unique category.
+
+```Kusto
+AzureDiagnostics
+| where TimeGenerated > ago(1d) 
+| summarize any(*) by Category
+```
+
+### Get the latest record per category
+This example gets the latest Azure diagnostics record in each unique category.
+
+```Kusto
+AzureDiagnostics
+| where TimeGenerated > ago(1d) 
+| summarize arg_max(TimeGenerated, *) by Category
+```
+
+## Network monitoring
+
+### Computers with unhealthy latency
+This example creates a list of distinct computers with unhealthy latency.
+
+```Kusto
+NetworkMonitoring 
+| where LatencyHealthState <> "Healthy" 
+| where Computer != "" 
+| distinct Computer
+```
+
+## Performance
+
+### Join computer perf records to correlate memory and CPU
+This example correlates a particular computer's **perf** records and creates two time charts, the average CPU and maximum memory.
+
+```Kusto
+let StartTime = now()-5d;
+let EndTime = now()-4d;
+Perf
+| where CounterName == "% Processor Time"  
+| where TimeGenerated > StartTime and TimeGenerated < EndTime
+and TimeGenerated < EndTime
+| project TimeGenerated, Computer, cpu=CounterValue 
+| join kind= inner (
+   Perf
+    | where CounterName == "% Used Memory"  
+    | where TimeGenerated > StartTime and TimeGenerated < EndTime
+    | project TimeGenerated , Computer, mem=CounterValue 
+) on TimeGenerated, Computer
+| summarize avgCpu=avg(cpu), maxMem=max(mem) by TimeGenerated bin=30m  
+| render timechart
+```
+
+### Perf CPU Utilization graph per computer
+This example calculates and charts the CPU utilization of computers that start with _Contoso_.
+
+```Kusto
+Perf
+| where TimeGenerated > ago(4h)
+| where Computer startswith "Contoso" 
+| where CounterName == @"% Processor Time"
+| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 15m) 
+| render timechart
+```
+
+## Protection status
+
+### Computers with non-reporting protection status duration
+This example lists computers that had a protection status of _Not Reporting_  and the duration they were in this status.
+
+```Kusto
+ProtectionStatus
+| where ProtectionStatus == "Not Reporting"
+| summarize count(), startNotReporting = min(TimeGenerated), endNotReporting = max(TimeGenerated) by Computer, ProtectionStatusDetails
+| join ProtectionStatus on Computer
+| summarize lastReporting = max(TimeGenerated), startNotReporting = any(startNotReporting), endNotReporting = any(endNotReporting) by Computer
+| extend durationNotReporting = endNotReporting - startNotReporting
+```
+
+### Match protected status records with heartbeat records
+This example finds related protection status records and heartbeat records matched on both Computer and time.
+The time field is rounded to the nearest minute using **bin**.
+
+```Kusto
+let protection_data = ProtectionStatus
+    | project Computer, DetectionId, round_time=bin(TimeGenerated, 1m);
+let heartbeat_data = Heartbeat
+    | project Computer, Category, round_time=bin(TimeGenerated, 1m);
+protection_data | join (heartbeat_data) on Computer, round_time
+```
+
 
 ## Security records
 
@@ -193,14 +377,63 @@ let suspicious_users_that_later_logged_in =
 suspicious_users_that_later_logged_in
 ```
 
+## Usage
+
+### Calculate the average size of perf usage reports per computer
+
+This example calculates the average size of perf usage reports per computer, over the last 3 hours.
+The results are shown in a bar chart.
+```Kusto
+Usage 
+| where TimeGenerated > ago(3h)
+| where DataType == "Perf" 
+| where QuantityUnit == "MBytes" 
+| summarize avg(Quantity) by Computer
+| sort by avg_Quantity desc nulls last
+| render barchart
+```
+
+### Timechart latency percentiles 50 and 95
+
+This example calculates and charts the 50th and 95th percentiles of reported **avgLatency** by hour over the last 24 hours.
+
+```Kusto
+Usage
+| where TimeGenerated > ago(24h)
+| summarize percentiles(AvgLatencyInSeconds, 50, 95) by bin(TimeGenerated, 1h) 
+| render timechart
+```
+
+### Usage of specific computers today
+This example retrieves **Usage** data from the last day for computer names that contains the string _ContosoFile_. The results are sorted by **TimeGenerated**.
+
+```Kusto
+Usage
+| where TimeGenerated > ago(1d)
+| where  Computer contains "ContosoFile" 
+| sort by TimeGenerated desc nulls last
+```
+
+## Updates
+
+### Computers Still Missing Updates
+This example shows a list of computers that were missing one or more critical updates a few days ago and are still missing updates.
+
+```Kusto
+let ComputersMissingUpdates3DaysAgo = Update
+| where TimeGenerated between (ago(3d)..ago(2d))
+| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| summarize makeset(Computer);
+
+Update
+| where TimeGenerated > ago(1d)
+| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where Computer in (ComputersMissingUpdates3DaysAgo)
+| summarize UniqueUpdatesCount = dcount(Product) by Computer, OSType
+```
 
 
-See other lessons for using the Log Analytics query language:
+## Next steps
 
-- [String operations](string-operations.md)
-- [Date and time operations](datetime-operations.md)
-- [Advanced aggregations](advanced-aggregations.md)
-- [JSON and data structures](json-data-structures.md)
-- [Advanced query writing](advanced-query-writing.md)
-- [Joins](joins.md)
-- [Charts](charts.md)
+- Refer to the [Kusto language reference](/azure/kusto/query) for details on the language.
+- Walk through a [lesson on writing queries in Log Analytics](get-started-queries.md).
