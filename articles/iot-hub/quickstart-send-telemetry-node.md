@@ -45,9 +45,11 @@ Download the sample Node.js project from https://github.com/Azure-Samples/azure-
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure CLI to register a simulated device.
+A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Open Azure CLI.Run the following commands to add the IoT Hub CLI extension and to create the device identity. Replace `YourIoTHubName` with the name you choose for your IoT hub:
+1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+
+   YourIoTHubName: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -56,13 +58,21 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     If you choose a different name for your device, update the device name in the sample applications before you run them.
 
-1. Run the following command in Azure CLI to get the _device connection string_ for the device you just registered:
+1. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
+
+   YourIoTHubName: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
 
-    Make a note of the device connection string, which looks like `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`. You use this value later in the quickstart.
+    Make a note of the device connection string, which looks like `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`.  You use this value later in the quickstart.
+
+    {YourIoTHubName} : This placeholder represents the name you choose for your IoT hub.
+
+    {YourSharedAccessKey} : This placeholder represents your shared access key.
+
+    
 
 1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub in order to retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
@@ -71,6 +81,11 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```
 
     Make a note of the service connection string, which looks like `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`. You use this value later in the quickstart. The service connection string is different from the device connection string.
+
+    {YourIoTHubName} : This placeholder represents the name you choose for your IoT hub.
+
+    {YourSharedAccessKey} : This placeholder represents your shared access key.
+
 
 ## Send simulated telemetry
 

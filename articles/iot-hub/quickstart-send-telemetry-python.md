@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 The two sample applications you run in this quickstart are written using Python. You need either Python 2.7.x or 3.5.x on your development machine.
 
 You can download Python for multiple platforms from [Python.org](https://www.python.org/downloads/).
-Your python installer choice should be based on the architecture of the system that you are working with. If your system CPU architecture is 32 bit then download x86, which is the default installer on Python.org and for the 64bit architecture you need to download x86-64 installer.
+The Python installer you choose should be based on the architecture of the system that you are working with. If your system CPU architecture is 32 bit then download x86, which is the default installer on Python.org and for the 64bit architecture you need to download x86-64 installer.
 
 You can verify the current version of Python on your development machine using one of the following commands:
 
