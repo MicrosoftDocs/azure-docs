@@ -18,7 +18,7 @@ Install the following tools:
 
 * [Git](https://git-scm.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
-* [Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack)
+* [Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) extension for Visual Studio Code
 
 #### Install
 

@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2018
+ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -98,6 +98,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Australia East     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
 |Japan East  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
