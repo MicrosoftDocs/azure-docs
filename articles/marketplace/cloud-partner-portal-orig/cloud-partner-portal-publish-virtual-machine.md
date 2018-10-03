@@ -41,12 +41,8 @@ The following technical and non-technical prerequisites apply to publishing a vi
 
 -   [Security recommendations for Azure Marketplace     images](https://docs.microsoft.com/en-us/azure/security/security-recommendations-azure-marketplace-images)
 
-<<<<<<< HEAD
+
 ### Non-technical (business requirements)
-=======
-    -   [Security Recommendations for Azure Marketplace
-        Images](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
->>>>>>> c9485727c0e3f006d75e99b1500f5acf18df6831
 
  -   Your company (or its subsidiary) is located in a sell country supported by ​the Azure Marketplace
 
