@@ -249,7 +249,7 @@ In this section, you enable Britta Simon to use Azure single sign-on, by grantin
 	
 ### Test single sign-on
 
-When you select the Adobe Sign tile in the Access Panel, you should get automatically signed on to your Adobe Sign application. For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+When you select the Adobe Sign tile in the Access Panel, you should get automatically signed on to your Adobe Sign application. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

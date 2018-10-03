@@ -275,7 +275,7 @@ In this section, you test your Azure AD single sign-on configuration by using th
 
 When you select the Adobe Experience Manager tile in the access panel, you should get automatically signed in to your Adobe Experience Manager application.
 
-For more information about the access panel, see [Introduction to the access panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the access panel, see [Introduction to the access panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

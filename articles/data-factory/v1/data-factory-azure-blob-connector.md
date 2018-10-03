@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Copy data to or from Azure Blob Storage using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-azure-blob-connector.md)
-> * [Version 2 - Preview](../connector-azure-blob-storage.md)
+> * [Version 1](data-factory-azure-blob-connector.md)
+> * [Version 2 (current version)](../connector-azure-blob-storage.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Azure Blob Storage connector in V2](../connector-azure-blob-storage.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure Blob Storage connector in V2](../connector-azure-blob-storage.md).
 
 
 This article explains how to use the Copy Activity in Azure Data Factory to copy data to and from Azure Blob Storage. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
@@ -171,7 +171,7 @@ This section describes the resulting behavior of the Copy operation for differen
 Let's look at how to quickly copy data to/from an Azure blob storage. In this walkthrough, both source and destination data stores of type: Azure Blob Storage. The pipeline in this walkthrough copies data from a folder to another folder in the same blob container. This walkthrough is intentionally simple to show you settings or properties when using Blob Storage as a source or sink. 
 
 ### Prerequisites
-1. Create a general-purpose **Azure Storage Account** if you don't have one already. You use the blob storage as both **source** and **destination** data store in this walkthrough. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+1. Create a general-purpose **Azure Storage Account** if you don't have one already. You use the blob storage as both **source** and **destination** data store in this walkthrough. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article for steps to create one.
 2. Create a blob container named **adfblobconnector** in the storage account. 
 4. Create a folder named **input** in the **adfblobconnector** container.
 5. Create a file named **emp.txt** with the following content and upload it to the **input** folder by using tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
@@ -193,7 +193,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
    ![Data factory home page](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### Copy Wizard
-1. On the Data Factory home page, click the **Copy data [PREVIEW]** tile to launch **Copy Data Wizard** in a separate tab.    
+1. On the Data Factory home page, click the **Copy data** tile to launch **Copy Data Wizard** in a separate tab.    
     
     > [!NOTE]
     >    If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third-party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.

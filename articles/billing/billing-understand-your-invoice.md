@@ -1,5 +1,5 @@
 ---
-title: Understand your Azure invoice
+title: Understand your Azure invoice | Microsoft Docs
 description: Learn how to read and understand the usage and bill for your Azure subscription
 services: ''
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
+ms.author: cwatson
 
 ---
 # Understand terms on your Microsoft Azure invoice

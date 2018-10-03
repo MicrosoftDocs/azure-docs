@@ -275,22 +275,22 @@ You use *settings* to enable an operator to send configuration data to a device.
 
 ## Use properties / device properties
 
-You use *properties* to store information about your device in the application. In this section, you add device properties to your **Connected Air Conditioner** device template to store the device serial number and firmware version. Note that both of these are read-only properties reported by the device -- you cannot assign values to them. Properties you might use that you can assign values to include the location of the device, ownership information, and the last service date/time for the device.
+You use *properties* to store information about your device in the application. In this section, you add cloud properties to your **Connected Air Conditioner** device template to store the location of the device and the last service date. Note that both of these are editable properties of the device. There are also read-only properties reported by the device that cannot be changed such as the device serial number and firmware version.
  
 1. Navigate to the **Properties** page for your **Connected Air Conditioner** device template:
 
     ![Prepare to add a property](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    You can create device properties of different types such as numbers or text. To add a serial number property to your device template, choose **Text**.
+    You can create device properties of different types such as numbers or text. To add a location property to your device template, choose **Location**.
 
-2. To configure your serial number property, use the information in the following table:
+2. To configure your location property, use the information in the following table:
 
     | Field                | Value                |
     | -------------------- | -------------------- |
-    | Display Name         | Serial number        |
-    | Field Name           | serialNumber         |
-    | Initial Value        | cac00001             |
-    | Description          | Device serial number |
+    | Display Name         | Location             |
+    | Field Name           | location             |
+    | Initial Value        | Seattle, WA          |
+    | Description          | Device location      |
 
     Leave other fields with their default values.
 
@@ -298,16 +298,16 @@ You use *properties* to store information about your device in the application. 
 
     Choose **Save**.
 
-3. To add a firmware version to the device properties for your device template, choose **Text**.
+3. To add a last service date property to your device template, choose **Date**.
 
-4. To configure your firmware version device property, use the information in the following table:
+4. To configure your last service date property, use the information in the following table:
 
     | Field                | Value                   |
     | -------------------- | ----------------------- |
-    | Display Name         | Firmware version        |
-    | Field Name           | firmwareVersion         |
-    | Initial Value        | 0.1                     |
-    | Description          | Device firmware version |
+    | Display Name         | Last Service Date       |
+    | Field Name           | serviceDate             |
+    | Initial Value        | 1/1/2018                |
+    | Description          | Last serviced           |
 
     ![Configure the device properties](./media/tutorial-define-device-type/configureproperties2.png)
 
@@ -320,7 +320,7 @@ You use *properties* to store information about your device in the application. 
 
 ## Use commands
 
-You use _commands_ to enable an operator to run commands directly on the device. In this section, you add a command to your **Connected Air Conditioner** device template that enables an operator to echo a certain message on the the connected air conditioner display (this works with MxChip sample code).
+You use _commands_ to enable an operator to run commands directly on the device. In this section, you add a command to your **Connected Air Conditioner** device template that enables an operator to echo a certain message on the connected air conditioner display (this works with MxChip sample code).
 
 1. Navigate to the **Commands** page for your **Connected Air Conditioner** device template:
 
@@ -328,7 +328,7 @@ You use _commands_ to enable an operator to run commands directly on the device.
 
     You can create commands of different types based on your requirements. 
 
-1. Click **New Command** to add a command to your device.
+1. Click **New Command** to add a command to your device .
 
 1. To configure your new command, use the information in the following table:
 
@@ -337,8 +337,8 @@ You use _commands_ to enable an operator to run commands directly on the device.
     | Display Name         | Echo Command    |
     | Field Name           | echo            |
     | Default Timeout      | 30              |
-    | Display Name         | Display Text    |
-    | Display Type         | text            |  
+    | Display Type         | text            |
+    | Description          | Device Command  |  
 
 You can add additional inputs to the command by clicking **+** for inputs.
 
@@ -422,7 +422,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
     | Title                   | Serial number |
     | Settings and Properties | Serial Number |
 
-    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings1.png)
+    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings3.png)
 
     Then choose **Save**.
 
@@ -437,7 +437,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
     | Title                   | Firmware version |
     | Settings and Properties | Firmware Version |
 
-    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings2.png)
+    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings3.png)
 
     Then choose **Save**.
 

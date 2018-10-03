@@ -5,7 +5,7 @@ services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: ponatara
 ---
 
@@ -50,7 +50,7 @@ If you migrate on-premises VMware VMs (or physical servers) to Azure, note that:
         ```
         MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
         ```
-    - For Linux, sign in a a root user. In a terminal, go to **/user/local/ASR**, and run the following command:
+    - For Linux, sign in as a root user. In a terminal, go to **/user/local/ASR**, and run the following command:
         ```
         uninstall.sh -Y
         ```

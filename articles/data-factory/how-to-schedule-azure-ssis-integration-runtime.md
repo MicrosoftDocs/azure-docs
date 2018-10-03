@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -28,10 +28,6 @@ Here are the high-level steps described in this article:
 3. **Create two webhooks for the runbook**, one for the START operation and the other for the STOP operation. You use the URLs of these webhooks when configuring web activities in a Data Factory pipeline. 
 4. **Create a Data Factory pipeline**. The pipeline you create consists of three activities. The first **Web** activity invokes the first webhook to start the Azure SSIS IR. The **Stored Procedure** activity runs a SQL script that runs the SSIS package. The second **Web** activity stops the Azure SSIS IR. For more information about invoking an SSIS package from a Data Factory pipeline by using the Stored Procedure activity, see [Invoke an SSIS package](how-to-invoke-ssis-package-stored-procedure-activity.md). Then, you create a schedule trigger to schedule the pipeline to run at the cadence you specify.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Invoke SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
-
- 
 ## Prerequisites
 If you haven't provisioned an Azure SSIS integration runtime already, provision it by following instructions in the [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
 
@@ -248,7 +244,7 @@ After you create and test the pipeline, you create a schedule trigger and associ
       - Select **Create new**, and enter the name of a resource group.   
          
       To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
+4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
 6. Select **Pin to dashboard**.     
 7. Click **Create**.
@@ -371,15 +367,40 @@ Now that the pipeline works as you expected, you can create a trigger to run thi
 5. Publish the solution to Data Factory by selecting **Publish All** in the left pane. 
 
     ![Publish All](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
-6. To monitor trigger runs and pipeline runs, use the **Monitor** tab on the left. For detailed steps, see [Monitor the pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
+
+### Monitor the pipeline and trigger in the Azure portal
+
+1. To monitor trigger runs and pipeline runs, use the **Monitor** tab on the left. For detailed steps, see [Monitor the pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Pipeline runs](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. To view the activity runs associated with a pipeline run, select the first link (**View Activity Runs**) in the **Actions** column. You see the three activity runs associated with each activity in the pipeline (first Web activity, Stored Procedure activity, and the second Web activity). To switch back to view the pipeline runs, select **Pipelines** link at the top.
+2. To view the activity runs associated with a pipeline run, select the first link (**View Activity Runs**) in the **Actions** column. You see the three activity runs associated with each activity in the pipeline (first Web activity, Stored Procedure activity, and the second Web activity). To switch back to view the pipeline runs, select **Pipelines** link at the top.
 
     ![Activity runs](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
-8. You can also view trigger runs by selecting **Trigger runs** from the drop-down list that's next to the **Pipeline Runs** at the top. 
+3. You can also view trigger runs by selecting **Trigger runs** from the drop-down list that's next to the **Pipeline Runs** at the top. 
 
     ![Trigger runs](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
+
+### Monitor the pipeline and trigger with PowerShell
+
+Use scripts like the following examples to monitor the pipeline and the trigger.
+
+1. Get the status of a pipeline run.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  ```
+
+2. Get info about the trigger.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  ```
+
+3. Get the status of a trigger run.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  ```
 
 ## Next steps
 See the following blog post:

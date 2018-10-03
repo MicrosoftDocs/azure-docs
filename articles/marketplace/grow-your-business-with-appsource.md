@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
 
 ---  
@@ -50,7 +50,7 @@ There are many compelling reasons why you should join the storefronts on the mar
 *   **List your consulting services offerings**  
     Business users are looking for experienced partners to help customer get started with confidence by offering quality consulting services designed to deliver predictable outcomes. List your consulting services offerings to help business users find the offers to help the customer get started quickly.  
 *   **Get started with confidence**  
-    The Microsoft AppSource team is here to provide a seamless onboarding experience. The AppSource team is here to help you every step of the way—whether it is working on the trial or test drive experience, helping you meet the listing criteria and more.  
+    The Microsoft AppSource team is here to provide a seamless onboarding experience. The AppSource team is here to help you every step of the way; whether it is working on the trial or test drive experience, helping you meet the listing criteria, and more.  
 *   **Customize your app listing page**  
     You have flexibility when it comes to deciding how you would like to market your apps on AppSource. Provide a video, data sheets, documentation, and detailed description. Microsoft works with you to present your app on AppSource in a compelling way.  
 *   **Get actionable insights**  
@@ -102,14 +102,14 @@ The following tables detail each step of filling out your offer listing.
 
 | Offer setting | Best practices | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Name** | **Naming your offer**<br />Choosing a name for your app is a key decision. Benefit-based names are more effective than descriptive names. Your app name should communicate the core value customers receive. Including search keywords in your app title can also help your app to be ranked higher in search engine results. Follow the Microsoft Trademark and Brand Guidelines as well as relevant product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft, software, products and services.<ul> <li>For more information about Microsoft trademarks and branding, visit the Microsoft Trademark and Brand Guidelines page located at [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Name** | **Naming your offer**<br />Choosing a name for your app is a key decision. Benefit-based names are more effective than descriptive names. Your app name should communicate the core value customers receive. Including search keywords in your app title can also help your app to be ranked higher in search engine results. Follow the Microsoft Trademark and Brand Guidelines as well as relevant product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft, software, products and services.<ul> <li>For more information about Microsoft trademarks and branding, visit the Microsoft Trademark and Brand Guidelines page located at [www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
 
 **Storefront details - Offer details**  
 
 | Storefront settings | Best practices | 
 |:---------------------------------------- |:----------------------------------------------------- |
 | **Offer name** | The offer summary appears on the search page of the offer on the AppSource homepage and app gallery. Include search keywords in your offer summary to help improve ranking of your app in search engine results. |
-| **Offer description** | **Provide a good offer description**<br />Clearly describe the value proposition of your offer in the first few sentences of your description. Keep in mind that the first few sentences might be displayed in search engine results.<br />Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver. Use industry-specific vocabulary or benefit-based wording as much as possible.<br />Core components of your value proposition should include information about:<br />•What is the product<br />•Who gains from it the most<br />•What need, or pain does it address.<br />Tell your customers how their business or work life can be different after they use your solution.<br />Incorporate search keywords and keyword variations in your offer description to help improve the ranking of your offer in search engine results.<br />Provide the offer description using simple HTML.<br />Here is an example of a simple offer listing page (as shown in the listing example shown above) that provides an offer summary followed by a list of key capabilities. The maximum number of characters is 3,000.<br />_Sample HTML_<br /><p>Organization Insights for Dynamics 365 (online) provides important adoption and usage metrics for your Dynamics 365 organization, and tools to help you stay ahead of performance and support issues.</p> <ul><li><strong>Customize dashboards</strong><br /> Set up your dashboard to provide a rich user experience and snapshots of your important data.<ul> <li><strong>Monitor adoption and use:</strong> Identify your most active users, number of page requests, most-used entities, workflows, and more.</li> </ul><p>Minimum supported platform version: 8.1.1</p> |
+| **Offer description** | **Provide a good offer description**<br />Clearly describe the value proposition of your offer in the first few sentences of your description. Keep in mind that the first few sentences might be displayed in search engine results.<br />Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver. Use industry-specific vocabulary or benefit-based wording as much as possible.<br />Core components of your value proposition should include information about:<ul> <li>What is the product</li>  <li>Who gains from it the most</li> <li>What need, or pain does it address.</li> </ul>Tell your customers how their business or work life can be different after they use your solution.<br />Incorporate search keywords and keyword variations in your offer description to help improve the ranking of your offer in search engine results.<br />Provide the offer description using simple HTML.<br />Here is an example of a simple offer listing page (as shown in the listing example shown above) that provides an offer summary followed by a list of key capabilities. The maximum number of characters is 3,000.<br />*Sample HTML*<br />Organization Insights for Dynamics 365 (online) provides important adoption and usage metrics for your Dynamics 365 organization, and tools to help you stay ahead of performance and support issues. <ul> <li>**Customize dashboards**<br />Set up your dashboard to provide a rich user experience and snapshots of your important data.<ul> <li>**Monitor adoption and use**<br />Identify your most active users, number of page requests, most-used entities, workflows, and more.</li> </ul></li> </ul>Minimum supported platform version: `8.1.1` |
 
 **Storefront details - Listing details**  
 
@@ -131,7 +131,7 @@ The following tables detail each step of filling out your offer listing.
 | **Screenshots** | Add up to five screenshots, incorporate key search words in the names. |
 
 ### Promote the availability of your offer on AppSource  
-When your offer is listed on AppSource, you have earned the right to display the “Available on AppSource” badge on your page. 
+When your offer is listed on AppSource, you have earned the right to display the ***Available on AppSource*** badge on your page. 
 
  ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
     

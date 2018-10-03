@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
+The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -97,7 +97,7 @@ To reset the primary device key for **MyTestDevice**, run the following commands
 # Generate a new Base64 encoded key using the current date
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
-# Requires the IoT Extension for Azure CLI 2.0
+# Requires the IoT Extension for Azure CLI
 # az extension add --name azure-cli-iot-ext
 
 # Reset the primary device key for MyTestDevice
@@ -122,7 +122,7 @@ If your device uses one of the IoT Hub device SDKs, the SDK library code generat
 In some scenarios, such as in a cloud protocol gateway or as part of a custom authentication scheme, you may need to generate the SAS token yourself. To troubleshoot issues with your SAS generation code, it's useful to be able to generate a known-good SAS token to use during testing.
 
 > [!NOTE]
-> The the SimulatedDevice-2.js sample includes examples of generating a SAS token both with and without the SDK.
+> The SimulatedDevice-2.js sample includes examples of generating a SAS token both with and without the SDK.
 
 To generate a known-good SAS token using the CLI, run the following command:
 

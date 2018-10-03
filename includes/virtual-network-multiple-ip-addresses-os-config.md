@@ -12,7 +12,7 @@
 
 ## <a name="os-config"></a>Add IP addresses to a VM operating system
 
-Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the steps that following for your VM operating system.
+Connect and sign in to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the steps that following for your VM operating system.
 
 ### Windows
 

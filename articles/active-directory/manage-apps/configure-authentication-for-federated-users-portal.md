@@ -10,7 +10,7 @@ ms.component: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: it-pro
+ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
 ---
@@ -202,7 +202,7 @@ To apply the HRD policy after you have created it, you can assign it to multiple
 #### Step 2: Locate the service principal to which to assign the policy  
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.    
 
-You can use the portal, or you can query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to the [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign in to your Azure AD account to see all your organization's service principals. Because you are using PowerShell, you can use the get-AzureADServicePrincipal cmdlet to list the service principals and their IDs.
+You can use the portal, or you can query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals. Because you are using PowerShell, you can use the get-AzureADServicePrincipal cmdlet to list the service principals and their IDs.
 
 #### Step 3: Assign the policy to your service principal  
 After you have the **ObjectID** of the service principal of the application for which you want to configure auto-acceleration, run the following command. This command associates the HRD policy that you created in step 1 with the service principal that you located in step 2.
@@ -256,6 +256,6 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 ## Next steps
-- For more information about how authentication works in Azure AD, see [Authentication scenarios for Azure AD](../develop/active-directory-authentication-scenarios.md).
+- For more information about how authentication works in Azure AD, see [Authentication scenarios for Azure AD](../develop/authentication-scenarios.md).
 - For more information about user single sign-on, see [Application access and single sign-on with Azure Active Directory](configure-single-sign-on-portal.md).
-- Visit the [Active Directory developer's guide](../develop/active-directory-developers-guide.md) for an overview of all developer-related content.
+- Visit the [Active Directory developer's guide](../develop/azure-ad-developers-guide.md) for an overview of all developer-related content.

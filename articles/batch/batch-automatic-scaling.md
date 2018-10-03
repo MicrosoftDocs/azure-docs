@@ -472,7 +472,7 @@ if (pool.AutoScaleEnabled == false)
     // We need a valid autoscale formula to enable autoscaling on the
     // pool. This formula is valid, but won't resize the pool:
     await pool.EnableAutoScaleAsync(
-        autoscaleFormula: "$TargetDedicatedNodes = {pool.CurrentDedicatedNodes};",
+        autoscaleFormula: "$TargetDedicatedNodes = $CurrentDedicatedNodes;",
         autoscaleEvaluationInterval: TimeSpan.FromMinutes(5));
 
     // Batch limits EnableAutoScaleAsync calls to once every 30 seconds.

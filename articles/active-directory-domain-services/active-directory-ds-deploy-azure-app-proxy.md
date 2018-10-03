@@ -13,8 +13,8 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2017
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: maheshu
 
 ---
@@ -25,6 +25,7 @@ Azure Active Directory (AD) Application Proxy helps you support remote workers b
 If you're new to the Azure AD Application Proxy, learn more about this feature with the following article:
 [How to provide secure remote access to on-premises applications](../active-directory/manage-apps/application-proxy.md).
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## Before you begin
 To perform the tasks listed in this article, you need:

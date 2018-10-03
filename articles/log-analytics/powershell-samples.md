@@ -11,13 +11,14 @@ tags: ''
 ms.assetid:
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ---
+
 # Azure Log Analytics PowerShell samples
 
 The following table includes links to PowerShell scripts samples to perform various functions in Log Analytics.

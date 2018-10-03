@@ -1,72 +1,89 @@
 ---
-title: Configure Domain-joined HDInsight clusters using AAD-DS
-description: Learn how to set up and configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services
+title: Configure a HDInsight cluster with Enterprise Security Package by using Azure AD-DS
+description: Learn how to set up and configure a HDInsight Enterprise Security Package cluster by using Azure Active Directory Domain Services.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-
-
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 05/30/2018
+author: omidm1
 ms.author: omidm
-
+ms.reviewer: jasonh
+ms.topic: conceptual
+ms.date: 09/24/2018
 ---
-# Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services
+# Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services
 
-Domain-joined clusters provide the multi-user access on HDInsight clusters. Domain-joined HDInsight clusters are connected to a domain, so that domain users can use their domain credentials to authenticate with the clusters and run big data jobs. 
+Enterprise Security Package (ESP) clusters provide multi-user access on Azure HDInsight clusters. HDInsight clusters with ESP are connected to a domain so that domain users can use their domain credentials to authenticate with the clusters and run big data jobs. 
 
-In this article, you learn how to configure a Domain-joined HDInsight cluster using Azure Active Directory Domain Services.
+In this article, you learn how to configure a HDInsight cluster with ESP by using Azure Active Directory Domain Services (Azure AD-DS).
 
-## Create Azure ADDS
+>[!NOTE]
+>ESP is GA in HDI 3.6 for Spark, Interactive, and Hadoop. ESP for HBase and Kafka cluster types is in preview.
 
-Enabling Azure AD Domain Services (AAD-DS) is a prerequisite before you can create a domain-joined HDInsight cluster. To enable an AAD-DS instance, see [How to enable AAD-DS using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+## Enable Azure AD-DS
+
+Enabling Azure AD-DS is a prerequisite before you can create a HDInsight cluster with ESP. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+
+When Azure AD-DS is enabled, all users and objects start synchronizing from Azure Active Directory (AAD) to Azure AD-DS by default. The length of the sync operation depends on the number of objects in AAD. The sync could take a few days for hundreds of thousands of objects. 
+
+Customers can choose to sync only the groups that need access to the HDInsight clusters. This option of syncing only certain groups is called *scoped synchronization*. See [Configure Scoped Synchronization from Azure AD to your managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) for instructions.
 
 > [!NOTE]
-> Only the tenant administrators have the privileges to create an AAD-DS instance. If you use Azure Data Lake Storage (ADLS) as the default storage for HDInsight, then make sure the default Azure AD tenant for ADLS is same as the domain for the HDInsight cluster. Sincde Hadoop relies on Kerberos and basic auth, multi-factor authentication needs to be disabled for users that will have access to the cluster.
+> Only tenant administrators have the privileges to create an Azure AD-DS instance. Multi-factor authentication needs to be disabled only for users who will access the cluster.
 
-After the AAD-DS instance has been provisioned, you need to create a service account in AAD (which will be synced to AAD-DS) with the right permissions. If this service account already exists, you need to reset its password and wait until it syncs to AAD-DS (This reset will result in creation of the kerberos password hash and it could take up to 30 min to sync to AAD-DS). This service account should have the following privileges:
+When enabling secure LDAP, put the domain name in the subject name or the subject alternative name in the certificate. For example, if your domain name is *contoso.com*, make sure that exact name exists in your certificate subject name or subject alternative name. For more information, see [Configure secure LDAP for an Azure AD-DS managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
-- Join machines to the domain and place machine principals within the OU that you specify during cluster creation.
-- Create service principals within the OU that you specify during cluster creation.
+## Check AAD-DS health status
 
-> [!NOTE]
-> Because Apache Zeppelin uses the domain name to authenticate the administrative service account, the service account MUST have the same domain name as its UPN suffix for Apache Zeppelin to function properly.
+View the health status of your Azure Active Directory Domain Services by selecting **Health** under the **Manage** category. Make sure the status of AAD-DS is green (running) and the synchronization is complete.
 
-To learn more about OUs and how to manage them, see [Create an OU on an AAD-DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md). 
+![Azure Active Directory Domain Services health](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
-Secure LDAP for AAD-DS Managed Domain is required. To enable Secure LDAP, see [How to configure secure LDAP (LDAPS) for an AAD-DS managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
+## Add managed identity
 
-## Create a Domain-joined HDInsight cluster
+Create a user-assigned managed identity if you don’t have one already. See [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) for instructions. 
 
-The next step is to create the HDInsight cluster using the AAD-DS and the service account created in the previous section.
+The managed identity is used to simplify domain services operations. This identity has access to read, create, modify, and delete domain services operations that are needed for the HDInsight Enterprise Security Package such as creating OUs and service principles.
 
-It is easier to place both the AAD-DS and the HDInsight cluster in the same Azure virtual network(VNet). In case you chose to put them in different VNets, you must peer those VNets so that HDI VMs have a line of sight to the domain controller for joining the VMs. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
+After you enable Azure AD-DS, create a user-assigned managed identity and assign it to the **HDInsight Domain Services Contributor** role in Azure AD-DS Access control.
 
-When you create a domain-joined HDInsight cluster, you must supply the following parameters:
+![Azure Active Directory Domain Services Access control](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-- **Domain name**: The domain-name that is associated with AAD-DS. For example, contoso.onmicrosoft.com
-- **Domain user name**: The service account in the managed domain that is created in the previous section. For example, hdiadmin@contoso.onmicrosoft.com. This domain user will be the administrator of this HDInsight cluster.
-- **Domain password**: The password of the service account.
-- **Organization Unit**: The distinguished name of the OU that you want to use with HDInsight cluster. For example: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. If this OU does not exist, HDInsight cluster attempts to create the OU using the privileges the service account has. (For example, if the service account is in AAD-DS Administrators Group, it has the right permissions to create an OU, otherwise you might need to create the OU first and give the service acccount full control over that OU first - see [Create an OU on an AAD-DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)).
+Assigning a managed identity to the **HDInsight Domain Services Contributor** role ensures that the identity has proper access to perform certain domain services operations on the AAD-DS domain. For more information, see [What is managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-    > [!IMPORTANT]
-    > It's important to include all of the DCs sepearated by comma after the OU (e.g. OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com).
+## Create a HDInsight cluster with ESP
 
-- **LDAPS URL**: For example, ldaps://contoso.onmicrosoft.com:636
+The next step is to create the HDInsight cluster with ESP enabled using Azure AD-DS.
 
-    > [!IMPORTANT]
-    > Please enter the complete url including the ldaps:// and port number (:636)
+It's easier to place both the Azure AD-DS instance and the HDInsight cluster in the same Azure virtual network. If you choose to put them in different virtual networks, you must peer those virtual networks so that HDInsight VMs have a line of sight to the domain controller for joining the VMs. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md). To test if peering is done correctly, join a VM to the HDInsight VNET/Subnet and ping the domain name or run **ldp.exe** to access AAD-DS domain.
 
-- **Access user group**: The security groups whose users you want to sync to the cluster. For example, HiveUsers. If you want to specify multiple user groups, separate them by comma ‘,’.
- 
-The following screenshot shows the configurations in the Azure portal:
+When you create an HDInsight cluster, you have the option to enable Enterprise Security Package in the custom tab. 
 
-![Azure HDInsight domain-joined Active Directory Domain Services configuration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+![Azure HDInsight Security and networking](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-security-networking.png)
+
+Once you enable ESP, common misconfigurations related to Azure AD-DS will be automatically detected and validated.
+
+![Azure HDInsight Enterprise security package domain validation](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
+
+Early detection saves time by allowing you to fix errors before creating the cluster.
+
+![Azure HDInsight Enterprise security package failed domain validation](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate-failed.png)
+
+When you create a HDInsight cluster with ESP, you must supply the following parameters:
+
+- **Cluster admin user**: Choose an admin for your cluster from your synced Azure AD-DS. This account must be already synced and available in AAD-DS.
+
+- **Cluster access groups**: The security groups whose users you want to sync to the cluster should be available in Azure AD-DS. For example, HiveUsers group. For more information, see [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+- **LDAPS URL**: An example is ldaps://contoso.com:636.
+
+The following screenshot shows a successful configurations in the Azure portal:
+
+![Azure HDInsight ESP Active Directory Domain Services configuration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+
+The managed identity you created can be chosen in from the user-assigned managed identity dropdown when creating a new cluster.
+
+![Azure HDInsight ESP Active Directory Domain Services configuration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
 
 
 ## Next steps
-* For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md).
-* For using SSH to connect to Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
+* For configuring Hive policies and running Hive queries, see [Configure Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md).
+* For using SSH to connect to HDInsight clusters with ESP, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

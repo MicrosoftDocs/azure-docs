@@ -12,16 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 06/22/2018
 ms.author: jingwang
 
 ---
 # Copy data from Oracle Eloqua using Azure Data Factory (Preview)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Oracle Eloqua. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and provide feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
@@ -45,8 +42,8 @@ The following properties are supported for Oracle Eloqua linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Eloqua** | Yes |
-| endpoint | The endpoint of the Eloqua server. (that is, eloqua.example.com)  | Yes |
-| username | The site name and user name of your Eloqua account in the form: site name/user name. (that is, Eloqua/Alice)  | Yes |
+| endpoint | The endpoint of the Eloqua server. Eloqua supports multiple data centers, to determine your endpoint, login to https://login.eloqua.com with your credential, then copy the **base URL** portion from the redirected URL with the pattern of `xxx.xxx.eloqua.com`. | Yes |
+| username | The site name and user name of your Eloqua account in the form: `SiteName\Username` e.g. `Eloqua\Alice`.  | Yes |
 | password | The password corresponding to the user name. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
@@ -60,8 +57,8 @@ The following properties are supported for Oracle Eloqua linked service:
     "properties": {
         "type": "Eloqua",
         "typeProperties": {
-            "endpoint" : "eloqua.example.com",
-            "username" : "Eloqua/Alice",
+            "endpoint" : "<base URL e.g. xxx.xxx.eloqua.com>",
+            "username" : "<site name>\\<user name e.g. Eloqua\\Alice>",
             "password": {
                  "type": "SecureString",
                  "value": "<password>"

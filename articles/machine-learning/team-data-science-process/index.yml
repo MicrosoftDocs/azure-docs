@@ -1,19 +1,18 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Team Data Science Process Documentation
-metadata:
-  title: Team Data Science Process Documentation
-  description: Learn how to use the Team Data Science Process.
-  services: machine-learning
-  author: bradsev
-  manager: cgronlun
-  ms.service: machine-learning
+metadata: 
+  author: cjgronlund
+  description: "Learn how to use the Team Data Science Process, an agile, iterative data science methodology to deliver predictive analytics solutions and intelligent applications efficiently. TDSP helps improve team collaboration and learning. It contains a distillation of the best practices and structures from Microsoft and others in the industry that facilitate the successful implementation of data science initiatives. The goal is to help companies fully realize the benefits of their analytics program.."
+  ms.author: cgronlun
   ms.component: team-data-science-process
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
   ms.date: 01/18/2018
-  ms.author: bradsev
+  ms.devlang: na
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  services: machine-learning
+  title: "Team Data Science Process Documentation"
+
 abstract:
   description: The Team Data Science Process is an agile, iterative data science methodology to deliver predictive analytics solutions and intelligent applications efficiently. TDSP helps improve team collaboration and learning. It contains a distillation of the best practices and structures from Microsoft and others in the industry that facilitate the successful implementation of data science initiatives. The goal is to help companies fully realize the benefits of their analytics program.
 

@@ -3,14 +3,14 @@ title: Consistency levels in Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos DB has five consistency levels to help balance eventual consistency, availability, and latency trade-offs.
 keywords: eventual consistency, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: sngun
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -54,7 +54,7 @@ Azure Cosmos DB offers comprehensive 99.99% [SLAs](https://azure.microsoft.com/s
 The granularity of consistency is scoped to a single user request. A write request may correspond to an insert, replace, upsert, or delete transaction. As with writes, a read/query transaction is also scoped to a single user request. The user may be required to paginate over a large result-set, spanning multiple partitions, but each read transaction is scoped to a single page and served from within a single partition.
 
 ## Consistency levels
-You can configure a default consistency level on your database account that applies to all collections (and databases) under your Cosmos DB account. By default, all reads and queries issued against the user-defined resources use the default consistency level specified on the database account. You can relax the consistency level of a specific read/query request using in each of the supported APIs. There are five types of consistency levels supported by the Azure Cosmos DB replication protocol that provide a clear trade-off between specific consistency guarantees and performance, as described in this section.
+You can configure a default consistency level on your database account that applies to all containers (and databases) under your Cosmos DB account. By default, all reads and queries issued against the user-defined resources use the default consistency level specified on the database account. You can relax the consistency level of a specific read/query request using in each of the supported APIs. There are five types of consistency levels supported by the Azure Cosmos DB replication protocol that provide a clear trade-off between specific consistency guarantees and performance, as described in this section.
 
 <a id="strong"></a>
 **Strong**: 
@@ -108,7 +108,7 @@ You can configure a default consistency level on your database account that appl
     ![Screen shot highlighting the Settings icon and Default Consistency entry](./media/consistency-levels/database-consistency-level-1.png)
 
 ## Consistency levels for queries
-By default, for user-defined resources, the consistency level for queries is the same as the consistency level for reads. By default, the index is updated synchronously on each insert, replace, or delete of an item to the Cosmos DB container. This enables the queries to honor the same consistency level as that of point reads. While Azure Cosmos DB is write optimized and supports sustained volumes of writes, synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing further boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
+By default, for user-defined resources, the consistency level for queries is the same as the consistency level for reads. By default, the index is updated synchronously on each insert, replace, or delete of an item to the Cosmos DB container. This enables the queries to honor the same consistency level as that of point reads. While Azure Cosmos DB is write optimized and supports sustained volumes of writes, synchronous index maintenance and serving consistent queries, you can configure certain containers to update their index lazily. Lazy indexing further boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
 
 | Indexing Mode | Reads | Queries |
 | --- | --- | --- |
@@ -128,7 +128,7 @@ If you'd like to do more reading about consistency levels and tradeoffs, we reco
 * [Replicated Data Consistency explained through baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 * [Replicated Data Consistency explained through baseball (whitepaper) by Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * [Session Guarantees for Weakly Consistent Replicated Data](http://dl.acm.org/citation.cfm?id=383631)
-* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * [Eventual Consistent - Revisited](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)

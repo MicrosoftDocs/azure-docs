@@ -20,9 +20,6 @@ ms.author: jingwang
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Presto. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
@@ -34,7 +31,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Presto connector.
 

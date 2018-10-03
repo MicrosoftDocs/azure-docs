@@ -18,7 +18,7 @@ To quickly scan the sections in this article, use the links to the right, under 
 ## Configuring the backup job for Azure Files
 
 ### Why can't I see some of my Storage Accounts I want to protect, that contain valid Azure file shares? <br/>
-During preview, Backup for Azure file Shares does not support all types of Storage Accounts. Refer to the list [here](troubleshoot-azure-files.md#preview-boundaries) to see the list of supported Storage Accounts. It is also possible that the Storage Account you are looking for is already protected or registered with another Vault. [Unregister](troubleshoot-azure-files.md#configuring-backup) from the vault to discover the Storage Account in other Vaults for protection.
+During preview, Backup for Azure file Shares does not support all types of Storage Accounts. Refer to the list [here](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview) to see the list of supported Storage Accounts. It is also possible that the Storage Account you are looking for is already protected or registered with another Vault. [Unregister](troubleshoot-azure-files.md#configuring-backup) from the vault to discover the Storage Account in other Vaults for protection.
 
 ### Why can't I see some of my Azure file shares in the Storage Account when I'm trying to configure backup? <br/>
 Check if the Azure file share is already protected in the same Recovery Services vault or if it has been deleted recently.
@@ -34,13 +34,13 @@ Yes. However, you'll need to [Stop Protection](backup-azure-files.md#stop-protec
 
 ### In which geos can I back up Azure File shares <br/>
 Backup for Azure File shares is currently in Preview and is available only in the following geos: 
--	Australia South East (ASE) 
+-	Australia East (AE) 
+- Australia South East (ASE) 
 - Brazil South (BRS)
 - Canada Central (CNC)
 -	Canada East (CE)
 -	Central US (CUS)
 -	East Asia (EA)
--	East Australia (AE) 
 -	East US (EUS)
 -	East US 2 (EUS2)
 - Japan East (JPE)
@@ -63,7 +63,7 @@ Backup for Azure File shares is currently in Preview and is available only in th
 Write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
 
 ### How many Azure file shares can I protect in a Vault?<br/>
-During the preview, you can protect Azure file shares from up to 25 Storage Accounts per Vault. You can also protect up to 200 Azure file shares in a single vault.
+During the preview, you can protect Azure file shares from up to 50 Storage Accounts per Vault. You can also protect up to 200 Azure file shares in a single vault.
 
 ### Can I protect two different file shares from the same Storage Account to different Vaults?
 No. All file shares in a Storage Account can be protected only by the same Vault.

@@ -2,7 +2,6 @@
 title: Use the Azure PowerShell to configure file upload | Microsoft Docs
 description: How to use the Azure PowerShell cmdlets to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -14,14 +13,17 @@ ms.author: dobett
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure storage account with your IoT hub. You can use an existing storage account or create a new one.
+To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.md), you must first associate an Azure storage account with your IoT hub. You can use an existing storage account or create a new one.
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* [Azure PowerShell cmdlets][lnk-powershell-install].
-* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzureRmIoTHub cmdlet][lnk-powershell-iothub] to create one or use the portal to [Create an IoT hub][lnk-portal-hub].
-* An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets][lnk-powershell-storage] to create one or use the portal to [Create a storage account][lnk-portal-storage].
+* An active Azure account. If you don't have an account, you can create a [free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+
+* [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
+* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzureRmIoTHub cmdlet](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) to create one or use the portal to [Create an IoT hub](iot-hub-create-through-portal.md).
+
+* An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.storage/) to create one or use the portal to [Create a storage account](../storage/common/storage-create-storage-account.md)
 
 ## Sign in and set your Azure account
 
@@ -33,13 +35,13 @@ Sign in to your Azure account and select your subscription.
     Connect-AzureRmAccount
     ```
 
-1. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:
+2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    Use the following command to select subscription that you want to use to run the commands to manage your IoT hub. You can use either the subscription name or ID from the output of the previous command:
+    Use the following command to select the subscription that you want to use to run the commands to manage your IoT hub. You can use either the subscription name or ID from the output of the previous command:
 
     ```powershell
     Select-AzureRMSubscription `
@@ -85,19 +87,19 @@ You can either use an existing blob container for your file uploads or create ne
 
 ## Configure your IoT hub
 
-You can now configure your IoT hub to enable [file upload functionality][lnk-upload] using your storage account details.
+You can now configure your IoT hub to [upload files to the IoT hub](iot-hub-devguide-file-upload.md) using your storage account details.
 
 The configuration requires the following values:
 
-**Storage container**: A blob container in an Azure storage account in your current Azure subscription to associate with your IoT hub. You retrieved the necessary storage account information in the preceding section. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
+* **Storage container**: A blob container in an Azure storage account in your current Azure subscription to associate with your IoT hub. You retrieved the necessary storage account information in the preceding section. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
 
-**Receive notifications for uploaded files**: Enable or disable file upload notifications.
+* **Receive notifications for uploaded files**: Enable or disable file upload notifications.
 
-**SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to one hour by default.
+* **SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to one hour by default.
 
-**File notification settings default TTL**: The time-to-live of a file upload notification before it is expired. Set to one day by default.
+* **File notification settings default TTL**: The time-to-live of a file upload notification before it is expired. Set to one day by default.
 
-**File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default.
+* **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default.
 
 Use the following PowerShell cmdlet to configure the file upload settings on your IoT hub:
 
@@ -115,32 +117,16 @@ Set-AzureRmIotHub `
 
 ## Next steps
 
-For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload].
+For more information about the file upload capabilities of IoT Hub, see [Upload files from a device](iot-hub-devguide-file-upload.md).
 
 Follow these links to learn more about managing Azure IoT Hub:
 
-* [Bulk manage IoT devices][lnk-bulk]
-* [IoT Hub metrics][lnk-metrics]
-* [Operations monitoring][lnk-monitor]
+* [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
+* [IoT Hub metrics](iot-hub-metrics.md)
+* [Operations monitoring](iot-hub-operations-monitoring.md)
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub developer guide][lnk-devguide]
-* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
-* [Secure your IoT solution from the ground up][lnk-securing]
-
-[lnk-upload]: iot-hub-devguide-file-upload.md
-
-[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-securing]: /azure/iot-fundamentals/iot-security-ground-up
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/
-[lnk-powershell-iothub]: https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub
-[lnk-portal-hub]: iot-hub-create-through-portal.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-portal-storage]:../storage/common/storage-create-storage-account.md
+* [IoT Hub developer guide](iot-hub-devguide.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Secure your IoT solution from the ground up](../iot-fundamentals/iot-security-ground-up.md)

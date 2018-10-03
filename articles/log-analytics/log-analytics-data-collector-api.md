@@ -12,10 +12,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/14/2018
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: bwren
-
+ms.component: 
 ---
 
 # Send data to Log Analytics with the HTTP Data Collector API (public preview)
@@ -224,8 +224,8 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# Specify a field with the created time for the records
-$TimeStampField = "DateValue"
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+$TimeStampField = ""
 
 
 # Create two records with the same set of properties to create
@@ -275,7 +275,6 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
         -sharedKey $sharedKey `
         -date $rfc1123date `
         -contentLength $contentLength `
-        -fileName $fileName `
         -method $method `
         -contentType $contentType `
         -resource $resource
@@ -468,3 +467,5 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## Next steps
 - Use the [Log Search API](log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.
+
+- Learn more about how [create a data pipeline with the Data Collector API](log-analytics-create-pipeline-datacollector-api.md) using Logic Apps workflow to Log Analytics.

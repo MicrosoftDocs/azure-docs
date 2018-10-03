@@ -1,6 +1,6 @@
 - name: Content Moderator Documentation
 - name: Overview
-  items: 
+  items:
   - name: What is Content Moderator?
     href: overview.md
 - name: Samples
@@ -15,8 +15,6 @@
     href: image-moderation-api.md
   - name: Text moderation
     href: text-moderation-api.md
-  - name: Text moderation - languages
-    href: Text-Moderation-API-Languages.md
   - name: Video moderation
     href: video-moderation-human-review.md
   - name: Jobs and reviews
@@ -112,9 +110,13 @@
     - name: .NET
       href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator
 - name: Resources
-  items:  
+  items:
   - name: FAQ
     href: FAQs.md
+  - name: Language and region support
+    href: language-support.md
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
   - name: Export or delete account data
@@ -128,4 +130,4 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: On-demand webinar
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html 
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html

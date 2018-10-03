@@ -3,9 +3,9 @@ title: Communication Security - Microsoft Threat Modeling Tool - Azure | Microso
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -285,7 +285,7 @@ namespace CertificatePinningExample
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **Steps** | The application configuration should ensure that HTTPS is used for all access to sensitive information.<ul><li>**EXPLANATION:** If an application handles sensitive information and does not use message-level encryption, then it should only be allowed to communicate over an encrypted transport channel.</li><li>**RECOMMENDATIONS:** Ensure that HTTP transport is disabled and enable HTTPS transport instead. For example, replace the `<httpTransport/>` with `<httpsTransport/>` tag. Do not rely on a network configuration (firewall) to guarantee that the application can only be accessed over a secure channel. From a philosophical point of view, the application should not depend on the network for its security.</li></ul><p>From a practical point of view, the people responsible for securing the network do not always track the security requirements of the application as they evolve.</p>|
 
 ## <a id="message-protection"></a>WCF: Set Message security Protection level to EncryptAndSign

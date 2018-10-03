@@ -2,12 +2,12 @@
 title: Troubleshoot replication issues for VMware VM and physical server replication to Azure with Azure Site Recovery | Microsoft Docs
 description: This article provides troubleshooting for common replication issues when replicating VMware VMs and physical servers to Azure with Azure Site Recovery.
 services: site-recovery
-author: asgang
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: asgang
+ms.date: 07/06/2018
+ms.author: ramamill
 
 ---
 # Troubleshoot replication issues for VMware VMs and physical servers
@@ -69,25 +69,7 @@ If you are unable to connect, then check if the access issue is due to firewall 
 
 * **Check if URL-based firewall on Process server is not blocking access**:  If you are using a URL-based firewall rules on the server, ensure the following URLs are added to firewall configuration.
 
-  `*.accesscontrol.windows.net:` Used for access control and identity management
-
-  `*.backup.windowsazure.com:` Used for replication data transfer and orchestration
-
-  `*.blob.core.windows.net:` Used for access to the storage account that stores replicated data
-
-  `*.hypervrecoverymanager.windowsazure.com:` Used for replication management operations and orchestration
-
-  `time.nist.gov` and `time.windows.com`: Used to check time synchronization between system and global time.
-
-URLs for **Azure Government Cloud**:
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **Check if Proxy Settings on Process server are not blocking access**.  If you are using a Proxy Server, ensure the proxy server name is resolving by the DNS server.
 To check what you have provided at the time of Configuration Server setup. Go to registry key

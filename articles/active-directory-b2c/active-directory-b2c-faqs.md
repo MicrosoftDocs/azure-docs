@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
@@ -15,6 +15,9 @@ ms.component: B2C
 
 # Azure AD B2C: Frequently asked questions (FAQ) 
 This page answers frequently asked questions about the Azure Active Directory (Azure AD) B2C. Keep checking back for updates.
+
+### Why can't I access the Azure AD B2C extension in the Azure portal?
+There are two common reasons for why the Azure AD extension is not working for you.  Azure AD B2C requires your user role in the directory to be global administrator.  Please contact your administrator if you think you should have access.  If you have global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure Active Directory directory.  You can see instructions for [creating an Azure AD B2C directory here](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
 Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant.  An Azure AD tenant represents an organization.  An Azure AD B2C tenant represents a collection of identities to be used with relying party applications.  With custom policies (in public preview), Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
@@ -85,7 +88,7 @@ No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame. 
 Integration with Microsoft Dynamics 365 Portal is available.  See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### Does Azure AD B2C work with SharePoint on-premises 2016 or earlier?
-Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) instead.
+Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/) instead.
 
 ### Should I use Azure AD B2C or B2B to manage external identities?
 Read this article about [external identities](../active-directory/active-directory-b2b-compare-external-identities.md) to learn more about applying the appropriate features to your external identity scenarios.
@@ -93,9 +96,9 @@ Read this article about [external identities](../active-directory/active-directo
 ### What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
 No, Azure AD B2C does not support the same set of reports as Azure AD Premium. However there are many commonalities:
 
-* **Sign-in reports** are only available in the Azure portal (Azure Active Directory > Activity > Sign-ins) and are not available via the Graph API. They provide a record of each sign-in with reduced details.
-* **Audit reports** are only available in the Azure portal (Azure Active Directory > Activity > Audit logs) and are not available via the Graph API. They include both admin activity as well as application activity. 
-* **Usage reports** are only available via the [Usage Reporting API](active-directory-b2c-reference-usage-reporting-api.md) and are not available via the Azure portal. They include number of users, number of logins, and volume of MFA. 
+* **Sign-in reports** provide a record of each sign-in with reduced details.
+* **Audit reports** include both admin activity as well as application activity. 
+* **Usage reports** include the number of users, number of logins, and volume of MFA. 
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 Yes!  Read about [language customization](active-directory-b2c-reference-language-customization.md), which is in public preview.  We provide translations for 36 languages, and you can override any string to suit your needs.

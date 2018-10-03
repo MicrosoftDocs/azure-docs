@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: barclayn
 
 ---
@@ -75,7 +75,7 @@ The Data Encryption Keys, encrypted with the Key Encryption Keys are stored sepa
 
 ## Data Encryption Models
 
-An understanding the various encryption models and their pros and cons is essential for understanding how the various resource providers in Azure implement encryption at Rest. These definitions are shared across all resource providers in Azure to ensure common language and taxonomy. 
+An understanding of the various encryption models and their pros and cons is essential for understanding how the various resource providers in Azure implement encryption at Rest. These definitions are shared across all resource providers in Azure to ensure common language and taxonomy. 
 
 There are three scenarios for server-side encryption:
 
@@ -255,9 +255,9 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed in Key Vault**             |  **Server-Side Using Customer-Managed On-premises**                  | **Client Using Client-Managed**      |
 | **Storage and Databases**        |                    |                    |                    |                    |                    |
-| Disk (IaaS)                      | -                  | Yes, RSA 2048-bit  | Yes*               | -                  |
+| Disk (IaaS)                      | -                  | Yes, RSA 2048-bit  | Yes               | -                  |
 | SQL Server (IaaS)                | Yes                | Yes, RSA 2048-bit  | Yes                | Yes                |
-| Azure SQL Database (PaaS)        | Yes                | Yes, RSA 2048-bit  | -                  | Yes                |
+| Azure SQL (Database/Data Warehouse) | Yes                | Yes, RSA 2048-bit  | -                  | Yes                |
 | Azure Storage (Block/Page Blobs) | Yes                | Yes, RSA 2048-bit  | -                  | Yes                |
 | Azure Storage (Files)            | Yes                | Yes, RSA 2048-bit  | -                  | -                  |
 | Azure Storage (Tables, Queues)   | Yes                | -                  | -                  | Yes                |

@@ -13,14 +13,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/03/2017
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: maheshu
 
 ---
 # Join an Ubuntu virtual machine in Azure to a managed domain
 This article shows you how to join an Ubuntu Linux virtual machine to an Azure AD Domain Services managed domain.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## Before you begin
 To perform the tasks listed in this article, you need:  
@@ -118,7 +119,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
     sudo realm discover CONTOSO100.COM
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > **Troubleshooting:**
    > If *realm discover* is unable to find your managed domain:
      * Ensure that the domain is reachable from the virtual machine (try ping).
@@ -126,10 +127,10 @@ Now that the required packages are installed on the Linux virtual machine, the n
      * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
    >
 
-2. Initialize Kerberos. In your SSH terminal, type the following command: 
+2. Initialize Kerberos. In your SSH terminal, type the following command:
 
-    > [!TIP] 
-    > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. 
+    > [!TIP]
+    > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group.
     > * Specify the domain name in capital letters, else kinit fails.
     >
 
@@ -137,9 +138,9 @@ Now that the required packages are installed on the Linux virtual machine, the n
     kinit bob@CONTOSO100.COM
     ```
 
-3. Join the machine to the domain. In your SSH terminal, type the following command: 
+3. Join the machine to the domain. In your SSH terminal, type the following command:
 
-    > [!TIP] 
+    > [!TIP]
     > Use the same user account you specified in the preceding step ('kinit').
     >
 
@@ -172,7 +173,7 @@ To enable automatic creation of the home directory after logging in users, type 
 ```
 sudo vi /etc/pam.d/common-session
 ```
-    
+
 Add the following line in this file below the line 'session optional pam_sss.so' and save it:
 ```
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077

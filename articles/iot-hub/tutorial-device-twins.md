@@ -71,7 +71,7 @@ az extension add --name azure-cli-iot-ext
 az group create --name tutorial-iot-hub-rg --location $location
 
 # Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription:
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
 az iot hub show-connection-string --hub-name $hubname -o table
@@ -101,7 +101,7 @@ You use desired properties to send state information from a back-end application
 
 To view the simulated device sample code that receives desired properties, navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
 
-The following sections describe the the code that runs on the simulated device that responds to desired property changes sent from the back end application:
+The following sections describe the code that runs on the simulated device that responds to desired property changes sent from the back end application:
 
 ### Retrieve the device twin object
 
@@ -258,14 +258,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## Next steps
 
-In this tutorial, you learned how to synchronize state information between your devices and your IoT hub by performing the following tasks:
-
-> [!div class="checklist"]
-> * Create an IoT hub and add a test device to the identity registry.
-> * Use desired properties to send state information to your simulated device.
-> * Use reported properties to receive state information from your simulated device.
-
-Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
+In this tutorial, you learned how to synchronize state information between your devices and your IoT hub. Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
 
 > [!div class="nextstepaction"]
-[Use a simulated device to test connectivity with your IoT hub](tutorial-connectivity.md)
+[Implement a device firmware update process](tutorial-firmware-update.md)

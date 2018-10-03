@@ -263,9 +263,9 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
 **Look for**
 
-- Traffic distribution per subnet, topology, top sources of traffic to the subnet, top rouge networks conversing to the subnet, and top conversing application protocols.
+- Traffic distribution per subnet, topology, top sources of traffic to the subnet, top rogue networks conversing to the subnet, and top conversing application protocols.
     - Knowing which subnet is conversing to which subnet. If you see unexpected conversations, you can correct your configuration.
-    - If rouge networks are conversing with a subnet, you are able to correct it by configuring NSG rules to block the rogue networks.
+    - If rogue networks are conversing with a subnet, you are able to correct it by configuring NSG rules to block the rogue networks.
 - The Subnets Topology shows the top ribbon for selection of parameters such as Active/Inactive subnet, External Connections, Active Flows, and Malicious flows of the subnet.
 - The Subnet Topology shows the traffic distribution to a virtual network with regards to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and NSGs, for example:
 
@@ -273,10 +273,10 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
 **Look for**
 
-Traffic distribution per Application gateway & Load Balancer, topology, top sources of traffic, top rouge networks conversing to the Application gateway & Load Balancer, and top conversing application protocols. 
+Traffic distribution per Application gateway & Load Balancer, topology, top sources of traffic, top rogue networks conversing to the Application gateway & Load Balancer, and top conversing application protocols. 
     
  - Knowing which subnet is conversing to which Application gateway or Load Balancer. If you observe unexpected conversations, you can correct your configuration.
- - If rouge networks are conversing with an Application gateway or Load Balancer, you are able to correct it by configuring NSG rules to block the rogue networks. 
+ - If rogue networks are conversing with an Application gateway or Load Balancer, you are able to correct it by configuring NSG rules to block the rogue networks. 
 
     ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 

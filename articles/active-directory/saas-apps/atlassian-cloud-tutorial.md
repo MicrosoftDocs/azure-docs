@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/16/2018
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ For more information about software as a service (SaaS) app integration with Azu
 To configure Azure AD integration with Atlassian Cloud, you need the following items:
 
 - An Azure AD subscription.
-- To enable Security Assertion Markup Language (SAML) single sign-on for Atlassian Cloud products, you need to set up Identity Manager. Learn more about [Identity Manager]( https://www.atlassian.com/enterprise/cloud/identity-manager).
+- To enable Security Assertion Markup Language (SAML) single sign-on for Atlassian Cloud products, you need to set up Atlassian Access. Learn more about [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 > [!NOTE]
 > When you test the steps in this tutorial, we recommend that you not use a production environment.
@@ -94,22 +94,27 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 
 	![Single sign-on window](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
 
-3. To configure the application in IDP-initiated mode, under **Atlassian Cloud Domain and URLs**, do the following:
+3. To configure the application in **IDP-initiated** mode, under **Atlassian Cloud Domain and URLs**, do the following:
 
 	![Atlassian Cloud domain and URLs single sign-on information](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
 	
-	a. In the **Identifier** box, type **`https://auth.atlassian.com/saml/<unique ID>`**.
+	a. In the **Identifier** box, type a URL with the following pattern: `https://auth.atlassian.com/saml/<unique ID>`.
 	
-	b. In the **Reply URL** box, type **`https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`**.
+	b. In the **Reply URL** box, type a URL with the following pattern: `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`.
 
-	c. In the **Relay State** box, type a URL with the following syntax: **`https://<instancename>.atlassian.net`**.
+	c. Check **Show advanced URL settings**.
 
-4. To configure the application in SP-initiated mode, select the **Show advanced URL settings** and then, in the **Sign on URL** box, type a URL with the following syntax: **`https://<instancename>.atlassian.net`**.
+	d. In the **Relay State** box, type a URL with the following pattern: `https://<instancename>.atlassian.net`.
+
+	> [!NOTE]
+	> The preceding values are not real. Update these values with the actual identifier and reply URL. You will get these real values from the Atlassian Cloud SAML Configuration screen which is explained later in the tutorial.
+
+4. To configure the application in SP-initiated mode, select the **Show advanced URL settings** and then, in the **Sign on URL** box, type a URL with the following pattern: `https://<instancename>.atlassian.net`.
 
 	![Atlassian Cloud domain and URLs single sign-on information](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
 	> [!NOTE]
-	> The preceding values are not real. Update them with the actual identifier, reply URL, and sign-on URL values. You can get the real values from the Atlassian Cloud SAML Configuration screen. We explain the values later in the tutorial.
+	> The preceding Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [Atlassian Cloud Client support team](https://support.atlassian.com/) to get this value.
 
 5. Under **SAML Signing Certificate**, select **Certificate(Base64)**, and then save the certificate file on your computer.
 
@@ -250,7 +255,7 @@ In this section, you enable user Britta Simon to use Azure single sign-on by gra
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
 When you select the **Atlassian Cloud** tile in the Access Panel, you should be signed on automatically to your Atlassian Cloud application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

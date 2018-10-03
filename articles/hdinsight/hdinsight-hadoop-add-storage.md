@@ -1,18 +1,14 @@
 ---
-title: Add additional Azure storage accounts to HDInsight | Microsoft Docs
+title: Add additional Azure storage accounts to HDInsight 
 description: Learn how to add additional Azure storage accounts to an existing HDInsight cluster.
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -59,7 +55,7 @@ __Requirements__:
 
 ## To use the script
 
-This script can be used from the Azure portal, Azure PowerShell, or the Azure CLI 1.0. For more information, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document.
+This script can be used from the Azure portal, Azure PowerShell, or the Azure Classic CLI. For more information, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document.
 
 > [!IMPORTANT]
 > When using the steps provided in the customization document, use the following information to apply this script:
@@ -72,7 +68,7 @@ This script can be used from the Azure portal, Azure PowerShell, or the Azure CL
 
 ### Storage accounts not displayed in Azure portal or tools
 
-When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure CLI do not display the additional storage account either.
+When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure Classic CLI do not display the additional storage account either.
 
 The storage information isn't displayed because the script only modifies the core-site.xml configuration for the cluster. This information is not used when retrieving the cluster information using Azure management APIs.
 

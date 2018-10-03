@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding LinkedIn Elevate from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding LinkedIn Elevate from the gallery
 To configure the integration of LinkedIn Elevate into Azure AD, you need to add LinkedIn Elevate from the gallery to your list of managed SaaS apps.
@@ -60,15 +60,15 @@ To configure the integration of LinkedIn Elevate into Azure AD, you need to add 
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 
-3. Click **Add** button on the top of the dialog.
+1. Click **Add** button on the top of the dialog.
 
 	![Applications][3]
 
-4. In the search box, type **LinkedIn Elevate**. From results panel, click **LinkedIn Elevate** to add the application.
+1. In the search box, type **LinkedIn Elevate**. From results panel, click **LinkedIn Elevate** to add the application.
 
 	![Creating an Azure AD test user](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_000.png)
 
@@ -82,10 +82,10 @@ This link relationship is established by assigning the value of the **user name*
 To configure and test Azure AD single sign-on with LinkedIn Elevate, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a LinkedIn Elevate test user](#creating-a-linkedin-elevate-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a LinkedIn Elevate test user](#creating-a-linkedin-elevate-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -97,21 +97,21 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
+1. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial-linkedin_01.png)
 
-3. In a different web browser window, sign-on to your LinkedIn Elevate tenant as an administrator.
+1. In a different web browser window, sign-on to your LinkedIn Elevate tenant as an administrator.
 
-4. In **Account Center**, click **Global Settings** under **Settings**. Also, select **Elevate - Elevate AAD Test** from the dropdown list.
+1. In **Account Center**, click **Global Settings** under **Settings**. Also, select **Elevate - Elevate AAD Test** from the dropdown list.
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
-5. Click on **OR Click Here to load and copy individual fields from the form** and copy **Entity Id** and **Assertion Consumer Access (ACS) Url**
+1. Click on **OR Click Here to load and copy individual fields from the form** and copy **Entity Id** and **Assertion Consumer Access (ACS) Url**
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
 
-6. On Azure Portal, under **LinkedIn Elevate Domain and URLs**, perform the following steps if you want to configure SSO in **IdP Initiated** mode
+1. On Azure Portal, under **LinkedIn Elevate Domain and URLs**, perform the following steps if you want to configure SSO in **IdP Initiated** mode
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_01.png)
 
@@ -119,17 +119,17 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	b. In the **Reply URL** textbox, enter the **Assertion Consumer Access (ACS) Url** copied from LinkedIn Portal
 
-7. If you want to configure SSO in **SP Initiated**, then click Show Advanced URL setting option in the configuration section and configure the sign on URL with the following pattern:
+1. If you want to configure SSO in **SP Initiated**, then click Show Advanced URL setting option in the configuration section and configure the sign on URL with the following pattern:
 
 	`https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>` 
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_02.png) 
 
-8. Your LinkedIn Elevate application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but LinkedIn Elevate expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
+1. Your LinkedIn Elevate application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but LinkedIn Elevate expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/updateusermail.png)
 
-9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. You need to add another claim named **department** and the value needs to be mapped to **user.department**.
+1. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. You need to add another claim named **department** and the value needs to be mapped to **user.department**.
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |
@@ -145,19 +145,19 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
       c. Change the name of the attribute **emailaddress** to **email**.
 
-10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_certificate.png) 
 
-11. Click **Save**.
+1. Click **Save**.
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_general_400.png)
 
-12. Go to **LinkedIn Admin Settings** section. Upload the XML file you just downloaded from the Azure portal by clicking on the Upload XML file option.
+1. Go to **LinkedIn Admin Settings** section. Upload the XML file you just downloaded from the Azure portal by clicking on the Upload XML file option.
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. Click **On** to enable SSO. SSO status will change from **Not Connected** to **Connected**
+1. Click **On** to enable SSO. SSO status will change from **Not Connected** to **Connected**
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
@@ -172,15 +172,15 @@ The objective of this section is to create a test user in the Azure Management p
 
 	![Creating an Azure AD test user](./media/linkedinelevate-tutorial/create_aaduser_01.png) 
 
-2. Go to **Users and groups** and click **All users** to display the list of users.
+1. Go to **Users and groups** and click **All users** to display the list of users.
 
 	![Creating an Azure AD test user](./media/linkedinelevate-tutorial/create_aaduser_02.png) 
 
-3. At the top of the dialog click **Add** to open the **User** dialog.
+1. At the top of the dialog click **Add** to open the **User** dialog.
 
 	![Creating an Azure AD test user](./media/linkedinelevate-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
 
 	![Creating an Azure AD test user](./media/linkedinelevate-tutorial/create_aaduser_04.png) 
 
@@ -210,23 +210,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201]
 
-2. In the applications list, select **LinkedIn Elevate**.
+1. In the applications list, select **LinkedIn Elevate**.
 
 	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_0001.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 
 ### Testing single sign-on
 

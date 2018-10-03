@@ -158,9 +158,9 @@ Once the channel is created, you can get ingest URLs that you will provide to th
 
 
 ```csharp
-// Get the input endpoint to configure the on premise encoder with
+// Get the input endpoint to configure the on-premises encoder with
 string ingestUrl = liveEvent.Input.Endpoints.First().Url;
-Console.WriteLine($"The ingest url to configure the on premise encoder with is:");
+Console.WriteLine($"The ingest url to configure the on-premises encoder with is:");
 Console.WriteLine($"\t{ingestUrl}");
 Console.WriteLine();
 ```

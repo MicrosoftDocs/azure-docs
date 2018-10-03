@@ -147,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon7.png)
 
-9. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56521). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/en-us/servicesagreement/).
+9. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56521). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/servicesagreement/).
 
 	![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon12.png)
 
@@ -220,11 +220,11 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Create a JIRA SAML SSO by Microsoft (V5.2) test user
 
-To enable Azure AD users to log in to JIRA on-premise server, they must be provisioned into JIRA on-premises server.
+To enable Azure AD users to log in to JIRA on-premises server, they must be provisioned into JIRA on-premises server.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your JIRA on-premise server as an administrator.
+1. Log in to your JIRA on-premises server as an administrator.
 
 2. Hover on cog and click the **User management**.
 
@@ -287,7 +287,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the JIRA SAML SSO by Microsoft (V5.2) tile in the Access Panel, you should get automatically signed-on to your JIRA SAML SSO by Microsoft (V5.2) application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

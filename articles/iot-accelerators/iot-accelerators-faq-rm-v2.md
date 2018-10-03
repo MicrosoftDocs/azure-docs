@@ -37,7 +37,7 @@ For more information, see [Upgrade map key to see devices on a dynamic map](http
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Explore the capabilities of the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
 * [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
-* [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
+* [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
 * [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)

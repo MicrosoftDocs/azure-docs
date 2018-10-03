@@ -21,7 +21,7 @@ ms.author: ellacroi
 # Promote Your Business with Microsoft  
 Microsoft has the goal to support partners (you) and to simplify the selling of your app or offer in the storefronts on the marketplace. By listing on the marketplace, you access the programs and resources on the marketplace. 
 
-If you have not already signed up to the Microsoft Partner Network (MPN), then this sign before continuing.  
+If you have not already signed up to the Microsoft Partner Network (MPN), then do this before continuing.  
 *   For more information about MPN, visit the Microsoft Partner Network page located at [partner.microsoft.com](https://partner.microsoft.com).  
 
 MPN provides guidance on the following topics.  

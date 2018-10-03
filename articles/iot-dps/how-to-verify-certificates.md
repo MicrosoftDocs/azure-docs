@@ -1,8 +1,8 @@
 ---
 title: How to do proof-of-possession for X.509 CA certificates with Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: How to verify X.509 CA certificates with your DPS service
-author: bryanla
-ms.author: bryanla
+description: How to verify X.509 CA certificates with your Device Provisioning Service
+author: wesmc7777
+ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
@@ -50,7 +50,6 @@ Microsoft provides tools and samples that can help you create a signed verificat
 
 - The **Azure IoT Hub C SDK** provides PowerShell (Windows) and Bash (Linux) scripts to help you create CA and leaf certificates for development and to perform proof-of-possession using a verification code. You can download the [files](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) relevant to your system to a working folder and follow the instructions in the [Managing CA certificates readme](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to perform proof-of-possession on a CA certificate. 
 - The **Azure IoT Hub C# SDK** contains the [Group Certificate Verification Sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), which you can use to do proof-of-possession.
-- You can follow the steps in the [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) article in the IoT Hub documentation, specifically the script mentioned in the section titled [Proof of possession of your X.509 CA certificate](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
  
 > [!IMPORTANT]
 > In addition to performing proof-of-possession, the PowerShell and Bash scripts cited previously also allow you to create root certificates, intermediate certificates, and leaf certificates that can be used to authenticate and provision devices. These certificates should be used for development only. They should never be used in a production environment. 

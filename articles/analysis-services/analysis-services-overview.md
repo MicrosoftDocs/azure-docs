@@ -5,10 +5,10 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-#Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for out organization.
+#Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
 
 ---
 # What is Azure Analysis Services?
@@ -35,7 +35,7 @@ Azure Analysis Services is available in **Developer**, **Basic**, and **Standard
 
 ### Developer tier
 
-This tier is recommended for evaluation, development, and test scenarios. A single plan includes the same functionality of the standard tier, but is limited in processing power, QPUs, and memory size. Query replica scale out isn't available for this tier. This tier doesn't offer an SLA.
+This tier is recommended for evaluation, development, and test scenarios. A single plan includes the same functionality of the standard tier, but is limited in processing power, QPUs, and memory size. Query replica scale out *is not available* for this tier. This tier does not offer an SLA.
 
 |Plan  |QPUs  |Memory (GB)  |
 |---------|---------|---------|
@@ -68,38 +68,39 @@ This tier is for mission-critical production applications that require elastic u
 
 ## Availability by region
 
-Azure Analysis Services is supported in regions throughout the world. Assure [high availability](analysis-services-bcdr.md) by deploying your models on redundant servers in several regions. Supported tiers and query replicas depend on the region you choose. 
+Azure Analysis Services is supported in regions throughout the world. Supported plans and query replica availability depend on the region you choose. Plan and query replica availability can change depending on need and available resources for each region. 
 
 ### Americas
 
-|Region  | Supported tiers | Query replicas |
+|Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|East US 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|East US 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
 |North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Central US     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|West US     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|West US2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|West US     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
+|West US2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
 
 ### Europe
 
-|Region  | Supported tiers | Query replicas |
+|Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
-|North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |UK South   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|West Europe     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|West Europe     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
 
 ### Asia Pacific 
 
-|Region  | Supported tiers | Query replicas |
+|Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Australia East     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
 |Japan East  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## Scale to your needs
@@ -112,7 +113,7 @@ Go up, down, or pause your server. Use the Azure portal or have total control on
 
 With scale out, client queries are distributed among multiple *query replicas* in a query pool. Query replicas have synchronized copies of your tabular models. By spreading the query workload, response times during high query workloads can be reduced. Model processing operations can be separated from the query pool, ensuring client queries are not adversely affected by processing operations. 
 
-You can create a query pool with up to seven additional query replicas (eight total, including your server). The number of query replicas you can have in your pool depend on your chosen region. Query replicas cannot be spread outside your server's region. Query replicas are billed at the same rate as your server.
+You can create a query pool with up to seven additional query replicas (eight total, including your server). The number of query replicas you can have in your pool depend on your chosen plan and region. Query replicas cannot be spread outside your server's region. Query replicas are billed at the same rate as your server.
 
 Just like with changing tiers, you can scale out query replicas according to your needs. Configure scale out in the portal or by using REST APIs. To learn more, see [Azure Analysis Services scale out](analysis-services-scale-out.md).
 
@@ -124,7 +125,7 @@ Total cost depends on a number of factors; for example, your chosen region, tier
 
 Azure Analysis Services is compatible with many great features already in SQL Server Analysis Services Enterprise Edition. Azure Analysis Services supports tabular models at the 1200 and higher [compatibility levels](analysis-services-compat-level.md). Tabular models are relational modeling constructs (model, tables, columns), articulated in tabular metadata object definitions in Tabular Model Scripting Language (TMSL) and Tabular Object Model (TOM) code. Partitions, perspectives, row-level security, bi-directional relationships, and translations are all supported*. Multidimensional models and PowerPivot for Sharepoint *are not* supported in Azure Analysis Services.
 
-Tabular models in both in-memory and DirectQuery modes are supported. In-memory mode (default) tabular models support multiple data sources. Because model data is highly compressed and cached in-memory, this mode provides the fastest query response over large amounts of data. It also provides the greatest flexibility for complex datasets and queries. Partitioning enables incremental loads, increases parallelization, and reduces memory consumption. Other advanced data modeling features like calculated tables, and all DAX functions are supported. In-memory models must be refreshed (processed) to update cached data from data sources. With Azure service principle support, unattended refresh operations using PowerShell, TOM, TMSL and REST offer flexibilty in making sure your model data is always up to date. 
+Tabular models in both in-memory and DirectQuery modes are supported. In-memory mode (default) tabular models support multiple data sources. Because model data is highly compressed and cached in-memory, this mode provides the fastest query response over large amounts of data. It also provides the greatest flexibility for complex datasets and queries. Partitioning enables incremental loads, increases parallelization, and reduces memory consumption. Other advanced data modeling features like calculated tables, and all DAX functions are supported. In-memory models must be refreshed (processed) to update cached data from data sources. With Azure service principle support, unattended refresh operations using PowerShell, TOM, TMSL and REST offer flexibility in making sure your model data is always up to date. 
 
 DirectQuery mode* leverages the backend relational database for storage and query execution. Extremely large data sets in single SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle, and Teradata data sources are supported. Backend data sets can exceed available server resource memory. Complex data model refresh scenarios aren't needed. There are also some restrictions, such as limited datasource types, DAX formula limitations, and some advanced data modeling features aren't supported. Before determining the best mode for you, see [Direct Query mode](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 

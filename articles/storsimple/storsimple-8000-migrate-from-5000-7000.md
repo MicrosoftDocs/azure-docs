@@ -4,7 +4,7 @@ description: Provides an overview and the prerequisites of the Migration feature
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: jeconnoc
+manager: twooley
 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2017 
+ms.date: 08/23/2018 
 ms.author: alkohli
 
 ---
 # Migrate data from StorSimple 5000-7000 series to 8000 series device
 
 > [!IMPORTANT]
+> - On July 31, 2019 the StorSimple 5000/7000 series will reach end of support (EOS) status. We recommend that StorSimple 5000/7000 series customers migrate to one of the alternatives described in the document.
 > - Migration is currently an assisted operation. If you intend to migrate data from your StorSimple 5000-7000 series device to an 8000 series device, you need to schedule migration with Microsoft Support. Microsoft Support will then enable your subscription for migration. For more information, see how to [Open a Support ticket](storsimple-8000-contact-microsoft-support.md).
 > - After you file the service request, it may take couple of weeks to execute the migration plan and actually start the migration.
 > - Before you contact Microsoft Support, be sure to reivew and complete the [Migration prerequisites](#migration-prerequisites) indicated in the article.
@@ -52,7 +53,7 @@ A host-side migration allows setting up of 8000 series independently and copying
 | 3.   | Following a successful migration, all the data is local on the appliance. There are no latencies when accessing the data. | Azure storage consumption will increase until the data is deleted from the 5000/7000 device.                                                                                                        |
 | 4.   |                                                                                                                           | If the 7000/5000 series device has a large amount of data, during migration this data needs to be downloaded from azure which will incur costs and latencies related to downloading data from Azure |
 
-This article focuses only on the migration feature from 5000/7000 to 8000 series device. For more information on host-side migration, go to [Migration from other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf).
+This article focuses only on the migration feature from 5000/7000 to 8000 series device. For more information on host-side migration, go to [Migration from other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 
 ## Migration prerequisites
 

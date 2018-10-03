@@ -114,7 +114,7 @@ Add this function to `web.md`:
     sid = "your_twilio_account_sid";
     token = "your_twilio_authentication_token";
 
-    # The number of the phone initiating the the call.
+    # The number of the phone initiating the call.
     # This should either be a Twilio number or a number that you've verified
     from = "NNNNNNNNNNN";
 
@@ -190,4 +190,4 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
+[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app

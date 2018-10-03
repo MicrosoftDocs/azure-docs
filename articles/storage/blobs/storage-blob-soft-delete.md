@@ -1,15 +1,16 @@
 ---
-title: Soft delete for Azure Storage blobs (Preview) | Microsoft Docs
-description: Azure Storage now offers soft delete (Preview) for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
+title: Soft delete for Azure Storage blobs | Microsoft Docs
+description: Azure Storage now offers soft delete for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
 services: storage
 author: MichaelHauss
-manager: vamshik
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/15/2018
 ms.author: mihauss
+ms.component: blobs
 ---
+
 # Soft delete for Azure Storage blobs
 Azure Storage now offers soft delete for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an
 application or other storage account user.
@@ -175,6 +176,11 @@ Set-AzureRmContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+You can verify that soft delete was turned on by using the following command:
+
+```powershell
+$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
+```
 
 To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling **Undelete Blob**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:
 ```powershell
@@ -188,6 +194,13 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+To find the currrent soft delete retention policy, use the following command:
+
+```azurepowershell-interactive
+   $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzureStorageServiceProperty -ServiceType Blob -Context $account.Context
+```
+
 ### Azure CLI 
 To enable soft delete, update a blob client's service properties:
 

@@ -3,7 +3,7 @@ title: Infrastructure Backup Service best practices for Azure Stack | Microsoft 
 description: You can follow set of best practices when you deploy and manage Azure Stack in your datacenter to help mitigate data loss if there is a catastrophic failure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 08/01/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
 
 ---
@@ -30,7 +30,7 @@ You should review the best practices at a regular interval to verify that your i
 
 ### Deployment
 
-Enable Infrastructure Backup after deployment of each Azure Stack Cloud. Using AzureStack-Tools you can schedule backups from any client/server with access to the operator management API endpoint.
+Enable Infrastructure Backup after deployment of each Azure Stack Cloud. Using Azure Stack PowerShell you can schedule backups from any client/server with access to the operator management API endpoint.
 
 ### Networking
 
@@ -38,9 +38,7 @@ The Universal Naming Convention (UNC) string for the path must use a fully quali
 
 ### Encryption
 
-The encryption key is used to encrypt backup data that gets exported to external storage. The key can be generated using AzureStack-Tools. 
-
-![AzureStack-Tools](media\azure-stack-backup\azure-stack-backup-encryption1.png)
+The encryption key is used to encrypt backup data that gets exported to external storage. The key is generated as part of [enabling backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 The key must be stored in a secure location (for example, public Azure Key Vault secret). This key must be used during redeployment of Azure Stack. 
 

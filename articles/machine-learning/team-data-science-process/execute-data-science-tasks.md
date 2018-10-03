@@ -77,7 +77,7 @@ After multiple models have been built, you usually need to have a system for reg
 
 1. [Azure Machine Learning - model management service](../service/index.yml)
 2. [ModelDB from MIT](https://mitdbg.github.io/modeldb/) 
-3. [SQL-seerver as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
+3. [SQL-server as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 ## 3. <a name='Deployment-3'></a> Deployment

@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
@@ -93,7 +93,7 @@ An example user is on the Contoso network, but is trying to access the Fabrikam 
 
 While configuration of Tenant Restrictions is done on the corporate proxy infrastructure, admins can access the Tenant Restrictions reports in the Azure portal directly. To view the reports, go to the Azure Active Directory Overview page, then look under ‘Other capabilities’.
 
-The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see all sign-ins blocked because of the Tenant Restrictions policy, including the identity used and the target directory ID.
+The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see sign-ins blocked because of the Tenant Restrictions policy, including the identity used and the target directory ID. Sign-ins are included if the tenant setting the restriction is either the user tenant or resource tenant for the sign-in.
 
 ![Use the Azure portal to view restricted sign-in attempts](./media/tenant-restrictions/portal-report.png)
 
@@ -112,7 +112,7 @@ Tenant Restrictions is currently supported by Office 365 browser-based applicati
 
 Outlook and Skype for Business clients that support modern authentication may still able to use legacy protocols against tenants where modern authentication is not enabled, effectively bypassing Tenant Restrictions. Applications that use legacy protocols may be blocked by Tenant Restrictions if they contact login.microsoftonline.com, login.microsoft.com, or login.windows.net during authentication.
 
-For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting. For Outlook on non-Windows platforms, and for Skype for Business on all platforms, full support for Tenant Restrictions is not currently available.
+For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting.
 
 ## Testing
 

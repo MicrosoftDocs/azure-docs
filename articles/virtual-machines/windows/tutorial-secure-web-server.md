@@ -3,7 +3,7 @@ title: Tutorial - Secure a Windows web server with SSL certificates in Azure | M
 description: In this tutorial, you learn how to use Azure PowerShell to secure a Windows virtual machine that runs the IIS web server with SSL certificates stored in Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator or developer, I want to learn how to secure a web server with SSL certificates so that I can protect my customer data on web applications that I build and run.
@@ -149,7 +149,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 
 ### Test the secure web app
-Obtain the public IP address of your VM with [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIP` created earlier:
+Obtain the public IP address of your VM with [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIP` created earlier:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"

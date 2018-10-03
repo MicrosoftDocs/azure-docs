@@ -4,7 +4,7 @@ description: Learn to use an instance of BlobService to upload, list, and delete
 services: storage
 keywords: storage, javascript, html
 author: craigshoemaker
-manager: jeconnoc
+
 
 ms.custom: mvc
 ms.service: storage
@@ -18,7 +18,7 @@ ms.topic: quickstart
 # Quickstart: Upload, list, and delete blobs using JavaScript/HTML in the Browser
 This quickstart demonstrates how to manage blobs from code running entirely in the browser. The approach used here shows how to use required security measures to ensure protected access to your blob storage account. To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## Setting up storage account CORS rules 
 Before your web application can access a blob storage from the client, the account must be configured to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS. 
@@ -58,7 +58,7 @@ You can create a SAS using the Azure CLI through the Azure cloud shell or with t
 The following script used the Azure CLI to create a SAS that you can pass to a JavaScript blob service.
 
 > [!NOTE]
-> For best results remove the exta spaces between parameters before pasting the command into the Azure cloud shell.
+> For best results remove the extra spaces between parameters before pasting the command into the Azure cloud shell.
 
 ```bash
 az storage account generate-sas
@@ -80,7 +80,7 @@ You may find the series of values after each parameter a bit cryptic. These para
 Now that the SAS is generated, copy the value returned in the console into your text editor. You use this value in an upcoming step.
 
 > [!IMPORTANT]
-> In production, always pass SAS tokens using SSL. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to genrate SAS tokens. The Azure Portal includes function templates that feature the ability to to generate a SAS with a JavaScript function.
+> In production, always pass SAS tokens using SSL. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
 
 ## Implement the HTML page
 
@@ -250,4 +250,4 @@ To clean up the resources created during this quickstart, return to the [Azure p
 Explore the samples to learn how to download blobs and report progress during file uploads.
 
 > [!div class="nextstepaction"]
-> [Blob storage client lbraries](https://github.com/Azure/azure-storage-node/tree/master/browser)
+> [Blob storage client libraries](https://github.com/Azure/azure-storage-node/tree/master/browser)

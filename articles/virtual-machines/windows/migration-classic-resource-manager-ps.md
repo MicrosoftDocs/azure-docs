@@ -42,8 +42,6 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 > Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an Application gateway, remove the gateway before running a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager.
 >
 >ExpressRoute gateways connecting to ExpressRoute circuits in another subscription cannot be migrated automatically. In such cases, remove the ExpressRoute gateway, migrate the virtual network and recreate the gateway. Please see [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../../expressroute/expressroute-migration-classic-resource-manager.md) for more information.
->
->
 
 ## Step 2: Install the latest version of Azure PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
@@ -86,8 +84,6 @@ Set your Azure subscription for the current session. This example sets the defau
 > Registration is a one-time step, but you must do it once before attempting migration. Without registering, you see the following error message:
 >
 > *BadRequest : Subscription is not registered for migration.*
->
->
 
 Register with the migration resource provider by using the following command:
 
@@ -240,8 +236,6 @@ This example sets the virtual network name to **myVnet**. Replace the example vi
 
 > [!NOTE]
 > If the virtual network contains web or worker roles, or VMs with unsupported configurations, you get a validation error message.
->
->
 
 First, validate if you can migrate the virtual network by using the following command:
 
@@ -267,10 +261,11 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-## Step 6.2 Migrate a storage account
+### Step 6.2 Migrate a storage account
 Once you're done migrating the virtual machines, we recommend you perform the following prerequisite checks before you migrate the storage accounts.
 
-If your storage account had no associated disks or VM data, you can skip to the **Validate Storage Account and Start Migration** section.
+> [!NOTE]
+> If your storage account had no associated disks or VM data, you can skip directly to the **Validate Storage Account and Start Migration** section.
 
 * **Prerequisite checks if you migrated any VMs or your storage account has Disk resources**
     * **Migrate classic virtual machines whose disks are stored in the storage account**

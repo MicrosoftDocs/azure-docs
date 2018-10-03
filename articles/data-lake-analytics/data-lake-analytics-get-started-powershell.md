@@ -5,10 +5,10 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/04/2017
 ---
 # Get started with Azure Data Lake Analytics using Azure PowerShell

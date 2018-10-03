@@ -2,20 +2,12 @@
 title: Cancel and delete an Azure Import/Export job | Microsoft Docs
 description: Learn how to cancel and delete jobs for the Microsoft Azure Import/Export service.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-
-ms.assetid: fd3d66f0-1dbb-4c75-9223-307d5abaeefc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-
+ms.component: common
 ---
 
 # Canceling and deleting Azure Import/Export jobs

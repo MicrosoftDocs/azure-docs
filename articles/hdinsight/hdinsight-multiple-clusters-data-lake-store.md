@@ -1,26 +1,22 @@
 ---
-title: Use multiple HDInsight clusters with an Azure Data Lake Store account - Azure | Microsoft Docs
+title: Use multiple HDInsight clusters with an Azure Data Lake Store account - Azure 
 description: Learn how to use more than one HDInsight cluster with a single Data Lake Store account
 keywords: hdinsight storage,hdfs,structured data,unstructured data, data lake store
 services: hdinsight,storage
-documentationcenter: ''
-tags: azure-portal
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Use multiple HDInsight clusters with an Azure Data Lake Store account
 
 Starting with HDInsight version 3.5, you can create HDInsight clusters with  Azure Data Lake Store accounts as the default filesystem.
-Data Lake Store supports unlimited storage that makes it ideal not only for hosting large amounts of data; but also for hosting multiple HDInsight clusters that share a single Data Lake Store Account. For instructions on how to create an HDInsight cluster with Data Lake Store as the storage, see [Create HDInsight clusters with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Data Lake Store supports unlimited storage that makes it ideal not only for hosting large amounts of data; but also for hosting multiple HDInsight clusters that share a single Data Lake Store Account. For instructions on how to create an HDInsight cluster with Data Lake Store as the storage, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 This article provides recommendations to the Data Lake store administrator for setting up a single and shared Data Lake Store Account that can be used across multiple **active** HDInsight clusters. These recommendations apply to hosting multiple secure as well as non-secure Hadoop clusters on a shared Data Lake store account.
 
@@ -93,6 +89,6 @@ Set read-execute permissions for **others** through the hierarchy, for example, 
 
 ## See also
 
-* [Create an HDInsight cluster with Data Lake Store as storage](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
 

@@ -3,7 +3,7 @@ title: Open ports to a VM using the Azure portal | Microsoft Docs
 description: Learn how to open a port / create an endpoint to your Windows VM using the resource manager deployment model in the Azure Portal
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # How to open ports to a virtual machine with the Azure portal

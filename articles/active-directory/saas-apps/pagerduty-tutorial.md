@@ -9,12 +9,11 @@ ms.reviewer: joflore
 
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 06/20/2018
 ms.author: jeedes
 
 ---
@@ -50,26 +49,26 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding PagerDuty from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding PagerDuty from the gallery
 To configure the integration of PagerDuty into Azure AD, you need to add PagerDuty from the gallery to your list of managed SaaS apps.
 
 **To add PagerDuty from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
-3. To add new application, click **New application** button on the top of dialog.
+
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **PagerDuty**, select  **PagerDuty**  from result panel then click **Add** button to add the application.
+1. In the search box, type **PagerDuty**, select  **PagerDuty**  from result panel then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/pagerduty-tutorial/tutorial_pagerduty_addfromgallery.png)
 
@@ -84,10 +83,10 @@ In PagerDuty, assign the value of the **user name** in Azure AD as the value of 
 To configure and test Azure AD single sign-on with PagerDuty, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a PagerDuty test user](#create-a-pagerduty-test-user)** - to have a counterpart of Britta Simon in PagerDuty that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test Single Sign-On](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a PagerDuty test user](#create-a-pagerduty-test-user)** - to have a counterpart of Britta Simon in PagerDuty that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test Single Sign-On](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +98,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+1. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Single sign-on dialog box](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
-3. On the **PagerDuty Domain and URLs** section, perform the following steps:
+1. On the **PagerDuty Domain and URLs** section, perform the following steps:
 
 	![PagerDuty Domain and URLs single sign-on information](./media/pagerduty-tutorial/tutorial_pagerduty_url.png)
 
@@ -111,47 +110,46 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenant-name>.pagerduty.com`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [PagerDuty Client support team](https://www.pagerduty.com/support/) to get these values. 
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [PagerDuty Client support team](https://www.pagerduty.com/support/) to get these values.
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+	![The Certificate download link](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/pagerduty-tutorial/tutorial_general_400.png)
 
-6. On the **PagerDuty Configuration** section, click **Configure PagerDuty** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **PagerDuty Configuration** section, click **Configure PagerDuty** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![PagerDuty configuration](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png) 
+	![PagerDuty configuration](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
-7. In a different web browser window, log into your Pagerduty company site as an administrator.
+1. In a different web browser window, log into your Pagerduty company site as an administrator.
 
-8. In the menu on the top, click **Account Settings**.
-   
+1. In the menu on the top, click **Account Settings**.
+
     ![Account Settings](./media/pagerduty-tutorial/ic778535.png "Account Settings")
 
-9. Click **Single Sign-on**.
-   
+1. Click **Single Sign-on**.
+
     ![Single sign-on](./media/pagerduty-tutorial/ic778536.png "Single sign-on")
 
-10. On the **Enable Single Sign-on (SSO)** page, perform the following steps:
-   
+1. On the **Enable Single Sign-on (SSO)** page, perform the following steps:
+
     ![Enable single sign-on](./media/pagerduty-tutorial/ic778537.png "Enable single sign-on")
-   
+
     a. Open your base-64 encoded certificate downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
   
     b. In the **Login URL** textbox, paste **SAML Single Sign-On Service URL** which you have copied from Azure portal.
   
     c. In the **Logout URL** textbox, paste **Sign-Out URL** which you have copied from Azure portal.
- 
-    d. Select **Turn on Single Sign-on**.
- 
-    e. Click **Save Changes**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+    d. Select **Allow username/password login**.
+
+	e. Select **Require EXACT authentication context comparison** checkbox.
+
+    f. Click **Save Changes**.
 
 ### Create an Azure AD test user
 
@@ -165,15 +163,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![The Azure Active Directory button](./media/pagerduty-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
+1. To display the list of users, go to **Users and groups** and click **All users**.
 	
 	![The "Users and groups" and "All users" links](./media/pagerduty-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+1. To open the **User** dialog, click **Add** on the top of the dialog.
  
 	![The Add button](./media/pagerduty-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![The User dialog box](./media/pagerduty-tutorial/create_aaduser_04.png) 
 
@@ -197,13 +195,13 @@ In the case of PagerDuty, provisioning is a manual task.
 
 1. Log in to your **Pagerduty** tenant.
 
-2. In the menu on the top, click **Users**.
+1. In the menu on the top, click **Users**.
 
-3. Click **Add Users**.
+1. Click **Add Users**.
    
     ![Add Users](./media/pagerduty-tutorial/ic778539.png "Add Users")
 
-4.  On the **Invite your team** dialog, perform the following steps:
+1.  On the **Invite your team** dialog, perform the following steps:
    
     ![Invite your team](./media/pagerduty-tutorial/ic778540.png "Invite your team")
 
@@ -228,23 +226,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **PagerDuty**.
+1. In the applications list, select **PagerDuty**.
 
 	![The PagerDuty link in the Applications list](./media/pagerduty-tutorial/tutorial_pagerduty_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 
@@ -252,14 +250,12 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the PagerDuty tile in the Access Panelyou should get automatically signed-on to your PagerDuty application.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -274,4 +270,3 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 [201]: ./media/pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/pagerduty-tutorial/tutorial_general_203.png
-

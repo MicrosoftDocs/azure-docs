@@ -1,18 +1,13 @@
 ---
-title: Cluster capacity planning in Azure HDInsight | Microsoft Docs
+title: Cluster capacity planning in Azure HDInsight 
 description: 'How to specify an HDInsight cluster for capacity and performance.'
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
 ---
@@ -112,5 +107,5 @@ However, there are some fixed quota limits, for example a single Azure subscript
 
 ## Next steps
 
-* [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md): Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Hive, HBase, R Server, or Storm.
+* [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md): Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services, or Storm.
 * [Monitor cluster performance](hdinsight-key-scenarios-to-monitor.md): Learn about key scenarios to monitor for your HDInsight cluster that might affect your cluster's capacity.

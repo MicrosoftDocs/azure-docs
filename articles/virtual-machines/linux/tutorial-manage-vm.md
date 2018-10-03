@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Create and manage Linux VMs with the Azure CLI | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to create and manage Linux VMs in Azure
+description: In this tutorial, you learn how to use the Azure CLI to create and manage Linux VMs in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about common maintenance tasks so that I can create and manage Linux VMs in Azure
 ---
 
-# Tutorial: Create and Manage Linux VMs with the Azure CLI 2.0
+# Tutorial: Create and Manage Linux VMs with the Azure CLI
 
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
 
@@ -34,7 +34,7 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create resource group
 
