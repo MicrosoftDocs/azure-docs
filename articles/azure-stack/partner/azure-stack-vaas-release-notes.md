@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Validation as a Service release notes  | Microsoft Docs
-description: Azure Stack Validation as a Service release notes .
+description: Azure Stack Validation as a Service release notes.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -23,11 +23,28 @@ ms.reviewer: johnhas
 
 This article contains the release notes for Azure Stack Validation as a Service.
 
+## Version 4.0.1
+
+2018 October 3
+
+- VaaS prerequisites
+
+    `Install-VaaSPrerequisites` no longer requires cloud admin credentials. If you are running the latest version of this cmdlet, see [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) for the revised commands for installing prerequisites as follows:
+
+    ```PowerShell
+    $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
+    Import-Module .\VaaSPreReqs.psm1 -Force
+    Install-VaaSPrerequisites -AadTenantId $AadTenantId `
+                              -ServiceAdminCreds $ServiceAdminCreds `
+                              -ArmEndpoint https://adminmanagement.$ExternalFqdn `
+                              -Region $Region
+    ```
+
 ## Version 4.0.0
 
 2018 August 29
 
-- VaaS pre-requisite and VHD updates
+- VaaS prerequisites and VHD updates
 
     `Install-VaaSPrerequisites` now requires cloud admin credentials to address an issue during package validation. The documentation at [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) has been updated with the following:
 

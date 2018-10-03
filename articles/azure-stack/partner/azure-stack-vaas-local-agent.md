@@ -55,22 +55,20 @@ Azure Stack is the system under test. The machine should not be part of Azure St
 2. Run the following command to download the local agent:
 
     ```PowerShell
-        Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
-        Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent.3.2.0 -Force
-        Set-Location VaaSOnPremAgent.3.2.0\lib\net46
-    ````
+    Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
+    Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
+    Set-Location VaaSOnPremAgent\lib\net46
+    ```
 
 3. Run the following command to install the local agent dependencies:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
-    $CloudAdminCreds = New-Object System.Management.Automation.PSCredential "<cloudAdminDomain\username>", (ConvertTo-SecureString "<cloudAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
                               -ServiceAdminCreds $ServiceAdminCreds `
                               -ArmEndpoint https://adminmanagement.$ExternalFqdn `
-                              -Region $Region `
-                              -CloudAdminCredentials $CloudAdminCreds
+                              -Region $Region
     ```
 
     **Parameters**
