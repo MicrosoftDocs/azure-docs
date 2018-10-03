@@ -113,40 +113,38 @@ You will need to have Git installed on you are the machine you use to manage Azu
 
 1. Open a bash prompt. With git, you can open it at the following path: `c:\programfiles\git\bin\bash.exe`.
 2. Run the following bash commands:
+
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
     curl -O https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/diagnosis/getkuberneteslogs.sh
     sudo chmod 744 getkuberneteslogs.sh
     ```
+
 3. In the same session, run the following command with the parameters updated to match your environment.
 
     ```Bash  
-     ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
-     ```
+    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
+    ```
 
     | Parameter           | Description                                                                                                      | Example                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i, --identity-file | the RSA Private Key file file to connect the kubernetes master VM, it starts with -----BEGIN RSA PRIVATE KEY----- | C:\data\privatekey.ppk                                                        |
-    | -h, --host          | public ip or FQDN of the Kubernetes cluster master VM. The VM name starts with k8s-master-                       | 192.168.102.37<br><br>(for k8s-12345.local.cloudapp.azurestack.external)      |
-    | -u, --user          | user name of the Kubernetes cluster master VM                                                                    | azureuser                                                                     |
-    | -d, --vmdhost       | public ip or FQDN of the DVM. The vm name start with vmd-)                                                       | 192.168.102.38<br><br>(for vmd-dnsk8-frog.local.cloudapp.azurestack.external) |
+    | -i, --identity-file | The RSA Private Key file to connect the kubernetes master VM. They key must start with `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.ppk                                                        |
+    | -h, --host          | The public ip or fully qualified domain name (FQDN) of the Kubernetes cluster master VM. The VM name starts with `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -u, --user          | The user name of the Kubernetes cluster master VM.                                                                    | azureuser                                                                     |
+    | -d, --vmdhost       | The public ip or FQDN of the DVM. The vm name starts with `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
 
-    For example:
+   the following is an example of the script:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file AAAAB3NzaC1yc2EAAAABJQAAAQEAmVeC9wzK/Ektrb1IwMIV2lTANY1Mhgu3AZwjPqAIXXJzAwhcN9ETnba9dX6rkxTGjsJcvRSB35XqvBA7JoRCbRj5/iab9sQ4pYHIl3UxV7Rk0YxaT6l9zeQaWmokNHM4AJRMZH7uTGS0dj6jlBvS367l3ix+aye3PDSJwgHzHHYW36c7bg9W0zhU5fLaAkZKEvBQp37xgPsc+zcU4aopW6LKo9MBRNWctQPTV5WMIhXE/Xh3WiIv72NZpffREoC3v3ESq0PXOnp9Z0RTo32iBR5WymRX2qhwMeUSLI8eqCejQ51HrKbK4qmgXqmiVa4mOHhB1276CosThnBiYs0E2Q==  --user azureuser --vmdhost192.168.102.37/k8s-12345.local.cloudapp.azurestack.external # 192.168.102.32 192.168.102.37/k8s-12345.local.cloudapp.azurestack.external
+    ./getkuberneteslogs.sh --identity-file "C:\data\privatekey.ppk" --user azureuser --vmdhost 192.168.102.37
      ```
 
 4. Retrieve the logs in the folders created by the command. The command will create a new folder and time stamp it.
-    - Dvmlog folder
+    - Dvmlog
     - Acsengine-kuubernetes.log
 
-5. Upload your log files to the CSS. 
-
-    - Creating a Helen workspace: https://www.csssupportwiki.com/index.php/curated:Azure_Stack/TSG/How_to_use_Helen#Create_a_workspace_for_ingestion
-
-    - Upload instructions; https://www.csssupportwiki.com/index.php/curated:Azure_Stack/TSG/How_to_use_Helen#Ingestion_-_Upload_Data_Workflows
+5. Upload your log files to the log sharing workspace. sharing tool Helen. For instructions, see [How to use Helen](https://www.csssupportwiki.com/index.php/curated:Azure_Stack/TSG/How_to_use_Helen).
 
 ## Next steps
 
