@@ -24,6 +24,8 @@ Digital Twins offers two methods to integrate IoT events into other Azure servic
 
 Users can specify one or more egress endpoints to send out events or to forward messages. Events and messages will be sent to the endpoints according to these predefined routing preferences. In other words, users can specify certain one endpoint to receive graph operation events, another to receive device telemetry events, and so on.
 
+![Digital Twins Events Routing][1]
+
 Routing to Event Hubs will maintain the order in which telemetry messages are sent, so that they arrive at the endpoint in the same sequence as they were originally received. Event Grid and Service Bus don't guarantee that endpoints will receive events in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint.
 
 ## Route implementation
@@ -48,8 +50,8 @@ Furthermore, not all **EndpointTypes** support all **EventTypes**. The **EventTy
 - **ServiceBus**: TopologyOperation, SpaceChange, SensorChange, UdfCustom
 - **EventGrid**: TopologyOperation, SpaceChange, SensorChange, UdfCustom
 
-<!-- >[!NOTE]
->For more details on how to create endpoints and examples of events' schema, please see [Endpoints and Egress]](how-to-create-event-endpoints.md). -->
+>[!NOTE]
+>For more details on how to create endpoints and examples of events' schema, please see [Endpoints and Egress]](how-to-create-event-endpoints.md).
 
 ## Next steps
 
@@ -57,3 +59,6 @@ Try out a quick start Azure Digital Twins sample:
 
 > [!div class="nextstepaction"]
 > [Find Available Rooms with Fresh Air](quickstart-view-occupancy-dotnet.md)
+
+<!-- Images -->
+[1]: media/concepts/digital-twins-events-routing.png

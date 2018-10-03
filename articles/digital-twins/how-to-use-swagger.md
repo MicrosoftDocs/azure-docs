@@ -34,7 +34,7 @@ Swagger is therefore a convenient tool to assist with development and testing ca
 Your generated Management API Swagger documentation can be accessed publicly at:
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger/ui/index
+https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
 `yourInstanceName` and `yourLocation` should be replaced with the name of your Digital Twins instance and the location of the servers it's hosted on, respectively.
@@ -55,7 +55,7 @@ You can click into each listed Object Model for a more detailed summary of key a
 
 ![Swagger model][3]
 
-The generated Swagger Object Models is convenient to see all available Azure Digital Twins [Ontology objects](./concepts-objectmodel-spatialgraph.md). It's therefore a great resource for developers to use when building solutions on Azure Digital Twins.
+The generated Swagger Object Models is convenient to see all available Azure Digital Twins [Objects and APIs](./concepts-objectmodel-spatialgraph.md). It's therefore a great resource for developers to use when building solutions on Azure Digital Twins.
 
 ## Endpoint summary
 
@@ -99,7 +99,7 @@ To interactively test requests against API resources protected by OAuth 2.0, see
 
 ## Next steps
 
-Read more about Azure Digital Twins Ontology:
+Read more about Azure Digital Twins Object Models and Spatial Intelligence Graph:
 
 > [!div class="nextstepaction"]
 > [Object Models](./concepts-objectmodel-spatialgraph.md)
