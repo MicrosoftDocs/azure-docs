@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # How to create Dynamics 365 for Operations offer via Cloud Partner portal
 
-Publishing portal provides role-based access to the portal allowing multiple individuals to be able to collaborate towards publishing an offer. See [Cloud Portal Manage Users](https://cloudpartner.azure.com/#documentation/manage-users) for more info.
+Publishing portal provides role-based access to the portal allowing multiple individuals to be able to collaborate towards publishing an offer. See [Cloud Portal Manage Users](./cloud-partner-portal-manage-users.md) for more info.
 
 Before an offer can be published on behalf of a publisher account, one of individuals with \"owner\" role need to agree to comply with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx), and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
@@ -27,7 +27,7 @@ Before an offer can be published on behalf of a publisher account, one of indivi
 
 Once all the pre-requisites have been met, you are ready to start authoring your Dynamics 365 for Operations offer.
 
-1. Sign in to the [cloud partner portal](http://cloudpartner.azure.com/).
+1. Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/).
 2. From the left navigation bar, click on \"+ New offer\" and select \"Dynamics 365 for Operations\".
 3. A new offer \"Editor\" view is now opened for you, and we are ready to start authoring.
 4. The \"forms\" that need to be filled out are visible on the left within the \"Editor\" view. Each \"form\" consists of a set of fields that are to be filled out. Required fields are marked with a red asterisk (\*).
