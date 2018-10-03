@@ -22,6 +22,7 @@ ms.author: magoedte
 
 The following are known issues with the Health feature of Azure Monitor for VMs:
 
+- If an Azure VM doesn’t exist any more because it was removed or deleted, it will show up in the VM list view for three to seven days. Additionally, clicking on the state of a removed or deleted VM would launch the **Health Diagnostics** view for it, which then goes into a loading loop. Selecting the name of a deleted VM launches a blade with a message stating the VM has been deleted.
 - The time period and frequency of health criteria cannot be modified with this release. 
 - Health criteria cannot be disabled. 
 - After onboarding, it can take time before data is shown in Azure Monitor -> Virtual Machines -> Health or from the VM resource blade -> Insights
@@ -33,7 +34,7 @@ The following are known issues with the Health feature of Azure Monitor for VMs:
 - Shutting down VMs will update some of its health criteria to a critical state and others to a healthy state with net state of the VM in a critical state.
 - Health alert severity cannot be modified, they can only be enabled or disabled.  Additionally, some severities update based on the state of health criteria.
 - Modifying any setting of a health criterion instance, will lead to modification of the same setting across all the health criteria instances of the same type on the VM. For example, if the threshold of disk free space health criterion instance corresponding to logical disk C: is modified, then this threshold will apply to all other logical disks discovered and monitored for the same VM.   
-- Thresholds for the following health criteria targeting a Windows VM aren’t modifiable, since their healthy state are already set to **running** or **available**. The health state shows the value **not equal to 4** when queried from the Workload Monitor API for the service or entity depending upon its context:
+- Thresholds for the following health criteria targeting a Windows VM aren’t modifiable, since their healthy state are already set to **running** or **available**. When queried from the [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager), the health state shows the *comparisonOperator* value of **LessThan** or **GreaterThan** with a *threshold* value of **4** for the service or entity if:
    - DNS Client Service Health – Service is not running 
    - DHCP client service health – Service is not running 
    - RPC Service Health – Service is not running 
@@ -43,15 +44,11 @@ The following are known issues with the Health feature of Azure Monitor for VMs:
    - Windows  remote management service health – Service is not running 
    - File system error or corruption – Logical Disk is unavailable
 
-    A value of **4** indicates the health criteria is in a healthy state.
-
-- Thresholds for the following Linux health criteria aren’t modifiable, since their health state are already set to **true**.  The health state shows the value **less than 1** when queried from the Workload Monitoring API for the entity depending on its context:
+- Thresholds for the following Linux health criteria aren’t modifiable, since their health state are already set to **true**.  The health state shows the *comparisonOperator* with a value **LessThan** and *threshold* value of **1** when queried from the Workload Monitoring API for the entity depending on its context:
    - Logical Disk Status – Logical disk is not online/ available
    - Disk Status – Disk is not online/ available
    - Network Adapter Status -  Network adapter is disabled  
 
-    A value of **true** indicates the health criteria is in a healthy state.  
-    
 - **Total CPU Utilization** health criterion in Windows shows a threshold of **not equal to 4** from the portal and when queried from the Workload Monitoring API when CPU Utilization is greater than 95% and system queue length is larger than 15. This health criterion cannot be modified in this release.  
 - Configuration changes, such as updating a threshold, takes up to 30 minutes to take effect even though the portal or Workload Monitor API might update immediately.  
 - Individual processor and logical processor level health criteria are not available in Windows, only **Total CPU utilization** is available for Windows VMs.  
