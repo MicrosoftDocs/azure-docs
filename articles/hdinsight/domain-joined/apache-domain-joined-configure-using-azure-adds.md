@@ -5,9 +5,9 @@ services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: hrasheed-msft
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/3/2018
 ---
 # Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services
 
