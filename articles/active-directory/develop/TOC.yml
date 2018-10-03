@@ -75,7 +75,7 @@
       items:
       - name: Authentication basics
         href: authentication-scenarios.md
-      - name: OAuth 2.0 and OpenID Connect
+      - name: OAuth 2.0 and OpenID Connect protocol
         items:
         - name: OpenID Connect
           href: v1-protocols-openid-connect-code.md
@@ -87,7 +87,7 @@
           href: v1-oauth2-on-behalf-of-flow.md
         - name: OAuth 2.0 client credentails grant
           href: v1-oauth2-client-creds-grant-flow.md
-      - name: SAML 2.0
+      - name: SAML 2.0 protocol
         items:
         - name: Single sign-on
           href: single-sign-on-saml-protocol.md
@@ -285,9 +285,9 @@
       items:
       - name: Authentication basics
         href: authentication-scenarios.md
-      - name: OAuth 2.0 and OpenID Connect
+      - name: OAuth 2.0 and OpenID Connect protocol
         items:
-        - name: OpenID Connect
+        - name: OpenID Connect 
           href: v2-protocols-oidc.md
         - name: OAuth 2.0 implicit grant flow
           href: v2-oauth2-implicit-grant-flow.md
