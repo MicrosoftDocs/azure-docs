@@ -1,6 +1,6 @@
 ---
 title: Authenticate with managed identities - Azure Logic Apps | Microsoft Docs
-description: To authenticate without signing in, create a managed identity (formerly managed service identity (MSI)) so your logic app can authenticate and access resources in other Azure Active Directory (Azure AD) tenants without your credentials
+description: To authenticate without signing in, you can create a managed identity (formerly called Managed Service Identity or MSI) so your logic app can access resources in other Azure Active Directory (Azure AD) tenants without credentials or secrets
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
@@ -8,7 +8,7 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ---
 
 # Authenticate and access resources with managed identities in Azure Logic Apps
@@ -21,6 +21,10 @@ Azure manages this identity for you and helps secure your credentials because yo
 have to provide or rotate secrets. This article shows how you can create and use a 
 managed identity for your logic app. For more information about managed identities, see 
 [Manage identities for Azure resources](../app-service/app-service-managed-service-identity.md).
+
+> [!NOTE]
+> You can currently have up to 10 logic app workflows 
+> with managed identities in each Azure subscription.
 
 ## Prerequisites
 
