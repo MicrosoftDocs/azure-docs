@@ -20,7 +20,7 @@ authenticate your identity without signing in, your logic app can use a
 Azure manages this identity for you and helps secure your credentials because you don't 
 have to provide or rotate secrets. This article shows how you can create and use a 
 managed identity for your logic app. For more information about managed identities, see 
-[What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+[What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
 > You can currently have up to 10 logic app workflows 
