@@ -23,7 +23,7 @@ You are now ready to set up your application in the publishing portal.
 
 ## Login and Create a New Offer
 
-1. Sign in to the [cloud partner portal](http://cloudpartner.azure.com/).
+1. Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/).
 2. From the left navigation bar, click on "+ New offer" and select "Dynamics 365 for Customer Engagement."
 
 ![Selecting a new offer](./media/CRMScreenShot14.png)
@@ -57,7 +57,7 @@ This dropdown allows you to choose the publisher profile you want to publish thi
 
 ### Name
 
-This is the display name for your offer. This is the name that will show up in AppSource [https://appsource.microsoft.com/](https://appsource.microsoft.com/). It can have a maximum of 50 characters.
+This is the display name for your offer. This is the name that will show up in [AppSource](https://appsource.microsoft.com/). It can have a maximum of 50 characters.
 
 Click on "Save" to save your progress. Next step would be to add Technical Info for your offer.
 
@@ -68,7 +68,7 @@ The technical info form is where you will fill in information specific to your D
 
 ![Technical information screen](./media/CRMScreenShot16.png)
 
-### \>Application Info
+### Application Info
 
 Most publishers will leave these fields with the default values, User, No, No, and a blank Application Configuration URL as per the screenshot above.
 
