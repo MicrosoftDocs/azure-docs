@@ -185,7 +185,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	 ![image](./media/zendesk-tutorial/d2_saml.png) 
 
-13. If you want to configure the steps manually, open a new web browser window and log into your Zendesk company site as an administrator and perform the following steps:
+13. If you want to setup Zendesk manually, open a new web browser window and log into your Zendesk company site as an administrator and perform the following steps:
 
     * Click **Admin**.
 
