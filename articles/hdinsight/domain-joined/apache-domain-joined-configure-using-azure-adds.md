@@ -26,6 +26,14 @@ When Azure AD-DS is enabled, all users and objects start synchronizing from Azur
 
 Customers can choose to sync only the groups that need access to the HDInsight clusters. This option of syncing only certain groups is called *scoped synchronization*. See [Configure Scoped Synchronization from Azure AD to your managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) for instructions.
 
+After enabling AAD-DS, a local Domain Name Service (DNS) server will be running on the AD Virtual Machines (VMs). Configure your AAD-DS Virtual Network (VNET) to use these custom DNS servers. To locate the right IP addresses, select **Properties** under the **Manage** category and look at the IP Addresses listed beneath **IP Address on Virtual Network**.
+
+![Locate IP Addresses for Local DNS Servers](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns.png)
+
+Then change the configuration of the DNS Servers in the AAD-DS VNET to use these custom IPs by first selecting **DNS Servers** under the **Settings** category. Then click the radio button next to **Custom**, enter the first IP Address in the text box below and click **Save**. Add additional IP Addresses using the same steps.
+
+![Updating the VNET DNS Configuration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
+
 > [!NOTE]
 > Only tenant administrators have the privileges to create an Azure AD-DS instance. Multi-factor authentication needs to be disabled only for users who will access the cluster.
 
@@ -53,9 +61,13 @@ Assigning a managed identity to the **HDInsight Domain Services Contributor** ro
 
 The next step is to create the HDInsight cluster with ESP enabled using Azure AD-DS.
 
-It's easier to place both the Azure AD-DS instance and the HDInsight cluster in the same Azure virtual network. If you choose to put them in different virtual networks, you must peer those virtual networks so that HDInsight VMs have a line of sight to the domain controller for joining the VMs. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md). To test if peering is done correctly, join a VM to the HDInsight VNET/Subnet and ping the domain name or run **ldp.exe** to access AAD-DS domain.
+It's easier to place both the Azure AD-DS instance and the HDInsight cluster in the same Azure virtual network. If they are in different virtual networks, you must peer those virtual networks so that HDInsight VMs are visible to the domain controller and can be added to the domain. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md). To test if peering is done correctly, join a VM to the HDInsight VNET/Subnet and ping the domain name or run **ldp.exe** to access AAD-DS domain.
 
-When you create an HDInsight cluster, you have the option to enable Enterprise Security Package in the custom tab. 
+After the VNETs are peered, configure the HDInsight VNET to use a custom DNS server and input the AAD-DS private IPs as the DNS Server addresses. When both VNETs use the same DNS Servers, your custom domain name will resolve to the right IP and will be reachable from HDInsight. For example if your domain name is “contoso.com” then after this step, pinging “contoso.com” should resolve to the right AAD-DS IP. You can then join a VM to this domain.
+
+![Configuring Custom DNS Servers for Peered VNET](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
+
+When you create an HDInsight cluster, you have the option to enable Enterprise Security Package in the custom tab.
 
 ![Azure HDInsight Security and networking](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-security-networking.png)
 
