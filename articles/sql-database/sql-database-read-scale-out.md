@@ -69,7 +69,11 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > At any given time only one of the AlwaysON replicas is accessible by the ReadOnly sessions.
 
-## Enable and disable Read Scale-Out using Azure PowerShell
+## Enable and disable Read Scale-Out
+
+Read Scale-Out is enabled by default in [Managed Instance](sql-database-managed-instance.md) Business Critical tier(Preview). It should be explicitly enabled in [database placed on logical server](sql-database-logical-servers.md) Premium and Business Critical tiers. The methods for enabling and disabling Read Scale-Out is described here. 
+
+### Enable and disable Read Scale-Out using Azure PowerShell
 
 Managing Read Scale-Out in Azure PowerShell requires the December 2016 Azure PowerShell release or newer. For the newest PowerShell release, see [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -93,7 +97,7 @@ To create a new database with read scale-out enabled (replacing the items in the
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-## Enabling and disabling Read Scale-Out using the Azure SQL Database REST API
+### Enabling and disabling Read Scale-Out using the Azure SQL Database REST API
 
 To create a database with read scale-out enabled, or to enable or disable read scale-out for an existing database, create, or update the corresponding database entity with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
 
