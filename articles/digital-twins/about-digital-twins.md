@@ -3,7 +3,7 @@ title: Overview of Azure Digital Twins | Microsoft Docs
 description: An introduction to Azure Digital Twins
 author: julieseto
 ms.author: jseto
-ms.date: 09/27/2018
+ms.date: 10/03/2018
 ms.topic: overview
 ms.service: azure-digital-twins
 services: azure-digital-twins
@@ -22,7 +22,7 @@ Azure Digital Twins applies to environments of all kinds. For example: warehouse
 
 The following video takes a deeper dive into Digital Twins:
 
-> [!VIDEO https://www.youtube.com/embed/zvLLQ4fY82M]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2EU76]
 
 ## Key Capabilities
 
@@ -32,7 +32,7 @@ Key capabilities of Azure Digital Twins include:
 
 The [spatial intelligence graph](./concepts-objectmodel-spatialgraph.md) is a virtual representation of the physical environment that enables you to model the relationships between people, places, and devices.
 
-For example, a smart utility app might involve several electricity usage meters connected across a neighborhood. To accurately monitor and predict electricity usage and billing, the smart utility company must model each each device and sensor with context about the location and the customer that will be billed. The spatial intelligence graph enables you to model these kinds of complex relationships.
+Consider a smart utility app that might involve several electricity usage meters connected across a neighborhood. To accurately monitor and predict electricity usage and billing, the smart utility company must model each device and sensor with context about the location and the customer that will be billed. The spatial intelligence graph enables you to model these kinds of complex relationships.
 
 ### Digital twin object models
 
@@ -44,7 +44,7 @@ For example, a room occupancy application could use pre-defined space types such
 
 You can build solutions that scale securely and which can be reused for multiple tenants. You can also create multiple subtenants that can be accessed and used in an isolated and secure manner.
 
-For example, a space utilization application could be configured to isolate a tenant's data from other tenant data within a single building, or to combine data for a single tenant with multiple buildings.
+Think how a space utilization app could be configured to isolate a tenant's data from other tenant data within a single building, or to combine data for a single tenant with multiple buildings.
 
 ### Advanced compute capabilities
 
@@ -69,7 +69,7 @@ For example, a smart office building application could use Azure Digital Twins t
 Azure Digital Twins is useful for representing the physical world and its many relationships since it simplifies IoT modeling, data processing, event handling, and device tracking. Consider just a few of the following scenarios, across several industries, that benefit from its use:
 
 * Showing a property management company the occupancy levels of a space over time to glean insights about the best ways to configure its office building.
-* Triggering work order tickets to a mobile app that drives security guard dispatch, janitorial services scheduling, and any other services in a retail space or sports venue.
+* Triggering work order tickets for a mobile app that drives security guard dispatch, janitorial services scheduling, and any other services in a retail space or sports venue.
 * Showing a building occupant which rooms are occupied in a building in real-time. Then, helping the occupant reserve workspaces that fit their needs.
 * Tracking where assets are located within a space.
 * Optimizing electric vehicle charging my modeling user preferences and energy-grid constraints.
@@ -82,10 +82,12 @@ Azure Digital Twins uses Azure IoT Hub to connect the IoT devices and sensors th
 
 For a more detailed description about the rest of the IoT ecosystem, see [Azure IoT technologies and solutions](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
 
-
 ## Next steps
 
 Learn about core Azure Digital Twins concepts:
 
 > [!div class="nextstepaction"]
 > [Understanding the Digital Twins Object Model and Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md)
+  
+> [!div class="nextstepaction"]
+> [Digital Twins Security Best Practices](./security-best-practices.md)
