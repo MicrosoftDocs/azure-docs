@@ -22,6 +22,10 @@ This article provides an overview of the Azure SQL Database Managed Instance res
 
 ## Instance-level resource limits
 
+Managed Instance has characteristics and resource limits that depends on the underlying infrastructure and architecture. Limits depend on hardware generation and service tier.
+
+### Hardware generation characteristics
+
 Azure SQL Database Managed Instance can be deployed on two hardware generation (Gen4 and Gen5). Hardware generations have different characteristics that are described in the following table:
 
 |   | **Gen 4** | **Gen 5** |
@@ -30,6 +34,8 @@ Azure SQL Database Managed Instance can be deployed on two hardware generation (
 | Compute | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memory | 7 GB per vCore | 5.5 GB per vCore |
 | Max storage (Business Critical) | 1TB | 1TB, 2TB, 4TB depending on the number of cores |
+
+### Service tier characteristics
 
 Managed Instance has two service tiers - General Purpose and Business Critical (Public Preview). These tiers provide different capabilities, as described in the table below:
 
