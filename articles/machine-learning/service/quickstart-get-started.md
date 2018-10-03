@@ -11,7 +11,7 @@ ms.author: roastala
 ms.date: 09/24/2018
 ---
 
-# Quickstart: use the Azure portal to get started with Azure Machine Learning service
+# Quickstart: Use the Azure portal to get started with Azure Machine Learning service
 
 In this quickstart, you'll use the Azure portal to create an Azure Machine Learning service workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service. 
 
