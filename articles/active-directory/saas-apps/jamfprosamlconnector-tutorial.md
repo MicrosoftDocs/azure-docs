@@ -143,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](./media/jamfprosamlconnector-tutorial/d1_saml.png)
 
-9. If you want to configure the steps manually, open a new web browser window and log into your Jamf Pro company site as an administrator and perform the following steps:
+9. If you want to setup Jamf Pro manually, open a new web browser window and log into your Jamf Pro company site as an administrator and perform the following steps:
 
 10. Click on the **Settings icon** from the top right corner of the page.
 
