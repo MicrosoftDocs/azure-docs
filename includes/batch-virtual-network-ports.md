@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 09/26/2018
+ms.date: 10/03/2018
 ms.author: danlep
 ms.custom: include file 
 ---
@@ -28,7 +28,7 @@ ms.custom: include file
 
 * Your Azure Storage endpoint needs to be resolved by any custom DNS servers that serve your VNet. Specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net` should be resolvable. 
 
-Additional VNet requirements differ, depending on whether the Batch pool is in the Virtual Machine configuration or the Cloud Services configuration.
+Additional VNet requirements differ, depending on whether the Batch pool is in the Virtual Machine configuration or the Cloud Services configuration. For new pool deployments into a VNet, the Virtual Machine configuration is recommended.
 
 ### Pools in the Virtual Machine configuration
 
@@ -40,15 +40,15 @@ Additional VNet requirements differ, depending on whether the Batch pool is in t
   /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}
   ```
 
-**Permissions** - The `MicrosoftAzureBatch` service principal must have the Contributor role in the subscription used to deploy the pool. 
+**Permissions** - The `MicrosoftAzureBatch` service principal must have the Contributor role in the subscription used to deploy the pool. This role is needed for Batch to add compute nodes to the virtual network and to deploy related networking resources including network security groups, public IP addresses, and load balancers. 
 
-  Additionally, the user creating the pool must have at least the Contributor role on the specified VNet, in order to manage the VNet's resources and scale VMs up and down in the subnet. You should check whether your organization's security policies on the VNet's subscription or resource group restrict a user's permissions to manage the VNet.
+  Additionally, you should check whether your security policies or locks on the VNet's subscription or resource group restrict a user's permissions to manage the VNet.
 
 **Additional networking resources** - Batch automatically allocates additional networking resources in the resource group containing the VNet. For each 50 dedicated nodes (or each 20 low-priority nodes), Batch allocates: 1 network security group (NSG), 1 public IP address, and 1 load balancer. These resources are limited by the subscription's [resource quotas](../articles/azure-subscription-service-limits.md). For large pools you may need to request a quota increase for one or more of these resources.
 
 #### Network security groups
 
-The subnet must allow inbound communication from the Batch service to be able to schedule tasks on the compute nodes, and outbound communication to communicate with Azure storage or other resources. For pools in the Virtual Machine configuration, Batch adds NSGs at the level of network interfaces (NIC) attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
+The subnet must allow inbound communication from the Batch service to be able to schedule tasks on the compute nodes, and outbound communication to communicate with Azure storage or other resources. For pools in the Virtual Machine configuration, Batch adds NSGs at the level of network interfaces (NICs) attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
 
 * Inbound TCP traffic on ports 29876 and 29877 from Batch service role IP addresses. 
 * Inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) to permit remote access.
