@@ -139,12 +139,11 @@ In case you want to test the integration of your syslog server with the Azure St
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck 
  
 #Skip entirely the server certificate validation
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> 
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCertificateCheck
 ```
 
 > [!IMPORTANT]
 > Microsoft recommends against the use of -SkipCertificateCheck flag for production environments. 
-
 
 ### Configuring syslog forwarding with TCP and no encryption
 
