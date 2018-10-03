@@ -25,7 +25,7 @@ This hands-on guide is platform-independent, so you are able to run it on Window
 - **Azure CLI**: The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) is a command line tool for managing Azure resources. (Terraform supports authenticating to Azure through a Service Principle or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
 
 > [!NOTE]
-> All files described in this section should be created under [GoPath](https://github.com/golang/go/wiki/SettingGOPATH).
+> All files described in this section should be created under your [GOPATH](https://github.com/golang/go/wiki/SettingGOPATH).
 
 ### A Static Webpage Module
 
@@ -355,7 +355,7 @@ GoPath/src/staticwebpage/test$ go fmt
 GoPath/src/staticwebpage/test$ go test
 ```
 
-As you can tell, integration tests take much longer time than unit tests (two minutes for one integration case while one minute for five unit cases). But it is still your decision about when to use unit tests and when to leverage integration tests. Typically we prefer to use unit tests for complex logic using Terraform HCL functions; while using integration test from the end-to-end perspective of a user.
+As you can tell, integration tests take much longer time than unit tests (two minutes for one integration case while one minute for five unit cases). But it is still your decision about when to use unit tests and when to leverage integration tests. Typically, we prefer to use unit tests for complex logic using Terraform HCL functions; while using integration test from the end-to-end perspective of a user.
 
 ## Terratest in Depth
 
