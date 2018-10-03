@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/03/2018
 ms.author: magoedte
-ms.component: 
+ms.component: na
 ---
 
 # Wire Data 2.0 (Preview) solution in Log Analytics
@@ -25,8 +25,8 @@ Wire data is consolidated network and performance data collected from Windows-co
 
 In addition to the Log Analytics agent, the Wire Data solution uses Microsoft Dependency Agents that you install on computers in your IT infrastructure. Dependency Agents monitor network data sent to and from your computers for network levels 2-3 in the [OSI model](https://en.wikipedia.org/wiki/OSI_model), including the various protocols and ports used. Data is then sent to Log Analytics using agents.  
 
-> [!NOTE]
-> You cannot add the previous version of the Wire Data solution to new workspaces. If you have the original Wire Data solution enabled, you can continue to use it. However, to use Wire Data 2.0, you must first remove the original version.
+>[!NOTE]
+>If you have already deployed Service Map, or are considering Service Map or [Azure Monitor for VMs](../monitoring/monitoring-vminsights-overview.md), there is a new connection metrics data set they collect and store in Log Analytics that provides comparable information to Wire Data.
 
 By default, Log Analytics logs data for CPU, memory, disk, and network performance data from counters built into Windows and Linux, as well as other performance counters that you can specify. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer.  Wire Data looks at network data at the application level, not down at the TCP transport layer.  The solution doesn't look at individual ACKs and SYNs.  Once the handshake is completed, it is considered a live connection and marked as Connected. That connection stays live as long as both sides agree the socket is open and data can pass back and forth.  Once either sides closes the connection, it is marked as Disconnected.  Therefore, it only counts the bandwidth of successfully completed packets, it doesn't report on resends or failed packets.
 
@@ -195,6 +195,9 @@ Perform the following steps to configure the Wire Data solution for your workspa
 1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 2. Install the Dependency Agent on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
+> [!NOTE]
+> You cannot add the previous version of the Wire Data solution to new workspaces. If you have the original Wire Data solution enabled, you can continue to use it. However, to use Wire Data 2.0, you must first remove the original version.
+> 
 ### Install the Dependency Agent on Windows
 
 Administrator privileges are required to install or uninstall the agent.
@@ -264,7 +267,7 @@ To easily deploy the Dependency Agent on many servers at once, it helps to use a
 
 ```PowerShell
 
-Invoke-WebRequest 'https://aka.ms/dependencyagentwindows' -OutFile InstallDependencyAgent-Windows.exe
+Invoke-WebRequest &quot;https://aka.ms/dependencyagentwindows&quot; -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S
 
@@ -287,7 +290,7 @@ To deploy the Dependency Agent via Desired State Configuration, you can use the 
 ```
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
-$DAPackageLocalPath = 'C:\InstallDependencyAgent-Windows.exe'
+$DAPackageLocalPath = &quot;C:\InstallDependencyAgent-Windows.exe&quot;
 
 
 
@@ -301,11 +304,11 @@ Node $NodeName
 
     {
 
-        Uri = 'https://aka.ms/dependencyagentwindows'
+        Uri = &quot;https://aka.ms/dependencyagentwindows&quot;
 
         DestinationPath = $DAPackageLocalPath
 
-        DependsOn = '[Package]OI'
+        DependsOn = &quot;[Package]OI&quot;
 
     }
 
@@ -313,21 +316,21 @@ Node $NodeName
 
     {
 
-        Ensure='Present'
+        Ensure=&quot;Present&quot;
 
-        Name = 'Dependency Agent'
+        Name = &quot;Dependency Agent&quot;
 
         Path = $DAPackageLocalPath
 
         Arguments = '/S'
 
-        ProductId = ''
+        ProductId = &quot;&quot;
 
-        InstalledCheckRegKey = 'HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent'
+        InstalledCheckRegKey = &quot;HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent&quot;
 
-        InstalledCheckRegValueName = 'DisplayName'
+        InstalledCheckRegValueName = &quot;DisplayName&quot;
 
-        InstalledCheckRegValueData = 'Dependency Agent'
+        InstalledCheckRegValueData = &quot;Dependency Agent&quot;
 
     }
 
