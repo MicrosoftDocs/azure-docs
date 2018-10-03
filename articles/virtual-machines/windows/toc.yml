@@ -35,6 +35,7 @@
     href: tutorial-backup-vms.md
   - name: 10 - Govern VMs
     href: tutorial-govern-resources.md
+    displayName: scope policy RBAC lock tag
   - name: 11 - Monitor and update VMs
     href: tutorial-monitoring.md
   - name: 12 - Manage VM security
@@ -162,6 +163,7 @@
     items:
     - name: Encrypt
       href: encrypt-disks.md
+      displayName: encryption
     - name: Use WinRM
       href: winrm.md
     - name: Use access controls
