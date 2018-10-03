@@ -16,7 +16,7 @@ The Azure Monitor [Diagnostics extension](https://docs.microsoft.com/azure/monit
 
 This article describes the process for sending Guest OS performance metrics for a Windows virtual machine (classic) to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
-Storing them in this location allows you to access the same actions for platform metrics. Actions include near-real time alerting, charting, routing, access from REST API, and more. In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store. 
+Storing them in this location allows you to access the same actions as you do for platform metrics. Actions include near-real time alerting, charting, routing, access from a REST API, and more. In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store. 
 
 The process that's outlined in this article only works on classic virtual machines that are running the Windows operating system.
 
@@ -182,7 +182,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 1.	On the left menu, select **Monitor.**
 
-1.	On the **Monitor** blade, select **Metrics**
+1.	On the **Monitor** blade, select **Metrics**.
 
     ![Navigate metrics](./media/metrics-store-custom-guestos-classic-vm/navigate-metrics.png)
 

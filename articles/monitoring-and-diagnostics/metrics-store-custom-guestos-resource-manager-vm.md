@@ -35,7 +35,7 @@ https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-wi
 
 - **Azuredeploy.json** is a preconfigured Resource Manager template for the deployment of a virtual machine. 
 
-- **Azuredeploy.parameters.json** is a parameters file that stores information such as what username and password you would like to set for your VM. During deployment, the Resource Manager template uses the parameters that are set in this file. 
+- **Azuredeploy.parameters.json** is a parameters file that stores information such as what user name and password you would like to set for your VM. During deployment, the Resource Manager template uses the parameters that are set in this file. 
 
 Download and save both files locally. 
 
@@ -61,7 +61,7 @@ Add a storage account ID to the **variables** section of the template after the 
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-Add this Managed Service Identity (MSI) extension to the template at the top of the "resources" section.  The extension ensures that Azure Monitor accepts the metrics that are being emitted.  
+Add this Managed Service Identity (MSI) extension to the template at the top of the **resources** section. The extension ensures that Azure Monitor accepts the metrics that are being emitted.  
 
 ```json
 //Find this code. 
@@ -86,7 +86,7 @@ Add this Managed Service Identity (MSI) extension to the template at the top of 
     }, 
 ```
 
-Add the "identity" configuration to the VM resource to ensure that Azure assigns the MSI extension a system identity. This step ensures that the VM can emit guest metrics about itself to Azure Monitor. 
+Add the **identity** configuration to the VM resource to ensure that Azure assigns a system identity to the MSI extension. This step ensures that the VM can emit guest metrics about itself to Azure Monitor. 
 
 ```json
 // Find this section
@@ -117,7 +117,7 @@ Add the "identity" configuration to the VM resource to ensure that Azure assigns
     ...
 ```
 
-Add the following configuration to enable the Diagnostics extension on a Windows virtual machine.  For a simple Resource Manager-based virtual machine, we can add the extension configuration to the resources array for the Virtual Machine. The line "sinks" -- "AzMonSink"  and the corresponding "SinksConfig" later in the section -- enable the extension to emit metrics directly to Azure Monitor. Feel free to add or remove performance counters as needed.  
+Add the following configuration to enable the Diagnostics extension on a Windows virtual machine.  For a simple Resource Manager-based virtual machine, we can add the extension configuration to the resources array for the virtual machine. The line "sinks" -- "AzMonSink"  and the corresponding "SinksConfig" later in the section -- enable the extension to emit metrics directly to Azure Monitor. Feel free to add or remove performance counters as needed.  
 
 
 ```json
@@ -226,7 +226,7 @@ Save and close both files.
 ## Deploy the Resource Manager template 
 
 > [!NOTE]
-> You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you don't have these settings in your template, change them and redeploy the template. 
+> You must be running the Azure Diagnostics extension version 1.5 or higher AND have the **autoUpgradeMinorVersion**: property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you don't have these settings in your template, change them and redeploy the template. 
 
 
 To deploy the Resource Manager template, we leverage Azure PowerShell.  
