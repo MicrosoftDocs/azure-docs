@@ -28,11 +28,11 @@ You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://po
 
 The size of reservation should be based on the total amount of throughput used by the existing or soon-to-be-deployed Azure Cosmos DB resources (for example, databases or containers - collections, tables, graphs). You can determine the required throughput in the following ways:
 
-* Navigate to [Azure Portal](https://portal.azure.com), find your Azure Cosmos DB account, open the Metrics blade, and get the average throughput/sec details from the **Throughput** tab over a period of 3-6 months. Provide this size as the reserved capacity units when purchasing.
+* Get the historical data for the total provisioned throughput across your Azure Cosmos DB accounts, databases, and collections across all regions. For example, you can evaluate the daily average provisioned throughput by downloading your daily usage statement from `https://account.azure.com`
 
-Alternatively, if you are an Enterprise Agreement (EA), you can download your usage file and refer to **Service Type** value in the **Additional info** section of the usage file to get the Azure Cosmos DB throughput details.
+* Alternatively, if you are an Enterprise Agreement (EA), you can download your usage file and refer to **Service Type** value in the **Additional info** section of the usage file to get the Azure Cosmos DB throughput details.
 
-You can also sum up the average throughput for all the workloads on your Azure Cosmos DB accounts that you anticipate running for the next one or three years and use that quantity for reservation.
+* You can also sum up the average throughput for all the workloads on your Azure Cosmos DB accounts that you anticipate running for the next one or three years and use that quantity for reservation.
 
 ## Buy Azure Cosmos DB reserved capacity
 

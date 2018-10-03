@@ -49,7 +49,7 @@ can't use Resource Manager templates to create management groups.
 
 ### Create in PowerShell
 
-Within PowerShell, you use the Add-AzureRmManagementGroups cmdlets:
+Within PowerShell, you use the New-AzureRmManagementGroups cmdlets:
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroup -GroupName 'Contoso'

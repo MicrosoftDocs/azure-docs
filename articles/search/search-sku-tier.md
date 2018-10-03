@@ -87,7 +87,7 @@ Portal and pricing pages put the focus on partition size and storage, but for ea
 **S3** and **S3 HD** are backed by identical high capacity infrastructure but each one reaches its maximum limit in different ways. **S3** targets a smaller number of very large indexes. As such, its maximum limit is resource-bound (2.4 TB for each service). **S3 HD** targets a large number of very small indexes. At 1,000 indexes, **S3 HD** reaches its limits in the form of index constraints. If you are an **S3 HD** customer who requires more than 1,000 indexes, contact Microsoft Support for information on how to proceed.
 
 > [!NOTE]
-> Previously, document limits were a consideration but are no longer applicable for most Azure Search services provisioned after January 2018. For more information about conditions for which document limits still apply, see [Service limits: document limits](search-limits-quotas-capacity.md#document-limits).
+> Previously, document limits were a consideration but are no longer applicable for new services. For more information about conditions under which document limits still apply, see [Service limits: document limits](search-limits-quotas-capacity.md#document-limits).
 >
 
 ## Evaluate capacity

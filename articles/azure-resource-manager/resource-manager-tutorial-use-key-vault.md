@@ -30,7 +30,7 @@ This tutorial covers the following tasks:
 > [!div class="checklist"]
 > * Prepare the Key Vault
 > * Open a quickstart template
-> * Edit the paraemters file
+> * Edit the parameters file
 > * Deploy the template
 > * Validate the deployment
 > * Clean up resources
@@ -81,7 +81,7 @@ To create a Key Vault:
     - **Resource group**: assign a unique name. Write down this name, you use the same resource group to deploy the virtual machine in the next session. Placing both the Key Vault and the virtual machine in the same resource group makes it easier to clean up the resource at the end of the tutorial.
     - **Location**: select a location.  The default location is **Central US**.
     - **Key Vault Name**: assign a unique name. 
-    - **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default vaule
+    - **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value
     - **Ad User Id**: enter your Azure AD user object ID that you retrieved from the last procedure.
     - **Secret Name**: The default name is **mAdminPassword**. If you change the secret name here, you need to update the secret name when you deploy the virtual machine.
     - **Secret Value**: Enter your secret.  The secret is the password used to sign in to the virtual machine.
