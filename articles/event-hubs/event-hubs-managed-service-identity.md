@@ -1,5 +1,5 @@
 ---
-title: Managed identifies for Azure resources with Azure Event Hubs preview | Microsoft Docs
+title: Managed identities for Azure resources with Azure Event Hubs preview | Microsoft Docs
 description: Use Managed identities for Azure resources with Azure Event Hubs
 services: event-hubs
 documentationcenter: na
