@@ -54,10 +54,6 @@ Managed Instance currently supports deployment only on the following types of su
 > [!NOTE]
 > This limitation is temporary. New subscription types will be enabled in the future.
 
-## Supported regions
-
-Managed Instanced are can be created only in [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database). I you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
-
 ## Default regional subscription-level limits
 
 Supported subscription types can contain a limited number of resources per region. Managed Instances has two default subscription-level limits per Azure region depending on a type of subscription type. :
@@ -67,6 +63,8 @@ Supported subscription types can contain a limited number of resources per regio
 
 > [!IMPORTANT]
 > When planning your deployments, consider that a Business Critical (BC) instance (due to added redundancy) generally consumes 4x more capacity than a General Purpose (GP) instance. So, for your calculations, 1 GP instance = 1 instance unit and 1 BC instance = 4 instance units. To simplify your consumption analysis against the default limits, summarize the instance units across all subnets in the region where Managed Instances are deployed and compare the results with the instance unit limits for your subscription type.
+
+## Default limits by subscription type 
 
 In the following table are shown default regional limits for supported subscriptions:
 
