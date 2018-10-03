@@ -20,6 +20,17 @@ This article provides an overview of the Azure SQL Database Managed Instance res
 > [!NOTE]
 > For other Managed Instance limitations, not specific to individual subscription, see [vCore-based purchasing model](sql-database-managed-instance.md#vcore-based-purchasing-model) and [Managed Instance service tiers](sql-database-managed-instance.md#managed-instance-service-tiers).
 
+## Instance-level resource limits
+
+Azure SQL Database Managed Instance can be deployed on two hardware generation (Gen4 and Gen5). Hardware generations have different characteristic that are described in the following table:
+
+|   | **Gen 4** | **Gen 5** |
+| --- | --- | --- |
+| Hardware | Intel E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread) |
+| Compute | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
+| Memory | 7 GB per vCore | 5.5 GB per vCore |
+| Max storage (Business Critical) | 1TB | 1TB, 2TB, 4TB depending on the number of cores |
+
 ## Default subscription-level limits per region
 
 Managed Instance currently supports deployment only on the following types of subscriptions:
