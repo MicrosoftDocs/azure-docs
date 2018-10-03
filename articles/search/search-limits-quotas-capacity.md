@@ -50,13 +50,13 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 ## Document limits 
 
-As of September 2018, there are no longer any document limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD), in any region. While most regions have had unlimited document counts since November/December 2017, there were five regions that continued to impose document limits. Depending on when and where you created a search service, you might still be subject to document limit constraints.
+As of September 2018, there are no longer any document limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were five regions that continued to impose document limits. Depending on when and where you created a search service, you might still be subject to document limit constraints.
 
 To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document counts are either unlimited, or subject to a limit based on tier.
 
   ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-### Regions having document limits
+### Regions previously having document limits
 
 If the portal indicates a document limit, your service was either created before late 2017, or it was created on a data center using lower-capacity clusters for hosting Azure Search services:
 
