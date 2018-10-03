@@ -19,7 +19,7 @@ Please use the Feedback tool at the bottom of any article to submit bugs and sug
 
 ![Feedback Tool](media/feedback-tool.png)
 
-## Editing in GitHub
+### Editing in GitHub
 
 Follow the guidance for [Quick edits to existing documents](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents) in our contributors guide.
 
