@@ -20,7 +20,7 @@ ms.author: ramankum
 
 # Update the storage type of a managed disk
 
-Azure Managed Disks offers three storage type options: [Premium SSD](../windows/premium-storage.md), [Standard SSD](../windows/disks-standard-ssd), and [Standard HDD](../windows/standard-storage.md). It allows you to easily switch a managed disk between storage types with minimal downtime, based on your performance needs. Switching between storage types is not supported for an unmanaged disk. However, you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) so that you can switch it between disk types.
+Azure Managed Disks offers three storage type options: [Premium SSD](../windows/premium-storage.md), [Standard SSD](../windows/disks-standard-ssd.md), and [Standard HDD](../windows/standard-storage.md). It allows you to easily switch a managed disk between storage types with minimal downtime, based on your performance needs. Switching between storage types is not supported for an unmanaged disk. However, you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) so that you can switch it between disk types.
 
 This article shows how to convert a managed disk from standard to premium, and vice versa, by using Azure PowerShell. If you need to install or upgrade PowerShell, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
 
