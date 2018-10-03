@@ -4,9 +4,6 @@
   items:
   - name: What is Relay?
     href: relay-what-is-it.md
-  - name: Compare messaging services
-    href: ../event-grid/compare-messaging-services.md
-    maintainContext: true
 - name: Quickstarts
   items:
     - name: Send and receive messages - .NET Websockets
