@@ -58,7 +58,7 @@ Perform the following steps to cable your device.
     2. Use the RJ-45 CAT 6 cable to connect the MGMT port on one end and a laptop on the other end.            
     3. Use the RJ-45 CAT 6A cable to connect to DATA 3 port on one end. DATA 3 is configured as 10 GbE if you connect via RJ-45 CAT 6A cable and as 1 GbE if you connect via RJ-45 CAT 6 cable.
     4. Use the 10 GbE SFP+ Twinax copper cables to connect the DATA 1 and DATA 2 ports respectively. 
-    5. The other end of the cables from the data ports are connected to the host computer via a 10 GbE switch.
+    5. The other ends of the cables from the data ports are connected to the host computer via a 10 GbE switch.
 
 4. Locate the power button on the front operating panel of the device. Turn on the device.
 
