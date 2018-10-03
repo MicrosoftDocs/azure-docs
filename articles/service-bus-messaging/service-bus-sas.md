@@ -3,7 +3,7 @@ title: Azure Service Bus access control with Shared Access Signatures | Microsof
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2018
-ms.author: sethm
+ms.date: 09/14/2018
+ms.author: spelluru
 
 ---
 

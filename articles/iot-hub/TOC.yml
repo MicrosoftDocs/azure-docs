@@ -8,6 +8,8 @@
     href: about-iot-hub.md
 - name: Quickstarts
   items:
+  - name: Send telemetry (C)
+    href: quickstart-send-telemetry-c.md
   - name: Send telemetry (Node.js)
     href: quickstart-send-telemetry-node.md
   - name: Send telemetry (.NET)
@@ -54,6 +56,8 @@
     href: iot-hub-event-grid-routing-comparison.md
   - name: Device configuration best practices
     href: iot-hub-configuration-best-practices.md
+  - name: Azure IoT SDKs platform support
+    href: iot-hub-device-sdk-platform-support.md
   - name: Developer guide
     href: iot-hub-devguide.md
     items:
@@ -64,18 +68,21 @@
     - name: Send and receive messages
       href: iot-hub-devguide-messaging.md
       items:
-      - name: Send device-to-cloud messages to IoT Hub
+      - name: Use message routing to send device-to-cloud messages
         href: iot-hub-devguide-messages-d2c.md
-      - name: Read device-to-cloud messages from the built-in endpoint
-        href: iot-hub-devguide-messages-read-builtin.md
+        items:
+        - name: Create and read IoT Hub messages
+          href: iot-hub-devguide-messages-construct.md
+        - name: Read device-to-cloud messages from the built-in endpoint
+          href: iot-hub-devguide-messages-read-builtin.md
+        - name: Use custom endpoints and routing rules for device-to-cloud messages
+          href: iot-hub-devguide-messages-read-custom.md
+        - name: Add queries to message routes
+          href: iot-hub-devguide-routing-query-syntax.md
       - name: React to IoT Hub events
         href: iot-hub-event-grid.md
-      - name: Use custom endpoints and routing rules for device-to-cloud messages
-        href: iot-hub-devguide-messages-read-custom.md
       - name: Send cloud-to-device messages from IoT Hub
         href: iot-hub-devguide-messages-c2d.md
-      - name: Create and read IoT Hub messages
-        href: iot-hub-devguide-messages-construct.md
       - name: Choose a communication protocol
         href: iot-hub-devguide-protocols.md
     - name: Upload files from a device
@@ -129,6 +136,8 @@
     - name: Use device and service SDKs
       href: iot-hub-devguide-sdks.md
       items:
+      - name: Azure IoT SDKs platform support
+        href: iot-hub-device-sdk-platform-support.md
       - name: Use the IoT device SDK for C
         href: iot-hub-device-sdk-c-intro.md
         items:
@@ -144,6 +153,8 @@
         href: iot-hub-reliability-features-in-sdks.md
     - name: Query Avro data from a hub route
       href: iot-hub-query-avro-data.md
+    - name: Order device connection state events from Event Grid
+      href: iot-hub-how-to-order-connection-state-events.md
     - name: Send cloud-to-device messages
       items:
       - name: .NET
@@ -220,8 +231,6 @@
         href: iot-hub-create-using-powershell.md
       - name: Use Azure CLI
         href: iot-hub-create-using-cli.md
-      - name: Use CLI
-        href: iot-hub-create-using-cli-nodejs.md
       - name: Use the REST API
         href: iot-hub-rm-rest.md
       - name: Use a template from Azure PowerShell
@@ -266,24 +275,14 @@
     - name: Use a physical device
       href: iot-hub-get-started-physical.md
       items:
-      - name: Raspberry Pi with Python
-        href: iot-hub-raspberry-pi-kit-python-get-started.md
       - name: Raspberry Pi with Node.js
         href: iot-hub-raspberry-pi-kit-node-get-started.md
       - name: Raspberry Pi with C
         href: iot-hub-raspberry-pi-kit-c-get-started.md
       - name: MXChip IoT DevKit with Arduino
         href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-      - name: Intel Edison with Node.js
-        href: iot-hub-intel-edison-kit-node-get-started.md
-      - name: Intel Edison with C
-        href: iot-hub-intel-edison-kit-c-get-started.md
       - name: Adafruit Feather HUZZAH ESP8266 with Arduino
         href: iot-hub-arduino-huzzah-esp8266-get-started.md
-      - name: Sparkfun ESP8266 Thing Dev with Arduino
-        href: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
-      - name: Adafruit Feather M0 with Arduino
-        href: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
     - name: Use MXChip IoT DevKit
       items:
       - name: Translate voice message with Azure Cognitive Services
@@ -296,12 +295,8 @@
         href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: Extended IoT scenarios
       items:
-      - name: Manage cloud device messaging with iothub-explorer
-        href: iot-hub-explorer-cloud-device-messaging.md
       - name: Manage cloud device messaging with Azure IoT Toolkit for VS Code
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-      - name: Save IoT Hub messages to Azure Blob storage
-        href: iot-hub-store-data-in-azure-table-storage.md
       - name: Data Visualization in Power BI
         href: iot-hub-live-data-visualization-in-power-bi.md
       - name: Data Visualization with Web Apps
@@ -310,9 +305,7 @@
         href: iot-hub-weather-forecast-machine-learning.md
       - name: Device management with Azure IoT Toolkit for VS Code
         href: iot-hub-device-management-iot-toolkit.md
-      - name: Device management with iothub-explorer
-        href: iot-hub-device-management-iothub-explorer.md
-      - name: Device management with IoT extension for Azure CLI 2.0
+      - name: Device management with IoT extension for Azure CLI
         href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
       - name: Remote monitoring and notifications with ​Logic ​Apps
         href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
@@ -400,8 +393,6 @@
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: iothub-explorer tool
-    href: https://github.com/Azure/iothub-explorer
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum

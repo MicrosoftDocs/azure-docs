@@ -123,7 +123,7 @@ When no longer needed, delete the resource groups, web applications, and all rel
 In this quickstart, you created a Traffic Manager profile that allows you to direct user traffic for highly availability web application. To learn more about routing traffic, continue to the tutorials for Traffic Manager.
 
 > [!div class="nextstepaction"]
-> [Traffic Manager tutorials](traffic-manager-configure-performance-routing-method.md)
+> [Traffic Manager tutorials](tutorial-traffic-manager-improve-website-response.md)
 
 
 

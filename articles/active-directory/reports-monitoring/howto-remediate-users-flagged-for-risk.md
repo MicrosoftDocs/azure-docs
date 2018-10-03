@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: compliance-reports
+ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -20,7 +20,7 @@ ms.reviewer: dhanyahk
 ---
 # Remediate users flagged for risk in the Azure Active Directory portal
 
-With the security reports in the Azure Active Directory (Azure AD), you can gain insights into the probability of compromised user accounts in your environment. A [user flagged for risk](../identity-protection/overview.md#users-flagged-for-risk) is an indicator for a user account that might have been compromised.
+With the security reports in the Azure Active Directory (Azure AD), you can gain insights into the probability of compromised user accounts in your environment. A user flagged for risk is an indicator for a user account that might have been compromised.
 
 Microsoft is committed to helping keep your environments secure. As part of this commitment, Microsoft continuously monitors for activities that are unusual or consistent with known attack patterns. 
 

@@ -84,7 +84,7 @@ $storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceG
 # The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
 # consume the appropriate values from the storage account variables. The value given to the add parameter of the
 # cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
-# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign 
+# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign 
 # clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
 Invoke-Expression -Command "cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
     "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)"
@@ -145,7 +145,7 @@ if ($fileShare -eq $null) {
 
 # The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
 # <storage-account>.file.core.windows.net for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
-# used because non-Public Azure regions, such as soverign clouds or Azure Stack deployments, will have different 
+# used because non-Public Azure regions, such as sovereign clouds or Azure Stack deployments, will have different 
 # hosts for Azure file shares (and other storage resources).
 $password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
@@ -188,6 +188,26 @@ Remove-PSDrive -Name <desired-drive-letter>
     ![Azure file share is now mounted](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
 7. When you are ready to dismount the Azure file share, you can do so by right-clicking on the entry for the share under the **Network locations** in File Explorer and selecting **Disconnect**.
+
+### Accessing share snapshots from Windows
+If you have taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from file share on Windows. You can take a share snapshot from the [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md), and [Azure CLI](storage-how-to-use-files-cli.md).
+
+#### List previous versions
+Browse to the item or parent item that needs to be restored. Double-click to go to the desired directory. Right-click and select **Properties** from the menu.
+
+![Right-click menu for a selected directory](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
+
+Select **Previous Versions** to see the list of share snapshots for this directory. The list might take a few seconds to load, depending on the network speed and the number of share snapshots in the directory.
+
+![Previous Versions tab](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
+
+You can select **Open** to open a particular snapshot. 
+
+![Opened snapshot](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+
+#### Restore from a previous version
+Select **Restore** to copy the contents of the entire directory recursively at the share snapshot creation time to the original location.
+ ![Restore button in warning message](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## Securing Windows/Windows Server
 In order to mount an Azure file share on Windows, port 445 must be accessible. Many organizations block port 445 because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with Windows and Windows Server. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and all supported versions of Windows and Windows Server make it possible to remove or disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) removing or disabling the SMB 1 client and server in Windows before using Azure file shares in production.

@@ -3,7 +3,7 @@ title: Get started with Azure Relay WCF relays in .NET | Microsoft Docs
 description: Learn how to use Azure Relay WCF relays to connect two applications hosted in different locations.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
-ms.author: sethm
+ms.author: spelluru
 ---
 
 # How to use Azure Relay WCF relays with .NET

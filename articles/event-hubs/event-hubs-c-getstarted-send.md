@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 12/4/2017
+ms.date: 08/16/2018
 ms.author: shvija
 ---
 

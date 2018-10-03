@@ -8,5 +8,5 @@ ms.author: wolfma
 
 ## Get the samples
 
-For the latest set of samples, check out our [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
+For the latest samples, see the [Cognitive Services Speech SDK sample code repository](https://aka.ms/csspeech/samples) on GitHub.
 

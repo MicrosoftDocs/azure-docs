@@ -1,11 +1,10 @@
-﻿---
+---
 title: Azure Database for MySQL Migration Partners | Microsoft Docs
 description: Lists of third-party migration partners with solutions that support Azure Database for MySQL.
 services: mysql
 author: HJToland3
 ms.author: jtoland
-manager: craigg
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
 ---

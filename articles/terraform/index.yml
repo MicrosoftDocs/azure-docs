@@ -1,18 +1,17 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Terraform on Azure Documentation
+title: Terraform on Azure documentation
 metadata:
-  title: Terraform on Azure Documentation - Tutorials and reference
-  meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+  title: Terraform on Azure documentation - Tutorials, samples, reference, and resources
+  description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
   services: terraform
-  author: rloutlaw  
-  manager: justhe
   ms.service: terraform
-  ms.tgt_pltfrm: na
-  ms.devlang: devops
+  keywords: terraform, azure, devops, tutorials, samples, reference
+  author: tomarcher
+  manager: jeconnoc
+  ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 09/21/2017
-  ms.author: routlaw
+  ms.date: 08/31/2018
 abstract:
   description: Use Terraform to reliably version and create infrastructure on Azure. Learn how to create resources, use Azure Terraform modules, and maintain your infrastructure with code using our Quickstarts and tutorials.
 sections:

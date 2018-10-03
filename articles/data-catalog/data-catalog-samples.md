@@ -1,20 +1,13 @@
 ---
-title: Data Catalog developer samples | Microsoft Docs
+title: Azure Data Catalog developer samples
 description: This article provides an overview of the available developer samples for the Data Catalog REST API.
 services: data-catalog
-documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-
 ---
 # Data Catalog developer samples
 Get started developing Data Catalog apps using the Data Catalog REST API. The Data Catalog REST API is a REST-based API that provides programmatic access to Data Catalog resources to register, annotate, and search data assets programmatically.

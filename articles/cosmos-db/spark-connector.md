@@ -18,10 +18,6 @@ ms.author: ramkris
  
 The Apache Spark to Azure Cosmos DB connector enables Azure Cosmos DB to be an input or output for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) accelerates your ability to solve fast-moving data science problems. You can use Azure Cosmos DB to quickly persist and query data. The connector efficiently uses the native Azure Cosmos DB managed indexes. The indexes enable updateable columns when you perform analytics and push-down predicate filtering against fast-changing, globally distributed data. This kind of data can range from Internet of Things (IoT) to data science and analytics scenarios.
 
-Learn more about the connector in this video:
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
-
 ## Connector components
 
 The Spark to Azure Cosmos DB connector has the following components:
@@ -84,7 +80,7 @@ Run the following steps to connect Spark to Azure Cosmos DB by using pyDocumentD
 
 6. In the **Create Notebook** dialog box, enter a user-friendly name, and choose **Python** as the language. From the drop-down list, select the cluster that you created earlier, and select **Create**.  
 
-7. Run a few Spark queries by using the flights sample data hosted in the “doctorwho” Azure Cosmos DB account. (This account is publicly accessible.) The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files, and go to `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. You can import the notebook to your Azure Databricks account and run it. The following section explains the functionality of the code blocks in detail.
+7. Run a few Spark queries by using the flights sample data hosted in the "doctorwho" Azure Cosmos DB account. (This account is publicly accessible.) The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files, and go to `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. You can import the notebook to your Azure Databricks account and run it. The following section explains the functionality of the code blocks in detail.
 
 The following code snippet shows how to import the pyDocumentDB SDK, and run a query in the Spark context. As noted in the code snippet, the pyDocumentDB SDK contains the connection parameters required to connect to the Azure Cosmos DB account. It imports the required libraries, and configures the master key and host, to create the Azure Cosmos DB client (pydocumentdb.document_client).
 
@@ -124,7 +120,7 @@ querystr = "SELECT c.City FROM c WHERE c.State='WA'"
 
 ```
 
-After you run the query, the result is a “query_iterable.QueryIterable” that is converted to a Python list. This list, in turn, is converted to a Spark data frame. 
+After you run the query, the result is a "query_iterable.QueryIterable" that is converted to a Python list. This list, in turn, is converted to a Spark data frame. 
 
 ```python
 # Query documents
@@ -180,7 +176,7 @@ Communication between Spark and Azure Cosmos DB is significantly faster, because
 
 4. Extract the contents of the Twitter feed sample and open the config.py file. Update the masterKey, host, databaseId, collectionId, and preferredLocations values.  
 
-5. Go to `http://apps.twitter.com/`, and register the Twitter feed script as a new application. After choosing a name and application for your app, you will be provided with a **consumer key, consumer secret, access token and access token secret**. Copy these values and update them in config.py file to provide the application programmatic access to Twitter.   
+5. Go to `http://apps.twitter.com/`, and register the Twitter feed application. After choosing a name for your application, you will be provided with a **consumer key, consumer secret, access token and access token secret**. Copy these values and update them in config.py file to provide the the Twitter feed application programmatic access to Twitter.   
 
 6. Save the config.py file. Open a command prompt, and run the Python application by using the following command:
 

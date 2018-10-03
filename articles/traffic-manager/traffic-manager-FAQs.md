@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 09/18/2018
 ms.author: kumud
 ---
 
@@ -69,7 +69,7 @@ To work around this issue, we recommend using an HTTP redirect to direct traffic
 Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### Does Traffic Manager consider the client subnet address when handling DNS queries? 
-Yes, in addition to the source IP address of the DNS query it receives (which usually is the IP address of the DNS resolver), when performing lookups for Geographic and Performance routing methods, traffic manager also considers the client subnet address if it is included in the query by the resolver making the request on behalf of the end user.  
+Yes, in addition to the source IP address of the DNS query it receives (which usually is the IP address of the DNS resolver), when performing lookups for Geographic, Performance, and Subnet routing methods, traffic manager also considers the client subnet address if it is included in the query by the resolver making the request on behalf of the end user.  
 Specifically, [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) that provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) which can pass on the client subnet address from resolvers that support it.
 
 ### What is DNS TTL and how does it impact my users?
@@ -131,6 +131,39 @@ A region can be assigned to only one endpoint within a profile if its using geog
 ### Are there any restrictions on the API version that supports this routing type?
 
 Yes, only API version 2017-03-01 and newer supports the Geographic routing type. Any older API versions cannot be used to created profiles of Geographic routing type or assign geographic regions to endpoints. If an older API version is used to retrieve profiles from an Azure subscription, any profile of Geographic routing type is not returned. In addition, when using older API versions, any profile returned that has endpoints with a geographic region assignment, does not have its geographic region assignment shown.
+
+## Traffic Manager Subnet traffic routing method
+
+### What are some use cases where subnet routing is useful?
+Subnet routing allows you to differentiate the experience you deliver for specific sets of users identified by the source IP of their DNS requests IP address. An example would be showing different content if users are connecting to a website fro your corporate HQ. Another would be restricting users from certain ISPs to only access endpoints that support only IPv4 connections if those ISPs have sub-par performance when IPv6 is used.
+Another reason to use Subnet routing method is in conjunction with other profiles in a nested profile set. For example, if you want to use Geographic routing method for geo-fencing your users, but for a specific ISP you want to do a different routing method, you can have a profile withy Subnet routing method as the parent profile and override that ISP to use a specific child profile and have the standard Geographic profile for everyone else.
+
+### How does Traffic Manager know the IP address of the end user?
+End user devices typically use a DNS resolver to do the DNS lookup on their behalf. The outgoing IP of such resolvers are what Traffic Manager sees as the source IP. In addition, Subnet routing method also looks to see if there is EDNS0 Extended Client Subnet (ECS) information that was passed with the request. If ECS information is present, that is the address used to determine the routing. In the absence of ECS information, the source IP of the query is used for routing purposes.
+
+### How can I specify IP addresses when using Subnet routing?
+The IP addresses to associate with an endpoint can be specified in two ways. First, you can use the quad dotted decimal octet notation with a start and end addresses to specify the range (e.g. 1.2.3.4-5.6.7.8 or 3.4.5.6-3.4.5.6). Second, you can use the CIDR notation to specify the range (e.g. 1.2.3.0/24). You can specify multiple ranges and can use both notation types in a range set. A few restrictions apply.
+-	You cannot have overlap of address ranges since each IP needs to be mapped to only a single endpoint
+-	The start address cannot be more than the end address
+-	In the case of the CIDR notation, the IP address before the ‘/’ should be the start address of that range (e.g. 1.2.3.0/24 is valid but 1.2.3.4.4/24 is NOT valid)
+
+### How can I specify a fallback endpoint when using Subnet routing?
+In a profile with Subnet routing, if you have an endpoint with no subnets mapped to it, any request that does not match with other endpoints will be directed to here. It is highly recommended that you have such a fallback endpoint in your profile since Traffic Manager will return a NXDOMAIN response if a request comes in and it is not mapped to any endpoints or if it is mapped to an endpoint but that endpoint is unhealthy.
+
+### What happens if an endpoint is disabled in a Subnet routing type profile?
+In a profile with Subnet routing, if you have an endpoint with that is disabled, Traffic Manager will behave as if that endpoint and the subnet mappings it has does not exist. If a query that would’ve matched with its IP address mapping is received and the endpoint is disabled, Traffic Manager will return a fallback endpoint (one with no mappings) or if such an endpoint is not present, will return a NXDOMAIN response
+
+## Traffic Manager MultiValue traffic routing method
+
+### What are some use cases where MultiValue routing is useful?
+MultiValue routing returns multiple healthy endpoints in a single query response. The main advantage of this is that, if an endpoint is unhealthy, the client has more options to retry without making another DNS call (which might return the same value from an upstream cache). This is applicable for availability sensitive applications that wants to minimize the downtime.
+Another use for MultiValue routing method is if an endpoint is “dual-homed” to both IPv4 and IPv6 addresses and you want to give the caller both options to choose from when it initiates a connection to the endpoint.
+
+### How many endpoints are returned when MultiValue routing is used?
+You can specify the maximum number of endopints to be returned and MultiValue will return no more than that many healthy endpoints when a query is received. The maximum possible value for this configuration is 10.
+
+### Will I get the same set of endpoints when MultiValue routing is used?
+We cannot guarantee that the same set of endpoints will be returned in each query. This is also affected by the fact that some of the endpoints might go unhealthy at which point they will not be included in the response
 
 ## Real User Measurements
 
@@ -255,7 +288,7 @@ Yes. Cloud Service 'staging' slots can be configured in Traffic Manager as Exter
 
 Traffic Manager does not currently provide IPv6-addressible name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints. A client does not make DNS requests directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. Then the recursive service should be able to contact the Traffic Manager name servers using IPv4.
 
-Traffic Manager responds with the DNS name of the endpoint. To support an IPv6 endpoint, a DNS AAAA record pointing the endpoint DNS name to the IPv6 address must exist. Traffic Manager health checks only support IPv4 addresses. The service needs to expose an IPv4 endpoint on the same DNS name.
+Traffic Manager responds with the DNS name or IP address of the endpoint. To support an IPv6 endpoint, there are two options. You can add the endpoint as a DNA name that has an associated AAAA record and Traffic Manager will health check that endpoint and return it as a CNAME record type in the query response. You can also add that endpoint directly using the IPv6 address and Traffic Manager will return a AAAA type record in the query response. 
 
 ### Can I use Traffic Manager with more than one Web App in the same region?
 
@@ -284,7 +317,7 @@ Azure Resource Manager requires all resource groups to specify a location, which
 
 ### How do I determine the current health of each endpoint?
 
-The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../cli-install-nodejs.md).
+The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager), and [cross-platform Azure CLI](../cli-install-nodejs.md).
 
 You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
@@ -297,6 +330,46 @@ Traffic manager cannot provide any certificate validation, including:
 * Server-side certificates are not validated
 * SNI server-side certificates are not supported
 * Client certificates are not supported
+
+### Do I use an IP address or a DNS name when adding an endpoint?
+Traffic Manager supports adding endpoints using three ways to refer them – as a DNS name, as an IPv4 address and as an IPv6 address. If the endpoint is added as an IPv4 or IPv6 address the query response will be of record type A or AAAA, respectively. If the endpoint was added as a DNS name, then the query response will be of record type CNAME. Please note that adding endpoints as IPv4 or IPv6 address is permitted only is the endpoint is of type ‘External’.
+All routing methods and monitoring settings are supported by the three endpoint addressing types.
+
+### What types of IP addresses can I use when adding an endpoint?
+Traffic Manager allows you to use IPv4 or IPv6 addresses to specify endpoints. There are a few restrictions which are listed below:
+- Addresses that correspond to reserved private IP address spaces are not allowed. These addresses include those called out in RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 and RFC 5771
+- The address must not contain any port numbers (you can specify the ports to be used in the profile configuration settings) 
+- No two endpoints in the same profile can have the same target IP address
+
+### Can I use different endpoint addressing types within a single profile?
+No, Traffic Manager does not allow you to mix endpoint addressing types within a profile, except for the case of a profile with MultiValue routing type where you can mix IPv4 and IPv6 addressing types
+
+### What happens when an incoming query’s record type is different from the record type associated with the addressing type of the endpoints?
+When a query is received against a profile, Traffic Manager first finds the endpoint that needs to be returned as per the routing method specified and the health status of the endpoints. It then looks at the record type requested in the incoming query and the record type associated with the endpoint before returning a response based on the table below.
+
+For profiles with any routing method other than MultiValue:
+|Incoming query request| 	Endpoint type| 	Response Provided|
+|--|--|--|
+|ANY |	A / AAAA / CNAME |	Target Endpoint| 
+|A |	A / CNAME |	Target Endpoint|
+|A |	AAAA |	NODATA |
+|AAAA |	AAAA / CNAME |	Target Endpoint|
+|AAAA |	A |	NODATA |
+|CNAME |	CNAME |	Target Endpoint|
+|CNAME 	|A / AAAA |	NODATA |
+|
+For profiles with routing method set to MultiValue:
+
+|Incoming query request| 	Endpoint type |	Response Provided|
+|--|--|--|
+|ANY |	Mix of A and AAAA |	Target Endpoints|
+|A |	Mix of A and AAAA |	Only Target Endpoints of type A|
+|AAAA	|Mix of A and AAAA| 	Only Target Endpoints of type AAAA|
+|CNAME |	Mix of A and AAAA |	NODATA |
+
+### Can I use a profile with IPv4 / IPv6 addressed endpoints in a nested profile?
+Yes, you can with the exception that a profile of type MultiValue cannot be a parent profile in a nested profile set.
+
 
 ### I stopped an Azure cloud service / web application endpoint in my Traffic Manager profile but I am not receiving any traffic even after I restarted it. How can I fix this?
 
@@ -324,9 +397,13 @@ By using these settings, Traffic Manager can provide failovers under 10 seconds 
 
 Traffic Manager monitoring settings are at a per profile level. If you need to use a different monitoring setting for only one endpoint, it can be done by having that endpoint as a [nested profile](traffic-manager-nested-profiles.md) whose monitoring settings are different from the parent profile.
 
-### What host header do endpoint health checks use?
+### How can I assign HTTP headers to the Traffic Manager health checks to my endpoints?
+Traffic Manager allows you to specify custom headers in the HTTP(S) health checks it initiates to your endpoints. If you want to specify a custom header, you can do that at the profile level (applicable to all endpoints) or specify it at the endpoint level. If a header is defined at both levels, then the one specified at the endpoint level will override the profile level one.
+One common use case for this is specifying host headers so that Traffic Manager requests may get routed correctly to an endpoint hosted in a multi-tenant environment. Another use case of this is to identify Traffic Manager requests from an endpoint’s HTTP(S) request logs
 
-Traffic Manager uses host headers in HTTP and HTTPS health checks. The host header used by Traffic Manager is the name of the endpoint target configured in the profile. The value used in the host header cannot be specified separately from the target property.
+## What host header do endpoint health checks use?
+If no custom host header setting is provided, the host header used by Traffic Manager is the DNS name of the endpoint target configured in the profile, if that is available. 
+
 
 ### What are the IP addresses from which the health checks originate?
 

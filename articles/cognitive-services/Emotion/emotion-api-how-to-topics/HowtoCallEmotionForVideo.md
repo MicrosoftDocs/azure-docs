@@ -1,28 +1,30 @@
 ﻿---
-title: Call the Emotion API for Video | Microsoft Docs
+title: "Example: Call the Emotion API for Video"
+titlesuffix: Azure Cognitive Services
 description: Learn how to call the Emotion API for Video in Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
+ROBOTS: NOINDEX
 ---
 
-# How to Call Emotion API for Video
+# Example: Call Emotion API for Video
 
 > [!IMPORTANT]
-> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
-videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 This guide demonstrates how to call Emotion API for Video. The samples are written in C# using the Emotion API for Video client library.
 
-### <a name="Prep">Preparation</a> 
+### <a name="Prep">Preparation</a>
 In order to use the Emotion API for Video, you will need a video that includes people, preferably video where the people are facing the camera.
 
-### <a name="Step1">Step 1: Authorize the API call</a> 
+### <a name="Step1">Step 1: Authorize the API call</a>
 Every call to the Emotion API for Video requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header. To pass the subscription key through a query string, refer to the request URL below for the Emotion API for Video as an example:
 
 ```
@@ -40,7 +42,7 @@ When using a client library, the subscription key is passed in through the const
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-To obtain a subscription key, see [Subscriptions] (https://azure.microsoft.com/try/cognitive-services/). 
+To obtain a subscription key, see [Subscriptions] (https://azure.microsoft.com/try/cognitive-services/).
 
 ### <a name="Step2">Step 2: Upload a video to the service and check the status</a>
 The most basic way to perform any of the Emotion API for Video calls is by uploading a video directly. This is done by sending a "POST" request with application/octet-stream content type together with the data read from a video file. The maximum size of the video is 100MB.
@@ -67,7 +69,7 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-This upload method will be the same for all the Emotion API for Video calls. 
+This upload method will be the same for all the Emotion API for Video calls.
 
 Once you have uploaded a video, the next operation you will want to perform is to check its status. Because video files are usually larger and more diverse than other files, users can expect a long processing time at this step. The time depends on the size and the length of the file.
 

@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<company name>.fgvms.com/<company name>`|
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Fieldglass support team](http://www.fieldglass.com/solutions/support) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Fieldglass support team](https://www.fieldglass.com/customer-support) to get these values.
  
 1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -132,7 +132,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/fieldglass-tutorial/tutorial_fieldglass_configure.png) 
 
-1. To configure single sign-on on **Fieldglass** side, you need to send the downloaded **Certificate(Base64)** and **Sign-Out URL, SAML Entity ID** to [Fieldglass support team](http://www.fieldglass.com/solutions/support). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **Fieldglass** side, you need to send the downloaded **Certificate(Base64)** and **Sign-Out URL, SAML Entity ID** to [Fieldglass support team](https://www.fieldglass.com/customer-support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +170,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Fieldglass test user
 
-The objective of this section is to create a user called Britta Simon in FieldGlass. Please work with your [Fieldglass support team](http://www.fieldglass.com/solutions/support) to add the users in the Fieldglass account.
+The objective of this section is to create a user called Britta Simon in FieldGlass. Please work with your [Fieldglass support team](https://www.fieldglass.com/customer-support) to add the users in the Fieldglass account.
 
 ### Assigning the Azure AD test user
 

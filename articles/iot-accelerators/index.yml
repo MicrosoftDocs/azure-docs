@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: IoT solution accelerators documentation
+title: IoT Solution Accelerators Documentation
 metadata:
   title: IoT solution accelerators documentation
-  meta.description: Get started quickly building your IoT solutions with the IoT solution accelerators. Add new devices and connect existing ones using device SDKs for multiple platforms, including Linux, Windows, and real-time operating systems. Easily scale from just a few sensors to millions of simultaneously connected devices and rely on the global availability of Azure, no matter how large or small your project.
+  meta.description: Learn how to use the IoT solution accelerators. These articles show you how to use the solution accelerators to kick-start your implementation of common IoT scenarios such as remote monitoring, industrial IoT, predictive maintenance, and device simulation.
   services: iot-accelerators
   author: dominicbetts
   manager: timlt
@@ -11,10 +11,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/19/2018
+  ms.date: 07/24/2018
   ms.author: dobett
 abstract:
-  description: Get started quickly building your IoT solutions with the IoT solution accelerators. Add new devices and connect existing ones using device SDKs for multiple platforms, including Linux, Windows, and real-time operating systems. Easily scale from just a few sensors to millions of simultaneously connected devices and rely on the global availability of Azure, no matter how large or small your project.
+  description: Learn how to use the IoT solution accelerators. These articles show you how to use the solution accelerators to kick-start your implementation of common IoT scenarios such as remote monitoring, industrial IoT, predictive maintenance, and device simulation.
 sections:
 - title: 5-Minute Quickstarts
   items:

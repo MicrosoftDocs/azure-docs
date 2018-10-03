@@ -219,18 +219,12 @@
 - name: Related
   items:
   - name: Azure Machine Learning - AML
-    href: https://docs.microsoft.com/en-us/azure/machine-learning/service/
+    href: https://docs.microsoft.com/azure/machine-learning/service/
   - name: Microsoft Cognitive Toolkit - CNTK
     href: https://docs.microsoft.com/cognitive-toolkit/
     maintainContext: true
-  - name: Cortana Intelligence Partner Solutions
-    items:
-    - name: Azure AI Gallery
-      href: https://gallery.azure.ai
-    - name: Cortana Intelligence publishing guide
-      href: cortana-intelligence-appsource-publishing-guide.md
-    - name: Cortana Intelligence solution evaluation tool
-      href: cortana-intelligence-appsource-evaluation-tool.md
+  - name: Azure AI Gallery
+    href: https://gallery.azure.ai
   - name: Cortana Analytics
     items:
     - name: Anomaly detection

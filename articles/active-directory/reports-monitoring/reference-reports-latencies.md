@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: compliance-reports
+ms.component: report-monitor
 ms.date: 12/15/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -35,15 +35,10 @@ There are two areas of activity reporting:
 
 The following table lists the latency information for activity reports.
 
-| Report | Latency (P95) |Latency (P99)|
+| Report | Latency (95%) |Latency (99%)|
 | :-- | --- | --- | 
 | Audit logs | 2 mins  | 5 mins  |
 | Sign-ins | 2 mins  | 5 mins |
-
-
-
-
-
 
 
 ## Security reports

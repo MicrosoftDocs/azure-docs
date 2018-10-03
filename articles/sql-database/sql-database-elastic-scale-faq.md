@@ -2,15 +2,16 @@
 title: Azure SQL Elastic Scale FAQ | Microsoft Docs
 description: Frequently Asked Questions about Azure SQL Database Elastic Scale.
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Elastic database tools FAQ
 #### If I have a single-tenant per shard and no sharding key, how do I populate the sharding key for the schema info?

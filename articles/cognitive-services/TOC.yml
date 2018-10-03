@@ -1,33 +1,37 @@
 
 - name: Azure Cognitive Services Documentation
-  href: index.yml
+  href: index.md
 - name: Overview
   expanded: true
   items:
   - name: What is Cognitive Services?
     href: Welcome.md
+  - name: Language support
+    href: language-support.md
 - name: Quickstarts
   items:
   - name: Create an account
     href: cognitive-services-apis-create-account.md
-  - name: Build an image classifier
-    href: ./custom-vision-service/getting-started-build-a-classifier.md
-  - name: Build a home automation app
-    href: ./luis/luis-get-started-create-app.md
-  - name: Create a .NET text analytics app
-    href: ./text-analytics/quickstarts/csharp.md    
 - name: Tutorials
   items:
-  - name: Custom search webpage
-    href: ./bing-custom-search/tutorials/custom-search-web-page.md
-  - name: Language Understanding app
-    href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
-  - name: Improve intent accuracy for commands 
-    href: ./luis/luis-tutorial-batch-testing.md    
+  - name: Develop an app using Computer Vision
+    href: ./Computer-vision/tutorials/csharptutorial.md
+  - name: Recognize intents using Speech SDK and LUIS
+    href: ./speech-service/how-to-recognize-intents-from-speech-csharp.md
+  - name: Build a LUIS app
+    href: ./luis/luis-quickstart-intents-only.md
+  - name: Use Text Analytics with Power BI
+    href: ./Text-Analytics/tutorials/tutorial-power-bi-key-phrases.md
+  - name: Create a Bing Web Search app
+    href: ./bing-web-search/tutorial-bing-web-search-single-page-app.md
+  - name: Create a Bing Image Search app
+    href: ./bing-image-search/tutorial-bing-image-search-single-page-app.md
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=cognitive-services
+  - name: Language and region support
+    href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/
   - name: Pricing calculator

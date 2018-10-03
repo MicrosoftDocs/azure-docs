@@ -6,12 +6,10 @@ documentationcenter: na
 author: jeffhollan
 manager: jpconnock
 keywords: azure functions, functions, event processing, compute, serverless architecture, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
+ms.topic: conceptual
 ms.devlang: java
-ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
@@ -75,7 +73,7 @@ Select the **Run** menu and open **Debug Configurations**. Choose **Remote Java 
 
 ![Debug functions in Eclipse](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 
-Set breakpoints and inspect objects in your function using the IDE. When finished, stop the debugger and the running function host. Only one function host can be active and running locally at at time.
+Set breakpoints and inspect objects in your function using the IDE. When finished, stop the debugger and the running function host. Only one function host can be active and running locally at a time.
 
 ## Deploy the function to Azure
 

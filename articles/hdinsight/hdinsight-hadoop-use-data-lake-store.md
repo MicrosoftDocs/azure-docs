@@ -4,7 +4,7 @@ description: Learn how to query data from Azure Data Lake Store and to store res
 services: hdinsight,storage
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
@@ -154,6 +154,7 @@ else
 }
 
 Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
 if($addNewCertKeyCredential)
 {
@@ -164,7 +165,6 @@ if($addNewCertKeyCredential)
     Start-Sleep -s 30
 }
 
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
 Write-Host "Updating the certificate on HDInsight cluster..."
 
 Invoke-AzureRmResourceAction `

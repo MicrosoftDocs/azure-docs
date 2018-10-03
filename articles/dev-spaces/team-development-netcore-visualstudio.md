@@ -1,16 +1,18 @@
----
+﻿---
 title: "Team development for Azure Dev Spaces using .NET Core and Visual Studio | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "07/09/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Team Development with Azure Dev Spaces
 
@@ -156,6 +158,23 @@ To test your new version of `mywebapi` in conjunction with `webfrontend`, open y
 
 Now, add the "scott.s." part to the URL so it reads something like http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io and refresh the browser. The breakpoint you set in your `mywebapi` project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in `mywebapi` is running in the `default/scott` space.
 
-[!INCLUDE[](includes/well-done.md)]
+### Well done!
+You've completed the getting started guide! You learned how to:
 
-[!INCLUDE[](includes/clean-up.md)]
+> [!div class="checklist"]
+> * Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
+> * Iteratively develop code in containers.
+> * Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
+> * Productively develop and test your code in a team environment.
+
+Now that you've explored Azure Dev Spaces, [share your dev space with a team member](how-to/share-dev-spaces.md) and help them see how easy it is to collaborate together.
+
+## Clean up
+To completely delete an Azure Dev Spaces instance on a cluster, including all the dev spaces and running services within it, use the `az aks remove-dev-spaces` command. Bear in mind that this action is irreversible. You can add support for Azure Dev Spaces again on the cluster, but it will be as if you are starting again. Your old services and spaces won't be restored.
+
+The following example lists the Azure Dev Spaces controllers in your active subscription, and then deletes the Azure Dev Spaces controller that is associated with AKS cluster 'myaks' in resource group 'myaks-rg'.
+
+```cmd
+    azds controller list
+    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+```

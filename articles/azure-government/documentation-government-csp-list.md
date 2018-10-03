@@ -27,11 +27,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Apps4Rent](https://www.apps4rent.com)|
 |[Apptus](https://apttus.com)|
 |[ArcherPoint, Inc.](https://www.archerpoint.com)|
-|[ATLGaming]()|
+|ATLGaming|
 |[Atmosera, Inc.](https://www.atmosera.com)|
 |[Atos IT Solutions and Services](https://atos.net)|
 |[Avolve Software Corp.](https://www.avolvesoftware.com)|
-|[Avtex Solutions](https://www.avtex.com)|
+|[Avtex Solutions](http://www.avtex.com)|
 |[Bio Automation Support](http://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](http://www.blackwoodassociates.com/)|
 |[Blue Source Group, Inc.](http://www.blackwoodassociates.com/)|
@@ -40,7 +40,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[cBEYONData](http://cbeyondata.com/)|
 |[CDO Technologies Inc.](https://www.cdotech.com/contact/)|
 |[CDW-G, LLC](https://www.cdwg.com)|
-|[CENTRALE LLC]()|
+|CENTRALE LLC|
 |[Centurylink](http://www.centurylink.com/public-sector/federal-government.html)|
 |[cFocus Software Incorporated](https://cfocussoftware.com)|
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
@@ -110,12 +110,12 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
 |[MIS Sciences Corp](http://www.mis-sciences.com/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
-|[MS Cloud Express, LLC]()|
+|MS Cloud Express, LLC|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Netwize](https://www.netwize.com)|
 |[NewWave Telecom & Technologies, Inc](http://www.newwave.io)|
 |[Norseman, Inc](https://www.norseman.com)|
-|[NTSMCloud]()|
+|NTSMCloud|
 |[NTT America, Inc.](https://www.us.ntt.net)|
 |[Nubelity LLC](http://www.nubelity.com)|
 |[NuSoft Solutions (Atrio Systems, Inc.)](https://nusoftsolutions.com)|
@@ -154,7 +154,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[SHI International Corp](https://www.shi.com)|
 |[Simons Advisors, LLC](http://simonsadvisors.com/)|
 |[Sirius Computer Solutions, Inc.](http://www.siriuscom.com/)|
-|[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
+|[SKY SOLUTIONS LLC](http://www.skysolutions.com/|
 |[Smartronix](https://www.smartronix.com)|
 |[Socius 1 LLC](https://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|

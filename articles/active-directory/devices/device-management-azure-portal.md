@@ -1,5 +1,5 @@
 ---
-title: Managing devices using the Azure portal | Microsoft Docs
+title: How to manage devices using the Azure portal | Microsoft Docs
 description: Learn how to use the Azure portal to manage devices.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
+#Customer intent: As a IT admin, I want to manage all devices related tasks from a central location
+
 ---
-# Managing devices using the Azure portal
+# How to manage devices using the Azure portal
 
 
 With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. 
@@ -42,7 +44,7 @@ The Azure portal provides you with a central place to manage your devices. You c
 
 3. In the **Manage** section, click **Devices**.
 
-    ![Configure device settings](./media/device-management-azure-portal/11.png)
+    ![Configure device settings](./media/device-management-azure-portal/74.png)
  
 The **Devices** page enables you to:
 
@@ -66,14 +68,14 @@ The device settings page enables you to configure:
 ![Manage an Intune device](./media/device-management-azure-portal/21.png)
 
 
-- **Users may join devices to Azure AD** - This setting enables you to select the users who can [join devices](overview.md#azure-ad-joined-devices) to Azure AD. The default is **All**.
+- **Users may join devices to Azure AD** - This setting enables you to select the users who can [join devices](overview.md#azure-ad-joined-devices) to Azure AD. The default is **All**. This setting is only applicable to Azure AD Join on Windows 10.
 
 - **Additional local administrators on Azure AD joined devices** - You can select the users that are granted local administrator rights on a device. Users added here are added to the *Device Administrators* role in Azure AD. Global administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS). 
 
 - **Users may register their devices with Azure AD** - You need to configure this setting to allow devices to be [registered](overview.md#azure-ad-registered-devices) with Azure AD. If you select **None**, devices are not allowed to register when they are not Azure AD joined or hybrid Azure AD joined. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Office 365 requires registration. If you have configured either of these services, **ALL** is selected and **NONE** is not available.
 
-- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide a second authentication factor to [join](overview.md#azure-ad-joined-devices) their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
+- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide a second authentication factor to [join](overview.md#azure-ad-joined-devices) their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). This setting does not impact hybrid join for Windows 10 or Windows 7. This is only applicable to Azure AD Join on Windows 10 and BYO device registration for Windows 10, iOS and Android. 
 
 - **Maximum number of devices** - This setting enables you to select the maximum number of devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The device quote is counted for all devices that are either Azure AD joined or Azure AD registered today. The default value is **20**.
 
@@ -120,7 +122,7 @@ As an administrator, you can manage the registered or joined devices. This secti
 
 ### Manage an Intune device
 
-If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. An administrator can see additional device 
+If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. 
 
 ![Manage an Intune device](./media/device-management-azure-portal/31.png)
 
@@ -188,7 +190,7 @@ You can view and copy the BitLocker keys to help users to recover their encrypte
  
 ![View BitLocker keys](./media/device-management-azure-portal/36.png)
 
-to view or copy the BitLocker keys, you need to be either the owner of the device, or a user that has at least one of the following roles assigned:
+To view or copy the BitLocker keys, you need to be either the owner of the device, or a user that has at least one of the following roles assigned:
 
 - Global admins
 - Helpdesk Admins

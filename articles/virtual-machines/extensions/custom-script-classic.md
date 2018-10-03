@@ -3,7 +3,7 @@ title: Custom Script extension on a Windows VM | Microsoft Docs
 description: Automate Azure VM configuration tasks by using the Custom Script extension to run PowerShell scripts on a remote Windows VM
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -87,7 +87,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 ## PowerShell deployment
 
 The `Set-AzureVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machine. For more information, see [Set-AzureRmVMCustomScriptExtension
-](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
+](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
 
 ```powershell
 # create vm object

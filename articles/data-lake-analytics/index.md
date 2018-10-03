@@ -5,7 +5,7 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
+
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
@@ -62,7 +62,7 @@ Learn how to use Azure Data Lake Analytics to run big data analysis jobs that sc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using Azure portal</h3>
+                        <h3>Get started with Azure Data Lake Analytics using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@ Learn how to use Azure Data Lake Analytics to run big data analysis jobs that sc
         <td><a href="data-lake-analytics-data-lake-tools-get-started.md">Visual Studio</a></td>
         <td><a href="data-lake-analytics-data-lake-tools-for-vscode.md">Visual Studio Code</a></td>
         <td><a href="data-lake-analytics-get-started-powershell.md">PowerShell</a></td>
-        <td><a href="data-lake-analytics-get-started-cli2.md">Azure CLI 2.0</a></td>
+        <td><a href="data-lake-analytics-get-started-cli.md">Azure CLI</a></td>
     </tr>
 </table>
 
@@ -104,7 +104,7 @@ Learn how to use Azure Data Lake Analytics to run big data analysis jobs that sc
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
-                        <p><a href="/cli/azure/dla">CLI 2.0</a></p>
+                        <p><a href="/cli/azure/dla">Azure CLI</a></p>
                     </div>
                 </div>
             </div>

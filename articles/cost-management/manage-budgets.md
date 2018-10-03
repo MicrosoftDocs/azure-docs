@@ -1,11 +1,11 @@
 ---
-title: Manage budgets in Azure Cost Management | Microsoft Docs
-description: This article helps you create and manage budgets in Cost Management.
+title: Manage Cloudyn budgets in Azure | Microsoft Docs
+description: This article helps you create and manage budgets in Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/25/2018
+ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -14,13 +14,15 @@ ms.custom:
 
 # Manage budgets
 
-Setting up budgets and budget-based alerts help to improve your cloud governance and accountability. This article helps you quickly create budgets and start managing them in Cost Management.
+Setting up budgets and budget-based alerts help to improve your cloud governance and accountability. This article helps you quickly create budgets and start managing them in Cloudyn.
 
 When you have an Enterprise or MSP account, you can use your hierarchical cost entity structure to assign monthly budget quotas to different business units, departments, or any other cost entity. When you have a Premium account, you can use the budget management functionality, which is then applied to your entire cloud expenditure. All budgets are manually assigned.
 
 Based on assigned budgets, you can set threshold alerts based on the percentage of your budget that's consumed and define the severity of each threshold.
 
 Budget reports show the assigned budget. Users can view when their spending is over, under, or at par with their consumption over time. When you select **Show/Hide Fields** at the top of a budget report, you can view cost, budget, accumulated cost, or total budget.
+
+Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information about budgets in Cost Management, see [Create and manage budgets](tutorial-acm-create-budgets.md).
 
 ## Create budgets
 
@@ -78,5 +80,5 @@ In the Cost vs. Budget Over Time report, click **Actions** and then select **Sch
 
 ## Next steps
 
-- If you haven't already completed the first tutorial for Cost Management, read it at  [Review usage and costs](https://docs.microsoft.com/en-us/azure/cost-management/tutorial-review-usage).
-- Learn more about the [reports available in Cost Management](use-reports.md).
+- If you haven't already completed the first tutorial for Cloudyn, read it at  [Review usage and costs](tutorial-review-usage.md).
+- Learn more about the [reports available in Cloudyn](use-reports.md).

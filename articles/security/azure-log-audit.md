@@ -42,7 +42,7 @@ The following table lists the most important types of logs available in Azure:
 |[Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Control-plane events on Azure Resource Manager resources|	Provides insight into the operations that were performed on resources in your subscription.|	Rest API, [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure diagnostics logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Frequent data about the operation of Azure Resource Manager resources in subscription|	Provides insight into operations that your resource itself performed.| Azure Monitor, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Azure AD reporting](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Logs and reports | Reports user sign-in activities and system activity information about users and group management.|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Virtual machines and cloud services](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows Event Log service and Linux Syslog|	Captures system data and logging data on the virtual machines and transfers that data into a storage account of your choice.|	Windows (using Windows Azure Diagnostics [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] storage) and Linux in Azure Monitor|
+|[Virtual machines and cloud services](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows Event Log service and Linux Syslog|	Captures system data and logging data on the virtual machines and transfers that data into a storage account of your choice.|	Windows (using Windows Azure Diagnostics [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] storage) and Linux in Azure Monitor|
 |[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Storage logging, provides metrics data for a storage account|Provides insight into trace requests, analyzes usage trends, and diagnoses issues with your storage account.|	REST API or the [client library](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Network Security Group (NSG) flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON format, shows outbound and inbound flows on a per-rule basis|Displays information about ingress and egress IP traffic through a Network Security Group.|[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logs, exceptions, and custom diagnostics|	Provides an application performance monitoring (APM) service for web developers on multiple platforms.|	REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
@@ -57,7 +57,7 @@ In this article, PUT, POST, and DELETE refer to all the write operations that an
 
 ![Activity log diagram](./media/azure-log-audit/azure-log-audit-fig1.png)
 
-You can retrieve events from an activity log by using the Azure portal, [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli), PowerShell cmdlets, and [Azure Monitor REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Activity logs have 19-day data-retention period.
+You can retrieve events from an activity log by using the Azure portal, [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli), PowerShell cmdlets, and [Azure Monitor REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Activity logs have 90-day data-retention period.
 
 Integration scenarios for an activity log event:
 
@@ -348,7 +348,7 @@ There are four ways to [collect logs and metrics for Azure services](https://doc
 
 
 ## Log Integration with on-premises SIEM systems
-With [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324), you can integrate raw logs from your Azure resources with your on-premises SIEM system.
+With [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324), you can integrate raw logs from your Azure resources with your on-premises SIEM system (Security information and event management system).
 
 ![Log Integration diagram](./media/azure-log-audit/azure-log-audit-fig9.png)
 

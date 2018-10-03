@@ -11,7 +11,7 @@ metadata:
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang:
-  ms.topic: landing-page
+  ms.topic: overview
   ms.date: 07/07/2018
   ms.author: carlrab
 abstract:
@@ -39,10 +39,10 @@ sections:
           src: media/index/i_managed.svg
         title: Fully managed
       - href: /azure/sql-database/sql-database-service-tiers
-        html: <p>Tailor price/performance ratio to your needs with flexible performance tiers that span from affordable $5/month to powerful 80-core databases.</p>
+        html: <p>Tailor price/performance ratio to your needs with flexible service tiers that span from affordable $5/month to powerful 80-core databases.</p>
         image:
           src: media/index/i_perftier.svg
-        title: Price/performance tiers
+        title: Price/service tiers
       - href: /azure/sql-database/sql-database-scale-resources
         html: <p>Easily scale up, scale out, or shard your databases depending on your needs to improve performance of your application.</p>
         image:
@@ -102,16 +102,16 @@ sections:
       - title: Create Single SQL Database
         values:
           - href: /azure/sql-database/sql-database-get-started-portal
-          - href: /azure/sql-database/sql-database-get-started-cli
-          - href: /azure/sql-database/sql-database-get-started-powershell
+          - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
+          - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
           - href:
       - title: Create SQL Managed Instance
         values:
-          - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
-          - href: 
+          - href: /azure/sql-database/sql-database-managed-instance-get-started
+          - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-          - href:
-      - title: Create SQL Elastic Pool
+          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
+      - title: Create SQL elastic pool
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
@@ -123,7 +123,7 @@ sections:
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
           - href:
-      - title: Scale SQL Elastic Pool
+      - title: Scale SQL elastic pool
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
@@ -131,12 +131,12 @@ sections:
       - title: Scale Managed Instance
         values:
           - href: 
-          - href:
+          - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
           - href:
       - title: Configure Azure network for Managed Instance
         values:
-          - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+          - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: 
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
@@ -149,9 +149,22 @@ sections:
     style: ordered
     items:
     - html: Create and design the schema for a new SQL Database using <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
-    - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrate an existing SQL Server Database to use Azure SQL Database</a>
+    - html: Migrate an existing database to Azure using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a>, or <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
-    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implement a geo-distributed database</a>
+    - html: Distribute your data globally using <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Geo-distributed database</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Provision an Azure SQL Database to store application data
+      href: /learn/modules/provision-azure-sql-db/
+      image: 
+        src: /learn/achievements/provision-azure-sql-db.svg
+        href: /learn/modules/provision-azure-sql-db/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-sql-database">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

@@ -2,12 +2,16 @@
 title: Azure SQL Elastic Database Jobs | Microsoft Docs
 description: 'Use Elastic Database Jobs to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
 services: sql-database
-author: srinia
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: overview
-ms.date: 07/26/2018
+author: srinia
 ms.author: srinia
+ms.reviewer: 
+manager: craigg
+ms.date: 07/26/2018
 ---
 # Manage groups of databases with Elastic Database Jobs
 
@@ -200,7 +204,7 @@ It is worth noting a couple of differences between SQL Server Agent (available o
 
 |  |Elastic Jobs  |SQL Server Agent |
 |---------|---------|---------|
-|Scope     |  Any number of Azure SQL Databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different logical servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any single database in the same SQL Server instance as the SQL agent. |
+|Scope     |  Any number of Azure SQL databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different logical servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any single database in the same SQL Server instance as the SQL agent. |
 |Supported APIs and Tools     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 

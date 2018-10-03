@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create and manage an Azure virtual machine scale set | Microsoft Docs
-description: Learn how to use the Azure CLI 2.0 to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
+description: Learn how to use the Azure CLI to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 
 ---
-# Tutorial: Create and manage a virtual machine scale set with the Azure CLI 2.0
+# Tutorial: Create and manage a virtual machine scale set with the Azure CLI
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## Create a resource group
@@ -299,7 +299,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## Next steps
-In this tutorial, you learned how to perform some basic scale set creation and management tasks with the Azure CLI 2.0:
+In this tutorial, you learned how to perform some basic scale set creation and management tasks with the Azure CLI:
 
 > [!div class="checklist"]
 > * Create and connect to a virtual machine scale set

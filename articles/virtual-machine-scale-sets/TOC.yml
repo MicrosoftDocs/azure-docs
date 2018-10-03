@@ -9,7 +9,7 @@
   items:
   - name: Create in the Azure portal
     href: quick-create-portal.md
-  - name: Create with the Azure CLI 2.0
+  - name: Create with the Azure CLI
     href: quick-create-cli.md
   - name: Create with Azure PowerShell
     href: quick-create-powershell.md
@@ -23,25 +23,25 @@
   items:
   - name: 1 - Create / manage scale set
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-create-and-manage-cli.md
     - name: Azure PowerShell
       href: tutorial-create-and-manage-powershell.md
   - name: 2 - Use data disks
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-use-disks-cli.md
     - name: Azure PowerShell
       href: tutorial-use-disks-powershell.md
   - name: 3 - Use a custom VM image
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-use-custom-image-cli.md
     - name: Azure PowerShell
       href: tutorial-use-custom-image-powershell.md
   - name: 4 - Deploy apps to a scale set
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-install-apps-cli.md
     - name: Azure PowerShell
       href: tutorial-install-apps-powershell.md
@@ -49,7 +49,7 @@
       href: tutorial-install-apps-template.md
   - name: 5 - Autoscale a scale set
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
       href: tutorial-autoscale-powershell.md
@@ -57,7 +57,7 @@
       href: tutorial-autoscale-template.md
 - name: Samples
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: cli-samples.md
   - name: PowerShell
     href: powershell-samples.md
@@ -177,6 +177,14 @@
       href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Deploy
     items:
+    - name: Ansible
+      items:
+      - name: Create and manage scale sets
+        href: /azure/ansible/ansible-create-configure-vmss
+        maintainContext: true
+      - name: Deploy apps to scale sets
+        href: /azure/ansible/ansible-deploy-app-vmss
+        maintainContext: true
     - name: Create with Visual Studio
       href: virtual-machine-scale-sets-vs-create.md
     - name: Use Availability Zones
@@ -196,7 +204,7 @@
       items:
       - name: Use PowerShell
         href: virtual-machine-scale-sets-encrypt-disks-ps.md
-      - name: Use the Azure CLI 2.0
+      - name: Use the Azure CLI
         href: virtual-machine-scale-sets-encrypt-disks-cli.md
     - name: Work with large scale sets
       href: virtual-machine-scale-sets-placement-groups.md
@@ -208,10 +216,17 @@
     items:
     - name: Common management tasks
       items:
-      - name: Use the Azure CLI 2.0
+      - name: Use the Azure CLI
         href: virtual-machine-scale-sets-manage-cli.md
       - name: Use Azure PowerShell
         href: virtual-machine-scale-sets-manage-powershell.md
+    - name: Shared image galleries (preview)
+      href: shared-image-galleries.md
+      items:
+      - name: Create shared images using CLI
+        href: shared-images-cli.md
+      - name: Troubleshoot shared images
+        href: troubleshooting-shared-images.md
     - name: Vertical scaling in a scale set
       href: virtual-machine-scale-sets-vertical-scale-reprovision.md
     - name: Automatic OS upgrades

@@ -1,20 +1,22 @@
 ---
-title: Create a new knowledge base - quickstart Node.js - for Microsoft QnA Maker API (V4) - Azure Cognitive Services | Microsoft Docs
-description: Create a knowledge base in Node.js to hold your FAQs or product manuals, so you can get started with QnA Maker.
+title: "Quickstart: API Node.js - Create knowledge base - QnA Maker"
+description: This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
+ms.date: 09/12/2018
+ms.author: diberry
 ---
 
 # Create a new knowledge base in Node.js
 
 This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 Two sample FAQ URLs are given below (in 'urls' of **req={}**) that will provide content. QnA Maker automatically extracts questions and answers from this semi-structured content as explained in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 

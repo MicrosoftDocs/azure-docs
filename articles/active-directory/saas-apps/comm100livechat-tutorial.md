@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/09/2018
 ms.author: jeedes
 
 ---
@@ -105,33 +105,57 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Comm100 Live Chat Domain and URLs single sign-on information](./media/comm100livechat-tutorial/tutorial_comm100livechat_url.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
-
+	
 	> [!NOTE] 
 	> The Sign-on URL value is not real. You will update the Sign-on URL value with the actual Sign-on URL, which is explained later in the tutorial.
 
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+4. Comm100 Live Chat application expects the SAML assertions to contain specific attributes. Configure the following attributes  for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+
+	![Configure Single Sign-On](./media/comm100livechat-tutorial/tutorial_attribute_03.png)
+	
+5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+	
+	|  Attribute Name  | Attribute Value |
+	| --------------- | -------------------- |    
+	|   email    | user.mail |
+
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
+
+	![Configure Single Sign-On](./media/comm100livechat-tutorial/tutorial_attribute_04.png)
+
+	![Configure Single Sign-On](./media/comm100livechat-tutorial/tutorial_attribute_05.png)
+	
+	b. In the **Name** textbox, type the attribute name shown for that row.
+	
+	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Leave the **Namespace** blank.
+	
+	e. Click **Ok**.
+
+6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/comm100livechat-tutorial/tutorial_comm100livechat_certificate.png) 
 
-5. Click **Save** button.
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/comm100livechat-tutorial/tutorial_general_400.png)
 
-6. On the **Comm100 Live Chat Configuration** section, click **Configure Comm100 Live Chat** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Comm100 Live Chat Configuration** section, click **Configure Comm100 Live Chat** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Comm100 Live Chat Configuration](./media/comm100livechat-tutorial/tutorial_comm100livechat_configure.png)
 
-7. In a different web browser window, login to Comm100 Live Chat as a Security Administrator.
+9. In a different web browser window, login to Comm100 Live Chat as a Security Administrator.
 
-8. On the top right side of the page, click **My Account**.
+10. On the top right side of the page, click **My Account**.
 
 	![Comm100 Live Chat myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-9. From the left side of menu, click **Security** and then click **Agent Single Sign-On**.
+11. From the left side of menu, click **Security** and then click **Agent Single Sign-On**.
 
 	![Comm100 Live Chat security](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
-10. On the **Agent Single Sign-On** page, perform the following steps:
+12. On the **Agent Single Sign-On** page, perform the following steps:
 
 	![Comm100 Live Chat security](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 

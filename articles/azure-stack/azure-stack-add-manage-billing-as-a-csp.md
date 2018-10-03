@@ -3,7 +3,7 @@ title: Manage usage and billing for Azure Stack as a Cloud Service Provider | Mi
 description: A walk through registering Azure Stack as a Cloud Provider (CSP) and adding customers for billing.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: brenduns
+ms.date: 08/30/2018
+ms.author: sethm
 ms.reviewer: alfredo
 
 ---
@@ -55,7 +55,7 @@ Cloud Service Provider (CSP) subscriptions are the preferred choice for registra
 
 ## Register Azure Stack
 
-To register with Azure Stack, see [Register Azure Stack with your Azure Subscription](azure-stack-registration.md).
+Use the CSPSS subscription created following the information in the preceding section to register Azure Stack with Azure. For more information, see [Register Azure Stack with your Azure Subscription](azure-stack-registration.md).
 
 ## Add end customer
 

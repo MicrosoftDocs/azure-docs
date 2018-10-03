@@ -2,16 +2,18 @@
 title: Migrate SQL Server DB to Azure SQL Database using DMA | Microsoft Docs
 description: Learn to migrate your SQL Server database to Azure SQL Database using DMA.
 services: sql-database
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
 author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
-ms.custom: mvc,migrate
-ms.topic: tutorial
-ms.date: 07/02/2018
-ms.author: carlrab
-
+ms.date: 09/14/2018
 ---
-
 # Migrate your SQL Server database to Azure SQL Database using DMA
 
 Moving your SQL Server database to an Azure SQL Database single database is as simple as creating an empty SQL database in Azure and then using  the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) to import the database into Azure. For additional migration options, see [Migrate your database to Azure SQL Database](sql-database-cloud-migrate.md).
@@ -39,7 +41,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL database
 
@@ -129,7 +131,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your Azure SQL server using client tools, including the Data Migration Assistance and SQL Server Management Studio.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
@@ -242,11 +244,11 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
 ## Change database properties
 
-You can change the service tier, performance level, and compatibility level using SQL Server Management Studio. During the import phase, we recommend that you import to a higher performance tier database for best performance, but that you scale down after the import completes to save money until you are ready to actively use the imported database. Changing the compatibility level may yield better performance and access to the newest capabilities of the Azure SQL Database service. When you migrate an older database, its database compatibility level is maintained at the lowest supported level that is compatible with the database being imported. For more information, see [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
+You can change the service tier, compute size, and compatibility level using SQL Server Management Studio. During the import phase, we recommend that you import to a higher service tier or compute size for best performance, but that you scale down after the import completes to save money until you are ready to actively use the imported database. Changing the compatibility level may yield better performance and access to the newest capabilities of the Azure SQL Database service. When you migrate an older database, its database compatibility level is maintained at the lowest supported level that is compatible with the database being imported. For more information, see [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
 
 1. In Object Explorer, right-click **mySampleDatabase** and then click **New Query**. A query window opens connected to your database.
 
-2. Execute the following command to set the service tier to **Standard** and the performance level to **S1**.
+2. Execute the following command to set the service tier to **Standard** and the compute size to **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 

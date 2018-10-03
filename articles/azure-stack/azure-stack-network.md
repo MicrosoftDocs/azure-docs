@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -37,11 +37,11 @@ The following table shows the logical networks and associated IPv4 subnet ranges
 
 | Logical Network | Description | Size | 
 | -------- | ------------- | ------------ | 
-| Public VIP | Azure Stack uses a total of 32 addresses from this network. Eight public IP addresses are used for a small set of Azure Stack services, and the rest are used by tenant virtual machines. If you plan to use App Service and the SQL resource providers, 7 more addresses are used. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recommended = /24 (254 hosts) | 
+| Public VIP | Azure Stack uses a total of 31 addresses from this network. Eight public IP addresses are used for a small set of Azure Stack services, and the rest are used by tenant virtual machines. If you plan to use App Service and the SQL resource providers, 7 more addresses are used. The remaining 15 IPs are reserved for future Azure services. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recommended = /24 (254 hosts) | 
 | Switch infrastructure | Point-to-point IP addresses for routing purposes, dedicated switch management interfaces, and loopback addresses assigned to the switch. | /26 | 
 | Infrastructure | Used for Azure Stack internal components to communicate. | /24 |
 | Private | Used for the storage network and private VIPs. | /24 | 
-| BMC | Used to communicate with the BMCs on the physical hosts. | /27 | 
+| BMC | Used to communicate with the BMCs on the physical hosts. | /26 | 
 | | | |
 
 ## Network infrastructure

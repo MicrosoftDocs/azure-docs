@@ -3,7 +3,7 @@ title: Virtual Machine sizes supported in Azure Stack | Microsoft Docs
 description: Reference for the supported VM sizes in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: mabrigg
 
 ---
 

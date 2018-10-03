@@ -105,7 +105,7 @@ The IoT Edge runtime tracks and reports the version of the IoT Edge security dae
 
 ### Hardware security module platform abstraction layer (HSM PAL)
 
-The HSM PAL abstracts all root of trust hardware to isolate the developer or user of IoT Edge from their complexities.  It comprises a combination of Application Programmer Interface (API) and trans domain communications procedures, for example communication between a standard execution environment and a secure enclave.  The actual implementation of the HSM PAL depends on the specific secure hardware in use.  Its existence enables the use of virtually any secure silicon hardware across the IoT ecosystem.
+The HSM PAL abstracts all root of trust hardware to isolate the developer or user of IoT Edge from their complexities.  It comprises a combination of Application Programming Interface (API) and trans domain communications procedures, for example communication between a standard execution environment and a secure enclave.  The actual implementation of the HSM PAL depends on the specific secure hardware in use.  Its existence enables the use of virtually any secure silicon hardware across the IoT ecosystem.
 
 ## Secure silicon root of trust hardware
 

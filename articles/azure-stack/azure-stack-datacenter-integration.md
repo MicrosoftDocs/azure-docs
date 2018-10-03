@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
@@ -31,7 +31,7 @@ While researching and collecting the required information, you might need to mak
 ## Capacity planning considerations
 When evaluating an Azure Stack Solution for acquisition, hardware configuration choices must be made which have a direct impact on the overall capacity of their Azure Stack solution. These include the classic choices of CPU, memory density, storage configuration, and overall solution scale (e.g. number of servers). Unlike a traditional virtualization solution, the simple arithmetic of these components to determine usable capacity does not apply. The first reason is that Azure Stack is architected to host the infrastructure or management components within the solution itself. The second reason is that some of the solution’s capacity is reserved in support of resiliency; the updating of the solution’s software in a way that minimizes disruption of tenant workloads. 
 
-The [Azure Stack capacity planner spreadsheet](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) helps you make informed decisions with respect to planning capacity in two ways: either the by selecting a hardware offering and attempting to fit a combination of resources or by defining the workload that Azure Stack is intended to run to view the available hardware SKUs that can support it. Finally, the spreadsheet is intended as a guide to help in making decisions related to Azure Stack planning and configuration. 
+The [Azure Stack capacity planner spreadsheet](https://aka.ms/azstackcapacityplanner) helps you make informed decisions with respect to planning capacity in two ways: either the by selecting a hardware offering and attempting to fit a combination of resources or by defining the workload that Azure Stack is intended to run to view the available hardware SKUs that can support it. Finally, the spreadsheet is intended as a guide to help in making decisions related to Azure Stack planning and configuration. 
 
 The spreadsheet is not intended to serve as a substitute for your own investigation and analysis.  Microsoft makes no representations or warranties, express or implied, with respect to the information provided within the spreadsheet.
 
@@ -85,7 +85,7 @@ The following table summarizes these domain naming decisions.
 
 | Name | Description | 
 | -------- | ------------- | 
-|Region name | The name of your first Azure Stack region. This name is used as part of the FQDN for the public virtual IP addresses (VIPs) that Azure Stack manages. Typically, the region name would be a physical location identifier such as a datacenter location. | 
+|Region name | The name of your first Azure Stack region. This name is used as part of the FQDN for the public virtual IP addresses (VIPs) that Azure Stack manages. Typically, the region name would be a physical location identifier such as a datacenter location.<br><br>The region name must consist of only letters and numbers between 0-9. No special characters like “-“ or “#”, etc. are allowed.| 
 | External domain name | The name of the Domain Name System (DNS) zone for endpoints with external-facing VIPs. Used in the FQDN for these public VIPs. | 
 | Private (internal) domain name | The name of the domain (and internal DNS zone) created on Azure Stack for infrastructure management. 
 | | |
@@ -187,10 +187,7 @@ Azure Stack does not back up tenant applications and data. You must plan for bac
 
 To back up Linux or Windows IaaS virtual machines, you must use backup products with access to the guest operating system to protect file, folder, operating system state, and application data. You can use Azure Backup, System Center Data Center Protection Manager, or supported third-party products.
 
-To replicate data to a secondary location and orchestrate application failover if a disaster occurs, you can use Azure Site Recovery, or supported third-party products. (At the initial release of integrated systems, Azure Site Recovery won’t support failback. However, you can achieve failback through a manual process.) Also, applications that support native replication (like Microsoft SQL Server) can replicate data to another location where the application is running.
-
-> [!IMPORTANT]
-> At the initial release of integrated systems, we’ll support protection technologies that work at the guest level of an IaaS virtual machine. You can’t install agents on underlying infrastructure servers.
+To replicate data to a secondary location and orchestrate application failover if a disaster occurs, you can use Azure Site Recovery, or supported third-party products. Also, applications that support native replication, like Microsoft SQL Server, can replicate data to another location where the application is running.
 
 ## Learn more
 

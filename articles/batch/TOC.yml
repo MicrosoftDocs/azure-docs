@@ -23,6 +23,8 @@
     href: tutorial-parallel-python.md
   - name: Scene rendering with Arnold
     href: tutorial-rendering-cli.md
+  - name: Rendering using Batch Explorer
+    href: tutorial-rendering-batchexplorer-blender.md
   - name: Parallel R simulation
     href: tutorial-r-doazureparallel.md
 - name: Samples
@@ -81,6 +83,8 @@
       href: batch-linux-nodes.md
     - name: Use low-priority VMs
       href: batch-low-pri-vms.md
+    - name: Checking for pool and node errors
+      href: batch-pool-node-error-checking.md
   - name: Manage jobs and tasks
     items:
     - name: Job preparation and completion tasks
@@ -91,6 +95,8 @@
       href: batch-task-dependencies.md
     - name: User accounts for running tasks
       href: batch-user-accounts.md
+    - name: Submit a large number of tasks
+      href: large-number-tasks.md
   - name: Persist job and task output
     href: batch-task-output.md
     items:
@@ -98,16 +104,6 @@
       href: batch-task-output-files.md
     - name: Persist output with File Conventions library
       href: batch-task-output-file-conventions.md
-  - name: Run workloads
-    items:
-    - name: MPI jobs
-      href: batch-mpi.md
-    - name: Container workloads
-      href: batch-docker-container-workloads.md
-    - name: Rendering
-      href: batch-rendering-service.md
-    - name: Data processing with Batch and Data Factory
-      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
   - name: Monitor Batch solutions
     href: monitoring-overview.md
     items:
@@ -130,6 +126,32 @@
         href: batch-cli-templates.md
   - name: Use Batch Node.js SDK
     href: batch-nodejs-get-started.md
+- name: Run workloads
+  items:
+  - name: MPI jobs
+    href: batch-mpi.md
+  - name: Container workloads
+    href: batch-docker-container-workloads.md
+  - name: Rendering
+    items:
+    - name: Rendering using Azure
+      href: batch-rendering-service.md
+    - name: Rendering VM images
+      href: batch-rendering-applications.md
+    - name: Batch rendering capabilities
+      href: batch-rendering-functionality.md
+    - name: Using Batch rendering
+      href: batch-rendering-using.md
+    - name: Using render managers
+      href: batch-rendering-render-managers.md
+    - name: Rendering application reference
+      href: batch-rendering-application-reference.md
+    - name: Storage and data movement
+      href: batch-rendering-storage-data-movement.md
+    - name: Rendering architectures
+      href: batch-rendering-architectures.md 
+  - name: Data processing with Batch and Data Factory
+    href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Reference
   items:
   - name: Azure CLI

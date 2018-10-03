@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+   - name: Azure Stack
+     tocHref: /azure/site-recovery/
+     topicHref: /azure/azure-stack/index
+   - name: Azure Stack
+     tocHref: /azure/backup/
+     topicHref: /azure/azure-stack/index
+     

@@ -25,6 +25,9 @@ ms.author: ryanwi
 
 Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](/azure/container-registry/). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
+> [!NOTE]
+> This article applies to a Windows development environment.  The Service Fabric cluster runtime and the Docker runtime must be running on the same OS.  You cannot run Windows containers on a Linux cluster.
+
 ## Prerequisites
 * A development computer running:
   * Visual Studio 2015 or Visual Studio 2017.
@@ -201,6 +204,8 @@ The containerized service needs an endpoint for communication. Add an `Endpoint`
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> Additional Endpoints for a service can be added by declaring additional EndPoint elements with applicable property values. Each Port can only declare one protocol value.
 
 By defining an endpoint, Service Fabric publishes the endpoint to the Naming service. Other services running in the cluster can resolve this container. You can also perform container-to-container communication using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy HTTP listening port and the name of the services that you want to communicate with as environment variables.
 
@@ -244,6 +249,8 @@ Configure a host port used to communicate  with the container. The port binding 
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> Additional PortBindings for a service can be added by declaring additional PortBinding elements with applicable property values.
 
 ## Configure container registry authentication
 Configure container registry authentication by adding `RepositoryCredentials` to `ContainerHostPolicies` of the ApplicationManifest.xml file. Add the account and password for the myregistry.azurecr.io container registry, which allows the service to download the container image from the repository.
@@ -567,7 +574,7 @@ The default time interval is set to 10 seconds. Since this configuration is dyna
 
 ## Configure the runtime to remove unused container images
 
-You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node. To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
+You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node. To enable this feature, update the [Hosting](service-fabric-cluster-fabric-settings.md#hosting) section in the cluster manifest as shown in the following snippet: 
 
 
 ```json
@@ -588,7 +595,7 @@ You can configure the Service Fabric cluster to remove unused container images f
 } 
 ```
 
-For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter.  
 
 
 ## Configure container image download time
@@ -597,13 +604,13 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -626,7 +633,7 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

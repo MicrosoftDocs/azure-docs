@@ -1,6 +1,6 @@
 ---
-title: Manage state in Azure Service Fabric microservices| Microsoft Docs
-description: How to define and manage service state in Service Fabric
+title: Manage state in Azure Service Fabric services| Microsoft Docs
+description: Learn how to define and manage service state in Service Fabric services.
 services: service-fabric
 documentationcenter: .net
 author: masnider

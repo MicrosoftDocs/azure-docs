@@ -3,7 +3,7 @@ title: Allow applications to retrieve Azure Stack Key Vault secrets | Microsoft 
 description: Use a sample app to work with Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/11/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 
 ---
 
