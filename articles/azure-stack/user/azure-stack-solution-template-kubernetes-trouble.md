@@ -29,7 +29,7 @@ The following article looks troubleshooting your Kubernetes cluster. You can rev
 
 ## Overview of deployment
 
-Before we get into the various steps you may need to take troubleshooting your cluster, you may need a broad understanding of how the solution template creates the VMs and installs the ACS Engine for your cluster. 
+Before we get into the steps you may need to take troubleshooting your cluster, you may need a broad understanding the deployment. The deploymet uses a Azure Resource Manager solution template to create the VMs and installs the ACS Engine for your cluster.
 
 The following diagram shows the general process for deploying the cluster.
 
@@ -105,11 +105,11 @@ The following diagram shows the general process for deploying the cluster.
 
 Summary of this section.
 
-For the Azure SDK user, if the VM failed to deploy to set up Kubernetes cluster, we will need collect azure stack log for all the RPs from the customer. 
+For the Azure SDK user, if the VM failed to deploy to set up Kubernetes cluster, we will need collect Azure Stack log for all the RPs from the customer. 
 
 ### Prerequisites
 
-You will need to have Git installed on you are the machine you use to manage Azure Stack. You will be using Bash from the Git commandline. To get the most recent version of git, see [git downloads](https://git-scm.com/downloads).
+You will need to have Git installed on you are the machine you use to manage Azure Stack. You will be using Bash from the Git command line. To get the most recent version of git, see [git downloads](https://git-scm.com/downloads).
 
 1. Open a bash prompt. With git, you can open it at the following path: `c:\programfiles\git\bin\bash.exe`.
 2. Run the following bash commands:
@@ -137,8 +137,11 @@ You will need to have Git installed on you are the machine you use to manage Azu
    the following is an example of the script:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\data\privatekey.ppk" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
      ```
+
+    ![Generated logs](media/azure-stack-solution-template-kubernetes-trouble/auzre-stack-generated-logs.png)
+
 
 4. Retrieve the logs in the folders created by the command. The command will create a new folder and time stamp it.
     - Dvmlog
@@ -149,5 +152,7 @@ You will need to have Git installed on you are the machine you use to manage Azu
 ## Next steps
 
 [Deploy Kubernetes to Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+
 [Add a Kubernetes to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+
 [Kubernetes on Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
