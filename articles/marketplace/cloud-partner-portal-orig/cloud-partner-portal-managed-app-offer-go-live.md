@@ -49,7 +49,7 @@ the All Offers tab to view the latest status for any of your offers. You
 can click directly on the status for your offer and see the details on
 where your offer is in the publishing process.
 
-Let\'s walk-through each of the publishing steps, discuss what happens
+Let\'s walk through each of the publishing steps, discuss what happens
 at each step and how long you should estimate each step will take.
 
 ### Validate Pre-Requisites (\<1 day) 
@@ -59,7 +59,7 @@ you\'ve populated all the required fields on your offer. If any fields
 are not populated, a warning will appear next to the field, and you will
 need to populate it accurately then click \'Publish\' again.
 
-Once you\'ve completed this step correctly, a pop-up will appear asking
+Once you\'ve completed this step correctly, a pop-up will appear to ask
 for an email address. This is the email to which you will receive
 publishing status notifications for the remainder of the publishing
 process. Once you submit your email address, this step is complete.
