@@ -51,7 +51,7 @@
         href: quickstart-v1-dotnet.md
       - name: Xamarin
         href: quickstart-v1-xamarin.md
-    - name: Service to service
+    - name: Service-to-service
       href: sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity
   - name: Samples
     href: sample-v1-code.md
@@ -73,9 +73,9 @@
         href: service-to-service.md
     - name: Authentication
       items:
-      - name: What is authentication
+      - name: Authentication basics
         href: authentication-scenarios.md
-      - name: OAuth and the OpenID Connect protocol
+      - name: OAuth 2.0 and OpenID Connect
         items:
         - name: OpenID Connect
           href: v1-protocols-openid-connect-code.md
@@ -87,7 +87,7 @@
           href: v1-oauth2-on-behalf-of-flow.md
         - name: OAuth 2.0 client credentails grant
           href: v1-oauth2-client-creds-grant-flow.md
-      - name: SAML 2.0 protocol
+      - name: SAML 2.0
         items:
         - name: Single sign-on
           href: single-sign-on-saml-protocol.md
@@ -118,7 +118,7 @@
     - name: Permissions and consent
       displayName: Scopes
       items:
-      - name: Permissions and consent overview
+      - name: Types of permissions and consent
         href: v1-permissions-and-consent.md
       - name: Consent framework
         href: consent-framework.md
@@ -191,7 +191,7 @@
       href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
   - name: References
     items:
-    - name: Authentication Libraries
+    - name: Authentication libraries
       displayName: ADAL
       href: active-directory-authentication-libraries.md
     - name: Azure AD Graph API
@@ -283,9 +283,9 @@
       href: v2-app-types.md
     - name: Authentication
       items:
-      - name: What is authentication
+      - name: Authentication basics
         href: authentication-scenarios.md
-      - name: OAuth and the OpenID Connect protocol
+      - name: OAuth 2.0 and OpenID Connect
         items:
         - name: OpenID Connect
           href: v2-protocols-oidc.md
@@ -312,7 +312,7 @@
     - name: Permissions and consent
       displayName: Scopes
       items:
-      - name: Permissions and consent overview
+      - name: Types of permissions and consent
         href: v2-permissions-and-consent.md
       - name: Consent framework
         href: consent-framework.md
