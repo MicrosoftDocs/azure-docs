@@ -21,7 +21,7 @@ You can start with local runs on your machine, and then scale up and out to othe
 
 ## Supported compute targets
 
-Azure Machine Learning supports the following compute targets:
+Azure Machine Learning service supports the following compute targets:
 
 |Compute target| GPU acceleration | Automated hyperparameter tuning | Automated model selection | Can be used in pipelines|
 |----|:----:|:----:|:----:|:----:|
@@ -35,8 +35,8 @@ __[Azure Container Instances (ACI)](#aci)__ can also be used to train models. It
 The key differentiators between the compute targets are:
 * __GPU acceleration__: GPUs are available with the Data Science Virtual Machine and Azure Batch AI. You may have access to a GPU on your local computer, depending on the hardware, drivers, and frameworks that are installed.
 * __Automated hyperparameter tuning__: Azure Machine Learning automated hyperparameter optimization helps you find the best hyperparameters for your model.
-* __Automated model selection__: Azure Machine Learning can intelligently recommend algorithm and hyperparameter selection when building a model. Automated model selection helps you converge to a high-quality model faster than manually trying different combinations. For more information, see the [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) document.
-* __Pipelines__: Azure Machine Learning enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism. For more information, see the [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) document.
+* __Automated model selection__: Azure Machine Learning service can intelligently recommend algorithm and hyperparameter selection when building a model. Automated model selection helps you converge to a high-quality model faster than manually trying different combinations. For more information, see the [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) document.
+* __Pipelines__: Azure Machine Learning service enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism. For more information, see the [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) document.
 
 You can use the Azure Machine Learning SDK, Azure CLI, or Azure portal to create compute targets. You can also use existing compute targets by adding (attaching) them to your workspace.
 
@@ -366,7 +366,7 @@ You can view what compute targets are associated with your workspace from the Az
 1. Visit the [Azure portal](https://portal.azure.com) and navigate to your workspace.
 2. Click on the __Compute__ link under the __Applications__ section.
 
-    ![View compute tab](./media/how-to-set-up-training-targets/compute_tab.png)
+    ![View compute tab](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
 ### Create a compute target
 
@@ -374,7 +374,7 @@ Follow the above steps to view the list of compute targets, and then use the fol
 
 1. Click the __+__ sign to add a compute target.
 
-    ![Add compute ](./media/how-to-set-up-training-targets/add_compute.png)
+    ![Add compute ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. Enter a name for the compute target.
 1. Select the type of compute to attach for __Training__. 
