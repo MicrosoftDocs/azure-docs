@@ -123,7 +123,7 @@ Once deployment has completed, browse to the deployed application using the foll
 
 ## Next steps
 
-In this quickstart, you used Maven to create a Java web app, configured the the [Maven Plugin for Azure Web Apps (Preview)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), then  deployed a web archive packaged Java web app to App Service on Linux. To learn more about using Java with Azure, follow the link below.
+In this quickstart, you used Maven to create a Java web app, configured the [Maven Plugin for Azure Web Apps (Preview)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), then  deployed a web archive packaged Java web app to App Service on Linux. To learn more about using Java with Azure, follow the link below.
 
 > [!div class="nextstepaction"]
 > [Azure for Java Developers](https://docs.microsoft.com/java/azure/)
