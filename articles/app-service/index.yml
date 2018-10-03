@@ -15,7 +15,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Azure Web Apps enables you to build and host web applications in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Visual Studio Team Services, or any Git repo. Learn how to use Azure Web Apps with our quickstarts, tutorials, and samples.
+  description: Azure Web Apps enables you to build and host web applications in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo. Learn how to use Azure Web Apps with our quickstarts, tutorials, and samples.
   aside:
     image:
       alt: 
@@ -57,6 +57,10 @@ sections:
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg
       text: HTML
       href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_docker.svg
+      text: Custom Windows container (Preview)
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container
   - type: paragraph
     text: 'Learn how to deploy your code:'
   - type: list
@@ -76,7 +80,7 @@ sections:
       href: app-service-deploy-local-git.md
     - image:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
-      text: VSTS
+      text: Azure DevOps
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
     - image:
         src: media/index/github-octicons.svg
@@ -105,6 +109,19 @@ sections:
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Host a web application with Azure App service
+      href: /learn/modules/host-a-web-app-with-azure-app-service/
+      image: 
+        src: /learn/achievements/host-a-web-app-with-azure-app-service.svg
+        href: /learn/modules/host-a-web-app-with-azure-app-service/
+  - type: paragraph
+    text: <a href="/learn/browse/">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

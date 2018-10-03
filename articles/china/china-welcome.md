@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 07/31/2018
 ms.author: v-wimarc
 
 ---
@@ -33,7 +33,7 @@ This documentation includes the following topics:
 - [Partners](/azure/china/china-resources-partners) with Azure solution offerings
 
 ## Operations
-According to the China [Telecommunication Regulation](http://www.miit.gov.cn/n11293472/n11293877/n11301753/n11496139/11537485.html) (in Chinese), providers of cloud services (IaaS and PaaS) must have value-added telecom permits. Only locally-registered companies with less than 50-percent foreign investment qualify for these permits. To comply with this regulation, the Azure service in China is operated by 21Vianet, based on the technologies licensed from Microsoft. 
+According to the China [Telecommunication Regulation](http://www.miit.gov.cn/n1146295/n1146557/n1146619/c4860613/content.html) (in Chinese), providers of cloud services (IaaS and PaaS) must have value-added telecom permits. Only locally-registered companies with less than 50-percent foreign investment qualify for these permits. To comply with this regulation, the Azure service in China is operated by 21Vianet, based on the technologies licensed from Microsoft. 
 
 ## Next steps
 - [Services and features in Microsoft Azure China 21Vianet](https://www.azure.cn/home/features/products-by-region)

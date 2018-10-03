@@ -28,7 +28,7 @@ Run your document sample through the end-to-end pipeline and check that the resu
 ## Tip 2: Make sure your data source credentials are correct
 The data source connection is not validated until you define an indexer that uses it. If you see any errors mentioning that the indexer cannot get to the data, make sure that:
 - Your connection string is correct. Specially when you are creating SAS tokens, make sure to use the format expected by Azure Search. See [How to specify credentials section](
-https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) to learn about the different formats supported.
+https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) to learn about the different formats supported.
 - Your container name in the indexer is correct.
 
 ## Tip 3: See what works even if there are some failures

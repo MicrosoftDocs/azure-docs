@@ -2,7 +2,7 @@
 title: How to prepare for an inbound IP address change - Azure
 description: If your inbound IP address is going to be changed, learn what to do so that your app continues to work after the change.
 services: app-service\web
-author: tdykstra
+author: cephalin
 manager: cfowler
 editor: 
 
@@ -10,7 +10,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: tdykstra
+ms.author: cephalin
 ---
 
 # How to prepare for an inbound IP address change
@@ -36,6 +36,8 @@ The new inbound IP address that is being given to your app is in the portal in t
 2.	In the left-hand navigation menu, select **App Services**.
 
 3.	Select your App Service app from the list.
+
+4.  If the app is a function app, see [Function app inbound IP address](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
 
 4.	Under the **Settings** header, click **Properties** in the left navigation, and find the section labeled **Virtual IP address**.
 

@@ -61,6 +61,7 @@ The sample described in this article produces the following result:
 The following are required to complete the tutorial.
 
 * Review the [Content protection overview](content-protection-overview.md) article.
+* Review the [Design multi-drm content protection system with access control](design-multi-drm-system-with-access-control.md)
 * Install Visual Studio Code or Visual Studio
 * Create a new Azure Media Services account, as described in [this quickstart](create-account-cli-quickstart.md).
 * Get credentials needed to use Media Services APIs by following [Access APIs](access-api-cli-how-to.md)

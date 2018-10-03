@@ -2,14 +2,11 @@
 title: Use Data Lake Store with Hadoop in Azure HDInsight
 description: Learn how to query data from Azure Data Lake Store and to store results of your analysis.
 services: hdinsight,storage
-tags: azure-portal
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/23/2018
 ---
@@ -157,6 +154,7 @@ else
 }
 
 Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
 if($addNewCertKeyCredential)
 {
@@ -167,7 +165,6 @@ if($addNewCertKeyCredential)
     Start-Sleep -s 30
 }
 
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
 Write-Host "Updating the certificate on HDInsight cluster..."
 
 Invoke-AzureRmResourceAction `

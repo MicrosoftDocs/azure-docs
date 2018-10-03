@@ -2,16 +2,12 @@
 title: Query data from HDFS-compatible Azure storage - Azure HDInsight
 description: Learn how to query data from Azure storage and Azure Data Lake Store to store results of your analysis.
 services: hdinsight,storage
-tags: azure-portal
-author: mumian
-ms.author: jgao
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/14/2018
 ---
 
@@ -59,7 +55,7 @@ Here are some considerations when using Azure Storage account with HDInsight clu
 * **Public containers or public blobs in storage accounts that are NOT connected to a cluster:** You have read-only permission to the blobs in the containers.
   
   > [!NOTE]
-  > Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a>.
+  > Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources">Manage access to containers and blobs</a>.
   > 
   > 
 * **Private containers in storage accounts that are NOT connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. This is explained later in this article.
@@ -132,11 +128,11 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### Use Azure CLI
+### Use Azure Classic CLI
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-If you have [installed and configured the Azure CLI](../cli-install-nodejs.md), the following command can be used to a storage account and container.
+If you have [installed and configured the Azure Classic CLI](../cli-install-nodejs.md), the following command can be used to a storage account and container.
 
     azure storage account create <storageaccountname> --type LRS
 
@@ -263,24 +259,24 @@ This example shows how to list a folder from storage account that is not defined
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-### Use Azure CLI
+### Use Azure Classic CLI
 Use the following command to list the blob-related commands:
 
     azure storage blob
 
-**Example of using Azure CLI to upload a file**
+**Example of using Azure Classic CLI to upload a file**
 
     azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Example of using Azure CLI to download a file**
+**Example of using Azure Classic CLI to download a file**
 
     azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Example of using Azure CLI to delete a file**
+**Example of using Azure Classic CLI to delete a file**
 
     azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Example of using Azure CLI to list files**
+**Example of using Azure Classic CLI to list files**
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 

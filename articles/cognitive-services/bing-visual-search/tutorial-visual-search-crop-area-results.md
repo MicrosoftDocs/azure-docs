@@ -1,12 +1,13 @@
 ---
-title: Bing Visual Search SDK crop area results tutorial | Microsoft Docs
+title: "Tutorial: Image crop area and results - Bing Visual Search"
 description: How to use the Bing Visual Search SDK to get URLs of images similar to crop area of uploaded image.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
 ---
@@ -38,7 +39,7 @@ This example uses a crop area of the previous image that specifies upper left an
 
 ```
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
-string imageURL = "https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg;
+string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg;
 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
 
 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
@@ -122,7 +123,7 @@ namespace VisualSearchFeatures
                 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
                 
                 // The ImageInfo struct specifies the crop area in the image and the URL of the larger image. 
-                string imageURL = "https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
+                string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
                 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
                 
                 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
@@ -176,4 +177,4 @@ namespace VisualSearchFeatures
 
 ```
 ## Next steps
-[Visual Search response](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Visual Search response](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

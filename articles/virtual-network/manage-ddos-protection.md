@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 09/06/2018
 ms.author: jdial
 
 ---
@@ -113,22 +113,7 @@ To simulate a DDoS attack to validate your alert, see [Validate DDoS detection](
 
 You can also learn more about [configuring webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
 
-## Configure logging for DDoS protection metrics
-
-1. Select **All services** on the top, left of the portal.
-2. Enter *Monitor* in the **Filter** box. When **Monitor** appears in the results, select it.
-3. Under **SETTINGS**, select **Diagnostic Settings**.
-4. Select the **Subscription** and **Resource group** that contain the public IP address you want to log.
-5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for.
-6. Select **Turn on diagnostics to collect the following data** and then select as many of the following options as you require:
-
-    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive diagnostic logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream diagnostic logs to an event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Send to Log Analytics**: Writes logs to the Azure OMS Log Analytics service. To learn more about this option, see [Collect logs for use in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-To simulate a DDoS attack to validate logging, see [Validate DDoS detection](#validate-ddos-detection).
-
-## Use DDoS Protection telemetry
+## Use DDoS protection telemetry
 
 Telemetry for an attack is provided through Azure Monitor in real time. The telemetry is available only for the duration that a public IP address is under mitigation. You don't see telemetry before or after an attack is mitigated.
 
@@ -154,6 +139,56 @@ DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, 
 ![View mitigation policies](./media/manage-ddos-protection/view-mitigation-policies.png)
 
 Policy thresholds are auto-configured via Azure machine learning-based network traffic profiling. Only when the policy threshold is breached does DDoS mitigation occur for the IP address under attack.
+
+## Configure DDoS attack analytics
+Azure DDoS Protection standard provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. 
+
+## Configure DDoS attack mitigation reports
+Attack mitigation reports uses the Netflow protocol data which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you will be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over. 
+
+1. Select **All services** on the top, left of the portal.
+2. Enter *Monitor* in the **Filter** box. When **Monitor** appears in the results, select it.
+3. Under **SETTINGS**, select **Diagnostic Settings**.
+4. Select the **Subscription** and **Resource group** that contain the public IP address you want to log.
+5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for.
+6. Select **Turn on diagnostics to collect the DDoSMitigationReports log** and then select as many of the following options as you require:
+
+    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive diagnostic logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream diagnostic logs to an event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Send to Log Analytics**: Writes logs to the Azure OMS Log Analytics service. To learn more about this option, see [Collect logs for use in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Both the incremental & post-attack mitigation reports include the following fields
+- Attack vectors
+- Traffic statistics
+- Reason for dropped packets
+- Protocols involved
+- Top 10 source countries or regions
+- Top 10 source ASNs
+
+## Configure DDoS attack mitigation flow logs
+Attack Mitigation Flow Logs allow you to review the dropped traffic, forwarded traffic and other interesting datapoints during an active DDoS attack in near-real time. You can ingest the constant stream of this data into your SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations. 
+
+1. Select **All services** on the top, left of the portal.
+2. Enter *Monitor* in the **Filter** box. When **Monitor** appears in the results, select it.
+3. Under **SETTINGS**, select **Diagnostic Settings**.
+4. Select the **Subscription** and **Resource group** that contain the public IP address you want to log.
+5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for.
+6. Select **Turn on diagnostics to collect the DDoSMitigationFlowLogs log** and then select as many of the following options as you require:
+
+    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive diagnostic logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream diagnostic logs to an event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Send to Log Analytics**: Writes logs to the Azure OMS Log Analytics service. To learn more about this option, see [Collect logs for use in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+7. To view the flow logs data in Azure analytics dashboard, you can import the sample dashboard from https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
+
+Flow logs will have the following fields: 
+- Source IP
+- Destination IP
+- Source Port 
+- Destination port 
+- Protocol type 
+- Action taken during mitigation
+
+
 
 ## Validate DDoS detection
 

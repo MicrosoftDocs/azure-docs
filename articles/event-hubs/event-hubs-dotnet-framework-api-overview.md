@@ -2,14 +2,14 @@
 title: Overview of the Azure Event Hubs .NET Framework APIs | Microsoft Docs
 description: A summary of some of the key Event Hubs .NET Framework client APIs.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/13/2018
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 

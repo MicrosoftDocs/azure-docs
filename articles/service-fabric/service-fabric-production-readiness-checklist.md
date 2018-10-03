@@ -41,7 +41,7 @@ Is your application and cluster ready to take production traffic? Running and te
 15. Establish a Recovery Point Objective (RPO) for your service, and set up a [disaster recovery process](service-fabric-disaster-recovery.md) and test it out.
 16. Plan for [scaling](service-fabric-cluster-scaling.md) your cluster manually or programmatically.
 17. Plan for [patching](service-fabric-patch-orchestration-application.md) your cluster nodes. 
-18. Establish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+18. Establish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 19. Test your development & staging clusters under load with the [Fault Analysis Service](service-fabric-testability-overview.md) and induce controlled [chaos](service-fabric-controlled-chaos.md). 
 20. Plan for [scaling](service-fabric-concepts-scalability.md) your applications. 
 

@@ -6,14 +6,14 @@ metadata:
   title: Azure Service Bus Messaging Documentation - Tutorials, quickstarts, API Reference
   meta.description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
   services: service-bus-messaging
-  author: sethmanheim
-  manager: timlt
+  author: spelluru
+  manager: femila
   ms.service: service-bus-messaging
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/16/2018
-  ms.author: sethm
+  ms.author: spelluru
 abstract:
   description: Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. The asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities.​
   aside:
@@ -55,6 +55,18 @@ sections:
     - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-cli">Use topics and subscriptions to update an inventory assortment using Azure CLI</a> 
     - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-portal">Use topics and subscriptions to update an inventory assortment using the Azure portal</a>
     - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-powershell">Use topics and subscriptions to update an inventory assortment using Azure PowerShell</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:  Implement message-based communication workflows with Azure Service Bus
+      href: /learn/modules/implement-message-workflows-with-service-bus/
+      image: 
+        src: /learn/achievements/implement-message-workflows-with-service-bus.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-service-bus">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

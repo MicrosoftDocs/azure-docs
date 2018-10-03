@@ -58,7 +58,7 @@ Before Stream Analytics can analyze the fraudulent calls data stream, you should
    ![Create event hub namespace](media/stream-analytics-manage-job/create-ehns.png)
 
 5. When the namespace has finished deploying, go to **All resources** > find "myEventHubNS" in the list of Azure resources > select to open it.  
-6. Next select **+Event Hub** > **Name** the event hub “MyEventHub”. You can use a different name. Use default options on remaining settings, select **Create** and wait for the deployment to succeed.
+6. Next select **+Event Hub** > **Name** the event hub "MyEventHub". You can use a different name. Use default options on remaining settings, select **Create** and wait for the deployment to succeed.
 
    ![Create event hub](media/stream-analytics-manage-job/create-eh.png)
 
@@ -66,7 +66,7 @@ Before Stream Analytics can analyze the fraudulent calls data stream, you should
 
 Before an application can send data to Azure Event Hubs, the event hub must have a policy that allows appropriate access. The access policy produces a connection string that includes authorization information.
 
-1. Navigate to the **Event Hubs** you created in the previous step that is “MyEventHub” > select **Shared access policies** from the event hub pane > select **+Add**.  
+1. Navigate to the **Event Hubs** you created in the previous step that is "MyEventHub" > select **Shared access policies** from the event hub pane > select **+Add**.  
 2. Set the Policy name to **Mypolicy** > and select **Manage** > select **Create**.  
 
    ![Create event hub shared access policy](media/stream-analytics-manage-job/create-ehpolicy.png)
@@ -98,12 +98,12 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 5. Next open a command window, change to the folder where you have is unzipped the TelcoGenerator application and enter the following command:
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    This command takes the following parameters:
    * **Number of call data records per hour**.  
-   * **Percentage of fraud Probability** - that is how often, the app should simulate a fraudulent call. The value .2 means that about 20% of the call records will look fraudulent.  
+   * **Percentage of fraud Probability** - that is how often, the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.  
    * **Duration in hours** - the number of hours that the app should run. You can also stop the app any time by ending the process (Ctrl+C) at the command line.
 
    After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub. The phone call data contains the following fields:
@@ -225,7 +225,7 @@ You can test a query from the query editor and you need sample data to test a qu
 
 3. Set **Minutes** to 3 and select **OK**. Three minutes worth of data is sampled from the input stream and notifies you when the sample data is ready. You can view the status of sampling from the notification bar. 
 
-   The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you'll have to create a new set of sample data. As an alternative, you can get a .json file that has sample data in it from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json), and then upload that .json file to use as sample data for the CallStream input.  
+   The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you'll have to create a new set of sample data. As an alternative, you can get a .json file that has sample data in it from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), and then upload that .json file to use as sample data for the CallStream input.  
 
 4. Select **Test** to test the query, you should see output results as shown in this screenshot:  
 
@@ -237,7 +237,7 @@ You can test a query from the query editor and you need sample data to test a qu
 
 2. Select **Now** for job output start time and select **Start**. The job starts in few minutes and you can view the status in the notification bar.  
 
-3. After the job succeeds, navigate to [Powerbi.com](https://powerbi.com/) and sign in with your work or school account. If the Stream Analytics job query outputs results, you see that your dataset is already created. Navigate to the **Datasets** tab, you can view a dataset named “ASAdataset”.  
+3. After the job succeeds, navigate to [Powerbi.com](https://powerbi.com/) and sign in with your work or school account. If the Stream Analytics job query outputs results, you see that your dataset is already created. Navigate to the **Datasets** tab, you can view a dataset named "ASAdataset".  
 
 4. From your workspace, select **+Create**. Create a new dashboard and name it Fraudulent Calls. You will add two tiles to this dashboard, where one tile is used to view the count of fraudulent calls at a given instance and the other tile has a line chart visualization.  
 
@@ -259,7 +259,7 @@ You can test a query from the query editor and you need sample data to test a qu
 
 For this part of the tutorial, you'll use a sample [ASP.NET](http://asp.net/) web application created by the PowerBI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](https://docs.microsoft.com/power-bi/developer/embedding) article.
 
-In this tutorial, we'll follow the steps for the user owns data application. To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples)  Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the integrate-dashboard-web-app sample code located in the [GitHub repository](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app).
+In this tutorial, we'll follow the steps for the user owns data application. To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples)  Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the integrate-dashboard-web-app sample code located in the [GitHub repository](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Once you've got the application running in your browser, follow these steps to embed the dashboard you created earlier into the web page:
 
 1. Select **Sign in to Power BI**, which grants the application access to the dashboards in your PowerBI account.  

@@ -1,53 +1,101 @@
 ---
-title: Image search SDK Node quickstart | Microsoft Docs
-description: Setup for Image search SDK console application.
-titleSuffix: Azure cognitive services
+title: "Quickstart: Search for images with the Bing Image Search SDK for Node.js"
+description: Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Node.js application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 02/12/2018
-ms.author: v-gedod
+ms.topic: quickstart
+ms.date: 08/28/2018
+ms.author: aahi
 ---
 
-# Image Search SDK Node quickstart
+# Quickstart: Search for images with the Bing Image Search SDK and Node.js
 
-The Bing Image Search SDK contains the functionality of the REST API for image queries and parsing results. 
+Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple JavaScript application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 
-The [source code for Node Bing Image Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) is available on Git Hub.
+The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) with additional error handling and annotations.
 
-## Application dependencies
+## Prerequisites
 
-To set up a console application using the Bing Image Search SDK, run `npm install azure-cognitiveservices-imagesearch` in your development environment.
+* The [Cognitive Services Image Search SDK for Node.js](https://www.npmjs.com/package/azure-cognitiveservices-imagesearch)
+    * Install using `npm install azure-cognitiveservices-imagesearch`
+* The [Node.js Azure Rest](https://www.npmjs.com/package/ms-rest-azure) module
+    * Install using `npm install ms-rest-azure`
 
-## Image Search client
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
-```
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
-```
-Then, instantiate the client:
-```
-const ImageSearchAPIClient = require('azure-cognitiveservices-imagesearch');
-let client = new ImageSearchAPIClient(credentials);
-```
-Use the client to search with a query text, in this case 'El Capitan':
-```
-client.imagesOperations.search('El Capitan', function (err, result, request, response) {
-    if (err) throw err;
-    console.log(result.value);
-});
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-```
-<!-- Need to sanitize result
-The code prints `result.value` items to the console without parsing any text. The results will be:
-- _type: 'ImageObjectElementType'
+## Create and initialize the application
 
-![Imageresults](media/node-sdk-quickstart-image-results.png)
--->
+1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness, https, and other requirements.
+
+    ```javascript
+    'use strict';
+    https = require('https');
+    const Search = require('azure-cognitiveservices-imagesearch');
+    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    ```
+
+2. In the main method of your project, create variables for your valid subscription key, the image results to be returned by Bing, and a search term. Then instantiate the image search client using the key.
+
+    ```javascript
+    //replace this value with your valid subscription key.
+    let serviceKey = "ENTER YOUR KEY HERE";
+
+    //the search term for the request
+    let searchTerm = "canadian rockies";
+
+    //instantiate the image search client 
+    let credentials = new CognitiveServicesCredentials(serviceKey);
+    let imageSearchApiClient = new Search.ImageSearchAPIClient(credentials);
+
+    ```
+
+## Create an asynchronous helper function
+
+1. Create a function to call the client asynchronously, and return the response from the Bing Image Search service.  
+    ```javascript
+    //a helper function to perform an async call to the Bing Image Search API
+    const sendQuery = async () => {
+        return await imageSearchApiClient.imagesOperations.search(searchTerm);
+    };
+    ```
+## Send a query and handle the response
+
+1. Call the helper function and handle its `promise` to parse the image results returned in the response.
+
+    If the response contains search results, store the first result and print out its details, such as a thumbnail URL, the original URL,along with the total number of returned images.  
+    ```javascript
+    sendQuery().then(imageResults => {
+        if (imageResults == null) {
+        console.log("No image results were found.");
+        }
+        else {
+            console.log(`Total number of images returned: ${imageResults.value.length}`);
+            let firstImageResult = imageResults.value[0];
+            //display the details for the first image result. After running the application,
+            //you can copy the resulting URLs from the console into your browser to view the image.
+            console.log(`Total number of images found: ${imageResults.value.length}`);
+            console.log(`Copy these URLs to view the first image returned:`);
+            console.log(`First image thumbnail url: ${firstImageResult.thumbnailUrl}`);
+            console.log(`First image content url: ${firstImageResult.contentUrl}`);
+        }
+      })
+      .catch(err => console.error(err))
+    ```
 
 ## Next steps
 
-[Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+> [!div class="nextstepaction"]
+> [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+
+## See also
+
+* [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [Node.js samples for the Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+* [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

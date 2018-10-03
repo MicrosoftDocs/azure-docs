@@ -1,5 +1,5 @@
 ---
-title: This quickstart shows how to provision a simulated TPM device to Azure IoT Hub using C | Microsoft Docs
+title: Provision a simulated TPM device to Azure IoT Hub using C | Microsoft Docs
 description: In this quickstart you create and provision a simulated TPM device using C device SDK for Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
@@ -34,12 +34,20 @@ If you're unfamiliar with the process of auto-provisioning, review [Auto-provisi
 
 In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) and the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) device simulator sample.
 
-1. Download the latest release version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
+1. Download the version 3.11.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    The following hash values for version 3.11.4 were listed on the CMake site at the time of this writing:
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
@@ -143,7 +151,7 @@ In this section, you will configure sample code to use the [Advanced Message Que
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and copy the **_ID Scope_** value.
 
-    ![Extract DPS endpoint information from the portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 2. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 

@@ -29,9 +29,9 @@ For a walkthrough that shows how to handle a larger dataset, see [Team Data Scie
 You can also use an IPython notebook to accomplish the tasks presented in the walkthrough that uses the 1 TB dataset. For more information, see [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 ## <a name="dataset"></a>NYC Taxi Trips dataset description
-The NYC Taxi Trip data is about 20 GB of compressed comma-separated values (CSV) files (~48 GB uncompressed). It has more than 173 million individual trips, and includes the fares paid for each trip. Each trip record includes the pick-up and drop-off location and time, anonymized hack (driver's) license number, and medallion number (the taxi’s unique ID). The data covers all trips in the year 2013, and is provided in the following two datasets for each month:
+The NYC Taxi Trip data is about 20 GB of compressed comma-separated values (CSV) files (~48 GB uncompressed). It has more than 173 million individual trips, and includes the fares paid for each trip. Each trip record includes the pick-up and dropoff location and time, anonymized hack (driver's) license number, and medallion number (the taxi’s unique ID). The data covers all trips in the year 2013, and is provided in the following two datasets for each month:
 
-- The trip_data CSV files contain trip details. This includes the number of passengers, pick-up and drop-off points, trip duration, and trip length. Here are a few sample records:
+- The trip_data CSV files contain trip details. This includes the number of passengers, pick-up and dropoff points, trip duration, and trip length. Here are a few sample records:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -74,7 +74,7 @@ Determine the kind of predictions you want to make based on data analysis. This 
 
 You can set up an Azure environment for advanced analytics that employs an HDInsight cluster in three steps:
 
-1. [Create a storage account](../../storage/common/storage-create-storage-account.md): This storage account is used for storing data in Azure Blob storage. The data used in HDInsight clusters also resides here.
+1. [Create a storage account](../../storage/common/storage-quickstart-create-account.md): This storage account is used for storing data in Azure Blob storage. The data used in HDInsight clusters also resides here.
 2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](customize-hadoop-cluster.md). This step creates an HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
    
    * Remember to link the storage account created in step 1 with your HDInsight cluster when you are creating it. This storage account accesses data that is processed within the cluster.
@@ -586,7 +586,7 @@ The query applies standard Hive functions directly to generate the following fro
 - week of year
 - weekday (1 stands for Monday, and 7 stands for Sunday)
 
-The query also generates the direct distance between the pick-up and drop-off locations. For a complete list of such functions, see [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
+The query also generates the direct distance between the pick-up and dropoff locations. For a complete list of such functions, see [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
 The query then down-samples the data so that the query results can fit into Azure Machine Learning Studio. Only about 1 percent of the original dataset is imported into the studio.
 

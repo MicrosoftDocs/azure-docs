@@ -15,12 +15,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
-ms.author: mobandyo
+ms.author: erikre
 
 ---
 
 # Use Azure Billing APIs to programmatically get insight into your Azure usage
 Use Azure Billing APIs to pull usage and resource data into your preferred data analysis tools. The Azure Resource Usage and RateCard APIs can help you accurately predict and manage your costs. The APIs are implemented as a Resource Provider and part of the family of APIs exposed by the Azure Resource Manager.  
+
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## Azure Invoice Download API (Preview)
 Once the [opt-in has been complete](billing-manage-access.md#opt-in), download invoices using the preview version of [Invoice API](/rest/api/billing). The features include:

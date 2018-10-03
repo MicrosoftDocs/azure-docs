@@ -1,6 +1,6 @@
 ---
 title: Service concepts in Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Describes service provisioning concepts specific to devices with DPS and IoT Hub
+description: Describes service provisioning concepts specific to devices with the Device Provisioning Service and IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 03/30/2018
@@ -24,17 +24,20 @@ The service operations endpoint is the endpoint for managing the service setting
 
 ## Device provisioning endpoint
 
-The device provisioning endpoint is the single endpoint all devices use for auto-provisioning. The URL is the same for all provisioning service instances, to eliminate the need to reflash devices with new connection information in supply chain scenarios. The [ID scope](#id-scope) ensures tenant isolation.
+The device provisioning endpoint is the single endpoint all devices use for auto-provisioning. The URL is the same for all provisioning service instances, to eliminate the need to reflash devices with new connection information in supply chain scenarios. The ID scope ensures tenant isolation.
 
 ## Linked IoT hubs
 
-Device Provisioning Service can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to Device Provisioning Service gives the service read/write permissions to the IoT hub's device registry; with the link, Device Provisioning Service can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your provisioning service.
+The Device Provisioning Service can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to an instance of the Device Provisioning service gives the service read/write permissions to the IoT hub's device registry; with the link, a Device Provisioning service can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your provisioning service.
 
 ## Allocation policy
 
 The service-level setting that determines how Device Provisioning Service assigns devices to an IoT hub. There are three supported allocation policies:
+
 * **Evenly weighted distribution**: linked IoT hubs are equally likely to have devices provisioned to them. The default setting. If you are provisioning devices to only one IoT hub, you can keep this setting.
+
 * **Lowest latency**: devices are provisioned to an IoT hub with the lowest latency to the device. If multiple linked IoT hubs would provide the same lowest latency, the provisioning service hashes devices across those hubs
+
 * **Static configuration via the enrollment list**: specification of the desired IoT hub in the enrollment list takes priority over the service-level allocation policy.
 
 ## Enrollment
@@ -49,7 +52,7 @@ There are two types of enrollments supported by Device Provisioning Service:
 
 ### Enrollment group
 
-An enrollment group is a group of devices that share a specific attestation mechanism. All devices in the enrollment group present X.509 certificates that have been signed by the same root or intermediate CA. Enrollment groups can only use the X.509 attestation mechanism. The enrollment group name and certificate name must be alphanumeric, lowercase, and may contain hyphens.
+An enrollment group is a group of devices that share a specific attestation mechanism. All devices in the enrollment group present X.509 certificates that have been signed by the same root or intermediate Certificate Authority (CA). Enrollment groups can only use the X.509 attestation mechanism. The enrollment group name and certificate name must be alphanumeric, lowercase, and may contain hyphens.
 
 > [!TIP]
 > We recommend using an enrollment group for a large number of devices that share a desired initial configuration, or for devices all going to the same tenant.
@@ -63,8 +66,8 @@ An individual enrollment is an entry for a single device that may register. Indi
 
 ## Registration
 
-A registration is the record of a device successfully registering/provisioning to an IoT Hub via Device Provisioning Service. Registration records are created automatically; they can be deleted, but they cannot be updated.
+A registration is the record of a device successfully registering/provisioning to an IoT Hub via the Device Provisioning Service. Registration records are created automatically; they can be deleted, but they cannot be updated.
 
 ## Operations
 
-Operations are the billing unit of Device Provisioning Service. One operation is the successful completion of one instruction to the service. Operations include device registrations and re-registrations; operations also include service-side changes such as adding enrollment list entries, and updating enrollment list entries.
+Operations are the billing unit of the Device Provisioning Service. One operation is the successful completion of one instruction to the service. Operations include device registrations and re-registrations; operations also include service-side changes such as adding enrollment list entries, and updating enrollment list entries.

@@ -73,7 +73,7 @@ Yes, you can manage API Management programmatically by using:
 
 * The [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 * The [Microsoft Azure ApiManagement Service Management Library SDK](http://aka.ms/apimsdk).
-* The [Service deployment](https://msdn.microsoft.com/library/mt619282.aspx) and [Service management](https://msdn.microsoft.com/library/mt613507.aspx) PowerShell cmdlets.
+* The [Service deployment](https://docs.microsoft.com/powershell/module/wds) and [Service management](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlets.
 
 ### How do I add a user to the Administrators group?
 Here's how you can add a user to the Administrators group:
@@ -82,7 +82,7 @@ Here's how you can add a user to the Administrators group:
 2. Go to the resource group that has the API Management instance you want to update.
 3. In API Management, assign the **Api Management Contributor** role to the user.
 
-Now the newly added contributor can use Azure PowerShell [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx). Here's how to sign in as an administrator:
+Now the newly added contributor can use Azure PowerShell [cmdlets](https://docs.microsoft.com/powershell/azure/overview). Here's how to sign in as an administrator:
 
 1. Use the `Connect-AzureRmAccount` cmdlet to sign in.
 2. Set the context to the subscription that has the service by using `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.

@@ -2,13 +2,16 @@
 title: Azure SQL Database elastic query overview | Microsoft Docs
 description: Elastic query enables you to run a Transact-SQL query that spans multiple databases.
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 07/03/2018
+author: MladjoA
 ms.author: mlandzic
+ms.reviewer:
+manager: craigg
+ms.date: 09/14/2018
 ---
 
 # Azure SQL Database elastic query overview (preview)
@@ -23,7 +26,7 @@ Query across Azure SQL databases completely in T-SQL. This allows for read-only 
 
 ### Available on standard tier
 
-Elastic query is supported on both Standard and Premium performance tier. See the section on Preview Limitations below on performance limitations for lower performance tiers.
+Elastic query is supported on both the Standard and Premium service tiers. See the section on Preview Limitations below on performance limitations for lower service tiers.
 
 ### Push parameters to remote databases
 
@@ -96,7 +99,7 @@ Using elastic query to perform reporting tasks over a sharded, that is, horizont
 
 > [!NOTE]
 > Elastic Query Database (head node) can be separate database, or it can be the same database that hosts the shard map.
-> Whatever configuration you choose, make sure that service and performance tier of that database is high enough to handle the expected  amount of login/query requests.
+> Whatever configuration you choose, make sure that service tier and compute size of that database is high enough to handle the expected  amount of login/query requests.
 
 The following steps configure elastic database queries for horizontal partitioning scenarios that require access to a set of tables located on (typically) several remote SQL databases:
 
@@ -128,7 +131,7 @@ Elastic query is included into the cost of Azure SQL Database databases. Note th
 
 ## Preview limitations
 
-* Running your first elastic query can take up to a few minutes on the Standard performance tier. This time is necessary to load the elastic query functionality; loading performance improves with higher performance tiers.
+* Running your first elastic query can take up to a few minutes on the Standard service tier. This time is necessary to load the elastic query functionality; loading performance improves with higher service tiers and compute sizes.
 * Scripting of external data sources or external tables from SSMS or SSDT is not yet supported.
 * Import/Export for SQL DB does not yet support external data sources and external tables. If you need to use Import/Export, drop these objects before exporting and then re-create them after importing.
 * Elastic query currently only supports read-only access to external tables. You can, however, use full T-SQL functionality on the database where the external table is defined. This can be useful to, e.g., persist temporary results using, for example, SELECT <column_list> INTO <local_table>, or to define stored procedures on the elastic query database that refer to external tables.

@@ -1,20 +1,13 @@
-﻿---
+---
 title: Azure Storage Explorer troubleshooting guide | Microsoft Docs
 description: Overview of the two debugging feature of Azure
 services: virtual-machines
-documentationcenter: ''
 author: Deland-Han
-manager: cshepard
-editor: ''
-
-ms.assetid:
 ms.service: virtual-machines
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
+ms.component: common
 ---
 
 # Azure Storage Explorer troubleshooting guide

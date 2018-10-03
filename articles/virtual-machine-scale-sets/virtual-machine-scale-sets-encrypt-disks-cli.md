@@ -1,6 +1,6 @@
 ﻿---
 title: Encrypt disks for Azure scale sets with the Azure CLI | Microsoft Docs
-description: Learn how to use the Azure CLI 2.0 to encrypt VM instances and attached disks in a Linux virtual machine scale set
+description: Learn how to use the Azure CLI to encrypt VM instances and attached disks in a Linux virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -18,7 +18,7 @@ ms.date: 04/30/2018
 ms.author: cynthn
 
 ---
-# Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI 2.0 (Preview)
+# Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI (Preview)
 
 To protect and safeguard data at rest using industry standard encryption technology, virtual machine scale sets support Azure Disk Encryption (ADE). Encryption can be enabled for Linux and Windows virtual machine scale sets. For more information, see [Azure Disk Encryption for Linux and Windows](../security/azure-security-disk-encryption.md).
 
@@ -34,7 +34,7 @@ Scale set VM reimage and upgrade operations are not supported in the current pre
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.31 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.31 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Register for disk encryption preview
 
@@ -176,6 +176,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## Next steps
 
-In this article, you used the Azure CLI 2.0 to encrypt a virtual machine scale set. You can also use [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) or templates for [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) or [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+In this article, you used the Azure CLI to encrypt a virtual machine scale set. You can also use [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) or templates for [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) or [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
 An end-to-end batch file example for Linux scale set data disk encryption can be found [here](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). This example creates a resource group, Linux scale set, mounts a 5-GB data disk, and encrypts the virtual machine scale set.

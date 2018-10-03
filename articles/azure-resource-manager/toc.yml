@@ -4,8 +4,6 @@
   items:
   - name: What is Resource Manager?
     href: resource-group-overview.md
-  - name: Resource Manager and classic deployment
-    href: resource-manager-deployment-model.md
 - name: Quickstarts
   expanded: true
   items:
@@ -16,23 +14,38 @@
   - name: Create templates - Visual Studio
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: Tutorials
-  expanded: true
   items:
-  - name: Create encrypted storage account
+  - name: Create an encrypted storage account
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: Create multiple resources
+  - name: Create multiple storage account instances
+    href: resource-manager-tutorial-create-multiple-instances.md
+  - name: Set resource deployment order
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+  - name: Use conditions
+    href: resource-manager-tutorial-use-conditions.md
+  - name: Integrate Key Vault
+    href: resource-manager-tutorial-use-key-vault.md
+  - name: Create linked templates
+    href: resource-manager-tutorial-create-linked-templates.md
+  - name: Use safe deployment practices
+    href: deployment-manager-tutorial.md
 - name: Concepts
   items:
   - name: Resource providers and types
     href: resource-manager-supported-services.md
   - name: Management groups
     href: management-groups-overview.md
+  - name: Deployment Manager
+    href: deployment-manager-overview.md
   - name: Subscription governance
     href: /azure/architecture/cloud-adoption-guide/subscription-governance
     maintainContext: true
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
+  - name: Deployment modes
+    href: deployment-modes.md
+  - name: Resource Manager and classic deployment
+    href: resource-manager-deployment-model.md
 - name: How to
   items:
   - name: Create templates
@@ -52,10 +65,14 @@
         href: resource-manager-templates-outputs.md
     - name: Linked and nested templates
       href: resource-group-linked-templates.md
-    - name: Define dependency between resources
+    - name: Resource dependencies
       href: resource-group-define-dependencies.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
+    - name: Create resource group in template
+      href: create-resource-group-in-template.md
+    - name: Create resources in subscription
+      href: deploy-to-subscription.md
     - name: Update resource
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Deploy
@@ -86,7 +103,7 @@
       href: resource-group-template-deploy-rest.md
     - name: Multiple resource groups or subscriptions
       href: resource-manager-cross-resource-group-deployment.md
-    - name: Continuous integration with Visual Studio Team Services
+    - name: Continuous integration with Azure DevOps Services
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
     - name: Pass secure values during deployment
@@ -103,6 +120,9 @@
       href: resource-group-using-tags.md
     - name: Move resources to new group or subscription
       href: resource-group-move-resources.md
+      items:
+      - name: Move support per resource type
+        href: move-support-resources.md
     - name: Create EA subscriptions
       href: programmatically-create-subscription.md
     - name: Grant access to create EA subscriptions
@@ -162,6 +182,10 @@
       href: resource-manager-sku-not-available-errors.md
     - name: Windows deployment issues
       href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+  - name: Throttling requests
+    href: resource-manager-request-limits.md
+  - name: Track asynchronous operations
+    href: resource-manager-async-operations.md
 - name: Reference
   items:
   - name: Template reference
@@ -183,6 +207,10 @@
       href: resource-group-template-functions-resource.md
     - name: String functions
       href: resource-group-template-functions-string.md
+  - name: REST - Resource Manager
+    href: /rest/api/resources/
+  - name: REST - Deployment Manager
+    href: /rest/api/deploymentmanager/
   - name: PowerShell
     href: /powershell/module/azurerm.resources
   - name: Azure CLI
@@ -193,8 +221,6 @@
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html
-  - name: REST
-    href: /rest/api/resources/
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -207,9 +233,5 @@
     href: http://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Manage personal data
     href: resource-manager-personal-data.md
-  - name: Throttling requests
-    href: resource-manager-request-limits.md
-  - name: Track asynchronous operations
-    href: resource-manager-async-operations.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager

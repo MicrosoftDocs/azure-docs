@@ -61,6 +61,7 @@ Project Conversation Learner consists of an SDK you add to your bot, and a cloud
    Create a file called `.env` in the directory `cl-bot-01`.  The contents of the file should be:
 
    ```
+   NODE_ENV=development
    LUIS_AUTHORING_KEY=<your LUIS authoring key>
    ```
 
@@ -102,6 +103,7 @@ The instructions above started the generic empty bot.  To run a tutorial or demo
   npm run tutorial-entity-detection
   npm run tutorial-session-callbacks
   npm run tutorial-api-calls
+  npm run tutorial-hybrid
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage

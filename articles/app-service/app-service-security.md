@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 08/24/2018
 ms.author: cephalin
 
 ---
@@ -25,7 +25,7 @@ The platform components of App Service, including Azure VMs, storage, network co
 
 - Your app resources are [secured](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) from the other customers' Azure resources.
 - [VM instances and runtime software are regularly updated](app-service-patch-os-runtime.md) to address newly discovered vulnerabilities. 
-- Communication of secrets (such as connection strings) between your app and other Azure resources (such as [SQL Database](/services/sql-database/)) stays within Azure and doesn't cross any network boundaries. Secrets are always encrypted when stored.
+- Communication of secrets (such as connection strings) between your app and other Azure resources (such as [SQL Database](https://azure.microsoft.com/services/sql-database/)) stays within Azure and doesn't cross any network boundaries. Secrets are always encrypted when stored.
 - All communication over the App Service connectivity features, such as [hybrid connection](app-service-hybrid-connections.md), is encrypted. 
 - Connections with remote management tools like Azure PowerShell, Azure CLI, Azure SDKs, REST APIs, are all encrypted.
 - 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats.
@@ -45,7 +45,7 @@ App Service lets you secure your apps with [HTTPS](https://wikipedia.org/wiki/HT
 
 To secure your app against all unencrypted (HTTP) connections, App Service provides one-click configuration to enforce HTTPS. Unsecured requests are turned away before they even reach your application code. For more information, see [Enforce HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https).
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 is no longer considered secure by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). App Service lets you disable outdated protocols by [enforcing TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112).
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 is no longer considered secure by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). App Service lets you disable outdated protocols by [enforcing TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
 
 App Service supports both FTP and FTPS for deploying your files. However, FTPS should be used instead of FTP, if at all possible. When one or both of these protocols are not in use, you should [disable them](app-service-deploy-ftp.md#enforce-ftps).
 
@@ -80,7 +80,7 @@ In each of these cases, App Service provides a way for you to make secure connec
 
 ### Azure resources
 
-When your app connects to Azure resources, such as [SQL Database](/services/sql-database/) and [Azure Storage](/azure/storage/), the connection stays within Azure and doesn't cross any network boundaries. However, the connection goes through the shared networking in Azure, so always make sure that your connection is encrypted. 
+When your app connects to Azure resources, such as [SQL Database](https://azure.microsoft.com/services/sql-database/) and [Azure Storage](/azure/storage/), the connection stays within Azure and doesn't cross any network boundaries. However, the connection goes through the shared networking in Azure, so always make sure that your connection is encrypted. 
 
 If your app is hosted in an [App Service environment](environment/intro.md), you should [connect to supported Azure services using Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -113,4 +113,4 @@ Except for the **Isolated** pricing tier, all tiers run your apps on the shared 
 - Serve internal application using an internal load balancer (ILB), which allows access only from inside your Azure Virtual Network. The ILB has an IP address from your private subnet, which provides total isolation of your apps from the internet.
 - [Use an ILB behind a web application firewall (WAF)](environment/integrate-with-application-gateway.md). The WAF offers enterprise-level protection to your public-facing applications, such as DDoS protection, URI filtering, and SQL injection prevention.
 
-For more information, see [Introduction to Azure App Service Environments](environment/intro.md).
+For more information, see [Introduction to Azure App Service Environments](environment/intro.md). 

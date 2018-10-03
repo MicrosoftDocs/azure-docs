@@ -43,6 +43,8 @@
       href: container-instances-multi-container-yaml.md
     - name: Multi-container group - Resource Manager
       href: container-instances-multi-container-group.md
+    - name: Virtual network deployment (preview)
+      href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
     - name: Set environment variables (env)
@@ -51,6 +53,8 @@
       href: container-instances-liveness-probe.md
   - name: Manage
     items:
+    - name: Update running containers
+      href: container-instances-update.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
     - name: Monitor CPU and memory usage
@@ -59,7 +63,7 @@
       href: container-instances-log-analytics.md
   - name: Run workloads
     items:
-    - name: Run tasks with restart policy
+    - name: Run tasks with restart policies
       href: container-instances-restart-policy.md
     - name: Jenkins build agents on ACI
       href: container-instances-jenkins.md
@@ -99,6 +103,8 @@
     href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-container-instances
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing

@@ -3,7 +3,7 @@ title: How to use Azure Service Bus topics with Java | Microsoft Docs
 description: Use Service Bus topics and subscriptions in Azure.
 services: service-bus-messaging
 documentationcenter: java
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: sethm
+ms.date: 09/17/2018
+ms.author: spelluru
 
 ---
 # How to use Service Bus topics and subscriptions with Java
@@ -33,7 +33,7 @@ intermediary.
 ![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
 
 In contrast with Service Bus queues, in which each message is processed by a
-single consumer, topics and subscriptions provide a "one-to-many" form
+single consumer, topics and subscriptions provide a one-to-many form
 of communication, using a publish/subscribe pattern. It is possible to
 register multiple subscriptions to a topic. When a message is sent to a
 topic, it is then made available to each subscription to handle/process
@@ -42,7 +42,7 @@ independently.
 A subscription to a topic resembles a virtual queue that receives copies of
 the messages that were sent to the topic. You can optionally register
 filter rules for a topic on a per-subscription basis, which allows you
-to filter/restrict which messages to a topic are received by which topic
+to filter or restrict which messages to a topic are received by which topic
 subscriptions.
 
 Service Bus topics and subscriptions enable you to scale to process a
@@ -131,7 +131,7 @@ restricts the set of messages passed to the subscription's virtual
 queue.
 
 ### Create a subscription with the default (MatchAll) filter
-If no filter is specified when a new subscription is created, the **MatchAll** filter is the default filter that is used. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "AllMessages" and uses the default **MatchAll** filter.
+If no filter is specified when a new subscription is created, the **MatchAll** filter is the default filter that is used. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named `AllMessages` and uses the default `MatchAll` filter.
 
 ```java
 SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
@@ -309,7 +309,7 @@ Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
 then it can call the **unlockMessage** method on the received message
-(instead of the **deleteMessage** method). This causes Service Bus
+(instead of the **deleteMessage** method). This method call causes Service Bus
 to unlock the message within the topic and make it available to be
 received again, either by the same consuming application or by another
 consuming application.
@@ -323,10 +323,7 @@ received again.
 In the event that the application crashes after processing the message
 but before the **deleteMessage** request is issued, then the message
 is redelivered to the application when it restarts. This process is often
-called **At Least Once Processing**; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing,
-then application developers should add additional logic to their
-application to handle duplicate message delivery. This is often achieved
-using the **getMessageId** method of the message, which remains
+called **at least once processing**, that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. You can do so by using the **getMessageId** method of the message, which remains
 constant across delivery attempts.
 
 ## Delete topics and subscriptions
@@ -345,7 +342,7 @@ service.deleteTopic("TestTopic");
 ```
 
 ## Next Steps
-Now that you've learned the basics of Service Bus queues, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions] for more information.
+For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions] for more information.
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md

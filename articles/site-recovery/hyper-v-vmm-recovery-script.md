@@ -1,4 +1,4 @@
----
+﻿---
 title: Add a script to a recovery plan in Azure Site Recovery | Microsoft Docs
 description: Learn about the prerequisites for adding a new System Center Virtual Machine Manager (VMM) script to a recovery plan in Azure.
 services: site-recovery
@@ -48,9 +48,9 @@ You can use PowerShell scripts in your recovery plans. To be accessible from the
   
   1. Open the Registry Editor, and then go to **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  2. Change the value for **ScriptLibraryPath** to **\\\libserver2.contoso.com\share\\**. Specify the full FQDN. Provide permissions to the share location. This is the root node of the share. To check for the root node, in VMM, go to the root node in the library. The path that opens is the root of the path. This is the path that you must use in the variable.
+  1. Change the value for **ScriptLibraryPath** to **\\\libserver2.contoso.com\share\\**. Specify the full FQDN. Provide permissions to the share location. This is the root node of the share. To check for the root node, in VMM, go to the root node in the library. The path that opens is the root of the path. This is the path that you must use in the variable.
 
-  3. Test the script by using a user account that has the same level of user rights as the VMM service account. Using these user rights verifies that standalone, tested scripts run the same way that they run in recovery plans. On the VMM server, set the execution policy to bypass, as follows:
+  1. Test the script by using a user account that has the same level of user rights as the VMM service account. Using these user rights verifies that standalone, tested scripts run the same way that they run in recovery plans. On the VMM server, set the execution policy to bypass, as follows:
 
      a. Open the **64-bit Windows PowerShell** console as an administrator.
      
@@ -64,19 +64,19 @@ You can use PowerShell scripts in your recovery plans. To be accessible from the
 If you have a VMM source site, you can create a script on the VMM server. Then, include the script in your recovery plan.
 
 1. In the library share, create a new folder. For example, \<VMM server name>\MSSCVMMLibrary\RPScripts. Place the folder on the source and target VMM servers.
-2. Create the script. For example, name the script RPScript. Verify that the script works as expected.
-3. Place the script in the \<VMM server name>\MSSCVMMLibrary folder on the source and target VMM servers.
+1. Create the script. For example, name the script RPScript. Verify that the script works as expected.
+1. Place the script in the \<VMM server name>\MSSCVMMLibrary folder on the source and target VMM servers.
 
 ## Add the script to a recovery plan
 
 After you've added VMs or replication groups to a recovery plan and created the plan, you can add the script to the group.
 
 1. Open the recovery plan.
-2. In the **Step** list, select an item. Then, select either **Script** or **Manual Action**.
-3. Specify whether to add the script or action before or after the selected item. To move the position of the script up or down, select the **Move Up** and **Move Down** buttons.
-4. If you add a VMM script, select **Failover to VMM script**. In **Script Path**, enter the relative path to the share. For example, enter **\RPScripts\RPScript.PS1**.
-5. If you add an Azure Automation runbook, specify the Automation account in which the runbook is located. Then, select the Azure runbook script that you want to use.
-6. To ensure that the script works as expected, do a test failover of the recovery plan.
+1. In the **Step** list, select an item. Then, select either **Script** or **Manual Action**.
+1. Specify whether to add the script or action before or after the selected item. To move the position of the script up or down, select the **Move Up** and **Move Down** buttons.
+1. If you add a VMM script, select **Failover to VMM script**. In **Script Path**, enter the relative path to the share. For example, enter **\RPScripts\RPScript.PS1**.
+1. If you add an Azure Automation runbook, specify the Automation account in which the runbook is located. Then, select the Azure runbook script that you want to use.
+1. To ensure that the script works as expected, do a test failover of the recovery plan.
 
 
 ## Next steps

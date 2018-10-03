@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
 
@@ -321,7 +321,7 @@ For more information about tumbling window triggers and for examples, see [Creat
 
 ## Event-based trigger
 
-An event-based triggers runs pipelines in response to an event, such as the arrival of a file, or the deletion of a file, in Azure Blob Storage.
+An event-based trigger runs pipelines in response to an event, such as the arrival of a file, or the deletion of a file, in Azure Blob Storage.
 
 For more information about event-based triggers, see [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md).
 

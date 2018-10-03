@@ -51,6 +51,25 @@ On the **Application Settings** page, enter the URL of your choice in the **URL*
 
 For more information about using images in an Azure IoT Central application, see [Prepare and upload images to your Azure IoT Central application](howto-prepare-images.md).
 
+## Copy an application
+
+You can create a copy of any application, minus any device instances, device data history, and user data. The copy will be a paid application that you'll be charged for. You cannot create a trial application by copying another application.
+
+To copy an application, navigate to the **Application Settings** page and click the **Copy** button.
+
+![Application Settings page](media\howto-administer\appCopy1.png)
+
+Clicking the **Copy** button will open a dialog in which you can select a name, URL, AAD directory, subscription and Azure region for the new application that will be created by copying your application. Select values for each of those fields and then click the **Copy** button to confirm that you want to proceed. You can learn more about what to enter for those values in the article about [how to create an application](howto-create-application.md).
+
+![Application Settings page](media\howto-administer\appCopy2.png)
+
+Once the app copy operation succeeds, you will be able to navigate to the new application that was created by copying your application by clicking the link that appears on the **Application Settings** page.
+
+![Application Settings page](media\howto-administer\appCopy3.png)
+
+> [!Note]
+> Copying an application will copy the definition of rules or actions. However, since users that have access to your original app aren't copied to the copied app, you'll have to manually add users to actions such as email for which users are a pre-requisite.
+
 ## Delete an application
 
 To delete your application, use the secondary navigation menu to navigate to the **Application Settings** page in the **Administration** section.
@@ -144,6 +163,23 @@ By default, all free trials are available for 7 days. If you'd like to increase 
 1. Click **Extend Trial**. In the pop-up select the appropriate Azure Active Directory tenant and then the Azure Subscription to use for your IoT Central application:
 
 1. Then click **Extend**. Your trial is now valid for 30 days.
+
+## Utilize the Azure SDKs to do control plane operations
+
+IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. These libraries support control plane operations for IoT Central, allowing you to create, list, update, or delete IoT Central applications. They also provide helpers for dealing with authentication and error handling that is specific to each language. 
+
+Examples of using the Azure Resource Manager SDKs can be found at [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples).
+
+To learn more take a look at these packages on GitHub.
+
+| Language | Repository | Package |
+| ---------| ---------- | ------- |
+| Node | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
+| Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)
+| C# | [https://github.com/Azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) | [https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral](https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral)
+| Ruby | [https://github.com/Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby) | [https://rubygems.org/gems/azure_mgmt_iot_central](https://rubygems.org/gems/azure_mgmt_iot_central)
+| Java | [https://github.com/Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) | [https://search.maven.org/search?q=a:azure-mgmt-iotcentral](https://search.maven.org/search?q=a:azure-mgmt-iotcentral)
+| Go | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
 
 ## Next steps
 

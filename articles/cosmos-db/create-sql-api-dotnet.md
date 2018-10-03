@@ -17,6 +17,15 @@ clicktale: true
 ---
 # Quickstart: Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal
 
+> [!div class="op_single_selector"]
+> * [.NET](create-sql-api-dotnet.md)
+> * [Java](create-sql-api-java.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Python](create-sql-api-python.md)
+> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+>  
+> 
+
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [SQL .NET API](sql-api-sdk-dotnet.md), as shown in the following screenshot. 
@@ -117,9 +126,13 @@ Now go back to the Azure portal to get your connection string information and co
 
     `<add key="endpoint" value="FILLME" />`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.config. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.config. 
 
     `<add key="authKey" value="FILLME" />`
+    
+5. Then update the database value to match the name of the database you have created earlier. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+
+    `<add key="database" value="Tasks" />`    
     
 ## Run the web app
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 

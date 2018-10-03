@@ -20,7 +20,7 @@ This article describes the password policies and complexity requirements associa
 
 ## Administrator reset policy differences
 
-**Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role** this polciy may be different from the one you have defined for your users and cannot be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
+**Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role** this policy may be different from the one you have defined for your users and cannot be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
 
 With a two-gate policy, **administrators don't have the ability to use security questions**.
 
@@ -73,11 +73,11 @@ A one-gate policy requires one piece of authentication data, such as an email ad
 
 ## UserPrincipalName policies that apply to all user accounts
 
-Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The following table outlines the polices that apply to both on-premises Active Directory user accounts that are synchronized to the cloud and to cloud-only user accounts:
+Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The following table outlines the policies that apply to both on-premises Active Directory user accounts that are synchronized to the cloud and to cloud-only user accounts:
 
 | Property | UserPrincipalName requirements |
 | --- | --- |
-| Characters allowed |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| Characters allowed |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
 | Characters not allowed |<ul> <li>Any "\@\" character that's not separating the username from the domain.</li> <li>Can't contain a period character "." immediately preceding the "\@\" symbol</li></ul> |
 | Length constraints |<ul> <li>The total length must not exceed 113 characters</li><li>There can be up to 64 characters before the "\@\" symbol</li><li>There can be up to 48 characters after the "\@\" symbol</li></ul> |
 
@@ -87,7 +87,7 @@ The following table describes the available password policy settings that can be
 
 | Property | Requirements |
 | --- | --- |
-| Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | Characters not allowed |<ul><li>Unicode characters.</li><li>Spaces.</li><li> Strong passwords only</li></ul> |
 | Password restrictions |<ul><li>A minimum of 8 characters and a maximum of 16 characters.</li><li>Strong passwords only: Requires three out of four of the following:<ul><li>Lowercase characters.</li><li>Uppercase characters.</li><li>Numbers (0-9).</li><li>Symbols (see the previous password restrictions).</li></ul></li></ul> |
 | Password expiry duration |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |

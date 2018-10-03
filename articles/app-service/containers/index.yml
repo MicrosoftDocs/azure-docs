@@ -67,7 +67,7 @@ sections:
       href: ../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - image:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
-      text: VSTS
+      text: Azure DevOps
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
     - image:
         src: ../media/index/github-octicons.svg
@@ -92,10 +92,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Create an application using <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core with Azure SQL DB</a> or <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
+    - html: Create an application using <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core with Azure SQL DB</a> or <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
+    - html: <a href="/azure/cdn/cdn-add-to-web-app">Add a CDN to your application</a>
 - title: Samples
   items:
   - type: paragraph
@@ -113,7 +113,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST

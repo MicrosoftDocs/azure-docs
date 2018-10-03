@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/04/2018
 ms.author: juluk
 ---
 
@@ -38,9 +38,7 @@ With Bash in Cloud Shell, you can run a command called `clouddrive`, which enabl
 #### Prerequisites for manual mounting
 You can update the file share that's associated with Cloud Shell by using the `clouddrive mount` command.
 
-If you mount an existing file share, the storage accounts must be:
-* Locally redundant storage or geo-redundant storage to support file shares.
-* Located in your assigned region. When you are onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
+If you mount an existing file share, the storage accounts must be located in your select Cloud Shell region. Retrieve the location by running `env` from Bash and checking the `ACC_LOCATION`.
 
 #### The `clouddrive mount` command
 

@@ -2,20 +2,13 @@
 title: Cross-Origin Resource Sharing (CORS) Support | Microsoft Docs
 description: Learn how to enable CORS Support for the Microsoft Azure Storage Services.
 services: storage
-documentationcenter: .net
 author: cbrooksmsft
-manager: carmonm
-editor: tysonn
-
-ms.assetid: a0229595-5b64-4898-b8d6-fa2625ea6887
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-
+ms.component: common
 ---
 # Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services
 Beginning with version 2013-08-15, the Azure storage services support Cross-Origin Resource Sharing (CORS) for the Blob, Table, Queue, and File services. CORS is an HTTP feature that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. See the [CORS specification](http://www.w3.org/TR/cors/) for details on CORS.

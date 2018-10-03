@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store MapReduce Performance Tuning Guidelines | Microsoft Docs
-description: Azure Data Lake Store MapReduce Performance Tuning Guidelines
+title: Azure Data Lake Storage Gen1 MapReduce Performance Tuning Guidelines | Microsoft Docs
+description: Azure Data Lake Storage Gen1 MapReduce Performance Tuning Guidelines
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -15,19 +15,19 @@ ms.date: 12/19/2016
 ms.author: stewu
 
 ---
-# Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Store
+# Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Storage Gen1
 
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
-* **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
+* **An Azure Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
 * **Using MapReduce on HDInsight**.  For more information, see [Use MapReduce in Hadoop on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Performance tuning guidelines on ADLS**.  For general performance concepts, see [Data Lake Store Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Performance tuning guidelines on Data Lake Storage Gen1**.  For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## Parameters
 
-When running MapReduce jobs, here are the most important parameters that you can configure to increase performance on ADLS:
+When running MapReduce jobs, here are the most important parameters that you can configure to increase performance on Data Lake Storage Gen1:
 
 * **Mapreduce.map.memory.mb** – The amount of memory to allocate to each mapper
 * **Mapreduce.job.maps** – The number of map tasks per job
@@ -82,9 +82,9 @@ Let’s say you currently have a cluster composed of 8 D14 nodes and you want to
 
 ## Limitations
 
-**ADLS throttling**
+**Data Lake Storage Gen1 throttling**
 
-As a multi-tenant service, ADLS sets account level bandwidth limits.  If you hit these limits, you will start to see task failures. This can be identified by observing throttling errors in task logs.  If you need more bandwidth for your job, please contact us.   
+As a multi-tenant service, Data Lake Storage Gen1 sets account level bandwidth limits.  If you hit these limits, you will start to see task failures. This can be identified by observing throttling errors in task logs.  If you need more bandwidth for your job, please contact us.   
 
 To check if you are getting throttled, you need to enable the debug logging on the client side. Here’s how you can do that:
 
@@ -96,7 +96,7 @@ To check if you are getting throttled, you need to enable the debug logging on t
 
 ## Examples to Run
 
-To demonstrate how MapReduce runs on Azure Data Lake Store, below is some sample code that was run on a cluster with the following settings:
+To demonstrate how MapReduce runs on Data Lake Storage Gen1, below is some sample code that was run on a cluster with the following settings:
 
 * 16 node D14v2
 * Hadoop cluster running HDI 3.6

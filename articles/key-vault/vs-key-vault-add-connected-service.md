@@ -6,7 +6,8 @@ author: ghogen
 manager: douge
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
@@ -32,7 +33,8 @@ For details on the changes that Connected Services makes in your project to enab
 
    ![Choose "Secure Secrets With Azure Key Vault"](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions.
+   If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions. Make sure that you're signed into Visual Studio, and that the account you're signed in with is the same account that you use for your Azure subscription.
+
 1. Select the subscription you want to use, and then choose a new or existing Key Vault, or choose the Edit link to modify the automatically generated name.
 
    ![Select your subscription](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)
@@ -67,6 +69,10 @@ Now, you can access your secrets in code. The next steps are different depending
 
 ## Access your secrets in code (ASP.NET Core projects)
 
+The connection to Key Vault is set up at startup by a class that implements [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) using a way of extending startup behavior that is described in [Enhance an app from an external assembly in ASP.NET Core with IHostingStartup](/aspnet/core/fundamentals/host/platform-specific-configuration). The startup class uses two environment variables that contain the Key Vault connection information: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, set to true, and ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, set to your Key Vault URL. These are added to the launchsettings.json file when you run through the **Add Connected Service** process.
+
+To access your secrets:
+
 1. In Visual Studio, in your ASP.NET Core project, you can now reference these secrets by using the following expressions in code:
  
    ```csharp
@@ -92,6 +98,10 @@ Now, you can access your secrets in code. The next steps are different depending
 1. Build and run the web application, navigate to the About page, and see the "secret" value.
 
 ## Access your secrets in code (ASP.NET 4.7.1 projects)
+
+The connection to your Key Vault is set up by the ConfigurationBuilder class using information that was added to your web.config file when you run through the **Add Connected Service** process.
+
+To access your secrets:
 
 1. Modify web.config as follows. The keys are placeholders that will be replaced by the AzureKeyVault ConfigurationBuilder with the values of secrets in Key Vault.
 
