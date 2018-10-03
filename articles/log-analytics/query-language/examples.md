@@ -33,7 +33,7 @@ Event
 | where RenderedDescription == "cryptographic"
 ```
 
-## Search events related to unmarshaling
+### Search events related to unmarshaling
 Search tables **Event** and **SecurityEvents** for records that mention _unmashaling_.
 
 ```Kusto
