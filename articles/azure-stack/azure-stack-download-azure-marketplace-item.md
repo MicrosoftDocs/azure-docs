@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2018
+ms.date: 10/03/2018
 ms.author: sethm
-ms.reviewer: jeffgo
+ms.reviewer: ''
 ---
 # Download marketplace items from Azure to Azure Stack
 
