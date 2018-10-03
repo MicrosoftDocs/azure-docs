@@ -101,30 +101,6 @@ accountSasCredential.UpdateSASToken(sasToken);
 - Don't allow ASA keys to be managed by more than one Key Vault object.
 - If you need to manually regenerate your ASA keys, we recommend that you regenerate them via Key Vault.
 
-=== OLD ===
-## Getting started
-
-### Give Key Vault access to your storage account
-
-Like many applications, Key Vault is registered with Azure AD in order to use OAuth to access other services. During registration, [a service principal](/azure/active-directory/develop/app-objects-and-service-principals) object is created, which is used to represent the application's identity at run time. The service principal is also used to authorize the application's identity to access another resource, through role-based access control (RBAC).
-
-So before you can write to code to x..  Give Key Vault access to your Storage Account 
-The Azure Key Vault application identity needs permissions to *list* and *regenerate* keys for your storage account. Set up these permissions using the following steps:
-
-```powershell
-# Get the resource ID of the Azure Storage Account you want to manage.
-# Below, we are fetching a storage account using Azure Resource Manager
-$storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
-
-# Get Application ID of Azure Key Vault's service principal
-$servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
-
-# Assign Storage Key Operator role to Azure Key Vault Identity
-New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
-```
-
-=== NEW ===
-
 ## Authorize Key Vault to access to your storage account
 
 Before Key Vault can access and manage your storage account keys, you must authorize its access your storage account.  Like many applications, Key Vault integrates with Azure AD for identity and access management services. 
