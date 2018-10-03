@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: spelluru
 
 ---
@@ -57,5 +57,5 @@ The project/application team members should be added to the DevTest Labs Users r
 For more information, see [Azure enterprise scaffold – prescriptive subscription governance](/architecture/cloud-adoption/appendix/azure-scaffold) documentation.
 
 
-### Next steps
+## Next steps
 See [Corporate policy and compliance](devtest-lab-guidance-governance-policy-compliance.md).

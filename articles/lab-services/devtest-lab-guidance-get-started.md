@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/03/2018
 ms.author: spelluru
 
 ---
 
 # Get started with using Azure DevTest Labs
-
-## Proof of concept deployment
 Once you decide to explore DevTest Labs, there are two general paths forward – Proof of Concept vs Scaled Deployment. 
 
-A scaled deployment consists of weeks/months of reviewing and planning with an intent of deploying DevTest Labs to the entire enterprise that has hundreds or thousands of developers. A proof of concept focuses on a concentrated effort from a single team to establish organizational value. While it can be tempting to think of a scaled deployment, the approach tends to fail more often than the proof of concept option. Therefore, we recommend that you start small, learn from the first team, repeat the same approach with two to three additional teams, and then plan for a scaled deployment based on the knowledge gained. For a successful proof of concept, we recommend that you pick one or two teams, and identify their scenarios (dev environment vs test environments), document their current use cases, and deploy DevTest Labs. 
+A **scaled deployment** consists of weeks/months of reviewing and planning with an intent of deploying DevTest Labs to the entire enterprise that has hundreds or thousands of developers. 
+
+A **proof of concept deployment** focuses on a concentrated effort from a single team to establish organizational value. While it can be tempting to think of a scaled deployment, the approach tends to fail more often than the proof of concept option. Therefore, we recommend that you start small, learn from the first team, repeat the same approach with two to three additional teams, and then plan for a scaled deployment based on the knowledge gained. For a successful proof of concept, we recommend that you pick one or two teams, and identify their scenarios (dev environment vs test environments), document their current use cases, and deploy DevTest Labs. 
 
 ## Scenarios
 There are three primary scenarios for a DevTest Labs implementation: 

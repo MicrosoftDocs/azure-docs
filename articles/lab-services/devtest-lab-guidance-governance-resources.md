@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/03/2018
 ms.author: spelluru
 
 ---
@@ -82,5 +82,5 @@ Is it supported to move a lab into another Resource Group?
 ### Answer
 Yes. Navigate to the Resource Group page from the home page for your lab. Then, select **Move** on the toolbar, and select the lab you want to move to a different resource group. When you create a lab, a resource group is automatically created for you. However, you may want to move the lab to a different resource group that follows the enterprise naming conventions. 
 
-### Next steps
+## Next steps
 See [Manage cost and ownership](devtest-lab-guidance-governance-cost-ownership.md).

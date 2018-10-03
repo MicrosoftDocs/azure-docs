@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/03/2018
 ms.author: spelluru
 
 ---
@@ -128,5 +128,5 @@ This scenario may not be useful if you are using DevTest Labs to host developmen
 
 It is also worth noting that the number of virtual machines per lab or per user option only limits the number of machines natively created in the lab itself, and not by any environments (Resource Manager templates).
 
-### Next steps
+## Next steps
 See [Use environments in DevTest Labs](devtest-lab-test-env.md).

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/03/2018
 ms.author: spelluru
 
 ---
@@ -30,7 +30,7 @@ Networking and security are cornerstones for all organizations. While an enterpr
 - **Access to on-premises resources** – Some organizations require their resources in DevTest Labs have access to on-premises resources. A secure connection from your on-premises environment to Azure is needed. Therefore, it is important that you set up/configure either a VPN or Express Route connection before getting started. For more information, see [Virtual Networks overview](../virtual-network/virtual-networks-overview.md).
 - **Additional security requirements** – Other security requirements such as machine policies, access to public IP addresses, connecting to the internet are scenarios that may need to be reviewed before implementing a proof of concept. 
 
-## Subscription Topology
+## Subscription topology
 Subscription Topology is a critical design consideration when deploying DevTest Labs to the Enterprise. However, it is not required to solidify all decisions until after a proof of concept has been completed. When evaluating the number of subscriptions required for an enterprise implementation, there are two extremes: 
 
 - One subscription for the entire organization
@@ -55,12 +55,12 @@ A separate subscription per user provides equal opportunities to the alternative
 
 In the Enterprise, there may be enough constraints on the extremes of the spectrum. Therefore, you may need to set up subscriptions in a way that falls in the middle of these extremes. As a best practice, the goal of an organization should be to use the minimal number of subscriptions as possible keeping in mind the forcing functions that increase the total number of subscriptions. To reiterate, subscription topology is critical for an enterprise deployment of DevTest Labs but should not delay a proof of concept. There are additional details in the [Governance](devtest-lab-guidance-governance-policy-compliance.md) article on how to decide on subscription and lab granularity in the organization.
 
-## Roles and Responsibilities
+## Roles and responsibilities
 A DevTest Labs proof of concept has three primary roles with defined responsibilities – Subscription owner, DevTest Labs owner, DevTest Labs user, and optionally a Contributor.
 
 - **Subscription owner** – The subscription owner has rights to administer an Azure Subscription including assigning users, managing policies, creating & managing networking topology, requesting quota increases, etc. For more information, see [this article](../role-based-access-control/rbac-and-directory-admin-roles.md).
 - **DevTest Labs owner** – The DevTest Labs owner has full administrative access to the lab. This person is responsible for add/removing users, managing cost settings, general lab settings, and other VM/artifact-based tasks. A lab owner also has all the rights of a DevTest Labs User.
 - **DevTest Labs user** – The DevTest Labs user can create and consume the virtual machines in the lab. These individuals have some minimal administrative capabilities on VMs they create (start/stop/delete/configure their VMs). The users can't manage VMs of other users.
 
-### Next steps
+## Next steps
 See the next article in this series: [Orchestrate the implementation of Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/03/2018
 ms.author: spelluru
 
 ---
@@ -72,5 +72,5 @@ The second layer of controls is to apply a set of group policy objects that prev
 Ultimately, the same type of restrictions needs to be applied across the organization, which would have to also account for all possible methods of removable media or external URLs that could accept a post of content. Consult with your security professional to review and implement a security policy. For more recommendations, see [Microsoft Cyber Security](https://www.microsoft.com/security/default.aspx?&WT.srch=1&wt.mc_id=AID623240_SEM_sNYnsZDs).
 
 
-### Next steps
+## Next steps
 See [Application migration and integration](devtest-lab-guidance-governance-application-migration-integration.md).

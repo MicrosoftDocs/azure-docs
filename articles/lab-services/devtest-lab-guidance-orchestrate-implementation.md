@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/03/2018
 ms.author: spelluru
 
 ---
@@ -56,5 +56,5 @@ The initial pilot teams may require in-depth support for getting started. Use th
 4. Based on initial uptake, verify original forecast of IP address space is still reasonable and accurate
 5. Ensure appropriate compliance and security reviews have been completed
 
-### Next steps
+## Next steps
 See the next article in this series: [Governance of Azure DevTest Labs infrastructure](devtest-lab-guidance-governance-resources.md)

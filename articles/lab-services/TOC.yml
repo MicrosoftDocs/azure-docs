@@ -89,7 +89,7 @@
         - name: Policy and compliance
           href: devtest-lab-guidance-governance-policy-compliance.md
         - name: Application migration and integration
-          href: devtest-lab-guidance-governance-policy-compliance.md
+          href: devtest-lab-guidance-governance-application-migration-integration.md
     - name: Use VMs in a lab
       items: 
       - name: Create VMs
