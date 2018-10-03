@@ -114,7 +114,7 @@ Here is example code for input.xml. See definitions in the below table.
 | StartDate| This is the date that the solution package will become available. The format is MM/DD/YYYY|
 |EndDate|This is the date that the solution package will stop being available. The format is MM/DD/YYYY |
 |SupportedCountries |This is a comma-delimited list of countries that should see this package. Contact online services for a list of all current country codes. At the time, of this writing the list was: AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW |
-|LearnMoreLink | URL to the more info page for this package. That is, http://www.microsoft.com/dynamics/crm-help-center/default.aspx|
+|LearnMoreLink | URL to the more info page for this package. |
 |Locales|One instance of this node for each UX Language you want to support in the Preferred solution UX. This node contains children that describe the locale, logo, and terms for each language|
 |Locales: PackageLocale.Code|LCID of the language for this node. Example: US English is 1033|
 |Locales: PackageLocale.IsDefault|Indicates that this is the default language. This is used as the fall back language if the UX Language chosen by the customer is not available.|
