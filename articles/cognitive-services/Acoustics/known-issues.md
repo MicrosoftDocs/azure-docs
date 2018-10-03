@@ -17,17 +17,9 @@ You might encounter the following known issues when using the Designer Preview f
 
 If you rename a scene, all the acoustic parameters that belong to that scene will not automatically transfer to the new scene. They will still exist in the old asset file however. Look for the **SceneName_AcousticParameters.asset** file inside the **Editor** directory next to your scene file. Rename your file to reflect the new scene name.
 
-## The default path for the AcousticsData folder in Probes tab is an absolute path
-
-This should default to a relative path to make it easier to share projects between collaborators. As a workaround, change the path to be relative to project directory.
-
-## Runtime voxels are a different size than design-time voxels
+## Runtime voxels are a different size than scene preview voxels
 
 If you do a **Calculate** on the **Probes** tab and view the voxels, then do a bake and view voxels at runtime for the same scene, the voxels are different sizes. The voxels shown pre-bake are the voxels used in simulation. The voxels shown at runtime are used for interpolation between probe points. This may cause an inconsistency where portals will appear open at runtime that aren't actually open.
-
-## UWP builds not working
-
-On the latest versions of Unity (2018.2+), UWP builds are not succeeding. The run phase of the build will stall and you will get "Unity extensions are not yet initialized" errors. This is tracked by [this Unity issue](https://fogbugz.unity3d.com/default.asp?1070491_1rgf14bakv5u779d).
 
 ## Unity crashes when closing project
 

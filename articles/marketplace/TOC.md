@@ -26,6 +26,7 @@
 
 ### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Preferred solutions](./preferred-solutions.md) 
+#### [Marketplace content validation](./marketplace-criteria-content-validation.md)
 
 ### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
 

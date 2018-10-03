@@ -7,7 +7,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -38,7 +38,7 @@ An Azure IoT Edge device:
 
 Cloud resources:
 
-* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* A free-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 
 Development resources:
 

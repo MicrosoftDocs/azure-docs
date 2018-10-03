@@ -1,11 +1,9 @@
 # Overview
 ## [About the Azure portal](../azure-portal-overview.md)
-# Tutorials
-## [DevOps with the Azure portal](tutorial-azureportal-devops.md)
 # Concepts
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Keyboard shortcuts](azure-portal-keyboard-shortcuts.md)
-## [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
+## [Supported browsers and devices](azure-portal-supported-browsers-devices.md)
 ## [The structure of Azure Dashboards](azure-portal-dashboards-structure.md)
 # How-to guides
 ## Deploy

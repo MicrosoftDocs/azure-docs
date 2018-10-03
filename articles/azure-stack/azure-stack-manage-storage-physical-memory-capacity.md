@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
 
 ---
-<!---Loc Comment: Please, check the comment in coversation section---> 
+
 # Manage physical memory capacity for Azure Stack
 
 *Applies to: Azure Stack integrated systems*

@@ -51,7 +51,7 @@ For information about publishing a managed application to the Marketplace, see [
 
 Typically, the resources for a managed application reside in two resource groups. The consumer manages one resource group, and the publisher manages the other resource group. When defining the managed application, the publisher specifies the levels of access. Restricting access for [data operations](../role-based-access-control/role-definitions.md) is currently not supported for all data providers in Azure.
 
-The following image shows a scenario where the publisher requests the owner role for the managed resource group. The publisher placed a read-only lock on this resource group for the consumer. The publisher identities that are granted access to the managed resource group are exempt from the lock.
+The following image shows a scenario where the publisher requests the owner role for the managed resource group. The publisher placed a read-only lock on this resource group for the consumer. The publisher's identities that are granted access to the managed resource group are exempt from the lock.
 
 ![Resource group access](./media/overview/access.png)
 

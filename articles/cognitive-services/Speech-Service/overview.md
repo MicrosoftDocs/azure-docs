@@ -24,7 +24,7 @@ The primary functions of the Speech service are Speech to Text (also called spee
 
 |Function|Features|
 |-|-|
-|[Speech to Text](speech-to-text.md)| <ul><li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Offers recognition modes for interactive, conversation, and dictation use cases.<li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
+|[Speech to Text](speech-to-text.md)| <ul><li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
 |[Text to Speech](text-to-speech.md)| <ul><li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |
 |[Speech Translation](speech-translation.md)| <ul><li>Translates streaming audio in near-real-time.<li> Can also process recorded speech.<li>Provides results as text or synthesized speech. |
 
@@ -63,6 +63,42 @@ If you already have code that uses Bing Speech or Translator Speech via WebSocke
 ### Speech Devices SDK
 
 The [Speech Devices SDK](speech-devices-sdk.md) is an integrated hardware and software platform for developers of speech-enabled devices. Our hardware partner provides reference designs and development units. Microsoft provides a device-optimized SDK that takes full advantage of the hardware's capabilities.
+
+## Why move to the Speech service?
+
+The Speech service provides all the functionality and more of the Bing Speech API and three other Azure speech services: Custom Speech, Custom Voice, and Translator Speech. We encourage users of these services to migrate to the Speech service.
+
+The Speech service incorporates many upgrades to these other services, including:
+
+* Higher speech recognition accuracy. We regularly improve the models used in the service.
+
+* More scalable. The service is more capable of handling multiple simultaneous requests, reducing latency.
+
+* The Speech Service uses a time-based pricing model. See [Speech Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for details.
+
+* The Speech Service is available in [multiple regions](regions.md) to suit the needs of customers worldwide. You need an [Azure subscription](https://docs.microsoft.com/azure/cognitive-services/welcome) for each region used by your application.
+
+* A single Speech Service subscription key grants access to the following features. Each is metered separately, so you're charged only for the features you use.
+
+    * [Speech-to-text](speech-to-text.md)
+    * [Custom speech-to-text](https://cris.ai/CustomSpeech)
+    * [Text-to-speech](text-to-speech.md)
+    * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
+    * [Speech translation](speech-translation.md) (does not include [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
+
+* The Speech Service speech-to-text function integrates with the [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to recognize speaker intent. A LUIS endpoint key can also be used with the Speech Service. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
+
+* Speech-to-text no longer requires that you specify a recognition mode.
+
+* The Speech Service supports 24-KHz voices for text-to-speech, improving audio quality. At this writing, there are two such voices (US English only): `Jessa24kRUS` and `Guy24kRUS`.
+
+* THe Speech Service's [batch transcription](batch-transcription.md) allows high volumes of recorded speech, such as call center recordings, to be transcribed to text efficiently, so they can be easily analyzed and searched.
+
+* When using the Speech SDK, there is no time limit on streaming speech-to-text transcription.
+
+* The [Speech SDK](speech-sdk.md) provides a consistent API to the Speech service across several programming languages and execution environments (including Windows 10, UWP, and .NET Core), making development easier, especially on multiple platforms.
+
+* The Speech Service is compatible with the REST APIs and WebSockets protocol used by other Azure speech services, making it easy to migrate existing client applications to the Speech service.
 
 ## Speech scenarios
 

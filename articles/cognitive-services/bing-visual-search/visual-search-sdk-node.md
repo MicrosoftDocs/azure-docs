@@ -1,18 +1,19 @@
 ---
-title: Visual search SDK Node Quickstart | Microsoft Docs
-description: Setup for Visual search SDK Node console application.
+title: "Quickstart: Bing Visual Search SDK, Node"
 titleSuffix: Azure Cognitive Services
+description: Setup for Visual search SDK Node console application.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
 ---
 
-# Visual Search SDK Node Quickstart
+# Quickstart: Bing Visual Search SDK Node 
 
 The Bing Visual Search SDK uses the functionality of the REST API for web requests and parsing results.
 The [source code for Node Visual Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) is available on Git Hub.

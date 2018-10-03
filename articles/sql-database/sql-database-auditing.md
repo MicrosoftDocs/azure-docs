@@ -74,7 +74,7 @@ The following section describes the configuration of auditing using the Azure po
 
     ![Navigation pane][3]
 
-5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to an OMS workspace for consumption by Log Analytics, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
+5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to an Log Analytics workspace for consumption by Log Analytics, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
 
     ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -82,9 +82,9 @@ The following section describes the configuration of auditing using the Azure po
 
     ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. To configure writing audit logs to an OMS workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the OMS workspace where logs will be written and then click **OK**.
+7. To configure writing audit logs to an Log Analytics workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
 
-    ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
 
@@ -102,10 +102,10 @@ If you chose to write audit logs to Log Analytics:
 
 - Then, clicking on **Open in OMS** at the top of the **Audit records** page will open the Logs view in Log Analytics, where you can customize the time range and the search query.
 
-    ![open in OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    ![open in Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
-- Alternatively, you can also access the audit logs from Log Analytics blade. Open your Log Analytics workspace and under **General** section, click **Logs**. You can start with a simple query, such as: search *"SQLSecurityAuditEvents"* to view the audit logs.
-    From here, you can also use [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md)  to run advanced searches on your audit log data. Log Analytics gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about OMS Log Analytics search language and commands, see [Log Analytics search reference](../log-analytics/log-analytics-log-search.md).
+- Alternatively, you can also access the audit logs from Log Analytics blade. Open your Log Analytics workspace and under **General** section, click **Logs**. You can start with a simple query, such as: *search "SQLSecurityAuditEvents"* to view the audit logs.
+    From here, you can also use [Log Analytics](../log-analytics/log-analytics-log-search.md)  to run advanced searches on your audit log data. Log Analytics gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](../log-analytics/log-analytics-log-search.md).
 
 If you chose to write audit logs to Event Hub:
 - To consume audit logs data from Event Hub, you will need to set up a stream to consume events and write them to a target. For more information, see [Azure Event Hubs Documentation](https://docs.microsoft.com/azure/event-hubs/).
