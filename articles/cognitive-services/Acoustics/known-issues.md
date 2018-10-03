@@ -36,6 +36,9 @@ Ensure the Scripting Runtime Version in Player settings is set to **.NET 4.x Equ
 
 Double-check you've used the correct credentials for your Azure account, that your account supports the type of node requested in the bake, and that your system clock is accurate.
 
+## Canceling a bake leaves the Bake tab in "deleting" state
+Project Acoustics will cleanup all Azure resources for a job on successful completion or cancellation which can take up to 5 minutes.
+
 ## Next steps
 * Get started [integrating acoustics in your Unity project](getting-started.md)
 
