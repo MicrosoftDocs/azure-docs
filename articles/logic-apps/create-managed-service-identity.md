@@ -1,6 +1,6 @@
 ---
-title: Access and authenticate without signing in - Azure Logic Apps | Microsoft Docs
-description: Create a managed identity so your logic app can authenticate and access resources in other Azure Active Directory (Azure AD) tenants without your credentials
+title: Authenticate with managed identities - Azure Logic Apps | Microsoft Docs
+description: To authenticate without signing in, create a managed identity (formerly managed service identity (MSI)) so your logic app can authenticate and access resources in other Azure Active Directory (Azure AD) tenants without your credentials
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
@@ -11,21 +11,16 @@ ms.topic: article
 ms.date: 09/24/2018
 ---
 
-# Access resources and authenticate as managed identities in Azure Logic Apps
+# Authenticate and access resources with managed identities in Azure Logic Apps
 
-To access resources in other Azure Active Directory (Azure AD) tenants 
-and authenticate your identity without signing in, you can create a 
+To access resources in other Azure Active Directory (Azure AD) tenants and 
+authenticate your identity without signing in, your logic app can use a 
 [managed identity](../active-directory/managed-identities-azure-resources/overview.md) 
-that your logic app uses instead of your credentials. Azure manages this 
-identity for you, and helps secure your credentials because you don't 
-have to provide or rotate secrets. This article shows how to create 
-and use a managed identity for your logic app. For more information, see 
+(formerly known as Managed Service Identity or MSI), rather than credentials or secrets. 
+Azure manages this identity for you and helps secure your credentials because you don't 
+have to provide or rotate secrets. This article shows how you can create and use a 
+managed identity for your logic app. For more information about managed identities, see 
 [Manage identities for Azure resources](../app-service/app-service-managed-service-identity.md).
-
-> [!NOTE]
-> Managed identities for Azure resources is the 
-> replacement name for the service formerly
-> known as Managed Service Identity (MSI).
 
 ## Prerequisites
 
@@ -46,7 +41,7 @@ or Azure PowerShell.
 
 ### Azure portal
 
-To create a managed identity for your logic app through the Azure portal, 
+To enable a managed identity for your logic app through the Azure portal, 
 turn on the **Register with Azure Active Directory** setting in your 
 logic app's workflow settings.
 
@@ -65,15 +60,15 @@ open your logic app in Logic App Designer.
 
       ![Turn on managed identity setting](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
-      Azure now shows these properties and values 
-      for your logic app's managed identity:
+      Your logic app now has a managed identity registered in 
+      Azure Active Directory with these properties and values:
 
-      ![GUIDS for principal ID and tenant ID](./media/create-managed-service-identity/principal-tenant-id.png)
+      ![GUIDs for principal ID and tenant ID](./media/create-managed-service-identity/principal-tenant-id.png)
 
       | Property | Value | Description | 
       |----------|-------|-------------| 
-      | **Principal ID** | <*principal-ID-GUID*> | A Globally Unique Identifier (GUID) that represents the logic app in an Azure AD tenant | 
-      | **Tenant ID** | <*Azure-AD-tenant--ID-GUID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where your logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. | 
+      | **Principal ID** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in an Azure AD tenant | 
+      | **Tenant ID** | <*Azure-AD-tenant-ID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where your logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. | 
       ||| 
 
 ### Deployment template
@@ -124,15 +119,15 @@ workflow definition includes these additional properties:
 ```json
 "identity": {
     "type": "SystemAssigned",
-    "principalId": "<principal-ID-GUID>",
-    "tenantId": "<Azure-AD-tenant-ID>-GUID"
+    "principalId": "<principal-ID>",
+    "tenantId": "<Azure-AD-tenant-ID>"
 }
 ```
 
 | Property | Value | Description | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID-GUID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant | 
-| **tenantId** | <*Azure-AD-tenant--ID-GUID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. | 
+| **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant | 
+| **tenantId** | <*Azure-AD-tenant-ID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. | 
 ||| 
 
 <a name="access-other-resources"></a>
@@ -140,7 +135,8 @@ workflow definition includes these additional properties:
 ## Access resources with managed identity
 
 After you create a managed identity for your logic app, you can 
-[give that identity access to other resources](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). You can then use that managed identity for authentication, just like any other 
+[give that identity access to other resources](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). 
+You can then use the managed identity for authentication, just like any other 
 [service principal](../active-directory/develop/app-objects-and-service-principals.md). 
 
 For example, suppose you've already set up a logic app 
@@ -210,3 +206,4 @@ This action also deletes the principal ID from Azure AD.
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * To submit or vote on feature ideas, visit the 
 [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+
