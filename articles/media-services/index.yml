@@ -35,7 +35,7 @@ sections:
             src: media/index/AMSIcons-media_servicesV2.svg
           title: Azure Media Services v2 (legacy)
         - href: /azure/media-services/video-indexer/
-          html: <p>Learn how to extract the insights from your video and audio files using Video Indexer .</p>
+          html: <p>Learn how to extract the insights from your video and audio files using Video Indexer.</p>
           image:
             src: media/index/AMSIcons-media_analytics.svg
           title: Video Indexer
