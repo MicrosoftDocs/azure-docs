@@ -82,11 +82,15 @@ Users in this role can add, remove, and update license assignments on users, gro
 
 * **[Partner Tier2 Support](#partner-tier2-support)**: Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
-* **[Password Administrator / Helpdesk Administrator](#helpdesk-administrator)**: Users with this role can change passwords, invalidate refresh tokens, manage service requests, and monitor service health. Helpdesk administrators can change passwords and invalidate refresh tokens only for users and other Helpdesk administrators. Invalidating a refresh token forces the user to sign in again.
-
+* **[Password Administrator / Helpdesk Administrator](#helpdesk-administrator)**: Users with this role can change passwords, invalidate refresh tokens, manage service requests, and monitor service health. Invalidating a refresh token forces the user to sign in again. Helpdesk administrators can reset passwords and invalidate refresh tokens of other users who are non-administrators or members of the following roles only:
+  * Directory Readers
+  * Guest Inviter
+  * Helpdesk Administrator
+  * Message Center Reader
+  * Reports Reader
+  
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Helpdesk Administrator". It is "Password Administrator" in the [Azure portal](https://portal.azure.com/).
-  >
   >
   
 * **[Power BI Service Administrator](#power-bi-service-administrator)**: Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI admin role](https://docs.microsoft.com/power-bi/service-admin-role).
@@ -130,11 +134,13 @@ Users in this role can add, remove, and update license assignments on users, gro
 
 * **[Teams Service Administrator](#teams-service-administrator)**: Users in this role can manage all aspects of the Microsoft Teams workload via the Microsoft Teams & Skype for Business admin center and the respective PowerShell modules. This includes, among other areas, all management tools related to telephony, messaging, meetings, and the teams themselves. This role also grants the ability to manage Office 365 groups.
 
-* **[User Account Administrator](#user-account-administrator)**: Users with this role can create and manage all aspects of users and groups. Additionally, this role includes the ability to manage support tickets and monitor service health. Some restrictions apply. For example, this role does not allow deleting a global administrator. User Account administrators can change passwords and invalidate refresh tokens for users, Helpdesk administrators, and other User Account administrators only. Invalidating a refresh token forces the user to sign in again.
+* **[User Account Administrator](#user-account-administrator)**: Users with this role can create users, and manage all aspects of users with some restrictions (see below). Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health.
 
-| Can do | Cannot do |
-| --- | --- |
-| <p>View company and user information</p><p>Manage Office support tickets</p><p>Change passwords for users, Helpdesk administrators, and other User Account administrators only</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses, with limitations. He or she cannot delete a global administrator or create other administrators.</p> |<p>Perform billing and purchasing operations for Office products</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View audit logs</p> |
+  | | |
+  | --- | --- |
+  |General permissions|<p>Create users and groups</p><p>Create and manage user views</p><p>Manage Office support tickets|
+  |<p>On all users, including all admins</p>|<p>Manage licenses</p><p>Manage all user properties except User Principal Name</p>
+  |Only on users who are non-admins or in any of the following limited admin roles:<li>Directory Readers<li>Guest Inviter<li>Helpdesk Administrator<li>Message Center Reader<li>Reports Reader<li>User Account Administrator|<p>Delete and restore</p><p>Disable and enable</p><p>Invalidate refresh Tokens</p><p>Manage all user properties including User Principal Name</p><p>Reset password</p><p>Update (FIDO) device keys</p>
 
 The following tables describe the specific permissions in Azure Active Directory given to each role. Some roles may have additional permissions in Microsoft services outide of Azure Active Directory.
 
