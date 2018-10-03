@@ -39,23 +39,24 @@ To use the management solution, you need:
 
 1. Navigate to your Log Analytics workspace. To do this, first navigate to the [Azure portal](https://portal.azure.com) and select **All services**. Type **Log Analytics** in the text box, and select **Log Analytics**. Select the workspace you routed the activity logs to, as part of the prerequisites.
 2. Select **View Designer**, select **Import** and then select **Choose File** to import the views from your local computer.
-3. Select the views you downloaded from the prerequisites and select **Save** to save the import. Do this for both the **Azure AD Account Provisioning Events Copy** view and the **Sign-ins Events** view.
+3. Select the views you downloaded from the prerequisites and select **Save** to save the import. Do this for the **Azure AD Account Provisioning Events** view, **Sign-ins Events** view and the **Users Performing Consent** view.
 
 ## Use the views
 
 1. Navigate to your Log Analytics workspace. To do this, first navigate to the [Azure portal](https://portal.azure.com) and select **All services**. Type **Log Analytics** in the text box, and select **Log Analytics**. Select the workspace you routed the activity logs to, as part of the prerequisites.
 
-2. Once you're in the workspace, select **Workspace Summary**. You should see the following two views:
+2. Once you're in the workspace, select **Workspace Summary**. You should see the following three views:
 
-    * **Azure AD Account Provisioning Events Copy**: This shows reports related to auditing provisioning activity, such as the number of new users provisioned and provisioning failures, number of users updated and update failures and the number of users de-provisioned and corresponding failures.    
-    * **Sign-ins Events**: This shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, as well as a summary view tracking the number of sign-ins over time.
+    * **Azure AD Account Provisioning Events**: This view shows reports related to auditing provisioning activity, such as the number of new users provisioned and provisioning failures, number of users updated and update failures and the number of users de-provisioned and corresponding failures.    
+    * **Sign-ins Events**: This view shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, as well as a summary view tracking the number of sign-ins over time.
+    * **Users Performing Consent**: This view shows reports related to user consent, such as the consent grants by user, sign-ins by users who granted consent as well as sign-ins by application for all consent-based applications. 
 
-3. Select either of these views to jump in to the individual reports. You can also set alerts on any of the report parameters. For example, let's set an alert for every time there's a sign-in error. To do this, first select the **Sign-in errors over time** report to open the details page, with the actual query behind the report. 
+3. Select either of these views to jump in to the individual reports. You can also set alerts on any of the report parameters. For example, let's set an alert for every time there's a sign-in error. To do this, first select the **Sign-ins Events** view, select **Sign-in errors over time** report and then select **Analytics** to open the details page, with the actual query behind the report. 
 
     ![Details](./media/howto-install-and-use-log-analytics-views/details.png)
 
 
-4. Select **New Alert Rule**, and then select **Whenever the Custom log search is &lt;logic undefined&gt;** under the **Alert criteria** section. Since we want to alert whenever there's a sign-in error, set the **Threshold** of the default alert logic to **1** and then select **Done**. 
+4. Select **Set Alert**, and then select **Whenever the Custom log search is &lt;logic undefined&gt;** under the **Alert criteria** section. Since we want to alert whenever there's a sign-in error, set the **Threshold** of the default alert logic to **1** and then select **Done**. 
 
 5. Enter a name and description for the alert and set the severity to **Warning**.
 
