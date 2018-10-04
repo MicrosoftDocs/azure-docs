@@ -22,11 +22,11 @@ Using b2clogin.com gives you additional benefits, such as:
 - Cookies are no longer shared with the other Microsoft services.
 - Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-To use b2clogin.com, you need to set the redirect URLs in your identity provider applications to use b2clogin.com. You also need to set your Azure AD B2C application to use b2clogin.com for policy references and token endpoints. If you are using MSAL, you need to set the **ValidateAuthority** property to `false`.
+To use b2clogin.com, you set the redirect URLs in your identity provider applications to use b2clogin.com. You also set your Azure AD B2C application to use b2clogin.com for policy references and token endpoints. If you are using MSAL, you need to set the **ValidateAuthority** property to `false`.
 
 ## Change redirect URLs
 
-To use b2clogin.com, you need to change the redirect URLs for your social identity provider applications. In the settings for your identity provider application, look for and change the list of trusted URLs to redirect back to Azure AD B2C.  Currently, you probably have it set up to redirect back to some login.microsoftonline.com site. 
+To use b2clogin.com, in the settings for your identity provider application, look for and change the list of trusted URLs to redirect back to Azure AD B2C.  Currently, you probably have it set up to redirect back to some login.microsoftonline.com site. 
 
 You'll need to change the redirect URL so that `your-tenant-name.b2clogin.com` is authorized. Make sure to replace `your-tenant-name` with the name of your Azure AD B2C tenant and remove `/te` if it exists in the URL. There are slight variations to this URL for each identity provider so check the corresponding page to get the exact URL.
 
@@ -49,9 +49,9 @@ You can find set up information for identity providers in the following articles
 
 Your Azure AD B2C application probably refers to `login.microsoftonline.com` in several places, such as your policy references and token endpoints.  Make sure that your authorization endpoint, token endpoint, and issuer have been updated to use `your-tenant-name.b2clogin.com`.  
 
-## Set ValidateAuthority property
+## Set the ValidateAuthority property
 
-If you're using MSAL, you'll need to set the **ValidateAuthority** to `false`. The following example shows how you might set the property:
+If you're using MSAL, set the **ValidateAuthority** to `false`. The following example shows how you might set the property:
 
 ```
 this.clientApplication = new UserAgentApplication(
