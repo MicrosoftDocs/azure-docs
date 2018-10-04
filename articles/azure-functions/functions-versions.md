@@ -28,6 +28,8 @@ New apps created in the Azure Portal are set to 2.x by default as this is the mo
 1. Change the version from ~2 to ~1.  *This toggle will be disabled if you have functions in your app*.
 1. Click save and restart the app.  All templates should now create and run in 1.x.
 
+Alternatively you can modify the application settings for the function app and make sure that the `FUNCTIONS_EXTENSION_VERSION` setting is set to `~1`. This is particularly relevant if you're deploying the function app via an ARM template, so verify that your template includes this setting.
+
 ## Cross-platform development
 
 Runtime 1.x supports development and hosting only in the portal or on Windows. Runtime 2.x runs on .NET Core 2, which means it can run on all platforms supported by .NET Core, including macOS and Linux. This enables cross-platform development and hosting scenarios.
