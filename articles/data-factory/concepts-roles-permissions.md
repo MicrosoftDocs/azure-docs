@@ -37,7 +37,7 @@ After you create a Data Factory, you may want to let other users work with the d
 
 Membership in the **Data Factory Contributor** role lets users do the following things:
 - Create, edit, and delete data factories and child resources including datasets, linked services, pipelines, triggers, and integration runtimes.
-- Deploy Resource Manager templates. This is the deployment method used by Data Factory in the Azure portal.
+- Deploy Resource Manager templates. Resource Manager deployment is the deployment method used by Data Factory in the Azure portal.
 - Manage App Insights alerts for a data factory.
 - Create support tickets.
 
@@ -74,7 +74,7 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
 
 - Let a user update a data factory from PowerShell or the SDK, but not in the Azure portal.
 
-  Assign the builtin **contributor** role on the data factory resource for the user. This lets the user see the resources in the Azure portal, but the user can't access the  **Publish** and **Publish All** buttons.
+  Assign the built-in **contributor** role on the data factory resource for the user. This role lets the user see the resources in the Azure portal, but the user can't access the  **Publish** and **Publish All** buttons.
 
 ## Next steps
 
