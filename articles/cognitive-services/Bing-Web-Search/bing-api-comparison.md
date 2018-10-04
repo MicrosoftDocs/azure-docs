@@ -20,28 +20,28 @@ By sending queries to the Bing search REST APIs or SDKs, you can get instant, re
 
 ## Bing Web Search and Custom Search
 
-The [Bing Web Search API](../Bing-Web-Search/index.yml) can return search results containing webpages, in addition to the content formats listed below. The search queries sent to this API can be filtered to include or exclude certain content formats.
+The [Bing Web Search API](../Bing-Web-Search/index.yml) can return webpages in addition to the content formats listed below. The search queries sent to this API can be filtered to include or exclude certain content formats.
 
 By creating a custom search instance with [Bing Custom Search](../Bing-Custom-Search/index.yml), you can create a search experience focused only on content and topics you care about. For example, after specifying the domains, websites, and specific webpages that Bing will search, your users will see results tailored to that specific content. 
 
-Use these APIs in applications that may need to search for all types of relevant web content. If your application searches for a specific type of content, consider one of the search APIs below: 
+Consider using the Bing Web Search API in applications that may need to search for all types of relevant web content. If your application searches for a specific type of online content, consider one of the search APIs below: 
 
 ## Content-specific Bing Search APIs
 
 | Bing API | Description |
 | -- | -- | 
-| [Entity Search](../Bing-Entities-Search/index.yml) | The Bing Entity Search API  returns search results containing *entities* which can be people, places, or things. Depending on the search query sent to the API, it will return one or more entities that satisfy the search query, which can include noteworthy individuals, local businesses, landmarks, destinations, and more. |
-| [Image Search](../Bing-Image-Search/index.yml) | The Bing Image Search API enables you search for, and find high-quality static and animated images similar to [Bing.com/images](www.Bing.com/images). You can refine searches to include or exclude images by attribute, including: size, color, license, and freshness. You can also search for trending images, upload images to gain insights about them, and display thumbnail previews. |
-| [News Search](../Bing-News-Search/index.yml) | The Bing News Search API enables you find news stories similar to [Bing.com/news](www.Bing.com/news). Sending a search query to the API will return a general news search from either multiple sources or a specific domain, if specified. Additionally, you can search all news or by category to get trending articles, top stories, and headlines.
-| [Video Search](../Bing-Video-Search/index.yml) | The Bing Video Search API enables you to find videos across the web, similar to [Bing.com/videos](www.Bing.com/videos). |
-| [Visual Search](..Bing-visual-saerch/index.yml) | TBD |
+| [Entity Search](../Bing-Entities-Search/index.yml) | The Bing Entity Search API returns search results containing *entities* which can be people, places, or things. Depending on the search query sent to the API, it will return one or more entities that satisfy the search query, which can include noteworthy individuals, local businesses, landmarks, destinations, and more. |
+| [Image Search](../Bing-Image-Search/index.yml) | The Bing Image Search API enables you search for, and find high-quality static and animated images. Filter search results to include or exclude specific image attributes, search for trending images, upload images to gain insights about them, and display thumbnail previews. |
+| [News Search](../Bing-News-Search/index.yml) | The Bing News Search API enables you to find news stories generally or from specific specific sources. Search by category or more generally to get trending articles, top stories, and headlines. |
+| [Video Search](../Bing-Video-Search/index.yml) | The Bing Video Search API enables you to find videos across the web. Get trending videos, related content, and resize thumbnail previews. |
+| [Visual Search](..Bing-visual-saerch/index.yml) | Bing Visual Search API provides an experience similar to Bing.com/images by returning insights about an image such as visually similar images, shopping sources for products found in the image, and related searches. |
 
 ## Additional Bing Search APIs
 
 | API | Description |
 | -- | -- | 
-| [Bing Autosuggest](../Bing-Autosuggest/index.yml) | TBD |
-| [Bing Analytics](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search/bing-news-stats) | TBD |
+| [Bing Autosuggest](../Bing-Autosuggest/index.yml) | If you provide a search box where users enter their search terms, the Bing Autosuggest API can improve the experience by returning suggested searches based on partial search terms as the user types.  |
+| [Bing Statistics](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search/bing-news-stats) | Bing Statistics provides analytics for the Bing Search APIs your application uses. Some of the available analytics include call volume, top query strings, and geographic distribution. |
 
 ## Next steps
 
