@@ -18877,6 +18877,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-usage.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-portal.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-powershell.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
