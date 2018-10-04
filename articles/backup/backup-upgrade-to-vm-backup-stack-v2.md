@@ -7,7 +7,7 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 10/3/2018
 ms.author: trinadhk
 ---
 
@@ -23,7 +23,7 @@ The Resource Manager deployment model for the upgrade to virtual machine (VM) ba
 
 * Ability to use an unmanaged VM's original storage accounts, when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
     > [!NOTE]
-    > This ability is not the same as overriding the original VM. 
+    > This ability is not same as replacing the disks of the VM with data from recovery point. 
     >
 
 ## What's changing in the new stack?
