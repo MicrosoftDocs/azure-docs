@@ -4,7 +4,7 @@ description: Learn how to create troubleshoot virtual machine deployments.
 
 title: Troubleshooting for Azure Virtual Machines Documentation | Microsoft Docs
 services: virtual-machines
-author: genli
+author: genlin
 manager: jeconnoc
 layout: LandingPage
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
-ms.author: genlin
+ms.author: genli
 ---
 
 # Troubleshooting Azure virtual machines
