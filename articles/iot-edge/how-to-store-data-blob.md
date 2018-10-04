@@ -5,7 +5,7 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -65,14 +65,14 @@ Use the following JSON template for the **Container Create Options** field. Conf
            "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
            "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
        ],
-       "HostConfig":[
+       "HostConfig":{
            "Binds":[
                "<storage directory bind>"
            ],
            "PortBindings":{
                "11002/tcp":[{"HostPort":"11002"}]
            }
-       ]
+       }
    }
    ```   
    
