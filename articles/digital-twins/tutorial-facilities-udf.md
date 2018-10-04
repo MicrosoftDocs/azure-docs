@@ -128,42 +128,6 @@ In the *provisionSample.yaml* file in the Digital Twins sample, look for section
     ![Provision Sample](./media/tutorial-facilities-udf/run-provision-sample.png)
 
 
-## Create endpoints for User-Defined Functions
-In this section, we will use [Event Grid](../event-grid/overview.md) to create an event notification system. Your Event Grid instance will use your Digital Twin instance as the [event source](../event-grid/event-sources.md), collect your sensor/device events, and redirect them to an [event handler](../event-grid/event-handlers.md) like Logic App, Event Hubs, etc. In the sample application, the UDF creates 
-
-### Create Event Grid Topic
-[Event Grid Topics](../event-grid/concepts.md#topics) provides endpoints for your application to send events. The User-Defined Function uses these endpoints on the backend to receive the events from your sensors. 
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. On the left navigation panel, select **Resource groups**, and search for the resource group you created or used for your Digital Twins instance. 
-
-1. On the **Overview** pane of your resource group, click the **Add** button.
-
-1. Search for and select **Event Grid Topic**. Click **Create**.
-
-1. Enter a **Name** for your Event Grid Topic, choose **Subscription**, the **Resource group**, and the **Location**. Click **Create**. 
-
-    ![Create Event Grid Topic](./media/tutorial-facilities-udf/create-event-grid-topic.png)
-
-1. Navigate to the event grid topic from your resource group, click on **Access keys**, and copy **Key 1** and **Key 2** to your clipboard. You will use them to create the endpoint in the proceding steps.
-
-    ![Event Grid Keys](./media/tutorial-facilities-udf/event-grid-keys.png)
-
-### Create an endpoint for the Event Grid Topic
-
-Make a POST call for the endpoint `POST https://{{endpoint-management}}/api/v1.0/endpoints`, with the following body:
-
-```
-{
-  "type": "EventGrid",
-  "path": "<topicName coming from Topic Endpoint>",
-  "eventTypes": ["SensorChange","TopologyOperation", "SpaceChange", "UdfCustom"],
-  "connectionString": "<Key 1 of the Event Grid Topic>",
-  "secondaryConnectionString": "<Key 2 of the Event Grid Topic>"
-}
-```
-
 ## Simulate sensor data
 In this section, you will simulate sensor data for detecting motion, temperature and carbon dioxide. You will use the sample Digital Twins application downloaded in the [first tutorial of the series](tutorial-facilities-setup.md) for device simulation.
 

@@ -10,15 +10,15 @@ ms.date: 08/30/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Notify from and analyse your Azure Digital Twins setup
+# Tutorial: Receive notifications from your Azure Digital Twins setup
 
-Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This is the third tutorial in a series that demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, and simulate the device events, you can integrate the events with other services to create a custom notification and analysis system.
+Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This is the third tutorial in a series that demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, and simulated the device events, you can integrate the events with other services to create a custom notification and analysis system. In this tutorial, you will use Azure Logic App to create custom email notifications based on telemetry data from your simulated device sensors.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Create event integration with Event Grid 
 > * Create email notifications with Logic App
-> * Analyse events using Time Series Insights
 
 If you don’t have an Azure, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -27,6 +27,43 @@ If you don’t have an Azure, create a [free account](https://azure.microsoft.co
 This tutorial assumes that you have completed the steps to [Provision your Azure Digital Twins setup](tutorial-facilities-setup.md), as well as [Custom monitor your Azure Digital Twins setup](tutorial-facilities-udf.md). Before proceeding, make sure that you have:
 - an instance of Digital Twins running, and 
 - the [Azure Digital Twins sample application](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded or cloned on your work machine.
+
+## Create event integration with Event Grid 
+In this section, we will use [Event Grid](../event-grid/overview.md) to create an event notification system. Your Event Grid instance will use your Digital Twin instance as the [event source](../event-grid/event-sources.md), collect your sensor/device events, and redirect them to an [event handler](../event-grid/event-handlers.md) like Logic App.
+
+### Create Event Grid Topic
+[Event Grid Topics](../event-grid/concepts.md#topics) provides endpoints for your application to send events. The User-Defined Function uses these endpoints on the backend to receive the events from your sensors. 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. On the left navigation panel, select **Resource groups**, and search for the resource group you created or used for your Digital Twins instance. 
+
+1. On the **Overview** pane of your resource group, click the **Add** button.
+
+1. Search for and select **Event Grid Topic**. Click **Create**.
+
+1. Enter a **Name** for your Event Grid Topic, choose **Subscription**, the **Resource group**, and the **Location**. Click **Create**. 
+
+    ![Create Event Grid Topic](./media/tutorial-facilities-events/create-event-grid-topic.png)
+
+1. Navigate to the event grid topic from your resource group, click on **Access keys**, and copy **Key 1** and **Key 2** to your clipboard. You will use them to create the endpoint in the proceding steps.
+
+    ![Event Grid Keys](./media/tutorial-facilities-events/event-grid-keys.png)
+
+### Create an endpoint for the Event Grid Topic
+
+Make a POST call for the endpoint `POST https://{{endpoint-management}}/api/v1.0/endpoints`, with the following body:
+
+```
+{
+  "type": "EventGrid",
+  "path": "<topicName coming from Topic Endpoint>",
+  "eventTypes": ["SensorChange","TopologyOperation", "SpaceChange", "UdfCustom"],
+  "connectionString": "<Key 1 of the Event Grid Topic>",
+  "secondaryConnectionString": "<Key 2 of the Event Grid Topic>"
+}
+```
+
 
 ## Create email notifications with Logic App
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) allow you to create automated tasks like creating an email notification system for events received from other services. This section will show you how to use Logic Apps to create email notifications for telemetry data from your setup. We will use an [Event Grid Topic](../event-grid/overview.md) to route events coming from the sensors in your spatial graph to the Logic App. You will create an endpoint in your Digital Twins instance for the events to be routed to the Event Grid topic. 
@@ -93,73 +130,6 @@ In a few moments, observe the state of the Logic App change as it receives event
 In a few minutes, you should start getting email notifications from this Logic App. To stop these emails, navigate to your **Logic App** in the portal and select the **Overview** pane. Click **Disable**.
 
 
-## Analyse events using Time Series Insights
-
-Now that you understood how to receive *hot data* (or instantaneous) events, you will now analyze *warm data*, which is a slightly less frequently accessed data on a slightly slower storage. This section shows you steps to perform *warm path analytics* to visualize and store the sensor telemetry data using [Azure Time Series Insights or TSI](../time-series-insights/time-series-insights-overview), with [Event Hubs](../event-hubs/event-hubs-about) as the connector between Digital Twins and TSI. 
-
-### Create an Event Hub
-
-1. Sign in to [Azure portal](https://portal.azure.com).
-1. On the left navigation panel, select **Resource groups**, and search for the resource group you created or used for your Digital Twins instance. 
-
-1. On the **Overview** pane of your resource group, click the **Add** button.
-
-1. Search for and select **Event Hubs**. Click **Create**.
-
-1. Enter a **Name** for your Event Hub namespace, choose *Standard* **Pricing tier**, your **Subscription**, your existing **Resource group**, and the **Location**. Click **Create**. 
-
-1. Once deployed, navigate to the Event Hub namespace *deployment*, and click on the namespace under **RESOURCE**.
-
-    ![Event Hub namespace](./media/tutorial-facilities-events/open-event-hub-ns.png)
-
-<!-->
-1. In the Event Hub namespace, click the **Shared access policies** pane, and then click the **RootManageSharedAccessKey** default entry. Copy to your clipboard the values for **Connection string--primary key** and **Connection string--secondary key**. You will need these values to create an endpoint for Event Hub in your Digital Twin instance in the next section.
-    ![Event Hub connection strings](./media/tutorial-facilities-events/event-hub-ns-connection-strings.png)
--->
-1. In the Event Hub namespace **Overview** pane, click on the **Event Hub** button at the top. 
-    ![Event Hub](./media/tutorial-facilities-events/create-event-hub.png)
-
-1. Enter a **Name** for your Event Hub resource, and click **Create**. Once deployed, it will appear in the **Event Hubs** pane of the Event Hub namespace with an *Active* **STATUS**. Click on the Event Hub instance to open its **Overview** pane.
-
-1. Click **Consumer group** button at the top, and enter a name such as *tsievents* for the consumer group. Click **Create**.
-    ![Event Hub consumer group](./media/tutorial-facilities-events/event-hub-consumer-group.png)
-   Once created, the consumer group will appear in the list at the bottom of the Event hub's **Overview** pane. 
-
-1. Open the **Shared access policies** pane for your Event hub, and click **Add** button. **Create** a policy named *ManageSend*, and make sure all the checkboxes are checked. 
-
-    ![Event Hub connection strings](./media/tutorial-facilities-events/event-hub-connection-strings.png)
-
-1. Open the *ManageSend* policy that you just created, and copy to clipboard the values for **Connection string--primary key** and **Connection string--secondary key**. You will need these values to create an endpoint for Event Hub in your Digital Twin instance in the next section.
-
-### Create endpoint for the Event hub
-
-1. In a command window, navigate to the Digital Twins sample, and then run `cd occupancy-quickstart\src`.
-2. Open the file *actions\createEndpoints.yaml* in your editor. 
-3. Enter the value for **Connection string--primary key** for the Event hub for `connectionString`, and the value for **Connection string--secondary key** for the `secondaryConnectionString`. Note that you have to add the same values twice, since we are creating two endpoints. 
-4. Save and close the file. Run `dotnet run CreateEndpoints` in the command window. The endpoints for the Event hub will be created. 
-
-    ![Endpoints for Event Hub](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
-
-### Create Time Series Insights
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the left navigation pane, click **Resource groups**, and then select the resource group you created or used for your Digital Twins instance. 
-1. Click **Add** button on top, and search and select a new **Time Series Insights** resource. Click **Create**.
-1. Enter a **Name** for your Time Series Insights instance, and then select your **Subscription**, your **Resource group**, and **Location**. Click **Create**.
-
-    ![Create TSI](./media/tutorial-facilities-events/create-tsi.png)
-
-1. Open the TSI instance once deployed, and then open the **Event Sources** pane. Click **Add** button at the top to add a consumer group.
-1. In the **New event source** pane, enter a **Name**, make sure the other values are selected correctly, and then select *consumer group* we created in the previous section as the **Event hub consumer group**. Click **Create**.
-    ![TSI event source](./media/tutorial-facilities-events/tsi-event-source.png)
-
-1. Open the **Overview** pane for your Time Series Insights instance, and click **Go to Environment**. If you get a *data access warning*, then open the **Data Access Policies** pane for your TSI instance, click **Add**, select **Contributor** as the role, and select the appropriate user.
-
-1. The **Go to Environment** button opens the [Time Series Insights Explorer](../time-series-insights/time-series-insights-explorer.md). If it does not show any events, navigate to your Digital Twins sample and then the *device-connectivity* project, and run `dotnet run` to generate simulated device events. In the TSI explorer in the portal, click the icon to **Refresh environment information**. You should see analyses and perspectives getting created for your simulated telemetry data.
-
-    ![TSI explorer](./media/tutorial-facilities-events/tsi-explorer.png)
-
-
 ## Clean up resources
 
 If you wish to stop exploring Azure Digital Twins beyond this point, feel free to delete resources created in this tutorial:
@@ -170,7 +140,7 @@ If you wish to stop exploring Azure Digital Twins beyond this point, feel free t
 
 ## Next steps
 
-Proceed to the next article to learn more about the spatial intelligence graph and object model in Azure Digital Twins. 
+Proceed to the next tutorial to learn how to create warm data analysis on your Digital Twins telemetry. 
 > [!div class="nextstepaction"]
-> [Next steps button](concepts-objectmodel-spatialgraph.md)
+> [Next steps button](tutorial-facilities-analyze.md)
 

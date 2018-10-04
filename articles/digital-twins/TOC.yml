@@ -23,6 +23,8 @@
         href: tutorial-facilities-udf.md
       - name: Receive events from your building
         href: tutorial-facilities-events.md
+      - name: Analyze events from your building
+        href: tutorial-facilities-analyze.md
 - name: Concepts
   items:
   - name: Digital Twins Object Models and Spatial Intelligence Graph
