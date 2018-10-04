@@ -84,7 +84,7 @@ To delete a Recovery Services vault:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-If there are error messages citing "Vault cannot be deleted as there are existing resources within this vault", such as containers that need to be unregistered first, use this command which will force delete the containers as well.
+The vault must be empty before you can delete it. Otherwise you get an error citing "Vault cannot be deleted as there are existing resources within this vault". The following command demonstrates how to remove a container within a vault:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
