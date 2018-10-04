@@ -13,16 +13,12 @@ services: iot-edge
 
 # Update the IoT Edge runtime
 
-As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices to have the latest features and security improvements. This article provides information about when and how to update the IoT Edge runtime on your devices when a new version is available. 
+As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices to have the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available. 
+
+Two components of an IoT Edge device need to be updated if you want to move to a newer version. The first is the security daemon which runs on the device and starts the runtime when the device starts. Currently, the security daemon can only be updated from the device itself. The second component is the runtime, made up of the Edge hub and Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely. 
 
 To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
-## Understand IoT Edge tags
-
-The Edge agent and Edge hub images are tagged with the IoT Edge version that they are associated with. There are two different ways to use tags with the runtime images: 
-
-* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.0 is updated whenever there's a new release to point to the latest 1.0.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. This approach is suggested for development purposes. Deployments from the Azure portal default to rolling tags. 
-* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.0.2 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. This approach is suggested for production purposes.
 
 ## Update the security daemon
 
@@ -39,7 +35,7 @@ apt-get install libiothsm iotedge
 
 ### Windows devices
 
-On Windows devices, use the PowerShell script to uninstall and then reinstall the security daemon. The installation script automatically pulls the latest version of the security daemon. You will have to provide the connection string for your device again during the installation process. 
+On Windows devices, use the PowerShell script to uninstall and then reinstall the security daemon. The installation script automatically pulls the latest version of the security daemon. You have to provide the connection string for your device again during the installation process. 
 
 Uninstall the security daemon in an administrator PowerShell session. 
 
@@ -58,6 +54,13 @@ Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
 ## Update the runtime containers
 
 The way that you update the Edge agent and Edge hub containers depends on whether you use rolling tags (like 1.0) or specific tags (like 1.0.2) in your deployment. 
+
+### Understand IoT Edge tags
+
+The Edge agent and Edge hub images are tagged with the IoT Edge version that they are associated with. There are two different ways to use tags with the runtime images: 
+
+* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.0 is updated whenever there's a new release to point to the latest 1.0.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. This approach is suggested for development purposes. Deployments from the Azure portal default to rolling tags. 
+* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.0.2 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. This approach is suggested for production purposes.
 
 ### Update a rolling tag image
 
@@ -107,4 +110,7 @@ In a JSON deployment manifest, update the module images in the **systemModules**
 
 ## Next steps
 
-Check for the latest [Azure IoT Edge release](https://github.com/Azure/azure-iotedge/releases).
+View the latest [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
+
+Stay up to date with recent updates and announcement in the [Internet of Things blog](https://azure.microsoft.com/blog/topics/internet-of-things/
+) 
