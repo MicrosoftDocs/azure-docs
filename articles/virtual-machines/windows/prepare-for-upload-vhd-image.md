@@ -106,7 +106,7 @@ Set-Service -Name iphlpsvc -StartupType Automatic
 Set-Service -Name netlogon -StartupType Manual
 Set-Service -Name netman -StartupType Manual
 Set-Service -Name nsi -StartupType Automatic
-Set-Service -Name termService -StartupType Manual
+Set-Service -Name termService -StartupType Automatic
 Set-Service -Name MpsSvc -StartupType Automatic
 Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
