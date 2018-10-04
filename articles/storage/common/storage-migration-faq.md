@@ -1,21 +1,13 @@
-﻿---
+---
 title: Azure Storage migration FAQ | Microsoft Docs
 description: Answers to common questions about migrating Azure Storage
 services: storage
-documentationcenter: na
 author: genlin
-manager: timlt
-editor: tysonn
-
-
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 05/11/2018
 ms.author: genli
-
+ms.component: common
 ---
 # Frequently asked questions about Azure Storage migration
 
@@ -288,7 +280,7 @@ To give other people access to the storage resources:
 
 -   Provide a user with the primary or secondary key for the
     storage account. For more information, see [Manage your storage
-    account](storage-create-storage-account.md#manage-your-storage-account).
+    account](storage-account-manage.md#access-keys).
 
 -   Change the access policy to allow anonymous access. For more
     information, see [Grant anonymous users permissions to containers

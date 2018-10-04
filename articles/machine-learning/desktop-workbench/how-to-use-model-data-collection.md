@@ -7,13 +7,18 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Collect model data by using data collection
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 You can use the model data collection feature in Azure Machine Learning to archive model inputs and predictions from a web service.
 
@@ -50,7 +55,7 @@ To use model data collection, make the following changes to your scoring file:
     from azureml.datacollector import ModelDataCollector
     ```
 
-2. Add the following lines of code to the `init()` function:
+1. Add the following lines of code to the `init()` function:
     
     ```python
     global inputs_dc, prediction_dc
@@ -58,7 +63,7 @@ To use model data collection, make the following changes to your scoring file:
     prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")
     ```
 
-3. Add the following lines of code to the `run(input_df)` function:
+1. Add the following lines of code to the `run(input_df)` function:
     
     ```python
     global inputs_dc, prediction_dc
@@ -68,13 +73,13 @@ To use model data collection, make the following changes to your scoring file:
 
     Make sure that the variables `input_df` and `pred` (prediction value from `model.predict()`) are initialized before you call the `collect()` function on them.
 
-4. Use the `az ml service create realtime` command with the `--collect-model-data true` switch to create a real-time web service. This step makes sure that the model data is collected when the service is run.
+1. Use the `az ml service create realtime` command with the `--collect-model-data true` switch to create a real-time web service. This step makes sure that the model data is collected when the service is run.
 
      ```batch
     c:\temp\myIris> az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
     ```
     
-5. To test the data collection, run the `az ml service run realtime` command:
+1. To test the data collection, run the `az ml service run realtime` command:
 
     ```
     C:\Temp\myIris> az ml service run realtime -i irisapp -d "ADD YOUR INPUT DATA HERE!!" 
@@ -84,22 +89,22 @@ To use model data collection, make the following changes to your scoring file:
 To view the collected data in blob storage:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services**.
-3. In the search box, type **Storage accounts** and select the Enter key.
-4. From the **Storage accounts** search blade, select the **Storage account** resource. To determine your storage account, use the following steps:
+1. Select **All Services**.
+1. In the search box, type **Storage accounts** and select the Enter key.
+1. From the **Storage accounts** search blade, select the **Storage account** resource. To determine your storage account, use the following steps:
 
     a. Go to Azure Machine Learning Workbench, select the project you're working on, and open a command prompt from the **File** menu.
     
     b. Enter `az ml env show -v` and check the *storage_account* value. This is the name of your storage account.
 
-5. Select **Containers** on the resource blade menu, and then the container called **modeldata**. To see data start propagating to the storage account, you might need to wait up to 10 minutes after the first web service request. Data flows into blobs with the following container path:
+1. Select **Containers** on the resource blade menu, and then the container called **modeldata**. To see data start propagating to the storage account, you might need to wait up to 10 minutes after the first web service request. Data flows into blobs with the following container path:
 
     `/modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv`
 
 Data can be consumed from Azure blobs in a variety of ways, through both Microsoft software and open-source tools. Here are some examples:
 - Azure Machine Learning Workbench: Open the .csv file in Azure Machine Learning Workbench by adding the .csv file as a data source.
 - Excel: Open the daily .csv files as a spreadsheet.
-- [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): Create charts with data pulled from .csv data in blobs.
+- [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): Create charts with data pulled from .csv data in blobs.
 - [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): Create a data frame with a large portion of .csv data.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")

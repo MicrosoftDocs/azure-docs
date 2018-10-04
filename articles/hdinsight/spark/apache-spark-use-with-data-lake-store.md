@@ -1,20 +1,14 @@
 ---
-title: Use Apache Spark to analyze data in Azure Data Lake Store | Microsoft Docs
+title: Use Apache Spark to analyze data in Azure Data Lake Store 
 description: Run Spark jobs to analyze data stored in Azure Data Lake Store
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 1f174323-c17b-428c-903d-04f0e272784c
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-
 ---
 
 # Use HDInsight Spark cluster to analyze data in Data Lake Store
@@ -25,7 +19,7 @@ In this tutorial, you use Jupyter notebook available with HDInsight Spark cluste
 
 * Azure Data Lake Store account. Follow the instructions at [Get started with Azure Data Lake Store using the Azure portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Azure HDInsight Spark cluster with Data Lake Store as storage. Follow the instructions at [Create an HDInsight cluster with Data Lake Store using Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Azure HDInsight Spark cluster with Data Lake Store as storage. Follow the instructions at [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 	
 ## Prepare the data

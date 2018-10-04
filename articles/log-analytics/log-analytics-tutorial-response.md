@@ -1,9 +1,9 @@
 ---
 title: Respond to events with Azure Log Analytics Alerts | Microsoft Docs
-description: This tutorial helps you understand alerts in Log Analytics to identify important information in your OMS repository and proactively notify you of issues or invoke actions to attempt to correct them.
+description: This tutorial helps you understand alerting with Log Analytics to identify important information in your workspace and proactively notify you of issues or invoke actions to attempt to correct them.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -12,61 +12,92 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 07/30/2018
 ms.author: magoedte
 ms.custom: mvc
+ms.component: 
 ---
 
-# Respond to events with Log Analytics Alerts
-Alerts in Log Analytics identify important information in your Log Analytics repository. They are created by alert rules that automatically run log searches at regular intervals, and if results of the log search match particular criteria then an alert record is created and it can be configured to perform an automated response.  This tutorial is a continuation of the [Create and share dashboards of Log Analytics data](log-analytics-tutorial-dashboards.md) tutorial.   
+# Respond to events with Azure Monitor Alerts
+Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md).  This tutorial is a continuation of the [Create and share dashboards of Log Analytics data](log-analytics-tutorial-dashboards.md) tutorial.   
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an alert rule
-> * Configure an alert rule to send an e-mail notification
+> * Configure an Action Group to send an e-mail notification
 
-To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](log-analytics-quick-collect-azurevm.md).  
+To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](log-analytics-quick-collect-azurevm.md).
 
-## Log in to Azure portal
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+## Sign in to Azure portal
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create alerts
+Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals.  You can create alerts based on specific performance metrics or when certain events are created, absence of an event, or a number of events are created within a particular time window.  For example, alerts can be used to notify you when average CPU usage exceeds a certain threshold, when a missing update is detected, or when an event is generated upon detecting that a specific Windows service or Linux daemon is not running.  If the results of the log search match particular criteria, then an alert is created. The rule can then automatically run one or more actions, such as notify you of the alert or invoke another process.
 
-Alerts are created by alert rules that automatically run log searches at regular intervals.  You can create alerts based on specific performance metrics or when certain events are created, absence of an event, or a number of events are created within a particular time window.  For example, alerts can be used to notify you when average CPU usage exceeds a certain threshold or an event is generated when a specific Windows service or Linux daemon is not running.   If the results of the log search match particular criteria, then an alert record is created. The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process. 
+In the following example, you create a metric measurement alert rule based off of the *Azure VMs - Processor Utilization* query saved in the [Visualize data tutorial](log-analytics-tutorial-dashboards.md). An alert is created for each virtual machine that exceeds a threshold of 90%.
 
-In the following example, you create a metric measurement alert rule that creates an alert for each computer object in the query with a value that exceeds a 90% threshold.
+1. In the Azure portal, click **All services**. In the list of resources, type **Monitor**. As you begin typing, the list filters based on your input. Select **Monitor**.
+1. In the left-hand pane, select **Alerts** and then click **New Alert Rule** from the top of the page to create a new alert.
 
-1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-2. Launch the OMS portal by selecting OMS Portal and on the **Overview** page, select **Log Search**.  
-3. Select **Favorites** from the top of the portal and in the **Saved Searches** pane on the right, select the query *Azure VMs - Processor Utilization*.  
-4. Click **Alert** at the top of the page to open the **Add Alert Rule** screen.  
-5. Configure the alert rule with the following information:  
-   a. Provide a **Name** for your alert, such as *VM processor utilization exceeded >90*  
-   b. For **Time Window**, specify a time range for the query, such as *30*.  The query returns only records that were created within this range of the current time.  
-   c. **Alert Frequency** specifies how often the query should be run.  For this example, specify *5* minutes, which  occurs within our time window specified.  
-   d. Select **Metric Measurement** and enter *90* for **Aggregated Value** and enter *3* for **Trigger alert based on**   
-   e. Under **Actions**, disable email notification.
-6. Click **Save** to complete the alert rule. It starts running immediately.<br><br> ![Alert rule example](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
+    ![Create new alert rule](./media/log-analytics-tutorial-response/alert-rule-02.png)
 
-Alert records created by alert rules in Log Analytics have a Type of **Alert** and a SourceSystem of **OMS**.<br><br> ![Example of Alert events generated](media/log-analytics-tutorial-response/log-analytics-alert-events-01.png)  
+1. For the first step, under the **Create Alert** section, you are going to select your Log Analytics workspace as the resource, since this is a log based alert signal.  Filter the results by choosing the specific **Subscription** from the drop-down list if you have more than one, which contains the VM and Log Analytics workspace created earlier.  Filter the **Resource Type** by selecting **Log Analytics** from the drop-down list.  Finally, select the **Resource** **DefaultLAWorkspace** and then click **Done**.
 
-## Alert actions
-You can perform advanced actions with alerts such as create an e-mail notification, launch an [Automation runbook](../automation/automation-runbook-types.md), use a webhook to create an incident record in your ITSM incident management system or with the [IT Service Management Connector solution](log-analytics-itsmc-overview.md) as a response when the alert criteria is met.   
+    ![Create alert step 1 task](./media/log-analytics-tutorial-response/alert-rule-03.png)
 
-Email actions send an e-mail with details of the alert to one or more recipients. You can specify the subject of the mail, but its content is a standard format constructed by Log Analytics.  Let's update the alert rule created earlier and configure it to e-mail notify you instead of actively monitoring for the alert record with a log search.     
+1. Under the section **Alert Criteria**, click **Add Criteria** to define the query and then specify logic that the alert rule follows. From the **Configure signal logic** pane, select **Custom log search** as signal name and enter your query in **Search query**.
 
-1. In the OMS portal, on the top menu select **Settings**, and then select **Alerts**.
-2. From the list of alert rules, click the pencil icon next to the alert created earlier.
-3. Under **Actions** section, enable email notifications.
-4. Provide a **Subject** for the email, such as *Processor utilization exceeded threshold >90*.
-5. Add addresses of one or more e-mail recipients in the **Recipients** field.  If you specify more than one address, then separate the addresses with a semicolon (;).
-6. Click **Save** to complete the alert rule. It starts running immediately.<br><br> ![Alert rule with email notification](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
+    For example:
+    ```
+    Perf
+    | where CounterName == "% Processor Time" and ObjectName == "Processor" and InstanceName == "_Total"
+    | summarize AggregatedValue=avg(CounterValue) by bin(TimeGenerated, 1m)
+    ```
+
+    The pane updates to present the configuration settings for the alert.  On the top, it shows the results for the last 30 minutes of the selected signal.
+
+1. Configure the alert with the following information:  
+   a. From the **Based on* drop-down list select **Metric measurement**.  A metric measurement will create an alert for each object in the query with a value that exceeds our specified threshold.  
+   b. For the **Condition**, select **Greater than** and enter **90** for **Threshold**.  
+   c. Under Trigger Alert Based On section, select **Consecutive breaches** and from the drop-down list select **Greater than** enter a value of 3.  
+   d. Under Evaluation based on section, accept the defaults. The rule will run every five minutes and return records that were created within this range of the current time.  
+1. Click **Done** to complete the alert rule.
+
+    ![Configure alert signal](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)
+
+1. Now moving onto the second step, provide a name of your alert in the **Alert rule name** field, such as **Percentage CPU greater than 90 percent**.  Specify a **Description** detailing specifics for the alert, and select **Critical(Sev 0)** for the **Severity** value from the options provided.
+
+    ![Configure alert details](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)
+
+1. To immediately activate the alert rule on creation, accept the default value for **Enable rule upon creation**.  
+1. For the third and final step, you specify an **Action Group**, which ensures that the same actions are taken each time an alert is triggered and can be used for each rule you define.  Configure a new action group with the following information:  
+   a. Select **New action group** and the **Add action group** pane appears.  
+   b. For **Action group name**, specify a name such as **IT Operations - Notify** and a **Short name** such as **itops-n**.  
+   c. Verify the default values for **Subscription** and **Resource group** are correct. If not, select the correct one from the drop-down list.  
+   d. Under the Actions section, specify a name for the action, such as **Send Email** and under **Action Type** select **Email/SMS/Push/Voice** from the drop-down list. The **Email/SMS/Push/Voice** properties pane will open to the right in order to provide additional information.  
+   e. On the **Email/SMS/Push/Voice** pane, enable **Email** and provide a valid email SMTP address to deliver the message to.  
+   f. Click **OK** to save your changes.  
+       ![Create new action group](./media/log-analytics-tutorial-response/action-group-properties-01.png)
+
+1. Click **OK** to complete the action group.
+1. Click **Create alert rule** to complete the alert rule. It starts running immediately.
+
+    ![Complete creating new alert rule](./media/log-analytics-tutorial-response/alert-rule-01.png)
+
+## View your alerts in Azure portal
+Now that you have created an alert, you can view Azure alerts in a single pane and manage all alert rules across your Azure subscriptions. It lists all the alert rules (enabled or disabled) and can be sorted based on target resources, resource groups, rule name, or status. Included is an aggregated summary of all the fired alerts, and total configured/enabled alert rules.
+
+![Azure Alerts status page](./media/log-analytics-tutorial-response/azure-alerts-02.png)
+
+When the alert triggers, the table reflects the condition and how many times it occurred within the time range selected (the default is last six hours).  There should be a corresponding email in your inbox similar to the following example showing the offending virtual machine and the top results that matched the search query in this case.
+
+![Alert email action example](./media/log-analytics-tutorial-response/azure-alert-email-notification-01.png)
 
 ## Next steps
-In this tutorial, you learned how alert rules can proactively identify and respond to an issue when they run log searches at scheduled intervals and match a particular criteria.  
+In this tutorial, you learned how alert rules can proactively identify and respond to an issue when they run log searches at scheduled intervals and match a particular criteria.
 
-Follow this link to see pre-built Log Analytics script samples.  
+Follow this link to see pre-built Log Analytics script samples.
 
 > [!div class="nextstepaction"]
 > [Log Analytics script samples](powershell-samples.md)

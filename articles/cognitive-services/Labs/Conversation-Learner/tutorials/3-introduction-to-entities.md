@@ -1,7 +1,7 @@
 ---
-title: How to use entities with a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to use entities with a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use entities with a Conversation Learner application.
+description: Learn how to use entities with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -15,6 +15,10 @@ ms.author: v-jaswel
 # Introduction to entities
 
 This tutorial introduces entities, and shows how to use the "Disqualifying entities" and "Required entities" fields in actions.
+
+## Video
+
+[![Tutorial 3 Preview](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
 
 ## Requirements
 
@@ -32,9 +36,9 @@ Other tutorials cover other aspects of entities, such as pre-built entities, mul
 
 ## Steps
 
-### Create the application
+### Create the model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter IntroToEntities. Then click Create.
 
 ### Create entity
@@ -43,7 +47,8 @@ Other tutorials cover other aspects of entities, such as pre-built entities, mul
 2. In Entity Name, enter city.
 3. Click Create
 
-Note the entity type is 'custom' -- this means that the entity can be trained.  There are also pre-built entities, meaning that their behavior cannot be adjusted -- these are covered in another tutorial.
+> [!NOTE]
+> The entity type is 'custom' -- this means that the entity can be trained.  There are also pre-built entities, meaning that their behavior cannot be adjusted -- these are covered in another tutorial.
 
 ### Create two actions
 
@@ -53,7 +58,7 @@ Note the entity type is 'custom' -- this means that the entity can be trained.  
 	- This means that if this entity is defined in bot's memory, then this action will *not* be available.
 2. Click Actions, then New Action to create a second action.
 3. In Response, type 'The weather in the $city is probably sunny'.
-4. In Required Entities, note that city entity has been added automatically since it was referred to.
+4. In Required Entities, city entity has been added automatically since it was referred to.
 5. Click Save
 
 Now you have two actions.
@@ -65,16 +70,16 @@ Now you have two actions.
 1. Click Train Dialogs, then New Train Dialog.
 2. Type 'hello'.
 3. Click Score Actions, and Select 'I don't know what city you want?'
-	- Note that the response where the city entity is required cannot be selected because the city entity is not defined in bot's memory.
+	- The response where the city entity is required cannot be selected because the city entity is not defined in bot's memory.
 2. Select 'I don't know what city you want'.
 4. Enter 'seattle'. Highlight seattle, then click city.
 5. Click Score Actions
-	- Note city value is now in the bot's memory.
+	- City value is now in the bot's memory.
 	- 'Weather in $city is probably sunny' is now available as a response. 
 6. Select 'Weather in $city is probably sunny'.
 
 Let's say user enters 'repeat that'. 
-1. Type that and enter. Note that city entity and its value is in memory and available.
+1. Type that and enter. City entity and its value is in memory and available.
 2. Select 'Weather in $city is probably sunny'.
 
 ![](../media/tutorial3_entities.PNG)

@@ -11,9 +11,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2017
-ms.author: mbullwin; yossiy
+ms.reviewer: yossiy
+ms.author: mbullwin
 
 ---
 # Smart Detection - Failure Anomalies

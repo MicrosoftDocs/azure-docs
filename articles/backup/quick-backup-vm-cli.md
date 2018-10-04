@@ -1,21 +1,15 @@
 ---
-title: Azure Quick Start - Back up a VM with Azure CLI | Microsoft Docs
+title: Azure Quick Start - Back up a VM with Azure CLI
 description: Learn how to back up your virtual machines with the Azure CLI
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor:
 tags: azure-resource-manager, virtual-machine-backup
-
-ms.assetid: 
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
-ms.workload: storage-backup-recovery
-ms.date: 2/14/2018
-ms.author: iainfou
+ms.date: 8/3/2018
+ms.author: markgal
 ms.custom: mvc
 ---
 
@@ -26,13 +20,13 @@ This quick start enables backup on an existing Azure VM. If you need to create a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
 
 ## Create a recovery services vault
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az_backup_vault_create). Specify the same resource group and location as the VM you wish to protect. If you used the [VM quickstart](../virtual-machines/linux/quick-create-cli.md), then you created:
+Create a Recovery Services vault with [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az-backup-vault-create). Specify the same resource group and location as the VM you wish to protect. If you used the [VM quickstart](../virtual-machines/linux/quick-create-cli.md), then you created:
 
 - a resource group named *myResourceGroup*,
 - a VM named *myVM*,
@@ -48,7 +42,7 @@ By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Re
 
 
 ## Enable backup for an Azure VM
-Create a protection policy to define: when a backup job runs, and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Specify the resource group and VM to protect, then the policy to use:
+Create a protection policy to define: when a backup job runs, and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Specify the resource group and VM to protect, then the policy to use:
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \
@@ -58,9 +52,19 @@ az backup protection enable-for-vm \
     --policy-name DefaultPolicy
 ```
 
+> [!NOTE]
+If the VM is not in the same resource group as that of vault, then myResourceGroup refers to the resource group where vault was created. Instead of VM name, provide the VM ID as indicated below.
+
+```azurecli-interactive 
+az backup protection enable-for-vm \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --vm $(az vm show -g VMResourceGroup -n MyVm --query id) \
+    --policy-name DefaultPolicy
+```
 
 ## Start a backup job
-To start a backup now rather than wait for the default policy to run the job at the scheduled time, use [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_backup_now). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
+To start a backup now rather than wait for the default policy to run the job at the scheduled time, use [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-backup-now). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
 The following parameters are used to back up the VM:
 
@@ -81,7 +85,7 @@ az backup protection backup-now \
 
 
 ## Monitor the backup job
-To monitor the status of backup jobs, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az_backup_job_list):
+To monitor the status of backup jobs, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az-backup-job-list):
 
 ```azurecli-interactive 
 az backup job list \
@@ -103,7 +107,7 @@ When the *Status* of the backup job reports *Completed*, your VM is protected wi
 
 
 ## Clean up deployment
-When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources. If you used an existing VM, you can skip the final [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) command to leave the resource group and VM in place.
+When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources. If you used an existing VM, you can skip the final [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command to leave the resource group and VM in place.
 
 If you want to try a Backup tutorial that explains how to restore data for your VM, go to [Next steps](#next-steps). 
 

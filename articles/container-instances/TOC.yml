@@ -39,23 +39,31 @@
   items:
   - name: Deploy
     items:
-    - name: Deploy multi-container groups
+    - name: Multi-container group - YAML
+      href: container-instances-multi-container-yaml.md
+    - name: Multi-container group - Resource Manager
       href: container-instances-multi-container-group.md
+    - name: Virtual network deployment (preview)
+      href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
     - name: Set environment variables (env)
       href: container-instances-environment-variables.md
-    - name: Troubleshoot deployments
-      href: container-instances-troubleshooting.md
+    - name: Configure liveness probes
+      href: container-instances-liveness-probe.md
   - name: Manage
     items:
+    - name: Update running containers
+      href: container-instances-update.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
     - name: Monitor CPU and memory usage
       href: container-instances-monitor.md
+    - name: Logging with Azure Log Analytics
+      href: container-instances-log-analytics.md
   - name: Run workloads
     items:
-    - name: Run containerized tasks
+    - name: Run tasks with restart policies
       href: container-instances-restart-policy.md
     - name: Jenkins build agents on ACI
       href: container-instances-jenkins.md
@@ -69,6 +77,12 @@
       href: container-instances-volume-gitrepo.md
     - name: secret
       href: container-instances-volume-secret.md
+  - name: Troubleshoot
+    items:
+    - name: Get container logs & events
+      href: container-instances-get-logs.md
+    - name: Troubleshoot common issues
+      href: container-instances-troubleshooting.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -78,7 +92,7 @@
   - name: PowerShell
     href: /powershell/module/azurerm.containerinstance#container_instances
   - name: .NET
-    href: /dotnet/api/overview/azure/containerinstances
+    href: /dotnet/api/overview/azure/containerinstance
   - name: Python
     href: /python/api/overview/azure/containerinstance
   - name: Java
@@ -89,6 +103,8 @@
     href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-container-instances
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing

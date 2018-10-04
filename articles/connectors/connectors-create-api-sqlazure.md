@@ -1,36 +1,35 @@
 ---
+# required metadata
 title: Connect to SQL Server or Azure SQL Database - Azure Logic Apps | Microsoft Docs
-description: Create connections to SQL Server on premises and Azure SQL Database in the cloud from Azure Logic Apps
-services: logic-apps
-documentationcenter: 
+description: How to access and manage SQL databases on premises or in the cloud by automating workflows with Azure Logic Apps
 author: ecfan
-manager: cfowler
-editor: 
-tags: connectors
-
-ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: 
-ms.tgt_pltfrm: 
-ms.topic: article
-ms.date: 05/15/2018
+manager: jeconnoc
 ms.author: estfan
+ms.date: 05/15/2018
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
 
 # Connect to SQL Server or Azure SQL Database from Azure Logic Apps
 
-This article shows how you can access data in your SQL 
-database from inside a logic app with the SQL Server connector. 
-That way, you can create logic apps that automate tasks and 
-workflows for managing your data. The connector works for both 
+This article shows how you can access data in your SQL database 
+from inside a logic app with the SQL Server connector. 
+That way, you can automate tasks, processes, and workflows 
+that manage your SQL data and resources by creating logic apps. 
+The connector works for both 
 [SQL Server on premises](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) 
 and for [Azure SQL Database in the cloud](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
 
-You can build logic apps that run when triggered by events in 
+You can create logic apps that run when triggered by events in 
 your SQL database or in other systems, such as Dynamics CRM Online. 
-Your logic apps can also get, insert, or delete data, and also execute 
-SQL queries or stored procedures. For example, you can build a logic 
+Your logic apps can also get, insert, and delete data along with executing 
+SQL queries and stored procedures. For example, you can build a logic 
 app that automatically checks for new records in Dynamics CRM Online, 
 adds items to your SQL database for any new records, and then sends email alerts.
 

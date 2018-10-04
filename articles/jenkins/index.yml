@@ -2,18 +2,15 @@
 documentType: LandingData
 title: Jenkins on Azure
 metadata:
-    description: Deploy and integrate Jenkins with Azure 
-    services: multiple
-    author: rloutlaw
-    manager: justhe
-    layout: LandingPage
-    ms.service: multiple
-    ms.tgt_pltfrm: na
-    ms.devlang: devops
-    ms.topic: landing-page
-    ms.date: 11/01/2017
-    ms.author: routlaw
-    ms.custom: Jenkins
+  title: Jenkins on Azure Documentation - Tutorials, samples, reference, and resources
+  description: Deploy and integrate Jenkins with Azure 
+  ms.service: jenkins
+  keywords: jenkins, azure, devops, tutorials, samples, reference
+  author: tomarcher
+  manager: jeconnoc
+  ms.author: tarcher
+  ms.topic: landing-page
+  ms.date: 08/27/2018
 abstract:
     description: Use the open-source Jenkins server to build your apps in the cloud and deploy them to Azure. Learn how to install, configure, and scale Jenkins on Azure and set up continuous integration (CI) for your apps with our quickstarts, tutorials, and sample pipelines.
     aside: 

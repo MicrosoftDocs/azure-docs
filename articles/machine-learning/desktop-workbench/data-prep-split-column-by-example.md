@@ -7,13 +7,20 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Split column by example transformation
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 This transform predictively splits the content of a column on meaningful boundaries without requiring user input. The Split algorithm selects the boundaries after analyzing the content of the column. These boundaries could be defined by
 * A fixed delimiter,
 * Multiple, arbitrary delimiters appearing in particular contexts, or,
@@ -176,4 +183,4 @@ In the following example, we would like to separate the weight values from the u
 
 ## Technical notes
 
-The Split transform feature is based on the **Predictive Program Synthesis** technique. In this technique, data transformation programs are learned automatically based on the input data. The programs are synthesized in a domain-specific language. The DSL is based on delimiters and fields that occur in particular regular expression contexts. More information about this technology can be found in a [recent publication on this topic](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
+The Split transform feature is based on the **Predictive Program Synthesis** technique. In this technique, data transformation programs are learned automatically based on the input data. The programs are synthesized in a domain-specific language. The DSL is based on delimiters and fields that occur in particular regular expression contexts. More information about this technology can be found in a [recent publication on this topic](https://www.microsoft.com/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 

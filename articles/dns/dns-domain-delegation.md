@@ -3,7 +3,7 @@ title: Azure DNS delegation overview | Microsoft Docs
 description: Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Delegation of DNS zones with Azure DNS

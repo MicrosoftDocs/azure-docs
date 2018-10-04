@@ -39,9 +39,6 @@ In Reliable Services, your service inherits the `StatefulService` class. This cl
 * Shared functionality for all actors, for example, a circuit breaker.
 * Remote procedure calls on the actor service itself and on each individual actor.
 
-> [!NOTE]
-> Stateful services are not currently supported in Java/Linux.
-
 For more information, see [Implementing service-level features in your actor service](service-fabric-reliable-actors-using.md).
 
 ## Application model

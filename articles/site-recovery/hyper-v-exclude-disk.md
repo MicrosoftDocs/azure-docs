@@ -1,12 +1,10 @@
 ---
 title: Exclude disks from protection by using Azure Site Recovery | Microsoft Docs
 description: Describes why and how to exclude VM disks from replication for Hyper-V to Azure.
-services: site-recovery
 author: nsoneji
-manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
 
 ---

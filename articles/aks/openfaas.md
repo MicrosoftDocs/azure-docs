@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Using OpenFaaS on AKS
 
-[OpenFaaS][open-faas] is a framework for building Serverless functions on top of containers. As an Open Source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Kubernetes Service (AKS) cluster.
+[OpenFaaS][open-faas] is a framework for building serverless functions on top of containers. As an open source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 
@@ -104,7 +104,7 @@ To test the OpenFaaS system, browse to the external IP address on port 8080, `ht
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
-Finally, install the OpenFaaS CLI. This exmaple used brew, see the [OpenFaaS CLI documentation][open-faas-cli] for more options.
+Finally, install the OpenFaaS CLI. This example used brew, see the [OpenFaaS CLI documentation][open-faas-cli] for more options.
 
 ```console
 brew install faas-cli

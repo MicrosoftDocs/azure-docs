@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Stack 1802 Update | Microsoft Docs
 description: Learn about what's in the 1802 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-
+  
 ---
-
+  
 # Azure Stack 1802 update
 
 *Applies to: Azure Stack integrated systems*
@@ -34,7 +34,7 @@ The Azure Stack 1802 update build number is **20180302.1**.
 
 ## Before you begin    
 > [!IMPORTANT]    
-> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](/azure-stack-updates#plan-for-updates).
+> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
 
 
 ### Prerequisites
@@ -105,6 +105,9 @@ This update includes the following improvements and fixes for Azure Stack.
 The following are post-installation known issues for build  **20180302.1**
 
 #### Portal
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Workaround:  To resolve this issue after you install this update, use step 3 from the [Trigger automation to configure claims provider trust in Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure to reset the owner of the default provider subscription.   
+
 - The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - For Azure Stack integrated systems, use https://aka.ms/newsupportrequest.
 
@@ -135,7 +138,22 @@ The following are post-installation known issues for build  **20180302.1**
 
 
 #### Health and monitoring
-There are no known issues after updating to 1802.
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+  Alert #1:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+  Alert #2:
+   - NAME:  Infrastructure role unhealthy
+   - SEVERITY: Warning
+   - COMPONENT: Health controller
+   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+  Both alerts can be safely ignored. They will close automatically over time.  
+
 
 #### Marketplace
 - Users can browse the full marketplace without a subscription and can see administrative items like plans and offers. These items are non-functional to users.
@@ -275,6 +293,8 @@ There are no known issues after updating to 1802.
 <!--
 #### Identity
 -->
+
+
 
 #### Downloading Azure Stack Tools from GitHub
 - When using the *invoke-webrequest* PowerShell cmdlet to download the Azure Stack tools from Github, you receive an error:     

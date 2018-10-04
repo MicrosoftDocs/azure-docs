@@ -1,18 +1,19 @@
 ---
-title: Face API Service overview | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: What is the Face API Service?
+titleSuffix: Azure Cognitive Services
 description: The glossary explains terms that you might encounter as you work with the Face API Service.
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: overview
 ms.date: 03/01/2018
 ms.author: sbowles
 ---
-# What is Face API?
+# What is the Face API Service?
 
-Welcome to the Microsoft Face API, a cloud-based service that provides the most advanced face algorithms. Face API has two main functions: face detection with attributes and face recognition.
+Welcome to the Face API Service, a cloud-based service that provides the most advanced face algorithms. Face API has two main functions: face detection with attributes and face recognition.
 
 ## Face Detection
 
@@ -81,6 +82,8 @@ The following tutorials demonstrate the Face API basic functionalities and subsc
 
 Take a look at these sample applications that make use of Face API.
 
+- [Microsoft Face API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows)
+  - WPF sample app that demonstrates several scenarios of Face detection, analysis and identification.
 - [FamilyNotes UWP app](https://github.com/Microsoft/Windows-appsample-familynotes)
   - Universal Windows Platform (UWP) sample app that shows usage of speech, Cortana, ink, and camera through a family note sharing scenario.
 - [Video Frame Analysis Sample](https://github.com/microsoft/cognitive-samples-videoframeanalysis)

@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Set Azure CDN caching rules | Microsoft Docs
-description: In this tutorial, you set an Azure CDN global and a custom caching rule.
+description: In this tutorial, you set an Azure CDN global caching rule and a custom caching rule.
 services: cdn
 documentationcenter: ''
 author: dksimpson

@@ -1,19 +1,12 @@
 ---
 title: Azure ExpressRoute FAQ | Microsoft Docs
 description: The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and additional Technical Details.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: jeconnoc
-editor: ''
 
-ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/14/2018
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
 
 ---
@@ -49,7 +42,7 @@ Yes. ExpressRoute circuits are configured to allow you to burst up to two times 
 
 ### Can I use the same private network connection with virtual network and other Azure services simultaneously?
 
-Yes. An ExpressRoute circuit, once set up, allows you to access services within a virtual network and other Azure services simultaneously. You connect to virtual networks over the private peering path, and to other services over the public peering path.
+Yes. An ExpressRoute circuit, once set up, allows you to access services within a virtual network and other Azure services simultaneously. You connect to virtual networks over the private peering path, and to other services over the Microsoft  peering path.
 
 ### Does ExpressRoute offer a Service Level Agreement (SLA)?
 
@@ -66,7 +59,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 ### Public peering
 
 >[!NOTE]
->Microsoft peering is the preferred way to access all services hosted on Azure.
+>Public peering has been disabled on new ExpressRoute circuits. Azure services are available on Microsoft peering.
 >
 
 * Power BI
@@ -74,25 +67,20 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
   The following services are NOT supported:
     * CDN
-    * Visual Studio Team Services Load Testing
+    * Azure DevOps Services Load Testing
     * Multi-factor Authentication
     * Traffic Manager
 
 ### Microsoft peering
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 Customer Engagement applications (formerly known as CRM Online)
-  * Dynamics 365 for Sales
-  * Dynamics 365 for Customer Service
-  * Dynamics 365 for Field Service
-  * Dynamics 365 for Project Service
-* Using [route filters](#route-filters-for-microsoft-peering), you get access to the same public services with the Microsoft peering :
-  * Power BI
-  * Dynamics 365 for Finance and Operations
-  * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
-  The following services are NOT supported:
+* Dynamics 365 
+* Power BI
+* Azure Active Directory
+* Azure DevOps Services Load Testing
+* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>The following services are **not supported**:
     * CDN
-    * Visual Studio Team Services Load Testing
+    * Azure DevOps Services Load Testing
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -128,7 +116,7 @@ You will not lose connectivity if one of the cross connections fails. A redundan
 
 ### How do I ensure high availability on a virtual network connected to ExpressRoute?
 
-You can achieve high availability by connecting ExpressRoute circuits in different peering locations (e.g. Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. See [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) for additional details on Connection Weight.
+You can achieve high availability by connecting ExpressRoute circuits in different peering locations (for example, Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
 
 ### <a name="onep2plink"></a>If I'm not co-located at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft?
 
@@ -148,12 +136,12 @@ Yes. You can have more than one ExpressRoute circuit in your subscription. The d
 
 Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit is associated with one service provider only. 
 
-### I see two ExpressRoute peering locations in the same metro, e.g. Singapore and Singapore2. Which peering location should I choose to create my ExpressRoute circuit?
+### I see two ExpressRoute peering locations in the same metro, for example, Singapore and Singapore2. Which peering location should I choose to create my ExpressRoute circuit?
 If your service provider offers ExpressRoute at both sites, you can work with your provider and pick either site to set up ExpressRoute. 
 
 ### Can I have multiple ExpressRoute circuits in the same metro? Can I link them to the same virtual network?
 
-Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can’t link them to the same virtual network. Each location name in Azure Portal or in PowerShell/CLI API represents one peering location. For example, you can select the peering locations "Singapore" and "Singapore2" and connect circuits from each to the same virtuan network. 
+Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can’t link them to the same virtual network. Each location name in Azure portal or in PowerShell/CLI API represents one peering location. For example, you can select the peering locations "Singapore" and "Singapore2" and connect circuits from each to the same virtual network. 
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 
@@ -201,7 +189,7 @@ Yes. If you have not advertised default routes (0.0.0.0/0) or Internet route pre
 
 Yes. You can advertise default routes (0.0.0.0/0) to block all Internet connectivity to virtual machines deployed within a virtual network and route all traffic out through the ExpressRoute circuit.
 
-If you advertise default routes, we force traffic to services offered over public peering (such as Azure storage and SQL DB) back to your premises. You will have to configure your routers to return traffic to Azure through the public peering path or over the Internet. If you've enabled a service endpoint (preview) for the service, the traffic to the service is not forced to your premises. The traffic remains within the Azure backbone network. To learn more about service endpoints, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+If you advertise default routes, we force traffic to services offered over Microsoft peering (such as Azure storage and SQL DB) back to your premises. You will have to configure your routers to return traffic to Azure through the Microsoft peering path or over the Internet. If you've enabled a service endpoint for the service, the traffic to the service is not forced to your premises. The traffic remains within the Azure backbone network. To learn more about service endpoints, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
 ### Can virtual networks linked to the same ExpressRoute circuit talk to each other?
 
@@ -219,17 +207,13 @@ Yes. You will have to create an ExpressRoute gateway within your virtual network
 
 The public IP address is used for internal management only, and does not constitute a security exposure of your virtual network.
 
-### What do I need to connect to Azure storage over ExpressRoute?
-
-You must establish an ExpressRoute circuit and configure routes for public peering.
-
 ### Are there limits on the number of routes I can advertise?
 
-Yes. We accept up to 4000 route prefixes for private peering and 200 each for public peering and Microsoft peering. You can increase this to 10,000 routes for private peering if you enable the ExpressRoute premium feature.
+Yes. We accept up to 4000 route prefixes for private peering and 200 for Microsoft peering. You can increase this to 10,000 routes for private peering if you enable the ExpressRoute premium feature.
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
-We do not accept private prefixes (RFC1918) in the public and Microsoft peering BGP session.
+We do not accept private prefixes (RFC1918) for the Microsoft peering BGP session.
 
 ### What happens if I exceed the BGP limits?
 
@@ -238,18 +222,6 @@ BGP sessions will be dropped. They will be reset once the prefix count goes belo
 ### What is the ExpressRoute BGP hold time? Can it be adjusted?
 
 The hold time is 180. The keep-alive messages are sent every 60 seconds. These are fixed settings on the Microsoft side that cannot be changed. It is possible for you to configure different timers, and the BGP session parameters will be negotiated accordingly.
-
-### After I advertise the default route (0.0.0.0/0) to my virtual networks, I can't activate Windows running on my Azure VMs. How to I fix this?
-
-The following steps help Azure recognize the activation request:
-
-1. Establish the public peering for your ExpressRoute circuit.
-2. Perform a DNS lookup and find the IP address of **kms.core.windows.net**
-3. The Key Management Service must recognize that the activation request comes from Azure and honor the request. Perform one of the following three tasks:
-
-   * On your on-premises network, route the traffic destined for the IP address that you obtained in step 2 back to Azure via the public peering.
-   * Have your NSP provider hair-pin the traffic back to Azure via the public peering.
-   * Create a user-defined route that points the IP that has Internet as a next hop, and apply it to the subnet(s) where these virtual machines are.
 
 ### Can I change the bandwidth of an ExpressRoute circuit?
 
@@ -276,7 +248,7 @@ ExpressRoute premium is a collection of the following features:
     **Examples:**
 
     *  You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. 
-    *  On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
+    *  On the Microsoft peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
 
 
 ### <a name="limits"></a>How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
@@ -305,11 +277,11 @@ Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressro
 
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
 
-## ExpressRoute for Office 365 and Dynamics 365
+## ExpressRoute for Office 365
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### How do I create an ExpressRoute circuit to connect to Office 365 services and Dynamics 365?
+### How do I create an ExpressRoute circuit to connect to Office 365 services?
 
 1. Review the [ExpressRoute prerequisites page](expressroute-prerequisites.md) to make sure you meet the requirements.
 2. To ensure that your connectivity needs are met, review the list of service providers and locations in the [ExpressRoute partners and locations](expressroute-locations.md) article.
@@ -317,13 +289,9 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 4. Follow the steps listed in the workflows to set up connectivity [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Make sure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services and Dynamics 365.
+> Make sure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services.
 > 
 > 
-
-### Do I need to enable Azure public peering to connect to Office 365 services and Dynamics 365?
-
-No, you only need to enable Microsoft Peering. Authentication traffic to Azure AD is sent through Microsoft Peering. 
 
 ### Can my existing ExpressRoute circuits support connectivity to Office 365 services and Dynamics 365?
 
@@ -333,9 +301,9 @@ Yes. Your existing ExpressRoute circuit can be configured to support connectivit
 
 Refer to [Office 365 URLs and IP address ranges](http://aka.ms/o365endpoints) page for an up-to-date list of services supported over ExpressRoute.
 
-### How much does ExpressRoute for Office 365 services and Dynamics 365 cost?
+### How much does ExpressRoute for Office 365 services cost?
 
-Office 365 services and Dynamics 365 require premium add-on to be enabled. See the [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) for costs.
+Office 365 services require premium add-on to be enabled. See the [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) for costs.
 
 ### What regions is ExpressRoute for Office 365 supported in?
 
@@ -352,10 +320,6 @@ See the recommendation for [High availability and failover with Azure ExpressRou
 
 Yes. Office 365 GCC service endpoints are reachable through the Azure US Government ExpressRoute. However, you first need to open a support ticket on the Azure portal to provide the prefixes you intend to advertise to Microsoft. Your connectivity to Office 365 GCC services will be established after the support ticket is resolved. 
 
-### Can Dynamics 365 for Operations (formerly known as Dynamics AX Online) be accessed over an ExpressRoute connection?
-
-Yes. [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operations) is hosted on Azure. You can enable Azure public peering on your ExpressRoute circuit to connect to it.
-
 ## Route filters for Microsoft peering
 
 ### I am turning on Microsoft peering for the first time, what routes will I see?
@@ -370,7 +334,7 @@ When using route filters, any customer can turn on Microsoft peering. However, f
 
 No, you do not need authorization for Dynamics 365. You can create a rule and select Dynamics 365 community without authorization.
 
-### I enabled Microsoft peering prior to August 1st, 2017, how can I take advantage of route filters?
+### I enabled Microsoft peering prior to August 1, 2017, how can I take advantage of route filters?
 
 Your existing circuit will continue advertising the prefixes for Office 365 and Dynamics 365. If you want to add Azure public prefixes advertisements over the same Microsoft peering, you can create a route filter, select the services you need advertised (including the Office 365 service(s) you need and Dynamics 365), and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
 
@@ -379,3 +343,11 @@ Your existing circuit will continue advertising the prefixes for Office 365 and 
 * Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through Microsoft peering, even if route filters are not defined.
 
 * Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. You will see no prefixes by default.
+
+## <a name="expressRouteDirect"></a>ExpressRoute Direct (Preview)
+
+[!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Global Reach (Preview)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

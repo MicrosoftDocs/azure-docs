@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -21,7 +21,7 @@ This tutorial shows you how to run a disaster recovery drill for an Azure VM, fr
 > * Check the prerequisites
 > * Run a test failover for a single VM
 
-Azure to Azure replication is currently in preview.
+
 
 ## Prerequisites
 

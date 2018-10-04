@@ -11,8 +11,8 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/14/2017
+ms.topic: conceptual
+ms.date: 09/19/2018
 ms.author: mbullwin
 
 ---
@@ -21,7 +21,7 @@ ms.author: mbullwin
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
 
-![sample data](./media/app-insights-java-get-started/5-results.png)
+![Screenshot of overview sample data](./media/app-insights-java-get-started/overview-graphs.png)
 
 Application Insights supports Java apps running on Linux, Unix, or Windows.
 
@@ -31,6 +31,8 @@ You need:
 * A subscription to [Microsoft Azure](https://azure.microsoft.com/).
 
 *If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](app-insights-java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
+
+If you prefer the Spring framework try the [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## 1. Get an Application Insights instrumentation key
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
@@ -216,7 +218,9 @@ package devCamp.WebApp.configurations;
     }
 ```
 
-[!NOTE] If you're using Spring Boot 1.3.8 or older replace the FilterRegistrationBean with the line below
+> [!NOTE]
+> If you're using Spring Boot 1.3.8 or older replace the FilterRegistrationBean with the line below
+
 ```Java
     import org.springframework.boot.context.embedded.FilterRegistrationBean;
 ```
@@ -224,7 +228,6 @@ package devCamp.WebApp.configurations;
 This class will configure the `WebRequestTrackingFilter` to be the first filter on the http filter chain. It will also pull the instrumentation key from the operating system environment variable if it is available.
 
 > We are using the web http filter configuration rather than the Spring MVC configuration because this is a Spring Boot application, and it has its own Spring MVC configuration. See the sections below for Spring MVC specific configuration.
-
 
 ### Applications Using Web.xml
 Locate and open the web.xml file in your project, and merge the following code under the web-app node, where your application filters are configured.
@@ -243,6 +246,11 @@ To get the most accurate results, the filter should be mapped before all other f
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+   <!-- This listener handles shutting down the TelemetryClient when an application/servlet is undeployed. -->
+    <listener>
+      <listener-class>com.microsoft.applicationinsights.web.internal.ApplicationInsightsServletContextListener</listener-class>
+    </listener>
 ```
 
 #### If you're using Spring Web MVC 3.1 or later
@@ -397,6 +405,30 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 ### Unix performance counters
 * [Install collectd with the Application Insights plugin](app-insights-java-collectd.md) to get a wide variety of system and network data.
 
+## Local forwarder
+
+[Local forwarder](https://docs.microsoft.com/azure/application-insights/local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux.
+
+```xml
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+<DeveloperMode>false</DeveloperMode>
+<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+<!-- The properties below are optional. The values shown are the defaults for each property -->
+<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
+
+If you are using SpringBoot starter, add the following to your configuration file (application.properies):
+
+```yml
+azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
+azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
+azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
+```
+
+Default values are the same for SpringBoot application.properties and applicationinsights.xml configuration.
+
 ## Get user and session data
 OK, you're sending telemetry from your web server. Now to get the full 360-degree view of your application, you can add more monitoring:
 
@@ -445,7 +477,7 @@ You'll get charts of response times, plus email notifications if your site goes 
 [apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
+[eclipse]: /app-insights-java-quick-start.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md

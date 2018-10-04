@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/02/2018
 ms.author: juliako
 
 ---
@@ -44,8 +44,6 @@ Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.htm
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ### Silverlight Players
-#### Monitoring
-[http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
 #### PlayReady with Token
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)

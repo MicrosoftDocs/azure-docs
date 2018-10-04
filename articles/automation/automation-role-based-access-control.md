@@ -30,7 +30,7 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 | Log Analytics Contributor | The Log Analytics Contributor role allows you to read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs, reading storage account keys to be able to configure collection of logs from Azure storage, creating and configuring Automation accounts, adding solutions, and configuring Azure diagnostics on all Azure resources.|
 | Log Analytics Reader | The Log Analytics Reader role allows you to view and search all monitoring data as well as view monitoring settings. This includes viewing the configuration of Azure diagnostics on all Azure resources. |
 | Monitoring Contributor | The Monitoring Contributor role allows you to read all monitoring data and update monitoring settings.|
-| Monitoring Reader | The Montioring Reader role allows you to read all monitoring data. |
+| Monitoring Reader | The Monitoring Reader role allows you to read all monitoring data. |
 | User Access Administrator |The User Access Administrator role allows you to manage user access to Azure Automation accounts. |
 
 ## Role permissions
@@ -72,12 +72,21 @@ An Automation Operator is able to create and manage jobs, and read runbook names
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Read authorization.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Read Hybrid Runbook Worker Resources.|
 |Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook.|
 |Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused.|
 |Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress.|
 |Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output.|
+|Microsoft.Automation/automationAccounts/jobs/output/read|Get the Output of a job.|
 |Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress.|
 |Microsoft.Automation/automationAccounts/jobs/write|Create jobs.|
+|Microsoft.Automation/automationAccounts/jobSchedules/read|Get an Azure Automation job schedule.|
+|Microsoft.Automation/automationAccounts/jobSchedules/write|Create an Azure Automation job schedule.|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Get the workspace linked to the automation account.|
+|Microsoft.Automation/automationAccounts/read|Get an Azure Automation account.|
+|Microsoft.Automation/automationAccounts/runbooks/read|Get an Azure Automation runbook.|
+|Microsoft.Automation/automationAccounts/schedules/read|Get an Azure Automation schedule asset.|
+|Microsoft.Automation/automationAccounts/schedules/write|Create or update an Azure Automation schedule asset.|
 |Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments.         |
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |

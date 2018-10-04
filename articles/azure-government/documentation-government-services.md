@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 05/09/2018
+ms.date: 08/04/2018
 ms.author: gsacavdm
 
 ---
@@ -111,7 +111,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## Security + Identity
 | Generally Available | Preview |
 | --- | --- |
-| [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory) | |
+| [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)|[Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center)|
 | [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2) | |
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | |
 | [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication) | |
@@ -121,7 +121,7 @@ The **services available in Azure Government** are listed by category, as well a
 | --- | --- |
 | [Automation](documentation-government-services-monitoringandmanagement.md#automation)| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) |
 | [Backup](documentation-government-services-backup.md) | |
-| [Policy**](documentation-government-services-monitoringandmanagement.md#policy) | |
+| [Policy](documentation-government-services-monitoringandmanagement.md#policy) | |
 | [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | |
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | | 
 | [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) | |

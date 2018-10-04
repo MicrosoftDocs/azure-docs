@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: delhan
 
 ---
@@ -35,7 +35,7 @@ The following table lists several common devices and related help:
 |Cisco ASA  |[Community suggested solutions for Cisco ASA on Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Community suggested solutions for Cisco ISR on Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
 |Cisco ASR  |[Community suggested solutions for Cisco ASR on Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
-|Sonicwall |Search for **Azure VPN** on [Sonicwall site](https://support.sonicwall.com/search) |
+|Sonicwall |Search for **Azure VPN** on [Sonicwall site](https://www.sonicwall.com/en-us/support) |
 | Checkpoint	|Search for **Azure VPN** on [Checkpoint site](https://supportcenter.checkpoint.com/supportcenter/portal) |
 |Juniper |Search for **Azure VPN** on [Juniper site]( http://www.juniper.net/search/public/)|
 |Barracuda  |[Community suggested solutions for Barracuda on Azure VPN](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |

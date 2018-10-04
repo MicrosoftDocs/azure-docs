@@ -1,6 +1,6 @@
 ---
-title: Performance tuning guidance for using Powershell with Data Lake Store | Microsoft Docs
-description: Tips on how to improve performance when using Azure PowerShell with Data Lake Store
+title: Performance tuning guidance for using Powershell with Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Tips on how to improve performance when using Azure PowerShell with Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -14,9 +14,9 @@ ms.date: 01/09/2018
 ms.author: stewu
 
 ---
-# Performance tuning guidance for using PowerShell with Azure Data Lake Store
+# Performance tuning guidance for using PowerShell with Azure Data Lake Storage Gen1
 
-This article lists the properties that can be tuned to get a better performance while using PowerShell to work with Data Lake Store:
+This article lists the properties that can be tuned to get a better performance while using PowerShell to work with Azure Data Lake Storage Gen1:
 
 ## Performance-related properties
 
@@ -27,9 +27,9 @@ This article lists the properties that can be tuned to get a better performance 
 
 **Example**
 
-This command downloads files from Azure Data Lake Store to the user's local drive using 20 threads per file and 100 concurrent files.
+This command downloads files from Data Lake Storage Gen1 to the user's local drive using 20 threads per file and 100 concurrent files.
 
-	Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+	Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## How do I determine the value for these properties?
 
@@ -89,8 +89,8 @@ You can continue to tune these settings by changing the **PerFileThreadCount** u
 * **Throttling errors**: You may see throttling errors if your concurrency is too high. If you are seeing throttling errors, you should either reduce the concurrency or contact us.
 
 ## Next steps
-* [Use Azure Data Lake Store for big data requirements](data-lake-store-data-scenarios.md) 
-* [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-* [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Use Azure Data Lake Storage Gen1 for big data requirements](data-lake-store-data-scenarios.md) 
+* [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Use Azure HDInsight with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

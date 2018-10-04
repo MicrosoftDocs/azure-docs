@@ -1,27 +1,20 @@
 ---
-title: 'First look: Protect Azure VMs with a recovery services vault | Microsoft Docs'
+title: 'First look: Protect Azure VMs with a recovery services vault'
 description: Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs, Encrypted VMs, VMs on Managed Disks to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keyword: backups; vm backup
-
-ms.assetid: 45e773d6-c91f-4501-8876-ae57db517cd1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/18/2018
-ms.author: markgal;jimpark;sogup
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: markgal
 ms.custom: H1Hack27Feb2017
-
+keywords: backups; vm backup
 ---
 # Back up Azure virtual machines to Recovery Services vault
 
-This article explains how to configuring protection for a virtual machine from Virtual machines operations menu, or the Recovery Services vault. Recovery Services vaults protect:
+This article explains how to configure protection for a virtual machine from Virtual machines operations menu, or the Recovery Services vault. Recovery Services vaults protect:
 
 * Azure Resource Manager-deployed VMs
 * Classic VMs

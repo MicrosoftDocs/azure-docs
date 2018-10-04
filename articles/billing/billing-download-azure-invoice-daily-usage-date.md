@@ -2,22 +2,20 @@
 title: Download Azure billing invoice and daily usage data | Microsoft Docs
 description: Describes how to download or view your Azure billing invoice and daily usage data.
 keywords: billing invoice,invoice download,azure invoice,azure usage
-services: ''
+services: 'billing'
 documentationcenter: ''
 author: genlin
 manager: tonguyen
 editor: ''
 tags: billing
 
-ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.custom: H1Hack27Feb2017
+ms.author: cwatson
 
 ---
 # Download or view your Azure billing invoice and daily usage data
@@ -25,7 +23,10 @@ You can download your invoice from the [Azure portal](https://portal.azure.com/#
 
 This article does not apply to Enterprise Agreement (EA) customers. If you’re an EA customer, your invoices are sent directly to the Enrollment Administrators.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## Get your invoice in email (.pdf)
 You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open.
@@ -36,13 +37,18 @@ You can opt in and configure additional recipients to receive your Azure invoice
     
 2. Click **Opt in** and accept the terms.
 
-    ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+    ![Screenshot that shows the opt-in flow step 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
  
-3. Once you've accepted the agreement, you can configure additional recipients.
+3. Once you've accepted the agreement, you can configure additional recipients. When a recipient is removed, the email address is no longer stored. If you change your mind, you need to re-add them.
 
-    ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![Screenshot that shows the opt-in flow step 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
 If you don't get an email after following the steps, make sure your email address is correct in the [communication preferences on your profile](https://account.windowsazure.com/profile).
+
+### Opt out from getting your invoice in email
+If you don't want to get your invoice in email, click Opt out of emailed invoices. This removes any email addresses set to receive invoices in email. If you opt back in you will have to reconfigure recipients.
+
+ ![Screenshot that shows the opt-out flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ## Download invoice from Azure portal (.pdf)
 

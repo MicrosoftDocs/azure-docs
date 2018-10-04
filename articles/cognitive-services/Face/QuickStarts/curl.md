@@ -1,10 +1,11 @@
 ---
-title: Face API cURL quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you detect faces from an image using the Face API with cURL in Cognitive Services.
+title: "Quickstart: Detect faces in an image - Face API cURL"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you detect faces from an image using the Face API with cURL.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
@@ -15,9 +16,11 @@ ms.author: nolachar
 
 In this quickstart, you detect faces in an image using Face API.
 
+## Prerequisites
+
 You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
 
-## Face detect request
+## Detect faces in an image
 
 Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 method to detect faces in an image and return face attributes including:
@@ -36,6 +39,8 @@ To run the sample, do the following steps:
 5. Paste the code in the command window.
 6. Run the command.
 
+### Face - Detect request
+
 > [!NOTE]
 > You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the following URL with "westus".
 
@@ -43,7 +48,7 @@ To run the sample, do the following steps:
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-## Face detect response
+### Face - Detect response
 
 A successful response is returned in JSON.
 
@@ -139,5 +144,9 @@ A successful response is returned in JSON.
 ]
 ```
 
+## Next steps
+
+Explore the Face APIs used to detect human faces in an image, demarcate the faces with rectangles, and return attributes such as age and gender.
+
 > [!div class="nextstepaction"]
-> [Face API Reference](../APIReference.md)
+> [Face APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

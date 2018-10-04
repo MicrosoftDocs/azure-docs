@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 05/25/2018
 ms.author: jingwang
 
 robots: noindex
@@ -21,11 +21,11 @@ robots: noindex
 # Copy Activity performance and tuning guide
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-copy-activity-performance.md)
-> * [Version 2 - Preview](../copy-activity-performance.md)
+> * [Version 1](data-factory-copy-activity-performance.md)
+> * [Version 2 (current version)](../copy-activity-performance.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Copy activity performance and tuning guide for Data Factory version 2](../copy-activity-performance.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy activity performance and tuning guide for Data Factory](../copy-activity-performance.md).
 
 Azure Data Factory Copy Activity delivers a first-class secure, reliable, and high-performance data loading solution. It enables you to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Blazing-fast data loading performance is key to ensure you can focus on the core “big data” problem: building advanced analytics solutions and getting deep insights from all that data.
 
@@ -100,8 +100,8 @@ A **cloud data movement unit (DMU)** is a measure that represents the power (a c
 
 | Copy scenario | Default DMUs determined by service |
 |:--- |:--- |
-| Copy data between file-based stores | Between 2 and 16 depending on the number and size of the files. |
-| All other copy scenarios | 2 |
+| Copy data between file-based stores | Between 4 and 16 depending on the number and size of the files. |
+| All other copy scenarios | 4 |
 
 To override this default, specify a value for the **cloudDataMovementUnits** property as follows. The **allowed values** for the **cloudDataMovementUnits** property are 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 

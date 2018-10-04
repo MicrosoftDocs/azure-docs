@@ -1,20 +1,15 @@
 ---
 title: Control a device from Azure IoT Hub quickstart (Node.js) | Microsoft Docs
 description: In this quickstart, you run two sample Node.js applications. One application is a back-end application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
-ms.devlang: node
+services: iot-hub
+ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: dobett
-
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
@@ -132,9 +127,8 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
 ## Clean up resources
 
-If you plan to move on to the tutorials, leave the resource group and IoT hub and reuse them later.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and click **Delete**.
 
 ## Next steps
 
@@ -143,4 +137,4 @@ In this quickstart, you've called a direct method on a device from a back-end ap
 To learn how to route device-to-cloud messages to different destinations in the cloud, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Route telemetry to different endpoints for processing](iot-hub-node-node-process-d2c.md)
+> [Tutorial: Route telemetry to different endpoints for processing](tutorial-routing.md)

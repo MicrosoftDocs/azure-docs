@@ -1,10 +1,11 @@
 ---
-title: Face API Java quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you detect faces from an image using the Face API with Java in Cognitive Services.
+title: "Quickstart: Detect faces in an image - Face API, Java"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you detect faces from an image using the Face API with Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
@@ -13,11 +14,13 @@ ms.author: nolachar
 ---
 # Quickstart: Detect faces in an image using Java
 
-In this quickstart, you detect faces in an image using the Face API.
+In this quickstart, you detect human faces in an image using the Face API.
+
+## Prerequisites
 
 You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
 
-## Face detect request
+## Detect faces in an image
 
 Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 method to detect faces in an image and return face attributes including:
@@ -29,7 +32,7 @@ method to detect faces in an image and return face attributes including:
 
 To run the sample, do the following steps:
 
-1. Create a new Command Line App in your favorite Java IDE.
+1. Create a new command-line app in your favorite Java IDE.
 2. Replace the Main class with the following code (keep any `package` statements).
 3. Replace `<Subscription Key>` with your valid subscription key.
 4. Change the `uriBase` value to use the location where you obtained your subscription keys, if necessary.
@@ -37,6 +40,8 @@ To run the sample, do the following steps:
    * `org.apache.httpcomponents:httpclient:4.2.4`
    * `org.json:json:20170516`
 6. Run 'Main'.
+
+### Face - Detect request
 
 ```java
 // This sample uses Apache HttpComponents:
@@ -132,7 +137,7 @@ public class Main
 }
 ```
 
-## Face detect response
+### Face - Detect response
 
 A successful response is returned in JSON.
 
@@ -225,6 +230,10 @@ A successful response is returned in JSON.
   "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f"
 }]
 ```
+
+## Next steps
+
+Learn how to create an Android application that uses the Face service to detect faces in an image. The application displays the image with a frame drawn around each face.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Getting Started with Face API in Android](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

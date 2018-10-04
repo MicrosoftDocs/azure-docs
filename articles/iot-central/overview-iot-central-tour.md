@@ -1,23 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: As a builder, become familiar with the key areas of the Azure IoT Central UI that you use to create an IoT solution.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
-ms.date: 4/13/2018
+ms.date: 04/13/2018
 ms.topic: overview
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-manager: timlt
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
 ---
 
 # Take a tour of the Azure IoT Central UI
@@ -43,7 +34,7 @@ Use the left navigation menu to access the different areas of the application:
 
 | Menu | Description |
 | ---- | ----------- |
-| ![Left navigation menu](media/overview-iot-central-tour/navigationbar.png) | <ul><li>The **Home** button displays the home page of your application. As a builder, you can customize this home page for your operators.</li><li>The **Device Explorer** button lists both the device templates defined in your application, and the simulated and real devices associated with each device template. As an operator, you use the **Device Explorer** to manage your connected devices.</li><li>The **Device Sets** button enables you to view and create device sets. As an operator, you can create device sets as a logical collection of devices specified by a query.</li><li>The **Analytics** button shows analytics derived from device telemetry for devices and device sets. As an operator, you can create custom views on top of device data to derive insights from your application.</li><li>The **Application Builder** button shows the tools a builder uses, such as the **Create Device Template** tool.</li><li>The **Administration** button shows the application administration pages where an administrator can manage application settings, users, and roles.</li></ul> |
+| ![Left navigation menu](media/overview-iot-central-tour/navigationbar.png) | <ul><li>The **Home** button displays the home page of your application. As a builder, you can customize this home page for your operators.</li><li>The **Device Explorer** button lists both the device templates defined in your application, and the simulated and real devices associated with each device template. As an operator, you use the **Device Explorer** to manage your connected devices.</li><li>The **Device Sets** button enables you to view and create device sets. As an operator, you can create device sets as a logical collection of devices specified by a query.</li><li>The **Analytics** button shows analytics derived from device telemetry for devices and device sets. As an operator, you can create custom views on top of device data to derive insights from your application.</li><li>The **Jobs** button enables bulk device management by having you create and run jobs to perform updates at scale.</li><li>The **Application Builder** button shows the tools a builder uses, such as the **Create Device Template** tool.</li><li>The **Administration** button shows the application administration pages where an administrator can manage application settings, users, and roles.</li></ul> |
 
 ## Search, help, and support
 
@@ -85,6 +76,12 @@ The _device sets_ page shows device sets created by the builder. A device set is
 ![Analytics page](media/overview-iot-central-tour/analytics.png)
 
 The analytics page shows charts that help you understand how the devices connected to your application are behaving. An operator uses this page to monitor and investigate issues with connected devices. The builder can define the charts shown on this page. To learn more, see the [Create custom analytics for your Azure IoT Central application](howto-create-analytics.md) article.
+
+## Jobs
+
+![Jobs page](media/overview-iot-central-tour/jobs.png)
+
+The jobs page allows you to perform bulk device management operations onto your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](howto-run-a-job.md) article.
 
 ## Application Builder
 

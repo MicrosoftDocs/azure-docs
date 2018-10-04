@@ -1,19 +1,11 @@
 ---
-title: Azure Resource Manager templates for Azure Backup | Microsoft Docs
+title: Azure Resource Manager templates for Azure Backup
 description: Azure Backup PowerShell Samples
 services: backup
-documentationcenter:
 author: markgalioto
 manager: carmonm
-editor:
-tags:
-
-ms.assetid:
 ms.service: backup
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 04/18/2018
 ms.author: markgal
 ms.custom: mvc

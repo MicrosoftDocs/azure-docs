@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 06/06/2018
 ms.author: barclayn
 
 ---
@@ -89,7 +89,7 @@ for autoscaling capabilities.
 The idea behind defense in depth is to manage risk by using diverse defensive strategies. Layering security defenses in an application reduces the chance of a successful attack. We recommend that you implement secure designs for your applications by using the built-in capabilities of the Azure platform.
 
 For example, the risk of attack increases with the size (*surface area*) of the application. You can reduce the surface area by using whitelisting to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) and [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)). [Network security groups (NSGs)](../virtual-network/security-overview.md) are another way to reduce the attack surface.
-You can use [service tags](/virtual-network/security-overview.md#service-tags) and [application security groups](/virtual-network/security-overview.md#application-security-groups) to minimize complexity for creating security rules and configuring network security, as a natural extension of an application’s structure.
+You can use [service tags](../virtual-network/security-overview.md#service-tags) and [application security groups](../virtual-network/security-overview.md#application-security-groups) to minimize complexity for creating security rules and configuring network security, as a natural extension of an application’s structure.
 
 You should deploy Azure services in a [virtual network](../virtual-network/virtual-networks-overview.md) whenever possible. This practice allows service resources to communicate through private IP addresses. Azure service traffic from a virtual network uses public IP addresses as source IP addresses by default. Using [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) will switch service traffic to use virtual network private addresses as the source IP addresses when they're accessing the Azure service from a virtual network.
 
@@ -127,7 +127,7 @@ The Azure DDoS Protection Basic service helps protect customers and prevent impa
 
 #### DDoS Protection telemetry, monitoring, and alerting
 
-DDoS Protection Standard exposes rich telemetry via [Azure Monitor](/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) for the duration of a DDoS attack. You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+DDoS Protection Standard exposes rich telemetry via [Azure Monitor](../azure-monitor/overview.md) for the duration of a DDoS attack. You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 ##### DDoS mitigation policies
 
@@ -296,18 +296,9 @@ In this architecture, traffic destined to the HDInsight cluster from the interne
 For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json)
 documentation.
 
-### Azure API Management
-
-This reference architecture helps protect the public endpoint of the [Azure API Management](../api-management/api-management-key-concepts.md) resource publishing APIs to customers outside the organization. Deploy API Management in an external virtual network to enable DDoS Protection.
-
-![Diagram of the reference architecture for API Management](media/azure-ddos-best-practices/image15.png)
-
-When you configure the external virtual network, the API Management gateway and developer portal are accessible from the public internet via a public load balancer. In this architecture, DDoS Protection Standard is enabled on the external virtual network for API Management. Traffic is routed from the internet to the public IP address of API Management, which is protected against network attacks on Layer 3 and 4. To protect against Layer 7 HTTP/HTTPS attacks, you can configure Application Gateway in WAF mode.
-
-For a list of additional services that are deployed in a virtual network and can be configured for DDoS Protection Standard, see [this article](../virtual-network/virtual-network-for-azure-services.md). DDoS Protection Standard supports only Azure Resource Manager resources. 
 
 > [!NOTE]
-> Injected deployment of App Service Environment for PowerApps in a virtual network with a public IP is not natively supported. For details on protecting App Service Environment, see this section.
+> Azure App Service Environment for PowerApps or API management in a virtual network with a public IP are both not natively supported.
 
 ## Next steps
 

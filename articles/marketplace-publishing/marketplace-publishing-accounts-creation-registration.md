@@ -1,10 +1,10 @@
-﻿---
+---
 title: Creating and registering the publisher account | Microsoft Docs
 description: Instructions for creating a Microsoft Developer account so, upon approval, you can sell various offer types on the Azure Marketplace.
 services: Azure Marketplace
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: mbaldwin
+ms.author: hascipio
 
 ---
 # Create a Microsoft Developer account

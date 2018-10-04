@@ -3,7 +3,7 @@ title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: This article provides an overview of IT Service Management Connector (ITSMC) and information about how to use this solution to centrally monitor and manage the ITSM work items in Azure Log Analytics, and resolve any issues quickly.  
 services: log-analytics
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
@@ -11,10 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: v-jysur
+ms.component: 
 ---
+
 # Connect Azure to ITSM tools using IT Service Management Connector
 
 ![IT Service Management Connector symbol](./media/log-analytics-itsmc/itsmc-symbol.png)
@@ -93,7 +95,7 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
 
     > [!NOTE]
 
-    > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the "Refresh" button displayed next to your connection.
+    > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the **Sync** button on your connection's blade.
 
     ![Connection refresh](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
 
@@ -132,58 +134,6 @@ When creating/editing an Azure alert rule, use an Action group, which has an ITS
 >[!NOTE]
 
 > For information on pricing of ITSM Action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for Action Groups.
-
-
-## Create ITSM work items from Log Analytics alerts
-
-You can configure alert rules in Azure Log Analytics portal to create work items in ITSM tool, using the following procedure.
-
-1. From **Log Search** window, run a log search query to view data. Query results are the source for work items.
-2. In **Log Search**, click **Alert** to open the **Add Alert Rule** page.
-
-    ![Log Analytics screen](./media/log-analytics-itsmc/itsmc-work-items-for-azure-alerts.png)
-
-3. On the **Add Alert Rule** window, provide the required details for **Name**, **Severity**,  **Search query**, and **Alert criteria** (Time Window/Metric measurement).
-4. Select **Yes** for **ITSM Actions**.
-5. Select your ITSM connection from the **Select Connection** list.
-6. Provide the details as required.
-7. To create a separate work item for each log entry of this alert, select the **Create individual work items for each log entry** checkbox.
-
-    Or
-
-    leave this checkbox unselected to create only one work item for any number of log entries under this alert.
-
-7. Click **Save**.
-
-You can view the  Log Analytics alert that you created under **Settings>Alerts**. The corresponding ITSM connection's work items are created when the specified alert's condition is met.
-
-
-## Create ITSM work items from Log Analytics log records
-
-You can also create work items in the connected ITSM sources directly from a log record. This can be used to test if the connection is working properly.
-
-
-1. From **Log Search**,  search the required data, select the detail, and click **Create work item**.
-
-    The **Create ITSM Work Item** window appears:
-
-    ![Log Analytics screen](media/log-analytics-itsmc/itsmc-work-items-from-azure-logs.png)
-
-2.   Add the following details:
-
-  - **Work item Title**: Title for the work item.
-  - **Work item Description**: Description for the new work item.
-  - **Affected Computer**: Name of the computer where this log data was found.
-  - **Select Connection**:  ITSM connection in which you want to create this work item.
-  - **Work item**:  Type of work item.
-
-3. To use an existing work item template for an incident, click **Yes** under **Generate Work item based on Template** option and then click **Create**.
-
-    Or,
-
-    Click **No** if you want to provide your customized values.
-
-4. Provide the appropriate values in the **Contact Type**, **Impact**, **Urgency**, **Category**, and **Sub Category** text boxes, and then click **Create**.
 
 
 ## Visualize and analyze the incident and change request data

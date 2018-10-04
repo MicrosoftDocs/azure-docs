@@ -9,23 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 09/13/2018
 ms.author: jingwang
 
 ---
 # Copy data from Amazon Simple Storage Service using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-amazon-simple-storage-service-connector.md)
-> * [Version 2 - Preview](connector-amazon-simple-storage-service.md)
+> * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
+> * [Current version](connector-amazon-simple-storage-service.md)
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data to and from Azure Blob Storage. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Amazon S3 connnector in V1](v1/data-factory-amazon-simple-storage-service-connector.md).
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Amazon S3. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
-You can copy data from any supported source data store to Azure Data Lake Store, or copy data from Azure Data Lake Store to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data Amazon S3 to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Amazon S3 connector supports copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
@@ -34,7 +31,10 @@ Specifically, this Amazon S3 connector supports copying files as-is or parsing f
 To copy data from Amazon S3, make sure you have been granted the following permissions:
 
 - `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 Object Operations.
-- `s3:ListBucket` or `s3:GetBucketLocation` for Amazon S3 Bucket Operations. If you are using the Data Factory Copy Wizard, `s3:ListAllMyBuckets` is also required.
+- `s3:ListBucket` or `s3:GetBucketLocation` for Amazon S3 Bucket Operations. 
+
+>[!NOTE]
+>When using Data Factory GUI for authoring, `s3:ListAllMyBuckets` permission is also required for operations like test connection and browse/navigate file paths. If you don't want to grant this permission, skip test connection in linked service creation page and speicify the path directly in dataset settings.
 
 For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -91,7 +91,7 @@ To copy data from Amazon S3, set the type property of the dataset to **AmazonS3O
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **AmazonS3Object** |Yes |
 | bucketName | The S3 bucket name. Wildcard filter is not supported. |Yes |
-| key | The **name or wildcard filter** of S3 object key under the specified bucket. Applies only when "prefix" property is not specified. <br/><br/>The wildcard filter is only supported for file name part but not folder part. Allowed wildcards are: `*` (multiple characters) and `?` (single character).<br/>- Example 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Example 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside. |No |
+| key | The **name or wildcard filter** of S3 object key under the specified bucket. Applies only when "prefix" property is not specified. <br/><br/>The wildcard filter is only supported for file name part but not folder part. Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Example 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside. |No |
 | prefix | Prefix for the S3 object key. Objects whose keys start with this prefix are selected. Applies only when "key" property is not specified. |No |
 | version | The version of the S3 object, if S3 versioning is enabled. |No |
 | format | If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](supported-file-formats-and-compression-codecs.md#text-format), [Json Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
@@ -159,7 +159,7 @@ To copy data from Amazon S3, set the type property of the dataset to **AmazonS3O
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure Data Lake source and sink.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Amazon S3 source.
 
 ### Amazon S3 as source
 

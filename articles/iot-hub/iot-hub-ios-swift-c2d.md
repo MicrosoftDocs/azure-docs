@@ -1,22 +1,15 @@
 ---
 title: Cloud-to-device messages with Azure IoT Hub (iOS) | Microsoft Docs
 description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for iOS. 
-services: iot-hub
-documentationcenter: 
 author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-
 ---
+
 # Send cloud-to-device messages with IoT Hub (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -51,7 +44,7 @@ To complete this tutorial, you need the following:
 ## Simulate an IoT device
 In this section, you simulate an iOS device running a Swift application to receive cloud-to-device messages from the IoT hub. 
 
-This is the sample sample device that you create in the article [Send telemetry from a device to an IoT hub]. If you already have that running, you can skip this section.
+This is the sample device that you create in the article [Send telemetry from a device to an IoT hub]. If you already have that running, you can skip this section.
 
 ### Install CocoaPods
 
@@ -180,6 +173,5 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
 [Azure IoT Remote Monitoring solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/

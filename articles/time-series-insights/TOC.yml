@@ -14,6 +14,10 @@
   items:
   - name: Explore TSI JavaScript client library
     href: tutorial-explore-js-client-lib.md
+  - name: Create a TSI environment
+    href: tutorial-create-populate-tsi-environment.md
+  - name: Create a TSI single-page web app
+    href: tutorial-create-tsi-sample-spa.md    
 - name: Concepts
   items:
   - name: Plan your environment
@@ -56,6 +60,8 @@
     href: time-series-insights-how-to-scale-your-environment.md
   - name: Manage resources using templates
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
+  - name: Shape JSON for queries
+    href: how-to-shape-query-json.md     
 - name: Reference
   items:
   - name: Query API
@@ -95,7 +101,7 @@
   - name: Customer data requests
     href: time-series-insights-customer-data-requests.md
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=internet-of-things
+    href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/time-series-insights/
   - name: Pricing calculator

@@ -29,6 +29,9 @@ The following example adds a web app as a back-end pool member to an existing ap
 # FQDN of the web app
 $webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
 
+# Retrieve existing resource group
+$rg = Get-AzureRmResourceGroup -Name "<enter your application gateway resource group name here>"
+
 # Retrieve an existing application gateway
 $gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
 

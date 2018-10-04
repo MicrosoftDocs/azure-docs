@@ -1,18 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI) dynamically by using custom policies'
+title: Customize the Azure Active Directory B2C user interface (UI) dynamically by using custom policies | Microsoft Docs
 description: Support multiple branding experiences with HTML5/CSS content that changes dynamically at runtime.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Configure the UI with dynamic content by using custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]

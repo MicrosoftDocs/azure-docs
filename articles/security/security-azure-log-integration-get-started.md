@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/21/2018
-ms.author: TomSh
+ms.date: 06/07/2018
+ms.author: barclayn
 ms.custom: azlog
 
 ---
 # Azure Log Integration with Azure Diagnostics logging and Windows event forwarding
 
+
 >[!IMPORTANT]
-> The Azure Log integration feature will be deprecated by 5/30/2019.  Please read about this in the [Introduction to Azure Log Integration](security-azure-log-integration-overview.md) topic before proceeding.
+> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads will be disabled by Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 You should only use Azure log integration if an [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector isn't available from your Security Incident and Event Management (SIEM) vendor.
 
@@ -228,6 +229,7 @@ The Azure Activity Log is a subscription log that provides insight into subscrip
 Example:
 
 ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+
 4.	Check the following folders to confirm that the Azure Active Directory audit log JSON files are created in them:
     - C:\Users\azlog\AzureResourceManagerJson
     - C:\Users\azlog\AzureResourceManagerJsonLD

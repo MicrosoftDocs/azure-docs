@@ -61,15 +61,13 @@
       href: backup-mabs-protection-matrix.md
     - name: Install or upgrade
       items:
-      - name: Prepare Azure Backup Server workloads in Azure portal
-        href: backup-azure-microsoft-azure-backup.md
-      - name: Install Azure Backup Server on Azure Stack
-        href: backup-mabs-install-azure-stack.md        
-      - name: Add storage to Azure Backup Server
+      - name: Install Azure Backup Server
+        href: backup-azure-microsoft-azure-backup.md        
+      - name: Add storage
         href: backup-mabs-add-storage.md
-      - name: Upgrade Azure Backup Server to v.2
+      - name: Upgrade to v.2
         href: backup-mabs-upgrade-to-v2.md
-      - name: Unattended installation of Azure Backup Server
+      - name: Unattended installation
         href: backup-mabs-unattended-install.md
     - name: Protect workloads
       items:
@@ -83,10 +81,18 @@
         href: backup-azure-sql-mabs.md
       - name: Protect system state and bare metal recovery
         href: backup-mabs-system-state-and-bmr.md
-      - name: Files and Applications on Azure Stack
-        href: backup-mabs-files-applications-azure-stack.md 
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
+  - name: Azure Backup Server on Azure Stack
+    items:
+    - name: Install Azure Backup Server
+      href: backup-mabs-install-azure-stack.md
+    - name: Protect files and applications
+      href: backup-mabs-files-applications-azure-stack.md
+    - name: Protect SharePoint farm
+      href: backup-mabs-sharepoint-azure-stack.md
+    - name: Protect SQL Server database
+      href: backup-mabs-sql-azure-stack.md
   - name: Azure File shares
     items:
     - name: Back up Azure File shares
@@ -139,6 +145,8 @@
       href: backup-azure-reports-data-model.md
     - name: Log Analytics data model for Azure Backup
       href: backup-azure-log-analytics-data-model.md
+    - name: Updating Azure Backup Central Reporting Content Pack 
+      href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:
     - name: Prepare DPM workloads in Azure portal
@@ -159,12 +167,10 @@
       href: backup-dpm-automation.md
     - name: Windows Server in Azure portal
       href: backup-client-automation.md
-  - name: Azure SQL Database
+  - name: SQL on Azure VMs
     items:
-    - name: Configure and restore SQL Database backups - SQL storage
-      href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
-    - name: Configure and restore SQL Database backups - Recovery Services vault
-      href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
+    - name: Back up SQL database in Azure
+      href: backup-azure-sql-database.md
   - name: Windows Server
     items:
     - name: Back up Windows Server files and folders
@@ -201,11 +207,13 @@
       href: backup-azure-mars-troubleshoot.md
     - name: Azure File share
       href: troubleshoot-azure-files.md
+    - name: SQL Server
+      href: backup-sql-server-azure-troubleshoot.md
 - name: Reference
   items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/backup?view=azure-cli-latest
   - name: PowerShell
     href: /powershell/module/azurerm.recoveryservices.backup

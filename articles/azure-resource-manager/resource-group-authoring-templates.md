@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
 
 ---
-# Understand the structure and syntax of Azure Resource Manager templates
+# Understand the structure and syntax of Azure Resource Manager Templates
 This article describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions that you can use to construct values for your deployment. For a step-by-step tutorial on creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
 
 ## Template format
-In its simplest structure, a template contains the following elements:
+In its simplest structure, a template has the following elements:
 
 ```json
 {
@@ -29,7 +29,7 @@ In its simplest structure, a template contains the following elements:
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
-    "functions": {  },
+    "functions": [  ],
     "resources": [  ],
     "outputs": {  }
 }
@@ -38,14 +38,14 @@ In its simplest structure, a template contains the following elements:
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | $schema |Yes |Location of the JSON schema file that describes the version of the template language. Use the URL shown in the preceding example. |
-| contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
+| contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
 | parameters |No |Values that are provided when deployment is executed to customize resource deployment. |
 | variables |No |Values that are used as JSON fragments in the template to simplify template language expressions. |
 | functions |No |User-defined functions that are available within the template. |
 | resources |Yes |Resource types that are deployed or updated in a resource group. |
 | outputs |No |Values that are returned after deployment. |
 
-Each element contains properties you can set. The following example contains the full syntax for a template:
+Each element has properties you can set. The following example shows the full syntax for a template:
 
 ```json
 {
@@ -173,7 +173,7 @@ The following example shows how to use several functions when constructing a val
 For the full list of template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md). 
 
 ## Parameters
-In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You do not have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
+In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You don't have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
 
 The following example shows a simple parameter definition:
 
@@ -191,7 +191,7 @@ The following example shows a simple parameter definition:
 For information about defining parameters, see [Parameters section of Azure Resource Manager templates](resource-manager-templates-parameters.md).
 
 ## Variables
-In the variables section, you construct values that can be used throughout your template. You do not need to define variables, but they often simplify your template by reducing complex expressions.
+In the variables section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions.
 
 The following example shows a simple variable definition:
 
@@ -205,11 +205,13 @@ For information about defining variables, see [Variables section of Azure Resour
 
 ## Functions
 
-Within your template, you can create your own functions. These functions are available for use in your template. Typically, you define complicated expression that you do not want to repeat throughout your template. You create the user-defined functions from expressions and [functions](resource-group-template-functions.md) that are supported in templates.
+Within your template, you can create your own functions. These functions are available for use in your template. Typically, you define complicated expression that you don't want to repeat throughout your template. You create the user-defined functions from expressions and [functions](resource-group-template-functions.md) that are supported in templates.
 
 When defining a user function, there are some restrictions:
 
 * The function can't access variables.
+* The function can't access template parameters. That is, the [parameters function](resource-group-template-functions-deployment.md#parameters) is restricted to function parameters.
+* The function can't call other user-defined functions.
 * The function can't use the [reference function](resource-group-template-functions-resource.md#reference).
 * Parameters for the function can't have default values.
 
@@ -257,7 +259,7 @@ You call the function with:
 ```
 
 ## Resources
-In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you are deploying to provide the right values.
+In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you're deploying to provide the right values.
 
 ```json
 "resources": [
@@ -293,7 +295,7 @@ For more information, see [Outputs section of Azure Resource Manager templates](
 
 Limit the size of your template to 1 MB, and each parameter file to 64 KB. The 1-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
 
-You are also limited to:
+You're also limited to:
 
 * 256 parameters
 * 256 variables
@@ -307,4 +309,4 @@ You can exceed some template limits by using a nested template. For more informa
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
 * To combine multiple templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-* You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
+* For recommendations on creating Resource Manager templates that you can use across global Azure, Azure sovereign clouds, and Azure Stack, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
