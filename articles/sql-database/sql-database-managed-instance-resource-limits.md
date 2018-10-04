@@ -18,7 +18,7 @@ ms.date: 10/03/2018
 This article provides an overview of the Azure SQL Database Managed Instance resource limits and provides information how to create request to increase default regional subscription limits. 
 
 > [!NOTE]
-> For other Managed Instance limitations, see [vCore-based purchasing model](sql-database-managed-instance.md#vcore-based-purchasing-model) and [Managed Instance service tiers](sql-database-managed-instance.md#managed-instance-service-tiers).
+> For other Managed Instance limitations, see [vCore-based purchasing model](sql-database-managed-instance.md#vcore-based-purchasing-model) and [Managed Instance service tiers](sql-database-managed-instance.md#managed-instance-service-tiers). For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md).
 
 ## Instance-level resource limits
 
@@ -33,7 +33,7 @@ Azure SQL Database Managed Instance can be deployed on two hardware generation (
 | Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread) |
 | Compute | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memory | 7 GB per vCore | 5.5 GB per vCore |
-| Max storage (Business Critical) | 1TB | 1TB, 2TB, 4TB depending on the number of cores |
+| Max storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 ### Service tier characteristics
 
@@ -93,7 +93,7 @@ These limits can be increased by creating special [support request in the Azure 
 [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) subscriptions can have combinations of GP and BC instances. However, there are some constraints regarding the placement of the instances in the subnets.
 
 > [!Note] 
-> [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) and [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) can have either on BC instance or up to 4 GP instances.
+> [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) and [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) subscription types can have either one Business Critical or up to 4 General Purpose instances.
 
 The following examples cover deployment cases with non-empty subnets and mixed GP and BC service tiers.
 
@@ -108,7 +108,7 @@ The following examples cover deployment cases with non-empty subnets and mixed G
 
 ## Obtaining a larger quota for SQL Managed Instance
 
-If you need more Managed Instances in your current regions, you can sent the support request to extend the quota. 
+If you need more Managed Instances in your current regions, you can send the support request to extend the quota using Azure portal. 
 To initiate the process of obtaining a larger quota:
 
 1. Open **Help + support**, and click **New support request**. 
