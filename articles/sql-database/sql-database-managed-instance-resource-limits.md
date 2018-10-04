@@ -88,7 +88,7 @@ These limits can be increased by creating special [support request in the Azure 
 > [!IMPORTANT]
 > When planning your deployments, consider that a Business Critical (BC) instance (due to added redundancy) generally consumes 4x more capacity than a General Purpose (GP) instance. So, for your calculations, 1 GP instance = 1 instance unit and 1 BC instance = 4 instance units. To simplify your consumption analysis against the default limits, summarize the instance units across all subnets in the region where Managed Instances are deployed and compare the results with the instance unit limits for your subscription type.
 
-## Strategies for deployng mixed GP and BC instances
+## Strategies for deploying mixed General Purpose and Business Critical instances
 
 [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) subscriptions can have combinations of GP and BC instances. However, there are some constraints regarding the placement of the instances in the subnets.
 
