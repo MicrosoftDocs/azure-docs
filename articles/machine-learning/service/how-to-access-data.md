@@ -68,8 +68,8 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 You can also get all the datastores for a workspace:
 ```Python
 datastores = ws.datastores()
-for name, ds in datastores.items(),
-    print(name, ds.datastore_type)"
+for name, ds in datastores.items():
+    print(name, ds.datastore_type)
 ```
 
 For convenience, if you would like to set one of your registered datastores as the default datastore for your workspace, you can do so as follows:
