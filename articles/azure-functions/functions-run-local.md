@@ -176,7 +176,7 @@ For more information, see [Azure Functions triggers and bindings concepts](funct
 
 ## Local settings file
 
-The file local.settings.json stores app settings, connection strings, and settings for Azure Functions Core Tools. It has the following structure:
+The file local.settings.json stores app settings, connection strings, and settings for Azure Functions Core Tools. Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure. Note that values in **ConnectionStrings** are never published. The file has the following structure:
 
 ```json
 {
@@ -213,8 +213,6 @@ The function app settings values can also be read in your code as environment va
 + [F#](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
-
-Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure. Values in **ConnectionStrings** are never published.
 
 When no valid storage connection string is set for **AzureWebJobsStorage** and the emulator isn't being used, the following error message is shown:  
 
@@ -421,7 +419,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publish to Azure
 
-Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x.
+Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x. You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create).
 
 In version 2.x, you must have [registered your extensions](#register-extensions) in your project before publishing. Projects that require compilation should be built so that the binaries can be deployed.
 
@@ -440,13 +438,8 @@ This command publishes to an existing function app in Azure. An error occurs whe
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
 
 >[!IMPORTANT]  
-> When you create a function app in Azure, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, add the application setting `FUNCTIONS_EXTENSION_VERSION=~1`.  
-Use the following Azure CLI code to add this setting to your function app:
-
-```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup --settings FUNCTIONS_EXTENSION_VERSION=~1
-```
+> When you create a function app in the Azure portal, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#run-on-version-1x).  
+> You can't change the runtime version for a function app that has existing functions.
 
 You can use the following publish options, which apply for both versions, 1.x and 2.x:
 
