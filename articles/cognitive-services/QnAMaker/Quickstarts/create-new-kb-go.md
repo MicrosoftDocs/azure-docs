@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create knowledge base - REST, Go - QnA Maker"
 titlesuffix: Azure Cognitive Services 
-description: This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
+description: This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from data sources.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -14,8 +14,6 @@ ms.author: diberry
 ---
 
 # Quickstart: Create a QnA Maker knowledge base in Go
-
-## Prerequisites
 
 This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
 
@@ -34,7 +32,7 @@ Create a file named `create-new-knowledge-base.go`.
 
 ## Add the required dependencies
 
-At the top of `create-new-knowledge-base.js`, add the following lines to add necessary dependencies to the project:
+At the top of `create-new-knowledge-base.go`, add the following lines to add necessary dependencies to the project:
 
 ```go
 package main
