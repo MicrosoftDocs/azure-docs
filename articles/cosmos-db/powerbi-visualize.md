@@ -150,7 +150,6 @@ The following shows the basic steps of creating a simple interactive Map view re
 5. You should now see the Map visual showing a set of bubbles indicating the location of each volcano with the size of the bubble correlating to the elevation of the volcano.
 6. You now have created a basic report.  You can further customize the report by adding more visualizations.  In our case, we added a Volcano Type slicer to make the report interactive.  
    
-    ![Screenshot of the final Power BI Desktop report upon completion of the Power BI tutorial for Azure Cosmos DB](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 7. On the File menu, click **Save** and save the file as PowerBITutorial.pbix.
 
 ## Publish and share your report
