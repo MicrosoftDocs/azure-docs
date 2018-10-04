@@ -72,4 +72,4 @@ Use the DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/micr
 Read more about Azure Digital Twins' data processing and User-Defined Functions capabilities:
 
 > [!div class="nextstepaction"]
-> [Azure Digital Twins Data Processing and User-Defined Functions] (concepts-user-defined-functions.md)
+> [Azure Digital Twins Data Processing and User-Defined Functions](concepts-user-defined-functions.md)

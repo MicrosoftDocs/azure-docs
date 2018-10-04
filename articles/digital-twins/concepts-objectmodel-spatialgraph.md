@@ -94,12 +94,12 @@ All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azu
 Read more about device connectivity and how to send telemetry messages to Azure Digital Twins service:
 
 > [!div class="nextstepaction"]
-> [Azure Digital Twins Device Connectivity and Telemetry Ingress] (concepts-device-ingress.md)
+> [Azure Digital Twins Device Connectivity and Telemetry Ingress](concepts-device-ingress.md)
 
 Read more about Management API limitations and throttles:
 
 > [!div class="nextstepaction"]
-> [Azure Digital Twins API Management and Limitations] (concepts-service-limits.md)
+> [Azure Digital Twins API Management and Limitations](concepts-service-limits.md)
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png
