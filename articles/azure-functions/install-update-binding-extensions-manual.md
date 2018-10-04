@@ -18,7 +18,9 @@ ms.author: glenga
 
 The Azure Functions version 2.x runtime uses binding extensions to implement code for triggers and bindings. Binding extensions are provided in NuGet packages. To register an extension, you essentially install a package. When developing functions, the way that you install binding extensions depends on the development environment. For more information, see [Register binding extensions](functions-triggers-bindings.md#register-binding-extensions) in the triggers and bindings article.
 
-Sometimes you need to manually install or update your binding extensions in the Azure portal. For example, you may need to update a registered binding to a newer version. You may also need to register a supported binding that can't be installed in the **Integrate** tab in the portal THe Blafengar.
+Sometimes you need to manually install or update your binding extensions in the Azure portal. For example, you may need to update a registered binding to a newer version. You may also need to register a supported binding that can't be installed in the **Integrate** tab in the portal.
+
+## Install a binding extension
 
 Use the following steps to manually install or update extensions from the portal.
 
