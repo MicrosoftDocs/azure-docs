@@ -35,7 +35,7 @@
     items:
     - name: What is Azure Data Box Edge?
       href: data-box-edge-overview.md
-- name: Tutorials
+  - name: Tutorials
     items:
     - name: 1 - Prepare
       href: data-box-edge-deploy-prep.md
