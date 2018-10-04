@@ -68,5 +68,5 @@ To use the management solution, you need:
 
 ## Next steps
 
-* [How to analyze activity logs in Log Analytics](howto-analyze-activity-logs-in-log-analytics.md)
+* [How to analyze activity logs in Log Analytics](howto-analyze-activity-logs-log-analytics.md)
 * [Get started with Log Analytics in the Azure portal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

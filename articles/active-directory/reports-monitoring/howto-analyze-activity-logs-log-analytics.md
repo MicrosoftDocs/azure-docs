@@ -37,7 +37,7 @@ To follow along, you need:
 
 2. Select **Azure Active Directory**, and then select **Logs** from the **Monitoring** section to open your Log Analytics workspace. The workspace will open with a default query.
 
-    ![Default query](./media/howto-analyze-activity-logs-in-log-analytics/defaultquery.png)
+    ![Default query](./media/howto-analyze-activity-logs-log-analytics/defaultquery.png)
 
 
 ## View the schema for Azure AD activity logs
@@ -47,8 +47,8 @@ The logs are pushed to the **AuditLogs** and **SigninLogs** tables in the worksp
 1. From the default query view in the previous section, select **Schema** and expand the workspace. 
 
 2. Expand the **Log Management** section and then expand either **AuditLogs** or **SignInLogs** to view the log schema.
-    ![Audit logs](./media/howto-analyze-activity-logs-in-log-analytics/auditlogschema.png)
-    ![Signin logs](./media/howto-analyze-activity-logs-in-log-analytics/signinlogschema.png)
+    ![Audit logs](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png)
+    ![Signin logs](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## Query the Azure AD activity logs
 
@@ -76,10 +76,10 @@ AuditLogs
 You can also set up alerts on your query. For example, to configure an alert when more than 10 applications have been used in the last week:
 
 1. From the workspace, select **Set alert** to open the **Create rule** page. 
-    ![Set alert](./media/howto-analyze-activity-logs-in-log-analytics/setalert.png)
+    ![Set alert](./media/howto-analyze-activity-logs-log-analytics/setalert.png)
 
 2. Select the default **alert criteria** created in the alert and update the **Threshold** in the default metric to 10. 
-    ![Alert criteria](./media/howto-analyze-activity-logs-in-log-analytics/alertcriteria.png)
+    ![Alert criteria](./media/howto-analyze-activity-logs-log-analytics/alertcriteria.png)
 
 3. Enter a name and description for the alert, and choose the severity level. For our example, we could set it to **Informational**.
 

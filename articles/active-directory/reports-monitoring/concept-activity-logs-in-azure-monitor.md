@@ -172,4 +172,4 @@ This section answers frequently asked questions and discusses known issues with 
 
 * [Archive activity logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Route activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Read more about Azure Diagnostic Logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Integrate activity logs with Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
