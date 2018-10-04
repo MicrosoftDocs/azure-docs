@@ -36,6 +36,9 @@ These metrics are available for Azure Database for MySQL:
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 
+## Server logs
+You can enable slow query logging on your server. These logs are also available through Azure Diagnostic Logs in OMS Log Analytics, Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
+
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
 - For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
