@@ -112,11 +112,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](./media/ringcentral-tutorial/b2-domains_and_urls.png)
 
-	a. In the **Sign on URL** textbox, type a URL:`https://service.ringcentral.com`
+	a. In the **Sign on URL** textbox, type a URL:
+	| |
+	|--|
+	| `https://service.ringcentral.com` |
+	| `https://service.ringcentral.com.au` |
+	| `https://service.ringcentral.co.uk` |
+	| `https://service.ringcentral.eu` |
 
-	b. In the **Identifier** textbox, type a URL: `https://sso.devtest.ringcentral.com`
+	b. In the **Identifier** textbox, type a URL:
+	| |
+	|--|
+	|  `https://sso.devtest.ringcentral.com` |
+	| `https://ssoeuro.ringcentral.com` |
 
-	c. In the **Reply URL** textbox, type a URL: `https://sso.devtest.ringcentral.com/sp/ACS.saml2`
+	c. In the **Reply URL** textbox, type a URL:
+	| |
+	|--|
+	| `https://sso.devtest.ringcentral.com/sp/ACS.saml2` |
+	| `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
 
 	> [!NOTE] 
 	> You will get the actual Identifier and Reply URL values which is explained later in the tutorial.  
