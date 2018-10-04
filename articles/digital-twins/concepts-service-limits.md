@@ -12,11 +12,15 @@ ms.author: dwalthermsft
 
 # Azure Digital Twin public preview service limits
 
-During Public Preview, Azure Digital Twins will have subscription, instance, and rate limits as described below.  These limits will be increased and/or removed by General Availability (GA).
+During Public Preview, Azure Digital Twins will have subscription, instance, and rate limits as described below.  
+
+These limits will be increased and/or removed by General Availability (GA).
 
 ## Per-Subscription limits
 
-Each Azure Subscription can create one Azure Digital Twins instance.
+During Public Preview, each Azure Subscription can create exactly one Azure Digital Twins instance.
+
+Should you need to delete your instance, you can create a new one.
 
 ## Per-Instance limits
 
