@@ -76,16 +76,13 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 ![Digital Twins Portal Management API][2]
 
-For more details on how to use the Spatial Intelligence Graph, please visit your Digital Twins Management APIs Swagger URL.
+For more details on how to use the Spatial Intelligence Graph, please visit the Azure Digital Twins sneak preview.
 
 >[!TIP]
 >For your convenience, a Swagger sneak preview is provided to demonstrate the rich Ontology and API feature set.
 >It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-You can browse swagger UI of your deployed instanced to learn the specifications of each API as outlined in image below:
-
-![Digital Twins Management API Swagger][3]
-![Digital Twins Management API Swagger Cont][4]
+Learn more about [how to use Swagger](how-to-use-swagger.md).
 
 All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). The APIs follow [Microsoft REST API Guidelines conventions](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Most of the APIs that return collections support [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) system query options.
 
@@ -104,5 +101,3 @@ Read more about Management API limitations and throttles:
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png
 [2]: media/concepts/digital-twins-spatial-graph-management-api-url.png
-[3]: media/concepts/digital-twins-management-swagger.png
-[4]: media/concepts/digital-twins-management-swagger-cont.png
