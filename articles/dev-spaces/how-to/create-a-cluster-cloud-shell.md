@@ -14,7 +14,7 @@ manager: douge
 ---
 # Create a Kubernetes cluster enabled for Azure Dev Spaces using the Azure Cloud Shell
 
-You can use the [Azure Cloud Shell](/azure/cloud-shell) by using the **Try It** button from this page.
+You can use [Azure Cloud Shell](/azure/cloud-shell) by using the **Try It** button from this page. If you aren't signed in, follow the prompts to sign in with an Azure account, then type the commands in the window that appears.
 
 Create the resource group. Use one of the currently supported regions (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast).
 
