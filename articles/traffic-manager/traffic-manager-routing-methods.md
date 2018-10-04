@@ -26,7 +26,7 @@ There are four traffic routing methods available in Traffic Manager:
 * **[Performance](#performance):** Select **Performance** when you have endpoints in different geographic locations and you want end users to use the "closest" endpoint in terms of the lowest network latency.
 * **[Geographic](#geographic):** Select **Geographic** so that users are directed to specific endpoints (Azure, External, or Nested) based on which geographic location their DNS query originates from. This empowers Traffic Manager customers to enable scenarios where knowing a user’s geographic region and routing them based on that is important. Examples include complying with data sovereignty mandates, localization of content & user experience and measuring traffic from different regions.
 * **[Multivalue](#multivalue):** Select **MultiValue** for Traffic Manager profiles that can only have IPv4/IPv6 addresses as endpoints. When a query is received for this profile, all healthy endpoints are returned.
-* **[Subnet](#subnet):** Select **Subnet** traffic-routing method to map sets of end-user IP address ranges to a specific endpoint within a Traffic Manager profile. When a request is received, the endpoint returned will be the one mapped for that request’s source IP address. 
+* **[Subnet](#subnet):** Select **Subnet** traffic-routing method to map sets of end-user IP address ranges to a specific endpoint within a Traffic Manager profile. When a request is received, the endpoint returned will be the one mapped for that request’s source IP address. 
 
 
 All Traffic Manager profiles include monitoring of endpoint health and automatic endpoint failover. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). A single Traffic Manager profile can use only one traffic routing method. You can select a different traffic routing method for your profile at any time. Changes are applied within one minute, and no downtime is incurred. Traffic-routing methods can be combined by using nested Traffic Manager profiles. Nesting enables sophisticated and flexible traffic-routing configurations that meet the needs of larger, complex applications. For more information, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
@@ -35,7 +35,7 @@ All Traffic Manager profiles include monitoring of endpoint health and automatic
 
 Often an organization wants to provide reliability for its services by deploying one or more backup services in case their primary service goes down. The 'Priority' traffic-routing method allows Azure customers to easily implement this failover pattern.
 
-![Azure Traffic Manager 'Priority' traffic-routing method][1]
+![Azure Traffic Manager 'Priority' traffic-routing method](./media/traffic-manager-priority-routing-method/traffic-manager-priority-routing-method.png)
 
 The Traffic Manager profile contains a prioritized list of service endpoints. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint. If both the primary and secondary endpoints are not available, the traffic goes to the third, and so on. Availability of the endpoint is based on the configured status (enabled or disabled) and the ongoing endpoint monitoring.
 
@@ -46,7 +46,7 @@ With Azure Resource Manager, you configure the endpoint priority explicitly usin
 ##<a name = "weighted"></a>Weighted traffic-routing method
 The 'Weighted' traffic-routing method allows you to distribute traffic evenly or to use a pre-defined weighting.
 
-![Azure Traffic Manager 'Weighted' traffic-routing method][2]
+![Azure Traffic Manager 'Weighted' traffic-routing method](./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png)
 
 In the Weighted traffic-routing method, you assign a weight to each endpoint in the Traffic Manager profile configuration. The weight is an integer from 1 to 1000. This parameter is optional. If omitted, Traffic Managers uses a default weight of '1'. The higher weight, the higher the priority.
 
@@ -74,7 +74,7 @@ These DNS caching effects are common to all DNS-based traffic routing systems, n
 
 Deploying endpoints in two or more locations across the globe can improve the responsiveness of many applications by routing traffic to the location that is 'closest' to you. The 'Performance' traffic-routing method provides this capability.
 
-![Azure Traffic Manager 'Performance' traffic-routing method][3]
+![Azure Traffic Manager 'Performance' traffic-routing method](./media/traffic-manager-performance-routing-method/traffic-manager-performance-routing-method.png)
 
 The 'closest' endpoint is not necessarily closest as measured by geographic distance. Instead, the 'Performance' traffic-routing method determines the closest endpoint by measuring network latency. Traffic Manager maintains an Internet Latency Table to track the round-trip time between IP address ranges and each Azure datacenter.
 
@@ -133,7 +133,3 @@ Subnet routing can be used to deliver a different experience for users connectin
 ## Next steps
 
 Learn how to develop high-availability applications using [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md)
-
-
-
-
