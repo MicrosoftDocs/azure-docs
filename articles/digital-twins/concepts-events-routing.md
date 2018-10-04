@@ -24,6 +24,8 @@ Digital Twins offers two methods to integrate IoT events into other Azure servic
 
 Users can specify one or more egress endpoints to send out events or to forward messages. Events and messages will be sent to the endpoints according to these predefined routing preferences. In other words, users can specify certain one endpoint to receive graph operation events, another to receive device telemetry events, and so on.
 
+![Digital Twins Events Routing][1]
+
 Routing to Event Hubs will maintain the order in which telemetry messages are sent, so that they arrive at the endpoint in the same sequence as they were originally received. Event Grid and Service Bus don't guarantee that endpoints will receive events in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint.
 
 ## Route implementation
@@ -42,14 +44,18 @@ Digital Twins currently supports the following **EventTypes** that will be sent 
 - **SensorChange**: are changes in a sensor's computed value as a result of a device telemetry message.
 - **UdfCustom**: are custom notifications from a user-defined function.
 
-Furthermore, not all **EndpointTypes** support all **EventTypes**. The **EventTypes** allowed for each **EndpointType** are as follows:
+> [!IMPORTANT]
+> Not all **EndpointTypes** support all **EventTypes**.
+> See the table below for the **EventTypes** that are allowed for each **EndpointType**.
 
-- **EventHub**: DeviceMessages, TopologyOperation, SpaceChange, SensorChange, UdfCustom
-- **ServiceBus**: TopologyOperation, SpaceChange, SensorChange, UdfCustom
-- **EventGrid**: TopologyOperation, SpaceChange, SensorChange, UdfCustom
+|             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
+| ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
+| **EventHub**|     X          |         X         |     X       |      X       |   X       |
+| **ServiceBus**|              |         X         |     X       |      X       |   X       |
+| **EventGrid**|               |         X         |     X       |      X       |   X       |
 
-<!-- >[!NOTE]
->For more details on how to create endpoints and examples of events' schema, please see [Endpoints and Egress]](how-to-create-event-endpoints.md). -->
+>[!NOTE]
+>For more details on how to create endpoints and examples of events' schema, please see [Endpoints and Egress](how-to-egress-endpoints.md).
 
 ## Next steps
 
@@ -57,3 +63,6 @@ Try out a quick start Azure Digital Twins sample:
 
 > [!div class="nextstepaction"]
 > [Find Available Rooms with Fresh Air](quickstart-view-occupancy-dotnet.md)
+
+<!-- Images -->
+[1]: media/concepts/digital-twins-events-routing.png

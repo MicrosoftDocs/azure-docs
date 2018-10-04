@@ -68,7 +68,7 @@ Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure
 For more details on how to use the Spatial Intelligence Graph, please visit your Digital Twins Management APIs Swagger URL. You can browse swagger UI of your deployed instanced to learn the specifications of each API as outlined in image below:
 
 ![Digital Twins Management API Swagger][3]
-![Digital Twins Management API Swagger][4]
+![Digital Twins Management API Swagger Cont][4]
 
 All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). The APIs follow [Microsoft REST API Guidelines conventions](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Most of the APIs that return collections support [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) system query options.
 
@@ -82,7 +82,7 @@ Read more about device connectivity and how to send telemetry messages to Azure 
 Read more about Management API limitations and throttles:
 
 > [!div class="nextstepaction"]
-> [Azure Digital Twins API Management and Limitations] (concepts-management-api-limits.md)
+> [Azure Digital Twins API Management and Limitations] (concepts-service-limits.md)
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png
