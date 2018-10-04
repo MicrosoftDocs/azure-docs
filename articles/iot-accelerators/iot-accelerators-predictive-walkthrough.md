@@ -84,14 +84,6 @@ You can also explore some of the other features and capabilities of the IoT solu
 [img-resource-group]: media/iot-accelerators-predictive-walkthrough/resource-group.png
 [img-machine-learning]: media/iot-accelerators-predictive-walkthrough/machine-learning.png
 
-<<<<<<< HEAD
-[lnk-remote-monitoring]: iot-accelerators-remote-monitoring-explore.md
-[lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-faq]: iot-accelerators-faq.md
-[lnk-security-groundup]:securing-iot-ground-up.md
-[lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
-=======
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
@@ -99,4 +91,3 @@ You can also explore some of the other features and capabilities of the IoT solu
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
->>>>>>> master
