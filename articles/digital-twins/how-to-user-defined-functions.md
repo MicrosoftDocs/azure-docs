@@ -648,4 +648,9 @@ Sends a notification with the specified payload.
 Learn how to create Digital Twins Endpoints to send events to:
 
 > [!div class="nextstepaction"]
-> [Create Digital Twins Endpoints](concepts-events-routing.md)
+> [Create Digital Twins Endpoints](how-to-egress-endpoints.md)
+
+Learn more about Digital Twins Endpoints:
+
+> [!div class="nextstepaction"]
+> [Learn more about Endpoints](concepts-events-routing.md)

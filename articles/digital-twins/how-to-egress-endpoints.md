@@ -269,6 +269,11 @@ When an endpoint becomes unreachable, the system will enter an exponential back 
 
 ## Next steps
 
+Learn how to use Azure Digital Twins Swagger:
+
+> [!div class="nextstepaction"]
+> [Azure Digital Twins Swagger](how-to-use-swagger.md)
+
 Learn more about routing events and messages in Azure Digital Twins:
 
 > [!div class="nextstepaction"]
