@@ -35,7 +35,7 @@ This container has the following characteristics:
 
 - By default, the base image includes the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.7, such as Django.
 
-- To install additional packages, create a [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) file in the root of your project using `pip freeze > requirements.txt`. You must then publish to App Service from Git, during which Kudu engine automatically runs `pip install -r requirements.txt` to install your app's dependencies.
+- To install additional packages, such as Django, create a [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) file in the root of your project using `pip freeze > requirements.txt`. You must then publish to App Service from Git, during which Kudu engine automatically runs `pip install -r requirements.txt` to install your app's dependencies.
 
 - The container's startup process is driven by the code in [*entrypoint.sh*](https://github.com/Azure-App-Service/python/blob/master/3.7.0/entrypoint.py). That process is what's described in this article and allows for customization.
 
