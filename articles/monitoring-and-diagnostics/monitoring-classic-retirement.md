@@ -9,6 +9,7 @@ ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
 ---
+# Unified alerting & monitoring in Azure Monitor replaces classic alerting & monitoring
 
 Azure Monitor has now become am unified full stack monitoring service which now supports ‘One Metrics’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/en-us/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy. 
 
