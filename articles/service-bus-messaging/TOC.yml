@@ -60,7 +60,7 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
-  - name: Managed Service Identity (preview)
+  - name: Managed identities for Azure resources
     href: service-bus-managed-service-identity.md
   - name: Role-Based Access Control (preview)
     href: service-bus-role-based-access-control.md
