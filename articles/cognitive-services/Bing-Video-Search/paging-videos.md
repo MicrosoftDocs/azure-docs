@@ -1,13 +1,14 @@
 ---
-title: How to page through the available videos | Microsoft Docs
+title: How to page through the available videos - Bing Video Search
+titlesuffix: Azure Cognitive Services
 description: Shows how to page through all of the videos that Bing can return.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 910A485F-BCF3-42B9-958D-DD48BDEDA965
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---

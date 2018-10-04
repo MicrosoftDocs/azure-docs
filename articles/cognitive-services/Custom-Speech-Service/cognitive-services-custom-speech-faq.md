@@ -1,14 +1,17 @@
 ---
-title: Frequently asked questions for the Custom Speech Service on Azure | Microsoft Docs
+title: Frequently asked questions - Custom Speech Service
+titlesuffix: Azure Cognitive Services
 description: Here are answers to the most popular questions about the Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: faq
 ms.date: 11/21/2016
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Custom Speech Service Frequently Asked Questions

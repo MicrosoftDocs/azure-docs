@@ -1,14 +1,16 @@
 ---
-title: Video search endpoints | Microsoft Docs
-description: Summary of the Video search API endpoint.
+title: Video search endpoints - Bing Video Search
+titlesuffix: Azure Cognitive Services
+description: Summary of the Bing Video Search API endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2017
-ms.author: v-gedod
+ms.author: rosh
 ---
 
 # Video Search endpoints

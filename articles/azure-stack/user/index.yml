@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/13/2018
+  ms.date: 09/25/2018
   ms.author: jeffgilb
 abstract:
   description: Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure. Learn how to create resources and deploy apps with our quickstarts and tutorials.<br/><br/>If you're an Azure Stack operator who manages the infrastructure and offers services, see our <a href="/azure/azure-stack/">operator documentation</a>.<br/><br/>If you are an Azure Stack operator interested in the Azure Stack Development Kit (ASDK), a single-node deployment of Azure Stack that you can download and use for free, see our <a href="/azure/azure-stack/asdk">ASDK documentation</a>.
@@ -63,6 +63,12 @@ sections:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Deploy apps to Azure Stack and Azure</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-identity">Configure hybrid cloud identity with Azure and Azure Stack applications</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-connectivity">Configure hybrid cloud connectivity with Azure and Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-machine-learning">Create an edge machine learning solution with Azure and Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">Create a staged data analytics solution with Azure and Azure Stack </a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-cloud-burst">Create cross-cloud scaling solutions with Azure</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-geo-distributed">Create a geo-distributed app solution with Azure and Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-tutorial-sql">Create highly available SQL databases</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-tutorial-mysql">Create highly available MySQL databases</a>
 - title: Reference
   items:
   - type: list

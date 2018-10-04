@@ -34,9 +34,12 @@ The following table contains disk sizes, which are currently offered for Standar
 |E10     |128 GiB         |Up to 500         |Up to 60 MiB per second         |
 |E15     |256 GiB         |Up to 500         |Up to 60 MiB per second         |
 |E20     |512 GiB         |Up to 500         |Up to 60 MiB per second         |
-|E30     |1024 GiB         |Up to 500         |Up to 60 MiB per second         |
-|E40     |2048 GiB         |Up to 500         |Up to 60 MiB per second         |
-|E50     |4095 GiB         |Up to 500         |Up to 60 MiB per second         |
+|E30     |1,024 GiB       |Up to 500         |Up to 60 MiB per second         |
+|E40     |2,048 GiB       |Up to 500         |Up to 60 MiB per second         |
+|E50     |4,095 GiB       |Up to 500         |Up to 60 MiB per second         |
+|E60     |8,192 GiB       |Up to 1,300       |Up to 300 MiB per second        |
+|E70     |16,384 GiB      |Up to 2,000       |Up to 500 MiB per second        |
+|E80     |32,767 GiB      |Up to 2,000       |Up to 500 MiB per second        |
 
 Standard SSDs are designed to provide single-digit millisecond latencies for most IO operations, and to deliver the IOPS and throughput up to the limits described in the above table. Actual IOPS and Throughput may vary sometimes depending on the traffic patterns. Standard SSDs will provide more consistent performance than the HDD disks with the lower latency.
 

@@ -18,13 +18,13 @@ ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
 ---
-# Quickstart: Create a public load balancer to load balance VMs using Azure CLI 2.0
+# Quickstart: Create a public load balancer to load balance VMs using Azure CLI
 
 This quickstart shows you how to create an Azure Load Balancer. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server and load balance a web app between.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 

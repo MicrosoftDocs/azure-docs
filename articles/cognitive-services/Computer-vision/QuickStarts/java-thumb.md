@@ -54,7 +54,7 @@ To create and run the sample, do the following steps:
 
 1. Replace the `Main` public class with the following code, then make the following changes in code where needed:
    1. Replace the value of `subscriptionKey` with your subscription key.
-   1. Replace the value of `uriBase` with the endpoint URL for the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) method method from the Azure region where you obtained your subscription keys, if necessary.
+   1. Replace the value of `uriBase` with the endpoint URL for the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)  method from the Azure region where you obtained your subscription keys, if necessary.
    1. Optionally, replace the value of `imageToAnalyze` with the URL of a different image for which you want to generate a thumbnail.
 1. Save, then build the Java project.
 1. If you're using an IDE, run `Main`. Otherwise, open a command prompt window and then use the `java` command to run the compiled class. For example, `java Main`.

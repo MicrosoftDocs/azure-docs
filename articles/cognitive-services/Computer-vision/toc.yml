@@ -1,4 +1,4 @@
-- name: Computer Vision Documentation
+- name: Computer Vision API Documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -95,7 +95,7 @@
       href: quickstarts-sdk/csharp-analyze-sdk.md
     - name: Generate a thumbnail
       href: quickstarts-sdk/csharp-thumb-sdk.md
-    - name: Extract handwritten text
+    - name: Extract text
       href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: Tutorials
   items:

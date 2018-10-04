@@ -34,8 +34,8 @@
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
-    - name: SQL Operations Studio
-      href: https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+    - name: Azure Data Studio
+      href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
     - name: Azure portal
       href: sql-database-connect-query-portal.md
     - name: VS Code
@@ -92,18 +92,22 @@
       href: sql-database-service-tiers-vcore.md
     - name: DTU model
       href: sql-database-service-tiers-dtu.md
-    - name: Resource limits
-      href: sql-database-resource-limits.md
+    - name: Hyperscale service tier
+      href: sql-database-hyperscale.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
   - name: Logical servers
     items: 
     - name: Create and manage
       href: sql-database-logical-servers.md
+    - name: Resource limits
+      href: sql-database-resource-limits-logical-server.md
     - name: Connectivity architecture
       href: sql-database-connectivity-architecture.md 
     - name: T-SQL differences
       href: sql-database-transact-sql-information.md
+    - name: Transactional replication - single DBs and elastic pools
+      href: replication-to-sql-database.md  
   - name: Single databases
     items:
     - name: Create and manage
@@ -130,6 +134,8 @@
     items:
     - name: Managed instances
       href: sql-database-managed-instance.md
+    - name: Resource limits
+      href: sql-database-managed-instance-resource-limits.md
     - name: VNet configuration
       href: sql-database-managed-instance-vnet-configuration.md
     - name: Custom DNS
@@ -143,7 +149,7 @@
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Transactional replication
-      href: https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance?toc=/azure/sql-database/toc.json
+      href: replication-with-sql-database-managed-instance.md
   - name: Business continuity
     items:
     - name: Business continuity
@@ -552,7 +558,7 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/sql
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.sql.models
@@ -595,6 +601,8 @@
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-sql-database
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: FAQ

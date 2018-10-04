@@ -11,6 +11,7 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
+ROBOTS: NOINDEX
 ---
 
 # Translator Speech API: Languages

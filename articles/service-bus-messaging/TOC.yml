@@ -60,7 +60,7 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
-  - name: Managed Service Identity (preview)
+  - name: Managed identities for Azure resources
     href: service-bus-managed-service-identity.md
   - name: Role-Based Access Control (preview)
     href: service-bus-role-based-access-control.md
@@ -204,6 +204,8 @@
   items:
   - name: FAQ
     href: service-bus-faq.md
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-service-bus
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: Blog
