@@ -62,21 +62,20 @@ For more information about the WAF public preview, see [Web application firewall
 
 ### Core rule sets
 
+Application Gateway supports two rule sets, CRS 3.0, and CRS 2.2.9. These core rules sets are collections of rules that protect your web applications for malicious activity.
+
 Web application firewall comes preconfigured with CRS 3.0 by default or you can choose to use 2.2.9. CRS 3.0 offers reduced false positives over 2.2.9. The ability to [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md) is provided. Some of the common web vulnerabilities which web application firewall protects against includes:
 
-* SQL injection protection
-* Cross site scripting protection
-* Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
-* Protection against HTTP protocol violations
-* Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
-* Prevention against bots, crawlers, and scanners
-* Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
+- SQL injection protection
+- Cross site scripting protection
+- Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
+- Protection against HTTP protocol violations
+- Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
+- Prevention against bots, crawlers, and scanners
+- Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
 
-For a more detailed list of rules and their protections see the following [Core rule sets](#core-rule-sets).
+For a more detailed list of rules and their protections see [Core rule sets](#core-rule-sets).
 
-### Core rule sets
-
-Application Gateway supports two rule sets, CRS 3.0, and CRS 2.2.9. These core rules sets are collections of rules that protect your web applications for malicious activity.
 
 #### OWASP_3.0
 
