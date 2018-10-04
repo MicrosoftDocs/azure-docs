@@ -16,6 +16,7 @@ ms.date: 10/04/2018
 # Choosing a vCore service tier, compute, memory, storage, and IO resources
 
 The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also enables you to choose generation of hardware:
+
 - Gen 4 - Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
 - Gen 5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.5. GB per core, fast eNVM SSD
 
@@ -39,51 +40,14 @@ The following table helps you understand the differences between these two tiers
 |In-Memory|Not supported|Supported|Not supported|
 |||
 
-For more information, see [vCore resource limits in Single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model). 
+- For more information, see [vCore resource limits in Single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
+- For more infomation about the General Purpose and Business Critical service tiers, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
+- For details on the Hyperscale service tier in in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
 
 > [!IMPORTANT]
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
 
 See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions. 
-
-## Storage considerations
-
-### General Purpose and Business Critical service tiers
-Consider the following:
-- The allocated storage is used by data files (MDF) and log files (LDF) files.
-- Each single database compute size supports a maximum database size, with a default max size of 32 GB.
-- When you configure the required single database size (size of MDF), 30% of additional storage is automatically added to support LDF
-- Storage size in Managed Instance must be specified in multiples of 32 GB.
-- You can select any single database size between 10 GB and the supported maximum
- - For Standard storage, increase or decrease size in 10-GB increments
- - For Premium storage, increase or decrease size in 250-GB increments
-- In the General Purpose service tier, `tempdb` uses an attached SSD and this storage cost is included in the vCore price.
-- In the Business Critical service tier, `tempdb` shares the attached SSD with the MDF and LDF files and the tempDB storage cost is included in the vCore price.
-
-> [!IMPORTANT]
-> You are charged for the total storage allocated for MDF and LDF.
-
-To monitor the current total size of MDF and LDF, use [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). To monitor the current size of the individual MDF and LDF files, use [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
-
-> [!IMPORTANT]
-> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
-
-### Hyperscale service tier (preview)
-
-Storage is auto-managed for HyperScale database. Storage grows as needed. “Infinite Log” storage on fast Azure premium storage SSDs with no frequent log truncation needed.
-
-## Backups and storage
-
-### General Purpose and Business Critical service tiers
-
-Storage for database backups is allocated to support the Point in Time Restore (PITR) and [Long Term Retention (LTR)](sql-database-long-term-retention.md) capabilities of SQL Database. This storage is allocated separately for each database and billed as two separate per-database charges. 
-
-- **PITR**: Individual database backups are copied to [RA-GRS storage](../storage/common/storage-designing-ha-apps-with-ragrs.md) are automatically. The storage size increases dynamically as the new backups are created.  The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 1x of data size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups.
-- **LTR**: SQL Database offers the option configuring long-term retention of full backups for up to 10 years. If LTR policy is enabled, theses backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. This configuration will define how much storage will be used for the LTR backups. You can use the LTR pricing calculator to estimate the cost of LTR storage. For more information, see [Long-term retention](sql-database-long-term-retention.md).
-
-### Hyperscale service tier (preview)
-
-In the hyperscale service tier, backups are snapshot-based and stored in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and not of size of data operations (in minutes not hours/days).
 
 ## Azure Hybrid Use Benefit
 

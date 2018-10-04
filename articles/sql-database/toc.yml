@@ -89,11 +89,15 @@
     - name: vCore vs. DTU
       href: sql-database-service-tiers.md
     - name: vCore model
-      href: sql-database-service-tiers-vcore.md
-    - name: DTU model
+      items:
+      - Name: vCore-based service tiers
+        href: sql-database-service-tiers-vcore.md
+      - name: General Purpose and Business Critical
+        href: sql-database-service-tiers-general-purpose-business-critical.md
+      - name: Hyperscale
+        href: sql-database-service-tier-hyperscale.md
+    - name: DTU-based service tiers
       href: sql-database-service-tiers-dtu.md
-    - name: Hyperscale service tier
-      href: sql-database-hyperscale.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
   - name: Logical servers

@@ -1497,6 +1497,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-hyperscale.md",
+            "redirect_url": "/azure/sql-database/sql-database-service-tier-hyperscale",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-troubleshoot-performance.md",
             "redirect_url": "/azure/sql-database/sql-database-monitor-tune-overview",
             "redirect_document_id": false
