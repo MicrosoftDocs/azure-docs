@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 10/03/2018
+ms.date: 10/04/2018
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
