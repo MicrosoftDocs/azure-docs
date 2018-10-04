@@ -50,7 +50,7 @@ This article focuses on general guidance for running your Linux distribution on 
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion, as described in the following steps.
 
 ### Installing kernel modules without Hyper-V
-Azure runs on the Hyper-V hypervisor, so Linux requires certain kernel modules to run in Azure. If you have a VM that was created outside of Hyper-V, the Linux installers may not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs), unless the VM detects that it's running on a Hyper-V environment. When using a different virtualization system (such as Virtualbox, KVM, and so on) to prepare your Linux image, you may need to rebuild the initrd so that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk.  This is a known issue for systems based on the upstream Red Hat distribution, and possibly others.
+Azure runs on the Hyper-V hypervisor, so Linux requires certain kernel modules to run in Azure. If you have a VM that was created outside of Hyper-V, the Linux installers may not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs), unless the VM detects that it's running on a Hyper-V environment. When using a different virtualization system (such as Virtualbox, KVM, and so on) to prepare your Linux image, you may need to rebuild the initrd so that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk.  This known issue is for systems based on the upstream Red Hat distribution, and possibly others.
 
 The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution. Consult your distribution's documentation or support for the proper procedure.  Here is one example for rebuilding the initrd by using the mkinitrd utility:
 
@@ -160,7 +160,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) (waagent) provisions a Lin
   
     The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called 'WALinuxAgent' or 'walinuxagent').  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
 
-3. Ensure that the SSH server is installed, and configured to start at boot time.  This is usually the default.
+3. Ensure that the SSH server is installed, and configured to start at boot time.  This configuration is usually the default.
 
 4. Don't create swap space on the OS disk.
   
