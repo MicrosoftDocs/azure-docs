@@ -44,7 +44,7 @@ Use the following steps to manually install or update extensions from the portal
 
 1. Back in the **Overview** tab in the portal, choose **Start** to restart the function app.
 
-# Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
