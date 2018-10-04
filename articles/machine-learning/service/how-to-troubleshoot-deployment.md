@@ -36,9 +36,7 @@ Learn more about this process in the [Model Management](concept-model-management
 
 If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem. 
 
-This is particularly helpful if you are using the `Webservice.deploy` API, or `Webservice.deploy_from_model` API, since those functions group together the aforementioned steps into a single action. Typically those APIs are quite convenient, but it helps to break up the steps when troubleshooting. 
-
-Here are the functions to use when breaking the deployment steps down:
+This is particularly helpful if you are using the `Webservice.deploy` API, or `Webservice.deploy_from_model` API, since those functions group together the aforementioned steps into a single action. Typically those APIs are quite convenient, but it helps to break up the steps when troubleshooting by replacing them with the below API calls.
 
 1. Register the model. Here's some sample code:
 
@@ -59,7 +57,7 @@ Here are the functions to use when breaking the deployment steps down:
                                                       conda_file="myenv.yml")
 
     # create the image
-    image = Image.create(name='myimg', models=[model], image_config=img_cfg, workspace=ws)
+    image = Image.create(name='myimg', models=[model], image_config=image_config, workspace=ws)
 
     # wait for image creation to finish
     image.wait_for_creation(show_output=True)
@@ -69,9 +67,9 @@ Here are the functions to use when breaking the deployment steps down:
 
     ```python
     # configure an ACI-based deployment
-    aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
+    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
 
-    aci_service = Webservice.deploy_from_image(deployment_config=aciconfig, 
+    aci_service = Webservice.deploy_from_image(deployment_config=aci_config, 
                                                image=image, 
                                                name='mysvc', 
                                                workspace=ws)
@@ -81,7 +79,7 @@ Here are the functions to use when breaking the deployment steps down:
 Once you have broken down the deployment process into individual tasks, we can look at some of the most common errors.
 
 ## Image building fails
-If system is unable to build the Docker image, the `image.wait_for_creation` call fails with some error messages. You can also find out more details about the error from the image build log. The log uri is a SAS URL pointing to a log file stored in your Azure blob storage. Simply copy and paste the uri into a browser window and you can download and view the log.
+If system is unable to build the Docker image, the `image.wait_for_creation()` call fails with some error messages that can offer some clues. You can also find out more details about the errors from the image build log. Below is some sample code showing how to discover the image build log uri.
 
 ```python
 # if you already have the image object handy
@@ -94,14 +92,16 @@ print(ws.images()['myimg'].image_build_log_uri)
 for name, img in ws.images().items()
     print (img.name, img.version, img.image_build_log_uri)
 ```
+The image log uri is a SAS URL pointing to a log file stored in your Azure blob storage. Simply copy and paste the uri into a browser window and you can download and view the log file.
+
 
 ## Service launch fails
-After the image is successfully built, the system attempts to start a container in either ACI or AKS depending on your deployment configuration. It is always recommended to try an ACI deployment first since it is a simple single container deployment. This way you can then rule out any AKS-specific problem.
+After the image is successfully built, the system attempts to start a container in either ACI or AKS depending on your deployment configuration. It is generally recommended to try an ACI deployment first, since it is a simpler single-container deployment. This way you can then rule out any AKS-specific problem.
 
 As part of container starting-up process, the `init()` function in your scoring script is invoked by the system. If there are uncaught exceptions in the `init()` function, you might see **CrashLoopBackOff** error in the error message. Below are some tips to help you troubleshoot the problem.
 
 ### Inspect the Docker log
-If the image is built successfully, but you encounter errors when deploying the image as a container, you can find out error message in the Docker log.
+You can print out detailed Docker engine log messages from the service object.
 
 ```python
 # if you already have the service object handy
@@ -123,16 +123,23 @@ print(image.image_location)
 
 The image location has this format: `<acr-name>.azurecr.io/<image-name>:<version-number>`, such as `myworkpaceacr.azurecr.io/myimage:3`. 
 
-Now go to your command-line window, and type following commands to sign in to the ACR (Azure Container Registry) associated with the workspace where the image is stored.
+Now go to your command-line window. If you have azure-cli installed, you can type the following commands to sign in to the ACR (Azure Container Registry) associated with the workspace where the image is stored. 
 
 ```sh
-# note the acr_name is just the domain name WITHOUT the ".azurecr.io" postfix
+# log on to Azure first if you haven't done so before
+$ az login
+
+# make sure you set the right subscription in case you have access to multiple subscriptions
+$ az account set -s <subscription_name_or_id>
+
+# now let's log in to the workspace ACR
+# note the acr-name is the domain name WITHOUT the ".azurecr.io" postfix
 # e.g.: az acr login -n myworkpaceacr
 $ az acr login -n <acr-name>
 ```
-If you don't have azure-cli installed, you can also use `docker login` command to log into the ACR. You just need to retrieve the user name and password of the ACR from Azure portal.
+If you don't have azure-cli installed, you can use `docker login` command to log into the ACR. But you need to retrieve the user name and password of the ACR from Azure portal first.
 
-Now you can pull down the Docker image and start a container locally, and then launch a bash session for debugging.
+Once you have logged in to the ACR, you can pull down the Docker image and start a container locally, and then launch a bash session for debugging by using the `docker run` command:
 
 ```sh
 # note the image_id is <acr-name>.azurecr.io/<image-name>:<version-number>
@@ -160,7 +167,7 @@ In case you need a text editor to modify your scripts, you can install vim, nano
 # update package index
 apt-get update
 
-# install text editor of your choice
+# install a text editor of your choice
 apt-get install vim
 apt-get install nano
 apt-get install emacs
@@ -179,18 +186,18 @@ $ docker run -p 8000:5001 <image_id>
 ```
 
 ## Function fails: get_model_path()
-Often, in the `init()` function in the scoring script, `Model.get_model_path()` function is called to locate a model file or a folder of files in the container. This is often a source of failure if the model file or folder cannot be found. The easiest way to debug this error is to run the below Python code in the Container shell:
+Often, in the `init()` function in the scoring script, `Model.get_model_path()` function is called to locate a model file or a folder of model files in the container. This is often a source of failure if the model file or folder cannot be found. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 ```python
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-This would print out the local path that your scoring script is expecting to find the model file or folder. Then you can verify if the file or folder is indeed where it is expected to be.
+This would print out the local path (relative to `/var/azureml-app`) in the container where your scoring script is expecting to find the model file or folder. Then you can verify if the file or folder is indeed where it is expected to be.
 
 
 ## Function fails: run(input_data)
-If the service is successfully deployed, and it crashes when you post data to the scoring endpoint, you can add error catching statement in your `run(input_data)` function to spit out the error message. For example:
+If the service is successfully deployed, but it crashes when you post data to the scoring endpoint, you can add error catching statement in your `run(input_data)` function so that it returns detailed error message instead. For example:
 
 ```python
 def run(input_data):
@@ -204,6 +211,8 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
+**Note**: Returning error messages from the `run(input_data)` call should be done for debugging purpose only. It might not be a good idea to do this in a production environment for security reasons.
+
 
 ## Next steps
 

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2018 
+ms.date: 10/02/2018 
 ms.author: sethm
 ms.reviewer: misainat
 
@@ -23,7 +23,7 @@ This article provides information about improvements, fixes, and known issues in
 
 > Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## Build 1.1809.x.xx
+## Build 1.1808.0.97
 
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
@@ -83,6 +83,8 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 
 
 #### Compute  
+
+- <!-- 3099544 – IS, ASDK --> When you create a new virtual machine (VM) using the Azure Stack portal, and you select the VM size, the USD/Month column is displayed with an **Unavailable** message. This column should not appear; displaying the VM pricing column is not supported in Azure Stack.
 
 - <!-- 3090289 – IS, ASDK --> After applying the 1808 update, you may encounter the following issues when deploying VMs with Managed Disks:
 

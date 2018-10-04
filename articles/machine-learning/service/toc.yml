@@ -100,10 +100,14 @@
       href: how-to-deploy-to-iot.md 
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md 
+    - name: Secure with SSL
+      href: how-to-secure-web-service.md  
   - name: Monitor models
     items:  
     - name: Collect data in production  
       href: how-to-enable-data-collection.md
+    - name: Monitor with Application Insights  
+      href: how-to-enable-app-insights.md 
   - name: Manage resource quotas
     href: how-to-manage-quotas.md
   - name: Export and delete data
