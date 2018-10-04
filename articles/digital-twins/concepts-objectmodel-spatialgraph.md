@@ -82,7 +82,7 @@ Read more about device connectivity and how to send telemetry messages to Azure 
 Read more about Management API limitations and throttles:
 
 > [!div class="nextstepaction"]
-> [Azure Digital Twins API Management and Limitations] (concepts-management-api-limits.md)
+> [Azure Digital Twins API Management and Limitations] (concepts-service-limits.md)
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png
