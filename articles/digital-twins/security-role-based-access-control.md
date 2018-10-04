@@ -3,10 +3,10 @@ title: Understanding Azure Digital Twins Role-Based Access Control | Microsoft D
 description: Using Azure Digital Twins Role-Based Access Control
 author: lyrana
 manager: alinast
-ms.service: azure-digital-twins
-services: azure-digital-twins
+ms.service: digital-twins
+services: digital-twins
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/02/2018
 ms.author: lyrana
 ---
 
@@ -83,4 +83,4 @@ For example, a user is given a role assignment with role `DeviceInstaller` for t
 Read more about Azure Digital Twins security:
 
 > [!div class="nextstepaction"]
-> [Create and manage role assignments] (./security-create-manage-role-assignments.md)
+> [Create and manage role assignments](./security-create-manage-role-assignments.md)

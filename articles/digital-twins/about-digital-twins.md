@@ -5,9 +5,9 @@ author: julieseto
 ms.author: jseto
 ms.date: 10/03/2018
 ms.topic: overview
-ms.service: azure-digital-twins
-services: azure-digital-twins
-manager: timlt
+ms.service: digital-twins
+services: digital-twins
+manager: bertvanhoof
 ms.custom: mvc
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Digital Twins has so that I can build next generation IoT services. 
 ---
