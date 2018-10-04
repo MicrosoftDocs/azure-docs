@@ -6,4 +6,4 @@
  ms.author: mabrigg
 ---
 
-*Applies to: Azure Stack integrated systems.*
+Click **Submit** to create the workflow.

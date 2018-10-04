@@ -6,4 +6,4 @@
  ms.author: mabrigg
 ---
 
-*Applies to: Azure Stack integrated systems.*
+Click **Generate SAS and connection string** and copy the **Blob service SAS URL** string.
