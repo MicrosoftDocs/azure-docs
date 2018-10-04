@@ -172,6 +172,8 @@
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Set the runtime version 
       href: set-runtime-version.md
+    - name: Manually register an extension 
+      href: install-update-binding-extensions-manual.md
     - name: Disable a function 
       href: disable-function.md
     - name: Troubleshoot storage
@@ -209,7 +211,11 @@
     - name: Event publishing
       href: durable-functions-event-publishing.md
     - name: Use WebJobs SDK
-      href: durable-functions-webjobs-sdk.md      
+      href: durable-functions-webjobs-sdk.md  
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot storage
+      href: functions-recover-storage-account.md   
 - name: Reference
   items:
   - name: API references
