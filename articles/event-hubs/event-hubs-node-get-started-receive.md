@@ -70,6 +70,16 @@ The SDK you have cloned contains multiple samples that show you how to receive e
 ## Review the sample code 
 Here is the sample code to receive events from an event hub using node.js. You can manually create a sampleEph.js file, and run it to receive events to an event hub. 
 
+Remember to set your environment variables before running the script. You can either configure this in the command line as shown in the following example, or use the [dotenv package](https://www.npmjs.com/package/dotenv#dotenv). 
+
+// For windows
+set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+set EVENTHUB_NAME="<your-event-hub-name>"
+
+// For linux or macos
+export EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+export EVENTHUB_NAME="<your-event-hub-name>"
+
 
   ```nodejs
   const { EventProcessorHost, delay } = require("@azure/event-processor-host");
