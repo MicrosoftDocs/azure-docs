@@ -31,8 +31,7 @@ The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extens
 > [!NOTE]
 > Azure SignalR Service is generally available. However, SignalR Service bindings for Azure Functions are currently in preview.
 
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
-
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
 ## SignalR connection info input binding
 
