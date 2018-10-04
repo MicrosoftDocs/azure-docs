@@ -22,7 +22,7 @@ Using b2clogin.com gives you additional benefits, such as:
 - Cookies are no longer shared with the other Microsoft services.
 - Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-To use b2clogin.com, you set the redirect URLs in your identity provider applications to use b2clogin.com. You also set your Azure AD B2C application to use b2clogin.com for policy references and token endpoints. If you are using MSAL, you need to set the **ValidateAuthority** property to `false`.
+To use b2clogin.com, set the redirect URLs in your identity provider applications to use b2clogin.com. You also set your Azure AD B2C application to use b2clogin.com for policy references and token endpoints. If you are using MSAL, you need to set the **ValidateAuthority** property to `false`.
 
 ## Change redirect URLs
 
@@ -30,7 +30,7 @@ To use b2clogin.com, in the settings for your identity provider application, loo
 
 You'll need to change the redirect URL so that `your-tenant-name.b2clogin.com` is authorized. Make sure to replace `your-tenant-name` with the name of your Azure AD B2C tenant and remove `/te` if it exists in the URL. There are slight variations to this URL for each identity provider so check the corresponding page to get the exact URL.
 
-You can find set up information for identity providers in the following articles:
+You can find set-up information for identity providers in the following articles:
 
 - [Microsoft account](active-directory-b2c-setup-msa-app.md)
 - [Facebook](active-directory-b2c-setup-fb-app.md)
