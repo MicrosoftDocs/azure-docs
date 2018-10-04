@@ -41,7 +41,9 @@ Other parameters you can adjust include:
 See the MySQL [slow query log documentation](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) for full descriptions of the slow query log parameters.
 
 ## Diagnostic logs
-Azure Database for MySQL is integrated with [Azure Monitor Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Once you have enabled slow query logs on your MySQL server, you can choose to have them emitted to OMS Log Analytics, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Azure Database for MySQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MySQL server, you can choose to have them emitted to OMS Log Analytics, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+
+The following table describes what's in each log. Depending on the output method, the fields included and the order in which they appear may vary.
 
 The following describes what's in each log:
 | **Property** | **Description** |
