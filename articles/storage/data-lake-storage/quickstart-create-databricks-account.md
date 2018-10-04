@@ -13,7 +13,7 @@ ms.date: 06/27/2018
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal
 
-This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2 Preview.
+This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in storage account with Azure Data Lake Storage Gen2 preview enabled.
 
 As part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
 
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-- [Create a Azure Data Lake Storage Gen2 Account](quickstart-create-account.md)
+- [Create a storage account with Data Lake Storage Gen2 enabled](quickstart-create-account.md)
 
 ## Set aside storage account configuration
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 In this section, you create an Azure Databricks workspace using the Azure portal.
 
-1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**. 
+1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
     ![Databricks on Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
 
@@ -43,7 +43,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
     Provide the following values:
-     
+
     |Property  |Description  |
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace        |
@@ -187,7 +187,7 @@ If you do not manually terminate the cluster it automatically stops, provided yo
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Data Lake Storage Gen2. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in a storage account with Data Lake Storage Gen2 enabled. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extract, transform, and load data using Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)
