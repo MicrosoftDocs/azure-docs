@@ -85,22 +85,23 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
     string task = req.Query["task"];
     string duedate = req.Query["duedate"];
 
-    taskDocument = new
+    // We need both name and task parameters.
+    if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(task))
     {
-        name,
-        duedate,
-        task
-    };
+        taskDocument = new
+        {
+            name,
+            duedate,
+            task
+        };
 
-    if (name != "" && task != "")
-    {
         return (ActionResult)new OkResult();
     }
     else
     {
+        taskDocument = null;
         return (ActionResult)new BadRequestResult();
     }
-}
 ```
 
 # [JavaScript](#tab/nodejs)
@@ -110,15 +111,13 @@ Replace the existing JavaScript function with the following code:
 ```js
 module.exports = async function (context, req) {
 
-    context.bindings.taskDocument = JSON.stringify({ 
-        name: req.query.name, 
-        task: req.query.task,
-        duedate: req.query.duedate
-      });
+    // We need both name and task parameters.
+    if (req.query.name && req.query.task) {
 
-      context.log(taskDocument)
+        // Set the output binding data from the query object.
+        context.bindings.taskDocument = req.query;
 
-    if (req.query.name !== "" && req.query.name !== "") {
+        // Success.
         context.res = {
             status: 200
         };
