@@ -12,6 +12,8 @@
   items:
   - name: About the collector
     href: concepts-collector.md
+  - name: Collector version upgrades
+    href: concepts-collector-upgrade.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
   - name: About dependency visualization

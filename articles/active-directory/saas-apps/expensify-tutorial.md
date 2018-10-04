@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Expensify | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Expensify.
 services: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 10/02/2018
 ms.author: jeedes
 
 ---
@@ -53,25 +53,26 @@ The scenario outlined in this tutorial consists of two main building blocks:
 1. Configuring and testing Azure AD single sign-on
 
 ## Adding Expensify from the gallery
+
 To configure the integration of Expensify into Azure AD, you need to add Expensify from the gallery to your list of managed SaaS apps.
 
 **To add Expensify from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![The Azure Active Directory button][1]
+	![image](./media/expensify-tutorial/selectazuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
+	![image](./media/expensify-tutorial/a_select_app.png)
 	
-1. To add new application, click **New application** button on the top of dialog.
+3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+	![image](./media/expensify-tutorial/a_new_app.png)
 
-1. In the search box, type **Expensify**, select **Expensify** from result panel then click **Add** button to add the application.
+4. In the search box, type **Expensify**, select **Expensify** from result panel then click **Add** button to add the application.
 
-	![Expensify in the results list](./media/expensify-tutorial/tutorial_expensify_addfromgallery.png)
+	 ![image](./media/expensify-tutorial/a_add_app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -95,84 +96,77 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 **To configure Azure AD single sign-on with Expensify, perform the following steps:**
 
-1. In the Azure portal, on the **Expensify** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Expensify** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![image](./media/expensify-tutorial/b1_b2_select_sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/expensify-tutorial/tutorial_expensify_samlbase.png)
+2. Click **Change Single sign-on mode** on top of the screen to select the **SAML** mode.
 
-1. On the **Expensify Domain and URLs** section, perform the following steps:
+	  ![image](./media/expensify-tutorial/b1_b2_saml_ssso.png)
 
-	![Expensify Domain and URLs single sign-on information](./media/expensify-tutorial/tutorial_expensify_url.png)
+3. On the **Select a Single sign-on method** dialog, Click **Select** for **SAML** mode to enable single sign-on.
 
-    a. In the **Sign-on URL** textbox, type the URL as: `https://www.expensify.com/authentication/saml/login`
+    ![image](./media/expensify-tutorial/b1_b2_saml_sso.png)
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.<companyname>.expensify.com`
+4. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **Basic SAML Configuration** dialog.
+
+	![image](./media/expensify-tutorial/b1-domains_and_urlsedit.png)
+
+5. On the **Basic SAML Configuration** section, perform the following steps:
+
+	a. In the **Sign-on URL** text box, type a URL as:
+    `https://www.expensify.com/authentication/saml/login`
+
+    b. In the **Identifier** text box, type a URL using the following pattern:
+    `https://www.<companyname>.expensify.com`
+
+    ![image](./media/expensify-tutorial/b1-domains_and_urls.png)
 
 	> [!NOTE] 
-	> Replace the `<companyname>` section of the Identifier URL with your company's domain. See the example of `https://contoso.expensify.com` above. Contact [Expensify Client support team](mailto:help@expensify.com) to get this value.
+	> Replace the <companyname> section of the Identifier URL with your company's domain. See the example of `https://contoso.expensify.com` above. In Expensify, this is the name of your domain as shown from **Settings > Domain Control**.
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+	![Expensify Domain information](./media/expensify-tutorial/tutorial_expensify_domain.png)
 
-	![The Certificate download link](./media/expensify-tutorial/tutorial_expensify_certificate.png) 
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the appropriate certificate as per your requirement and save it on your computer.
 
-1. Click **Save** button.
+	![image](./media/expensify-tutorial/certificatebase64.png)
 
-	![Configure Single Sign-On Save button](./media/expensify-tutorial/tutorial_general_400.png)
-
-1. To enable SSO in Expensify, you first need to enable **Domain Control** in the application. You can enable Domain Control in the application through the steps listed [here](http://help.expensify.com/domain-control). For additional support, work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
+7. To enable SSO in Expensify, you first need to enable **Domain Control** in the application. You can enable Domain Control in the application through the steps listed [here](http://help.expensify.com/domain-control). For additional support, work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
    
     ![Configure Single Sign-On](./media/expensify-tutorial/tutorial_expensify_51.png)
 	
 	a. Sign on to your Expensify application.
 	
-	b. In the toolbar on the top, click **Admin**.
+	b. In the left panel, click **Settings** and navigate to **SAML**.
 	
-	c. In the left panel, click **Domain**.
+	c. Toggle the **SAML Login** option as **Enabled**.
 	
-	d. Click your verified domain name.
-	
-	e. In the left panel, click **SAML**, and then select **Enabled**.
-	
-	f. Open the downloaded Federation Metadata from Azure AD in notepad, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
+	d. Open the downloaded Federation Metadata from Azure AD in notepad, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### Create an Azure AD test user
+### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![image](./media/expensify-tutorial/d_users_and_groups.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen.
 
-    ![The Azure Active Directory button](./media/expensify-tutorial/create_aaduser_01.png)
+    ![image](./media/expensify-tutorial/d_adduser.png)
 
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the User properties, perform the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/expensify-tutorial/create_aaduser_02.png)
+    ![image](./media/expensify-tutorial/d_userproperties.png)
 
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    ![The Add button](./media/expensify-tutorial/create_aaduser_03.png)
+    c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
 
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/expensify-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
+    d. Select **Create**.
  
 ### Create an Expensify test user
 
@@ -182,31 +176,25 @@ In this section, you create a user called Britta Simon in Expensify. Work with [
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Expensify.
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**.
 
-**To assign Britta Simon to Expensify, perform the following steps:**
+	![image](./media/expensify-tutorial/d_all_applications.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the applications list, select **Expensify**.
 
-	![Assign User][201] 
+	![image](./media/expensify-tutorial/d_all_proapplications.png)
 
-1. In the applications list, select **Expensify**.
+3. In the menu on the left, select **Users and groups**.
 
-	![The Expensify link in the Applications list](./media/expensify-tutorial/tutorial_expensify_app.png)  
+    ![image](./media/expensify-tutorial/d_leftpaneusers.png)
 
-1. In the menu on the left, click **Users and groups**.
+4. Select the **Add** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The "Users and groups" link][202]
+    ![image](./media/expensify-tutorial/d_assign_user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-	![The Add Assignment pane][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
+5. In the **Add Assignment** dialog select the **Assign** button.
 	
 ### Test single sign-on
 
@@ -220,17 +208,6 @@ For more information about the Access Panel, see [Introduction to the Access 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-<!--Image references-->
 
-[1]: ./media/expensify-tutorial/tutorial_general_01.png
-[2]: ./media/expensify-tutorial/tutorial_general_02.png
-[3]: ./media/expensify-tutorial/tutorial_general_03.png
-[4]: ./media/expensify-tutorial/tutorial_general_04.png
 
-[100]: ./media/expensify-tutorial/tutorial_general_100.png
-
-[200]: ./media/expensify-tutorial/tutorial_general_200.png
-[201]: ./media/expensify-tutorial/tutorial_general_201.png
-[202]: ./media/expensify-tutorial/tutorial_general_202.png
-[203]: ./media/expensify-tutorial/tutorial_general_203.png
 

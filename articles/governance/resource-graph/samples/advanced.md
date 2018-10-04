@@ -13,9 +13,9 @@ ms.custom: mvc
 # Advanced Resource Graph queries
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
-[Query Language](../concepts/query-language.md). If you aren't already familiar with Kusto Query
-Language (KQL), it's recommended to review the basics to understand how to compose requests for the
-resources you're looking for.
+[Query Language](../concepts/query-language.md). If you are not already familiar with [Azure Data
+Explorer](../../../data-explorer/data-explorer-overview.md), it is recommended to review the basics
+to understand how to compose requests for the resources you are looking for.
 
 We'll walk through the following advanced queries:
 
@@ -52,7 +52,7 @@ where type=~ 'microsoft.compute/virtualmachinescalesets'
 az graph query -q "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
@@ -70,7 +70,7 @@ project tags
 az graph query -q "project tags | summarize buildschema(tags)"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
 ```
 
@@ -100,7 +100,7 @@ where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Cont
 az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 

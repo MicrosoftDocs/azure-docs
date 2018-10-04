@@ -51,7 +51,7 @@ Log in to the Azure portal at http://portal.azure.com
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
-1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your your **Region**. Leave the other defaults.
+1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your **Region**. Leave the other defaults.
 
 	![Instance details section](./media/quick-create-portal/instance-details.png)
 

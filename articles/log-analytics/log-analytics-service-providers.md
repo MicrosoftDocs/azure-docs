@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.component: na
+ms.component: 
 ---
 
 # Log Analytics for Service Providers

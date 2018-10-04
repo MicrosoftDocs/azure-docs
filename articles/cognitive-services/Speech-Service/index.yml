@@ -196,7 +196,7 @@ sections:
         <p><a href="https://aka.ms/csspeech/cppref">C++ API</a></p>
         <p><a href="https://aka.ms/csspeech/javaref">Java API</a></p>
         <p><a href="https://aka.ms/csspeech/objectivecref">Objective-C API</a></p>
-        <p><a href="https://aka.ms/csspeech/javascript">JavaScript API</a></p>
+        <p><a href="https://aka.ms/csspeech/javascriptref">JavaScript API</a></p>
     - title: REST API 
       html: |
         <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">REST API</a></p>

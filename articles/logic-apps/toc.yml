@@ -246,6 +246,8 @@
         href: ../connectors/connectors-create-api-sendgrid.md
       - name: SFTP
         href: ../connectors/connectors-create-api-sftp.md  
+      - name: SFTP - SSH
+        href: ../connectors/connectors-sftp-ssh.md  
       - name: SharePoint
         href: ../connectors/connectors-create-api-sharepoint.md
       - name: Slack

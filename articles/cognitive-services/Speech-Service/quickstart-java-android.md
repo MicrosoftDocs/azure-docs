@@ -71,7 +71,7 @@ Set up your project to use the Speech SDK. Open the Project Structure window by 
 1. In the window that comes up, enter the name and version of our Speech SDK for Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`. Then select **OK**.
    The Speech SDK should be added to the list of dependencies now, as shown below:
 
-   ![Screenshot of Project Structure window](media/sdk/qs-java-android-08-dependency-added.png)
+   ![Screenshot of Project Structure window](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
 1. Select the **Properties** tab. For both **Source Compatibility** and **Target Compatibility**, select **1.8**.
 
@@ -108,7 +108,7 @@ The text and graphical representation of your UI should now look like this.
 
 ## Add sample code
 
-1. Open the source file `MainActivity.java`. Replace all the code following the `package` statement with the following.
+1. Open the source file `MainActivity.java`. Replace all the code in this file with the following.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 

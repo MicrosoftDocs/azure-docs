@@ -27,6 +27,8 @@
       href: infrastructure-fqdns.md
     - name: Logs and metrics
       href: logs-and-metrics.md
+    - name: Rule processing logic
+      href: rule-processing.md
 - name: How-to guides
   items:
     - name: Deploy using a template

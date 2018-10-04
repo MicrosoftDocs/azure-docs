@@ -41,7 +41,7 @@ To get all the latest features, and the smoothest experience when connecting to 
     > Authentication type, **Active Directory - Universal with MFA support**, is recommended.
 
     > [!NOTE]
-    > If you sign in with a Microsoft Account, Live ID, Yanoo, Gmail, etc., leave the password field blank. You are prompted for a password after clicking Connect.
+    > If you sign in with a Microsoft Account, Live ID, Yahoo, Gmail, etc., leave the password field blank. You are prompted for a password after clicking Connect.
 
     **Windows Authentication** to use your Windows domain\username and password credentials.
 

@@ -52,7 +52,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 1. In the upper-right corner, in the **Package Source** field, select **nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package, and install it into the **helloworld** project.
 
-    ![Screenshot of Manage Packages for Solution dialog box](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
+    ![Screenshot of Manage Packages for Solution dialog box](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
     > The current version of the Cognitive Services Speech SDK is `1.0.0`.

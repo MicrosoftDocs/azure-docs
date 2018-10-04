@@ -1,6 +1,6 @@
 ---
 layout: HubPage
-hide_bc: true
+hide_bc: false
 title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
 description: Azure Active Directory (Azure AD) is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
 services: active-directory
@@ -73,7 +73,7 @@ ms.author: mtillman
                                                                     <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
 																	<p>
 																	    <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Secure your Azure resources with conditional access</a><br>
-                                                                        <a href="/learn/browse/">More interactive learning ...</a><br>
+                                                                        <a href="/learn/browse/?products=azure-active-directory">More interactive learning...</a><br>
 																    </p>
 																</div>
                                                             </div>
@@ -176,10 +176,10 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="governance/access-reviews-overview.md">Access reviews</a></h3>
+                                                        <h3><a href="governance/index.yml">Identity governance</a></h3>
                                                         <p>
-                                                            <a href="governance/create-access-review.md">Create an access review</a><br>
-                                                            <a href="governance/perform-access-review.md">Perform an access review</a><br>
+                                                            <a href="governance/manage-user-access-with-access-reviews.md">Manage user access</a><br>
+                                                            <a href="governance/manage-guest-access-with-access-reviews.md">Manage guest access</a><br>
                                                             <a href="governance/active-directory-tou.md">Terms of use</a><br>
                                                         </p>
 														<br><br>

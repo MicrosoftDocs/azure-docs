@@ -63,11 +63,3 @@ sections:
         - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
           html: <p>Enables administrators to ensure workloads meet the minimum governance requirements of an organization without preventing business groups and developers from quickly meeting their own goals.<br /><br /></p>
           title: Enterprise Scaffold
-  - title: Reference
-    items:
-    - type: list
-      style: cards
-      className: cardsD
-      items:
-      - title: Policy
-        html: <p>Command-Line<ul><li><a href="/cli/azure/policy">Azure CLI</a></li></ul></p><p>PowerShell<ul><li><a href="/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></li></ul></p><p>REST API<ul><li><a href="/rest/api/policy-insights/policyevents">Events</a></li><li><a href="/rest/api/policy-insights/policystates">States</a></li><li><a href="/rest/api/resources/policyassignments">Assignments</a></li><li><a href="/rest/api/resources/policydefinitions">Policy Definitions</a></li><li><a href="/rest/api/resources/policysetdefinitions">Initiatives Definitions</a></li></ul></p>

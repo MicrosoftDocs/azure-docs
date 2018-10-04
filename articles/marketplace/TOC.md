@@ -19,12 +19,14 @@
 #### [Azure Applications: managed applications](./marketplace-managed-apps.md)
 #### [SaaS Apps](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Containers](./marketplace-containers.md)
+#### [IoT Edge modules](./iot-edge-module.md) 
 #### [Consulting Service](./consulting-services.md)  
 #### [Office 365, Dynamics 365 and Power BI publishing guide](./appsource-offer-publishing-guide.md)
 #### [Enable a Microsoft AppSource and Azure Marketplace listing by using Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Preferred solutions](./preferred-solutions.md) 
+#### [Marketplace content validation](./marketplace-criteria-content-validation.md)
 
 ### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
 
