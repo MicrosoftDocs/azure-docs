@@ -51,9 +51,9 @@ az keyvault secret set --vault-name $vaultname --name examplesecret --value $pas
 
 For PowerShell, use:
 
-```powershell
+```powershell-interactive
 $vaultname = "{your-unique-vault-name}"
-$password = [System.Web.Security.Membership]::GeneratePassword(16,3)
+$password = openssl rand -base64 32
 
 New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
 New-AzureRmKeyVault `

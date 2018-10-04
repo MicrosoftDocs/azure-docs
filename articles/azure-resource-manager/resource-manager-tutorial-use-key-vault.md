@@ -63,7 +63,7 @@ Your Azure AD user object ID is needed by the template to configure permissions.
     ```
     ```powershell
     (Get-AzureADUser -ObjectId "<YourEmailAddressAssociatedWithYourSubscription>").ObjectId
-    [System.Web.Security.Membership]::GeneratePassword(16,3)
+    openssl rand -base64 32
     ```
 
     The object ID is a GUID number.
