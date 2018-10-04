@@ -531,14 +531,15 @@ In JavaScript functions, use `context.bindings.<name>` to access the output queu
 
 ## Next steps
 
+* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+
+<!--
 > [!div class="nextstepaction"]
 > [Go to a quickstart that uses a Queue storage trigger](functions-create-storage-queue-triggered-function.md)
+-->
 
 > [!div class="nextstepaction"]
 > [Go to a tutorial that uses a Queue storage output binding](functions-integrate-storage-queue-output-binding.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
 
 <!-- LINKS -->
 

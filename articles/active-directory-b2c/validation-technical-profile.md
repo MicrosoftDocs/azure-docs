@@ -49,8 +49,8 @@ The **ValidationTechnicalProfile** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
-|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validaiton technical profile raises an error. Posible values: `ture` or `false` (default,  processing of further validation profiles will stop and an error returned). 
-|ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Posible values: `ture` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
+|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validaiton technical profile raises an error. Posible values: `true` or `false` (default,  processing of further validation profiles will stop and an error returned). 
+|ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Posible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
 
 The **ValidationTechnicalProfile** element contains the following element:
 

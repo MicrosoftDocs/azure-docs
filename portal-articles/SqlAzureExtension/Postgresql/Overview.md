@@ -13,7 +13,7 @@ ms.author: sewatson
 
 # Azure Database for PostgreSQL Documentation
 
-Azure Database for PostgreSQL is a relational database service based on the open source Postgres database engine. It is a fully managed database as a service offering capable of handling mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.  Develop applications with Azure Database for PostgreSQL leveraging the open source tools and platform of your choice.  Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples.
+Azure Database for PostgreSQL is a relational database service based on the open-source Postgres database engine. It is a fully managed database as a service offering capable of handling mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.  Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice.  Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples.
 
 ## 5-Minute Quickstarts
 
@@ -27,7 +27,7 @@ Learn how to create a PostgreSQL database using:
 Learn how to:
 
 - Design a Database: [Azure portal](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [Azure CLI](/azure/postgresql/tutorial-design-database-using-azure-cli)
-- [Build a Web App using Python and the CLI](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
+- [Build a Web App using Python and the CLI](/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
 
 ## Samples 
 

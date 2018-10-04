@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: create linked Azure Resource Manager templates
+# Tutorial: Create linked Azure Resource Manager templates
 
 Learn how to create linked Azure Resource Manager templates. Using linked templates, you can have one template call another template. It is great for modularizing templates. In this tutorial, you use the same template used in [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md), which creates a virtual machine, a virtual network, and other dependent resource including a storage account. You separate the storage account resource to a linked template.
 
@@ -211,4 +211,9 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager Templates](./resource-group-authoring-templates.md).
+In this tutorial, you develop and deploy linked templates. To learn how deploy Azure resources across multiple regions, and how to use safe deployment practices, see
+
+
+> [!div class="nextstepaction"]
+> [Use Azure Deployment Manager](./deployment-manager-tutorial.md)
+

@@ -1,10 +1,10 @@
 ---
-title: Translator Text get supported languages with C#| Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with C# in Cognitive Services.
+title: "Quickstart: Get supported languages - Translator Text API, C#"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: translator-text
@@ -15,6 +15,8 @@ ms.author: nolachar
 # Quickstart: Get supported languages with C&#35;
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API.
+
+The source code for this sample is available on [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## Prerequisites
 

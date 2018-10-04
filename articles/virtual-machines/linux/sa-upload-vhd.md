@@ -1,6 +1,6 @@
 ---
-title: Upload a custom Linux disk with Azure CLI 2.0 | Microsoft Docs
-description: Create and upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and the Azure CLI 2.0
+title: Upload a custom Linux disk with Azure CLI | Microsoft Docs
+description: Create and upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -18,15 +18,17 @@ ms.date: 07/10/2017
 ms.author: cynthn
 
 ---
-# Upload and create a Linux VM from custom disk with the Azure CLI 2.0
-This article shows you how to upload a virtual hard disk (VHD) to an Azure storage account with the Azure CLI 2.0 and create Linux VMs from this custom disk. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
+
+# Upload and create a Linux VM from custom disk with the Azure CLI
+
+This article shows you how to upload a virtual hard disk (VHD) to an Azure storage account with the Azure CLI and create Linux VMs from this custom disk. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
 
 This topic uses storage accounts for the final VHDs, but you can also do these steps using [managed disks](upload-vhd.md). 
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to upload a VHD to Azure. More detailed information and context for each step can be found the rest of the document, [starting here](#requirements).
 
-Make sure that you have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `mydisks`.
 
@@ -92,7 +94,7 @@ To complete the following steps, you need:
   * Create a storage account and container to hold both your custom disk and created VMs
   * After you have created all your VMs, you can safely delete your disk
 
-Make sure that you have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `mydisks`.
 
@@ -137,7 +139,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/common/storage-account-manage.md#access-keys). You view the access keys with [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 View the access keys for the storage account you created:
 

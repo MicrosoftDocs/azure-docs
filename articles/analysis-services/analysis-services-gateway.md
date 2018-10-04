@@ -1,14 +1,13 @@
 ---
-title: On-premises data gateway | Microsoft Docs
+title: On-premises data gateway
 description: An On-premises gateway is necessary if your Analysis Services server in Azure will connect to on-premises data sources.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 09/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-
 ---
 # Connecting to on-premises data sources with Azure On-premises Data Gateway
 The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. 
@@ -186,8 +185,6 @@ Log files are an important resource when troubleshooting.
 #### Configuration logs
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
-
-
 
 
 #### Event logs

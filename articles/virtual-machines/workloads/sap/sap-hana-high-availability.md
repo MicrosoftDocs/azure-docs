@@ -1,6 +1,6 @@
 ---
-title: Set up SAP HANA System Replication on Azure virtual machines (VMs) | Microsoft Docs
-description: Establish high availability of SAP HANA on Azure virtual machines (VMs).
+title: High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server | Microsoft Docs
+description: High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: 
 author: MSSedusch
@@ -16,7 +16,7 @@ ms.date: 08/16/2018
 ms.author: sedusch
 
 ---
-# High availability of SAP HANA on Azure virtual machines
+# High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -65,6 +65,7 @@ Read the following SAP Notes and papers first:
 * SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
 * SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all of the required SAP Notes for Linux.
+* [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide] guide.
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] (this article).
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
@@ -107,9 +108,13 @@ To deploy the template, follow these steps:
     - **System Availability**: Select **HA**.
     - **Admin Username and Admin Password**: A new user is created that can be used to log on to the machine.
     - **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet used. If you already have a virtual network that's connected to your on-premises network, select **Existing**.
-    - **Subnet ID**: The ID of the subnet to which the virtual machines should be connected. To connect the virtual machine to your on-premises network, select the subnet of your VPN or Azure ExpressRoute virtual network. The ID usually looks like **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>**.
+    - **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>**.
 
 ### Manual deployment
+
+> [!IMPORTANT]
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type
+>  
 
 1. Create a resource group.
 1. Create a virtual network.
@@ -118,13 +123,10 @@ To deploy the template, follow these steps:
 1. Create a load balancer (internal).
    - Select the virtual network created in step 2.
 1. Create virtual machine 1.
-   - Use at least SLES4SAP 12 SP1. This example uses the SLES4SAP 12 SP2 image https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - Use SLES for SAP 12 SP2 (Premium).
+   - Use a SLES4SAP image in the Azure gallery that is supported for SAP HANA on the VM type you selected.
    - Select the availability set created in step 3.
 1. Create virtual machine 2.
-   - Use at least SLES4SAP 12 SP1. This example uses the SLES4SAP 12 SP1 BYOS image
-   https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - Use SLES for SAP 12 SP2 (Premium).
+   - Use a SLES4SAP image in the Azure gallery that is supported for SAP HANA on the VM type you selected.
    - Select the availability set created in step 3. 
 1. Add data disks.
 1. Configure the load balancer. First, create a front-end IP pool:
@@ -675,6 +677,9 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 ### SUSE tests
 
+> [!IMPORTANT]
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type
+
 Run all test cases that are listed in the SAP HANA SR Performance Optimized Scenario or SAP HANA SR Cost Optimized Scenario guide, depending on your use case. You can find the guides on the [SLES for SAP best practices page][sles-for-sap-bp].
 
 The following tests are a copy of the test descriptions of the SAP HANA SR Performance Optimized Scenario SUSE Linux Enterprise Server for SAP Applications 12 SP1 guide. For an up-to-date version, always also read the guide itself. Always make sure that HANA is in sync before starting the test and also make sure that the Pacemaker configuration is correct.
@@ -967,7 +972,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker will detect the stopped HANA instance and mark the resource as failed on node hn1-db-1. Run the following command to clean up the failed state. Pacemaker should then automatically restart the HANA instance.
+   Pacemaker will detect the stopped HANA instance and mark the resource as failed on node hn1-db-1. Pacemaker should automatically restart the HANA instance. Run the following command to clean up the failed state.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1

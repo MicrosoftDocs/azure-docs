@@ -72,7 +72,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 ## Add a VM image to the Marketplace by using PowerShell
 
 > [!Note]  
-> When you add an image it will only be available for Azure Resource Manger based templates and PowerShell deployments. To make an image available to a your users as a marketplace item, publish the marketplace item using the steps in the article, [Create and publish a Marketplace item](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> When you add an image it will only be available for Azure Resource Manger based templates and PowerShell deployments. To make an image available to a your users as a marketplace item, publish the marketplace item using the steps in the article, [Create and publish a Marketplace item](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
 
