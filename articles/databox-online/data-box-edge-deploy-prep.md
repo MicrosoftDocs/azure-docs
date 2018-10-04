@@ -78,7 +78,7 @@ Before you begin, make sure that:
 
 * The network in your datacenter is configured as per the networking requirements for your Data Box Edge device. For more information, see the [Data Box Edge System Requirements](data-box-gateway-system-requirements.md).
 
-* Your Data Box Edge has a dedicated 20 Mbps Internet bandwidth (or more) available at all times. This bandwidth should not be shared with any other applications. If using network throttling, then for throttling to work, we recommend that you use 32 Mbps Internet bandwidth or more.
+* Your Data Box Edge has a dedicated 20-Mbps Internet bandwidth (or more) available at all times. This bandwidth should not be shared with any other applications. If using network throttling, then for throttling to work, we recommend that you use 32-Mbps Internet bandwidth or more.
 
 ## Create a new resource
 
@@ -87,6 +87,7 @@ Perform the following steps to create a new Data Box Edge resource.
 If you have an existing Data Box Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
 Perform the following steps in the Azure portal to create a Data Box resource.
+
 1. Use your Microsoft Azure credentials to log into Azure preview portal at this URL: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
 
 2. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the **Data Box Edge** option, click **Create**.
@@ -97,7 +98,7 @@ Perform the following steps in the Azure portal to create a Data Box resource.
     
     |Setting  |Value  |
     |---------|---------|
-    |Resource name   | A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
+    |Resource name   | A friendly name to identify the resource.<br>The resource name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
     |Subscription    |Subscription is linked to your billing account. |
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).     |
     |Location     |For this release, East US, West US 2, South East Asia, and West Europe are available. <br> Choose a location closest to the geographical region where you want to deploy your device.|
@@ -114,8 +115,6 @@ The resource creation takes a few minutes. After the resource is successfully cr
 After the Data Box Edge resource is up and running, you will need to get the activation key. This key is used to activate and connect your Data Box Edge device with the resource. You can get this key now while you are in the Azure portal.
 
 1. Click the resource that you created and then click **Overview**.
-
-    ![New Data Box Edge resource](media/data-box-edge-deploy-prep/data-box-gateway-resource-created.png)
 
 2. Click **Generate key** to create an activation key. Click copy icon to copy the key and save it for later use.
 

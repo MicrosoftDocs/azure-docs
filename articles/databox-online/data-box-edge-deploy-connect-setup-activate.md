@@ -56,46 +56,44 @@ Before you configure and set up your Data Box Edge, make sure that:
    
     ![](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
-3. You are prompted to change the device administrator password. Type in a new password that contains between 8 and 16 characters. The password must contain 3 of the following: uppercase, lowercase, numeric, and special characters.
+3. You're prompted to change the device administrator password. Type in a new password that contains between 8 and 16 characters. The password must contain 3 of the following characters: uppercase, lowercase, numeric, and special characters.
 
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image4.png)
-
-You are now at the **Dashboard** of your device.
+You're now at the **Dashboard** of your device.
 
 ## Set up and activate the physical device
  
-1. From the dashboard, you can go to various settings required to configure and register the virtual device with the Data Box Edge service. The **Device name**, **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Cloud settings**.
+1. From the dashboard, you can go to various settings required to configure and register the physical device with the Data Box Edge service. The **Device name**, **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Cloud settings**.
    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image5.png)
+    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
 2. In the **Device name** page, configure a friendly name for your device. The friendly name can be 1 to 15 characters long and can contain letter, numbers, and hyphens.
 
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image6.png)
+    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
-3. (Optionally) configure your **Network settings**. On your physical device, you will see 6 network interfaces. PORT 1 and PORT 2 are 1 Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25 Gbps network interfaces. PORT1 is automatically configured as management-only port while PORT 2 to PORT 6 are all data ports. The **Network settings** page as shown below.
+3. (Optionally) configure your **Network settings**. On your physical device, you'll see six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces. PORT 1 is automatically configured as management-only port while PORT 2 to PORT 6 are all data ports. The **Network settings** page as shown below.
     
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image7.png)
+    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
-    When configuring network settings, keep the following in mind:
+    When configuring network settings, keep in mind:
 
-    - If DHCP is enabled in your environment, network interfaces are automatically configured. Hence, an IP address, subnet, gateway, and DNS are automatically assigned.
-    - If DHCP is not enabled, you can assign static IPs if needed.
+    - If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
+    - If DHCP isn't enabled, you can assign static IPs if needed.
     - You can configure your network interface as IPv4.
    
-4. (Optionally) configure your web proxy server. Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here.
+4. (Optionally) configure your web proxy server. Although web proxy configuration is optional, if you use a web proxy, you can only configure it here.
    
-   ![](./media/data-box-edge-deploy-connect-setup-activate/image8.png)
+   ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
    In the **Web proxy** page:
    
-   1. Supply the **Web proxy URL** in this format: [http://&lt;host-IP address or FDQN&gt;:Port number](http://&lt;host-IP address or FDQN&gt;:Port number). Note that HTTPS URLs are not supported.
+   1. Supply the **Web proxy URL** in this format: [http://&lt;host-IP address or FDQN&gt;:Port number](http://&lt;host-IP address or FDQN&gt;:Port number). HTTPS URLs are not supported.
    2. Specify **Authentication** as **Basic** or **None**.
-   3. If using authentication, you will also need to provide a **Username** and **Password**.
+   3. If using authentication, you'll also need to provide a **Username** and **Password**.
    4. Click **Apply**. This will validate and apply the configured web proxy settings.
 
 5. (Optionally) configure the time settings for your device, such as time zone and the primary and secondary NTP servers. NTP servers are required because your device must synchronize time so that it can authenticate with your cloud service providers.
     
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image9.png)
+    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
     
     In the **Time settings** page:
     
@@ -110,9 +108,11 @@ You are now at the **Dashboard** of your device.
 
     2. Click **Apply**. 
        
-         ![](./media/data-box-edge-deploy-connect-setup-activate/image10.png)
+         ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
     
-    3. After the device is successfully activated, you are presented with connectivity mode options. These are configured if you need to work with the device in partially disconnected or disconnected mode. 
+    3. After the device is successfully activated, you're presented with connectivity mode options. These are configured if you need to work with the device in partially disconnected or disconnected mode. 
+
+        ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)    
 
 The device setup is complete. You can now add shares on your device.
 
