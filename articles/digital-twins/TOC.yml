@@ -45,8 +45,6 @@
       href: security-create-manage-role-assignments.md
     - name: Management APIs authentication
       href: security-authenticating-apis.md
-    - name: Device connectivity
-      href: security-device-token.md
 - name: How-to guides
   items:
   - name: Enable multitenant applications with Azure Digital Twins
