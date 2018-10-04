@@ -6,12 +6,11 @@ ms.date: 1/11/2018
 
 # Acquisitions report
 
-The Acquisitions report in the Dev Center dashboard lets you see who has acquired and installed your add-in, app or visual, and shows info about how customers have arrived at your AppSource listing. 
+The [Acquisitions report](https://partner.microsoft.com/dashboard/analytics/office/acquisitions) in the Dev Center dashboard lets you see who has acquired and installed your add-in, app or visual, and shows info about how customers have arrived at your AppSource listing. 
 
 In this report, an acquisition means a new customer has obtained a license to your solution (whether you charged money or you've offered it for free). If your solution supports multi-seat acquisitions, such as site license purchases, these will also be detailed and displayed.
 
-    > [!NOTE]
-    > The Acquisitions report does not include data about refunds, reversals, chargebacks, etc. To estimate your solution proceeds, visit Payout summary. 
+The Acquisitions report does not include data about refunds, reversals, chargebacks, etc. To estimate your solution proceeds, visit Payout summary. 
 
 <a name="BKMK_Edit"> </a>
 ## Apply filters
@@ -54,7 +53,37 @@ The values supported within the Acquisitions chart include:
 The **Markets** chart shows the total number of acquisitions over the selected period of time for each market in which your solution is available.
 
 You can view this data in a visual Map form, or toggle the setting to view it in Table form. Table form will show five markets at a time, sorted either alphabetically or by highest/lowest number of acquisitions. You can also download the data to view info for all markets together.
- 
+
+### App page views and conversions by channel
+
+The Acquisition funnel shows you how many customers completed each step of the funnel, from viewing the Store page to using the add-in or app, along with the conversion rate. This data can help you identify areas where you might want to invest more to increase your page views, acquisitions, or activations.
+
+> [!NOTE]
+> Client surfaces do not generate funnel information, and provided data only covers AppSource acquisitions.
+
+In this chart, a channel refers to the method in which a customer arrived at your solution's listing page (for example, browsing and searching in the Store, a link from an external website, a link from one of your custom campaigns, etc.). The following channel types are included:
+
+- Store traffic: The customer was browsing or searching within the Store when they viewed your app's listing.
+
+- Custom campaign: The customer followed a link that used a [custom campaign ID](promote-your-office-store-solution.md).
+
+- Other: The customer followed an external link (without any custom campaign ID) from a website to your app's listing or the customer followed a link from a search engine to your app's listing.
+	
+A page view means that a customer viewed your solutions's AppSource listing page. This includes views by people who aren't signed in. Some customers have opted out of providing this information to Microsoft.
+
+> [!NOTE] Customers could arrive at your app's listing by clicking on a custom campaign not created by you. We stamp every page view within a session with the campaign ID from which the customer first entered the Store. We then attribute conversions to that campaign ID for all acquisitions within 24 hours. Because of this, you may see a higher number of total conversions than the total conversions for your campaign IDs, and you may have conversions or add-on conversions that have zero page views.
+
+## App page views and conversions by campaign ID
+
+The App page views and conversions by campaign ID chart lets you track conversions and page views, as described above, for each of your [custom promotion campaigns](promote-your-office-store-solution.md). The top campaign IDs are shown, and you can use the filters to exclude or include specific campaign IDs.
+
+## Campaign performance by channel
+
+The campaign performance by channel chart lets you track at a high level the influence various channels have over your store traffic. This breaks down the funnel steps by each of the channels tracked.
+
+## Total campaign conversions
+
+The Total campaign conversions chart shows the total number of app and add-on conversions from all custom campaigns during the selected period of time.
 
 ## See also
 
