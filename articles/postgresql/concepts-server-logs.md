@@ -42,14 +42,14 @@ The following describes what's in each log:
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Time stamp when the log was recorded in UTC |
 | Type | Type of the log . Always `AzureDiagnostics` |
-| ResourceProvider | Name of the resource provider. Always `MICROSOFT.DBFORPOSTGRESQL` |
-| Resource | Name of the server |
-| ResourceId | Resource URI |
-| ResourceType | `Servers` |
 | SubscriptionId | GUID for the subscription that the server belongs to |
 | ResourceGroup | Name of the resource group the server belongs to |
+| ResourceProvider | Name of the resource provider. Always `MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceType | `Servers` |
+| ResourceId | Resource URI |
+| Resource | Name of the server |
 | Category | `PostgreSQLLogs` |
-| OperationName | LogEvent |
+| OperationName | `LogEvent` |
 | errorLevel_s | Logging level e.g. LOG, ERROR, NOTICE |
 | Message | Primary log message | 
 | Domain_s | Server version e.g. postgres-10 |
