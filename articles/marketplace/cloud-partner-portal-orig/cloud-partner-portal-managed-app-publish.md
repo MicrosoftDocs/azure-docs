@@ -18,13 +18,13 @@ ms.author: pbutlerm
 ---
 
 
-Publish an Azure-Managed Application to Azure Marketplace {#publishaazuremanagedapplicationtoazuremarketplace}
+Publish an Azure-Managed Application to Azure Marketplace 
 ========================================================
 
 This article lists the various steps involved in publishing a Managed
 Application offer to Azure Marketplace.
 
-Pre-requisites for publishing a Managed Application {#prerequisitesforpublishingamanagedapplication}
+Pre-requisites for publishing a Managed Application 
 ---------------------------------------------------
 
 Prerequisites to listing on Azure Marketplace
@@ -70,7 +70,7 @@ Prerequisites to listing on Azure Marketplace
         Privacy Statement and Microsoft Azure Certified Program
         Agreement.
 
-How to create a new Azure Application offer {#howtocreateanewazureapplicationoffer}
+How to create a new Azure Application offer 
 -------------------------------------------
 
 Once all pre-requisites have been met, you are ready to start
@@ -121,7 +121,7 @@ shows up as its own purchasable entity at azure.com.
 
     -   Support
 
-How to fill out the Offer Settings form {#howtofillouttheoffersettingsform}
+How to fill out the Offer Settings form 
 ---------------------------------------
 
 The offer settings form is a basic form to specify the offer settings.
@@ -152,7 +152,7 @@ that the name is exactly how it shows up in your website.
 Click on \"Save\" to save your progress. Next step would be to add SKUs
 for your offer.
 
-How to create SKUs {#howtocreateskus}
+How to create SKUs 
 ------------------
 
 Click on the \"SKUs\" form. Here you can see an option to \"Add a SKU\"
@@ -175,7 +175,7 @@ After clicking on \"New SKU\", you will need to fill the following form:
 
 ![New offer - new SKU](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku.png)
 
-### How to fill Sku Details section {#howtofillskudetailssection}
+### How to fill Sku Details section 
 
 **Title** - Provides a title for this Sku. This is what will show up in
 the gallery for this item.
@@ -190,7 +190,7 @@ SKU.
 \"Solution Templates\". For this case, you will select \"Managed
 Application\".
 
-### How to fill Package Details section {#howtofillpackagedetailssection}
+### How to fill Package Details section 
 
 The package section has the following fields that need to be filled out
 
