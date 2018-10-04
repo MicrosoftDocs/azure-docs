@@ -29,7 +29,7 @@ Swagger provides an interactive summary of your API including:
 Swagger is therefore a convenient tool to assist with development and testing calls made to the Management API.
 
 >[!TIP]
->For your convenience, a Swagger sneak preview is provided to demonstrate the rich Ontology and API feature set.
+>For your convenience, a Swagger sneak preview is provided to demonstrate the API feature set.
 >It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
 You can access your own, generated, Management API Swagger documentation can be accessed publicly at:
