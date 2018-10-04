@@ -28,16 +28,20 @@ Swagger provides an interactive summary of your API including:
 
 Swagger is therefore a convenient tool to assist with development and testing calls made to the Management API.
 
->[!NOTE]
-> No configuration is required to use your digital twin Swagger reference material.
+>[!TIP]
+>For your convenience, an interactive example is provided to assist with initial development and review.
+>It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-Your generated Management API Swagger documentation can be accessed publicly at:
+You can access your own, generated, Management API Swagger documentation can be accessed publicly at:
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger/ui/index
+https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
-`yourInstanceName` and `yourLocation` should be replaced with the name of your Digital Twins instance and the location of the servers it's hosted on, respectively.
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourInstanceName` | The name of your Azure Digital Twins instance |
+| `yourLocation` | Which server region your instance is hosted on |
 
 ## Reference material
 
@@ -55,7 +59,7 @@ You can click into each listed Object Model for a more detailed summary of key a
 
 ![Swagger model][3]
 
-The generated Swagger Object Models is convenient to see all available Azure Digital Twins [Ontology objects](./concepts-objectmodel-spatialgraph.md). It's therefore a great resource for developers to use when building solutions on Azure Digital Twins.
+The generated Swagger Object Models is convenient to see all available Azure Digital Twins [Objects and APIs](./concepts-objectmodel-spatialgraph.md). It's therefore a great resource for developers to use when building solutions on Azure Digital Twins.
 
 ## Endpoint summary
 
@@ -99,7 +103,7 @@ To interactively test requests against API resources protected by OAuth 2.0, see
 
 ## Next steps
 
-Read more about Azure Digital Twins Ontology:
+Read more about Azure Digital Twins Object Models and Spatial Intelligence Graph:
 
 > [!div class="nextstepaction"]
 > [Object Models](./concepts-objectmodel-spatialgraph.md)
