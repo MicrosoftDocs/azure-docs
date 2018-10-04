@@ -236,7 +236,7 @@ To fully re-create the VMs after restoring to disk, follow these steps:
 
    c. Create a VM with [multiple NICs](../virtual-machines/windows/multiple-nics.md).
 
-   d. Create a VM with [multiple reserved IPs](../virtual-network/virtual-network-multiple-ip-addresses-powershell).
+   d. Create a VM with [multiple reserved IPs](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md).
 
 ## Next steps
 Now that you can restore your VMs, see the troubleshooting article for information on common errors with VMs. Also, check out the article on managing tasks with your VMs.
