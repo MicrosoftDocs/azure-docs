@@ -149,7 +149,7 @@ This procedure uses an example where the custom module used takes files from a l
 
     ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-11.png) 
  
-This starts the module deployment as shown by the IoT Edge Custom module under Modules.
+This starts the module deployment as shown by the **IoT Edge Custom module** under **Modules**.
 
 ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-12.png) 
 

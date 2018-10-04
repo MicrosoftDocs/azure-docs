@@ -35,6 +35,18 @@
     items:
     - name: What is Azure Data Box Edge?
       href: data-box-edge-overview.md
+- name: Tutorials
+    items:
+    - name: 1 - Prepare
+      href: data-box-edge-deploy-prep.md
+    - name: 2 - Install
+      href: data-box-edge-deploy-install.md
+    - name: 3 - Connect, set up, activate
+      href: data-box-gateway-deploy-connect-setup-activate.md
+    - name: 3 - Add, connect to share
+      href: data-box-gateway-deploy-add-shares.md
+    - name: 4 - Configure compute
+      href: data-box-gateway-deploy-configure-compute.md
 - name: Resources
   items:
   - name: Azure roadmap
