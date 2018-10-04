@@ -82,7 +82,7 @@ Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-m
 
 - **Azure Storage**: For archiving vast amounts of telemetry for a small price
 - **Azure Event Hub**: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines
-- **Azure Log Analytics**: For built-in monitoring solution with reporting, alerting, and mitigating capabilities. Azure Log Analytics is a feature of the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+- **Azure Log Analytics**: For built-in monitoring solution with reporting, alerting, and mitigating capabilities.
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 

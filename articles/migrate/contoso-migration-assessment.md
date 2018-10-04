@@ -406,8 +406,8 @@ Contoso runs the installation on each VM.
 3. Contoso installs the MMA:
     - Contoso enters the workspace ID and key in the command.
     - Commands are for 64-bit.
-    - The workspace ID and primary key are located in the Microsoft Operations Management Suite (OMS) portal. Select **Settings**, and then select the **Connected Sources** tab.
-    - Run the following commands to download the OMS agent, validate the checksum, and install and onboard the agent:
+    - The workspace ID and primary key are located in the Log Analytics workspace in the Azure portal. Select **Settings**, and then select the **Connected Sources** tab.
+    - Run the following commands to download the Log Analytics agent, validate the checksum, and install and onboard the agent:
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==

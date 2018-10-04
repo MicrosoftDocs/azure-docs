@@ -91,7 +91,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
     2.  Sync Group information.
 
-    3.  OMS information. Find this information at OMS Portal | Settings | Connected Sources. For more info about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (preview)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Log Analytics information. Find this information in Azure Portal | Settings | Connected Sources. For more information about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (preview)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Run the runbook in the Test pane. Check to make sure it was successful.
 
@@ -111,7 +111,7 @@ To schedule the runbook:
 
 4.  Select **Create a new schedule.**
 
-5.  Set **Recurrence** to Recurring and set the interval you want. Use the same interval here, in the script, and in OMS.
+5.  Set **Recurrence** to Recurring and set the interval you want. Use the same interval here, in the script, and in Log Analytics.
 
 6.  Select **Create**.
 
@@ -123,7 +123,7 @@ To monitor whether your automation is running as expected, under **Overview** fo
 
 To create an alert that uses Log Analytics, do the following things. As a prerequisite, you need to have Log Analytics linked with a Log Analytics Workspace.
 
-1.  In the OMS portal, select **Log Search**.
+1.  In the Azure portal, select **Log Search**.
 
 2.  Create a query to select the errors and warnings by sync group within the interval you selected. For example:
 
@@ -141,9 +141,9 @@ To create an alert that uses Log Analytics, do the following things. As a prereq
 
 6.  Click **Save**. The specified recipients now receive email notifications when errors occur.
 
-## Create an OMS View for Monitoring
+## Create a Log Analytics View for Monitoring
 
-This step creates an OMS view to visually monitor all the specified sync groups. The view includes several components:
+This step creates a Log Analytics view to visually monitor all the specified sync groups. The view includes several components:
 
 -   An overview tile, which shows how many errors, successes, and warnings all the sync groups have.
 
@@ -151,9 +151,9 @@ This step creates an OMS view to visually monitor all the specified sync groups.
 
 -   A tile for each Sync Group, which shows the number of errors, successes, and warnings, and the recent error messages.
 
-To configure the OMS view, do the following things:
+To configure the Log Analytics view, do the following things:
 
-1.  On the OMS home page, select the plus on the left to open the **view designer**.
+1.  On the Log Analytics home page, select the plus on the left to open the **view designer**.
 
 2.  Select **Import** on the top bar of the view designer. Then select the "DataSyncLogOMSView" sample file.
 

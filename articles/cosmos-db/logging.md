@@ -352,14 +352,14 @@ Diagnostic Logs are made available in your account for two hours from the time t
 
 If you selected the **Send to Log Analytics** option when you turned on diagnostic logging, diagnostic data from your container is forwarded to Log Analytics within two hours. When you look at Log Analytics immediately after you turn on logging, you won't see any data. Just wait two hours and try again. 
 
-Before you view your logs, check and see if your Log Analytics workspace has been upgraded to use the new Log Analytics query language. To check, open the [Azure portal](https://portal.azure.com), select **Log Analytics** on the far left, then select the workspace name as shown in the next image. The **Log Analytics Workspace** page is displayed:
+Before you view your logs, check and see if your Log Analytics workspace has been upgraded to use the new Log Analytics query language. To check, open the [Azure portal](https://portal.azure.com), select **Log Analytics** on the far left, then select the workspace name as shown in the next image. The **Log Analytics workspace** page is displayed:
 
 ![Log Analytics in the Azure portal](./media/logging/azure-portal.png)
 
 >[!NOTE]
 >OMS workspaces are now referred to as Log Analytics workspaces.  
 
-If you see the following message on the **Log Analytics Workspace** page, your workspace hasn't been upgraded to use the new language. For more information on how to upgrade to the new query language, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md). 
+If you see the following message on the **Log Analytics workspace** page, your workspace hasn't been upgraded to use the new language. For more information on how to upgrade to the new query language, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Log Analytics upgrade message](./media/logging/upgrade-notification.png)
 

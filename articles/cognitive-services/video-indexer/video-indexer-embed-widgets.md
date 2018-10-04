@@ -43,15 +43,16 @@ A **Player** widget enables you to stream the video using adaptive bit rate. The
 ## Embedding public content
 
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
-2. Click the "embed" button that appears below the video.
+2. Click on the video you want to work with.
+3. Click the "embed" button that appears below the video.
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
 	After clicking the button, an embed modal will appear on the screen where you can choose what widget you want to embed in your application.
 	Selecting a widget (**Player** or **Cognitive Insights**), generates the embedded code for you to paste in your application.
  
-3. Choose the type of widget you want (**Cognitive Insights** or **Player**).
-4. Copy the embed code, and add to your application. 
+4. Choose the type of widget you want (**Cognitive Insights** or **Player**).
+5. Copy the embed code, and add to your application. 
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 

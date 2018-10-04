@@ -231,7 +231,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
 #### Handling unsupported characters
-If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective files. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evalation Tool](storage-sync-files-planning.md#evaluation-tool) can be used to identify characters that are not supported.
+If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) can be used to identify characters that are not supported.
 
 The table below contains all of the unicode characters Azure File Sync does not yet support.
 

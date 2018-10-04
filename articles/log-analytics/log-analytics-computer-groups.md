@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Computer groups in Log Analytics log searches

@@ -28,6 +28,8 @@ sections:
       - image:
           src: https://docs.microsoft.com/media/logos/logo_python.svg
       - image:
+          src: https://docs.microsoft.com/media/logos/logo_c.svg
+      - image:
           src: https://docs.microsoft.com/media/logos/logo_ios.svg
     rows:
       - title: Send telemetry
@@ -36,6 +38,7 @@ sections:
         - href: /azure/iot-hub/quickstart-send-telemetry-dotnet
         - href: /azure/iot-hub/quickstart-send-telemetry-java
         - href: /azure/iot-hub/quickstart-send-telemetry-python
+        - href: /azure/iot-hub/quickstart-send-telemetry-c
         - href: /azure/iot-hub/quickstart-send-telemetry-ios
       - title: Control a device
         values: 

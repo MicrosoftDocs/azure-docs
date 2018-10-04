@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Monitor Surface Hubs with Log Analytics to track their health
@@ -46,7 +46,7 @@ Intune is a Microsoft product that allows you to centrally manage the Log Analyt
 1. Sign in to Intune.
 2. Navigate to **Settings** > **Connected Sources**.
 3. Create or edit a policy based on the Surface Hub template.
-4. Navigate to the Log Analytics (Azure Operational Insights) section of the policy, and add the Log Analytics *Workspace ID* and *Workspace Key* to the policy.
+4. Navigate to the Azure Operational Insights section of the policy, and add the Log Analytics *Workspace ID* and *Workspace Key* to the policy.
 5. Save the policy.
 6. Associate the policy with the appropriate group of devices.
 

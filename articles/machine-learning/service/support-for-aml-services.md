@@ -30,7 +30,7 @@ Check out these support resources:
 
 + **Technical support**: Visit [Azure technical support](https://azure.microsoft.com/support/options/) and select Machine Learning. 
 
-+ **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning service support forum on MSDN](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning).
++ **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning service support forum on MSDN](https://aka.ms/aml-forum-service).
 
 + **Stack Overflow**: Visit the Azure Machine Learning community on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) tagged with "Azure-Machine-Learning".
 

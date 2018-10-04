@@ -5,22 +5,19 @@ services: active-directory
 documentationcenter: ''
 author: barbkess
 manager: mtillman
-
-ms.assetid: 
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/01/2018
 ms.author: barbkess
 
 ---
 
-# How to assign users and groups to an application
-
-Before your users can do any of the following for a specific application, you need to first **assign them to the application** to grant them access:
+# Assign users and groups to an application in Azure Active Directory
+This article shows you how to assign users or groups to an application in Azure Active Directory (Azure AD). Users must first be assigned to an application before an administrator can grant them access to do the following:
 
 -   Access an application by **navigating to the application’s URL directly** (also known as SP-initiated sign-on).
 
@@ -30,17 +27,19 @@ Before your users can do any of the following for a specific application, you ne
 
 -   See an application appear on their [Office 365 Application Launcher](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## Methods to assign applications with Azure Active Directory 
+## Prerequisties
+Before you can assign users and groups to an application, you must require user assignment. To require user assignment:
 
-There are 3 ways you can assign applications with Azure Active Directory:
+1. Log in to the Azure portal with an administrator account.
+2. Click on the **All services** item in the main menu.
+3. Choose the directory you are using for the application.
+4. Click on the **Enterprise applications** tab.
+5. Select the application from the list of applications associated with this directory.
+6. Click the **Properties** tab.
+7. Change the **User assignment required?** toggle to Yes.
+8. Click the **Save** button at the top of the screen.
 
--   [Assign a user directly to an application as an administrator](#assign-a-user-directly-as-an-administrator)
-
--   [Assign a group directly to an application as an administrator](#assign-a-group-directly-to-an-application-as-an-administrator)
-
--   [Enable self-service application access to allow users to find their own applications](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
-
-## Assign a user directly as an administrator
+## Assign users
 
 To assign one or more users to an application directly, follow the steps below:
 
@@ -78,7 +77,7 @@ To assign one or more users to an application directly, follow the steps below:
 
 After a short period of time, the users you have selected be able to launch these applications using the methods described in the solution description section.
 
-## Assign a group directly to an application as an administrator
+## Assign groups
 
 To assign one or more groups to an application directly, follow the steps below:
 
@@ -116,7 +115,7 @@ To assign one or more groups to an application directly, follow the steps below:
 
 After a short period of time, the users within the groups you have selected be able to launch these applications using the methods described in the solution description section. If these are dynamic groups, there may be some additional processing delay in these assignments appearing for users within these assigned groups.
 
-## Enable self-service application access to allow users to find their own applications
+## Enable self-service application access
 
 Self-service application access is a great way to allow users to self-discover applications, optionally allow the business group to approve access to those applications. You can allow the business group to manage the credentials assigned to those users for Password Single-Sign On Applications right from their access panels.
 
