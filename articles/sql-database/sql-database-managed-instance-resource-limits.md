@@ -32,7 +32,7 @@ Azure SQL Database Managed Instance can be deployed on two hardware generation (
 | --- | --- | --- |
 | Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread) |
 | Compute | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
-| Memory | 7 GB per vCore | 5.5 GB per vCore |
+| Memory | 7 GB per vCore | 5.1 GB per vCore |
 | Max storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 ### Service tier characteristics
