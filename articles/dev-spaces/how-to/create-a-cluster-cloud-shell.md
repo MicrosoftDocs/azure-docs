@@ -14,7 +14,7 @@ manager: douge
 ---
 # Create a Kubernetes cluster enabled for Azure Dev Spaces using the Azure Cloud Shell
 
-You can use [Azure Cloud Shell](/azure/cloud-shell) by using the **Try It** button from this page. If you aren't signed in, follow the prompts to sign in with an Azure account, then type the commands in the window that appears.
+You can use [Azure Cloud Shell](/azure/cloud-shell) by using the **Try It** button from this page. If you aren't signed in, follow the prompts to sign in with an Azure account, then type the commands at the Azure Cloud Shell prompt when it appears.
 
 Create the resource group. Use one of the currently supported regions (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast).
 
@@ -28,7 +28,7 @@ Create a Kubernetes cluster with the following command:
 az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
 ```
 
-It takes a few minutes to create the cluster.
+It takes a few minutes to create the cluster.  When complete, the output is shown in the JSON format. Look for `provisioningState` and verify it's `Succeeded`.
 
 ## Next steps
 
