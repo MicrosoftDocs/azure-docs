@@ -22,7 +22,7 @@ ms.custom: mvc
 > [!NOTE]
 > At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only.
 
-In Azure Functions, input and output bindings provide a declarative way to connect to external service data from your function. In this article, learn how to update an existing C# function to add an output binding that stores unstructured data in an Azure Cosmos DB document.
+In Azure Functions, input and output bindings provide a declarative way to connect to external service data from your function. In this article, learn how to update an existing function to add an output binding that stores unstructured data in an Azure Cosmos DB document.
 
 ![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
@@ -40,13 +40,13 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 ## Add an output binding
 
-1. Expand both your function app and your function.
+1. In the portal, navigate to the function app you created previously and expand both your function app and your function.
 
 1. Select **Integrate** and **+ New Output**, which is at the top right of the page. Choose **Azure Cosmos DB**, and click **Select**.
 
     ![Add an Azure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
 
-1. If you get an **Extensions not installed** message, choose **Install** to install the Azure Cosmos DB bindings extension in the function app. This may take a minute or two.
+1. If you get an **Extensions not installed** message, choose **Install** to install the Azure Cosmos DB bindings extension in the function app. Installation may take a minute or two.
 
     ![Install the Azure Cosmos DB binding extension](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-install-binding-extension.png)
 
@@ -67,9 +67,11 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 ## Update the function code
 
+Replace the existing function code with the following code, in your chosen language:
+
 # [C\#](#tab/csharp)
 
-Replace the existing C# function code with the following code:
+Replace the existing C# function with the following code:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -103,6 +105,32 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
 
 # [JavaScript](#tab/nodejs)
 
+Replace the existing JavaScript function with the following code:
+
+```js
+module.exports = async function (context, req) {
+
+    context.bindings.taskDocument = JSON.stringify({ 
+        name: req.query.name, 
+        task: req.query.task,
+        duedate: req.query.duedate
+      });
+
+      context.log(taskDocument)
+
+    if (req.query.name !== "" && req.query.name !== "") {
+        context.res = {
+            status: 200
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "The query options 'name' and 'task' are required."
+        };
+    }
+};
+```
 ---
 
 This code sample reads the HTTP Request query strings and assigns them to fields in the `taskDocument` object. The `taskDocument` binding sends the object data from this binding parameter to be stored in the bound document database. The database is created the first time the function runs.
@@ -115,7 +143,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
     + `task`
     + `duedate`
 
-2. Click **Run** and verify that a 200 status is returned.
+1. Click **Run** and verify that a 200 status is returned.
 
     ![Configure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
@@ -123,9 +151,9 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
     ![Search for the Cosmos DB service](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Choose your Azure Cosmos DB account, then select the **Data Explorer**. 
+1. Choose your Azure Cosmos DB account, then select the **Data Explorer**.
 
-3. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata. 
+1. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata.
 
     ![Verify Cosmos DB entry](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 

@@ -20,7 +20,7 @@ In Azure Functions, input and output bindings provide a declarative way to make 
 
 ![Queue message shown in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## Prerequisites 
+## Prerequisites
 
 To complete this quickstart:
 
@@ -64,44 +64,50 @@ Now that you have an output binding defined, you need to update the code to use 
 
 In this section, you add code that writes a message to the output queue. The message includes the value that is passed to the HTTP trigger in the query string. For example, if the query string includes `name=Azure`, the queue message will be *Name passed to the function: Azure*.
 
-1. Select your function to display the function code in the editor. 
+1. Select your function to display the function code in the editor.
 
-2. For a C# function, add a method parameter for the binding and write code to use it:
+1. Update the function code depending on your function language:
 
-   Add an **outputQueueItem** parameter to the method signature as shown in the following example. The parameter name is the same as what you entered for **Message parameter name** when you created the binding.
+# [C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    Add an **outputQueueItem** parameter to the method signature as shown in the following example.
 
-   In the body of the C# function just before the `return` statement, add code that uses the parameter to create a queue message.
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    In the body of the function just before the `return` statement, add code that uses the parameter to create a queue message.
+    
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-3. For a JavaScript function, add code that uses the output binding on the `context.bindings` object to create a queue message. Add this code before the`context.done` statement.
+# [JavaScript](#tab/nodejs)
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    Add code that uses the output binding on the `context.bindings` object to create a queue message. Add this code before the`context.done` statement.
 
-4. Select **Save** to save changes.
- 
-## Test the function 
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+---
+
+1. Select **Save** to save changes.
+
+## Test the function
 
 1. After the code changes are saved, select **Run**. 
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
-
-   As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
+    Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
+    
+    As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
 
 2. Check the logs to make sure that the function succeeded. 
 
