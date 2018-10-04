@@ -2,16 +2,16 @@
 title: Azure SQL Database Data Discovery & Classification | Microsoft Docs
 description: Azure SQL Database Data Discovery & Classification
 services: sql-database
-author: giladmit
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/10/2018
-ms.author: giladm
-
-
+author: ronitr
+ms.author: ronitr
+ms.reviewer: vanto
+manager: craigg
+ms.date: 10/04/2018
 ---
 # Azure SQL Database Data Discovery and Classification
 Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **protecting** the sensitive data in your databases.
@@ -111,9 +111,9 @@ You can use T-SQL to add/remove column classifications, as well as retrieve all 
 > [!NOTE]
 > When using T-SQL to manage labels, there is no validation that labels added to a column exist in the organizational information protection policy (the set of labels that appear in the portal recommendations). It is therefor up to you to validate this.
 
-* Add/update the classification of one or more columns: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* Remove the classification from one or more columns: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* View all classifications on the database: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+* Add/update the classification of one or more columns: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* Remove the classification from one or more columns: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* View all classifications on the database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 You can also use REST APIs to programmatically manage classifications. The published REST APIs support the following operations:
 * [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate)  - Creates or updates the sensitivity label of a given column

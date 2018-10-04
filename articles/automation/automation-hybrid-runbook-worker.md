@@ -20,11 +20,11 @@ The following image illustrates this functionality:
 
 Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the agent. A group can include a single agent, but you can install multiple agents in a group for high availability.
 
-When you start a runbook on a Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. You can't specify a particular worker.
+When you start a runbook on a Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. You can't specify a particular worker. The job [limits](../azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers.
 
 ## Install a Hybrid Runbook Worker
 
-The process to install a Hybrid Runbook Worker depends on the OS. The following table contains links to the methods that you can use for the installation. 
+The process to install a Hybrid Runbook Worker depends on the OS. The following table contains links to the methods that you can use for the installation.
 
 To install and configure a Windows Hybrid Runbook Worker, you can use two methods. The recommended method is using an Automation runbook to completely automate the process of configuring a Windows computer. The second method is following a step-by-step procedure to manually install and configure the role. For Linux machines, you run a Python script to install the agent on the machine.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Roles are named, contextual subtypes of an entity used only in patterns. For example, in the utterance buy a ticket from New York to London, both New York and London are cities but each has a different meaning in the sentence. New York is the origin city and London is the destination city.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: language-understanding

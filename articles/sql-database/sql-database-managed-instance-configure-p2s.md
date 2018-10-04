@@ -1,17 +1,17 @@
 ---
 title: 'Configure P2S - Azure SQL Database Managed Instance | Microsoft Docs'
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio using a point-to-site connection from an on-premises client computer.
-keywords: 
 services: sql-database
-author: srdan-bozovic-msft
-ms.reviewer: carlrab, bonova, jovanpop
 ms.service: sql-database
-ms.custom: managed instance
-ms.topic: quickstart
-ms.date: 09/06/2018
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: srdan-bozovic-msft
 ms.author: srbozovi
+ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-
+ms.date: 09/06/2018
 ---
 # Configure a point-to-site connection to connect to an Azure SQL Database Managed Instance from on-premises computer
 

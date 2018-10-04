@@ -178,7 +178,7 @@ The operating system can also generate a set of errors, which require error hand
 
 - Native client applications (iOS, Android, .NET Desktop, or Xamarin)
 - Web applications that call a resource API (.NET)
-- Single Page Applications (JavaScript)
+- Single-page applications (JavaScript)
 - Service-to-Service applications (.NET, Java)
   - All scenarios, including on-behalf-of
   - On-Behalf-of specific scenarios
@@ -361,9 +361,9 @@ catch (AdalException e) {
 }
 ```
 
-### Error cases and actionable steps: Single Page Applications (adal.js)
+### Error cases and actionable steps: Single-page applications (adal.js)
 
-If you're building a single page application using adal.js with AcquireToken, the error handling code is similar to that of a typical silent call. Specifically in adal.js, AcquireToken never shows a UI. 
+If you're building a single-page application using adal.js with AcquireToken, the error handling code is similar to that of a typical silent call. Specifically in adal.js, AcquireToken never shows a UI. 
 
 A failed AcquireToken has the following cases:
 

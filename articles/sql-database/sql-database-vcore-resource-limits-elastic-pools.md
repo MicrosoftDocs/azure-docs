@@ -2,14 +2,16 @@
 title: Azure SQL Database vCore-based resource limits - elastic pools| Microsoft Docs
 description: This page describes some common vCore-based resource limits for elastic pools in Azure SQL Database.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pool
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 09/14/2018
-ms.author: carlrab
-
 ---
 # Azure SQL Database vCore-based purchasing model limits for elastic pools
 
@@ -143,5 +145,5 @@ The following table describes the properties for pooled databases.
 ## Next steps
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
-- See [Overview Azure SQL Database resource limits](sql-database-resource-limits.md) for information about limits at the server and subscription levels.
+- See [Overview of resource limits on a logical server](sql-database-resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).

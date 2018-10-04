@@ -75,7 +75,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | RetentionEnabled |No |Boolean indicating if a retention policy are enabled on this resource. |
 | RetentionInDays |No |Number of days for which events should be retained between 1 and 2147483647. A value of zero stores the logs indefinitely. |
 
-## Archive diagnostic logs via the Azure CLI 2.0
+## Archive diagnostic logs via the Azure CLI
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

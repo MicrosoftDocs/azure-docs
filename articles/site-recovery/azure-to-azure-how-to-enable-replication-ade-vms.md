@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 09/28/2018
 ms.author: sutalasi
 
 ---
@@ -119,6 +119,15 @@ You can modify the default target settings used by Site Recovery.
 >During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
 >
 
-# Next steps
+## Update target VM encryption settings
+In the below scenarios, you will be required to update the target VM encryption settings.
+  - You enabled Site recovery replication on the VM and enabled Azure Disk Encryption (ADE) on the source VM at a later date
+  - You enabled Site recovery replication on the VM and changed the disk encryption key and/or key encryption key on the source VM at a later date
+
+You can use [the script](#copy-ade-keys-to-dr-region-using-powershell-script) to copy the encryption keys to target region and then update the target encryption settings in **Recovery services vault -> replicated item -> Properties -> Compute and Network.**
+
+![update-ade-settings](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## Next steps
 
 [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

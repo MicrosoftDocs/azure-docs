@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.  
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
@@ -13,7 +13,7 @@ ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern.any entity to improve predictions. 
 ---
 
-# Tutorial: 5. Extract free-form data
+# Tutorial 5: Extract free-form data
 
 In this tutorial, use the pattern.any entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance. 
 

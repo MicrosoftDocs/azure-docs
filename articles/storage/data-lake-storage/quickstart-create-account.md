@@ -44,7 +44,7 @@ The button launches an interactive shell that you can use to run the steps in th
 
 ### Install the CLI locally
 
-You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Overview of creating an Azure Data Lake Storage Gen2 account
 

@@ -11,6 +11,7 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
+ROBOTS: NOINDEX
 ---
 
 # What is Translator Speech API?

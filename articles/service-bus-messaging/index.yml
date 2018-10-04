@@ -55,6 +55,18 @@ sections:
     - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-cli">Use topics and subscriptions to update an inventory assortment using Azure CLI</a> 
     - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-portal">Use topics and subscriptions to update an inventory assortment using the Azure portal</a>
     - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-powershell">Use topics and subscriptions to update an inventory assortment using Azure PowerShell</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:  Implement message-based communication workflows with Azure Service Bus
+      href: /learn/modules/implement-message-workflows-with-service-bus/
+      image: 
+        src: /learn/achievements/implement-message-workflows-with-service-bus.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-service-bus">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

@@ -23,7 +23,7 @@ ms.reviewer: nigu
 
 How secure is your Azure AD tenant? If you don't know how to answer this question, read this article to learn how the identity secure score helps you to monitor and improve your identity security posture. 
 
-## What is a secure score?
+## What is an identity secure score?
 
 The identity secure score is number between 1 and 248 that functions as indicator for how aligned you are with Microsoft's best practices recommendations for security.
 
@@ -66,17 +66,6 @@ By following the improvement actions, you can:
  
 - Take advantage of Microsoft’s Identity features. 
 
-The improvement actions take into consideration:
-
-- Privileged accounts
-
-- App management
-
-- Conditional access policies
-
-- Authentication methods
-
-- Auditing and reporting. 
 
 
 ## How do I get my secure score?
@@ -104,19 +93,25 @@ Additionally, you also have the option to set recommendations to be ignored if t
 
 ## How does it help me?
 
-Using the secure score helps increase your organization's security by encouraging you to use the built-in security features such as:
+The secure score helps you to:
 
+- Objectively measure your identity security posture
 
-Learning more about these features as you use the tool will help give you piece of mind that you're taking the right steps to protect your organization from threats.
+- Plan identity security improvements
 
-Customers who are using Secure Score have seen their score increase five times more than customers who aren't using it. (The increase in score corresponds with the security features being used in their organizations.)
+- Review the success of your improvements
+
 
 
 ## What you should know
 
-### Who can use Secure Score?
+### Who can use the identity secure score?
 
-Anyone who has admin permissions (global admin or a custom admin role) for your Azure AD tenant. Users who aren't assigned an admin role can't access the score. However, admins can use the tool to share their results with other people in their organization. 
+The identity secure score can be used by the following roles:
+
+- Global admin
+- Security admin 
+- Security readers 
 
 ### What does [Not Scored] mean?
 
@@ -126,9 +121,6 @@ Actions labeled as [Not Scored] are ones you can perform in your organization bu
 
 The score is calculated once per day (around 1:00 AM PST). If you make a change to a measured action, the score will automatically update the next day. It takes up to 48 hours for a change to be reflected in your score.
 
-### Who can see my results?
-
-Results are filtered to show scores only to people in your organization who are assigned an admin role (global admin or a custom admin role).
 
 ### My score changed. How do I figure out why?
 
@@ -159,17 +151,9 @@ The [Office 365 secure score](https://docs.microsoft.com/office365/securitycompl
 
 - Apps
 
-The identity secure score represents the identity part of of the Office 365 secure score. This means that your recommendations for the identity secure score and the identity score in Office 365 are the same. 
+The identity secure score represents the identity part of the Office 365 secure score. This means that your recommendations for the identity secure score and the identity score in Office 365 are the same. 
 
 
-### I have an idea for another control. How do I let you know what it is?
-We'd love to hear from you. Post your ideas on the Office Security, Privacy & Compliance community. We're listening and want the Secure Score to include all options that are important to you.
-
-Something isn't working right. Who should I contact?
-If you have any issues, let us know by posting on the Office Security, Privacy & Compliance community. We're monitoring the community and will provide help.
-
-### My organization only has certain security features. Does this affect my score?
-The Secure Score calculates your score based on the services you purchased. For example, if you only purchased an Exchange Online plan, you won't be scored for SharePoint Online security features. The denominator of the score is the sum of all the baselines for the controls that apply to the products you purchased. The numerator is the sum of all the controls for which you completed, or partially completed, the actions to fulfill that control.
 ## Next steps
 
 If you would like to see a video about the Office 365 secure score, click [here](https://www.youtube.com/watch?v=jzfpDJ9Kg-A).

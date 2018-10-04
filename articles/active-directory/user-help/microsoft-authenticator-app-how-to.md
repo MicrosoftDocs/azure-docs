@@ -6,7 +6,7 @@ author: eross-msft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 
-ms.service: active-directoary
+ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual

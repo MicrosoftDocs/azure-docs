@@ -52,6 +52,8 @@ sections:
     - html: <a href="stream-analytics-manage-job">Create a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard</a> 
     - html: <a href="stream-analytics-with-azure-functions">Run Azure Functions from Azure Stream Analytics jobs</a>
     - html: <a href="stream-analytics-javascript-user-defined-functions">Run JavaScript user-defined functions in Azure Stream Analytics jobs</a>
+    - html: <a href="stream-analytics-tools-visual-studio-cicd-vsts">Deploy an Azure Stream Analytics job with CI/CD using Azure Pipelines</a>
+    - html: <a href="stream-analytics-edge-csharp-udf">Write a C# user-defined function for an Azure Stream Analytics Edge job (Preview)</a>
 - title: Reference
   items:
   - type: list

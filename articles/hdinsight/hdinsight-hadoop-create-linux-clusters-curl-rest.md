@@ -214,7 +214,7 @@ This example is used in the steps in this document. Replace the example *values*
 
 ## Log in to your Azure subscription
 
-Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
+Follow the steps documented in [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
 

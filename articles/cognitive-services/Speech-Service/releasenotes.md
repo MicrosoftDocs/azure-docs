@@ -4,16 +4,27 @@ description: Release notes - what has changed in the most recent releases
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
 # Release notes
+
+## Cognitive Services Speech SDK 1.0.0: 2018-September release
+
+**New features**
+
+* Support for Objective-C on iOS. Check out our [Objective-C quickstart for iOS](quickstart-objectivec-ios.md).
+* Support for JavaScript in browser. Check out our [JavaScript quickstart](quickstart-js-browser.md).
+
+**Breaking changes**
+
+* With this release a number of breaking changes are introduced.
+  Please check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details.
 
 ## Cognitive Services Speech SDK 0.6.0: 2018-August release
 
