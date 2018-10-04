@@ -29,6 +29,8 @@ The **Speech to Text** API offers the following features:
 
 - Natural-language understanding. Through integration with [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), you can derive intents and entities from speech. Users don't have to know your app's vocabulary, but can describe what they want in their own words.
 
+- Confidence score is returned back from the service if you specify a detailed output on the speech configuration object (SpeechConfig.OutputFormat property). Then you can use either Best() method on the result or get it the score directly from JSON returned from the service (something like result.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)).
+
 ## API capabilities
 
 A lot of the capabilities of the **Speech to Text** API -especially around customization- are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details please consult [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
