@@ -27,8 +27,9 @@ If you've enabled logs, you can access them from the Azure Database for PostgreS
 Azure Database for PostgreSQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled logs on your PostgreSQL server as described above, you can choose to have them emitted to OMS Log Analytics, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how-to section of the [diagnostic logs documentation](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
 
 
-The following table describes what's in each log:
-|**Property** | **Description** |
+The following table describes what's in each log. Depending on the output method, the fields included and the order in which they appear may vary. 
+
+|**Field** | **Description** |
 |---|---|
 | TenantId | Your tenant ID |
 | SourceSystem | `Azure` |
