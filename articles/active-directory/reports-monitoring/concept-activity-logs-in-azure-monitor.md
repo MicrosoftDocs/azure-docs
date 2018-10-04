@@ -27,6 +27,7 @@ You can now route Azure Active Directory (Azure AD) activity logs to your own st
 * Archive your audit logs for an Azure storage account, which enables you to retain the data for a long time.
 * Stream your audit logs to an Azure event hub for analytics by using popular Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
 * Integrate your audit logs with your own custom log solutions by streaming them to an event hub.
+* Send Azure AD activity logs to Log Analytics to enable rich visualizations, monitoring and alerting on the connected data.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
