@@ -30,7 +30,7 @@ your application meet the quality requirements to be Azure Certified, before goi
 Let\'s go through this process in more detail to better understand what
 is happening during each step, and the action items in this process for you to ensure your offer continues to make progress.
 
-Publishing Process {#publishingprocess}
+Publishing Process 
 ------------------
 
 You will click \"Publish\" under the
