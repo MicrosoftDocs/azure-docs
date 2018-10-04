@@ -117,8 +117,8 @@ $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup"
 New-AzureRmRoleAssignment -ApplicationId “cfa8b339-82a2-471a-a3c9-0fc0be7a4093” -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
 ```
 
-    >[!NOTE]
-    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
+> [!NOTE]
+> For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
 
 Upon successful role assignment, you should see output similar to the following
 
@@ -132,7 +132,7 @@ RoleDefinitionId   : 81a9blll-bebf-436f-a333-f67b29880f1z
 ObjectId           : c730c8da-blll-4032-8ad5-945e9dc8262z
 ObjectType         : ServicePrincipal
 CanDelegate        : False
-``
+```
 
 ## Working example
 
