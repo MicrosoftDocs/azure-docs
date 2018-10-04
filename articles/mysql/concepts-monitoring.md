@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/03/2018
 ---
 # Monitoring in Azure Database for MySQL
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MySQL provides various metrics that give insight into the behavior of the resources supporting the MySQL server. 
