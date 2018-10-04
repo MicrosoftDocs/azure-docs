@@ -75,7 +75,7 @@ _Matchers_ define a set of conditions that evaluate what actions will take place
 }
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > - JSON paths are case-sensitive.
 > - The JSON payload is the same as the payload that would be returned by:
 >   - `/sensors/{id}?includes=properties,types` for the sensor.

@@ -28,13 +28,10 @@ Swagger provides an interactive summary of your API including:
 
 Swagger is therefore a convenient tool to assist with development and testing calls made to the Management API.
 
->[!NOTE]
-> No configuration is required to use your digital twin Swagger reference material.
-
 Your generated Management API Swagger documentation can be accessed publicly at:
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger/ui/index
+https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
 > [!NOTE]

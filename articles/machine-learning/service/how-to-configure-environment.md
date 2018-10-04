@@ -13,7 +13,7 @@ ms.date: 8/6/2018
 
 # Configure a development environment for the Azure Machine Learning service
 
-Learn how to configure your development environment to work with the Azure Machine Learning service. You will learn how to create a configuration file that associates your environment with an Azure Machine Learning workspace. You'll also learn how to configure the following development environments:
+Learn how to configure your development environment to work with the Azure Machine Learning service. You will learn how to create a configuration file that associates your environment with an Azure Machine Learning service workspace. You'll also learn how to configure the following development environments:
 
 * Jupyter Notebooks on your own computer
 * Visual Studio Code
@@ -112,6 +112,11 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
      ```shell
     pip install --upgrade azureml-sdk[notebooks,automl]
     ```
+
+    > [!NOTE]
+    > If you receive a message that `PyYAML` cannot be uninstalled, use the following command instead:
+    > 
+    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
 
     It can take several minutes to install the SDK.
 

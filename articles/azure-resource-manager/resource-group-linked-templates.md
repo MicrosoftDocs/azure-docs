@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 10/03/2018
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -44,7 +44,7 @@ To link to another template, add a **deployments** resource to your main templat
 ]
 ```
 
-The properties you provide for the deployment resource vary based on whether you are linking to an external template or nesting an inline template in the main template.
+The properties you provide for the deployment resource vary based on whether you're linking to an external template or nesting an inline template in the main template.
 
 For both linked and nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
 
@@ -83,7 +83,7 @@ To nest the template within the main template, use the **template** property and
 > [!NOTE]
 > For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
 >
-> You cannot use the `reference` function in the outputs section of a nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+> You can't use the `reference` function in the outputs section of a nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 The nested template requires the [same properties](resource-group-authoring-templates.md) as a standard template.
 
@@ -116,7 +116,9 @@ You don't have to provide the `contentVersion` property for the template or para
 
 ### External template and inline parameters
 
-Or, you can provide the parameter inline. To pass a value from the main template to the linked template, use **parameters**.
+Or, you can provide the parameter inline. You can't use both inline parameters and a link to a parameter file. The deployment fails with an error when both `parametersLink` and `parameters` are specified.
+
+To pass a value from the main template to the linked template, use **parameters**.
 
 ```json
 "resources": [
