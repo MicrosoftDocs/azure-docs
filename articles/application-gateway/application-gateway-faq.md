@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 9/6/2018
+ms.date: 10/5/2018
 ms.author: victorh
 
 ---
@@ -114,7 +114,7 @@ No, but you can deploy other application gateways in the subnet.
 
 Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
 
-* Exceptions must be put in for incoming traffic on ports 65503-65534. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
+* Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway V1 SKU and ports 65200 - 65535 for the V2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
 
 * Outbound internet connectivity can't be blocked.
 
