@@ -20,9 +20,6 @@ In the examples below, `https://yourManagementApiUrl` refers to the URI of the D
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 ```
 
-> [!NOTE]
-> Use the table below to customize your solution.
-
 | Custom Attribute Name | Replace With |
 | --- | --- |
 | `yourInstanceName` | The name of your Azure Digital Twins instance |
@@ -66,9 +63,6 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 }
 ```
 
-> [!NOTE]
-> Use the table below to customize your solution.
-
 | Custom Attribute Name | Replace With |
 | --- | --- |
 | `yourManagementApiUrl` | The full URL path for your Management API  |
@@ -78,7 +72,7 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 
 After the matchers have been created, upload the function snippet with the following POST call:
 
-> [!NOTE]
+> [!IMPORTANT]
 > - In the Headers, set the following `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
 > - The Body is multi-part:
 >   - The first part is about metadata needed for UDF.
@@ -88,9 +82,6 @@ After the matchers have been created, upload the function snippet with the follo
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
 ```
-
-> [!NOTE]
-> Use the table below to customize your solution.
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
@@ -119,9 +110,6 @@ function process(telemetry, executionContext) {
 
 --userDefinedBoundary--
 ```
-
-> [!NOTE]
-> Use the table below to customize your solution.
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
@@ -197,9 +185,6 @@ We need to create a role assignment for the user-defined function to execute und
 GET https://yourManagementApiUrl/api/v1.0/system/roles
 ```
 
-> [!NOTE]
-> Use the table below to customize your solution.
-
 | Custom Attribute Name | Replace With |
 | --- | --- |
 | `yourManagementApiUrl` | The full URL path for your Management API  |
@@ -210,9 +195,6 @@ GET https://yourManagementApiUrl/api/v1.0/system/roles
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
 ```
-
-> [!NOTE]
-> Use the table below to customize your solution.
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
@@ -228,9 +210,6 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
   "Path": "yourAccessControlPath"
 }
 ```
-
-> [!NOTE]
-> Use the table below to customize your solution.
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
