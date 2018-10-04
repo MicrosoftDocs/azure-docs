@@ -99,6 +99,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
     | Linux distribution | Version |
     | --------------- | ----------- |
+    | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |

@@ -226,7 +226,7 @@ For shared server-level resources:
 
 ## Docker containers
 
-To use the Azure-supported Zulu JDK running in App Service in your containers, make sure your application's `Dockerfile` uses images from the [Java App Service Docker image repo](https://github.com/Azure-App-Service/java).
+To use the Azure-supported Zulu JDK in your containers, make sure to pull and use the pre-built images listed on [Azul's download page](https://www.azul.com/downloads/azure-only/zulu/#docker) or use the `Dockerfile` examples from the [Microsoft Java GitHub repo](https://github.com/Microsoft/java/tree/master/docker).
 
 ## Runtime availability and statement of support
 
@@ -239,7 +239,7 @@ App Service for Linux supports two runtimes for managed hosting of Java web appl
 
 ### JDK versions and maintenance
 
-Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/products/zulu-and-zulu-enterprise/) provided through [Azul Systems](https://www.azul.com/).
+Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/downloads/azure-only/zulu/) provided through [Azul Systems](https://www.azul.com/).
 
 Major version updates will be provided through new runtime options in Azure App Service for Linux. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
@@ -255,15 +255,15 @@ If a supported Java runtime will be retired, Azure developers using the affected
 
 ### Local development
 
-Developers can download the Production Edition of Azul Zulu Enterprise JDK for local development from [Azul's download site](https://www.azul.com/downloads/zulu/).
+Developers can download the Production Edition of Azul Zulu Enterprise JDK for local development from [Azul's download site](https://www.azul.com/downloads/azure-only/zulu/).
 
 ### Development support
 
-Product support for the Azul Zulu Enterprise JDK is available through when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
+Product support for the [Azure-supported Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) is available through when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
 
 ### Runtime support
 
-Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-support-request) with the App Service Linux Java runtime through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
+Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-support-request) with the Azul Zulu JDKs through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
 ## Next steps
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/4/2018
 ms.author: kumud
 ---
 
@@ -43,7 +43,7 @@ Like all Load Balancer rules, outbound rules follow the same familiar syntax as 
 
 An outbound rule configures outbound NAT for _all virtual machines identified by the backend pool_ to be translated to the _frontend_.  And _parameters_ provide additional fine grained control over the outbound NAT algorithm.
 
-API version "2018-07-01" permits an outbound rule definition structured as follows:
+API version "2018-08-01" permits an outbound rule definition structured as follows:
 
 ```json
       "outboundRules": [
@@ -176,10 +176,10 @@ Define a public Standard Load Balancer, place the VMs into the backend pool, and
 
 #### Outbound NAT for internal Standard Load Balancer scenarios
 
-When using an internal Standard Load Balancer, outbound NAT is not available until a public Standard Load Balancer has also been configured. You can change this by using and outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer.
+When using an internal Standard Load Balancer, outbound NAT is not available until outbound connectivity has been explicitly declared. You can define outbound connectivity using an outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer with these steps:
 
 1. Create a public Standard Load Balancer.
-2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer.
+2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer in addition to the internal Load Balancer.
 3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VMs.
 
 #### Enable both TCP & UDP protocols for outbound NAT with a public Standard Load Balancer
