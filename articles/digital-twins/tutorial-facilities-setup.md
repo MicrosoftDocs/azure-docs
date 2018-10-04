@@ -68,7 +68,6 @@ The sample allows you to configure and provision a spatial intelligence graph. T
     c. *BaseUrl*: The *Management API* URL of your Digital Twins instance, which will be in the following format, `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`.
 4. Run `dotnet run` to see a list of Digital Twins features that you can explore using the sample.
 
-
 ## Provision your spaces and devices
 This section shows how to provision a spatial graph for a sample building, using the sample we downloaded in the previous section.
 
@@ -100,13 +99,6 @@ This function uses the *provisionSample.yaml* in the same folder to start provis
     - Since this graph is relevant to a building, notice the logical nesting of spaces of type `Floor` within the `Venue`, `Area` in a floor, and `Room` in an area. 
     - Some of the spaces will contain *devices* and *sensors*. For example in a room named *FocusRoom*, note the addition of objects of type `devices`, which are identified by a unique `hardwareId`, and devices containing `sensors` that detect physical changes like temperature or motion. 
     - Try adding more spaces, devices and sensors at any level in this graph to get a better idea of how the graph might work.
-
-- Run `dotnet run ProvisionSample` at the command line to provision your spatial topology. 
-- Follow the prompt to authenticate your application, by pasting the code at `https://microsoft.com/devicelogin`, and then signing in with your Azure account. 
-- Once your login is authenticated, the application creates a sample spatial graph as configured in the *provisionSample.yaml*. Observe the messages in the command window and notice how your spatial graph gets created. Notice how it creates an IoT hub at the root node or the `Venue`. 
-- From the output in the command window, copy the value of the `ConnectionString`, under the `Devices` section, to your clipboard. You will need this value to simulate the device connection in the following tutorial.
-
-    ![Provision Sample](./media/tutorial-facilities-setup/run-provision-sample.png)
 
 
 ## Clean up resources
