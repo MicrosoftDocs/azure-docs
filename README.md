@@ -26,7 +26,7 @@ Follow the instructions provided in the [Install content authoring tools](https:
 
 ## License
 
-Please refer to [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) and [ThirdPartyNotices](.github/ThirdPartyNotices) for all Licensing information.
+Please refer to [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) and [ThirdPartyNotices](.github/ThirdPartyNotices.md) for all Licensing information.
 
 ## Code of Conduct
 
