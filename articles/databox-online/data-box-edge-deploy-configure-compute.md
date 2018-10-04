@@ -18,8 +18,8 @@ ms.author: alkohli
 ms.custom: 
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ---
-# Tutorial: Transform data with Azure Data Box Edge (Preview)
 
+# Tutorial: Transform data with Azure Data Box Edge (Preview)
 
 This tutorial describes how to configure compute role on the Data Box Edge. Once the compute role is configured, Data Box Edge can transform data before sending to Azure.
 
@@ -141,19 +141,19 @@ This procedure uses an example where the custom module used takes files from a l
 
     1. Provide the **name**, **address**, **user name**, and **password** for the **Container registry settings** for the custom module. The name, address and listed credentials are used to retrieve modules with a matching URL. To deploy this module, under **Deployment modules**, select **IoT Edge module**. This IoT Edge module is a docker container you can deploy to IoT Edge device associated with your Data Box Edge device.
 
-    ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
+        ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
  
     2. Specify the settings for the IoT Edge custom module. Provide the **name** of your module and **image URI**. 
     
-    ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
+        ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
 
     3. In the **Container create options**, provide the local mountpoints for the Edge modules copied in the preceding steps for the cloud and local share (important to use these paths as opposed to creating new ones). These shares are mapped to the corresponding container mount points. Also provide any environmental variables here as well for your module.
 
-    ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
+        ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
  
     4. **Configure advanced Edge runtime settings** if needed and then click **Next**.
 
-    ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
+        ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
  
 6.	Under **Specify routes**, set routes between modules. In this case, provide the name of the cloud share that will push data to cloud. Click **Next**.
 
