@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 
 ---
 # Download or view your Azure billing invoice and daily usage data
@@ -24,6 +24,9 @@ You can download your invoice from the [Azure portal](https://portal.azure.com/#
 This article does not apply to Enterprise Agreement (EA) customers. If you’re an EA customer, your invoices are sent directly to the Enrollment Administrators.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## Get your invoice in email (.pdf)
 You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open.

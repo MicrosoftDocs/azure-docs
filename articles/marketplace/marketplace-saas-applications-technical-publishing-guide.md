@@ -3,9 +3,9 @@ title: Azure Marketplace SaaS Applications Technical Publishing Guide
 description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 documentationcenter:
-author: BrentL-Collabera
-manager: 
-editor: BrentL-Collabera
+author: keithcharlie
+manager: nunoc
+editor: keithcharlie
 
 ms.assetid: 
 ms.service: marketplace
@@ -13,24 +13,14 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: pabutler
+ms.date: 07/09/2018
+ms.author: keithcharlie
 
 ---
 
+# SaaS applications Offer Publishing Guide
 
-
-# SaaS applications technical publishing guide
-
-Welcome to the Azure Marketplace SaaS Applications Technical Publishing Guide. This guide is designed to help candidate and existing publishers to list their applications and services in the Azure Marketplace using the SaaS Applications offering. 
-
-To better understand how to publish a SaaS offer, this guide is divided into the following sections:
-* Offer Overview
-* Business Requirements
-* Technical Requirements
-* Publishing Process
-* Using Azure Active Directory to enable trials
-* Certifying your Azure AD integration for Marketplace
+SaaS applications can be published in the marketplace with three different calls to action: "Contact Me," "Try it now," and "Get it Now." This guide explains these three options, including requirements for each. 
 
 ## Offer overview  
 
@@ -41,8 +31,8 @@ SaaS applications are available in both Azure Storefronts The following table de
 | AppSource | Yes (Contact Me) | Yes (PowerBI/Dynamics) |
 | Azure marketplace | No | Yes (SaaS Apps) |   
 
-**Listing:**  The Listing publishing option consists of a Contact Me offer type and is used when a Trial- or Transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be turned into deals to increase your business.  
-**Trial/Transact:**  The customer has the option to directly buy or request a trial for your solution. Providing a Trial experience increases the engagement level offered to customers and enables customers to explore your solution before buying. With a Trial experience, you will have better chances of promotion in the storefronts, and you should expect more and richer leads from customer engagements. Trials must include free support at least for the duration of the trial period.  
+**List:**  The Listing publishing option consists of a Contact Me offer type and is used when a Trial- or Transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be turned into deals to increase your business.  
+**Trial/Transaction:**  The customer has the option to directly buy or request a trial for your solution. Providing a Trial experience increases the engagement level offered to customers and enables customers to explore your solution before buying. With a Trial experience, you will have better chances of promotion in the storefronts, and you should expect more and richer leads from customer engagements. Trials must include free support at least for the duration of the trial period.  
 
 | SaaS Apps Offer | Business Requirements | Technical Requirements |  
 | --- | --- | --- |  
@@ -50,20 +40,29 @@ SaaS applications are available in both Azure Storefronts The following table de
 | **PowerBI / Dynamics** | Yes | Yes (Azure AD integration) |  
 | **SaaS Apps**| Yes | Yes (Azure AD integration) |     
 
-For more information about the Marketplace storefronts and a descripiton of each publishing option, see the [Marketplace Publisher Guide](https://aka.ms/sellerguide) and [Publishing Options](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+## SaaS List
 
-## Business requirements
-The SaaS offer business requirements can be completed in parallel with the technical requirements. Most of the business requirements and information is collected when building the SaaS Offer in the Cloud Partner Portal. The business requirements are the following: 
-* Agreeing to the Participation policies
-* Integration with Microsoft 
-* Identify the Offer’s audience
-* Define and determine the lead management to be used
-* Setting up privacy policy and terms of use
-* Defining the Support contacts  
+The call to action for a SaaS listing with no trial and no billing functionality is "Contact Me." 
 
-For more information, you  can be found in the topic [Prerequisites for marketplace publishing](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
+You do not need to configure Azure Active Directory to list a SaaS application. 
 
-## Technical requirements
+|Requirements  |Details  |
+|---------|---------|
+|Your app is a SaaS offering  |   Your solution is a SaaS offering and you offer a multitenant SaaS product.      |
+
+
+## SaaS Trial
+
+You provide a solution or app using a free-to-try, software-as-a-service (SaaS)-based trial. Free trial offers may be presented as a limited-use or limited-duration trial account. 
+
+
+|Requirements  |Details  |
+|---------|---------|
+|Your app is a SaaS offering  |   Your solution is a SaaS offering and you offer a multitenant SaaS product.      |
+|Your app is AAD enabled     |   The customer will be re-directed to your domain and you will transact with the customer directly       |
+
+
+## SaaS Trial Technical requirements
 
 The technical requirements for SaaS applications are simple. Publishers are only required to be integrated with Azure Active Directory (Azure AD) to be published. Azure AD integration with applications is well documented and Microsoft provides multiple SDKs and resources to accomplish this.  
 
@@ -97,31 +96,6 @@ Free Azure Active Directory training is available at
 In addition, Azure Active Directory provides a site to check for Service Updates   
 * [Azure AD Service updates](https://azure.microsoft.com/updates/?product=active-directory)
 
-For support, you can use the following resources:
-* [MSDN Forums](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
-
-## Publishing process
-
-The SaaS publishing process has both technical and business steps.  Most of the work that is done developing and integrating Azure Active Directory can be done in parallel with the work needed to fulfill the business requirements of the offer. The bulk of the business requirements are part of the SaaS App Offer configuration the Cloud Partner Portal.  
-The following diagram shows the main publishing steps for the Trial/Transact offer:  
-
-![SaaS publishing steps](./media/marketplace-saas-applications-technical-publishing-guide/saaspublishingsteps.png)  
-
-The following table describes each of the main publishing steps:  
-
-| Publishing Step | Description |   
-| --- | --- |  
-| **Create the SaaS application** | Log in to the Cloud Partner Portal, select **New**, and then select the **SaaS apps** offer. |  
-| **Create the Integration with Azure AD** | Follow the technical requirements described in the previous section to integrate your SaaS offering with Azure AD. |  
-| **Set the Offer Settings**| Enter all the SaaS offer initial information. The Offer ID and Offer Name you would like to use. |     
-| **Set the Technical Information** | Enter the technical information about the offer. For SaaS Applications, the Solution’s URI and type of offer’s acquisition button (Free, Trail, or Contact Me) are required. |  
-| **Test Drive(Optional)** | This is an optional type of Trial, needed mostly for other Types of Marketplace Offers. It allows you to have the Trial deployed in the Publisher’s Subscriptions vs. the end customer. |  
-| **Set the Offer Storefront Materials**| In this section the publisher will link and upload the Logos, Marketing materials, Legal documents and configure the Leads management system. |
-| **Set the Offer Contacts** | Enter both the Engineering contacts and Support contact information for the SaaS Offer. |  
-| **Verify SaaS App Azure AD Integration** | Before submitting your SaaS app for publishing, you must verify that the app is integrated with Azure AD |  
-| **Publish the Offer**| After the offer and the technical assets are completed, you can submit the offer. This will start the publishing process, in which the solution template is tested, validated, certified and approved for publishing. |
-
 ## Using Azure Active Directory to enable trials  
 
 Microsoft authenticates all Marketplace users with Azure AD, hence when an authenticated user clicks through your Trial listing in Marketplace and is redirected to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The token that your app receives from Azure AD during authentication includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. For more information about the token, see [Sample Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
@@ -153,3 +127,25 @@ If you are new to Azure AD Federated SSO, do the following:
 * Develop a per-customer 'Test Drive'
 * Build a multi-tenant sample demo app with SSO
 
+## SaaS Subscriptions
+
+Use SaaS app offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. The following requirements must be met for your SaaS app:
+- Price and bill the service at a flat, monthly rate.
+- Provide a method to upgrade or cancel the service at any time.
+Microsoft hosts the commerce transaction. Microsoft bills your customer on your behalf. To use bill a SaaS App as a subscription, you must enable you own subscription management service API. Your subscription management service API must communicate directly with the Azure Resource Manager APIs. Your subscription management service API must support service provisioning, upgrading, and canceling.
+
+| Requirement | Details |  
+|:--- |:--- |  
+|Billing and metering | Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based "true-up" capabilities are not supported at this time. |  
+|Cancelation | Your offer is cancelable by the customer at any time. |  
+|Transaction landing page | You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account. |   
+| Subscription API | You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
+
+## Next Steps
+If you haven't already done so, 
+
+- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace
+
+If you're registered and are creating a new offer or working on an existing one,
+
+- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer

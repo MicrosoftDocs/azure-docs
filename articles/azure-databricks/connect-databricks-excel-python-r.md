@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
@@ -96,6 +96,9 @@ In this section, you pull data from Azure Databricks into Microsoft Excel using 
 Once you have the data in your Excel workbook, you can perform analytical operations on it.
 
 ## Connect from R
+
+> [!NOTE]
+> This section provides information on how to integrate an R Studio client running on your desktop with Azure Databricks. For instructions on how to use R Studio on the Azure Databricks cluster itself, see [R Studio on Azure Databricks](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html).
 
 In this section, you use an R language IDE to reference data available in Azure Databricks. Before you begin, you must have the following installed on the computer.
 

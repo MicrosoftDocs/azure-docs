@@ -1,0 +1,61 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Batch AI Documentation (Preview)
+metadata:
+  title: Azure Batch AI Documentation (Preview)
+  meta.description: Azure Batch AI is a managed service to help data scientists and AI researchers train and test machine learning and AI models at scale in Azure - without having to manage complex infrastructure. Learn how to use Batch AI with our quickstarts, tutorials, and samples.
+  services: batch-ai
+  author: dlepow 
+  manager: jeconnock
+  layout: LandingPage
+  ms.service: batch-ai
+  ms.topic: landing-page
+  ms.date: 08/16/2018
+  ms.author: danlep
+abstract:
+  description: Azure Batch AI is a managed service to help data scientists and AI researchers train and test machine learning and AI models at scale in Azure - without having to manage complex infrastructure. Learn how to use Batch AI with our quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create your first Batch AI cluster.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Azure CLI
+      href: quickstart-create-cluster-cli.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: quickstart-create-cluster-portal.md
+  - type: paragraph
+    text: 'Learn how to train your first deep learning model.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Azure CLI
+      href: quickstart-tensorflow-training-cli.md
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use Batch AI to train models with different frameworks.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-horovod-tensorflow.md">Distributed training with Horovod</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="https://docs.microsoft.com/en-us/cli/azure/batchai?view=azure-cli-latest">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="https://docs.microsoft.com/en-us/dotnet/api/overview/azure/batchai?view=azure-dotnet">.NET</a></p><p><a href="https://docs.microsoft.com/en-us/java/api/overview/azure/batchai?view=azure-java-stable">Java</a></p><p><a href="https://docs.microsoft.com/en-us/javascript/api/overview/azure/batchai?view=azure-node-latest">Node.js</a></p><p><a href="https://docs.microsoft.com/en-us/python/api/overview/azure/batchai?view=azure-python">Python</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/batchai/">REST API Reference</a></p>

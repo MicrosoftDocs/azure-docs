@@ -4,16 +4,12 @@ description: Learn how to create a function in Azure that runs based on a schedu
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
@@ -57,7 +53,7 @@ Next, you create a function in the new function app.
     | Setting | Suggested value | Description |
     |---|---|---|
     | **Name** | Default | Defines the name of your timer triggered function. |
-    | **[Schedule](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | A six field [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that schedules your function to run every minute. |
+    | **Schedule** | 0 \*/1 \* \* \* \* | A six field [CRON expression](functions-bindings-timer.md#cron-expressions) that schedules your function to run every minute. |
 
 2. Click **Create**. A function is created in your chosen language that runs every minute.
 

@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Starting an Azure Automation runbook with a webhook
 
-A *webhook* allows you to start a particular runbook in Azure Automation through a single HTTP request. This allows external services such as Visual Studio Team Services, GitHub, Azure Log Analytics, or custom applications to start runbooks without implementing a full solution using the Azure Automation API.  
+A *webhook* allows you to start a particular runbook in Azure Automation through a single HTTP request. This allows external services such as Azure DevOps Services, GitHub, Azure Log Analytics, or custom applications to start runbooks without implementing a full solution using the Azure Automation API.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
@@ -80,11 +80,11 @@ Another strategy is to have the runbook perform some validation of an external c
 
 Use the following procedure to create a new webhook linked to a runbook in the Azure portal.
 
-1. From the **Runbooks page** in the Azure portal, click the runbook that the webhook starts to view its detail page.
-1. Click **Webhook** at the top of the page to open the **Add Webhook** page.
-1. Click **Create new webhook** to open the **Create webhook page**.
-1. Specify a **Name**, **Expiration Date** for the webhook and whether it should be enabled. See [Details of a webhook](#details-of-a-webhook) for more information these properties.
-1. Click the copy icon and press Ctrl+C to copy the URL of the webhook. Then record it in a safe place. **Once you create the webhook, you cannot retrieve the URL again.**
+1. From the **Runbooks page** in the Azure portal, click the runbook that the webhook starts to view its detail page. Ensure the runbook **Status** is **Published**.
+2. Click **Webhook** at the top of the page to open the **Add Webhook** page.
+3. Click **Create new webhook** to open the **Create webhook page**.
+4. Specify a **Name**, **Expiration Date** for the webhook and whether it should be enabled. See [Details of a webhook](#details-of-a-webhook) for more information these properties.
+5. Click the copy icon and press Ctrl+C to copy the URL of the webhook. Then record it in a safe place. **Once you create the webhook, you cannot retrieve the URL again.**
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
@@ -108,17 +108,17 @@ The client receives one of the following return codes from the POST request.
 | 404 |Not Found |The request was not accepted for one of the following reasons: <ul> <li>The webhook was not found.</li> <li>The runbook was not found.</li> <li>The account was not found.</li>  </ul> |
 | 500 |Internal Server Error |The URL was valid, but an error occurred. Please resubmit the request. |
 
-Assuming the request is successful, the webhook response contains the job id in JSON format as follows. It will contain a single job id, but the JSON format allows for potential future enhancements.
+Assuming the request is successful, the webhook response contains the job ID in JSON format as follows. It will contain a single job ID, but the JSON format allows for potential future enhancements.
 
 ```json
 {"JobIds":["<JobId>"]}
 ```
 
-The client cannot determine when the runbook job completes or its completion status from the webhook. It can determine this information using the job id with another method such as [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) or the [Azure Automation API](/rest/api/automation/job).
+The client cannot determine when the runbook job completes or its completion status from the webhook. It can determine this information using the job ID with another method such as [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) or the [Azure Automation API](/rest/api/automation/job).
 
 ## Sample runbook
 
-The following sample runbook accepts the accepts webhook data and starts the virtual machines specified in the request body. To test this runbook, in your Automation Account under **Runbooks**, click **+ Add a runbook**. If you do not know how to create a runbook, see [Creating a runbook](automation-quickstart-create-runbook.md).
+The following sample runbook accepts the webhook data and starts the virtual machines specified in the request body. To test this runbook, in your Automation Account under **Runbooks**, click **+ Add a runbook**. If you do not know how to create a runbook, see [Creating a runbook](automation-quickstart-create-runbook.md).
 
 ```powershell
 param
@@ -195,7 +195,7 @@ The following example shows the body of the request that is available to the run
 ]
 ```
 
-The following image shows the request being sent from Windows PowerShell and the resulting response. The job id is extracted from the response and converted to a string.
+The following image shows the request being sent from Windows PowerShell and the resulting response. The job ID is extracted from the response and converted to a string.
 
 ![Webhooks button](media/automation-webhooks/webhook-request-response.png)
 

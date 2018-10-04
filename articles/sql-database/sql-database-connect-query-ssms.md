@@ -3,13 +3,16 @@ title: 'SSMS: Connect and query data in Azure SQL Database | Microsoft Docs'
 description: Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database,sql server management studio
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer:
+manager: craigg
+ms.date: 08/01/2018
 ---
 # Azure SQL Database: Use SQL Server Management Studio to connect and query data
 
@@ -20,6 +23,8 @@ ms.author: carlrab
 This quickstart uses as its starting point the resources created in one of these quickstarts:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
 #### Install the latest SSMS
 
@@ -143,7 +148,6 @@ Use the following code to delete the new product that you previously added using
 
 ## Next steps
 
-- To learn about creating and managing servers and databases with Transact-SQL, see [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md).
 - For information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL Query editor](sql-database-connect-query-portal.md).
 - To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).

@@ -29,7 +29,7 @@ This article includes instructions on how to:
 2. **add work items** to sprints. 
 
 > [!NOTE]
-> The steps needed to set up a TDSP team environment using Visual Studio Team Services (VSTS) are outlined in the following set of instructions. They specify how to accomplish these tasks with VSTS because that is how to implement TDSP at Microsoft.  If you choose to use VSTS, items (3) and (4) in the previous list are benefits that you get naturally. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a Git branch**, might not be as easy as it is on VSTS.
+> The steps needed to set up a TDSP team environment using Azure DevOps Services are outlined in the following set of instructions. They specify how to accomplish these tasks with Azure DevOps Services because that is how to implement TDSP at Microsoft.  If you choose to use Azure DevOps Services, items (3) and (4) in the previous list are benefits that you get naturally. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a Git branch**, might not be as easy as it is on Azure DevOps Services.
 >
 >
 
@@ -40,7 +40,7 @@ The following figure illustrates a typical sprint planning, coding, and source-c
 
 ##  1. <a name='Terminology-1'></a>Terminology 
 
-In the TDSP sprint planning framework, there are four frequently used types of **work items**: **Feature**, **User Story**, **Task**, and **Bug**. Each team project maintains a single backlog for all work items. There is no backlog at the Git repository level under a team project. Here are their definitions:
+In the TDSP sprint planning framework, there are four frequently used types of **work items**: **Feature**, **User Story**, **Task**, and **Bug**. Each project maintains a single backlog for all work items. There is no backlog at the Git repository level under a project. Here are their definitions:
 
 - **Feature**: A feature corresponds to a project engagement. Different engagements with a client are considered different features. Similarly, it is best to consider different phases of a project with a client as different features. If you choose a schema such as ***ClientName-EngagementName*** to name your features, then you can easily recognize the context of the project/engagement from the names themselves.
 - **Story**: Stories are different work items that are needed to complete a feature (project) end-to-end. Examples of stories include:
@@ -67,14 +67,14 @@ In the TDSP sprint planning framework, there are four frequently used types of *
 
 ## 2. <a name='SprintPlanning-2'></a>Sprint planning 
 
-Sprint planning is useful for project prioritization, and resource planning and allocation. Many data scientists are engaged with multiple projects, each of which can take months to complete. Projects often proceed at different paces. On the VSTS server, you can easily create, manage, and track work items in your team project and conduct sprint planning to ensure that your projects are moving forward as expected. 
+Sprint planning is useful for project prioritization, and resource planning and allocation. Many data scientists are engaged with multiple projects, each of which can take months to complete. Projects often proceed at different paces. On the Azure DevOps Services, you can easily create, manage, and track work items in your project and conduct sprint planning to ensure that your projects are moving forward as expected. 
 
-Follow [this link](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) for the step-by-step instructions on sprint planning in VSTS. 
+Follow [this link](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) for the step-by-step instructions on sprint planning in Azure DevOps Services. 
 
 
 ## 3. <a name='AddFeature-3'></a>Add a feature  
 
-After your project repository is created under a team project, go to the team **Overview** page and click **Manage work**.
+After your project repository is created under a project, go to the team **Overview** page and click **Manage work**.
 
 ![2](./media/agile-development/2-sprint-team-overview.png)
 
@@ -159,11 +159,11 @@ This article explains how to set up an agile data science process template that 
 
 After the data science process template is created, you can create and track your data science work items that correspond to the TDSP lifecycle.
 
-1. When you create a new team project, select "Agile\AgileDataScienceProcess" as the **Work item process**:
+1. When you create a new project, select "Agile\AgileDataScienceProcess" as the **Work item process**:
 
 	![15](./media/agile-development/15-newproject.png)
 
-2. Navigate to the newly created team project, and click on **Work** -> **Backlogs**.
+2. Navigate to the newly created project, and click on **Work** -> **Backlogs**.
 
 3. Make "TDSP Projects" visible by clicking on **Configure team settings** and check "TDSP Projects"; then save.
 

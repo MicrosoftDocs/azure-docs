@@ -3,7 +3,7 @@ title: Azure WCF Relay hybrid on-premises/cloud application (.NET) | Microsoft D
 description: Learn how to create a .NET on-premises/cloud hybrid application using Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # .NET on-premises/cloud hybrid application using Azure WCF Relay
@@ -235,7 +235,7 @@ In this section you will build a simple ASP.NET application that displays data r
     ![][18]
 
 7. Back in the **New ASP.NET Web Application** dialog, click **OK** to create the MVC app.
-8. Now you must configure Azure resources for a new web app. Follow the steps in the [Publish to Azure section of this article](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure). Then, return to this tutorial and proceed to the next step.
+8. Now you must configure Azure resources for a new web app. Follow the steps in the [Publish to Azure section of this article](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Then, return to this tutorial and proceed to the next step.
 10. In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.

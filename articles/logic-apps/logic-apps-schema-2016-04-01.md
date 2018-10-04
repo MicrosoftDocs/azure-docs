@@ -1,23 +1,17 @@
 ---
 title: Schema updates June-1-2016 - Azure Logic Apps | Microsoft Docs
-description: Create JSON definitions for Azure Logic Apps with schema version 2016-06-01
-author: jeffhollan
-manager: jeconnoc
-editor: ''
+description: Updated schema version 2016-06-01 for logic app definitions in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
-ms.author: LADocs; jehollan
-
 ---
+
 # Schema updates for Azure Logic Apps - June 1, 2016
 
 The [updated schema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) 
@@ -39,23 +33,23 @@ or nest actions inside each other. For example, a condition can contain another 
 Learn more about [scope syntax](../logic-apps/logic-apps-loops-and-scopes.md), 
 or review this basic scope example:
 
-```
+```json
 {
-    "actions": {
-        "My_Scope": {
-            "type": "scope",
-            "actions": {                
-                "Http": {
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "http://www.bing.com"
-                    },
-                    "runAfter": {},
-                    "type": "Http"
-                }
+   "actions": {
+      "Scope": {
+         "type": "Scope",
+         "actions": {                
+            "Http": {
+               "inputs": {
+                   "method": "GET",
+                   "uri": "http://www.bing.com"
+               },
+               "runAfter": {},
+               "type": "Http"
             }
-        }
-    }
+         }
+      }
+   }
 }
 ```
 
@@ -63,33 +57,34 @@ or review this basic scope example:
 
 ## Conditions and loops changes
 
-In previous schema versions, 
-conditions and loops were parameters associated with a single action. 
-This schema lifts this limitation, so conditions and loops now appear as action types. 
+In previous schema versions, conditions and loops were parameters 
+associated with a single action. This schema lifts this limitation, 
+so conditions and loops are now available as action types. 
 Learn more about [loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md), 
-or review this basic example for a condition action:
+[conditions](../logic-apps/logic-apps-control-flow-conditional-statement.md), 
+or review this basic example that shows a condition action:
 
-```
+```json
 {
-    "If_trigger_is_some-trigger": {
-        "type": "If",
-        "expression": "@equals(triggerBody(), 'some-trigger')",
-        "runAfter": { },
-        "actions": {
-            "Http_2": {
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://www.bing.com"
-                },
-                "runAfter": {},
-                "type": "Http"
-            }
-        },
-        "else": 
-        {
-            "if_trigger_is_another-trigger": "..."
-        }      
-    }
+   "Condition - If trigger is some trigger": {
+      "type": "If",
+      "expression": "@equals(triggerBody(), '<trigger-name>')",
+      "runAfter": {},
+      "actions": {
+         "Http_2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.bing.com"
+            },
+            "runAfter": {},
+            "type": "Http"
+         }
+      },
+      "else": 
+      {
+         "Condition - If trigger is another trigger": {}
+      }  
+   }
 }
 ```
 
@@ -97,25 +92,24 @@ or review this basic example for a condition action:
 
 ## 'runAfter' property
 
-The `runAfter` property replaces `dependsOn`, 
-providing more precision when you specify the run order for actions 
-based on the status of previous actions.
-
-The `dependsOn` property was synonymous with "the action ran and was successful", 
-no matter how many times you wanted to execute an action, 
-based on whether the previous action was successful, failed, or skipped. 
-The `runAfter` property provides that flexibility as an object 
+The `runAfter` property replaces `dependsOn`, providing more 
+precision when you specify the run order for actions based 
+on the status of previous actions. The `dependsOn` property 
+indicated whether "the action ran and was successful", 
+based on whether the previous action succeeded, failed, 
+or as skipped - not the number of times you wanted to run the action. 
+The `runAfter` property provides flexibility as an object 
 that specifies all the action names after which the object runs. 
 This property also defines an array of statuses that are acceptable as triggers. 
-For example, if you wanted to run after step A succeeds and also after 
-step B succeeds or fails, you construct this `runAfter` property:
+For example, if you want an action to run after action A succeeds and 
+also after action B succeeds or fails, set up this `runAfter` property:
 
-```
+```json
 {
-    "...",
-    "runAfter": {
-        "A": ["Succeeded"],
-        "B": ["Succeeded", "Failed"]
+   // Other parts in action definition
+   "runAfter": {
+      "A": ["Succeeded"],
+      "B": ["Succeeded", "Failed"]
     }
 }
 ```
@@ -130,12 +124,15 @@ saving as a new logic app, and if you want, possibly overwriting the previous lo
 
 2. Go to **Overview**. On the logic app toolbar, choose **Update Schema**.
    
-    ![Choose Update Schema][1]
+   ![Choose Update Schema][1]
    
-	The upgraded definition is returned, 
-	which you can copy and paste into a resource definition if necessary. 
-	However, we **strongly recommend** you choose **Save As** 
-	to make sure that all connection references are valid in the upgraded logic app.
+   The upgraded definition is returned, which you can copy 
+   and paste into a resource definition if necessary. 
+
+   > [!IMPORTANT]
+   > *Make sure* you choose **Save As** 
+   > so all the connection references remain valid 
+   > in the upgraded logic app.
 
 3. In the upgrade blade toolbar, choose **Save As**.
 
@@ -155,28 +152,28 @@ on the toolbar, choose **Clone**, next to **Update Schema**.
 This step is necessary only if you want to keep the same resource ID 
 or request trigger URL of your logic app.
 
-### Upgrade tool notes
+## Upgrade tool notes
 
-#### Mapping conditions
+### Mapping conditions
 
-In the upgraded definition, the tool makes a best effort at 
+In the upgraded definition, the tool makes the best effort at 
 grouping true and false branch actions together as a scope. 
 Specifically, the designer pattern of `@equals(actions('a').status, 'Skipped')` 
-should appear as an `else` action. However, if the tool detects unrecognizable patterns, 
+appears as an `else` action. However, if the tool detects unrecognizable patterns, 
 the tool might create separate conditions for both the true and the false branch. 
 You can remap actions after upgrading, if necessary.
 
 #### 'foreach' loop with condition
 
-In the new schema, you can use the filter action 
-to replicate the pattern of a `foreach` loop with a condition per item, 
-but this change should automatically happen when you upgrade. 
-The condition becomes a filter action before the foreach loop 
-for returning only an array of items that match the condition, 
-and that array is passed into the foreach action. 
+In the new schema, you can use the filter action to replicate 
+the pattern that uses a **For each** loop with one condition per item. 
+However, the change automatically happens when you upgrade. 
+The condition becomes a filter action that appears prior to 
+the **For each** loop, returning only an array of items 
+that match the condition, and passing that array to **For each** action. 
 For an example, see [Loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md).
 
-#### Resource tags
+### Resource tags
 
 After you upgrade, resource tags are removed, so you must reset them for the upgraded workflow.
 
@@ -205,20 +202,20 @@ Actions can now have an additional property called
 This object specifies certain action inputs or outputs that you want to include in 
 the Azure Diagnostic telemetry, emitted as part of a workflow. For example:
 
-```
-{                
-    "Http": {
-        "inputs": {
-            "method": "GET",
-            "uri": "http://www.bing.com"
-        },
-        "runAfter": {},
-        "type": "Http",
-        "trackedProperties": {
-            "responseCode": "@action().outputs.statusCode",
-            "uri": "@action().inputs.uri"
-        }
-    }
+``` json
+{
+   "Http": {
+      "inputs": {
+         "method": "GET",
+         "uri": "http://www.bing.com"
+      },
+      "runAfter": {},
+      "type": "Http",
+      "trackedProperties": {
+         "responseCode": "@action().outputs.statusCode",
+         "uri": "@action().inputs.uri"
+      }
+   }
 }
 ```
 

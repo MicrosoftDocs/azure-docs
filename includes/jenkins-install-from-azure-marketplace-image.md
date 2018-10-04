@@ -28,7 +28,7 @@ ms.custom: Jenkins
 1. In the **Basics** tab, specify the following values:
 
     - **Name** - Enter `Jenkins`.
-    - **User name** - Enter the user name to use when signing into the virtual machine on which Jenkins is running. The user name must meet [specific requirements](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+    - **User name** - Enter the user name to use when signing in to the virtual machine on which Jenkins is running. The user name must meet [specific requirements](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
     - **Authentication type** - Select **SSH public key**.
     - **SSH public key** - Copy and paste an RSA public key in single-line format (starting with `ssh-rsa`) or multi-line PEM format. You can generate SSH keys using ssh-keygen on Linux and macOS, or PuTTYGen on Windows. For more information about SSH keys and Azure, see the article, [How to Use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows).
     - **Subscription** - Select the Azure subscription into which you want to install Jenkins.

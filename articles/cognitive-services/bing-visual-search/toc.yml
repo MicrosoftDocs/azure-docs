@@ -15,12 +15,29 @@
     href: quickstarts/nodejs.md
   - name: First query in Python
     href: quickstarts/python.md
+- name: SDK
+  expanded: true
+  items:
+  - name: SDK samples overview
+    href: sdk.md
+  - name: SDK in C#
+    href: visual-search-sdk-c-sharp.md
+  - name: SDK in Node
+    href: visual-search-sdk-node.md
+  - name: SDK in Python
+    href: visual-search-sdk-python.md
 - name: Tutorials
   items:
+  - name: Image upload web app
+    href: tutorial-visual-search-image-upload.md
   - name: Single-page Web app
     href: tutorial-bing-visual-search-single-page-app.md
   - name: Single-page Web app (source code)
     href: tutorial-bing-visual-search-single-page-app-source.md
+  - name: Bing Visual Search SDK image crop area and results
+    href: tutorial-visual-search-crop-area-results.md
+  - name: Bing Visual Search SDK ImageInsightsToken and results
+    href: tutorial-visual-search-insights-token.md
 - name: Samples
   items:
     - name: Code samples
@@ -29,10 +46,8 @@
   items:
     - name: Default image insights
       href: default-insights-tag.md
-    - name: Bing insights usage 
+    - name: Bing insights usage
       href: bing-insights-usage.md
-    - name: Supported countries and markets
-      href: supported-countries-markets.md
     - name: Analytics for Visual Search API
       href: bing-visual-search-stats.md
 - name: How-to guides
@@ -50,6 +65,8 @@
     href: https://aka.ms/bingvisualsearchreferencedoc
 - name: Resources
   items:
+  - name: Language and region support
+    href: language-support.md
   - name: Get free access key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api
   - name: Try it!

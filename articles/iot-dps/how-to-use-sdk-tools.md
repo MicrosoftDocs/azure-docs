@@ -29,9 +29,9 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 [X.509 certificates](https://docs.microsoft.com/azure/iot-dps/concepts-security#x509-certificates) can be used as an attestation mechanism to scale production and simplify device provisioning.  There are [several ways](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) to obtain an X.509 certificate:
 * For production environment, we recommend purchasing an X.509 CA certificate from a public root certificate authority.
 * For testing environment, you can generate an X.509 root certificate or X.509 certificate chain using:
-    * OpenSSL: this [how to guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) walks through sample PowerShell scripts that use [OpenSSL](https://www.openssl.org/) to create and sign X.509 certificates.  In addition, you can also use script in other languages for certificate generation:
+    * OpenSSL: You can use scripts for certificate generation:
         * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
-        * [PowerShell](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
+        * [PowerShell or Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
     * Device Identity Composition Engine (DICE) Emulator: DICE can be used for cryptographic device identity and attestation based on TLS protocol and X.509 client certificates.  [Learn](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) more about device identity with DICE.
 

@@ -1,15 +1,16 @@
 ---
-title: Soft delete for Azure Storage blobs (Preview) | Microsoft Docs
-description: Azure Storage now offers soft delete (Preview) for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
+title: Soft delete for Azure Storage blobs | Microsoft Docs
+description: Azure Storage now offers soft delete for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
 services: storage
 author: MichaelHauss
-manager: vamshik
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/15/2018
 ms.author: mihauss
+ms.component: blobs
 ---
+
 # Soft delete for Azure Storage blobs
 Azure Storage now offers soft delete for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an
 application or other storage account user.
@@ -68,16 +69,16 @@ The following table details expected behavior when soft delete is turned on:
 | REST API operation | Resource type | Description | Change in behavior |
 |--------------------|---------------|-------------|--------------------|
 | [Delete](/rest/api/storagerp/StorageAccounts/Delete) | Account | Deletes the storage account, including all containers and blobs that it contains.                           | No change. Containers and blobs in the deleted account are not recoverable. |
-| [Delete Container](/rest/api/storageservices/fileservices/delete-container) | Container | Deletes the container, including all blobs that it contains. | No change. Blobs in the deleted container are not recoverable. |
-| [Put Blob](/rest/api/storageservices/fileservices/put-blob) | Block, Append, and Page Blobs | Creates a new blob or replaces an existing blob within a container | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is replaced by a blob of the same type (Block, Append or Page). If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
-| [Delete Blob](/rest/api/storageservices/fileservices/delete-blob) | Block, Append, and Page Blobs | Marks a blob or blob snapshot for deletion. The blob or snapshot is later deleted during garbage collection | If used to delete a blob snapshot, that snapshot is marked as soft deleted. If used to delete a blob, that blob is marked as soft deleted. |
-| [Copy Blob](/rest/api/storageservices/fileservices/copy-blob) | Block, Append, and Page Blobs | Copies a source blob to a destination blob in the same storage account or in another storage account. | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is replaced by a blob of the same type (Block, Append or Page). If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
+| [Delete Container](/rest/api/storageservices/delete-container) | Container | Deletes the container, including all blobs that it contains. | No change. Blobs in the deleted container are not recoverable. |
+| [Put Blob](/rest/api/storageservices/put-blob) | Block, Append, and Page Blobs | Creates a new blob or replaces an existing blob within a container | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is replaced by a blob of the same type (Block, Append or Page). If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
+| [Delete Blob](/rest/api/storageservices/delete-blob) | Block, Append, and Page Blobs | Marks a blob or blob snapshot for deletion. The blob or snapshot is later deleted during garbage collection | If used to delete a blob snapshot, that snapshot is marked as soft deleted. If used to delete a blob, that blob is marked as soft deleted. |
+| [Copy Blob](/rest/api/storageservices/copy-blob) | Block, Append, and Page Blobs | Copies a source blob to a destination blob in the same storage account or in another storage account. | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is replaced by a blob of the same type (Block, Append or Page). If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
 | [Put Block](/rest/api/storageservices/put-block) | Block Blobs | Creates a new block to be committed as part of a block blob. | If used to commit a block to a blob that is active there is no change. If used to commit a block to a blob that is soft deleted, a new blob is created and a snapshot is automatically generated to capture the state of the soft deleted blob. |
-| [Put Block List](/rest/api/storageservices/fileservices/put-block-list) | Block Blobs | Commits a blob by specifying the set of block IDs that comprise the block blob. | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is a Block Blob. If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
-| [Put Page](/rest/api/storageservices/fileservices/put-page) | Page Blobs | Writes a range of pages to a Page Blob. | No change. Page Blob data that is overwritten or cleared using this operation is not saved and is not recoverable. |
-| [Append Block](/rest/api/storageservices/fileservices/append-block) | Append Blobs | Writes a block of data to the end of an Append Blob | No change. |
-| [Set Blob Properties](/rest/api/storageservices/fileservices/set-blob-properties) | Block, Append, and Page Blobs | Sets values for system properties defined for a blob. | No change. Overwritten blob properties are not recoverable. |
-| [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata) | Block, Append, and Page Blobs | Sets user-defined metadata for the specified blob as one or more name-value pairs. | No change. Overwritten blob metadata is not recoverable. |
+| [Put Block List](/rest/api/storageservices/put-block-list) | Block Blobs | Commits a blob by specifying the set of block IDs that comprise the block blob. | If used to replace an existing blob, a snapshot of the blob's state prior to the call is automatically generated. This also applies to a previously soft deleted blob if and only if it is a Block Blob. If it is replaced by a blob of a different type, all existing soft deleted data will be permanently expired. |
+| [Put Page](/rest/api/storageservices/put-page) | Page Blobs | Writes a range of pages to a Page Blob. | No change. Page Blob data that is overwritten or cleared using this operation is not saved and is not recoverable. |
+| [Append Block](/rest/api/storageservices/append-block) | Append Blobs | Writes a block of data to the end of an Append Blob | No change. |
+| [Set Blob Properties](/rest/api/storageservices/set-blob-properties) | Block, Append, and Page Blobs | Sets values for system properties defined for a blob. | No change. Overwritten blob properties are not recoverable. |
+| [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) | Block, Append, and Page Blobs | Sets user-defined metadata for the specified blob as one or more name-value pairs. | No change. Overwritten blob metadata is not recoverable. |
 
 It is important to notice that calling "Put Page" to overwrite or clear ranges of a Page Blob will not automatically generate snapshots. Virtual machine disks are backed by Page Blobs and use **Put Page** to write data.
 
@@ -175,6 +176,11 @@ Set-AzureRmContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+You can verify that soft delete was turned on by using the following command:
+
+```powershell
+$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
+```
 
 To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling **Undelete Blob**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:
 ```powershell
@@ -188,6 +194,13 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+To find the currrent soft delete retention policy, use the following command:
+
+```azurepowershell-interactive
+   $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzureStorageServiceProperty -ServiceType Blob -Context $account.Context
+```
+
 ### Azure CLI 
 To enable soft delete, update a blob client's service properties:
 
@@ -302,7 +315,7 @@ It is possible to take advantage of soft delete regardless of the API version yo
 
 ## Next steps
 * [.NET Sample Code](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
-* [Blob Service REST API](/rest/api/storageservices/fileservices/blob-service-rest-api)
+* [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
 * [Azure Storage Replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Designing Highly Available Applications using RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [What to do if an Azure Storage outage occurs](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

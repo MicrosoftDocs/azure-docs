@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-
+ms.component: 
 ---
+
 # Manage Log Analytics using Azure Resource Manager templates
 You can use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
 
@@ -92,7 +93,7 @@ The following parameters set a default value:
 	        "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
 		}
-          },
+          }
     },
     "resources": [
         {

@@ -1,20 +1,15 @@
 ---
-title: Serialize data in Hadoop - Microsoft Avro Library - Azure | Microsoft Docs
+title: Serialize data in Hadoop - Microsoft Avro Library - Azure 
 description: Learn how to serialize and deserialize data in Hadoop on HDInsight using the Microsoft Avro Library to persist to memory, a database, or file.
 keywords: avro,hadoop avro
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: c78dc20d-5d8d-4366-94ac-abbe89aaac58
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
+ms.author: jasonh
 ms.custom: hdiseo17may2017
 
 ---
@@ -37,7 +32,7 @@ The <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" targe
 The serialized representation of an object in the Avro system consists of two parts: schema and actual value. The Avro schema describes the language-independent data model of the serialized data with JSON. It is presented side by side with a binary representation of data. Having the schema separate from the binary representation permits each object to be written with no per-value overheads, making serialization fast, and the representation small.
 
 ## The Hadoop scenario
-The Apache Avro serialization format is widely used in Azure HDInsight and other Apache Hadoop environments. Avro provides a convenient way to represent complex data structures within a Hadoop MapReduce job. The format of Avro files (Avro object container file) has been designed to support the distributed MapReduce programming model. The key feature that enables the distribution is that the files are “splittable” in the sense that one can seek any point in a file and start reading from a particular block.
+The Apache Avro serialization format is widely used in Azure HDInsight and other Apache Hadoop environments. Avro provides a convenient way to represent complex data structures within a Hadoop MapReduce job. The format of Avro files (Avro object container file) has been designed to support the distributed MapReduce programming model. The key feature that enables the distribution is that the files are "splittable" in the sense that one can seek any point in a file and start reading from a particular block.
 
 ## Serialization in Avro Library
 The .NET Library for Avro supports two ways of serializing objects:

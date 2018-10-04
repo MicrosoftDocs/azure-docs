@@ -5,12 +5,11 @@ services: active-directory
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
-
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
@@ -51,4 +50,4 @@ We strongly recommend you add both your global privacy contact and your organiza
 
 ## Next steps
 - [Azure Active Directory B2B collaboration invitation redemption](https://aka.ms/b2bredemption)
-- [Add or change profile information for a user in Azure Active Directory](/active-directory-users-profile-azure-portal.md)
+- [Add or change profile information for a user in Azure Active Directory](fundamentals/active-directory-users-profile-azure-portal.md)

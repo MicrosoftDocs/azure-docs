@@ -11,7 +11,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
@@ -34,7 +34,7 @@ Since the Application Proxy connectors direct remote traffic to all apps regardl
 
 Since this scenario is offered through a partnership between Azure Active Directory and PingAccess, you need licenses for both services. However, Azure Active Directory Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can purchase an additional license from PingAccess. 
 
-For more information, see [Azure Active Directory editions](../active-directory-whatis.md).
+For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 ## Publish your application in Azure
 
@@ -137,7 +137,7 @@ select **Assign a user for testing**, and add at least one user to the applicati
 
 ### Optional - Update GraphAPI to send custom fields
 
-For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](./../develop/active-directory-token-and-claims.md). If you need a custom claim that sends other tokens, use Graph Explorer or the manifest for the application in the Azure Portal to set the app field *acceptMappedClaims* to **True**.    
+For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](../develop/v1-id-and-access-tokens.md). If you need a custom claim that sends other tokens, use Graph Explorer or the manifest for the application in the Azure Portal to set the app field *acceptMappedClaims* to **True**.    
 
 This example uses Graph Explorer:
 

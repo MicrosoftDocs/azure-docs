@@ -1,6 +1,6 @@
 ---
-title: Elevate access for a Global administrator in Azure Active Directory | Microsoft Docs
-description: Describes how to elevate access for a Global administrator in Azure Active Directory using the Azure portal or REST API.
+title: Elevate access for a Global Administrator in Azure Active Directory | Microsoft Docs
+description: Describes how to elevate access for a Global Administrator in Azure Active Directory using the Azure portal or REST API.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,30 +10,32 @@ editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# Elevate access for a Global administrator in Azure Active Directory
+# Elevate access for a Global Administrator in Azure Active Directory
 
-If you are a [Global administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) in Azure Active Directory (Azure AD), there might be times when you want to do the following:
+If you are a [Global Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) in Azure Active Directory (Azure AD), there might be times when you want to do the following:
 
 - Regain access to an Azure subscription when a user has lost access
 - Grant another user or yourself access to an Azure subscription
 - See all Azure subscriptions in an organization
 - Allow an automation app (such as an invoicing or auditing app) to access all Azure subscriptions
 
-By default, Azure AD administrator roles and Azure role-based access control (RBAC) roles do not span Azure AD and Azure. However, if you are a Global administrator in Azure AD, you can elevate your access to manage Azure subscriptions and management groups. When you elevate your access, you will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables you to grant other users access to Azure resources at the root scope (`/`).
+By default, Azure AD administrator roles and Azure role-based access control (RBAC) roles do not span Azure AD and Azure. However, if you are a Global Administrator in Azure AD, you can elevate your access to manage Azure subscriptions and management groups. When you elevate your access, you will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables you to grant other users access to Azure resources at the root scope (`/`).
 
 This elevation should be temporary and only done when needed.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## Elevate access for a Global administrator using the Azure portal
+## Azure portal
+
+Follow these steps to elevate access for a Global Administrator using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com).
 
@@ -45,9 +47,9 @@ This elevation should be temporary and only done when needed.
 
    ![Global admin can manage Azure Subscriptions and Management Groups - screenshot](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   When you set the switch to **Yes**, your Global administrator account (currently logged in user) is added to the User Access Administrator role in Azure RBAC at the root scope (`/`), which grants you access to view and report on all Azure subscriptions associated with your Azure AD tenant.
+   When you set the switch to **Yes**, your Global Administrator account (currently logged in user) is added to the User Access Administrator role in Azure RBAC at the root scope (`/`), which grants you access to view and report on all Azure subscriptions associated with your Azure AD tenant.
 
-   When you set the switch to **No**, your Global administrator account (currently logged in user) is removed from the User Access Administrator role in Azure RBAC. You can't see all Azure subscriptions that are associated with the Azure AD tenant, and you can view and manage only the Azure subscriptions to which you have been granted access.
+   When you set the switch to **No**, your Global Administrator account (currently logged in user) is removed from the User Access Administrator role in Azure RBAC. You can't see all Azure subscriptions that are associated with the Azure AD tenant, and you can view and manage only the Azure subscriptions to which you have been granted access.
 
 1. Click **Save** to save your setting.
 
@@ -55,7 +57,9 @@ This elevation should be temporary and only done when needed.
 
 1. Perform the tasks you need to make at the elevated access. When you are done, set the switch back to **No**.
 
-## List role assignment at the root scope (/) using PowerShell
+## Azure PowerShell
+
+### List role assignment at the root scope (/)
 
 To list the User Access Administrator role assignment for a user at the root scope (`/`), use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command.
 
@@ -75,7 +79,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## Remove a role assignment at the root scope (/) using PowerShell
+### Remove a role assignment at the root scope (/)
 
 To remove a User Access Administrator role assignment for a user at the root scope (`/`), use the [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command.
 
@@ -84,9 +88,11 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## Elevate access for a Global administrator using the REST API
+## REST API
 
-Use the following basic steps to elevate access for a Global administrator using the REST API.
+### Elevate access for a Global Administrator
+
+Use the following basic steps to elevate access for a Global Administrator using the REST API.
 
 1. Using REST, call `elevateAccess`, which grants you the User Access Administrator role at the root scope (`/`).
 
@@ -113,7 +119,7 @@ Use the following basic steps to elevate access for a Global administrator using
 
 1. Remove your User Access Administrator privileges until they're needed again.
 
-## List role assignments at the root scope (/) using the REST API
+### List role assignments at the root scope (/)
 
 You can list all of the role assignments for a user at the root scope (`/`).
 
@@ -123,7 +129,17 @@ You can list all of the role assignments for a user at the root scope (`/`).
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## Remove elevated access using the REST API
+### List deny assignments at the root scope (/)
+
+You can list all of the deny assignments for a user at the root scope (`/`).
+
+- Call GET denyAssignments where `{objectIdOfUser}` is the object ID of the user whose deny assignments you want to retrieve.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   ```
+
+### Remove elevated access
 
 When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to remove the assignment.
 
@@ -217,4 +233,5 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 ## Next steps
 
 - [Role-based access control with REST](role-assignments-rest.md)
-- [Manage access assignments](role-assignments-users.md)
+- [Manage access to Azure resources with Privileged Identity Management](pim-azure-resource.md)
+- [Manage access to Azure management with conditional access](conditional-access-azure-management.md)

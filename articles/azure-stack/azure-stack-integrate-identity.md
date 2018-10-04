@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 10/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -21,7 +21,7 @@ The following table shows the differences between the two identity choices:
 |---------|---------|---------|
 |Billing|Must be Capacity<br> Enterprise Agreement (EA) only|Capacity or Pay-as-you-use<br>EA or Cloud Solution Provider (CSP)|
 |Identity|Must be AD FS|Azure AD or AD FS|
-|Marketplace syndication|Supported<br>BYOL licensing|Supported<br>BYOL licensing|
+|Marketplace |Supported<br>BYOL licensing|Supported<br>BYOL licensing|
 |Registration|Recommended, requires removable media<br> and a separate connected device.|Automated|
 |Patch and update|Required, requires removable media<br> and a separate connected device.|Update package can be downloaded directly<br> from the Internet to Azure Stack.|
 
@@ -146,7 +146,7 @@ For this procedure, use a computer that can communicate with the privileged endp
 
 ## Setting up AD FS integration by providing federation metadata file
 
-Use this method if the either of the following conditions are true:
+Beginning with version 1807, use this method if the either of the following conditions are true:
 
 - The certificate chain is different for AD FS compared to all other endpoints in Azure Stack.
 - There’s no network connectivity to the existing AD FS server from Azure Stack’s AD FS instance.
@@ -157,7 +157,9 @@ The following information is required as input for the automation parameters:
 |Parameter|Description|Example|
 |---------|---------|---------|
 |CustomAdfsName|Name of the claims provider. It appears that way on the AD FS landing page.|Contoso|
-|CustomADFSFederationMetadataFile|Federation metadata file|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomADFSFederationMetadataFileContent|Metadata content|$using:federationMetadataFileContent|
+
+
 
 ### Create federation metadata file
 
@@ -166,32 +168,27 @@ For the following procedure, you must use a computer that has network connectivi
 1. Open an elevated Windows PowerShell session, and run the following command, using the parameters appropriate for your environment:
 
    ```PowerShell  
-   [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
+    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
+    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
 
-   $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
-2. Copy the metadata file to a share that is accessible from the privileged endpoint.
-
+2. Copy the metadata file to a computer that can communicate with the privileged endpoint.
 
 ### Trigger automation to configure claims provider trust in Azure Stack
 
-For this procedure, use a computer that can communicate with the privileged endpoint in Azure Stack.
+For this procedure, use a computer that can communicate with the privileged endpoint in Azure Stack and has access to the metadata file you created in a previous step.
 
-1. Open an elevated Windows PowerShell session, and connect to the privileged endpoint.
+1. Open an elevated Windows PowerShell session.
 
    ```PowerShell  
+   $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Now that you're connected to the privileged endpoint, run the following command using the parameters appropriate for your environment:
-
-   ```PowerShell  
-   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
-   ```
-
-3. Run the following command to update the owner of the default provider subscription, using the parameters appropriate for your environment:
+2. Run the following command to update the owner of the default provider subscription, using the parameters appropriate for your environment:
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
@@ -238,24 +235,27 @@ If you decide to manually run the commands, follow these steps:
    => issue(claim = c);
    ```
 
-2. To enable Windows Forms-based authentication, open a Windows PowerShell session as an elevated user, and run the following command:
+2. Validate that Windows Forms-based authentication for extranet and intranet is enabled. First validate if its already enabled by running the following cmdlet:
 
    ```PowerShell  
-   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
+
+    > [!Note]  
+    > The Windows Integrated Authentication (WIA) supported user agent strings may outdated for you AD FS deployment may require to be updated to support latest clients. You can read more about updating the WIA supported user agent strings in the article [Configuring intranet forms-based authentication for devices that do not support WIA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br>The steps to enable Form-based authentication policy are documented in the article, [Configure Authentication Policies](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. To add the relying party trust, run the following Windows PowerShell command on your AD FS instance or a farm member. Make sure to update the AD FS endpoint, and point to the file created in Step 1.
 
    **For AD FS 2016**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
    **For AD FS 2012/2012 R2**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
    > [!IMPORTANT]
@@ -268,12 +268,6 @@ If you decide to manually run the commands, follow these steps:
 
    ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
-   ```
-
-5. The Azure Stack portals and tooling (Visual Studio) require refresh tokens. These must be configured by relying on party trust. Open an elevated Windows PowerShell session, and run the following command:
-
-   ```PowerShell  
-   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
 ## SPN creation

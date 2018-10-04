@@ -1,11 +1,11 @@
 ---
-title: How to containerize your Azure Service Fabric microservices (preview)
-description: Azure Service Fabric has added new functionality to containerize your Service Fabric microservices. This feature is currently in preview.
+title: Containerize your Azure Service Fabric services on Windows
+description: Learn how to containerize your Service Fabric Reliable Services and Reliable Actors services on Windows.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
 manager: anmolah
-editor: 'anmolah'
+editor: 'roroutra'
 
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
 ms.service: service-fabric
@@ -13,17 +13,17 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/04/2017
+ms.date: 5/23/2018
 ms.author: anmola
 ---
-# How to containerize your Service Fabric Reliable Services and Reliable Actors (Preview)
+# Containerize your Service Fabric Reliable Services and Reliable Actors on Windows
 
 Service Fabric supports containerizing Service Fabric microservices (Reliable Services, and Reliable Actor based services). For more information, see [service fabric containers](service-fabric-containers-overview.md).
 
-This feature is in preview and this article provides the various steps to get your service running inside a container.  
+This document provides guidance to get your service running inside a Windows container.
 
 > [!NOTE]
-> This feature is in preview and is not supported in production. Currently this feature only works for Windows. To run containers, the cluster must be running on Windows Server 2016 with Containers.
+> Currently this feature only works for Windows. To run containers, the cluster must be running on Windows Server 2016 with Containers.
 
 ## Steps to containerize your Service Fabric Application
 
@@ -53,13 +53,22 @@ This feature is in preview and this article provides the various steps to get yo
 4. Build and [package](service-fabric-package-apps.md#Package-App) your project. To build and create a package, right-click the application project in Solution Explorer and choose the **Package** command.
 
 5. For every code package you need to containerize, run the PowerShell script [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). The usage is as follows:
-  ```powershell
-    $codePackagePath = 'Path to the code package to containerize.'
-    $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
-    $applicationExeName = 'Name of the ode package executable.'
-    CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -ApplicationExeName $applicationExeName
- ```
-  The script creates a folder with Docker artifacts at $dockerPackageOutputDirectoryPath. Modify the generated Dockerfile to expose any ports, run setup scripts etc. based on your needs.
+
+    Full .NET
+      ```powershell
+        $codePackagePath = 'Path to the code package to containerize.'
+        $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
+        $applicationExeName = 'Name of the Code package executable.'
+        CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -ApplicationExeName $applicationExeName
+      ```
+    .NET Core
+      ```powershell
+        $codePackagePath = 'Path to the code package to containerize.'
+        $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
+        $dotnetCoreDllName = 'Name of the Code package dotnet Core Dll.'
+        CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -DotnetCoreDllName $dotnetCoreDllName
+      ```
+      The script creates a folder with Docker artifacts at $dockerPackageOutputDirectoryPath. Modify the generated Dockerfile to `expose` any ports, run setup scripts and so on. based on your needs.
 
 6. Next you need to [build](service-fabric-get-started-containers.md#Build-Containers) and [push](service-fabric-get-started-containers.md#Push-Containers) your Docker container package to your repository.
 
@@ -74,7 +83,7 @@ This feature is in preview and this article provides the various steps to get yo
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
   </EntryPoint>
-  <!-- Pass environment variables to your container: -->    
+  <!-- Pass environment variables to your container: -->
 </CodePackage>
   ```
 
@@ -89,7 +98,24 @@ This feature is in preview and this article provides the various steps to get yo
 </Policies>
  ```
 
-9. To test this application, you need to deploy it to a cluster that is running version 5.7 or higher. In addition, you need to edit and update the cluster settings to enable this preview feature. Follow the steps in this [article](service-fabric-cluster-fabric-settings.md) to add the setting shown next.
+9. For configuring container isolation mode, see [Configure isolation mode]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows supports two isolation modes for containers: process and Hyper-V. The following snippets show how the isolation mode is specified in the application manifest file.
+
+ ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+  ...
+  </ContainerHostPolicies>
+</Policies>
+ ```
+  ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+  ...
+  </ContainerHostPolicies>
+</Policies>
+ ```
+
+10. To test this application, you need to deploy it to a cluster that is running version 5.7 or higher. For runtime versions 6.1 or lower, you need to edit and update the cluster settings to enable this preview feature. Follow the steps in this [article](service-fabric-cluster-fabric-settings.md) to add the setting shown next.
 ```
       {
         "name": "Hosting",
@@ -101,7 +127,8 @@ This feature is in preview and this article provides the various steps to get yo
         ]
       }
 ```
-10. Next [deploy](service-fabric-deploy-remove-applications.md) the edited application package to this cluster.
+
+11. Next [deploy](service-fabric-deploy-remove-applications.md) the edited application package to this cluster.
 
 You should now have a containerized Service Fabric application running your cluster.
 

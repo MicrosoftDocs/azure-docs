@@ -1,20 +1,15 @@
 ---
 title: Examples & common scenarios - Azure Logic Apps | Microsoft Docs
-description: Learn more about logic apps with examples, scenarios, tutorials, and walkthroughs
+description: Examples, scenarios, tutorials, and walkthroughs for Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter:
-
-ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.author: LADocs; jehollan
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps
@@ -114,7 +109,7 @@ and [switch statements](../logic-apps/logic-apps-control-flow-switch-statement.m
 ## Deploy and manage logic apps
 
 You can fully develop and deploy logic apps with Visual Studio, 
-Visual Studio Team Services, or any other source control and automated build tools. 
+Azure DevOps, or any other source control and automated build tools. 
 To support deployment for workflows and dependent connections in a resource template, 
 logic apps use Azure resource deployment templates. 
 Visual Studio tools automatically generate these templates, 

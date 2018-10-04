@@ -30,7 +30,7 @@ While flow logs target NSGs, they are not displayed the same as the other logs. 
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-The same retention policies seen for other logs apply to flow logs. You can set log retention policy from 1 day, to 365 days. If a retention policy is not set, the logs are maintained forever.
+The same retention policies seen for other logs apply to flow logs. You can set log retention policy from 1 day to 2147483647 days. If a retention policy is not set, the logs are maintained forever.
 
 ## Log file
 

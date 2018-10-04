@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 07/31/2018
 ms.author: douglasl
 
 ---
@@ -19,13 +19,14 @@ This article explains different compute environments that you can use to process
 
 The following table provides a list of compute environments supported by Data Factory and the activities that can run on them. 
 
-| Compute environment                      | activities                               |
-| ---------------------------------------- | ---------------------------------------- |
+| Compute environment                                          | activities                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service) | [Custom](transform-data-using-dotnet-custom-activity.md) |
+| [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
+| [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 
 >  
 
@@ -102,7 +103,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 | linkedServiceName            | Azure Storage linked service to be used by the on-demand cluster for storing and processing data. The HDInsight cluster is created in the same region as this Azure Storage account. Azure HDInsight has limitation on the total number of cores you can use in each Azure region it supports. Make sure you have enough core quotas in that Azure region to meet the required clusterSize. For details, refer to [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store. </p> | Yes      |
 | clusterResourceGroup         | The HDInsight cluster is created in this resource group. | Yes      |
 | timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimal allowed value is 5 minutes (00:05:00).<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster may stay idle for you to log on for some troubleshooting purpose but it could result in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
-| clusterType                  | The type of the HDInsight cluster to be created. Allowed values are "hadoop" and "spark". If not specified, default value is hadoop. | No       |
+| clusterType                  | The type of the HDInsight cluster to be created. Allowed values are "hadoop" and "spark". If not specified, default value is hadoop. Enterprise Security Package enabled cluster is currently not supported | No       |
 | version                      | Version of the HDInsight cluster. If not specified, it's using the current HDInsight defined default version. | No       |
 | hostSubscriptionId           | The Azure subscription ID used to create HDInsight cluster. If not specified, it uses the Subscription ID of your Azure login context. | No       |
 | clusterNamePrefix           | The prefix of HDI cluster name, a timestamp will be automatically appended at the end of the cluster name| No       |
@@ -119,6 +120,10 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 
 > [!IMPORTANT]
 > HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
+>
+> 
+> [!IMPORTANT]
+> Currently, HDInsight linked services does not support HBase, Interactive Query (Hive LLAP), Storm and Enterprise Security Enabled (domain-joined) clusters. 
 >
 > 
 
@@ -291,6 +296,10 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 > [!IMPORTANT]
 > HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
 >
+> [!IMPORTANT]
+> Currently, HDInsight linked services does not support HBase, Interactive Query (Hive LLAP), Storm and Enterprise Security Enabled (domain-joined) clusters. 
+>
+> 
 
 ## Azure Batch linked service
 
@@ -416,8 +425,8 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 | type                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
 | accountName          | Azure Data Lake Analytics Account Name.  | Yes                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics URI.           | No                                       |
-| subscriptionId       | Azure subscription id                    | No (If not specified, subscription of the data factory is used). |
-| resourceGroupName    | Azure resource group name                | No (If not specified, resource group of the data factory is used). |
+| subscriptionId       | Azure subscription id                    | No                                       |
+| resourceGroupName    | Azure resource group name                | No                                       |
 | servicePrincipalId   | Specify the application's client ID.     | Yes                                      |
 | servicePrincipalKey  | Specify the application's key.           | Yes                                      |
 | tenant               | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes                                      |
@@ -436,7 +445,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
     "properties": {
         "type": "AzureDatabricks",
         "typeProperties": {
-            "domain": "eastus.azuredatabricks.net",
+            "domain": "https://eastus.azuredatabricks.net",
             "newClusterNodeType": "Standard_D3_v2",
             "newClusterNumOfWorker": "1:10",
             "newClusterVersion": "4.0.x-scala2.11",
@@ -492,15 +501,6 @@ You create an Azure SQL Data Warehouse linked service and use it with the [Store
 
 ## SQL Server linked service
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](connector-sql-server.md#linked-service-properties) article for details about this linked service.
-
-## Azure Data Factory - naming rules
-The following table provides naming rules for Data Factory artifacts.
-
-| Name                             | Name Uniqueness                          | Validation Checks                        |
-| :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data Factory                     | Unique across Microsoft Azure. Names are case-insensitive, that is, `MyDF` and `mydf` refer to the same data factory. | <ul><li>Each data factory is tied to exactly one Azure subscription.</li><li>Object names must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.</li><li>Every dash (-) character must be immediately preceded and followed by a letter or a number. Consecutive dashes are not permitted in container names.</li><li>Name can be 3-63 characters long.</li></ul> |
-| Linked services/tables/pipelines | Unique with in a data factory. Names are case-insensitive. | <ul><li>Maximum number of characters in a table name: 260.</li><li>Object names must start with a letter, number, or an underscore (_).</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |
-| Resource Group                   | Unique across Microsoft Azure. Names are case-insensitive. | <ul><li>Maximum number of characters: 1000.</li><li>Name can contain letters, digits, and the following characters: “-”, “_”, “,” and “.”</li></ul> |
 
 ## Next steps
 For a list of the transformation activities supported by Azure Data Factory, see [Transform data](transform-data.md).

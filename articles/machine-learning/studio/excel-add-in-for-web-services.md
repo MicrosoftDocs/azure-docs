@@ -3,10 +3,9 @@ title: Excel add-in for Machine Learning Web services | Microsoft Docs
 description: How to use Azure Machine Learning Web services directly in Excel without writing any code.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
+author: marthalc
+ms.author: marthalc
+
 
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
@@ -18,19 +17,23 @@ ms.workload: data-services
 ms.date: 2/1/2018
 
 ---
-# Excel Add-in for Azure Machine Learning web services
+# Excel Add-in for Azure Machine Learning Studio web services
 Excel makes it easy to call web services directly without the need to write any code.
 
 ## Steps to Use an Existing web service in the Workbook
 
-1. Open the [sample Excel file](http://aka.ms/amlexcel-sample-2), which contains the Excel add-in and data about passengers on the Titanic.
+1. Open the [sample Excel file](http://aka.ms/amlexcel-sample-2), which contains the Excel add-in and data about passengers on the Titanic. 
+ 
+> [!NOTE]
+> You will see the list of the Web Services related to the file and at the bottom a checkbox for "Auto-predict". If you enable auto-predict the predictions of **all** your services will be updated everytime there is a change on the inputs. If unchecked you will have to click on "Predict All" for refresh. For enabling auto-predict at a service level go to step 6.
+
 2. Choose the web service by clicking it - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" in this example.
    
     ![Select Web service][01]
 3. This takes you to the **Predict** section.  This workbook already contains sample data, but for a blank workbook you can select a cell in Excel and click **Use sample data**.
 4. Select the data with headers and click the input data range icon.  Make sure the "My data has headers" box is checked.
 5. Under **Output**, enter the cell number where you want the output to be, for example "H1" here.
-6. Click **Predict**.
+6. Click **Predict**. If you select the "auto-predict" checkbox any change on the selected areas (the ones specified as input) will trigger a request and an update of the output cells without the need for you to press the predict button.
    
     ![Predict section][02]
 

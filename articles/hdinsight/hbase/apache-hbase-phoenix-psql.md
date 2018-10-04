@@ -1,17 +1,13 @@
 ---
-title: Bulk loading into Apache Phoenix using psql - Azure HDInsight | Microsoft Docs
+title: Bulk loading into Apache Phoenix using psql - Azure HDInsight 
 description: Use the psql tool to load bulk load data into Phoenix tables.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
 

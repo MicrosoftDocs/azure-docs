@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 
 ---
@@ -68,8 +68,8 @@ There are a few account considerations you should be aware of when managing Azur
 |Account|Azure AD|AD FS|
 |-----|-----|-----|
 |Local Administrator (.\Administrator)|ASDK host administrator|ASDK host administrator|
-|AzureStack\AzureStackAdmin|ASDK host administrator<br><br>Can be used to log in to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings|ASDK host administrator<br><br>No access to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings<br><br>No longer owner of the Default Provider Subscription (DPS)|
-|AzureStack\CloudAdmin|Can access and run permitted commands within the Privileged Endpoint|Can access and run permitted commands within the Privileged Endpoint<br><br>Can not log in to the ASDK host<br><br>Owner of the Default Provider Subscription (DPS)|
+|AzureStack\AzureStackAdmin|ASDK host administrator<br><br>Can be used to sign in to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings|ASDK host administrator<br><br>No access to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings<br><br>No longer owner of the Default Provider Subscription (DPS)|
+|AzureStack\CloudAdmin|Can access and run permitted commands within the Privileged Endpoint|Can access and run permitted commands within the Privileged Endpoint<br><br>Can not sign in to the ASDK host<br><br>Owner of the Default Provider Subscription (DPS)|
 |Azure AD Global Administrator|Used during installation<br><br>Owner of the Default Provider Subscription (DPS)|Not applicable|
 |
 

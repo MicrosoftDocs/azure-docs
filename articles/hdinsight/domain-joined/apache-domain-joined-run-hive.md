@@ -1,25 +1,20 @@
 ---
-title: Configure Hive policies in Domain-joined HDInsight - Azure
-description: Learn ....
+title: Configure Hive policies in HDInsight with Enterprise Security Package - Azure
+description: Learn how to configure Apache Ranger policies for Hive in an Azure HDInsight service with Enterprise Security Package.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: omidm
-
+ms.date: 09/24/2018
 ---
-# Configure Hive policies in Domain-joined HDInsight
+# Configure Hive policies in HDInsight with Enterprise Security Package
 Learn how to configure Apache Ranger policies for Hive. In this article, you create two Ranger policies to restrict access to the hivesampletable. The hivesampletable comes with HDInsight clusters. After you have configured the policies, you use Excel and ODBC driver to connect to Hive tables in HDInsight.
 
 ## Prerequisites
-* A Domain-joined HDInsight cluster. See [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md).
+* A HDInsight cluster with Enterprise Security Package. See [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md).
 * A workstation with Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 ## Connect to Apache Ranger Admin UI
@@ -33,15 +28,15 @@ Learn how to configure Apache Ranger policies for Hive. In this article, you cre
    >
 2. Log in using the cluster administrator domain user name and password:
 
-    ![HDInsight Domain-joined Ranger home page](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    ![HDInsight ESP Ranger home page](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
 
     Currently, Ranger only works with Yarn and Hive.
 
 ## Create Domain users
-See [Create a Domain-joined HDInsight cluster](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster), for information on how to create hiveruser1 and hiveuser2. You use the two user accounts in this tutorial.
+See [Create a HDInsight cluster with ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), for information on how to create hiveruser1 and hiveuser2. You use the two user accounts in this tutorial.
 
 ## Create Ranger policies
-In this section, you create two Ranger policies for accessing hivesampletable. You give select permission on different set of columns. Both users were created using [Create a Domain-joined HDInsight cluster](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). In the next section, you will test the two policies in Excel.
+In this section, you create two Ranger policies for accessing hivesampletable. You give select permission on different set of columns. Both users were created using [Create a HDInsight cluster with ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). In the next section, you will test the two policies in Excel.
 
 **To create Ranger policies**
 
@@ -56,7 +51,7 @@ In this section, you create two Ranger policies for accessing hivesampletable. Y
    * Select User: hiveuser1
    * Permissions: select
 
-     ![HDInsight Domain-joined Ranger Hive policy configure](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+     ![HDInsight ESP Ranger Hive policy configure](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
      > [!NOTE]
      > If a domain user is not populated in Select User, wait a few moments for Ranger to sync with AAD.
@@ -130,9 +125,9 @@ To test the second policy (read-hivesampletable-devicemake), you created in the 
     When it is done, you shall see two columns of data imported.
 
 ## Next steps
-* For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md).
-* For managing a Domain-joined HDInsight cluster, see [Manage Domain-joined HDInsight clusters](apache-domain-joined-manage.md).
-* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* For configuring a HDInsight cluster with Enterprise Security Package, see [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md).
+* For managing a HDInsight cluster with ESP, see [Manage HDInsight clusters with ESP](apache-domain-joined-manage.md).
+* For running Hive queries using SSH on HDInsight clusters with ESP, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * For Connecting Hive using Hive JDBC, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
 * For connecting Excel to Hadoop using Hive ODBC, see [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
 * For connecting Excel to Hadoop using Power Query, see [Connect Excel to Hadoop by using Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md)

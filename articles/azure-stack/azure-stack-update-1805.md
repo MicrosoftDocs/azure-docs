@@ -3,7 +3,7 @@ title: Azure Stack 1805 Update | Microsoft Docs
 description: Learn about what's new in the 1805 update for Azure Stack integrated systems, including the known issues and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
 
 ---
@@ -57,7 +57,7 @@ This update includes the following improvements for Azure Stack.
 ### Fixed issues
 
 <!-- # - applicability -->
-
+- We fixed the issue that blocked [opening a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the admin portal. This option now works as intended. 
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
@@ -69,7 +69,8 @@ This update includes the following improvements for Azure Stack.
 ## Before you begin    
 
 ### Prerequisites
-- Install the Azure Stack [1804 Update](azure-stack-update-1804.md) before you apply the Azure Stack 1805 update.    
+- Install the Azure Stack [1804 Update](azure-stack-update-1804.md) before you apply the Azure Stack 1805 update.  
+- Install the latest available [update or hotfix for version 1804](azure-stack-update-1804.md#post-update-steps).   
 - Before you start installation of update 1805, run [Test-AzureStack](azure-stack-diagnostic-test.md) to validate the status of your Azure Stack and resolve any operational issues found. Also review active alerts, and resolve any that require action. 
 
 ### Known issues with the update process   
@@ -79,13 +80,21 @@ This update includes the following improvements for Azure Stack.
 
 
 ### Post-update steps
-*There are no post-update steps for update 1805.*
+After the installation of 1805, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+ - [KB 4344102 - Azure Stack Hotfix 1.1805.7.57](https://support.microsoft.com/help/4344102).
 
 
 ## Known issues (post-installation)
 The following are post-installation known issues for this build version.
 
 ### Portal  
+
+- The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
+
+- <!-- 2931230 – IS  ASDK --> Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
+
+- <!-- TBD - IS ASDK --> You cannot apply driver updates by using an OEM Extension package with this version of Azure Stack.  There is no workaround for this problem.
+
 - <!-- 2551834 - IS, ASDK --> When you select **Overview** for a storage account in either the admin or user portals, the information from the *Essentials* pane does not display.  The Essentials pane displays information about the account like its *Resource group*, *Location*, and *Subscription ID*.  Other options for Overview  are accessible, like *Services* and *Monitoring*, as well as options to *Open in Explorer* or to *Delete storage account*. 
 
   To view the unavailable information, use the [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell cmdlet. 
@@ -114,7 +123,7 @@ The following are post-installation known issues for this build version.
 
 ### Health and monitoring
 - <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
-
+- 
    Alert #1:
    - NAME:  Infrastructure role unhealthy
    - SEVERITY: Warning
@@ -127,9 +136,21 @@ The following are post-installation known issues for this build version.
    - COMPONENT: Health controller
    - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-  Both alerts can be safely ignored and they'll close automatically over time.  
+  Both alerts #1 and #2 can be safely ignored and they'll close automatically over time. 
 
-- <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads. 
+  You might also see the following alert for *Capacity*. For this alert, the percentage of available memory identified in the description can vary:  
+
+  Alert #3:
+   - NAME:  Low memory capacity
+   - SEVERITY: Critical
+   - COMPONENT: Capacity
+   - DESCRIPTION: The region has consumed more than 80.00% of available memory. Creating virtual machines with large amounts of memory may fail.  
+
+  In this version of Azure Stack, this alert can fire incorrectly. If tenant virtual machines continue to deploy successfully, you can safely ignore this alert. 
+  
+  Alert #3 does not automatically close. If you close this alert Azure Stack will create the same alert within 15 minutes.  
+
+- <!-- 2368581 - IS. ASDK --> As an Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads. 
 
 
 ### Compute
@@ -167,6 +188,8 @@ The following are post-installation known issues for this build version.
 
 
 ### Networking
+- <!-- TBD - IS ASDK --> You cannot create user-defined routes in either the admin or user portal. As a workaround, use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
+
 - <!-- 1766332 - IS ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
 
 - <!-- 2388980 - IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.

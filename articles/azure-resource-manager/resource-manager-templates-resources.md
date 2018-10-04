@@ -4,7 +4,6 @@ description: Describes the resources section of Azure Resource Manager templates
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 
 ms.service: azure-resource-manager
@@ -12,13 +11,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 07/11/2018
 ms.author: tomfitz
 ---
 
 # Resources section of Azure Resource Manager templates
 
-In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you are deploying to provide the right values.
+In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you're deploying to provide the right values.
 
 ## Available properties
 
@@ -27,7 +26,7 @@ You define resources with the following structure:
 ```json
 "resources": [
   {
-      "condition": "<boolean-value-whether-to-deploy>",
+      "condition": "<true-to-deploy-this-resource>",
       "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
       "name": "<name-of-the-resource>",
@@ -80,34 +79,57 @@ You define resources with the following structure:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| condition | No | Boolean value that indicates whether the resource is deployed. |
+| condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during the deployment. When `false`, the resource is skipped for this deployment. |
 | apiVersion |Yes |Version of the REST API to use for creating the resource. |
 | type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as **Microsoft.Storage/storageAccounts**). |
-| name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. In addition, Azure services that expose the resource name to outside parties validate the name to make sure it is not an attempt to spoof another identity. |
-| location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) do not require a location. |
+| name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. In addition, Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. |
+| location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. |
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
 | comments |No |Your notes for documenting the resources in your template |
-| copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you do not want all or the resources to deploy at the same time. For more information, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md). |
-| dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources are not dependent on each other, they are deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that are not defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md). |
-| properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create multiple instances of a property. |
+| copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you don't want all or the resources to deploy at the same time. For more information, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md). |
+| dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources aren't dependent on each other, they're deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that aren't defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md). |
+| properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. | 
-| resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. The fully qualified type of the child resource includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource is not implied. You must explicitly define that dependency. |
+| resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. The fully qualified type of the child resource includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource isn't implied. You must explicitly define that dependency. |
+
+## Condition
+
+When you must decide during deployment whether or not to create a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource will be created. When the value is false, the resource will not be created. Typically, you use this value when you want to create a new resource or use an existing one. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+For a complete example template that uses the `condition` element, see [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 
 ## Resource-specific values
 
 The **apiVersion**, **type**, and **properties** elements are different for each resource type. The **sku**, **kind**, and **plan** elements are available for some resource types, but not all. To determine values for these properties, see [template reference](/azure/templates/).
 
 ## Resource names
+
 Generally, you work with three types of resource names in Resource Manager:
 
 * Resource names that must be unique.
-* Resource names that are not required to be unique, but you choose to provide a name that can help you identify the resource.
+* Resource names that aren't required to be unique, but you choose to provide a name that can help you identify the resource.
 * Resource names that can be generic.
 
 ### Unique resource names
-You must provide a unique resource name for any resource type that has a data access endpoint. Some common resource types that require a unique name include:
+
+Provide a unique resource name for any resource type that has a data access endpoint. Some common resource types that require a unique name include:
 
 * Azure Storage<sup>1</sup> 
 * Web Apps feature of Azure App Service
@@ -236,7 +258,7 @@ If you need to hardcode the location in your template, provide the name of one o
 
 ## Child resources
 
-Within some resource types, you can also define an array of child resources. Child resources are resources that only exist within the context of another resource. For example, a SQL database cannot exist without a SQL server so the database is a child of the server. You can define the database within the definition for the server.
+Within some resource types, you can also define an array of child resources. Child resources are resources that only exist within the context of another resource. For example, a SQL database can't exist without a SQL server so the database is a child of the server. You can define the database within the definition for the server.
 
 ```json
 {
@@ -255,13 +277,13 @@ Within some resource types, you can also define an array of child resources. Chi
 }
 ```
 
-When nested, the type is set to `databases` but its full resource type is `Microsoft.Sql/servers/databases`. You do not provide `Microsoft.Sql/servers/` because it is assumed from the parent resource type. The child resource name is set to `exampledatabase` but the full name includes the parent name. You do not provide `exampleserver` because it is assumed from the parent resource.
+When nested, the type is set to `databases` but its full resource type is `Microsoft.Sql/servers/databases`. You don't provide `Microsoft.Sql/servers/` because it's assumed from the parent resource type. The child resource name is set to `exampledatabase` but the full name includes the parent name. You don't provide `exampleserver` because it's assumed from the parent resource.
 
 The format of the child resource type is: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
 The format of the child resource name is: `{parent-resource-name}/{child-resource-name}`
 
-But, you do not have to define the database within the server. You can define the child resource at the top level. You might use this approach if the parent resource is not deployed in the same template, or if want to use `copy` to create multiple child resources. With this approach, you must provide the full resource type, and include the parent resource name in the child resource name.
+But, you don't have to define the database within the server. You can define the child resource at the top level. You might use this approach if the parent resource isn't deployed in the same template, or if want to use `copy` to create multiple child resources. With this approach, you must provide the full resource type, and include the parent resource name in the child resource name.
 
 ```json
 {
@@ -280,7 +302,7 @@ But, you do not have to define the database within the server. You can define th
 }
 ```
 
-When constructing a fully qualified reference to a resource, the order to combine segments from the type and name  is not simply a concatenation of the two.  Instead, after the namespace, use a sequence of *type/name* pairs from least specific to most specific:
+When constructing a fully qualified reference to a resource, the order to combine segments from the type and name isn't simply a concatenation of the two. Instead, after the namespace, use a sequence of *type/name* pairs from least specific to most specific:
 
 ```json
 {resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
@@ -309,7 +331,7 @@ The following information can be helpful when you work with resources:
    ]
    ```
 
-* If you use a *public endpoint* in your template (such as an Azure Blob storage public endpoint), *do not hard-code* the namespace. Use the **reference** function to dynamically retrieve the namespace. You can use this approach to deploy the template to different public namespace environments without manually changing the endpoint in the template. Set the API version to the same version that you are using for the storage account in your template:
+* If you use a *public endpoint* in your template (such as an Azure Blob storage public endpoint), *do not hard-code* the namespace. Use the **reference** function to dynamically retrieve the namespace. You can use this approach to deploy the template to different public namespace environments without manually changing the endpoint in the template. Set the API version to the same version that you're using for the storage account in your template:
    
    ```json
    "osDisk": {
@@ -320,7 +342,7 @@ The following information can be helpful when you work with resources:
    }
    ```
    
-   If the storage account is deployed in the same template that you are creating, you do not need to specify the provider namespace when you reference the resource. The following example shows the simplified syntax:
+   If the storage account is deployed in the same template that you're creating, you don't need to specify the provider namespace when you reference the resource. The following example shows the simplified syntax:
    
    ```json
    "osDisk": {
@@ -407,6 +429,6 @@ The following information can be helpful when you work with resources:
 ## Next steps
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
-* To combine multiple templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-* You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
+* To use more than one template during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+* You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across several resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
 * For information about resource name restrictions, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).

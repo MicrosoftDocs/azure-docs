@@ -9,11 +9,11 @@ editor:
 
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: ergreenl
 
@@ -54,7 +54,7 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
 
 **Alert message:**
 
-*The secure LDAP certificate for the managed domain will expire on XX.*
+*The secure LDAP certificate for the managed domain will expire on [date]].*
 
 **Resolution:**
 

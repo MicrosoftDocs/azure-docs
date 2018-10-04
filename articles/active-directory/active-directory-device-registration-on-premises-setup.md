@@ -7,13 +7,14 @@ author: MarkusVi
 manager: mtillman
 editor: ''
 
+ms.component: devices
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
@@ -42,7 +43,7 @@ These capabilities are available to customers who purchase an Azure Active Direc
 * License for Azure Active Directory Premium
 * Windows Server 2012 R2 Federation Services, configured for SSO to Azure AD
 * Windows Server 2012 R2 Web Application Proxy 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Download Azure AD Connect)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Download Azure AD Connect)](http://www.microsoft.com/download/details.aspx?id=47594)
 * Verified domain
 
 ## Known issues in this release
@@ -82,7 +83,7 @@ Follow the steps in the checklist to enable and configure the Azure Active Direc
 ## Part 3: Enable device writeback in Azure AD
 | Task | Reference |
 | --- | --- |
-| Complete part two of "Enabling device writeback in Azure AD Connect." After you finish it, return to this guide. |[Enabling device writeback in Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
+| Complete part two of "Enabling device writeback in Azure AD Connect." After you finish it, return to this guide. |[Enabling device writeback in Azure AD Connect](hybrid/how-to-connect-device-writeback.md) |
 
 ## [Optional] Part 4: Enable Multi-Factor Authentication
 We strongly recommended that you configure one of the several options for Multi-Factor Authentication. If you want to require Multi-Factor Authentication, see [Choose the Multi-Factor Authentication security solution for you](authentication/concept-mfa-whichversion.md). It includes a description of each solution, and links to help you configure the solution of your choice.
@@ -101,9 +102,9 @@ The deployment is now complete, and you can try out some scenarios. Use the foll
 
 **See:**
 
-- [Integrate your on-premises directories with Azure Active Directory](./connect/active-directory-aadconnect.md) - to review conceptual information.
+- [Integrate your on-premises directories with Azure Active Directory](hybrid/whatis-hybrid-identity.md) - to review conceptual information.
 
-- [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) - for installation instructions.
+- [Custom installation of Azure AD Connect](hybrid/how-to-connect-install-custom.md) - for installation instructions.
 
 
 ## Upgrade your Active Directory Domain Services schema
@@ -159,7 +160,7 @@ There are many different ways to communicate this URL to your users. For example
 ### Join a Windows 7 device by using Azure Active Directory device registration
 To register Windows 7 domain-joined devices, you need to deploy the [device registration software package](https://www.microsoft.com/download/details.aspx?id=53554).
 
-For instructions about how to use the package, see [Windows Installer packages for non-Windows 10 computers](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
+For instructions about how to use the package, see [Windows Installer packages for non-Windows 10 computers](devices/hybrid-azuread-join-control.md#control-windows-down-level-devices).
 
 ## Verify that registered devices are written back to Active Directory
 You can view and verify that your device objects have been written back to your Active Directory by using LDP.exe or ADSI Edit. Both are available with the Active Directory administrator tools.

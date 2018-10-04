@@ -1,4 +1,4 @@
----
+﻿---
 title: Using Storage Explorer with Azure File storage | Microsoft Docs
 description: Learn how learn how to use Storage Explorer to work with file shares and files.
 services: storage
@@ -37,17 +37,17 @@ The following steps illustrate how to create a file share within Storage Explore
 
 1. Open Storage Explorer.
 
-2. In the left pane, expand the storage account within which you wish to create the File Share
+1. In the left pane, expand the storage account within which you wish to create the File Share
 
-3. Right-click **File Shares**, and - from the context menu - select **Create File Share**.
+1. Right-click **File Shares**, and - from the context menu - select **Create File Share**.
 
     ![Create File Share](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. A text box will appear below the **File Shares** folder. Enter the name for your file share. See the [Share naming rules](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) section for a list of rules and restrictions on naming file shares.
+1. A text box will appear below the **File Shares** folder. Enter the name for your file share. See the [Share naming rules](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) section for a list of rules and restrictions on naming file shares.
 
     ![Naming the share](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Press **Enter** when done to create the file share, or **Esc** to cancel. Once the file share has been successfully created, it will be displayed under the **File Shares** folder for the selected storage account.
+1. Press **Enter** when done to create the file share, or **Esc** to cancel. Once the file share has been successfully created, it will be displayed under the **File Shares** folder for the selected storage account.
 
     ![The new share](media/vs-azure-tools-storage-explorer-files/image3.png)
 
@@ -59,15 +59,15 @@ The following steps illustrate how to view the contents of a file share within S
 
 1. Open Storage Explorer.
 
-2. In the left pane, expand the storage account containing the file share you wish to view.
+1. In the left pane, expand the storage account containing the file share you wish to view.
 
-3. Expand the storage account's **File Shares**.
+1. Expand the storage account's **File Shares**.
 
-4. Right-click the file share you wish to view, and - from the context menu - select **Open**. You can also double-click the file share you wish to view.
+1. Right-click the file share you wish to view, and - from the context menu - select **Open**. You can also double-click the file share you wish to view.
 
     ![Open share](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. The main pane will display the file share's contents.
+1. The main pane will display the file share's contents.
     
     ![The share's contents](media/vs-azure-tools-storage-explorer-files/image5.png)
 
@@ -79,15 +79,15 @@ The following steps illustrate how to delete a file share within Storage Explore
 
 1. Open Storage Explorer.
 
-2. In the left pane, expand the storage account containing the file share you wish to view.
+1. In the left pane, expand the storage account containing the file share you wish to view.
 
-3. Expand the storage account's **File Shares**.
+1. Expand the storage account's **File Shares**.
 
-4. Right-click the file share you wish to delete, and - from the context menu - select **Delete**. You can also press **Delete** to delete the currently selected file share.
+1. Right-click the file share you wish to delete, and - from the context menu - select **Delete**. You can also press **Delete** to delete the currently selected file share.
 
     ![Delete](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Select **Yes** to the confirmation dialog.
+1. Select **Yes** to the confirmation dialog.
     
     ![Confirmation dialog](media/vs-azure-tools-storage-explorer-files/image7.png)
 
@@ -99,15 +99,15 @@ The following steps illustrate how to copy a file share from one storage account
 
 1. Open Storage Explorer.
 
-2. In the left pane, expand the storage account containing the file share you wish to copy.
+1. In the left pane, expand the storage account containing the file share you wish to copy.
 
-3. Expand the storage account's **File Shares**.
+1. Expand the storage account's **File Shares**.
 
-4. Right-click the file share you wish to copy, and - from the context menu - select **Copy File Share**.
+1. Right-click the file share you wish to copy, and - from the context menu - select **Copy File Share**.
 
     ![Copy File Share](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Right-click the desired "target" storage account into which you want to paste the file share, and - from the context menu - select **Paste File Share**.
+1. Right-click the desired "target" storage account into which you want to paste the file share, and - from the context menu - select **Paste File Share**.
 
     ![Paste File Share](media/vs-azure-tools-storage-explorer-files/image9.png)
 
@@ -119,25 +119,25 @@ The following steps illustrate how to create a SAS for a file share:+
 
 1. Open Storage Explorer.
 
-2. In the left pane, expand the storage account containing the file share for which you wish to get a SAS.
+1. In the left pane, expand the storage account containing the file share for which you wish to get a SAS.
 
-3. Expand the storage account's **File Shares**.
+1. Expand the storage account's **File Shares**.
 
-4. Right-click the desired file share, and - from the context menu - select **Get Shared Access Signature**.
+1. Right-click the desired file share, and - from the context menu - select **Get Shared Access Signature**.
 
     ![Get Shared Access Signature](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. In the **Shared Access Signature** dialog, specify the policy, start and expiration dates, time zone, and access levels you want for the resource.
+1. In the **Shared Access Signature** dialog, specify the policy, start and expiration dates, time zone, and access levels you want for the resource.
 
     ![SAS dialog](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. When you're finished specifying the SAS options, select **Create**.
+1. When you're finished specifying the SAS options, select **Create**.
 
-7. A second **Shared Access Signature** dialog will then display that lists the file share along with the URL and QueryStrings you can use to access the storage resource. Select **Copy** next to the URL you wish to copy to the clipboard.
+1. A second **Shared Access Signature** dialog will then display that lists the file share along with the URL and QueryStrings you can use to access the storage resource. Select **Copy** next to the URL you wish to copy to the clipboard.
     
     ![Second SAS dialog](media/vs-azure-tools-storage-explorer-files/image12.png)
 
-8. When done, select **Close**.
+1. When done, select **Close**.
 
 ## Manage Access Policies for a file share
 
@@ -145,19 +145,19 @@ The following steps illustrate how to manage (add and remove) access policies fo
 
 1. Open Storage Explorer.
 
-2. In the left pane, expand the storage account containing the file share whose access policies you wish to manage.
+1. In the left pane, expand the storage account containing the file share whose access policies you wish to manage.
 
-3. Expand the storage account's **File Shares**.
+1. Expand the storage account's **File Shares**.
 
-4. Select the desired file share, and - from the context menu - select **Manage Access Policies**.
+1. Select the desired file share, and - from the context menu - select **Manage Access Policies**.
 
     ![Manage access policies context menu](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. The **Access Policies** dialog will list any access policies already created for the selected file share.
+1. The **Access Policies** dialog will list any access policies already created for the selected file share.
     
     ![Access Policies](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Follow these steps depending on the access policy management task:
+1. Follow these steps depending on the access policy management task:
     
     - **Add a new access policy** - Select **Add**. Once generated, the **Access Policies** dialog will display the newly added access policy (with default settings).
 
@@ -165,7 +165,7 @@ The following steps illustrate how to manage (add and remove) access policies fo
 
     - **Remove an access policy** - Select **Remove** next to the access policy you wish to remove.
 
-7. Create a new SAS URL using the Access Policy you created earlier:
+1. Create a new SAS URL using the Access Policy you created earlier:
     
     ![Get SAS](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -179,19 +179,19 @@ The following steps illustrate how to manage the files (and folders) within a fi
 
 1.  Open Storage Explorer.
 
-2.  In the left pane, expand the storage account containing the file share you wish to manage.
+1.  In the left pane, expand the storage account containing the file share you wish to manage.
 
-3.  Expand the storage account's **File Shares**.
+1.  Expand the storage account's **File Shares**.
 
-4.  Double-click the file share you wish to view.
+1.  Double-click the file share you wish to view.
 
-5.  The main pane will display the file share's contents.
+1.  The main pane will display the file share's contents.
 
     ![The share's contents](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  The main pane will display the file share's contents.
+1.  The main pane will display the file share's contents.
 
-7.  Follow these steps depending on the task you wish to perform:
+1.  Follow these steps depending on the task you wish to perform:
 
     - **Upload files to a file share**
 

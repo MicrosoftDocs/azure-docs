@@ -2,18 +2,12 @@
 title: Azure storage table design patterns | Microsoft Docs
 description: Use patterns for Azure table service solutions.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
+ms.component: tables
 ---
 # Table design patterns
 This article describes some patterns appropriate for use with Table service solutions. Also, you will see how you can practically address some of the issues and trade-offs discussed in other Table storage design articles. The following diagram summarizes the relationships between the different patterns:  
@@ -141,7 +135,7 @@ Enable eventually consistent behavior across partition boundaries or storage sys
 ### Context and problem
 EGTs enable atomic transactions across multiple entities that share the same partition key. For performance and scalability reasons, you might decide to store entities that have consistency requirements in separate partitions or in a separate storage system: in such a scenario, you cannot use EGTs to maintain consistency. For example, you might have a requirement to maintain eventual consistency between:  
 
-* Entities stored in two different partitions in the same table, in different tables, in in different storage accounts.  
+* Entities stored in two different partitions in the same table, in different tables, or in different storage accounts.  
 * An entity stored in the Table service and a blob stored in the Blob service.  
 * An entity stored in the Table service and a file in a file system.  
 * An entity store in the Table service yet indexed using the Azure Search service.  
@@ -1021,7 +1015,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## Controlling access with Shared Access Signatures
-You can use Shared Access Signature (SAS) tokens to enable client applications to modify (and query) table entities directly without the need to authenticate directly with the table service. Typically, there are three main benefits to using SAS in your application:  
+You can use Shared Access Signature (SAS) tokens to enable client applications to modify (and query) table entities without the need to include your storage account key in your code. Typically, there are three main benefits to using SAS in your application:  
 
 * You do not need to distribute your storage account key to an insecure platform (such as a mobile device) in order to allow that device to access and modify entities in the Table service.  
 * You can offload some of the work that web and worker roles perform in managing your entities to client devices such as end-user computers and mobile devices.  

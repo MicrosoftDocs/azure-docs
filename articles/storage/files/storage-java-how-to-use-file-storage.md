@@ -2,19 +2,13 @@
 title: Develop for Azure Files with Java | Microsoft Docs
 description: Learn how to develop Java applications and services that use Azure Files to store file data.
 services: storage
-documentationcenter: java
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
+ms.component: files
 ---
 
 # Develop for Azure Files with Java
@@ -31,7 +25,7 @@ This tutorial will demonstrate the basics of using Java to develop applications 
 * Upload, download, and delete a file
 
 > [!Note]  
-> Because Azure Files may be accessed over SMB, it is possible to write applications that access the Azure file share using the standard Java I/O classes. This article will describe how to write applications that use the Azure Storage Java SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
+> Because Azure Files may be accessed over SMB, it is possible to write applications that access the Azure file share using the standard Java I/O classes. This article will describe how to write applications that use the Azure Storage Java SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
 
 ## Create a Java application
 To build the samples, you will need the Java Development Kit (JDK) and the [Azure Storage SDK for Java](https://github.com/Azure/azure-storage-java). You should also have created an Azure storage account.

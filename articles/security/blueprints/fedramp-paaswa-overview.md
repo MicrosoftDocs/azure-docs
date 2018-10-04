@@ -24,7 +24,7 @@ This reference architecture, associated control implementation guides, and threa
 ## Architecture diagram and components
 This solution provides a reference architecture for a PaaS web application with an Azure SQL Database backend. The web application is hosted in an isolated Azure App Service Environment, which is a private, dedicated environment in an Azure datacenter. The environment load balances traffic for the web application across VMs managed by Azure. This architecture also includes network security groups, an Application Gateway, Azure DNS, and Load Balancer. Furthermore, Operations Management Suite provides real-time analytics of system health and security. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![PaaS Web Application for FedRAMP reference architecture diagram](images/fedramp-paaswa-architecture.png?raw=true) "PaaS Web Application for FedRAMP reference architecture diagram"
+![PaaS Web Application for FedRAMP reference architecture diagram](images/fedramp-paaswa-architecture.png?raw=true "PaaS Web Application for FedRAMP reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -72,7 +72,7 @@ Use of ASEs for this architecture are allowed for the following controls/configu
 The [Guidance and recommendations](#guidance-and-recommendations) section contains additional information about ASEs.
 
 **Azure Web App**:
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/) enables customers to build and host web applications in the programming language of their choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Visual Studio Team Services, or any Git repo.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service/) enables customers to build and host web applications in the programming language of their choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
 
 ### Virtual Network
 The architecture defines a private virtual network with an address space of 10.200.0.0/16.

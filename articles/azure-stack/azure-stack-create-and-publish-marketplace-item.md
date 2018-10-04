@@ -3,7 +3,7 @@ title: Create and publish a Marketplace item in Azure Stack | Microsoft Docs
 description: Create and publish a Marketplace item in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
-ms.author: brenduns
+ms.date: 06/14/2018
+ms.author: sethm
 ms.reviewer: jeffgo
 
 ---
@@ -73,9 +73,9 @@ ms.reviewer: jeffgo
 ## Publish a Marketplace item
 1. Use PowerShell or Azure Storage Explorer to upload your Marketplace item (.azpkg) to Azure Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible.
 2. On the client virtual machine in the Microsoft Azure Stack environment, make sure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](user/azure-stack-deploy-template-powershell.md).
-3. Use the **Add-AzureRMGalleryItem** PowerShell cmdlet to publish the Marketplace item to Azure Stack. For example:
+3. When you use [PowerShell 1.3.0]( azure-stack-powershell-install.md) or later, you can use the **Add-AzsGalleryItem** PowerShell cmdlet to publish the Marketplace item to Azure Stack. Prior to using PowerShell 1.3.0, use the cmdlet **Add-AzureRMGalleryitem** in place of **Add-AzsGalleryItem**.  For example, when you use PowerShell 1.3.0 or later:
    
-       Add-AzureRMGalleryItem -GalleryItemUri `
+       Add-AzsGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
    | Parameter | Description |
@@ -98,7 +98,7 @@ ms.reviewer: jeffgo
 
 6. You can remove a Marketplace item by using the **Remove-AzureRMGalleryItem** cmdlet. Example:
    
-        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
    > The Marketplace UI may show an error after you remove an item. To fix the error, click **Settings** in the portal. Then, select **Discard modifications** under **Portal customization**.

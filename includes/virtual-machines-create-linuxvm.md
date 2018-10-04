@@ -1,5 +1,5 @@
 
-1. Sign in to your Azure subscription using the steps listed in [Connect to Azure from the Azure CLI 1.0](/cli/azure/authenticate-azure-cli).
+1. Sign in to your Azure subscription using the steps listed in [Connect to Azure from the Azure classic CLI](/cli/azure/authenticate-azure-cli).
 
 2. Make sure you are in the Classic deployment mode as follows:
 
@@ -52,5 +52,5 @@
     ```
 
 ## Next steps
-For details on all these Azure CLI 1.0 virtual machine commands, read the [Using the Azure CLI 1.0 with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+For details on all these Azure classic CLI virtual machine commands, read the [Using the Azure classic CLI with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 

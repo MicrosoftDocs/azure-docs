@@ -1,21 +1,21 @@
 ---
-title: Default insights tag | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Provides details about the default insights that Visual Search returns about an image.
+title: Default insights tag - Bing Visual Search
+titleSuffix: Azure Cognitive Services
+description: Provides details about the default insights that Bing Visual Search returns about an image.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
 ---
 
 # Default insights tag
 
-The default insights tag is the one with the `displayName` field set to an empty string. The following example shows the possible list of default insights (actions).
+The default insights tag is the one with the `displayName` field set to an empty string. The following example shows the possible list of default insights (actions). The list of actions the response includes depends on the image. And for each action, the list of properties may vary by image, so check if the property exists before trying to use it.
 
 ```json
 {
@@ -340,6 +340,9 @@ The ProductVisualSearch insight provides a list of images of products that are v
                 "shoppingSourcesCount" : 1,
                 "recipeSourcesCount" : 0,
                 "aggregateOffer" : {
+                  "name":"4-Piece Kitchen Package with...",
+                  "priceCurrency":"USD",
+                  "lowPrice":2756,
                   "offers" : [
                     {
                       "name" : "4-Piece Kitchen Package with...",
@@ -356,7 +359,8 @@ The ProductVisualSearch insight provides a list of images of products that are v
                       "availability" : "InStock",
                       "lastUpdated" : "2018-02-20T00:00:00.0000000"
                     }
-                  ]
+                  ],
+                  "offerCount":1
                 },
                 "pagesIncludingCount" : 4,
                 "availableSizesCount" : 2

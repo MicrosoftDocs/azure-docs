@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
@@ -38,7 +38,7 @@ It's easy to change the name or logo for a custom enterprise application in Azur
 8. Select the **Save** command.
 
 ## Next steps
-* [See all of my groups](../active-directory-groups-view-azure-portal.md)
+* [See all of my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
 * [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
 * [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)

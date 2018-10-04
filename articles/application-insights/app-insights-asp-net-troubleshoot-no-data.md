@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/23/2018
 ms.author: mbullwin
 
 ---
@@ -37,7 +37,7 @@ ms.author: mbullwin
 *When I right-click an existing project in Solution Explorer, I don't see any Application Insights options.*
 
 * Not all types of .NET project are supported by the tools. Web and WCF projects are supported. For other project types such as desktop or service applications, you can still [add an Application Insights SDK to your project manually](app-insights-windows-desktop.md).
-* Make sure you have [Visual Studio 2013 Update 3 or later](http://go.microsoft.com/fwlink/?LinkId=397827). It comes pre-installed with Developer Analytics tools, which provide the Application Insights SDK.
+* Make sure you have [Visual Studio 2013 Update 3 or later](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). It comes pre-installed with Developer Analytics tools, which provide the Application Insights SDK.
 * Select **Tools**, **Extensions and Updates** and check that **Developer Analytics Tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
 * Open the New Project dialog and choose ASP.NET Web application. If you see the Application Insights option there, then the tools are installed. If not, try uninstalling and then re-installing the Application Insights Tools.
 
@@ -172,8 +172,11 @@ If your application sends a lot of data and you are using the Application Insigh
 
 You can disable it, but this is not recommended. Sampling is designed so that related telemetry is correctly transmitted, for diagnostic purposes. 
 
+## Client IP address is 0.0.0.0 
+On February 2018, we [announced](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) that we removed logging of the Client IP address. This does not affect Geo Location.
+
 ## Wrong geographical data in user telemetry
-The city, region, and country dimensions are derived from IP addresses and aren't always accurate.
+The city, region, and country dimensions are derived from IP addresses and aren't always accurate. These IP addresses are processed for location first and then changed to 0.0.0.0 to be stored.
 
 ## Exception "method not found" on running in Azure Cloud Services
 Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Services roles. [Install 4.6 on each role](../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.

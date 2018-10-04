@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 2/06/2017
 ms.author: davidmu
 ms.component: B2C
@@ -22,13 +22,14 @@ By default, sign-up policies have email verification turned on. Use the followin
 
 1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Click **Sign-up policies** or **Sign-up or sign-in policies** depending on what you configured for sign-up.
-3. Click your policy (for example, "B2C_1_SiUp") to open it. Click **Edit** at the top of the blade.
-4. Click **Page UI Customization**.
-5. Click **Local account sign-up page**.
-6. Click **Email Address** in the **Name** column under the **Sign-up attributes** section.
-7. Toggle the **Require verification** option to **No**.
-8. Click **OK** at the bottom until you reach the **Edit policy** blade.
-9. Click **Save** at the top of the blade. You're done!
+3. Click your policy (for example, "B2C_1_SiUp") to open it. 
+4. Click **Edit** at the top of the blade.
+5. Click **Page UI Customization**.
+6. Click **Local account sign-up page**.
+7. Click **Email Address** in the **Name** column under the **Sign-up attributes** section.
+8. Toggle the **Require verification** option to **No**.
+9. Click **OK** at the bottom until you reach the **Edit policy** blade.
+10. Click **Save** at the top of the blade. You're done!
 
 > [!NOTE]
 > Disabling email verification in the sign-up process may lead to spam. If you disable the default one, we recommend adding your own verification system.

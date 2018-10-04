@@ -23,17 +23,21 @@ In this guide, you learn how to:
 > * Delete your backup data
 
 ## Prerequisites
-Before you can back up an Azure file share, ensure that it is present in one of the [supported Storage Account types](troubleshoot-azure-files.md#preview-boundaries). Once you have verified this, you can protect your file shares.
+Before you can back up an Azure file share, ensure that it's present in one of the [supported Storage Account types](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Once you have verified this, you can protect your file shares.
 
 ## Limitations for Azure file share backup during Preview
-Backup for Azure file shares is in preview. Be aware of the following limitations during the Preview:
-- You cannot protect Azure file shares in storage accounts with [zone-redundant storage (ZRS)](../storage/common/storage-redundancy-zrs.md) or [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy-grs.md) replication.
-- You cannot protect Azure file shares in storage accounts that have Virtual Networks enabled.
-- There is no PowerShell or CLI available for protecting Azure Files.
+Backup for Azure File shares is in Preview. The following backup scenarios aren't supported for Azure file shares:
+- You can't protect Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
+- You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
+- There is no PowerShell or CLI available for protecting Azure Files using Azure Backup.
 - The maximum number of scheduled backups per day is one.
 - The maximum number of on-demand backups per day is four.
 - Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
-- Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures. 
+- Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
+
+\*Azure File Shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication function as GRS and billed at GRS prices.
+
+Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS), East US 2 (EUS2), North Europe (NE), SouthEast Asia (SEA) and West Europe (WE).
 
 ## Configuring backup for an Azure file share
 All backup data is stored in Recovery Services vaults. This tutorial assumes you already have established an Azure file share. To back up your Azure file share:
@@ -50,7 +54,7 @@ All backup data is stored in Recovery Services vaults. This tutorial assumes you
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/set-backup-goal.png)
 
-    Once the vault is associated with the Azure file share, the Backup menu opens and prompts you select a Storage account. The menu displays all supported Storage Accounts in the region where your vault exists, that are not already associated with a Recovery Services vault.
+    Once the vault is associated with the Azure file share, the Backup menu opens and prompts you select a Storage account. The menu displays all supported Storage Accounts in the region where your vault exists, that aren't already associated with a Recovery Services vault.
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/list-of-storage-accounts.png)
 
@@ -146,7 +150,7 @@ If you choose to stop protecting an Azure file share, you are asked if you want 
 - Stop all future backup jobs and delete all recovery points, or
 - Stop all future backup jobs but leave the recovery points
 
-There may be a cost associated with leaving the recovery points in storage as the underlying snapshots created by Azure Backup will be retained. However, the benefit of leaving the recovery points is you can restore the File share later, if desired. For information about the cost of leaving the recovery points, see the pricing details. If you choose to delete all recovery points, you cannot restore the File share.
+There may be a cost associated with leaving the recovery points in storage as the underlying snapshots created by Azure Backup will be retained. However, the benefit of leaving the recovery points is you can restore the File share later, if desired. For information about the cost of leaving the recovery points, see the pricing details. If you choose to delete all recovery points, you can't restore the File share.
 
 To stop protection for an Azure file share:
 
@@ -170,7 +174,7 @@ To stop protection for an Azure file share:
 
 ### Resume protection for Azure file share
 
-If the Retain Backup Data option was chosen when protection for the file share was stopped, then it is possible to resume protection. If the **Delete Backup Data** option was chosen, then protection for the file share cannot resume.
+If the Retain Backup Data option was chosen when protection for the file share was stopped, then it's possible to resume protection. If the **Delete Backup Data** option was chosen, then protection for the file share can't resume.
 
 To resume protection for the file share, go to the Backup Item and click Resume Backup. The Backup Policy opens and you can choose a policy of your choice to resume backup.
 
@@ -178,7 +182,7 @@ To resume protection for the file share, go to the Backup Item and click Resume 
 
 ### Delete Backup data 
 
-You can delete the backup of a file share during the Stop backup job, or any time after you have stopped protection. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you cannot choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
+You can delete the backup of a file share during the Stop backup job, or any time after you have stopped protection. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you can't choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
 
 The following procedure assumes the Backup job for the virtual machine has been stopped. Once the Backup job is stopped, the Resume backup and Delete Backup Data options are available in the Backup item dashboard. Click Delete Backup Data and type the name of the File share to confirm deletion. Optionally, provide a Reason to delete or Comment.
 
@@ -186,3 +190,5 @@ The following procedure assumes the Backup job for the virtual machine has been 
 For additional information on Azure file shares, see
 - [FAQ for Azure file share backup](backup-azure-files-faq.md)
 - [Troubleshoot Azure file share backup](troubleshoot-azure-files.md)
+ 
+
