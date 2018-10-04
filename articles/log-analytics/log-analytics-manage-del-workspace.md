@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Delete an Azure Log Analytics workspace with the Azure portal

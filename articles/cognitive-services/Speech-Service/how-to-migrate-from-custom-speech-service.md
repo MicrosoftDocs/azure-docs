@@ -8,7 +8,7 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/01/2018
 ms.author: panosper
 ---
 # Migrate from the Custom Speech service to the Speech service
@@ -42,13 +42,14 @@ The pricing model is simpler, moving to an hour-based pricing model for the Spee
 
 ## Migration for existing customers
 
-Existing customers are required to migrate their existing resource keys to the new service on the Speech Service portal. Note that resource keys can only be migrated within the same region. Use the following steps:
+Existing customers are required to migrate their existing resource keys to the new service on the Speech Service portal. Use the following steps: 
+
+> [!NOTE] 
+> Resource keys can only be migrated within the same region. 
 
 1. Sign in to the [cris.ai](http://www.cris.ai) portal and select the subscription in the top right menu. 
 
 2. Select **Migrate selected subscription**.
-
-    ![Enter subscription to migrate](./media/migrate-from-custom-speech-service/migrate-selected-subscriptions.png)
 
 3. Enter the subscription key in the text box and select **Migrate**.
 

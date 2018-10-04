@@ -16,7 +16,7 @@ ms.date: 09/24/2018
 
 This document describes the architecture and concepts for the Azure Machine Learning service. The following diagram shows the major components of the service, and illustrates the general workflow when using the service: 
 
-[![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning Service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 The workflow generally follows these steps:
 
@@ -37,7 +37,7 @@ The workflow generally follows these steps:
 
 ## Workspace
 
-The workspace is the top-level resource for the Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when using Azure Machine Learning.
+The workspace is the top-level resource for the Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when using Azure Machine Learning Service.
 
 The workspace keeps a list of compute targets that can be used to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your scripts. This information is used to determine which training run produces the best model.
 
@@ -67,15 +67,15 @@ The following diagram is a taxonomy of the workspace:
 
 At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and tuning hyperparameters. Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
 
-A model is produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under an Azure Machine Learning workspace.
+A model is produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under an Azure Machine Learning service workspace.
 
-Azure Machine Learning is framework agnostic. You can use any popular machine learning framework when creating a model, such as scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
+Azure Machine Learning Service is framework agnostic. You can use any popular machine learning framework when creating a model, such as scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
 
-For an example of training a model, see the [Quickstart: Create a machine learning workspace](quickstart-get-started.md) document.
+For an example of training a model, see the [Quickstart: Create a machine learning Service workspace](quickstart-get-started.md) document.
 
 ### Model registry
 
-The model registry keeps track of all the models in your Azure Machine Learning workspace. 
+The model registry keeps track of all the models in your Azure Machine Learning service workspace. 
 
 Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it is a new version. The version is incremented and the new model is registered under the name.
 
