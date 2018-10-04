@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
 ---
-# Known Issues
+# Known issues
 You might encounter the following known issues when using the Designer Preview for Project Acoustics.
 
 ## Acoustic parameters are lost when you rename a scene
@@ -35,6 +35,9 @@ Ensure the Scripting Runtime Version in Player settings is set to **.NET 4.x Equ
 ## I'm having authentication problems when connecting to Azure
 
 Double-check you've used the correct credentials for your Azure account, that your account supports the type of node requested in the bake, and that your system clock is accurate.
+
+## Canceling a bake leaves the Bake tab in "deleting" state
+Project Acoustics will cleanup all Azure resources for a job on successful completion or cancellation which can take up to 5 minutes.
 
 ## Next steps
 * Get started [integrating acoustics in your Unity project](getting-started.md)
