@@ -51,7 +51,7 @@ To complete this tutorial, you need to:
     - **SUPER** - Only required in versions earlier than MySQL 5.6.6.
 
 ## Migrate the sample schema
-To complete all the database objects like table schemas, indexes and stored procedures, we need to extract schema from the source database and apply to the database. To extract schema, you can use mysqldump with - - no-data parameter.
+To complete all the database objects like table schemas, indexes and stored procedures, we need to extract schema from the source database and apply to the database. To extract schema, you can use mysqldump with the `--no-data` parameter.
  
 Assuming you have MySQL employees sample database in the on-premise system, the command to do schema migration using mysqldump is:
 ```
