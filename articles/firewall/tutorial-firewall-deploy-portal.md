@@ -183,8 +183,8 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 11. Click **Virtual network**, and then select **Test-FW-VN**.
 12. For **Subnet**, click **Workload-SN**.
 
-> [!IMPORTANT]
-> Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall will not work correctly.
+    > [!IMPORTANT]
+    > Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall will not work correctly.
 
 13. Click **OK**.
 14. Click **Routes**, and then click **Add**.
