@@ -330,7 +330,7 @@ The following are post-installation known issues for this build version.
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
 
 <!-- TBD - IS ASDK --> 
-- App Service can only be deployed into the *Default Provider subscription* at this time. In a future update, App Service will deploy into the new *Metering subscription* that was introduced in Azure Stack 1804. When Metering is supported for use, all existing deployments will be migrated to this new subscription type.
+- App Service can only be deployed into the *Default Provider subscription* at this time. 
 
 
 ### Usage  
