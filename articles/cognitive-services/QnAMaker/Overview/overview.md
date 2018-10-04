@@ -65,7 +65,8 @@ QnA Maker consists of the following API services:
 - **No network throttling for predictions**. Pay for hosting the service and not for the number of transactions. See the [pricing page](https://aka.ms/qnamaker-docs-pricing) for more details.
 - **Scale as needed**. Choose the appropriate SKUs of the individual components that suit your scenario. See how to [choose capacity](https://aka.ms/qnamaker-docs-capacity) for your QnA Maker service.
 - **Full data compliance**. The prediction service components are deployed in your Azure subscription and within the compliance boundary.
-- 
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
