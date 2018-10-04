@@ -68,34 +68,34 @@ In this section, you add code that writes a message to the output queue. The mes
 
 1. Update the function code depending on your function language:
 
-# [C\#](#tab/csharp)
+    # [C\#](#tab/csharp)
 
-    Add an **outputQueueItem** parameter to the method signature as shown in the following example.
+        Add an **outputQueueItem** parameter to the method signature as shown in the following example.
 
-    ```cs
-    public static async Task<IActionResult> Run(HttpRequest req,
-        ICollector<string> outputQueueItem, ILogger log)
-    {
-        ...
-    }
-    ```
+        ```cs
+        public static async Task<IActionResult> Run(HttpRequest req,
+            ICollector<string> outputQueueItem, ILogger log)
+        {
+            ...
+        }
+        ```
 
-    In the body of the function just before the `return` statement, add code that uses the parameter to create a queue message.
-    
-    ```cs
-    outputQueueItem.Add("Name passed to the function: " + name);
-    ```
+        In the body of the function just before the `return` statement, add code that uses the parameter to create a queue message.
 
-# [JavaScript](#tab/nodejs)
+        ```cs
+        outputQueueItem.Add("Name passed to the function: " + name);
+        ```
 
-    Add code that uses the output binding on the `context.bindings` object to create a queue message. Add this code before the`context.done` statement.
+    # [JavaScript](#tab/nodejs)
 
-    ```javascript
-    context.bindings.outputQueueItem = "Name passed to the function: " + 
-                (req.query.name || req.body.name);
-    ```
+        Add code that uses the output binding on the `context.bindings` object to create a queue message. Add this code before the`context.done` statement.
 
----
+        ```javascript
+        context.bindings.outputQueueItem = "Name passed to the function: " + 
+                    (req.query.name || req.body.name);
+        ```
+
+    ---
 
 1. Select **Save** to save changes.
 
