@@ -34,6 +34,9 @@ These metrics are available for Azure Database for PostgreSQL:
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 
+## Server logs
+You can enable logging on your server. These logs are also available through Azure Diagnostic Logs in OMS Log Analytics, Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
+
 ## Query Store
 [Query Store](concepts-query-store.md) is a public preview feature that keeps track of query performance over time including query runtime statistics and wait events. The feature persists query runtime performance information in a system database named **azure_sys** under the query_store schema. You can control the collection and storage of data via various configuration knobs.
 
