@@ -60,4 +60,4 @@ For detailed instructions about how to orchestrate the on-behalf-of flow visit [
 Read more about Azure Digital Twins security:
 
 > [!div class="nextstepaction"]
-> [Best practices for securing your instance] (./security-best-practices.md)
+> [Create and manage role assignments](./security-create-manage-role-assignments.md)
