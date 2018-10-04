@@ -9,6 +9,7 @@ ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
 ---
+
 Azure Monitor has now become am unified full stack monitoring service which now supports ‘One Metrics’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/en-us/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy. 
 
 As the new unified Azure Monitor platform takes precedence over the classic metrics & alerts platform. We are announcing that the previous "classic" monitoring and alerting platform - hosted within *view classic alerts* section of Azure alerts, will be deprecated by June 2019.
@@ -17,7 +18,7 @@ As the new unified Azure Monitor platform takes precedence over the classic metr
 
 Until then both the new unified & classic alerting platforms will co-exist while we encourage users to start adopting the new Azure Monitor and alerts. Soon, Microsoft Azure Monitor will provide customers a way to move their existing classic alerts to the new alerts system without disruption or added costs.
 
-# Unified Metrics and Alerts in Application Insights
+## Unified Metrics and Alerts in Application Insights
 
 Azure Monitor’s newer metric platform will now power monitoring coming from Application Insights. This move means Application Insights will hook to Action Groups, allowing far more options than just the previous email and webhook calls. Alerts can now trigger Voice Calls, Azure Functions, Logic Apps, SMS, and ITSM Tools like ServiceNow and Automation Runbooks. With near real-time monitoring and alerting, the new platform enables Application Insights users to leverage the same technology powering monitoring across other Azure resources and underpinning monitoring of Microsoft products.
 
@@ -28,7 +29,7 @@ The new unified Monitoring and Alerting for Application Insights will encompass:
 - **Application Insights Custom metrics** – which lets you define and emit their own metrics for monitoring and alerts. For more information, see this article on using [Custom Metric for Application Insights on new Azure Monitor](../application-insights/pre-aggregated-metrics-log-metrics.md#using-pre-aggregation-with-application-insights-custom-metrics).
 - **Application Insights Failure Anomalies (part of Smart Detection)** – which automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failed HTTP requests or dependency calls. Application Insights Failure Anomalies (part of Smart Detection) as part of new Azure Monitor, will be available soon and we will update this doc with links on the next iteration as it is rolled-out in the coming months.
 
-# Unified Metrics & Alerts for other Azure resources
+## Unified Metrics & Alerts for other Azure resources
 
 Since March 2018, the next generation of alerting and multi-dimensional monitoring for Azure resources have been in availability. Now the newer metric platform and alerting is faster with near-real time capabilities. More importantly, the newer metric platform alerts provide more granularity, as the newer platform includes the option of dimensions, which allow you to slice and filter to specific value combination, condition, or operation. Like all alerts in the new Azure Monitor, the newer metric alerts are more extensible with the use of ActionGroups – allowing notifications to expand beyond email or webhook to SMS, Voice, Azure Function, Automation Runbook and more.
 Newer metrics for Azure resources are available as:
@@ -36,7 +37,7 @@ Newer metrics for Azure resources are available as:
 - **Azure Monitor Standard platform metrics** – which provides popular pre-populated metrics from various Azure services and products. For more information, see this article on [Supported metrics on Azure Monitor](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) and [Support metric alerts on Azure Monitor](alert-metric-overview.md#supported-resource-types-for-metric-alerts).
 - **Azure Monitor Custom metrics** – which provides metrics from user driven sources including the Azure Diagnostics agent. For more information, see this article on [Custom metrics in Azure Monitor](metrics-custom-overview.md). Using custom metrics, you can also publish metrics collected by [Windows Azure Diagnostics agent](metrics-store-custom-guestos-resource-manager-vm.md) and [InfluxData Telegraf agent](metrics-store-custom-linux-telegraf.md).
 
-# Retirement of Classic monitoring and alerting platform
+## Retirement of Classic monitoring and alerting platform
 
 As stated earlier, the classic monitoring and alerting platform currently usable from the [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal will be retired in 12 months given they have been replaced by the newer system.
 Older classic monitoring and alerting will be retired on 30 June 2019; including the closure of related APIs, Azure portal interface, and Services in it. Specifically, these features will be deprecated:
