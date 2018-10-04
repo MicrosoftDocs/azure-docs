@@ -18,7 +18,7 @@ These **custom** metrics can be collected via your application telemetry, an age
 Custom metrics can be sent to Azure Monitor via a variety of methods:
 - Instrument your application by using the Azure Application Insights SDK and send custom telemetry to Azure Monitor. 
 - Install the Azure Diagnostics extension on your [Azure VM](metrics-store-custom-guestos-resource-manager-vm.md), [virtual machine scale set](metrics-store-custom-guestos-resource-manager-vmss.md), [classic VM](metrics-store-custom-guestos-classic-vm.md), or [Azure Cloud Services (classic)](metrics-store-custom-guestos-classic-cloud-service.md) and send performance counters to Azure Monitor. 
-- Install the [InfluxData Telegraf Agent](metrics-store-custom-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
+- Install the [InfluxData Telegraf agent](metrics-store-custom-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 When you send custom metrics to Azure Monitor, each data point, or value, reported must include the following information.
@@ -54,7 +54,7 @@ Each data point sent to Azure Monitor must be marked with a timestamp. This time
 Namespaces are a way to categorize or group similar metrics together. By using namespaces, you can achieve isolation between groups of metrics that might collect different insights or performance indicators. For example, you might have a namespace called **ContosoMemoryMetrics** that tracks memory-use metrics which profile your app. You might have another namespace called **ContosoAppTransaction** that tracks all metrics about user transactions in your application.
 
 ### Name
-**Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what is measured. For example, a metric that measures the number of bytes of memory used on a given VM could have a metric name like **Memory Bytes In Use**.
+**Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what is measured. For example, a metric that measures the number of bytes of memory used on a given VM might have a metric name like **Memory Bytes In Use**.
 
 ### Dimension keys
 A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory specific processes use or to identify the top five processes by memory usage.
@@ -137,7 +137,7 @@ In the following example, you create a custom metric called **Memory Bytes in Us
   }
 ```
 > [!NOTE]  
-> Application Insights, the Azure Diagnostics extension, and the InfluxData Telegraf Agent are already configured to emit metric values against the correct regional endpoint and carry all of the preceding properties in each emission.
+> Application Insights, the Azure Diagnostics extension, and the InfluxData Telegraf agent are already configured to emit metric values against the correct regional endpoint and carry all of the preceding properties in each emission.
 >
 >
 
@@ -185,7 +185,7 @@ Use custom metrics from different services:
  - [Virtual Machines](metrics-store-custom-guestos-resource-manager-vm.md)
  - [Virtual machine scale set](metrics-store-custom-guestos-resource-manager-vmss.md)
  - [Azure Virtual Machines (classic)](metrics-store-custom-guestos-classic-vm.md)
- - [Linux Virtual Machine using the Telegraf Agent](metrics-store-custom-linux-telegraf.md)
+ - [Linux Virtual Machine using the Telegraf agent](metrics-store-custom-linux-telegraf.md)
  - [REST API](metrics-store-custom-rest-api.md)
  - [Azure Cloud Services (classic)](metrics-store-custom-guestos-classic-cloud-service.md)
  

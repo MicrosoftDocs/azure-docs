@@ -87,7 +87,7 @@ You now have a running pod with an Azure disk mounted at `/mnt/azure`. You can u
 
 ## Next steps
 
-For more information about AKS clusters interact with Azure disks, see the [Kubernetes plugin for Azure Disks][kubernetes-disks]
+For more information about AKS clusters interact with Azure disks, see the [Kubernetes plugin for Azure Disks][kubernetes-disks].
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
@@ -102,3 +102,4 @@ For more information about AKS clusters interact with Azure disks, see the [Kube
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[install-azure-cli]: /cli/azure/install-azure-cli

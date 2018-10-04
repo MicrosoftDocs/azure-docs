@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 10/04/2018
 ---
 # Choosing a vCore service tier, compute, memory, storage, and IO resources
 
@@ -19,7 +19,7 @@ The vCore-based purchasing model enables you to independently scale compute and 
 - Gen 4 - Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
 - Gen 5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.5. GB per core, fast eNVM SSD
 
-vCore model also allows you to use [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) to gain cost savings.
+vCore model also allows you to use [Azure Hybrid Use Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings.
 
 ## Service tier characteristics
 
@@ -83,7 +83,7 @@ Storage for database backups is allocated to support the Point in Time Restore (
 
 ### Hyperscale service tier (preview)
 
-snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and not of size of data operations (in minutes not hours/days).
+In the hyperscale service tier, backups are snapshot-based and stored in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and not of size of data operations (in minutes not hours/days).
 
 ## Azure Hybrid Use Benefit
 

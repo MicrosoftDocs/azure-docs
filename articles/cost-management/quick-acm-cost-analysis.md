@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/03/2018s
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -88,6 +88,11 @@ Pivot charts under the top Total view show views for different grouping and filt
 ![Full data for current view](./media/quick-acm-cost-analysis/full-data-set.png)
 
 The preceding image shows resource group names. Viewing tags for resources aren't available in any of the cost analysis views, filters, or groupings.
+
+When grouping costs by a specific attribute, the top ten cost contributors are shown from highest to lowest. If there are more than ten groups, the top nine cost contributors are shown as well as an **Others** group, which covers all remaining groups together.
+
+*Classic* (Azure Service Management or ASM) virtual machines, networking, and storage resources do not share detailed billing data. They are merged as **Classic services** when grouping costs.
+
 
 ## Download cost analysis data
 

@@ -28,7 +28,7 @@ You can copy data from any supported source data store to Azure Data Lake Store,
 
 Specifically, this Azure Data Lake Store connector supports:
 
-- Copying files using **service principal** or **managed service identity (MSI)** authentication.
+- Copying files using **service principal** or **managed identities for Azure resources** authentication.
 - Copying files as-is, or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 > [!IMPORTANT]
@@ -61,7 +61,7 @@ The following properties are supported for Azure Data Lake Store linked service:
 Refer to the following sections on more properties and JSON samples for different authentication types respectively:
 
 - [Using service principal authentication](#using-service-principal-authentication)
-- [Using managed service identity authentication](#using-managed-service-identity-authentication)
+- [Using managed identities for Azure resources authentication](#using-managed-service-identity-authentication)
 
 ### Using service principal authentication
 
@@ -110,11 +110,11 @@ The following properties are supported:
 }
 ```
 
-### Using managed service identity authentication
+### <a name="managed-identity"></a> Using managed identities for Azure resources authentication
 
-A data factory can be associated with a [managed service identity](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Data Lake Store authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Data Lake Store.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Data Lake Store authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Data Lake Store.
 
-To use managed service identity (MSI) authentication:
+To use managed identities for Azure resources authentication:
 
 1. [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
 2. Grant the service identity access to Data Lake Store the same way you do for service principal following below notes.

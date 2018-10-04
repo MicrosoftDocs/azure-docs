@@ -9,7 +9,7 @@ ms.author: estfan
 ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ---
 
 # Create and manage automated logic app workflows - Visual Studio Code
@@ -28,7 +28,9 @@ Although you can perform these same tasks in the
 <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 and in Visual Studio, you can get started faster in Visual Studio 
 Code when you want to work directly in code. For example, 
-you can also disable, enable, delete, and refresh already created logic apps.
+you can also disable, enable, delete, and refresh already created logic apps. 
+Also, you can work on logic apps and integration accounts from any development 
+platform where Visual Studio Code runs, such as Linux, Windows, and Mac.
 
 For this article, you can create the same logic app as in the 
 [quickstart for creating a logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
@@ -56,7 +58,9 @@ and their structure, which uses JavaScript Object Notation (JSON)
 
   * Visual Studio Code extension for Azure Logic Apps
 
-    You can install this extension from inside Visual Studio Code. 
+    You can install this extension from the 
+    [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) 
+    or directly from inside Visual Studio Code. 
     Make sure you reload Visual Studio Code after installing. 
 
     ![Find "Visual Studio Code extension for Azure Logic Apps"](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
@@ -67,7 +71,8 @@ and their structure, which uses JavaScript Object Notation (JSON)
     ![Extension installed](./media/create-logic-apps-visual-studio-code/installed-extension.png)
 
     For more information, see 
-    <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">Extension Marketplace</a>. 
+    <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">Extension Marketplace</a>. You can also view and submit contributions to this extension's open-source version by visiting the 
+    [Azure Logic Apps extension for Visual Studio Code on GitHub](https://github.com/Microsoft/vscode-azurelogicapps). 
 
 <a name="sign-in-azure"></a>
 

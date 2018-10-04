@@ -78,7 +78,7 @@ Download and save both files locally.
 
 1. In the **extensionProfile**, add a new extension to the template as shown in the **VMSS-WAD-extension** section. This section is the Managed Service Identity (MSI) extension that ensures the metrics being emitted are accepted by Azure Monitor. The **name** field can contain any name. 
 
-    The following code below the MSI extension also adds the diagnostics extension and configuration as an extension resource to the virtual machine scale set resource. Feel free to add or remove performance counters as needed. 
+    The following code from the MSI extension also adds the diagnostics extension and configuration as an extension resource to the virtual machine scale set resource. Feel free to add or remove performance counters as needed: 
 
     ```json
               "extensionProfile": { 
@@ -254,7 +254,7 @@ To deploy the Resource Manager template, we'll leverage Azure PowerShell:
    New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
-1. After your deployment succeeds, you should be able to find the virtual machine scale set in the Azure portal. It should be emitting metrics to Azure Monitor. 
+1. After your deployment succeeds, you should be able to find the virtual machine scale set in the Azure portal. It should emit metrics to Azure Monitor. 
 
    > [!NOTE]  
    > You might run into errors around the selected **vmSkuSize**. In that case, go back to your **azuredeploy.json** file and update the default value of the **vmSkuSize** parameter. We recommend that you try **Standard_DS1_v2**. 
