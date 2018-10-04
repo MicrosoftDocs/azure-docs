@@ -97,7 +97,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
 
 ### Subscription limits
-#### Subscription limits
+#### Subscription limits - Azure Service Management (Classic Resources)
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### Subscription limits - Azure Resource Manager

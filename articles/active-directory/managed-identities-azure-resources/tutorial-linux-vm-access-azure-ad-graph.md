@@ -21,7 +21,7 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to access the Azure AD Graph API to retrieve its group memberships. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.  
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access the Azure AD Graph API to retrieve its group memberships. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.  
 
 For this tutorial, you will query your VM identity's membership in Azure AD groups. Group information is often used in authorization decisions. Under the covers, your VM's managed identity is represented by a **Service Principal** in Azure AD. 
 
@@ -57,7 +57,7 @@ az login
 
 ## Add your VM's identity to a group in Azure AD
 
-When you enabled system-assigned managed identity on the Linux VM, it created a service principal in Azure AD.  You need to add the the VM to a group. Refer to the following article for instructions on how to add your VM to a group in Azure AD:
+When you enabled system-assigned managed identity on the Linux VM, it created a service principal in Azure AD.  You need to add the VM to a group. Refer to the following article for instructions on how to add your VM to a group in Azure AD:
 
 - [Add group members](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add)
 
@@ -133,7 +133,7 @@ Azure AD Graph:
    curl "https://graph.windows.net/myorganization/servicePrincipals/<VM Object ID>/appRoleAssignments?api-version=1.6" -X POST -d '{"id":"5778995a-e1bf-45b8-affa-663a9f3f4d04","principalId":"<VM Object ID>","resourceId":"81789304-ff96-402b-ae73-07ec0db26721"}'-H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
    ``` 
  
-## Get an access token using the VM's identity and use it to call Azure AD Graph 
+## Get an access token using the VM's identity to call Azure AD Graph 
 
 To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 

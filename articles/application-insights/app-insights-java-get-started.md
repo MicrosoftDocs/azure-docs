@@ -229,7 +229,6 @@ This class will configure the `WebRequestTrackingFilter` to be the first filter 
 
 > We are using the web http filter configuration rather than the Spring MVC configuration because this is a Spring Boot application, and it has its own Spring MVC configuration. See the sections below for Spring MVC specific configuration.
 
-
 ### Applications Using Web.xml
 Locate and open the web.xml file in your project, and merge the following code under the web-app node, where your application filters are configured.
 
@@ -247,6 +246,11 @@ To get the most accurate results, the filter should be mapped before all other f
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+   <!-- This listener handles shutting down the TelemetryClient when an application/servlet is undeployed. -->
+    <listener>
+      <listener-class>com.microsoft.applicationinsights.web.internal.ApplicationInsightsServletContextListener</listener-class>
+    </listener>
 ```
 
 #### If you're using Spring Web MVC 3.1 or later

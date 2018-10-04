@@ -52,7 +52,7 @@ public static async Task Run(
 const df = require("durable-functions");
 const moment = require("moment-js");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
         const dayOfMonth = context.df.currentUtcDateTime.getDate();
         const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
@@ -106,7 +106,7 @@ public static async Task<bool> Run(
 const df = require("durable-functions");
 const moment = require("moment-js");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const deadline = moment.utc(context.df.currentUtcDateTime).add(30, 's');
 
     const activityTask = context.df.callActivityAsync("GetQuote");
