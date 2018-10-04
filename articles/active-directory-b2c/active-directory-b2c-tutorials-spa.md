@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 Applications need to be [registered](../active-directory/develop/developer-glossary.md#application-registration) in your directory before they can receive [access tokens](../active-directory/develop/developer-glossary.md#access-token) from Azure Active Directory. App registration creates an [application id](../active-directory/develop/developer-glossary.md#application-id-client-id) for the app in your directory. 
 
-Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C directory.
+Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C directory.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 

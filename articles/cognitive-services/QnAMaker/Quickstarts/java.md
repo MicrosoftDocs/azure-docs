@@ -33,6 +33,8 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Get the current set of word alterations.](#GetAlterations)
 - [Replace the current set of word alterations.](#PutAlterations)
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
 ## Prerequisites
 
 You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.

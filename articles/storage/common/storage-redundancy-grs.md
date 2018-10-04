@@ -36,9 +36,9 @@ Some considerations to keep in mind when using RA-GRS:
    * The time Microsoft requires to determine whether the data can be recovered at the primary location, or if a failover is necessary.
    * The time to perform the failover of the storage account by changing the primary DNS entries to point to the secondary location.
 
-   Microsoft takes the responsibility of preserving your data seriously. If there is any chance of recovering the data in the primary region, Microsoft will delay the failover and focus on recovering your data. A future version of the service will allow you to trigger a failover at an account level so that you can control the RTO yourself.
+   Microsoft takes the responsibility of preserving your data seriously. If there is any chance of recovering the data in the primary region, Microsoft will delay the failover and focus on recovering your data. 
 
-## Paired Regions 
+## Paired regions 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and cannot be changed. For up-to-date information about regions supported by Azure, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../../best-practices-availability-paired-regions.md).
 
 ## See also

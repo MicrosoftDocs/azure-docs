@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/19/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 # Log Analytics data security
-This document is intended to provide Azure Log Analytics specific information to supplement the information on [Azure Trust Center](../security/security-microsoft-trust-center.md).  
+This document is intended to provide information specific to Log Analytics, which is a feature of Azure Monitor, to supplement the information on [Azure Trust Center](../security/security-microsoft-trust-center.md).  
 
 This article explains how data is collected, processed, and secured by Log Analytics. You can use agents to connect to the web service, use System Center Operations Manager to collect operational data, or retrieve data from Azure diagnostics for use by Log Analytics. 
 
@@ -38,9 +38,9 @@ To insure the security of data in transit to Log Analytics, we strongly encourag
 
 The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has set a [deadline of June 30th, 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) to disable older versions of TLS/SSL and upgrade to more secure protocols. Once Azure drops legacy support, if your agents cannot communicate over at least TLS 1.2 you would not be able to send data to Log Analytics. 
 
-We do not recommend explicitly setting your agent to only use TLS 1.2 unless absolutely necessary as this can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available such as TLS 1.3. 
+We do not recommend explicitly setting your agent to only use TLS 1.2 unless absolutely necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3. 
 
-### Platform specific guidance
+### Platform-specific guidance
 
 |Platform/Language | Support | More Information |
 | --- | --- | --- |
@@ -111,11 +111,11 @@ The Log Analytics software development and service team's information security a
 
 Each development team member receives formal application security training. Internally, we use a version control system for software development. Each software project is protected by the version control system.
 
-Microsoft has a security and compliance team that oversees and assesses all services in Microsoft. Information security officers make up the team and they are not associated with the engineering departments that develops Log Analytics. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
+Microsoft has a security and compliance team that oversees and assesses all services in Microsoft. Information security officers make up the team and they are not associated with the engineering teams that develops Log Analytics. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
 
 Microsoft's board of directors is notified by an annual report about all information security programs at Microsoft.
 
-The Log Analytics software development and service team is actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire various certifications.
+The Log Analytics software development and service team are actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire various certifications.
 
 ## Certifications and attestations
 Azure Log Analytics meets the following requirements:
@@ -170,7 +170,7 @@ As described above, data from the management server or direct-connected agents i
 ## 3. The Log Analytics service receives and processes data
 The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hub in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data and ingests it into the database.
 
-The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for 7 days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 730 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality. The last two weeks of data are also stored in SSD-based cache and this cache is currently not encrypted.  We plan to support such encryption in the later half of 2018.  
+The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for seven days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 730 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality, and the data is replicated within the local region using locally redundant storage (LRS). The last two weeks of data are also stored in SSD-based cache and this cache is currently not encrypted.  We are currently working to support encrypting SSD-based cache.      
 
 ## 4. Use Log Analytics to access the data
 To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Log Analytics service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.

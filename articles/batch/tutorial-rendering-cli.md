@@ -7,14 +7,14 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: tutorial
-ms.date: 04/19/2018
+ms.date: 09/25/2018
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Tutorial: Render a scene with Azure Batch 
 
-Azure Batch provides cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service supports rendering apps including Autodesk Maya, 3ds Max, Arnold, and V-Ray. This tutorial shows you the steps to render a small scene with Batch using the Azure Command-Line Interface. You learn how to:
+Azure Batch provides cloud-scale rendering capabilities on a pay-per-use basis. Azure Batch supports rendering apps including Autodesk Maya, 3ds Max, Arnold, and V-Ray. This tutorial shows you the steps to render a small scene with Batch using the Azure Command-Line Interface. You learn how to:
 
 > [!div class="checklist"]
 > * Upload a scene to Azure storage
@@ -23,17 +23,17 @@ Azure Batch provides cloud-scale rendering capabilities on a pay-per-use basis. 
 > * Scale the pool, and render a multi-frame scene
 > * Download rendered output
 
-In this tutorial, you render a 3ds Max scene with Batch using the [Arnold](https://www.autodesk.com/products/arnold/overview) ray-tracing renderer. 
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+In this tutorial, you render a 3ds Max scene with Batch using the [Arnold](https://www.autodesk.com/products/arnold/overview) ray-tracing renderer. The Batch pool uses an Azure Marketplace image with pre-installed graphics and rendering applications that provide pay-per-use licensing.
 
 ## Prerequisites
+
+You need a pay-as-you-go subscription or other Azure purchase option to use rendering applications in Batch on a pay-per-use basis. Pay-per-use licensing isn't supported if you use a free Azure offer that provides a monetary credit.
 
 The sample 3ds Max scene for this tutorial is on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), along with a sample Bash script and JSON configuration files. The 3ds Max scene is from the [Autodesk 3ds Max sample files](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a Batch account
 

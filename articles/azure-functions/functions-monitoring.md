@@ -525,9 +525,9 @@ Even if the **Monitor** tab shows Application Insights data, you can see log dat
 
 ### Real-time monitoring
 
-You can stream log files to a command-line session on a local workstation using the [Azure Command Line Interface (CLI) 2.0](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).  
+You can stream log files to a command-line session on a local workstation using the [Azure Command Line Interface (CLI)](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).  
 
-For Azure CLI 2.0, use the following commands to sign in, choose your subscription, and stream log files:
+For the Azure CLI,  use the following commands to sign in, choose your subscription, and stream log files:
 
 ```
 az login

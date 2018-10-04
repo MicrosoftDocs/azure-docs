@@ -41,11 +41,6 @@ The following table lists the latency information for activity reports.
 | Sign-ins | 2 mins  | 5 mins |
 
 
-
-
-
-
-
 ## Security reports
 
 There are two areas of security reporting:

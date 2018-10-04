@@ -6,7 +6,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: "07/09/2018"
+ms.date: "09/26/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -26,11 +26,14 @@ In this guide, you will learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6 or later, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
+- [Visual Studio Code](https://code.visualstudio.com/download).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.43 or higher.
+- A Kubernetes cluster running Kubernetes 1.9.6 or later, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
 
-  ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-- Visual Studio Code, which you can download [here](https://code.visualstudio.com/download).
+    ```cmd
+    az group create --name MyResourceGroup --region <region>
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+    ```
 
 ## Set up Azure Dev Spaces
 
@@ -38,7 +41,6 @@ The Azure CLI and the Azure Dev Spaces extension can be installed and run on Win
 
 Follow these steps to set up Azure Dev Spaces:
 
-1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.43 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Download the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
 

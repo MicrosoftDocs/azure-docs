@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: Learn the LUIS best practices to get the best results.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Best practices for building a language understanding app with Cognitive Services

@@ -1,19 +1,21 @@
 ---
-title: Computer Vision API JavaScript tutorial | Microsoft Docs
-description: Explore a basic JavaScript app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
+title: "Tutorial: Computer Vision API JavaScript"
+titlesuffix: Azure Cognitive Services
+description: Explore a basic JavaScript app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
 ---
 
-# Computer Vision API JavaScript tutorial
+# Tutorial: Computer Vision API JavaScript
 
-This tutorial shows the features of the Microsoft Cognitive Services Computer Vision REST API.
+This tutorial shows the features of the Azure Cognitive Services Computer Vision REST API.
 
 Explore a JavaScript application that uses the Computer Vision REST API to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag, and describe visual features, including faces, in an image. This example lets you submit an image URL for analysis or processing. You can use this open source example as a template for building your own app in JavaScript to use the Computer Vision REST API.
 
@@ -27,7 +29,7 @@ This tutorial has been developed using a simple text editor.
 
 ### Subscribe to Computer Vision API and get a subscription key 
 
-Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial. 
+Before creating the example, you must subscribe to Computer Vision API which is part of the Azure Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial. 
 
 ## Download the tutorial project
 

@@ -1,14 +1,13 @@
 ---
-title: "Quickstart: Send search queries with the Bing Image Search API and"
+title: "Quickstart: Perform an image search with C# - Bing Image Search API"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search and find images on the web using the Bing Web Search API.
+description: Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an HTTP image search query to the API, and displays the URL of the first image returned.
 services: cognitive-services
-documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
 ---
@@ -23,7 +22,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 ## Prerequisites
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package. 
+* The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
 * If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
@@ -58,7 +57,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 ## Create a struct to format the Bing Image Search response
 
 Define a `SearchResult` struct to contain the image search results, and JSON header information.
-    
+
 ```csharp
     namespace BingSearchApisQuickstart
     {
@@ -92,10 +91,10 @@ namespace BingSearchApisQuickstart
 ```
 
 ## Create and handle an image search request
- 
+
 In the `BingImageSearch` method, perform the following steps.
 
-1. Construct the URI for the search request. Note that the search term `toSearch` must be formatted before being appended to the string. 
+1. Construct the URI for the search request. Note that the search term `toSearch` must be formatted before being appended to the string.
 
     ```csharp
     static SearchResult BingImageSearch(string toSearch){
@@ -142,14 +141,14 @@ In the `BingImageSearch` method, perform the following steps.
     dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
     ```
 
-2. Get the first returned image from `jsonObj`, and print out the title and a URL to the image. 
+2. Get the first returned image from `jsonObj`, and print out the title and a URL to the image.
     ```csharp
     var firstJsonObj = jsonObj["value"][0];
     Console.WriteLine("Title for the first image result: " + firstJsonObj["name"]+"\n");
-    //After running the application, copy the output URL into a browser to see the image. 
+    //After running the application, copy the output URL into a browser to see the image.
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
     ```  
-       
+
 3. Make sure to remove your subscription key from the application's code.
 
 ## JSON response
@@ -205,7 +204,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
 
-## See also 
+## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  

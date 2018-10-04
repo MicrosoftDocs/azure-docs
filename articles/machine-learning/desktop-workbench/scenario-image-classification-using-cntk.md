@@ -12,10 +12,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
+
+ROBOTS: NOINDEX
 ---
 
 
+
 # Image classification using Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Image classification approaches can be used to solve a large number of Computer Vision problems.
 These include building models, which answer questions such as: *Is an OBJECT present in the image?* where OBJECT could for example be *dog*, *car*, or *ship*. Or more complex questions like: *What class of eye disease severity is evinced by this patient's retinal scan?*.
@@ -47,7 +54,7 @@ While previous experience with machine learning and CNTK is not required, it is 
 The prerequisites to run this example are as follows:
 
 1. An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-2. The [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) following the [quick start installation guide](../service/quickstart-installation.md) to install the program and create a workspace.  
+2. The [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) following the [quick start installation guide](quickstart-installation.md) to install the program and create a workspace.  
 3. A Windows machine. Windows OS is necessary since the Workbench supports only Windows and MacOS, while Microsoft's Cognitive Toolkit (which we use as deep learning library) only supports Windows and Linux.
 4. A dedicated GPU is not required to execute the SVM training in part 1, however it is needed for refining of the DNN described in part 2. If you lack a strong GPU, want to train on multiple GPUs, or do not have a Windows machine, then consider using Azure's Deep Learning Virtual Machine with Windows operating system. See [here](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) for a 1-click deployment guide. Once deployed, connect to the VM via a remote desktop connection, install Workbench there, and execute the code locally from the VM.
 5. Various Python libraries such as OpenCV need to be installed. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:  
@@ -279,7 +286,7 @@ It is important that each image can be assigned to exactly one attribute. For ex
 Collecting a sufficiently large number of annotated images for training and testing can be difficult. One way to overcome this problem is to scrape images from the Internet.
 
 > [!IMPORTANT] 
-> For any images you use, make sure you don't violate copyrights. 
+> For any images you use, make sure you don't violate the image's copyright and licensing. 
 
 <!--
 For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:

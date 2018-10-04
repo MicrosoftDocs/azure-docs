@@ -1,13 +1,14 @@
 ---
-title: Understanding intents in LUIS apps in Azure | Microsoft Docs
-description: Describes what intents are in Language Understanding Intelligent Service (LUIS) apps.
+title: Understanding intents in LUIS apps
+titleSuffix: Azure Cognitive Services
+description: An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's utterance. Define a set of intents that corresponds to actions users want to take in your application.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Intents in LUIS

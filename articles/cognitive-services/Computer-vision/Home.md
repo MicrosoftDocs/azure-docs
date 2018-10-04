@@ -1,9 +1,11 @@
 ---
-title: Computer Vision for Azure Cognitive Services | Microsoft Docs 
-description: Use advanced algorithms in Computer Vision to help you process images and return information in Azure Cognitive Services. 
+title: What is the Computer Vision API?
+titlesuffix: Azure Cognitive Services
+description: The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. 
 services: cognitive-services 
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services 
 ms.component: computer-vision 
 ms.topic: overview
@@ -55,12 +57,12 @@ Computer Vision can analyze images that meet the following requirements:
 - The image must be presented in JPEG, PNG, GIF, or BMP format
 - The file size of the image must be less than 4 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels  
-  For OCR, the dimensions of the image must be between 40 x 40 and 3200 x 3200 pixels, and the image can't be bigger than 10 megapixels.
+  For OCR, the dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels, and the image can't be bigger than 10 megapixels.
 
 ## Next steps
 
 Get started with Computer Vision with one of our quickstarts:
 
-- [Analyze an image](/quickstarts-sdk/csharp-analyze-sdk.md)
-- [Extract handwritten text](/quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Generate a thumbnail](/quickstarts-sdk/csharp-thumb-sdk.md)
+- [Analyze an image](quickstarts-sdk/csharp-analyze-sdk.md)
+- [Extract handwritten text](quickstarts-sdk/csharp-hand-text-sdk.md)
+- [Generate a thumbnail](quickstarts-sdk/csharp-thumb-sdk.md)

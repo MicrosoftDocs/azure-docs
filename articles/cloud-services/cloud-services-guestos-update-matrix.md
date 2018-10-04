@@ -3,8 +3,7 @@ title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
 documentationcenter: na
-author: RichardScheel
-manager: timlt
+author: raiye
 editor: ''
 
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
@@ -13,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/12/2018
-ms.author: RichardScheel
+ms.date: 9/13/2018
+ms.author: raiye
 
 ---
 # Azure Guest OS releases and SDK compatibility matrix

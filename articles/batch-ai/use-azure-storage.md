@@ -26,7 +26,7 @@ Azure Storage is Microsoft's cloud storage solution. Batch AI supports mounting 
 
 When you choose Azure Storage for your Batch AI environment, we recommend that you store your input files (such as datasets) in a Blob container, which has higher throughput, and you store your training output in a file share, which supports streaming (allowing reading of output logs while the job is concurrently running). 
 
-Before you can use Azure Storage, you must [create an Azure Storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). Batch AI supports mounting volumes from both General-purpose v1 (GPv1) and General-purpose v2 (GPv2) Azure Storage accounts. The Azure Storage account can hold multiple Blob containers or file share instances. Consider your cost and performance requirements when choosing a storage account [option](../storage/common/storage-account-options.md). 
+Before you can use Azure Storage, you must [create an Azure Storage account](../storage/common/storage-quickstart-create-account.md). Batch AI supports mounting volumes from both General-purpose v1 (GPv1) and General-purpose v2 (GPv2) Azure Storage accounts. The Azure Storage account can hold multiple Blob containers or file share instances. Consider your cost and performance requirements when choosing the type of storage account to create. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md). 
 
 To create a Blob container and to upload your dataset to an Azure Blob container, choose one of the following methods:
 - [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) for uploading with a web-based GUI. To upload a small number of files, Azure portal provides the simplest operation.

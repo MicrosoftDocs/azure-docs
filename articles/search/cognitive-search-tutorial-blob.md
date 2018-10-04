@@ -29,6 +29,9 @@ Output is a full text searchable index on Azure Search. You can enhance the inde
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+
 ## Prerequisites
 
 New to cognitive search? Read ["What is cognitive search?"](cognitive-search-concept-intro.md) to get acquainted, or try the [portal quickstart](cognitive-search-quickstart-blob.md) for a hands-on introduction to important concepts.

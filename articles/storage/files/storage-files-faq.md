@@ -103,60 +103,23 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="sizeondisk-versus-size"></a>
 **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
-    Windows File Explorer exposes two properties to represent the size of a file: **Size** and **Size on disk**. These properties differ subtly in meaning. **Size** represents the complete size of the file. **Size on disk** represents the size of the file stream that's stored on the disk. The values for these properties can differ for a variety of reasons, such as compression, use of Data Deduplication, or cloud tiering with Azure File Sync. If a file is tiered to an Azure file share, the size on the disk is zero, because the file stream is stored in your Azure file share, and not on the disk. It's also possible for a file to be partially tiered (or partially recalled). In a partially tiered file, part of the file is on disk. This might occur when files are partially read by applications like multimedia players or zip utilities. 
+ See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
 **How can I tell whether a file has been tiered?**  
-    There are several ways to check whether a file has been tiered to your Azure file share:
-    
-   *  **Check the file attributes on the file.**
-     To do this, right-click on a file, go to **Details**, and then scroll down to the **Attributes** property. A tiered file has the following attributes set:     
-        
-        | Attribute letter | Attribute | Definition |
-        |:----------------:|-----------|------------|
-        | A | Archive | Indicates that the file should be backed up by backup software. This attribute is always set, regardless of whether the file is tiered or stored fully on disk. |
-        | P | Sparse file | Indicates that the file is a sparse file. A sparse file is a specialized type of file that NTFS offers for efficient use when the file on the disk stream is mostly empty. Azure File Sync uses sparse files because a file is either fully tiered or partially recalled. In a fully tiered file, the file stream is stored in the cloud. In a partially recalled file, that part of the file is already on disk. If a file is fully recalled to disk, Azure File Sync converts it from a sparse file to a regular file. |
-        | L | Reparse point | Indicates that the file has a reparse point. A reparse point is a special pointer for use by a file system filter. Azure File Sync uses reparse points to define to the Azure File Sync file system filter (StorageSync.sys) the cloud location where the file is stored. This supports seamless access. Users won't need to know that Azure File Sync is being used or how to get access to the file in your Azure file share. When a file is fully recalled, Azure File Sync removes the reparse point from the file. |
-        | O | Offline | Indicates that some or all of the file's content is not stored on disk. When a file is fully recalled, Azure File Sync removes this attribute. |
-
-        ![The Properties dialog box for a file, with the Details tab selected](media/storage-files-faq/azure-file-sync-file-attributes.png)
-        
-        You can see the attributes for all the files in a folder by adding the **Attributes** field to the table display of File Explorer. To do this, right-click on an existing column (for example, **Size**), select **More**, and then select **Attributes** from the drop-down list.
-        
-   * **Use `fsutil` to check for reparse points on a file.**
-       As described in the preceding option, a tiered file always has a reparse point set. A reparse pointer is a special pointer for the Azure File Sync file system filter (StorageSync.sys). To check whether a file has a reparse point, in an elevated Command Prompt or PowerShell window, run the `fsutil` utility:
-    
-        ```PowerShell
-        fsutil reparsepoint query <your-file-name>
-        ```
-
-        If the file has a reparse point, you can expect to see **Reparse Tag Value : 0x8000001e**. This hexadecimal value is the reparse point value that is owned by Azure File Sync. The output also contains the reparse data that represents the path to your file on your Azure file share.
-
-        > [!WARNING]  
-        > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Do not execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss. 
+ See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
 * <a id="afs-recall-file"></a>**A file I want to use has been tiered. How can I recall the file to disk to use it locally?**  
-    The easiest way to recall a file to disk is to open the file. The Azure File Sync file system filter (StorageSync.sys) seamlessly downloads the file from your Azure file share without any work on your part. For file types that can be partially read from, such as multimedia or .zip files, opening a file doesn't download the entire file.
+ See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-recall-file).
 
-    You also can use PowerShell to force a file to be recalled. This option might be useful if you want to recall multiple files at once, such as all the files in a folder. Open a PowerShell session to the server node where Azure File Sync is installed, and then run the following PowerShell commands:
-    
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
-    ```
 
 * <a id="afs-force-tiering"></a>
 **How do I force a file or directory to be tiered?**  
-    When the cloud tiering feature is enabled, cloud tiering automatically tiers files based on last access and modify times to achieve the volume free space percentage specified on the cloud endpoint. Sometimes, though, you might want to manually force a file to tier. This might be useful if you save a large file that you don't intend to use again for a long time, and you want the free space on your volume now to use for other files and folders. You can force tiering by using the following PowerShell commands:
-
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-    ```
+ See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
 **How is *volume free space* interpreted when I have multiple server endpoints on a volume?**  
-    When there is more than one server endpoint on a volume, the effective volume free space threshold is the largest volume free space specified across any server endpoint on that volume. Files will be tiered according to their usage patterns regardless of which server endpoint to which they belong. For example, if you have two server endpoints on a volume, Endpoint1 and Endpoint2, where Endpoint1 has a volume free space threshold of 25% and Endpoint2 has a volume free space threshold of 50%, the volume free space threshold for both server endpoints will be 50%.
+ See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
 **Which files or folders are automatically excluded by Azure File Sync?**  
@@ -207,6 +170,11 @@ This article answers common questions about Azure Files features and functionali
     - You can use shared access signatures (SAS) to generate tokens that have specific permissions, and which are valid for a specified time interval. For example, you can generate a token with read-only access to a specific file that has a 10-minute expiry. Anyone who possesses the token while the token is valid has read-only access to that file for those 10 minutes. Currently, shared access signature keys are supported only via the REST API or in client libraries. You must mount the Azure file share over SMB by using the storage account keys.
 
     - Azure File Sync preserves and replicates all discretionary ACLs, or DACLs, (whether Active Directory-based or local) to all server endpoints that it syncs to. Because Windows Server can already authenticate with Active Directory, Azure File Sync is an effective stop-gap option until full support for Active Directory-based authentication and ACL support arrives.
+
+* <a id="ad-support-regions"></a>
+**Is the preview of Azure AD over SMB for Azure Files available in all Azure regions?**
+
+    The preview is available in all public regions except for: West US, West US 2, South Central US, East US, East US 2, Central US, North Central US, East Australia, West Europe, North Europe.
 
 * <a id="ad-support-on-premises"></a>
 **Does Azure AD authentication over SMB for Azure Files (Preview) support authentication using Azure AD from on-premises machines?**
@@ -333,7 +301,7 @@ This article answers common questions about Azure Files features and functionali
 ### Manage share snapshots
 * <a id="browse-snapshots-linux"></a>
 **Can I browse my share snapshots from Linux?**  
-    You can use Azure CLI 2.0 to create, list, browse, and restore share snapshots in Linux.
+    You can use Azure CLI to create, list, browse, and restore share snapshots in Linux.
 
 * <a id="copy-snapshots-to-other-storage-account"></a>
 **Can I copy the share snapshots to a different storage account?**  

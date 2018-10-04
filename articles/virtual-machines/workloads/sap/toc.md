@@ -45,7 +45,9 @@
 ### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
 ### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)
 ### [SAP HANA on Azure Availability across Azure regions](sap-hana-availability-across-regions.md)
-## [Setup SAP HANA System Replication in Azure VMs](sap-hana-high-availability.md)
+### [Set up SAP HANA System Replication on SLES](sap-hana-high-availability.md)
+### [Set up SAP HANA System Replication on RHEL](sap-hana-high-availability-rhel.md)
+### [Troubleshoot SAP HANA scale-out and Pacemaker on SLES](hana-vm-troubleshoot-scale-out-ha-on-sles.md)
 ## [SAP HANA backup overview](sap-hana-backup-guide.md)
 ## [SAP HANA file level backup](sap-hana-backup-file-level.md)
 ## [SAP HANA storage snapshot backups](sap-hana-backup-storage-snapshots.md)
@@ -79,11 +81,14 @@
 #### [Windows with Shared Disk for (A)SCS Instance](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-high-availability-infrastructure-wsfc-file-share.md)
 #### [High availability for NFS on Azure VMs on SLES](high-availability-guide-suse-nfs.md)
+#### [GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](high-availability-guide-rhel-glusterfs.md)
 #### [Pacemaker on SLES](high-availability-guide-suse-pacemaker.md)
+#### [Pacemaker on RHEL](high-availability-guide-rhel-pacemaker.md)
 ### SAP Installation
 #### [Windows with Shared Disk for (A)SCS Instance](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-high-availability-installation-wsfc-file-share.md)
 #### [SUSE Linux with NFS for (A)SCS Instance](high-availability-guide-suse.md)
+#### [High availability for SAP NetWeaver on Red Hat Enterprise Linux](high-availability-guide-rhel.md)
 ### SAP Multi-SID
 #### [Windows with Shared Disk for (A)SCS Instance](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-ascs-ha-multi-sid-wsfc-file-share.md)
@@ -103,3 +108,4 @@
 ## [Azure Data Factory offers SAP HANA and Business Warehouse data integration](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+

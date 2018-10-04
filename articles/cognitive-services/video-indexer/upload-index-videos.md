@@ -1,18 +1,19 @@
 ---
-title: Upload and index your videos with Azure Video Indexer | Microsoft Docs
-description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Indexer 
+title: "Example: Upload and index videos with Video Indexer"
+titlesuffix: Azure Cognitive Services
+description: This topic demonstrates how to use APIs to upload and index your videos with Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 08/17/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-
 ---
-# Upload and index your videos  
+
+# Example: Upload and index your videos  
 
 This article shows how to upload a video with Azure Video Indexer. The Video Indexer API provides two uploading options: 
 
@@ -238,8 +239,14 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
+## Common errors
 
+The status codes listed in the following table may be returned by the Upload operation.
 
+|Status code|ErrorType (in response body)|Description|
+|---|---|---|
+|400|VIDEO_ALREADY_IN_PROGRESS|Same video is already in progress of being processed in the given account.|
+|400|VIDEO_ALREADY_FAILED|Same video failed to process in the given account less than 2 hours ago. API clients should wait at least 2 hours before re-uploading a video.|
 
 ## Next steps
 

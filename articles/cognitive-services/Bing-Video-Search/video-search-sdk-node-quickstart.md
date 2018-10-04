@@ -1,18 +1,19 @@
 ---
-title: Video Search SDK Node quickstart | Microsoft Docs
-description: Setup for Video Search SDK console application.
-titleSuffix: Azure cognitive services
+title: "Quickstart: Bing Video Search SDK, Node"
+titleSuffix: Azure Cognitive Services
+description: Setup for Bing Video Search SDK console application.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
-ms.author: v-gedod
+ms.author: rosh
 ---
 
-# Video Search SDK Node quickstart
+# Quickstart: Bing Video Search SDK with Node
 
 The Bing Video Search SDK contains the functionality of the REST API for video queries and parsing results. 
 

@@ -38,13 +38,13 @@ In this tutorial, you learn how to:
 
 Web API resources need to be registered in your tenant before they can accept and respond to [protected resource requests](../active-directory/develop/developer-glossary.md#resource-server) by [client applications](../active-directory/develop/developer-glossary.md#client-application) that present an [access token](../active-directory/develop/developer-glossary.md#access-token) from Azure Active Directory. Registration establishes the [application and service principal object](../active-directory/develop/developer-glossary.md#application-object) in your tenant. 
 
-Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Select **Azure AD B2C** from the services list in the Azure portal.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using the tenant that you created in the previous tutorial.
 
-2. In the B2C settings, click **Applications** and then click **Add**.
+2. Select **Applications** and then select **Add**.
 
     To register the sample web API in your tenant, use the following settings.
     
