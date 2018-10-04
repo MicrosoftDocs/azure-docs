@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
 ---
-# Known Issues
+# Known issues
 You might encounter the following known issues when using the Designer Preview for Project Acoustics.
 
 ## Acoustic parameters are lost when you rename a scene
