@@ -49,11 +49,11 @@ When the validation completes, you're shown a summary of the container's setting
 
 ![Settings summary for a new container instance in the Azure portal][aci-portal-05]
 
-When deployment starts, a tile appears on your portal dashboard indicating the deployment is in progress. Once deployed, the tile displays your new container instance.
+When deployment starts, a notification appears indicating the deployment is in progress. Another notification is displayed when the container group has been deployed.
 
 ![Creation progress of a new container instance in the Azure portal][aci-portal-08]
 
-Select the **mycontainer** container instance to display its properties. Take note of the **FQDN** (the fully qualified domain name) of the container instance, as well its **Status**.
+Open the overview for the container group by navigating to **Resource Groups** > **myResourceGroup** > **mycontainer**. Take note of the **FQDN** (the fully qualified domain name) of the container instance, as well its **Status**.
 
 ![Container group overview in the Azure portal][aci-portal-06]
 
@@ -67,7 +67,7 @@ Congratulations! By configuring just a few settings, you've deployed a publicly 
 
 Viewing the logs for a container instance is helpful when troubleshooting issues with your container or the application it runs.
 
-To view the container's logs, under **SETTINGS**, select **Containers**, then **Logs**. You should see the HTTP GET request generated when you viewed the application in your browser.
+To view the container's logs, under **Settings**, select **Containers**, then **Logs**. You should see the HTTP GET request generated when you viewed the application in your browser.
 
 ![Container logs in the Azure portal][aci-portal-11]
 
