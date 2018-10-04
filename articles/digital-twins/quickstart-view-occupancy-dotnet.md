@@ -51,9 +51,11 @@ You can build and run the occupancy application using the outlined steps:
     - `ClientId` with the value from previous step.
     - `Tenant` with the value from previous step.
     - `BaseUrl`, for example:
+
         ```plaintext
         https://yourInstanceName.yourLocation.azuresmartspaces.net/management/api/v1.0/
         ```
+
         | Custom Attribute Name | Replace With |
         | --- | --- |
         | `yourInstanceName` | The name of your Azure Digital Twins instance |
