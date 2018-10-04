@@ -34,7 +34,7 @@ Nodes in an AKS cluster configured for Advanced networking use the [Azure Contai
 Advanced networking provides the following benefits:
 
 * Deploy your AKS cluster into an existing VNet, or create a new VNet and subnet for your cluster.
-* Every pod in the cluster is assigned an IP address in the VNet, and can directly communicate with other pods in the cluster, and other nodes in the VNet.
+* Every pod in the cluster is assigned an IP address in the VNet, and can directly communicate with other pods in the cluster, and other nodes in the VNet. That means it can use the default service type (clusterip) for pod to pod communication whihc doesn't work in basic. 
 * A pod can connect to other services in a peered VNet, and to on-premises networks over ExpressRoute and site-to-site (S2S) VPN connections. Pods are also reachable from on-premises.
 * Expose a Kubernetes service externally or internally through the Azure Load Balancer. Also a feature of Basic networking.
 * Pods in a subnet that have service endpoints enabled can securely connect to Azure services, for example Azure Storage and SQL DB.
