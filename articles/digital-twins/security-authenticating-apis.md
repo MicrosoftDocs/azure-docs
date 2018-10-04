@@ -60,4 +60,4 @@ For detailed instructions about how to orchestrate the on-behalf-of flow visit [
 Read more about Azure Digital Twins security:
 
 > [!div class="nextstepaction"]
-> [Device connectivity and authentication] (./security-device-token.md)
+> [Best practices for securing your instance] (./security-best-practices.md)
