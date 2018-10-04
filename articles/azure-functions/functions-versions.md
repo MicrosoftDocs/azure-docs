@@ -21,19 +21,7 @@ ms.author: glenga
 
 ## Run on version 1.x
 
-By default, function apps created in the Azure portal are set to version 2.x. When possible, you should use this runtime version, where new feature investments are being made. If you need to, you can still run a function app on the version 1.x runtime. You must change the runtime version after you create your function app but before you add any functions.
-
-Use the following procedure to pin a function app to version 1.x:
-
-1. In the [Azure portal](https://portal.azure.com), browse to your function app.
-
-1. Choose **Platform features** > **Function app settings**, which is under **General settings**. This opens the **Function app settings** tab.
-
-1. In this tab, switch **Runtime version** from **~2** to **~1**. This switch is disabled when you have functions in your app.
-
-    ![](./media/functions-versions/change-runtime-version-portal.png)
-
-1. Go back to the **Overview** tab and choose **Restart** to restart the app.  The function app restarts running on the version 1.x runtime, and the version 1.x templates are used when you create functions.
+By default, function apps created in the Azure portal are set to version 2.x. When possible, you should use this runtime version, where new feature investments are being made. If you need to, you can still run a function app on the version 1.x runtime. You must change the runtime version after you create your function app but before you add any functions. To learn how to pin the runtime version to 1.x, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
 ## Cross-platform development
 
