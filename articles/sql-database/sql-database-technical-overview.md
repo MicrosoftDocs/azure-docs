@@ -12,7 +12,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 10/04/2018
 ---
 # What is the Azure SQL Database service? 
 
@@ -53,7 +53,7 @@ SQL Database offers a [DTU-based purchasing model](sql-database-service-tiers-dt
 You can build your first app on a small, single database at a low cost per month in the General Purpose service tier and then change its service tier manually or programmatically at any time to the Business Critical Service tier to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
 > [!IMPORTANT]
-> You cannot scale from a General Purpose or Business Critical service tier to a [Hyperscale service tier](sql-database-hyperscale.md). You can, however, change performance levels within the Hyperscale service tier.
+> The [Hyperscale service tier](sql-database-hyper-scale.md) is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier..
 
 Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. However, there are scripts that can help automate scalability for a singe Azure SQL Database. For an example, see [Use PowerShell to monitor and scale a single SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md). 
 
