@@ -59,6 +59,11 @@ Digital Twins currently supports the following **EventTypes** that will be sent 
 
 ## Next steps
 
+Learn about public preview limits:
+
+> [!div class="nextstepaction"]
+> [Azure Digital Twins preview limits](concepts-service-limits.md)
+
 Try out a quick start Azure Digital Twins sample:
 
 > [!div class="nextstepaction"]
