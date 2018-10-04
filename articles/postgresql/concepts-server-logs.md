@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ---
 # Server Logs in Azure Database for PostgreSQL 
-Azure Database for PostgreSQL generates query and error logs. However, access to transaction logs is not supported. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+Azure Database for PostgreSQL generates query and error logs. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html). (Access to transaction logs is not included).
 
 ## Configure logging 
 You can configure the logging on your server using the logging server parameters. On each new server **log_checkpoints** and **log_connections** are on by default. There are additional parameters you can adjust to suit your logging needs: 
@@ -20,7 +20,7 @@ You can configure the logging on your server using the logging server parameters
 For more information on these parameters, see [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) documentation. For particularly configuring Azure Database for PostgreSQL server parameters, see [Customize server configuration parameters using Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 ## Access server logs through portal or CLI
-If you've enabled logs, you can access them from the Azure Database for PostgreSQL log storage using the [Azure portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md), and Azure REST APIs. The log files rotate every one hour or 100 MB size, whichever comes first. You can set the retention period for this log storage using the **log\_retention\_period** parameter associated with your server. The default value is 3 days; the maximum value is 7 days. Your server must have enough allocated storage to contain the retained log files. (Note that this retention parameter does not govern Azure Diagnostic Logs.)
+If you've enabled logs, you can access them from the Azure Database for PostgreSQL log storage using the [Azure portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md), and Azure REST APIs. The log files rotate every one hour or 100 MB size, whichever comes first. You can set the retention period for this log storage using the **log\_retention\_period** parameter associated with your server. The default value is 3 days; the maximum value is 7 days. Your server must have enough allocated storage to hold the log files. (Note that this retention parameter does not govern Azure Diagnostic Logs.)
 
 
 ## Diagnostic logs
