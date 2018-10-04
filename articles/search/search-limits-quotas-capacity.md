@@ -72,7 +72,7 @@ For services subject to document limits, the following maximum limits apply:
 |-------|-------|----|----|----|-------|
 |  10,000 |1 million |15 million per partition or 180 million per service |60 million per partition or 720 million per service |120 million per partition or 1.4 billion per service |1 million per index or 200 million per partition |
 
-If your service has limits that are blocking you, create a new service and then republish all content to that service. There is no mechanism for seamlessly reprovisioning your service behind the scenes.
+If your service has limits that are blocking you, create a new service and then republish all content to that service. There is no mechanism for seamlessly reprovisioning your service onto new hardware behind the scenes.
 
 > [!Note] 
 > For S3 High Density services created after late 2017, the 200 million document per partition has been removed but the 1 million document per index limit remains.
