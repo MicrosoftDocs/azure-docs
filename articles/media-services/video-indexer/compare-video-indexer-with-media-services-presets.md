@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/03/2018
 ms.author: juliako
 
 ---
@@ -29,9 +29,10 @@ Currently, there is an overlap between features offered by the [Video Indexer v2
 |---|---|---|
 |Media Insights|[Enhanced](../../cognitive-services/video-indexer/video-indexer-output-json-v2.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json) |[Fundamentals](../latest/intelligence-concept.md)|
 |Experiences|See the full list of supported features: <br/> [Overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)|Returns video insights only|
+|Billing|[Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Compliance|TBD|ISO, SOC, FedRAMP, HIPPA|
 |Free Trial|East US|Not available|
-|Availability |West US, East Asia, North Europe|See [Azure status](https://azure.microsoft.com/status/).|
+|Availability |West US, East Asia, North Europe|See [Azure status](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 
 ## Next steps
 
