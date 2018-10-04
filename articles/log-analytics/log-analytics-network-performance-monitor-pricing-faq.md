@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.component: na
+ms.component: 
 ---
 
 # Pricing changes for Azure Network Performance Monitor
