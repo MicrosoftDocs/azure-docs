@@ -1,7 +1,7 @@
 ---
 title:  "Quickstart: API Python - Create knowledge base - QnA Maker"
 titlesuffix: Azure Cognitive Services 
-description: This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
+description: This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
 author: diberry
 manager: cgronlun

@@ -183,7 +183,7 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
     conda install <new package>
     ```
 
-6. Launch Visual Studio Code, and then use __CTRL-SHIFT-P__ to get the __Command Palette__. Enter *Python: Select Interpreter*, and select the conda environment you created.
+6. Launch Visual Studio Code, and then use __CTRL-SHIFT-P__ for Windows or __COMMAND-SHIFT-P__ for Mac to get the __Command Palette__. Enter *Python: Select Interpreter*, and select the conda environment you created.
 
     > [!NOTE]
     > Visual Studio Code is automatically aware of conda environments on your computer. For more information, see [Visual Studio code documentation](https://code.visualstudio.com/docs/python/environments#_conda-environments).
