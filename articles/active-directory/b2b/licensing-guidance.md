@@ -27,7 +27,7 @@ The following are *not* guest users:
 
 B2B guest user licensing is automatically calculated and reported based on the 1:5 ratio. Currently, it’s not possible to assign B2B guest user licenses directly to guest users.
 
-There are some situations where a guest user won't be reported using the 1:5 External User Allowance. If a guest user already has a paid Azure AD license in the user’s own organization, the user doesn't consume one of your B2B guest user licenses. Additionally, guest users can use free Azure AD features with no additional licensing requirements. Guest users have access to free Azure AD features even if you don’t have any paid Azure AD licenses. 
+There are some situations where a guest user isn't reported using the 1:5 External User Allowance. If a guest user already has a paid Azure AD license in the user’s own organization, the user doesn't consume one of your B2B guest user licenses. Additionally, guest users can use free Azure AD features with no additional licensing requirements. Guest users have access to free Azure AD features even if you don’t have any paid Azure AD licenses. 
 
 ## Examples: Calculating guest user licenses
 Once you determine how many guest users need to access your paid Azure AD services, make sure you have enough Azure AD paid licenses to cover guest users in the required 1:5 ratio. Here are some examples:
@@ -38,7 +38,7 @@ Once you determine how many guest users need to access your paid Azure AD servic
 ## Using the B2B collaboration API to invite users from your Affiliates
 
 By definition, a B2B guest user is an External User you invite to use your paid Azure AD apps and services. An employee, onsite contractor, or onsite agent of your company or one of your Affiliates won't qualify for B2B collaboration, even if B2B features are used. Here are some examples: 
-- You want to use external credentials (for example, a social identity) to invite a user who is an employee of your organization. This scenario doesn't comply with the licensing requirements and isn't permitted. External credentials do not make your employee an External User.  
+- You want to use external credentials (for example, a social identity) to invite a user who is an employee of your organization. This scenario doesn't comply with the licensing requirements and isn't permitted. External credentials don't make an employee an External User.  
 - You want to use B2B APIs to invite a user from one of your organization’s Affiliates. Although this scenario uses B2B APIs to invite the user, it isn't considered B2B collaboration. It doesn't comply with the licensing requirements because a user from your Affiliate isn't an External User. 
 
 In both of these scenarios, the better solution is to use the B2B API to invite the users as members (invitedUserType = Member) and assign them each an Azure AD license. 
