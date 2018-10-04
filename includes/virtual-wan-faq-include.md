@@ -36,7 +36,7 @@ Yes, Virtual WAN introduces new Resource Manager resources. For more information
 
 ### How many VPN devices can connect to a single Hub?
 
-Up to 100 connections are supported per virtual hub. Each connection consists of two tunnels that are in an active-active configuration. The tunnels terminate in an Azure Virtual Hub vpngateway.
+Up to 1000 connections are supported per virtual hub. Each connection consists of two tunnels that are in an active-active configuration. The tunnels terminate in an Azure Virtual Hub vpngateway.
 
 ### Can the on-premises VPN device connect to multiple Hubs?
 
@@ -89,7 +89,7 @@ Yes.
 
 ### How is Virtual WAN different from the existing Azure Virtual Network Gateway?
 
-Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 100 branch connections with 2 Gbps in the hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 100 branches across hubs.
+Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1000 branch connections with 2 Gbps in the hub for all regions except the West Central region. For the West Central region, 20 Gbps is available. We will be rolling out 20 Gbps for additional regions in the future. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1000 branches across hubs.
 
 ### Does this Virtual WAN require ExpressRoute from each site?
 
@@ -97,7 +97,7 @@ No, the Virtual WAN does not require ExpressRoute from each site. It uses standa
 
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
-Number of branches is limited to 100 connections per hub/region and a total of 2 G in the hub.
+Number of branches is limited to 1000 connections per hub/region and a total of 2 G in the hub.
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel or is it always a single VPN tunnel?
 
