@@ -29,25 +29,27 @@ Each Azure Digital Twins instance can have:
 ## Management API limits
 
 - 100 requests per second to Management API
-- A single Management API query can return up to 1000 objects.  If you exceed this limit, you will receive an error and will need to simplify your query.
+- A single Management API query can return up to 1000 objects.
+
+> [!IMPORTANT]
+> If you exceed the 1000 object limit, you will receive an error and will need to simplify your query.
 
 ## UDF Rate limits
 
-The following limits apply in aggregate to all of the UDFs running within your Azure Digital Twins instance:
+The following limits apply in aggregate to all of the user-defined functions running within your Azure Digital Twins instance:
 
 - 400 client library calls per second
 - 100 SendNotification calls per second
 
->[!NOTE]
->The following actions may cause additional rate limits to be applied temporarily:
-
-- Topology object metadata edits
-- UDF definition updates
-- Devices sending telemetry for the first time
+> [!NOTE]
+> The following actions may cause additional rate limits to be applied temporarily:
+> - Topology object metadata edits
+> - UDF definition updates
+> - Devices sending telemetry for the first time
 
 ## Device Telemetry limits
 
-- In aggregate, devices may send up to 100 messages per second to Azure Digital Twins
+In aggregate, your devices may send up to 100 messages per second to your Azure Digital Twins instance.
 
 ## Next steps
 
