@@ -26,7 +26,7 @@ Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate tha
 The readiness checker validates:
 
 * The *federation metadata* contains the valid XML elements for federation.
-* The *ADFS SSL certificate* can be retrieved and chain of trust can be built. On stamp ADFS must trust the SSL certificates chain. The certificate must be signed by the same *certificate authority* as the Azure Stack deployment certificates by a trusted root authority partner. For the full list of trusted root authority partners, see: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca
+* The *ADFS SSL certificate* can be retrieved and chain of trust can be built. On-stamp ADFS must trust the SSL certificates chain. The certificate must be signed by the same *certificate authority* as the Azure Stack deployment certificates or by a trusted root authority partner. For the full list of trusted root authority partners, see: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca
 * *ADFS signing certificate* is trusted and not nearing expiry.
 
 For more information about Azure Stack data center integration, see [Azure Stack datacenter integration - Identity](azure-stack-integrate-identity.md)
@@ -49,7 +49,7 @@ The following prerequisites must be in place.
 
 **Active Directory Federation Services environment:**
 
-You need one of the following:
+You need at least one of the following forms of metadata:
 
 * The URL for ADFS federation metadata. For example, `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 * The federation metadata XML file. For example, FederationMetadata.xml
