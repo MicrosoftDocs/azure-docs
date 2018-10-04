@@ -28,7 +28,7 @@ Here are the events' format for each of the event types:
 
   Example:
 
-  ```json
+  ```JSON
   {
     "id": "00000000-0000-0000-0000-000000000000",
     "subject": "ExtendedPropertyKey",
@@ -48,7 +48,9 @@ Here are the events' format for each of the event types:
   }
   ```
 
-    Replace `yourTopicName` with your customized topic.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourTopicName` | The name of your customized topic |
 
 - `UdfCustom`
 
@@ -56,7 +58,7 @@ Here are the events' format for each of the event types:
 
   Example:
 
-  ```json
+  ```JSON
   {
     "id": "568fd394-380b-46fa-925a-ebb96f658cce",
     "subject": "UdfCustom",
@@ -74,7 +76,9 @@ Here are the events' format for each of the event types:
   }
   ```
 
-    Replace `yourTopicName` with your customized topic.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourTopicName` | The name of your customized topic |
 
 - `SensorChange`
 
@@ -82,7 +86,7 @@ Here are the events' format for each of the event types:
 
   Example:
 
-  ```json
+  ```JSON
   {
     "id": "60bf5336-2929-45b4-bb4c-b45699dfe95f",
     "subject": "SensorChange",
@@ -107,7 +111,9 @@ Here are the events' format for each of the event types:
   }
   ```
 
-    Replace `yourTopicName` with your customized topic.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourTopicName` | The name of your customized topic |
 
 - `SpaceChange`
 
@@ -115,7 +121,7 @@ Here are the events' format for each of the event types:
 
   Example:
 
-  ```json
+  ```JSON
   {
     "id": "42522e10-b1aa-42ff-a5e7-7181788ffc4b",
     "subject": "SpaceChange",
@@ -140,7 +146,9 @@ Here are the events' format for each of the event types:
   }
   ```
 
-    Replace `yourTopicName` with your customized topic.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourTopicName` | The name of your customized topic |
 
 - `DeviceMessage`
 
@@ -161,7 +169,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
 - Route to **Service Bus** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
-  ```json
+  ```JSON
   {
     "type": "ServiceBus",
     "eventTypes": [
@@ -175,11 +183,16 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    Replace `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your custom values.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourNamespace` | The namespace of your endpoint |
+    | `yourPrimaryKey` | The primary key to authenticate |
+    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourTopicName` | The name of your customized topic |
 
 - Route to **Event Grid** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
-  ```json
+  ```JSON
   {
     "type": "EventGrid",
     "eventTypes": [
@@ -193,11 +206,15 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    Replace `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your custom values.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourPrimaryKey` | The primary key to authenticate |
+    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourTopicName` | The name of your customized topic |
 
 - Route to **Event Hub** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
-  ```json
+  ```JSON
   {
     "type": "EventHub",
     "eventTypes": [
@@ -211,11 +228,16 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    Replace  `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourEventHubName` with your custom values.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourNamespace` | The namespace of your endpoint |
+    | `yourPrimaryKey` | The primary key to authenticate |
+    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourEventHubName` | The name of your Event Hub |
 
 - Route to **Event Hub** event types `DeviceMessage`. Note the inclusion of _EntityPath_ in the `connectionString`, which is mandatory.
 
-  ```json
+  ```JSON
   {
     "type": "EventHub",
     "eventTypes": [
@@ -227,7 +249,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    Replace  `yourNamespace`, `yourPrimaryKey`,  `yourEventHubName`, and `yourSecondaryKey` with your custom values.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourNamespace` | The namespace of your endpoint |
+    | `yourPrimaryKey` | The primary key to authenticate |
+    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourEventHubName` | The name of your Event Hub |
 
 > [!NOTE]
 > Upon the creation of a new Endpoint, it may take up to 5 to 10 minutes to start receiving events on the endpoint.
