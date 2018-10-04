@@ -32,16 +32,13 @@ The format of any UDF package has the path `/UserCustomCode/CLR/*`. Dynamic Link
 
 |**UDF type (C#)**  |**Azure Stream Analytics type**  |
 |---------|---------|
-|Bool  |  bigint   |
-|int32  |  bigint   |
-|int64  |  bigint   |
-|float  |  double   |
+|long  |  bigint   |
 |double  |  double   |
 |string  |  nvarchar(max)   |
 |dateTime  |  dateTime   |
 |struct  |  IRecord   |
 |object  |  IRecord   |
-|Array  |  IArray   |
+|Array<object>  |  IArray   |
 |dictionary<string, object>  |  IRecord   |
 
 ## CodeBehind

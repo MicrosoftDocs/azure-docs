@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to implement your own authentication and inte
 
 The authentication initially used in the quickstart's chat room application is too simple for real-world scenarios. The application allows each client to claim who they are, and the server simply accepts that. This approach is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
 
-[GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial, you will use these APIs to implement authentication through a Github account before allowing client logins to the chat room application. After authenticating a GitHub account, the account information will be added as a cookie to be used by the web client to authenticate.
+[GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial, you will use these APIs to implement authentication through a GitHub account before allowing client logins to the chat room application. After authenticating a GitHub account, the account information will be added as a cookie to be used by the web client to authenticate.
 
 For more information on the OAuth authentication APIs provided through GitHub, see [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/).
 

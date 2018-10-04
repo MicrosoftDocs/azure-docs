@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Collect alerts from Nagios and Zabbix in Log Analytics from OMS Agent for Linux 
