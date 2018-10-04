@@ -31,7 +31,7 @@ The **Speech to Text** API offers the following features:
 
 ## API capabilities
 
-A lot of the capabilities of the **Speech to Text** API -especially around customization- are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details please consult [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+Some of the capabilities of the **Speech to Text** API -especially around customization- are available via REST. The following table summarizes the capabilities of each method of accessing the API. 
 
 | Use case | REST | SDKs |
 |-----|-----|-----|----|
