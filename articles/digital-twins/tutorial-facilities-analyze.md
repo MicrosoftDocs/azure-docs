@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Analyze your Azure Digital Twins setup
 
-Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This is the third tutorial in a series that demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, and simulate the device events, you can integrate the events with other services to create a custom notification and analysis system. In the third tutorial, you understood how to receive *hot data* (or instantaneous) events. You will now analyze *warm data*, which is a slightly less frequently accessed data on a slightly slower storage. This tutorial shows you steps to perform *warm path analytics* to visualize and store the sensor telemetry data using [Azure Time Series Insights or TSI](../time-series-insights/time-series-insights-overview). You will use Azure Time Series Insights to create detailed analyses of the telemetry data from your simulated device sensors.
+Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This is the third tutorial in a series that demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, and simulate the device events, you can integrate the events with other services to create a custom notification and analysis system. In the third tutorial, you understood how to receive *hot data* (or instantaneous) events. You will now analyze *warm data*, which is a slightly less frequently accessed data on a slightly slower storage. This tutorial shows you steps to perform *warm path analytics* to visualize and store the sensor telemetry data using [Azure Time Series Insights or TSI](../../time-series-insights/time-series-insights-overview). You will use Azure Time Series Insights to create detailed analyses of the telemetry data from your simulated device sensors.
 
 In this tutorial, you learn how to:
 
@@ -30,7 +30,7 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 
 
 ## Stream data using Event Hub
-[Event Hubs](../event-hubs/event-hubs-about) allow you to create a pipeline to stream your data. This section shows you how to create your Event hub as the connector between Digital Twins and TSI.
+[Event Hubs](../../event-hubs/event-hubs-about) allow you to create a pipeline to stream your data. This section shows you how to create your Event hub as the connector between Digital Twins and TSI.
 
 ### Create an Event Hub
 

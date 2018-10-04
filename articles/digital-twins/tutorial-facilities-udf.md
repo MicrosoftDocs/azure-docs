@@ -134,7 +134,7 @@ In this section, you will simulate sensor data for detecting motion, temperature
 1. In a command window, navigate to the sample Digital Twins application folder, and then run `cd device-connectivity`.
 1. Run `dotnet restore` to make sure the dependencies for the project are correct.
 1. Open the *appSettings.json* file in your editor, edit the following values:
-    1. *DeviceConnectionString*: Assign the value of `ConnectionString` in the output window when you [provisioned your spatial graph](tutorial-facilities-setup.md#provision-your-spaces-and-device).
+    1. *DeviceConnectionString*: Assign the value of `ConnectionString` in the output window when you [provisioned your spatial graph](tutorial-facilities-setup.md#provision-spaces).
     2. *HardwareId* within the *Sensors* array: Make sure the hardware ID and the names match with what you had in the *provisionSample.yaml* file.
 2. Run `dotnet run` to start simulating device events for temperature, motion and carbon dioxide. 
 

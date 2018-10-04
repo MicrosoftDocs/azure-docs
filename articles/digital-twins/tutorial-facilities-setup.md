@@ -70,6 +70,7 @@ The sample allows you to configure and provision a spatial intelligence graph. T
     c. *BaseUrl*: The *Management API* URL of your Digital Twins instance, which will be in the following format, `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`.
 4. Run `dotnet run` to see a list of Digital Twins features that you can explore using the sample.
 
+<a id="provision-spaces" />
 ## Provision your spaces and devices
 This section shows how to provision a spatial graph for a sample building, using the sample we downloaded in the previous section.
 
