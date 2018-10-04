@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/05/2018
 ms.author: diberry
 ---
 
