@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 
 # What is Azure Active Directory monitoring? (preview)
 
-With Azure Active Directory (Azure AD) monitoring, you can now route your Azure AD activity logs to different endpoints to either retain it for long-term use or integrate it with third party Security Information and Event Management (SIEM) tools to gain insights into your environment.
+With Azure Active Directory (Azure AD) monitoring, you can now route your Azure AD activity logs to different endpoints. You can then either retain it for long-term use or integrate it with third-party Security Information and Event Management (SIEM) tools to gain insights into your environment.
 
 Currently, you can route the logs to:
 
@@ -50,13 +50,13 @@ By routing logs to an Azure storage account, you can retain it for longer than t
 
 ## Stream logs to event hub
 
-You can integrate with third party SIEM tools such as Sumologic and Splunk by first streaming the logs to an event hub, then integrating it with Splunk or Sumologic. This allows you to integrate Azure AD activity log data with other data managed by your SIEM, resulting in richer insights into your environment. Learn how to [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md).
+Routing logs to an Azure event hub allows you to integrate with third-party SIEM tools like Sumologic and Splunk. This integration allows you to combine Azure AD activity log data with other data managed by your SIEM, resulting in richer insights into your environment. Learn how to [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## Send logs to Log Analytics
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is a solution that consolidates monitoring data from a variety of sources and provides a query language and analytics engine that gives you insights into the operation of your applications and resources. By sending Azure AD activity logs to Log Analytics, you can take advantage of the rich query language and analytics engine to quickly retrieve, consolidate, and analyze collected data. Learn how to [send data to Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is a solution that consolidates monitoring data from different sources and provides a query language and analytics engine that gives you insights into the operation of your applications and resources. By sending Azure AD activity logs to Log Analytics, you can quickly retrieve, monitor and alert on collected data. Learn how to [send data to Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 
-You can also install the pre-built views for Azure AD activity logs, and take advantage of the rich visualizations they provide into common scenarios involving sign-ins and audit events. Learn how to [install and use Log Analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md).
+You can also install the pre-built views for Azure AD activity logs to monitor common scenarios involving sign-ins and audit events. Learn how to [install and use Log Analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md).
 
 ## Next steps
 
