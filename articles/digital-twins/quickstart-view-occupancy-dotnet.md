@@ -48,11 +48,11 @@ You can build and run the occupancy application using the outlined steps:
 1. Run `cd occupancy-quickstart/src`.
 1. Run `dotnet restore`.
 1. Edit `appsettings.json` to update the following variables to match your Digital Twins instance:
-    - `ClientId` with the value from previous step
-    - `Tenant` with the value from previous step
+    - `ClientId` with the value from previous step.
+    - `Tenant` with the value from previous step.
     - `BaseUrl`, for example:
         ```plaintext
-         https://yourInstanceName.yourLocation.azuresmartspaces.net/management/api/v1.0/
+        https://yourInstanceName.yourLocation.azuresmartspaces.net/management/api/v1.0/
         ```
         | Custom Attribute Name | Replace With |
         | --- | --- |
@@ -80,10 +80,10 @@ You can build and run the sensor simulator application using the steps below:
 
 1. Open a new command prompt and navigate to the project you've cloned.
 1. Run `cd device-connectivity`.
-1. Run `dotnet restore`
+1. Run `dotnet restore`.
 1. Edit `appsettings.json` to update the following variables to match your Digital Twins instance:
     - `DeviceConnectionString` with the `ConnectionString` above.
-    - `HardwareId` of the sensors
+    - `HardwareId` of the sensors.
 1. Run `dotnet run` to start sending telemetry, you should see telemetry being sent to Digital Twins service as in the image below:
 
      ![Device Connectivity][4]
@@ -95,8 +95,8 @@ The sensor telemetry sample is simulating random data values for two sensors, mo
 1. Go to the `occupancy-quickstart` command prompt.
 1. Run `dotnet run GetAvailableAndFreshSpaces`.
 1. Look at the command prompt and the sensor telemetry command prompt side by side as outlined below. It will display one of these conditions in near real-time based on what the sensor telemetry has last sent:
-    - Available rooms with fresh air
-    - Occupied or poor air quality of the room
+    - Available rooms with fresh air.
+    - Occupied or poor air quality of the room.
 
      ![Get available spaces with fresh air][5]
 
