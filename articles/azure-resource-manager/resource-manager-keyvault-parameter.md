@@ -23,7 +23,7 @@ When you need to pass a secure value (like a password) as a parameter during dep
 
 There are two important conditions that must exist for accessing a key vault during template deployment:
 
-1. The key vault property `enabledForTemplateDeployment` must be `true`.
+1. `enabledForTemplateDeployment` must be `true`.  `enabledForTemplateDeployment` is a key vault property. 
 2. The user deploying the template must have access to the secret. The user must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the key vault. The [Owner](../role-based-access-control/built-in-roles.md#owner) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles both grant this access.
 
 When using a Key Vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
@@ -37,7 +37,8 @@ For Azure CLI, use:
 
 ```azurecli-interactive
 vaultname={your-unique-vault-name}
-password={password-value}
+password=$(openssl rand -base64 32)
+echo $password
 
 az group create --name examplegroup --location 'South Central US'
 az keyvault create \
@@ -52,7 +53,7 @@ For PowerShell, use:
 
 ```powershell
 $vaultname = "{your-unique-vault-name}"
-$password = "{password-value}"
+$password = [System.Web.Security.Membership]::GeneratePassword(16,3)
 
 New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
 New-AzureRmKeyVault `
@@ -63,6 +64,9 @@ New-AzureRmKeyVault `
 $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
 ```
+
+> [!NOTE]
+> Each Azure service has specific password requirements. For example, the Azure virtual machine's requirements can be found at [What are the password requirements when creating a VM?](../virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
 
 ## Reference a secret with static ID
 
