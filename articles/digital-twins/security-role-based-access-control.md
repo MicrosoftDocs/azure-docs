@@ -37,7 +37,7 @@ A developer might use Role-Based Access Control to:
 
 A **role definition** is a collection of permissions and is sometimes called a **role**. The role definition lists the allowed operations including *create*, *read*, *update*, and *delete*. It also specifies to which object types these permissions apply.
 
-The following roles are available in Digital Twins:
+The following roles are available in Azure Digital Twins:
 
 * **Space Administrator**: Create, Read, Update, and Delete permission for the specified space and all nodes underneath. Global permission.
 * **User Administrator**: Create, Read, Update, and Delete permission for users and user-related objects. Read permission for spaces.
@@ -74,7 +74,7 @@ The `ObjectIdType` refers to the type of identity that is being given a role. Ap
 
 ## Role assignments
 
-Permissions are granted to a recipient by creating a role assignment, and revoked by removing a role assignment. A Digital Twins role assignment associates an object (user, Azure AD tenant, etc.), role, and a space. Permissions are then granted to all objects that belong to that space, including the entire spatial graph beneath it.
+Permissions are granted to a recipient by creating a role assignment, and revoked by removing a role assignment. An Azure Digital Twins role assignment associates an object (user, Azure AD tenant, etc.), role, and a space. Permissions are then granted to all objects that belong to that space, including the entire spatial graph beneath it.
 
 For example, a user is given a role assignment with role `DeviceInstaller` for the root node of a spatial graph, which represents a building. The user is then able to Read and Update devices not only for that node, but all other child spaces in the building.
 
