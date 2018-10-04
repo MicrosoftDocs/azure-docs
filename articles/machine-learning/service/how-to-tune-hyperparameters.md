@@ -235,7 +235,7 @@ max_concurrent_runs=4
 This will configure the hyperparameter tuning experiment to use a maximum of 20 total runs, running 4 configurations at a time.
 
 ## Configure your hyperparameter tuning experiment
-You can configure your hyperparameter tuning experiment using the defined hyperpameter search space, early termination policy, primary metric and resource allocation from the sections above. Additionally, you will need to provide an `estimator` that will be called with the sampled hyperparameters. The `estimator` describes the training script you run, the resources per job (single or multi-gpu), and the compute target to use. Since concurrency for your hyperparameter tuning experiment is gated on the resources available, you will need to ensure that your compute target specified in the `estimator` has sufficient resources for desired concurrency. (See [link](/how-to-train-ml-models.md) for more information on estimators).
+You can configure your hyperparameter tuning experiment using the defined hyperpameter search space, early termination policy, primary metric and resource allocation from the sections above. Additionally, you will need to provide an `estimator` that will be called with the sampled hyperparameters. The `estimator` describes the training script you run, the resources per job (single or multi-gpu), and the compute target to use. Since concurrency for your hyperparameter tuning experiment is gated on the resources available, you will need to ensure that your compute target specified in the `estimator` has sufficient resources for desired concurrency. (See [how to train models](how-to-train-ml-models.md) for more information on estimators).
 
 Here is an example of how you can configure your hyperparameter tuning experiment -
 
@@ -309,5 +309,5 @@ Get this notebook:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
-* [Track an experiment](/how-to-track-experiments.md)
-* [Deploy a trained model](/how-to-deploy-and-where.md)
+* [Track an experiment](how-to-track-experiments.md)
+* [Deploy a trained model](how-to-deploy-and-where.md)

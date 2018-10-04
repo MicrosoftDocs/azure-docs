@@ -16,7 +16,7 @@ ms.custom: it-pro
 ---
 
 # How to: Add your custom domain name using the Azure Active Directory portal
-Every new Azure AD tenant comes with an initial domain name, *domainname*.onmicrosoft.com. You can't change or delete the initial domain name, but you can add your organization's names to the list. Adding custom domain names helps you to create user names that are familiar to your users, such as _alain@contoso.com_.
+Every new Azure AD tenant comes with an initial domain name, *domainname*.onmicrosoft.com. You can't change or delete the initial domain name, but you can add your organization's names to the list. Adding custom domain names helps you to create user names that are familiar to your users, such as *alain@contoso.com*.
 
 ## Before you begin
 Before you can add a custom domain name, you must create your domain name with a domain registrar. For an accredited domain registrar, see [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html).
@@ -88,7 +88,8 @@ After you register your custom domain name, you need to make sure it's valid in 
 
     If you can't update the record on the registrar site, you must share the entry with someone that has the right permissions to add the entry and verify it's accurate.
 
-- **Make sure the domain name isn't already in use in another directory.** A domain name can only be verified in one directory, which means that if your domain name is currently verified in another directory, it can't also be verified in the new directory. To fix this duplication problem, you must delete the domain name from the old directory. For more information about deleting domain names, see [Manage custom domain names](../users-groups-roles/domains-manage.md). 
+- **Make sure the domain name isn't already in use in another directory.** A domain name can only be verified in one directory, which means that if your domain name is currently verified in another directory, it can't also be verified in the new directory. To fix this duplication problem, you must delete the domain name from the old directory. For more information about deleting domain names, see [Manage custom domain names](../users-groups-roles/domains-manage.md).
+    - If you have users who have activated PowerBI via self-service sign-up and have created an unmanaged tenant for your organization, the IT admin can manage this tenant via takeover or can proceed to add the domain with force takeover option in PowerShell. To learn more about admin domain takeover, see [Take over an unmanaged directory as administrator in Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
 
 ## Next steps
 

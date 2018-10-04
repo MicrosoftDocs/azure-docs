@@ -114,7 +114,7 @@ Articles
 * [Network security best practices](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS recommendations](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [OMS customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Log Analytics customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## Community Resources
 

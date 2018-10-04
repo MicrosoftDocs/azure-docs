@@ -16,7 +16,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
-ms.author: jlian
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
 ---
 # Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go

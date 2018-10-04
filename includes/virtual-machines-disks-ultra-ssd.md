@@ -41,12 +41,12 @@ The following table summarizes the different configurations supported for differ
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9,600         |2.000         |
-|64     |19,200         |2.000         |
-|128     |38,400         |2.000         |
-|256     |76,800         |2.000         |
-|512     |80,000         |2.000         |
-|1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |2.000         |
+|32     |9,600         |2,000         |
+|64     |19,200         |2,000         |
+|128     |38,400         |2,000         |
+|256     |76,800         |2,000         |
+|512     |80,000         |2,000         |
+|1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |2,000         |
 
 ## Pricing and billing
 

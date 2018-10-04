@@ -4,7 +4,7 @@ description: Describes how to refine an assessment using group dependency mappin
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/25/2018
 ms.author: raynew
 ---
 
@@ -35,7 +35,7 @@ To leverage dependency visualization, you need to associate a Log Analytics work
 > You cannot change the workspace associated to a migration project.
 
 ### Download and install the VM agents
-To view dependencies of a group, you need to download and install agents on each on-premises machine that is part of the group. In addition, if you have machines with no internet connectivity, you need to download and install [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
+To view dependencies of a group, you need to download and install agents on each on-premises machine that is part of the group. In addition, if you have machines with no internet connectivity, you need to download and install [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
 
 1. In **Overview**, click **Manage** > **Groups**, go to the required group.
 2. In the list of machines, in the **Dependency agent** column, click **Requires installation** to see instructions regarding how to download and install the agents.
@@ -97,5 +97,5 @@ If you want to check the dependencies of a specific machine that appears in the 
 
 
 ## Next steps
-
-[Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
+- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.
+- [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.

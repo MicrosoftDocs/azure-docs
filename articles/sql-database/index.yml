@@ -152,6 +152,19 @@ sections:
     - html: Migrate an existing database to Azure using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a>, or <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: Distribute your data globally using <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Geo-distributed database</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Provision an Azure SQL Database to store application data
+      href: /learn/modules/provision-azure-sql-db/
+      image: 
+        src: /learn/achievements/provision-azure-sql-db.svg
+        href: /learn/modules/provision-azure-sql-db/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-sql-database">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

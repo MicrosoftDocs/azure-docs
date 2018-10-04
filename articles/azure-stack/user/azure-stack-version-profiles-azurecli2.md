@@ -16,13 +16,13 @@ ms.author: sethm
 ms.reviewer: sijuman
 
 ---
-# Use API version profiles with Azure CLI 2.0 in Azure Stack
+# Use API version profiles with Azure CLI in Azure Stack
 
 You can follow the steps in this article to set up the Azure Command-Line Interface (CLI) to manage Azure Stack Development Kit resources from Linux, Mac, and Windows client platforms.
 
 ## Install CLI
 
-Sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI. You can install that by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
+Sign in to your development workstation and install CLI. Azure Stack requires version 2.0 or later of Azure CLI. You can install that by using the steps described in the [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
 
 ```azurecli
 az --version
