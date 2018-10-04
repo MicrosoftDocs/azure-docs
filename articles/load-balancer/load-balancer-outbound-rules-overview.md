@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/3/2018
+ms.date: 10/4/2018
 ms.author: kumud
 ---
 
@@ -43,7 +43,7 @@ Like all Load Balancer rules, outbound rules follow the same familiar syntax as 
 
 An outbound rule configures outbound NAT for _all virtual machines identified by the backend pool_ to be translated to the _frontend_.  And _parameters_ provide additional fine grained control over the outbound NAT algorithm.
 
-API version "2018-07-01" permits an outbound rule definition structured as follows:
+API version "2018-08-01" permits an outbound rule definition structured as follows:
 
 ```json
       "outboundRules": [
