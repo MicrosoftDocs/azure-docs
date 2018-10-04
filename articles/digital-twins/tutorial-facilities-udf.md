@@ -146,7 +146,9 @@ In this section, we will use [Event Grid](../event-grid/overview.md) to create a
 
     ![Create Event Grid Topic](./media/tutorial-facilities-udf/create-event-grid-topic.png)
 
-1. Navigate to the event grid topic from your resource group, 
+1. Navigate to the event grid topic from your resource group, click on **Access keys**, and copy **Key 1** and **Key 2** to your clipboard. You will use them to create the endpoint in the proceding steps.
+
+    ![Event Grid Keys](./media/tutorial-facilities-udf/event-grid-keys.png)
 
 ### Create an endpoint for the Event Grid Topic
 
@@ -157,8 +159,8 @@ Make a POST call for the endpoint `POST https://{{endpoint-management}}/api/v1.0
   "type": "EventGrid",
   "path": "<topicName coming from Topic Endpoint>",
   "eventTypes": ["SensorChange","TopologyOperation", "SpaceChange", "UdfCustom"],
-  "connectionString": "F5TGpwKksuis9OuWkESP91wdfYBTjPQPSerR/9ChCrU=",
-  "secondaryConnectionString": "+7chq14ecCKx9cuBxwiaDcWf3mB7ceGj15RP/mwPoYQ="
+  "connectionString": "<Key 1 of the Event Grid Topic>",
+  "secondaryConnectionString": "<Key 2 of the Event Grid Topic>"
 }
 ```
 
