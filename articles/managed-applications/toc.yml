@@ -10,7 +10,7 @@
   - name: Publish application definition
     href: publish-managed-app-definition-quickstart.md
   - name: Deploy service catalog app
-    href: deploy-service-catalog-portal.md
+    href: deploy-service-catalog-quickstart.md
 - name: Tutorials
   items:
   - name: Create definition files

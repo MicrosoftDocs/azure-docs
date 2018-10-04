@@ -73,4 +73,4 @@ Some of the parameters used in the preceding example are:
 You've published the managed application definition. Now, learn how to deploy an instance of that definition.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy service catalog app](deploy-serive-catalog-quickstart.md)
+> [Quickstart: Deploy service catalog app](deploy-service-catalog-quickstart.md)
