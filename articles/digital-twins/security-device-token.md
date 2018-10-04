@@ -50,4 +50,4 @@ To obtain a valid SAS Token, follow these steps:
 Read more about Azure Digital Twins security:
 
 > [!div class="nextstepaction"]
-> [Creating a role assignment] (./security-create-manage-role-assignments.md)
+> [Creating a role assignment](./security-create-manage-role-assignments.md)
