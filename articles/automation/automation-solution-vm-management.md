@@ -27,6 +27,8 @@ The following are limitations to the current solution:
 
 > [!NOTE]
 > If you are using the solution for classic VMs, then all your VMs will be processed sequentially per cloud service. Parallel job processing is still be supported across different cloud services.
+>
+> Azure Cloud Solution Provider (Azure CSP) subscriptions supports only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When the Start/Stop solution runs you may receive errors as it has cmdlets to manage classic resources. To learn more about CSP, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
 ## Prerequisites
 
