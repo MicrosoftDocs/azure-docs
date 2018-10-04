@@ -44,8 +44,7 @@ Parameter | Description
 `script_params` | Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
 `compute_target` | Remote compute that your training script will run on, in this case a [Batch AI](how-to-set-up-training-targets.md#batch) cluster
 `entry_script` | Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
-`conda_packages` | List of Python packages to be installed via conda needed by your training script. In this case training script uses `sklearn` for loading the data, so specify this package to be installed.  
-The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
+`conda_packages` | List of Python packages to be installed via conda needed by your training script. In this case training script uses `sklearn` for loading the data, so specify this package to be installed.  The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
 `use_gpu` | Set this flag to `True` to leverage the GPU for training. Defaults to `False`.
 
 Since you are using the TensorFlow estimator, the container used for training will default include the TensorFlow package and related dependencies needed for training on CPUs and GPUs.
@@ -167,7 +166,7 @@ run = exp.submit(tf_est)
 
 ## Examples
 For a tutorial on single-node TensorFlow training, see:
-* `training/03.train-tune-deploy-tensorflow/03.train-tune-deploy-tensorflow.ipynb`
+* `training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb `
 
 For a tutorial on distributed TensorFlow with Horovod, see:
 * `training/04.distributed-tensorflow-with-horovod/04.distributed-tensorflow-with-horovod.ipynb`

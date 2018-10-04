@@ -41,8 +41,7 @@ Parameter | Description
 `script_params` |  Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
 `compute_target` |  Remote compute that your training script will run on, in this case a [Batch AI](how-to-set-up-training-targets.md#batch) cluster
 `entry_script` |  Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
-`conda_packages` |  List of Python packages to be installed via conda needed by your training script.
-The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
+`conda_packages` |  List of Python packages to be installed via conda needed by your training script. The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
 `use_gpu` |  Set this flag to `True` to leverage the GPU for training. Defaults to `False`
 
 Since you are using the `PyTorch` estimator, the container used for training will include the PyTorch package and related dependencies needed for training on CPUs and GPUs.
@@ -80,7 +79,7 @@ Parameter | Description | Default
 --|--|--
 `node_count` |  Number of nodes to use for your training job. | `1`
 `process_count_per_node` |  Number of processes (or "workers") to run on each node. | `1`
-`distributed_backend` |  Backend for launching distributed training, which the Estimator offers via MPI.  To carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `distributed_backend='mpi'`. The MPI implementation used by Azure Machine Learning is [Open MPI](https | //www.open-mpi.org/). | `None`
+`distributed_backend` |  Backend for launching distributed training, which the Estimator offers via MPI.  To carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `distributed_backend='mpi'`. The MPI implementation used by Azure Machine Learning is [Open MPI](https://www.open-mpi.org/). | `None`
 
 The above example will run distributed training with two workers, one worker per node.
 
@@ -97,7 +96,7 @@ run = exp.submit(pt_est)
 
 ## Examples
 For a tutorial on single-node PyTorch training, see:
-* `training/01.train-tune-deploy-pytorch/01.train-tune-deploy-pytorch.ipynb`
+* `training/01.train-hyperparameter-tune-deploy-with-pytorch/01.train-hyperparameter-tune-deploy-with-pytorch.ipynb`
 
 For a tutorial on distributed PyTorch with Horovod, see:
 * `training/02.distributed-pytorch-with-horovod/02.distributed-pytorch-with-horovod.ipynb`
