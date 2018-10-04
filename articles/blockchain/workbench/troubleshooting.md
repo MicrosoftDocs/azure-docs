@@ -71,4 +71,8 @@ The **Details** folder contains detailed logs for troubleshooting specific issue
 ## Next steps
 
 > [!div class="nextstepaction"]
+<<<<<<< HEAD:articles/blockchain/workbench/troubleshooting.md
 > [Azure Blockchain Workbench architecture](architecture.md)
+=======
+> [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)
+>>>>>>> 4fcae7a08b4979aa93af37bd5608240515d7cf3e:articles/blockchain-workbench/blockchain-workbench-troubleshooting.md
