@@ -60,4 +60,4 @@ For detailed instructions about how to orchestrate the on-behalf-of flow visit [
 Read more about Azure Digital Twins security:
 
 > [!div class="nextstepaction"]
-> [Device connectivity and authentication] (./security-device-token.md)
+> [Create and manage role assignments](./security-create-manage-role-assignments.md)
