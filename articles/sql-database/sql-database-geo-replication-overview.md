@@ -85,6 +85,10 @@ The active geo-replication feature provides the following essential capabilities
 
 Auto-failover groups feature provides a powerful abstraction of active geo-replication by supporting group level replication and automatic failover. In addition, it removes the necessity to change the SQL connection string after failover by providing the additional listener end-points. 
 
+> [!NOTE]
+> Auto-failover is not available in Managed Instance.
+>  
+
 * **Failover group**: One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region.  
 * **Primary server**: A server that hosts the primary databases in the failover group.
 * **Secondary server**: A server that hosts the secondary databases in the failover group. The secondary server cannot be in the same region as the primary server.

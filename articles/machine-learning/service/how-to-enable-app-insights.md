@@ -43,7 +43,7 @@ You can enable and disable Application Insights in Azure portal.
 
 4. In **Advance Settings** select **Enable Application Insights diagnostics**.
 
-   [![Edit](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png)#lightbox)
+   [![Edit](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Select **Update** at the bottom of the screen to apply the changes. 
 
