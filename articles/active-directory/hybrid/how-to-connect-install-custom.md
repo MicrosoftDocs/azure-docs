@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -151,12 +151,19 @@ In a full-blown production deployment, it is going to be hard to maintain a sing
 ### Optional Features
 This screen allows you to select the optional features for your specific scenarios.
 
+>[!WARNING]
+>Azure AD Connect versions **1.0.8641.0** and older rely on the Azure Access Control service for password writeback.  This service will be retired on **November 7th 2018**.  If you are using any of these versions of Azure AD Connect and have enabled password writeback, users may lose the ability to change or reset their passwords once the service is retired. Password writeback with these versions of Azure AD Connect will not be supported.
+>
+>For more information on the Azure Access Control service see [How to: Migrate from the Azure Access Control service](../develop/active-directory-acs-migration.md)
+>
+>To download the latest version of Azure AD Connect click [here](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+
 ![Optional features](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect.
->
->
+
+
 
 | Optional Features | Description |
 | --- | --- |
