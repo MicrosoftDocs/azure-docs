@@ -40,9 +40,6 @@ https://yourManagementApiUrl/api/v1.0/devices/yourDeviceGuid?includes=Connection
 https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourDeviceHardwareId&includes=ConnectionString
 ```
 
-> [!NOTE]
-> Use the table below to customize your solution.
-
 | Custom Attribute Name | Replace With |
 | --- | --- |
 | `yourManagementApiUrl` | The full URL path for your Management API |
