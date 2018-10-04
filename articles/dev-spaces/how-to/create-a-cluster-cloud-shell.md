@@ -8,13 +8,13 @@ author: ghogen
 ms.author: ghogen
 ms.date: "10/04/2018"
 ms.topic: "article"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn how to quickly create a Kubernetes cluster enabled for Azure Dev Spaces directly from your browser without installing anything."
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 manager: douge
 ---
-# Create a Kubernetes cluster enabled for Azure Dev Spaces using the Azure Cloud Shell
+# Create a Kubernetes cluster using Azure Cloud Shell
 
-You can use [Azure Cloud Shell](/azure/cloud-shell) by using the **Try It** button from this page. If you aren't signed in, follow the prompts to sign in with an Azure account, then type the commands at the Azure Cloud Shell prompt when it appears.
+You can use [Azure Cloud Shell](/azure/cloud-shell) to create a cluster for Azure Dev Spaces by using the **Try It** button from this page. If you aren't signed in, follow the prompts to sign in with an Azure account, then type the commands at the Azure Cloud Shell prompt when it appears.
 
 Create the resource group. Use one of the currently supported regions (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast).
 
