@@ -84,7 +84,7 @@ To invoke the right number of iterations, set the context as `"/document/people/
   }
 ```
 
-When annotations are arrays or collections of strings, you might want to target specific members rather than the array as a whole. The above example generates an annotation called `"last"` under each node represented by the context. If you want to refer to this family of annotations, you could use the syntax `"/document/people/*/last"`. If you want to refer to a particular annotation, you could use an explicit index: `"/document/people/1/last`" to reference the last name of the first person identified in the document. Notice that in this syntax arrays are "1 indexed".
+When annotations are arrays or collections of strings, you might want to target specific members rather than the array as a whole. The above example generates an annotation called `"last"` under each node represented by the context. If you want to refer to this family of annotations, you could use the syntax `"/document/people/*/last"`. If you want to refer to a particular annotation, you could use an explicit index: `"/document/people/1/last`" to reference the last name of the first person identified in the document. Notice that in this syntax arrays are "0 indexed".
 
 <a name="example-3"></a>
 
