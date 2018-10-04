@@ -80,7 +80,7 @@ so save your work often.
 1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 if you haven't already. Create a blank logic app.
 
-2. Add the **Schedule - Recurrence** trigger with these settings: 
+1. Add the **Schedule - Recurrence** trigger with these settings: 
 **Interval** = "1" and **Frequency** = "Minute"
 
    ![Set up "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
@@ -89,7 +89,7 @@ if you haven't already. Create a blank logic app.
    > To visually simplify your view and hide each action's details in the designer, 
    > collapse each action's shape as you progress through these steps.
 
-3. Add the **Bing Maps - Get route** action. 
+1. Add the **Bing Maps - Get route** action. 
 
    1. If you don't already have a Bing Maps connection, 
    you're asked to create a connection.
@@ -100,7 +100,7 @@ if you haven't already. Create a blank logic app.
       | **API Key** | <*your-Bing-Maps-key*> | Enter the Bing Maps key that you previously received. | 
       ||||  
 
-   2. Set up your **Get route** action as shown the table below this image:
+   1. Set up your **Get route** action as shown the table below this image:
 
       ![Set up "Bing Maps - Get route" action](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
@@ -118,40 +118,40 @@ if you haven't already. Create a blank logic app.
       | **Transit Date-Type Type** | None | Applies to transit mode only. | 
       ||||  
 
-4. [Add a condition](../logic-apps/control-flow-conditional-statement.md) 
+1. [Add a condition](../logic-apps/logic-apps-control-flow-conditional-statement.md) 
 that checks whether the current travel time with traffic exceeds a specified time. 
 For this example, follow these steps:
 
    1. Rename the condition with this description: 
    **If traffic time is more than specified time**
 
-   1. Click inside the **Choose a value** box so the dynamic content list appears. 
-   From that list, select the **Travel Duration Traffic** field, which is in seconds. 
+   1. In the leftmost column, click inside the **Choose a value** 
+   box so the dynamic content list appears. From that list, 
+   select the **Travel Duration Traffic** field, which is in seconds. 
 
       ![Build condition](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
 
-   1. For the comparison operator, select this operator: **is greater than**
+   1. In the middle box, select this operator: **is greater than**
 
-   1. For the comparison value, enter **600**, which is in seconds 
-   and equivalent to 10 minutes.
+   1. In the rightmost column, enter this comparison value, 
+   which is in seconds and equivlent to 10 minutes: **600**
 
       When you're done, your condition looks like this example:
 
       ![Finished condition](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-5. In the condition's **If true** branch, add a "send email" action for your 
-email provider. Set up this action with the details as shown in the table under 
-this image:
+1. In the **If true** branch, add a "send email" action for your email provider. 
+Set up this action by following the steps under this image:
 
    ![Add "Send an email" action to "If true" branch](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
-   1. For the **To** field, enter your email address for testing purposes.
+   1. In the **To** field, enter your email address for testing purposes.
 
-   2. For the **Subject** field, enter this text:
+   1. In the **Subject** field, enter this text:
 
       ```Time to leave: Traffic more than 10 minutes```
 
-   3. For the **Body** field, enter this text with a trailing space: 
+   1. In the **Body** field, enter this text with a trailing space: 
 
       ```Travel time: ```
 
@@ -159,20 +159,20 @@ this image:
       the dynamic content list stays open so that you can 
       select any parameters that are available at this point.
 
-   4. In the dynamic content list, choose **Expression**.
+   1. In the dynamic content list, choose **Expression**.
 
-   5. Find and select the **div( )** function.
+   1. Find and select the **div()** function. 
+   Put your cursor in inside the function's parentheses.
 
-   6. While your cursor is inside the function's parentheses, 
-   choose **Dynamic content** so that you can add the 
-   **Traffic Duration Traffic** parameter next.
-
-   7. Under **Get route** in the dynamic parameter list, 
+   1. While your cursor is inside the function's parentheses, 
+   choose **Dynamic content** so that the dynamic content list appears. 
+   
+   1. From the **Get route** section, 
    select the **Traffic Duration Traffic** field.
 
       ![Select "Traffic Duration Traffic"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   8. After the field resolves to JSON format, 
+   1. After the field resolves to JSON format, 
    add a **comma** (```,```) followed by the number ```60``` 
    so that you convert the value in **Traffic Duration Traffic** 
    from seconds to minutes. 
@@ -185,16 +185,16 @@ this image:
 
       ![Finish expression](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   9. Make sure that you choose **OK** when you're done.
+   1. When you're done, choose **OK**.
 
-  10. After the expression resolves, 
+  1. After the expression resolves, 
   add this text with a leading space: ``` minutes```
   
-      Your **Body** field now looks like this example:
+     Your **Body** field now looks like this example:
 
-      ![Finished "Body" field](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+     ![Finished "Body" field](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
-6. Save your logic app.
+1. Save your logic app.
 
 Next, add a scope so that you can group 
 specific actions and evaluate their status.
