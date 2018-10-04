@@ -16,7 +16,7 @@ Virtual WAN provides large-scale site-to-site connectivity and is built for thro
 
 ### Which device providers (Virtual WAN partners) are supported at launch time? 
 
-At this time, Citrix and Riverbed support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+At this time, many partners support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://go.microsoft.com/fwlink/p/?linkid=2019615). For partner automation steps, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md)
 
 ### Am I required to use a preferred partner device?
 
@@ -61,7 +61,6 @@ No. The NVA VNet cannot have a virtual network gateway if it is connected to the
 ### Is there support for BGP?
 
 Yes, BGP is supported. To ensure that routes from an NVA VNet are advertised appropriately, spokes must disable BGP if they are connected to an NVA VNet, which in turn, is connected to a virtual hub. Additionally, connect the spoke VNets to the virtual hub to ensure spoke VNet routes are propagated to on-premises systems.
-Can I direct traffic using UDR in the virtual hub?
 
 ### Can I direct traffic using UDR in the virtual hub?
 
@@ -97,7 +96,7 @@ No, the Virtual WAN does not require ExpressRoute from each site. It uses standa
 
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
-Number of branches is limited to 1000 connections per hub/region and a total of 2 G in the hub.
+Number of branches is limited to 1000 connections per hub/region and a total of 2 G in the hub. The exception is West Central US, which has a total of 20 Gbps. We will be rolling 20 Gbps out to other regions in the future.
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel or is it always a single VPN tunnel?
 
