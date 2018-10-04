@@ -71,7 +71,8 @@ In this chart, a channel refers to the method in which a customer arrived at y
 	
 A page view means that a customer viewed your solutions's AppSource listing page. This includes views by people who aren't signed in. Some customers have opted out of providing this information to Microsoft.
 
-> [!NOTE] Customers could arrive at your app's listing by clicking on a custom campaign not created by you. We stamp every page view within a session with the campaign ID from which the customer first entered the Store. We then attribute conversions to that campaign ID for all acquisitions within 24 hours. Because of this, you may see a higher number of total conversions than the total conversions for your campaign IDs, and you may have conversions or add-on conversions that have zero page views.
+> [!NOTE] 
+> Customers could arrive at your app's listing by clicking on a custom campaign not created by you. We stamp every page view within a session with the campaign ID from which the customer first entered the Store. We then attribute conversions to that campaign ID for all acquisitions within 24 hours. Because of this, you may see a higher number of total conversions than the total conversions for your campaign IDs, and you may have conversions or add-on conversions that have zero page views.
 
 ## App page views and conversions by campaign ID
 
