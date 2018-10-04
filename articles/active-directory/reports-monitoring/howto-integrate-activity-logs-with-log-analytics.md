@@ -73,4 +73,4 @@ To use this feature, you need:
 ## Next Steps
 
 * [Analyze Azure AD activity logs in Log Analytics](howto-analyze-activity-logs-log-analytics.md)
-* [Install and use the Log Analytics views for Azure Active Directory](howto-install-and-use-log-analytics-views.md)
+* [Install and use the Log Analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)

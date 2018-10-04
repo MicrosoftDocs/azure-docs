@@ -92,4 +92,4 @@ You can also set up alerts on your query. For example, to configure an alert whe
 
 * [Get started with queries in Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [Create and manage alert groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
-* [Install and use the Log Analytics views for Azure Active Directory](howto-install-and-use-log-analytics-views.md)
+* [Install and use the Log Analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)

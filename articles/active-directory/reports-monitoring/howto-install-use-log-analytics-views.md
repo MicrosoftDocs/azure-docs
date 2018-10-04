@@ -24,8 +24,8 @@ ms.reviewer: dhanyahk
 
 The Azure Active Directory Log Analytics views helps you analyze and search the Azure AD activity logs in your Azure AD tenant. Azure AD activity logs include:
 
-    * Audit logs: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
-    * Sign-in logs: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
+* Audit logs: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
+* Sign-in logs: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
 
 ## Prerequisites
 
@@ -53,14 +53,16 @@ To use the management solution, you need:
 
 3. Select either of these views to jump in to the individual reports. You can also set alerts on any of the report parameters. For example, let's set an alert for every time there's a sign-in error. To do this, first select the **Sign-ins Events** view, select **Sign-in errors over time** report and then select **Analytics** to open the details page, with the actual query behind the report. 
 
-    ![Details](./media/howto-install-and-use-log-analytics-views/details.png)
+    ![Details](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Select **Set Alert**, and then select **Whenever the Custom log search is &lt;logic undefined&gt;** under the **Alert criteria** section. Since we want to alert whenever there's a sign-in error, set the **Threshold** of the default alert logic to **1** and then select **Done**. 
 
+    ![Configure signal logic](./media/howto-install-use-log-analytics-views/configure-signal-logic.png)
+
 5. Enter a name and description for the alert and set the severity to **Warning**.
 
-    ![Configure signal logic](./media/howto-install-and-use-log-analytics-views/configure-signal-logic.png)
+    ![Create rule](./media/howto-install-use-log-analytics-views/create-rule.png)
 
 6. Select the action group to alert. In general, this can be either a team you want to notify via email or text message, or it can be an automated task using webhooks, runbooks, functions, logic apps or external ITSM solutions. Learn how to [create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).
 
