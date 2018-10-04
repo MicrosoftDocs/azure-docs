@@ -7,10 +7,10 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 10/04/2018
 ---
 # Server Logs in Azure Database for PostgreSQL 
-Azure Database for PostgreSQL generates query and error logs. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html). (Access to transaction logs is not included).
+Azure Database for PostgreSQL generates query and error logs. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. (Access to transaction logs is not included). For more information, see PostgreSQL's [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) documentation. 
 
 ## Configure logging 
 You can configure the logging on your server using the logging server parameters. On each new server **log_checkpoints** and **log_connections** are on by default. There are additional parameters you can adjust to suit your logging needs: 
