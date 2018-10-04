@@ -47,6 +47,7 @@ The following describes what's in each log:
 | ResourceId | Resource URI |
 | ResourceType | `Servers` |
 | SubscriptionId | GUID for the subscription that the server belongs to |
+| ResourceGroup | Name of the resource group the server belongs to |
 | Category | `PostgreSQLLogs` |
 | OperationName | LogEvent |
 | errorLevel_s | Logging level e.g. LOG, ERROR, NOTICE |
