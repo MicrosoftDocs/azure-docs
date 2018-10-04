@@ -1,5 +1,5 @@
 ---
-title: Set redirect URLs with b2clogin.com for Azure Active Directory B2C | Microsoft Docs
+title: Set redirect URLs to b2clogin.com for Azure Active Directory B2C | Microsoft Docs
 description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C. 
 services: active-directory-b2c
 author: davidmu1
@@ -13,16 +13,16 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Set redirect URLs with b2clogin.com for Azure Active Directory B2C
+# Set redirect URLs to b2clogin.com for Azure Active Directory B2C
 
-When you set up an identity provider for sign-up and sign-in in your Azure Active Directory (Azure AD) B2C application, you need to specify a redirect URL for the application to communicate with Azure AD B2C. In the past, login.microsoftonline.com was used, now you should be using b2clogin.com.
+When you set up an identity provider for sign-up and sign-in in your Azure Active Directory (Azure AD) B2C application, you need to specify a redirect URL. In the past, login.microsoftonline.com was used, now you should be using b2clogin.com.
 
 Using b2clogin.com gives you additional benefits, such as:
 
 - Cookies are no longer shared with the other Microsoft services.
-- Your URLs no longer include a reference to Microsoft in your URL. For example, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
+- Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-To use b2clogin.com, you need to set the redirect URLs in your identity provider applications use b2clogin.com. You also need to set your Azure AD B2C application to use b2clogin.com for policy references and token endpoints. If you are using MSAL, you need to set the **ValidateAuthority** property to `false`.
+To use b2clogin.com, you need to set the redirect URLs in your identity provider applications to use b2clogin.com. You also need to set your Azure AD B2C application to use b2clogin.com for policy references and token endpoints. If you are using MSAL, you need to set the **ValidateAuthority** property to `false`.
 
 ## Change redirect URLs
 
@@ -30,22 +30,20 @@ To use b2clogin.com, you need to change the redirect URLs for your social identi
 
 You'll need to change the redirect URL so that `your-tenant-name.b2clogin.com` is authorized. Make sure to replace `your-tenant-name` with the name of your Azure AD B2C tenant and remove `/te` if it exists in the URL. There are slight variations to this URL for each identity provider so check the corresponding page to get the exact URL.
 
-The following table lists information about setting up identity providers.
+You can find set up information for identity providers in the following articles:
 
-| Identity provider |
-|-------------------|
-|[Microsoft account](active-directory-b2c-setup-msa-app.md)|
-|[Facebook](active-directory-b2c-setup-fb-app.md)|
-|[Google](active-directory-b2c-setup-goog-app.md)|
-|[Amazon](active-directory-b2c-setup-amzn-app.md)|
-|[LinkedIn](active-directory-b2c-setup-li-app.md)|
-|[Twitter](active-directory-b2c-setup-twitter-app.md)|
-|[GitHub](active-directory-b2c-setup-github-app.md)|
-|[Weibo](active-directory-b2c-setup-weibo-app.md)|
-|[QQ](active-directory-b2c-setup-qq-app.md)|
-|[WeChat](active-directory-b2c-setup-wechat-app.md)|
-|[Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)|
-|[Custom OIDC](active-directory-b2c-setup-oidc-idp.md)|
+- [Microsoft account](active-directory-b2c-setup-msa-app.md)
+- [Facebook](active-directory-b2c-setup-fb-app.md)
+- [Google](active-directory-b2c-setup-goog-app.md)
+- [Amazon](active-directory-b2c-setup-amzn-app.md)
+- [LinkedIn](active-directory-b2c-setup-li-app.md)
+- [Twitter](active-directory-b2c-setup-twitter-app.md)
+- [GitHub](active-directory-b2c-setup-github-app.md)
+- [Weibo](active-directory-b2c-setup-weibo-app.md)
+- [QQ](active-directory-b2c-setup-qq-app.md)
+- [WeChat](active-directory-b2c-setup-wechat-app.md)
+- [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)
+- [Custom OIDC](active-directory-b2c-setup-oidc-idp.md)
 
 ## Update your application
 
