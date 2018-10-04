@@ -117,7 +117,7 @@ In the *provisionSample.yaml* file in the Digital Twins sample, look for section
     ```
     1. Save the file. 
 
-1. Run `dotnet run ProvisionSample` at the command line to provision your spatial topology and user-defined function. 
+1. Run `dotnet run ProvisionSample` at the command line to provision your spatial intelligence graph and user-defined function. 
 
 1. Follow the prompt to authenticate your application, by pasting the code at `https://microsoft.com/devicelogin`, and then signing in with your Azure account.
 

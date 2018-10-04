@@ -13,7 +13,7 @@ ms.author: alinast
 # As a developer new to Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in a Azure Digital Twins and how to find available rooms with fresh air using a back-end application. 
 ---
 
-# Use Azure Digital Twins to find available rooms and monitor air quality (C#)
+# Quickstart: Use Azure Digital Twins to find available rooms and monitor air quality (C#)
 
 As an employee in a busy office, it's important to find available rooms that fit your needs where you can be productive. [Research has shown](https://www.wsj.com/articles/why-office-buildings-should-run-like-spaceships-1507467601) that air quality in rooms can have a significant impact on strategic, creative, and collaborative thinking. With Azure Digital Twins, not only can you find available rooms, but you can also find rooms where the air quality will be optimal for your safety and productivity.
 
@@ -96,13 +96,10 @@ If you plan to continue to the tutorials, do not clean up the resources created 
 
 ## Next steps
 
-See full code samples:
+If you haven't cleaned up the resources, and you wish to learn how to manipulate the simulated sensor data to create custom notifications and analyses, proceed to the following tutorial. 
 
 > [!div class="nextstepaction"]
-> [C# code samples](https://github.com/Azure-Samples/digital-twins-samples-csharp)
-
-> [!div class="nextstepaction"]
-> [Facility Management Tutorial](tutorial-facilities-setup.md)
+> [Facility Management Tutorial](tutorial-facilities-events.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/create-digital-twins-portal.png
