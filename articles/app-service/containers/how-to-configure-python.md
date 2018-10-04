@@ -37,7 +37,7 @@ This container has the following characteristics:
 
 - To install additional packages, such as Django, create a [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) file in the root of your project using `pip freeze > requirements.txt`. You must then publish to App Service from Git, during which Kudu engine automatically runs `pip install -r requirements.txt` to install your app's dependencies.
 
-- The container's startup process is driven by the code in [*entrypoint.sh*](https://github.com/Azure-App-Service/python/blob/master/3.7.0/entrypoint.py). That process is what's described in this article and allows for customization.
+- The container's startup process is driven by the code in [*entrypoint.py*](https://github.com/Azure-App-Service/python/blob/master/3.7.0/entrypoint.py). That process is what's described in this article and allows for customization.
 
 ## Container startup process and customizations
 
@@ -66,10 +66,10 @@ You can control the container's startup behavior by providing a file that contai
 
 1. In the [Application settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) page, go to the **Runtime** settings, set the **Stack** option to **Python 3.7**, and specify the name of your file, such as *startup.txt*, in the **Startup File** field.
 
-1. Restart the App Service.
+1. The App Service restarts automatically, and after a few seconds you should see the custom command file applied.
 
 > [!Warning]
-> App Service ignores any errors that occur when processing a custom command file, then continues its startup process by looking for Django and Flask apps.
+> App Service ignores any errors that occur when processing a custom command file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup file is deployed to App Service and that it doesn't contain any errors.
 
 ### Django app
 
