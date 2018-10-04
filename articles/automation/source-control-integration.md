@@ -35,7 +35,7 @@ Within your Automation Account, select **Source Control (preview)** and click **
 
 ![Select source control](./media/source-control-integration/select-source-control.png)
 
-Choose **Source Control type** , click **Authenticate**.
+Choose **Source Control type**, click **Authenticate**.
 
 Review the app request permissions page and click **Accept**.
 
