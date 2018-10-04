@@ -8,56 +8,54 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 10/03/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
 ---
 # Deploy service catalog app through Azure portal
 
-After your organization has published managed application definitions, you can deploy those service catalog apps through the Azure portal. 
-
-## Prerequisites
-
-You need a published managed application definition. If your organization hasn't published one, see [Publish an Azure managed application definition](publish-managed-app-definition-quickstart.md).
+In the [preceding quickstart](publish-managed-app-definition-quickstart.md), you published a managed application definition. In this quickstart, you create a service catalog app from that definition.
 
 ## Create service catalog app
 
-1. In the portal, select **Create a resource**.
+In the Azure portal, use the following steps:
+
+1. Select **Create a resource**.
 
    ![Create a resource](./media/deploy-service-catalog-quickstart/create-new.png)
 
-1. Search for **Service Catalog Managed Application**.
+1. Search for **Service Catalog Managed Application** and select it from the available options.
 
-   ![Search for service catalog managed application](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
+   ![Search for service catalog application](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
 
-1. Select **Create**.
+1. You see a description of the Managed Application service. Select **Create**.
 
    ![Select create](./media/deploy-service-catalog-quickstart/create-service-catalog.png)
 
-1. From the available service catalog apps, select the one you want to deploy. Select **Create**.
+1. The portal shows the managed application definitions that you have access to. From the available definitions, select the one you wish to deploy. In this quickstart, use the **Managed Storage Account** definition that you created in the preceding quickstart. Select **Create**.
 
    ![Select definition to deploy](./media/deploy-service-catalog-quickstart/select-definition.png)
 
-1. Provide values for the **Basics** tab. Create a new resource group named **applicationGroup**. When finished, select **OK**.
+1. Provide values for the **Basics** tab. Select the Azure subscription to deploy your service catalog app to. Create a new resource group named **applicationGroup**. Select a location for your app. When finished, select **OK**.
 
    ![Provide values for basic](./media/deploy-service-catalog-quickstart/provide-basics.png)
 
-1. Provide values for the storage account. When finished, select **OK**.
+1. Provide a prefix for the storage account name. Select the type of storage account to create. When finished, select **OK**.
 
    ![Provide values for storage](./media/deploy-service-catalog-quickstart/provide-storage.png)
 
-1. Review the summary. After validation succeeds, select OK to begin deployment.
+1. Review the summary. After validation succeeds, select **OK** to begin deployment.
 
    ![View summary](./media/deploy-service-catalog-quickstart/view-summary.png)
 
 ## View results
 
-After the service catalog app has been deployed, you have two new resource groups.
+After the service catalog app has been deployed, you have two new resource groups. One resource group holds the service catalog app. The other resource group holds the resources for the service catalog app.
 
-1. View the resource group named **applicationGroup** to see the managed application instance.
+1. View the resource group named **applicationGroup** to see the service catalog app.
 
-   ![View managed application](./media/deploy-service-catalog-quickstart/view-managed-application.png)
+   ![View application](./media/deploy-service-catalog-quickstart/view-managed-application.png)
 
-1. View the resource group named **applicationGroup{hash-characters}** to see the resources for the managed application.
+1. View the resource group named **applicationGroup{hash-characters}** to see the resources for the service catalog app.
 
    ![View resources](./media/deploy-service-catalog-quickstart/view-resources.png)
 
