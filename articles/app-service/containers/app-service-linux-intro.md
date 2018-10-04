@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/16/2017
+ms.date: 10/04/20178
 ms.author: wesmc
 ms.custom: mvc
 
@@ -32,6 +32,7 @@ App Service on Linux supports a number of Built-in images in order to increase d
 | Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1 |
 | Java * | 8.0 |
 | PHP | 5.6, 7.0, 7.2 |
+| Python (Preview) | 3.7 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
 | Go | 1.0 |
@@ -87,15 +88,25 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 
 ## Next steps
 
-See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+The following articles get you started with App Service on Linux with web apps written in a variety of languages:
 
-* [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md)
-* [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md)
-* [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
-* [Azure App Service Web App for Containers FAQ](app-service-linux-faq.md)
-* [SSH support for Azure App Service on Linux](app-service-linux-ssh-support.md)
-* [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Docker Hub Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md)
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-dotnetcore.md)
+* [Node.js](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)
+* [Go](quickstart-docker-go.md)
+* [Multi-container apps](quickstart-multi-container.md)
+
+Also see the following articles for more details on App Service on Linux:
+
+* [App Service for Linux FAQ](app-service-linux-faq.md)
+* [SSH support for App Service on Linux](app-service-linux-ssh-support.md)
+* [Set up staging environments in App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Docker Hub continuous deployment](app-service-linux-ci-cd.md)
+
+You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png
