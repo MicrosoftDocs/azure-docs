@@ -153,6 +153,6 @@ In this tutorial, you learned about  Data Box Edge topics such as:
 Advance to the next tutorial to learn how to transform your data with Data Box Edge.
 
 > [!div class="nextstepaction"]
-> [Transform data with Data Box Edge](./data-box-edge-deploy-transform-data.md)
+> [Transform data with Data Box Edge](./data-box-edge-deploy-configure-compute.md)
 
 

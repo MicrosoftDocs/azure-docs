@@ -23,7 +23,7 @@ Customer intent: As an IT admin, I need to understand how to configure compute o
 
 This tutorial describes how to configure compute role on the Data Box Edge. Once the compute role is configured, Data Box Edge can transform data before sending to Azure.
 
-This procedure can take around 10 minutes to complete. 
+This procedure can take around 30-45 minutes to complete. 
 
 In this tutorial, you learn how to:
 
@@ -51,23 +51,9 @@ For detailed instructions, go to [Create an IoT Hub](https://docs.microsoft.com/
 
 ![Create IoT Hub resource](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
 
-When the Edge compute role is not set up, note that:
-
--  The IoT Hub resource does not have any IoT devices.
-
-    ![IoT device in IoT Hub resource](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-2.png)
-
--  The IoT Hub resource does not have any IoT Edge devices.
-
-    ![IoT edge device in IoT Hub resource](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-3.png)
-
-When the Edge compute role is not set up on your device, you cannot create Edge local shares. When you add a share, the option to create a local share for Edge compute is not enabled as shown in the following screenshot.
-
-![Add share in Data Box Edge device](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-4.png)
-
-If you go to **Shares**, select a cloud share you created in [Transfer data with Data Box Edge](data-box-edge-deploy-add-shares) and look at its properties, the local mount point is also not available.
-
-![Share properties in Data Box Edge device](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-5.png)
+When the Edge compute role is not set up, note 
+- The IoT Hub resource does not have any IoT devices or IoT Edge devices.
+- You can't create Edge local shares. When you add a share, the option to create a local share for Edge compute is not enabled.
 
 
 ## Set up compute role
@@ -155,7 +141,7 @@ This procedure uses an example where the custom module used takes files from a l
 
         ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
  
-6.	Under **Specify routes**, set routes between modules. In this case, provide the name of the cloud share that will push data to cloud. Click **Next**.
+6.	Under **Specify routes**, set routes between modules. In this case, provide the name of the local share that will push data to cloud share. Click **Next**.
 
     ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
  
