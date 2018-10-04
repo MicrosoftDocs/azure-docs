@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/04/2018
 ms.author: sethm
 ms.reviewer: ''
 
@@ -126,6 +126,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![EspoCRM](media/azure-stack-marketplace-azure-items/espocrm.png) | [EspoCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.espocrm) | Simple CRM system that helps manage customer relationships. | Bitnami |
 | ![eXo Platform](media/azure-stack-marketplace-azure-items/exoplatform.png) | [eXo Platform](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.exoplatform) | Open-source, social software designed for enterprises. | Bitnami |
 | ![Fat Free CRM](media/azure-stack-marketplace-azure-items/fatfreecrm.png) | [Fat Free CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.fatfreecrm) | Open-source Ruby on Rails-based CRM. | Bitnami |
+| ![FortiGate Next-Generation Firewall](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate Next-Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/TBD) | Firewall technology that delivers complete content and network protection with a comprehensive suite of powerful security features. Application control, antivirus, IPS, web filtering and VPN along with advanced features such as vulnerability management work in concert to identify and mitigate the latest complex security threats. | Fortinet Square |
 | ![GitLab Community Edition](media/azure-stack-marketplace-azure-items/bitnami.png) | [GitLab Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.gitlab) | Fast, secure Git management software. | Bitnami |
 | ![Ghost](media/azure-stack-marketplace-azure-items/ghost.png) | [Ghost](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.ghost) | A platform dedicated to publishing. | Bitnami |
 | ![Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | Framework for reliable, scalable, and distributed computing. | Bitnami |
