@@ -105,6 +105,7 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
     ```bash
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
+
 ## Linux Kernel Requirements
 
 The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (such as 3.x) have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible we recommend running an [endorsed distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that includes these fixes and updates.
