@@ -76,7 +76,13 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 ![Digital Twins Portal Management API][2]
 
-For more details on how to use the Spatial Intelligence Graph, please visit your Digital Twins Management APIs Swagger URL. You can browse swagger UI of your deployed instanced to learn the specifications of each API as outlined in image below:
+For more details on how to use the Spatial Intelligence Graph, please visit your Digital Twins Management APIs Swagger URL.
+
+>[!TIP]
+>For your convenience, a Swagger sneak preview is provided to demonstrate the rich Ontology and API feature set.
+>It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+
+You can browse swagger UI of your deployed instanced to learn the specifications of each API as outlined in image below:
 
 ![Digital Twins Management API Swagger][3]
 ![Digital Twins Management API Swagger Cont][4]
