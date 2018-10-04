@@ -29,7 +29,7 @@ Python apps deployed to App Service on Linux run within a Docker container that'
 
 This container has the following characteristics:
 
-- The base container image is `python-3.7.0-slim-stretch`, which means apps are run with Python 3.7. If you require a different version of Python, you must to build and deploy your own container image instead. For more information, see [Use a custom Docker image for Web App for Containers](tutorial-custom-docker-image.md).
+- The base container image is `python-3.7.0-slim-stretch`, which means apps are run with Python 3.7. If you require a different version of Python, you must build and deploy your own container image instead. For more information, see [Use a custom Docker image for Web App for Containers](tutorial-custom-docker-image.md).
 
 - Apps are run using the [Gunicorn WSGI HTTP Server](http://gunicorn.org/), using the additional arguments `--bind=0.0.0.0 --timeout 600`.
 
@@ -41,12 +41,12 @@ This container has the following characteristics:
 
 ## Container startup process and customizations
 
-During startup, the App Service on Linux container performs the following steps:
+During startup, the App Service on Linux container runs the following steps:
 
 1. Check for and apply a custom startup command file, if provided.
 1. Check for the existence of a Django app's *wsgi.py* file, and if so, launch Gunicorn using that file.
 1. Check for a file named *application.py*, as is typical with Flask, and if found, launch Gunicorn using `application:app`.
-1. If no other app is found, attempt to start a default app that's built into the container.
+1. If no other app is found, start a default app that's built into the container.
 
 The following sections provide additional details for each option.
 
@@ -54,13 +54,13 @@ The following sections provide additional details for each option.
 
 You can control the container's startup behavior by providing a file that contains a custom startup command.
 
-1. In the root of your project, create a file named *startup.txt* (or any name you want) that contains the custom Gunicorn command to start your app. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object is named `myapp`, then the command file must contain at least the following:
+1. In the root of your project, create a file named *startup.txt* (or any name you want) that contains the custom Gunicorn command to start your app. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object is named `myapp`, then the command file must contain at least the following contents:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
     ```
 
-1. You can also add any additional arguments for Gunicorn to the command file, such as `--workers=4`. For more information, refer to [Running Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+1. You can also add any additional arguments for Gunicorn to the command file, such as `--workers=4`. For more information, see [Running Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
 1. Deploy the command file to App Service.
 
@@ -90,7 +90,7 @@ For Flask, App Service looks for a file named *application.py* and starts Gunico
 gunicorn --bind=0.0.0.0 --timeout 600 application:app
 ```
 
-If your main app module is contained in a different file, uses a different name for the app object, or you want to provide additional arguments to Gunicorn, use a [custom startup command file](#custom-startup-command-file). That section given an example for Flask using entry code in *hello.py* and a Flask app object named `myapp`.
+If your main app module is contained in a different file, use a different name for the app object, or you want to provide additional arguments to Gunicorn, use a [custom startup command file](#custom-startup-command-file). That section given an example for Flask using entry code in *hello.py* and a Flask app object named `myapp`.
 
 ### Default behavior
 
@@ -108,7 +108,7 @@ The default app appears as follows:
 
 - **You see the default app after deploying your own app code.**  The default app appears because you either haven't actually deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
   - Restart the App Service, wait 15-20 seconds, and check the app again.
-  - Use SSH or the Kudu console to connect directly to the App Service and verify that your files exist under *site/wwwroot*. If your files don't exist, review your deployment process and redeloy the app.
+  - Use SSH or the Kudu console to connect directly to the App Service and verify that your files exist under *site/wwwroot*. If your files don't exist, review your deployment process and redeploy the app.
   - If your files exist, then App Service wasn't able to identify your specific startup file. Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command file](#custom-startup-command-file).
 
 - **You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the arguments that specify the app code are incorrect.
