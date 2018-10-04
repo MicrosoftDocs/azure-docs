@@ -54,7 +54,7 @@ QnA Maker consists of the following API services:
 
 1. **QnA Maker management services**: The management experience for a QnA Maker knowledge base, which includes the initial creation, updating, training, and publishing. These activities can be done through the [portal](https://qnamaker.ai) or the [management APIs](https://aka.ms/qnamaker-v4-apis). 
 
-2. **QnA Maker runtime service**: This is deployed in the user's Azure subscription in a region of their choosing. Customer KB content is stored in [Azure Search](https://azure.microsoft.com/services/search/), and the endpoint deployed as an [App service](https://azure.microsoft.com/services/app-service/). You can also choose to deploy an [Application insights](https://azure.microsoft.com/services/application-insights/) resource for analytics.
+2. **QnA Maker prediction service**: This is deployed in your Azure subscription in your specified region. Customer KB content is stored in [Azure Search](https://azure.microsoft.com/services/search/), and the endpoint deployed as an [App service](https://azure.microsoft.com/services/app-service/). You can also choose to deploy an [Application insights](https://azure.microsoft.com/services/application-insights/) resource for analytics.
 
 ![Architecture](../media/qnamaker-overview-learnabout/architecture.png)
 
@@ -62,9 +62,10 @@ QnA Maker consists of the following API services:
 ## Service highlights
 
 - A complete **no-code** experience to [create a FAQ bot](https://aka.ms/qnamaker-docs-create-faqbot).
-- **No more network throttling**. Pay for hosting the service and not for the number of transactions. See the [pricing page](https://aka.ms/qnamaker-docs-pricing) for more details. <!-- TBD: this doesn't make any sense, 3 tps is all they get no matter what other service settings there are. -->
-- **Scale as per your needs**. Choose the appropriate SKUs of the individual components that suit your scenario. See how to [choose capacity](https://aka.ms/qnamaker-docs-capacity) for your QnA Maker service.
-- **Full data compliance**. The data and runtime components are deployed in the user's Azure subscription and within their compliance boundary. Read below for more details.
+- **No network throttling for predictions**. Pay for hosting the service and not for the number of transactions. See the [pricing page](https://aka.ms/qnamaker-docs-pricing) for more details.
+- **Scale as needed**. Choose the appropriate SKUs of the individual components that suit your scenario. See how to [choose capacity](https://aka.ms/qnamaker-docs-capacity) for your QnA Maker service.
+- **Full data compliance**. The prediction service components are deployed in your Azure subscription and within the compliance boundary.
+- 
 ## Next steps
 
 > [!div class="nextstepaction"]
