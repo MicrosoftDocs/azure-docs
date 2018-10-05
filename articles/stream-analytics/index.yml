@@ -69,4 +69,4 @@ sections:
 - title: Previews
   items:
   - type: paragraph
-    html: <p>Learn about new features and sign up for <a href="stream-analytics-previews">Azure Stream Analytics previews</a>.</p>
+    html: Learn about new features and sign up for <a href="azure/stream-analytics/stream-analytics-previews">Azure Stream Analytics previews</a>.
