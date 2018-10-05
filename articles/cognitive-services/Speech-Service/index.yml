@@ -2,10 +2,10 @@
 documentType: LandingData
 title: Speech Service SDK Documentation
 metadata:
-  title: Speech Service SDK Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
+  title: Speech Service documentation - Tutorials, quickstarts, API reference - Cognitive Services | Microsoft Docs
   meta.description: |
-    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
-    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
+    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
+    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -54,7 +54,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to download, install, and use by clicking on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
+    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:
