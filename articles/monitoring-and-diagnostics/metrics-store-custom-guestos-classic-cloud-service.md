@@ -9,8 +9,7 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
 ---
-# Send Guest OS metrics to the Azure Monitor metric store classic Cloud Service
-
+# Send Guest OS metrics to the Azure Monitor metric store 
 With the Azure Monitor [Diagnostics extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to many different locations that are listed in the previously linked article.  
 
 This article describes the process for sending Guest OS performance metrics for Azure Cloud Services (classic) to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
