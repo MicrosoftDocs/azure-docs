@@ -1,12 +1,14 @@
 ---
-title: "Bing Custom Search: Define a custom view | Microsoft Docs"
-description: Describes how to create a site and vertical search services
+title: Define a custom view - Bing Custom Search
+titlesuffix: Azure Cognitive Services
+description: Describes how to create site and vertical search services
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
 ---

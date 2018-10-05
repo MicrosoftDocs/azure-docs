@@ -69,6 +69,7 @@ The SDK you have cloned contains multiple samples that show you how to send even
 ## Review the sample code 
 Here is the sample code to send events to an event hub using node.js. You can manually create a sampleSender.js file, and run it to send events to an event hub. 
 
+
 ```nodejs
 const { EventHubClient, EventPosition } = require('@azure/event-hubs');
 
@@ -86,6 +87,18 @@ main().catch((err) => {
     console.log(err);
 });
 
+```
+
+Remember to set your environment variables before running the script. You can either configure this in the command line as shown in the following example, or use the [dotenv package](https://www.npmjs.com/package/dotenv#dotenv). 
+
+```
+// For windows
+set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+set EVENTHUB_NAME="<your-event-hub-name>"
+
+// For linux or macos
+export EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+export EVENTHUB_NAME="<your-event-hub-name>"
 ```
 
 ## Next steps
