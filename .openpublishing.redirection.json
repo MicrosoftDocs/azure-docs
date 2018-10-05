@@ -2127,6 +2127,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/managed-applications/managed-apps-quickstart-cli.md",
+            "redirect_url": "/azure/managed-applications/publish-managed-app-definition-quickstart",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/managed-application-overview.md",
             "redirect_url": "/azure/managed-applications/overview",
             "redirect_document_id": false
@@ -7244,10 +7249,15 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/azure-stack-update-1809.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-acs-differences-tp2.md",
             "redirect_url": "/azure/azure-stack/azure-stack-acs-differences",
             "redirect_document_id": false
-        },
+        },        
         {
             "source_path": "articles/azure-stack/azure-stack-connect-powershell.md",
             "redirect_url": "/azure/azure-stack/azure-stack-powershell-install",
@@ -7411,6 +7421,11 @@
         {
             "source_path": "articles/blockchain-workbench/hyperledger-fabric-single-member-blockchain.md",
             "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-single-member-blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/index.md",
+            "redirect_url": "/azure/blockchain/workbench",
             "redirect_document_id": false
         },
         {
@@ -18867,6 +18882,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-usage.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-portal.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-powershell.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
@@ -29693,6 +29728,11 @@
         {    "source_path": "articles/billing/billing-set-up-alerts.md",
             "redirect_url": "/azure/billing/billing-getting-started",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-java-add-app.md",
+            "redirect_url": "/azure/app-service/app-service-web-get-started-java",
+            "redirect_document_id" : false
         }
     ]
 }

@@ -14,9 +14,10 @@ ms.author: v-jerkin
 
 # What is the Speech service?
 
-The Speech service unites the Azure speech features previously available via the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), and [Custom Voice](http://customvoice.ai/) services. Now, one subscription provides access to all of these capabilities.
 
-Like the other Azure speech services, the Speech service is powered by the speech technologies used in products like Cortana and Microsoft Office. You can count on the quality of the results and the reliability of the cloud platform.
+Like the other Azure speech services, the Speech service is powered by the speech technologies used in products like Cortana and Microsoft Office.
+
+The Speech service unites the Azure speech features previously available via the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), and [Custom Voice](http://customvoice.ai/) services. Now, one subscription provides access to all of these capabilities.
 
 ## Main Speech service functions
 
