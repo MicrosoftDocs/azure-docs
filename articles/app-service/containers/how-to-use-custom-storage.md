@@ -40,19 +40,27 @@ To use the Azure Command-Line Interface, you must [Install the Azure CLI](https:
 
 1. Open Terminal, and login to your account.
 
-        az login
+```azure-cli
+az login
+```
 
 1. Check to see the list of accounts:
 
-        az account list
+```azure-cli
+az account list
+```
 
 1. Set the subscription to use. Replace <id> with your subscription id.
 
-        az account set --subscription <your_subscription_id>  
+```azure-cli
+az account set --subscription <your_subscription_id>  
+```
 
 1. The subscription is now set. You can confirm these settings:
 
-        az account show
+```azure-cli
+az account show
+```
 
 ## Add storage to the WordPress app
 
