@@ -85,7 +85,7 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
   secondaryConnectionString: <Secondary connection string for your Event hub>
   path: <Name of your Event Hub namespace>
 ```
-1. Enter the value for **Connection string--primary key** for the Event hub for `connectionString`, and the value for **Connection string--secondary key** for the `secondaryConnectionString`. N 
+1. Enter the value for **Connection string--primary key** for the Event hub for `connectionString`, and the value for **Connection string--secondary key** for the `secondaryConnectionString`. Enter the name of your Event Hub namespace as `path`.
 1. Save and close the file. Run `dotnet run CreateEndpoints` in the command window. Sign in with your Azure account when prompted. It creates two endpoints for your Event hub.
 
     ![Endpoints for Event Hub](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)

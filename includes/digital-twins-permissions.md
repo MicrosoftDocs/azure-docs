@@ -31,7 +31,7 @@ For an application to communicate with the Azure Digital Twins, register it in t
     - Click **Select permissions**. Check the **Read/Write Access** delegated permissions box, and click **Select**.
     - Click **Done** in the **Add API access** pane.
     - In the **Required permissions** pane, click the **Grant permissions** button, and accept the acknowledgement that appears.
- 
+
 1. Back in your app registration pane, copy to clipboard the value of the **Application ID** field, that identifies your Azure Active Directory app. You will need this to configure the *Client ID* of your sample application in the proceeding sections.
 
     ![Azure Active Directory app registration grant permissions](./media/digital-twins-permissions/aad-app-reg-appid.png)

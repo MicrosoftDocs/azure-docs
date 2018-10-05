@@ -60,7 +60,7 @@ For different authentication types, refer to the following sections on prerequis
 
 - [SQL authentication](#sql-authentication)
 - [Azure AD application token authentication: Service principal](#service-principal-authentication)
-- [Azure AD application token authentication: Managed identities for Azure resources](#managed-service-identity-authentication)
+- [Azure AD application token authentication: Managed identities for Azure resources](#managed-identity)
 
 >[!TIP]
 >If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
@@ -142,7 +142,7 @@ To use a service principal-based Azure AD application token authentication, foll
 }
 ```
 
-### Managed identities for Azure resources authentication
+### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
 A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific data factory. You can use this service identity for Azure SQL Database authentication. The designated factory can access and copy data from or to your database by using this identity.
 

@@ -20,7 +20,7 @@
    * **Location**: Select the closest location to your devices.
    * **Name**: Create a unique name for your Digital Twins.
 
-   ![Create Digital Twins](./media/create-digital-twins-portal/create-digital-twins-param.png)
+       ![Create Digital Twins](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
 1. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 

@@ -3,10 +3,10 @@ title: Understanding Azure Digital Twins API authentication | Microsoft Docs
 description: Using Azure Digital Twins to connect and authenticate to APIs
 author: lyrana
 manager: alinast
-ms.service: azure-digital-twins
-services: azure-digital-twins
+ms.service: digital-twins
+services: digital-twins
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/02/2018
 ms.author: lyrana
 ---
 
@@ -48,7 +48,7 @@ For detailed instructions about how to orchestrate the on-behalf-of flow visit [
 
 1. Click **Request Token**.
 
-    >[!NOTE]
+    >[!TIP]
     >If you receive error message "OAuth 2 couldn’t be completed," try one of the following:
     > * Close Postman and reopen it and try again.
     > * Delete the secret key in your app, recreate a new one and renter the value in the above form.
