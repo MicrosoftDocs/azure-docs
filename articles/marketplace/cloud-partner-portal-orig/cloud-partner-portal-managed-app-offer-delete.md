@@ -18,7 +18,7 @@ ms.author: pbutlerm
 ---
 
 
-Delete an offer/SKU from Azure Marketplace {#deleteanofferskufromazuremarketplace}
+Delete an offer/SKU from Azure Marketplace 
 ==========================================
 
 For various reasons, you may decide to remove your offer from the
@@ -34,7 +34,7 @@ Policies](https://azure.microsoft.com/support/legal/marketplace/participation-po
 (see Section 6.2). The different supported
 delete scenarios and the steps you can take are discussed.
 
-Delete a live SKU from Azure Marketplace {#deletealiveskufromazuremarketplace}
+Delete a live SKU from Azure Marketplace 
 ----------------------------------------
 
 You can delete a live SKU from Azure Marketplace by following these
@@ -51,7 +51,7 @@ steps:
 After the offer is live on Azure Marketplace, the SKU will be deleted
 from Azure Marketplace and Azure portal.
 
-Roll back to a previous SKU version {#rollbacktoapreviousskuversion}
+Roll back to a previous SKU version 
 ----------------------------------
 
 You can delete the current version of a live SKU from Azure Marketplace
@@ -70,7 +70,7 @@ After the offer is live in Azure Marketplace, the current version of the
 listed SKU will be deleted from Azure Marketplace and the Azure portal.
 The SKU will be rolled back to its previous version.
 
-Delete a live offer {#deletealiveoffer}
+Delete a live offer 
 -------------------
 
 Please follow the steps below to get

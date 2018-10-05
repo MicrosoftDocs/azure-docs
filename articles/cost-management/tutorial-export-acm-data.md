@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/13/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
@@ -26,8 +26,15 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Azure EA account
-- Azure storage account configured for blob or file storage
+Data export is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. The following Azure permissions are supported per subscription for data export by user and group:
+
+- Owner – Can create, modify, or delete scheduled exports for a subscription.
+- Contributor – Can create, modify, or delete their own scheduled exports. Can modify the name of scheduled exports created by others.
+- Reader – Can schedule exports that they have permission to.
+
+For Azure Storage accounts:
+- Write permissions are required to change the configured storage account, regardless of permissions on the export.
+- Your Azure storage account must be configured for blob or file storage.
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).

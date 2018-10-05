@@ -48,15 +48,15 @@ Learn more about [what changed in this release](overview-what-happened-to-workbe
 
 Resources such as your experimentation accounts, model management accounts, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning service. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
 
-Get started with the latest version by creating an Azure Machine Learning Workspace in the [Azure portal](quickstart-get-started.md). The portal's workspace dashboard is supported on Edge, Chrome and Firefox browsers only.
+Get started with the latest version by creating an Azure Machine Learning service workspace in the [Azure portal](quickstart-get-started.md). The portal's workspace dashboard is supported on Edge, Chrome and Firefox browsers only.
 
-This new workspace is the top-level service resource and enables you to use all of the latest features of Azure Machine Learning service. [Learn more about this workspace and architecture](concept-azure-machine-learning-architecture.md).
+This new workspace is the top-level service resource and enables you to use all of the latest features of Azure Machine Learning service. Learn more about this [workspace and architecture](concept-azure-machine-learning-architecture.md).
 
 <a name="projects"></a>
 
 ## Projects
 
-Instead of having your projects in a workspace in the cloud, projects are now directories on your local machine in the latest release. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md). 
+Instead of having your projects in a workspace in the cloud, projects are now directories on your local machine in the latest release. See a diagram of the [latest architecture](concept-azure-machine-learning-architecture.md). 
 
 To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the 'az ml project attach' CLI command.
 

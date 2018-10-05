@@ -18,7 +18,7 @@ ms.author: pbutlerm
 ---
 
 
-Update an existing offer for Azure Marketplace {#updateanexistingofferforazuremarketplace}
+Update an existing offer for Azure Marketplace 
 ==============================================
 
 There are various kinds of updates that you may want to do to your offer
@@ -32,7 +32,7 @@ You need to update your offer in the Cloud Partner Portal and
 republish. This article walks you through the different aspects of
 updating your Azure Application offer.
 
-Unpermitted changes to Azure Application offer/SKU {#unpermittedchangestoazureapplicationoffersku}
+Unpermitted changes to Azure Application offer/SKU 
 --------------------------------------------------
 
 There are attributes of an Azure Application offer/SKU that cannot be modified once the offer goes live in Azure Marketplace.
@@ -41,7 +41,7 @@ There are attributes of an Azure Application offer/SKU that cannot be modified o
 2.  SKU ID of existing SKUs.
 3.  Update a package that has been published.
 
-Adding a new Package to an existing SKU {#addinganewpackagetoanexistingsku}
+Adding a new Package to an existing SKU 
 ---------------------------------------
 
 The publisher may want to add a new version of the package in order to update an existing package. This could be done by uploading a new package with a different version number.
@@ -54,7 +54,7 @@ The publisher may want to add a new version of the package in order to update an
 6.  Click on Publish to kick off the publish workflow to have your new
     SKU go live.
 
-Adding a new SKU to an existing Offer {#addinganewskutoanexistingoffer}
+Adding a new SKU to an existing Offer
 -------------------------------------
 
 You may choose to make a new SKU available for your existing offer. To
@@ -65,11 +65,11 @@ enable this, follow the below steps.
 3.  On the SKUs form, clik on Add new SKU and provide a SKU ID in the
     pop-up.
 4.  Follow the rest of the steps as specified
-    [here](https://cloudpartner.azure.com/#documentation/managed-app-publish.html).
+    [here](./cloud-partner-portal-managed-app-publish.md).
 5.  Click on Publish to kick off the publish workflow to have your new
     SKU go live.
 
-Updating Offer Marketplace metadata {#updatingoffermarketplacemetadata}
+Updating Offer Marketplace metadata 
 -----------------------------------
 
 You may have scenarios where you need to update the marketplace metadata

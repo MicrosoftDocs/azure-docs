@@ -3,7 +3,7 @@ title: Cortana intelligence | Microsoft Docs
 description: Publishing a Cortana intelligence offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -25,7 +25,7 @@ This article describes how to publish a Cortana Intelligence offer using the Clo
 ## Prerequisites
 
 The Cloud Partner Portal supports role-based access to the portal, which enables contributors to collaborate on publishing an
-offer. For more information, see [Cloud Portal Manage Users](./cloud-partner-portal-manage-users).
+offer. For more information, see [Cloud Portal Manage Users](./cloud-partner-portal-manage-users.md).
 
 Before an offer can be published on behalf of a publisher account, one
 of individuals with \"owner\" role need to agree to comply with the
@@ -331,7 +331,7 @@ Marketo, or Microsoft Dynamics CRM.
 
 To get more information about the CRM system you want to use, select one of the following links for supported systems.
 
--   [Azure Table](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table)
--   [Marketo](https://cloudpartner.azure.com/#documentation/lead-management-instructions-marketo)
--   [Microsoft Dynamics CRM](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)
--   [Salesforce](https://cloudpartner.azure.com/#documentation/lead-management-instructions-salesforce)
+-   [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
+-   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
+-   [Microsoft Dynamics CRM](./cloud-partner-portal-lead-management-instructions-dynamics.md)
+-   [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)

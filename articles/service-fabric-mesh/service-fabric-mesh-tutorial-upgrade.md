@@ -43,7 +43,7 @@ Before you begin this tutorial:
 
 * If you haven't deployed the to-do app, follow the instructions in [Publish a Service Fabric Mesh web application](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
-# Upgrade a Service Fabric Mesh service by using Visual Studio
+## Upgrade a Service Fabric Mesh service by using Visual Studio
 
 This article shows how to independently upgrade a microservice within an application.  In this example, we will modify the `WebFrontEnd` service to display a task category. Then we'll upgrade the deployed service.
 

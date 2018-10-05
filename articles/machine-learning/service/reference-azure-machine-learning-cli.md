@@ -38,6 +38,8 @@ You can remove the CLI using this command:
 az extension remove -n azure-cli-ml
 ```
 
+You can update the CLI using the **remove** and **add** steps above.
+
 ## Using the CLI vs. the SDK
 The CLI is better suited to automation by a dev-ops persona, or as part of a continuous integration and delivery pipeline. It is optimized to handle infrequent and highly parameterized tasks. 
 
@@ -50,6 +52,8 @@ Examples include:
 Data scientists are recommended to use the Azure ML SDK.
 
 ## Common machine learning CLI commands
+> [!NOTE]
+> Sample files you can use to successfully execute the below commands can be found [here.](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)
 
 Use the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
@@ -57,17 +61,17 @@ Here is a sample of common commands:
 
 ### Workspace creation & compute setup
 
-+ Create an Azure Machine Learning Workspace, the top level resource for machine learning.
-  ```AzureCLI
-  az ml workspace create -n myworkspace -g myresourcegroup
-  ```
++ Create an Azure Machine Learning service workspace, the top level resource for machine learning.
+   ```AzureCLI
+   az ml workspace create -n myworkspace -g myresourcegroup
+   ```
 
 + Set the CLI to use this workspace by default.
-```AzureCLI
-az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-```
+   ```AzureCLI
+   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+   ```
 
-+ Create a DSVM (data science VM) for training models. You can also create BatchAI clusters for distributed training.
++ Create a DSVM (data science VM). You can also create BatchAI clusters for distributed training or AKS clusters for deployment.
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -78,9 +82,10 @@ az configure --defaults aml_workspace=myworkspace group=myresourcegroup
   az ml project attach --experiment-name myhistory
   ```
 
-+ Submit an experiment against the Azure Machine Learning service on the compute target of your choice (this example uses a Data Science VM)
++ Submit an experiment against the Azure Machine Learning service on the compute target of your choice. This example will execute against your local compute environment. Make sure your conda environment file captures your python dependencies.
+
   ```AzureCLI
-  az ml run submit -c mydsvm train.py
+  az ml run submit -c local train.py
   ```
 
 + View a list of submitted experiments.
@@ -92,17 +97,17 @@ az ml history list
 
 + Register a model with Azure Machine Learning.
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + Create an image to contain your machine learning model and dependencies. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m rfmodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + Deploy your packaged model to targets including ACI and AKS.
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## Full command list

@@ -3,7 +3,7 @@ title: HTTPS Endpoint | Microsoft Docs
 description: Configure lead management for Https.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -74,114 +74,59 @@ When leads are generated, Microsoft will send leads to the Flow, which get route
 
 ## JSON Example
 
-
 ``` json
 {
-
   "$schema": "http://json-schema.org/draft-04/schema#",
-
   "definitions": {},
-
   "id": "http://example.com/example.json",
-
   "properties": {
-
     "ActionCode": {
-
       "id": "/properties/ActionCode",
-
       "type": "string"
-
     },
-
     "OfferTitle": {
-
       "id": "/properties/OfferTitle",
-
       "type": "string"
-
     },
-
     "LeadSource": {
-
       "id": "/properties/LeadSource",
-
       "type": "string"
-
     },
-
     "UserDetails": {
-
       "id": "/properties/UserDetails",
-
       "properties": {
-
         "Company": {
-
           "id": "/properties/UserDetails/properties/Company",
-
           "type": "string"
-
         },
-
         "Country": {
-
           "id": "/properties/UserDetails/properties/Country",
-
           "type": "string"
-
         },
-
         "Email": {
-
           "id": "/properties/UserDetails/properties/Email",
-
           "type": "string"
-
         },
-
         "FirstName": {
-
           "id": "/properties/UserDetails/properties/FirstName",
-
           "type": "string"
-
         },
-
         "LastName": {
-
           "id": "/properties/UserDetails/properties/LastName",
-
           "type": "string"
-
         },
-
         "Phone": {
-
           "id": "/properties/UserDetails/properties/Phone",
-
           "type": "string"
-
         },
-
         "Title": {
-
           "id": "/properties/UserDetails/properties/Title",
-
           "type": "string"
-
         }
-
       },
-
       "type": "object"
-
     }
-
   },
-
   "type": "object"
-
 }
-
 ```

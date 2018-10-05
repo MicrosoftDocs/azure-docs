@@ -3,7 +3,7 @@ title: Configure customer leads | Microsoft Docs
 description: Configure customer leads in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -126,11 +126,11 @@ information, and we will make the connection for you. Now you can easily leverag
 
 We can write leads into a variety of CRM systems or directly to an Azure Storage Table where you can manage the leads however you'd like. Each of the following links provide instructions for connecting to possible lead destinations:
 
--   [Dynamics CRM Online](./cloud-partner-portal-lead-management-instructions-dynamics) to get the instructions on how to configure Dynamics CRM Online for getting leads.
--   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo) to get the instructions for setting up Marketo Lead Configuration to get leads.
--    [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce) to get instructions for setting up your Salesforce instance to get leads.
--    [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table) to get the instructions for setting up your Azure storage account for getting leads in an Azure table.
--   [Https Endpoint](./cloud-partner-portal-lead-management-instructions-https) to get the instructions for setting up your Https Endpoint to get leads.
+-   [Dynamics CRM Online](./cloud-partner-portal-lead-management-instructions-dynamics.md) to get the instructions on how to configure Dynamics CRM Online for getting leads.
+-   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md) to get the instructions for setting up Marketo Lead Configuration to get leads.
+-    [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md) to get instructions for setting up your Salesforce instance to get leads.
+-    [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md) to get the instructions for setting up your Azure storage account for getting leads in an Azure table.
+-   [Https Endpoint](./cloud-partner-portal-lead-management-instructions-https.md) to get the instructions for setting up your Https Endpoint to get leads.
 
 After you configure your lead destination and Publish your offer, we'll validate the connection and send you a
 test lead. When you are viewing the offer before you go live, you can

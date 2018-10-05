@@ -3,7 +3,7 @@ title: Salesforce | Microsoft Docs
 description: Configure lead management on Salesforce.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 

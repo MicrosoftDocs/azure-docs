@@ -3,7 +3,7 @@ title: Migrate offers | Microsoft Docs
 description: Migrate existing offers to the new portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 

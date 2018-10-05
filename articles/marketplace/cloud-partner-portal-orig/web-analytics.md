@@ -1,5 +1,5 @@
 ---
-title: Web Analytics {#WebAnalytics} | Microsoft Docs
+title: Web Analytics | Microsoft Docs
 description: .
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -18,7 +18,7 @@ ms.author: pbutlerm
 ---
 
 
-Web Analytics {#WebAnalytics}
+Web Analytics
 =============
 
 This article provides you with instructions on how to learn and use Web Analytics to best grow your business. Currently this Insights tab is available for any AppSource offers.
@@ -32,8 +32,7 @@ You will see a rich dashboard for your Publisher ID that has been  built with Mi
 **Microsoft Campaigns**
 -----------------------
 
-In order to grow your offers and track the growth of your offers, we have enabled the ability to use **Microsoft campaigns** on the Cloud
-Partner Portal. Campaigns are a newly supported feature for the
+In order to grow your offers and track the growth of your offers, we have enabled the ability to use **Microsoft campaigns** on the Cloud Partner Portal. Campaigns are a newly supported feature for the
 marketplace that will allow for you to track the different channels that are sending customers into your app details page.
 
 ### **How to make a Campaign**
@@ -49,7 +48,7 @@ There are two ways to generate your own campaign.
 1. Add to your URL the query parameter **mktcmpid** that describes what the campaign is and what page/event these customers are coming from.
 
 For example you can use:
-<https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
+<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
 2. (Advanced): Use one of our supported, generic campaign IDs in the
     URL. We want to be accommodating with additional ref tags that you
@@ -61,7 +60,7 @@ For example you can use:
     4. **src**
 
 For example you can use:
-<https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
+<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
 
 You can choose to have a combination of multiple of these campaign IDs
 to further identify multiple sources driving traffic for the campaign
@@ -70,9 +69,9 @@ such as where the customer came from (email, blog, social media source, etc.).
 For example:
 
 1. Newsletter referrer:
-    <https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
+    <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
 2. LinkedIn referrer:
-    <https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
+    <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
 
 ### **Ensuring campaigns pass through all your pages**
 

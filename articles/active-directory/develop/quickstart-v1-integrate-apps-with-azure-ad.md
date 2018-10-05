@@ -91,7 +91,7 @@ The following steps show you how the consent experience works for both the appli
    
   ![User consent experience](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-5. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see the [Web API]](web-api.md).
+5. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see the [Web API](web-api.md).
 
 6. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and can be done in the [Azure portal](https://portal.azure.com) by users with the administrator role. From the **Settings** page for your application, click **Required permissions** and click on the **Grant permissions** button. 
 

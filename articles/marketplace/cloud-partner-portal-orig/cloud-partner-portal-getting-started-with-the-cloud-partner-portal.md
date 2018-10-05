@@ -3,7 +3,7 @@ title: Getting Started | Microsoft Docs
 description: Getting started with the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -39,7 +39,7 @@ Use the menu bar to get more information about each of the following items:
 - **New offer** - Kick off a new offer here.
 - **All offers** - Check the state and status of all your current offers.
 - **Users** - [Manage and control access for your
-    company](./cloud-partner-portal-manage-users).
+    company](./cloud-partner-portal-manage-users.md).
 - **Learn** - Jump-start your learning, and stay up-to-date on what's new in the Partner Portal.
 - **Insights** - Find insights and usage information about your products and customers by visiting the Insights Portal.
 

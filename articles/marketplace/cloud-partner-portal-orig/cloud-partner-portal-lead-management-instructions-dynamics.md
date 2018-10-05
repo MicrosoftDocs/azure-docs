@@ -3,7 +3,7 @@ title: Dynamics CRM | Microsoft Docs
 description: Configure lead management for Dynamics CRM.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -84,7 +84,7 @@ Use the following steps to configure Azure Active Directory for Dynamics CRM.
 
 15. Select **New** to create a new user. Select the **USER: APPLICATION USER** dropdown.
     
-    ![Add new application user](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PMG)
+    ![Add new application user](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
 
 16. In **New User**, provide the name and email that you want to use with this connection. Paste in the **Application Id** for the app you created in the Azure portal.
      ![Configure new user](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)

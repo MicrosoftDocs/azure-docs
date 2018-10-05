@@ -60,8 +60,7 @@ No matter how complex your application, your Microsoft Test Drive helps you brin
     the Azure resources that comprise a solution being built by the
     publisher. Products that fit this scenario are ones that use only
     Azure resources.
-- **[Logic
-    App](./logic-app-test-drive)**:
+- **[Logic App](./logic-app-test-drive.md)**:
     A Logic App Test Drive is a deployment template that is meant to
     encompass all complex solution architectures. All Dynamics
     applications or custom products should use this type of Test Drive.
@@ -87,10 +86,9 @@ Next steps
 Now that you know what a Test Drive is all about, go visit the specific Test Drive type that you want to go publish to learn all about the required fields needed.
 
 - **[Azure Resource
-    Manager](./azure-resource-manager-test-drive)**
-- **[Logic
-    App](./logic-app-test-drive)**
+    Manager](./azure-resource-manager-test-drive.md)**
+- **[Logic App](./logic-app-test-drive.md)**
 
 If you have more questions, are looking for troubleshooting advice, or
 want to make your Test Drive more successful, please go to [FAQ,
-Troubleshooting, & Best Practices](./marketing-and-best-practices).
+Troubleshooting, & Best Practices](./marketing-and-best-practices.md).

@@ -94,12 +94,8 @@
     items:
     - name: Use app settings
       href: web-sites-configure.md
-    - name: Upload existing Java app
-      href: web-sites-java-add-app.md
     - name: Configure PHP
       href: web-sites-php-configure.md
-    - name: Python
-      href: web-sites-python-configure.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
   - name: Deploy to Azure
@@ -208,6 +204,8 @@
     href: /rest/api/appservice/
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

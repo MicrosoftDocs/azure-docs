@@ -39,7 +39,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
-1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your your **Location**. Leave the other defaults.
+1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your **Location**. Leave the other defaults.
 
 	![Instance details section](./media/quick-create-portal/instance-details.png)
 
@@ -68,7 +68,7 @@ Create a remote desktop connection to the virtual machine. These directions tell
 
 2. Open the downloaded RDP file and click **Connect** when prompted. 
 
-3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *vmname*\\*username*, enter password you created for the virtual machine, and then click **OK**.
+3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as **localhost**\\*username*, enter password you created for the virtual machine, and then click **OK**.
 
 4. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to create the connection.
 

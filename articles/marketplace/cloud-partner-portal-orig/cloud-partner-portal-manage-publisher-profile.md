@@ -40,9 +40,11 @@ ID, display name, and owner email(s). A well-managed profile will
 increase your visibility and help marketplace users easily identify and
 select an appropriate offer.
 
-> [!NOTE] Your publisher ID and registered owner email is not editable once you publish your first offer. However you can view your profile and edit the publisher display name from the ‘Cloud Partner Portal’.`
+> [!NOTE] 
+> Your publisher ID and registered owner email is not editable once you publish your first offer. However you can view your profile and edit the publisher display name from the Cloud Partner Portal.
 
-> [!NOTE] Add users (contributors and owners) to your publishing profile from the Users section on the left navigation pane from the Users Section of the cloud partner portal`
+> [!NOTE] 
+> Add users (contributors and owners) to your publishing profile from the Users section on the left navigation pane from the Users Section of the cloud partner portal`
 
 **To view and manage your publisher profile**, from the top-right menu
 bar, click the **Publisher profile tab**.
@@ -63,7 +65,7 @@ on your publisher profile page.
 >[!NOTE]
 >Dev Center Account registration is mandatory for publishing paid market place SKU’s.
 
-If you do not have a Developer Center Account,](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration)**
+If you do not have a [Developer Center Account](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md), 
 you can create one and add the registered email address as one of the
 owners on the Cloud Partner Portal for your offer. An owner can only add
 the registered email address to your publishing profile from the

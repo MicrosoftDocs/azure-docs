@@ -3,7 +3,7 @@ title: Author virtual machine offer | Microsoft Docs
 description: Publish a virtual machine to Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -41,12 +41,8 @@ The following technical and non-technical prerequisites apply to publishing a vi
 
 -   [Security recommendations for Azure Marketplace     images](https://docs.microsoft.com/en-us/azure/security/security-recommendations-azure-marketplace-images)
 
-<<<<<<< HEAD
+
 ### Non-technical (business requirements)
-=======
-    -   [Security Recommendations for Azure Marketplace
-        Images](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
->>>>>>> c9485727c0e3f006d75e99b1500f5acf18df6831
 
  -   Your company (or its subsidiary) is located in a sell country supported by ​the Azure Marketplace
 
@@ -404,7 +400,7 @@ The Hero logo is optional. The publisher can choose not to upload a Hero logo. H
 ### Lead Management
 
 To configure the lead management settings of the offer, follow
-[these instructions](./cloud-partner-portal-get-customer-leads/how-to-connect-your-crm-system-with-the-cloud-partner-portal).
+[these instructions](./cloud-partner-portal-get-customer-leads.md).
 
 ## To configure Support
 
@@ -415,4 +411,4 @@ Use the Support view to provide the following information:
 
 ## To publish the offer
 
-The final step is to publish the offer. Follow [these instructions to go live with your offer](./cloud-partner-portal-make-offer-live-on-Azure-Marketplace).
+The final step is to publish the offer. Follow [these instructions to go live with your offer](./cloud-partner-portal-make-offer-live-on-azure-marketplace.md).

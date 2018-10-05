@@ -3,7 +3,7 @@ title: Publish a Solution Template | Microsoft Docs
 description: Publish a Solution Template to Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -77,7 +77,7 @@ A SKU shows up under the parent offer in Azure Marketplace and shows up as its o
 
 ## To create a new offer
 
-1.  Sign in to the [Cloud partner portal](http://cloudpartner.azure.com/).
+1.  Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/).
 
 2.  On left navigation bar, select **+ New offer**, and then select **Azure Applications**.
 

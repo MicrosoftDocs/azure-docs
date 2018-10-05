@@ -8,7 +8,7 @@ manager: jeconnoc
 
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 10/03/2018
 ms.author: glenga
 
 ---
@@ -59,6 +59,7 @@ In addition to changes in languages and bindings, there are some features that h
 * Application settings (`local.settings.json`) require a value for the property `FUNCTIONS_WORKER_RUNTIME` that maps to the language of the app `dotnet | node | java | python`.
     * To improve footprint and startup time, apps are limited to a single language. You can publish multiple apps to have functions in different languages for the same solution.
 * Default timeout for functions in an app service plan is 30 minutes.  It can still be manually set to unlimited.
+* HTTP concurrency throttles are implemented by default for consumption plan functions (100 concurrent requests per instance).  These settings can be modified via the `host.json` file.
 * [Due to .NET core limitiations](https://github.com/Azure/azure-functions-host/issues/3414), `.fsx` scripts for F# functions have been removed. Compiled F# functions are still supported.
 * The format of webhook-based triggers (e.g. Event Grid) has changed to `https://{app}/runtime/webhooks/{triggerName}`
 
@@ -94,7 +95,7 @@ For VS Code you may also need to update the user setting for the `azureFunctions
 
 ### Changing version of apps in Azure
 
-Published app versions are set through the application setting `FUNCTIONS_RUNTIME_VERSION`.  This is set to `~2` for v2 apps, and `~1` for v1 apps.  It is strongly discouraged to change the runtime version of an app that has existing functions published to it without also changing the code of those functions.  The recommended path is to create a new function app and set to the appropriate version, test changes, and then disable or delete the previous app.
+Published app versions are set through the application setting `FUNCTIONS_EXTENSION_VERSION`.  This is set to `~2` for v2 apps, and `~1` for v1 apps.  It is strongly discouraged to change the runtime version of an app that has existing functions published to it without also changing the code of those functions.  The recommended path is to create a new function app and set to the appropriate version, test changes, and then disable or delete the previous app.
 
 ## Bindings 
 

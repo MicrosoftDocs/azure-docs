@@ -3,7 +3,7 @@ title: IoT Edge Module Certification | Microsoft Docs
 description: Certify an IoT Edge Module for the Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 

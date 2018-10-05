@@ -1,13 +1,11 @@
 ---
 title: Logic App Test Drive | Microsoft Docs
-description: his article is for Publishers who have their offer on AppSource and want to build their Test Drive that connects with a Dynamics AX/CRM
-instance or any other resource beyond just Azure
+description: Explains how to build their Test Drive that connects with a Dynamics AX/CRM instance or any other resource beyond just Azure.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: pbutlerm
 manager: Patrick.Butler  
 editor:
-
 ms.assetid: 
 ms.service: marketplace
 ms.workload: 
@@ -150,4 +148,4 @@ It is important to note that you do not delete any part of the Test Drive as the
 Once you feel comfortable with your Preview offering, now it is time to **go live**! There is a final review process from Microsoft once the offer has been published to double check the entire end to end
 experience. If for some reason the offer gets rejected, we will send a notification to the engineering contact for your offer explaining what will need to get fixed.
 
-If you have more questions, are looking for troubleshooting advice, or want to make your Test Drive more successful, please go to [FAQ,Troubleshooting, & Best Practices](./marketing-and-best-practices).
+If you have more questions, are looking for troubleshooting advice, or want to make your Test Drive more successful, please go to [FAQ,Troubleshooting, & Best Practices](./marketing-and-best-practices.md).
