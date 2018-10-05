@@ -232,7 +232,7 @@ There are certain sets of claims that define how and when they are used in token
 
 ## Claims mapping policy properties
 
-Use the properties of a claims mapping policy to control which claims are emitted and where the data is sourced from. If no policy is set, the system issues tokens containing the core claim set, the basic claim set, and any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
+Use the properties of a claims mapping policy to control which claims are emitted and where the data is sourced from. If no policy is set, the system issues tokens that include the core claim set, the basic claim set, and any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
 
 ### Include basic claim set
 
@@ -255,7 +255,7 @@ Use the properties of a claims mapping policy to control which claims are emitte
 **Data type:** JSON blob with one or more claim schema entries
 
 **Summary:** This property defines which claims are present in the tokens affected by the policy, in addition to the basic claim set and the core claim set.
-For each claim schema entry defined in this property, certain information is required. You must specify where the data is coming from (**Value** or **Source/ID pair**), and which claim the data is emitted as (**Claim Type**).
+For each claim schema entry defined in this property, certain information is required. Specify where the data is coming from (**Value** or **Source/ID pair**), and which claim the data is emitted as (**Claim Type**).
 
 ### Claim schema entry elements
 
@@ -263,15 +263,14 @@ For each claim schema entry defined in this property, certain information is req
 
 **Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from. 
 
-The Source element must be set to one of the following: 
-
+Set the Source element to one of the following values: 
 
 - "user": The data in the claim is a property on the User object. 
 - "application": The data in the claim is a property on the application (client) service principal. 
 - "resource": The data in the claim is a property on the resource service principal.
 - "audience": The data in the claim is a property on the service principal that is the audience of the token (either the client or resource service principal).
 - “company”: The data in the claim is a property on the resource tenant’s Company object.
-- "transformation": The data in the claim is from claims transformation (see the "Claims transformation" section later in this article). 
+- "transformation": The data in the claim is from claims transformation (see the "Claims transformation" section later in this article).
 
 If the source is transformation, the **TransformationID** element must be included in this claim definition as well.
 
@@ -356,7 +355,7 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 |TransformationMethod|Expected input|Expected output|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the orignal input string is returned as is.|
+|ExtractMailPrefix|mail|outputClaim|Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
 **InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and 
 **TransformationClaimType**.
@@ -376,7 +375,7 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 
 ### Exceptions and restrictions
 
-**SAML NameID and UPN:** The attributes from which you source the NameID and UPN values, and the claims transformations that are permitted, are limited.
+**SAML NameID and UPN:** The attributes from which you source the NameID and UPN values, and the claims transformations that are permitted, are limited. See table 5 and table 6 to see the permitted values.
 
 #### Table 5: Attributes allowed as a data source for SAML NameID
 
@@ -411,11 +410,11 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 
 ### Custom signing key
 
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. All tokens issued that have been impacted by the policy are signed with this key. Applications must be configured to accept tokens signed with this key. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy. This protects applications from claims mapping policies created by malicious actors.
+A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. All tokens issued that have been impacted by the policy are signed with the custom signing key, and applications must be configured to accept tokens signed with the signing key key. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors.
 
 ### Cross-tenant scenarios
 
-Claims mapping policies do not apply to guest users. If a guest user attempts to access an application with a claims mapping policy assigned to its service principal, the default token is issued (the policy has no effect).
+Claims mapping policies do not apply to guest users. If a guest user tries to access an application with a claims mapping policy assigned to its service principal, the default token is issued (the policy has no effect).
 
 ## Claims mapping policy assignment
 
@@ -427,11 +426,11 @@ In Azure AD, many scenarios are possible when you can customize claims emitted i
 
 #### Prerequisites
 
-In the following examples, you create, update, link, and delete policies for service principals. If you are new to Azure AD, we recommend that you learn about how to get an Azure AD tenant before you proceed with these examples. 
+In the following examples, you create, update, link, and delete policies for service principals. If you are new to Azure AD, we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
 
 To get started, do the following steps:
 
-1. Download the latest [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
+1. Download the latest [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Run the Connect command to sign in to your Azure AD admin account. Run this command each time you start a new session.
 	
 	 ``` powershell
