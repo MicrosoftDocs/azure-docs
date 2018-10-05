@@ -36,19 +36,21 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 In Azure Search, the most important billing concept to understand is a *search unit* (SU). Because Azure Search depends on both replicas and partitions to function, it doesn't make sense to bill by just one or the other. Instead, billing is based on a composite of both. 
 
-Formulaically, an SU is the product of *replica* and *partitions* used by a service: **`(R X P = SU)`**
+SU is the product of *replica* and *partitions* used by a service: **`(R X P = SU)`**
 
-At a minimum, every service starts with 1 SU (one replica multiplied by one partition), but for larger workloads, a more realistic model might be a 3-replica, 3-partition service billed as 9 SUs. 
+Every service starts with 1 SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs, which can be achieved in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, to name a few. 
+
+It's common to use less than total capacity. For example, a 3-replica, 3-partition service, billed as 9 SUs. 
 
 The billing rate is **hourly per SU**, with each tier having a progressively higher rate. Higher tiers come with larger and speedier partitions, contributing to an overall higher hourly rate for that tier. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/). 
 
-Although each tier offers progressively higher capacity, you can bring a *portion* of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
+Most customers bring just a portion of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay on an hourly basis.
 
 ### Tips for reducing costs
 
-You cannot shut down the service to lower the bill. Dedicated resources for partitions and replicas are operational 24-7, allocated for your exclusive use, for the lifetime of your service. The only way to lower a bill is by reducing replicas and partitions to a low level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+You cannot shut down the service to lower the bill. Dedicated resources are operational 24-7, allocated for your exclusive use, for the lifetime of your service. The only way to lower a bill is by reducing replicas and partitions to a low level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Another lever for reducing costs is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 rates. You could provision a service aimed at the lower end of your load projections. If you outgrow the service, create a second larger-tiered service, rebuild your indexes on that second service, and then delete the first one. For on premises servers, it's common to "buy up" so that you can handle projected growth. But with a cloud service, you can pursue cost savings most aggressively, knowing that you can always switch to a higher-tiered service if the current one is insufficient.
+One lever for reducing costs is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 rates. You could provision a service aimed at the lower end of your load projections. If you outgrow the service, create a second larger-tiered service, rebuild your indexes on that second service, and then delete the first one. If you have done capacity planning for on premises servers, you know that it's common to "buy up" so that you can handle projected growth. But with a cloud service, you can pursue cost savings more aggressively because you are not locked in to a specific purchase. You can always switch to a higher-tiered service if the current one is insufficient.
 
 ### Capacity drill-down
 
