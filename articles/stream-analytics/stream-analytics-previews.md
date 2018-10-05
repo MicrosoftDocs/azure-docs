@@ -28,22 +28,19 @@ You can scale Stream Analytics jobs with Machine Learning (ML) functions. To lea
 
 ### Session windows
 
-Stream Analytics has native support for windowing functions, enabling developers to author complex stream processing jobs with minimal effort. Session windows group events that arrive at similar times, filtering out periods of time where there is no data. There are four kinds of temporal windows to choose from: [Tumbling](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [Hopping](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [Sliding](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), and [Session](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows. To learn more about windowing functions, visit [Introduction to Stream Analytics windowing functions](stream-analytics-window-functions.md).
+Stream Analytics has native support for windowing functions, enabling developers to author complex stream processing jobs with minimal effort. [Session windows](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) group events that arrive at similar times, filtering out periods of time where there is no data. To learn more about windowing functions, visit [Introduction to Stream Analytics windowing functions](stream-analytics-window-functions.md).
 
 ### Blob output partitioning by custom time
 
-Azure Stream Analytics can output to Blob storage based on custom time attributes. For more information, visit [Custom DateTime path patterns for Azure Stream Analytics blob storage output](stream-analytics-custom-path-patterns-blob-storage-output
-.md).
+Azure Stream Analytics can output to Blob storage based on custom time attributes. For more information, visit [Custom DateTime path patterns for Azure Stream Analytics blob storage output](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### JavaScript user-defined aggregate
 
-Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript, which enable you to implement complex stateful business logic. Learn how to use UDAs from the [Azure Stream Analytics JavaScript user-defined aggregates](stream-analytics-javascript-user-defined-aggregates
-.md) documentation. 
+Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript, which enable you to implement complex stateful business logic. Learn how to use UDAs from the [Azure Stream Analytics JavaScript user-defined aggregates](stream-analytics-javascript-user-defined-aggregates.md) documentation. 
 
 ### Live data testing in Visual Studio
 
-Visual Studio tools for Azure Stream Analytics enhances the local testing capability that allows you to test you queries against live event streams from cloud sources such as Event Hub or IoT hub. Learn how to [Test live data locally using Azure Stream Analytics tools for Visual Studio](stream-analytics-live-data-local-testing
-.md).
+Visual Studio tools for Azure Stream Analytics enhances the local testing capability that allows you to test you queries against live event streams from cloud sources such as Event Hub or IoT hub. Learn how to [Test live data locally using Azure Stream Analytics tools for Visual Studio](stream-analytics-live-data-local-testing.md).
 
 ### .NET user defined functions on IoT Edge
 
@@ -57,7 +54,7 @@ The following features are in private preview. To access these previews, visit t
 
 Azure Stream Analytics introduces new machine learning models with support for *spike* and *dip* detection in addition to bi-directional, slow positive, and slow negative trends detection.
 
-### C# custom deserializer
+### C# custom deserializer for Azure Stream Analytics on IoT Edge
 
 Developers can now implement custom deserializers in C# to deserialize events received by Azure Stream Analytics. Examples of formats that can be deserialized include Parquet, Protobuf, XML or any binary format.
 
