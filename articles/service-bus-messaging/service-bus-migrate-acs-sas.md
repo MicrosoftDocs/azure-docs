@@ -63,5 +63,4 @@ To learn more about Service Bus authentication, see the following topics:
 
 * [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md)
 * [Service Bus authentication with Shared Access Signatures](service-bus-sas.md)
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 
