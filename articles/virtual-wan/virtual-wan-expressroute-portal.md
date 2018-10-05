@@ -41,7 +41,7 @@ Before you can configure Virtual WAN, you must first enroll your subscription in
 **Preview Considerations:**
 
 * Region Availability: West Central US
-* ExpressRoute circuit must be enabled in a country that supports [ExpressRoute Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
+* ExpressRoute circuit must be enabled in a country that supports [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Create a virtual network
 
