@@ -13,11 +13,11 @@ ms.component: alerts
 
 Azure Monitor has now become am unified full stack monitoring service which now supports ‘One Metrics’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/en-us/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy. 
 
-As the new unified Azure Monitor platform takes precedence over the classic metrics & alerts platform. We are announcing that the previous "classic" monitoring and alerting platform - hosted within *view classic alerts* section of Azure alerts, will be deprecated by June 2019.
+With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, will be deprecated by June 2019.
 
  ![Classic alert in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
 
-Until then both the new unified & classic alerting platforms will co-exist while we encourage users to start adopting the new Azure Monitor and alerts. Soon, Microsoft Azure Monitor will provide customers a way to move their existing classic alerts to the new alerts system without disruption or added costs.
+We encourage you to get started and recreate your alerts in the new platform. For customers who have a large number of alerts, we are working to provide an automated way to move existing classic alerts to the new alerts system without disruption or added costs.
 
 ## Unified Metrics and Alerts in Application Insights
 
@@ -27,7 +27,7 @@ The new unified Monitoring and Alerting for Application Insights will encompass:
 
 - **Application Insights Platform metrics** – which provides popular prebuilt metrics from Application Insights product. For more information, see this article on using [Platform Metrics for Application Insights on new Azure Monitor](../application-insights/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Application Insights Availability and Web test** -which provides you the ability to assess the responsiveness and availability of your web app or server. For more information, see this article on using [Availability Tests and Alerts for Application Insights on new Azure Monitor](../application-insights/app-insights-monitor-web-app-availability.md).
-- **Application Insights Custom metrics** – which lets you define and emit their own metrics for monitoring and alerts. For more information, see this article on using [Custom Metric for Application Insights on new Azure Monitor](../application-insights/pre-aggregated-metrics-log-metrics.md#using-pre-aggregation-with-application-insights-custom-metrics).
+- **Application Insights Custom metrics** – which lets you define and emit their own metrics for monitoring and alerts. For more information, see this article on using [Custom Metric for Application Insights on new Azure Monitor](../application-insights/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Application Insights Failure Anomalies (part of Smart Detection)** – which automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failed HTTP requests or dependency calls. Application Insights Failure Anomalies (part of Smart Detection) as part of new Azure Monitor, will be available soon and we will update this doc with links on the next iteration as it is rolled-out in the coming months.
 
 ## Unified Metrics & Alerts for other Azure resources
