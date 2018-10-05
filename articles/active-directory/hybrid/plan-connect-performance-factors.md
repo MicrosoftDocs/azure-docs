@@ -24,7 +24,7 @@ Azure AD Connect syncs your Active Directory to Azure AD. This server is a criti
 | Configuration| How Azure AD Connect processes the directories and information. |
 | Load| Frequency of object changes. The loads may vary during an hour, day, or week. Depending on the component, you may have to design for peak load or average load. |
 
-The purpose of this document is to describe the performance considerations influencing the performance of the provisioning engine of Azure AD Connect. The other components of Azure AD Connect, such as [Azure AD Connect health](../how-to-connect-health-agent-install.md) and agents aren't covered here.
+The purpose of this document is to describe the performance considerations influencing the performance of the provisioning engine of Azure AD Connect. The other components of Azure AD Connect, such as [Azure AD Connect health](how-to-connect-health-agent-install.md) and agents aren't covered here.
 
 > [!IMPORTANT]
 > Microsoft doesn't support modifying or operating Azure AD Connect outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
@@ -56,7 +56,7 @@ The Initial sync profile is the process of reading the connected directories, li
 
 ### Delta sync profile
 
-To optimize the sync process this run profile only process the changes (creates, deletes and updates) of objects in your connected directories, since the last sync process. By default, the delta sync profile runs every 30 minutes. Organizations should strive to keep the time it takes to below 30 minutes, to make sure the Azure AD is up-to-date. To monitor the health of Azure AD Connect, use the [health monitoring agent](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-sync) to see any issues of the process. The delta sync profile includes the following steps:
+To optimize the sync process this run profile only process the changes (creates, deletes and updates) of objects in your connected directories, since the last sync process. By default, the delta sync profile runs every 30 minutes. Organizations should strive to keep the time it takes to below 30 minutes, to make sure the Azure AD is up-to-date. To monitor the health of Azure AD Connect, use the [health monitoring agent](how-to-connect-health-sync.md) to see any issues of the process. The delta sync profile includes the following steps:
 
 1. Delta import on all connectors
 2. Delta sync on all connectors
@@ -106,10 +106,10 @@ The size of the Active Directory topology you want to import is the number one f
 3. **Attribute filtering per object** - uses the attribute values on objects to decide whether specific object in Active Directory is provisioned in Azure AD. Attribute filtering is great for fine-tuning your filters, when domain and OU filtering doesn't meet the specific filtering requirements. Attribute filtering doesn't reduce the import time but can reduce sync and export times.
 4. **Group-based filtering** - uses group membership to decide whether objects should be provisioned in Azure AD. Group-based filtering is only suited for testing situations and not recommended for production, because of the extra overhead required to check group membership during the sync cycle.
 
-Many persistent [disconnector objects](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture#relationships-between-staging-objects-and-metaverse-objects) in your Active Directory CS can cause longer sync times, because the provisioning engine must reevaluate each disconnector object for possible connection in the sync cycle. To overcome this issue, consider one of the following recommendations:
+Many persistent [disconnector objects](concept-azure-ad-connect-sync-architecture.md#relationships-between-staging-objects-and-metaverse-objects) in your Active Directory CS can cause longer sync times, because the provisioning engine must reevaluate each disconnector object for possible connection in the sync cycle. To overcome this issue, consider one of the following recommendations:
 
 1. Place the disconnector objects out of scope for import using domain or OU filtering.
-2. Project/join the objects to the MV and set the [cloudFiltered](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering#negative-filtering-do-not-sync-these) attribute equal to True, to prevent provisioning of these objects in the Azure AD CS.
+2. Project/join the objects to the MV and set the [cloudFiltered](how-to-connect-sync-configure-filtering.md#negative-filtering-do-not-sync-these) attribute equal to True, to prevent provisioning of these objects in the Azure AD CS.
 
 > [!NOTE]
 > Users can get confused or application permissions issues can occur, when too many objects are filtered. For example, in a hybrid Exchange online implementation, users with on-premises mailboxes will see more users in their global address list than users with mailboxes in Exchange online. In other cases, a user may want to grant access in a cloud app to another user which is not part of the scope of the filtered set of objects.
@@ -133,7 +133,7 @@ The performance of Azure AD Connect is dependent on the performance of the conne
 
 ### Active Directory factors
 
-As mentioned previously, the number of objects to be imported influences performance significantly. The [hardware and prerequisites for Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-prerequisites) outline specific hardware tiers based on the size of your deployment. Azure AD Connect only support specific topologies as outlined in [Topologies for Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-topologies). There are no performance optimizations and recommendations for unsupported topologies.
+As mentioned previously, the number of objects to be imported influences performance significantly. The [hardware and prerequisites for Azure AD Connect](how-to-connect-install-prerequisites.md) outline specific hardware tiers based on the size of your deployment. Azure AD Connect only support specific topologies as outlined in [Topologies for Azure AD Connect](plan-connect-topologies.md). There are no performance optimizations and recommendations for unsupported topologies.
 
 Make sure your Azure AD Connect server meets the hardware requirements based on your Active Directory size you want to import. Bad or slow network connectivity between the Azure AD Connect server and your Active Directory domain controllers can slow down your import.
 
@@ -150,7 +150,7 @@ Plan for deployment and maintenance tasks, to make sure your Azure AD Connect sy
 
 ### SQL database factors
 
-The size of your source Active Directory topology will influence your SQL database performance. Follow the [hardware requirements](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites) for the SQL server database and consider the following recommendations:
+The size of your source Active Directory topology will influence your SQL database performance. Follow the [hardware requirements](how-to-connect-install-prerequisites.md) for the SQL server database and consider the following recommendations:
 
 1. Organizations with more than 100,000 users can reduce network latencies by colocating SQL database and the provisioning engine on the same server.
 2. Due to the high disk input and output (I/O) requirements of the sync process, use Solid State Drives (SSD) for the SQL database of the provisioning engine for optimal results, if not possible, consider RAID 0 or RAID 1 configurations.
@@ -160,10 +160,10 @@ The size of your source Active Directory topology will influence your SQL databa
 
 To optimize the performance of your Azure AD Connect implementation, consider the following recommendations:
 
-1. Use the [recommended hardware configuration](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-prerequisites) based on your implementation size for the Azure AD Connect server.
+1. Use the [recommended hardware configuration](how-to-connect-install-prerequisites.md) based on your implementation size for the Azure AD Connect server.
 2. Use SSD for the SQL database for best writing performance.
 3. Filter the Active Directory scope to only objects that needs to be provisioned in Azure AD, using domain, OU, or attribute filtering.
 4. If you require to change the default attribute flow rules, first copy the rule, then change the copy and disable the original rule. Remember to rerun a full sync.
 5. Plan adequate time for the initial full sync run profile.
 6. Strive the delta sync cycle completes in 30 minutes. If the delta sync profile doesn’t complete in 30 minutes, modify the default sync frequency to include a complete delta sync cycle.
-7. Monitor your [Azure AD Connect sync health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install) in Azure AD.
+7. Monitor your [Azure AD Connect sync health](how-to-connect-health-agent-install.md) in Azure AD.
