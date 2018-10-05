@@ -34,7 +34,7 @@ You should complete the steps in the [Add a custom page to the Remote Monitoring
 
 ## Add a panel
 
-To add a panel to the web UI, you need to add the source files that define the panel, and and then modify the dashboard to display the panel.
+To add a panel to the web UI, you need to add the source files that define the panel, and then modify the dashboard to display the panel.
 
 ### Add the new files that define the panel
 

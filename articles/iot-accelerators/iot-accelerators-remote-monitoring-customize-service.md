@@ -72,7 +72,7 @@ To get you started, the **src/walkthrough/store/reducers** folder contains a sam
 
 **exampleReducer.js**
 
-[!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/exampleReducer.js?name=reducer "Example reducer")]
+[!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
 
 Copy **exampleReducer.js** to the **src/store/reducers** folder.
 
