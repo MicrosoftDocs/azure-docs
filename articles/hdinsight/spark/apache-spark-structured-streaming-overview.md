@@ -3,7 +3,7 @@ title: Spark Structured Streaming in Azure HDInsight
 description: How to use Spark Structured Streaming applications on HDInsight Spark clusters.
 services: hdinsight
 author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive

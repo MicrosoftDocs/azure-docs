@@ -35,7 +35,7 @@ Why isn't SQL the best choice in this scenario? Let’s look at the structure of
 You could, of course, use a enormous SQL instance with enough power to solve thousands of queries with these many joins to serve your content, but truly, why would you, when a simpler solution exists?
 
 ## The NoSQL road
-This article will guide you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in a cost-effective way while leveraging other Azure Cosmos DB features like the  [Gremlin Graph API](../cosmos-db/graph-introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data, in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), the previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
+This article will guide you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in a cost-effective way while leveraging other Azure Cosmos DB features like the  [Gremlin API](../cosmos-db/graph-introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data, in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), the previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {
@@ -95,7 +95,7 @@ Creating feeds is just a matter of creating documents that can hold a list of po
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-You could have a “latest” stream with posts ordered by creation date, a “hottest” stream with those posts with more likes in the last 24 hours, you could even implement a custom stream for each user based on logic like followers and interests, and it would still be a list of posts. It’s a matter of how to build these lists, but the reading performance remains unhindered. Once you acquire one of these lists, you issue a single query to Cosmos DB using the [IN operator](sql-api-sql-query.md#WhereClause) to obtain pages of posts at a time.
+You could have a "latest" stream with posts ordered by creation date, a "hottest" stream with those posts with more likes in the last 24 hours, you could even implement a custom stream for each user based on logic like followers and interests, and it would still be a list of posts. It’s a matter of how to build these lists, but the reading performance remains unhindered. Once you acquire one of these lists, you issue a single query to Cosmos DB using the [IN operator](sql-api-sql-query.md#WhereClause) to obtain pages of posts at a time.
 
 The feed streams could be built using [Azure App Services’](https://azure.microsoft.com/services/app-service/) background processes: [Webjobs](../app-service/web-sites-create-web-jobs.md). Once a post is created, background processing can be triggered by using [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](../storage/queues/storage-dotnet-how-to-use-queues.md) and Webjobs triggered using the [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementing the post propagation inside streams based on your own custom logic. 
 
@@ -126,16 +126,16 @@ To solve this, you can use a mixed approach. As part of the User Statistics docu
         "totalPoints":11342
     }
 
-And the actual graph of followers can be stored using Azure Cosmos DB [Gremlin Graph API](../cosmos-db/graph-introduction.md), to create [vertexes](http://mathworld.wolfram.com/GraphVertex.html) for each user and [edges](http://mathworld.wolfram.com/GraphEdge.html) that maintain the "A-follows-B" relationships. The Graph API let's you not only obtain the followers of a certain user but create more complex queries to even suggest people in common. If you add to the graph the Content Categories that people like or enjoy, you can start weaving experiences that include smart content discovery, suggesting content that those you follow like, or finding people with whom you might have much in common.
+And the actual graph of followers can be stored using Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md), to create [vertexes](http://mathworld.wolfram.com/GraphVertex.html) for each user and [edges](http://mathworld.wolfram.com/GraphEdge.html) that maintain the "A-follows-B" relationships. The Gremlin API let's you not only obtain the followers of a certain user but create more complex queries to even suggest people in common. If you add to the graph the Content Categories that people like or enjoy, you can start weaving experiences that include smart content discovery, suggesting content that those you follow like, or finding people with whom you might have much in common.
 
 The User Statistics document can still be used to create cards in the UI or quick profile previews.
 
-## The “Ladder” pattern and data duplication
+## The "Ladder" pattern and data duplication
 As you might have noticed in the JSON document that references a post, there are multiple occurrences of a user. And you’d have guessed right, this means that the information that represents a user, given this denormalization, might be present in more than one place.
 
 In order to allow for faster queries, you incur data duplication. The problem with this side-effect is that if by some action, a user’s data changes, you need to find all the activities he ever did and update them all. Doesn’t sound practical, right?
 
-You are going to solve it by identifying the Key attributes of a user that you show in your application for each activity. If you visually show a post in your application and show just the creator’s name and picture, why store all of the user’s data in the “createdBy” attribute? If for each comment you just show the user’s picture, you don’t really need the rest of his information. That’s where something I call the “Ladder pattern” comes into play.
+You are going to solve it by identifying the Key attributes of a user that you show in your application for each activity. If you visually show a post in your application and show just the creator’s name and picture, why store all of the user’s data in the "createdBy" attribute? If for each comment you just show the user’s picture, you don’t really need the rest of his information. That’s where something I call the "Ladder pattern" comes into play.
 
 Let’s take user information as an example:
 
@@ -153,11 +153,11 @@ Let’s take user information as an example:
         "totalPosts":24
     }
 
-By looking at this information, you can quickly detect which is critical information and which isn’t, thus creating a “Ladder”:
+By looking at this information, you can quickly detect which is critical information and which isn’t, thus creating a "Ladder":
 
 ![Diagram of a ladder pattern](./media/social-media-apps/social-media-apps-ladder.png)
 
-The smallest step is called a UserChunk, the minimal piece of information that identifies a user and it’s used for data duplication. By reducing the size of the duplicated data to only the information you will “show”, you reduce the possibility of massive updates.
+The smallest step is called a UserChunk, the minimal piece of information that identifies a user and it’s used for data duplication. By reducing the size of the duplicated data to only the information you will "show", you reduce the possibility of massive updates.
 
 The middle step is called the user, it’s the full data that will be used on most performance-dependent queries on Cosmos DB, the most accessed and critical. It includes the information represented by a UserChunk.
 
@@ -186,7 +186,7 @@ And a Post would look like:
         }
     }
 
-And when an edit arises where one of the attributes of the chunk is affected, it’s easy to find the affected documents by using queries that point to the indexed attributes (SELECT * FROM posts p WHERE p.createdBy.id == “edited_user_id”) and then updating the chunks.
+And when an edit arises where one of the attributes of the chunk is affected, it’s easy to find the affected documents by using queries that point to the indexed attributes (SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id") and then updating the chunks.
 
 ## The search box
 Users will generate, luckily, much content. And you should be able to provide the ability to search and find content that might not be directly in their content streams, maybe because you don’t follow the creators, or maybe you are just trying to find that old post you did six months ago.
@@ -236,7 +236,7 @@ When you replicate your data globally, you need to make sure that your clients c
 ![Adding global coverage to your social platform](./media/social-media-apps/social-media-apps-global-replicate.png)
 
 ## Conclusion
-This article tries to shed some light into the alternatives of creating social networks completely on Azure with low-cost services and providing great results by encouraging the use of a multi-layered storage solution and data distribution called “Ladder”.
+This article tries to shed some light into the alternatives of creating social networks completely on Azure with low-cost services and providing great results by encouraging the use of a multi-layered storage solution and data distribution called "Ladder".
 
 ![Diagram of interaction between Azure services for social networking](./media/social-media-apps/social-media-apps-azure-solution.png)
 

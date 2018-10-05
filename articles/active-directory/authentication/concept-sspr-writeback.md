@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -16,13 +16,19 @@ ms.reviewer: sahenry
 ---
 # What is password writeback?
 
-Having a cloud based password reset utility is great but most companies still have an on-premises directory where their users exist. How does Microsoft support keeping traditional on-premises Active Directory (AD) in sync with password changes in the cloud? Password writeback is a feature enabled with [Azure AD Connect](./../connect/active-directory-aadconnect.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real-time.
+Having a cloud-based password reset utility is great but most companies still have an on-premises directory where their users exist. How does Microsoft support keeping traditional on-premises Active Directory (AD) in sync with password changes in the cloud? Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time.
 
 Password writeback is supported in environments that use:
 
-* [Active Directory Federation Services](../connect/active-directory-aadconnect-federation-management.md)
-* [Password hash synchronization](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Pass-through authentication](/../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
+* [Password hash synchronization](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [Pass-through authentication](../hybrid/how-to-connect-pta.md)
+
+> [!WARNING]
+> Password writeback will stop working for customers who are using Azure AD Connect versions 1.0.8641.0 and older when the [Azure Access Control service (ACS) is retired on November 7th, 2018](../develop/active-directory-acs-migration.md). Azure AD Connect versions 1.0.8641.0 and older will no longer allow password writeback at that time because they depend on ACS for that functionality.
+>
+> To avoid a disruption in service, upgrade from a previous version of Azure AD Connect to a newer version, see the article [Azure AD Connect: Upgrade from a previous version to the latest](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 Password writeback provides:
 

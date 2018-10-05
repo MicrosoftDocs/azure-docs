@@ -110,11 +110,11 @@ To create a storage account, you can use the [Microsoft Azure portal](https://po
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### Create a storage account by using PowerShell
-Using PowerShell, create a storage account by using the [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet.
+Using PowerShell, create a storage account by using the [New-AzureStorageAccount](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azurestorageaccount) cmdlet.
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Then you can create a container within that storage account by using the [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) cmdlet.
+Then you can create a container within that storage account by using the [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet.
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 

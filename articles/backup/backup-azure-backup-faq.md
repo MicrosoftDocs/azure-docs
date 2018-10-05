@@ -36,6 +36,9 @@ No. The vault is created at a subscription level, and can't be reassigned to ano
 ### Can I migrate backup data to another vault? <br/>
 No. Backup data stored in a vault can't be moved to a different vault.
 
+### Can I change from GRS to LRS after a backup? <br/>
+No. A Recovery Services vault can only change storage options before any backups have been stored. 
+
 ### Recovery Services vaults are Resource Manager based. Are Backup vaults still supported? <br/>
 Backup vaults have been converted to Recovery Services vaults. If you did not convert the Backup vault to a Recovery Services vault, then the Backup vault was converted to a Recovery Services vault for you. 
 
@@ -139,7 +142,7 @@ The following table explains how each data source size is determined.
 | Microsoft Exchange |Sum of all Exchange databases in an Exchange server being backed up |
 | BMR/System State |Each individual copy of BMR or system state of the machine being backed up |
 
-For Azure IaaS VM backup, each VM can have up to 16 data disks, and each data disk can be up to 4095 GB.
+For Azure IaaS VM backup, each VM can have up to 32 data disks, and each data disk can be up to 4095 GB.
 
 ### Is there a limit on the amount of data held in a Recovery Services vault?
 There is no limit on the amount of data you can back up to a Recovery Services vault.

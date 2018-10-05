@@ -1,4 +1,4 @@
-﻿---
+---
 title: VMware Monitoring solution in Log Analytics | Microsoft Docs
 description: Learn about how the VMware Monitoring solution can help manage logs and monitor ESXi hosts.
 services: log-analytics
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # VMware Monitoring (Preview) solution in Log Analytics
@@ -31,7 +31,7 @@ The solution uses native syslog functionality of the ESXi host to push data to a
 ## Install and configure the solution
 Use the following information to install and configure the solution.
 
-* Add the VMware Monitoring solution to your subscription using the process described in [Add a management solution](log-analytics-add-solutions.md#add-a-management-solution).
+* Add the VMware Monitoring solution to your subscription using the process described in [Install a management solution](../monitoring/monitoring-solutions.md#install-a-management-solution).
 
 #### Supported VMware ESXi hosts
 vSphere ESXi Host 5.5, 6.0, and 6.5
@@ -148,8 +148,6 @@ If you want to see additional ESXi host VM creation data, click an ESXi host nam
 
 #### Common search queries
 The solution includes other useful queries that can help you manage your ESXi hosts, such as high storage space, storage latency, and path failure.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![queries](./media/log-analytics-vmware/queries.png)
 

@@ -1,13 +1,14 @@
 ---
-title: Use prebuilt domains in LUIS apps in Azure | Microsoft Docs
-description: Learn how to use prebuilt domains in Language Understanding Intelligent Service (LUIS) applications.
+title: Use prebuilt domains to build apps quicker in LUIS apps
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) provides prebuilt domains, which are prebuilt sets of intents and entities that work together for domains or common categories of client applications. The prebuilt domains have been pre-trained and are ready for you to add to your LUIS app. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 09/06/2018
 ms.author: diberry
 ---
 

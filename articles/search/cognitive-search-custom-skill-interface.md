@@ -7,19 +7,21 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 08/14/2018
 ms.author: luisca
 ---
 
 # How to add a custom skill to a cognitive search pipeline
 
-In this article, you learn how to add a custom skill to a cognitive search pipeline. A [cognitive search indexing pipeline](cognitive-search-concept-intro.md) in Azure Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) and custom skills that you personally create and add to the pipeline.
+A [cognitive search indexing pipeline](cognitive-search-concept-intro.md) in Azure Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) as well as custom skills that you personally create and add to the pipeline. In this article, learn how to create a custom skill that exposes an interface allowing it to be included in a cognitive search pipeline. 
 
 Building a custom skill gives you a way to insert transformations unique to your content. A custom skill executes independently, applying whatever enrichment step you require. For example, you could define field-specific custom entities, build custom classification models to differentiate business and financial contracts and documents, or add a speech recognition skill to reach deeper into audio files for relevant content. For a step-by-step example, see [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md).
 
  Whatever custom capability you require, there is a simple and clear interface for connecting a custom skill to the rest of the enrichment pipeline. The only requirement for inclusion in a [skillset](cognitive-search-defining-skillset.md) is the ability to accept inputs and emit outputs in ways that are consumable within the skillset as a whole. The focus of this article is on the input and output formats that the enrichment pipeline requires.
 
 ## Web API custom skill interface
+
+Custom WebAPI skill endpoints must return a response within a 5 minute window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that window.”
 
 Currently, the only mechanism for interacting with a custom skill is through a Web API interface. The Web API needs must meet the requirements described in this section.
 

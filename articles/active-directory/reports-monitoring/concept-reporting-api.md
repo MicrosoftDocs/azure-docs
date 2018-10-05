@@ -44,7 +44,7 @@ For detailed instructions, see the [prerequisites to access the Azure Active Dir
 
 ## APIs with Graph Explorer
 
-You can use the [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
+You can use the [MSGraph explorer](https://developer.microsoft.com/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
 
 ![Graph Explorer](./media/concept-reporting-api/graph-explorer.png)
 
@@ -52,17 +52,9 @@ You can use the [MSGraph explorer](https://developer.microsoft.com/en-us/graph/g
 
 ## Use certificates to access the Azure AD reporting API 
 
-Consider using the Azure AD Reporting API with certificates if you plan to retrieve reporting data without user intervention.
+Use the Azure AD Reporting API with certificates if you plan to retrieve reporting data without user intervention.
 
 For detailed instructions, see [Get data using the Azure AD Reporting API with certificates](tutorial-access-api-with-certificates.md).
-
-
-## Explore
-
-Get a first impression of the reporting APIs:
-   
-   - [Using the samples for the audit API](sample-audit-api.md) 
-   - [Using the samples for the sign-in activity report API](sample-sign-in-api.md)
 
 
 ## Next steps

@@ -3,11 +3,11 @@ title: Azure SQL Data Warehouse Release Notes August 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/06/2018
+ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
 ---
@@ -23,6 +23,15 @@ You can view the recommendations in the Azure Advisor portal:
 
 You can drill into each category to see the recommendations for the specific alert:
 ![Azure Advisor Portal Recommendation Details for Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/3c42426e-6969-46e3-9025-c34c0755a302.png)
+
+
+## Bug fixes
+
+| Title | Description |
+|:---|:---|
+| **Potential Query failures when the split count exceeds max limit** |When the 1 million upper bound file-split limit is exceeded an unhandled exception caused the SQL Engine to dump, and all queries failed. This fix addresse the issue by handling the exception correctly and returning an error without causing queries to fail. |
+| **Increased ExternalMoveReadersPerNode default value to improve load perfomance** |This issue was caused by the ExternalMoveReadersPerNode property setting being out of sync with the service fabric setting. This regression caused a degraded Gen2 load performance. The fix brings Gen2 load performance back within optimized design parameters.|
+
 
 ## Next steps
 Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  

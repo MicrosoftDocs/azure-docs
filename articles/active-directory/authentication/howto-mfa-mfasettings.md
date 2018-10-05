@@ -108,17 +108,33 @@ Before you begin, be aware of the following restrictions:
 * The file size limit is 5 MB.
 * Authentication messages should be shorter than 20 seconds. Messages that are longer than 20 seconds can cause the verification to fail. The user might not respond before the message finishes and the verification times out.
 
+### Custom message language behavior
+
+When a custom voice message is played to the user, the language of the message depends on these factors:
+
+* The language of the current user.
+   * The language detected by the user's browser.
+   * Other authentication scenarios may behave differently.
+* The language of any available custom messages.
+   * This language is chosen by the administrator, when a custom message is added.
+
+For example, if there is only one custom message, with a language of German:
+
+* A user who authenticates in the German language will hear the custom German message.
+* A user who authenticates in English will hear the standard English message.
+
 ### Set up a custom message
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA Server** > **Phone call settings**.
+1. Browse to **Azure Active Directory** > **MFA Server** > **Phone call settings**.
 
    ![Record custom phone messages](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. Select **Add greeting**.
-4. Choose the type of greeting. Choose the language.
-5. Select an .mp3 or .wav sound file to upload.
-6. Select **Add**.
+1. Select **Add greeting**.
+1. Choose the type of greeting. 
+1. Choose the language.
+1. Select an .mp3 or .wav sound file to upload.
+1. Select **Add**.
 
 ## Caching in Azure Multi-Factor Authentication
 
@@ -177,7 +193,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**.
 3. Select **Configure MFA trusted IPs**.
-4. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options:
+4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
    
    * **For requests from federated users originating from my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 
@@ -197,10 +213,10 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable the Trusted IPs feature by using service settings
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
+2. On the left, select **Azure Active Directory** > **Users**.
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options:
+5. On the **Service Settings** page, under **Trusted IPs**, choose one (or both) of the following two options:
    
    * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 

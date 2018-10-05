@@ -2,20 +2,20 @@
 title: Create, manage Azure SQL servers and single databases | Microsoft Docs
 description: Learn about creating and managing logical servers and single databases.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: DBs & servers
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: CarlRabeler
 ms.author: carlrab
-
+ms.reviewer:
+manager: craigg
+ms.date: 09/20/2018
 ---
-
 # Create and manage logical servers and single databases in Azure SQL Database 
 
-You can create and manage Azure SQL Databases logical servers and single databases using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
+You can create and manage Azure SQL database logical servers and single databases using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
 
 ## Azure portal: Manage logical servers and databases
 
@@ -34,7 +34,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
 > [!IMPORTANT]
 > For information on selecting the pricing tier for your database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
-To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
+To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-get-started.md)
 
 ### Manage an existing SQL server
 
@@ -81,30 +81,30 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 To create and manage Azure SQL server, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 > [!TIP]
-> For an Azure CLI quickstart, see [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
+> For an Azure CLI quickstart, see [Create a single Azure SQL database using the Azure CLI](sql-database-cli-samples.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Creates a database|
-|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Lists all databases and data warehouses in a server, or all databases in an elastic pool|
-|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Lists available service objectives and storage limits|
-|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Returns database usages|
-|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Gets a database or data warehouse|
-|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Updates a database|
-|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Removes a database|
-|[az group create](/cli/azure/group#az_group_create)|Creates a resource group|
-|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Creates a server|
-|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Lists servers|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Returns  server usages|
-|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Gets a server|
-|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Updates a server|
-|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Deletes a server|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Creates a server firewall rule|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Lists the firewall rules on a server|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Shows the detail of a firewall rule|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Updates a firewall rule|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
+|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Creates a database|
+|[az sql db list](/cli/azure/sql/db#az-sql-db-list)|Lists all databases and data warehouses in a server, or all databases in an elastic pool|
+|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|Lists available service objectives and storage limits|
+|[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Returns database usages|
+|[az sql db show](/cli/azure/sql/db#az-sql-db-show)|Gets a database or data warehouse|
+|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Updates a database|
+|[az sql db delete](/cli/azure/sql/db#az-sql-db-delete)|Removes a database|
+|[az group create](/cli/azure/group#az-group-create)|Creates a resource group|
+|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|Creates a server|
+|[az sql server list](/cli/azure/sql/server#az-sql-server-list)|Lists servers|
+|[az sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|Returns  server usages|
+|[az sql server show](/cli/azure/sql/server#az-sql-server-show)|Gets a server|
+|[az sql server update](/cli/azure/sql/server#az-sql-server-update)|Updates a server|
+|[az sql server delete](/cli/azure/sql/server#az-sql-server-delete)|Deletes a server|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Creates a server firewall rule|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Lists the firewall rules on a server|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Shows the detail of a firewall rule|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Updates a firewall rule|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Deletes a firewall rule|
 
 ## Transact-SQL: Manage logical servers and databases
 
@@ -152,10 +152,7 @@ To create and manage Azure SQL server, databases, and firewalls, use these REST 
 |[Servers - Update](/rest/api/sql/servers/update)|Updates an existing server.|
 |[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
 |[Databases - Get](/rest/api/sql/databases/get)|Gets a database.|
-|[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|Gets a database inside of an elastic pool.|
-|[Databases - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Gets a database inside of a recommented elastic pool.|
 |[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
-|[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommended elastic pool.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
 |[Databases - Update](/rest/api/sql/databases/update)|Updates an existing database.|
 |[Firewall Rules - Create Or Update](/rest/api/sql/firewallrules/createorupdate)|Creates or updates a firewall rule.|

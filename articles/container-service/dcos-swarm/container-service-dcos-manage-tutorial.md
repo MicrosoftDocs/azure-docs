@@ -26,7 +26,7 @@ DC/OS provides a distributed platform for running modern and containerized appli
 > * Basic DC/OS management
 > * Delete the DC/OS cluster
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Create DC/OS cluster
 
@@ -234,7 +234,7 @@ Browsing to this address returns the default NGINX site.
 
 ## Scale DC/OS cluster
 
-In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale]() command. 
+In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale](/cli/azure/acs#az-acs-scale) command. 
 
 To see the current count of DC/OS agents, use the [az acs show](/cli/azure/acs#az-acs-show) command.
 

@@ -1,23 +1,14 @@
 ---
 title: Azure IoT preconfigured solutions | Microsoft Docs
 description: A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources.
-services: ''
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-suite
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-
 ---
+
 # What are the Azure IoT Suite preconfigured solutions?
 
 The Azure IoT Suite preconfigured solutions are implementations of common IoT solution patterns that you can deploy to Azure using your subscription. You can use the preconfigured solutions:

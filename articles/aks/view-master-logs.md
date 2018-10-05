@@ -71,8 +71,7 @@ It may take a few minutes for the diagnostics logs to be enabled and appear in t
 On the left-hand side, choose **Log Search**. To view the *kube-apiserver*, enter the following query in the text box:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | project log_s
 ```
@@ -80,8 +79,7 @@ search *
 Many logs are likely returned for the API server. To scope down the query to view the logs about the NGINX pod created in the previous step, add an additional *where* statement to search for *pods/nginx* as shown in the following example query:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | where log_s contains "pods/nginx"
 | project log_s
@@ -123,4 +121,4 @@ In this article, you learned how to enable and review the logs for the Kubernete
 [log-analytics-overview]: ../log-analytics/log-analytics-overview.md
 [analyze-log-analytics]: ../log-analytics/log-analytics-tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md

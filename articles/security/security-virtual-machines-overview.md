@@ -78,9 +78,8 @@ The solution is integrated with Azure Key Vault to help you control and manage t
 
 Learn more:
 
-* [Azure Disk Encryption for Windows and Linux IaaS VMs](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
-* [Azure Disk Encryption for Linux and Windows Virtual Machines](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
-* [Encrypt a virtual machine](../security-center/security-center-disk-encryption.md)
+* [Azure Disk Encryption for IaaS VMs](../security/azure-security-disk-encryption-overview.md)
+* [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](../security/quick-encrypt-vm-powershell.md)
 
 ## Virtual machine backup
 Azure Backup is a scalable solution that helps protect your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications. With Azure Backup, your virtual machines running Windows and Linux are protected.

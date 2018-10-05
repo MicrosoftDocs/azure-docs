@@ -3,7 +3,7 @@ title: Implement disaster recovery using backup and restore in Azure API Managem
 description: Learn how to use backup and restore to perform disaster recovery in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
 ---
 # How to implement disaster recovery using service backup and restore in Azure API Management
@@ -34,8 +34,6 @@ This guide shows how to authenticate Azure Resource Manager requests, and how to
 
 > [!IMPORTANT]
 > The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx).
->
->
 
 All of the tasks that you do on resources using the Azure Resource Manager must be authenticated with Azure Active Directory using the following steps:
 
@@ -71,7 +69,7 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 
 7. Click **Delegated Permissions** beside the newly added application, check the box for **Access Azure Service Management (preview)**.
 8. Press **Select**.
-9. Click **Grant Permisssions**.
+9. Click **Grant Permissions**.
 
 ### Configuring your app
 
@@ -176,7 +174,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 where:
 
 * `subscriptionId` - id of the subscription containing the API Management service you are restoring a backup into
-* `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are restoring a backup into is hosted, for example, `North-Central-US`
+* `resourceGroupName` - name of the resource group containing the Azure API Management service you are restoring a backup into
 * `serviceName` - the name of the API Management service being restored into specified at the time of its creation
 * `api-version` - replace  with `2018-06-01-preview`
 
@@ -201,18 +199,19 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 > **Changes** made to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
 
 > [!NOTE]
-> Backup and restore operations can also be performed with Powershell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement* commands respectively.
+> Backup and restore operations can also be performed with PowerShell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement* commands respectively.
 
 ## Next steps
-Check out the following Microsoft blogs for two different walkthroughs of the backup/restore process.
+
+Check out the following resources for different walkthroughs of the backup/restore process.
 
 * [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
+* [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
 * [Azure API Management: Backing Up and Restoring Configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * The approach detailed by Stuart does not match the official guidance but it is interesting.
+  *The approach detailed by Stuart does not match the official guidance but it is interesting.*
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

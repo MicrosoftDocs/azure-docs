@@ -8,23 +8,27 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/27/2018
 ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Linux (x64)
 
-The Azure IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** provides and maintains security standards on the Edge device. The daemon starts on every boot and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
+The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. 
 
-This article lists the steps to install the Azure IoT Edge runtime on your Linux x64 (Intel/AMD) Edge device.
+To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
+
+This article lists the steps to install the Azure IoT Edge runtime on your Linux x64 (Intel/AMD) Edge device. Refer to [Azure IoT Edge support](support.md#operating-systems) for a list of AMD64 operating systems that are currently supported. 
 
 >[!NOTE]
 >Packages in the Linux software repositories are subject to the license terms located in each package (/usr/share/doc/*package-name*). Read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
 
 ## Register Microsoft key and software repository feed
 
+Depending on your operating system, choose the appropriate scripts to prepare your device for the IoT Edge runtime installation. 
+
 ### Ubuntu 16.04
 
-```cmd/sh
+```bash
 # Install repository configuration
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
@@ -36,7 +40,7 @@ sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 
 ### Ubuntu 18.04
 
-```cmd/sh
+```bash
 # Install repository configuration
 curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
@@ -73,24 +77,42 @@ sudo apt-get install moby-cli
 
 ## Install the Azure IoT Edge Security Daemon
 
-Commands below will also install the standard version of the **iothsmlib** if not already present.
+The **IoT Edge security daemon** provides and maintains security standards on the Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime. 
+
+The installation command also installs the standard version of the **iothsmlib** if not already present.
+
+Update apt-get.
 
 ```bash
 sudo apt-get update
+```
+
+Install the security daemon. The package is installed at `/etc/iotedge/`.
+
+```bash
 sudo apt-get install iotedge
 ```
 
 ## Configure the Azure IoT Edge Security Daemon
 
+Configure the IoT Edge runtime to link your physical device with a device identity that exists in an Azure IoT hub. 
+
 The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml`. The file is write-protected by default, you might need elevated permissions to edit it.
+
+A single IoT Edge device can be provisioned manually using a device connections string provided by IoT Hub. Or, you can use the Device Provisioning Service to automatically provision devices, which is helpful when you have many devices to provision. Depending on your provisioning choice, choose the appropriate installation script. 
+
+### Option 1: Manual provisioning
+
+To manually provision a device, you need to provide it with a [device connection string][lnk-dcs] that you can create by registering a new device in your IoT hub.
+
+
+Open the configuration file. 
 
 ```bash
 sudo nano /etc/iotedge/config.yaml
 ```
 
-The edge device can be configured manually using a [device connection string][lnk-dcs] or [automatically via Device Provisioning Service][lnk-dps].
-
-* For manual configuration, uncomment the **manual** provisioning mode. Update the value of **device_connection_string** with the connection string from your IoT Edge device.
+Find the provisioning section of the file and uncomment the **manual** provisioning mode. Update the value of **device_connection_string** with the connection string from your IoT Edge device.
 
    ```yaml
    provisioning:
@@ -104,7 +126,27 @@ The edge device can be configured manually using a [device connection string][ln
    #   registration_id: "{registration_id}"
    ```
 
-* For automatic configuration, uncomment the **dps** provisioning mode. Update the values of **scope_id** and **registration_id** with the values from your IoT Hub DPS instance and your IoT Edge device with TPM. 
+Save and close the file. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+After entering the provisioning information in the configuration file, restart the daemon:
+
+```bash
+sudo systemctl restart iotedge
+```
+
+### Option 2: Automatic provisioning
+
+To automatically provision a device, [set up Device Provisioning Service and retrieve your device registration ID][lnk-dps] (DPS). Automatic provisioning only works with devices that have a Trusted Platform Module (TPM) chip. For example, Raspberry Pi devices do not come with TPM by default. 
+
+Open the configuration file. 
+
+```bash
+sudo nano /etc/iotedge/config.yaml
+```
+
+Find the provisioning section of the file and uncomment the **dps** provisioning mode. Update the values of **scope_id** and **registration_id** with the values from your IoT Hub Device Provisioning Service and your IoT Edge device with TPM. 
 
    ```yaml
    # provisioning:
@@ -118,9 +160,13 @@ The edge device can be configured manually using a [device connection string][ln
      registration_id: "{registration_id}"
    ```
 
-After entering the provisioning information in the configuration, restart the daemon:
+Save and close the file. 
 
-```cmd/sh
+   `CTRL + X`, `Y`, `Enter`
+
+After entering the provisioning information in the configuration file, restart the daemon:
+
+```bash
 sudo systemctl restart iotedge
 ```
 
@@ -130,21 +176,29 @@ If you used the **manual configuration** steps in the previous section, the IoT 
 
 You can check the status of the IoT Edge Daemon using:
 
-```cmd/sh
+```bash
 systemctl status iotedge
 ```
 
 Examine daemon logs using:
 
-```cmd/sh
+```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
 And, list running modules with:
 
-```cmd/sh
+```bash
 sudo iotedge list
 ```
+
+## Tips and suggestions
+
+You need elevated privileges to run `iotedge` commands. After installing the runtime, sign out of your machine and sign back in to update your permissions automatically. Until then, use **sudo** in front of any `iotedge` the commands.
+
+On resource constrained devices, it is highly recommended that you set the *OptimizeForPerformance* environment variable to *false* as per instructions in the [troubleshooting guide][lnk-trouble].
+
+If your network that has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
 ## Next steps
 

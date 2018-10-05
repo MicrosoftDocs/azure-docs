@@ -1,17 +1,18 @@
 ---
-title: Create a QnA bot with Azure Bot Service - Azure Cognitive Services | Microsoft Docs
+title: QnA bot with Azure Bot Service - QnA Maker
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
+ms.date: 09/12/2018
+ms.author: tulasim
 ---
 
-# Create a QnA Bot with Azure Bot Service
-This tutorial walks you through building a QnA bot with Azure Bot service on the Azure portal.
+# Create a QnA Bot with Azure Bot Service v3
+This tutorial walks you through building a QnA bot with Azure Bot service v3 on the Azure portal.
 
 ## Prerequisite
 Before you build, follow the steps in [Create a knowledge base](../How-To/create-knowledge-base.md) to create a QnA Maker service with questions and answers.
@@ -27,16 +28,24 @@ The bot responds to questions from the knowledge base you created, via the QnAMa
 
     ![bot service selection](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
 
-3. In the **Bot Service blade**, provide the required information, and select **Create**. This creates and deploys the bot service with QnAMakerDialog to Azure.
+3. In the **Bot Service blade**, provide the required information:
 
     - Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net).
     - Select the subscription, resource group, App service plan, and location.
-    - Select the **Question and Answer** (Node.js or C#) template for the Bot template field.
-    - Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
 
-        ![bot service selection](../media/qnamaker-tutorials-create-bot/bot-service-qna-template.PNG)
+4. To see instructions for creating a QnA bot with SDK v4 - see [QnA v4 bot template](https://aka.ms/qna-bot-v4). To use the v3 templates, select SDK version of **SDK v3** and SDK language of **C#** or **Node.js**.
 
-4. Confirm that the bot service has been deployed.
+    ![bot sdk settings](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+
+5. Select the **Question and Answer** template for the Bot template field, then save the template settings by selecting **Select**.
+
+    ![bot service selection](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+
+6. Review your settings, then select **Create**. This creates and deploys the bot service with QnAMakerDialog to Azure.
+
+    ![bot service selection](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+
+7. Confirm that the bot service has been deployed.
 
     - Select **Notifications** (the bell icon that is located along the top edge of the Azure portal). The notification will change from **Deployment started** to **Deployment succeeded**.
     - After the notification changes to **Deployment succeeded**, select **Go to resource** on that notification.
@@ -57,7 +66,7 @@ The bot responds with "Please set QnAKnowledgebaseId and QnASubscriptionKey in A
     ![app settings](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
 
 2. Get your knowledge base ID, host url, and the endpoint key from the settings tab of your knowledge base in https://qnamaker.ai.
-    - Log in to [QnA Maker](https://qnamaker.ai)
+    - Sign in to [QnA Maker](https://qnamaker.ai)
     - Go to your knowledge base
     - Click on the **Settings** tab
     - **Publish** your knowledge base, if not already done so

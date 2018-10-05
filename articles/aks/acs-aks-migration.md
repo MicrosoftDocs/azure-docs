@@ -14,13 +14,13 @@ ms.custom: mvc
 
 # Migrating from Azure Container Service (ACS) to Azure Kubernetes Service (AKS)
 
-This goal of this document is to help you plan and execute a successful migration between Azure Container Service with Kubernetes (ACS) and Azure Kubernetes Service (AKS). This guide details the differences between ACS and AKS, provides an overview of the migration process, and should help you make key decisions.
+The goal of this document is to help you plan and execute a successful migration between Azure Container Service with Kubernetes (ACS) and Azure Kubernetes Service (AKS). This guide details the differences between ACS and AKS, provides an overview of the migration process, and should help you make key decisions.
 
 ## Differences between ACS and AKS
 
 ACS and AKS differ in some key areas that impact migration. You should review and plan to address the following differences before any migration.
 
-* AKS nodes use Managed Disks
+* AKS nodes use [Managed Disks](../virtual-machines/windows/managed-disks-overview.md)
     * Unmanaged disks will need to be converted before they can be attached to AKS nodes
     * Custom `StorageClass` objects for Azure disks will need to be changed from `unmanaged` to `managed`
     * Any `PersistentVolumes` will need to use `kind: Managed`

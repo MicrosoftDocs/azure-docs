@@ -21,7 +21,9 @@
     - name: 2. Set up a classroom lab
       href: classroom-labs/tutorial-setup-classroom-lab.md 
     - name: 3. Access a classroom lab
-      href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md      
+      href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
+    - name: 4. Track usage of a classroom lab
+      href: classroom-labs/tutorial-track-usage.md            
 - name: Samples
   items:
   - name: DevTest Labs
@@ -43,7 +45,7 @@
       href: devtest-lab-test-env.md
     - name: Use labs for training
       href: devtest-lab-training-lab.md
-    - name: DevTest Labs 
+    - name: Introduction to DevTest Labs 
       href: devtest-lab-overview.md
 - name: How-to guides
   items:
@@ -67,6 +69,27 @@
       href: devtest-lab-get-started-with-lab-policies.md 
     - name: Store secrets in Azure Key Vault
       href: devtest-lab-store-secrets-in-key-vault.md
+    - name: Test your app in Azure
+      href: test-app-azure.md
+    - name: Set up DevTest Labs infrastructure in your enterprise
+      href: devtest-lab-guidance-prescriptive-adoption.md
+      items:
+      - name: Get started with using DevTest Labs
+        href: devtest-lab-guidance-get-started.md
+      - name: Scale up your DevTest Labs deployment
+        href: devtest-lab-guidance-scale.md
+      - name: Orchestrate the implementation of DevTest Labs
+        href: devtest-lab-guidance-orchestrate-implementation.md
+      - name: Governance of DevTest Labs infrastructure
+        items: 
+        - name: Resources
+          href: devtest-lab-guidance-governance-resources.md
+        - name: Cost and ownership
+          href: devtest-lab-guidance-governance-cost-ownership.md
+        - name: Policy and compliance
+          href: devtest-lab-guidance-governance-policy-compliance.md
+        - name: Application migration and integration
+          href: devtest-lab-guidance-governance-application-migration-integration.md
     - name: Use VMs in a lab
       items: 
       - name: Create VMs
@@ -89,6 +112,8 @@
       items:
       - name: Create an environment
         href: devtest-lab-create-environment-from-arm.md
+      - name: Configure and use public environments
+        href: devtest-lab-configure-use-public-environments.md        
     - name: Secure access to labs
       items:
       - name: Add lab owners and users
@@ -155,13 +180,13 @@
       href: devtest-lab-scale-lab.md
     - name: Integrate with CI/CD
       items:
-      - name: Integrate labs into your VSTS CI/CD pipeline
+      - name: Integrate labs into your Azure DevOps CI/CD pipeline
         href: devtest-lab-integrate-ci-cd-vsts.md
     - name: Create or modify labs using Resource Manager template
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
 - name: Reference
   items:
-  - name: CLI 2.0
+  - name: CLI
     href: /cli/azure/lab
   - name: PowerShell
     href: /powershell/module/azurerm.devtestlabs/#devtest_labs

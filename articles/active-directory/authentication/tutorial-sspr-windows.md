@@ -45,8 +45,6 @@ Deploying the configuration change to enable password reset from the login scree
    * Platform **Windows 10 and later**
    * Profile type **Custom**
 
-   ![CreateProfile][CreateProfile]
-
 3. Configure **Settings**
    * **Add** the following OMA-URI Setting to enable the Reset password link
       * Provide a meaningful name to explain what the setting is doing
@@ -86,8 +84,6 @@ You have now created and assigned a device configuration policy to enable the Re
 
 ## Configure Reset password link using the registry
 
-We recommend using this method only to test the setting change.
-
 1. Log in to the Windows PC using administrative credentials
 2. Run **regedit** as an administrator
 3. Set the following registry key
@@ -100,7 +96,6 @@ Now that the policy is configured and assigned, what changes for the user? How d
 
 ![LoginScreen][LoginScreen]
 
-When users attempt to log in, they now see a Reset password link that opens the self-service password reset experience at the login screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 When users attempt to log in, they now see a Reset password link that opens the self-service password reset experience at the login screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 
 Your users will find guidance for using this feature in [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
@@ -115,7 +110,11 @@ When testing this functionality using Remote Desktop, the "Reset password" link 
 
 * Password reset is not currently supported from a Remote Desktop.
 
-If the Windows lockscreen is disabled using a registry key or group policy **Reset password** will not be availalbe.
+If the Windows lockscreen is disabled using a registry key or group policy **Reset password** will not be available.
+
+The Azure AD audit log will include information about the IP address and ClientType where the password reset occurred.
+
+![Example logon screen password reset in the Azure AD audit log](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
 ## Clean up resources
 
@@ -128,6 +127,5 @@ In this tutorial, you have enabled users to reset their passwords from the Windo
 > [!div class="nextstepaction"]
 > [Evaluate risk at sign in](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Create Intune device configuration profile to enable Reset password link on the Windows 10 login screen"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Assign Intune device configuration policy to a group of Windows 10 devices"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Reset password link at the Windows 10 login screen"
