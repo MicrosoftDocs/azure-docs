@@ -89,13 +89,11 @@ In AKS, you can create an Ingress resource using something like NGINX, or use th
 
 Another common feature of Ingress is SSL/TLS termination. On large web applications accessed via HTTPS, the TLS termination can be handled by the Ingress resource rather than within the application itself. To provide automatic TLS certification generation and configuration, you can configure the Ingress resource to use providers such as Let's Encrypt. For more information on configuring an NGINX Ingress controller with Let's Encrypt, see [Ingress and TLS][aks-ingress-tls].
 
-Ingress controllers only currently work for external services. You can't configure an Ingress resource that uses an internal private IP address.
+## Network security groups
 
-## Network policies
+A network security group filter traffic for VMs, such as the AKS nodes. As you create Services, such as a LoadBalancer, the Azure platform automatically configures any network security group rules that are needed. Don't manually configure network security group rules to filter traffic for pods in an AKS cluster. Define any required ports and forwarding as part of your Kubernetes Service manifests, and let the Azure platform create or update the appropriate rules.
 
-By default, pods can send and receive traffic from any source. There are no restrictions applied. To improve security, you may want to limit this traffic flow in and out of pods. A *NetworkPolicy* defines the ingress and egress network ranges and ports that are allowed. Labels are used to identify which pods the policy applies to. You can also apply a NetworkPolicy only to a given namespace.
-
-Separate to a NetworkPolicy, Azure includes a higher-level resource called network security groups. A network security group isn't specific to AKS clusters, and filters traffic for VMs, such as the Kubernetes nodes. As you create Services, such as a LoadBalancer, the Azure platform automatically configures any network security group rules that are needed. Don't manually configure network security group rules to filter traffic for pods in an AKS cluster. Network security groups can add complexity in troubleshooting scenarios if traffic is filtered in multiple places. Instead, use the Kubernetes approach of network policies.
+Default network security group rules exist for traffic such as SSH. These default rules are for cluster management and troubleshooting access. Deleting these default rules can cause problems with AKS management, and breaks the service level objective (SLO).
 
 ## Next steps
 

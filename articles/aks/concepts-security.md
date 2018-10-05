@@ -36,11 +36,11 @@ The Azure platform automatically applies OS security patches to the nodes on a n
 
 Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default. This SSH access is only available using the internal IP address. Azure network security group rules can be used to further restrict IP range access to the AKS nodes. Deleting the default network security group SSH rule and disabling the SSH service on the nodes prevents the Azure platform from performing maintenance tasks.
 
-To provide storage, the nodes use Azure Managed Disks. The data stored on managed disks is automatically encrypted at rest within the Azure platform. To improve redundancy, these disks are also securely replicated within the Azure datacenter.
+To provide storage, the nodes use Azure Managed Disks. For most VM node sizes, these are Premium disks backed by high-performance SSDs. The data stored on managed disks is automatically encrypted at rest within the Azure platform. To improve redundancy, these disks are also securely replicated within the Azure datacenter.
 
 ## Cluster upgrades
 
-For security and compliance, or to use the latest features, Azure can orchestrate the upgrade of an AKS cluster and components. This upgrade orchestration includes both the Kubernetes master and agent components. You can view a list of available Kubernetes versions for your AKS cluster. To start the upgrade process, you specify one of these available versions. Azure then safely cordons and drains each AKS node and performs the upgrade.
+For security and compliance, or to use the latest features, Azure provides tools to orchestrate the upgrade of an AKS cluster and components. This upgrade orchestration includes both the Kubernetes master and agent components. You can view a list of available Kubernetes versions for your AKS cluster. To start the upgrade process, you specify one of these available versions. Azure then safely cordons and drains each AKS node and performs the upgrade.
 
 ### Cordon and drain
 
@@ -57,20 +57,9 @@ For more information, see [Upgrade and AKS cluster][aks-upgrade-cluster].
 
 For connectivity and security with on-premises networks, you can deploy your AKS cluster into existing Azure virtual network subnets. These virtual networks may have an Azure Site-to-Site VPN or Express Route connection back to your on-premises network. Kubernetes ingress controllers can be defined with private, internal IP addresses so services are only accessible over this internal network connection.
 
-Network traffic can be secured with two types of traffic filtering and policy:
-
-- Ingress and egress traffic for the AKS cluster - [Azure network security groups](#azure-network-security-groups)
-- Pod to pod communication within the AKS cluster - [Kubernetes network policies](#kubernetes-network-policies)
-
 ### Azure network security groups
 
 To filter the flow of traffic in virtual networks, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols that are allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server and for SSH access to the nodes. As you create services with load balancers, port mappings, or ingress routes, AKS automatically modifies the network security group for traffic to flow appropriately.
-
-### Kubernetes network policies
-
-Kubernetes *network policies* can be used to secure communication between pods. By default, pods can send and receive traffic from any source. A NetworkPolicy defines the ingress and egress network ranges and ports that are allowed. To secure pods, you first create and define those policies, then assign policies to pods based on tags.
-
-For more information, see [Kubernetes Network Policies][kubernetes-network-policies].
 
 ## Kubernetes Secrets
 
