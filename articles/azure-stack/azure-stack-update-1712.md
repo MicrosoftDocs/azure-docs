@@ -114,7 +114,8 @@ This section contains post-installation known issues with build **180106.1**.
 
 #### Health and monitoring
 
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+<!-- 1264761 - IS ASDK -->  
+- You might see alerts for the *Health controller* component that have the following details:  
 
    Alert #1:
    - NAME:  Infrastructure role unhealthy

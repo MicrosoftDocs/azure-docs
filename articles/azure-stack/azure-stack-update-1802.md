@@ -87,15 +87,9 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
-<!--
-#### New features
--->
+<!-- #### New features -->
 
-
-<!--
-#### Fixes
--->
-
+<!-- #### Fixes -->
 
 ### Known issues with the update process    
 *There are no known issues for the installation of update 1802.*
@@ -105,13 +99,15 @@ This update includes the following improvements and fixes for Azure Stack.
 The following are post-installation known issues for build  **20180302.1**
 
 #### Portal
-- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+<!-- 2332636 - IS -->  
+- When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
   Workaround:  To resolve this issue after you install this update, use step 3 from the [Trigger automation to configure claims provider trust in Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure to reset the owner of the default provider subscription.   
 
 - The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - For Azure Stack integrated systems, use https://aka.ms/newsupportrequest.
 
-- <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
+<!-- 2050709 --> 
+- In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
 
 - It might not be possible to view compute or storage resources in the administrator portal. The cause of this issue is an error during the installation of the update that causes the update to be incorrectly reported as successful. If this issue occurs, contact Microsoft Customer Support Services for assistance.
 
@@ -128,7 +124,8 @@ The following are post-installation known issues for build  **20180302.1**
 
     This alert can be safely ignored. 
 
-- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+<!-- 2253274 --> 
+- In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
 
 - In both the admin portal and user portal, the Overview blade fails to load when you select the Overview blade for storage accounts that were created with an older API version (example: 2015-06-15). This includes system storage accounts like **updateadminaccount** that is used during patch and update. 
 
@@ -138,7 +135,8 @@ The following are post-installation known issues for build  **20180302.1**
 
 
 #### Health and monitoring
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+<!-- 1264761 - IS ASDK -->  
+- You might see alerts for the *Health controller* component that have the following details:  
 
   Alert #1:
    - NAME:  Infrastructure role unhealthy
@@ -161,7 +159,8 @@ The following are post-installation known issues for build  **20180302.1**
 #### Compute
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+<!-- 2290877  --> 
+- You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
 
   This issue is resolved in version 1803. To resolve this issue for version 1802, install Azure Stack hotfix **1.0.180302.4**. For more information, see [KB 4131152: Existing Virtual Machine Scale Sets may become unusable]( https://support.microsoft.com/help/4131152). 
 
@@ -181,7 +180,8 @@ The following are post-installation known issues for build  **20180302.1**
 
 -  If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
-- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
+<!-- 1662991 --> 
+- Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
 
 
 
@@ -203,7 +203,8 @@ The following are post-installation known issues for build  **20180302.1**
 
 - Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
 
--	<!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+<!-- 2096388 --> 
+- You cannot use the admin portal to update rules for a network security group. 
 
     Workaround for App Service: If you need to remote desktop to the Controller instances, you modify the security rules within the network security groups with PowerShell.  Following are examples of how to *allow*, and then restore the configuration to *deny*:  
     
@@ -276,7 +277,8 @@ The following are post-installation known issues for build  **20180302.1**
 
 - Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
+<!-- IS, ASDK --> 
+- Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > After you update to Azure Stack 1802, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.      
@@ -290,11 +292,7 @@ The following are post-installation known issues for build  **20180302.1**
 
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
 
-<!--
-#### Identity
--->
-
-
+<!-- #### Identity -->
 
 #### Downloading Azure Stack Tools from GitHub
 - When using the *invoke-webrequest* PowerShell cmdlet to download the Azure Stack tools from Github, you receive an error:     
