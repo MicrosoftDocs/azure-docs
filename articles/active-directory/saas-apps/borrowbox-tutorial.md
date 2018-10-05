@@ -108,20 +108,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](./media/borrowbox-tutorial/b1-domains_and_urlsedit.png)
 
-5. On the **Basic SAML Configuration** section, perform the following steps:
+5. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
     ![image](./media/borrowbox-tutorial/tutorial_borrowbox_url.png)
-
-    a. In the **Identifier** text box, type a URL:
-    `https://sp.borrowbox.com`
-
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://sp-saml.borrowbox.com/saml/acs`
 
     c. Click **set additional URLs**.
 
     d. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<EXAMPLE>`
+    `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 
     ![image](./media/borrowbox-tutorial/tutorial_borrowbox_url1.png)
 
