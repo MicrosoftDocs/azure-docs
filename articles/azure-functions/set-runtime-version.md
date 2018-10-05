@@ -8,7 +8,7 @@ manager: jeconnoc
 
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 10/05/2018
 ms.author: glenga
 
 ---
@@ -23,7 +23,7 @@ A function app runs on a specific version of the Azure Functions runtime. There 
 
 Functions lets you target a specific version of the runtime by using the `FUNCTIONS_EXTENSION_VERSION` application setting in a function app. The function app is kept on the specified major version until you explicitly choose to move to a new version.
 
-If you specify only the major version ("~2" for 2.x or "~1" for 1.x), the function app is automatically updated to new minor versions of the runtime when they become available. New minor versions do not introduce breaking changes. If you specify a minor version (for example, "2.0.12345"), the function app is kept on that version until you explicitly change it. 
+If you specify only the major version ("~2" for 2.x or "~1" for 1.x), the function app is automatically updated to new minor versions of the runtime when they become available. New minor versions do not introduce breaking changes. If you specify a minor version (for example, "2.0.12345"), the function app is pinned to that specific version until you explicitly change it.
 
 When a new version is publicly available, a prompt in the portal gives you the chance to move up to that version. After moving to a new version, you can always use the `FUNCTIONS_EXTENSION_VERSION` application setting to move back to a previous version.
 
@@ -37,7 +37,7 @@ Use the following procedure to view the runtime version currently used by a func
 
 1. In the [Azure portal](https://portal.azure.com), browse to your function app.
 
-1. Under **Configured Features** choose **Function app settings**.
+1. Under **Configured Features**, choose **Function app settings**.
 
     ![Select function app settings](./media/set-runtime-version/add-update-app-setting.png)
 
@@ -54,7 +54,7 @@ Use the following procedure to view the runtime version currently used by a func
 You can also view and set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.
 
 >[!NOTE]
->Because other settings may be impacted by the runtime version, you should change the version in the portal. The portal automatically makes the other needed updates, such as Node.js version, when you change runtime versions.  
+>Because other settings may be impacted by the runtime version, you should change the version in the portal. The portal automatically makes the other needed updates, such as Node.js version and runtime stack, when you change runtime versions.  
 
 Using the Azure CLI, view the current runtime version with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
 
@@ -98,7 +98,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
 
-Again, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. Also, replace `<version>` with a valid version of the 1.x runtime or `~2` for version 2.x.
+Replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. Also, replace `<version>` with a valid version of the 1.x runtime or `~2` for version 2.x.
 
 You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
 
