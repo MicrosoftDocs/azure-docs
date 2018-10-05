@@ -110,6 +110,5 @@ For the complete Service Bus .NET API reference, see the [Azure .NET API referen
 To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following articles:
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus architecture](service-bus-architecture.md)
 
