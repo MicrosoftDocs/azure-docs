@@ -10,21 +10,21 @@
  ms.custom: include file
 ---
 
-For an application to communicate with the Azure Digital Twins, register it in the Azure Active Directory and [give it Read/Write access](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent) for the Digital Twins REST APIs. This section shows how users can authenticate against the middle-tier application and use an Oauth [on-behalf-of](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of) flow to call the actual API downstream, as demonstrated in this [example](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+For an application to communicate with the Azure Digital Twins, register it in the Azure Active Directory and [give access to read or write](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent) the Digital Twins REST APIs. This section shows how users can authenticate against the middle-tier application and use an Oauth [on-behalf-of](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of) flow to call the actual API downstream, as demonstrated in this [example](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
 ### Azure Active Directory app registration
 
 1. In the [Azure portal](https://portal.azure.com), click **Azure Active Directory**, and then select **App registrations**. Click **New application registration**.
-
+    
     ![Azure Active Directory app registration new](./media/digital-twins-permissions/aad-app-reg-start.png)
 
-1. Give a friendly name for this app registration in the **Name** field. Choose **Application type** as **_Native_**, and **Redirect URI** as `https://microsoft.com`. Click **Create**.
-
+1. Give a friendly name for this app registration in the **Name** field. Choose **Application type** as **_Native_**, and **Redirect URI** as **_https://microsoft.com_**. Click **Create**.
+    
     ![Azure Active Directory app registration create](./media/digital-twins-permissions/aad-app-reg-create.png)
 
 1. Once complete, open your app registration pane, and click **Settings** > **Required permissions**:
     - Click **Add** on the top left to open the **Add API access** pane.
-    - Click **Select an API** to use to get external data into Digital Twins. Search for **Azure Smart Spaces Service** API, select the **Azure Digital Twins (Azure Smart Spaces Service)** and click **Select**.
+    - Click **Select an API**, search for **Azure Smart Spaces Service** API, select the **Azure Digital Twins (Azure Smart Spaces Service)** and click **Select**.
 
         ![Azure Active Directory app registration add api](./media/digital-twins-permissions/aad-app-reg-service.png)
 
