@@ -118,7 +118,7 @@ For a tutorial on training a sklearn model, see:
 * `tutorials/01.train-models.ipynb`
 
 For a tutorial on distributed CNTK using custom docker, see:
-* `training/06.distributed-cntk-with-custom-docker/06.distributed-cntk-with-custom-docker.ipynb`
+* `training/06.distributed-cntk-with-custom-docker`
 
 Get these notebooks:
 

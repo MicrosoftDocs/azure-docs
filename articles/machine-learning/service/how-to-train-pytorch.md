@@ -96,10 +96,10 @@ run = exp.submit(pt_est)
 
 ## Examples
 For a tutorial on single-node PyTorch training, see:
-* `training/01.train-hyperparameter-tune-deploy-with-pytorch/01.train-hyperparameter-tune-deploy-with-pytorch.ipynb`
+* `training/01.train-hyperparameter-tune-deploy-with-pytorch`
 
 For a tutorial on distributed PyTorch with Horovod, see:
-* `training/02.distributed-pytorch-with-horovod/02.distributed-pytorch-with-horovod.ipynb`
+* `training/02.distributed-pytorch-with-horovod`
 
 Get these notebooks:
 

@@ -166,13 +166,13 @@ run = exp.submit(tf_est)
 
 ## Examples
 For a tutorial on single-node TensorFlow training, see:
-* `training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb `
+* `training/03.train-hyperparameter-tune-deploy-with-tensorflow `
 
 For a tutorial on distributed TensorFlow with Horovod, see:
-* `training/04.distributed-tensorflow-with-horovod/04.distributed-tensorflow-with-horovod.ipynb`
+* `training/04.distributed-tensorflow-with-horovod`
 
 For a tutorial on native distributed TensorFlow, see:
-* `training/05.distributed-tensorflow-with-parameter-server/05.distributed-tensorflow-with-parameter-server.ipynb`
+* `training/05.distributed-tensorflow-with-parameter-server`
 
 Get these notebooks:
 
