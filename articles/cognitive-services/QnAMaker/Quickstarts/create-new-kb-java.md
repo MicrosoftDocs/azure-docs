@@ -66,10 +66,6 @@ After the preceding required dependencies, add the required constants to the `Cr
 ```java
 public class CreateKB {
 
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
-
     // Replace this with a valid subscription key.
     static String subscriptionKey = "ADD YOUR SUBSCRIPTION KEY HERE";
 
@@ -258,15 +254,21 @@ Repeat the call until success or failure:
 ```
 
 ## Add a main method
-The main method creates the KB, then polls for the status. The `while` loop retries the status if it is not completed. 
+The main method creates the KB, then polls for the status. The_create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. **The `while` loop retries the status if it is not completed. 
+
+ 
 
 ```java 
 public static void main(String[] args) {
     try {
         // Send the request to create the knowledge base.
         Response response = CreateKB (GetKB ());
+
+        // Get operation ID
         String operation = response.Headers.get("Location").get(0);
+
         System.out.println (PrettyPrint (response.Response));
+
         // Loop until the request is completed.
         Boolean done = false;
         while (!done) {

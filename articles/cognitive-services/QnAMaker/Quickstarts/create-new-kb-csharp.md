@@ -108,7 +108,7 @@ async static Task<Response> PostCreateKB(string kb)
 }
 ```
 
-This API call returns a JSON response that includes the operation ID. Use the operation ID to determine if the KB is successfully created. 
+This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. 
 
 ```JSON
 {
@@ -176,7 +176,7 @@ Repeat the call until success or failure:
 
 ## Add CreateKB method
 
-The following method creates the KB and repeats checks on the status. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
+The following method creates the KB and repeats checks on the status.  The _create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
 ```csharp
 async static void CreateKB()

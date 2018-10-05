@@ -155,7 +155,7 @@ Next, add the following supporting functions.
 
 ## Add function to create KB
 
-Add the following functions to make an HTTP POST request to create the knowledge base. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication. 
+Add the following functions to make an HTTP POST request to create the knowledge base. The _create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication. 
 
 ```go
 func create_kb(uri string, req string) (string, string) {
@@ -165,7 +165,7 @@ func create_kb(uri string, req string) (string, string) {
 }
 ```
 
-This API call returns a JSON response that includes the operation ID. Use the operation ID to determine if the KB is successfully created. 
+This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. 
 
 ```JSON
 {
