@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/08/2018
 ms.author: alkohli
 ms.custom:
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure. 
@@ -24,7 +24,7 @@ Customer intent: As an IT admin, I need to understand how to connect and activat
 
 This tutorial describes how to connect to, set up, and activate your Data Box Edge device using the local web UI. 
 
-The setup and activation process can take around 10 minutes to complete. 
+The setup and activation process can take around 20 minutes to complete. 
 
 In this tutorial, you learn how to:
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 > * Set up and activate physical device
 
 > [!IMPORTANT]
-> - Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
+> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
 
 
 ## Prerequisites
@@ -86,7 +86,7 @@ You're now at the **Dashboard** of your device.
    
    In the **Web proxy** page:
    
-   1. Supply the **Web proxy URL** in this format: [http://&lt;host-IP address or FDQN&gt;:Port number](http://&lt;host-IP address or FDQN&gt;:Port number). HTTPS URLs are not supported.
+   1. Supply the **Web proxy URL** in this format: `http://host-IP address or FDQN:Port number`. HTTPS URLs are not supported.
    2. Specify **Authentication** as **Basic** or **None**.
    3. If using authentication, you'll also need to provide a **Username** and **Password**.
    4. Click **Apply**. This will validate and apply the configured web proxy settings.

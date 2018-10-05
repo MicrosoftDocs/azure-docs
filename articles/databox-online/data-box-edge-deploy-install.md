@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/08/2018
 ms.author: alkohli
 ms.custom:
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.  
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 > * Cable device
 
 > [!IMPORTANT]
-> - Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
+> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
 
 ## Prerequisites
 
@@ -84,7 +84,7 @@ This device is shipped in a single box. Complete the following steps to unpack y
 
 The device must be installed in a standard 19-inch rack. Use the following procedure to rackmount your device in a standard 19-inch rack with front and rear posts.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > Data Box Edge devices must be rack-mounted for proper operation.
 
 
@@ -130,7 +130,7 @@ Do the following steps to cable your device for power and network.
 4. Connect 1-GbE network interface PORT 2 via the RJ-45 network cables to the datacenter network /Internet. 
 5. Connect the four 25-GbE network interfaces PORT 3, PORT 4, PORT 5, and PORT 6 using SFP+ copper cables to the datacenter network/Internet. 
 
-> ![NOTE]
+> [!NOTE]
 > - At least one data network interface – PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (connectivity to Azure). 
 > - We recommend that you use a 25-GbE network interface such as PORT 3, PORT 4, PORT 5, or PORT 6 to send data to Azure. 
 > - The Edge device should be connected to the datacenter network so that it can ingest data from data source servers.  

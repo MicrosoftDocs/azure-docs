@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/08/2018
 ms.author: alkohli
 ms.custom: 
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 > * Verify data transform and transfer
 
 > [!IMPORTANT]
-> - Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
+> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
  
 ## Prerequisites
 
@@ -106,6 +106,13 @@ This procedure uses an example where the custom module used takes files from a l
 1. The first step is to add a local share on the Edge device. In your Data Box Edge resource, go to **Shares**. Click **+ Add share**. Provide the share name and select the share type. To create a local share, check the **Configure as Edge local share** option. Select an **existing user** or **create new**. Click **Create**.
 
     ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-1.png) 
+
+    If you created a local NFS share, use the following rsync command option to copy files onto the share:
+
+    `rsync --inplace <source file path> < destination file path>`
+
+     For more information on the rsync command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm). 
+
  
 2. Once the local share is created and you have received a successful creation notification (share list may be updated before but you must wait for the share creation to complete), go to the list of shares. 
 

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/08/2018
 ms.author: alkohli
 ms.custom: 
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 > * Connect to share
 
 > [!IMPORTANT]
-> - Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
+> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
  
 ## Prerequisites
 
@@ -52,7 +52,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
    
    ![Add a share](./media/data-box-edge-deploy-add-shares/click-add-share.png)
 
-4. In **Add Share**, specify the share settings. Provide a unique name for your share. 
+3. In **Add Share**, specify the share settings. Provide a unique name for your share. 
 
    Share names can only contain numbers, lowercase letters, and hyphens. The share name must be between 3 and 63 characters long and begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character.
     
@@ -68,16 +68,16 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
      
         - **If creating an SMB share** - In the All privilege local user field, choose from **Create new** or **Use existing**. If creating a new local user, provide the **username**, **password**, and then **confirm password**. This assigns the permissions to the local user. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
 
-        If you check **allow only read operations** for this share data, then you will have the option to specify read-only users.
+            If you check **allow only read operations** for this share data, then you will have the option to specify read-only users.
 
-        ![Add SMB share](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
+            ![Add SMB share](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
 
     
         - **If creating an NFS share** - You need to supply the IP addresses of the allowed clients that can access the share.
 
-        ![Add NFS share](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
+            ![Add NFS share](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
    
-9. Click **Create** to create the share. 
+4. Click **Create** to create the share. 
     
     You are notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** blade updates to reflect the new share. 
     
