@@ -23,7 +23,7 @@ DTU-based service tiers are differentiated by a range of compute sizes with a fi
 > [!NOTE]
 > For information about vCore-based service tiers, see [vCore-based service tiers](sql-database-service-tiers-vcore.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-service-tiers.md).
 
-## Choosing a DTU-based service tier
+## Compare the DTU-based service tiers
 
 Choosing a service tier depends primarily on business continuity, storage, and performance requirements.
 ||Basic|Standard|Premium|
@@ -40,7 +40,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 
 ## Single database DTU and storage limits
 
-Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
+Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](sql-database-service-tiers.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
