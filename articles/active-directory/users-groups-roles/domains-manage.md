@@ -18,7 +18,7 @@ ms.reviewer: elkuzmen
 ---
 # Managing custom domain names in your Azure Active Directory
 
-A domain name is an important part of the identifier for many directory resources: it is part of a user name or email address for a user, part of the address for a group, and can be part of the app ID URI for an application. A resource in Azure Active Directory (Azure AD) can include a domain name that is already verified as owned by the directory that contains the resource. Only a global administrator can perform domain management tasks in Azure AD.
+A domain name is an important part of the identifier for many directory resources: it's part of a user name or email address for a user, part of the address for a group, and is sometimes part of the app ID URI for an application. A resource in Azure Active Directory (Azure AD) can include a domain name that's owned by the directory that contains the resource. Only a Global Administrator can manage domains in Azure AD.
 
 ## Set the primary domain name for your Azure AD directory
 
@@ -34,19 +34,19 @@ When your directory is created, the initial domain name, such as ‘contoso.onmi
   
    ![Make a domain name primary](./media/domains-manage/make-primary-domain.png)
 
-You can change the primary domain name for your directory to be any verified custom domain that is not federated. Changing the primary domain for your directory will not change the user names for any existing users.
+You can change the primary domain name for your directory to be any verified custom domain that isn't federated. Changing the primary domain for your directory won't change the user name for any existing users.
 
 ## Add custom domain names to your Azure AD tenant
 
-You can add up to a maximum of 900 managed domain names. If you are configuring all your domains for federation with on-premises Active Directory, you can add up to a maximum of 450 domain names in each directory. 
+You can add up to 900 managed domain names. If you're configuring all your domains for federation with on-premises Active Directory, you can add up to 450 domain names in each directory.
 
 ## Add subdomains of a custom domain
 
-If you want to add a third-level domain name such as ‘europe.contoso.com’ to your directory, you should first add and verify the second-level domain, such as contoso.com. The subdomain will be automatically verified by Azure AD. To see that the subdomain that you just added has been verified, refresh the page in the browser that lists the domains.
+If you want to add a third-level domain name such as ‘europe.contoso.com’ to your directory, you should first add and verify the second-level domain, such as contoso.com. The subdomain is automatically verified by Azure AD. To see that the subdomain you added is verified, refresh the domain list in the browser.
 
 ## What to do if you change the DNS registrar for your custom domain name
 
-If you change the DNS registrar for your custom domain name, you can continue to use your custom domain name with Azure AD itself without interruption and without additional configuration tasks. If you use your custom domain name with Office 365, Intune, or other services that rely on custom domain names in Azure AD, refer to the documentation for those services.
+If you change the DNS registrars, there are no additional configuration tasks in Azure AD. You can continue using the domain name with Azure AD without interruption. If you use your custom domain name with Office 365, Intune, or other services that rely on custom domain names in Azure AD, see the documentation for those services.
 
 ## Delete a custom domain name
 
