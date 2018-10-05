@@ -114,7 +114,7 @@ The following loop polls for the creation operation status periodically until th
 
 Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
-```python
+```bash
 python create-new-knowledge-base-3x.py
 ```
 

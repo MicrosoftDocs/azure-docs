@@ -104,6 +104,7 @@ The following function is the main function and creates the KB and repeats check
 
 [!code-go[Add the main method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=110-140 "Add the main method")]
 
+
 # Compile the program
 Enter the following command to compile the file. The command prompt does not return any information for a successful build.
 
