@@ -28,7 +28,7 @@ With the 1802 update, Azure Stack now supports the distribution of workloads acr
 
 ## Rebalance an App Service resource provider across fault domains
 
-To redistribute the scale sets deployed for the App Service resource provider, you must perform the steps in this article for each scale set. By default, the scaleset names are:
+To redistribute the scale sets deployed for the App Service resource provider, you must perform the steps in this article for each scale set. By default, the scale set names are:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet

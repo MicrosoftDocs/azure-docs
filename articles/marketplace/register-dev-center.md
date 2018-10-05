@@ -128,7 +128,10 @@ You must be signed in with the Microsoft account that you want to associate with
 > Look for an email from verify@microsoft.com with subject line “Action needed: Verify your email account with Microsoft”. Click on the time sensitive verification link to complete registration. *If you have not received an email within 24hrs, please check the spam folder.*
 
 *	**What are the next steps after Dev Center verification?**
-> Go to “Your programs” (https://developer.microsoft.com/en-us/dashboard/Account/Programs) and log into the Dev Center account. You should see a section titled “Recommended programs for you” and under that, Azure. You will click “Get Started” and go through the process of setting up an Azure account.
+> Go to “Your programs” (https://developer.microsoft.com/dashboard/Account/Programs) and log into the Dev Center account. If you don’t see Azure as a registered program, look under “Recommended programs for you”, and then look for Azure to select  “Get Started.”
+
+*	**How do I link my Dev Center account to my Cloud Partner Portal publisher profile?**
+> The final step before publishing is linking your Dev Center account to your Cloud Partner Portal [profile](https://cloudpartner.azure.com/#profile). If your Dev Center account is different from your account on [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), add your Dev Center account as a new [user](https://cloudpartner.azure.com/#documentation/manage-users) in the Cloud Partner Portal. Login to the [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers) with your Dev Center Account. Select Publisher profile on menu located on the top right of your web browser. Select Link Dev Center Account.
 
 *	**Why is my Dev Center application rejected?**
 > The third-party vetting company (Duns & Bradstreet) was unable to contact you through the phone number that you have provided. Contact support at [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) to re-start the vetting process
