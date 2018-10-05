@@ -13,9 +13,9 @@ ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ---
 # Create Azure Recovery Services Vault using REST API
 
-The steps to create an Azure Recovery Services Vault using REST API are outlined in [create vault REST API](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) documentation. Let us use this a reference to create a vault called "testVault" in "West US".
+The steps to create an Azure Recovery Services Vault using REST API are outlined in [create vault REST API](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) documentation. Let us use this document as a reference to create a vault called "testVault" in "West US".
 
-To create or update an Azure Recovery Services vault use the following *PUT* operation.
+To create or update an Azure Recovery Services vault, use the following *PUT* operation.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}?api-version=2016-06-01
@@ -46,11 +46,11 @@ The following common definitions are used to build a request body:
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifies the unique system identifier for each Azure resource     |
 |tags     |         | Object        |     Resource tags    |
 
-Note that the vault name and resource group name are provided in the PUT URI. The request body defines the location.
+Note that vault name and resource group name are provided in the PUT URI. The request body defines the location.
 
 ## Example request body
 
-The following example body is used to create a vault in "West US". Only the location needs to be specified. The SKU is always "Standard".
+The following example body is used to create a vault in "West US". Specify the location. The SKU is always "Standard".
 
 ```json
 {
@@ -75,7 +75,7 @@ For more information about REST API responses, see [Process the response message
 
 ### Example response
 
-A condensed *201 Created* response from the previous example request body that creates a Vault shows a *id* has been assigned and the *provisioningState* is *Succeeded*:
+A condensed *201 Created* response from the previous example request body shows an *id* has been assigned and the *provisioningState* is *Succeeded*:
 
 ```json
 {
@@ -96,7 +96,7 @@ A condensed *201 Created* response from the previous example request body that c
 
 [Create a backup policy for backing up an Azure VM in this vault](backup-azure-arm-userestapi-createorupdatepolicy.md).
 
-For more information on the Azure REST APIs , see the following:
+For more information on the Azure REST APIs, see the following documents:
 
 - [Azure Recovery Services provider REST API](/rest/api/recoveryservices/)
 - [Get started with Azure REST API](/rest/api/azure/)
