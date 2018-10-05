@@ -15,13 +15,13 @@ By using Azure Monitor, you can collect custom metrics via your application tele
 
 ## InfluxData Telegraf agent 
 
-[Telegraf](https://docs.influxdata.com/telegraf/v1.7/) is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads run on your VM, you can configure the agent to leverage specialized input plug-ins to collect metrics. Examples are MySQL, NGINX, and Apache. By using output plug-ins, the agent can then write to destinations that you choose. The Telegraf agent has integrated directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. By using this plug-in, the agent can collect workload specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor. 
+[Telegraf](https://docs.influxdata.com/telegraf/v1.7/) is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads run on your VM, you can configure the agent to leverage specialized input plug-ins to collect metrics. Examples are MySQL, NGINX, and Apache. By using output plug-ins, the agent can then write to destinations that you choose. The Telegraf agent has integrated directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. By using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor. 
 
  ![Telegraph agent overview](./media/metrics-store-custom-linux-telegraf/telegraf-agent-overview.png)
 
 ## Send custom metrics 
 
-For the purpose of this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating system. The Telegraf agent is supported for most Linux operating systems. Both the Debian and RPM packages are available along with unpackaged Linux binaries on the InfluxData download portal. See this installation guide for additional Telegraf installation instructions and options. 
+For this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating system. The Telegraf agent is supported for most Linux operating systems. Both the Debian and RPM packages are available along with unpackaged Linux binaries on the InfluxData download portal. See this installation guide for additional Telegraf installation instructions and options. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -33,7 +33,7 @@ For the purpose of this tutorial, we deploy a Linux VM that runs the Ubuntu 16.0
     1. Provide a VM name like **MyTelegrafVM**.  
     1. Leave the disk type as **SSD**. Then provide a **username**, such as **azureuser**. 
     1. For **Authentication type**, select **Password**. Then enter a password you'll use later to SSH into this VM. 
-    1. Choose to **Create new resource group**. Then provide a name, such as **myResourceGroup**. Choose your desired Location. Then select **OK**. 
+    1. Choose to **Create new resource group**. Then provide a name, such as **myResourceGroup**. Choose your **Location**. Then select **OK**. 
 
         ![Create an Ubuntu VM](./media/metrics-store-custom-linux-telegraf/create-vm.png)
 
@@ -63,7 +63,7 @@ For the purpose of this tutorial, we deploy a Linux VM that runs the Ubuntu 16.0
     ssh azureuser@XXXX.XX.XXX 
     ```
 
-1. Paste the SSH connection command into a shell, such as the Azure Cloud Shell or Bash on Ubuntu on Windows, or use an SSH client of your choice to create the connection. 
+1. Paste the SSH connection command into a shell, such as Azure Cloud Shell or Bash on Ubuntu on Windows, or use an SSH client of your choice to create the connection. 
 
 ## Install and configure Telegraf 
 
@@ -122,7 +122,7 @@ Additionally, in this walkthrough, you used the Telegraf agent to emit metrics a
 
 ## Clean up resources 
 
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine and select **Delete**. Then confirm the name of the resource group to delete. 
+When they're no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine and select **Delete**. Then confirm the name of the resource group to delete. 
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).

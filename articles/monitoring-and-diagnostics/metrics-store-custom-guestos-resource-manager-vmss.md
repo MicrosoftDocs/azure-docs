@@ -28,8 +28,7 @@ If you're new to Resource Manager templates, learn about [template deployments](
 The Azure Diagnostics extension uses a feature called **data sinks** to route metrics and logs to different locations. The following steps show how to use a Resource Manager template and PowerShell to deploy a VM by using the new Azure Monitor data sink. 
 
 ## Author a Resource Manager template 
-For this example, you can use a publicly available sample template. The starting templates are at
-https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale:  
+For this example, you can use a publicly available [sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale):  
 
 - **Azuredeploy.json** is a preconfigured Resource Manager template for deployment of a virtual machine scale set.
 
@@ -50,7 +49,7 @@ Download and save both files locally.
 ###  Modify azuredeploy.json
 1. Open the **azuredeploy.json** file. 
 
-1. Add a variable to hold the storage account information in the Resource Manager template. You must still provide a storage account as part of the installation of the diagnostics extension. Any logs or performance counters specified in the diagnostics config file are written to the specified storage account. They're also sent to the Azure Monitor metric store. 
+1. Add a variable to hold the storage account information in the Resource Manager template. You must also provide a storage account as part of the installation of the diagnostics extension. Any logs or performance counters specified in the diagnostics config file are written to the specified storage account. They're also sent to the Azure Monitor metric store: 
 
     ```json
     "variables": { 
@@ -58,7 +57,7 @@ Download and save both files locally.
     "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
     ```
  
-1. Find the virtual machine scale set definition in the resources section and add the **identity** section to the configuration. This addition ensures that Azure assigns it a system identity. This step also ensures that the VMs in the scale set can emit guest metrics about themselves to Azure Monitor.  
+1. Find the virtual machine scale set definition in the resources section and add the **identity** section to the configuration. This addition ensures that Azure assigns it a system identity. This step also ensures that the VMs in the scale set can emit guest metrics about themselves to Azure Monitor:  
 
     ```json
     { 
@@ -231,7 +230,7 @@ To deploy the Resource Manager template, we'll leverage Azure PowerShell:
 1. Launch PowerShell. 
 1. Sign in to Azure by using `Login-AzureRmAccount`.
 1. Get your list of subscriptions by using `Get-AzureRmSubscription`.
-1. Set the subscription you'll create or update the virtual machine: 
+1. Set the subscription you'll create, or update the virtual machine: 
 
    ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
@@ -245,7 +244,7 @@ To deploy the Resource Manager template, we'll leverage Azure PowerShell:
    > [!NOTE]  
    > Remember to use an Azure region that's enabled for custom metrics. 
  
-1. Run the following commands to deploy the VM.  
+1. Run the following commands to deploy the VM:  
 
    > [!NOTE]  
    > If you want to update an existing scale set, add **-Mode Incremental** to the end of the command. 
@@ -254,7 +253,7 @@ To deploy the Resource Manager template, we'll leverage Azure PowerShell:
    New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
-1. After your deployment succeeds, you should be able to find the virtual machine scale set in the Azure portal. It should emit metrics to Azure Monitor. 
+1. After your deployment succeeds, you should find the virtual machine scale set in the Azure portal. It should emit metrics to Azure Monitor. 
 
    > [!NOTE]  
    > You might run into errors around the selected **vmSkuSize**. In that case, go back to your **azuredeploy.json** file and update the default value of the **vmSkuSize** parameter. We recommend that you try **Standard_DS1_v2**. 
@@ -272,7 +271,7 @@ To deploy the Resource Manager template, we'll leverage Azure PowerShell:
 
 1. Change the aggregation period to **Last 30 minutes**.  
 
-1. In the resource drop-down menu, select the virtual machine scale set you just created.  
+1. In the resource drop-down menu, select the virtual machine scale set you created.  
 
 1. In the namespaces drop-down menu, select **azure.vm.windows.guest**. 
 

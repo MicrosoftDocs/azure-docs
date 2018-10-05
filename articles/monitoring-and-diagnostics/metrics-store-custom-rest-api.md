@@ -80,7 +80,7 @@ This article shows you how to send custom metrics for Azure resources to the Azu
     curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId> /metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
     ```
 1. Change the timestamp and values in the JSON file. 
-1. Repeat the previous two steps a few times, so you have data for multiple minutes.
+1. Repeat the previous two steps a few times, so you have data for several minutes.
 
 ## Troubleshooting 
 If you receive an error message with some part of the process, consider the following troubleshooting information:

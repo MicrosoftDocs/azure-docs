@@ -11,11 +11,11 @@ ms.component: metrics
 ---
 # Custom metrics in Azure Monitor
 
-As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called standard or platform. However, these metrics are limited in nature. You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights.
-These **custom** metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system, and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
+As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called standard or platform. However, they're limited in nature. You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights.
+These **custom** metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
 
 ## Send custom metrics
-Custom metrics can be sent to Azure Monitor via a variety of methods:
+Custom metrics can be sent to Azure Monitor via several methods:
 - Instrument your application by using the Azure Application Insights SDK and send custom telemetry to Azure Monitor. 
 - Install the Azure Diagnostics extension on your [Azure VM](metrics-store-custom-guestos-resource-manager-vm.md), [virtual machine scale set](metrics-store-custom-guestos-resource-manager-vmss.md), [classic VM](metrics-store-custom-guestos-classic-vm.md), or [Azure Cloud Services (classic)](metrics-store-custom-guestos-classic-cloud-service.md) and send performance counters to Azure Monitor. 
 - Install the [InfluxData Telegraf agent](metrics-store-custom-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
@@ -25,7 +25,7 @@ When you send custom metrics to Azure Monitor, each data point, or value, report
 
 ### Authentication
 To submit custom metrics to Azure Monitor, the entity that submits the metric needs a valid Azure Active Directory (Azure AD) token in the **Bearer** header of the request. There are a few supported ways to acquire a valid bearer token:
-1. [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) gives an identity to an Azure Resource itself, such as a VM. MSI was designed to give resources permissions to carry out certain operations. An example is allowing a resource to emit metrics about itself. A resource, or its MSI, can be granted Monitoring Metrics Publisher permissions on another resource. Then the MSI can emit metrics for other resources as well.
+1. [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) gives an identity to an Azure Resource itself, such as a VM. MSI is designed to give resources permissions to carry out certain operations. An example is allowing a resource to emit metrics about itself. A resource, or its MSI, can be granted Monitoring Metrics Publisher permissions on another resource. Then the MSI can emit metrics for other resources as well.
 2. [Azure AD service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In this scenario, an Azure AD application, or service, can be assigned permissions to emit metrics about an Azure resource. To authenticate the request, Azure Monitor validates the application token by using Azure AD public keys. The existing Monitoring Metrics Publisher role already has this permission, which is available in the Azure portal. Depending on what resources it will emit custom metrics for, you can give the service principal the Monitoring Metrics Publisher role at the scope required. Examples are subscription, resource group, or specific resource.
 
 > [!NOTE]  
@@ -43,18 +43,18 @@ This property captures which Azure resource ID the custom metric is reported for
 This property captures what Azure region the resource you're emitting metrics for is deployed in. Metrics must be emitted to the same Azure Monitor regional endpoint as the region the resource is deployed in. For example, custom metrics for a VM deployed in West US must be sent to the WestUS regional Azure Monitor endpoint. The region information is also encoded in the URL of the API call.
 
 > [!NOTE]  
-> During the public preview, custom metrics is only available in a subset of Azure regions. A list of supported regions is provided in a later section of this article.
+> During the public preview, custom metrics are only available in a subset of Azure regions. A list of supported regions is documented in a later section of this article.
 >
 >
 
 ### Timestamp
-Each data point sent to Azure Monitor must be marked with a timestamp. This timestamp captures the DateTime at which the metric value was measured or collected. Azure Monitor accepts metric data with timestamps as far as 20 minutes in the past and 5 minutes in the future.
+Each data point sent to Azure Monitor must be marked with a timestamp. This timestamp captures the DateTime at which the metric value is measured or collected. Azure Monitor accepts metric data with timestamps as far as 20 minutes in the past and 5 minutes in the future.
 
 ### Namespace
-Namespaces are a way to categorize or group similar metrics together. By using namespaces, you can achieve isolation between groups of metrics that might collect different insights or performance indicators. For example, you might have a namespace called **ContosoMemoryMetrics** that tracks memory-use metrics which profile your app. You might have another namespace called **ContosoAppTransaction** that tracks all metrics about user transactions in your application.
+Namespaces are a way to categorize or group similar metrics together. By using namespaces, you can achieve isolation between groups of metrics that might collect different insights or performance indicators. For example, you might have a namespace called **ContosoMemoryMetrics** that tracks memory-use metrics which profile your app. Another namespace called **ContosoAppTransaction** might track all metrics about user transactions in your application.
 
 ### Name
-**Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what is measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.
+**Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what's measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.
 
 ### Dimension keys
 A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory specific processes use or to identify the top five processes by memory usage.
@@ -70,7 +70,7 @@ When reporting a metric data point, for each dimension key on the metric being r
 When publishing a metric value, you can only specify a single dimension value per dimension key. If you collect the same memory utilization for multiple processes on the VM, you can report multiple metric values for that timestamp. Each metric value would specify a different dimension value for the **Process** dimension key.
 
 ### Metric values
-Azure Monitor stores all metrics at one-minute granularity intervals. We understand that during a given minute, a metric might need to be sampled multiple times. An example is CPU utilization. Or it might need to be measured for many discrete events. An example is sign-in transaction latencies. To limit the number of raw values you have to emit and pay for in Azure Monitor, you can locally pre-aggregate and emit the values:
+Azure Monitor stores all metrics at one-minute granularity intervals. We understand that during a given minute, a metric might need to be sampled several times. An example is CPU utilization. Or it might need to be measured for many discrete events. An example is sign-in transaction latencies. To limit the number of raw values you have to emit and pay for in Azure Monitor, you can locally pre-aggregate and emit the values:
 
 * **Min**: The minimum observed value from all the samples and measurements during the minute.
 * **Max**: The maximum observed value from all the samples and measurements during the minute.
@@ -99,7 +99,7 @@ If your application is unable to pre-aggregate locally and needs to emit each di
 With this process, you can emit multiple values for the same metric plus dimension combination during a given minute. Azure Monitor then takes all the raw values emitted for a given minute and aggregates them together.
 
 ### Sample custom metric publication
-In the following example, you create a custom metric called **Memory Bytes in Use** under the metric namespace **Memory Profile** for a virtual machine. The metric has a single dimension called **Process**. For the given time stamp, we emit metric values for two different processes:
+In the following example, you create a custom metric called **Memory Bytes in Use** under the metric namespace **Memory Profile** for a virtual machine. The metric has a single dimension called **Process**. For the given timestamp, we emit metric values for two different processes:
 
 ```json
 {
@@ -142,7 +142,7 @@ In the following example, you create a custom metric called **Memory Bytes in Us
 >
 
 ## Custom metric definitions
-There's no need to predefine a custom metric in Azure Monitor before it's emitted. Each metric data point published contains namespace, name, and dimension information. So the first time a custom metric is emitted to Azure Monitor, a metric definition is automatically created. This metric definition is then discoverable on any resource the metric was emitted against via the metric definitions.
+There's no need to predefine a custom metric in Azure Monitor before it's emitted. Each metric data point published contains namespace, name, and dimension information. So the first time a custom metric is emitted to Azure Monitor, a metric definition is automatically created. This metric definition is then discoverable on any resource the metric is emitted against via the metric definitions.
 
 > [!NOTE]  
 > Azure Monitor doesn’t yet support defining **Units** for a custom metric.
