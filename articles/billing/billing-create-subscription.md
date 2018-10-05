@@ -31,7 +31,7 @@ You can create additional subscriptions for your Azure account. But if you want 
 1. Select **Add**.
 1. Select an offer.
 1. Fill in required information.
-1. Complete the subscription sign up.
+1. Complete the subscription sign-up.
 
 ## Next steps
 
