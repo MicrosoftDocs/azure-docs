@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 10/03/2018
+ms.date: 10/05/2018
 ms.author: danlep
 ms.custom: include file 
 ---
@@ -40,15 +40,13 @@ Additional VNet requirements differ, depending on whether the Batch pool is in t
   /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}
   ```
 
-**Permissions** - The `MicrosoftAzureBatch` service principal must have the Contributor role in the subscription used to deploy the pool. This role is needed for Batch to add compute nodes to the virtual network and to deploy related networking resources including network security groups, public IP addresses, and load balancers. 
-
-  Additionally, you should check whether your security policies or locks on the VNet's subscription or resource group restrict a user's permissions to manage the VNet.
+**Permissions** - Check whether your security policies or locks on the VNet's subscription or resource group restrict a user's permissions to manage the VNet.
 
 **Additional networking resources** - Batch automatically allocates additional networking resources in the resource group containing the VNet. For each 50 dedicated nodes (or each 20 low-priority nodes), Batch allocates: 1 network security group (NSG), 1 public IP address, and 1 load balancer. These resources are limited by the subscription's [resource quotas](../articles/azure-subscription-service-limits.md). For large pools you may need to request a quota increase for one or more of these resources.
 
 #### Network security groups
 
-The subnet must allow inbound communication from the Batch service to be able to schedule tasks on the compute nodes, and outbound communication to communicate with Azure storage or other resources. For pools in the Virtual Machine configuration, Batch adds NSGs at the level of network interfaces (NICs) attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
+The subnet must allow inbound communication from the Batch service to be able to schedule tasks on the compute nodes, and outbound communication to communicate with Azure Storage or other resources. For pools in the Virtual Machine configuration, Batch adds NSGs at the level of network interfaces (NICs) attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
 
 * Inbound TCP traffic on ports 29876 and 29877 from Batch service role IP addresses. 
 * Inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) to permit remote access.
@@ -58,13 +56,13 @@ The subnet must allow inbound communication from the Batch service to be able to
 > [!IMPORTANT]
 > Exercise caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service sets the state of the compute nodes to **unusable**.
 
-If the specified subnet has associated Network Security Groups (NSGs) and/or a firewall, configure the inbound and outbound security rules as shown in the following tables. Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access to the pool VMs. It is not required for the pool VMs to be usable.
+You do not need to specify NSGs at the subnet level because Batch configures its own NSGs. However, if the specified subnet has associated Network Security Groups (NSGs) and/or a firewall, configure the inbound and outbound security rules as shown in the following tables. Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access to the pool VMs. It is not required for the pool VMs to be usable.
 
 **Inbound security rules**
 
 | Source IP addresses | Source ports | Destination | Destination ports | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
-Any <br /><br />Although this requires effectively "allow all", the Batch service applies an NSG at the network interface level on each VM created under virtual machine configuration that filters out all non-Batch service IP addresses. | * | Any | 29876-29877 | TCP | Allow |
+Any <br /><br />Although this requires effectively "allow all", the Batch service applies an NSG at the network interface level on each VM created under Virtual Machine configuration that filters out all non-Batch service IP addresses. | * | Any | 29876-29877 | TCP | Allow |
 | User machines, used for debugging purposes to remotely access the pool VMs. | * | Any |  3389 (Windows), 22 (Linux) | TCP | Allow |
 
 **Outbound security rules**
@@ -87,18 +85,17 @@ Any <br /><br />Although this requires effectively "allow all", the Batch servic
 
 #### Network security groups
 
-The subnet must allow inbound communication from the Batch service to be able to schedule tasks on the compute nodes, and outbound communication to communicate with Azure storage or other resources.
+The subnet must allow inbound communication from the Batch service to be able to schedule tasks on the compute nodes, and outbound communication to communicate with Azure Storage or other resources.
 
-You do not need to specify an NSG, because Batch configures inbound communication only from Batch IP addresses. However, If the specified subnet has associated NSGs and/or a firewall, configure the inbound and outbound security rules as shown in the following tables. If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service sets the state of the compute nodes to **unusable**.
+You do not need to specify an NSG, because Batch configures inbound communication only from Batch IP addresses to the pool nodes. However, If the specified subnet has associated NSGs and/or a firewall, configure the inbound and outbound security rules as shown in the following tables. If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service sets the state of the compute nodes to **unusable**.
 
-> [!NOTE]
-> Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access to the pool VMs. It is not required for the pool VMs to be usable.
+ Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access to the pool nodes. It is not required for the pool nodes to be usable.
 
 **Inbound security rules**
 
 | Source IP addresses | Source ports | Destination | Destination ports | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
-Any <br /><br />Although this requires effectively "allow all", the Batch service applies an NSG at the network interface level on each VM created under virtual machine configuration that filters out all non-Batch service IP addresses. | * | Any | 10100, 20100, 30100 | TCP | Allow |
+Any <br /><br />Although this requires effectively "allow all", the Batch service applies an ACL rule at the level of each node that filters out all non-Batch service IP addresses. | * | Any | 10100, 20100, 30100 | TCP | Allow |
 | User machines, used for debugging purposesto remotely access the pool VMs. | * | Any |  3389 (Windows), 22 (Linux) | TCP | Allow |
 
 **Outbound security rules**
