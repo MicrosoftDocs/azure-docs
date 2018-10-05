@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 10/05/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 
@@ -79,6 +79,8 @@ An error is returned when:
 
 * The number of objects to be renamed is greater than 1000
 * One of the applications to be renamed is a multi-tenant app
+
+![Error messages in the Azure portal](./media/domains-manage/force-delete.png)
   
 ### Frequently asked questions
 
