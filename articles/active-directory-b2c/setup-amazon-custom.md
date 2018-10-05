@@ -26,14 +26,14 @@ This article shows you how to enable sign-in for users from an Amazon account by
 
 ## Register the application
 
-To enable sign-in for users from a Amazon account, you need to create an Amazon application.
+To enable sign-in for users from an Amazon account, you need to create an Amazon application.
 
 1. Sign in to the [Amazon Developer Center](https://login.amazon.com/) with your Amazon account credentials.
 2. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.
 3. Select **Register new application**.
 4. Enter a **Name**, **Description**, and **Privacy Notice URL**, and then click **Save**. The privacy notice is a page that you manage that provides privacy information to users.
 5. In the **Web Settings** section, copy the values of **Client ID**. Select **Show Secret** to get the client secret and then copy it. You need both of them to configure an Amazon account as an identity provider in your tenant. **Client Secret** is an important security credential.
-6. In the **Web Settings** section, select **Edit**, and then enter `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs**. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
+6. In the **Web Settings** section, select **Edit**, and then enter `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs**. Replace `your-tenant-name` with the name of your tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
 7. Click **Save**.
 
 ## Create a policy key
@@ -55,7 +55,7 @@ You need to store the client secret that you previously recorded in your Azure A
 
 If you want users to sign in by using an Amazon account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated. 
 
-You can define a Amazon account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
+You can define an Amazon account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
 
 1. Open the *TrustFrameworkExtensions.xml*.
@@ -114,7 +114,7 @@ By now, you have configured your policy so that Azure AD B2C knows how to commun
 
 ## Register the claims provider
 
-At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider.
+At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Amazon identity provider.
 
 1. Open the *TrustFrameworkBase.xml* file from the starter pack.
 2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
@@ -138,13 +138,13 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with an Amazon account to receive a token.
 
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
-2. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
+2. Add the following **ClaimsExchange** element making sure that you use the same value for the ID that you used for **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
     
-    Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `Amazon-OAuth`.
+    Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier. For example, `Amazon-OAuth`.
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
