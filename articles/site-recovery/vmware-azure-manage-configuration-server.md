@@ -12,42 +12,66 @@ ms.author: raynew
 
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it's deployed.
 
-
-
-## Modify VMware settings
+## Access configuration server
 
 You can access the configuration server as follows:
-    - Sign in to the VM on which it's deployed, and Start Azure Site Recovery Configuration Manager from the desktop shortcut.
-    - Alternatively, you can access the configuration server remotely from **https://*ConfigurationServerName*/:44315/**. Sign in with administrator credentials.
 
-### Modify VMware server settings
+* Sign in to the VM on which it's deployed, and Start **Azure Site Recovery Configuration Manager** from the desktop shortcut.
+* Alternatively, you can access the configuration server remotely from https://*ConfigurationServerName*/:44315/ . Sign in with administrator credentials.
 
-1. To associate a different VMware server with the configuration server, after sign-in, select **Add vCenter Server/vSphere ESXi server**.
+## Modify VMware server settings
+
+1. To associate a different VMware server with the configuration server, after [sign-in](#access-configuration-server), select **Add vCenter Server/vSphere ESXi server**.
 2. Enter the details, and then select **OK**.
 
+## Modify credentials for automatic discovery
 
-### Modify credentials for automatic discovery
-
-1. To update the credentials used to connect to the VMware server for automatic discovery of VMware VMs, after sign-in, select **Edit**.
+1. To update the credentials used to connect to the VMware server for automatic discovery of VMware VMs, after [sign-in](#access-configuration-server), choose the account and click **Edit**.
 2. Enter the new credentials, and then select **OK**.
 
     ![Modify VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
+You can also modify the credentials through CSPSConfigtool.exe.
+
+1. Login to the configuration server and launch CSPSConfigtool.exe
+2. Choose the account you wish to modify and click **Edit**.
+3. Enter the modified credentials and click **Ok**
 
 ## Modify credentials for Mobility Service installation
 
 Modify the credentials used to automatically install Mobility Service on the VMware VMs you enable for replication.
 
-1. After sign-in, select **Manage virtual machine credentials**
-2. Enter the new credentials, and then select **OK**.
+1. After [sign-in](#access-configuration-server), select **Manage virtual machine credentials**
+2. Choose the account you wish to modify and click **Edit**
+3. Enter the new credentials, and then select **OK**.
 
     ![Modify Mobility Service credentials](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
+
+You can also modify credentials through CSPSConfigtool.exe.
+
+1. Login to the configuration server and launch CSPSConfigtool.exe
+2. Choose the account you wish to modify and click **Edit**
+3. Enter the new credentials and click **Ok**.
+
+## Add credentials for Mobility service installation
+
+If you missed adding credentials during OVF deployment of configuration server,
+
+1. After [sign-in](#access-configuration-server), select **Manage virtual machine credentials**.
+2. Click on **Add virtual machine credentials**.
+    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+3. Enter the new credentials and click on **Add**.
+
+You can also add credentials through CSPSConfigtool.exe.
+
+1. Login to the configuration server and launch CSPSConfigtool.exe
+2. Click **Add**, enter the new credentials and click **Ok**.
 
 ## Modify proxy settings
 
 Modify the proxy settings used by the configuration server machine for internet access to Azure. If you have a process server machine in addition to the default process server running on the configuration server machine, modify the settings on both machines.
 
-1. After sign-in to the configuration server, select **Manage connectivity**.
+1. After [sign-in](#access-configuration-server) to the configuration server, select **Manage connectivity**.
 2. Update the proxy values. Then select **Save** to update the settings.
 
 ## Add a network adapter
@@ -55,7 +79,7 @@ Modify the proxy settings used by the configuration server machine for internet 
 The Open Virtualization Format (OVF) template deploys the configuration server VM with a single network adapter.
 
 - You can [add an additional adapter to the VM](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), but you must add it before you register the configuration server in the vault.
-- To add an adapter after you register the configuration server in the vault, add the adapter in the VM properties. Then you need to reregister the server in the vault.
+- To add an adapter after you register the configuration server in the vault, add the adapter in the VM properties. Then you need to [re-register](#reregister-a-configuration-server-in-the-same-vault) the server in the vault.
 
 
 ## Reregister a configuration server in the same vault
@@ -83,7 +107,8 @@ You can reregister the configuration server in the same vault if you need to. If
   ```
           net stop obengine
           net start obengine
-  ```
+   ```
+
 
 ## Register a configuration server with a different vault
 

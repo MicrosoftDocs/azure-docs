@@ -1,4 +1,4 @@
-- name: Computer Vision Documentation
+- name: Computer Vision API Documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -95,14 +95,40 @@
       href: quickstarts-sdk/csharp-analyze-sdk.md
     - name: Generate a thumbnail
       href: quickstarts-sdk/csharp-thumb-sdk.md
-    - name: Extract handwritten text
+    - name: Extract text
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+- name: Tutorials
+  items:
+  - name: Build an image processing app
+    href: Tutorials/CSharpTutorial.md
+- name: Concepts
+  items:
+  - name: Tagging images
+    href: concept-tagging-images.md
+  - name: Categorizing images
+    href: concept-categorizing-images.md
+  - name: Describing images
+    href: concept-describing-images.md
+  - name: Detecting faces
+    href: concept-detecting-faces.md
+  - name: Detecting image types
+    href: concept-detecting-image-types.md
+  - name: Detecting domain-specific content
+    href: concept-detecting-domain-content.md
+  - name: Detecting color schemes
+    href: concept-detecting-color-schemes.md
+  - name: Generating thumbnails
+    href: concept-generating-thumbnails.md
+  - name: Extracting text with OCR
+    href: concept-extracting-text-ocr.md
+  - name: Recognizing printed and handwritten text
+    href: concept-recognizing-text.md
+  - name: Detecting adult and racy content
+    href: concept-detecting-adult-content.md
 - name: How-to guides
   items:
   - name: First Computer Vision apps
     items:
-    - name: C#
-      href: Tutorials/CSharpTutorial.md
     - name: Java
       href: Tutorials/java-tutorial.md
     - name: JavaScript

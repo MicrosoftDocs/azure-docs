@@ -112,7 +112,7 @@ Next, open the *azuredeploy.json* file in a text editor and make three updates t
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate**, add 
+3. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**, add 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"

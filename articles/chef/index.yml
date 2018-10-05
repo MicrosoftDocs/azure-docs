@@ -51,7 +51,7 @@ sections:
             <p><a href="https://docs.chef.io/install_chef_automate.html">Chef Automate install guide</a></p>
             <p><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate">Chef Automate on Azure Marketplace</a></p>
     - title: Chef Software tools
-      html: <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks">Chef Visual Studio Team Services extension</a></p>
-            <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks">Habitat Visual Studio Team Services extension</a></p>
+      html: <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks">Chef Azure DevOps extension</a></p>
+            <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks">Habitat Azure DevOps extension</a></p>
     - title: Chef Software news
       html: <p><a href="https://blog.chef.io/">Chef Software blog</a></p>

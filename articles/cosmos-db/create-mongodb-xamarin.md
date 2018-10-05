@@ -170,7 +170,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 2. Click **Restore all NuGet packages**.
 3. Right click on the **TaskList.Android** and select **Set as startup project**.
 4. Press F5 to start debugging the application.
-5. If you want to run on iOS, first your machine is connected to a Mac (here are [instructions](https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) on how to do so).
+5. If you want to run on iOS, first your machine is connected to a Mac (here are [instructions](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) on how to do so).
 6. Right click on **TaskList.iOS** project and select **Set as startup project**.
 7. Click F5 to start debugging the application.
 

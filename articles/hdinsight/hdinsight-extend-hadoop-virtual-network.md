@@ -11,6 +11,8 @@ ms.date: 07/26/2018
 ---
 # Extend Azure HDInsight using an Azure Virtual Network
 
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+
 Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Using an Azure Virtual Network enables the following scenarios:
 
 * Connecting to HDInsight directly from an on-premises network.
@@ -64,7 +66,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
     HDInsight  hosts multiple services, which use a variety of ports. Do not block traffic to these ports. For a list of ports to allow through virtual appliance firewalls, see the [Security](#security) section.
 
-    To find your existing security configuration, use the following Azure PowerShell or Azure CLI commands:
+    To find your existing security configuration, use the following Azure PowerShell or Azure Classic CLI commands:
 
     * Network security groups
 
@@ -101,7 +103,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
     * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-    * [Create HDInsight using Azure CLI 1.0](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Create HDInsight using Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Create HDInsight using an Azure Resource Manager template](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
   > [!IMPORTANT]
@@ -245,7 +247,7 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 >
 > If you do not use network security groups or user-defined routes to control traffic, you can ignore this section.
 
-If you use network security groups or user-defined routes, you must allow traffic from the Azure health and management services to reach HDInsight. Use the following steps to find the IP addresses that must be allowed:
+If you use network security groups or user-defined routes, you must allow traffic from the Azure health and management services to reach HDInsight. You must also allow traffic between VMs inside the subnet. Use the following steps to find the IP addresses that must be allowed:
 
 1. You must always allow traffic from the following IP addresses:
 
@@ -272,6 +274,7 @@ If you use network security groups or user-defined routes, you must allow traffi
     | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 | Inbound |
     | China | China North | 42.159.96.170</br>139.217.2.219 | 443 | Inbound |
     | &nbsp; | China East | 42.159.198.178</br>42.159.234.157 | 443 | Inbound |
+    | &nbsp; | China North 2 | 40.73.37.141</br>40.73.38.172 | 443 | Inbound |
     | Europe | North Europe | 52.164.210.96</br>13.74.153.132 | 443 | Inbound |
     | &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | 443 | Inbound |
     | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 | Inbound |
@@ -435,7 +438,7 @@ $vnet | Set-AzureRmVirtualNetwork
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
-### Azure CLI
+### Azure Classic CLI
 
 Use the following steps to create a virtual network that restricts inbound traffic, but allows traffic from the IP addresses required by HDInsight.
 
@@ -504,7 +507,7 @@ This example makes the following assumptions:
 
 On the custom DNS server in the virtual network:
 
-1. Use either Azure PowerShell or Azure CLI to find the DNS suffix of the virtual network:
+1. Use either Azure PowerShell or Azure Classic CLI to find the DNS suffix of the virtual network:
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
@@ -586,7 +589,7 @@ This example makes the following assumptions:
 
 * [Bind](https://www.isc.org/downloads/bind/) is installed on the custom DNS servers.
 
-1. Use either Azure PowerShell or Azure CLI to find the DNS suffix of both virtual networks:
+1. Use either Azure PowerShell or Azure Classic CLI to find the DNS suffix of both virtual networks:
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"

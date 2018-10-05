@@ -17,9 +17,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
+
+ROBOTS: NOINDEX
 ---
 
+
 # Server workload forecasting on terabytes of data
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 This article covers how data scientists can use Azure Machine Learning Workbench to develop solutions that require the use of big data. You can start from a sample of a large data set, iterate through data preparation, feature engineering, and machine learning, and then extend the process to the entire large data set. 
 
@@ -45,11 +50,11 @@ In this scenario, you focus on workload prediction for each machine (or server).
 The prerequisites to run this example are as follows:
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-* An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). To install the program and create a workspace, see the [quickstart installation guide](../service/quickstart-installation.md). If you have multiple subscriptions, you can [set the desired subscription to be the current active subscription](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+* An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). To install the program and create a workspace, see the [quickstart installation guide](quickstart-installation.md). If you have multiple subscriptions, you can [set the desired subscription to be the current active subscription](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (the instructions in this example are generally the same for macOS systems).
 * A Data Science Virtual Machine (DSVM) for Linux (Ubuntu), preferably in East US region where the data locates. You can provision an Ubuntu DSVM by following [these instructions](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). You can also see [this quickstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). We recommend using a virtual machine with at least 8 cores and 32 GB of memory. 
 
-Follow the [instruction](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) to enable password-less sudoer access on the VM for AML Workbench.  You can choose to use [SSH key-based authentication for creating and using the VM in AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In this example, we use password to access the VM.  Save the following table with the DSVM info for later steps:
+Follow the [instruction](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) to enable password-less sudoer access on the VM for AML Workbench.  You can choose to use [SSH key-based authentication for creating and using the VM in AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In this example, we use password to access the VM.  Save the following table with the DSVM info for later steps:
 
  Field name| Value |  
  |------------|------|

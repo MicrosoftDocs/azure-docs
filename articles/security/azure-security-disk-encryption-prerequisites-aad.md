@@ -1,18 +1,13 @@
 ---
 title: Azure Disk Encryption with Azure AD App Prerequisites (previous release) | Microsoft Docs
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 973cbdc1-12bc-4e0e-90cd-f19b045417a2
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na 
-ms.workload: na
-ms.date: 08/28/2018
 ms.author: mstewart
+ms.date: 09/10/2018
+
 ---
 # Azure Disk Encryption prerequisites (previous release)
 
@@ -70,7 +65,7 @@ An example of commands that can be used to mount the data disks and create the n
     - [Install and configure Azure PowerShell for Windows](/powershell/azure/install-azurerm-ps). 
         - Install PowerShellGet, Azure PowerShell, and load the AzureRM module. 
     - [Install and configure Azure Powershell on macOS and Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Install PowerShell Core, Azure PowerShell for .NET Core, and load the AzureRM.Netcore module.
+        -  Install PowerShell Core, Azure PowerShell for .NET Core, and load the Az module.
 2. Install the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
 
      ```powershell

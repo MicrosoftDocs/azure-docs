@@ -224,7 +224,7 @@ To validate the pipeline, select **Validate** from the tool bar.
 You can see the JSON code associated with the pipeline by clicking **Code** on the upper-right.
 
 ## Debug and publish the pipeline
-You can debug a pipeline before you publish artifacts (linked services, datasets, and pipeline) to Data Factory or your own Visual Studio Team Services Git repository. 
+You can debug a pipeline before you publish artifacts (linked services, datasets, and pipeline) to Data Factory or your own Azure Repos Git repository. 
 
 1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 

@@ -46,7 +46,7 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 
 **Q.** How do I create a scale set by using a custom image?
 
-**A.** Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI 2.0](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+**A.** Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **Q.** If I reduce my scale set capacity from 20 to 15, which VMs are removed?
 
@@ -126,7 +126,7 @@ You can choose any VM performance counter as the metric to set an alert for. For
 
 ### How do I set up autoscale on a virtual machine scale set by using PowerShell?
 
-To set up autoscale on a virtual machine scale set by using PowerShell, see [automatically scale a virtual machine scale set](tutorial-autoscale-powershell.md). You can also configure autoscale with the [Azure CLI 2.0](tutorial-autoscale-cli.md) and [Azure templates](tutorial-autoscale-template.md)
+To set up autoscale on a virtual machine scale set by using PowerShell, see [automatically scale a virtual machine scale set](tutorial-autoscale-powershell.md). You can also configure autoscale with the [Azure CLI](tutorial-autoscale-cli.md) and [Azure templates](tutorial-autoscale-template.md)
 
 
 ### If I have stopped (deallocated) a VM, is that VM started as part of an autoscale operation?
