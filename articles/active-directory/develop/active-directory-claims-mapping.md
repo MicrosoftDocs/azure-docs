@@ -36,13 +36,13 @@ A claims mapping policy is a type of **Policy** object that modifies the claims 
 
 ## Claim sets
 
-There are certain sets of claims that define how and when they are used in tokens.
+There are certain sets of claims that define how and when they're used in tokens.
 
 | Claim set | Description |
 |---|---|
-| Core claim set | Are present in every token, regardless of policy. These claims are also considered restricted, and can't be modified. |
-| Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). These claims can be omitted or modified by using the claims mapping policies. |
-| Restricted claim set | Can't be modified by using policy. The data source cannot be changed, and no transformation is applied when generating these claims. |
+| Core claim set | Are present in every token regardless of the policy. These claims are also considered restricted, and can't be modified. |
+| Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). You can omit or modify basic claims by using the claims mapping policies. |
+| Restricted claim set | Can't be modified using policy. The data source cannot be changed, and no transformation is applied when generating these claims. |
 
 ### Table 1: JSON Web Token (JWT) restricted claim set
 
@@ -232,7 +232,7 @@ There are certain sets of claims that define how and when they are used in token
 
 ## Claims mapping policy properties
 
-Use the properties of a claims mapping policy to control which claims are emitted and where the data is sourced from. If no policy is set, the system issues tokens that include the core claim set, the basic claim set, and any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
+To control what claims are emitted and where the data comes from, use the properties of a claims mapping policy. If a policy is not set, the system issues tokens that include the core claim set, the basic claim set, and any [optional claims](active-directory-optional-claims.md) that the application has chosen to receive.
 
 ### Include basic claim set
 
@@ -245,8 +245,8 @@ Use the properties of a claims mapping policy to control which claims are emitte
 - If set to True, all claims in the basic claim set are emitted in tokens affected by the policy. 
 - If set to False, claims in the basic claim set are not in the tokens, unless they are individually added in the claims schema property of the same policy.
 
->[!NOTE] 
->Claims in the core claim set are present in every token, regardless of what this property is set to. 
+> [!NOTE] 
+> Claims in the core claim set are present in every token, regardless of what this property is set to. 
 
 ### Claims schema
 
@@ -333,8 +333,8 @@ The ID element identifies which property on the source provides the value for th
 - The JwtClaimType must contain the name of the claim to be emitted in JWTs.
 - The SamlClaimType must contain the URI of the claim to be emitted in SAML tokens.
 
->[!NOTE]
->Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. For more information, see the "Exceptions and restrictions" section later in this article.
+> [!NOTE]
+> Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. For more information, see the "Exceptions and restrictions" section later in this article.
 
 ### Claims transformation
 
@@ -348,7 +348,7 @@ The ID element identifies which property on the source provides the value for th
 
 **TransformationMethod:** The TransformationMethod element identifies which operation is performed to generate the data for the claim.
 
-Based on the method chosen, a set of inputs and outputs is expected. These are defined by using the **InputClaims**, **InputParameters** and **OutputClaims** elements.
+Based on the method chosen, a set of inputs and outputs is expected. Define the inputs and outputs by using the **InputClaims**, **InputParameters** and **OutputClaims** elements.
 
 #### Table 4: Transformation methods and expected inputs and outputs
 
@@ -357,8 +357,7 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
-**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and 
-**TransformationClaimType**.
+**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** is joined with ID element of the claim schema entry to find the appropriate input claim. 
 - **TransformationClaimType** is used to give a unique name to this input. This name must match one of the expected inputs for the transformation method.
@@ -366,12 +365,12 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 **InputParameters:** Use an InputParameters element to pass a constant value to a transformation. It has two attributes: **Value** and **ID**.
 
 - **Value** is the actual constant value to be passed.
-- **ID** is used to give a unique name to this input. This name must match one of the expected inputs for the transformation method.
+- **ID** is used to give a unique name to the input. The name must match one of the expected inputs for the transformation method.
 
 **OutputClaims:** Use an OutputClaims element to hold the data generated by a transformation, and tie it to a claim schema entry. It has two attributes: **ClaimTypeReferenceId** and **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** is joined with the ID of the claim schema entry to find the appropriate output claim.
-- **TransformationClaimType** is used to give a unique name to this output. This name must match one of the expected outputs for the transformation method.
+- **TransformationClaimType** is used to give a unique name to the output. The name must match one of the expected outputs for the transformation method.
 
 ### Exceptions and restrictions
 
@@ -410,7 +409,7 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 
 ### Custom signing key
 
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. All tokens issued that have been impacted by the policy are signed with the custom signing key, and applications must be configured to accept tokens signed with the signing key key. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors.
+A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. All tokens issued that have been impacted by the policy are signed with the custom signing key, and applications must be configured to accept tokens signed with the signing key. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors.
 
 ### Cross-tenant scenarios
 
