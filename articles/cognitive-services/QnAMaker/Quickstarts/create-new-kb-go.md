@@ -34,62 +34,17 @@ Create a file named `create-new-knowledge-base.go`.
 
 At the top of `create-new-knowledge-base.go`, add the following lines to add necessary dependencies to the project:
 
-```go
-package main
-
-import (
-	"bytes"
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
-	"net/http"
-	"strconv"
-	"time"
-)
-```
+[!code-nodejs[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=1-11 "Add the required dependencies")]
 
 ## Add the required constants
 After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key.
 
-```go
-var host string = "https://westus.api.cognitive.microsoft.com"
-var service string = "/qnamaker/v4.0"
-var method string = "/knowledgebases/create"
-
-var uri = host + service + method
-
-// Replace this with a valid subscription key.
-var subscriptionKey string = "<your-qna-maker-subscription-key>"
-```
+[!code-nodejs[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=13-20 "Add the required constants")]
 
 ## Add the KB model definition
 After the constants, add the following KB model definition. The model is converting into a string after the definition.
 
-```go
-var kb string = `{
-  "name": "QnA Maker FAQ",
-  "qnaList": [
-    {
-      "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
-      "source": "Custom Editorial",
-      "questions": [
-        "How do I programmatically update my Knowledge Base?"
-      ],
-      "metadata": [
-        {
-          "name": "category",
-          "value": "api"
-        }
-      ]
-    }
-  ],
-  "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"
-  ],
-  "files": []
-}`;
-```
+[!code-nodejs[Add the KB model definition](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=22-44 "Add the KB model definition")]
 
 ## Add supporting structures and functions
 
@@ -97,72 +52,21 @@ Next, add the following supporting functions.
 
 1. Add the structure for an HTTP request:
 
-    ```go
-    type Response struct {
-    	Headers	map[string][]string
-    	Body	string
-    }
-    ```
+    [!code-nodejs[Add the structure for an HTTP request](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=46-49 "Add the structure for an HTTP request")]
 
 2. Add the following method to handle a POST to the QnA Maker APIs. For this quickstart, the POST is used to send the KB definition to QnA Maker.
 
-    ```go
-    func post(uri string, content string) Response {
-    	req, _ := http.NewRequest("POST", uri, bytes.NewBuffer([]byte(content)))
-    	req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    	req.Header.Add("Content-Type", "application/json")
-    	req.Header.Add("Content-Length", strconv.Itoa(len(content)))
-    	client := &http.Client{}
-    	response, err := client.Do(req)
-    	if err != nil {
-    		panic(err)
-    	}
-    
-    	defer response.Body.Close()
-        body, _ := ioutil.ReadAll(response.Body)
-    
-    	return Response {response.Header, string(body)}
-    }
-    ```
+    [!code-nodejs[Add the POST method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=51-66 "Add the POST method")]
 
 3. Add the following method to handle a GET to the QnA Maker APIs. For this quickstart, the GET is used to check the status of the creation operation. 
 
-    ```go
-    func get(uri string) Response {
-    	req, _ := http.NewRequest("GET", uri, nil)
-    	req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    	client := &http.Client{}
-    	response, err := client.Do(req)
-    	if err != nil {
-    		panic(err)
-    	}
-    
-    	defer response.Body.Close()
-        body, _ := ioutil.ReadAll(response.Body)
-    
-    	return Response {response.Header, string(body)}
-    }
-    ```
+    [!code-nodejs[Add the GET method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=68-83 "Add the GET method")]
 
 ## Add function to create KB
 
 Add the following functions to make an HTTP POST request to create the knowledge base. The _create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication. 
 
-```go
-func create_kb(uri string, req string) (string, string) {
-	fmt.Println("Calling " + uri + ".")
-	result := post(uri, req)
-
-	operationIds, exists := result.Headers["Location"]
-
-	if(exists){
-		return operationIds[0], result.Body
-	} else {
-		// error message is in result.Body
-		return "", result.Body
-	}
-}
-```
+[!code-nodejs[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 
 This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. 
 
@@ -180,18 +84,7 @@ This API call returns a JSON response that includes the operation ID in the head
 
 Add the following function to make an HTTP GET request to check the operation status. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication. 
 
-```go
-func check_status(uri string) (string, string) {
-	fmt.Println("Calling " + uri + ".")
-	result := get(uri)
-	if retry, success := result.Headers["Retry-After"]; success {
-		return retry[0], result.Body
-	} else {
-        // If the response headers did not include a Retry-After value, default to 30 seconds.
-		return "30", result.Body
-	}
-}
-```
+[!code-nodejs[Add the check_status method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=99-108 "Add the check_status method")]
 
 Repeat the call until success or failure: 
 
@@ -205,43 +98,11 @@ Repeat the call until success or failure:
   "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
 ```
-## Add create-kb function
+## Add main function
 
 The following function is the main function and creates the KB and repeats checks on the status. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
-```go
-func main() {
-	
-	operation, body := create_kb(uri, kb)
-	fmt.Printf(body + "\n")
-
-	var done bool = false
-
-	for done == false {
-
-		uri := host + service + operation
-		wait, status := check_status(uri)
-		fmt.Println(status)
-
-		var status_obj map[string]interface{}
-
-		json.Unmarshal([]byte(status), &status_obj)
-
-		state := status_obj["operationState"]
-
-        // If the operation isn't finished, wait and query again.
-		if state == "Running" || state == "NotStarted" {
-
-			fmt.Printf ("Waiting " + wait + " seconds...")
-			sec, _ := strconv.Atoi(wait)
-			time.Sleep (time.Duration(sec) * time.Second)
-
-		} else {
-			done = true
-		}
-	}
-}
-```
+[!code-nodejs[Add the main method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range110-140 "Add the main method")]
 
 # Compile the program
 Enter the following command to compile the file. The command prompt does not return any information for a successful build.

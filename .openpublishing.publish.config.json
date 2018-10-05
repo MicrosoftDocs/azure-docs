@@ -217,6 +217,30 @@
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-go",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-go",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-csharp",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-java",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-java",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-python",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-python",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
