@@ -28,8 +28,8 @@ In this tutorial, you learn how to:
 
 To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](log-analytics-quick-collect-azurevm.md).  
 
-## Log in to Azure portal
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+## Sign in to Azure portal
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Create alerts
 Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals.  You can create alerts based on specific performance metrics or when certain events are created, absence of an event, or a number of events are created within a particular time window.  For example, alerts can be used to notify you when average CPU usage exceeds a certain threshold, when a missing update is detected, or when an event is generated upon detecting that a specific Windows service or Linux daemon is not running.  If the results of the log search match particular criteria, then an alert is created. The rule can then automatically run one or more actions, such as notify you of the alert or invoke another process. 
@@ -49,12 +49,15 @@ In the following example, you create a metric measurement alert rule based off o
 7. Now moving onto the second step, provide a name of your alert in the **Alert rule name** field, such as **Percentage CPU greater than 90 percent**.  Specify a **Description** detailing specifics for the alert, and select **Critical(Sev 0)** for the **Severity** value from the options provided.<br><br> ![Configure alert details](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)<br>
 8. To immediately activate the alert rule on creation, accept the default value for **Enable rule upon creation**.
 9. For the third and final step, you specify an **Action Group**, which ensures that the same actions are taken each time an alert is triggered and can be used for each rule you define.  Configure a new action group with the following information:  
-   a. Select **New action group** and the **Add action group** pane appears.
+   a. Select **New action group** and the **Add action group** pane appears.  
    b. For **Action group name**, specify a name such as **IT Operations - Notify** and a **Short name** such as **itops-n**.  
    c. Verify the default values for **Subscription** and **Resource group** are correct. If not, select the correct one from the drop-down list.   
-   d. Under the Actions section, specify a name for the action, such as **Send Email** and under **Action Type** select **Email/SMS/Push/Voice** from the drop-down list. The **Email/SMS/Push/Voice** properties pane will open to the right in order to provide additional information.
-   e. On the **Email/SMS/Push/Voice** pane, enable **Email** and provide a valid email SMTP address to deliver the message to. 
-   f. Click **OK** to save your changes.<br><br> ![Create new action group](./media/log-analytics-tutorial-response/action-group-properties-01.png)<br>
+   d. Under the Actions section, specify a name for the action, such as **Send Email** and under **Action Type** select **Email/SMS/Push/Voice** from the drop-down list. The **Email/SMS/Push/Voice** properties pane will open to the right in order to provide additional information.  
+   e. On the **Email/SMS/Push/Voice** pane, enable **Email** and provide a valid email SMTP address to deliver the message to.  
+   f. Click **OK** to save your changes.<br><br> 
+
+    ![Create new action group](./media/log-analytics-tutorial-response/action-group-properties-01.png)
+
 10. Click **OK** to complete the action group. 
 11. Click **Create alert rule** to complete the alert rule. It starts running immediately.<br><br> ![Complete creating new alert rule](./media/log-analytics-tutorial-response/alert-rule-01.png)<br> 
 
