@@ -19,9 +19,9 @@
     items:
       - name: Provision a sample building
         href: tutorial-facilities-setup.md
-      - name: Create customized notifications
+      - name: Monitor conditions in your building
         href: tutorial-facilities-udf.md
-      - name: Receive events from your building
+      - name: Receive notifications from your building
         href: tutorial-facilities-events.md
       - name: Analyze events from your building
         href: tutorial-facilities-analyze.md
