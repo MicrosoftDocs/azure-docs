@@ -21,34 +21,34 @@ ms.author: delhan
 
 ## Symptoms
 
-When you use **Boot diagnostics** to get the screenshot of a Virtual Machine (VM), you find the operating system does not fully start up. Additionally, the VM is displaying **Getting Windows Ready. Don't turn off your computer** message.
+When you use **Boot diagnostics** to get the screenshot of a Virtual Machine (VM), you find the operating system does not fully start up. Additionally, the VM displaying a **"Getting Windows Ready. Don't turn off your computer"** message.
 
 ![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\Message1.png)
 ![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\Message2.png)
 
 ## Cause
 
-Usually this issue occurs when the server is doing the final reboot after the configuration was changed. The configuration change could be initialized by Windows updates, or by the changes on the roles/feature of the server. In the case of the Windows Update, if the amount of the updates was big, the OS will need more time till it finishes to reconfigure the changes.
+Usually this issue occurs when the server is doing the final reboot after the configuration was changed. The configuration change could be initialized by Windows updates or by the changes on the roles/feature of the server. For Windows Update, if the size of the updates was large, the operating system will need more time to reconfigure the changes.
 
 ## Back up the OS disk
 
 Before you try to fix the issue, back up the OS disk:
 
-### For encrypted disk, you need to unlock it first
+### For VMs with an encrypted disk, you must unlock the disks first
 
-Validate if this VM is an encrypted VM. To do this, follow these steps:
+Validate if the VM is an encrypted VM. To do this, follow these steps:
 
 1. On the portal, open your VM, and then browse to the disks.
 
-2. You will see a column call 'Encryption" which will tell you whether the encryption is enabled or not.
+2. You'll see a column call "Encryption," which will tell you whether encryption is enabled.
 
 If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these steps:
 
-1. Create a Recovery VM located in the same Resource Group, Storage Account and Location of the impacted VM.
+1. Create a Recovery VM that's located in the same Resource Group, Storage Account, and Location as the affected VM.
 
-2. In Azure Portal, delete the affected VM and keep the disk.
+2. In Azure portal, delete the affected VM and keep the disk.
 
-3. Run PowerShell as administrator.
+3. Run PowerShell as an administrator.
 
 4. Run the following cmdlet to get the secret name.
 
@@ -65,7 +65,7 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
     Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
     ```
 
-5. Once you have the Secret Name, run the following commands in PowerShell:
+5. After you have the Secret Name, run the following commands in PowerShell:
 
     ```Powershell
     $secretName = 'SecretName'
@@ -73,9 +73,9 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
     $bekSecretBase64 = $keyVaultSecret.SecretValueText
     ```
 
-6. Then, convert the Base64 encoded value to Bytes and write the output to a file. 
+6. Convert the Base64 encoded value to bytes and write the output to a file. 
 
-    **Note** The BEK file name must match the original BEK GUID if you use the USB unlock option. Also, you will need to create a folder on your C drive named BEK before the following steps will work.
+    **Note** The BEK file name must match the original BEK GUID if you use the USB unlock option. Also, you'll need to create a folder on your C drive named "BEK" before the following steps will work.
    
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
@@ -84,7 +84,7 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. Once the BEK file is created on your PC, copy it to the recovery VM you have the locked OS disk attached to Run the following using the BEK file location.
+7. After the BEK file is created on your PC, copy the file to the recovery VM you have the locked OS disk attached to. Run the following using the BEK file location:
 
     ```Powershell
     manage-bde -status F:
@@ -98,7 +98,7 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
 
     **Note** This is considering that the disk to encrypt is on letter F:
 
-8. You can gather the logs by navigating to the following path: **DRIVE LETTER:\Windows\System32\winevt\Logs**.
+8. If you need to collect logs, you can navigate to the path **DRIVE LETTER:\Windows\System32\winevt\Logs**.
 
 9. Detach the drive from the recovery machine.
 
@@ -106,84 +106,18 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
 
 To create a snapshot, follow the steps in [Snapshot a disk](snapshot-copy-managed-disk.md).
 
-## Collect the OS dump
+## Collect an OS memory dump
 
-1. Attach the snapshot disk on a rescue VM. To do this, follow the steps in [Attach the OS disk to a recovery VM](.\troubleshoot-recovery-disks-portal.md). 
+Use the steps in the [collect os dump](troubleshoot-common-blue-screen-error.md#solution) section to collect an OS dump when the VM is stuck at configuration.
 
-2. Check whether the OS memory dump was already created. To do this, look for the **<DRIVE>:\windows\memory.dmp** file. If there’s one with the timestamp current from the last crash, collect that file out and go the Next Step section filing a case with Microsoft and uploading that file.
+## Contact Microsoft support
 
-3. If there’s no current memory dump file created, continue with next step.
+After you collect the dump file, contact [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to analysis the root cause.
 
-4. Open an elevated CMD and run the following script:
-
-    ```Bat
-    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM.hiv
-
-    REM Enable the OS to create a memory dump file upon crash
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
-
-    REM For Full memory dump
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
-
-    REM Extra setting - Enable Serial Console
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 10
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} bootems yes
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
-
-    reg unload HKLM\BROKENSYSTEM
-    ```
-
-    **Note** The commands assume that the disk is drive F:, if this is not your case, update the letter assignment
-
-    For big VMs, you must ensure you don't end up in a capacity issue on the C drive because the memory.dmp size = Total memory of VM. For example E64_v3 VM = 432 GB memory dump. To fix this issue you can change the key name DumpFile above to create the file in any other drive that has enough space to hold the dump file.
-
-5. Detach the disk.
-
-3. After that, run the following commands in Azure PowerShell to exchange the original OS disk with the fixed disk.
-
-    **For non-managed disks**
-
-    ```PowerShell
-    $subscriptionID = "<Subscription ID>"
-    $rgname = "<Resource Group name>"
-    $vmname = "<VM Name>"
-    $vhduri = '<VHD URI of the fixed OS disk>'
-
-    Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionID $subscriptionID
-    Set-AzureRmContext -SubscriptionID $subscriptionID
-
-    $vm = Get-AzureRMVM -ResourceGroupName $rgname -Name $vmname
-    $vm.StorageProfile.OsDisk.Vhd.Uri = $vhduri
-    Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
-    ```
-
-    **For managed disks**
-
-    ```PowerShell
-    $name = '<VM Name>'
-    $resourceGroupName = '<Resource Group name>'
-    $diskname='<Disk Name>'
-    $diskResourceInstanceID="<Resource instance ID of the fixed disk>"
- 
-    #Get the VM details
-    $vm = get-azurermvm -ResourceGroupName $resourceGroupName -Name $name
- 
-    #Set the new disk properties and update the VM
-    Set-AzureRmVMOSDisk -VM $vm -Name $diskname  -ManagedDiskId $diskResourceInstanceID | Update-AzureRmVM
-    ```
-
-    **Note** The resource instance ID has the following format /subscriptions/8fbf2eee-f108-4560-9998-64e97d546777/resourceGroups/winmanagetest/providers/Microsoft.Compute/disks/swapmanagedwindows
-
-7. Then, restart the VM and collect the dump file.
 
 ## Rebuild the VM using PowerShell
+
+After you collect the memory dump file, use the following steps to rebuild the VM.
 
 **For non-managed disks**
 
@@ -240,7 +174,7 @@ $avName = "AvailabilitySetName";
 $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
-#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below does not match
+#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
 $osDiskResouceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 
@@ -269,7 +203,3 @@ $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskN
 
 New-AzureRmVM -ResourceGroupName $rgName -Location $loc -VM $vm;
 ```
-
-## Next steps
-
-After you collect the dump file, contact [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to analysis the root cause.
