@@ -71,8 +71,7 @@ Do the following steps in the [Azure portal](https://portal.azure.com/) to creat
             If you check **allow only read operations** for this share data, then you will have the option to specify read-only users.
 
             ![Add SMB share](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
-
-    
+   
         - **If creating an NFS share** - You need to supply the IP addresses of the allowed clients that can access the share.
 
             ![Add NFS share](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)

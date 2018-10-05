@@ -20,8 +20,6 @@ Customer intent: As an IT admin, I need to understand how to install Data Box Ed
 ---
 # Tutorial: Install Azure Data Box Edge (Preview)
 
-## Overview
-
 This tutorial describes how to install a Data Box Edge physical device. The install procedure involves unpacking, rack mounting, and cabling the device. 
 
 The install can take around 2 hours to complete.
@@ -51,13 +49,13 @@ Before you begin, make sure that:
  
 ### For the Data Box Edge physical device
 
-Before you deploy a device, make sure that:
+Before you deploy a device:
 
 - Make sure that the device rests safely on a flat, stable, and level work surface (or similar).
 - Verify that the site where you intend to set up has:
     - Standard AC power from an independent source, or
     - A rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
-- Make sure that 1U slot is available on the rack in which you intend to mount the device.
+- Make sure that a 1U slot is available on the rack in which you intend to mount the device.
 
 ### For the network in the datacenter
 

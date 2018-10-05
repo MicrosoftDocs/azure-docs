@@ -20,8 +20,6 @@ Customer intent: As an IT admin, I need to understand how to connect and activat
 ---
 # Tutorial: Connect, set up, activate Azure Data Box Edge (Preview) 
 
-## Introduction
-
 This tutorial describes how to connect to, set up, and activate your Data Box Edge device using the local web UI. 
 
 The setup and activation process can take around 20 minutes to complete. 

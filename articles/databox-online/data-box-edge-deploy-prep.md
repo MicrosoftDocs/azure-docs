@@ -1,5 +1,5 @@
 ---
-title: Tutorial on prepare Azure portal to deploy Data Box Edge | Microsoft Docs
+title: Tutorial on preparing Azure portal to deploy Data Box Edge | Microsoft Docs
 description: First tutorial to deploy Azure Data Box Edge involves preparing the Azure portal.
 services: databox-edge-gateway
 documentationcenter: NA
