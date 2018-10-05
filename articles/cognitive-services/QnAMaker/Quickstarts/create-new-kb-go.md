@@ -56,6 +56,8 @@ var host string = "https://westus.api.cognitive.microsoft.com"
 var service string = "/qnamaker/v4.0"
 var method string = "/knowledgebases/create"
 
+var uri = host + service + method
+
 // Replace this with a valid subscription key.
 var subscriptionKey string = "ENTER KEY HERE"
 ```
@@ -64,7 +66,7 @@ var subscriptionKey string = "ENTER KEY HERE"
 After the constants, add the following KB model definition. The model is converting into a string after the definition.
 
 ```go
-var req string = `{
+var kb string = `{
   "name": "QnA Maker FAQ",
   "qnaList": [
     {
@@ -212,8 +214,8 @@ The following function is the main function and creates the KB and repeats check
 
 ```go
 func main() {
-	var uri = host + service + method
-	operation, body := create_kb(uri, req)
+	
+	operation, body := create_kb(uri, kb)
 	fmt.Printf(body + "\n")
 
 	var done bool = false
