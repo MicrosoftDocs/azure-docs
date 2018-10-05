@@ -9,7 +9,7 @@ manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
 ms.date: 09/24/2018
---- 
+---
 
 ### **Azure Notebooks** - Free Jupyter based notebooks in the Azure cloud
 The SDK is already installed and configured for you on Azure Notebooks.
