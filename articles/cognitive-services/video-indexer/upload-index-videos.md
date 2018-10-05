@@ -1,5 +1,5 @@
 ---
-title: "Example: Upload and index videos with Video Indexer"
+title: "Upload and index videos with Video Indexer"
 titlesuffix: Azure Cognitive Services
 description: This topic demonstrates how to use APIs to upload and index your videos with Video Indexer.
 services: cognitive services
@@ -13,7 +13,7 @@ ms.date: 09/15/2018
 ms.author: juliako
 ---
 
-# Example: Upload and index your videos  
+# Upload and index your videos  
 
 This article shows how to upload a video with Azure Video Indexer. The Video Indexer API provides two uploading options: 
 
