@@ -28,13 +28,22 @@ In this quickstart, you learn how to:
 
 Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data.
 
-- Billing account
-- Department
-- Enrollment account
-- Management group
-- Subscription
-- Resource group
+|**Scope**|**Defined in**|**Required access to analyze costs on scope**|**Prerequisite EA setting**|**Rolls up billing info to**|
+|---                |---                  |---                   |---            |---           |
+|Billing account*|[https://ea.azure.com ](https://ea.azure.com )|Enterprise Admin|None|All subscriptions from the enterprise agreement|
+|Department|[https://ea.azure.com ](https://ea.azure.com )|Department Admin|DA view charges enabled|All subscriptions belonging to an enrollment account that is linked to the department|
+|Enrollment account**|[https://ea.azure.com ](https://ea.azure.com )|Account Owner|AO view charges enabled|All subscriptions from this enrollment account|
+|Management group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All subscriptions below the management group|
+|Subscription|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All the resources/resource groups in this subscription|
+|Resource group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All the resources in this resource group|
 
+> [!NOTE]
+>
+> (*) The billing acount is also often referred to as the Enterprise Agreement or Enrollment
+> 
+> (**) The enrollment account is also often referred to as the account owner
+
+For more information on configuring **DA view charges** and **AO view charges** look at [enabling access to costs](https://docs.microsoft.com/en-us/azure/billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view#enabling-access-to-costs)
 
 ## Sign in to Azure
 
