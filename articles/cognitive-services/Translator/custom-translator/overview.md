@@ -44,7 +44,7 @@ The cost of using a custom model to translate content is based on the user’s T
 
 -   The cost of using a deployed customized translation system is the same as
     the uncustomized system, which is based on the user’s Translator
-    Text API pricing tier.
+    Text API pricing tier. 
 
 See the Cognitive Services [Translator Text API pricing webpage](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/)
 for pricing tier details. 
