@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 10/04/2018
 ms.author: ramankum
 ---
 
 # Update the storage type of a managed disk
 
-Azure Managed Disks offers three storage type options: [Premium SSD](../windows/premium-storage.md), [Standard SSD](../windows/disks-standard-ssd.md), and [Standard HDD](../windows/standard-storage.md). It allows you to easily switch a managed disk between storage types with minimal downtime, based on your performance needs. Switching between storage types is not supported for an unmanaged disk. However, you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) so that you can switch it between disk types.
+Azure Managed Disks offers three storage type options: [Premium SSD](../windows/premium-storage.md), [Standard SSD](../windows/disks-standard-ssd.md), and [Standard HDD](../windows/standard-storage.md). You can switch a managed disk between storage types with minimal downtime, based on your performance needs. Switching between storage types is not supported for an unmanaged disk; however, you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md).
 
 This article shows how to convert a managed disk from standard to premium, and vice versa, by using Azure PowerShell. If you need to install or upgrade PowerShell, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
 
@@ -78,7 +78,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 ## Convert a managed disk from standard to premium
 
-For your dev/test workload, you may want a mixture of standard and premium disks to reduce your cost. To accomplish it, upgrade to premium storage only those disks that require better performance. The following example shows how to switch a single disk of a VM from standard to premium storage, and vice versa. To use premium-managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also shows how to switch to a size that supports premium storage:
+For your dev/test workload, you may want a mixture of standard and premium disks to reduce your cost. To dos so, upgrade to premium storage only those disks that require better performance. The following example shows how to switch a single disk of a VM from standard to premium storage, and vice versa. To use premium-managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also shows how to switch to a size that supports premium storage:
 
 ```azurepowershell-interactive
 
