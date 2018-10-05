@@ -3,7 +3,7 @@ title: Configurable token lifetimes in Azure Active Directory | Microsoft Docs
 description: Learn how to set lifetimes for tokens issued by Azure AD.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 
@@ -13,10 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
-ms.author: hirsin
+ms.date: 10/05/2018
+ms.author: celested
 ms.custom: aaddev
-ms.reviewer: anchitn
+ms.reviewer: hirsin
 
 ---
 # Configurable token lifetimes in Azure Active Directory (Public Preview)
@@ -24,8 +24,6 @@ You can specify the lifetime of a token issued by Azure Active Directory (Azure 
 
 > [!IMPORTANT]
 > After hearing from customers during the preview, we're planning to replace this functionality with a new feature in Azure Active Directory Conditional Access.  Once the new feature is complete, this functionality will eventually be deprecated after a notification period.  If you use the Configurable Token Lifetime policy, be prepared to switch to the new Conditional Access feature once it's available. 
->
->
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 
@@ -35,13 +33,13 @@ You can designate a policy as the default policy for your organization. The poli
 > Configurable token lifetime policy is not supported for SharePoint Online.  Even though you have the ability to create this policy via PowerShell, SharePoint Online will not acknowledge this policy. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
 >* The default lifetime for the SharePoint Online access token is 1 hour. 
 >* The default max inactive time of the SharePoint Online refresh token is 90 days.
->
 
 ## Token types
 
 You can set token lifetime policies for refresh tokens, access tokens, session tokens, and ID tokens.
 
 ### Access tokens
+
 Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.  The default is 1 hour - after 1 hour, the client must use the refresh token to (usually silently) acquire a new refresh token and access token. 
 
 ### Refresh tokens

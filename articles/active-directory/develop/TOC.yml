@@ -93,12 +93,14 @@
           href: single-sign-on-saml-protocol.md
         - name: Signout
           href: single-sign-out-saml-protocol.md
-        - name: WS-Federation
-          items:
-          - name: Federation metadata
-            href: azure-ad-federation-metadata.md
-        - name: Signing key rollover
-          href: active-directory-signing-key-rollover.md
+        - name: How Azure AD uses the SAML protocol
+          href: active-directory-saml-protocol-reference.md
+      - name: WS-Federation
+        items:
+        - name: Federation metadata
+          href: azure-ad-federation-metadata.md
+      - name: Signing key rollover
+        href: active-directory-signing-key-rollover.md
       - name: ID tokens
         href: id-tokens.md
       - name: Access tokens
@@ -149,6 +151,8 @@
           href: active-directory-saml-claims-customization.md
         - name: Customize claims (Public Preview)
           href: active-directory-claims-mapping.md
+        - name: Configure optional claims (Public Preview)
+          href: active-directory-optional-claims.md
         - name: Configure token lifetimes (Public Preview)
           href: active-directory-configurable-token-lifetimes.md
       - name: ADAL error handling best practices
@@ -200,8 +204,6 @@
       href: active-directory-authentication-libraries.md
     - name: Azure AD Graph API
       href: active-directory-graph-api.md
-    - name: Claims in Azure AD security tokens
-      href: active-directory-optional-claims.md
     - name: Application manifest
       href: reference-app-manifest.md
     - name: Authentication and authorization error codes
@@ -334,8 +336,12 @@
         href: active-directory-saml-claims-customization.md
       - name: Customize claims (Public Preview)
         href: active-directory-claims-mapping.md
+      - name: Configure optional claims (Public Preview)
+        href: active-directory-optional-claims.md
       - name: Configure token lifetimes (Public Preview)
         href: active-directory-configurable-token-lifetimes.md
+      - name: Authenticate with Azure AD and get a JWT token using OAuth 2.0
+        href: active-directory-protocols-oauth-get-jwt-token.md
     - name: Application configuration
       items:
       - name: Convert a single-tenant app to a multi-tenant app
