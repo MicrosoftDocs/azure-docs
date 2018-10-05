@@ -92,7 +92,7 @@
       items:
       - name: vCore-based service tiers
         href: sql-database-service-tiers-vcore.md
-      - name: General Purpose/Business Critical
+      - name: General Purpose / Business Critical
         href: sql-database-service-tiers-general-purpose-business-critical.md
       - name: Hyperscale
         href: sql-database-service-tier-hyperscale.md
