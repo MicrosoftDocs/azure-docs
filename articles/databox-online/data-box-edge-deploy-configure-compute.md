@@ -162,7 +162,7 @@ This starts the module deployment as shown by the **IoT Edge Custom module** und
 
 ### Verify data transform and transfer
 
-The final step is to make sure the module is connected and running as exptected. Do the following steps to verify that the module is running.
+The final step is to make sure the module is connected and running as expected. Do the following steps to verify that the module is running.
 
 1. The runtime status of module should be running for your IoT Edge device in the IoT Hub resource.
 

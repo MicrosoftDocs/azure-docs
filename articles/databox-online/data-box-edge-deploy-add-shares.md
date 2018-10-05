@@ -37,14 +37,14 @@ In this tutorial, you learn how to:
 
 Before you add shares to your Data Box Edge, make sure that:
 
-* You have installed your physical device as detailed in the [Install a Data Box Edge](data-box-edge-deploy-install.md). 
+* You've installed your physical device as detailed in the [Install a Data Box Edge](data-box-edge-deploy-install.md). 
 
-    The physical device is activated as detailed in [Connect and activate your Azure Data Box Edge](data-box-edge-deploy-connect-setup-activate.md) and ready for you to create shares and transfer data.
+    The physical device is activated as described in [Connect and activate your Azure Data Box Edge](data-box-edge-deploy-connect-setup-activate.md). The device is ready for you to create shares and transfer data.
 
 
 ## Add a share
 
-Perform the following steps in the [Azure portal](https://portal.azure.com/) to create a share.
+Do the following steps in the [Azure portal](https://portal.azure.com/) to create a share.
 
 1. Return to the Azure portal. Go to **All resources**, and search for your Data Box Edge resource.
     
@@ -54,15 +54,15 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
 
 3. In **Add Share**, specify the share settings. Provide a unique name for your share. 
 
-   Share names can only contain numbers, lowercase letters, and hyphens. The share name must be between 3 and 63 characters long and begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character.
+   Share names can only have numbers, lowercase letters, and hyphens. The share name must be between 3 and 63 characters long and begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character.
     
     1. Select a **Type** for the share. The type can be SMB or NFS, with SMB being the default. SMB is the standard for Windows clients, and NFS is used for Linux clients. 
 
     2. Depending upon whether you choose SMB or NFS shares, options presented are slightly different. 
 
-    3. You must provide a storage account where the share will reside. A container is created in the storage account with the share name if the container already does not exist. If the container already exists, then the existing container is used. 
+    3. You must provide a storage account where the share will reside. A container is created in the storage account with the share name if the container already doesn't exist. If the container already exists, then the existing container is used. 
     
-    4. Choose the **Storage service** from block blob, page blob, or files. The type of the service chosen depends on which format you want the data to reside in Azure. For example, in this instance, we want the data to reside as blob blocks in Azure, hence we select Block Blob. If choosing Page Blob, you must ensure that your data is 512 bytes aligned. Note that VHDX is always 512 bytes aligned.
+    4. Choose the **Storage service** from block blob, page blob, or files. The type of the service chosen depends on which format you want the data to reside in Azure. For example, in this example, we want the data to live as blob blocks in Azure, hence we select Block Blob. If you choose Page Blob, make sure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
    
     5. This step depends on whether you are creating an SMB or an NFS share. 
      
@@ -85,11 +85,11 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
 
 ## Connect to the share
 
-You will now need to connect to one or more shares that you created in the previous step. Depending upon whether you have an SMB or an NFS share, the steps can be different. 
+You can now connect to one or more shares that you created in the previous step. Depending upon whether you have an SMB or an NFS share, the steps can be different. 
 
 ### Connect to an SMB share
 
-Perform these steps on your Windows Server client connected to your Data Box Edge to connect to shares.
+Do these steps on your Windows Server client connected to your Data Box Edge to connect to shares.
 
 
 1. Open a command window. At the command prompt, type:
@@ -118,7 +118,7 @@ Perform these steps on your Windows Server client connected to your Data Box Edg
 
 ### Connect to an NFS share
 
-Perform these steps on your Linux client connected to your Data Box Edge.
+Do these steps on your Linux client connected to your Data Box Edge.
 
 1. Ensure that the client has NFSv4 client installed. To install NFS client, use the following command:
 
@@ -130,9 +130,9 @@ Perform these steps on your Linux client connected to your Data Box Edge.
 
    `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
 
-    Prior to setting up the mounts, make sure the directories that will act as mountpoints on your local computer are already created and also do not contain any files or sub-folders.
+    Before you mount the shares, make sure the directories that will act as mountpoints on your local computer, are already created. These directories should not contain any files or sub-folders.
 
-    The following example shows how to connect via NFS to a share on your Data Box Edge device. The device IP is `10.10.10.60`, the share `mylinuxshare2` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/edge`.
+    The following example shows how to connect via NFS to a share on your Data Box Edge device. The device IP is `10.10.10.60`. The share `mylinuxshare2` is mounted on the ubuntuVM. The share mount point is `/home/databoxubuntuhost/edge`.
 
     `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
