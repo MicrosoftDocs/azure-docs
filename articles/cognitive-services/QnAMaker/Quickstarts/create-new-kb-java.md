@@ -24,6 +24,7 @@ This quickstart calls QnA Maker APIs:
 ## Prerequisites
 
 * [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+* [Gson library](https://github.com/google/gson)
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
@@ -290,23 +291,23 @@ public static void main(String[] args) {
             }
         }
     } catch (Exception e) {
-        System.out.println (e.getCause().getMessage());
+        System.out.println (e);
     }
 }
 ```
 
 ## Compile and run the program
 
-1. At the command-line, compile the file `create-new-knowledge-base.java`:
+1. Make sure the gson library is in the `./libs` directory. At the command-line, compile the file `create-new-knowledge-base.java`:
 
 ```bash
-javac CreateKB.java -cp .;<GSON> -encoding UTF-8
+javac -cp ".;libs/*" CreateKB.java
 ```
 
 2. Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
 ```base
-java -cp .;<GSON> CreateKB
+java -cp ",;libs/*" CreateKB
 ```
 
 Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page.    
