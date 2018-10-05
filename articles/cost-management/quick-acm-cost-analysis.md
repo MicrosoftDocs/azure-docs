@@ -32,10 +32,10 @@ Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.micr
 |---                |---                  |---                   |---            |---           |
 |Billing account*|[https://ea.azure.com ](https://ea.azure.com )|Enterprise Admin|None|All subscriptions from the enterprise agreement|
 |Department|[https://ea.azure.com ](https://ea.azure.com )|Department Admin|DA view charges enabled|All subscriptions belonging to an enrollment account that is linked to the department|
-|Enrollment account**|[https://ea.azure.com ](https://ea.azure.com )|Account Owner|AO view charges enabled|All subscriptions from this enrollment account|
+|Enrollment account**|[https://ea.azure.com ](https://ea.azure.com )|Account Owner|AO view charges enabled|All subscriptions from the enrollment account|
 |Management group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All subscriptions below the management group|
-|Subscription|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All the resources/resource groups in this subscription|
-|Resource group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All the resources in this resource group|
+|Subscription|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All resources/resource groups in the subscription|
+|Resource group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All resources in the resource group|
 
 > [!NOTE]
 >
