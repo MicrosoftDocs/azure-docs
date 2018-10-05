@@ -5,9 +5,10 @@ description: A list of natural languages supported by the Bing Spell Check API.
 services: cognitive-services
 author: noellelacharite
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: nolachar
 ---
