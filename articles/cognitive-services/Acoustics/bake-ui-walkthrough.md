@@ -236,13 +236,13 @@ As an example, on an 8 core machine with Intel Xeon E5-1660 @ 3 GHz and 32 GB RA
 ### Setup Docker
 Install and configure Docker on the PC that will process the simulation -
 1. Install the [Docker toolset](https://www.docker.com/products/docker-desktop).
-2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at leat 8GB RAM. The more processors you can allocate to Docker, the faster the bake will complete. ![Example Docker settings](media/DockerSettings.png)
+2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at leat 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete. ![Example Docker settings](media/DockerSettings.png)
 3. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### Run local bake
 1. Click on "Prepare Local Bake" button on the Bake tab and select a folder where the input files and execution scripts will be saved. You can then run the bake on any machine as long as it meets the minimum hardware requirements and has Docker installed by copying the folder to that machine.
 2. Launch the simulation using the "runlocalbake.bat" script. This script will fetch the Project Acoustics Docker image with the toolset necessary for simulation processing and start the simulation. 
-3. Once the simulation has finished, copy the resulting .ace file back to your Unity project. To make sure Unity recognizes this as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in "AcousticsLog.txt" file. If you run into any issues, share this file to assist with diagnosis.
+3. Once the simulation has finished, copy the resulting .ace file back to your Unity project. To make sure Unity recognizes this as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in "AcousticsLog.txt." If you run into any issues, share this file to assist with diagnosis.
 
 ## <a name="Data-Files"></a>Data files
 
