@@ -1,6 +1,6 @@
 ---
-title: Custom monitor your Azure Digital Twins (.NET) setup | Microsoft Docs
-description: Learn how to custom monitor your setup of Azure Digital Twins using the steps in this tutorial.
+title: Monitor a space with Azure Digital Twins | Microsoft Docs
+description: Learn how to monitor the working conditions of your spaces with Azure Digital Twins using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
 
@@ -10,17 +10,18 @@ ms.date: 08/30/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Custom monitor your Azure Digital Twins setup
+# Tutorial: Monitor working conditions in your building with Azure Digital Twins
 
-Azure Digital Twins service allows you to bring together people, places and things in a coherent spatial system. This is the second tutorial in a series that demonstrate how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned your sample building using the steps in the previous tutorial, you can create and run custom computations on your sensor data using this tutorial.
+This tutorial demonstrates how to use the Digital Twins to monitor your spaces for desired conditions and comfort level. Once you have provisioned your sample building using the steps in the previous tutorial, you can create and run custom computations on your sensor data using the steps in this tutorial.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Understand User-Defined Functions
-> * Create Matchers 
-> * Create User-Defined Functions
+> * Create Matchers
+> * Create a User-Defined Function
+> * Create endpoints for the User-Defined Function
 > * Simulate sensor data
+> * Run the User-Defined Function
 
 If you don’t have an Azure, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -28,39 +29,151 @@ If you don’t have an Azure, create a [free account](https://azure.microsoft.co
 
 This tutorial assumes that you have completed the steps to [Provision your Azure Digital Twins setup](tutorial-facilities-setup.md). Before proceeding, make sure that you have:
 - an instance of Digital Twins running, and 
-- the [Azure Digital Twins sample application](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded or cloned on your work machine.
- 
-## User-Defined Function
-*User-defined functions* (or UDFs) allow you to customize the processing of telemetry data from your sensors. It is a custom JavaScript code that runs within your Digital Twins instance. It runs in tandem with a *matcher* that looks for specific conditions in the device data. You can create *matchers* and *user-defined functions* for each sensor that you want to monitor. For more detailed information, read [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
+- the [Azure Digital Twins sample application](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
 
-In this section, we will use the Digital Twins sample downloaded in the [previous tutorial](tutorial-facilities-setup.md) to understand how to create and configure a UDF. 
+## Create Matchers
+Matchers define a set of specific conditions in the device or sensor data. Matchers will help you take action on the particular set of conditions, with the help of *user-defined functions*. A user-defined function can use one or more matchers to create a custom computation on the events coming from your spaces and devices. For more information, read the [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
+
+In the Digital Twins sample, navigate to the folder *occupancy-quickstart\src\actions* and open the file *provisionSample.yaml*. Note the section that begins with the type **matchers**. Each entry under this type creates a matcher with the specified **Name**, that will monitor a sensor of type **dataTypeValue**. Notice how it relates to the space named *Focus Room A1*, which has a **devices** node, containing a few **sensors**. To provision a matcher that will track one of these sensors, its **dataTypeValue** should match with that sensor's **dataType**. 
+
+Add the following matcher below the existing matchers:
+```yaml
+      - name: Matcher Temperature
+        dataTypeValue: Temperature
+```
+This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that we added in [the first tutorial](tutorial-facilities-setup.md).  
+
+## Create User-Defined Function
+User-defined functions or UDFs allow you to customize the processing of telemetry data from your sensors. They are custom JavaScript code that can run within your Digital Twins instance, when specific conditions as described by the matchers occur. You can create *matchers* and *user-defined functions* for each sensor that you want to monitor. For more detailed information, read [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
+
+In the *provisionSample.yaml* file in the Digital Twins sample, look for a section beginning with the type **userdefinedfunctions**. This section provisions a user-defined function with a given **Name**, and acting on the list of matchers under the **matcherNames**. Notice how you can add your own code for the UDF as the **script**. Also note the section named **roleassignments**. It assigns the *Space Administrator* role to the user-defined function. This is required for the function to access the events coming from any of the provisioned spaces. 
+
+1. Configure the UDF to include the temperature matcher by adding the following line to the `matcherNames` node in the *provisionSample.yaml* file:
+```yaml
+        - Matcher Temperature
+```
+1. Open the file *src\actions\userDefinedFunctions\availability.js*, which is the file mentioned in the **script** element of the *provisionSample.yaml*, in your editor. Add the following lines of code:
+    1. At the top of the file, add the following lines for temperature:
+        ```JavaScript
+            var temperatureType = "Temperature";
+            var temperatureThreshold = 73;
+        ```
+   
+    1. Add the following lines after the statement which defines `var motionSensor`:
+        ```JavaScript
+            var temperatureSensor = otherSensors.find(function(element) {
+                return element.DataType === temperatureType;
+            });
+        ```
+    
+    1. Add the following line after the statement which defines `var carbonDioxideValue`:
+        ```JavaScript
+            var temperatureValue = getFloatValue(temperatureSensor.Value().Value);
+        ```
+    
+    1. Remove the following lines of code: 
+        ```JavaScript
+            if(carbonDioxideValue === null || motionValue === null) {
+                sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide or motion are null, returning");
+                return;
+            }
+        ```
+       
+       Replace this code snippet with the following:
+        ```JavaScript
+            if(carbonDioxideValue === null || motionValue === null || temperatureValue === null){
+                sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide, motion, or temperature are null, returning");
+                return;
+            }
+        ```
+    
+    1. Replace the line `var availableFresh = "Room is available and air is fresh";` with `var availableFresh = "Room is available, air is fresh, and temperature is just right.";`.
+    
+    1. Remove the following lines of code:
+        ```JavaScript
+            if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
+                log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
+                setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
+
+                // Set up custom notification for air quality
+                parentSpace.Notify(JSON.stringify(availableFresh));
+            }
+            else {
+                log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
+                setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
+
+                // Set up custom notification for air quality
+                parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
+            }
+        ```
+      
+       And replace them with the following:
+        ```JavaScript
+            if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && !presence) {
+                log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
+                setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
+
+                // Set up custom notification for air quality
+                parentSpace.Notify(JSON.stringify(availableFresh));
+            }
+            else {
+                log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
+                setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
+
+                // Set up custom notification for air quality
+                parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
+            }
+        ```
+    
+    1. Save the file. 
+
+1. Run `dotnet run ProvisionSample` at the command line to provision your spatial intelligence graph and user-defined function. Sign in with your account when prompted. 
+
+1. Once your login is authenticated, the application creates a sample spatial graph as configured in the *provisionSample.yaml*. Observe the messages in the command window and notice how your spatial graph gets created. Notice how it creates an IoT hub at the root node or the `Venue`. 
+
+1. From the output in the command window, copy the value of the `ConnectionString`, under the `Devices` section, to your clipboard. You will need this value to simulate the device connection in the following section.
+
+    ![Provision Sample](./media/tutorial-facilities-udf/run-provision-sample.png)
+
 
 ## Simulate sensor data
-<!--TBD This should be in a proper app in Azure Samples -->
-This section shows you how to simulate sensor data for detecting motion, temperature and carbon dioxide. It uses a sample .Net application that generates this data and sends it to your Digital Twins instance. It uses your work machine's MAC ID to simulate as a unique device. 
+In this section, you will simulate sensor data for detecting motion, temperature and carbon dioxide, by using the project named *device-connectivity* in the sample Digital Twins application.
 
-1. Download the Azure-IoT-SSS-Samples-DeviceConnectivity sample <!--download link here-->
-2. Generate SAS token for your simulated device. Using a REST client such as Postman, POST a REST call for `https://{{endpoint-management}}/api/v1.0/keystores` to the Digital Twins service with the following payload:
+1. In a separate command window, navigate to the sample Digital Twins application folder, and then to the *device-connectivity* folder.
+1. Run `dotnet restore` to make sure the dependencies for the project are correct.
+1. Open the *appSettings.json* file in your editor, edit the following values:
+    1. *DeviceConnectionString*: Assign the value of `ConnectionString` in the output window from the previous section.
+    2. *HardwareId* within the *Sensors* array: The hardware ID and the names should match with the **sensors** node of the *provisionSample.yaml* file. Add a new entry for the temperature sensor; the **Sensors** node in the *appSettings.json* should look like the following:
+    ```JSON
+    "Sensors": [{
+      "DataType": "Motion",
+      "HardwareId": "SAMPLE_SENSOR_MOTION"
+    },{
+      "DataType": "CarbonDioxide",
+      "HardwareId": "SAMPLE_SENSOR_CARBONDIOXIDE"
+    },{
+      "DataType": "Temperature",
+      "HardwareId": "SAMPLE_SENSOR_TEMPERATURE"
+    }]
     ```
-    {
-    "Name": "Friendly name for your key store",
-    "Description": "Description for your key store",
-    "SpaceId": "<RootTenantId>"
-    }
-    ```
-  Note the response GUID that you will get for this call. 
-3. Create a key using the key store GUID that you received from the preceding step. POST a REST call for `https://{{endpoint-management}}/api/v1.0/keystores/<insert keystore GUID here>/keys`. Note down the response code you get for the key. 
-4. Get the [SAS token](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) from key for each individual Hardware Id, which is the MAC Id in your setup. Using a REST client, run `GET https://{{endpoint-management}}/api/v1.0/keystores/<insert keystore GUID here>/keys/<insert the response code for keys here>/token?deviceMac=<HardwareId>`
-  Note down the response body. It is a SAS token in this format: *SharedAccessSignature id=<HardwareId>&<key>*.
-5. Navigate to the Azure-IoT-SSS-Samples-DeviceConnectivity folder on the command line and run the sample:
-    1. Open the *appSettings.json* file and update the following variables:
-        - Assign the URL for your Digital Twins instance to the variable *ManagementApiUrl*. It will be in the form of `https://yourDigitalTwinsName.yourDigitalTwinsLocation.azuresmartspaces.net/management/`.
-        - Assign the SAS token noted above to the variable *SasToken*.
-    1. Run the following on the command line:
-        ```cmd/sh
-        dotnet restore
-        dotnet run
-        ```
+1. Run `dotnet run` to start simulating device events for temperature, motion and carbon dioxide. 
+
+## Get the results of the user-defined function
+The user-defined function runs every time your instance receives telemetry data. This section queries the spatial graph for the computed results of available and comfortable rooms. 
+
+1. In a separate command window, navigate to the Digital Twin sample again. 
+
+1. Run the following commands:
+
+```cmd/sh
+cd occupancy-quickstart
+dotnet run GetAvailableAndFreshSpaces
+```
+
+The output window will show how the user-defined function executes, and intercepts events from the device simulation. 
+
+   ![Execute UDF](./media/tutorial-facilities-udf/udf-running.png)
+
 
 ## Clean up resources
 

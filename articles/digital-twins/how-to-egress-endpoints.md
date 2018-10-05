@@ -12,15 +12,15 @@ ms.author: alinast
 
 # Egress and endpoints
 
-Azure Digital Twins supports the concept of _endpoints_ where each endpoint represents a message\event broker that resides in the user's Azure subscription. We have currently enabled events and messages to be sent to Event Hub, Event Grid, and Service Bus Topics.
+Azure Digital Twins supports the concept of _endpoints_ where each endpoint represents a message/event broker that resides in the user's Azure subscription. We have currently enabled events and messages to be sent to Event Hub, Event Grid, and Service Bus Topics.
 
-Events will be sent to the endpoints according to the pre-defined routing preferences, in other words, the user could specify which endpoint should receive any of the following events:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange`, or `DeviceMessage`.
+Events will be sent to the endpoints according to pre-defined routing preferences: the user can specify which endpoint should receive any of the following events:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange`, or `DeviceMessage`.
 
-For basic understanding of events routing and event types, refer to [Routing events and messages](concepts-events-routing.md).
+For a basic understanding of events routing and event types, refer to [Routing events and messages](concepts-events-routing.md).
 
 ## Event Types description
 
-Here are the events' format for each of the event types:
+Here are the event formats for each of the event types:
 
 - `TopologyOperation`
 
@@ -28,7 +28,7 @@ Here are the events' format for each of the event types:
 
   Example:
 
-  ```json
+  ```JSON
   {
     "id": "00000000-0000-0000-0000-000000000000",
     "subject": "ExtendedPropertyKey",
@@ -48,7 +48,9 @@ Here are the events' format for each of the event types:
   }
   ```
 
-    Replace `yourTopicName` with your customized topic.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourTopicName` | The name of your customized topic |
 
 - `UdfCustom`
 
@@ -56,7 +58,7 @@ Here are the events' format for each of the event types:
 
   Example:
 
-  ```json
+  ```JSON
   {
     "id": "568fd394-380b-46fa-925a-ebb96f658cce",
     "subject": "UdfCustom",
@@ -74,7 +76,9 @@ Here are the events' format for each of the event types:
   }
   ```
 
-    Replace `yourTopicName` with your customized topic.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourTopicName` | The name of your customized topic |
 
 - `SensorChange`
 
@@ -82,7 +86,7 @@ Here are the events' format for each of the event types:
 
   Example:
 
-  ```json
+  ```JSON
   {
     "id": "60bf5336-2929-45b4-bb4c-b45699dfe95f",
     "subject": "SensorChange",
@@ -107,7 +111,9 @@ Here are the events' format for each of the event types:
   }
   ```
 
-    Replace `yourTopicName` with your customized topic.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourTopicName` | The name of your customized topic |
 
 - `SpaceChange`
 
@@ -115,7 +121,7 @@ Here are the events' format for each of the event types:
 
   Example:
 
-  ```json
+  ```JSON
   {
     "id": "42522e10-b1aa-42ff-a5e7-7181788ffc4b",
     "subject": "SpaceChange",
@@ -140,15 +146,16 @@ Here are the events' format for each of the event types:
   }
   ```
 
-    Replace `yourTopicName` with your customized topic.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourTopicName` | The name of your customized topic |
 
 - `DeviceMessage`
 
   Allows you to specify an `EventHub` connection to which raw telemetry events can be routed as well from Azure Digital Twins.
 
 > [!NOTE]
-> - `DeviceMessage` is combinable only with `EventHub` and nothing else.
-> - You will not be able to combine `DeviceMessage` with any of the other event types.
+> - `DeviceMessage` is combinable only with `EventHub`; you will not be able to combine `DeviceMessage` with any of the other event types.
 > - You will be able to specify only one endpoint of the combination of type `EventHub`/`DeviceMessage`.
 
 ## Configuring Endpoints
@@ -161,7 +168,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
 - Route to **Service Bus** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
-  ```json
+  ```JSON
   {
     "type": "ServiceBus",
     "eventTypes": [
@@ -175,11 +182,16 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    Replace `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your custom values.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourNamespace` | The namespace of your endpoint |
+    | `yourPrimaryKey` | The primary key to authenticate |
+    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourTopicName` | The name of your customized topic |
 
 - Route to **Event Grid** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
-  ```json
+  ```JSON
   {
     "type": "EventGrid",
     "eventTypes": [
@@ -193,11 +205,15 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    Replace `yourPrimaryKey`, `yourSecondaryKey`, and `yourTopicName` with your custom values.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourPrimaryKey` | The primary key to authenticate |
+    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourTopicName` | The name of your customized topic |
 
 - Route to **Event Hub** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
 
-  ```json
+  ```JSON
   {
     "type": "EventHub",
     "eventTypes": [
@@ -211,11 +227,16 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    Replace  `yourNamespace`, `yourPrimaryKey`, `yourSecondaryKey`, and `yourEventHubName` with your custom values.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourNamespace` | The namespace of your endpoint |
+    | `yourPrimaryKey` | The primary key to authenticate |
+    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourEventHubName` | The name of your Event Hub |
 
 - Route to **Event Hub** event types `DeviceMessage`. Note the inclusion of _EntityPath_ in the `connectionString`, which is mandatory.
 
-  ```json
+  ```JSON
   {
     "type": "EventHub",
     "eventTypes": [
@@ -227,20 +248,30 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    Replace  `yourNamespace`, `yourPrimaryKey`,  `yourEventHubName`, and `yourSecondaryKey` with your custom values.
+    | Custom Attribute Name | Replace With |
+    | --- | --- |
+    | `yourNamespace` | The namespace of your endpoint |
+    | `yourPrimaryKey` | The primary key to authenticate |
+    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourEventHubName` | The name of your Event Hub |
 
 > [!NOTE]
-> Upon the creation of a new Endpoint, it may take up to 5 to 10 minutes to start receiving events on the endpoint.
+> Upon the creation of a new Endpoint, it may take up to 5 to 10 minutes to start receiving events at the endpoint.
 
 ## Primary and secondary connection strings/keys
 
-When a primary connection string/key becomes unauthorized, the system will automatically roll to the secondary connection string/key allowing for updating the primary key through the Endpoints API. When both primary and secondary connection strings/keys are unauthorized, the system will enter an exponential back off wait of up to 30 minutes and events will be dropped on each retry. When the system is on a back off wait state, updating connections strings/keys through the Endpoints API may take up to 30 minutes to take effect.
+When a primary connection string/key becomes unauthorized, the system will automatically roll to the secondary connection string/key allowing for updating the primary key through the Endpoints API. When both primary and secondary connection strings/keys are unauthorized, the system will enter an exponential back off wait of up to 30 minutes, and events will be dropped on each retry. When the system is on a back off wait state, updating connections strings/keys through the Endpoints API may take up to 30 minutes to take effect.
 
 ## Unreachable endpoints
 
 When an endpoint becomes unreachable, the system will enter an exponential back off wait of up to 30 minutes where events will be dropped on each retry.
 
 ## Next steps
+
+Learn how to use Azure Digital Twins Swagger:
+
+> [!div class="nextstepaction"]
+> [Azure Digital Twins Swagger](how-to-use-swagger.md)
 
 Learn more about routing events and messages in Azure Digital Twins:
 
