@@ -36,6 +36,8 @@ Create a file named `create-new-knowledge-base.py`.
 
 At the top of `create-new-knowledge-base.py`, add the following lines to add necessary dependencies to the project:
 
+[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=1-5 "Add the required dependencies")]
+
 ```python
 import http.client, urllib.parse, json, time
 ```
