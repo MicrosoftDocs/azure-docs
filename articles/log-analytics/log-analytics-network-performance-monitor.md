@@ -60,17 +60,17 @@ Use the basic processes to install agents at [Connect Windows computers to Azure
 
 ### Where to install the agents 
 
-* **Performance Monitor**: Install Operations Management Suite agents on at least one node connected to each subnetwork from which you want to monitor network connectivity to other subnetworks.
+* **Performance Monitor**: Install Log Analytics agents on at least one node connected to each subnetwork from which you want to monitor network connectivity to other subnetworks.
 
     To monitor a network link, install agents on both endpoints of that link. If you're unsure about the topology of your network, install the agents on servers with critical workloads between which you want to monitor the network performance. For example, if you want to monitor the network connection between a web server and a server running SQL, install an agent on both servers. Agents monitor network connectivity (links) between hosts, not the hosts themselves. 
 
-* **Service Connectivity Monitor**: Install an Operations Management Suite agent on each node from which you want to monitor the network connectivity to the service endpoint. An example is if you want to monitor network connectivity to Office 365 from your office sites labeled O1, O2, and O3. Install the Operations Management Suite agent on at least one node each in O1, O2, and O3. 
+* **Service Connectivity Monitor**: Install an Log Analytics agent on each node from which you want to monitor the network connectivity to the service endpoint. An example is if you want to monitor network connectivity to Office 365 from your office sites labeled O1, O2, and O3. Install the Log Analytics agent on at least one node each in O1, O2, and O3. 
 
-* **ExpressRoute Monitor**: Install at least one Operations Management Suite agent in your Azure virtual network. Also install at least one agent in your on-premises subnetwork, which is connected through ExpressRoute private peering.  
+* **ExpressRoute Monitor**: Install at least one Log Analytics agent in your Azure virtual network. Also install at least one agent in your on-premises subnetwork, which is connected through ExpressRoute private peering.  
 
-### Configure Operations Management Suite agents for monitoring 
+### Configure Log Analytics agents for monitoring 
 
-Network Performance Monitor uses synthetic transactions to monitor network performance between source and destination agents. You can choose between TCP and ICMP as the protocol for monitoring in Performance Monitor and Service Connectivity Monitor capabilities. Only TCP is available as the monitoring protocol for ExpressRoute Monitor. Make sure that the firewall allows communication between the Operations Management Suite agents used for monitoring on the protocol you choose. 
+Network Performance Monitor uses synthetic transactions to monitor network performance between source and destination agents. You can choose between TCP and ICMP as the protocol for monitoring in Performance Monitor and Service Connectivity Monitor capabilities. Only TCP is available as the monitoring protocol for ExpressRoute Monitor. Make sure that the firewall allows communication between the Log Analytics agents used for monitoring on the protocol you choose. 
 
 * **TCP protocol**: If you choose TCP as the protocol for monitoring, open the firewall port on the agents used for Network Performance Monitor and ExpressRoute Monitor to make sure that the agents can connect to each other. To open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
 
@@ -104,7 +104,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
    ![Network Performance Monitor tile](media/log-analytics-network-performance-monitor/npm-config.png)
 
-4. On the **Setup** page, you see the option to install Operations Management Suite agents and configure the agents for monitoring in the **Common Settings** view. As previously explained, if you installed and configured Operations Management Suite agents, select the **Setup** view to configure the capability you want to use. 
+4. On the **Setup** page, you see the option to install Log Analytics agents and configure the agents for monitoring in the **Common Settings** view. As previously explained, if you installed and configured Log Analytics agents, select the **Setup** view to configure the capability you want to use. 
 
    **Performance Monitor**: Choose the protocol to use for synthetic transactions in the **Default** Performance Monitor rule, and select **Save & Continue**. This protocol selection only holds for the system-generated default rule. You need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the **Default** rule settings on the **Performance Monitor** tab (it appears after you complete your day-0 configuration) and change the protocol later. If you don't want the rPerfomance Monitor capability, you can disable the default rule from the **Default** rule settings on the **Performance Monitor** tab.
 
@@ -130,7 +130,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
     
 The monitoring for these peerings is initially in a disabled state. Select each peering that you want to monitor, and configure monitoring for them from the details view on the right. Select **Save** to save the configuration. To learn more, see the "Configure ExpressRoute monitoring" article. 
 
-After the setup is finished, it takes 30 minutes to an hour for the data to populate. While the solution aggregates data from your network, you see the message *Solution requires additional configuration* on the Network Performance Monitor **Overview** tile. After the data is collected and indexed, the **Overview** tile changes and informs you of your network health in a summary. You then can edit the monitoring of the nodes on which Operations Management Suite agents are installed, as well as the subnets discovered from your environment.
+After the setup is finished, it takes 30 minutes to an hour for the data to populate. While the solution aggregates data from your network, you see the message *Solution requires additional configuration* on the Network Performance Monitor **Overview** tile. After the data is collected and indexed, the **Overview** tile changes and informs you of your network health in a summary. You then can edit the monitoring of the nodes on which Log Analytics agents are installed, as well as the subnets discovered from your environment.
 
 #### Edit monitoring settings for subnets and nodes 
 
@@ -171,7 +171,7 @@ The following table shows data collection methods and other details about how da
  
 
  
-The solution uses synthetic transactions to assess the health of the network. Operations Management Suite agents installed at various points in the network exchange TCP packets or ICMP Echo with one another. Whether the agents use TCP packets or ICMP Echo depends on the protocol you selected for monitoring. In the process, agents learn the round-trip time and packet loss, if any. Periodically, each agent also performs a trace route to other agents to find all the various routes in the network that must be tested. Using this data, the agents can deduce the network latency and packet loss figures. The tests are repeated every five seconds. Data is aggregated for about three minutes by the agents before it's uploaded to the Log Analytics service.
+The solution uses synthetic transactions to assess the health of the network. Log Analytics agents installed at various points in the network exchange TCP packets or ICMP Echo with one another. Whether the agents use TCP packets or ICMP Echo depends on the protocol you selected for monitoring. In the process, agents learn the round-trip time and packet loss, if any. Periodically, each agent also performs a trace route to other agents to find all the various routes in the network that must be tested. Using this data, the agents can deduce the network latency and packet loss figures. The tests are repeated every five seconds. Data is aggregated for about three minutes by the agents before it's uploaded to the Log Analytics service.
 
 
 
