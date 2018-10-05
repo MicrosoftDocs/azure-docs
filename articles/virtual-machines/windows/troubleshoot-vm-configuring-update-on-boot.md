@@ -21,114 +21,144 @@ ms.author: delhan
 
 ## Symptoms
 
-When you use **Boot diagnostics** to check the screenshot of a Virtual Machine (VM), you found the operating system is not fully startup yet. Additionally, the VM is displaying **Getting Windows Ready. Don't turn off your computer** message.
+When you use **Boot diagnostics** to get the screenshot of a Virtual Machine (VM), you find the operating system does not fully start up. Additionally, the VM displaying a **"Getting Windows Ready. Don't turn off your computer"** message.
 
 ![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\Message1.png)
 ![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\Message2.png)
 
 ## Cause
 
-Usually this issue occurs when the server is doing the final reboot after the configuration was changed. That configuration change could be initialized by Windows updates, changes on the roles/feature of the server. In the case of the windows update, if the amount of the updates were big, the OS will need more time till it finishes to reconfigure those changes.
+Usually this issue occurs when the server is doing the final reboot after the configuration was changed. The configuration change could be initialized by Windows updates or by the changes on the roles/feature of the server. For Windows Update, if the size of the updates was large, the operating system will need more time to reconfigure the changes.
 
 ## Back up the OS disk
 
-Before you try to fix the issue, back up the OS disk first. This will help in case of a rollback for recovery or RCA in a later stage:
+Before you try to fix the issue, back up the OS disk:
 
-### Unlock encrypted disk
+### For VMs with an encrypted disk, you must unlock the disks first
 
-First, validate if this VM is an encrypted VM. To do this, on ASC check on the Resource Explorer on the VMCard for the value OS Disk Encrypted
-If the OS Disk is encrypted, first unlock the encrypted disk.
-![Check whether the disk is encrypted](..\media\troubleshoot-vm-configuring-update-on-boot\encrypted-disk.png)
+Validate if the VM is an encrypted VM. To do this, follow these steps:
 
-To do this, follow these steps:
+1. On the portal, open your VM, and then browse to the disks.
 
-1. Create a Recovery VM located in the same Resource Group, Storage Account and Location of the impacted VM.
+2. You'll see a column call "Encryption," which will tell you whether encryption is enabled.
 
-2. In Azure Portal, delete the affected VM and keep the disk.
+If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these steps:
 
-3. Run PowerShell ISE as administrator.
+1. Create a Recovery VM that's located in the same Resource Group, Storage Account, and Location as the affected VM.
+
+2. In Azure portal, delete the affected VM and keep the disk.
+
+3. Run PowerShell as an administrator.
 
 4. Run the following cmdlet to get the secret name.
-```
-Login-AzureRmAccount
+
+    ```Powershell
+    Login-AzureRmAccount
  
-$vmName = “VirtualMachineName”
-$vault = “AzureKeyVaultName”
+    $vmName = “VirtualMachineName”
+    $vault = “AzureKeyVaultName”
  
-# Get the Secret for the C drive from Azure Key Vault
-Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.Tags.VolumeLetter -eq “C:\”) -and ($_.ContentType -eq ‘BEK‘)}
+    # Get the Secret for the C drive from Azure Key Vault
+    Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.Tags.VolumeLetter -eq “C:\”) -and ($_.ContentType -eq ‘BEK‘)}
 
-# OR Use the below command to get BEK keys for all the Volumes
-Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
-```
+    # OR Use the below command to get BEK keys for all the Volumes
+    Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
+    ```
 
-5. Once you have the Secret Name, run the following commands in PowerShell:
-```
-$secretName = 'SecretName'
-$keyVaultSecret = Get-AzureKeyVaultSecret -VaultName $vault -Name $secretname
-$bekSecretBase64 = $keyVaultSecret.SecretValueText
-```
+5. After you have the Secret Name, run the following commands in PowerShell:
 
-6. Then, convert the Base64 encoded value to Bytes and write the output to a file. 
-**Note** The BEK file name must match the original BEK GUID if you use the USB unlock option. Also, you will need to create a folder on your C drive named BEK before the following steps will work.
-```
-New-Item -ItemType directory -Path C:\BEK
-$bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
-$path = “c:\BEK\$secretName.BEK”
-[System.IO.File]::WriteAllBytes($path,$bekFileBytes)
-```
+    ```Powershell
+    $secretName = 'SecretName'
+    $keyVaultSecret = Get-AzureKeyVaultSecret -VaultName $vault -Name $secretname
+    $bekSecretBase64 = $keyVaultSecret.SecretValueText
+    ```
 
-7. Once the BEK file is created on your PC, copy it to the recovery VM you have the locked OS disk attached to Run the following using the BEK file location.
-```
-manage-bde -status F:
-manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
-```
-Optional: in some scenarios may be necessary also decrypting the disk with this command.
-```
-manage-bde -off F:
-```
-8. You can gather the logs by navigating to the following path: DRIVE LETTER:\Windows\System32\winevt\Logs
+6. Convert the Base64 encoded value to bytes and write the output to a file. 
 
-9. Detach the drive from the recovery machine
+    **Note** The BEK file name must match the original BEK GUID if you use the USB unlock option. Also, you'll need to create a folder on your C drive named "BEK" before the following steps will work.
+   
+    ```Powershell
+    New-Item -ItemType directory -Path C:\BEK
+    $bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
+    $path = “c:\BEK\$secretName.BEK”
+    [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
+    ```
 
-10. Rebuild the VM using PowerShell (Non-Managed Disk)
-```
+7. After the BEK file is created on your PC, copy the file to the recovery VM you have the locked OS disk attached to. Run the following using the BEK file location:
+
+    ```Powershell
+    manage-bde -status F:
+    manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
+    ```
+    **Optional** in some scenarios may be necessary also decrypting the disk with this command.
+   
+    ```Powershell
+    manage-bde -off F:
+    ```
+
+    **Note** This is considering that the disk to encrypt is on letter F:
+
+8. If you need to collect logs, you can navigate to the path **DRIVE LETTER:\Windows\System32\winevt\Logs**.
+
+9. Detach the drive from the recovery machine.
+
+### Create a snapshot
+
+To create a snapshot, follow the steps in [Snapshot a disk](snapshot-copy-managed-disk.md).
+
+## Collect an OS memory dump
+
+Use the steps in the [collect os dump](troubleshoot-common-blue-screen-error.md#solution) section to collect an OS dump when the VM is stuck at configuration.
+
+## Contact Microsoft support
+
+After you collect the dump file, contact [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to analysis the root cause.
+
+
+## Rebuild the VM using PowerShell
+
+After you collect the memory dump file, use the following steps to rebuild the VM.
+
+**For non-managed disks**
+
+```PowerShell
 # To login to Azure Resource Manager
 Login-AzureRmAccount
- 
+
 # To view all subscriptions for your account
 Get-AzureRmSubscription
- 
+
 # To select a default subscription for your current session
 Get-AzureRmSubscription –SubscriptionID “SubscriptionID” | Select-AzureRmSubscription
- 
+
 $rgname = "RGname"
 $loc = "Location"
 $vmsize = "VmSize"
 $vmname = "VmName"
 $vm = New-AzureRmVMConfig -VMName $vmname -VMSize $vmsize;
- 
+
 $nic = Get-AzureRmNetworkInterface -Name ("NicName") -ResourceGroupName $rgname;
 $nicId = $nic.Id;
- 
+
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId;
- 
+
 $osDiskName = "OSdiskName"
 $osDiskVhdUri = "OSdiskURI"
- 
+
 $vm = Set-AzureRmVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOption attach -Windows
- 
+
 New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 ```
 
-11. Rebuild the VM using PowerShell (Managed Disk).
-```
+**For managed disk**
+
+```PowerShell
 # To login to Azure Resource Manager
 Login-AzureRmAccount
-  
+
 # To view all subscriptions for your account
 Get-AzureRmSubscription
-  
+
 # To select a default subscription for your current session
 Get-AzureRmSubscription –SubscriptionID "SubscriptionID" | Select-AzureRmSubscription
 
@@ -144,7 +174,7 @@ $avName = "AvailabilitySetName";
 $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
-#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below does not match
+#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
 $osDiskResouceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 
@@ -173,50 +203,3 @@ $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskN
 
 New-AzureRmVM -ResourceGroupName $rgName -Location $loc -VM $vm;
 ```
-
-### Create a snapshot
-
-Power the VM down, and then wait till it is stopped de-allocated.
-
-For unmanaged disks, you can use either [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343) or [Azure Powershell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids).
-
-#### Method 1: Using Microsoft Azure Storage Explorer
-
-1. Once the customer download the tool, proceed to add the Azure account details so you can access the storage accounts
-
-2. Click on **Add Account Settings**, and then **Add an account...**.
-![Add account settings](..\media\troubleshoot-vm-configuring-update-on-boot\account-settings.png)
-
-3. Go to the storage account where the OS disk is, you can see this on ASC under Resource Explorer on Properties in the VM Properties card
-![Portal setting](..\media\troubleshoot-vm-configuring-update-on-boot\VM-Properties.png)
- 
-4. Create a snapshot of this disk by a right click over the disk and select **Make Snapshot**.
-![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\make-snapshot.png)
-
-#### Method 2: Using Azure Powershell
-
-1.	You can follow How to Clone a disk using Powershell
-
-For managed disks, use Azure portal to take a snapshot:
-
-1. Sign in to the Azure portal.
-
-2. Starting in the upper-left, click New and search for snapshot.
-
-3. In the Snapshot blade, click Create.
-
-4. Enter a Name for the snapshot.
-
-5. Select an existing Resource group or type the name for a new one.
-
-6. Select an Azure datacenter Location.
-
-7. For Source disk, select the Managed Disk to snapshot.
-
-8. Select the Account type to use to store the snapshot. We recommend Standard_LRS unless you need it stored on a high performing disk.
-
-9. Click Create.
-
-
-
-
