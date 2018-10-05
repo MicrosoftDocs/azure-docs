@@ -18,7 +18,7 @@ Azure Backup service triggers jobs which run in background in various scenarios 
 
 ## Fetch Job information from operations
 
-An operation such as triggering backup will always return a jobID. For eg: The final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupAzureVM.md#example-responses-3) is as follows:
+An operation such as triggering backup will always return a jobID. For eg: The final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) is as follows:
 
 ```http
 {
