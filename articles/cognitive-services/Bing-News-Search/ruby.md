@@ -1,12 +1,14 @@
 ---
-title: Ruby Quickstart for Azure Cognitive Services, Bing News Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing News Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing News Search API, Ruby"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing News Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
 ---

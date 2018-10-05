@@ -1,18 +1,19 @@
 ---
-title: Custom Search SDK C# quickstart | Microsoft Docs
-titleSuffix: Cognitive Services
+title: "Quickstart: Custom Search SDK, C#"
+titleSuffix: Azure Cognitive Services
 description: Setup Custom Search SDK C# console application.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
 ---
 
-# C# SDK quickstart
+# Quickstart: Using the Bing Custom Search SDK with C#
 
 The Bing Custom Search SDK provides an easier programming model than the Bing Custom Search REST API. This section walks you through making your first Custom Search calls using the C# SDK.
 
