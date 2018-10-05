@@ -48,8 +48,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 1. Install the necessary packages using one of the ```npm install``` options:
     * Mongoose: ```npm install mongoose@5 --save```
 
-    >[!Note]
-    > The Mongoose example connection below is based on Mongoose 5+, which has changed since older versions.
+    > [!Note]
+    > The Mongoose example connection below is based on Mongoose 5+, which has changed since earlier versions.
     
     * Dotenv (if you'd like to load your secrets from an .env file): ```npm install dotenv --save```
 
