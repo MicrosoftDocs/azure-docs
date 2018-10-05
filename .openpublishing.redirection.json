@@ -16303,11 +16303,6 @@
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-integrating-applications.md",
-            "redirect_url": "/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-add-azure-ad-app",
             "redirect_document_id": true
         },
@@ -16574,7 +16569,7 @@
         {
             "source_path": "articles/active-directory/active-directory-appmodel-v2-overview.md",
             "redirect_url": "/azure/active-directory/develop/v2-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-appmodel-v2-overview.md",
