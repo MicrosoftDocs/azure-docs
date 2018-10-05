@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 10/05/2018
 ms.author: cherylmc
 
 ---
@@ -66,4 +66,4 @@ You can also use tunnel mode to encrypt traffic. IPsec tunnel mode is typically 
 
 ## Next steps
 
-[Configure IPsec transport mode for Windows hosts through ExpressRoute private peering.](expressroute-howto-ipsec-transport-private-windows.md)
+For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
