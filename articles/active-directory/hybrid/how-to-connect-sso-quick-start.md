@@ -119,9 +119,9 @@ There are two ways to modify users' Intranet zone settings:
 
     The result looks like this:
 
-    Value: https://autologon.microsoftazuread-sso.com
+    Value name: https://autologon.microsoftazuread-sso.com
   
-    Data: 1
+    Value (Data): 1
 
    >[!NOTE]
    > If you want to disallow some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Azure AD URL to the Restricted zone, and fails Seamless SSO all the time.

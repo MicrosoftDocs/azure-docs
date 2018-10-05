@@ -10,7 +10,7 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/24/2018
 ms.author: glenga
 ---
 
@@ -99,6 +99,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
     | Linux distribution | Version |
     | --------------- | ----------- |
+    | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |

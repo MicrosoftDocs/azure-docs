@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Log Analytics and Kusto language differences | Microsoft Docs
-description: Describes differences between Log Analytics queries and core Kusto language.
+title: Azure Monitor Log Analytics language reference | Microsoft Docs
+description: Reference information for Kusto language used by Log Analytics. Includes additional elements specific to Log Analytics and elements not supported in Log Analytics queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -17,18 +17,20 @@ ms.author: bwren
 ms.component: na
 ---
 
-# Log Analytics and Kusto language differences
-[Log Analytics queries](../log-analytics-queries.md) are written with the [Kusto language](/azure/kusto/query). There are some differences from the standard language and the Log Analytics implementation though as described in this article.
+# Log Analytics query language reference
+[Log Analytics queries](../log-analytics-queries.md) use the same query language and engine used by [Azure Data Explorer](/azure/data-explorer/). You can access the language reference and other details about the language from the following location: [Kusto language reference](/azure/kusto/query)
 
 
-## Statements not supported in Log Analytics
-The following statements are not supported in Log Analytics.
+
+## Kusto elements not support in Log Analytics
+While Log Analytics queries use an implementation of Kusto, there are some Kusto elements it does not support as described in the following sections.
+
+### Statements not supported in Log Analytics
 
 * [Alias](/kusto/query/aliasstatement)
 * [Query parameters](/azure/kusto/query/queryparametersstatement)
 
-## Functions not supported in Log Analytics
-The following functions are not supported in Log Analytics.
+### Functions not supported in Log Analytics
 
 * [cluster()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
@@ -39,18 +41,19 @@ The following functions are not supported in Log Analytics.
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
-## Operators not supported in Log Analytics
-The following operators are not supported in Log Analytics.
+### Operators not supported in Log Analytics
 
 * [Cross-Cluster Join](/azure/kusto/query/joincrosscluster)
 * [externaldata operator](/azure/kusto/query/externaldata-operator)
 
-## Plugins not supported in Log Analytics
-The following plugins are not supported in Log Analytics.
+### Plugins not supported in Log Analytics
+
 * [sql_request plugin](/azure/kusto/query/sqlrequestplugin)
 
 
-## Log Analytics specific operators
+## Additional operators in Log Analytics
+In order to support specific Log Analytics features, the following additional Kusto operators are provided that are not available outside of Log Analytics. 
+
 * [app()](app-expression.md)
 * [workspace()](workspace-expression.md)
 

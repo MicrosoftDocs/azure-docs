@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: magoedte
 ---
 
@@ -27,11 +27,11 @@ Enabling Azure Monitor for VMs is accomplished by using one of the following met
 * Multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using PowerShell.
 
 ## Prerequisites
-Before you start, make sure that you have the following as described in the sub-sections below.
+Before you start, make sure that you have the following as described in the subsections below.
 
 ### Log Analytics 
 
-A Log Analytics workspace in the following regions are currently supported:
+A Log Analytics workspace in the following regions is currently supported:
 
   - West Central US  
   - East US  
@@ -41,11 +41,18 @@ A Log Analytics workspace in the following regions are currently supported:
 <sup>1</sup> 
 This region does not currently support the Health feature of Azure Monitor for VMs   
 
-If you do not have a workspace, you can you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
+If you do not have a workspace, you can create it through [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md), or with [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  If you are enabling monitoring for a single Azure VM from the Azure portal, you have the option to create a workspace during this process.  
 
 To enable the solution, you need to be a member of the Log Analytics contributor role. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
+Enabling the solution for the at scale scenario first requires configuring the following in your Log Analytics workspace:
+
+* Install the **ServiceMap** and **InfrastructureInsights** solutions
+* Configure the Log Analytics workspace to collect performance counters
+
+To configure your workspace for this scenario, see [Setup Log Analytics workspace](#setup-log-analytics-workspace).
 
 ### Supported operating systems
 
@@ -136,7 +143,7 @@ The Performance feature of Azure Monitor for VMs is only available from Azure Mo
 |12 SP3 | 4.4.* |
 
 ### Hybrid environment connected sources
-Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. This means that a system must have the Log Analytics agent installed and configured with the Dependency agent.  The following table describes the connected sources that the Map feature supports in a hybrid environment.
+Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics and therefore, a system must have the Log Analytics agent installed and configured with the Dependency agent. The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
@@ -148,7 +155,7 @@ On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center O
 
 On Linux, the Log Analytics agent for Linux gathers and sends monitoring data to Log Analytics.   
 
-If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. For further information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
+If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. For more information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 The Dependency agent can be downloaded from the following location.
 
@@ -204,6 +211,9 @@ Azure Monitor for VMs configures a Log Analytics Workspace to collect performanc
 |Network |Total Bytes Transmitted |  
 |Processor |% Processor Time |  
 
+## Sign in to Azure portal
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+
 ## Enable from the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
 
@@ -223,76 +233,184 @@ After you've enabled monitoring, it might take about 10 minutes before you can v
 
 ![Enable Azure Monitor for VMs monitoring deployment processing](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
-## Enable using Azure Policy
-To enable the solution for multiple Azure VMs that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended.  Using Azure Policy with the policies provided delivers the following benefits for new VMs:
 
-* Enabling Azure Monitor for VMs for each VM in the defined scope
-* Deploy Log Analytics Agent 
-* Deploy Dependency Agent to discover application dependencies and show in the Map
-* Audit if your Azure VM OS image is in a pre-defined list in policy definition  
-* Audit if your Azure VM  is logging to workspace other than one specified
-* Report on compliance results 
-* Support remediation for non-compliant VMs
+## On-boarding at scale
+In this section instructions on how to perform the at scale deployment of Azure Monitor for VMs using either Azure Policy or with Azure PowerShell.  The first step required is to configure your Log Analytics workspace.  
 
-To activate it for your tenant, this process requires:
+### Setup Log Analytics workspace
+If you do not have a Log Analytics workspace, review the available methods suggested under the [Prerequisites](#log-analytics) section to create one.  
 
-- Configure a Log Analytics Workspace using the steps listed here
-- Import the initiative defintion to your tenant (at the Management Group or Subscription level)
-- Assign the policy to the desired scope
-- Review the compliance results
+#### Enable performance counters
+If the Log Analytics workspace referenced by the solution isn't configured to already collect the performance counters required by the solution, they will need to be enabled. This can be accomplished manually as described [here](../log-analytics/log-analytics-data-sources-performance-counters.md), or by downloading and running a PowerShell script available from [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+ 
+#### Install the ServiceMap and InfrastructureInsights solutions
+This method includes a JSON template that specifies the configuration to enable the solution components to your Log Analytics workspace.  
 
-### Add the policies and initiative to your subscription
-To use the policies, you can use a provided PowerShell script - [Add-VMInsightsPolicy.ps1](https://www.powershellgallery.com/packages/Add-VMInsightsPolicy/1.2) available from the Azure PowerShell Gallery to complete this task. The script adds the policies and an initiative to your subscription.  Perform the following steps to configure Azure Policy in your subscription. 
+If you are unfamiliar with the concept of deploying resources by using a template, see:
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
 
-1. Download the PowerShell script to your local file system.
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-2. Use the following PowerShell command in the folder to add policies. The script supports the following optional parameters: 
+1. Copy and paste the following JSON syntax into your file:
+
+    ```json
+    {
+
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "WorkspaceName": {
+            "type": "string"
+        },
+        "WorkspaceLocation": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-03-15-preview",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('WorkspaceName')]",
+            "location": "[parameters('WorkspaceLocation')]",
+            "resources": [
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+
+                    "plan": {
+                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                        "promotionCode": ""
+                    }
+                },
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+                    "plan": {
+                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
+                        "promotionCode": ""
+                    }
+                }
+            ]
+        }
+    ]
+    ```
+
+2. Save this file as **installsolutionsforvminsights.json** to a local folder.
+3. Edit the values for **WorkspaceName**, **ResourceGroupName**, and **WorkspaceLocation**.  The value for **WorkspaceName** is the full resource ID of your Log Analytics workspace, which includes the workspace name, and the value for **WorkspaceLocation** is the region the workspace is defined in.
+4. You are ready to deploy this template using the following PowerShell command:
 
     ```powershell
-    -UseLocalPolicies [<SwitchParameter>]
-      <Optional> Load the policies from a local folder instead of https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/Policy/Policy/
+    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    ```
 
-    -SubscriptionId <String>
-      <Optional> SubscriptionId to add the Policies/Initiatives to
-    -ManagementGroupId <String>
-      <Optional> Management Group Id to add the Policies/Initiatives to
+    The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-    -Approve [<SwitchParameter>]
-      <Optional> Gives the approval to add the Policies/Initiatives without any prompt
-    ```  
+    ```powershell
+    provisioningState       : Succeeded
+    ```
+
+### Enable using Azure Policy
+To enable Azure Monitor for VMs at scale that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended. These policies:
+
+* Deploy Log Analytics agent and Dependency agent 
+* Report on compliance results 
+* Remediate for non-compliant VMs
+
+Enable Azure Monitor for VMs via policy to your tenant requires: 
+
+- Assign the initiative to a scope – management group, subscription, or resource group 
+- Review and remediation of compliance results  
+
+For more information on Azure Policy assignment, see [Azure Policy overview](../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../governance/management-groups/index.md) before continuing.  
+
+The following table lists the policy definitions provided.  
+
+|Name |Description |Type |  
+|-----|------------|-----|  
+|[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the Virtual Machines (VMs) in the specified scope (Management group, subscription, or resource group). Takes Log Analytics workspace as parameter. |Initiative |  
+|[Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) is not in the list defined and the agent is not installed. |Policy |  
+|[Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) is not in the list defined and the agent is not installed. |Policy |  
+|[Preview]: Deploy Dependency Agent for Linux VMs |Deploy Dependency Agent for Linux VMs if the VM Image (OS) is in the list defined and the agent is not installed. |Policy |  
+|[Preview]: Deploy Dependency Agent for Windows VMs |Deploy Dependency Agent for Windows VMs if the VM Image (OS) is in the list defined and the agent is not installed. |Policy |  
+|[Preview]: Deploy Log Analytics Agent for Linux VMs |Deploy Log Analytics Agent for Linux VMs if the VM Image (OS) is in the list defined and the agent is not installed. |Policy |  
+|[Preview]: Deploy Log Analytics Agent for Windows VMs |Deploy Log Analytics Agent for Windows VMs if the VM Image (OS) is in the list defined and the agent is not installed. |Policy |  
+
+Stand-alone policy (Not included with the initiative) 
+
+|Name |Description |Type |  
+|-----|------------|-----|  
+|[Preview]: Audit Log Analytics Workspace for VM - Report Mismatch |Report VMs as non-compliant if they are not logging to the LA workspace specified in the policy/initiative assignment. |Policy |
+
+#### Assign Azure Monitor initiative
+With this initial release, you can only create the policy assignment from the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../governance/policy/assign-policy-portal.md). 
+
+1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**. 
+2. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that has been assigned to take place within a specific scope.
+3. Select **Assign Initiative** from the top of the **Policy - Assignments** page.
+4. On the **Assign Initiative** page, select the **Scope** by clicking the ellipsis and select either a management group, or subscription and optionally a resource group. A scope limits the policy assignment in our case to a grouping of virtual machines for enforcement. Click **Select** at the bottom of the **Scope** page to save your changes.
+5. **Exclusions** allow you to omit one or more resources from the scope, which is optional. 
+6. Select the **Initiative definition** ellipsis to open the list of available definitions and select **[Preview] Enable Azure Monitor for VMs** from the list, and then click **Select**.
+7. The **Assignment name** is automatically populated with the initiative name you selected, but you can change it. You can also add an optional **Description**. **Assigned by** is automatically populated based on who is logged in, and this field is optional.
+8. Select a **Log Analytics workspace** from the dropdown list that is available in the supported region.
 
     >[!NOTE]
-    >Note: If you plan to assign the initiative/policy to multiple subscriptions, the definitions must be stored in the management group that contains the subscriptions you will assign the policy to. Therefore you must use the -ManagementGroupID parameter.
+    >If the workspace is outside of the scope of the assignment, you must grant **Log Analytics Contributor** permissions to the policy assignment's Principal ID. If you don't do this you may see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` 
+    >Review [how to manually configure the managed identity](../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity) to grant access.
     >
-   
-    Example without parameters:  `.\Add-VMInsightsPolicy.ps1`
 
-### Create a policy assignment
-After you run the `Add-VMInsightsPolicy.ps1` PowerShell script, the following initiative and policies are added:
+9. Notice the **Managed Identity** option is checked. This is checked when the initiative being assigned includes a policy with the deployIfNotExists effect. From the **Manage Identity location** dropdown list, select the appropriate region.  
+10. Click **Assign**.
 
-* **Deploy Log Analytics Agent for Windows VMs - Preview**
-* **Deploy Log Analytics Agent for Linux VMs - Preview**
-* **Deploy Dependency Agent for Windows VMs - Preview**
-* **Deploy Dependency Agent for Linux VMs - Preview**
-* **Audit Log Analytics Agent Deployment - VM Image (OS) unlisted - Preview**
-* **Audit Dependency Agent Deployment - VM Image (OS) unlisted - Preview**
+#### Review and remediate the compliance results 
 
-The following initiative parameter is added:
+You can learn how to review compliance results by reading [identify non-compliance results](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). Select **Compliance** in the left side of the page and locate the **[Preview] Enable Azure Monitor for VMs** initiative that are not compliant per the assignment you created.
 
-- **Log Analytice Workspace** (You have to provide the ResourceID of the workspace if applying an assignment using PowerShell or CLI)
+![Policy compliance for Azure VMs](./media/monitoring-vminsights-onboard/policy-view-compliance-01.png)
 
-    For VMs found as not-compliant from the audit policies **VMs not in OS scope...** the criteria of the deployment policy only includes VMs that are deployed from well-known Azure VM images. Check the documentation if the VM OS is supported or not.  If it is not, then you will need to duplicate the deployment policy and update/modify it to make the image in scope.
+Based on the results of the policies included with the initiative, VMs are reported as non-compliant in following scenarios:  
+  
+1. Log Analytics or Dependency Agent is not deployed.  
+   This is typical for a scope with existing VMs. To mitigate it, [create remediation tasks](../governance/policy/how-to/remediate-resources.md) on a non-compliant policy to deploy the required agents.    
+ 
+    - [Preview]: Deploy Dependency Agent for Linux VMs   
+    - [Preview]: Deploy Dependency Agent for Windows VMs  
+    - [Preview]: Deploy Log Analytics Agent for Linux VMs  
+    - [Preview]: Deploy Log Analytics Agent for Windows VMs  
 
-The following standalone optional policy is added:
+2. VM Image (OS) is not in the list identified in policy definition.  
+   Criteria of the deployment policy only includes VMs that are deployed from well-known Azure VM images. Check the documentation if the VM OS is supported or not. If it is not, then you need to duplicate the deployment policy and update/modify it to make the image compliant. 
+  
+    - [Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted  
+    - [Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted
 
-- **VM is configured for mismatched Log Analytics Workspace - Preview**
+3. VMs are not logging to the specified LA workspace.  
+It is possible that some VMs in the initiative scope are logging to a LA workspace different from the once specified in policy assignment. This policy is a tool to identify which VMs are reporting to a non-compliant workspace.  
+ 
+    - [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch  
 
-    This can be used to identify VMs already configured with the [Log Analytics VM Extension](../virtual-machines/extensions/oms-windows.md), but are configured with a different Workspace than intended (as indicated by the policy assignment). This takes a parameter for the WorkspaceID.
-
-With this initial release, you can only create the policy assignment from the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../azure-policy/assign-policy-definition.md).
-
-## Enable with PowerShell
-To enable Azure Monitor for VMs for multiple VMs or VM scale sets, you can use a provided PowerShell script - [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) available from the Azure PowerShell Gallery to complete this task.  This script will iterate through every virtual machine and VM scale set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or scale set specified by *Name*.  For each VM or VM scale set the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
+### Enable with PowerShell
+To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, you can use a provided PowerShell script - [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) available from the Azure PowerShell Gallery to complete this task.  This script will iterate through every virtual machine and virtual machine scale set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or virtual machine scale set specified by *Name*.  For each VM or virtual machine scale set, the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
 
 This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
@@ -586,7 +704,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 
 2. Save this file as **installsolutionsforvminsights.json** to a local folder.
-3. Edit the values for **WorkspaceName**, **ResourceGroupName**, and **WorkspaceLocation**.  The value for **WorkspaceName** is the is the full resource ID of your Log Analytics workspace, which includes the workspace name, and the value for **WorkspaceLocation** is the region the workspace is defined in.
+3. Edit the values for **WorkspaceName**, **ResourceGroupName**, and **WorkspaceLocation**.  The value for **WorkspaceName** is the full resource ID of your Log Analytics workspace, which includes the workspace name, and the value for **WorkspaceLocation** is the region the workspace is defined in.
 4. You are ready to deploy this template using the following PowerShell command:
 
     ```powershell

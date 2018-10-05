@@ -12,7 +12,7 @@ ms.custom: mvc
 ms.date: 01/12/2018
 ---
 
-# Manage mailing list requests with a logic app
+# Manage mailing list requests with Azure Logic Apps
 
 Azure Logic Apps helps you automate workflows and integrate data
 across Azure services, Microsoft services, 

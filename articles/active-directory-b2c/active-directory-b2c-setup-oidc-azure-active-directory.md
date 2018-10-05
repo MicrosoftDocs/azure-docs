@@ -28,7 +28,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 >`Contoso.com` is used for the organizational Azure AD tenant and `fabrikamb2c.onmicrosoft.com` is used as the Azure AD B2C tenant in the following instructions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains organizational Azure AD tenant (contoso.com) by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant (fabrikamb2c.onmicrosoft.com) by clicking the Directory and subscription filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 4. Select **New application registration**.
 5. Enter a name for your application. For example, `Azure AD B2C App`.

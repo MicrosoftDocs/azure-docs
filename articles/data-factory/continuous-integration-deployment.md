@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/04/2018
 ms.author: douglasl
 ---
 # Continuous integration and delivery (CI/CD) in Azure Data Factory
@@ -107,6 +107,11 @@ Here are the steps to set up an Azure Pipelines release so you can automate the 
     f.  Select **…** next to the **Override template parameters** field and fill in the information for the target Data Factory. For the credentials that come from key vault, use the same name for the secret in the following format: assuming the secret’s name is `cred1`, enter `"$(cred1)"` (between quotes).
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
+
+    g. Select the **Incremental** Deployment Mode.
+
+    > [!WARNING]
+    > If you select **Complete** deployment mode, existing resources may be deleted, including all the resources in the target resource group that are not defined in the Resource Manager template.
 
 1.  Save the release pipeline.
 
@@ -715,7 +720,7 @@ Here is a sample deployment template that you can import in Azure Pipelines.
 
 ## Sample script to stop and restart triggers and clean up
 
-Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed.
+Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param
