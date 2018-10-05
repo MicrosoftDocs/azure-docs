@@ -189,7 +189,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](./media/ringcentral-tutorial/ringcentral6.png)
 
-	e. From **Step 2** click **Download** to download the **Service Provider metadata file** and Upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal. 
+	e. From **Step 2** click **Download** to download the **Service Provider metadata file** and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal. 
 
 	f. On the same page, navigate to **Enable SSO** section and perform the following steps:
 
