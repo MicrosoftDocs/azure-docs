@@ -10,11 +10,11 @@ ms.date: 10/01/2018
 ms.author: iainfou
 ---
 
-# Persistent volumes with Azure files
+# Dynamically create and use an Azure Files share in Azure Kubernetes Service (AKS)
 
-A persistent volume is a piece of storage that has been created for use in a Kubernetes cluster. A persistent volume can be used by one or many pods and can be dynamically or statically created. This document details **dynamic creation** of an Azure file share as a persistent volume.
+Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share and attach it to a pod in AKS.
 
-For more information on Kubernetes persistent volumes, including static creation, see [Kubernetes persistent volumes][kubernetes-volumes].
+For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
 ## Before you begin
 
@@ -24,7 +24,7 @@ You also need the Azure CLI version 2.0.46 or later installed and configured. Ru
 
 ## Create a storage account
 
-When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. This group is the one with the *MC_* prefix that was created by the provisioning of the resources for the AKS cluster. Get the resource group name with the [az aks show][az-aks-show] command.
+When you dynamically create an Azure Files share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. This group is the one with the *MC_* prefix that was created by the provisioning of the resources for the AKS cluster. Get the resource group name with the [az aks show][az-aks-show] command.
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
