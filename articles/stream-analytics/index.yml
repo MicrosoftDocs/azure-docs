@@ -60,13 +60,11 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: Previews
+      html: <p><a href="stream-analytics-previews#public-previews">Public previews</a></p><p><a href="stream-analytics-previews#private-previews">Private previews</a></p>
     - title: Command-line
       html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/?view=azurermps-6.8.1#stream_analytics">Azure PowerShell</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p><p><a href="https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference">Stream Analytics Query Language</a></p>
     - title: REST
       html: <p><a href="/rest/api/streamanalytics">REST API Reference</a></p>
-- title: Previews
-  items:
-  - type: paragraph
-    html: Learn about new features and sign up for <a href="azure/stream-analytics/stream-analytics-previews">Azure Stream Analytics previews</a>.
