@@ -241,7 +241,7 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
 
 #### Local forwarder
 
-[Local forwarder](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux. Coupled with the Application Insights Java SDK the local forwarder provides full support for [Live Metrics](app-insights-live-stream.md) and adaptative sampling.
+[Local forwarder](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux. When coupled with the Application Insights Java SDK the local forwarder provides full support for [Live Metrics](app-insights-live-stream.md) and adaptive sampling.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
@@ -253,7 +253,7 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
 </Channel>
 ```
 
-If you are using SpringBoot starter, add the following to your configuration file (application.properies):
+If you are using SpringBoot starter, add the following to your configuration file (application.properties):
 
 ```yml
 azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
