@@ -3,10 +3,10 @@ title: Understanding how to use Azure Digital Twins Swagger | Microsoft Docs
 description: How to use Azure Digital Twins Swagger
 author: kingdomofends
 manager: alinast
-ms.service: azure-digital-twins
-services: azure-digital-twins
+ms.service: digital-twins
+services: digital-twins
 ms.topic: conceptual
-ms.date: 10/2/2018
+ms.date: 10/02/2018
 ms.author: adgera
 ---
 
@@ -29,7 +29,7 @@ Swagger provides an interactive summary of your API including:
 Swagger is therefore a convenient tool to assist with development and testing calls made to the Management API.
 
 >[!TIP]
->For your reference, an interactive example is provided to assist with initial development and review.
+>For your reference, a Swagger sneak preview is provided to demonstrate the API feature set.
 >It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
 You can access your own, generated, Management API Swagger documentation at:

@@ -39,6 +39,13 @@ For faster results, scope your search to Stack Overflow, the documentation, and 
 
 Where *{Your Search Terms}* is your search keywords.
 
+## Create an Azure support request
+
+Azure customers can create and manage support requests in the Azure portal.
+
+* [Azure Portal](https://portal.azure.com)
+* [Azure portal for the United States government](https://portal.azure.us)
+
 ## Post a question to Stack Overflow
 
 Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
