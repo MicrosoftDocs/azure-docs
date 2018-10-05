@@ -12,7 +12,7 @@ ms.date: 10/04/2018
 
 # Azure Stream Analytics preview features
 
-This article summarizes all the features currently in preview for Azure Stream Analytics. Using preview features in a production environment is not recommended.
+This article summarizes all the features currently in preview for Azure Stream Analytics. Using preview features in a production environment isn't recommended.
 
 ## Public previews
 
@@ -20,7 +20,7 @@ The following features are in public preview. You can take advantage of these fe
 
 ### Azure Stream Analytics on IoT Edge
 
-Azure Stream Analytics on IoT Edge empowers developers to deploy near-real-time analytics on IoT Edge devices. For more information, see the [Azure Stream Analytics on IoT Edge](stream-analytics-edge.md) documentation.
+Azure Stream Analytics on IoT Edge allows developers to deploy near-real-time analytics on IoT Edge devices. For more information, see the [Azure Stream Analytics on IoT Edge](stream-analytics-edge.md) documentation.
 
 ### Integration with Azure Machine Learning
 
@@ -28,7 +28,7 @@ You can scale Stream Analytics jobs with Machine Learning (ML) functions. To lea
 
 ### Session windows
 
-Stream Analytics has native support for windowing functions, enabling developers to author complex stream processing jobs with minimal effort. [Session windows](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) group events that arrive at similar times, filtering out periods of time where there is no data. To learn more about windowing functions, visit [Introduction to Stream Analytics windowing functions](stream-analytics-window-functions.md).
+Stream Analytics has native support for windowing functions, enabling developers to author complex stream processing jobs with minimal effort. [Session windows](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) group events that arrive at similar times, filtering out periods of time where there's no data. To learn more about windowing functions, visit [Introduction to Stream Analytics windowing functions](stream-analytics-window-functions.md).
 
 ### Blob output partitioning by custom time
 
@@ -40,9 +40,9 @@ Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScr
 
 ### Live data testing in Visual Studio
 
-Visual Studio tools for Azure Stream Analytics enhances the local testing capability that allows you to test you queries against live event streams from cloud sources such as Event Hub or IoT hub. Learn how to [Test live data locally using Azure Stream Analytics tools for Visual Studio](stream-analytics-live-data-local-testing.md).
+Visual Studio tools for Azure Stream Analytics enhance the local testing feature that allows you to test you queries against live event streams from cloud sources such as Event Hub or IoT hub. Learn how to [Test live data locally using Azure Stream Analytics tools for Visual Studio](stream-analytics-live-data-local-testing.md).
 
-### .NET user defined functions on IoT Edge
+### .NET user-defined functions on IoT Edge
 
 With .NET standard user-defined functions, you can run .NET Standard code as part of your streaming pipeline. You can create simple C# classes or import full project and libraries. Full authoring and debugging experience is supported in Visual Studio. For more information, visit [Develop .NET Standard user-defined functions for Azure Stream Analytics Edge jobs](stream-analytics-edge-csharp-udf-methods.md).
 
@@ -52,11 +52,11 @@ The following features are in private preview. To access these previews, visit t
 
 ### Anomaly Detection
 
-Azure Stream Analytics introduces new machine learning models with support for *spike* and *dip* detection in addition to bi-directional, slow positive, and slow negative trends detection.
+Azure Stream Analytics introduces new machine learning models with support for *spike* and *dips* detection in addition to bi-directional, slow positive, and slow negative trends detection.
 
 ### C# custom deserializer for Azure Stream Analytics on IoT Edge
 
-Developers can now implement custom deserializers in C# to deserialize events received by Azure Stream Analytics. Examples of formats that can be deserialized include Parquet, Protobuf, XML or any binary format.
+Developers can now implement custom deserializers in C# to deserialize events received by Azure Stream Analytics. Examples of formats that can be deserialized include Parquet, Protobuf, XML, or any binary format.
 
 ### Blob output partitioning by custom attribute
 
@@ -64,7 +64,7 @@ It is now possible to partition your Azure Stream Analytics output to Blob stora
 
 ### Managed Service Identity (MSI) authentication to Azure Data Lake Storage
 
-You can now operationalize your real-time pipelines with MSI based authentication while writing to Azure Data Lake Storage Gen1, allowing you to create jobs programmatically. For further information, visit [Use Managed Identities to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output](stream-analytics-managed-identities-adls.md).
+You can now operationalize your real-time pipelines with MSI-based authentication while writing to Azure Data Lake Storage Gen1, allowing you to create jobs programmatically. For further information, visit [Use Managed Identities to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output](stream-analytics-managed-identities-adls.md).
 
 ## Next steps
 
