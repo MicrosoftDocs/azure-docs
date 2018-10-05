@@ -1,12 +1,14 @@
 ---
-title: What is Bing Custom Search? | Microsoft Docs
-description: Provides a high-level overview of Bing Custom Search
+title: What is Bing Custom Search?
+titlesuffix: Azure Cognitive Services
+description: Provides a high-level overview of Bing Custom Search.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: overview
 ms.date: 09/29/2017
 ms.author: v-brapel
 ---
