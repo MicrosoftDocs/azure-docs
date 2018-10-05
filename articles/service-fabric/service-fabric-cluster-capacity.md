@@ -47,7 +47,7 @@ Each node type is a distinct scale set and can be scaled up or down independentl
 
 A Service Fabric cluster can consist of more than one node type. In that event, the cluster consists of one primary node type and one or more non-primary node types.
 
-A single node type cannot simply exceed 100 nodes per virtual machine scale set. You may need to add virtual machine scale sets to achieve the targeted scale, and auto-scaling cannot automagically add virtual machine scale sets. Adding virtual machine scale sets in-place to a live cluster is a challenging task, and commonly this results in users provisioning new clusters with the appropriate node types provisioned at creation time. 
+A single node type cannot reliably scale beyond 100 nodes per virtual machine scale set for SF applications; achieving greater than 100 nodes reliably, will require you to add additional virtual machine scale sets.
 
 ### Primary node type
 

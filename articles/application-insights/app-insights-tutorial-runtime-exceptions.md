@@ -97,6 +97,15 @@ All data collected by Application Insights is stored in Azure Log Analytics, whi
 
 9. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Analytics](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
 
+## Add work item
+If you connect Application Insights to a tracking system such as Azure DevOps or GitHub, you can create a work item directly from Application Insights.
+
+1. Return to the **Exception Properties** panel in Application Insights.
+2. Click **New Work Item**.
+3. The **New Work Item** panel opens with details about the exception already populated.  You can add any additional information before saving it.
+
+	![New Work Item](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
+
 ## Next steps
 Now that you've learned how to identify run-time exceptions, advance to the next tutorial to learn how to identify and diagnose performance issues.
 

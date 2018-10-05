@@ -1,12 +1,14 @@
 ---
-title: Bing Visual Search SDK ImageInsightsToken tutorial | Microsoft Docs
+title: "Tutorial: ImageInsightsToken - Bing Visual Search"
+titlesuffix: Azure Cognitive Services
 description: How to use the Bing Visual Search SDK to get URLs of images specified by ImageInsightsToken.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
 ---

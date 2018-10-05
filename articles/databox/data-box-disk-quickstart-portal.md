@@ -63,7 +63,7 @@ The Data Box Disk are mailed in a UPS Express Box. Open the box and check that t
 
 This step takes roughly 5 minutes.
 
-1. Use the included cable to connect the disk to a Windows computer running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
+1. Use the included cable to connect the disk to a Windows/Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 2. To unlock the disk:
 
     1. In the Azure portal, go to **General > Device Details** and get the passkey.

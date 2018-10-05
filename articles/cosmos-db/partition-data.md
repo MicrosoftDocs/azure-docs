@@ -90,11 +90,13 @@ When you choose a partition key with above considerations, you don’t have to w
 
 ## <a name="prerequisites"></a>Prerequisites for partitioning
 
-Azure Cosmos DB containers can be created as fixed or unlimited in the Azure portal. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create a container as unlimited, you must specify a partition key and a minimum throughput of 1,000 RU/s. Azure Cosmos DB containers may also be configured to share throughput between a set of containers, in which each container must specificy a partition key and can grow unlimited. Following are the prerequisites to consider for partitioning and scaling:
+Azure Cosmos DB containers can be created as fixed or unlimited. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create a container as unlimited, you must specify a partition key and a minimum throughput of 1,000 RU/s. You can also create Azure Cosmos DB containers such that they share throughput. In such cases, each container must specificy a partition key and it can grow unlimited. 
 
-* When creating a container (e.g., a collection, a graph or a table) in the Azure portal, select the **Unlimited** storage capacity option to take advantage of unlimited scaling. For physical partitions to auto-split into **p1** and **p2** as described in [How does partitioning work](#how-does-partitioning-work), the container must be created with a throughput of 1,000 RU/s or more (or share throughput across a set of containers), and a partition key must be provided. 
+Following are the prerequisites to consider for partitioning and scaling:
 
-* If you created a container in the Azure portal or programmatically and the initial throughput was 1,000 RU/s or more, and you provided a partition key, you can take advantage of unlimited scaling with no changes to your container. This includes **Fixed** containers, so long as the initial container was created with at least 1,000 RU/s of throughput and a partition key is specified.
+* When creating a container (e.g., a collection, a graph or a table) in the Azure portal, select the **Unlimited** storage capacity option to take advantage of unlimited scaling. To auto-split physical partitions into **p1** and **p2** as described in [How does partitioning work](#how-does-partitioning-work) article, the container must be created with a throughput of 1,000 RU/s or more (or share throughput across a set of containers), and a partition key must be provided. 
+
+* If you create a container with the initial throughput greater than or equal to 1,000 RU/s and provide a partition key, then you can take advantage of unlimited scaling without any changes to your container. Which means even though you create a **Fixed** container, if the initial container is created with a throughput of at least 1,000 RU/s and if a partition key is specified, the container acts as an unlimited container.
 
 * All containers configured to share throughput as part of a set of containers are treated as **Unlimited** containers.
 

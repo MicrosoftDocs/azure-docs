@@ -69,10 +69,6 @@ Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterpr
 
 Currently, you cannot create a solution accelerator with a [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) account. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a solution accelerator.
 
-### Can I create a solution accelerator if I have Cloud Solution Provider (CSP) subscription?
-
-Currently, you cannot create a solution accelerator with a Cloud Solution Provider (CSP) subscription. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a solution accelerator.
-
 ### How do I delete an AAD tenant?
 
 See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).

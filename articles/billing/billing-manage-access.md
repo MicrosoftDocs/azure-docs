@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: vikdesai
+ms.author: cwatson
 
 ---
 # Manage access to billing information for Azure using role-based access control

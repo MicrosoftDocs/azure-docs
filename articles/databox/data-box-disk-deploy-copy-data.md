@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/07/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Copy data to Data Box Disk
-> * Verify data integrity
+> * Verify data
 
 ## Prerequisites
 
@@ -51,6 +51,7 @@ Perform the following steps to connect and copy data from your computer to the D
 
     Follow the Azure naming requirements for container and blob names.
 
+    #### Azure naming conventions for container and blob names
     |Entity   |Conventions  |
     |---------|---------|
     |Container names block blob and page blob     |Must start with a letter or number, and can contain only lowercase letters, numbers, and the hyphen (-). Every hyphen (-) must be immediately preceded and followed by a letter or number. Consecutive hyphens are not permitted in names. <br>Must be a valid DNS name, which is 3 to 63 characters long.          |
@@ -157,19 +158,17 @@ Perform the following steps to connect and copy data from your computer to the D
 > -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md). 
 > - If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
 
-## Verify data integrity
+## Verify data 
 
-To verify the data integrity, perform the following steps.
+To verify the data, perform the following steps.
 
 1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *AzureImportExport* folder of your drive. 
     
     ![Data Box Disk validation tool output](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-2. Choose the appropriate option. **We recommend that you always validate the files and generate checksums by selecting option 2**. Depending upon your data size, this step may take a while. A summary of the data integrity check process along with time to complete the process is displayed when the script has completed. You can press **Enter** to exit out of the command window.
+2. Choose the appropriate option. **We recommend that you always validate the files and generate checksums by selecting option 2**. Depending upon your data size, this step may take a while. Once the script has completed, exit out of the command window. If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
 
     ![Checksum output](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
-
-    If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
 
     > [!TIP]
     > - Reset the tool beween two runs.

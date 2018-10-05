@@ -47,7 +47,7 @@ To start sending data into Log Analytics. Several options exist:
 
 ## Correlating data
 
-Application Insights is based on the Log Analytics data platform. We can therefore use [cross-resource joins](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search) to correlate any data we ingested into Log Analytics with our Application Insights data.
+Application Insights is based on the Log Analytics data platform. We can therefore use [cross-resource joins](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) to correlate any data we ingested into Log Analytics with our Application Insights data.
 
 For example, we can ingest our lab inventory and locations into a table called “LabLocations_CL” in a Log Analytics workspace called “myLA”. If we then wanted to review our requests tracked in Application Insights app called “myAI” and correlate the machine names that served the requests to the locations of these machines stored in the previously mentioned custom table, we can run the following query from either the Application Insights or Log Analytics context:
 
@@ -62,4 +62,4 @@ app('myAI').requests
 ## Next Steps
 
 - Check out the [Data Collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) reference.
-- For more information on [cross-resource joins](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search).
+- For more information on [cross-resource joins](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).

@@ -1,6 +1,6 @@
 ---
-title: Authenticate access to Azure Storage using Azure Active Directory (Preview) | Microsoft Docs
-description: Authenticate access to Azure Storage using Azure Active Directory (Preview).
+title: Authenticate access to Azure blobs and queues using Azure Active Directory (Preview) | Microsoft Docs
+description: Authenticate access to Azure blobs and queues using Azure Active Directory (Preview).
 services: storage
 author: tamram
 ms.service: storage
@@ -10,11 +10,11 @@ ms.author: tamram
 ms.component: common
 ---
 
-# Authenticate access to Azure Storage using Azure Active Directory (Preview)
+# Authenticate access to Azure blobs and queues using Azure Active Directory (Preview)
 
 Azure Storage supports authentication and authorization with Azure Active Directory (AD) for the Blob and Queue services. With Azure AD, you can use role-based access control (RBAC) to grant access to users, groups, or application service principals. 
 
-Authorizing applications that access Azure Storage using Azure AD provides superior security and ease of use over other authorization options. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. Similarly, you can continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS.
+Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. Microsoft recommends using Azure AD authentication for your Azure Storage applications when possible.
 
 ## About the preview
 

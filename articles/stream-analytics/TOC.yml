@@ -20,8 +20,10 @@
     href: stream-analytics-with-azure-functions.md
   - name: 3 - Run a Javascript UDF
     href: stream-analytics-javascript-user-defined-functions.md
-  - name: 4 - Deploy with CI/CD in VSTS
+  - name: 4 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - name: 5 - Run C# UDF on Edge
+    href: stream-analytics-edge-csharp-udf.md
 - name: Samples
   items:
   - name: Code samples
@@ -40,6 +42,10 @@
     items:
     - name: Output to Cosmos DB
       href: stream-analytics-documentdb-output.md
+    - name: Output to Azure SQL DB
+      href: stream-analytics-sql-output-perf.md
+    - name: Blob custom path patterns
+      href: stream-analytics-custom-path-patterns-blob-storage-output.md
   - name: Window functions
     href: stream-analytics-window-functions.md
   - name: Geospatial functions
@@ -72,6 +78,8 @@
       href: stream-analytics-clean-up-your-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
+    - name: Authenticate with managed identity
+      href: stream-analytics-managed-identities-adls.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
@@ -90,6 +98,9 @@
       href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
     - name: Threshold based rules
       href: stream-analytics-threshold-based-rules.md
+    - name: Process Kafka events
+      href: ../event-hubs/event-hubs-kafka-stream-analytics.md
+      maintainContext: true
   - name: Monitor
     items:
     - name: Monitor jobs- Azure portal
@@ -121,14 +132,18 @@
     items:
     - name: Install tools
       href: stream-analytics-tools-for-visual-studio-install.md
-    - name: Test a job locally
+    - name: Test with sample data
       href: stream-analytics-vs-tools-local-run.md
+    - name: Test with live data
+      href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
     - name: Develop an Edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline
       href: stream-analytics-tools-for-visual-studio-cicd.md
+    - name: Write .NET UDF for Edge
+      href: stream-analytics-edge-csharp-udf-methods.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting steps

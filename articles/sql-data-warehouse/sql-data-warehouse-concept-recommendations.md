@@ -32,6 +32,6 @@ Data skew can cause additional data movement or resource bottlenecks when runnin
 
 Having suboptimal statistics can severely impact query performance as it can cause the SQL Data Warehouse query optimizer to generate suboptimal query plans. The following documentation describes the best practices around creating and updating statistics:
 
-- [Creating and updating table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistic)
+- [Creating and updating table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
 To see the list of impacted tables by these recommendations, run the following [T-SQL script](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). The advisor continuously runs the same T-SQL script to generate these recommendations.

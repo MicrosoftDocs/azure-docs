@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 09/13/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -41,7 +41,6 @@ In a terminal window, run the following commands to clone the sample application
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
-git pull origin built-in
 ```
 
 ## Run the app locally
@@ -59,7 +58,7 @@ FLASK_APP=application.py flask run
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt
-$env:FLASK_APP=application.py
+Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
@@ -171,7 +170,10 @@ The left menu provides different pages for configuring your app.
 The built-in Python image in App Service on Linux is currently in Preview. You can create production Python apps using a custom container instead.
 
 > [!div class="nextstepaction"]
-> [Python with PostgreSQL in a custom container](tutorial-docker-python-postgresql-app.md)
+> [Python with PostgreSQL](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure built-in Python image](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
 > [Use custom images](tutorial-custom-docker-image.md)

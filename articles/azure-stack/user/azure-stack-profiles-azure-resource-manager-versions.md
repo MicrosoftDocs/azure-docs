@@ -51,9 +51,9 @@ For an explanation of API profiles and version release cadence for Azure Stack, 
 | Resources_Locks | 2016-10-01 |
 | Subscriptions | 2016-10-01 |
 
-For more a list of the versions for each resource type for the providers in the api profile, see [Details for the 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profile.
+For more a list of the versions for each resource type for the providers in the API profile, see [Details for the 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profile.
 
-## Overview of 2017-03-09-profile
+## Overview of 2018-03-01-hybrid
 
 | Resource provider | Api-version |
 |------------------------------------------------|------------------------------|
@@ -73,7 +73,7 @@ For more a list of the versions for each resource type for the providers in the 
 | Resources_Locks | 2016-09-01 |
 | Subscriptions | 2016-06-1 |
 
-For more a list of the versions for each resource type for the providers in the api profile, see [Details for the 2017-03-09-profile](#details-for-the-2017-03-09-profile)
+For more a list of the versions for each resource type for the providers in the api profile, see [Details for the 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid)
 
 ## Details for the 2018-03-01-hybrid
 
@@ -228,7 +228,7 @@ The Storage Resource Provider (SRP) enables you to manage your storage account a
 | StorageAccounts | 2016-01-01 |
 | Usages | 2016-01-01 |
 
-## Details for the 2017-03-09-profile
+## Details for the 2018-03-01-hybrid
 
 ### Microsoft Authorization
 

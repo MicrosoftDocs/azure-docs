@@ -1,32 +1,25 @@
 ---
-title: Azure Video Indexer concepts | Microsoft Docs
+title: Video Indexer concepts
+titlesuffix: Azure Cognitive Services
 description: This topic describes some concepts of the Video Indexer service.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/31/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-
 ---
+
 # Video Indexer concepts
  
-This topic describes some concepts of the Video Indexer service.
+This article describes some concepts of the Video Indexer service.
  	
 ## Summarized insights
 
-Summarized insights contain an aggregated view of the data: faces, keywords, sentiments. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
-
-## Topics/keywords
-
-Topics/keywords are in the list of key phrases that Video Indexer extracts from the text. For example, a Scott Guthrie video might contain the following topics/keywords: Security, Azure, Microsoft Cloud, Revenue.
-
-## Sentiments
-
-When Video Indexer analyzes transcripts, it detects sentiments as well. For example, "this is a very exciting event" is a positive sentiment.
+Summarized insights contain an aggregated view of the data: faces, topics, emotions. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
 
 ## time range vs. adjusted time range
 

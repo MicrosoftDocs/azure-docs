@@ -3,7 +3,7 @@ title: Use the Azure Database Migration Service to perform an online migration o
 description: Learn to perform an online migration from MySQL on-premises to Azure Database for MySQL by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: jtoland
+ms.author: rajpo
 manager: craigg
 ms.reviewer: 
 ms.service: dms
@@ -51,7 +51,7 @@ To complete this tutorial, you need to:
     - **SUPER** - Only required in versions earlier than MySQL 5.6.6.
 
 ## Migrate the sample schema
-To complete all the database objects like table schemas, indexes and stored procedures, we need to extract schema from the source database and apply to the database. To extract schema, you can use mysqldump with - - no-data parameter.
+To complete all the database objects like table schemas, indexes and stored procedures, we need to extract schema from the source database and apply to the database. To extract schema, you can use mysqldump with the `--no-data` parameter.
  
 Assuming you have MySQL employees sample database in the on-premise system, the command to do schema migration using mysqldump is:
 ```
@@ -88,7 +88,7 @@ SET group_concat_max_len = 8192;
 	WHERE
 	  KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
 	  AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-  AND KCU.REFERENCED_TABLE_SCHEMA = ['SchemaName') Queries
+  AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries
   GROUP BY SchemaName;
  ```
 		

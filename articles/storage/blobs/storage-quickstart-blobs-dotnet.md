@@ -1,24 +1,23 @@
 ---
-title: Azure Quickstart - Create a blob in object storage using .NET | Microsoft Docs
-description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for .NET to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: "Quickstart: Use .NET to create a blob in object storage - Azure Storage"
+description: In this quickstart, you learn how to use the Azure Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 services: storage
 author: tamram
-
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 08/27/2018
 ms.author: tamram
 ---
 
-# Quickstart: Upload, download, and list blobs using .NET
+# Quickstart: Use .NET to create a blob in object storage
 
-In this quickstart, you learn how to use the .NET client library for Azure Storage to upload, download, and list block blobs in a container.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this quickstart, you learn how to use the Azure Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 
 ## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 To complete this quickstart, first create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
 

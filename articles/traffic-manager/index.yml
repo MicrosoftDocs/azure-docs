@@ -40,6 +40,7 @@ sections:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Route traffic for low latency</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribute traffic to a set of endpoints</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic to a priority endpoint</a>
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic based on user's subnet</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

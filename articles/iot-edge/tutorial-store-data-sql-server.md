@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/30/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -37,7 +37,7 @@ An Azure IoT Edge device:
 
 Cloud resources:
 
-* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* A free-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 
 Development resources:
 
@@ -206,7 +206,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    * Linux containers:
 
       ```json
-      "image": "microsoft/mssql-server-linux:2017-latest",
+      "image": "mcr.microsoft.com/mssql/server:latest",
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
@@ -225,6 +225,7 @@ In the previous sections, you created a solution with one module, and then added
    CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
    CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
+
 2. Save the .env file.
 3. Sign in to your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you added to the .env file. Enter the following command in the integrated terminal:
 

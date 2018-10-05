@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
+ms.author: cwatson
 
 ---
 # The structure of Azure Dashboards
@@ -322,7 +322,7 @@ The __parts__ object contains a property for each part, where the name of the pr
 Each individual part object has a __position__, and __metadata__.
 
 ### The position object
-The __position__ property contains the size and location information for the part expressed as __x__, __y__, __rowSpan__, and __colSpan__. The values are in terms of grid units. These grid units are visible when the dashboard is in the customize mode as shown here. If you want a tile to have a width of two grid units, a height of one grid unit, and a location in the top left corner of the dashboard then the position obejct looks like this:
+The __position__ property contains the size and location information for the part expressed as __x__, __y__, __rowSpan__, and __colSpan__. The values are in terms of grid units. These grid units are visible when the dashboard is in the customize mode as shown here. If you want a tile to have a width of two grid units, a height of one grid unit, and a location in the top left corner of the dashboard then the position object looks like this:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -334,7 +334,7 @@ Each part has a metadata property, an object has only one required property call
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Used to show monitoring metrics
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Used to show with text or images with basic formatting for lists, links, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Used to show videos from YouTube, Channel9, and any other type of video that works in an html video tag.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Used to show videos from YouTube, Channel9, and any other type of video that works in an HTML video tag.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Used to show the name and status of an Azure virtual machine.
 
 Each type of part has its own configuration. The possible configuration properties are called __inputs__, __settings__, and __asset__. 
