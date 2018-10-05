@@ -112,9 +112,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![image](./media/borrowbox-tutorial/tutorial_borrowbox_url.png)
 
-    c. Click **set additional URLs**.
+    a. Click **set additional URLs**.
 
-    d. In the **Sign-on URL** text box, type a URL using the following pattern:
+    b. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 
     ![image](./media/borrowbox-tutorial/tutorial_borrowbox_url1.png)
