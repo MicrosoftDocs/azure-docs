@@ -3,8 +3,8 @@ title: Migrate on-premises data to Azure Storage by using AzCopy| Microsoft Docs
 description: Use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.
 services: storage
 author: roygara
+
 ms.service: storage
-ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
