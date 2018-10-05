@@ -3,7 +3,7 @@ title: Use Azure Database Migration Service module in Microsoft Azure PowerShell
 description: Learn to migrate from on-premises SQL Server to Azure SQL by using Azure PowerShell.
 services: database-migration
 author: HJToland3
-ms.author: jtoland
+ms.author: rajpo
 manager: 
 ms.reviewer: 
 ms.service: database-migration
