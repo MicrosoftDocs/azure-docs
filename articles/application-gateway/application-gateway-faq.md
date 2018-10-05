@@ -3,12 +3,10 @@ title: Frequently asked questions for Azure Application Gateway
 description: This page provides answers to frequently asked questions about Azure Application Gateway
 services: application-gateway
 author: vhorne
-manager: jpconnock
-
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/5/2018
+ms.date: 10/6/2018
 ms.author: victorh
 
 ---
@@ -19,15 +17,15 @@ ms.author: victorh
 
 **Q. What is Application Gateway?**
 
-Azure Application Gateway is an Application Delivery Controller (ADC) as a service, offering various layer 7 load balancing capabilities for your applications. It offers highly available and scalable service, which is fully managed by Azure.
+Azure Application Gateway is an Application Delivery Controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your applications. It offers highly available and scalable service, which is fully managed by Azure.
 
 **Q. What features does Application Gateway support?**
 
-Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features, visit [Introduction to Application Gateway](application-gateway-introduction.md)
+Application Gateway supports autoscaling, SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features, visit [Introduction to Application Gateway](application-gateway-introduction.md)
 
 **Q. What is the difference between Application Gateway and Azure Load Balancer?**
 
-Application Gateway is a layer 7 load balancer, which means it works with web traffic only (HTTP/HTTPS/WebSocket). It supports capabilities such as SSL termination, cookie-based session affinity, and round robin for load balancing traffic. Load Balancer, load balances traffic at layer 4 (TCP/UDP).
+Application Gateway is a layer 7 load balancer, which means it works with web traffic only (HTTP/HTTPS/WebSocket). It supports capabilities such as SSL termination, cookie-based session affinity, and round robin for load balancing traffic. Load Balancer load balances traffic at layer 4 (TCP/UDP).
 
 **Q. What protocols does Application Gateway support?**
 
@@ -75,7 +73,7 @@ The VIP can change if the gateway is stopped and started by the customer. The DN
 
 **Q. Does Application Gateway support static IP?**
 
-No, Application Gateway does not support static public IP addresses, but it does support static internal IPs.
+Yes, the Application Gateway V2 SKU does support static public IP addresses. The V1 SKU supports static internal IPs.
 
 **Q. Does Application Gateway support multiple public IPs on the gateway?**
 
@@ -94,7 +92,9 @@ Application Gateway also inserts X-Original-Host header that contains the origin
 
 **Q. How long does it take to deploy an Application Gateway? Does my Application Gateway still work when being updated?**
 
-New Application Gateway deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
+New Application Gateway V1 SKU deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
+
+V2 SKU deployments can take about five to six minutes to provision.
 
 ## Configuration
 
@@ -180,15 +180,17 @@ No, this is not supported.
 
 **Q. How does Application Gateway support high availability and scalability?**
 
-Application Gateway supports high availability scenarios when you have two or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scalability by adding multiple instances of the same gateway to share the load.
+The Application Gateway V1 SKU supports high availability scenarios when you have two or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. The V1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
+
+The V2 SKU automatically ensures that new instances are spread across fault domains and update domains. If zone redundancy is chosen, the newest instances are also spread across availability zones to offer zonal failure resiliency.
 
 **Q. How do I achieve DR scenario across data centers with Application Gateway?**
 
 Customers can use Traffic Manager to distribute traffic across multiple Application Gateways in different datacenters.
 
-**Q. Is auto scaling supported?**
+**Q. Is autoscaling supported?**
 
-No, but Application Gateway has a throughput metric that can be used to alert you when a threshold is reached. Manually adding instances or changing size does not restart the gateway and does not impact existing traffic.
+Yes, the Application Gateway V2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
 
 **Q. Does manual scale up/down cause downtime?**
 
@@ -196,7 +198,7 @@ There is no downtime, instances are distributed across upgrade domains and fault
 
 **Q. Does application gateway support connection draining?**
 
-Yes. You can configure connection draining to change members within a backend pool without disruption. This will allow existing connections to continue to be sent to their previous destination until either that connection is closed or a configurable timeout expires. Note that connection draining only waits for current in-flight connections to complete. Application Gateway is not aware of application session state.
+Yes. You can configure connection draining to change members within a backend pool without disruption. This will allow existing connections to continue to be sent to their previous destination until either that connection is closed or a configurable timeout expires. Connection draining only waits for current in-flight connections to complete. Application Gateway is not aware of application session state.
 
 **Q. What are application gateway sizes?**
 
@@ -222,7 +224,7 @@ Yes, Azure distributes instances across update and fault domains to ensure that 
 
 **Q. What certificates are supported on Application Gateway?**
 
-Self signed certs, CA certs, and wild-card certs are supported. EV certs are not supported.
+Self-Signed certs, CA certs, and wild-card certs are supported. EV certs are not supported.
 
 **Q. What are the current cipher suites supported by Application Gateway?**
 
@@ -356,9 +358,9 @@ Audit logs are available for Application Gateway. In the portal, click **Activit
 
 **Q. Can I set alerts with Application Gateway?**
 
-Yes, Application Gateway does support alerts, alerts are configured off metrics. Application Gateway currently has a metric of "throughput", which can be configured to alert. To learn more about alerts, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Yes, Application Gateway does support alerts. Alerts are configured on metrics. See [Application Gateway Metrics](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) to learn more about Application Gateway metrics. To learn more about alerts, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-**Q. How do I analyse traffic statistics for Application Gateway?**
+**Q. How do I analyze traffic statistics for Application Gateway?**
 
 You can view and analyze Access logs via a number of mechanisms such as Azure Log Analytics, Excel, Power BI etc.
 
