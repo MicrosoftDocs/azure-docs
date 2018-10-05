@@ -198,7 +198,7 @@ func check_status(uri string) (string, string) {
 	if retry, success := result.Headers["Retry-After"]; success {
 		return retry[0], result.Body
 	} else {
-// If the response headers did not include a Retry-After value, default to 30 seconds.
+        // If the response headers did not include a Retry-After value, default to 30 seconds.
 		return "30", result.Body
 	}
 }
