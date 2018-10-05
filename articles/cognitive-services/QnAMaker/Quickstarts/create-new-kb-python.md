@@ -23,7 +23,7 @@ This quickstart calls QnA Maker APIs:
 
 ## Prerequisites
 
-* [Python 3.x](https://www.python.org/downloads/)
+* [Python 3.7](https://www.python.org/downloads/)
 * You must have a QnA Maker service. To retrieve your key, select Keys under Resource Management in your dashboard.
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
@@ -207,13 +207,7 @@ while False == done:
 
 ## Build and run the program
 
-1. Install dependencies:
-
-    ```python
-    pip install xxx
-    ```
-
-2. Run the script:
+Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
     ```python
     python create-new-knowledge-base.py
