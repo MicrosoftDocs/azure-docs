@@ -43,7 +43,7 @@ Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.micr
 > 
 > (**) The enrollment account is also often referred to as the account owner
 
-For more information on configuring **DA view charges** and **AO view charges** look at [enabling access to costs](https://docs.microsoft.com/en-us/azure/billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view#enabling-access-to-costs)
+For more information on configuring **DA view charges** and **AO view charges** look at [enabling access to costs](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view#enabling-access-to-costs)
 
 ## Sign in to Azure
 
