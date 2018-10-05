@@ -35,78 +35,32 @@ This quickstart calls QnA Maker APIs:
 
 ## Add the required dependencies
 
-[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-dependencies.md)]  
+At the top of Program.cs, replace the single using statement with the following lines to add necessary dependencies to the project:
+
+[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=1-11 "Add the required dependencies")]
 
 ## Add the required constants
 
-[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-constants.md)] 
+At the top of the Program class, add the following constants to access QnA Maker:
+
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=17-24 "Add the required constants")]
 
 ## Add the KB definition
 
 After the constants, add the following KB definition:
 
-```csharp
-static string kb = @"
-{
-  'name': 'QnA Maker FAQ from quickstart',
-  'qnaList': [
-    {
-      'id': 0,
-      'answer': 'You can use our REST APIs to manage your knowledge base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa',
-      'source': 'Custom Editorial',
-      'questions': [
-        'How do I programmatically update my knowledge base?'
-      ],
-      'metadata': [
-        {
-          'name': 'category',
-          'value': 'api'
-        }
-      ]
-    }
-  ],
-  'urls': [
-    'https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs',
-    'https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq'
-  ],
-  'files': []
-}
-";
-```
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=32-57 "Add the required constants")]
 
 ## Add supporting functions and structures
+Add the following code block inside the Program class:
 
-[!INCLUDE [Add supporting functions and structures](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-support-functions.md)] 
+[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=59-82 "Add supporting functions and structures")]
 
 ## Add a POST request to create KB
 
 The following code makes an HTTPS request to the QnA Maker API to create a KB and receives the response:
 
-```csharp
-async static Task<Response> PostCreateKB(string kb)
-{
-    // Builds the HTTP request URI.
-    string uri = host + service + method;
-
-    // Writes the HTTP request URI to the console, for display purposes.
-    Console.WriteLine("Calling " + uri + ".");
-
-    // Asynchronously invokes the Post(string, string) method, using the
-    // HTTP request URI and the specified data source.
-    using (var client = new HttpClient())
-    using (var request = new HttpRequestMessage())
-    {
-        request.Method = HttpMethod.Post;
-        request.RequestUri = new Uri(uri);
-        request.Content = new StringContent(kb, Encoding.UTF8, "application/json");
-        request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-        var response = await client.SendAsync(request);
-        var responseBody = await response.Content.ReadAsStringAsync();
-        return new Response(response.Headers, responseBody);
-    }
-}
-```
+[!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=94-116 "Add a POST request to create KB")]
 
 This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. 
 
@@ -124,30 +78,7 @@ This API call returns a JSON response that includes the operation ID in the head
 
 Check the status of the operation.
 
-```csharp
-async static Task<Response> GetStatus(string operationID)
-{
-    // Builds the HTTP request URI.
-    string uri = host + service + operationID;
-
-    // Writes the HTTP request URI to the console, for display purposes.
-    Console.WriteLine("Calling " + uri + ".");
-
-    // Asynchronously invokes the Get(string) method, using the
-    // HTTP request URI.
-    using (var client = new HttpClient())
-    using (var request = new HttpRequestMessage())
-    {
-        request.Method = HttpMethod.Get;
-        request.RequestUri = new Uri(uri);
-        request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-        var response = await client.SendAsync(request);
-        var responseBody = await response.Content.ReadAsStringAsync();
-        return new Response(response.Headers, responseBody);
-    }
-}
-```
+[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=127-148 "Add GET request to determine creation status")]
 
 This API call returns a JSON response that includes the operation status: 
 
@@ -178,87 +109,13 @@ Repeat the call until success or failure:
 
 The following method creates the KB and repeats checks on the status.  The _create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
-```csharp
-async static void CreateKB()
-{
-    try
-    {
-        // Starts the QnA Maker operation to create the knowledge base.
-        var response = await PostCreateKB(kb);
-
-        // Retrieves the operation ID, so the operation's status can be
-        // checked periodically.
-        var operation = response.headers.GetValues("Location").First();
-
-        // Displays the JSON in the HTTP response returned by the 
-        // PostCreateKB(string) method.
-        Console.WriteLine(PrettyPrint(response.response));
-
-        // Iteratively gets the state of the operation creating the
-        // knowledge base. Once the operation state is set to something other
-        // than "Running" or "NotStarted", the loop ends.
-        var done = false;
-        while (true != done)
-        {
-            // Gets the status of the operation.
-            response = await GetStatus(operation);
-
-            // Displays the JSON in the HTTP response returned by the
-            // GetStatus(string) method.
-            Console.WriteLine(PrettyPrint(response.response));
-
-            // Deserialize the JSON into key-value pairs, to retrieve the
-            // state of the operation.
-            var fields = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.response);
-
-            // Gets and checks the state of the operation.
-            String state = fields["operationState"];
-            if (state.CompareTo("Running") == 0 || state.CompareTo("NotStarted") == 0)
-            {
-                // QnA Maker is still creating the knowledge base. The thread is 
-                // paused for a number of seconds equal to the Retry-After header value,
-                // and then the loop continues.
-                var wait = response.headers.GetValues("Retry-After").First();
-                Console.WriteLine("Waiting " + wait + " seconds...");
-                Thread.Sleep(Int32.Parse(wait) * 1000);
-            }
-            else
-            {
-                // QnA Maker has completed creating the knowledge base. 
-                done = true;
-            }
-        }
-    }
-    catch
-    {
-        // An error occurred while creating the knowledge base. Ensure that
-        // you included your QnA Maker subscription key where directed in the sample.
-        Console.WriteLine("An error occurred while creating the knowledge base.");
-    }
-    finally
-    {
-        Console.WriteLine("Press any key to continue.");
-    }
-
-}
-``` 
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=154-215 "Add CreateKB method")]
 
 ## Add the CreateKB method to Main
 
 Change the Main method to call the CreateKB method:
 
-```csharp
-static void Main(string[] args)
-{
-    // Call the CreateKB() method to create a knowledge base, periodically 
-    // checking the status of the QnA Maker operation until the 
-    // knowledge base is created.
-    CreateKB();
-
-    // The console waits for a key to be pressed before closing.
-    Console.ReadLine();
-}
-```
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=217-226 "Add CreateKB method")]
 
 ## Build and run the program
 
