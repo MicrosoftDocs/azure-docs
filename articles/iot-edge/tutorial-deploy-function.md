@@ -94,7 +94,7 @@ The Azure IoT Edge extension for Visual Studio Code that you installed in the pr
    2. Provide a name for your solution or accept the default **EdgeSolution**.
    3. Choose **Azure Functions - C#** as the module template. 
    4. Name your module **CSharpFunction**. 
-   5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/csharpfunction.
+   5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. Make sure that you append the module name (eg. /csharpfunction) to the string. The final string looks like \<registry name\>.azurecr.io/csharpfunction.
 
    ![Provide Docker image repository](./media/tutorial-deploy-function/repository.png)
 
