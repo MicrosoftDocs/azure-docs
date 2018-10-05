@@ -151,11 +151,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-13. Click **Choose File** to upload the metadata XML file and click **Create**.
+13. Click **Choose File** to upload the metadata XML file which you have downloaded from the Azure portal and click **Create**.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-14. After clicking on the create, the following screen will appear and the fields will populate automatically and click save.
+14. On the **SAML Single Sign-On Settings** page, fields populate automatically and click save.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
@@ -212,7 +212,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-26. After clicking on the create, the following screen will appear and the fields will populate automatically, type the name of the configuration (for example: *SPSSOWAAD_Test*) In the **Name** textbox and click save.
+26. On the **SAML Single Sign-On Settings** page, fields populate automatically, type the name of the configuration (for example: *SPSSOWAAD_Test*) In the **Name** textbox and click save.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
