@@ -21,6 +21,9 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 > [!IMPORTANT]
 > Hyperscale service tier is currently in public preview and available in limited Azure regions. For the full region list, see [Hyperscale service tier available regions](#hyperscale-regions)
 
+> [!IMPORTANT]
+> Hyperscale service tier is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier.
+
 ## What are the capabilities of the Hyperscale service tier
 
 The Hyperscale service tier in Azure SQL Database provides the following additional capabilities:

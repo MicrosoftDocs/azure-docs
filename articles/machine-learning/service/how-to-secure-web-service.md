@@ -77,7 +77,7 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **Deploy on field programmable gamma arrays (FPGAs)**
++ **Deploy on Field Programmable Gate Arrays (FPGAs)**
 
   The response of the `create_service` operation contains the IP address of the service. The IP address is used when mapping the DNS name to the IP address of the service. The response also contains a __primary key__ and __secondary key__ that are used to consume the service. Provide values for SSL-related parameters as shown in the code snippet:
 
@@ -115,7 +115,7 @@ Next, you must update your DNS to point to the web service.
 
   Update the DNS under the "Configuration" tab of the "Public IP Address" of the AKS cluster as shown in the image. You can find the Public IP Address as one of the resource types created under the resource group that contains the AKS agent nodes and other networking resources.
 
-  [ ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png) ]((.media/how-to-secure-web-service/aks-public-ip-address.png#lightbox)
+  ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## Consume authenticated services
 
@@ -127,7 +127,7 @@ Next, you must update your DNS to point to the web service.
 
   + [How to deploy to AKS](how-to-deploy-to-aks.md)
 
-+ **For ACI and FPGA**:  
++ **For FPGA**:  
 
   The following examples demonstrate how to consume an authenticated FPGA service in Python and C#.
   Replace `authkey` with the primary or secondary key that was returned when the service was deployed.
