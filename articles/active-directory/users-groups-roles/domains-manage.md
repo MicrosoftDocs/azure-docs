@@ -80,8 +80,6 @@ An error is returned when:
 * The number of objects to be renamed is greater than 1000
 * One of the applications to be renamed is a multi-tenant app
 
-![Error messages in the Azure portal](./media/domains-manage/forcedelete.png)
-  
 ### Frequently asked questions
 
 **Q: Why is the domain deletion failing with an error that states that I have Exchange mastered groups on this domain name?** <br>
