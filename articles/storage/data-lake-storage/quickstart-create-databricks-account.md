@@ -115,7 +115,7 @@ Before you begin with this section, you must complete the following prerequisite
 
 Enter the following code into a notebook cell:
 
-    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
 In the cell, press `Shift` + `Enter` to run the code.
 

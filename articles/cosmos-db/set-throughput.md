@@ -32,7 +32,7 @@ You can set throughput for an Azure Cosmos DB container or a set of containers b
    |Database id  |  Provide a unique name to identify your database. Database is a logical container of one or more collections. Database names must contain from 1 through 255 characters, and they cannot contain /, \\, #, ?, or a trailing space. |
    |Collection id  | Provide a unique name to identify your collection. Collection ids have the same character requirements as database names. |
    |Storage capacity   | This value represents the storage capacity of the database. When provisioning throughput for an individual collection, storage capacity can be **Fixed (10 GB)** or **Unlimited**. Unlimited storage capacity requires you to set a partition key for your data.  |
-   |Throughput   | Each collection and database can have throughput in request units per second.  For fixed storage capacity, minimum throughput is 400 request units per second (RU/s), for unlimited storage capacity, minimum throughput is set to 1000 RU/s.|
+   |Throughput   | Each collection and database can have throughput in request units per second.  And a collection can have fixed or unlimited storage capacity. |
 
 6. After you enter values for these fields, select **OK** to save the settings.  
 

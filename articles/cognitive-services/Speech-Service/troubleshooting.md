@@ -1,7 +1,7 @@
 ---
-title: Cognitive Services Speech SDK Troubleshooting
-description: Trouble Shooting Cognitive Services Speech SDK
-titleSuffix: "Microsoft Cognitive Services"
+title: Troubleshoot the Cognitive Services Speech SDK
+description: Troubleshoot the Cognitive Services Speech SDK.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: wolfma61
 
@@ -11,34 +11,36 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
 ---
-# Troubleshooting Speech Services SDK
+# Troubleshoot the Speech SDK
 
-This article provides information to help you solve issues you might encounter when using the Speech SDK.
+This article provides information to help you solve issues you might encounter when you use the Speech SDK.
 
-## Error `WebSocket Upgrade failed with an authentication error (403).`
+## Error: WebSocket Upgrade failed with an authentication error (403)
 
-You may have the wrong endpoint for your region or service. Double-check the URI to make sure it is correct. Also see the next section, as this could also be a problem with your subscription key or authorization token.
+You might have the wrong endpoint for your region or service. Check the URI to make sure it's correct. 
 
-## Error `HTTP 403 Forbidden` or Error `HTTP 401 Unauthorized`
+Also, there might be a problem with your subscription key or authorization token. For more information, see the next section.
 
-This error is often caused by authentication issues. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with status 401 or 403.
+## Error: HTTP 403 Forbidden or HTTP 401 Unauthorized
 
-* If you are using a subscription key for authentication, the cause could be:
+This error often is caused by authentication issues. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with a status of 403 or 401.
 
-    - the subscription key is missing or invalid
-    - you have exceeded your subscription's usage quota
+* If you're using a subscription key for authentication, you might see the error because:
 
-* If you are using an authorization token for authentication, the cause could be:
+    - The subscription key is missing or invalid
+    - You have exceeded your subscription's usage quota
 
-    - the authorization token is invalid
-    - the authorization token is expired
+* If you're using an authorization token for authentication, you might see the error because:
+
+    - The authorization token is invalid
+    - The authorization token is expired
 
 ### Validate your subscription key
 
-You can verify to make sure you have a valid subscription key by running one of the commands below.
+You can verify that you have a valid subscription key by running one of the following commands.
 
 > [!NOTE]
-> Replace `YOUR_SUBSCRIPTION_KEY` and `YOUR_REGION` with your own subscription key and associated region, respectively.
+> Replace `YOUR_SUBSCRIPTION_KEY` and `YOUR_REGION` with your own subscription key and associated region.
 
 * PowerShell
 
@@ -63,8 +65,7 @@ You can verify to make sure you have a valid subscription key by running one of 
 If you use an authorization token for authentication, run one of the following commands to verify that the authorization token is still valid. Tokens are valid for 10 minutes.
 
 > [!NOTE]
-> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file, `YOUR_ACCESS_TOKEN` with the authorization token returned in the previous step,
-> and `YOUR_REGION` with the correct region.
+> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token returned in the preceding step. Replace `YOUR_REGION` with the correct region.
 
 * PowerShell
 
@@ -79,12 +80,12 @@ If you use an authorization token for authentication, run one of the following c
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
     
-    # Read audio into byte array
+    # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
     
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
     
-    # Show the result
+    # Show the result.
     $RecoResponse
     ```
 
@@ -96,22 +97,23 @@ If you use an authorization token for authentication, run one of the following c
 
 ---
 
-## Error `HTTP 400 Bad Request`
+## Error: HTTP 400 Bad Request
 
-This error usually occurs when the request body contains invalid audio data. Only `WAV` format is supported. Also check the request's headers to make sure you are specifying an appropriate `Content-Type` and `Content-Length`.
+This error usually occurs when the request body contains invalid audio data. Only WAV format is supported. Also, check the request's headers to make sure you specify appropriate values for `Content-Type` and `Content-Length`.
 
-## Error `HTTP 408 Request Timeout`
+## Error: HTTP 408 Request Timeout
 
-The error is most likely because no audio data is being sent to the service. This error could also be caused by network issues.
+The error most likely occurs because no audio data is being sent to the service. This error also might be caused by network issues.
 
-## The `RecognitionStatus` in the response is `InitialSilenceTimeout`
+## "RecognitionStatus" in the response is "InitialSilenceTimeout"
 
-Audio data is usually the reason causing the issue. For example:
+This issue usually is caused by audio data. You might see this error because:
 
-* There is a long stretch of silence at the beginning of the audio. The service will stop the recognition after a few seconds and return `InitialSilenceTimeout`.
+* There's a long stretch of silence at the beginning of the audio. In that case, the service stops the recognition after a few seconds and returns `InitialSilenceTimeout`.
+
 * The audio uses an unsupported codec format, which causes the audio data to be treated as silence.
 
 ## Next steps
 
-* [Release notes](releasenotes.md)
+* [Review the release notes](releasenotes.md)
 

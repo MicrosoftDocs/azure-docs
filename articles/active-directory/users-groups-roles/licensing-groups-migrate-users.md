@@ -46,7 +46,7 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
 6. Consider removing the original direct assignments; you may want to do it gradually, in “waves”, to monitor the outcome on a subset of users first.
 
-  You could leave the original direct assignments on users, but when the users leave their licensed groups they will still retain the original license, which is possibly not want you want.
+  You could leave the original direct assignments on users, but when the users leave their licensed groups they will still retain the original license, which is possibly not what you want.
 
 ## An example
 
