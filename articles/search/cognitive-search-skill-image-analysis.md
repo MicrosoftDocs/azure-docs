@@ -42,7 +42,6 @@ Parameters are case-sensitive.
 
 
 ##	Sample definition
-
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
@@ -215,7 +214,7 @@ Parameters are case-sensitive.
                         "Black"
                     ],
                     "accentColor": "873B59",
-                    "isBWImg": false
+                    "isBwImg": false
                     },
                 "imageType": {
                     "clipArtType": 0,

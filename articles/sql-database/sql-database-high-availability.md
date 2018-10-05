@@ -50,7 +50,7 @@ In the premium model, Azure SQL database integrates compute and storage on the s
 
 Both the SQL Server Database Engine process and underlying mdf/ldf files are placed on the same node with locally attached SSD storage providing low latency to your workload. High availability is implemented using standard [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Every database is a cluster of database nodes with one primary database that is accessible for customer workload, and a three secondary processes containing copies of data. The primary node constantly pushes the changes to secondary nodes in order to ensure that the data is available on secondary replicas if the primary node crashes for any reason. Failover is handled by the SQL Server Database Engine – one secondary replica becomes the primary node and a new secondary replica is created to ensure enough nodes in the cluster. The workload is automatically redirected to the new primary node.
 
-In addition, Business Critical cluster provides built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload. 
+In addition, Business Critical cluster has built-in [Read Scale-Out](sql-database-read-scale-out.md) capability that provides free-of charge built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload.
 
 ## Zone redundant configuration (preview)
 
@@ -64,15 +64,6 @@ Because the zone redundant quorum-set has replicas in different datacenters with
 The zone redundant version of the high availability architecture is illustrated by the following diagram:
  
 ![high availability architecture zone redundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
-
-## Read scale-out
-As described, Premium and Business Critical service tiers leverage quorum-sets and Always On technology for High Availability both in single zone and zone redundant configurations. One of the benefits of AlwaysOn is that the replicas are always in the transactionally consistent state. Because the replicas have the same compute size as the primary, the application can take advantage of that extra capacity for servicing the read-only workloads at no extra cost (read scale-out). This way the read-only queries will be isolated from the main read-write workload and will not affect its performance. Read scale-out feature is intended for the applications that include logically separated read-only workloads such as analytics, and therefore could leverage this additional capacity without connecting to the primary. 
-
-To use the Read Scale-Out feature with a particular database, you must explicitly activate it when creating the database or afterwards by altering its configuration using PowerShell by invoking the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) or the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets or through the Azure Resource Manager REST API using the [Databases - Create or Update](/rest/api/sql/databases/createorupdate) method.
-
-After Read Scale-Out is enabled for a database, applications connecting to that database will be directed to either the read-write replica or to a read-only replica of that database according to the `ApplicationIntent` property configured in the application’s connection string. For information on the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
-
-If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.
 
 ## Conclusion
 Azure SQL Database is deeply integrated with the Azure platform and is highly dependent on Service Fabric for failure detection and recovery, on Azure Storage Blobs for data protection and Availability Zones for higher fault tolerance. At the same time, Azure SQL database fully leverages the Always On Availability Group technology from SQL Server box product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs. 
