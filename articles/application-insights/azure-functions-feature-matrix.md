@@ -11,7 +11,7 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
 
