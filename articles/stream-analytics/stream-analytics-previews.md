@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/05/2018
 ---
 
 # Azure Stream Analytics preview features
