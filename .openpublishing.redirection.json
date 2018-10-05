@@ -27641,6 +27641,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/application-gateway-web-app-powershell.md",
+            "redirect_url": "/azure/application-gateway/create-web-app",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-vpn-connectivity-windows10.md",
             "redirect_url": "https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy",
             "redirect_document_id": true
