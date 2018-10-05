@@ -29,7 +29,7 @@ There are two types of Run As Accounts:
   * Creates an Automation connection asset named *AzureClassicRunAsConnection* in the specified Automation account. The connection asset holds the subscription name, subscriptionId, and certificate asset name.
   
   > [!NOTE]
-  > Azure Cloud Solution Provider (Azure CSP) subscriptions supports only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When using a CSP subscription the Azure Classic Run As Account does not get created. The Azure Run As Account still gets created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+  > Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When using a CSP subscription the Azure Classic Run As Account does not get created. The Azure Run As Account still gets created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
 ## <a name="permissions"></a>Permissions to configure Run As accounts
 
