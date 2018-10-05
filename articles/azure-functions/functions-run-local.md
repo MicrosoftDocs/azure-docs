@@ -419,7 +419,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publish to Azure
 
-Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x.
+Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x. You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create).
 
 In version 2.x, you must have [registered your extensions](#register-extensions) in your project before publishing. Projects that require compilation should be built so that the binaries can be deployed.
 
@@ -438,13 +438,8 @@ This command publishes to an existing function app in Azure. An error occurs whe
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
 
 >[!IMPORTANT]  
-> When you create a function app in Azure, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, add the application setting `FUNCTIONS_EXTENSION_VERSION=~1`.  
-Use the following Azure CLI code to add this setting to your function app:
-
-```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup --settings FUNCTIONS_EXTENSION_VERSION=~1
-```
+> When you create a function app in the Azure portal, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#run-on-version-1x).  
+> You can't change the runtime version for a function app that has existing functions.
 
 You can use the following publish options, which apply for both versions, 1.x and 2.x:
 

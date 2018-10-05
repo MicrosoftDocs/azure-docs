@@ -16,17 +16,24 @@ ms.author: glenga
 
  There are two major versions of the Azure Functions runtime: 1.x and 2.x. The current version where new feature work and improvements are being made is 2.x, though both are supported for production scenarios.  The following details some of the differences between the two, how you can create each version, and upgrade from 1.x to 2.x.
 
-> [!NOTE] 
+> [!NOTE]
 > This article refers to the cloud service Azure Functions. For information about the preview product that lets you run Azure Functions on-premises, see the [Azure Functions Runtime Overview](functions-runtime-overview.md).
 
-## Creating 1.x apps
+## Run on version 1.x
 
-New apps created in the Azure Portal are set to 2.x by default as this is the most current version and where new feature investments are being made.  However you can still create v1.x apps by doing the following.
+By default, function apps created in the Azure portal are set to version 2.x. When possible, you should use this runtime version, where new feature investments are being made. If you need to, you can still run a function app on the version 1.x runtime. You must change the runtime version after you create your function app but before you add any functions.
 
-1. Create an Azure Function from the Azure Portal
-1. Open the created app, and while it is blank open up the **Function Settings**
-1. Change the version from ~2 to ~1.  *This toggle will be disabled if you have functions in your app*.
-1. Click save and restart the app.  All templates should now create and run in 1.x.
+Use the following procedure to pin a function app to version 1.x:
+
+1. In the [Azure portal](https://portal.azure.com), browse to your function app.
+
+1. Choose **Platform features** > **Function app settings**, which is under **General settings**. This opens the **Function app settings** tab.
+
+1. In this tab, switch **Runtime version** from **~2** to **~1**. This switch is disabled when you have functions in your app.
+
+    ![](./media/functions-versions/change-runtime-version-portal.png)
+
+1. Go back to the **Overview** tab and choose **Restart** to restart the app.  The function app restarts running on the version 1.x runtime, and the version 1.x templates are used when you create functions.
 
 ## Cross-platform development
 
