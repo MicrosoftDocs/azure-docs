@@ -30,37 +30,37 @@ This quickstart calls QnA Maker APIs:
 
 ## Create a knowledge base Python file
 
-Create a file named `create-new-knowledge-base.py`.
+Create a file named `create-new-knowledge-base-3x.py`.
 
 ## Add the required dependencies
 
-At the top of `create-new-knowledge-base.py`, add the following lines to add necessary dependencies to the project:
+At the top of `create-new-knowledge-base-3x.py`, add the following lines to add necessary dependencies to the project:
 
-[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=1-1 "Add the required dependencies")]
+[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=1-1 "Add the required dependencies")]
 
 ## Add the required constants
 After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key.
 
-[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=5-13 "Add the required constants")]
+[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
 
 ## Add the KB model definition
 
 After the constants, add the following KB model definition. The model is converting into a string after the definition.
 
-[!code-python[Add the KB model definition](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=15-41 "Add the KB model definition")]
+[!code-python[Add the KB model definition](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=15-41 "Add the KB model definition")]
 
 ## Add supporting function
 
 Add the following function to print out JSON in a readable format:
 
-[!code-python[Add supporting function](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=43-45 "Add supporting function")]
+[!code-python[Add supporting function](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=43-45 "Add supporting function")]
 
 ## Add function to create KB
 
 Add the following function to make an HTTP POST request to create the knowledge base. 
 This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication. 
 
-[!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=48-59 "Add function to create KB")]
+[!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=48-59 "Add function to create KB")]
 
 This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. 
 
@@ -78,7 +78,7 @@ This API call returns a JSON response that includes the operation ID in the head
 
 The following function checks the creation status sending in the operation ID at the end of the URL route. The call to `check_status` is inside the main _while_ loop.
 
-[!code-python[Add function to check creation status](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=61-67 "Add function to check creation status")]
+[!code-python[Add function to check creation status](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=61-67 "Add function to check creation status")]
 
 This API call returns a JSON response that includes the operation status: 
 
@@ -108,14 +108,14 @@ Repeat the call until success or failure:
 ## Add main code block
 The following loop polls for the creation operation status periodically until the operation is complete. 
 
-[!code-python[Add main code block](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=70-96 "Add main code block")]
+[!code-python[Add main code block](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=70-96 "Add main code block")]
 
 ## Build and run the program
 
 Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
     ```python
-    python create-new-knowledge-base.py
+    python create-new-knowledge-base-3x.py
     ```
 
 Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, for example QnA Maker FAQ, to view.
