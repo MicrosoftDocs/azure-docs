@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Visualize and analyze events from your building using Azure Digital Twins
 
-This tutorial demonstrates how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, you can integrate simulated device events with other services to visualize and analyze the data. In the third tutorial, you understood how to receive *hot data* (or instantaneous) events. This tutorial shows you steps to perform *warm path analytics* to visualize and store the sensor telemetry data at a slightly slower pace/storage, using [Azure Time Series Insights or TSI](../../time-series-insights/time-series-insights-overview). You will use Azure Time Series Insights to create detailed visualizations and analyses of the telemetry data from your simulated device sensors.
+This tutorial demonstrates how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, you can integrate simulated device events with other services to visualize and analyze the data. In the third tutorial, you understood how to receive *hot data* (or instantaneous) events. This tutorial shows you steps to perform *warm path analytics* to visualize and store the sensor telemetry data at a slightly slower pace/storage, using [Azure Time Series Insights or TSI](../time-series-insights/time-series-insights-overview.md). You will use Azure Time Series Insights to create detailed visualizations and analyses of the telemetry data from your simulated device sensors.
 
 In this tutorial, you learn how to:
 
@@ -30,7 +30,7 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 
 
 ## Stream data using Event Hub
-[Event Hubs](../../event-hubs/event-hubs-about) allow you to create a pipeline to stream your data. This section shows you how to create your Event hub as the connector between your Digital Twins and TSI instances.
+[Event Hubs](../event-hubs/event-hubs-about.md) allow you to create a pipeline to stream your data. This section shows you how to create your Event hub as the connector between your Digital Twins and TSI instances.
 
 ### Create an Event Hub
 
