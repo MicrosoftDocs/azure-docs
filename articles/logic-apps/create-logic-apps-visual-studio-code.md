@@ -9,7 +9,7 @@ ms.author: estfan
 ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
-ms.date: 09/26/2018
+ms.date: 10/05/2018
 ---
 
 # Quickstart: Create and manage automated logic app workflows - Visual Studio Code
@@ -46,7 +46,12 @@ Before you start, make sure you have these items:
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
 * Basic knowledge about [logic app workflow definitions](../logic-apps/logic-apps-workflow-definition-language.md) 
-and their structure, which uses JavaScript Object Notation (JSON)
+and their structure, which uses JavaScript Object Notation (JSON) 
+
+  If you're new to Logic Apps, try the 
+  quickstart that walks you through 
+  [how to create your first logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
+  which focuses more on the basic concepts. 
 
 * Access to the web for signing in to Azure and your Azure subscription
 
