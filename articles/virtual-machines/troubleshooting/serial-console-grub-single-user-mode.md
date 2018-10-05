@@ -24,7 +24,7 @@ Single user mode is a minimal environment with minimal functionality. It can be 
 
 Single user mode is also useful in situations where your VM may only be configured to accept SSH keys to log in. In this case, you may be able to use single user mode to create an account with password authentication.
 
-To enter single user mode, you will need to enter GRUB when your VM is booting up, and modify the boot configuration in GRUB. This may be done with the VM serial console.
+To enter single user mode, you will need to enter GRUB when your VM is booting up, and modify the boot configuration in GRUB. This may be done with the VM serial console. 
 
 ## General GRUB access
 To access GRUB, you will need to reboot your VM while keeping the serial console blade open. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds and allow user keyboard input to cancel the timeout. 
