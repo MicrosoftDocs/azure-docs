@@ -15,7 +15,7 @@ ms.date: 10/05/2018
 
 To access resources in other Azure Active Directory (Azure AD) tenants and 
 authenticate your identity without signing in, your logic app can use a 
-[system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) 
+[managed identity](../active-directory/managed-identities-azure-resources/overview.md) 
 (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. 
 Azure manages this identity for you and helps secure your credentials because you don't 
 have to provide or rotate secrets. This article shows how you can create and use a 
@@ -31,8 +31,8 @@ see [What is managed identities for Azure resources?](../active-directory/manage
 * An Azure subscription, or if you don't have a subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-* The logic app where you want to use the system-assigned managed identity. 
-If you don't have a logic app, see 
+* The logic app where you want to use the system-assigned 
+managed identity. If you don't have a logic app, see 
 [Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="create-identity"></a>
@@ -45,8 +45,8 @@ or Azure PowerShell.
 
 ### Azure portal
 
-To enable a system-assigned managed identity for your logic app 
-through the Azure portal, turn on the **Register with Azure Active Directory** 
+To enable a system-assigned managed identity for your logic app through 
+the Azure portal, turn on the **Register with Azure Active Directory** 
 setting in your logic app's workflow settings.
 
 1. In the [Azure portal](https://portal.azure.com), 
@@ -64,8 +64,8 @@ open your logic app in Logic App Designer.
 
       ![Turn on managed identity setting](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
-      Your logic app now has a managed identity registered in 
-      Azure Active Directory with these properties and values:
+      Your logic app now has a system-assigned managed identity registered 
+      in Azure Active Directory with these properties and values:
 
       ![GUIDs for principal ID and tenant ID](./media/create-managed-service-identity/principal-tenant-id.png)
 
@@ -77,10 +77,12 @@ open your logic app in Logic App Designer.
 
 ### Deployment template
 
-When you want to automate creating and deploying Azure resources such as logic apps, 
-you can use [Azure Resource Manager templates](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). 
-To create a system-assigned managed identity for your logic app through a template, 
-add the **identity** element and **type** property to your logic app workflow 
+When you want to automate creating and deploying 
+Azure resources such as logic apps, you can use 
+[Azure Resource Manager templates](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). 
+To create a system-assigned managed identity for 
+your logic app through a template, add the `"identity"` 
+element and `"type"` property to your logic app workflow 
 definition in your deployment template: 
 
 ```json
@@ -89,7 +91,7 @@ definition in your deployment template:
 }
 ```
 
-For example, your logic app might look like this version:
+For example:
 
 ```json
 {
@@ -137,12 +139,12 @@ workflow definition includes these additional properties:
 
 After you create a system-assigned managed identity for your logic app, 
 you can [give that identity access to other Azure resources](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). 
-You can then use the managed identity for authentication, just like any other 
+You can then use that identity for authentication, just like any other 
 [service principal](../active-directory/develop/app-objects-and-service-principals.md). 
 
 > [!NOTE]
-> Both the managed identity and resource where you want to 
-> assign access must have the same Azure subscription.
+> Both the system-assigned managed identity and the resource where 
+> you want to assign access must have the same Azure subscription.
 
 ### Assign access to managed identity
 
@@ -176,8 +178,8 @@ When your logic app appears, select the logic app.
 After you set up your logic app with a system-assigned managed identity 
 and assigned access to the resource you want for that identity, 
 you can now use that identity for authentication. For example, 
-you can use an HTTP action so your logic app can send an HTTP request 
-or call to that resource. 
+you can use an HTTP action so your logic app can send an HTTP 
+request or call to that resource. 
 
 1. In your logic app, add the **HTTP** action. 
 
@@ -225,8 +227,8 @@ system-assigned identity from Azure AD.
 
 ### Deployment template
 
-If you created the logic app's managed identity with 
-an Azure Resource Manager deployment template, set the 
+If you created the logic app's system-assigned managed identity 
+with an Azure Resource Manager deployment template, set the 
 `"identity"` element's `"type"` property to `"None"`. 
 This action also deletes the principal ID from Azure AD. 
 
