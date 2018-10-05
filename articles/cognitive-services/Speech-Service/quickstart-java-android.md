@@ -108,7 +108,7 @@ The text and graphical representation of your UI should now look like this.
 
 ## Add sample code
 
-1. Open the source file `MainActivity.java`. Replace all the code following the `package` statement with the following.
+1. Open the source file `MainActivity.java`. Replace all the code in this file with the following.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 

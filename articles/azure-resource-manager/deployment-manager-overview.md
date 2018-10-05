@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2018
+ms.date: 10/01/2018
 ms.author: tomfitz
 ---
 # Enable safe deployment practices with Azure Deployment Manager (Public Preview)
@@ -215,7 +215,7 @@ For more information, see [steps template reference](/azure/templates/Microsoft.
 
 ### Rollouts
 
-To make sure the artifact source is available, the rollout depends on it. The rollout defines steps groups for each service unit that is deployed. You can define actions to take before or after deployment. For example, you can specify that the deployment wait after the service unit has been deployed. 
+To make sure the artifact source is available, the rollout depends on it. The rollout defines steps groups for each service unit that is deployed. You can define actions to take before or after deployment. For example, you can specify that the deployment wait after the service unit has been deployed. You can define the order of the step groups.
 
 The identity object specifies the [user-assigned managed identity](#identity-and-access) that performs the deployment actions.
 
@@ -243,6 +243,7 @@ The following example shows the general format of the rollout.
 		"stepGroups": [
 			{
 				"name": "stepGroup1",
+                "dependsOnStepGroups": ["<step-group-name>"],
 				"preDeploymentSteps": ["<step-ID>"],
 				"deploymentTargetId":
 					"<service-unit-ID>",
