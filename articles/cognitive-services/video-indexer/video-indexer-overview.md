@@ -35,7 +35,7 @@ Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure
 - **Face detection**: Detects and groups faces appearing in the video.
 - **Thumbnail extraction for faces ("best face")**:	Automatically identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extract it as an image asset.
 - **Celebrity identification**: Recognizes celebrities in the video based on a database of 1M celebrities. The source comes from IMDB, Wikipedia, and top Linkedin influencers.
-- **Custom face identification**: Recognizes faces in the video based on a custom model trained for the specific account.
+- **Account-based face identification**: Video Indexer trains a model for a specific account. It then recognizes faces in the video based on the model trained specifically for videos in that account.
 - **Textual content moderation**: Detects explicit text in the audio transcript.
 - **Shot detection**: Determines when a scene changes in the video.
 - **Black frame detection**: Identifies black frames presented in the video.
