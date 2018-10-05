@@ -193,6 +193,9 @@ Based on the services selected in the previous step, this page shows all attribu
 ### Directory Extension attribute sync
 You can extend the schema in Azure AD with custom attributes added by your organization or other attributes in Active Directory. To use this feature, select **Directory Extension attribute sync** on the **Optional Features** page. You can select more attributes to sync on this page.
 
+>[!NOTE]
+>The Available attributes box is case sensitive.
+
 ![Directory extensions](./media/how-to-connect-install-custom/extension2.png)
 
 For more information, see [Directory extensions](how-to-connect-sync-feature-directory-extensions.md).
