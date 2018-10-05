@@ -15,7 +15,7 @@ ms.date: 05/29/2018
 ms.author: juliako
 ---
 
-# Azure Media Services v3 (preview) frequently asked questions
+# Azure Media Services v3 frequently asked questions
 
 This article gives answers to Azure Media Services (AMS) v3 frequently asked questions.
 

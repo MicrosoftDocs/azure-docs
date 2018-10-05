@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Media Services v3 (preview) Documentation 
+title: Azure Media Services v3 Documentation 
 metadata:
   document_id: 
   title: Azure Media Services v3 Documentation - Tutorials, API Reference | Microsoft Docs
@@ -81,7 +81,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview">OpenAPI Specification (Swagger)</a>
+    - html: <a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01">OpenAPI Specification (Swagger)</a>
     - html: <a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>
     - html: <a href="https://aka.ms/ams-v3-rest-ref">REST</a>
     - html: <a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>

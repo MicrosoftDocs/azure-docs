@@ -86,7 +86,7 @@
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview  
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01  
   - name: Azure CLI
     href: https://aka.ms/ams-v3-cli-ref
   - name: REST
