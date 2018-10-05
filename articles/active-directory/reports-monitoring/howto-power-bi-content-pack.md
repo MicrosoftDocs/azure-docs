@@ -27,6 +27,10 @@ ms.reviewer: dhanyahk
 
 As an IT administrator, you need to understand how your users adopt and use Azure Active Directory features. This allows you to plan your IT infrastructure and communication to increase usage and get the most out of Azure AD features. Power BI Content Pack for Azure Active Directory gives you the ability to further analyze your data to gather richer insights into what’s going on with your directory. With the integration of Azure Active Directory APIs into Power BI, you can easily download the pre-built content pack and gain insight into all the activities within your Azure Active Directory using the rich visualization experience that Power BI offers. You can create your own dashboard and share it easily with anyone in your organization. 
 
+## Prerequisites
+
+You need an Azure AD premium (P1/P2) license to use the content pack. 
+
 ## Install the content pack
 
 Check out the [quickstart](quickstart-install-power-bi-content-pack.md) to install the Azure AD Power BI content pack.
