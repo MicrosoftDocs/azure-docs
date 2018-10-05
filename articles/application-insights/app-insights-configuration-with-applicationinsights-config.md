@@ -246,7 +246,9 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
 <EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+
 <!-- The properties below are optional. The values shown are the defaults for each property -->
+
 <FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
 <MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
 </Channel>
