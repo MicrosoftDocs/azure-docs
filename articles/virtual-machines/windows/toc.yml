@@ -384,6 +384,8 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
+    - name: VM startup is stuck on "Getting Windows Ready. Don't turn off your computer"
+      href: troubleshoot-vm-configuring-update-on-boot.md
     - name: Reset local password without Azure agent
       href: reset-local-password-without-agent.md
     - name: Understand a system reboot
