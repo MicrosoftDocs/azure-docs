@@ -44,7 +44,7 @@ The prerequisites to install a physical device are as follows.
 
 Before you begin, make sure that:
 
-* You've completed all the steps in [Prepare the portal for Data Box Edge](data-box-gateway-deploy-prep.md).
+* You've completed all the steps in [Prepare the portal for Data Box Edge](data-box-edge-deploy-prep.md).
     * You've created Data Box Edge resource to deploy your device.
     * You've generated the activation key to activate your device with the Data Box Edge resource.
 
@@ -101,7 +101,7 @@ The device must be installed in a standard 19-inch rack. Use the following proce
 
     ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
-3. To attach the inner rail on the chassis, ensure that keyhole openings on the inner rail are aligned with the locating pins on the side of the chassis. With the heads of the chassis locating pins protruding through the keyhole openings in the inner rail, pull the rail toward the front of the chassis until the rail locks into place with an audible click. Repeat with the other inner rail. Push the chassis with the inner rail into the slide to complete the rack installation.
+3. To attach the inner rail on the chassis, ensure that keyhole openings on the inner rail are aligned with the locating pins on the side of the chassis. Make sure that the heads of the chassis locating pins protrude through the keyhole openings in the inner rail. Pull the rail toward the front of the chassis until the rail locks into place with an audible click. Repeat with the other inner rail. Push the chassis with the inner rail into the slide to complete the rack installation.
 
     ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-3.png)
 

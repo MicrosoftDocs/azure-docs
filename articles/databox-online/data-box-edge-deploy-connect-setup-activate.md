@@ -47,7 +47,7 @@ Before you configure and set up your Data Box Edge, make sure that:
 
 1. Configure the Ethernet adapter on the computer you are using to connect to the Edge device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
 2. Connect the computer to PORT 1 on your device. 
-3. Open a browser window and access the local web UI of the device at https://192.168.100.10. This may take a few minutes after you have turned on the device. 
+3. Open a browser window and access the local web UI of the device at https://192.168.100.10. This action may take a few minutes after you have turned on the device. 
 4. You see an error or a warning indicating that there is a problem with the website’s security certificate. Click **Continue to this webpage**. (These steps may be different based on the browser used.)
    
     ![](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
@@ -89,7 +89,7 @@ You're now at the **Dashboard** of your device.
    1. Supply the **Web proxy URL** in this format: `http://host-IP address or FDQN:Port number`. HTTPS URLs are not supported.
    2. Specify **Authentication** as **Basic** or **None**.
    3. If using authentication, you'll also need to provide a **Username** and **Password**.
-   4. Click **Apply**. This will validate and apply the configured web proxy settings.
+   4. Click **Apply** to validate and apply the configured web proxy settings.
 
 5. (Optionally) configure the time settings for your device, such as time zone and the primary and secondary NTP servers. NTP servers are required because your device must synchronize time so that it can authenticate with your cloud service providers.
     
@@ -100,7 +100,7 @@ You're now at the **Dashboard** of your device.
     1. From the dropdown list, select the **Time zone** based on the geographic location in which the device is being deployed. The default time zone for your device is PST. Your device will use this time zone for all scheduled operations.
     2. Specify a **Primary NTP server** for your device or accept the default value of time.windows.com. Ensure that your network allows NTP traffic to pass from your datacenter to the Internet.
     3. Optionally specify a **Secondary NTP server** for your device.
-    4. Click **Apply**. This will validate and apply the configured time settings.
+    4. Click **Apply** to validate and apply the configured time settings.
 
 6. In the **Cloud settings** page, activate your device with the Data Box Edge service in Azure portal.
     
@@ -110,7 +110,7 @@ You're now at the **Dashboard** of your device.
        
          ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
     
-    3. After the device is successfully activated, you're presented with connectivity mode options. These are configured if you need to work with the device in partially disconnected or disconnected mode. 
+    3. After the device is successfully activated, you're presented with connectivity mode options. These settings are configured if you need to work with the device in partially disconnected or disconnected mode. 
 
         ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)    
 
