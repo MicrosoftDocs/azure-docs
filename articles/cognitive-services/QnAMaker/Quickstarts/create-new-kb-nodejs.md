@@ -108,7 +108,7 @@ The following function is the main function and creates the KB and repeats check
 Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
 ```bash
-npm start
+node create-new-knowledge-base.js
 ```
 
 Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 

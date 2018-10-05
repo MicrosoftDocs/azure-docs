@@ -3,7 +3,7 @@ title: Network topologies for Azure SQL Database Managed Instance migrations usi
 description: Learn the source and target configurations for Database Migration Service.
 services: database-migration
 author: HJToland3
-ms.author: jtoland
+ms.author: rajpo
 manager: 
 ms.reviewer: 
 ms.service: database-migration
