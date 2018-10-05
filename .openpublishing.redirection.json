@@ -16312,6 +16312,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-claims-mapping.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-claims-mapping",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-configurable-token-lifetimes.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-configurable-token-lifetimes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-enterprise-app-role-management.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-enterprise-app-role-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-consent-experience.md",
+            "redirect_url": "/azure/active-directory/develop/application-consent-experience",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/develop/active-directory-integrating-applications.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
             "redirect_document_id": false
