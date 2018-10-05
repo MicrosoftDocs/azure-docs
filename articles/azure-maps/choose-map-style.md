@@ -32,8 +32,8 @@ The second code clock uses the map's [setStyle](https://docs.microsoft.com/javas
 
 ## Add the style picker
 
-<iframe height='500' scrolling='no' title='Adding the style picker' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Adding the style picker</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<p data-height="500" data-theme-id="0" data-slug-hash="OwgyvG" data-default-tab="js,result" data-user="azuremaps" data-pen-title="Adding the style picker" class="codepen">See the Pen <a href="https://codepen.io/azuremaps/pen/OwgyvG/">Adding the style picker</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 The first code block in the above code creates a Map object without pre-setting the style. See [create a map](./map-create.md) for instructions on how to create a map.
 
