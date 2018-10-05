@@ -80,7 +80,7 @@ An error is returned when:
 * The number of objects to be renamed is greater than 1000
 * One of the applications to be renamed is a multi-tenant app
 
-![Error messages in the Azure portal](./media/domains-manage/force-delete.png)
+![Error messages in the Azure portal](./media/domains-manage/forcedelete.png)
   
 ### Frequently asked questions
 
