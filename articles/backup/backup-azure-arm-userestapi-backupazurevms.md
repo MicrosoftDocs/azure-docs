@@ -303,7 +303,6 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 Accepted     |         |     Accepted    |
 
 #### Example responses
@@ -422,3 +421,12 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 Accepted     |         |     Accepted    |
+
+## Next steps
+
+[Restore data from an Azure Virtual machine backup](backup-azure-arm-userestapi-restoreazurevms.md).
+
+For more information on the Azure Backup REST APIs, see the following documents:
+
+- [Azure Recovery Services provider REST API](/rest/api/recoveryservices/)
+- [Get started with Azure REST API](/rest/api/azure/)
