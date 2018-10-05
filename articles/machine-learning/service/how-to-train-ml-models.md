@@ -15,9 +15,9 @@ ms.date: 09/24/2018
 
 Training machine learning models, particularly deep neural networks, is often a time- and compute-intensive task. Once you've finished writing your training script and running on a small subset of data on your local machine, you will likely want to scale up your workload.
 
-To facilitate training, the Azure Machine Learning Python SDK provides a high-level abstraction, the `Estimator` class, which allows users to easily train their models in the Azure ecosystem. You can create and use an `Estimator` object to submit any training code you want to run on remote compute, whether it's a single-node run or distributed training across a GPU cluster. For PyTorch and TensorFlow jobs, Azure Machine Learning also provides respective custom PyTorch and TensorFlow `Estimators` to simplify using these frameworks.
+To facilitate training, the Azure Machine Learning Python SDK provides a high-level abstraction, the estimator class, which allows users to easily train their models in the Azure ecosystem. You can create and use an `Estimator` object to submit any training code you want to run on remote compute, whether it's a single-node run or distributed training across a GPU cluster. For PyTorch and TensorFlow jobs, Azure Machine Learning also provides respective custom `PyTorch` and `TensorFlow` estimators to simplify using these frameworks.
 
-## Train with an `Estimator`
+## Train with an estimator
 
 Once you've created your [workspace](concept-azure-machine-learning-architecture.md#workspace) and set up your [development environment](how-to-configure-environment.md), training a model in Azure Machine Learning involves the following steps:  
 1. Create a [remote compute target](how-to-set-up-training-targets.md)
