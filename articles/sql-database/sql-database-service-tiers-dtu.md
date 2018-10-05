@@ -1,6 +1,6 @@
 ---
 title: 'Azure SQL Database service tiers - DTU | Microsoft Docs'
-description: Learn about service tiers for single and pool databases to provide compute sizes and storage sizes.  
+description: Learn about service tiers for single and pooled databases to provide compute sizes and storage sizes.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: 
@@ -11,14 +11,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 10/04/2018
 ---
-# Choosing a DTU-based service tier, compute size, and storage resources 
+# DTU-based service tiers
 
-Service tiers are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers provide flexibility of changing compute sizes without downtime. Single databases and elastic pools are billed hourly based on service tier and compute size.
+DTU-based service tiers are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers provide flexibility of changing compute sizes without downtime. Single databases and elastic pools are billed hourly based on service tier and compute size.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance, currently in public preview does not support a DTU-based purchasing model. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
+
+> [!NOTE]
+> For information about vCore-based service tiers, see [vCore-based service tiers](sql-database-service-tiers-vcore.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-service-tiers.md).
 
 ## Choosing a DTU-based service tier
 

@@ -13,7 +13,7 @@ ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 10/04/2018
 ---
-# Choosing a vCore service tier, compute, memory, storage, and IO resources
+# vCore service tiers, Azure Hybrid Use Benefit, and migration
 
 The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also enables you to choose generation of hardware:
 
@@ -21,6 +21,9 @@ The vCore-based purchasing model enables you to independently scale compute and 
 - Gen 5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.5. GB per core, fast eNVM SSD
 
 vCore model also allows you to use [Azure Hybrid Use Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings.
+
+> [!NOTE]
+> For information about DTU-based service tiers, see [DTU-based service tiers](sql-database-service-tiers-dtu.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-service-tiers.md).
 
 ## Service tier characteristics
 

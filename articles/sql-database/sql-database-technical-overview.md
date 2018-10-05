@@ -42,7 +42,7 @@ SQL Database delivers predictable performance with multiple resource types, serv
 With SQL Database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed compute size. SQL Database provides different compute sizes for different needs, and enables databases to be pooled to maximize the use of resources and save money.
 
 - With [SQL Database Managed Instance](sql-database-managed-instance.md), each instance is isolated from other instances with guaranteed resources. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
-- With the [Hyperscale service tier](sql-database-hyperscale.md) (preview) in the vCore purchasing model, you can scale to 100 TB with fast backup and restore capabilities.
+- With the [Hyperscale service tier](sql-database-service-tier-hyperscale.md) (preview) in the vCore purchasing model, you can scale to 100 TB with fast backup and restore capabilities.
 
 ### Adjust performance and scale without downtime
 
@@ -53,7 +53,7 @@ SQL Database offers a [DTU-based purchasing model](sql-database-service-tiers-dt
 You can build your first app on a small, single database at a low cost per month in the General Purpose service tier and then change its service tier manually or programmatically at any time to the Business Critical Service tier to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
 > [!IMPORTANT]
-> The [Hyperscale service tier](sql-database-hyperscale.md) is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier..
+> The [Hyperscale service tier](sql-database-service-tier-hyperscale.md) is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier..
 
 Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. However, there are scripts that can help automate scalability for a singe Azure SQL Database. For an example, see [Use PowerShell to monitor and scale a single SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md). 
 
