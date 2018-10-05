@@ -17,7 +17,7 @@ ms.author: tilee
 
 ---
 
-# Application Insights for Azure Functions - Feature Matrix
+# Application Insights for Azure Functions Supported Features
 
 Below is the currently supported list of features for the [Application Insights integration with Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring). Please review Azure Functions' guide for [Getting started](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
 
