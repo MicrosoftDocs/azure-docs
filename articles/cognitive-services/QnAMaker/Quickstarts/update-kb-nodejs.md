@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Update knowledge base - REST, Node.js - QnA Maker"
 titleSuffix: Azure Cognitive Services
-description: This quickstart walks you through programmatically updating an existing QnA maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
+description: This quickstart walks you through programmatically updating an existing QnA Maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -13,21 +13,21 @@ ms.date: 10/02/2018
 ms.author: diberry
 ---
 
-# Quickstart: Update a Qna Maker knowledge base in Node.js
+# Quickstart: Update a QnA Maker knowledge base in Node.js
 
-This quickstart walks you through programmatically updating an existing QnA maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
+This quickstart walks you through programmatically updating an existing QnA Maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
 
 This API is equivalent to editing, then using the **Save and train** button in the QnA Maker portal.
 
-This quickstart calls Qna Maker APIs:
+This quickstart calls QnA Maker APIs:
 * [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - The model for the knowledge base is defined in the JSON sent in the body of the API request. 
 * [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 ## Prerequisites
 
 * [Node.js 6+](https://nodejs.org/en/download/)
-* You must have a [Qna Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
-* Qna Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+* QnA Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
@@ -83,7 +83,7 @@ Next, add the following supporting functions.
 
 ## Add PATCH request to update KB
 
-Add the following functions to make an HTTP PATCH request to update the knowledge base. The `Ocp-Apim-Subscription-Key` is the Qna Maker service key, used for authentication.
+Add the following functions to make an HTTP PATCH request to update the knowledge base. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication.
 
 [!code-nodejs[Add PATCH request to update KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=84-111 "Add PATCH request to update KB")]
 
@@ -138,10 +138,10 @@ The following method updates the KB and repeats checks on the status. Because th
 
 ## Run the program
 
-Enter the following command at a command-line to run the program. It will send the request to the Qna Maker API to update the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
+Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to update the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
 ```bash
-npm start
+node update-knowledge-base.js
 ```
 
 Once your knowledge base is updated, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 
