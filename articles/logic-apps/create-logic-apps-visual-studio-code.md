@@ -1,6 +1,6 @@
 ---
 title: Create and manage automated workflows with Visual Studio Code - Azure Logic Apps | Microsoft Docs
-description: Create and manage logic apps in Visual Studio Code (VS Code)
+description: Quickstart for how to create and manage logic apps with JSON in Visual Studio Code (VS Code)
 services: logic-apps
 ms.service: logic-apps
 ms.workload: azure-vs
@@ -12,15 +12,16 @@ ms.suite: integration
 ms.date: 09/26/2018
 ---
 
-# Create and manage automated logic app workflows - Visual Studio Code
+# Quickstart: Create and manage automated logic app workflows - Visual Studio Code
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and Visual Studio Code, you can create and manage logic apps that help 
 you automate tasks, workflows, and processes for integrating apps, 
 data, systems, and services across organizations and enterprises. 
-This article shows how you can create and edit logic app workflow 
-definitions by working in a code-based experience. You can also 
-work on logic apps already deployed to 
+This quickstart shows how you can create and edit logic app workflow 
+definitions by working with the workflow definition schema in 
+JavaScript Object Notation (JSON) through a code-based experience. 
+You can also work on existing logic apps already deployed to 
 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> 
 in the cloud. 
 
@@ -39,15 +40,12 @@ the logic app looks like this example:
 
 ![Finished logic app](./media/create-logic-apps-visual-studio-code/overview.png)
 
-## Prerequisites
-
 Before you start, make sure you have these items:
 
 * If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-* Basic knowledge about logic app 
-[workflow definitions](../logic-apps/logic-apps-workflow-definition-language.md) 
+* Basic knowledge about [logic app workflow definitions](../logic-apps/logic-apps-workflow-definition-language.md) 
 and their structure, which uses JavaScript Object Notation (JSON)
 
 * Access to the web for signing in to Azure and your Azure subscription
@@ -58,7 +56,7 @@ and their structure, which uses JavaScript Object Notation (JSON)
 
   * Visual Studio Code extension for Azure Logic Apps
 
-    You can install this extension from the 
+    You can download and install this extension from the 
     [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) 
     or directly from inside Visual Studio Code. 
     Make sure you reload Visual Studio Code after installing. 
