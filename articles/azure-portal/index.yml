@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure portal customization documentation 
+title: Azure portal customizations documentation 
 metadata:
     description: Learn how to personalize the Azure portal.
     services: azure portal
@@ -18,7 +18,7 @@ metadata:
     ms.author: cwatson
 
 abstract:
-  description: The Azure portal is a web-based application where you can create, manage, and remove Azure resources and services. It includes a customizable dashboard and accessibility options.
+  description: The Azure portal is web-based unified console that allows you to build, manage, and monitor everything from simple web apps to complex cloud applications. It includes a customizable dashboard and accessibility options.
  
 sections:
 
