@@ -42,7 +42,7 @@ Using a custom image configured for your scenario can provide several advantages
 
 ## Prepare a custom image
 
-In Azure you can prepare a managed image from from snapshots of an Azure VM's OS and data disks, from a generalized Azure VM with managed disks, or from a generalized on-premises VHD that you upload. To scale Batch pools reliably with a custom image, we recommend creating a managed image using *only* the first method: using snapshots of the VM's disks. See the following steps to prepare a VM, take a snapshot, and create an image from the snapshot. 
+In Azure you can prepare a managed image from snapshots of an Azure VM's OS and data disks, from a generalized Azure VM with managed disks, or from a generalized on-premises VHD that you upload. To scale Batch pools reliably with a custom image, we recommend creating a managed image using *only* the first method: using snapshots of the VM's disks. See the following steps to prepare a VM, take a snapshot, and create an image from the snapshot. 
 
 ### Prepare a VM 
 
@@ -57,7 +57,7 @@ If you are creating a new VM for the image, use an Azure Marketplace image suppo
 
 A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) or [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md) VMs.
 
-### Create an image from one or more snapshot
+### Create an image from one or more snapshots
 
 To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image#az_image_create) command. You can create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
 
