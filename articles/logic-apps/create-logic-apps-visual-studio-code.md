@@ -28,9 +28,10 @@ in the cloud.
 Although you can perform these same tasks in the 
 <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 and in Visual Studio, you can get started faster in Visual Studio 
-Code when you want to work directly in code. For example, 
-you can also disable, enable, delete, and refresh already created logic apps. 
-Also, you can work on logic apps and integration accounts from any development 
+Code when you're already familiar with logic app definitions and 
+want to work directly in code. For example, you can disable, 
+enable, delete, and refresh already created logic apps. Also, 
+you can work on logic apps and integration accounts from any development 
 platform where Visual Studio Code runs, such as Linux, Windows, and Mac.
 
 For this article, you can create the same logic app as in the 
