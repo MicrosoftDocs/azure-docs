@@ -33,16 +33,16 @@ The following table helps you understand the differences between these two tiers
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|Most business workloads with highly scalable storage and read-scale requirements|
 |Compute|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|
 |Memory|Gen4: 7 GB per core<br>Gen5: 5.5 GB per core | Gen4: 7 GB per core<br>Gen5: 5.5 GB per core |Gen4: 7 GB per core<br>Gen5: 5.5 GB per core|
-|Storage|[Premium remote storage](../virtual-machines/windows/premium-storage.md),<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 8 TB |Local SSD storage,<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |Flexible, auto-grow of storage as needed. Supports up to 100 TB storage and beyond. Local SSD storage for local buffer pool cache and local data storage. Azure remote storage as final long-term data store. |
+|Storage|[Premium remote storage](../virtual-machines/windows/premium-storage.md),<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 8 TB |Local SSD storage,<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |Flexible, autogrow of storage as needed. Supports up to 100 TB storage and beyond. Local SSD storage for local buffer pool cache and local data storage. Azure remote storage as final long-term data store. |
 |IO throughput (approximate)|Single database: 500 IOPS per vCore with 7000 maximum IOPS</br>Managed Instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per core with 200,000 maximum IOPS|TBD|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone redundant HA|?|
-|Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and not of size of data operations (in minutes not hours/days).|
+|Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and are not a size of data operation (taking minutes rather than hours or days).|
 |In-Memory|Not supported|Supported|Not supported|
 |||
 
 - For more information, see [vCore resource limits in Single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- For more infomation about the General Purpose and Business Critical service tiers, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
-- For details on the Hyperscale service tier in in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
+- For more information about the General Purpose and Business Critical service tiers, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
+- For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
 
 > [!IMPORTANT]
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
@@ -89,9 +89,9 @@ You can only create a geo-secondary using the same service tier as the primary. 
 
 ### Using database copy to convert a DTU-based database to a vCore-based database.
 
-You can copy any database with a DTU-based compute size to a database with a vCore-based compute size without restrictions or special sequencing as long as the target compute size supports the maximum database size of the source database. This is because the database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target. 
+You can copy any database with a DTU-based compute size to a database with a vCore-based compute size without restrictions or special sequencing as long as the target compute size supports the maximum database size of the source database. The database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target.
 
 ## Next steps
 
 - For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
-- For details on specific compute sizes and storage size choices available for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
