@@ -46,9 +46,9 @@ In this section, we will use [Event Grid](../event-grid/overview.md) to collect 
 
     ![Create Event Grid Topic](./media/tutorial-facilities-events/create-event-grid-topic.png)
 
-1. Navigate to the event grid topic from your resource group, click on **Overview**, and copy to your clipboard the value for **Topic Endpoint**. You will need this in the proceding section. 
+1. Navigate to the event grid topic from your resource group, click on **Overview**, and copy to your clipboard the value for **Topic Endpoint**. You will need this in the proceeding section. 
 
-1. Click on **Access keys**, and copy **Key 1** and **Key 2** to your clipboard. You will use them to create the endpoint in the proceding steps.
+1. Click on **Access keys**, and copy **Key 1** and **Key 2** to your clipboard. You will use them to create the endpoint in the proceeding steps.
 
     ![Event Grid Keys](./media/tutorial-facilities-events/event-grid-keys.png)
 
