@@ -29,10 +29,10 @@ Swagger provides an interactive summary of your API including:
 Swagger is therefore a convenient tool to assist with development and testing calls made to the Management API.
 
 >[!TIP]
->For your convenience, a Swagger sneak preview is provided to demonstrate the API feature set.
+>For your reference, a Swagger sneak preview is provided to demonstrate the API feature set.
 >It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-You can access your own, generated, Management API Swagger documentation can be accessed publicly at:
+You can access your own, generated, Management API Swagger documentation at:
 
 ```plaintext
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
@@ -45,9 +45,9 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 ## Reference material
 
-Automatically generated reference material is supplied explaining critical concepts and Object Models.
+Automatically generated reference material explains critical concepts and Object Models.
 
-A concise summary describing API use is provided:
+A concise summary describes the API:
 
 ![Swagger top][1]
 
@@ -59,13 +59,13 @@ You can click into each listed Object Model for a more detailed summary of key a
 
 ![Swagger model][3]
 
-The generated Swagger Object Models is convenient to see all available Azure Digital Twins [Objects and APIs](./concepts-objectmodel-spatialgraph.md). It's therefore a great resource for developers to use when building solutions on Azure Digital Twins.
+The generated Swagger Object Models are convenient to see all available Azure Digital Twins [Objects and APIs](./concepts-objectmodel-spatialgraph.md). It's a great resource for developers to use when building solutions on Azure Digital Twins.
 
 ## Endpoint summary
 
-Swagger also provides a thorough overview of all endpoints that comprise the API.
+Swagger also provides a thorough overview of all endpoints that compose the API.
 
-Each listed endpoint also includes required request information such as:
+Each listed endpoint also includes the required request information such as:
 
 * Required parameters.
 * Required parameter data types.
@@ -73,7 +73,7 @@ Each listed endpoint also includes required request information such as:
 
 ![Swagger endpoints][4]
 
-Each resource can be clicked to gain a more detailed overview.
+Each resource can be clicked to see a more detailed overview.
 
 ## Using Swagger to test endpoints
 
@@ -83,7 +83,7 @@ After clicking into a specific endpoint, you'll see a  **Try it out** button:
 
 ![Swagger try][5]
 
-Expanding that button brings up input fields for each required and optional parameter. Enter the values accordingly and click **Execute**:
+Expanding that section brings up input fields for each required and optional parameter. Enter the values accordingly and click **Execute**:
 
 ![Swagger tried][6]
 
@@ -91,7 +91,7 @@ After executing the test, you can validate the response data.
 
 ## Swagger response data
 
-Each listed endpoint also includes valid response body data to validate your development and tests. These examples include the desired status codes and JSON for successful HTTP requests.
+Each listed endpoint also includes response body data to validate your development and tests. These examples include the desired status codes and JSON for successful HTTP requests.
 
 ![Swagger response][7]
 
