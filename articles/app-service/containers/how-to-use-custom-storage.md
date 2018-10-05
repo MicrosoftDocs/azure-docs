@@ -1,8 +1,6 @@
 ﻿---
-title: How to: use custom storage for App Service Linux
+title: How to use custom storage for App Service Linux
 description: Learn how to configure your own storage in Azure App Service Linux with WordPress.
-services: app-service
-documentationcenter: app-service
 author: msangapu
 manager: jeconnoc
 
@@ -40,27 +38,19 @@ To use the Azure Command-Line Interface, you must [Install the Azure CLI](https:
 
 1. Open Terminal, and login to your account.
 
-```azure-cli
-az login
-```
+        az login
 
 1. Check to see the list of accounts:
 
-```azure-cli
-az account list
-```
+        az account list
 
-1. Set the subscription to use. Replace <id> with your subscription id.
+1. Set the subscription to use.
 
-```azure-cli
-az account set --subscription <your_subscription_id>  
-```
+        az account set --subscription <your_subscription_id>  
 
 1. The subscription is now set. You can confirm these settings:
 
-```azure-cli
-az account show
-```
+        az account show
 
 ## Add storage to the WordPress app
 
@@ -79,7 +69,6 @@ az account show
 1. Link storage to your app
 
         az webapp config storage-account add --resource-group myResourceGroup --name <web_app_name> --custom-id wp-uploads --storage-type AzureBlob --share-name wp-uploads --account-name wp-uploads-account --access-key "<access_key>" --mount-path /home/site/wwwroot/uploads
-
 
 ## Next steps
 
