@@ -90,7 +90,7 @@
       href: sql-database-service-tiers.md
     - name: vCore model
       items:
-      - Name: vCore-based service tiers
+      - name: vCore-based service tiers
         href: sql-database-service-tiers-vcore.md
       - name: General Purpose and Business Critical
         href: sql-database-service-tiers-general-purpose-business-critical.md
