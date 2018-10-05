@@ -55,4 +55,4 @@ The following table describes what's in each log. Depending on the output endpoi
 
 ## Next steps
 - Learn more about accessing logs from the [Azure portal](howto-configure-server-logs-in-portal.md) or [Azure CLI](howto-configure-server-logs-using-cli.md).
-- Learn more about [Azure Monitor pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+- Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
