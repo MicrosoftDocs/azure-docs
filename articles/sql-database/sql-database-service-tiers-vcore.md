@@ -50,7 +50,7 @@ The following table helps you understand the differences between these two tiers
 > [!IMPORTANT]
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
 
-See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions. 
+See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
 
 ## Azure Hybrid Use Benefit
 
@@ -66,7 +66,7 @@ Migrating to from DTU-based model to vCore-based model is similar to upgrading o
 
 When using geo-replication between two elastic pools, it is recommended that you designate one pool as the primary and the other – as the secondary. In that case, migrating elastic pools should use the same guidance.  However, it is technically it is possible that an elastic pool contains both primary and secondary databases. In this case, to properly migrate you should treat the pool with the higher utilization as “primary” and follow the sequencing rules accordingly.  
 
-The following table provides guidance for the specific migration scenarios: 
+The following table provides guidance for the specific migration scenarios:
 
 |Current service tier|Target service tier|Migration type|User actions|
 |---|---|---|---|
