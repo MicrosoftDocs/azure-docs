@@ -160,7 +160,7 @@ For this tutorial, set the start point as a fictitious company in Seattle called
 
 ## Render routes prioritized by mode of travel
 
-This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).  All of the following code blocks should be added **within the eventListener** to ensure that they load after the map loads fully.
+This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).  All of the following code blocks should be added **within the map load eventListener** to ensure that they load after the map loads fully.
 
 1. First, add a new layer on the map to display the route path, or *linestring*. In this tutorial, there are two different routes, **car-route** and **truck-route**, each with their own styling. Add the following JavaScript code to the *script* block:
 
@@ -254,6 +254,10 @@ In this tutorial, you learned how to:
 > * Visualize traffic flow on your map
 > * Create route queries that declare mode of travel
 > * Display multiple routes on your map
+
+You can access the code sample for this tutorial here:
+
+> [Multiple routes with Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/truckRoute.html)
 
 To learn more about the coverage and capabilities of Azure Maps:
 

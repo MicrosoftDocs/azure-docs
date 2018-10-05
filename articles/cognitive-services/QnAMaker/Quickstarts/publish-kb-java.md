@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Java Publish Knowledge Base - Qna Maker"
+title: "Quickstart: Java Publish Knowledge Base - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: How to publish a knowledge base in Java for QnA Maker.
 services: cognitive-services

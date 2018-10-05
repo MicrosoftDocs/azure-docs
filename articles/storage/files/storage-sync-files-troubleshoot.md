@@ -315,6 +315,16 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 
 This error occurs when there is a problem with the internal database used by Azure File Sync. When this issue occurs, create a support request and we will contact you to help you resolve this issue.
 
+<a id="-2134364053"></a>**The Azure File Sync agent version installed on the server is not supported.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (decimal)** | -2134364053 |
+| **Error string** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Remediation required** | Yes |
+
+This error occurs if the Azure File Sync agent version installed on the server is not supported. To resolve this issue, [upgrade]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) to a [supported agent version]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
+
 <a id="-2134351810"></a>**You reached the Azure file share storage limit.**  
 | | |
 |-|-|
