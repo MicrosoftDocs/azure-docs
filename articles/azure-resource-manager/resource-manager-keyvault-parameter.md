@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2018
+ms.date: 10/05/2018
 ms.author: tomfitz
 
 ---
@@ -19,54 +19,98 @@ ms.author: tomfitz
 
 When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-whatis.md). You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you are deploying to.
 
-## Enable access to the secret
-
-There are two important conditions that must exist for accessing a key vault during template deployment:
-
-1. `enabledForTemplateDeployment` must be `true`.  `enabledForTemplateDeployment` is a key vault property. 
-2. The user deploying the template must have access to the secret. The user must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the key vault. The [Owner](../role-based-access-control/built-in-roles.md#owner) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles both grant this access.
-
-When using a Key Vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
-
-
 ## Deploy a key vault and secret
 
-To create a key vault and secret, use either Azure CLI or PowerShell. Notice that the key vault is enabled for template deployment. 
+To create a key vault and secret, use either Azure CLI or PowerShell. `enabledForTemplateDeployment` is a key vault property. To access the secrets inside this Key Vault from Resource Manager deployment, `enabledForTemplateDeployment` must be `true`  
 
 For Azure CLI, use:
 
 ```azurecli-interactive
-vaultname={your-unique-vault-name}
+resourceGroupName='{your-resource-group-name}'
+location='Central US'
+keyVaultName='{your-unique-vault-name}'
+username='admin'
+userPrincipalName='{your-email-address-associated-with-your-subscription}'
+
+az group create --name $resourceGroupName --location $location
+
+az keyvault create \
+  --name $keyVaultName \
+  --resource-group $resourceGroupName \
+  --location $location \
+  --enabled-for-template-deployment true
+az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
+
 password=$(openssl rand -base64 32)
 echo $password
-
-az group create --name examplegroup --location 'South Central US'
-az keyvault create \
-  --name $vaultname \
-  --resource-group examplegroup \
-  --location 'South Central US' \
-  --enabled-for-template-deployment true
-az keyvault secret set --vault-name $vaultname --name examplesecret --value $password
+az keyvault secret set --vault-name $keyVaultName --name $username --value $password
 ```
 
 For PowerShell, use:
 
 ```powershell-interactive
-$vaultname = "{your-unique-vault-name}"
-$password = openssl rand -base64 32
+$keyVaultName = "{your-unique-vault-name}"
+$resourceGroupName="{your-resource-group-name}"
+$location='Central US'
+$username='admin'
+$userPrincipalName='{your-email-address-associated-with-your-subscription}'
 
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
 New-AzureRmKeyVault `
-  -VaultName $vaultname `
-  -ResourceGroupName examplegroup `
-  -Location "South Central US" `
+  -VaultName $keyVaultName `
+  -resourceGroupName $resourceGroupName `
+  -Location $location `
   -EnabledForTemplateDeployment
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
+
+$password = openssl rand -base64 32
+echo$password
 $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
-Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
+Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $username -SecretValue $secretvalue
 ```
 
 > [!NOTE]
-> Each Azure service has specific password requirements. For example, the Azure virtual machine's requirements can be found at [What are the password requirements when creating a VM?](../virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
+> Each Azure service has specific password requirements. For example, the Azure virtual machine's requirements can be found at [What are the password requirements when creating a VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+
+For using Resource Manager template, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
+
+## Enable access to the secret
+
+Other than setting `enabledForTemplateDeployment` to `true`, the user deploying the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for scope that contains the Key Vault including resource group and Key Vault. The [Owner](../role-based-access-control/built-in-roles.md#owner) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you create the Key Vault, you are the owner so you have the permission. If the Key Vault is under a different subscription, the owner of the Key Vault must grand the access.
+
+The following procedure shows how to create a role with the minimum permssion, and how to assign the user
+1. Create a custom role definition JSON file:
+
+    ```json
+    {
+      "Name": "Key Vault resource manager template deployment operator",
+      "IsCustom": true,
+      "Description": "Lets you deploy a resource manager template with the access to the secrets in the Key Vault.",
+      "Actions": [
+        "Microsoft.KeyVault/vaults/deploy/action"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
+    }
+    ```
+    Replace "00000000-0000-0000-0000-000000000000" with the subscription ID of the user who needs to deploy the templates.
+
+2. Create the new role using the JSON file:
+
+    ```powershell
+    $resourceGroupName= "<Resource Group Name>" # the resource group which contains the Key Vault
+    $userPrincipalName = "<Email Address of the deployment operator>"
+    New-AzureRmRoleDefinition -InputFile "<PathToTheJSONFile>" 
+    New-AzureRmRoleAssignment -ResourceGroupName $resourceGroupName -RoleDefinitionName "Key Vault resource manager template deployment operator" -SignInName $userPrincipalName
+    ```
+
+    The `New-AzureRmRoleAssignment` sample assign the custom role to the user on the resource group level.  
+When using a Key Vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
 
 ## Reference a secret with static ID
 
@@ -147,7 +191,7 @@ Now, deploy the template and pass in the parameter file. You can use the example
 For Azure CLI, use:
 
 ```azurecli-interactive
-az group create --name datagroup --location "South Central US"
+az group create --name datagroup --location $location
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
@@ -157,8 +201,8 @@ az group deployment create \
 
 For PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+```powershell-interactive
+New-AzureRmResourceGroup -Name datagroup -Location $location
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
@@ -274,7 +318,7 @@ Deploy the preceding template, and provide values for the parameters. You can us
 For Azure CLI, use:
 
 ```azurecli-interactive
-az group create --name datagroup --location "South Central US"
+az group create --name datagroup --location $location
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
@@ -285,7 +329,7 @@ az group deployment create \
 For PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+New-AzureRmResourceGroup -Name datagroup -Location $location
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `

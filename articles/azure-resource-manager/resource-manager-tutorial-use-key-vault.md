@@ -67,7 +67,7 @@ Your Azure AD user object ID is needed by the template to configure permissions.
     ```
 
     The object ID is a GUID number.
-4. Verify the auto-generated password meets the virtual machine password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when creating a VM?](../virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
+4. Verify the auto-generated password meets the virtual machine password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when creating a VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
 To create a Key Vault:
 
