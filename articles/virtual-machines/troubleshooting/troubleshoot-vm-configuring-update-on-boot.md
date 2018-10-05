@@ -23,8 +23,8 @@ ms.author: delhan
 
 When you use **Boot diagnostics** to get the screenshot of a Virtual Machine (VM), you find the operating system does not fully start up. Additionally, the VM displaying a **"Getting Windows Ready. Don't turn off your computer"** message.
 
-![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\Message1.png)
-![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\Message2.png)
+![Message example](\media\troubleshoot-vm-configuring-update-on-boot\Message1.png)
+![Message example](\media\troubleshoot-vm-configuring-update-on-boot\Message2.png)
 
 ## Cause
 
@@ -104,7 +104,7 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
 
 ### Create a snapshot
 
-To create a snapshot, follow the steps in [Snapshot a disk](snapshot-copy-managed-disk.md).
+To create a snapshot, follow the steps in [Snapshot a disk](..\virtual-machines\windows\snapshot-copy-managed-disk.md).
 
 ## Collect an OS memory dump
 
