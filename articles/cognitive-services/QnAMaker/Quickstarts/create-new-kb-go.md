@@ -59,7 +59,7 @@ var method string = "/knowledgebases/create"
 var uri = host + service + method
 
 // Replace this with a valid subscription key.
-var subscriptionKey string = "ENTER KEY HERE"
+var subscriptionKey string = "<your-qna-maker-subscription-key>"
 ```
 
 ## Add the KB model definition
@@ -163,7 +163,15 @@ Add the following functions to make an HTTP POST request to create the knowledge
 func create_kb(uri string, req string) (string, string) {
 	fmt.Println("Calling " + uri + ".")
 	result := post(uri, req)
-	return result.Headers["Location"][0], result.Body
+
+	operationIds, exists := result.Headers["Location"]
+
+	if(exists){
+		return operationIds[0], result.Body
+	} else {
+		// error message is in result.Body
+		return "", result.Body
+	}
 }
 ```
 

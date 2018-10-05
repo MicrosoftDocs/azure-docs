@@ -54,7 +54,7 @@ method = '/knowledgebases/create'
 path = service + method
 
 # Replace this with a valid subscription key.
-subscriptionKey = 'YOUR SUBSCRIPTION KEY HERE'
+subscriptionKey = '<your-qna-maker-subscription-key>'
 ```
 
 ## Add the KB model definition

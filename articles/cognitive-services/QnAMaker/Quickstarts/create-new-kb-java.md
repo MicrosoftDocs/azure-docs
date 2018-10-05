@@ -67,7 +67,7 @@ After the preceding required dependencies, add the required constants to the `Cr
 public class CreateKB {
 
     // Replace this with a valid subscription key.
-    static String subscriptionKey = "ADD YOUR SUBSCRIPTION KEY HERE";
+    static String subscriptionKey = "<your-qna-maker-subscription-key>";
 
     // Components used to create HTTP request URIs for QnA Maker operations.
     static String host = "https://westus.api.cognitive.microsoft.com";
