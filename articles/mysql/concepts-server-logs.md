@@ -50,7 +50,7 @@ The following table describes what's in each log. Depending on the output method
 | TenantId | Your tenant ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Time stamp when the log was recorded in UTC |
-| Type | Type of the log . Always `AzureDiagnostics` |
+| Type | Type of the log. Always `AzureDiagnostics` |
 | SubscriptionId | GUID for the subscription that the server belongs to |
 | ResourceGroup | Name of the resource group the server belongs to |
 | ResourceProvider | Name of the resource provider. Always `MICROSOFT.DBFORMYSQL` |
