@@ -178,6 +178,8 @@
     href: /rest/api/streamanalytics
 - name: Resources
   items:
+  - name: Stream Analytics previews
+    href: stream-analytics-previews.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
