@@ -20,7 +20,7 @@ Azure SQL Database provides [recommendations](sql-database-advisor.md) that you 
 In you don't have any applicable recommendations, and you still have performance issues, you might use the following methods to improve performances:
 
 - Increase the service tiers in your [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or your [vCore-based purchasing model](sql-database-service-tiers-vcore.md) to provide more resources to your database.
-- Tune your application and apply some best practices that can improve performance. 
+- Tune your application and apply some best practices that can improve performance.
 - Tune the database by changing indexes and queries to more efficiently work with data.
 
 These are manual methods because you need to decide the amount of resources meet your needs. Otherwise, you would need to rewrite the application or database code and deploy the changes.
@@ -38,13 +38,13 @@ The service tier that you need for your SQL database depends on the peak load re
 
 At each service tier, you set the compute size, so you have the flexibility to pay only for the capacity you need. You can [adjust capacity](sql-database-single-database-scale.md), up or down, as workload changes. For example, if your database workload is high during the back-to-school shopping season, you might increase the compute size for the database for a set time, July through September. You can reduce it when your peak season ends. You can minimize what you pay by optimizing your cloud environment to the seasonality of your business. This model also works well for software product release cycles. A test team might allocate capacity while it does test runs, and then release that capacity when they finish testing. In a capacity request model, you pay for capacity as you need it, and avoid spending on dedicated resources that you might rarely use.
 
-### Why service tiers?
+### The purpose of service tiers
 
 Although each database workload can differ, the purpose of service tiers is to provide performance predictability at various compute sizes. Customers with large-scale database resource requirements can work in a more dedicated computing environment.
 
 ## Tune your application
 
-In traditional on-premises SQL Server, the process of initial capacity planning often is separated from the process of running an application in production. Hardware and product licenses are purchased first, and performance tuning is done afterward. When you use Azure SQL Database, it's a good idea to interweave the process of running an application and tuning it. With the model of paying for capacity on demand, you can tune your application to use the minimum resources needed now, instead of overprovisioning on hardware based on guesses of future growth plans for an application, which often are incorrect. Some customers might choose not to tune an application, and instead choose to overprovision hardware resources. This approach might be a good idea if you don't want to change a key application during a busy period. But, tuning an application can minimize resource requirements and lower monthly bills when you use the service tiers in Azure SQL Database.
+In traditional on-premises SQL Server, the process of initial capacity planning often is separated from the process of running an application in production. Hardware and product licenses are purchased first, and performance tuning is done afterward. When you use Azure SQL Database, it's a good idea to interweave the process of running an application and tuning it. With the model of paying for capacity on demand, you can tune your application to use the minimum resources needed now, instead of over-provisioning on hardware based on guesses of future growth plans for an application, which often are incorrect. Some customers might choose not to tune an application, and instead choose to overprovision hardware resources. This approach might be a good idea if you don't want to change a key application during a busy period. But, tuning an application can minimize resource requirements and lower monthly bills when you use the service tiers in Azure SQL Database.
 
 ### Application characteristics
 
@@ -62,7 +62,7 @@ Although Azure SQL Database service tiers are designed to improve performance st
 
   Applications, especially those in the data access layer, that have poorly tuned queries might not benefit from a higher compute size. This includes queries that lack a WHERE clause, have missing indexes, or have outdated statistics. These applications benefit from standard query performance-tuning techniques. For more information, see [Missing indexes](#identifying-and-adding-missing-indexes) and [Query tuning and hinting](#query-tuning-and-hinting).
 
-- **Applications that have suboptimal data access design**
+- **Applications that have sub-optimal data access design**
 
    Applications that have inherent data access concurrency issues, for example deadlocking, might not benefit from a higher compute size. Consider reducing round trips against the Azure SQL Database by caching data on the client side with the Azure Caching service or another caching technology. See [Application tier caching](#application-tier-caching).
 
@@ -112,7 +112,7 @@ Azure SQL Database can help you find and fix common missing index conditions. DM
 You can use this query to evaluate potential missing indexes:
 
 ```sql
-SELECT 
+SELECT
    CONVERT (varchar, getdate(), 126) AS runtime
    , mig.index_group_handle
    , mid.index_handle
@@ -150,11 +150,11 @@ The key insight is that the IO capacity of a shared, commodity system is more li
 
 ### Query tuning and hinting
 
-The query optimizer in Azure SQL Database is similar to the traditional SQL Server query optimizer. Most of the best practices for tuning queries and understanding the reasoning model limitations for the query optimizer also apply to Azure SQL Database. If you tune queries in Azure SQL Database, you might get the additional benefit of reducing aggregate resource demands. Your application might be able to run at a lower cost than an untuned equivalent because it can run at a lower compute size.
+The query optimizer in Azure SQL Database is similar to the traditional SQL Server query optimizer. Most of the best practices for tuning queries and understanding the reasoning model limitations for the query optimizer also apply to Azure SQL Database. If you tune queries in Azure SQL Database, you might get the additional benefit of reducing aggregate resource demands. Your application might be able to run at a lower cost than an un-tuned equivalent because it can run at a lower compute size.
 
-An example that is common in SQL Server and which also applies to Azure SQL Database is how the query optimizer "sniffs" parameters. During compilation, the query optimizer evaluates the current value of a parameter to determine whether it can generate a more optimal query plan. Although this strategy often can lead to a query plan that is significantly faster than a plan compiled without known parameter values, currently it works imperfectly both in SQL Server and in Azure SQL Database. Sometimes the parameter is not sniffed, and sometimes the parameter is sniffed but the generated plan is suboptimal for the full set of parameter values in a workload. Microsoft includes query hints (directives) so that you can specify intent more deliberately and override the default behavior of parameter sniffing. Often, if you use hints, you can fix cases in which the default SQL Server or Azure SQL Database behavior is imperfect for a specific customer workload.
+An example that is common in SQL Server and which also applies to Azure SQL Database is how the query optimizer "sniffs" parameters. During compilation, the query optimizer evaluates the current value of a parameter to determine whether it can generate a more optimal query plan. Although this strategy often can lead to a query plan that is significantly faster than a plan compiled without known parameter values, currently it works imperfectly both in SQL Server and in Azure SQL Database. Sometimes the parameter is not sniffed, and sometimes the parameter is sniffed but the generated plan is sub-optimal for the full set of parameter values in a workload. Microsoft includes query hints (directives) so that you can specify intent more deliberately and override the default behavior of parameter sniffing. Often, if you use hints, you can fix cases in which the default SQL Server or Azure SQL Database behavior is imperfect for a specific customer workload.
 
-The next example demonstrates how the query processor can generate a plan that is suboptimal both for performance and resource requirements. This example also shows that if you use a query hint, you can reduce query run time and resource requirements for your SQL database:
+The next example demonstrates how the query processor can generate a plan that is sub-optimal both for performance and resource requirements. This example also shows that if you use a query hint, you can reduce query run time and resource requirements for your SQL database:
 
 ```sql
 DROP TABLE psptest1;
@@ -194,9 +194,7 @@ CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
 GO
 ```
 
-The setup code creates a table that has skewed data distribution. The optimal query plan differs based on which parameter is selected. Unfortunately, the plan caching behavior doesn't always recompile the query based on the most common parameter value. So, it's possible for a suboptimal plan to be cached and used for many values, even when a different plan might be a better plan choice on average. Then the query plan creates two stored procedures that are identical, except that one has a special query hint.
-
-**Example, part 1**
+The setup code creates a table that has skewed data distribution. The optimal query plan differs based on which parameter is selected. Unfortunately, the plan caching behavior doesn't always recompile the query based on the most common parameter value. So, it's possible for a sub-optimal plan to be cached and used for many values, even when a different plan might be a better plan choice on average. Then the query plan creates two stored procedures that are identical, except that one has a special query hint.
 
 ```sql
 -- Prime Procedure Cache with scan plan
@@ -213,9 +211,7 @@ WHILE @i < 1000
     END
 ```
 
-**Example, part 2**
-
-(We recommend that you wait at least 10 minutes before you begin part 2 of the example, so that the results are distinct in the resulting telemetry data.)
+We recommend that you wait at least 10 minutes before you begin part 2 of the example, so that the results are distinct in the resulting telemetry data.
 
 ```sql
 EXEC psp2 @param2=1;
@@ -234,7 +230,7 @@ Each part of this example attempts to run a parameterized insert statement 1,000
 
 ![Query tuning by using a scan plan](./media/sql-database-performance-guidance/query_tuning_1.png)
 
-Because we executed the procedure by using the value 1, the resulting plan was optimal for the value 1 but was suboptimal for all other values in the table. The result likely isn't what you would want if you were to pick each plan randomly, because the plan performs more slowly and uses more resources.
+Because we executed the procedure by using the value 1, the resulting plan was optimal for the value 1 but was sub-optimal for all other values in the table. The result likely isn't what you would want if you were to pick each plan randomly, because the plan performs more slowly and uses more resources.
 
 If you run the test with `SET STATISTICS IO` set to `ON`, the logical scan work in this example is done behind the scenes. You can see that there are 1,148 reads done by the plan (which is inefficient, if the average case is to return just one row):
 
@@ -256,7 +252,7 @@ ORDER BY start_time DESC
 ![Query tuning example results](./media/sql-database-performance-guidance/query_tuning_4.png)
 
 > [!NOTE]
-> Although the volume in this example is intentionally small, the effect of suboptimal parameters can be substantial, especially on larger databases. The difference, in extreme cases, can be between seconds for fast cases and hours for slow cases.
+> Although the volume in this example is intentionally small, the effect of sub-optimal parameters can be substantial, especially on larger databases. The difference, in extreme cases, can be between seconds for fast cases and hours for slow cases.
 
 You can examine **sys.resource_stats** to determine whether the resource for a test uses more or fewer resources than another test. When you compare data, separate the timing of tests so that they are not in the same 5-minute window in the **sys.resource_stats** view. The goal of the exercise is to minimize the total amount of resources used, and not to minimize the peak resources. Generally, optimizing a piece of code for latency also reduces resource consumption. Make sure that the changes you make to an application are necessary, and that the changes don't negatively affect the customer experience for someone who might be using query hints in the application.
 
@@ -290,8 +286,8 @@ Some applications are write-intensive. Sometimes you can reduce the total IO loa
 Some database applications have read-heavy workloads. Caching layers might reduce the load on the database and might potentially reduce the compute size required to support a database by using Azure SQL Database. With [Azure Redis Cache](https://azure.microsoft.com/services/cache/), if you have a read-heavy workload, you can read the data once (or perhaps once per application-tier machine, depending on how it is configured), and then store that data outside your SQL database. This is a way to reduce database load (CPU and read IO), but there is an effect on transactional consistency because the data being read from the cache might be out of sync with the data in the database. Although in many applications some level of inconsistency is acceptable, that's not true for all workloads. You should fully understand any application requirements before you implement an application-tier caching strategy.
 
 ## Next steps
+
 - For more information about DTU-based service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md).
 - For more information about vCore-based service tiers, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 - For more information about elastic pools, see [What is an Azure elastic pool?](sql-database-elastic-pool.md)
 - For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)
-
