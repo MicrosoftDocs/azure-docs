@@ -1,7 +1,7 @@
 ---
-title: The Speech Synthesis Markup Language
-description: Using the Speech Synthesis Markup language to control pronunciation and prosody in text-to-speech.
-titleSuffix: "Microsoft Cognitive Services"
+title: Speech Synthesis Markup Language
+description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 
@@ -18,7 +18,7 @@ The Speech Synthesis Markup Language (SSML) is an XML-based markup language that
 
 For more information, see [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) at the W3C.
 
-The following examples show how to use SSML for common speech synthesis needs.
+The following examples show how to use SSML for common speech synthesis needs:
 
 ## Add a break
 ```xml

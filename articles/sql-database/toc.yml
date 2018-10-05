@@ -86,22 +86,26 @@
   items:
   - name: Purchasing models
     items: 
-    - name: vCore vs. DTU
+    - name: vCore vs. DTU 
       href: sql-database-service-tiers.md
-    - name: vCore model
-      href: sql-database-service-tiers-vcore.md
-    - name: DTU model
+    - name: vCore-based purchasing model
+      items:
+      - name: Choosing a vCore service-tier
+        href: sql-database-service-tiers-vcore.md
+      - name: General Purpose / Business Critical
+        href: sql-database-service-tiers-general-purpose-business-critical.md
+      - name: Hyperscale
+        href: sql-database-service-tier-hyperscale.md
+    - name: DTU service tiers
       href: sql-database-service-tiers-dtu.md
-    - name: Hyperscale service tier
-      href: sql-database-hyperscale.md
-    - name: Resource limits
-      href: sql-database-resource-limits.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
   - name: Logical servers
     items: 
     - name: Create and manage
       href: sql-database-logical-servers.md
+    - name: Resource limits
+      href: sql-database-resource-limits-logical-server.md
     - name: Connectivity architecture
       href: sql-database-connectivity-architecture.md 
     - name: T-SQL differences
@@ -134,6 +138,8 @@
     items:
     - name: Managed instances
       href: sql-database-managed-instance.md
+    - name: Resource limits
+      href: sql-database-managed-instance-resource-limits.md
     - name: VNet configuration
       href: sql-database-managed-instance-vnet-configuration.md
     - name: Custom DNS

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 10/2/2018
 ms.author: victorh
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall in a hybrid network so that I can control access from an on-premise newtork to an Azure VNet.
 ---
@@ -298,6 +298,9 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 Next, create a couple routes: 
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
+
+> [!NOTE]
+> Azure Firewall learns your on-premise networks using BGP. This may include a default route, which will route Internet traffic back through your on-premise network. If instead you want Internet traffic to be sent directly from the firewall to the Internet, add a user-defined default route (0.0.0.0/0) on the AzureFirewallSubnet with next hop type **Internet**. Your on-premise destined traffic is still forced-tunneled through the VPN/ExpressRoute gateway using the more specific routes learned from BGP.
 
 ```azurepowershell
 #Create a route table

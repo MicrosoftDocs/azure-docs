@@ -1497,6 +1497,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-hyperscale.md",
+            "redirect_url": "/azure/sql-database/sql-database-service-tier-hyperscale",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-troubleshoot-performance.md",
             "redirect_url": "/azure/sql-database/sql-database-monitor-tune-overview",
             "redirect_document_id": false
@@ -2124,6 +2129,11 @@
         {
             "source_path": "articles/resource-manager-vs-code.md",
             "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/managed-applications/managed-apps-quickstart-cli.md",
+            "redirect_url": "/azure/managed-applications/publish-managed-app-definition-quickstart",
             "redirect_document_id": false
         },
         {
@@ -7244,10 +7254,15 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/azure-stack-update-1809.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-acs-differences-tp2.md",
             "redirect_url": "/azure/azure-stack/azure-stack-acs-differences",
             "redirect_document_id": false
-        },
+        },        
         {
             "source_path": "articles/azure-stack/azure-stack-connect-powershell.md",
             "redirect_url": "/azure/azure-stack/azure-stack-powershell-install",
@@ -7311,6 +7326,111 @@
         {
             "source_path": "articles/azure-stack/user/sql-server-vm-considerations.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-sql-server-vm-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-architecture.md",
+            "redirect_url": "/azure/blockchain/workbench/architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-configuration-overview.md",
+            "redirect_url": "/azure/blockchain/workbench/configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-create-app.md",
+            "redirect_url": "/azure/blockchain/workbench/create-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-data-excel.md",
+            "redirect_url": "/azure/blockchain/workbench/data-excel",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-data-powerbi.md",
+            "redirect_url": "/azure/blockchain/workbench/data-powerbi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-data-sql-management-studio.md",
+            "redirect_url": "/azure/blockchain/workbench/data-sql-management-studio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-database-firewall.md",
+            "redirect_url": "/azure/blockchain/workbench/database-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-database-views.md",
+            "redirect_url": "/azure/blockchain/workbench/database-views",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-deploy.md",
+            "redirect_url": "/azure/blockchain/workbench/deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-getdb-details.md",
+            "redirect_url": "/azure/blockchain/workbench/getdb-details",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-integration-patterns.md",
+            "redirect_url": "/azure/blockchain/workbench/integration-patterns",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-manage-users.md",
+            "redirect_url": "/azure/blockchain/workbench/manage-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-messages-overview.md",
+            "redirect_url": "/azure/blockchain/workbench/messages-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-overview.md",
+            "redirect_url": "/azure/blockchain/workbench/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-troubleshooting.md",
+            "redirect_url": "/azure/blockchain/workbench/troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-use.md",
+            "redirect_url": "/azure/blockchain/workbench/use",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/blockchain-workbench-use-api.md",
+            "redirect_url": "/azure/blockchain/workbench/use-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/ethereum-deployment-guide.md",
+            "redirect_url": "/azure/blockchain/templates/ethereum-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/ethereum-poa-deployment.md",
+            "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/hyperledger-fabric-single-member-blockchain.md",
+            "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-single-member-blockchain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/blockchain-workbench/index.md",
+            "redirect_url": "/azure/blockchain/workbench",
             "redirect_document_id": false
         },
         {
@@ -11576,6 +11696,11 @@
         {
             "source_path": "articles/sql-database/sql-database-v12-plan-prepare-upgrade.md",
             "redirect_url": "/azure/sql-database/sql-database-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-resource-limits.md",
+            "redirect_url": "/azure/sql-database/sql-database-resource-limits-logical-server",
             "redirect_document_id": false
         },
         {
@@ -16188,7 +16313,7 @@
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-integrating-applications.md",
-            "redirect_url": "/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v1-add-azure-ad-app",
             "redirect_document_id": true
         },
         {
@@ -16450,6 +16575,11 @@
             "source_path": "articles/active-directory/develop/howto-list-app-in-azure-ad-app-gallery.md",
             "redirect_url": "/azure/active-directory/develop/howto-app-gallery-listing",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-appmodel-v2-overview.md",
+            "redirect_url": "/azure/active-directory/develop/v2-overview",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-appmodel-v2-overview.md",
@@ -17936,6 +18066,16 @@
             "redirect_url": "/azure/virtual-machines/windows/migrate-single-classic-to-resource-manager",
             "redirect_document_id": false
         },
+		        {
+            "source_path": "articles/virtual-machines/windows/performance-diagnostics.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/performance-diagnostics",
+            "redirect_document_id": false
+        },		
+        {
+            "source_path": "articles/virtual-machines/linux/performance-diagnostics.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/performance-diagnostics",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-migrate-sql.md",
             "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-migrate-sql",
@@ -18749,6 +18889,26 @@
         {
             "source_path": "articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md",
             "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-usage.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-portal.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-powershell.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
             "redirect_document_id": false
         },
         {
@@ -23203,6 +23363,11 @@
             "source_path": "articles/marketplace/enable-trial-using-azure-ad.md",
             "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/marketplace/marketplace-what-is-appsource.md",
+            "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/marketplace-publishing/marketplace-publishing-csp-incentive.md",
@@ -28022,6 +28187,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-requiring-user-assignment.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-users.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-groups.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-error.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-error",
             "redirect_document_id": true
@@ -29558,6 +29738,11 @@
         {    "source_path": "articles/billing/billing-set-up-alerts.md",
             "redirect_url": "/azure/billing/billing-getting-started",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-java-add-app.md",
+            "redirect_url": "/azure/app-service/app-service-web-get-started-java",
+            "redirect_document_id" : false
         }
     ]
 }
