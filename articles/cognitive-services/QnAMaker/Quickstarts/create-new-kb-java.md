@@ -37,6 +37,9 @@ Create a file named `create-new-knowledge-base.java`
 
 At the top of `create-new-knowledge-base.java`, add the following lines to add necessary dependencies to the project:
 
+
+[!code-nodejs[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=1-11 "Add the required dependencies")]
+
 ```java
 import java.io.*;
 import java.lang.reflect.Type;
