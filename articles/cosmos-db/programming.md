@@ -827,9 +827,8 @@ Once you have one or more stored procedures, triggers, and user-defined function
 
 You may also find the following references and resources useful in your path to learn more about Azure Cosmos dB server-side programming:
 
-* [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md)
+* [Azure Cosmos DB JavaScript server-side API reference](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Secure and Portable Database Extensibility](http://dl.acm.org/citation.cfm?id=276339) 
 * [Service Oriented Database Architecture](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
