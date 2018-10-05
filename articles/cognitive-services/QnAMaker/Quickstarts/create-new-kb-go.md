@@ -104,17 +104,7 @@ Next, add the following supporting functions.
     }
     ```
 
-2. Add the following function to print out JSON in a readable format:
-
-    ```go
-    func pretty_print(content string) string {
-    	var obj map[string]interface{}
-        json.Unmarshal([]byte(content), &obj)
-    	result, _ := json.MarshalIndent(obj, "", "  ")
-    	return string(result)
-    }
-    ```
-3. Add the following method to handle a POST to the QnA Maker APIs. For this quickstart, the POST is used to send the KB definition to QnA Maker.
+2. Add the following method to handle a POST to the QnA Maker APIs. For this quickstart, the POST is used to send the KB definition to QnA Maker.
 
     ```go
     func post(uri string, content string) Response {
@@ -135,7 +125,7 @@ Next, add the following supporting functions.
     }
     ```
 
-4. Add the following method to handle a GET to the QnA Maker APIs. For this quickstart, the GET is used to check the status of the creation operation. 
+3. Add the following method to handle a GET to the QnA Maker APIs. For this quickstart, the GET is used to check the status of the creation operation. 
 
     ```go
     func get(uri string) Response {
