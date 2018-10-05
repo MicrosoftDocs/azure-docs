@@ -1,6 +1,6 @@
 ---
 title: Analyze events from Azure Digital Twins setup | Microsoft Docs
-description: Learn how to visualize and analyze events from your Azure Digital Twins setup, using the steps in this tutorial.
+description: Learn how to visualize and analyze events from your Azure Digital Twins spaces, with Azure Time Series Insights, using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
 
@@ -10,7 +10,7 @@ ms.date: 08/30/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Visualize and analyze your Azure Digital Twins setup
+# Tutorial: Visualize and analyze events from your building using Azure Digital Twins
 
 This tutorial demonstrates how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, you can integrate simulated device events with other services to visualize and analyze the data. In the third tutorial, you understood how to receive *hot data* (or instantaneous) events. This tutorial shows you steps to perform *warm path analytics* to visualize and store the sensor telemetry data at a slightly slower pace/storage, using [Azure Time Series Insights or TSI](../../time-series-insights/time-series-insights-overview). You will use Azure Time Series Insights to create detailed visualizations and analyses of the telemetry data from your simulated device sensors.
 
@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Stream data using Event Hub
-> * Analyse events using Time Series Insights
+> * Analyze events using Time Series Insights
 
 If you don’t have an Azure, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -90,7 +90,7 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 
     ![Endpoints for Event Hub](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
 
-## Analyse events using Time Series Insights
+## Analyze events using Time Series Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the left navigation pane, click **Resource groups**, and then select the resource group you created or used for your Digital Twins instance. 

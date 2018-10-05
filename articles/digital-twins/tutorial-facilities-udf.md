@@ -1,6 +1,6 @@
 ---
-title: Custom monitor your Azure Digital Twins (.NET) setup | Microsoft Docs
-description: Learn how to custom monitor your setup of Azure Digital Twins using the steps in this tutorial.
+title: Monitor a space with Azure Digital Twins | Microsoft Docs
+description: Learn how to monitor the working conditions of your spaces with Azure Digital Twins using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
 
@@ -10,9 +10,9 @@ ms.date: 08/30/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Custom monitor your Azure Digital Twins setup
+# Tutorial: Monitor working conditions in your building with Azure Digital Twins
 
-This tutorial demonstrates how to use the Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned your sample building using the steps in the previous tutorial, you can create and run custom computations on your sensor data using the steps in this tutorial.
+This tutorial demonstrates how to use the Digital Twins to monitor your spaces for desired conditions and comfort level. Once you have provisioned your sample building using the steps in the previous tutorial, you can create and run custom computations on your sensor data using the steps in this tutorial.
 
 In this tutorial, you learn how to:
 

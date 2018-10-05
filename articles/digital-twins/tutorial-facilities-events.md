@@ -1,6 +1,6 @@
 ---
-title: Integrate events from Azure Digital Twins setup | Microsoft Docs
-description: Learn how to receive notifications from your Azure Digital Twins setup, as well as create detailed analyses using the steps in this tutorial.
+title: Capture events from a Azure Digital Twins space | Microsoft Docs
+description: Learn how to receive notifications from your spaces by integrating Azure Digital Twins with Logic Apps, using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
 
@@ -10,9 +10,9 @@ ms.date: 08/30/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Receive notifications from your Azure Digital Twins setup
+# Tutorial: Receive notifications from your building with Azure Digital Twins 
 
-This tutorial demonstrates how to use the Digital Twins to receive notifications for events in your facilities. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, and simulated the device events, you can integrate the events with other services to create a custom notification system. In this tutorial, you will use Azure Logic App to create email notifications based on telemetry data from your simulated device sensors.
+This tutorial demonstrates how to use the Digital Twins to receive notifications for events in your provisioned spaces. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, and simulated the device events, you can integrate the events with other services to create a custom notification system. In this tutorial, you will use Azure Logic App to create email notifications based on telemetry data from your simulated device sensors.
 
 In this tutorial, you learn how to:
 

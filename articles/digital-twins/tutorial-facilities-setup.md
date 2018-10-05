@@ -1,5 +1,5 @@
 ---
-title: Provision your Azure Digital Twins (.NET) setup | Microsoft Docs
+title: Provision Azure Digital Twins (.NET) | Microsoft Docs
 description: Learn how to deploy and provision your instance of Azure Digital Twins using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
@@ -10,7 +10,7 @@ ms.date: 10/04/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Set up and provision Azure Digital Twins 
+# Tutorial: Deploy Azure Digital Twins and configure a spatial graph
 
 Azure Digital Twins service allows you to bring together people, places and devices in a coherant spatial system. This series of tutorials demonstrate how to use the Digital Twins to detect room occupancy with optimal conditions of temperature and air quality. This will walk you through a scenario of a sample building, containing multiple floors and rooms within each floor. The rooms contain devices with sensors to detect motion, ambient temperature and air quality in the form of carbon dioxide. This series will show you how to represent the rooms in the building to the Digital Twins service, as well as how to connect the sensors to this service, so you can monitor the data coming in near real-time. As an occupant or user of the sample building, you can use this information to book meeting rooms with optimal conditions. 
 
@@ -18,13 +18,13 @@ In the first tutorial of this series, you learn how to:
 
 > [!div class="checklist"]
 > * Deploy your Digital Twins instance
-> * Permit your application to connect to Digital Twins
+> * Allow application to connect to Digital Twins
 > * Download and explore the Digital Twins sample
-> * Provision your spaces and devices
+> * Provision your spatial graph
 
 If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Note that if you already have completed the [Quickstart to find available rooms and monitor air quality](quickstart-view-occupancy-dotnet.md) and still have all your Digital Twins resources, you may proceed to [Tutorial to receive notifications from your Azure Digital Twins setup](tutorial-facilities-events.md) to learn how to create notifications from your setup. If you don't have your Digital Twins setup, use this tutorial to create your sample spatial graph, as well as learn how to make modifications to the sample. 
+Note that if you already have completed the [Quickstart to find available rooms and monitor air quality](quickstart-view-occupancy-dotnet.md) and still have all your Digital Twins resources, you may proceed to [Tutorial to receive notifications from your Azure Digital Twins setup](tutorial-facilities-events.md) to learn how to create notifications from your setup. If you haven't provisioned your Digital Twins spatial graph, then use this tutorial to provision as well as modify your sample graph. 
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Use the steps in this section to create a new instance of the Digital Twins serv
 [!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
 
 
-## Permit your application to connect to Digital Twins
+## Allow application to connect to Digital Twins
 
 Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) to control access to the service. Grant access rights to your application using the steps in this section.
 
@@ -76,7 +76,7 @@ The sample allows you to configure and provision a spatial intelligence graph. T
 
 <a id="provision-spaces" />
 
-## Provision your spaces and devices
+## Provision your spatial graph
 This section shows how to provision a spatial graph for a sample building, using the sample we downloaded in the previous section.
 
 - Navigate to the *src\actions* folder in the sample. Open the file *provisionSample.cs* in an editor and note the following function.
