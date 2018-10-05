@@ -102,7 +102,7 @@ Repeat the call until success or failure:
 
 The following function is the main function and creates the KB and repeats checks on the status. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
 
-[!code-go[Add the main method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range110-140 "Add the main method")]
+[!code-go[Add the main method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=110-140 "Add the main method")]
 
 # Compile the program
 Enter the following command to compile the file. The command prompt does not return any information for a successful build.
@@ -116,7 +116,7 @@ go build create-new-knowledge-base.go
 Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
 ```bash
-go run create-new-knowledge-base.go
+go run create-new-knowledge-base
 ```
 
 Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 

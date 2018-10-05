@@ -82,6 +82,8 @@ This API call returns a JSON response that includes the operation ID. Use the op
 
 Add the following function to make an HTTP GET request to check the operation status. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication. 
 
+[!code-nodejs[Determine creation status](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=112-135 "Determine creation status")]
+
 Repeat the call until success or failure: 
 
 ```JSON

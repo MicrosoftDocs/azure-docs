@@ -114,9 +114,9 @@ The following loop polls for the creation operation status periodically until th
 
 Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
-    ```python
-    python create-new-knowledge-base-3x.py
-    ```
+```python
+python create-new-knowledge-base-3x.py
+```
 
 Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Select your knowledge base name, for example QnA Maker FAQ, to view.
 
