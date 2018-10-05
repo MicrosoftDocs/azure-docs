@@ -11,7 +11,7 @@ ms.author: rogarana
 ms.component: common
 --- 
 
-#  Migrate on-premises data to cloud storage by using AzCopy
+#  Tutorial: Migrate on-premises data to cloud storage by using AzCopy
 
 AzCopy is a command-line tool for copying data to or from Azure Blob storage, Azure Files, and Azure Table storage, by using simple commands. The commands are designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 

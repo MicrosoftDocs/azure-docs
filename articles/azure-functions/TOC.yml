@@ -23,18 +23,10 @@
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
     items:
-    - name: Azure Cosmos DB
-      href: functions-create-cosmos-db-triggered-function.md
-    - name: Blob storage
-      href: functions-create-storage-blob-triggered-function.md
-    - name: Queue storage
-      href: functions-create-storage-queue-triggered-function.md
     - name: Timer
       href: functions-create-scheduled-function.md
   - name: Integrate
     items:
-    - name: Azure Cosmos DB
-      href: functions-integrate-store-unstructured-data-cosmosdb.md
     - name: Storage
       href: functions-integrate-storage-queue-output-binding.md
 - name: Tutorials
@@ -66,7 +58,7 @@
     href: https://docs.microsoft.com/sandbox/functions-recipes/    
 - name: Concepts
   items:
-  - name: Compare 1.x and 2.x
+  - name: Compare versions 1.x and 2.x
     href: functions-versions.md
   - name: Scale and hosting
     href: functions-scale.md
@@ -174,8 +166,12 @@
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Set the runtime version 
       href: set-runtime-version.md
+    - name: Manually register an extension 
+      href: install-update-binding-extensions-manual.md
     - name: Disable a function 
       href: disable-function.md
+    - name: Troubleshoot storage
+      href: functions-recover-storage-account.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate
@@ -209,7 +205,11 @@
     - name: Event publishing
       href: durable-functions-event-publishing.md
     - name: Use WebJobs SDK
-      href: durable-functions-webjobs-sdk.md      
+      href: durable-functions-webjobs-sdk.md  
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot storage
+      href: functions-recover-storage-account.md   
 - name: Reference
   items:
   - name: Bindings
@@ -260,6 +260,8 @@
     href: functions-api-definition.md     
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-functions
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing

@@ -169,8 +169,8 @@ The **ClaimsProviderSelection** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | No | The identifier of the claims exchange, which is executed in the next orchestration step of the claims provider selection. This attribute of the ValidationClaimsExchangeId attribute must be specified. | 
-| ValidationClaimsExchangeId | No | The identifier of the claims exchange, which is executed in the current orchestration step to validate the claims provider selection. This attribute of the TargetClaimsExchangeId attribute must be specified. |
+| TargetClaimsExchangeId | No | The identifier of the claims exchange, which is executed in the next orchestration step of the claims provider selection. This attribute or the ValidationClaimsExchangeId attribute must be specified, but not both. | 
+| ValidationClaimsExchangeId | No | The identifier of the claims exchange, which is executed in the current orchestration step to validate the claims provider selection. This attribute or the TargetClaimsExchangeId attribute must be specified, but not both. |
 
 ### ClaimsProviderSelection example
 

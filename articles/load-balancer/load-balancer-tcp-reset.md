@@ -1,5 +1,5 @@
 ---
-title: Load Balancer TCP Reset on idle timeout | Microsoft Docs
+title: Load Balancer TCP Reset on Idle | Microsoft Docs
 description: Load Balancer with bidirectional TCP RST packets on idle timeout
 services: load-balancer
 documentationcenter: na
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2018
+ms.date: 09/26/2018
 ms.author: kumud
 ---
 
-# Load Balancer with TCP Reset on idle timeout (Public Preview)
+# Load Balancer with TCP Reset on Idle (Public Preview)
 
 You can use [Standard Load Balancer](load-balancer-standard-overview.md) to create a more predictable application behavior for your scenarios with bidirectional TCP Resets (TCP RST packet) for each configurable idle timeout.  Load Balancer's default behavior is to silently drop flows when the idle timeout of a flow is reached.
+
+![Load Balancer TCP reset](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
 >Load Balancer with TCP reset on idle timeout functionality is available as Public Preview at this time and available in a limited set of [regions](#regions). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -37,7 +39,7 @@ Carefully examine the entire end to end scenario to decide whether you benefit f
 
 ## Enabling TCP Reset on idle timeout
 
-Using API version 2018-07-01, you can enable sending of bidirectional TCP Resets on idle timeout on a per rule basis:
+Using API version 2018-08-01, you can enable sending of bidirectional TCP Resets on idle timeout on a per rule basis:
 
 ```json
       "loadBalancingRules": [
@@ -69,6 +71,8 @@ This parameter is currently effective in the following regions.  In regions not 
 
 | Region |
 |---|
+| Asia Southeast |
+| Europe West |
 | US East 2 |
 | US North |
 | US West |
@@ -83,4 +87,4 @@ This table will be updated as the preview is expanded to other regions.
 ## Next steps
 
 - Learn about [Standard Load Balancer](load-balancer-standard-overview.md).
-- Learn about [outbound rules](https://aka.ms/lboutboundrules).
+- Learn about [outbound rules](load-balancer-outbound-rules-overview.md).

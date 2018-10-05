@@ -554,4 +554,4 @@ The command reveals output similar to the following JSON string, showing that th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a Docker Python and PostgreSQL web app in Azure](tutorial-docker-python-postgresql-app.md)
+> [Build a Docker Python and PostgreSQL web app in Azure](tutorial-python-postgresql-app.md)
