@@ -24,8 +24,8 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 
 For serial console documentation for Linux VMs, [click here](serial-console-linux.md).
 
-> [!Note] 
-> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available in Azure Government or Azure China clouds.
+> [!NOTE] 
+> Serial Console for virtual machines is generally available in global Azure regions. At this point Serial Console is not yet available in Azure Government or Azure China clouds.
 
  
 
@@ -80,9 +80,12 @@ If you need to enable Windows boot loader prompts to show in the serial console,
 1. Connect to your Windows virtual machine via Remote Desktop
 2. From an Administrative command prompt run the following commands 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 30`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Reboot the system for the boot menu to be enabled
+
+> [!NOTE] 
+> The timeout that you set for the boot manager menu to show up will impact your OS boot time in the future. While it may be acceptable to some to add a 30 second timeout to ensure that the boot manager is visible via serial console, others may want a shorter timeout. Set the timeout value to a value that you are comfortable with.
 
 ## Use Serial Console for NMI calls in Windows VMs
 A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems which are hung.
@@ -96,7 +99,7 @@ For information on configuring Windows to create a crash dump when it receives a
 ## Disable Serial Console
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
 
-> [!Note] 		
+> [!NOTE] 		
 > In order to enable or disable serial console for a subscription, you must have write permissions to the subscription. This includes, but is not limited to, administrator or owner roles. Custom roles may also have write permissions.
 
 ### Subscription-level disable
