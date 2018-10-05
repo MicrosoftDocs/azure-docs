@@ -43,7 +43,7 @@ Azure Blob connector support the following authentication types, refer to the co
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
 - [Service principal authentication](#service-principal-authentication)
-- [Managed identities for Azure resources authentication](#managed-service-identity-authentication)
+- [Managed identities for Azure resources authentication](#managed-identity)
 
 >[!NOTE]
 >HDInsights, Azure Machine Learning and Azure SQL Data Warehouse PolyBase load only support Azure Blob storage account key authentication.
