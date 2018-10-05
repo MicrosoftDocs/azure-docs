@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 09/10/2018
+ ms.date: 10/05/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -16,7 +16,11 @@ Virtual WAN provides large-scale site-to-site connectivity and is built for thro
 
 ### Which device providers (Virtual WAN partners) are supported at launch time? 
 
-At this time, many partners support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://go.microsoft.com/fwlink/p/?linkid=2019615). For partner automation steps, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md)
+At this time, many partners support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://go.microsoft.com/fwlink/p/?linkid=2019615). 
+
+### What are the Virtual WAN partner automation steps?
+
+For partner automation steps, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### Am I required to use a preferred partner device?
 
@@ -88,7 +92,7 @@ Yes.
 
 ### How is Virtual WAN different from the existing Azure Virtual Network Gateway?
 
-Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1000 branch connections with 2 Gbps in the hub for all regions except the West Central region. For the West Central region, 20 Gbps is available. We will be rolling out 20 Gbps for additional regions in the future. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1000 branches across hubs.
+Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1000 branch connections with 2 Gbps in the hub for all regions except the West Central region. For the West Central region, 20 Gbps is available. We will be rolling out 20 Gbps to additional regions in the future. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1000 branches across hubs.
 
 ### Does this Virtual WAN require ExpressRoute from each site?
 
