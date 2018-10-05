@@ -36,95 +36,31 @@ Create a file named `create-new-knowledge-base.py`.
 
 At the top of `create-new-knowledge-base.py`, add the following lines to add necessary dependencies to the project:
 
-[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=1-5 "Add the required dependencies")]
-
-```python
-import http.client, urllib.parse, json, time
-```
+[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=1-1 "Add the required dependencies")]
 
 ## Add the required constants
 After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key.
 
-```python
-# Represents the various elements used to create HTTP request path
-# for QnA Maker operations.
-host = 'westus.api.cognitive.microsoft.com'
-service = '/qnamaker/v4.0'
-method = '/knowledgebases/create'
-
-# Builds the path URL.
-path = service + method
-
-# Replace this with a valid subscription key.
-subscriptionKey = '<your-qna-maker-subscription-key>'
-```
+[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=5-13 "Add the required constants")]
 
 ## Add the KB model definition
 
 After the constants, add the following KB model definition. The model is converting into a string after the definition.
 
-```python
-kb_model = {
-  "name": "QnA Maker FAQ",
-  "qnaList": [
-    {
-      "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
-      "source": "Custom Editorial",
-      "questions": [
-        "How do I programmatically update my Knowledge Base?"
-      ],
-      "metadata": [
-        {
-          "name": "category",
-          "value": "api"
-        }
-      ]
-    }
-  ],
-  "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
-  ],
-  "files": []
-}
+[!code-python[Add the KB model definition](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=15-41 "Add the KB model definition")]
 
-# Convert the request to a string.
-content = json.dumps(kb_model)
-```
-
-## Add supporting functions
+## Add supporting function
 
 Add the following function to print out JSON in a readable format:
 
-```python
-def pretty_print(content):
-  # Note: We convert content to and from an object so we can pretty-print it.
-  return json.dumps(json.loads(content), indent=4)
-```
+[!code-python[Add supporting function](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=43-45 "Add supporting function")]
 
 ## Add function to create KB
 
 Add the following function to make an HTTP POST request to create the knowledge base. 
 This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication. 
 
-```python
-def create_kb(path, content):
-  print('Calling ' + host + path + '.')
-  headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
-    'Content-Type': 'application/json',
-    'Content-Length': len (content)
-  }
-  conn = http.client.HTTPSConnection(host)
-  conn.request ("POST", path, content, headers)
-  response = conn.getresponse ()
-
-  return response.getheader('Location'), response.read ()
-
-# Call create_kb
-operation, result = create_kb(path, content)
-```
+[!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=48-59 "Add function to create KB")]
 
 This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. 
 
@@ -142,15 +78,7 @@ This API call returns a JSON response that includes the operation ID in the head
 
 The following function checks the creation status sending in the operation ID at the end of the URL route. The call to `check_status` is inside the main _while_ loop.
 
-```python
-def check_status(path):
-  print('Calling ' + host + path + '.')
-  headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-  conn = http.client.HTTPSConnection(host)
-  conn.request("GET", path, None, headers)
-  response = conn.getresponse ()
-  return response.getheader('Retry-After'), response.read ()
-```
+[!code-python[Add function to check creation status](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=61-67 "Add function to check creation status")]
 
 This API call returns a JSON response that includes the operation status: 
 
@@ -177,35 +105,10 @@ Repeat the call until success or failure:
 }
 ```
 
-## Add loop to poll for operation status
+## Add main code block
 The following loop polls for the creation operation status periodically until the operation is complete. 
 
-```python
-# Set done to false
-done = False
-
-# Add operation ID to URL route
-path = service + operation
-
-# Continue until done
-while False == done:
-
-  # Gets the status of the operation.
-  wait, status = check_status(path)
-
-  # Print status checks in JSON with presentable formatting
-  print(pretty_print(status))
-
-  # Convert the JSON response into an object and get the value of the operationState field.
-  state = json.loads(status)['operationState']
-
-  # If the operation isn't finished, wait and query again.
-  if state == 'Running' or state == 'NotStarted':
-    print('Waiting ' + wait + ' seconds...')
-    time.sleep(int(wait))
-  else:
-    done = True # request has been processed, if successful, knowledge base is created
-```
+[!code-python[Add main code block](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.py?range=70-96 "Add main code block")]
 
 ## Build and run the program
 
