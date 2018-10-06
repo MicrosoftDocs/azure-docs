@@ -4,7 +4,7 @@ description: Analyze your add-in performance and see funnel and acquisitions met
 ms.date: 1/11/2018
 ---
 
-# Acquisitions report
+# View the Acquisitions report in the dashboard
 
 The Acquisitions report in the Dev Center dashboard lets you see who has acquired and installed your add-in, app or visual, and shows info about how customers have arrived at your AppSource listing. 
 
