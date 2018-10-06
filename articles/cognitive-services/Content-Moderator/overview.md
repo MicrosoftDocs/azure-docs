@@ -1,7 +1,7 @@
 ---
-title: What is Content Moderator?
+title: What is Azure Content Moderator?
 titlesuffix: Azure Cognitive Services
-description: Learn how to use Content Moderator to track, flag, assess, and filter inappropriate content in user-generated content.
+description: Learn how to use Content Moderator to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -9,14 +9,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 06/15/2017
+ms.date: 10/05/2018
 ms.author: sajagtap
 #Customer intent: As a developer of content-providing software, I want to ensure that only appropriate content is delivered to my users.
 ---
 
 # What is Content Moderator?
 
-Content moderation is the process of monitoring text, image, or video content for material that is potentially offensive, undesirable, or risky. 
+Content moderation is the process of monitoring text, image, or video content for material that is potentially offensive, undesirable, or risky. Flagged content can then be hidden or otherwise addressed in order to comply with regulations or maintain an intended environment for users.
 
 ## Where it is used
 
