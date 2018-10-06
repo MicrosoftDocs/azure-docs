@@ -3,7 +3,7 @@ title: Map style functionalities in Azure Maps| Microsoft Docs
 description: Learn about Azure Maps style related functionalities.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/31/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -39,7 +39,7 @@ The first code block in the above code sets the subscription key and creates a M
 
 The second code block constructs a style selector using the atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) constructor.
 
-A style picker enables style selection for the map. The third code block adds the style picker to the map using the map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. All of the controls are within the map event listener to ensure all controls are loaded after the maps loads fully.
+A style picker enables style selection for the map. The third code block adds the style picker to the map using the map's [control.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. All of the controls are within the map event listener to ensure all controls are loaded after the maps loads fully.
 
 ## Next steps
 
