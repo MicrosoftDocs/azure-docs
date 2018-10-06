@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 08/30/2018
+ms.date: 10/05/2018
 ---
 # Azure SQL Transparent Data Encryption: Bring Your Own Key support
 

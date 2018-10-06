@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/08/2018
+ms.date: 10/05/2018
 ---
 # Configure long-term backup retention using Azure Recovery Services Vault
 

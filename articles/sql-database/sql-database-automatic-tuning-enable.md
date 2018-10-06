@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 10/05/2018
 ---
 # Enable automatic tuning to monitor queries and improve workload performance
 

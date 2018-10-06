@@ -11,7 +11,7 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ---
 # Intelligent Insights using artificial intelligence to monitor database usage
 

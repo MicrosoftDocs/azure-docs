@@ -11,7 +11,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 

@@ -11,7 +11,7 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 10/05/2018
 ---
 # New DBA in the cloud – Managing your database in Azure SQL Database
 

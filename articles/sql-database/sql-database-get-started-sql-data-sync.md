@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 04/10/2018
+ms.date: 10/05/2018
 ---
 # Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises
 

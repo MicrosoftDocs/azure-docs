@@ -12,7 +12,7 @@ ms.author: dmalik
 ms.reviewer: genemi, vanto
 manager: craigg
 ms.service: sql-database
-ms.date: 06/14/2018
+ms.date: 10/05/2018
 ---
 # PowerShell:  Create a Virtual Service endpoint and VNet rule for SQL
 

@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/01/2018
+ms.date: 10/05/2018
 ---
 # Azure SQL Database Managed Instance deployment model with virtual network and near 100% SQL Server compatibility
 

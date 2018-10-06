@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 10/05/2018
 ---
 # Elastic database tools frequently asked questions (FAQ)
 

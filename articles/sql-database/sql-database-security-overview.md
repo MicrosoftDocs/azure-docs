@@ -11,7 +11,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/20/2018
+ms.date: 10/05/2018
 ---
 # An overview ahd Azure SQL Database security capabilities
 

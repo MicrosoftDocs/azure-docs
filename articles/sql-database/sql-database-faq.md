@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 10/05/2018
 ---
 # SQL Database frequently asked questions (FAQ)
 

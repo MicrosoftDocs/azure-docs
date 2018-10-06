@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 10/04/2018
+ms.date: 10/05/2018
 ---
 
 # Hyperscale service tier (preview)

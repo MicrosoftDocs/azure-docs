@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 09/06/2018
+ms.date: 10/05/2018
 ---
 # Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises
 

@@ -12,7 +12,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer:
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 10/05/2018
 ---
 # Always Encrypted: Protect sensitive data and store encryption keys in Azure Key Vault
 
