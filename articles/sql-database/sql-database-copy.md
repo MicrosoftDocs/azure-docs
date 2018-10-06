@@ -13,7 +13,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 09/14/2018
 ---
-# Copy an Azure SQL database
+# Copy an transactionally consistent copy of an Azure SQL database
 
 Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL. 
 

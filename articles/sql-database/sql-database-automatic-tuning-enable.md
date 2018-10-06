@@ -12,7 +12,7 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
 ---
-# Enable automatic tuning
+# Enable automatic tuning to monitor queries and improve workload performance
 
 Azure SQL Database is an automatically managed data service that constantly monitors your queries and identifies the action that you can perform to improve performance of your workload. You can review recommendations and manually apply them, or let Azure SQL Database automatically apply corrective actions - this is known as **automatic tuning mode**.
 
