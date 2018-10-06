@@ -24,7 +24,7 @@ With the Azure Batch PowerShell cmdlets, you can perform and script many of the 
 
 For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure Batch cmdlet reference](/powershell/module/azurerm.batch/#batch).
 
-This article is based on cmdlets in Azure Batch module 4.1.5. We recommend that you update your Azure PowerShell frequently to take advantage of service updates and enhancements.
+This article is based on cmdlets in Azure Batch module 4.1.5. We recommend that you update your Azure PowerShell modules frequently to take advantage of service updates and enhancements.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ This article is based on cmdlets in Azure Batch module 4.1.5. We recommend that 
   Connect-AzureRmAccount
   ```
 
-* **Register with the Batch provider namespace**. Preform this operation only **once per subscription**.
+* **Register with the Batch provider namespace**. You only need to perform this operation **once per subscription**.
   
   ```Powershell
   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`
@@ -122,22 +122,27 @@ Use cmdlets such as **New-AzureBatchPool**, **New-AzureBatchJob**, and **New-Azu
 When using many of these cmdlets, in addition to passing a BatchContext object, you need to create or pass objects that contain detailed resource settings, as shown in the following example. See the detailed help for each cmdlet for additional examples.
 
 ### Create a Batch pool
-When creating or updating a Batch pool, you select either the cloud service configuration or the virtual machine configuration for the operating system on the compute nodes (see [Batch feature overview](batch-api-basics.md#pool)). If you specify the cloud service configuration, your compute nodes are imaged with one of the [Azure Guest OS releases](../cloud-services/cloud-services-guestos-update-matrix.md#releases). If you specify the virtual machine configuration, you can either specify one of the supported Linux or Windows VM images listed in the [Azure Virtual Machines Marketplace][vm_marketplace], or provide a custom image that you have prepared.
 
-When you run **New-AzureBatchPool**, pass the operating system settings in a PSCloudServiceConfiguration or PSVirtualMachineConfiguration object. For example, the following cmdlet creates a new Batch pool with size Small compute nodes in the cloud service configuration, imaged with the latest operating system version of family 3 (Windows Server 2012). Here, the **CloudServiceConfiguration** parameter specifies the *$configuration* variable as the PSCloudServiceConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
+When creating or updating a Batch pool, you select either the cloud services configuration or the virtual machine configuration for the operating system on the compute nodes (see [Batch feature overview](batch-api-basics.md#pool)). If you specify the cloud services configuration, your compute nodes are imaged with one of the [Azure Guest OS releases](../cloud-services/cloud-services-guestos-update-matrix.md#releases). If you specify the virtual machine configuration, you can either specify one of the supported Linux or Windows VM images listed in the [Azure Virtual Machines Marketplace][vm_marketplace], or provide a custom image that you have prepared.
+
+When you run **New-AzureBatchPool**, pass the operating system settings in a PSCloudServiceConfiguration or PSVirtualMachineConfiguration object. For example, the following snippet creates a new Batch pool with size Standard_A1 compute nodes in the virtual machine configuration, imaged with Ubuntu Server 16.04-LTS. Here, the **VirtualMachineConfiguration** parameter specifies the *$configuration* variable as the PSVirtualMachineConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
 
 ```Powershell
-$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(4,"*")
+$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","16.04.0-LTS")
 
-New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 16.04")
+
+New-AzureBatchPool -Id "mypool" -VirtualMachineSize "Standard_a1" -VirtualMachineConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 ```
 
 The target number of compute nodes in the new pool is determined by an autoscaling formula. In this case, the formula is simply **$TargetDedicated=4**, indicating the number of compute nodes in the pool is 4 at most.
 
 ## Query for pools, jobs, tasks, and other details
+
 Use cmdlets such as **Get-AzureBatchPool**, **Get-AzureBatchJob**, and **Get-AzureBatchTask** to query for entities created under a Batch account.
 
 ### Query for data
+
 As an example, use **Get-AzureBatchPools** to find your pools. By default this queries for all pools under your account, assuming you already stored the BatchAccountContext object in *$context*:
 
 ```Powershell
@@ -145,6 +150,7 @@ Get-AzureBatchPool -BatchContext $context
 ```
 
 ### Use an OData filter
+
 You can supply an OData filter using the **Filter** parameter to find only the objects you’re interested in. For example, you can find all pools with ids starting with “myPool”:
 
 ```Powershell
@@ -156,6 +162,7 @@ Get-AzureBatchPool -Filter $filter -BatchContext $context
 This method is not as flexible as using “Where-Object” in a local pipeline. However, the query gets sent to the Batch service directly so that all filtering happens on the server side, saving Internet bandwidth.
 
 ### Use the Id parameter
+
 An alternative to an OData filter is to use the **Id** parameter. To query for a specific pool with id "myPool":
 
 ```Powershell
@@ -165,6 +172,7 @@ Get-AzureBatchPool -Id "myPool" -BatchContext $context
 The **Id** parameter supports only full-id search, not wildcards or OData-style filters.
 
 ### Use the MaxCount parameter
+
 By default, each cmdlet returns a maximum of 1000 objects. If you reach this limit, either refine your filter to bring back fewer objects, or explicitly set a maximum using the **MaxCount** parameter. For example:
 
 ```Powershell
@@ -174,6 +182,7 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 To remove the upper bound, set **MaxCount** to 0 or less.
 
 ### Use the PowerShell pipeline
+
 Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter, but makes working with multiple entities easier.
 
 For example, find and display all tasks under your account:
@@ -189,6 +198,7 @@ Get-AzureBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-Azur
 ```
 
 ## Application package management
+
 Application packages provide a simplified way to deploy applications to the compute nodes in your pools. With the Batch PowerShell cmdlets, you can upload and manage application packages in your Batch account, and deploy package versions to compute nodes.
 
 **Create** an application:
@@ -234,6 +244,7 @@ Remove-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <r
 > 
 
 ### Deploy an application package
+
 You can specify one or more application packages for deployment when you create a pool. When you specify a package at pool creation time, it is deployed to each node as the node joins pool. Packages are also deployed when a node is rebooted or reimaged.
 
 Specify the `-ApplicationPackageReference` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. First, create a **PSApplicationPackageReference** object, and configure it with the application Id and package version you want to deploy to the pool's compute nodes:
@@ -260,6 +271,7 @@ You can find more information on application packages in [Deploy applications to
 > 
 
 ### Update a pool's application packages
+
 To update the applications assigned to an existing pool, first create a PSApplicationPackageReference object with the desired properties (application Id and package version):
 
 ```Powershell
@@ -295,6 +307,7 @@ Get-AzureBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | 
 > 
 
 ## Next steps
+
 * For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](/powershell/module/azurerm.batch/#batch).
 * For more information about applications and application packages in Batch, see [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 
