@@ -1497,6 +1497,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-hyperscale.md",
+            "redirect_url": "/azure/sql-database/sql-database-service-tier-hyperscale",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-troubleshoot-performance.md",
             "redirect_url": "/azure/sql-database/sql-database-monitor-tune-overview",
             "redirect_document_id": false
@@ -10849,6 +10854,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-overview",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/service-bus-messaging/service-bus-java-amqp-overview.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp",
             "redirect_document_id": false
@@ -16309,6 +16319,11 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-integrating-applications.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v1-add-azure-ad-app",
             "redirect_document_id": true
         },
         {
@@ -16570,6 +16585,11 @@
             "source_path": "articles/active-directory/develop/howto-list-app-in-azure-ad-app-gallery.md",
             "redirect_url": "/azure/active-directory/develop/howto-app-gallery-listing",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-appmodel-v2-overview.md",
+            "redirect_url": "/azure/active-directory/develop/v2-overview",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-appmodel-v2-overview.md",
@@ -27633,6 +27653,11 @@
         {
             "source_path": "articles/application-gateway/application-gateway-web-application-firewall-cli.md",
             "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-web-app-powershell.md",
+            "redirect_url": "/azure/application-gateway/create-web-app",
             "redirect_document_id": false
         },
         {

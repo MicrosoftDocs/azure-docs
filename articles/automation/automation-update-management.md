@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -30,6 +30,8 @@ The following diagram shows a conceptual view of the behavior and data flow with
 ![Update Management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant. To manage machines in a different tenant you must onboard them as [Non-Azure machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
+
+Once a CVE is release, it takes 2-3 hours for the patch to show up for Linux machines for assessment.  For Windows machines it takes 12-15 hours for the patch to show up for assessment after it has been released.
 
 After a computer performs a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is performed every 12 hours by default.
 
