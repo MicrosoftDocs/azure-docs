@@ -38,7 +38,7 @@ Below is the currently supported list of features for the [Application Insights 
 | **Supported Features**                	|               	|                  	|           	
 | &bull; QuickPulse/LiveMetrics                      	| Yes           	| Yes              	| 
 | &bull; Sampling                        	| Yes           	| Yes              	| 
-| &bull; Heartbeats                      	| (Coming Soon) 	| Yes              	| 
+| &bull; Heartbeats                      	|   	| Yes              	| 
 | | | | 
 | **Correlation**                       	|               	|                  	|           	
 | &bull; ServiceBus                      	|               	| Yes              	| 
