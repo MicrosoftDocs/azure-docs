@@ -53,8 +53,8 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 ## Configuration
 
 1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
-2. In the OMS portal, click **Settings** &gt; **Data** &gt; **Application Insights**.
-3. Under **Select a subscription**, select a subscription that has Application Insights resources and then under **Application Name**, select one or more applications.
+2. Browse to the [Azure portal](https://portal.azure.com). Select **All services** to open Application Insights. Then, search for Application Insights. 
+3. Under **Subscriptions**, select a subscription that has Application Insights resources and then under **Name**, select one or more applications.
 4. Click **Save**.
 
 In approximately 30 minutes, data becomes available and the Application Insights tile is updated with data, like the following image:
@@ -128,7 +128,7 @@ Perspective components are updated depending on the search query. This means tha
 
 ### Pivot to an app in the Azure portal
 
-Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the OMS portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in Log Analytics search or you can pivot directly to the Application Insights app.
+Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the Azure portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in Log Analytics search or you can pivot directly to the Application Insights app.
 
 To pivot, click the ellipses (**…**) that appears at the end of each line, and select **Open in Application Insights**.
 
