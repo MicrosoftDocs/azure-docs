@@ -22,6 +22,8 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 > Hyperscale service tier is currently in public preview and available in limited Azure regions. For the full region list, see [Hyperscale service tier available regions](#available-regions). We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier.
 > [!NOTE]
 > For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md). For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
+> [!IMPORTANT]
+> Hyperscale service tier is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier.
 
 ## What are the capabilities of the Hyperscale service tier
 
@@ -48,6 +50,20 @@ The Hyperscale service tier supports all SQL Server workloads, but it is primari
 
 > [!IMPORTANT]
 > Elastic pools do not support the Hyperscale service tier.
+
+## Understand Hyperscale pricing
+
+Hyperscale service tier is only available in [vCore model](sql-database-service-tiers-vcore.md). To align with the new architecture, the pricing model is slightly different from General Purpose or Business Critical service tiers:
+
+- **Compute**:
+
+  The Hyperscale compute unit price is per replica. The [Azure Hybrid Benifit](https://azure.microsoft.com/pricing/hybrid-benefit/) price is applied to read scale replicas automatically. In public preview, we create two replicas per Hyperscale database by default.
+
+- **Storage**:
+
+  You don't need to specify the max data size when configuring a Hyperscale database. In the hyperscale tier, you are charged for storage for your database based on actual usage. Storage is dynamically allocated between 5 GB and 100 TB, in 1 GB increments.  
+
+For more information about Hyperscale pricing, see [Azure SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
 ## Architecture: Distributing functions to isolate capabilities
 
