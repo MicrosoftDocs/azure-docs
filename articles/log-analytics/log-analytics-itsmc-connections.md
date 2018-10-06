@@ -242,8 +242,8 @@ Learn more: [Create ITSM work items from Azure alerts](log-analytics-itsmc-overv
 User the following procedure:
 
 1.	Visit the [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) and install the **User App for ServiceNow and Microsoft OMS Integration** into your ServiceNow Instance.
->[!NOTE]
->As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS is now referred to as Log Analytics.     
+   >[!NOTE]
+   >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS is now referred to as Log Analytics.     
 2.	After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft OMS integrator.  
 3.	Click **Installation Checklist**.
 
