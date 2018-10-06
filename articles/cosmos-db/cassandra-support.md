@@ -164,6 +164,12 @@ Azure Cosmos DB Cassandra API provides choice of consistency for read operations
 
 Azure Cosmos DB supports role-based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com. Azure Cosmos DB does not yet support users and roles for data plane activities. 
 
+## Planned support 
+* Using timestamp using ttl  
+* Region names in create keyspace command - Distribution of data is implemented in underlying Cosmos DB platform and exposed via portal or powershell for the account. This setting in command is ignored today.
+
+
+
 ## Next steps
 
 - Get started with [creating a Cassandra API account, database, and a table](create-cassandra-api-account-java.md) by using a Java application
