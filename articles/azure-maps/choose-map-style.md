@@ -35,11 +35,15 @@ The second code clock uses the map's [setStyle](https://docs.microsoft.com/javas
 <p data-height="500" data-theme-id="0" data-slug-hash="OwgyvG" data-default-tab="js,result" data-user="azuremaps" data-pen-title="Adding the style picker" class="codepen">See the Pen <a href="https://codepen.io/azuremaps/pen/OwgyvG/">Adding the style picker</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-The first code block in the above code creates a Map object without pre-setting the style. See [create a map](./map-create.md) for instructions on how to create a map.
+
+The first code block in the above code sets the subscription key and creates a Map object, the map style is pre-set to grayscale_dark. See [create a map](./map-create.md) for instructions on how to create a map.
+
+
 
 The second code block constructs a style selector using the atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) constructor.
 
-A style picker enables style selection for the map. The third code block adds the style picker to the map using the map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method.
+A style picker enables style selection for the map. The third code block adds the style picker to the map using the map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. All of the controls are within the map event listener to ensure all controls are loaded after the maps loads fully.
+
 
 ## Next steps
 
