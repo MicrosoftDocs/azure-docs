@@ -22,7 +22,7 @@ abstract:
       height: 110
       src: media/index/video3.png
       width: 250  
-    title: Notifications
+    title: <center>Azure Access Control service to be retired</center>
     href: /azure/active-directory/hybrid/how-to-connect-install-custom.md#optional-features
     width: 250
 
