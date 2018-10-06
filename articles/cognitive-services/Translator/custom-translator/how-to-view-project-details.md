@@ -37,5 +37,5 @@ project.
 
 ## Next steps
 
-- Read about [upload document](ct-how-to-upload-document.md).
+- Read about [upload document](how-to-upload-document.md).
 - Read about [train a model](how-to-train-model.md).

@@ -27,6 +27,6 @@ provided when queuing a training, Custom Translator will automatically assemble 
 
 ## Next steps
 
-- Read about [training dataset](ct-concepts-training-dataset.md).
-- Read about [tuning dataset](ct-concepts-tuning-dataset.md).
-- Read about [testing dataset](ct-concepts-testing-dataset.md).
+- Read about [training dataset](concept-training-dataset.md).
+- Read about [tuning dataset](concept-tuning-dataset.md).
+- Read about [testing dataset](concept-testing-dataset).
