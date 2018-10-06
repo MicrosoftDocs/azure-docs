@@ -22,7 +22,7 @@ abstract:
       height: 110
       src: media/index/video3.png
       width: 250  
-    title: <center>Azure Access Control service to be retired</center>
+    title: <center>Azure Access Control retiring</center>
     href: /azure/active-directory/develop/active-directory-acs-migration
     width: 250
 
