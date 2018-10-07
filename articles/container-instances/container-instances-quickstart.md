@@ -2,12 +2,12 @@
 title: Quickstart - Run an application in Azure Container Instances
 description: In this quickstart, you use the Azure CLI to deploy an application running in a Docker container to Azure Container Instances
 services: container-instances
-author: mmacy
+author: dlepow
 
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
 ---
 
