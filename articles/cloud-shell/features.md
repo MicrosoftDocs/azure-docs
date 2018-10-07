@@ -29,12 +29,12 @@ Azure Cloud Shell runs on `Ubuntu 16.04 LTS`.
 
 Cloud Shell securely and automatically authenticates account access for the Azure CLI and Azure PowerShell.
 
-### $Home persistence across sessions
+### $HOME persistence across sessions
 
 To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
-Once completed, Cloud Shell will automatically attach your storage (mounted as `$Home\clouddrive`) for all future sessions.
-Additionally, your `$Home` directory is persisted as an .img in your Azure File share.
-Files outside of `$Home` and machine state are not persisted across sessions. Use best practices when storing secrets such as SSH keys. Services like [Azure Key Vault have tutorials for setup](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
+Once completed, Cloud Shell will automatically attach your storage (mounted as `$HOME\clouddrive`) for all future sessions.
+Additionally, your `$HOME` directory is persisted as an .img in your Azure File share.
+Files outside of `$HOME` and machine state are not persisted across sessions. Use best practices when storing secrets such as SSH keys. Services like [Azure Key Vault have tutorials for setup](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
 [Learn more about persisting files in Cloud Shell.](persisting-shell-storage.md)
 
