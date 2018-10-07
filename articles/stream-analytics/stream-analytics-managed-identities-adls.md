@@ -88,17 +88,17 @@ This article shows you two ways to enable managed identity for an Azure Stream A
    "outputs": [
          {
            "name": "string",
-           "properties": {
+           "properties":{
              "datasource": {      	
-   "type": "Microsoft.DataLake/Accounts",
-         		"properties": {     
-            	  "accountName": “myDataLakeAccountName",
-   	      	  "filePathPrefix": “cluster1/logs/{date}/{time}",
-   	      	  "dateFormat": "YYYY/MM/DD",
-   	      	  "timeFormat": "HH",
-   		  "authenticationMode": "Msi"
-    	  }
-       }
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": “myDataLakeAccountName",
+                 "filePathPrefix": “cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+                 }
+                 
    }
    ```
   

@@ -61,7 +61,7 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const x = yield ctx.df.callActivityAsync("F1");
     const y = yield ctx.df.callActivityAsync("F2", x);
     const z = yield ctx.df.callActivityAsync("F3", y);
@@ -109,7 +109,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const parallelTasks = [];
 
     // get a list of N work items to process in parallel
@@ -230,7 +230,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require("moment");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const jobId = ctx.df.getInput();
     const pollingInternal = getPollingInterval();
     const expiryTime = getExpiryTime();
@@ -295,7 +295,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require('moment');
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     yield ctx.df.callActivityAsync("RequestApproval");
 
     const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
