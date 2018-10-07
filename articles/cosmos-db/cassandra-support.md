@@ -159,7 +159,7 @@ Azure Cosmos DB supports role-based access control (RBAC) and read-write and rea
 
 ## Planned support 
 * Using timestamp and TTL together  
-* Region name in create keyspace command is ignored today- Distribution of data is implemented in underlying Cosmos DB platform and exposed via portal or powershell for the account. 
+* Region name in create keyspace command is ignored at present- Distribution of data is implemented in underlying Cosmos DB platform and exposed via portal or powershell for the account. 
 
 
 
