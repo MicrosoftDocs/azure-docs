@@ -125,24 +125,17 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 Azure Cosmos DB supports the following database commands on Cassandra API accounts.
 
 * CREATE KEYSPACE 
-
 * CREATE TABLE 
-
 * ALTER TABLE 
-
 * USE 
-
 * INSERT 
-
 * SELECT 
-
 * UPDATE 
-
 * BATCH - Only unlogged commands are supported 
-
 * DELETE
 
 All crud operations when executed through CQLV4 compatible SDK will return extra information about error, request units consumed, activity ID. Delete and update commands need to be handled with resource governance in consideration, to avoid over use of provisioned resources. 
+* Note  gc_grace_seconds value must be zero if specified.
 
 ```csharp
 var tableInsertStatement = table.Insert(sampleEntity); 
@@ -165,8 +158,10 @@ Azure Cosmos DB Cassandra API provides choice of consistency for read operations
 Azure Cosmos DB supports role-based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com. Azure Cosmos DB does not yet support users and roles for data plane activities. 
 
 ## Planned support 
-* Using timestamp using ttl  
-* Region names in create keyspace command - Distribution of data is implemented in underlying Cosmos DB platform and exposed via portal or powershell for the account. This setting in command is ignored today.
+* Using timestamp and TTL together  
+* Region name in create keyspace command is ignored today- Distribution of data is implemented in underlying Cosmos DB platform and exposed via portal or powershell for the account. 
+
+
 
 
 
