@@ -28,9 +28,8 @@ To support your Azure Cosmos DB solutions, you can choose from a variety of indu
 |![Altoros][3]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development |     USA, EU    |  [Website](http://www.altoros.com/)       |
 |![Attunix][4]     |   NoSQL migration, <br/> App innovation (existing apps), <br/> New app development      |         |  [Website](http://www.attunix.com/)       |
 |![Bluemetal][5]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    North America, Asia-Pacific     |  [Website](http://www.bluemetal.com/)       |
-|![Capax Global][6]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    USA     |  [Website]()       |
-|![Coeo][7]     |   App innovation (existing apps), <br/> New app development 
-      |    UK     |  [Website](http://www.capaxglobal.com/)       |
+|![Capax Global][6]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    USA     |  [Website](http://www.capaxglobal.com/)       |
+|![Coeo][7]     |   App innovation (existing apps), <br/> New app development |    UK     |  [Website](http://www.coeo.com/)       |
 |![Infosys][8]     |  NoSQL migration       |    Global     |  [Website](http://www.infosys.com/)       |
 |![Neal Analytics][9]     |     App development (new apps)    |    USA     |  [Website](http://www.nealanalytics.com/)       |
 |![Pragmatic Works][10]    |   NoSQL migration      |   USA      |  [Website](http://www.pragmaticworks.com/)       |
