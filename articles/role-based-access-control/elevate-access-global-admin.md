@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/01/2018
+ms.date: 10/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
