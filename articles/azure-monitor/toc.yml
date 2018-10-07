@@ -562,7 +562,7 @@
         href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: Capacity and performance
         href: ../log-analytics/log-analytics-capacity.md?toc=/azure/azure-monitor/toc.json
-      - name: VMWare Analytics
+      - name: VMware Analytics
         href: ../log-analytics/log-analytics-vmware.md?toc=/azure/azure-monitor/toc.json
       - name: Wire Data
         href: ../log-analytics/log-analytics-wire-data.md?toc=/azure/azure-monitor/toc.json
