@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to add utterances in Language Understanding (LUIS) applications.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

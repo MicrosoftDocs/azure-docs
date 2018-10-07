@@ -1,15 +1,18 @@
 ---
 title: SQL (PaaS) Database vs. SQL Server in the cloud on VMs (IaaS) | Microsoft Docs
 description: 'Learn which cloud SQL Server option fits your application: Azure SQL (PaaS) Database or SQL Server in the cloud on Azure Virtual Machines.'
-services: sql-database, virtual-machines
+services: sql-database
+ms.service: sql-database
+ms.subservice: 
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
 keywords: SQL Server cloud, SQL Server in the cloud, PaaS database, cloud SQL Server, DBaaS
 author: CarlRabeler
-manager: craigg
-ms.service: sql-database
-ms.custom: DBs & servers
-ms.topic: conceptual
-ms.date: 09/14/2018
 ms.author: carlrab
+ms.reviewer:
+manager: craigg
+ms.date: 09/14/2018
 ---
 # Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)
 
@@ -18,17 +21,15 @@ In Azure, you can have your SQL Server workloads running in a hosted infrastruct
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A SQL database engine, based on the Enterprise Edition of SQL Server, that is optimized for modern application development. Azure SQL Database offers several deployment options:
   - You can deploy a single database to a [logical server](sql-database-logical-servers.md).
   - You can deploy into an [elastic pool](sql-database-elastic-pool.md) on a [logical server](sql-database-logical-servers.md) to share resources and reduce costs. 
+  - You can deploy to a [Azure SQL Database Managed Instances](sql-database-managed-instance.md). 
+      
+   The following illustration shows these deployment options:
 
-      > [!NOTE]
-      > An Azure SQL Database containing single and pooled databases offers most of database-scoped features of SQL Server.
+     ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
 
-      The following illustration shows these deployment options:
+     > [!NOTE]
+     > With all three versions, Azure SQL Database adds additional features that are not available in SQL Server, such as built-in intelligence and management. A logical server containing single and pooled databases offers most of database-scoped features of SQL Server. With Azure SQL Database Managed Instance, Azure SQL Database offers shared resources for databases and additional instance-scoped features. Azure SQL Database Managed Instance supports database migration with minimal to no database change. 
 
-      ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
-  - You can deploy to a [Azure SQL Database Managed Instances (preview)](sql-database-managed-instance.md). 
-
-      > [!NOTE]
-      > With both versions, Azure SQL Database adds additional features that are not available in SQL Server, such as built-in intelligence and management. With the first version,  With Azure SQL Database Managed Instance, Azure SQL Database offers shared resources for databases and additional instance-scoped features. Azure SQL Database Managed Instance supports database migration with minimal to no database change.
 - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server installed and hosted in the cloud on Windows Server or Linux virtual machines (VMs) running on Azure, also known as an infrastructure as a service (IaaS). SQL Server on Azure virtual machines is a good option for migrating on-premises SQL Server databases and applications without any database change. All recent versions and editions of SQL Server are available for installation in an IaaS virtual machine. The most significant difference from SQL Database is that SQL Server VMs allow full control over the database engine. You can choose when maintenance/patching will start, to change the recovery model to simple or bulk logged to enable faster load less log, to pause or start engine when needed, and you can fully customize the SQL Server database engine. With this additional control comes with added responsibility to manage the virtual machines.
 
 Learn how each deployment option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
@@ -68,7 +69,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
 | **Best for:** |New cloud-designed applications that want to use the latest stable SQL Server features andhave time constraints in development and marketing. | New applications or existing on-premises applications that want to use the latest stable SQL Server features and that are migrated to the cloud with minimal changes.  | Existing applications that require fast migration to the cloud with minimal changes or no changes. Rapid development and test scenarios when you do not want to buy on-premises non-production SQL Server hardware. |
 |  | Teams that need built-in high availability, disaster recovery, and upgrade for the database. | Same as SQL Database. | Teams that can configure, fine tune, customize, and manage high availability, disaster recovery, and patching for SQL Server. Some provided automated features dramatically simplify this. | |
 |  | Teams that do not want to manage the underlying operating system and configuration settings. | Same as SQL Database. | You need a customized environment with full administrative rights. | |
-|  | Databases of up to 4 TB, or larger databases that can be [horizontally or vertically partitioned](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) using a scale-out pattern. | Same as SQL Database. | SQL Server instances with up to 64 TB of storage. The instance can support as many databases as needed. |
+|  | Databases of up to 100 TB. | Same as SQL Database. | SQL Server instances with up to 64 TB of storage. The instance can support as many databases as needed. |
 | **Compatibility** | Supports most on-premises database-level capabilities. | Supports almost all on-premises instance-level and database-level capabilities. | Supports all on-premises capabilities. |
 | **Resources:** | You do not want to employ IT resources for configuration and management of the underlying infrastructure, but want to focus on the application layer. | Same as SQL Database. | You have some IT resources for configuration and management. Some provided automated features dramatically simplify this. |
 | **Total cost of ownership:** | Eliminates hardware costs and reduces administrative costs. | Same as SQL Database. | Eliminates hardware costs. |
@@ -132,20 +133,6 @@ For **SQL Server running on Azure VMs**, Microsoft provides an availability SLA 
 **SQL Database Managed Instance** greatly simplifies the migration of existing applications to Azure SQL Database, enabling you to bring a migrated database applications to market in Azure quickly.
 
 **SQL Server running on Azure VMs** is perfect if your existing or new applications require large databases or access to all features in SQL Server or Windows/Linux, and you want to avoid to time and expense of acquiring new on-premises hardware. It is also a good fit when you want to migrate existing on-premises applications and databases to Azure as-is - in cases where Azure SQL Database Managed Instance is not a good fit. Since you do not need to change the presentation, application, and data layers, you save time and budget on rearchitecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and in doing some performance optimizations that may be required by the Azure platform. For more information, see [Performance Best Practices for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
-
-## Summary
-This article explored SQL Database and SQL Server on Azure Virtual Machines (VMs) and discussed common business motivators that might affect your decision. The following is a summary of suggestions for you to consider:
-
-Choose **Azure SQL Database** if:
-
-* You are building new cloud-based applications to take advantage of the cost savings and performance optimization that cloud services provide. This approach provides the benefits of a fully managed cloud service, helps lower initial time-to-market, and can provide long-term cost optimization.
-* You want to have Microsoft perform common management operations on your databases and require stronger availability SLAs for databases.
-* You want to migrate an existing application as-is to Azure SQL Database Managed Instance and take advantage of additional parity with SQL Server and/or advanced security and networking. Managed Instance is a good choice for both new and existing applications.
-
-Choose **SQL Server on Azure VMs** if:
-
-* You have existing on-premises applications that you want to migrate or extend to the cloud, or if you want to build enterprise applications larger than 4 TB. This approach provides the benefit of using the SQL Server version and edition of your choice, large database capacity, full control over SQL Server and Windows/Linux, and secure tunneling to on-premises. This approach minimizes costs for development and modifications of existing applications.
-* You have existing IT resources and can ultimately own patching, backups, and database high availability. Notice that some automated features dramatically simplify these operations. 
 
 ## Next steps
 

@@ -1,19 +1,20 @@
 ---
-title: Tutorial to create a language model with Custom Speech Service - Microsoft Cognitive Services | Microsoft Docs
-description: In this tutorial, you learn how to create a language model with the Custom Speech Service in Microsoft Cognitive Services.
+title: "Tutorial: Create a language model - Custom Speech Service"
+titlesuffix: Azure Cognitive Services
+description: In this tutorial, you learn how to create a language model with the Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Create a custom language model
-
-[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 In this tutorial, you create a custom language model for text queries or utterances you expect users to say or type in an application. You can then use this custom language model in conjunction with existing state-of-the-art speech models from Microsoft to add voice interaction to your application.
 

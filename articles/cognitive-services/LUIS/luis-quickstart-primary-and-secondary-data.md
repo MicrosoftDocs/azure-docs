@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Extract machine-learned data from an utterance 
 services: cognitive-services
 author: diberry
-manager: cjgronlund 
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: language-understanding

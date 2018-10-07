@@ -1,16 +1,17 @@
 ---
 title: 'Azure portal: Create a SQL Managed Instance | Microsoft Docs'
 description: Create a SQL Managed Instance, network environment, and client VM for access.
-keywords: sql database quickstart, create a sql managed instance
 services: sql-database
-author: jovanpop-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 09/23/2018
+author: jovanpop-msft
 ms.author: jovanpop
-
+ms.reviewer: Carlrab
+manager: craigg
+ms.date: 09/23/2018
 ---
 # Create an Azure SQL Database Managed Instance
 

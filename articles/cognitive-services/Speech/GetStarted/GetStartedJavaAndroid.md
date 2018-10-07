@@ -10,9 +10,8 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
-
-[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 # Quickstart: Use the Bing Speech recognition API in Java on Android
 

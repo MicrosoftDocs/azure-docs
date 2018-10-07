@@ -16,6 +16,9 @@ The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 f
 
 Example use cases include NoSQL databases such as Cassandra, MongoDB, Cloudera, and Redis, data warehousing, and large transactional databases.
 
+> [!NOTE]
+> The Ls-series is optimized for use of the temporary disk attached to the VM machine rather than use of durable data disks. The high throughput and IOPS of the temporary disk makes the Ls-series ideal for NoSQL stores such as Apache Cassandra and MongoDB which replicate data across multiple VMs to achieve persistence in the event of the failure of a single VM. The Ls-series does not support the creation of a local cache to increase the IOPS achievable by durable data disks.
+
 ## Ls-series
 
 ACU: 180-240

@@ -48,25 +48,25 @@ The `app` expression is used in a Log Analytics query to retrieve data from a sp
 
 ## Examples
 
-```
+```Kusto
 app("fabrikamapp").requests | count
 ```
-```
+```Kusto
 app("AI-Prototype/Fabrikam/fabrikamapp").requests | count
 ```
-```
+```Kusto
 app("b438b4f6-912a-46d5-9cb1-b44069212ab4").requests | count
 ```
-```
+```Kusto
 app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
 ```
-```
+```Kusto
 union 
 (workspace("myworkspace").Heartbeat | where Computer contains "Con"),
 (app("myapplication").requests | where cloud_RoleInstance contains "Con")
 | count  
 ```
-```
+```Kusto
 union 
 (workspace("myworkspace").Heartbeat), (app("myapplication").requests)
 | where TimeGenerated between(todatetime("2018-02-08 15:00:00") .. todatetime("2018-12-08 15:05:00"))

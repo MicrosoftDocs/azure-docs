@@ -25,7 +25,7 @@
     href: app-service-web-get-started-java.md
   - name: Create static HTML site
     href: app-service-web-get-started-html.md
-  - name: Run custom Windows container
+  - name: Run Windows container
     href: app-service-web-get-started-windows-container.md
 - name: Tutorials
   items:
@@ -41,6 +41,8 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: Java with MySQL
       href: app-service-web-tutorial-java-mysql.md
+  - name: Customize Windows (container)
+    href: app-service-web-tutorial-windows-containers-custom-fonts.md
   - name: Access SQL DB securely
     href: app-service-web-tutorial-connect-msi.md
   - name: Host RESTful API
@@ -96,8 +98,6 @@
       href: web-sites-java-add-app.md
     - name: Configure PHP
       href: web-sites-php-configure.md
-    - name: Python
-      href: web-sites-python-configure.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
   - name: Deploy to Azure
@@ -206,6 +206,8 @@
     href: /rest/api/appservice/
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

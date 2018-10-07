@@ -33,13 +33,13 @@ This article describes aggregation functions in Log Analytics queries that offer
 Count the number of rows in the result set after any filters are applied. The following example returns the total number of rows in the _Perf_ table from the last 30 minutes. The result is returned in a column named *count_* unless you assign it a specific name:
 
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -47,7 +47,7 @@ Perf
 
 A timechart visualization can be useful to see a trend over time:
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -62,7 +62,7 @@ The output from this example shows the perf record count trendline in 5 minutes'
 ### dcount, dcountif
 Use `dcount` and `dcountif` to count distinct values in a specific column. The following query evaluates how many distinct computers sent heartbeats in the last hour:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -70,7 +70,7 @@ Heartbeat
 
 To count only the Linux computers that sent heartbeats, use `dcountif`:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -79,7 +79,7 @@ Heartbeat
 ### Evaluating subgroups
 To perform a count or other aggregations on subgroups in your data, use the `by` keyword. For example, to count the number of distinct Linux computers that sent heartbeats in each country:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -96,7 +96,7 @@ Heartbeat
 
 To analyze even smaller subgroups of your data, add additional column names to the `by` section. For example, you might want to count the distinct computers from each country per OSType:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -108,7 +108,7 @@ When evaluating numerical values, a common practice is to average them using `su
 ### Percentile
 To find the median value, use the `percentile` function with a value to specify the percentile:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -117,7 +117,7 @@ Perf
 
 You can also specify different percentiles to get an aggregated result for each:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -129,7 +129,7 @@ This might show that some computer CPUs have similar median values, but while so
 ### Variance
 To directly evaluate the variance of a value, use the standard deviation and variance methods:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -138,7 +138,7 @@ Perf
 
 A good way to analyze the stability of the CPU usage is to combine stdev with the median calculation:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

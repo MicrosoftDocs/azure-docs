@@ -11,12 +11,10 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
+ROBOTS: NOINDEX
 ---
 
 # What is Translator Speech API?
-
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
-
 The Translator Speech API can be used to add end-to-end, real-time, speech translations to applications, tools, or any solution requiring multi-language speech translation regardless of the target OS or development languages. The API can be used for both speech to speech and speech to text translation.
 
 Translator Text API is an Azure service, part of the [Azure Cognitive Services API collection](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) of machine learning and AI algorithms in the cloud, readily consumable in your development projects.

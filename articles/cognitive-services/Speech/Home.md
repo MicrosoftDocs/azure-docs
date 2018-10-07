@@ -10,11 +10,10 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 
 # What is Bing Speech?
-
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 The cloud-based Microsoft Bing Speech API provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, user dialog using natural speech conversation, and speech transcription and dictation. The Microsoft Speech API supports both *Speech to Text* and *Text to Speech* conversion.
 
@@ -22,7 +21,7 @@ The cloud-based Microsoft Bing Speech API provides developers an easy way to cre
 - **Text to Speech** API converts text to audio streams that can be played back to the user of your application.
 
 > [!NOTE] 
-> In May 2018, we released the new [Speech service](../speech-service/overview.md) in public preview. We encourage you to [try it out for free](../speech-service/get-started.md).
+> Since September 2018, the new [Speech service](../speech-service/index.yml) has become generally available. We encourage you to [try it out for free](../speech-service/get-started.md).
 
 ## Speech to text (speech recognition)
 

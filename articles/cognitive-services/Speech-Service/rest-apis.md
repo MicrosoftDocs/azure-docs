@@ -12,18 +12,18 @@ ms.author: v-jerkin
 ---
 # Speech service REST APIs
 
-The REST APIs of the unified Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the Bing Speech service. Regional endpoints are available, and you must use a subscription key corresponding to the endpoint you're using.
+The REST APIs of the Azure Cognitive Services unified Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the Bing Speech service. Regional endpoints are available, and you must use a subscription key that corresponds to the endpoint you're using.
 
 ## Speech to Text
 
-The endpoints for the Speech to Text REST API are shown in the table below. Use the one that matches your subscription region.
+The endpoints for the Speech to Text REST API are shown in the following table. Use the one that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 > [!NOTE]
 > If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
 
-This API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API only returns final results, not partial or interim results. The Speech Service also has a [batch transcription](batch-transcription.md) API that can transcribe longer audio.
+This API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API returns only final results, not partial or interim results. The Speech service also has a [batch transcription](batch-transcription.md) API that can transcribe longer audio.
 
 ### Query parameters
 
@@ -31,7 +31,7 @@ The following parameters may be included in the query string of the REST request
 
 |Parameter name|Required/optional|Meaning|
 |-|-|-|
-|`language`|Required|The identifier of the language to be recognized. See [Supported languages](supported-languages.md#speech-to-text).|
+|`language`|Required|The identifier of the language to be recognized. See [Supported languages](language-support.md#speech-to-text).|
 |`format`|Optional<br>default: `simple`|Result format, `simple` or `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and duration. Detailed results include multiple candidates with confidence values and four different representations.|
 |`profanity`|Optional<br>default: `masked`|How to handle profanity in recognition results. May be `masked` (replaces profanity with asterisks), `removed` (removes all profanity), or `raw` (includes profanity).
 
@@ -46,15 +46,15 @@ The following fields are sent in the HTTP request header.
 |`Content-type`|Describes the format and codec of the audio data. Currently, this value must be `audio/wav; codec=audio/pcm; samplerate=16000`.|
 |`Transfer-Encoding`|Optional. If given, must be `chunked` to allow audio data to be sent in multiple small chunks instead of a single file.|
 |`Expect`|If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.|
-|`Accept`|Optional. If provided, must include `application/json`, as the Speech service provides results in JSON format. (Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`)|
+|`Accept`|Optional. If provided, must include `application/json`, as the Speech service provides results in JSON format. (Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`.)|
 
 ### Audio format
 
-The audio is sent in the body of the HTTP `PUT` request and should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz.
+The audio is sent in the body of the HTTP `PUT` request. It should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz.
 
 ### Chunked transfer
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file while it is being transmitted. The REST API does not provide partial or interim results; this option is intended solely to improve responsiveness.
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file while it's being transmitted. The REST API does not provide partial or interim results. This option is intended solely to improve responsiveness.
 
 The following code illustrates how to send audio in chunks. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
@@ -121,7 +121,7 @@ Results are returned in JSON format. The `simple` format includes only the follo
 |`Offset`|The time (in 100-nanosecond units) at which the recognized speech begins in the audio stream.|
 |`Duration`|The duration (in 100-nanosecond units) of the recognized speech in the audio stream.|
 
-The `RecognitionStatus` field may contain the following values.
+The `RecognitionStatus` field might contain the following values.
 
 |Status value|Description
 |-|-|
@@ -133,6 +133,7 @@ The `RecognitionStatus` field may contain the following values.
 
 > [!NOTE]
 > If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result. 
+
 
 The `detailed` format includes the same fields as the `simple` format, along with an `NBest` field. The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
 
@@ -157,7 +158,7 @@ The following is a typical response for `simple` recognition.
 }
 ```
 
-Below is a typical response for `detailed` recognition.
+The following is a typical response for `detailed` recognition.
 
 ```json
 {
@@ -189,17 +190,14 @@ The following are the REST endpoints for the Speech service's Text to Speech API
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> If you created a custom voice font, use the associated custom endpoint instead.
-
-The Speech Service supports 24-KHz audio output in addition to the 16-Khz output supported by Bing Speech. Four 24-KHz output formats are available for use in the `X-Microsoft-OutputFormat` HTTP header, as are two 24-KHz voices, `Jessa24kRUS` and `Guy24kRUS`.
+The Speech service supports 24-KHz audio output in addition to the 16-Khz output supported by Bing Speech. Four 24-KHz output formats are available for use in the `X-Microsoft-OutputFormat` HTTP header, as are two 24-KHz voices, `Jessa24kRUS` and `Guy24kRUS`.
 
 Locale | Language   | Gender | Service name mapping
 -------|------------|--------|------------
 en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
 en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
-A full list of available voices is available in [Supported languages](supported-languages.md#text-to-speech).
+A full list of available voices is available in [Supported languages](language-support.md#text-to-speech).
 
 ### Request headers
 
@@ -212,12 +210,12 @@ The following fields are sent in the HTTP request header.
 |`X-Microsoft-OutputFormat`|The output audio format. See next table.|
 |`User-Agent`|Application name. Required; must contain fewer than 255 characters.|
 
-The available audio output formats (`X-Microsoft-OutputFormat`) incorporate both a bitrate and an encoding.
+The available audio output formats (`X-Microsoft-OutputFormat`) incorporate both a bit rate and an encoding.
 
 |||
 |-|-|
-`raw-16khz-16bit-mono-pcm`         | `audio-16khz-16kbps-mono-siren`
-`riff-16khz-16kbps-mono-siren`     | `riff-16khz-16bit-mono-pcm`
+`raw-16khz-16bit-mono-pcm`         | `raw-8khz-8bit-mono-mulaw`
+`riff-8khz-8bit-mono-mulaw`     | `riff-16khz-16bit-mono-pcm`
 `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
 `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
@@ -258,26 +256,27 @@ HTTP code|Meaning|Possible reason
 200|OK|The request was successful; the response body is an audio file.
 400 |Bad Request |A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long.
 401|Unauthorized |The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region.
-413|Request entity too large|The SSML input is longer than 1024 characters.
-|502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
+413|Request Entity Too Large|The SSML input is longer than 1024 characters.
+429|Too Many Requests|You have exceeded the quota or rate of requests allowed for your subscription.
+502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
 
-If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file may be played as it is transferred, or saved to a buffer or file for later playback or other use.
+If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred or saved to a buffer or file for later playback or other use.
 
 ## Authentication
 
-Sending a request to the Speech service's REST API requires either a subscription key or an access token. In general, it is easiest to send the subscription key directly; the Speech service then obtains the access token for you. However, to minimize response time, you may wish to use an access token instead.
+Sending a request to the Speech service's REST API requires either a subscription key or an access token. In general, it's easiest to send the subscription key directly. The Speech service then obtains the access token for you. To minimize response time, you might want to use an access token instead.
 
-You obtain a token by presenting your subscription key to a regional Speech service `issueToken` endpoint, shown in the table below. Use the endpoint that matches your subscription region.
+To obtain a token, present your subscription key to a regional Speech service `issueToken` endpoint, as shown in the following table. Use the endpoint that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-Each access token is valid for 10 minutes. You may obtain a new token at any time—including, if you like, just before every Speech REST API request. To minimize network traffic and latency, however, we recommend using the same token for nine minutes.
+Each access token is valid for 10 minutes. You can obtain a new token at any time. If you like, you can obtain a token just before every Speech REST API request. To minimize network traffic and latency, we recommend using the same token for nine minutes.
 
 The following sections show how to get a token and how to use it in a request.
 
-### Getting a token: HTTP
+### Get a token: HTTP
 
-Below is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, replace the `Host` header with your region's hostname.
+The following example is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
 
 ```
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -289,9 +288,9 @@ Content-Length: 0
 
 The body of the response to this request is the access token in Java Web Token (JWT) format.
 
-### Getting a token: PowerShell
+### Get a token: PowerShell
 
-The Windows PowerShell script below illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, change the hostname of the given URI accordingly.
+The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -308,12 +307,12 @@ $OAuthToken
 
 ```
 
-### Getting a token: cURL
+### Get a token: cURL
 
-cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The cURL command below illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, change the hostname of the given URI accordingly.
+cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The following cURL command illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
 
 > [!NOTE]
-> The command is shown on multiple lines for readability, but should entered on a single line at a shell prompt.
+> The command is shown on multiple lines for readability, but enter it on a single line at a shell prompt.
 
 ```
 curl -v -X POST 
@@ -323,9 +322,9 @@ curl -v -X POST
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-### Getting a token: C#
+### Get a token: C#
 
-The C# class below illustrates how to obtain an access token. Pass your Speech service subscription key when instantiating the class. If your subscription is not in the West US region, change the hostname of `FetchTokenUri` appropriately.
+The following C# class illustrates how to obtain an access token. Pass your Speech service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the host name of `FetchTokenUri` appropriately.
 
 ```cs
 /*
@@ -364,9 +363,9 @@ public class Authentication
 }
 ```
 
-### Using a token
+### Use a token
 
-To use a token in a REST API request, provide it in the `Authorization` header, following the word `Bearer`. Here, for example, is a sample Text to Speech REST request containing a token. Substitute your actual token for `YOUR_ACCESS_TOKEN` and use the correct hostname in the `Host` header.
+To use a token in a REST API request, provide it in the `Authorization` header, following the word `Bearer`. Here is a sample Text to Speech REST request that contains a token. Substitute your actual token for `YOUR_ACCESS_TOKEN`. Use the correct host name in the `Host` header.
 
 ```xml
 POST /cognitiveservices/v1 HTTP/1.1
@@ -382,16 +381,16 @@ Connection: Keep-Alive
 </voice></speak>
 ```
 
-### Renewing authorization
+### Renew authorization
 
-The authorization token expires after 10 minutes. Renew your authorization by obtaining a new token before it expires—for example, after nine minutes. 
+The authorization token expires after 10 minutes. Renew your authorization by obtaining a new token before it expires. As an example, you can obtain a new token after nine minutes.
 
-The following C# code is a drop-in replacement for the class presented earlier. The `Authentication` class automatically obtains a new access token every nine minutes using a timer. This approach ensures that a valid token is always available while your program is running.
+The following C# code is a drop-in replacement for the class presented earlier. The `Authentication` class automatically obtains a new access token every nine minutes by using a timer. This approach ensures that a valid token is always available while your program is running.
 
 > [!NOTE]
-> Instead of using a timer, you could store a timestamp of when the last token was obtained, then request a new one only if it is close to expiring. This approach avoids requesting new tokens unnecessarily and may be more suitable for programs that make infrequent Speech requests.
+> Instead of using a timer, you can store a timestamp of when the last token was obtained. Then you can request a new one only if it's close to expiring. This approach avoids requesting new tokens unnecessarily and might be more suitable for programs that make infrequent Speech requests.
 
-As before, make sure the `FetchTokenUri` value matches your subscription region. Pass your subscription key when instantiating the class.
+As before, make sure the `FetchTokenUri` value matches your subscription region. Pass your subscription key when you instantiate the class.
 
 ```cs
 /*

@@ -199,6 +199,8 @@
       href: storage-https-custom-domain-cdn.md
     - name: Immutable blobs
       href: storage-blob-immutable-storage.md
+    - name: Advanced Threat Protection (preview)
+      href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Enable secure TLS for Azure Storage client
       href: ../common/storage-security-tls.md
     - name: Compliance offerings
@@ -310,9 +312,9 @@
       href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: PowerShell for China, Government, and German clouds
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure CLI 1.0
+    - name: Azure classic CLI
       href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage blobs with Storage Explorer
       href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

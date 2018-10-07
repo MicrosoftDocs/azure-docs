@@ -51,8 +51,6 @@ The following JSON response illustrates what Computer Vision returns when descri
 }
 ```
 
-An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
-
 ## Next steps
 
 Learn concepts about [tagging images](concept-tagging-images.md) and [categorizing images](concept-categorizing-images.md).

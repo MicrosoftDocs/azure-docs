@@ -33,7 +33,7 @@ Download the latest items [from the Marketplace](azure-stack-download-azure-mark
 * Custom Script for Linux 2.0
 * Custom Script Extension for Windows
 
-For more information about blockchain scenarios, see [Ethereum proof-of-work consortium solution template](../blockchain-workbench/ethereum-deployment-guide.md).
+For more information about blockchain scenarios, see [Ethereum proof-of-work consortium solution template](../blockchain/templates/ethereum-deployment.md).
 
 ## Deployment architecture
 
