@@ -55,9 +55,9 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
    ![Access management for Azure resources - screenshot](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   When you set the switch to **Yes**, your Global Administrator account (currently logged in user) is added to the User Access Administrator role in Azure RBAC at the root scope (`/`), which grants you access to manage all Azure subscriptions and management groups associated with this Azure AD directory.
+   When you set the switch to **Yes**, your user account (which is assigned the Global Administrator role in Azure AD) is assigned the User Access Administrator role in Azure RBAC at the root scope (`/`). This grants your user account the ability to assign roles in all Azure subscriptions and management groups associated with this Azure AD directory.
 
-   When you set the switch to **No**, your Global Administrator account (currently logged in user) is removed from the User Access Administrator role in Azure RBAC. You can't manage all Azure subscriptions and management groups that are associated with this Azure AD directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
+   When you set the switch to **No**, the User Access Administrator role in Azure RBAC is removed from your user account (which is assigned the Global Administrator role in Azure AD). You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Azure AD directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
 
 1. Click **Save** to save your setting.
 
