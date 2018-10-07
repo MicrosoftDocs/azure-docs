@@ -81,6 +81,7 @@ sections:
   - type: list
     style: unordered
     items:
+    - title: 
       html: <p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01">OpenAPI Specification (Swagger)</a></p><p><a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a></p><p><a href="https://aka.ms/ams-v3-rest-ref">REST</a></p><p><a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a></p><p><a href="https://aka.ms/ams-v3-java-ref">Java</a></p><p><a href="https://aka.ms/ams-v3-python-ref">Python</a></p><p><a href="https://aka.ms/ams-v3-nodejs-ref">Node .js</a></p>
 
     
