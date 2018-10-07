@@ -32,7 +32,6 @@ Reviewing suggested utterances doesn't need to be done every day but should be p
 
 ## Delete review items programmatically
 Use the **[delete unlabelled utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API. Back up these utterances before deletion by **[exporting the log files](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
-<!--If your app is large, you may choose to review some utterances and delete the rest from the list programmatically. This is done by first [getting](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) the list and then [deleting](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) the utterances by ID.-->
 
 ## Next steps
 
