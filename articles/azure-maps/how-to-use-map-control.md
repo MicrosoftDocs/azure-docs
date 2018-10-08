@@ -45,7 +45,6 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
         <script>
             atlas.setSubscriptionKey("<_your account key_>");
             atlas.setLanguage("en");
-            atlas.setUserRegion("Unified");
             var map = new atlas.Map("map", {
                 center: [-122.33263,47.59093],
                 zoom: 12
