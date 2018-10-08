@@ -182,6 +182,8 @@
       items:
       - name: Database recovery
         href: sql-database-recovery-using-backups.md
+      - name: Accelerated database recovery
+        href: sql-database-accelerated-database-recovery.md
       - name: Recover from outage
         href: sql-database-disaster-recovery.md
       - name: Perform recovery drill
