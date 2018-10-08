@@ -78,9 +78,9 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 For more details on how to use the Spatial Intelligence Graph, please visit the Azure Digital Twins Management APIs sneak preview.
 
->[!TIP]
->For your convenience, a Swagger sneak preview is provided to demonstrate the API feature set.
->It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+> [!TIP]
+> A Swagger sneak preview is provided to demonstrate the API feature set.
+> It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
 Learn more about [how to use Swagger](how-to-use-swagger.md).
 

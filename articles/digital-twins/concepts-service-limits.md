@@ -33,7 +33,7 @@ Each Azure Digital Twins instance can have:
 ## Management API limits
 
 - 100 requests per second to Management API
-- A single Management API query can return up to 1000 objects.
+- A single Management API query can return up to 1000 objects
 
 > [!IMPORTANT]
 > If you exceed the 1000 object limit, you will receive an error and will need to simplify your query.

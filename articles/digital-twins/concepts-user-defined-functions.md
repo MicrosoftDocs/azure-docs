@@ -16,7 +16,7 @@ Azure Digital Twins offers advanced compute capabilities. Developers can define 
 
 ## Data processing flow
 
-Once devices send telemetry data to Digital Twins, developers can process data in four phases: _validate_, _match_, _compute_, and _dispatch_: 
+Once devices send telemetry data to Digital Twins, developers can process data in four phases: _validate_, _match_, _compute_, and _dispatch_:
 
 ![Digital Twins Data Processing Flow][1]
 
