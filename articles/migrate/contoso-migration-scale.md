@@ -153,7 +153,7 @@ Migration risk	| 1-5 | What's the risk level for migrating the app? This value s
 
 ### Figure out costs
 
-To figure out costs and the potential savings of Azure migration, Contoso can use the [Total Cost of Ownership (TCO) calculator](azure.com/tco) to calculate and compare the TCO for Azure to a comparable on-premises deployment.
+To figure out costs and the potential savings of Azure migration, Contoso can use the [Total Cost of Ownership (TCO) calculator](https://azure.microsoft.com/pricing/tco/calculator/) to calculate and compare the TCO for Azure to a comparable on-premises deployment.
 
 ### Identify assessment tools
 
