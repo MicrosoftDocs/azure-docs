@@ -21,6 +21,8 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 - The Dv3-series features the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or the latest 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads.  Memory has been expanded (from ~3.5 GiB/vCPU to 4 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading.  The Dv3 no longer has the high memory VM sizes of the D/Dv2 families, those have been moved to the new Ev3 family.
 
   Example D-series use cases include  enterprise-grade applications, relational databases, in-memory caching, and analytics. 
+  
+- The [DC-series](#dc-series) is a new family of virtual machines in Azure that can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of 3.7GHz Intel XEON E-2176G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 4.7GHz. DC series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use
 
 ## B-series
 
@@ -133,6 +135,7 @@ Premium Storage:  Not Supported
 
 Premium Storage Caching:  Not Supported
 
+
 | Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2x500               | 2 / 250                 |
@@ -144,6 +147,22 @@ Premium Storage Caching:  Not Supported
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500             | 8 / 2000                     |
 
 <br>
+
+
+## DC-series
+
+Premium Storage: Supported
+
+Premium Storage Caching: Supported
+
+
+
+| Size          | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
+|---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
+| Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2 / 1500                                     |
+| Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |
+
+
 
 
 

@@ -12,7 +12,7 @@ ms.author: v-jerkin
 ---
 # Speech service REST APIs
 
-The REST APIs of the Azure Cognitive Services unified Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the Bing Speech service. Regional endpoints are available, and you must use a subscription key that corresponds to the endpoint you're using.
+The REST APIs of the Azure Cognitive Services Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the Bing Speech service. Regional endpoints are available, and you must use a subscription key that corresponds to the endpoint you're using.
 
 ## Speech to Text
 
