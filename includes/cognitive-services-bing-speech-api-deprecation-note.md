@@ -2,8 +2,8 @@
 author: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/14/2018
+ms.date: 10/08/2018
 ms.author: nitinme
 ---
 > [!NOTE]
-> Bing Speech API is now deprecated and we recommend that you use the Speech Service instead. For instructions on how to switch to the Speech Service, see [Migrating from Bing Speech API to the Speech Service](../articles/cognitive-services/speech-service/how-to-migrate-from-bing-speech.md).
+> We have replaced Bing Speech with the new Speech Service and SDK, and will no longer work starting October 15, 2019. For information on switching to the Speech Service, see [Migrating from Bing Speech to the Speech Service](../articles/cognitive-services/speech-service/how-to-migrate-from-bing-speech.md).
