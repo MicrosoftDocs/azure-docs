@@ -69,17 +69,19 @@
     href: access-api-cli-how-to.md
   - name: Monitor job state events - CLI
     href: job-state-events-cli-how-to.md    
-  - name: Customize Transform presets - .NET Core
-    href: customize-encoder-presets-how-to.md
-  - name: Generate a thumbnail sprite 
-    href: generate-thumbnail-sprite.md
-  - name: Upload content 
+  - name: Encode 
     items:
-    - name: From HTTPS - .NET
+    - name: Customize Transform presets - .NET Core
+      href: customize-encoder-presets-how-to.md
+    - name: Generate a thumbnail sprite 
+      href: generate-thumbnail-sprite.md
+  - name: Upload  
+    items:
+    - name: From HTTP(s) - .NET
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md  
-  - name: Protect content
+  - name: Protect 
     items:
     - name: With AES-128 - .NET
       href: protect-with-aes128.md    
