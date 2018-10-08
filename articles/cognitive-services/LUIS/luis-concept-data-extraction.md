@@ -1,29 +1,30 @@
 ---
-title: Understand data extraction concepts in LUIS - Azure | Microsoft Docs
+title: Data extraction concepts in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Learn what kind of data can be extracted from Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 
 # Data extraction
-LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chatbot to take action.
+LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action. In the following sections, learn what data is returned from intents and entities with examples of JSON.
 
-In the following sections, learn what data is returned from intents and entities with examples of JSON. The hardest data to extract is the machine-learned data because it is not an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you are confident you receive the data you expect. 
+The hardest data to extract is the machine-learned data because it is not an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you are confident you receive the data you expect.
 
 ## Data location and key usage
-LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. 
+LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
 The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the endpoint key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
 
-The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS](luis-reference-regions.md) website **Publish** page. 
+The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS](luis-reference-regions.md) website, in the **Manage** section, on the **Keys and endpoints** page.
 
 ## Data from intents
 The primary data is the top scoring **intent name**. Using the `MyStore` [quickstart](luis-quickstart-intents-only.md), the endpoint response is:
@@ -98,7 +99,7 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
   "entities": []
 }
 ```
-    
+
 |Domain|Data Object|Data Type|Data Location|Value|
 |--|--|--|--|--|
 |Utilities|Intent|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
@@ -107,9 +108,9 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 
 
 ## Data from entities
-Most chatbots and applications need more than the intent name. This additional, optional data comes from entities discovered in the utterance. Each type of entity returns different information about the match. 
+Most chatbots and applications need more than the intent name. This additional, optional data comes from entities discovered in the utterance. Each type of entity returns different information about the match.
 
-A single word or phrase in an utterance can match more than one entity. In that case, each matching entity is returned with its score. 
+A single word or phrase in an utterance can match more than one entity. In that case, each matching entity is returned with its score.
 
 All entities are returned in the **entities** array of the response from the endpoint:
 
@@ -135,13 +136,13 @@ All entities are returned in the **entities** array of the response from the end
 ```
 
 ## Tokenized entity returned
-Several [cultures](luis-supported-languages.md#tokenization) return the entity object with the `entity` value [tokenized](luis-glossary.md#token). The startIndex and endIndex returned by LUIS in the entity object do not map to the new, tokenized value but instead to the original query in order for you to extract the raw entity programmatically. 
+Several [cultures](luis-language-support.md#tokenization) return the entity object with the `entity` value [tokenized](luis-glossary.md#token). The startIndex and endIndex returned by LUIS in the entity object do not map to the new, tokenized value but instead to the original query in order for you to extract the raw entity programmatically. 
 
 For example, in German, the word `das Bauernbrot` is tokenized into `das bauern brot`. The tokenized value, `das bauern brot`, is returned and the original value can be programmatically determined from the startIndex and endIndex of the original query, giving you `das Bauernbrot`.
 
 ## Simple entity data
 
-A [simple entity](luis-concept-entity-types.md) is a machine-learned value. It can be a word or phrase. 
+A [simple entity](luis-concept-entity-types.md) is a machine-learned value. It can be a word or phrase.
 
 `Bob Jones wants 3 meatball pho`
 
@@ -167,13 +168,13 @@ The data returned from the endpoint includes the entity name, the discovered tex
 
 ## Hierarchical entity data
 
-[Hierarchical](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. Children are identified by context. If you are looking for a parent-child relationship with exact text match, use a [List](#list-entity-data) entity. 
+[Hierarchical](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. Children are identified by context. If you are looking for a parent-child relationship with exact text match, use a [List](#list-entity-data) entity.
 
 `book 2 tickets to paris`
 
-In the previous utterance, `paris` is labeled a `Location::ToLocation` child of the `Location` hierarchical entity. 
+In the previous utterance, `paris` is labeled a `Location::ToLocation` child of the `Location` hierarchical entity.
 
-The data returned from the endpoint includes the entity name and child name, the discovered text from the utterance, the location of the discovered text, and the score: 
+The data returned from the endpoint includes the entity name and child name, the discovered text from the utterance, the location of the discovered text, and the score:
 
 ```JSON
 "entities": [
@@ -253,9 +254,9 @@ Composite entities are returned in a `compositeEntities` array and all entities 
 
 ## List entity data
 
-A [list](luis-concept-entity-types.md) entity is not machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than one list. 
+A [list](luis-concept-entity-types.md) entity is not machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than one list.
 
-Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101), and phone area code (206). 
+Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101), and phone area code (206).
 
 |List item|Item synonyms|
 |---|---|
@@ -264,7 +265,7 @@ Suppose the app has a list, named `Cities`, allowing for variations of city name
 
 `book 2 tickets to paris`
 
-In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` list entity. The list entity matches both the item's normalized name as well as the item synonyms. 
+In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` list entity. The list entity matches both the item's normalized name as well as the item synonyms.
 
 ```JSON
 "entities": [
@@ -384,7 +385,7 @@ Another example utterance, using a synonym for Paris:
       }
     }
   ]
-``` 
+```
 
 ## Regular expression entity data
 [Regular expression](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the regular expression entity definition, the following JSON response is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
@@ -418,19 +419,19 @@ Another example utterance, using a synonym for Paris:
 ```
 
 ## Extracting names
-Getting names from an utterance is difficult because a name can be almost any combination of letters and words. Depending on what type of name you are extracting, you have several options. These are not rules but more guidelines. 
+Getting names from an utterance is difficult because a name can be almost any combination of letters and words. Depending on what type of name you are extracting, you have several options. These are not rules but more guidelines.
 
 ### Names of people
-People's name can have some slight format depending on language and culture. Use either a hierarchical entity with first and last names as children or use a simple entity with roles of first and last name. Make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+People's name can have some slight format depending on language and culture. Use either a hierarchical entity with first and last names as children or use a simple entity with roles of first and last name. Make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ### Names of places
-Location names are set and known such as cities, counties, states, provinces, and countries. If your app uses a know set of locations, consider a list entity. If you need to find all place names, create a simple entity, and provide a variety of examples. Add a phrase list of place names to reinforce what place names look like in your app. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+Location names are set and known such as cities, counties, states, provinces, and countries. If your app uses a know set of locations, consider a list entity. If you need to find all place names, create a simple entity, and provide a variety of examples. Add a phrase list of place names to reinforce what place names look like in your app. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ### New and emerging names
-Some apps need to be able to find new and emerging names such as products or companies. This is the most difficult type of data extraction. Begin with a simple entity and add a phrase list. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+Some apps need to be able to find new and emerging names such as products or companies. This is the most difficult type of data extraction. Begin with a simple entity and add a phrase list. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ## Pattern roles data
-Roles are contextual differences of entities. 
+Roles are contextual differences of entities.
 
 ```JSON
 {
@@ -491,7 +492,7 @@ Roles are contextual differences of entities.
 ```
 
 ## Pattern.any entity data
-Pattern.any entities are variable-length entities used in template utterances of a [pattern](luis-concept-patterns.md). 
+Pattern.any entities are variable-length entities used in template utterances of a [pattern](luis-concept-patterns.md).
 
 ```JSON
 {
@@ -562,13 +563,37 @@ For all other cultures, the response is:
 ### Key phrase extraction entity data
 The key phrase extraction entity returns key phrases in the utterance, provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
-<!-- TBD: verify JSON-->
 ```JSON
-"keyPhrases": [
-    "places",
-    "beautiful views",
-    "favorite trail"
-]
+{
+  "query": "Is there a map of places with beautiful views on a favorite trail?",
+  "topScoringIntent": {
+    "intent": "GetJobInformation",
+    "score": 0.764368951
+  },
+  "intents": [
+    ...
+  ],
+  "entities": [
+    {
+      "entity": "beautiful views",
+      "type": "builtin.keyPhrase",
+      "startIndex": 30,
+      "endIndex": 44
+    },
+    {
+      "entity": "map of places",
+      "type": "builtin.keyPhrase",
+      "startIndex": 11,
+      "endIndex": 23
+    },
+    {
+      "entity": "favorite trail",
+      "type": "builtin.keyPhrase",
+      "startIndex": 51,
+      "endIndex": 64
+    }
+  ]
+}
 ```
 
 ## Data matching multiple entities
@@ -576,7 +601,7 @@ LUIS returns all entities discovered in the utterance. As a result, your chatbot
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-The LUIS endpoint can discover the same data in different entities: 
+The LUIS endpoint can discover the same data in different entities:
 
 ```JSON
 {

@@ -1,20 +1,21 @@
 ---
 title: 'Azure portal: Create a SQL database | Microsoft Docs'
 description: Create a SQL Database logical server, server-level firewall rule, and database in the Azure portal, and query it.
-keywords: sql database tutorial, create a sql database
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 07/16/2018
+author: sachinpMSFT
 ms.author: sachinp
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
 ---
 # Create an Azure SQL database in the Azure portal
 
-This quickstart walks through how to create a SQL database in Azure using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md). Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quickstart shows you how to get started by creating a SQL database using the Azure portal.
+This quickstart walks through how to create a SQL database in Azure using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md). Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quickstart shows you how to get started by creating and then querying a SQL database using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -23,7 +24,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a SQL database
 
@@ -91,36 +92,6 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
      ![notification](./media/sql-database-get-started-portal/notification.png)
 
-## Create a server-level firewall rule
-
-The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only.
-
-> [!NOTE]
-> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
->
-
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration.
-
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstarts.
-
-   ![server name](./media/sql-database-get-started-portal/server-name.png)
-
-3. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens.
-
-   ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
-
-4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
-
-5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
-
-6. Click **OK** and then close the **Firewall settings** page.
-
-You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
-
-> [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
->
-
 ## Query the SQL database
 
 Now that you have created a sample database in Azure, let’s use the built-in query tool within the Azure portal to confirm that you can connect to the database and query the data.
@@ -156,7 +127,9 @@ Save these resources if you want to go to [Next steps](#next-steps) and learn ho
 
 ## Next steps
 
-- Now that you have a database, you can [connect and query](sql-database-connect-query.md) using one of your favorite tools or languages. 
-- To learn how to design your first database, create tables, and insert data, see one of these tutorials:
- - [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md)
-  - [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)
+- Now that you have a database, you need to create a server-level firewall rule to connect to it from your on-premises tools. See [Create server-level firewall rule](sql-database-get-started-portal-firewall.md)
+- If creating a server-level firewall rule, you can [connect and query](sql-database-connect-query.md) using one of your favorite tools or languages, including
+  - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+- To create databases using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md)
+- To create databases using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md)

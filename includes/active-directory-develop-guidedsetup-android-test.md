@@ -1,31 +1,51 @@
-## Test your code
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
 
-1. Deploy your code to your device/emulator.
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file 
 
-2. When you're ready to test your application, use an Azure Active Directory account (work or school account) or a Microsoft account (live.com, outlook.com) to sign in. 
+---
+
+## Test your app
+
+1. Run your code to your device/emulator.
+
+2. Try to sign in with a Azure Active Directory account (work or school account) or Microsoft account (live.com, outlook.com). 
 
     ![Test your application](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>
     ![Enter username and password](media/active-directory-develop-guidedsetup-android-test/usernameandpassword.png)
 
-### Provide consent for application access
-The first time that you sign in to your application, you're also prompted to provide consent to allow the application to access your profile and sign you in, as shown here: 
+### Consent to your app
+The first time a user signs in to your application, they will be prompted to consent to the permissions your app needs, as shown here: 
 
 ![Provide your consent for application access](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
 
 
-### View application results
-After you sign in, you should see the results that are returned by the call to the Microsoft Graph API. The call to the Microsoft Graph API **me** endpoint returns the [user profile](https://graph.microsoft.com/v1.0/me). For a list of common Microsoft Graph endpoints, see [Microsoft Graph API developer documentation](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
+### Success!
+After you sign in & consent, the app will display response from the Microsoft Graph API. This specific call is to the **/me** endpoint and returns the [user profile](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_get). For a list of other Microsoft Graph endpoints, see [Microsoft Graph API developer documentation](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
 
 <!--start-collapse-->
-### More information about scopes and delegated permissions
+### Scopes and delegated permissions
 
-The Microsoft Graph API requires the *user.read* scope to read a user's profile. This scope is automatically added by default in every application that's registered in the Application Registration Portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. The Microsoft Graph API requires the *Calendars.Read* scope to list the user’s calendars. 
+The Microsoft Graph API requires the *User.Read* scope to read a user's profile. This scope is automatically in every app that's registered in the Application Registration Portal. Other APIs will require additional scopes. For example, the Microsoft Graph API requires the *Calendars.Read* scope to list the user’s calendars. 
 
-To access the user’s calendars in the context of an application, add the *Calendars.Read* delegated permission to the application registration information. Then, add the *Calendars.Read* scope to the `acquireTokenSilent` call. 
+To access the user’s calendars, add the *Calendars.Read* delegated permission to the application registration information. Then, add the *Calendars.Read* scope to the `acquireTokenSilent` call. 
 
 >[!NOTE]
->The user might be prompted for additional consents as you increase the number of scopes.
+>Your users may be prompted for additional consent if you change your app registration.
 
 <!--end-collapse-->
 

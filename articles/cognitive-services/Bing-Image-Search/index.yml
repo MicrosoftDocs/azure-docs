@@ -1,22 +1,43 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Bing Image Search Documentation 
+title: Bing Image Search API Documentation 
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Image Search Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Image Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: Learn how to use Bing Image Search API to obtain images from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
   services: cognitive-services
-  author: v-jerkin
-  manager: carolz
+  author: nitinme
+  manager: cgronlun
   ms.service: bing-image-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jerkin
+  ms.date: 9/24/2018
+  ms.author: nitinme
 abstract:
   description: Bing Image Search API provides an experience similar to Bing.com/images by returning images that Bing determines are relevant to a user's query.
 sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/bing-image-search/overview
+          html: <p>Learn about the Bing Image Search API</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Bing Image Search?
+        - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries
+          html: <p>Learn how to send Image search queries to Bing</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Image Search queries
+        - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
+          html: <p>Understand the Image Search response</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Image Search response
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -55,15 +76,27 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-image-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-image-search-single-page-app-source">Source code</a>
-    - html: <a href="tutorial-image-post">Bing image upload for insights</a> &#124; <a href="tutorial-image-post-source">Source code</a>
+    - html: <a href="tutorial-bing-image-search-single-page-app">Single-page web app</a>
+    - html: <a href="tutorial-image-post">Bing image upload for insights</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Find samples for Bing Image Search API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search">Code Samples</a>
 - title: Reference
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: APIs
+    - title: REST
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference">Bing Image Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference/">Bing Image Search API v5</p>
     - title: SDKs
       html: <p><a href="sdk.md">Bing Search SDK</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>

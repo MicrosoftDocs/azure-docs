@@ -1,24 +1,17 @@
 ---
-title: 'Configure ExpressRoute and Site-to-Site VPN connections that can coexist: Resource Manager: Azure | Microsoft Docs'
-description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for Resource Manager model.
-documentationcenter: na
+title: 'Configure ExpressRoute and Site-to-Site VPN connections that can coexist: PowerShell: Azure | Microsoft Docs'
+description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for the Resource Manager model using PowerShell
 services: expressroute
 author: charwen
 manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: c7717b14-3da3-4a6d-b78e-a5020766bc2c
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/17/2018
-ms.author: charwen,cherylmc,rambala
+ms.topic: conceptual
+ms.date: 09/07/2018
+ms.author: charwen
 
 ---
-# Configure ExpressRoute and Site-to-Site coexisting connections
+# Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Classic](expressroute-howto-coexist-classic.md)
@@ -30,7 +23,7 @@ Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several
 * You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute. 
 * Alternatively, you can use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. 
 
-The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. 
+The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. You can also configure these scenarios using the Azure Portal, although documentation is not yet available.
 
 >[!NOTE]
 >If you want to create a Site-to-Site VPN over an ExpressRoute circuit, please see [this article](site-to-site-vpn-over-microsoft-peering.md).

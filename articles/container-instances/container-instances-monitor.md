@@ -139,4 +139,4 @@ Learn more about Azure Monitoring at the [Azure Monitoring overview][azure-monit
 
 <!-- LINKS - Internal -->
 [azure-monitoring]: ../monitoring-and-diagnostics/monitoring-overview.md
-[monitor-dimension]: ../monitoring-and-diagnostics/monitoring-metric-charts.md#what-are-multi-dimensional-metrics
+[monitor-dimension]: ../monitoring/monitoring-data-collection.md#multi-dimensional-metrics

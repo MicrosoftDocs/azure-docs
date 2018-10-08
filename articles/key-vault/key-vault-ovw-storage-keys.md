@@ -2,24 +2,24 @@
 ms.assetid:
 title: Azure Key Vault Storage Account Keys
 description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
-ms.topic: article
+ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
-ms.date: 08/21/2017
+ms.date: 10/03/2018
 ---
-# Azure Key Vault Storage Account Keys
+# Azure Key Vault storage account keys
 
-Before Azure Key Vault Storage Account Keys, developers had to manage their own
+Before Azure Key Vault storage account keys, developers had to manage their own
 Azure Storage Account (ASA) keys and rotate them manually or through an external
 automation. Now, Key Vault Storage Account Keys are implemented as
 [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets)
 for authenticating with an Azure Storage Account.
 
 The Azure Storage Account (ASA) key feature manages secret rotation for you. It
-also removes the need for your direct contact with an ASA key by offering Shared
+also removes the need for direct contact with an ASA key, by offering Shared
 Access Signatures (SAS) as a method.
 
 For more general information on Azure Storage Accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
@@ -97,41 +97,50 @@ accountSasCredential.UpdateSASToken(sasToken);
 
  ### Developer guidance
 
-- Only allow Key Vault to manage your ASA keys. Do not attempt to manage them yourself, you will interfere with Key Vault's processes.
-- Do not allow ASA keys to be managed by more than one Key Vault object.
+- Only allow Key Vault to manage your ASA keys. Don't attempt to manage them yourself, you will interfere with Key Vault's processes.
+- Don't allow ASA keys to be managed by more than one Key Vault object.
 - If you need to manually regenerate your ASA keys, we recommend that you regenerate them via Key Vault.
 
-## Getting started
+## Authorize Key Vault to access to your storage account
 
-### Give Key Vault access to your Storage Account 
+Before Key Vault can access and manage your storage account keys, you must authorize its access your storage account.  Like many applications, Key Vault integrates with Azure AD for identity and access management services. 
 
-Like many applications, Key Vault is registered with Azure AD in order to use OAuth to access other services. During registration, [a service principal](/azure/active-directory/develop/app-objects-and-service-principals) object is created, which is used to represent the application's identity at run time. The service principal is also used to authorize the application's identity to access another resource, through role-based access control (RBAC).
+Because Key Vault is a Microsoft application, it's pre-registered in all Azure AD tenants under Application ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`. And like all applications registered with Azure AD, a [service principal](/azure/active-directory/develop/app-objects-and-service-principals) object provides the application's identity properties. The service principal can then be given authorization to access another resource, through role-based access control (RBAC).  
 
-The Azure Key Vault application identity needs permissions to *list* and *regenerate* keys for your storage account. Set up these permissions using the following steps:
+The Azure Key Vault application requires permissions to *list* and *regenerate* keys for your storage account. These permissions are enabled through the built-in [Storage Account Key Operator Service](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role) RBAC role. You assign the Key Vault service principal to this role using the following steps:
 
 ```powershell
-# Get the resource ID of the Azure Storage Account you want to manage.
-# Below, we are fetching a storage account using Azure Resource Manager
+# Get the resource ID of the Azure Storage Account you want Key Vault to manage
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get Application ID of Azure Key Vault's service principal
-$servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
-
 # Assign Storage Key Operator role to Azure Key Vault Identity
-New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
+New-AzureRmRoleAssignment -ApplicationId “cfa8b339-82a2-471a-a3c9-0fc0be7a4093” -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
 ```
 
-    >[!NOTE]
-    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
+> [!NOTE]
+> For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
+
+Upon successful role assignment, you should see output similar to the following
+
+```console
+RoleAssignmentId   : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgSandbox/providers/Microsoft.Storage/storageAccounts/sabltest/providers/Microsoft.Authorization/roleAssignments/189cblll-12fb-406e-8699-4eef8b2b9ecz
+Scope              : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgSandbox/providers/Microsoft.Storage/storageAccounts/sabltest
+DisplayName        : Azure Key Vault
+SignInName         :
+RoleDefinitionName : Storage Account Key Operator Service Role
+RoleDefinitionId   : 81a9blll-bebf-436f-a333-f67b29880f1z
+ObjectId           : c730c8da-blll-4032-8ad5-945e9dc8262z
+ObjectType         : ServicePrincipal
+CanDelegate        : False
+```
 
 ## Working example
 
-The following example demonstrates creating a Key Vault managed Azure Storage
-Account and the associated SAS definitions.
+The following example demonstrates creating a Key Vault managed Azure Storage Account and the associated SAS definitions.
 
 ### Prerequisite
 
-Ensure you have completed [Setup for role-based access control (RBAC) permissions](#setup-for-role-based-access-control-rbac-permissions).
+Before starting, make sure you [Authorize Key Vault to access to your storage account](#authorize-key-vault-to-access-to-your-storage-account).
 
 ### Setup
 

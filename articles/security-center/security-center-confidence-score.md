@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: e88198f8-2e16-409d-a0b0-a62e68c2f999
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
@@ -25,7 +25,7 @@ The confidence score in Security Center can help your team triage and prioritize
 
 ## How the confidence score is triggered
 
-Alerts are generated when suspicious processes are detected running on your virtual machines. Security Center reviews and analyzes these alerts on Windows virtual machines running in Azure. It performs automated checks and correlations using advanced algorithms across multiple entities and data sources across the organization, and all your Azure resources, and presents with with a confidence score which is a measure of how confident Security Center is that the alert is genuine and needs to be investigated.
+Alerts are generated when suspicious processes are detected running on your virtual machines. Security Center reviews and analyzes these alerts on Windows virtual machines running in Azure. It performs automated checks and correlations using advanced algorithms across multiple entities and data sources across the organization, and all your Azure resources, and presents with a confidence score which is a measure of how confident Security Center is that the alert is genuine and needs to be investigated.
 
 ## Understanding the confidence score
 

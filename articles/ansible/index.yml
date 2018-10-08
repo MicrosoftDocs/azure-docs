@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Ansible in Azure Documentation
+title: Ansible on Azure documentation
 metadata:
-  title: Ansible in Azure Documentation - Tutorials, samples, reference, and resources
+  title: Ansible on Azure documentation - Tutorials, samples, reference, and resources
   description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
   ms.service: ansible
   keywords: ansible, azure, devops, tutorials, samples, reference
@@ -47,6 +47,7 @@ sections:
     - html: <a href="./ansible-create-configure-vmss">Create and manage virtual machine scale sets in Azure.</a>
     - html: <a href="./ansible-deploy-app-vmss">Deploy applications to virtual machine scale sets in Azure.</a>
     - html: <a href="./ansible-create-configure-aks">Create and manage Azure Kubernetes Service clusters.</a>
+    - html: <a href="./ansible-create-configure-application-gateway">Manage web traffic with an Azure application gateway.</a>
 - title: Reference
   items:
   - type: list

@@ -104,9 +104,9 @@ String functions work only on strings.
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Check whether a string ends with the specified substring. | 
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generate a globally unique identifier (GUID) as a string. | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. | 
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the ending position for a substring. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Replace a substring with the specified string, and return the updated string. | 
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Return an array that has all the characters from a string and separates each character with the specific delimiter character. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Return an array that contains substrings, separated by commas, from a larger string based on a specified delimiter character in the original string. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Check whether a string starts with a specific substring. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Return a string in lowercase format. | 
@@ -562,7 +562,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | String | The string that contains the timestamp | 
 | <*days*> | Yes | Integer | The positive or negative number of days to add | 
-| <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddT:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 ||||| 
 
 | Return value | Type | Description | 
@@ -2266,7 +2266,7 @@ indexOf('<text>', '<searchText>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*index-value*>| Integer | The starting position or index value for the specified substring. <p>If the string is not found, return the number -1. </br>If the string is empty, return the number 0. | 
+| <*index-value*>| Integer | The starting position or index value for the specified substring. <p>If the string is not found, return the number -1. | 
 |||| 
 
 *Example* 
@@ -2543,7 +2543,8 @@ And returns these results:
 
 ### lastIndexOf
 
-Return the ending position or index value for a substring. 
+Return the starting position or index value
+for the last occurrence of a substring. 
 This function is not case-sensitive, 
 and indexes start with the number 0.
 
@@ -2559,19 +2560,20 @@ lastIndexOf('<text>', '<searchText>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*ending-index-value*> | Integer | The ending position or index value for the specified substring. <p>If the string is not found, return the number -1. </br>If the string is empty, return the number 0. | 
+| <*ending-index-value*> | Integer | The starting position or index value for the last occurrence of the specified substring. <p>If the string is not found, return the number -1. | 
 |||| 
 
 *Example* 
 
-This example finds the ending index value for 
-the "world" substring in the "hello world" string:
+This example finds the starting index value for 
+the last occurrence of the "world" substring in
+the "hello world" string:
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-And returns this result: `10`
+And returns this result: `6`
 
 <a name="length"></a>
 
@@ -3201,34 +3203,34 @@ And returns this array with the remaining items: `[1,2,3]`
 
 ### split
 
-Return an array that has all the characters from a 
-string and has each character separated by a *delimiter*.
+Return an array that contains substrings, separated by commas, 
+based on the specified delimiter charcter in the original string. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | Parameter | Required | Type | Description | 
 | --------- | -------- | ---- | ----------- | 
-| <*text*> | Yes | String | The string that has the characters to split |  
-| <*separator*> | Yes | String | The separator that appears between each character in the resulting array | 
+| <*text*> | Yes | String | The string to separate into substrings based on the specified delimiter in the original string |  
+| <*delimiter*> | Yes | String | The character in the original string to use as the delimiter | 
 ||||| 
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separator*><*char2*><*separator*>...] | Array | The resulting array created from all the items in the specified string |
+| [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings from the original string, separated by commas |
 |||| 
 
 *Example* 
 
-This example creates an array from the specified string, 
-separating each character with a comma as the delimiter:
+This example creates an array with substrings from the specified 
+string based on the specified character as the delimiter: 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-And returns this result: `[a, b, c]`
+And returns this array as the result: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 

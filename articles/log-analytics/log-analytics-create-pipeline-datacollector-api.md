@@ -38,7 +38,7 @@ We are using a classic ETL-type logic to design our pipeline. The architecture w
 
 This article will not cover how to create data or [upload it to an Azure Blob Storage account](../storage/blobs/storage-upload-process-images.md). Rather, we pick the flow up as soon as a new file is uploaded to the blob. From here:
 
-1. A process will detect that new data has been uploaded.  Our example uses uses an [Azure Logic App](../logic-apps/logic-apps-overview.md), which has available a trigger to detect new data being uploaded to a blob.
+1. A process will detect that new data has been uploaded.  Our example uses an [Azure Logic App](../logic-apps/logic-apps-overview.md), which has available a trigger to detect new data being uploaded to a blob.
 
 2. A processor reads this new data and converts it to JSON, the format required by Log Analytics.  In this example, we use an [Azure Function](../azure-functions/functions-overview.md) as a lightweight, cost-efficient way of executing our processing code. The function is kicked off by the same Logic App that we used to detect a the new data.
 

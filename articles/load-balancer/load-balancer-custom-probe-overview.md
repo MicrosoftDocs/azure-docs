@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: kumud
 ---
 
@@ -32,7 +32,7 @@ The types of health probes available and the way health probes behave depends on
 > [!IMPORTANT]
 > Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance up.  Review [probe source IP address](#probesource) for details.
 
-## <a name="types"></a>Health probe types
+## <a name="types"></a>Probe types
 
 Health probes can observe any port on a backend instance, including the port on which the actual service is provided. The health probe protocol can be configured for three different types of health probes:
 
@@ -158,7 +158,7 @@ A load balancing rule has a single health probe defined the respective backend p
 
 ## <a name="probedown"></a>Probe down behavior
 
-### TCP Connections
+### TCP connections
 
 New TCP connections will succeed to backend instance which is healthy and has a guest OS and application able to accept a new flow.
 

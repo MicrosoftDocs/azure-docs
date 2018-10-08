@@ -2,16 +2,17 @@
 title: Table Auditing, TDS redirection, and IP endpoints for Azure SQL Database | Microsoft Docs
 description: Learn about auditing, TDS redirection and IP endpoint changes when implementing table auditing in Azure SQL Database.
 services: sql-database
-author: giladm
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
+author: ronitr
+ms.author: ronitr
+ms.reviewer: vanto
+manager: craigg
 ms.date: 04/01/2018
-ms.author: giladm
-
 ---
-
 # SQL Database -  Downlevel clients support and IP endpoint changes for Table Auditing
 
 > [!IMPORTANT]

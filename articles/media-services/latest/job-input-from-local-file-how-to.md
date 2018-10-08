@@ -4,13 +4,13 @@ description: This topic shows how to create a job input from a local file.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/25/2018
 ms.author: juliako
 ---
 
@@ -32,4 +32,4 @@ The following code shows how to create an input asset and use it as the input fo
 
 ## Next steps
 
-[Create a job input from an HTTP(s) URL](job-input-from-http-how-to.md).
+[Create a job input from an HTTPS URL](job-input-from-http-how-to.md).

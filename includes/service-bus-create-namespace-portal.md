@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: service-bus-messaging
- author: sethmanheim
+ author: spelluru
  ms.service: service-bus-messaging
  ms.topic: include
  ms.date: 07/03/2018
- ms.author: sethm
+ ms.author: spelluru
  ms.custom: include file
 ---
 

@@ -5,14 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/06/2015
+ms.date: 09/11/2017
 ms.author: mbullwin
 
 ---
@@ -139,21 +138,21 @@ In this sample, we are using data from page views. To see the other data availab
 ## Create an Azure Stream Analytics instance
 From the [Azure portal](https://portal.azure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
+![Stream analytics settings](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
 When the new job is created, select **Go to resource**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
+![Stream analytics settings](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
 #### Add a new input
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+![Stream analytics settings](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
 
 Set it to take input from your Continuous Export blob:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
+![Stream analytics settings](./media/app-insights-code-sample-export-sql-stream-analytics/SA0005.png)
 
 Now you'll need the Primary Access Key from your Storage Account, which you noted earlier. Set this as the Storage Account Key.
 

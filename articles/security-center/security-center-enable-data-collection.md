@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2018
+ms.date: 10/5/2018
 ms.author: rkarlin
 
 ---
@@ -30,7 +30,8 @@ This article provides guidance on how to install a Microsoft Monitoring Agent an
 > - Data collection for Virtual machine scale set is not currently supported.
 
 
-## Enable automatic provisioning of Microsoft Monitoring Agent     
+## Enable automatic provisioning of Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
+
 To collect the data from the machines you should have the Microsoft Monitoring Agent installed.  Installation of the agent can be automatically (recommended) or you may choose to install the agent manually.  
 
 >[!NOTE]
@@ -57,8 +58,8 @@ To enable automatic provisioning of the Microsoft Monitoring Agent:
 > - For instructions on how to provision a pre-existing installation, see [Automatic provisioning in cases of a preexisting agent installation](#preexisting).
 > - For instructions on manual provisioning, see [Install the Microsoft Monitoring Agent extension manually](#manualagent).
 > - For instructions on turning off automatic provisioning, see [Turn off automatic provisioning](#offprovisioning).
+> - For instructions on how to onboard Security Center using PowerShell, see [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md).
 >
-
 
 ## Workspace configuration
 Data collected by Security Center is stored in Log Analytics workspace(s).  You can select to have data collected from Azure VMs stored in workspaces created by Security Center or in an existing workspace you created. 
@@ -144,12 +145,17 @@ When you select a workspace in which to store your data, all the workspaces acro
 
 
 ## Data collection tier
-Security Center can reduce the volume of events while maintaining enough events for investigation, auditing, and threat detection. You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be collected by the agent.
+Selecting a data collection tier in Azure Security Center will only affect the storage of security events in your Log Analytics workspace. The Microsoft Monitoring Agent will still collect and analyze the security events required for Azure Security Center’s threat detections, regardless of which tier of security events you choose to store in your Log Analytics workspace (if any). Choosing to store security events in your workspace will enable investigation, search, and auditing of those events in your workspace. 
+> [!NOTE]
+> Storing data in Log Analytics might incur additional charges for data storage, see the pricing page for more details.
+>
+You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be stored in your workspace: 
 
-- **All events** – For customers who want to make sure all events are collected. This is the default.
-- **Common** – This is a set of events that satisfies most customers and allows them a full audit trail.
+- **None** – Disable security event storage. This is the default setting.
 - **Minimal** – A smaller set of events for customers who want to minimize the event volume.
-- **None** – Disable security event collection from security and App Locker logs. For customers who choose this option, their security dashboards have only Windows Firewall logs and proactive assessments like antimalware, baseline, and update.
+- **Common** – This is a set of events that satisfies most customers and allows them a full audit trail.
+- **All events** – For customers who want to make sure all events are stored.
+
 
 > [!NOTE]
 > These security events sets are available only on Security Center’s Standard tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
@@ -258,7 +264,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
   > [!NOTE]
   > The section **Collect event and performance data** is optional.
   >
-6. To use PowerShell to deploy the extension: use the following PowerShell example:
+6. To use PowerShell to deploy the extension, use the following PowerShell example:
 	1.  Go to **Log Analytics** and click on **Advanced settings**.
     
         ![Set log analytics][11]
@@ -286,17 +292,17 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
 	    
 	         Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
-
-
+> [!NOTE]
+> For instructions on how to onboard Security Center using PowerShell, see [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md).
 
 ## Troubleshooting
 
 -	To identify automatic provision installation issues, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent).
 
 -  To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](security-center-troubleshooting-guide.md#mon-network-req).
--	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
+-	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-- To identify Unmonitored VMs and computers issues, see [Unmonitored VMs and computers](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)
+- To identify Unmonitored VMs and computers issues, see [Unmonitored VMs and computers](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers).
 
 ## Next steps
 This article showed you how data collection and automatic provisioning in Security Center works. To learn more about Security Center, see the following:
