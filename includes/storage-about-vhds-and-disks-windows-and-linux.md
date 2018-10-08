@@ -29,7 +29,7 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 
 Azure Disks are designed for 99.999% availability. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate.
 
-There are three performance tiers for storage that you can choose from when creating your disks -- Premium SSD Disks, Standard SSD (Preview), and Standard HDD Storage. Also, there are two types of disks -- unmanaged and managed.
+There are three performance tiers for storage that you can choose from when creating your disks -- Premium SSD Disks, Standard SSD, and Standard HDD Storage. Also, there are two types of disks -- unmanaged and managed.
 
 ### Standard HDD disks
 

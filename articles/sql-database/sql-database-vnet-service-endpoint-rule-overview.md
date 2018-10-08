@@ -182,7 +182,7 @@ PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. I
 #### Azure SQLDB Blob Auditing
 Blob auditing pushes audit logs to your own storage account. If this storage account uses the VNet Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
 
-## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
+## Adding a VNet Firewall rule to your server without turning On VNet Service Endpoints
 
 Long ago, before this feature was enhanced, you were required to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingServiceEndpoint** flag.
 

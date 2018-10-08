@@ -220,7 +220,7 @@ A. You must have contributor level access or higher to a VM in order to access t
 **Q. My serial console is not showing anything, what do I do?**
 
 A. Your image is likely misconfigured for serial console access. See 
-[Enable Serial Console in custom or older images](#Enable-Serial-Console-in-custom-or-older-images) for details on configuring your image to enable serial console.
+[Enable Serial Console in custom or older images](#enable-serial-console-in-custom-or-older-images) for details on configuring your image to enable serial console.
 
 **Q. Is serial console available for Virtual Machine Scale Sets?**
 
