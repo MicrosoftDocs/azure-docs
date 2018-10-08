@@ -45,10 +45,10 @@ ms.author: genli
 - [Reset NIC](reset-network-interface.md)
 - [Restarting or resizing a VM](restart-resize-error-troubleshooting.md)
 - Use the serial console
-	- [ Linux VM  ](serial-console-linux.md  )
+	- [Linux VM](serial-console-linux.md)
 		- [Serial Console GRUB/Single user mode](serial-console-grub-single-user-mode.md Serial Console NMI/SysRq)
 		- [Serial Console NMI/SysRq](serial-console-nmi-sysrq.md)
-	- [ Windows VM     ](serial-console-windows.md  )
+	- [Windows VM](serial-console-windows.md)
 		- [CMD and PowerShell commands](serial-console-cmd-ps-commands.md)
 - [Errors when deleting storage resources](storage-resource-deletion-errors.md      )
 - [Unexpected reboots of VMs with attached VHDs  ](unexpected-reboots-attached-vhds.md)
