@@ -42,7 +42,7 @@ The pricing model is simpler, moving to an hour-based pricing model for the Spee
 
 ## Migration for existing customers
 
-Existing customers are required to migrate their existing resource keys to the new service on the Speech Service portal. Use the following steps: 
+Existing customers are required to migrate their existing resource keys to the Speech service on the Speech Service portal. Use the following steps: 
 
 > [!NOTE] 
 > Resource keys can only be migrated within the same region. 
@@ -52,6 +52,8 @@ Existing customers are required to migrate their existing resource keys to the n
 2. Select **Migrate selected subscription**.
 
 3. Enter the subscription key in the text box and select **Migrate**.
+
+    ![Enter subscription to migrate](./media/migrate-from-custom-speech-service/migrate-dialog.png)
 
 ## Next steps
 
