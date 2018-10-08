@@ -8,7 +8,7 @@ tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/1/2018
+ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ---
@@ -64,9 +64,11 @@ To optimize the sync process this run profile only process the changes (creates,
 
 A typical enterprise organization delta sync scenario is:
 
-1. ~1% of objects are deleted
-2. ~1% of objects are created
-3. ~5% of objects are modified
+
+
+- ~1% of objects are deleted
+- ~1% of objects are created
+- ~5% of objects are modified
 
 Your rate of change may vary depending on how often your organization updates users in your Active Directory. For example, higher rates of change can occur with the seasonality of hiring and reducing work force.
 
@@ -74,8 +76,10 @@ Your rate of change may vary depending on how often your organization updates us
 
 A full sync cycle is required if you have made any of the following configuration changes:
 
-1. Increased the scope of the objects or attributes to be imported from the connected directories. For example, when you add a domain or OU to your import scope.
-2. Made changes to the sync rules. For example, when you create a new rule to populate a user’s title in Azure AD from extension_attribute3 in Active Directory. This update requires that the provisioning engine re-examine all existing users to update their titles to apply the change going forward.
+
+
+- Increased the scope of the objects or attributes to be imported from the connected directories. For example, when you add a domain or OU to your import scope.
+- Made changes to the sync rules. For example, when you create a new rule to populate a user’s title in Azure AD from extension_attribute3 in Active Directory. This update requires that the provisioning engine re-examine all existing users to update their titles to apply the change going forward.
 
 The following operations are included in a full sync cycle:
 
@@ -101,15 +105,19 @@ The size of the Active Directory topology you want to import is the number one f
 
 [Filtering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) should be used to reduce the objects to the synced. It will prevent unnecessary objects from being processed and exported to Azure AD. In order of preference, the following techniques of filtering are available:
 
-1. **Domain-based filtering** – use this option to select specific domains to sync to Azure AD. You must add and remove domains from the sync engine configuration when you make changes to your on-premises infrastructure after you install Azure AD Connect sync.
-2. **Organization Unit (OU) filtering** - uses OUs to target specific objects in Active Directory domains for provisioning to Azure AD. OU filtering is the second recommended filtering mechanism, because it uses simple LDAP scope queries to import a smaller subset of objects from Active Directory.
-3. **Attribute filtering per object** - uses the attribute values on objects to decide whether specific object in Active Directory is provisioned in Azure AD. Attribute filtering is great for fine-tuning your filters, when domain and OU filtering doesn't meet the specific filtering requirements. Attribute filtering doesn't reduce the import time but can reduce sync and export times.
-4. **Group-based filtering** - uses group membership to decide whether objects should be provisioned in Azure AD. Group-based filtering is only suited for testing situations and not recommended for production, because of the extra overhead required to check group membership during the sync cycle.
+
+
+- **Domain-based filtering** – use this option to select specific domains to sync to Azure AD. You must add and remove domains from the sync engine configuration when you make changes to your on-premises infrastructure after you install Azure AD Connect sync.
+- **Organization Unit (OU) filtering** - uses OUs to target specific objects in Active Directory domains for provisioning to Azure AD. OU filtering is the second recommended filtering mechanism, because it uses simple LDAP scope queries to import a smaller subset of objects from Active Directory.
+- **Attribute filtering per object** - uses the attribute values on objects to decide whether specific object in Active Directory is provisioned in Azure AD. Attribute filtering is great for fine-tuning your filters, when domain and OU filtering doesn't meet the specific filtering requirements. Attribute filtering doesn't reduce the import time but can reduce sync and export times.
+- **Group-based filtering** - uses group membership to decide whether objects should be provisioned in Azure AD. Group-based filtering is only suited for testing situations and not recommended for production, because of the extra overhead required to check group membership during the sync cycle.
 
 Many persistent [disconnector objects](concept-azure-ad-connect-sync-architecture.md#relationships-between-staging-objects-and-metaverse-objects) in your Active Directory CS can cause longer sync times, because the provisioning engine must reevaluate each disconnector object for possible connection in the sync cycle. To overcome this issue, consider one of the following recommendations:
 
-1. Place the disconnector objects out of scope for import using domain or OU filtering.
-2. Project/join the objects to the MV and set the [cloudFiltered](how-to-connect-sync-configure-filtering.md#negative-filtering-do-not-sync-these) attribute equal to True, to prevent provisioning of these objects in the Azure AD CS.
+
+
+- Place the disconnector objects out of scope for import using domain or OU filtering.
+- Project/join the objects to the MV and set the [cloudFiltered](how-to-connect-sync-configure-filtering.md#negative-filtering-do-not-sync-these) attribute equal to True, to prevent provisioning of these objects in the Azure AD CS.
 
 > [!NOTE]
 > Users can get confused or application permissions issues can occur, when too many objects are filtered. For example, in a hybrid Exchange online implementation, users with on-premises mailboxes will see more users in their global address list than users with mailboxes in Exchange online. In other cases, a user may want to grant access in a cloud app to another user which is not part of the scope of the filtered set of objects.
@@ -141,10 +149,12 @@ Make sure your Azure AD Connect server meets the hardware requirements based on 
 
 Azure AD uses throttling to protect the cloud service from denial-of-service (DoS) attacks. Currently Azure AD has a throttling limit of 7,000 writes per 5 minutes (84,000 per hour). For example, the following operations can be throttled:
 
-1. Azure AD Connect export to Azure AD.
-2. PowerShell scripts or applications updating the Azure AD directly even in the background, such as Dynamic group memberships.
-3. Users updating their own identity records such as registering for MFA or SSPR (self-service password reset).
-4. Operations within the graphical user interface.
+
+
+- Azure AD Connect export to Azure AD.
+- PowerShell scripts or applications updating the Azure AD directly even in the background, such as Dynamic group memberships.
+- Users updating their own identity records such as registering for MFA or SSPR (self-service password reset).
+- Operations within the graphical user interface.
 
 Plan for deployment and maintenance tasks, to make sure your Azure AD Connect sync cycle is not impacted by throttling limits. For example, if you have a large hiring wave where you create thousands of user identities, it can cause updates to dynamic group memberships, licensing assignments, and self-service password reset registrations. It's better to spread these writes over several hours or a few days.
 
@@ -152,18 +162,25 @@ Plan for deployment and maintenance tasks, to make sure your Azure AD Connect sy
 
 The size of your source Active Directory topology will influence your SQL database performance. Follow the [hardware requirements](how-to-connect-install-prerequisites.md) for the SQL server database and consider the following recommendations:
 
-1. Organizations with more than 100,000 users can reduce network latencies by colocating SQL database and the provisioning engine on the same server.
-2. Due to the high disk input and output (I/O) requirements of the sync process, use Solid State Drives (SSD) for the SQL database of the provisioning engine for optimal results, if not possible, consider RAID 0 or RAID 1 configurations.
-3. Don’t do a full sync pre-emptively; it causes unnecessary churn and slower response times.
+
+
+- Organizations with more than 100,000 users can reduce network latencies by colocating SQL database and the provisioning engine on the same server.
+- Due to the high disk input and output (I/O) requirements of the sync process, use Solid State Drives (SSD) for the SQL database of the provisioning engine for optimal results, if not possible, consider RAID 0 or RAID 1 configurations.
+- Don’t do a full sync pre-emptively; it causes unnecessary churn and slower response times.
 
 ## Conclusion
 
 To optimize the performance of your Azure AD Connect implementation, consider the following recommendations:
 
-1. Use the [recommended hardware configuration](how-to-connect-install-prerequisites.md) based on your implementation size for the Azure AD Connect server.
-2. Use SSD for the SQL database for best writing performance.
-3. Filter the Active Directory scope to only objects that needs to be provisioned in Azure AD, using domain, OU, or attribute filtering.
-4. If you require to change the default attribute flow rules, first copy the rule, then change the copy and disable the original rule. Remember to rerun a full sync.
-5. Plan adequate time for the initial full sync run profile.
-6. Strive the delta sync cycle completes in 30 minutes. If the delta sync profile doesn’t complete in 30 minutes, modify the default sync frequency to include a complete delta sync cycle.
-7. Monitor your [Azure AD Connect sync health](how-to-connect-health-agent-install.md) in Azure AD.
+
+
+- Use the [recommended hardware configuration](how-to-connect-install-prerequisites.md) based on your implementation size for the Azure AD Connect server.
+- Use SSD for the SQL database for best writing performance.
+- Filter the Active Directory scope to only objects that needs to be provisioned in Azure AD, using domain, OU, or attribute filtering.
+- If you require to change the default attribute flow rules, first copy the rule, then change the copy and disable the original rule. Remember to rerun a full sync.
+- Plan adequate time for the initial full sync run profile.
+- Strive the delta sync cycle completes in 30 minutes. If the delta sync profile doesn’t complete in 30 minutes, modify the default sync frequency to include a complete delta sync cycle.
+- Monitor your [Azure AD Connect sync health](how-to-connect-health-agent-install.md) in Azure AD.
+
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
