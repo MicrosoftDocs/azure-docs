@@ -29767,27 +29767,27 @@
         },
         {   
             "source_path": "articles/vs-azure-tools-docker-edit-and-refresh.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-docker-edit-and-refresh",
+            "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-edit-and-refresh",
             "redirect_document_id": true
         },
         {   
             "source_path": "articles/vs-azure-tools-docker-hosting-web-apps-in-docker.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-docker-hosting-web-apps-in-docker",
+            "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-hosting-web-apps-in-docker",
             "redirect_document_id": true
         },
         {   
             "source_path": "articles/vs-azure-tools-docker-machine-azure-config.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-docker-machine-azure-config",
+            "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-machine-azure-config",
             "redirect_document_id": true
         },
         {   
             "source_path": "articles/vs-azure-tools-docker-setup.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-docker-setup",
+            "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-setup",
             "redirect_document_id": true
         },
         {   
             "source_path": "articles/vs-azure-tools-docker-troubleshooting-docker-errors.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-docker-troubleshooting-docker-errors",
+            "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-troubleshooting-docker-errors",
             "redirect_document_id": true
         },
         {   
@@ -29846,11 +29846,6 @@
             "redirect_document_id": true
         },
         {   
-            "source_path": "articles/vs-azure-tools-resource-groups-ci-in-vsts.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-resource-groups-ci",
-            "redirect_document_id": true
-        },
-        {   
             "source_path": "articles/vs-azure-tools-resources-managing-with-cloud-explorer.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer",
             "redirect_document_id": true
@@ -29863,36 +29858,6 @@
         {   
             "source_path": "articles/vs-azure-tools-setting-up-named-authentication-credentials.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-setting-up-named-authentication-credentials",
-            "redirect_document_id": true
-        },
-        {   
-            "source_path": "articles/vs-azure-tools-storage-emulator-using.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-storage-emulator-using",
-            "redirect_document_id": true
-        },
-        {   
-            "source_path": "articles/vs-azure-tools-storage-explorer-accessibility.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-storage-explorer-accessibility",
-            "redirect_document_id": true
-        },
-        {   
-            "source_path": "articles/vs-azure-tools-storage-explorer-blobs.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-storage-explorer-blobs",
-            "redirect_document_id": true
-        },
-        {   
-            "source_path": "articles/vs-azure-tools-storage-explorer-files.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-storage-explorer-files",
-            "redirect_document_id": true
-        },
-        {   
-            "source_path": "articles/vs-azure-tools-storage-explorer-relnotes.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-storage-explorer-relnotes",
-            "redirect_document_id": true
-        },
-        {   
-            "source_path": "articles/vs-azure-tools-storage-manage-with-storage-explorer.md",
-            "redirect_url": "/visualstudio/azure/vs-azure-tools-storage-manage-with-storage-explorer",
             "redirect_document_id": true
         },
         {   
