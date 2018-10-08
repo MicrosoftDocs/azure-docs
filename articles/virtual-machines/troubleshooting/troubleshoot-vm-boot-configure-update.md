@@ -25,9 +25,9 @@ This article helps you resolve the issue when your Virtual Machine (VM) is stuck
 
 When you use **Boot diagnostics** to get the screenshot of a VM, you find the operating system does not fully start up. Additionally, the VM displaying a **"Getting Windows Ready. Don't turn off your computer."** message.
 
-![Message example](/media/troubleshoot-vm-configuring-update-on-boot/Message1.png)
+![Message example](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
-![Message example](/media/troubleshoot-vm-configuring-update-on-boot/Message2.png)
+![Message example](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
 ## Cause
 
