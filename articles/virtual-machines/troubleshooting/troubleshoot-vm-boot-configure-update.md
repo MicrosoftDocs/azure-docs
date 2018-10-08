@@ -1,5 +1,5 @@
 ---
-title: VM startup is stuck on "Getting Windows Ready. Don't turn off your computer" in Azure | Microsoft Docs
+title: VM startup is stuck on "Getting Windows Ready. Don't turn off your computer." in Azure | Microsoft Docs
 description: Introduce the steps to troubleshoot the issue in which VM startup is stuck on "Getting Windows Ready. Don't turn off your computer".
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,18 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 9/18/2018
+ms.date: 09/18/2018
 ms.author: delhan
 ---
 
-# VM startup is stuck on "Getting Windows Ready. Don't turn off your computer" in Azure
+# VM startup is stuck on "Getting Windows Ready. Don't turn off your computer." in Azure
+
+This article helps you resolve the issue when your Virtual Machine (VM) is stuck on the "Getting Windows Ready. Don't turn off your computer." stage during startup.
 
 ## Symptoms
 
-When you use **Boot diagnostics** to get the screenshot of a Virtual Machine (VM), you find the operating system does not fully start up. Additionally, the VM displaying a **"Getting Windows Ready. Don't turn off your computer"** message.
+When you use **Boot diagnostics** to get the screenshot of a VM, you find the operating system does not fully start up. Additionally, the VM displaying a **"Getting Windows Ready. Don't turn off your computer."** message.
 
-![Message example](\media\troubleshoot-vm-configuring-update-on-boot\Message1.png)
-![Message example](\media\troubleshoot-vm-configuring-update-on-boot\Message2.png)
+![Message example](./media/troubleshoot-vm-configuring-update-on-boot/Message1.png)
+
+![Message example](./media/troubleshoot-vm-configuring-update-on-boot/Message2.png)
 
 ## Cause
 
@@ -75,8 +78,9 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
 
 6. Convert the Base64 encoded value to bytes and write the output to a file. 
 
-    **Note** The BEK file name must match the original BEK GUID if you use the USB unlock option. Also, you'll need to create a folder on your C drive named "BEK" before the following steps will work.
-   
+    > [!Note]
+    > The BEK file name must match the original BEK GUID if you use the USB unlock option. Also, you'll need to create a folder on your C drive named "BEK" before the following steps will work.
+    
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
     $bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
@@ -96,7 +100,8 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
     manage-bde -off F:
     ```
 
-    **Note** This is considering that the disk to encrypt is on letter F:
+    > [!Note]
+    > This is considering that the disk to encrypt is on letter F:.
 
 8. If you need to collect logs, you can navigate to the path **DRIVE LETTER:\Windows\System32\winevt\Logs**.
 
@@ -150,7 +155,7 @@ $vm = Set-AzureRmVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -Creat
 New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 ```
 
-**For managed disk**
+**For managed disks**
 
 ```PowerShell
 # To login to Azure Resource Manager

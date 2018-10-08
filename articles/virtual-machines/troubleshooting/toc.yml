@@ -1,5 +1,5 @@
-- name: VM startup is stuck on "Getting Windows Ready. Don't turn off your computer"
-  href: troubleshoot-vm-configuring-update-on-boot.md
+- name: VM startup is stuck on "Getting Windows Ready. Don't turn off your computer."
+  href: troubleshoot-vm-boot-configure-update.md
 - name: Troubleshooting Azure VMs
   href: index.md
 - name: Allocation failures
