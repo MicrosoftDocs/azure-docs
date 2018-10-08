@@ -12,7 +12,9 @@ ms.author: mavoge
 
 # How to enable multi-tenant applications with Azure Digital Twins
 
-As a developer using the Azure Digital Twins service, you'll likely want to build one application that you'll then provide to your customers.  This document details how you can set up your application to authenticate with numerous customers across various Azure Active Directory (AD) tenants.
+Developers using the Azure Digital Twins platform will likely want to build multi-tenant applications. A *multi-tenant application* is a single provisioned instance used by the developer to support multiple customer each with their own, independent, data and privileges.
+
+This document details how to create an Azure Digital Twins multi-tenant app supporting several Azure Active Directory (AD) tenants and customers.
 
 ## Scenario summary
 
