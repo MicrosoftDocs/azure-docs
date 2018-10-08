@@ -20,10 +20,10 @@ abstract:
     image:
       alt: 
       height: 110
-      src: media/index/video4.png
+      src: media/index/video2.png
       width: 250  
     title: Notifications
-    href: /azure/active-directory/develop/active-directory-acs-migration
+    href: https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player
     width: 250
 
 sections:
