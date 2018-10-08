@@ -49,9 +49,9 @@
       href: security-authenticating-apis.md
 - name: How-to guides
   items:
-  - name: Enable multitenant applications with Azure Digital Twins
+  - name: Multitenant apps in Azure Digital Twins
     href: how-to-multitenant-applications.md
-  - name: Guide for Using User-Defined Functions with Azure Digital Twins
+  - name: User-Defined Functions in Azure Digital Twins
     href: how-to-user-defined-functions.md
   - name: How to route events and messages via endpoints
     href: how-to-egress-endpoints.md
