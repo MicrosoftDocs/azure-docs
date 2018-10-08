@@ -35,45 +35,44 @@ The following diagram shows the general process for deploying the cluster.
 
 ![Deploy Kubernetes process](media/azure-stack-solution-template-kubernetes-trouble/002-Kubernetes-Deploy-Flow.png)
 
-1. Collect input from the market place item.
+1. Collects input from the market place item.
 
     You enter the values you need to set up the Kubernetes cluster including:
-    -  User name
-    -  Public key
-    -  Service principle
-    -  Client secret
-    -  Tenant management URL
+    -  **User name** User name for the Linux Virtual Machines that are part of the Kubernetes cluster and DVM.
+    -  **SSH Public Key** The key used for authorization to all Linux machines created as part of the Kubernetes cluster and DVM
+    -  **Service principle** The ID used by the Kubernetes Azure cloud provider. The Client ID identified as the Application ID when your created your service principal. 
+    -  **Client secret** They key you created when creating your service principal.
 
-2. Create deployment VM and custom script extension.
-    -  Create deployment VM (a Linux VM).
-    -  Download and execute customer script extension.
-    -  DVM custom script. The script:
+2. Creates deployment VM and custom script extension.
+    -  Creates the deployment Linux VM using the marketplace Linux image, **Ubuntu Server 16.04-LTS**.
+    -  Download and execute customer script extension from the market place. The script is the **Custom Script for Linux 2.0**.
+    -  Runs the DVM custom script. The script:
         1. Gets the gallery endpoint from Azure Resource Manager metadata endpoint.
         2. Gets the active directory resource ID from Azure Resource Manager metadata endpoint.
         3. Loads the API model for the ACS Engine.
         4. Deploys the ACS Engine to the Kubernetes cluster, and saves the Azure Stack cloud profile to `/etc/kubernetes/azurestackcloud.json`.
-3. Create master VMs.
+3. Creates master VMs.
 
-    Download and execute customer script extension.
+    Downloads and executes customer script extension.
 
-4. Run the master script.
+4. Runs the master script.
 
     The script:
-    - Installs etcd, Docker.
+    - Installs etcd, Docker, and Kubernetes resrouces such as kubelet. etcd is a distributed key value store that provides a reliable way to store data across a cluster of machines. Docker supports bare-bones operating system level virtualizations known as containers. Kubelet is the node agent that runs on each Kubernetes node.
     - Sets up the etcd service.
     - Sets up Kubelet service.
     - Starts kubelet. This involves the following:
-        1. Start api service.
-        2. Start controller service.
-        3. Start scheduler service.
-5. Create agent VMs.
+        1. Starts API Service.
+        2. Starts Controller service.
+        3. Starts Scheduler service.
+5. Creates agent VMs.
 
-    Download and execute customer script extension.
+    Downloads and executes customer script extension.
 
-6. Run agent script. The agent custom script:
+6. Runs agent script. The agent custom script:
     - Install etcd.
     - Set up the Kubelet service.
-    - Joins the cluster.
+    - Joins the Kubernetes cluster.
 
 ## Deployment status
 
