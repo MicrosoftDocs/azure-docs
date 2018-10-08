@@ -31,6 +31,7 @@ Note that these tutorials use the same sample as the [Quickstart to find availab
 - [.NET Core SDK](https://www.microsoft.com/net/download) should be installed on your development machine.
 
 <a id="deploy" />
+
 ## Deploy your Digital Twins instance
 
 Use the steps in this section to create a new instance of the Digital Twins service. 
@@ -69,9 +70,9 @@ The sample allows you to configure and provision a spatial intelligence graph. T
 1. Open a command window, and navigate to the *digital-twins-samples-csharp-master/occupancy-quickstart/src* in the downloaded sample folder.
 2. Run `dotnet restore` to restore dependencies to the sample project.
 3. In the same folder, open the *appSettings.json* file, and update the following values:
-    1. *ClientId*: Enter the *Application ID* of your AAD app registration, noted in the preceding section.
-    1. *Tenant*: Enter the *Directory Id* of your [AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant), also noted in the previous section.
-    1. *BaseUrl*: The *Management API* URL of your Digital Twins instance, which will be in the following format, `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`.
+    1. *ClientId*: Enter the **Application ID** of your AAD app registration, noted in the preceding section.
+    1. *Tenant*: Enter the **Directory ID** of your [AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant), also noted in the previous section.
+    1. *BaseUrl*: Enter the URL of your Digital Twins instance. To get this URL, modify the **Management API** obtained in [the previous section](#deploy) to the following format, `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`.
 4. Run `dotnet run` to see a list of Digital Twins features that you can explore using the sample.
 
 <a id="provision-spaces" />
@@ -114,6 +115,8 @@ The *provisionSample.yaml* contains an easy-to-visualize sample spatial graph. I
         - dataType: Temperature
           hardwareId: SAMPLE_SENSOR_TEMPERATURE
 ```
+
+Note that the `hardwareId` fields for the `sensors` and `devices` are hardcoded in this sample. You will want to replace these with corresponding IDs from your setup, if you wish to configure this sample for an actual production. 
 
 Save and close the *provisionSample.yaml* file. In the next tutorial, you will add more information to this file, and then complete the provisioning of your Azure Digital Twins sample building.
 

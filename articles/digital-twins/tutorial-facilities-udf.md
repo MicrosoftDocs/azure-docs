@@ -156,7 +156,7 @@ In this section, you will simulate sensor data for detecting motion, temperature
 1. Run `dotnet restore` to make sure the dependencies for the project are correct.
 1. Open the *appSettings.json* file in your editor, edit the following values:
     1. *DeviceConnectionString*: Assign the value of `ConnectionString` in the output window from the previous section.
-    2. *HardwareId* within the *Sensors* array: The hardware ID and the names should match with the **sensors** node of the *provisionSample.yaml* file. Add a new entry for the temperature sensor; the **Sensors** node in the *appSettings.json* should look like the following:
+    2. *HardwareId* within the *Sensors* array: The hardware ID and the names of the sensors in this file should match with those in the `sensors` node of the *provisionSample.yaml* file. Add a new entry for the temperature sensor; the **Sensors** node in the *appSettings.json* should look like the following:
 
     ```JSON
     "Sensors": [{
