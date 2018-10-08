@@ -35,8 +35,7 @@ The article also discusses some of the parameters that you can set on the API to
 
 > [!Tip]
 > It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.<br/>
-If you must use older .NET frameworks, add one line into your code before making the REST api call:   `System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;`
-
+If you must use older .NET frameworks, add one line into your code before making the REST api call:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## Configurations and params
 
