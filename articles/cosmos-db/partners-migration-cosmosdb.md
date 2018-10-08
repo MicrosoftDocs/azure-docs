@@ -12,21 +12,21 @@ ms.date: 10/07/2018
 
 # Azure Cosmos DB NoSQL migration and application development partners
 
-To support your Azure Cosmos DB solutions, you can choose from a variety of industry-leading systems integrator partners and tools. With the help of these partners and tools, you can develop new apps or migrate existing NoSQL apps to Azure Cosmos DB. This article highlights Microsoft partners with migration solutions that support Azure Cosmos DB.
+From NoSQL migration to application development, you can choose from a variety of experienced systems integrator partners and tools to support your Azure Cosmos DB solutions. 
 
 ## Migration tools
 
-|**Partner**  |**Capabilities & experience**  |**Countries**  |**Contact**  |
+|**Partner**  |**Capabilities & experience**  |**Supported countries**  |**Contact**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Data migration](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) from MongoDB to Azure Cosmos DB. <br/> Imanis Data enables global enterprises to quickly and easily migrate their on-premises or cloud MongoDB databases to Azure Cosmos DB. Imanis Data provides an agentless, incremental-forever cloud migration approach for MongoDB data stores that simplifies migration and significantly reduces downtime.|  USA  |   [Website](http://www.imanisdata.com/)      |
 |![Striim][2]    |  [Move real-time data to Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) from a wide variety of data sources. <br/> Striim simplifies the real-time collection and movement of data from a wide variety of on-premise sources, including enterprise document and relational databases, sensors, and log files into Azure Cosmos DB. |   USA   |  [Website](http://www.striim.com/)       |
 
 ## Systems Integrator partners
 
-|**Partner**  |**Capabilities & experience**  |**Countries**  |**Contact**  |
+|**Partner**  |**Capabilities & experience**  |**Supported countries**  |**Contact**  |
 |---------|---------|---------|---------|
 |![Altoros][3]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development |     USA, EU    |  [Website](http://www.altoros.com/)       |
-|![Attunix][4]     |   NoSQL migration, <br/> App innovation (existing apps), <br/> New app development      |         |  [Website](http://www.attunix.com/)       |
+|![Attunix][4]     |   NoSQL migration, <br/> App innovation (existing apps), <br/> New app development      |    USA     |  [Website](http://www.attunix.com/)       |
 |![Bluemetal][5]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    North America, Asia-Pacific     |  [Website](http://www.bluemetal.com/)       |
 |![Capax Global][6]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    USA     |  [Website](http://www.capaxglobal.com/)       |
 |![Coeo][7]     |   App innovation (existing apps), <br/> New app development |    UK     |  [Website](http://www.coeo.com/)       |
