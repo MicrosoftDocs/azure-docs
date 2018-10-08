@@ -76,9 +76,15 @@ The following diagram shows the general process for deploying the cluster.
 
 ## Deployment status
 
-![Troubleshooting](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+You can review the deployment status when you deploy your Kubernetes cluster to review any issues.
 
-1.  Consult the troubleshooting window. Each resource that is deployed provides the following information.
+1. Open the [Azure Stack portal](https://portal.local.azurestack.external).
+2. Select **Resource groups** > the name of the resource group used in deploying the Kuberentes cluster.
+3. Select **Deployments** and then the **Deployment name**.
+
+    ![Troubleshooting](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+
+4.  Consult the troubleshooting window. Each resource that is deployed provides the following information.
     
     | Property | Description |
     | ----     | ----        |
@@ -86,31 +92,23 @@ The following diagram shows the general process for deploying the cluster.
     | Type | The resource provider and the type of resource. |
     | Status | The status of the item. |
     | TimeStamp | The UTC timestamp of the time. |
-    | Operation details | A hyperlink to what? |
+    | Operation details | The operation details such as the resource provider involved in the operation, the resource end point, and the name of the resource. |
 
     Each item will have a status icon of green or red.
 
-2.  If you are unable to identify the issue and resolve it, what version of Azure Stack. You will need to ask your Azure Stack administrator. The Kubernetes Cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
-3.  Review your VM creation files. You may encounter the following issues:  
-    a.  The public key may be invalid. Review the key that you have created.  
-    b.  The creation has trigger are an internal error or creation error.   
-        i.  Collect the Azure Stack logs and send them to the CSS.  
-        ii.  Does the fully qualified domain name (FDQN) for the VM begin with a duplicate prefix?  
-4.  If the VM is OK,** then, evaluate the DVM. If the DVM has an error message:
-    a.  Is the key valid?
-    b.  Retrieve the logs for the Azure Stack using the Privileged End Points. 
-
 ## Get logs from a Linux VM
 
-Summary of this section.
+You will need to connect to the master VM for your cluster, open a bash prompt, and run a script to generate the logs. The master can be found in your cluster resource group, and is named `k8s-master-<sequence-of-numbers>`. 
 
 For the Azure SDK user, if the VM failed to deploy to set up Kubernetes cluster, we will need collect Azure Stack log for all the RPs from the customer. 
 
 ### Prerequisites
 
-You will need to have Git installed on you are the machine you use to manage Azure Stack. You will be using Bash from the Git command line. To get the most recent version of git, see [git downloads](https://git-scm.com/downloads).
+You will need a bash prompt on the machine your use to manage Azure Stack. You need bash to run the scripts used to access the logs. On a Windows machine, you can use the bash prompt installed with Git. To get the most recent version of git, see [git downloads](https://git-scm.com/downloads).
 
-1. Open a bash prompt. With git, you can open it at the following path: `c:\programfiles\git\bin\bash.exe`.
+### Get logs
+
+1. Open a bash prompt. If you are using git on a Windows machine, you can open a bash prompt from the following path: `c:\programfiles\git\bin\bash.exe`.
 2. Run the following bash commands:
 
     ```Bash  
@@ -139,14 +137,29 @@ You will need to have Git installed on you are the machine you use to manage Azu
     ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
      ```
 
-    ![Generated logs](media/azure-stack-solution-template-kubernetes-trouble/auzre-stack-generated-logs.png)
+    ![Generated logs](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
 4. Retrieve the logs in the folders created by the command. The command will create a new folder and time stamp it.
-    - Dvmlog
-    - Acsengine-kuubernetes.log
+    - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
+        - Dvmlogs
+        - Acsengine-kubernetes-dvm.log
 
-5. Upload your log files to the log sharing workspace. sharing tool Helen. For instructions, see [How to use Helen](https://www.csssupportwiki.com/index.php/curated:Azure_Stack/TSG/How_to_use_Helen).
+
+## Steps for troubleshooting
+
+You can collect logs on the VMs supporting your Kubernetes cluster. You can also review the deployment log. You may also need to talk to your Azure Stack administrator to verify the version of Azure Stack you are using and to get logs from Azure Stack related to your deployment.
+
+1. After you have reviewed the deployment status and the retrieved the logs from the master node in your Kubernetes cluster, the following steps may provide insight into what went wrong with your deployment.
+2. You need to be running the latest version of Azure Stack. If you are unsure of your version of Azure Stack, contact your Azure Stack administrator. The Kubernetes Cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
+3.  Review your VM creation files. You may have encountered the following issues:  
+    a.  The public key may be invalid. Review the key that you have created.  
+    b.  VM creation may have triggered an internal error or triggered a creation error.
+    c.  Does the fully qualified domain name (FDQN) for the VM begin with a duplicate prefix?
+4.  If the VM is **OK** then, evaluate the DVM. If the DVM has an error message:
+        a.  The public key may be invalid. Review the key that you have created.  
+        b.  You will need to contact your Azure Stack adminstrator to retrieve the logs for Azure Stack using the Privileged End Points. For more information the , see [Azure Stack diagnostics tools](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
+5. If you still have been unable to identify your problem, compress your logs into an archive and send them to CSS at email@microsoft.com.
 
 ## Next steps
 
