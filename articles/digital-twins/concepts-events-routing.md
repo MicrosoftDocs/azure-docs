@@ -64,7 +64,7 @@ Learn about public preview limits:
 > [!div class="nextstepaction"]
 > [Azure Digital Twins preview limits](concepts-service-limits.md)
 
-Try out a quick start Azure Digital Twins sample:
+Try out a quickstart Azure Digital Twins sample:
 
 > [!div class="nextstepaction"]
 > [Find Available Rooms with Fresh Air](quickstart-view-occupancy-dotnet.md)
