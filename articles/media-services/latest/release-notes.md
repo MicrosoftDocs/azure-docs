@@ -27,40 +27,42 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## October 2018 - GA
 
+This section describes Azure Media Services (AMS) October updates.
+
 ### REST v3 GA release
 
 The [REST v3 GA release](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) includes more APIs for Live, Account/Asset level manifest filters, and DRM support.
 
-### Azure CLI 2.0
+#### Azure CLI 2.0
  
 The Azure CLI 2.0 module for all features including Live, Content Key Policies, Account/Asset Filters, Streaming Policies.
 
-### Azure Resource Management 
+#### Azure Resource Management 
 
 Support for Azure Resource Management enables unified management and operations API (now everything in one place).
 
 Starting with this release, you can use Resource Manager templates to create Live Events.
 
-### Improvement of Asset operations 
+#### Improvement of Asset operations 
 
 The following improvements were introduced:
 
 - Ingest from HTTP(s) URLs or Azure Blob Storage SAS URLs.
 - Easier output support to create custom workflows with Azure Functions.
 
-### New Transform object
+#### New Transform object
 
 The new **Transform** object simplifies the Encoding model. The new object makes it easy to create and share encoding Resource Manager templates and presets. 
 
-### Azure Active Directory uthentication and RBAC
+#### Azure Active Directory uthentication and RBAC
 
 Azure AD Authentication and Role-Based Access Control (RBAC) enable secure Transforms, LiveEvents, Content Key Policies, or Assets by Role or Users in Azure AD.
 
-### Client SDKs  
+#### Client SDKs  
 
 Languages supported in Media Servies v3: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
 
-### Live encoding updates
+#### Live encoding updates
 
 The following live encoding updates are introduced:
 
@@ -72,20 +74,20 @@ The following live encoding updates are introduced:
 - 24-hour transcoding support. 
 - Improved ad-signaling support in RTMP via SCTE35.
 
+#### Improved Event Grid support
+
+You can see the following Event Grid support improvements:
+
+- Azure EventGrid integration for easier development with Logic Apps and Azure Functions. 
+- Subscribe for events on Encoding, Live Channels, and more.
+
 ### CMAF support
 
 CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players that support CMAF.
 
 ### Web VTT thumbnail sprites
 
-You can now use Media Services to generate Web VTT thumbnail sprites. For more information, see [Generate a thumbnail sprite](generate-thumbnail-sprite.md).
-
-### Improved Event Grid support
-
-You can see the following Event Grid support improvements:
-
-- Azure EventGrid integration for easier development with Logic Apps and Azure Functions. 
-- Subscribe for events on Encoding, Live Channels, and more.
+You can now use Media Services to generate Web VTT thumbnail sprites using our v2 APIs. For more information, see [Generate a thumbnail sprite with AMS v2](generate-thumbnail-sprite.md).
 
 ### Video Indexer
 
