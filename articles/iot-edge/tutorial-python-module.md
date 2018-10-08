@@ -80,7 +80,7 @@ Use the Python package **cookiecutter** to create a Python solution template tha
     pip install --upgrade --user cookiecutter
     ```
    >[!Note]
-   >Ensure the directory where cookiecutter will be installed is in your environment’s `Path` in order to make it possible to invoke it from a command prompt. Typically, on windows add `%APPDATA%\Python\PythonVersion\Scripts`, where you have your version of Python instead of PythonVersion.
+   >Ensure the directory where cookiecutter will be installed is in your environment’s `Path` in order to make it possible to invoke it from a command prompt. Typically, on Windows, add `%APPDATA%\Python\PythonVersion\Scripts`, where you have your version of Python instead of PythonVersion.
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
 
