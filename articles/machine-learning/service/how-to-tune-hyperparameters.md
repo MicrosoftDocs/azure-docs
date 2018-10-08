@@ -168,15 +168,17 @@ The training script calculates the `val_accuracy` and logs it as "accuracy", whi
 
 When using Azure Machine Learning service to tune hyperparameters, poorly performing runs are automatically early terminated. Termination reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
 
-When using an early termination policy, you can configure the following parameters that control when a policy is applied -
+When using an early termination policy, you can configure the following parameters that control when a policy is applied:
+
 * `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric. If not specified, `evaluation_interval` is set to 1 by default.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. It is an optional parameter that allows all configurations to run for an initial minimum number of intervals, avoiding premature termination of training runs. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation.
 
-Azure Machine Learning service supports the following Early Termination Policies -
+Azure Machine Learning service supports the following Early Termination Policies.
 
 ### Bandit policy
 
-Bandit Policy is a termination policy based on slack factor/slack amount and evaluation interval. The policy early terminates any runs where the primary metric is not within the specified slack factor / slack amount with respect to the best performing training run. It takes the following configuration parameters -
+Bandit Policy is a termination policy based on slack factor/slack amount and evaluation interval. The policy early terminates any runs where the primary metric is not within the specified slack factor / slack amount with respect to the best performing training run. It takes the following configuration parameters:
+
 * `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training run. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
 
     For example,  consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
@@ -193,7 +195,7 @@ In this example, the early termination policy is applied at every interval when 
 
 ### Median stopping policy
 
-Median Stopping Policy is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy takes the following configuration parameters -
+Median Stopping Policy is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy takes the following configuration parameters:
 * `evaluation_interval`: the frequency for applying the policy (optional parameter).
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 
