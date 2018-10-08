@@ -13,7 +13,7 @@ ms.author: panosper
 
 # Batch transcription
 
-Batch transcription is ideal if you have large amounts of audio. You can point to audio files and get back transcriptions in asynchronous mode.
+Batch transcription is ideal if you have large amounts of audio. You can point to audio files by URI and get back transcriptions in asynchronous mode.
 
 ## Batch transcription API
 
@@ -55,7 +55,7 @@ For stereo audio streams, Batch transcription splits the left and right channel 
 
 ## Authorization token
 
-As with all features of the Unified Speech Service, you create a subscription key from the [Azure portal](https://portal.azure.com) following our [Get-Started guide](get-started.md). If you plan to get transcriptions from our baseline models then this is all you need to do. 
+As with all features of the Speech Service, you create a subscription key from the [Azure portal](https://portal.azure.com) following our [Get-Started guide](get-started.md). If you plan to get transcriptions from our baseline models then this is all you need to do. 
 
 If you plan on customizing and using a custom model then you need to add this subscritpion key to the custom speech portal as follows:
 
