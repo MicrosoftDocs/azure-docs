@@ -41,7 +41,7 @@ This article shows you how to send custom metrics for Azure resources to the Azu
 
 ## Emit the metric via the REST API 
 
-1. Paste the following JSON into a file, and save it as **custommetric.json** on your local computer. Update the time parameter in the JSON file. 
+1. Paste the following JSON into a file, and save it as **custommetric.json** on your local computer. Update the time parameter in the JSON file: 
     
     ```json
     { 
@@ -72,9 +72,9 @@ This article shows you how to send custom metrics for Azure resources to the Azu
     ``` 
 
 1. In your command prompt window, post the metric data: 
-    - **Azure Region**. Must match the deployment region of the resource you're emitting metrics for. 
-    - **ResourceID**.  Resource ID of the Azure resource you're tracking the metric against.  
-    - **Access Token**. Paste the token that you acquired previously.
+    - **azureRegion**. Must match the deployment region of the resource you're emitting metrics for. 
+    - **resourceID**.  Resource ID of the Azure resource you're tracking the metric against.  
+    - **AccessToken**. Paste the token that you acquired previously.
 
     ```Shell 
     curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId> /metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 

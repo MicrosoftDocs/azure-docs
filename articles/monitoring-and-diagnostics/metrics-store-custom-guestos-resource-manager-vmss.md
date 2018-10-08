@@ -37,8 +37,8 @@ For this example, you can use a publicly available [sample template](https://git
 Download and save both files locally. 
 
 ###  Modify azuredeploy.parameters.json
-- Open the **azuredeploy.parameters.json** file: 
-
+- Open the **azuredeploy.parameters.json** file:  
+ 
     - Provide a **vmSKU** you want to deploy. We recommend Standard_D2_v3. 
     - Specify a **windowsOSVersion** you want for your virtual machine scale set. We recommend 2016-Datacenter. 
     - Name the virtual machine scale set resource to be deployed by using a **vmssName** property. An example is **VMSS-WAD-TEST**.    
