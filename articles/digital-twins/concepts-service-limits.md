@@ -6,7 +6,7 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/3/2018
+ms.date: 10/08/2018
 ms.author: dwalthermsft
 ---
 

@@ -6,13 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 10/08/2018
 ms.author: alinast
 ---
 
 # Device Connectivity and Telemetry Ingress
 
-An IoT solution's backbone is the telemetry data sent by devices and sensors. Azure Digital Twins simplifies the development of your IoT solution by connecting these devices and sensors to the context of a space. Azure Digital Twins wraps IoT Hub resources to help connect these devices and sensors to your spatial graph. To do so, an `IoTHub` resource should be created at the root of the spatial graph, allowing all devices beneath the root space to send messages. Once the IoT Hub has been created, and devices with sensors have been registered within the Digital Twins instance, the devices can start sending data your Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
+The telemetry data sent by devices and sensors form the backbone of any IoT Solution. As such, representing these disparate resources and managing them within the context of a location is paramount to IoT app development. Azure Digital Twins simplifies developing IoT solutions by uniting devices and sensors with a digitized spatial graph.
+
+To get started, an `IoTHub` resource should be created at the root of the spatial graph, allowing all devices beneath the root space to send messages. Once the IoT Hub has been created, and devices with sensors have been registered within the Digital Twins instance, the devices can start sending data to a Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
 
 A step-by-step guide for onboarding devices can be found in the [Facility Management Tutorial](tutorial-facilities-setup.md). At a glance, the steps are:
 
@@ -26,7 +28,7 @@ A step-by-step guide for onboarding devices can be found in the [Facility Manage
 - Get the IoT Hub device connection string from the Digital Twins Management APIs
 - Configure the device connection string on the device with the Azure IoT Device SDK
 
-Below you'll learn how to get the IoT Hub device connection string from the Digital Twins Management API and how to use the IoT Hub telemetry message format to send sensor-based telemetry. Digital Twins requires each piece of telemetry it receives to be associated with a sensor within the spatial graph to ensure the data is processed and routed with the appropriate spatial context.
+Below you'll learn how to get the IoT Hub device connection string from the Digital Twins Management API and how to use the IoT Hub telemetry message format to send sensor-based telemetry. Digital Twins requires each piece of telemetry it receives to be associated with a sensor within the spatial graph to ensure the data is processed and routed within the appropriate spatial context.
 
 ## Get the IoT Hub device connection string from the Management API
 
