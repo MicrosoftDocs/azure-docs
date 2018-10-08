@@ -42,9 +42,8 @@ In this tutorial, you learn how to:
 
 Before you can complete the steps in this tutorial, you must first create a Front Door and with at least one custom domain onboarded. For more information, see [Tutorial: Add a custom domain to your Front Door](front-door-custom-domain.md).
 
----
-
 ## SSL certificates
+
 To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you must use an SSL certificate. You can choose to use a certificate that is managed by Azure Front Door Service or use your own certificate.
 
 
@@ -123,8 +122,6 @@ Grant Azure Front Door Service permission to access the  certificates under Secr
     - The available certificate versions. 
  
 5. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
-
----
 
 ## Validate the domain
 
