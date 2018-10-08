@@ -37,8 +37,8 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 
 ### Fixed issues
 
-<!-- 2702741 -  
-- IS ASDK --> Fixed issue in which public IPs that were deployed by using the Dynamic allocation method were not guaranteed to be preserved after a Stop-Deallocate is issued. They are now preserved.
+<!-- 2702741 - IS ASDK --> 
+Fixed issue in which public IPs that were deployed by using the Dynamic allocation method were not guaranteed to be preserved after a Stop-Deallocate is issued. They are now preserved.
 
 <!-- 3078022 - IS ASDK --> 
 - If a VM was stop-deallocated before 1808 it could not be re-allocated after the 1808 update.  This issue is fixed in 1809. Instances that were in this state and could not be started can be started in 1809 with this fix. The fix also prevents this issue from reoccurring.
@@ -210,7 +210,7 @@ This build includes the following improvements and fixes for Azure Stack.
    You can also use templates to [deploy resources to more than one subscription or resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
 <!--2753073 | IS, ASDK -->  
-- **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources.  Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release but will be included in a future release.  Please refer to [Considerations for Azure Stack networking](.\.\user\azure-stack-network-differences.md) for functionality differences.
+- **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources. Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release. Please refer to [Considerations for Azure Stack networking](.\.\user\azure-stack-network-differences.md) for functionality differences.
 
 <!-- 2272116 | IS, ASDK   -->  
 - **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, and adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
@@ -417,7 +417,7 @@ This build includes the following improvements and fixes for Azure Stack.
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.  
 
 <!-- TBD - IS ASDK --> 
-- App Service can only be deployed into the *Default Provider subscription* at this time. In a future update, App Service will deploy into the new *Metering subscription* that was introduced in Azure Stack 1804. When Metering is supported for use, all existing deployments will be migrated to this new subscription type.
+- App Service can only be deployed into the *Default Provider subscription* at this time.
 
 #### Usage  
 <!-- TBD -  IS ASDK --> 
