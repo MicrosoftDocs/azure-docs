@@ -29,4 +29,4 @@ The main data preparation steps are:
 ![Data preparation process](./media/concept-data-preparation/data-prep-process.png)
 
 ## Next steps
-Review an [example notebook](https://github.com/Microsoft/PendletonDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
+Review an [example notebook](https://github.com/Microsoft/MSDataPrepDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
