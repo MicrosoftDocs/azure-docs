@@ -15,15 +15,15 @@
     href: quickstart-view-occupancy-dotnet.md
 - name: Tutorials
   items:
-  - name: Monitor facilities with Digital Twins
+  - name: Monitor a building with Digital Twins
     items:
-      - name: Provision a sample building
+      - name: Create spatial resources
         href: tutorial-facilities-setup.md
-      - name: Monitor conditions in your building
+      - name: Monitor temperature and air quality
         href: tutorial-facilities-udf.md
-      - name: Receive notifications from your building
+      - name: Notify for monitored events
         href: tutorial-facilities-events.md
-      - name: Analyze events from your building
+      - name: Analyze monitored events
         href: tutorial-facilities-analyze.md
 - name: Concepts
   items:
