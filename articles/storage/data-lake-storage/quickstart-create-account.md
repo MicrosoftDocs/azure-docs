@@ -11,7 +11,7 @@ ms.date: 06/27/2018
 ms.author: jamesbak
 ---
 
-# Quickstart: Create an Azure Data Lake Storage Gen2 Preview capable storage account
+# Quickstart: Create a storage account for analytics
 
 Storage accounts with Data Lake Storage Gen2 Preview enabled [support an Hierarchical Namespace Service](introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](abfs-driver.md).
 
