@@ -210,7 +210,7 @@ In addition to DMS, Contoso has some other scripts that they use to discover and
 
 #### Partner tools
 
-There are several other partner tools which can help Contoso in assessing the on-premises environment for migration to Azure.  [Learn more](https://azure.microsoft.com/migration/partners/ about Azure Migration partners.  
+There are several other partner tools which can help Contoso in assessing the on-premises environment for migration to Azure. [Learn more](https://azure.microsoft.com/migration/partners/) about Azure Migration partners.  
 
 ## Phase 2: Migrate
 
