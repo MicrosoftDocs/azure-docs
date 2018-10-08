@@ -4,7 +4,7 @@ description: This topic gives an overview of live streaming using Azure Media Se
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/07/2018
 ms.author: juliako
 
 ---
@@ -21,8 +21,8 @@ ms.author: juliako
 When delivering live streaming events with Azure Media Services the following components are commonly involved:
 
 * A camera that is used to broadcast an event.
-* A live video encoder that converts signals from the camera (or another device, like laptop) to streams that are sent to the Media Services live streaming service. The signals may also include advertising SCTE-35 and Ad-cues. 
-* The Media Services live streaming service enables you to ingest, preview, package, record, encrypt, and broadcast the content to your customers, or to a CDN for further distribution.
+* A live video encoder that converts signals from the camera (or another device, like laptop) to streams that are sent to the Lve Streaming service. The signals may also include advertising SCTE-35 and Ad-cues. 
+* The Media Services Live Streaming service enables you to ingest, preview, package, record, encrypt, and broadcast the content to your customers, or to a CDN for further distribution.
 
 This article gives a detailed overview and includes diagrams of major components involved in live streaming with Media Services.
 
@@ -36,6 +36,17 @@ Media Services enables you to deliver your content encrypted dynamically (**Dyna
 
 If desired, you can also apply **Dynamic Filtering**, which can be used to control the number of tracks, formats, bitrates, that are sent out to the players. Media Services also supports ad-insertion.
 
+### New Live encoding improvements
+
+The following new improvements were done in the latest release.
+
+- New low latency mode for live (10 seconds end-to-end).
+- Improved RTMP support (increased stability and more source encoder support).
+- RTMPS secure ingest.
+
+    When you create a LiveEvent you now get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS.   
+- 24 hour transcoding support. 
+- Improved ad-signaling support in RTMP via SCTE35.
 
 ## LiveEvent types
 
