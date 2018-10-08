@@ -116,7 +116,7 @@ The correct intent, **GetEmployeeOrgChart**, was found with a 61% confidence. Th
 The Speech SDK returns the entire LUIS response. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS HumanResources app. To do so, select the ellipsis (***...***) button to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS HumanResources app. To do so, select the app, then in the contextual toolbar above the list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 Remember to delete the LUIS-Samples directory when you are done using the sample code.
 

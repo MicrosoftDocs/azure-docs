@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/03/2018
 ms.author: alinast
 ---
 
@@ -25,8 +25,8 @@ With the _Digital Twins Object Models_ and _Ontology_ in place, you can now buil
 Digital Twins Object Models support these main categories of objects:
 
 - **Spaces** are virtual or physical locations, for example `Tenant`, `Customer`, `Region`, `Venue`.
-- **Devices** are virtual or physical pieces of equipment, for example `Contoso Device`, `Raspberry Pi 3`.
-- **Sensors** are objects that detect events, for example `Contoso Temperature Sensor`, `Contoso Presence Sensor`.
+- **Devices** are virtual or physical pieces of equipment, for example `AwesomeCompany Device`, `Raspberry Pi 3`.
+- **Sensors** are objects that detect events, for example `AwesomeCompany Temperature Sensor`, `AwesomeCompany Presence Sensor`.
 - **Users** identify occupants and their characteristics.
 
 Other categories of objects are:
@@ -45,7 +45,7 @@ Other categories of objects are:
 
 ## Spatial Intelligence Graph
 
-**Spatial Graph** is the hierarchical graph of spaces, devices, and people defined in the **Digital Twins Object Model**. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. Users can manage and interact with their spatial graph with a collection of REST APIs (see below). 
+**Spatial Graph** is the hierarchical graph of spaces, devices, and people defined in the **Digital Twins Object Model**. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. Users can manage and interact with their spatial graph with a collection of REST APIs (see below).
 
 The user who deploys a Digital Twins service in their subscription becomes the global administrator of the root node, automatically granting full access to entire structure. This user can then provision spaces in the graph using the `Space` API. Devices could be provisioned using the `Device` API, sensors could be provisioned using `Sensor` API, etc. We also offer [open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) to provision the graph in bulk.
 
@@ -61,14 +61,28 @@ Graph _extensibility_ allows users to customize the underlying Digital Twins Obj
 
 ### Spatial Intelligence Graph Management APIs
 
-Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure.com), the [Swagger](https://swagger.io/tools/swagger-ui/) URL of the Management APIs is automatically generated and will be displayed in the Azure portal's **Overview** section with the following format `https://{{yourDigitalTwinsName}}.{{yourLocation}}.azuresmartspaces.net/management/swagger` as seen in image below:
+Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure.com), the [Swagger](https://swagger.io/tools/swagger-ui/) URL of the Management APIs is automatically generated and will be displayed in the Azure portal's **Overview** section with the following format:
+
+```plaintext
+https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
+```
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourInstanceName` | The name of your Azure Digital Twins instance |
+| `yourLocation` | Which server region your instance is hosted on |
+
+ The full URL format can be seen being used in image below:
 
 ![Digital Twins Portal Management API][2]
 
-For more details on how to use the Spatial Intelligence Graph, please visit your Digital Twins Management APIs Swagger URL. You can browse swagger UI of your deployed instanced to learn the specifications of each API as outlined in image below:
+For more details on how to use the Spatial Intelligence Graph, please visit the Azure Digital Twins Management APIs sneak preview.
 
-![Digital Twins Management API Swagger][3]
-![Digital Twins Management API Swagger][4]
+>[!TIP]
+>For your convenience, a Swagger sneak preview is provided to demonstrate the API feature set.
+>It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+
+Learn more about [how to use Swagger](how-to-use-swagger.md).
 
 All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). The APIs follow [Microsoft REST API Guidelines conventions](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Most of the APIs that return collections support [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) system query options.
 
@@ -77,15 +91,13 @@ All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azu
 Read more about device connectivity and how to send telemetry messages to Azure Digital Twins service:
 
 > [!div class="nextstepaction"]
-> [Azure Digital Twins Device Connectivity and Telemetry Ingress] (concepts-device-ingress.md)
+> [Azure Digital Twins Device Connectivity and Telemetry Ingress](concepts-device-ingress.md)
 
 Read more about Management API limitations and throttles:
 
 > [!div class="nextstepaction"]
-> [Azure Digital Twins API Management and Limitations] (concepts-management-api-limits.md)
+> [Azure Digital Twins API Management and Limitations](concepts-service-limits.md)
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png
 [2]: media/concepts/digital-twins-spatial-graph-management-api-url.png
-[3]: media/concepts/digital-twins-management-swagger.png
-[4]: media/concepts/digital-twins-management-swagger-cont.png

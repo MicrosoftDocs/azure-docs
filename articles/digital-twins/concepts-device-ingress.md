@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/03/2018
 ms.author: alinast
 ---
 
 # Device Connectivity and Telemetry Ingress
 
-An IoT solution's backbone is the telemetry data sent by devices and sensors. Azure Digital Twins simplifies the development of your IoT solution by connecting these devices and sensors to the context of a space. Azure Digital Twins wraps IoT Hub resources to help connect these devices and sensors to your spatial graph. To do so, an `IoTHub` resource should be created at the root of the spatial graph, allowing all devices beneath the root space to send messages. Once the IoT Hub has been created, and devices with sensors have been registered within the Digital Twins instance, the devices can start sending data your Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks). 
+An IoT solution's backbone is the telemetry data sent by devices and sensors. Azure Digital Twins simplifies the development of your IoT solution by connecting these devices and sensors to the context of a space. Azure Digital Twins wraps IoT Hub resources to help connect these devices and sensors to your spatial graph. To do so, an `IoTHub` resource should be created at the root of the spatial graph, allowing all devices beneath the root space to send messages. Once the IoT Hub has been created, and devices with sensors have been registered within the Digital Twins instance, the devices can start sending data your Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
 
-A step-by-step guide for onboarding devices can be found in the [Facility Management Tutorial](tutorial-facilities-app.md). At a glance, the steps are:
+A step-by-step guide for onboarding devices can be found in the [Facility Management Tutorial](tutorial-facilities-setup.md). At a glance, the steps are:
 
 - Deploy an Azure Digital Twins instance from the [Azure portal](https://portal.azure.com)
 - Create spaces in your graph
@@ -30,16 +30,22 @@ Below you'll learn how to get the IoT Hub device connection string from the Digi
 
 ## Get the IoT Hub device connection string from the Management API
 
-Do a GET call on the Device API with an `includes=ConnectionString` parameter to get the IoT Hub device connection string. You can filter by `device-guid` or `hardware-id` to find the given device.
+Do a GET call on the Device API with an `includes=ConnectionString` parameter to get the IoT Hub device connection string. You can filter by device guid or hardware id to find the given device:
 
 ```plaintext
-https://{{your-management-api-url}}/api/v1.0/devices/<device-guid>?includes=ConnectionString
+https://yourManagementApiUrl/api/v1.0/devices/yourDeviceGuid?includes=ConnectionString
 ```
 
 ```plaintext
-https://{{your-management-api-url}}/api/v1.0/devices?hardwareIds=<hardware-id>&includes=ConnectionString
+https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourDeviceHardwareId&includes=ConnectionString
 ```
-   
+
+| Custom Attribute Name | Replace With |
+| --- | --- |
+| `yourManagementApiUrl` | The full URL path for your Management API |
+| `yourDeviceGuid` | The device id |
+| `yourDeviceHardwareId` | The device hardware id |
+
 In the response payload, copy the device's `connectionString` property, which you'll use when calling the Azure IoT Device SDK to send data to Azure Digital Twins.
 
 ## Device-to-Cloud Telemetry Message
@@ -49,7 +55,6 @@ You can customize your device's message format and payload to fit your solution'
 ### Telemetry Properties
 
 While the payload contents of a `Message` can be arbitrary data up to 256 kb in size, there are few requirements on expected [Message.Properties](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). The steps outlined below reflect the required and optional properties supported by the system:
-
 
 | Property Name | Value | Required | Description |
 |---|---|---|---|
@@ -67,4 +72,4 @@ Use the DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/micr
 Read more about Azure Digital Twins' data processing and User-Defined Functions capabilities:
 
 > [!div class="nextstepaction"]
-> [Azure Digital Twins Data Processing and User-Defined Functions] (concepts-user-defined-functions.md)
+> [Azure Digital Twins Data Processing and User-Defined Functions](concepts-user-defined-functions.md)
