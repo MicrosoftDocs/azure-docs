@@ -16,7 +16,9 @@ manager: douge
 
 You can use [Azure Cloud Shell](/azure/cloud-shell) to create a cluster for Azure Dev Spaces by using the **Try It** button from this page. If you aren't signed in, follow the prompts to sign in with an Azure account, then type the commands at the Azure Cloud Shell prompt when it appears.
 
-Create the resource group. Use one of the currently supported regions (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast).
+## Create the cluster
+
+First, create the resource group. Use one of the currently supported regions (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast).
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
