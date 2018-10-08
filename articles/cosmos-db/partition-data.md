@@ -116,7 +116,7 @@ Consider the following details when creating a partitioned graph container:
 
 - **Graph queries should specify a partition key**. To take full advantage of the horizontal partitioning in Azure Cosmos DB, whenever it's possible the graph queries should include partition key. For example when a single vertex is selected. The following example queries show how to include partition key when selecting one or multiple vertices in a partitioned graph:
 
-   - **Currenlty you can’t use `/id` as partition key for a container in Gremlin API** the work around is to duplicate the `id` field under a different property name.
+    - **Currenlty you can’t use `/id` as partition key for a container in Gremlin API**.
 
     - Selecting a vertex by ID, then **use the `.has()` step to specify the partition key property**: 
     
@@ -226,7 +226,7 @@ For more information, see [Develop with the Table API](tutorial-develop-table-do
 With the Gremlin API, you can use the Azure portal or Azure CLI to create a container that represents a graph. Alternatively, because Azure Cosmos DB is multi-model, you can use one of the other APIs to create and scale your graph container.
 
 > [!NOTE]
-> You can’t use `/id` as partition key for a container in Gremlin API. The work around is to duplicate the `id` field under a different property name.
+> You can’t use `/id` as partition key for a container in Gremlin API. 
 
 You can read any vertex or edge by using the partition key and ID in Gremlin. For example, for a graph with region ("USA") as the partition key and "Seattle" as the row key, you can find a vertex by using the following syntax:
 
