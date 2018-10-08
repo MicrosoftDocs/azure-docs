@@ -34,8 +34,9 @@ The article also discusses some of the parameters that you can set on the API to
 - The URL provided in the `videoURL` param needs to be encoded
 
 > [!Tip]
-> It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.<br/>
-If you must use older .NET frameworks, add one line into your code before making the REST api call:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+> It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
+>
+> If you must use older .NET frameworks, add one line into your code before making the REST API call:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## Configurations and params
 
