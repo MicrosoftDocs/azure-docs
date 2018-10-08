@@ -1,12 +1,14 @@
 ---
-title: Design process overview for acoustics - Cognitive Services
+title: Design process overview for Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: This document describes how to express your design intent in all three phases of the Project Acoustics workflow.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
 ---
