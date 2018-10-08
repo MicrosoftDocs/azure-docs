@@ -1,18 +1,18 @@
 ---
-title: Create a dynamic volume for multiple pods in Azure Kubernetes Service (AKS)
-description: Learn how to dynamically create a volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
+title: Dynamically create a Files volume for multiple pods in Azure Kubernetes Service (AKS)
+description: Learn how to dynamically create a persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 10/08/2018
 ms.author: iainfou
 ---
 
-# Dynamically create and use an Azure Files share in Azure Kubernetes Service (AKS)
+# Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service (AKS)
 
-Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share and attach it to a pod in AKS.
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an Azure Kubernetes Service (AKS) cluster.
 
 For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
@@ -79,7 +79,7 @@ To allow the Azure platform to create the required storage resources, create a *
 
 ```yaml
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: system:azure-cloud-provider
@@ -88,7 +88,7 @@ rules:
   resources: ['secrets']
   verbs:     ['get','create']
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: system:azure-cloud-provider
@@ -246,7 +246,7 @@ spec:
   - file_mode=0777
   - uid=1000
   - gid=1000
-  ```
+```
 
 If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified with the *runAsUser* value set to *0*. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
 

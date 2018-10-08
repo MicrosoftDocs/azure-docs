@@ -1,21 +1,23 @@
 ---
-title: Create persistent volumes with Azure Kubernetes Service
-description: Learn how to use Azure disks to dynamically create persistent volumes for pods in Azure Kubernetes Service (AKS)
+title: Dynamically create a Disk volume for multiple pods in Azure Kubernetes Service (AKS)
+description: Learn how to dynamically create a persistent volume with Azure disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 10/08/2018
 ms.author: iainfou
 ---
 
-# Dynamically create persistent volumes with Azure disks for Azure Kubernetes Service (AKS)
+# Dynamically create and use a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
 
-A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes]. This article shows you how to use persistent volumes with Azure disks in an Azure Kubernetes Service (AKS) cluster.
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create persistent volumes with Azure disks for use by a single pod in an Azure Kubernetes Service (AKS) cluster.
 
 > [!NOTE]
-> An Azure disk can only be mounted with *Access mode* type *ReadWriteOnce*, which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc].
+> An Azure disk can only be mounted with *Access mode* type *ReadWriteOnce*, which makes it available to only a single pod in AKS. If you need to share a persistent volume across multiple pods, use [Azure Files][azure-files-pvc].
+
+For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
 ## Before you begin
 
@@ -125,7 +127,7 @@ Volumes:
     Type:        Secret (a volume populated by a Secret)
     SecretName:  default-token-smm2n
     Optional:    false
-
+[...]
 Events:
   Type    Reason                 Age   From                               Message
   ----    ------                 ----  ----                               -------
