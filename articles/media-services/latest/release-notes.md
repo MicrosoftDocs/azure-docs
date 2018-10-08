@@ -86,8 +86,8 @@ For more information, see [Generate a Thumbnail Sprite](TODO).
 
 You can see the following Event Grid support improvements:
 
-    - Azure EventGrid integration for easier development with Logic Apps and Azure Functions. 
-    - Subscribe for events on Encoding, Live Channels, and more.
+- Azure EventGrid integration for easier development with Logic Apps and Azure Functions. 
+- Subscribe for events on Encoding, Live Channels, and more.
 
 ### Video Indexer
 
