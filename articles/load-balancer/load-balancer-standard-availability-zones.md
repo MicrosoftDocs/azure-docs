@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 10/08/2018
 ms.author: kumud
 ---
 
@@ -50,7 +50,7 @@ When using multiple frontends, review [multiple frontends for Load Balancer](loa
 
 #### Zone redundant by default
 
-In a region with Availability Zones, a Standard Load Balancer frontend is zone-redundant by default.  A single frontend IP address can survive zone failure and can be used to reach all backend pool members irrespective of the zone. This doesn't mean hitless data path, but any retries or reestablishment will succeed. DNS redundancy schemes aren't required. The frontend's single IP address is served simultaneously by independent infrastructure deployments in every Availability Zone.  Zone-redundant means that all inbound or outbound flows are served by all Availability Zones in a region simultaneously using a single IP address.
+In a region with Availability Zones, a Standard Load Balancer frontend is zone-redundant by default.  A single frontend IP address can survive zone failure and can be used to reach all backend pool members irrespective of the zone. This doesn't mean hitless data path, but any retries or reestablishment will succeed. DNS redundancy schemes aren't required. The frontend's single IP address is served simultaneously by multiple independent infrastructure deployments in multiple Availability Zones.  Zone-redundant means that all inbound or outbound flows are served by multiple Availability Zones in a region simultaneously using a single IP address.
 
 One or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. Zone-redundant configuration is the default and requires no additional actions.  When a region gains the ability to support Availability Zones, an existing frontend becomes zone-redundant automatically.
 
