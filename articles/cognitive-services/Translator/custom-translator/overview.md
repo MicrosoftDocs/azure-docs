@@ -9,7 +9,7 @@ ms.component: custom-translator
 ms.date: 10/15/2018
 ms.author: v-rada
 ms.topic: overview
-Customer intent: As a custom translator user, I want to understand what is Custom Translator, so that I can start using it.
+#Customer intent: As a custom translator user, I want to understand what is Custom Translator, so that I can start using it.
 ---
 
 # What is Custom Translator?
@@ -58,4 +58,4 @@ Translation systems built with [Custom Translator](https://portal.customtranslat
 
 - Read about [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
 
-- [Quickstart](quickstart-build-deploy-custom-model) is a step-by-step process of building a translation model using Custom Translator.
+- With [Quickstart](quickstart-build-deploy-custom-model) learn to build a translation model in Custom Translator.
