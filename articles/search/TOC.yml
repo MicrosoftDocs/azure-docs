@@ -224,7 +224,7 @@
   - name: .NET (Management)
     href: /dotnet/api/?term=microsoft.azure.management.search
   - name: Python (Management)
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html
+    href: /python/api/?view=azure-python&term=search
   - name: REST
     href: /rest/api/searchservice
   - name: REST (Management)
