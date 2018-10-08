@@ -23,7 +23,7 @@ The first code block sets the subscription key and creates a Map object without 
 
 The second code block creates a Zoom Control object using the atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest).
 
-Zoom control adds the ability to zoom in and out of the map. The third block adds zoom control to the map using map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. The Zoom control is within the map event listener to ensure all it loads after the maps loads fully.
+Zoom control adds the ability to zoom in and out of the map. The third block adds zoom control to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. The Zoom control is within the map event listener to ensure all it loads after the maps loads fully.
 
 ## Add pitch control
 
@@ -34,7 +34,7 @@ The first code block sets the subscription key and creates a Map object without 
 
 The second code block creates a Pitch Control object using the atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest).
 
-Pitch control adds the ability to change the pitch of the map. The third block adds pitch control to the map using map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. The Pitch control is within the map event listener to ensure all it loads after the maps loads fully.
+Pitch control adds the ability to change the pitch of the map. The third block adds pitch control to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. The Pitch control is within the map event listener to ensure all it loads after the maps loads fully.
 
 ## Add compass control
 
@@ -43,7 +43,7 @@ Pitch control adds the ability to change the pitch of the map. The third block a
 
 The first code block sets the subscription key and creates a Map object without pre-setting the style. See [create a map](./map-create.md) for instructions on how to create a map.
 
-The second block of code creates a Compass Control object using the atlas [Compass Control](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol). It also adds the compass control to the map using map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. The Compass control is within the map event listener to ensure all it loads after the maps loads fully.
+The second block of code creates a Compass Control object using the atlas [Compass Control](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol). It also adds the compass control to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. The Compass control is within the map event listener to ensure all it loads after the maps loads fully.
 
 ## A Map with all controls
 
@@ -52,13 +52,13 @@ The second block of code creates a Compass Control object using the atlas [Compa
 
 The first code block sets the subscription key and creates a Map object without pre-setting the style. See [create a map](./map-create.md) for instructions on how to create a map.
 
-The second code block creates a Compass Control object using the atlas [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol) and adds it to the map using map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method.
+The second code block creates a Compass Control object using the atlas [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method.
 
-The third block of code creates a Zoom Control object using the atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) and adds it to the map using map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method.
+The third block of code creates a Zoom Control object using the atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method.
 
-The fourth code block creates a Pitch Control object using the atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) and adds it to the map using map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method.
+The fourth code block creates a Pitch Control object using the atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method.
 
-The last block of code creates a Style Picker object by using the atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) and adds it to the map using map's [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. All of the controls objects are added within the map event listener to ensure that they are load after the map loads fully.
+The last block of code creates a Style Picker object by using the atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. All of the controls objects are added within the map event listener to ensure that they are load after the map loads fully.
 
 ## Next steps
 
