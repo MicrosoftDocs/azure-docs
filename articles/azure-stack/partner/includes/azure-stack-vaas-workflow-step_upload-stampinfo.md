@@ -6,4 +6,4 @@
  ms.author: mabrigg
 ---
 
-Click on **Upload** and select your Azure Stack stamp information file. For instructions, see [Generate the stamp information file](../azure-stack-vaas-parameters.md#generate-the-stamp-information-file).
+Select on **Upload** and select your Azure Stack stamp information file. For instructions, see [Generate the stamp information file](../azure-stack-vaas-parameters.md#generate-the-stamp-information-file).
