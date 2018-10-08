@@ -97,20 +97,18 @@ After you send an external user an invitation, you can use the **Get-AzureADUser
 * **UserState** indicates whether the invitation is **PendingAcceptance** or **Accepted**.
 * **UserStateChangedOn** shows the timestamp for the latest change to the **UserState** property.
 
-You can use also the **Filter** option to filter the results by **UserState**.
-
-The example below shows how to filter results to show only users who have a pending invitation. Also shown is the **Format-List** option, which lets you specify the properties that are returned and how they're displayed. 
+You can use the **Filter** option to filter the results by **UserState**. The example below shows how to filter results to show only users who have a pending invitation. The example also shows the **Format-List** option, which lets you specify the properties to display. 
  
 ```
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
 > [!NOTE]
-> The invitation status properties are available in AzureAD PowerShell module version 2.0.2.4 (or later) and AzureADPreview PowerShell module version 2.0.2.5 (or later). 
+> Make sure that you have the latest version of the Azure AD PowerShell for Graph module (AzureAD or AzureADPreview) installed. 
 
 ## See also
 
-Check out the invitation API reference in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Check out the invitation API reference in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
 ## Next steps
 
