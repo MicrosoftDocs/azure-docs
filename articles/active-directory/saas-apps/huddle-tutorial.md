@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Click **Set additional URLs**.
 
-    d. In the **Sign-on URL** textbox, type any one of the URL using the following pattern:
+    d. If you wish to configure the application in **SP** intiated mode, in the **Sign-on URL** text box, type any one of the URL using the following pattern:
 
 	| | |
 	|--|--|
