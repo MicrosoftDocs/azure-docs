@@ -76,7 +76,7 @@ The following administrator roles are available:
 * **[License Administrator](#license-administrator)**: 
 Users in this role can add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location.
 
-* **[Message Center Reader](#message-center-reader)**: Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. 
+* **[Message Center Reader](#message-center-reader)**: Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. 
 
 * **[Partner Tier1 Support](#partner-tier1-support)**: Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
@@ -97,7 +97,7 @@ Users in this role can add, remove, and update license assignments on users, gro
 
 * **[Privileged Role Administrator](#privileged-role-administrator)**: Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management.
 
-* **[Reports Reader](#reports-reader)**: Users with this role can view usage reporting data and the reports dashboard in Office 365 admin center and the adoption context pack in PowerBI. Additionally, the role provides access to sign-on reports and activity in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product specific admin centers like Exchange. 
+* **[Reports Reader](#reports-reader)**: Users with this role can view usage reporting data and the reports dashboard in Office 365 admin center and the adoption context pack in PowerBI. Additionally, the role provides access to sign-in reports and activity in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product specific admin centers like Exchange. 
 
 * **[Security Administrator](#security-administrator)**: Users with this role have all of the read-only permissions of the Security reader role, plus the ability to manage configuration for security-related services: Azure Active Directory Identity Protection, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -212,7 +212,7 @@ Can perform common billing related tasks like updating payment information.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -296,7 +296,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -358,7 +358,7 @@ Can read and manage compliance configuration and reports in Azure AD and Office 
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -401,7 +401,7 @@ Can manage all aspects of the Dynamics 365 product.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -423,7 +423,7 @@ Can approve Microsoft support requests to access customer organizational data.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -579,7 +579,7 @@ Can manage all aspects of the Exchange product.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -642,7 +642,7 @@ Can manage all aspects of the Azure Information Protection product.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -663,7 +663,7 @@ Can manage all aspects of the Intune product.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -719,7 +719,7 @@ Can manage all aspects of the Skype for Business product.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -741,7 +741,7 @@ Can read messages and updates for their organization in Office 365 Message Cente
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -759,7 +759,7 @@ Do not use - not intended for general use.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -796,7 +796,7 @@ Do not use - not intended for general use.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -836,7 +836,7 @@ Can manage all aspects of the Power BI product.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -858,7 +858,7 @@ Can manage role assignments in Azure AD,  and all aspects of Privileged Identity
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -876,7 +876,7 @@ Can read sign-in and audit reports.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -896,7 +896,7 @@ Can read security information and reports,  and manage configuration in Azure AD
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -926,7 +926,7 @@ Can read security information and reports in Azure AD and Office 365.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -948,7 +948,7 @@ Can read service health information and manage support tickets.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -969,7 +969,7 @@ Can manage all aspects of the SharePoint service.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -991,7 +991,7 @@ Can manage calling and meetings features within the Microsoft Teams service.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -1014,7 +1014,7 @@ Can troubleshoot communications issues within Teams using advanced tools.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -1034,7 +1034,7 @@ Can troubleshoot communications issues within Teams using basic tools.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
@@ -1054,7 +1054,7 @@ Can manage the Microsoft Teams service.
   >
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additonal permissions outside of Azure Active Directory. For more information see role description above.
   >
   >
 
