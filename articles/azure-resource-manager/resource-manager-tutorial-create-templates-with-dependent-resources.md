@@ -42,7 +42,7 @@ To complete this article, you need:
 
 ## Prepare the Key Vault
 
-The virtual machine you create in this tutorial requires a username and a password for the administrator account. To prevent the password spray attack, it is recommended to use an auto-generated password, and use Key Vault to store the password. The following procedure creates a Key Vault and a secret (the password). It also configure the permissions needed for the template deployment to access the secret stored in the Key Vault.
+To prevent the password spray attack, it is recommended to use an auto-generated password for the virtual machine administrator account, and use Key Vault to store the password. The following procedure creates a Key Vault and a secret (the password). It also configure the permissions needed for the template deployment to access the secret stored in the Key Vault.
 
 1. Sign in to the [Azure Cloud Shell](https://shell.azure.com).
 2. Switch to your favorite environment, either **PowerShell** or **Bash** from the upper left corner.
@@ -93,6 +93,8 @@ The virtual machine you create in this tutorial requires a username and a passwo
 
 > [!NOTE]
 > Each Azure service has specific password requirements. For example, the Azure virtual machine's requirements can be found at What are the password requirements when creating a VM?.
+>
+> Additional access policies are needed if the Key Vault are under a different Azure subscription.  For details, see [Use Azure Key Vault to pass secure parameter value during deployment](./resource-manager-keyvault-parameter.md).
 
 ## Open a Quickstart template
 
@@ -189,7 +191,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 5. Select **Upload file** from the Cloud shell:
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-6. Select the file you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file will be overwritten without any notification.
+6. Select the files you saved earlier in the tutorial. The default name is **azuredeploy.json** and **azuredeploy.paraemters.json**.  If you have files with the same file names, the old files will be overwritten without any notification.
 7. From the Cloud shell, run the following command to verify the file is uploaded successfully. 
 
     ```shell
@@ -210,15 +212,12 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     ```powershell
     $resourceGroupName = "<Enter the resource group name>"
     $location = "<Enter the Azure location>"
-    $vmAdmin = "<Enter the admin username>"
-    $vmPassword = "<Enter the password>"
-    $dnsLabelPrefix = "<Enter the prefix>"
+
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
     New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-	    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-	    -dnsLabelPrefix $dnsLabelPrefix
+	    -TemplateFile azuredeploy.json -TemplateparameterFile azuredeploy.parameters.json 
     ```
     Here is the screenshot for a sample deployment:
 
