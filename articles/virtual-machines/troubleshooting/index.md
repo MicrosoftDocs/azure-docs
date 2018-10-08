@@ -46,7 +46,7 @@ ms.author: genli
 - [Restarting or resizing a VM](restart-resize-error-troubleshooting.md)
 - Use the serial console
 	- [Linux VM](serial-console-linux.md)
-		- [Serial Console GRUB/Single user mode](serial-console-grub-single-user-mode.md Serial Console NMI/SysRq)
+		- [Serial Console GRUB/Single user mode](serial-console-grub-single-user-mode.md)
 		- [Serial Console NMI/SysRq](serial-console-nmi-sysrq.md)
 	- [Windows VM](serial-console-windows.md)
 		- [CMD and PowerShell commands](serial-console-cmd-ps-commands.md)
