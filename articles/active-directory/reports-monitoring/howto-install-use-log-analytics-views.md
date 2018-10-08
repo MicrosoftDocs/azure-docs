@@ -29,13 +29,13 @@ The Azure Active Directory Log Analytics views helps you analyze and search the 
 
 ## Prerequisites
 
-To use the management solution, you need:
+To use the Log Analytics views, you need:
 
 * A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * First, complete the steps to [route the Azure AD activity logs to your Log Analytics workspace](howto-integrate-activity-logs-with-log-analytics.md).
-* Download the views from the [GitHub repository](TODOGitHub) to your local computer.
+* Download the views from the [GitHub repository](https://aka.ms/AADLogAnalyticsviews) to your local computer.
 
-## Install the management solution
+## Install the Log Analytics views
 
 1. Navigate to your Log Analytics workspace. To do this, first navigate to the [Azure portal](https://portal.azure.com) and select **All services**. Type **Log Analytics** in the text box, and select **Log Analytics**. Select the workspace you routed the activity logs to, as part of the prerequisites.
 2. Select **View Designer**, select **Import** and then select **Choose File** to import the views from your local computer.
