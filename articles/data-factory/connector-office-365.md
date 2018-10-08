@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: jingwang
 
 ---
@@ -21,6 +21,10 @@ ms.author: jingwang
 Azure Data Factory allows you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  For more information on Microsoft Graph data connect, please refer to [this link](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Office 365. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+For a nine-minute introduction and demonstration about connecting Data Factory to Office 365 data, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## Supported capabilities
 
