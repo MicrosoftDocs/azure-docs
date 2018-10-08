@@ -1,6 +1,6 @@
 ---
 title: Capture an image of a Linux VM in Azure using Azure CLI | Microsoft Docs
-description: Capture an image of an Azure VM to use for mass deployments using the Azure CLI.
+description: Capture an image of an Azure VM to use for mass deployments by using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -28,28 +28,30 @@ To create a copy of your existing Linux VM for backup or debugging, or to upload
 
 You can also use **Packer** to create your custom configuration. For more information, see [How to use Packer to create Linux virtual machine images in Azure](build-image-with-packer.md).
 
-* You'll need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't yet created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
+You'll need the following items before creating an image:
 
-* You'll also need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](/cli/azure/reference-index#az-login).
+* An Azure VM created in the Resource Manager deployment model that uses managed disks. If you haven't yet created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
+
+* The latest [Azure CLI](/cli/azure/install-az-cli2) installed and be logged in to an Azure account with [az login](/cli/azure/reference-index#az-login).
 
 ## Quick commands
 
-For a simplified version of this article, and for testing, evaluating, or learning about VMs in Azure, see [Create a custom image of an Azure VM using the CLI](tutorial-custom-images.md).
+For a simplified version of this article, and for testing, evaluating, or learning about VMs in Azure, see [Create a custom image of an Azure VM by using the CLI](tutorial-custom-images.md).
 
 
 ## Step 1: Deprovision the VM
-First you'll deprovision the VM, using the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the *-deprovision+user* parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
+First you'll deprovision the VM by using the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
 
-1. Connect to your Linux VM using an SSH client.
+1. Connect to your Linux VM with an SSH client.
 2. In the SSH window, enter the following command:
    
     ```bash
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > Only run this command on a VM that you'll capture as an image. This command does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution. The *+user* parameter also removes the last provisioned user account. To keep user account credentials in the VM, use only *-deprovision*.
+   > Only run this command on a VM that you'll capture as an image. This command does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution. The `+user` parameter also removes the last provisioned user account. To keep user account credentials in the VM, use only `-deprovision`.
  
-3. Enter **y** to continue. You can add the *-force* parameter to avoid this confirmation step.
+3. Enter **y** to continue. You can add the `-force` parameter to avoid this confirmation step.
 4. After the command completes, enter **exit** to close the SSH client.
 
 ## Step 2: Create VM image
@@ -85,7 +87,7 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    > If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--zone-resilient true` parameter.
 
 ## Step 3: Create a VM from the captured image
-Create a VM using the image you created with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMDeployed* from the image named *myImage*.
+Create a VM by using the image you created with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMDeployed* from the image named *myImage*.
 
 ```azurecli
 az vm create \
