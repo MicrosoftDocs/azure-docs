@@ -5,7 +5,7 @@ services: cognitive-services
 author: v-jerkin
 
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
