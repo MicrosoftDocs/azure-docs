@@ -5,7 +5,7 @@ services: cognitive-services
 author: PanosPeriorellis
 
 ms.service: cognitive-services
-ms.technology: Speech to Text
+ms.component: Speech
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
