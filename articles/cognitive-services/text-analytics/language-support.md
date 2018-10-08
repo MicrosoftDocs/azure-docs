@@ -6,8 +6,8 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
+ms.component: text-analytics
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
 ---
