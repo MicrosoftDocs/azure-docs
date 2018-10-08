@@ -6,4 +6,4 @@ ms.date: 10/08/2018
 ms.author: nitinme
 ---
 > [!NOTE]
-> We have replaced the Translator Speech API with the new Speech Service and SDK, and will no longer work starting October 15, 2019. For information on switching to the Speech Service, see [Migrating from Translator Speech to the Speech Service](../articles/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api.md).
+> The new Speech Service and SDK is replacing the Translator Speech API which will no longer work starting October 15, 2019. For information on switching to the Speech Service, see [Migrating from Translator Speech to the Speech Service](../articles/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api.md).
