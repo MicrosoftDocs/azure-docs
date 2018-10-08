@@ -269,6 +269,7 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
 [kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az-group-create
