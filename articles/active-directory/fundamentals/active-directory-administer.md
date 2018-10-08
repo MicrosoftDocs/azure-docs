@@ -105,6 +105,10 @@ The following conditions are checked:
 
 * The only user in the directory should be the global administrator who is to delete the directory. Any other users must be deleted before the directory can be deleted. If users are synchronized from on-premises, then sync must be turned off, and the users must be deleted in the cloud directory by using the Azure portal or Azure PowerShell cmdlets. There is no requirement to delete groups or contacts, such as contacts added from the Office 365 Admin Center.
 * There can be no applications in the directory. Any applications must be deleted before the directory can be deleted.
+
+> [!NOTE]
+> Not all Azure AD applicaitons are shown in the Azure portal. To get a full list login to the proper AzureAD tenant with PowerShell `Login-AzureRMAccount -TenantID <guid>`, list the applications with `Get-AzureRMADApplication`, and then delete them by object id using `Remove-AzureRMADApplication -ObjectID <guid>`.
+
 * No multi-factor authentication providers can be linked to the directory.
 * There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the directory. For example, if a default directory was created for you in Azure, you cannot delete this directory if your Azure subscription still relies on this directory for authentication. Similarly, you can't delete a directory if another user has associated a subscription with it. 
 
