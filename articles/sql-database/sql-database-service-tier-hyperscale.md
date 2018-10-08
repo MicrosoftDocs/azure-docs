@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database Hyperscale Overview | Microsoft Docs
-description: This topic describes the Hyperscale service tier in the vCore-based purchasing model in Azure SQL Database and explains how it is different from the General Purpose and Business Critical service tiers.
+description: This article describes the Hyperscale service tier in the vCore-based purchasing model in Azure SQL Database and explains how it is different from the General Purpose and Business Critical service tiers.
 services: sql-database
 ms.service: sql-database
 ms.subservice: 
@@ -11,16 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 09/23/2018
+ms.date: 10/04/2018
 ---
 
-# What is the Hyperscale service tier (preview) in Azure SQL Database?
+# Hyperscale service tier (preview)
 
 The Hyperscale service tier in Azure SQL Database is the newest service tier in the vCore-based purchasing model. This service tier is a highly scalable storage and compute performance tier that leverages the Azure architecture to scale out the storage and compute resources for an Azure SQL Database substantially beyond the limits available for the General Purpose and Business Critical service tiers.
 
 > [!IMPORTANT]
-> Hyperscale service tier is currently in public preview and available in limited Azure regions. For the full region list, see [Hyperscale service tier available regions](#hyperscale-regions)
-
+> Hyperscale service tier is currently in public preview and available in limited Azure regions. For the full region list, see [Hyperscale service tier available regions](#available-regions)
+> [!NOTE]
+> For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md). For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
 > [!IMPORTANT]
 > Hyperscale service tier is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier.
 
@@ -28,27 +29,41 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 
 The Hyperscale service tier in Azure SQL Database provides the following additional capabilities:
 
-- Support for up to a 100 TB of database size 
-- Faster large database backups (based on file snapshots)
-- Faster database restores (based on file snapshots) 
-- Higher overall performance due to higher log throughput and faster transaction commit times regardless of data volumes 
+- Support for up to a 100 TB of database size
+- Nearly instantaneous database backups (based on file snapshots stored in Azure Blob storage) regardless of size with no IO impact on Compute
+- Fast database restores (based on file snapshots) in minutes rather than hours or days (not a size of data operation)
+- Higher overall performance due to higher log throughput and faster transaction commit times regardless of data volumes
 - Rapid scale out - you can provision one or more read-only nodes for offloading your read workload and for use as hot-standbys
-- Rapid Scale up - you can, in constant time, scale up your compute resources to accommodate heavy workloads as and when needed, and then scale the compute resources back down when not needed. 
+- Rapid Scale up - you can, in constant time, scale up your compute resources to accommodate heavy workloads as and when needed, and then scale the compute resources back down when not needed.
 
-The Hyperscale service tier removes many of the practical limits traditionally seen in cloud databases. Where most other databases are limited by the resources available in a single node, databases in the Hyperscale service tier have no such limits. With its flexible storage architecture, you can scale out the storage capacity as needed. In fact, Hyperscale databases aren’t created with a defined max size. A Hyperscale database grows as needed - and you are billed only for the capacity you use. For read-intensive workloads, the Hyperscale service tier provides rapid scale-out by provisioning additional read replicas as needed for offloading read workloads. 
+The Hyperscale service tier removes many of the practical limits traditionally seen in cloud databases. Where most other databases are limited by the resources available in a single node, databases in the Hyperscale service tier have no such limits. With its flexible storage architecture, storage grows as needed. In fact, Hyperscale databases aren’t created with a defined max size. A Hyperscale database grows as needed - and you are billed only for the capacity you use. For read-intensive workloads, the Hyperscale service tier provides rapid scale-out by provisioning additional read replicas as needed for offloading read workloads.
 
-Additionally, the time required to create database backups or to scale up or down is no longer tied to the volume of data in the database. Hyperscale databases can be backed up virtually instantaneously. You can also scale a database in the tens of terabytes up or down in minutes. This capability frees you from concerns about being boxed in by your initial configuration choices. 
+Additionally, the time required to create database backups or to scale up or down is no longer tied to the volume of data in the database. Hyperscale databases can be backed up virtually instantaneously. You can also scale a database in the tens of terabytes up or down in minutes. This capability frees you from concerns about being boxed in by your initial configuration choices.
 
-For more information about the compute sizes for the Hyperscale service tier, see [Choosing a vCore service tier, compute, memory, storage, and IO resources](sql-database-service-tiers-vcore.md).
+For more information about the compute sizes for the Hyperscale service tier, see [Service tier characteristics](sql-database-service-tiers-vcore.md#service-tier-characteristics).
 
 ## Who should consider the Hyperscale service tier
 
 The Hyperscale service tier is primarily intended for customers who have large databases either on-premises and want to modernize their applications by moving to the cloud or for customers who are already in the cloud and are limited by the maximum database size restrictions (1-4 TB). It is also intended for customers who seek high performance and high scalability for storage and compute.
 
-The Hyperscale service tier supports all SQL Server workloads, but it is primarily optimized for OLTP. The Hyperscale service tier also supports hybrid and analytical (data mart) workloads. 
+The Hyperscale service tier supports all SQL Server workloads, but it is primarily optimized for OLTP. The Hyperscale service tier also supports hybrid and analytical (data mart) workloads.
 
 > [!IMPORTANT]
 > Elastic pools do not support the Hyperscale service tier.
+
+## Understand Hyperscale pricing
+
+Hyperscale service tier is only available in [vCore model](sql-database-service-tiers-vcore.md). To align with the new architecture, the pricing model is slightly different from General Purpose or Business Critical service tiers:
+
+- **Compute**:
+
+  The Hyperscale compute unit price is per replica. The [Azure Hybrid Benifit](https://azure.microsoft.com/pricing/hybrid-benefit/) price is applied to read scale replicas automatically. In public preview, we create two replicas per Hyperscale database by default.
+
+- **Storage**:
+
+  You don't need to specify the max data size when configuring a Hyperscale database. In the hyperscale tier, you are charged for storage for your database based on actual usage. Storage is dynamically allocated between 5 GB and 100 TB, in 1 GB increments.  
+
+For more information about Hyperscale pricing, see [Azure SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
 ## Architecture: Distributing functions to isolate capabilities
 
@@ -59,7 +74,7 @@ The following diagram illustrates the different types of nodes in a Hyperscale d
 ![architecture](./media/sql-database-hyperscale/hyperscale-architecture.png)
 
 A Hyperscale database contains the following different types of nodes:
- 
+
 ### Compute node
 
 The compute node is where the relational engine lives, so all the language elements, query processing, and so on, occur. All user interactions with a Hyperscale database happen through these compute nodes. Compute nodes have SSD-based caches (labeled RBPEX - Resilient Buffer Pool Extension in the preceding diagram) to minimize the number of network round trips required to fetch a page of data. There is one primary compute node where all the read-write workloads and transactions are processed. There are one or more secondary compute nodes that act as hot standby nodes for failover purposes, as well as act as read-only compute nodes for offloading read workloads (if this functionality is desired).
@@ -74,7 +89,7 @@ The log service node accepts log records from the primary compute node, persists
 
 ### Azure storage node
 
-The Azure storage node is the final destination of data from page servers. This storage is used for backup purposes as well as for replication between Azure regions. Backups consist of snapshots of data files. Restore operation are fast from these snapshots and data can be restored to any point in time. 
+The Azure storage node is the final destination of data from page servers. This storage is used for backup purposes as well as for replication between Azure regions. Backups consist of snapshots of data files. Restore operation are fast from these snapshots and data can be restored to any point in time.
 
 ## Backup and restore
 
@@ -82,9 +97,10 @@ Backups are file-snapshot base and hence they are nearly instantaneous. Storage 
 
 ## Scale and performance advantages
 
-With the ability to rapidly spin up/down additional read-only compute nodes, the Hyperscale architecture allows significant read scale capabilities and can also free up the primary compute node for serving more write requests. Also, the compute nodes can be scaled up/down rapidly due to the shared-storage architecture of the Hyperscale architecture. 
+With the ability to rapidly spin up/down additional read-only compute nodes, the Hyperscale architecture allows significant read scale capabilities and can also free up the primary compute node for serving more write requests. Also, the compute nodes can be scaled up/down rapidly due to the shared-storage architecture of the Hyperscale architecture.
 
-### <a name="hyperscale-regions"> Hyperscale service tier available regions
+## Available regions
+
 Hyperscale service tier is currently in public preview and available in following Azure regions: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## Next steps

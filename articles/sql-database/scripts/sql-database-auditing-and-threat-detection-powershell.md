@@ -7,8 +7,8 @@ ms.subservice: threat-detection
 ms.custom: security
 ms.devlang: PowerShell
 ms.topic: sample
-author: giladmit
-ms.author: giladm
+author: ronitr
+ms.author: ronitr
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/07/2018
