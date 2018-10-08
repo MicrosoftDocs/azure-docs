@@ -114,4 +114,4 @@ For details on using the storage account for VaaS, see the following articles:
 In this tutorial, you set up the resources your need for Validation as a service for Azure Stack. You configured an Azure AD directory tenant and created an Azure storage account. To continue with Validation as a service, continue to the tutorial on deploying the local agent to run a test on your hardware.
 
 > [!div class="nextstepaction"]
-> Deploy the local agent](azure-stack-vaas-local-agent.md).
+> [Deploy the local agent](azure-stack-vaas-local-agent.md)
