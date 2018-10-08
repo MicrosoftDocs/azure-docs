@@ -61,7 +61,6 @@ SQL database authentication refers to how you prove your identity when connectin
 - **SQL Authentication**
 
   This authentication method uses a username and password. When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
-- **Azure Active Directory Authentication**:
 
 - **Azure Active Directory Authentication**
 
