@@ -185,8 +185,8 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     | Custom Attribute Name | Replace With |
     | --- | --- |
     | `yourNamespace` | The namespace of your endpoint |
-    | `yourPrimaryKey` | The primary key to authenticate |
-    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourPrimaryKey` | The primary connection string used to authenticate |
+    | `yourSecondaryKey` | The secondary connection string used to authenticate |
     | `yourTopicName` | The name of your customized topic |
 
 - Route to **Event Grid** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
@@ -207,8 +207,8 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Custom Attribute Name | Replace With |
     | --- | --- |
-    | `yourPrimaryKey` | The primary key to authenticate |
-    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourPrimaryKey` | The primary connection string used to authenticate|
+    | `yourSecondaryKey` | The secondary connection string used to authenticate |
     | `yourTopicName` | The name of your customized topic |
 
 - Route to **Event Hub** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
@@ -230,8 +230,8 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     | Custom Attribute Name | Replace With |
     | --- | --- |
     | `yourNamespace` | The namespace of your endpoint |
-    | `yourPrimaryKey` | The primary key to authenticate |
-    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourPrimaryKey` | The primary connection string used to authenticate |
+    | `yourSecondaryKey` | The secondary connection string used to authenticate |
     | `yourEventHubName` | The name of your Event Hub |
 
 - Route to **Event Hub** event types `DeviceMessage`. Note the inclusion of _EntityPath_ in the `connectionString`, which is mandatory.
@@ -251,8 +251,8 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     | Custom Attribute Name | Replace With |
     | --- | --- |
     | `yourNamespace` | The namespace of your endpoint |
-    | `yourPrimaryKey` | The primary key to authenticate |
-    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourPrimaryKey` | The primary connection string used to authenticate |
+    | `yourSecondaryKey` | The secondary connection string used to authenticate |
     | `yourEventHubName` | The name of your Event Hub |
 
 > [!NOTE]
@@ -260,7 +260,11 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
 ## Primary and secondary connection strings/keys
 
-When a primary connection string/key becomes unauthorized, the system will automatically roll to the secondary connection string/key allowing for updating the primary key through the Endpoints API. When both primary and secondary connection strings/keys are unauthorized, the system will enter an exponential back off wait of up to 30 minutes, and events will be dropped on each retry. When the system is on a back off wait state, updating connections strings/keys through the Endpoints API may take up to 30 minutes to take effect.
+When a primary connection key becomes unauthorized, the system automatically tries the secondary connection key. That provides a backup and allows the possibility to gracefully authenticate and update the primary key through the Endpoints API.
+
+If both the primary and secondary connection keys are unauthorized, the system will enter an exponential back-off wait time of up to 30 minutes. Events will be dropped on each triggered back-off wait time.
+
+Whenever the system is in a back-off wait state, updating connections keys through the Endpoints API may take up to 30 minutes to take effect.
 
 ## Unreachable endpoints
 
