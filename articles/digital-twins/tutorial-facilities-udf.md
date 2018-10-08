@@ -19,9 +19,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create Matchers
 > * Create a User-Defined Function
-> * Create endpoints for the User-Defined Function
 > * Simulate sensor data
-> * Run the User-Defined Function
+> * Get results of User-Defined Function
 
 If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -48,7 +47,7 @@ This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that we added in [the fir
 > [!IMPORTANT]
 > While copying *YAML* snippets, make sure your editor does not convert spaces to tabs.
 
-## Create User-Defined Function
+## Create a User-Defined Function
 User-defined functions or UDFs allow you to customize the processing of telemetry data from your sensors. They are custom JavaScript code that can run within your Digital Twins instance, when specific conditions as described by the matchers occur. You can create *matchers* and *user-defined functions* for each sensor that you want to monitor. For more detailed information, read [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
 
 In the *provisionSample.yaml* file in the Digital Twins sample, look for a section beginning with the type **userdefinedfunctions**. This section provisions a user-defined function with a given **Name**, and acting on the list of matchers under the **matcherNames**. Notice how you can add your own code for the UDF as the **script**. Also note the section named **roleassignments**. It assigns the *Space Administrator* role to the user-defined function. This is required for the function to access the events coming from any of the provisioned spaces. 
@@ -174,7 +173,7 @@ In this section, you will simulate sensor data for detecting motion, temperature
 
 1. Run `dotnet run` to start simulating device events for temperature, motion and carbon dioxide. 
 
-## Get the results of the user-defined function
+## Get results of User-Defined Function
 The user-defined function runs every time your instance receives telemetry data. This section queries the spatial graph for the computed results of available and comfortable rooms. 
 
 1. In a separate command window, navigate to the Digital Twin sample again. 

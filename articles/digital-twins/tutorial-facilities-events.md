@@ -17,8 +17,8 @@ This tutorial demonstrates how to use Azure Digital Twins to receive notificatio
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create event integration with Event Grid 
-> * Create email notifications with Logic App
+> * Integrate events with Event Grid
+> * Notify events with Logic App
 
 If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -28,7 +28,7 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 - an instance of Digital Twins running, and 
 - the [Azure Digital Twins sample application](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
 
-## Create event integration with Event Grid 
+## Integrate events with Event Grid 
 In this section, we will use [Event Grid](../event-grid/overview.md) to collect events from your Digital Twin instance as the [source](../event-grid/event-sources.md), and redirect them to an [event handler](../event-grid/event-handlers.md) like the Logic App.
 
 ### Create Event Grid Topic
@@ -82,7 +82,7 @@ dotnet run CreateEndpoints
    ![Endpoints for Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
 
 
-## Create email notifications with Logic App
+## Notify events with Logic App
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) allow you to create automated tasks like creating an email notification system for events received from other services. In this section, you will set up Logic Apps to create email notifications for events routed from your spatial sensors, with the help of an [Event Grid Topic](../event-grid/overview.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Stream data using Event Hubs
-> * Analyze events using Time Series Insights
+> * Analyze with Time Series Insights
 
 If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -90,7 +90,7 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 
     ![Endpoints for Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
 
-## Analyze events using Time Series Insights
+## Analyze with Time Series Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the left navigation pane, click **Resource groups**, and then select the resource group you created or used for your Digital Twins instance. 
