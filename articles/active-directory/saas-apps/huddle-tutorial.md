@@ -133,9 +133,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://login.huddle.com/saml/idp-initiated-sso`|
 	| |
 
-	c. Click **Set additional URLs**.
+	c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    d. If you wish to configure the application in **SP** intiated mode, in the **Sign-on URL** text box, type any one of the URL using the following pattern:
+	![Huddle Domain and URLs single sign-on information](./media/huddle-tutorial/tutorial_huddle_url1.png)
+
+	In the **Sign-on URL** textbox, type any one of the URL using the following pattern:
 
 	| | |
 	|--|--|
