@@ -69,6 +69,10 @@ Open your Powershell ISE or Powershell window in administrative mode and follow 
    > The new size should be greater than the existing disk size. The maximum allowed is 2048 GB for OS disks. (It is possible to expand the VHD blob beyond that size, but the OS will only be able to work with the first 2048 GB of space.)
    > 
    > 
+   For managed disk created as copy of disk from different subscription, use below with desired value: 
+   ```Powershell 
+   New-AzureRmDiskUpdateConfig -DiskSizeGB 1027 | Update-AzureRmDisk -ResourceGroupName $rgName -DiskName $disk.Name 
+   ```  
 6. Updating the VM may take a few seconds. Once the command finishes executing, restart the VM as follows:
    
    ```Powershell
