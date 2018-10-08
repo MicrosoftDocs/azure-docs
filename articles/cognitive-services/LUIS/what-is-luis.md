@@ -147,7 +147,7 @@ The minimum JSON endpoint response contains the query utterance, and the top sco
 
 ## Improve model prediction
 
-After a LUIS model is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](#active-learning) of endpoint utterances, [phrase lists](#phrase-lists) for domain word inclusion, and [patterns](#patterns) to reduce the number of utterances needed.
+After a LUIS model is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](luis-concept-review-endpoint-utterances.md) of endpoint utterances, [phrase lists](luis-concept-feature.md) for domain word inclusion, and [patterns](luis-concept-patterns.md) to reduce the number of utterances needed.
 <!--
 ### Active learning
 
