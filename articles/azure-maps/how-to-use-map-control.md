@@ -38,7 +38,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     </style>
     ```
 
-4. To initialize the map control, define a new section in the html body and create a script. Use your own Azure Maps account key in the script. If you need to create an account or find your key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md). The **setLanguage** value specifies the language to be used for map labels and controls. The **setUserRegion** value is used to ensure that disputed borders and location names, align with the views of the specified user region. For more information on localization, see [supported languages](https://docs.microsoft.com/azure/azure-maps/supported-languages) and [available regions](https://developer.tomtom.com/online-maps/online-maps-documentation-vector/tile).
+4. To initialize the map control, define a new section in the html body and create a script. Use your own Azure Maps account key in the script. If you need to create an account or find your key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md). The **setLanguage** value specifies the language to be used for map labels and controls. For more information on supported languages, see [supported languages](https://docs.microsoft.com/azure/azure-maps/supported-languages).
 
     ```html
     <div id="map">
