@@ -39,7 +39,7 @@ The first code block in the above code sets the subscription key and creates a M
 
 The second code block constructs a style selector using the atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) constructor.
 
-A style picker enables style selection for the map. The third code block adds the style picker to the map using the map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. The style selector is within the map **event listener** to ensure that it loads after the maps loads fully.
+A style picker enables style selection for the map. The third code block adds the style picker to the map using the map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. The style selector is within the map **event listener** to ensure that it loads after the map loads fully.
 
 ## Next steps
 
