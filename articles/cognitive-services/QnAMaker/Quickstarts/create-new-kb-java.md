@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: API Java - Create knowledge base - QnA Maker"
 titlesuffix: Azure Cognitive Services 
-description: This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account..
+description: This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account..
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -23,7 +23,7 @@ Two sample FAQ URLs are given below (in 'kb.urls' of **getKB()**) that will prov
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will work okay.
+You will need [JDK 7 or 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will work okay.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). Either key will work for this quickstart.
 
