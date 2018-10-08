@@ -46,7 +46,7 @@ Before configuring and enabling the provisioning service, you need to decide whi
 * When assigning a user to Salesforce, you must select a valid user role. The "Default Access" role does not work for provisioning
 
     > [!NOTE]
-    > This app imports profiles from Salesforce as part of the provisioning process, which the customer may want to select when assigning users in Azure AD and also please note that the profiles that get imported from salesforce appear as role values in Azure AD.
+    > This app imports profiles from Salesforce as part of the provisioning process, which the customer may want to select when assigning users in Azure AD. Please note that the profiles that get imported from Salesforce appear as Roles in Azure AD.
 
 ## Enable automated user provisioning
 
