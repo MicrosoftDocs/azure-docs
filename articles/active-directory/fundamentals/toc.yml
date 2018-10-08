@@ -46,7 +46,7 @@
       href: customize-branding.md
     - name: Associate an Azure subscription
       href: active-directory-how-subscriptions-associated-directory.md
-    - name: Add your organization's privacy info
+    - name: Add your privacy info
       href: active-directory-properties-area.md
   - name: 'Groups'
     items:
