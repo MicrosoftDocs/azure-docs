@@ -90,7 +90,7 @@
       href: sql-database-service-tiers.md
     - name: vCore-based purchasing model
       items:
-      - name: Choosing a vCore service-tier
+      - name: Choosing a vCore service tier
         href: sql-database-service-tiers-vcore.md
       - name: General Purpose / Business Critical
         href: sql-database-service-tiers-general-purpose-business-critical.md
