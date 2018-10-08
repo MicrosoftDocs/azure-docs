@@ -152,8 +152,11 @@ This article answers common questions about Azure Files features and functionali
     
 * <a id="afs-resource-move"></a>
 **Can I move the storage sync service and/or storage account to a different resource group or subscription?**  
-   Yes, the storage sync service and/or storage account can be moved to a different resource group or subscription. If the storage account is moved, you need to give the Hybrid File Sync Service access to the storage account (see [Ensure Azure File Sync has access to the storage account](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+   Yes, the storage sync service and/or storage account can be moved to a different resource group or subscription within the existing Azure AD tenant. If the storage account is moved, you need to give the Hybrid File Sync Service access to the storage account (see [Ensure Azure File Sync has access to the storage account](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
+    > [!Note]  
+    > Azure File Sync does not support moving the subscription to a different Azure AD tenant.
+    
 * <a id="afs-ntfs-acls"></a>
 **Does Azure File Sync preserve directory/file level NTFS ACLs along with data stored in Azure Files?**
 
