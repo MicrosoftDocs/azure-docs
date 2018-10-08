@@ -104,11 +104,6 @@
     href: prepare-transcription.md
   - name: Use custom audio streams
     href: how-to-use-audio-input-streams.md
-<<<<<<< HEAD
-  - name: Customize device wake word (Devices SDK)
-    href: speech-devices-sdk-create-kws.md
-    displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
-=======
   - name: Migrate
     items:
     - name: From Bing Speech
@@ -117,7 +112,6 @@
       href: how-to-migrate-from-custom-speech-service.md
     - name: From the Translator Speech API
       href: how-to-migrate-from-translator-speech-api.md   
->>>>>>> origin/master
 - name: Concepts
   items:
   - name: Speech to Text
