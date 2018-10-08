@@ -65,7 +65,7 @@ Intelligent Insights shines in discovering and troubleshooting SQL Database perf
 
 Output of the Intelligent Insights is a smart performance diagnostics log. This log can be consumed in several ways - through streaming it to Azure SQL Analytics, Azure Event Hubs and Azure storage, or a third party product.
 
-- Use the product with [Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) to view insights through the user interface of the Azure portal. This is the integrated Azure solution, and the most typical way to view insights.
+- Use the product with [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) to view insights through the user interface of the Azure portal. This is the integrated Azure solution, and the most typical way to view insights.
 - Use the product with Azure Event Hubs for development of custom monitoring and alerting scenarios
 - Use the product with Azure storage for custom application development, such are for example custom reporting, long-term data archival and so forth.
 
