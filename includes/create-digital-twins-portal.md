@@ -25,3 +25,5 @@
 1. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 
 1. Open the **Overview** pane of your Digital Twins instance. Copy the link that shows under **Management API** to your clipboard. The URL is of the format  `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` and represents the Digital Twins REST APIs for management and interaction with your spatial resources. You will need this URL in the proceeding steps.
+
+<!-- add a screenshot here to get this URL-->

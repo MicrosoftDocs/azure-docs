@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Monitor working conditions in your building with Azure Digital Twins
 
-This tutorial demonstrates how to use the Digital Twins to monitor your spaces for desired conditions and comfort level. Once you have provisioned your sample building using the steps in the previous tutorial, you can create and run custom computations on your sensor data using the steps in this tutorial.
+This tutorial demonstrates how to use Azure Digital Twins to monitor your spaces for desired conditions and comfort level. Once you have provisioned your sample building using the steps in the previous tutorial, you can create and run custom computations on your sensor data using the steps in this tutorial.
 
 In this tutorial, you learn how to:
 
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Simulate sensor data
 > * Run the User-Defined Function
 
-If you don’t have an Azure, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
@@ -37,11 +37,16 @@ Matchers define a set of specific conditions in the device or sensor data. Match
 In the Digital Twins sample, navigate to the folder *occupancy-quickstart\src\actions* and open the file *provisionSample.yaml*. Note the section that begins with the type **matchers**. Each entry under this type creates a matcher with the specified **Name**, that will monitor a sensor of type **dataTypeValue**. Notice how it relates to the space named *Focus Room A1*, which has a **devices** node, containing a few **sensors**. To provision a matcher that will track one of these sensors, its **dataTypeValue** should match with that sensor's **dataType**. 
 
 Add the following matcher below the existing matchers:
+
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
-This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that we added in [the first tutorial](tutorial-facilities-setup.md).  
+
+This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that we added in [the first tutorial](tutorial-facilities-setup.md).
+
+> [!IMPORTANT]
+> While copying *YAML* snippets, make sure your editor does not convert spaces to tabs.
 
 ## Create User-Defined Function
 User-defined functions or UDFs allow you to customize the processing of telemetry data from your sensors. They are custom JavaScript code that can run within your Digital Twins instance, when specific conditions as described by the matchers occur. You can create *matchers* and *user-defined functions* for each sensor that you want to monitor. For more detailed information, read [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
@@ -49,17 +54,21 @@ User-defined functions or UDFs allow you to customize the processing of telemetr
 In the *provisionSample.yaml* file in the Digital Twins sample, look for a section beginning with the type **userdefinedfunctions**. This section provisions a user-defined function with a given **Name**, and acting on the list of matchers under the **matcherNames**. Notice how you can add your own code for the UDF as the **script**. Also note the section named **roleassignments**. It assigns the *Space Administrator* role to the user-defined function. This is required for the function to access the events coming from any of the provisioned spaces. 
 
 1. Configure the UDF to include the temperature matcher by adding the following line to the `matcherNames` node in the *provisionSample.yaml* file:
+
 ```yaml
         - Matcher Temperature
 ```
+
 1. Open the file *src\actions\userDefinedFunctions\availability.js*, which is the file mentioned in the **script** element of the *provisionSample.yaml*, in your editor. Add the following lines of code:
     1. At the top of the file, add the following lines for temperature:
+
         ```JavaScript
             var temperatureType = "Temperature";
             var temperatureThreshold = 73;
         ```
    
     1. Add the following lines after the statement which defines `var motionSensor`:
+
         ```JavaScript
             var temperatureSensor = otherSensors.find(function(element) {
                 return element.DataType === temperatureType;
@@ -67,11 +76,13 @@ In the *provisionSample.yaml* file in the Digital Twins sample, look for a secti
         ```
     
     1. Add the following line after the statement which defines `var carbonDioxideValue`:
+
         ```JavaScript
             var temperatureValue = getFloatValue(temperatureSensor.Value().Value);
         ```
     
     1. Remove the following lines of code: 
+
         ```JavaScript
             if(carbonDioxideValue === null || motionValue === null) {
                 sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide or motion are null, returning");
@@ -80,6 +91,7 @@ In the *provisionSample.yaml* file in the Digital Twins sample, look for a secti
         ```
        
        Replace this code snippet with the following:
+
         ```JavaScript
             if(carbonDioxideValue === null || motionValue === null || temperatureValue === null){
                 sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide, motion, or temperature are null, returning");
@@ -90,6 +102,7 @@ In the *provisionSample.yaml* file in the Digital Twins sample, look for a secti
     1. Replace the line `var availableFresh = "Room is available and air is fresh";` with `var availableFresh = "Room is available, air is fresh, and temperature is just right.";`.
     
     1. Remove the following lines of code:
+
         ```JavaScript
             if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
                 log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
@@ -108,6 +121,7 @@ In the *provisionSample.yaml* file in the Digital Twins sample, look for a secti
         ```
       
        And replace them with the following:
+
         ```JavaScript
             if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && !presence) {
                 log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
@@ -144,6 +158,7 @@ In this section, you will simulate sensor data for detecting motion, temperature
 1. Open the *appSettings.json* file in your editor, edit the following values:
     1. *DeviceConnectionString*: Assign the value of `ConnectionString` in the output window from the previous section.
     2. *HardwareId* within the *Sensors* array: The hardware ID and the names should match with the **sensors** node of the *provisionSample.yaml* file. Add a new entry for the temperature sensor; the **Sensors** node in the *appSettings.json* should look like the following:
+
     ```JSON
     "Sensors": [{
       "DataType": "Motion",
@@ -156,6 +171,7 @@ In this section, you will simulate sensor data for detecting motion, temperature
       "HardwareId": "SAMPLE_SENSOR_TEMPERATURE"
     }]
     ```
+
 1. Run `dotnet run` to start simulating device events for temperature, motion and carbon dioxide. 
 
 ## Get the results of the user-defined function
@@ -166,7 +182,7 @@ The user-defined function runs every time your instance receives telemetry data.
 1. Run the following commands:
 
 ```cmd/sh
-cd occupancy-quickstart
+cd occupancy-quickstart\src
 dotnet run GetAvailableAndFreshSpaces
 ```
 
@@ -187,5 +203,5 @@ If you wish to stop exploring Azure Digital Twins beyond this point, feel free t
 
 Proceed to the next tutorial in the series to learn how to create notifications for the simulated sensor data for your sample building. 
 > [!div class="nextstepaction"]
-> [Next steps button](tutorial-facilities-events.md)
+> [Tutorial: Receive notifications from your building](tutorial-facilities-events.md)
 

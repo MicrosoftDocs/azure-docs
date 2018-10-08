@@ -48,8 +48,8 @@ Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azure/act
 ## Download and explore the Digital Twins sample
 
 ### Download the sample
-1. Open [the Digital Twins .Net sample app](https://github.com/Azure-Samples/digital-twins-samples-csharp) in a browser, click **Clone or download**, and then click **Download ZIP**. 
-2. Copy the ZIP folder to a new folder on your machine, and extract the contents. 
+1. Download the [Digital Twins .Net sample app](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip) from a browser. 
+2. Extract the contents of the ZIP folder on your machine. 
 
 ### Explore the sample
 The sample allows you to configure and provision a spatial intelligence graph. The *occupancy-quickstart/src* folder contains the following:
@@ -98,7 +98,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 }
 
 ```
-This function uses the *provisionSample.yaml* in the same folder to provision a spatial graph of an imaginary building. Open this *yaml* file in your editor, and note the hierarchy of rooms, sensors and devices in the building. Each of the entry is of a predefined `type` or a Digital Twin object, for example, *Venue*, *Floor*, *Area*, *Room*. A spatial intelligence graph for a particular *space* is built using the  objects relevant to that space. For a building, the objects or types used in the *provisionSample.yaml* will be sufficient. A spatial graph for a different type of space, like a factory or a mine, will use a different set of objects that is more relevant. The Digital Twins service provides you with a few predefined sets of objects: `Default`, `BACnet`, `SmartGrid`, and `Advanced`. The `Default` set of objects is loaded by default, and provides generic names for most types (ex: Temperature for SensorDataType, Map for SpaceBlobType, Active for SpaceStatus, etc.) and space types (ex: Space Type Room and Space Subtypes FocusRoom, ConferenceRoom, BathRoom, etc.). You can see which sets are loaded or available by running the command `dotnet run GetOntologies` in the command line for the sample. For more details on spatial graphs and the object model that builds it, read [Understanding Digital Twins Object Model and Spatial Intelligence Graph](concepts-objectmodel-spatialgraph.md). 
+This function uses the *provisionSample.yaml* in the same folder to provision a spatial graph of an imaginary building. Open this *yaml* file in your editor, and note the hierarchy of rooms, sensors and devices in the building. Each of the entry is of a predefined `type` or a Digital Twin object, for example, *Venue*, *Floor*, *Area*, *Room*. A spatial intelligence graph for a particular *space* is built using the  objects relevant to that space. For a building, the objects or types used in the *provisionSample.yaml* will be sufficient. A spatial graph for a different type of space, like a factory or a mine, will use a different set of objects that is more relevant. The Digital Twins service provides you with a few predefined sets of objects: `Required`, `Default`, `BACnet`, and `Advanced`. In addition to the `Required` set of objects, your configuration may use any one of the others. The `Default` set is loaded by default, and provides generic names for most types (ex: Temperature for SensorDataType, Map for SpaceBlobType, Active for SpaceStatus, etc.) and space types (ex: Space Type Room and Space Subtypes FocusRoom, ConferenceRoom, BathRoom, etc.). You can see which sets are loaded or available by running the command `dotnet run GetOntologies` in the command line for the sample. For more details on spatial graphs and the object model that builds it, read [Understanding Digital Twins Object Model and Spatial Intelligence Graph](concepts-objectmodel-spatialgraph.md). 
 
 ### Configure your spatial intelligence graph
 The *provisionSample.yaml* contains an easy-to-visualize sample spatial graph. It contains the following nodes:
@@ -130,5 +130,5 @@ If you wish to stop exploring Azure Digital Twins beyond this point, feel free t
 
 Proceed to the next tutorial in the series to learn how to create a custom *user-defined function* to monitor conditions in your sample building. 
 > [!div class="nextstepaction"]
-> [Next steps button](tutorial-facilities-udf.md)
+> [Tutorial: Monitor working conditions in your building](tutorial-facilities-udf.md)
 

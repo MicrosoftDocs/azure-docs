@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Receive notifications from your building with Azure Digital Twins 
 
-This tutorial demonstrates how to use the Digital Twins to receive notifications for events in your provisioned spaces. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, and simulated the device events, you can integrate the events with other services to create a custom notification system. In this tutorial, you will use Azure Logic App to create email notifications based on telemetry data from your simulated device sensors.
+This tutorial demonstrates how to use Azure Digital Twins to receive notifications for events in your provisioned spaces. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, and simulated the device events, you can integrate the events with other services to create a custom notification system. In this tutorial, you will use Azure Logic App to create email notifications based on telemetry data from your simulated device sensors.
 
 In this tutorial, you learn how to:
 
@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Create event integration with Event Grid 
 > * Create email notifications with Logic App
 
-If you don’t have an Azure, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
@@ -46,21 +46,40 @@ In this section, we will use [Event Grid](../event-grid/overview.md) to collect 
 
     ![Create Event Grid Topic](./media/tutorial-facilities-events/create-event-grid-topic.png)
 
-1. Navigate to the event grid topic from your resource group, click on **Overview**, and copy to your clipboard the value for **Topic Endpoint**. You will need this in the proceeding section. 
+1. Navigate to the event grid topic from your resource group, click on **Overview**, and copy the value for **Topic Endpoint** to a temporary *Notepad* file. You will need this URL in the proceeding section. 
 
-1. Click on **Access keys**, and copy **Key 1** and **Key 2** to your clipboard. You will use them to create the endpoint in the proceeding steps.
+1. Click on **Access keys**, and copy **Key 1** and **Key 2** to the temporary *Notepad* file. You will need these values to create the endpoint in the proceeding steps.
 
     ![Event Grid Keys](./media/tutorial-facilities-events/event-grid-keys.png)
 
 ### Create an endpoint for the Event Grid Topic
 
-1. In a command window, navigate to the Digital Twins sample, and then run `cd occupancy-quickstart\src`.
-2. Open the file *actions\createEndpoints.yaml* in your editor.
-3. Assign the value of **Key1** to the `connectionString`, and the value of **Key2** to the `secondaryConnectionString`. 
-4. Enter the URL for the Event Grid Topic as the `path`. It should of this format: *https://yourEventGridName.yourLocation.eventgrid.azure.net*.
-5. Save and close the file. Run `dotnet run CreateEndpoints` in the command window. The endpoint for the Event Grid will be created. 
+1. In a command window, navigate to the Digital Twins sample, and then run the following:
+```cmd/sh
+cd occupancy-quickstart\src
+```
+1. Open the file *actions\createEndpoints.yaml* in your editor. Make sure it has the following contents:
+```yaml
+- type: EventGrid
+  eventTypes:
+  - SensorChange
+  - SpaceChange
+  - TopologyOperation
+  - UdfCustom
+  connectionString: <Primary connection string for your Event Grid>
+  secondaryConnectionString: <Secondary connection string for your Event Grid>
+  path: <Event Grid Topic Name>
+```
+1. Assign the value of **Key1** to the `connectionString`, and the value of **Key2** to the `secondaryConnectionString`. 
+1. Enter the path of the Event Grid Topic as the `path`. Get this path by modifying the **Topic Endpoint** URL to this format: *yourEventGridName.yourLocation.eventgrid.azure.net*.
+1. Enter all values as is, without any quotes. Make sure there are no additional spaces, since *YAML* is a senstive file format.
+1. Save and close the file. Run the following in the command window. 
+```cmd/sh
+dotnet run CreateEndpoints
+```
+   The endpoint for the Event Grid will be created. 
 
-    ![Endpoints for Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
+   ![Endpoints for Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
 
 
 ## Create email notifications with Logic App
@@ -113,11 +132,11 @@ In this section, we will use [Event Grid](../event-grid/overview.md) to collect 
 1. In the **If true** window,
     1. Click on **Add an action**, search for *email*, and select the email client of your choice. This tutorial uses *Office 365 Outlook*. 
     1. Select **Send an email** from the **Actions** list. Click **Sign in** and use your email account credentials. Click **Allow access** when prompted.
-    1. In the **Send an email** window, enter your email ID to receive notifications. In the **Subject**, enter *Digital Twins notification for poor air quality in space * and then select **TopologyObject** from the **Dynamic content** list for **Parse JSON**.
+    1. In the **Send an email** window, enter your email ID to receive notifications. In the **Subject**, enter *Digital Twins notification for poor air quality in space* and then select **TopologyObjectId** from the **Dynamic content** list for **Parse JSON**.
     1. In the **Body** of the same window, enter text similar to this: *Poor air quality detected in a room, and temperature needs to be adjusted*. Feel free to elaborate using elements from the **Dynamic content** list as shown below.
 
     ![Logic App Send an email](./media/tutorial-facilities-events/logic-app-send-email.png)
-1. Click **Save** button at the top of the **Logic App Designer** pane, and then **Run**.
+1. Click **Save** button at the top of the **Logic App Designer** pane.
 1. If your device simulation is not already running, open a command window, and navigate to the *device-connectivity* folder of the Digital Twin sample. Run `dotnet run` to start generating simulated sensor data.
 
 In a few moments, observe the state of the Logic App change as it receives events from your simulated device. 
@@ -139,5 +158,5 @@ If you wish to stop exploring Azure Digital Twins beyond this point, feel free t
 
 Proceed to the next tutorial to learn how to create warm data analysis on your Digital Twins telemetry. 
 > [!div class="nextstepaction"]
-> [Next steps button](tutorial-facilities-analyze.md)
+> [Tutorial: Visualize and analyze events from your building](tutorial-facilities-analyze.md)
 
