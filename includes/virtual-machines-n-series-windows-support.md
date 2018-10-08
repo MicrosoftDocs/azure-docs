@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: virtual-machines-windows
  ms.topic: include
- ms.date: 05/29/2018
+ ms.date: 09/24/2018
  ms.author: danlep
  ms.custom: include file
 ---
@@ -22,15 +22,15 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, and ND-series VMs (optional for 
 
 | OS | Driver |
 | -------- |------------- |
-| Windows Server 2016 | [397.44](http://us.download.nvidia.com/Windows/Quadro_Certified/397.44/397.44-tesla-desktop-winserver2016-international.exe) (.exe) |
-| Windows Server 2012 R2 | [397.44](http://us.download.nvidia.com/Windows/Quadro_Certified/397.44/397.44-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (.exe) |
+| Windows Server 2016 | [398.75](http://us.download.nvidia.com/Windows/Quadro_Certified/398.75/398.75-tesla-desktop-winserver2016-international.exe) (.exe) |
+| Windows Server 2012 R2 | [398.75](http://us.download.nvidia.com/Windows/Quadro_Certified/398.75/398.75-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (.exe) |
 
 
 ### NVIDIA GRID drivers
 
-Microsoft redistributes NVIDIA GRID driver installers for NV-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure.
+Microsoft redistributes NVIDIA GRID driver installers for NV amd NVv2-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure.
 
 | OS | Driver |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>Windows 10 | [GRID 6.2 (391.81)](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
-| Windows Server 2012 R2 | [GRID 6.2 (391.81)](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+| Windows Server 2016<br/><br/>Windows 10 | [GRID 6.2 (391.81)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
+| Windows Server 2012 R2 | [GRID 6.2 (391.81)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |

@@ -22,7 +22,7 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 * View alert rules defined in [Azure Alerts](monitoring-overview-unified-alerts.md)
 * Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](insights-powershell-samples.md), or [cross-platform CLI](insights-cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
-* View the [diagnostic settings](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) for a resource.
+* View the [diagnostic settings](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.
 * View the [log profile](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.
 * View autoscale settings.
 * View alert activity and settings.
@@ -43,7 +43,7 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 People assigned the Monitoring Contributor role can view all monitoring data in a subscription and create or modify monitoring settings, but cannot modify any other resources. This role is a superset of the Monitoring Reader role, and is appropriate for members of an organization’s monitoring team or managed service providers who, in addition to the permissions above, also need to be able to:
 
 * Publish monitoring dashboards as a shared dashboard.
-* Set [diagnostic settings](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) for a resource.*
+* Set [diagnostic settings](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.*
 * Set the [log profile](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.*
 * Set alert rules activity and settings via [Azure Alerts](monitoring-overview-unified-alerts.md).
 * Create Application Insights web tests and components.
@@ -165,6 +165,19 @@ A similar pattern can be followed with event hubs, but first you need to create 
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
    New-AzureRmRoleDefinition -Role $role 
    ```
+
+## Monitoring within a secured Virtual Network
+
+Azure Monitor needs access to your Azure resources to provide the services you enable. If you would like to monitor your Azure resources while still securing them from access to the Public Internet, you can enable the following settings.
+
+### Secured Storage Accounts 
+
+Monitoring data is often written to a storage account. You may want to make sure that the data copied to a Storage Account cannot be accessed by unauthorized users. For additional security, you can lock down network access to only allow your authorized resources and trusted Microsoft services access to a storage account by restricting a storage account to use "selected networks".
+![Azure Storage Settings Dialog](./media/monitoring-roles-permissions-security/secured-storage-example.png)
+Azure Monitor is considered one of these "trusted Microsoft services" If you allow trusted Microsoft services to access your Secured Storage, Azure monitor will have access to your secured Storage Account; enabling writing Azure Monitor diagnostic logs, activity log, and metrics to your Storage Account under these protected conditions. This will also enable Log Analytics to read logs from secured storage.   
+
+
+For more information, see [Network security and Azure Storage](../storage/common/storage-network-security.md)
 
 ## Next steps
 * [Read about RBAC and permissions in Resource Manager](../role-based-access-control/overview.md)

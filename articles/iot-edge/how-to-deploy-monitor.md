@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -101,7 +101,7 @@ Use the tags property from your devices to target the specific devices that shou
 Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (higher values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins. 
 
 1. Enter a positive integer for the deployment **Priority**. In the event that two or more deployments are targeted at the same device, the deployment with the highest numerical value for Priority will apply.
-1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin desired properties and should match the expression format. For example, `tags.environment='test'` or `properties.desired.devicemodel='4000x'`. 
+1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`. 
 1. Select **Next** to move on to the final step.
 
 ### Step 5: Review Template

@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.component: na
+ms.component: 
 ---
 
 # Create and share dashboards of Log Analytics data
@@ -51,7 +51,7 @@ You are asked to choose a subscription and resource group for your dashboard to 
 
 You can create basic queries on a single line from the Log Search portal in the Azure portal. The Log Search portal can be used without launching an external portal, and you can use it to perform a variety of functions with log searches including creating alert rules, creating computer groups, and exporting the results of the query. 
 
-The [Advanced Analytics portal](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) is a dedicated portal that provides advanced functionality not available in the Log Search portal. Features include the ability to edit a query on multiple lines, selectively execute code, context sensitive Intellisense, and Smart Analytics. In the Advanced Analytics portal, you will create a performance view in graphical form, save it for a future search, and pin it to the shared dashboard created earlier.   
+The [Log Analytics portal](../log-analytics/query-language/get-started-analytics-portal.md) is a dedicated portal that provides advanced functionality not available in the Log Search portal. Features include the ability to edit a query on multiple lines, selectively execute code, context sensitive Intellisense, and Smart Analytics. In the Advanced Analytics portal, you will create a performance view in graphical form, save it for a future search, and pin it to the shared dashboard created earlier.   
 
 You launch the Advanced Analytics portal from a link in the Log Search portal.<br> ![Launch the Advanced Analytics portal](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

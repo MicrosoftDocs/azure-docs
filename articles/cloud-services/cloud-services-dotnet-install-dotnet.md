@@ -105,7 +105,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    set "log=install.cmd started %timestamp%."
    
    REM ***** Exit script if running in Emulator *****
-   if %ComputeEmulatorRunning%=="true" goto exit
+   if "%ComputeEmulatorRunning%"=="true" goto exit
    
    REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
    set TMP=%PathToNETFXInstall%

@@ -1,20 +1,14 @@
 ---
-title: Spark Streaming in Azure HDInsight | Microsoft Docs
-description: 'How to use Spark Streaming applications on HDInsight Spark clusters.'
+title: Spark Streaming in Azure HDInsight 
+description: How to use Spark Streaming applications on HDInsight Spark clusters.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 02/05/2018
+author: maxluk
 ms.author: maxluk
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 02/05/2018
 ---
 # Overview of Spark Streaming
 

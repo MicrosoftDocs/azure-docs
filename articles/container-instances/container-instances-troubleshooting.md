@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -18,25 +18,43 @@ This article shows how to troubleshoot common issues for managing or deploying c
 
 ## Naming conventions
 
-When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties.
-For more information on Azure naming conventions, see [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) in the Azure Architecture Center.
+When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties. For more information on Azure naming conventions, see [Naming conventions][azure-name-restrictions] in the Azure Architecture Center.
 
 | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-| Container Group name | 1-64 |Case insensitive |Alphanumeric and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Container name | 1-64 |Case insensitive |Alphanumeric and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Container group name | 1-64 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Container name | 1-64 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Container ports | Between 1 and 65535 |Integer |Integer between 1 and 65535 |`<port-number>` |`443` |
-| DNS name label | 5-63 |Case insensitive |Alphanumeric and hyphen anywhere except the first or last character |`<name>` |`frontend-site1` |
-| Environment variable | 1-63 |Case insensitive |Alphanumeric and the '_' chracter anywhere except the first or last character |`<name>` |`MY_VARIABLE` |
-| Volume name | 5-63 |Case insensitive |Lowercase letters, numbers, and hyphens anywhere except the first or last character. Cannot contain two consecutive hyphens. |`<name>` |`batch-output-volume` |
+| DNS name label | 5-63 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>` |`frontend-site1` |
+| Environment variable | 1-63 |Case insensitive |Alphanumeric, and underscore (_) anywhere except the first or last character |`<name>` |`MY_VARIABLE` |
+| Volume name | 5-63 |Case insensitive |Lowercase letters and numbers, and hyphens anywhere except the first or last character. Cannot contain two consecutive hyphens. |`<name>` |`batch-output-volume` |
 
-## Image version not supported
+## OS version of image not supported
 
-If you specify an image that Azure Container Instances cannot support, an `ImageVersionNotSupported` error is returned. The value of the error is `The version of image '{0}' is not supported.`, and currently applies to Windows 1709 images. To mitigate this issue, use an LTS Windows image. Support for Windows 1709 images is underway.
+If you specify an image that Azure Container Instances doesn't support, an `OsVersionNotSupported` error is returned. The error is similar to following, where `{0}` is the name of the image you attempted to deploy:
+
+```json
+{
+  "error": {
+    "code": "OsVersionNotSupported",
+    "message": "The OS version of image '{0}' is not supported."
+  }
+}
+```
+
+This error is most often encountered when deploying Windows images that are based on a Semi-Annual Channel (SAC) release. For example, Windows versions 1709 and 1803 are SAC releases, and generate this error upon deployment.
+
+Azure Container Instances supports Windows images based only on Long-Term Servicing Channel (LTSC) versions. To mitigate this issue when deploying Windows containers, always deploy LTSC-based images.
+
+For details about the LTSC and SAC versions of Windows, see [Windows Server Semi-Annual Channel overview][windows-sac-overview].
 
 ## Unable to pull image
 
-If Azure Container Instances is unable to pull your image initially, it retries for some period before eventually failing. If the image cannot be pulled, events like the following are shown in the output of [az container show][az-container-show]:
+If Azure Container Instances is initially unable to pull your image, it retries for a period of time. If the image pull operation continues to fail, ACI eventually fails the deployment, and you may see a `Failed to pull image` error.
+
+To resolve this issue, delete the container instance and retry your deployment. Ensure that the image exists in the registry, and that you've typed the image name correctly.
+
+If the image can't be pulled, events like the following are shown in the output of [az container show][az-container-show]:
 
 ```bash
 "events": [
@@ -66,8 +84,6 @@ If Azure Container Instances is unable to pull your image initially, it retries 
   }
 ],
 ```
-
-To resolve, delete the container and retry your deployment, paying close attention that you have typed the image name correctly.
 
 ## Container continually exits and restarts
 
@@ -127,7 +143,7 @@ Windows images have [additional considerations](#cached-windows-images).
 
 ### Image size
 
-If your container takes a long time to start, but eventually succeeds, start by looking at the size of your container image. Because Azure Container Instances pulls your container image on demand, the startup time you experience is directly related to its size.
+If your container takes a long time to start, but eventually succeeds, start by looking at the size of your container image. Because Azure Container Instances pulls your container image on demand, the startup time you see is directly related to its size.
 
 You can view the size of your container image by using the `docker images` command in the Docker CLI:
 
@@ -154,7 +170,7 @@ To ensure the fastest Windows container startup time, use one of the **three mos
 
 ### Windows containers slow network readiness
 
-Windows containers may incur no inbound or outbound connectivity for up to 5 seconds on initial creation. After initial setup container networking should resume appropriately.
+Windows containers may incur no inbound or outbound connectivity for up to 5 seconds on initial creation. After initial setup, container networking should resume appropriately.
 
 ## Resource not available error
 
@@ -171,15 +187,17 @@ This error indicates that due to heavy load in the region in which you are attem
 
 ## Cannot connect to underlying Docker API or run privileged containers
 
-Azure Container Instances does not expose direct access to the underlying infrastructure which hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check our [REST reference documentation](https://aka.ms/aci/rest) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
+Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](https://aka.ms/aci/rest) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
 
 ## Next steps
 Learn how to [retrieve container logs & events](container-instances-get-logs.md) to help debug your containers.
 
 <!-- LINKS - External -->
+[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
 [docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
-[az-container-show]: /cli/azure/container#az_container_show
+[az-container-show]: /cli/azure/container#az-container-show

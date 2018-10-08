@@ -112,7 +112,15 @@ Next, open the *azuredeploy.json* file in a text editor and make three updates t
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": ["[parameters('certificateCommonName')]"],` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
+3. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**, add 
+    ```json
+       "commonNames": [
+        "[parameters('certificateCommonName')]"
+       ],
+    ```
+
+    and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
+
     ```json
     "virtualMachineProfile": {
       "extensionProfile": {
@@ -135,7 +143,9 @@ Next, open the *azuredeploy.json* file in a text editor and make three updates t
                 "enableParallelJobs": true,
                 "nicPrefixOverride": "[variables('subnet0Prefix')]",
                 "certificate": {
-                  "commonNames": ["[parameters('certificateCommonName')]"],
+                  "commonNames": [
+                     "[parameters('certificateCommonName')]"
+                  ],
                   "x509StoreName": "[parameters('certificateStoreValue')]"
                 }
               },
@@ -193,5 +203,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParame
 * Learn about [cluster security](service-fabric-cluster-security.md).
 * Learn how to [rollover a cluster certificate](service-fabric-cluster-rollover-cert-cn.md)
 * [Update and Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
+* Simplify Certificate Management by [Changing cluster from certificate thumbprint to common name](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

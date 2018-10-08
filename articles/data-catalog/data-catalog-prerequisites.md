@@ -1,20 +1,13 @@
 ---
-title: Azure Data Catalog prerequisites | Microsoft Docs
+title: Azure Data Catalog prerequisites
 description: Learn about the prerequisites you need to get started with Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # Azure Data Catalog prerequisites
 

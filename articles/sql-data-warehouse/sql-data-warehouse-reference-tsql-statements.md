@@ -3,7 +3,7 @@ title: T-SQL statements - Azure SQL Data Warehouse | Microsoft Docs
 description: Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement

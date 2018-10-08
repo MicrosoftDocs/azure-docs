@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Govern Azure virtual machines with Azure CLI 2.0 | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to manage Azure virtual machines by applying RBAC, polices, locks and tags
+title: Tutorial - Govern Azure virtual machines with Azure CLI | Microsoft Docs
+description: In this tutorial, you learn how to use the Azure CLI to manage Azure virtual machines by applying RBAC, polices, locks and tags
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -12,20 +12,20 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn how to control and manage VM resources so that I can secure and audit resource access, and group resources for billing or management.
 ---
 
-# Tutorial: Learn about Linux virtual machine governance with Azure CLI 2.0
+# Tutorial: Learn about Linux virtual machine governance with Azure CLI
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Understand scope
 
@@ -69,13 +69,9 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
-## Azure policies
+## Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### Apply policies
-
-Your subscription already has several policy definitions. To see the available policy definitions, use the [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) command:
+[Azure Policy](../../azure-policy/azure-policy-introduction.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use the [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) command:
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table

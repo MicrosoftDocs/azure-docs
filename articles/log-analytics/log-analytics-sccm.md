@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Connect Configuration Manager to Log Analytics
@@ -60,7 +60,7 @@ In order to add an OMS connection, your Configuration Manager environment must h
 1. In the **Administration** workspace of Configuration Manager, select **OMS Connector**. This opens the **Add OMS Connection Wizard**. Select **Next**.
 2. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
 
-   1. In the Azure portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../active-directory/active-directory-integrating-applications.md).
+   1. In the Azure portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
    2. In the Azure portal, you've created an app secret key for the registered app in Azure Active Directory.  
    3. In the Azure portal, you've provided the registered web app with permission to access OMS.  
       ![Connection to OMS Wizard General page](./media/log-analytics-sccm/sccm-console-general01.png)

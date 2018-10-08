@@ -1,213 +1,171 @@
 ---
+# required metadata
 title: Access data sources on premises for Azure Logic Apps | Microsoft Docs
-description: Set up the on-premises data gateway so you can access data sources on premises from logic apps
-keywords: access data, on premises, data transfer, encryption, data sources
+description: Create and set up the on-premises data gateway so you can access data sources on premises from logic apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-
-ms.assetid: 6cb4449d-e6b8-4c35-9862-15110ae73e6a
 ms.service: logic-apps
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 09/14/2017
-ms.author: LADocs; millopis; estfan
+ms.date: 07/20/2018
+
+# optional metadata
+ms.reviewer: yshoukry, LADocs
+ms.suite: integration
 ---
 
-# Connect to data sources on premises from logic apps with on-premises data gateway
+# Connect to data sources on premises from Azure Logic Apps with on-premises data gateway
 
 To access data sources on premises from your logic apps, 
-set up an on-premises data gateway that logic apps 
-can use with supported connectors. 
-The gateway acts as a bridge that provides quick data transfer 
-and encryption between data sources on premises and your logic apps. 
-The gateway relays data from on-premises sources 
-on encrypted channels through the Azure Service Bus. 
-All traffic originates as secure outbound traffic from the gateway agent. 
-Learn more about [how the data gateway works](logic-apps-gateway-install.md#gateway-cloud-service). 
+you can create a data gateway resource in Azure so that 
+your logic apps can use the [on-premises connectors](../logic-apps/logic-apps-gateway-install.md#supported-connections). 
+This article shows how to create your Azure gateway resource *after* you 
+[download and install the gateway on your local computer](../logic-apps/logic-apps-gateway-install.md). 
 
-The gateway supports connections to these data sources on premises:
+For information about how to use the gateway with other services, 
+see these articles:
 
-*   BizTalk Server 2016
-*   DB2  
-*   File System
-*   Informix
-*   MQ
-*   MySQL
-*   Oracle Database
-*   PostgreSQL
-*   SAP Application Server 
-*   SAP Message Server
-*   SharePoint
-*   SQL Server
-*   Teradata
+* [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
+* [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
-These steps show how to set up the on-premises data gateway to work with your logic apps. 
-For more information about supported connectors, see 
-[Connectors for Azure Logic Apps](../connectors/apis-list.md). 
+## Prerequisites
 
-For information about how to use the gateway with other services, see these articles:
+* You've already [downloaded and installed the data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md).
 
-*   [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-*   [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
-*   [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
-*   [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* Your gateway installation isn't already associated with a gateway resource in Azure. 
+You can link your gateway installation only to one gateway resource, which happens when 
+you create the gateway resource and select your gateway installation. This linking 
+makes the gateway installation unavailable for other resources.
 
-## Requirements
+* When you sign in to the Azure portal and create the gateway resource, 
+you must use the same sign-in account that was previously used to 
+[install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md#requirements).
+You must also use the same [Azure subscription](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+that was used to install the gateway. If you don't have an Azure subscription yet, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-* You must have already 
-[installed the data gateway on a local computer](logic-apps-gateway-install.md).
-
-* When you sign in to the Azure portal, you have to use the same 
-work or school account that was used to [install the on-premises data gateway](logic-apps-gateway-install.md#requirements). Your sign-in account must also 
-have an Azure subscription to use when you create a gateway 
-resource in the Azure portal for your gateway installation.
-
-* Your gateway installation can't already be claimed by an Azure gateway resource. 
-You can associate your gateway installation to only one Azure gateway resource. 
-Claim happens when you create the gateway resource so that the installation 
-is unavailable for other resources.
-
-* The on-premises data gateway runs as a Windows service and is set up to 
-use `NT SERVICE\PBIEgwService` for the Windows service logon credentials. 
-To create and maintain the gateway resource in the Azure portal, 
-the [Windows service account](../logic-apps/logic-apps-gateway-install.md) 
-must have at least **Contributor** permissions. 
+* To create and maintain the gateway resource in the Azure portal, your 
+[Windows service account](../logic-apps/logic-apps-gateway-install.md#windows-service-account) 
+must have at least **Contributor** permissions. The on-premises data gateway 
+runs as a Windows service and is set up to use `NT SERVICE\PBIEgwService` 
+for the Windows service login credentials. 
 
   > [!NOTE]
-  > The Windows service account differs from the account 
-  > used for connecting to on-premises data sources, 
-  > and from the Azure work or school account used to sign in to cloud services.
+  > The Windows service account differs from the account used for 
+  > for connecting to on-premises data sources and from the Azure work 
+  > or school account used to sign in to cloud services.
 
-## Install the on-premises data gateway
+## Download and install gateway
 
-If you haven't already, follow the 
-[steps to install the on-premises data gateway](logic-apps-gateway-install.md). 
-Before you continue with the other steps, 
-make sure that you installed the data gateway on a local computer.
+Before you can continue with the steps in this article, 
+you must have the gateway already installed on a local computer.
+and if you haven't already, follow the steps to 
+[download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
 
 <a name="create-gateway-resource"></a>
 
-## Create an Azure resource for the on-premises data gateway
+## Create Azure resource for gateway
 
 After you install the gateway on a local computer, 
-you must create your data gateway as a resource in Azure. 
+you can then create an Azure resource for your gateway. 
 This step also associates your gateway resource with your Azure subscription.
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
-Make sure to use the same Azure work or school email address used to install the gateway.
+1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>. 
+Make sure you use the same Azure work or school email address used to install the gateway.
 
-2. On the main Azure menu, 
-choose **Create a resource** > **Enterprise Integration** > **On-premises data gateway**.
+2. On the main Azure menu, select **Create a resource** > 
+**Integration** > **On-premises data gateway**.
 
    ![Find "On-premises data gateway"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
 3. On the **Create connection gateway** page, 
-provide these details to create your data gateway resource:
+provide this information for your gateway resource:
 
-    * **Name**: Enter a name for your gateway resource. 
+   | Property | Description | 
+   |----------|-------------|
+   | **Name** | The name for your gateway resource | 
+   | **Subscription** | Your Azure subscription's name, which should be the same subscription as your logic app. The default subscription is based on the Azure account you used to sign in. | 
+   | **Resource group** | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) for organizing related resources | 
+   | **Location** | Azure restricts this location to the same region that was selected for the gateway cloud service during [gateway installation](../logic-apps/logic-apps-gateway-install.md). <p>**Note**: Make sure this gateway resource location matches the gateway cloud service location. Otherwise, your gateway installation might not appear in the installed gateways list for you to select in the next step. You can use different regions for your gateway resource and for your logic app. | 
+   | **Installation Name** | If your gateway installation isn't already selected, select the gateway that you previously installed. | 
+   | | | 
 
-    * **Subscription**: Select the Azure subscription 
-    to associate with your gateway resource. 
-    This subscription should be the same subscription as your logic app.
-   
-      The default subscription is based on the 
-      Azure account that you used to sign in.
+   Here is an example:
 
-    * **Resource group**: Create a resource group or select an existing 
-    resource group for deploying your gateway resource. 
-    Resource groups help you manage related Azure assets as a collection.
+   ![Provide details to create your on-premises data gateway](./media/logic-apps-gateway-connection/createblade.png)
 
-    * **Location**: Azure restricts this location to the same region that 
-    was selected for the gateway cloud service during 
-    [gateway installation](logic-apps-gateway-install.md). 
+4. To add the gateway resource to your Azure dashboard, select **Pin to dashboard**. 
+When you're done, choose **Create**.
 
-      > [!NOTE]
-      > Make sure that the gateway resource location matches the gateway 
-      > cloud service location. Otherwise, your gateway installation 
-      > might not appear in the installed gateways list for you to select 
-      > in the next step.
-      > 
-      > You can use different regions for your gateway 
-      > resource and for your logic app.
+   To find or view your gateway at any time, 
+   from the main Azure menu, select **All services**. 
+   In the search box, enter "on-premises data gateways", 
+   and then select **On-premises Data Gateways**.
 
-    * **Installation Name**: If your gateway installation isn't already selected, 
-    select the gateway that you previously installed. 
-
-    To add the gateway resource to your Azure dashboard, choose **Pin to dashboard**. 
-    When you're done, choose **Create**.
-
-    For example:
-
-    ![Provide details to create your on-premises data gateway](./media/logic-apps-gateway-connection/createblade.png)
-
-    To find or view your data gateway at any time, 
-    from the main Azure menu, choose **All services**. 
-    In the search box, enter "on-premises data gateways", 
-    then choose **On-premises Data Gateways**.
-
-    ![Find "On-premises Data Gateways"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+   ![Find "On-premises Data Gateways"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 
-## Connect your logic app to the on-premises data gateway
+## Connect to on-premises data
 
-Now that you've created your data gateway resource and associated your Azure subscription 
-with that resource, create a connection between your logic app and the data gateway.
+After you create your gateway resource and associate 
+your Azure subscription with this resource, 
+you can now create a connection between your logic app 
+and your on-premises data source by using the gateway.
 
-> [!NOTE]
-> Your gateway connection location must exist in the 
-> same region as your logic app, but you can 
-> use a data gateway that exists in a different region.
+1. In the Azure portal, create or open 
+your logic app in the Logic App Designer.
 
-1. In the Azure portal, create or open your logic app in Logic App Designer.
+2. Add a connector that supports on-premises connections, 
+for example, **SQL Server**.
 
-2. Add a connector that supports on-premises connections, like SQL Server.
+3. Now set up your connection:
 
-3. Following the order shown, select **Connect via on-premises data gateway**, 
-provide a unique connection name and the required information, 
-and select the data gateway resource that you want to use. 
-When you're done, choose **Create**.
+   1. Select **Connect via on-premises data gateway**. 
 
-   > [!TIP]
-   > A unique connection name helps 
-   > you easily identify that connection later, 
-   > especially when you create multiple connections. 
-   > If applicable, also include the qualified domain for your username. 
+   2. For **Gateways**, select the gateway resource you previously created. 
 
-   ![Create connection between logic app and data gateway](./media/logic-apps-gateway-connection/blankconnection.png)
+      Although your gateway connection location must exist in the 
+      same region as your logic app, you can select a gateway 
+      in a different region.
 
-Congratulations, your gateway connection is now ready for your logic app to use.
+   3. Provide a unique connection name and the other required information. 
 
-## Edit your gateway connection settings
+      The unique connection name helps you easily identify that connection later, 
+      especially when you create multiple connections. If applicable, 
+      also include the qualified domain for your username.
+   
+      Here is an example:
+
+      ![Create connection between logic app and data gateway](./media/logic-apps-gateway-connection/blankconnection.png)
+
+   4. When you're done, choose **Create**. 
+
+Your gateway connection is now ready for your logic app to use.
+
+## Edit connection
 
 After you create a gateway connection for your logic app, 
 you might want to later update the settings for that specific connection.
 
-1. To find the gateway connection:
+1. Find your gateway connection:
 
-   * On the logic app menu, under **Development Tools**, select **API Connections**. 
+   * To find all API connections for just your logic app, 
+   on your logic app's menu, under **Development Tools**, 
+   select **API Connections**. 
    
-     The **API Connections** pane shows all API connections 
-     associated with your logic app, including gateway connections.
-
      ![Go to your logic app, select "API Connections"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * Or, from the main Azure menu, go to 
-    **More Services** > **Web + Mobile** > **API Connections** 
-    for all API connections, including gateway connections, 
-    that are associated with your Azure subscription. 
+   * To find all API connections associated with your Azure subscription: 
 
-   * Or, on the main Azure menu, go to **All resources** 
-   for all API connections, including gateway connections, 
-   that are associated with your Azure subscription.
+     * From the main Azure menu, go to **All services** > **Web** > **API Connections**. 
+     * Or, from the main Azure menu, go to **All resources**.
 
-2. Select the gateway connection that you want to view or edit, 
-and choose **Edit API connection**.
+2. Select the gateway connection you want, 
+and then choose **Edit API connection**.
 
    > [!TIP]
    > If your updates don't take effect, 
@@ -215,7 +173,7 @@ and choose **Edit API connection**.
 
 <a name="change-delete-gateway-resource"></a>
 
-## Switch or delete your on-premises data gateway resource
+## Delete gateway resource
 
 To create a different gateway resource, 
 associate your gateway with a different resource, 
@@ -224,15 +182,24 @@ you can delete the gateway resource without
 affecting the gateway installation. 
 
 1. From the main Azure menu, go to **All resources**. 
-2. Find and select your data gateway resource.
-3. Choose **On-premises Data Gateway**, 
-and on the resource toolbar, choose **Delete**.
+
+2. Find and select your gateway resource.
+
+3. If not already selected, on your gateway resource menu, 
+select **On-premises Data Gateway**. 
+
+4. On the resource toolbar, choose **Delete**.
 
 <a name="faq"></a>
 
 ## Frequently asked questions
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
+
+## Get support
+
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 

@@ -1,11 +1,14 @@
 ---
-title: Experimentation - Azure Cognitive Services | Microsoft Docs
-description: This article is a guide for Azure Custom Decision Service experimentation.
+title: Experimentation - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: This article is a guide for experimentation with Custom Decision Service.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
 ---

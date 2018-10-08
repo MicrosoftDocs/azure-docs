@@ -2,13 +2,13 @@
 title: Create partitioned Azure Service Bus queues and topics | Microsoft Docs
 description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/06/2018
-ms.author: sethm
+ms.date: 09/06/2018
+ms.author: spelluru
 
 ---
 # Partitioned queues and topics
@@ -136,7 +136,7 @@ Service Bus supports automatic message forwarding from, to, or between partition
 
 Currently Service Bus imposes the following limitations on partitioned queues and topics:
 
-* Partitioned queues and topics are not supported in the Premium messaging tier.
+* Partitioned queues and topics are not supported in the Premium messaging tier. Sessions are supported in the premier tier by using SessionId. 
 * Partitioned queues and topics do not support sending messages that belong to different sessions in a single transaction.
 * Service Bus currently allows up to 100 partitioned queues or topics per namespace. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace (does not apply to Premium tier).
 

@@ -11,8 +11,8 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 
-experimental: false
-experiment_id: 2c2f48c7-50a9-4e
+#experimental: false
+#experiment_id: 2c2f48c7-50a9-4e
 ---
 
 # Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
@@ -177,8 +177,14 @@ Configure the runtime with your IoT Edge device connection string that you copie
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
+8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is uncommented and set to **azure-iot-edge**
 
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
+   
 9. Save the configuration file. 
 
 10. In PowerShell, restart the IoT Edge service.
@@ -208,7 +214,8 @@ Verify that the runtime was successfully installed and configured.
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default, and helps to install and start any additional modules that you deploy to your device. 
@@ -246,7 +253,7 @@ iotedge logs tempSensor -f
 
   ![View the data from your module](./media/quickstart/iotedge-logs.png)
 
-You can also view the messages that are received by your IoT hub by using the [IoT Hub explorer tool][lnk-iothub-explorer] or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+You can also view the messages that are received by your IoT hub by using the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## Clean up resources
 
@@ -321,6 +328,5 @@ You are ready to continue on to any of the other tutorials to learn how Azure Io
 [lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
 [lnk-python]: https://www.python.org/downloads/
 [lnk-docker-containers]: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-install-iotcore]: how-to-install-iot-core.md
 [lnk-account]: https://azure.microsoft.com/free

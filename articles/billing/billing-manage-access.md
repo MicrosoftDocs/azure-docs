@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: vikdesai
+ms.author: cwatson
 
 ---
 # Manage access to billing information for Azure using role-based access control
@@ -67,7 +67,7 @@ The Billing Reader role has read-only access to subscription billing information
 
 ## Adding users to other roles
 
-Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md).
+Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Who can access the [Account Center](https://account.windowsazure.com)?
 

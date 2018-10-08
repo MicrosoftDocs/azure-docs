@@ -1,16 +1,13 @@
 ---
-title: Script Action development with HDInsight - Azure | Microsoft Docs
+title: Script Action development with HDInsight - Azure 
 description: Learn how to customize Hadoop clusters with Script Action. Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster.
 services: hdinsight
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
 ---
 # Develop Script Action scripts for HDInsight Windows-based clusters

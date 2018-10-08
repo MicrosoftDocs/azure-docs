@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box portal admin guide | Microsoft Docs 
+title: Azure Data Box Disk portal admin guide | Microsoft Docs 
 description: Describes how to use the Azure portal to administer your Azure Data Box.
 services: databox
 documentationcenter: NA
@@ -14,10 +14,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 ---
-# Use Azure portal to administer your Data Box (Preview)
+# Use Azure portal to administer your Data Box Disk (Preview)
 
 The tutorials in this article apply to the Microsoft Azure Data Box Disk during Preview. This article describes some of the complex workflows and management tasks that can be performed on the Data Box Disk. 
 
@@ -84,7 +84,7 @@ You can only delete orders that are completed or canceled. Perform the following
 
 ## Download shipping label
 
-You may need to download the shipping label if the the return shipping label shipped with your disks is misplaced or lost. 
+You may need to download the shipping label if the return shipping label shipped with your disks is misplaced or lost. 
 
 Perform the following steps to download a shipping label.
 1.	Go to **Overview > Download shipping label**. This option is available only after the disk is shipped. 

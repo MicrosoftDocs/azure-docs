@@ -6,40 +6,58 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 11/07/2017
+ms.topic: conceptual
+ms.date: 09/14/2018
 ms.author: routlaw
 ---
 
 # Azure Functions Java developer guide
 
+[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+
 ## Programming model 
 
-Your Azure function should be a stateless class method that processes input and produces output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. All function methods must have a `public` access modifier.
+Your Azure function should be a stateless class method that processes input and produces output. Although you can write instance methods, your function must not depend on any instance fields of the class. All function methods must have a `public` access modifier.
+
+## Folder structure
+
+The folder structure for a Java project looks like the following:
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+There's a shared [host.json] (functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.java) and binding configuration file (function.json).
+
+You can put more than one function in a project. Avoid putting your functions into separate jars. The FunctionApp in the target directory is what gets deployed to your function app in Azure.
 
 ## Triggers and annotations
 
-Typically an Azure function is invoked because of an external trigger. Your function needs to process that trigger and its associated inputs and produce one or more outputs.
+ Azure functions are invoked by a trigger, such as an HTTP request, a timer, or an update to data. Your function needs to process that trigger and any other inputs to produce one or more outputs.
 
-Java annotations are included in the `azure-functions-java-core` package to bind input and outputs to your methods. The supported input triggers and output binding annotations are included in the following table:
+Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. Sample code using the annotations is available in the [Java reference docs](/java/api/com.microsoft.azure.functions.annotation) for each annotation and in the Azure Functions binding reference documentation, such as the one for [HTTP triggers](/azure/azure-functions/functions-bindings-http-webhook).
 
-Binding | Annotation
----|---
-CosmosDB | N/A
-HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | N/A
-Notification Hubs | N/A
-Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
-Storage Queue | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
-Storage Table | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
-Timer | <ul><li>`TimerTrigger`</li></ul>
-Twilio | N/A
-
-Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your application.
+Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your function instead of through annotations. Using `function.json` instead of annotations in this way is not recommended.
 
 > [!IMPORTANT] 
 > You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Azure Storage Blob, Queue, or Table triggers locally.
@@ -47,11 +65,9 @@ Trigger inputs and outputs can also be defined in the [function.json](/azure/azu
 Example using annotations:
 
 ```java
-import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
-import com.microsoft.azure.serverless.functions.ExecutionContext;
-
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+    public String echo(@HttpTrigger(name = "req", 
+      methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
         String req, ExecutionContext context) {
         return String.format(req);
     }
@@ -94,9 +110,19 @@ with the corresponding `function.json`:
 
 ```
 
-## Data Types
+## JDK runtime availability and support 
 
-You are free to use all the data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-core` package. The Azure Functions runtime attempts convert the input received into the type requested by your code.
+Download and use the [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) for local development of Java function apps. JDKs are available for Windows, Linux, and macOS and [Azure support](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) is available for issues encountered during development with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+
+## Third-party libraries 
+
+Azure Functions supports the use of third-party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries not specified as dependencies in the `pom.xml` file, place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader at runtime.
+
+The `com.microsoft.azure.functions:azure-functions-java-library` dependency is provided on the classpath by default, and does not need to be included in the `lib` directory.
+
+## Data type support
+
+You can use any data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-library` package. The Azure Functions runtime attempts convert the input received into the type requested by your code.
 
 ### Strings
 
@@ -104,7 +130,7 @@ Values passed into function methods will be cast to Strings if the corresponding
 
 ### Plain old Java objects (POJOs)
 
-Strings formatted with JSON will be cast to Java types if the input of the function method expects that Java type. This conversion allows you to pass JSON inputs into your functions and work with Java types in your code without having to implement the conversion in your own code.
+Strings formatted with JSON will be cast to Java types if the input signature of the function expects that Java type. This conversion allows you to pass in JSON and work with Java types.
 
 POJO types used as inputs to functions must the same `public` access modifier as the function methods they are being used in. You don't have to declare POJO class fields `public`. For example, a JSON string `{ "x": 3 }` is able to be converted to the following POJO type:
 
@@ -143,12 +169,12 @@ public static String echoLength(byte[] content) {
 }
 ```
 
-Use `OutputBinding<byte[]>` type to make a binary output binding.
+Empty input values could be `null` as your functions argument, but a recommended way to deal with potential empty values is to use `Optional<T>`.
 
 
 ## Function method overloading
 
-You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in one class, and Azure Functions runtime decides which one to invoke by examine the actual input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
+You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in a class. Azure Functions decides which method to invoke based on the input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
 
 ## Inputs
 
@@ -157,112 +183,56 @@ Input are divided into two categories in Azure Functions: one is the trigger inp
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.annotation.BindingName;
-import java.util.Optional;
+import com.microsoft.azure.functions.annotation.*;
 
 public class MyClass {
-    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
+    @FunctionName("echo")
+    public static String echo(
+        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String in,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") MyObject obj
+    ) {
+        return "Hello, " + in + " and " + obj.getKey() + ".";
     }
 
-    private static class MyObject {
+    public static class MyObject {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
 }
 ```
 
-The `@BindingName` annotation accepts a `String` property that represents the name of the binding/trigger defined in `function.json`:
-
-```json
-{
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "name": "req",
-      "direction": "in",
-      "authLevel": "anonymous",
-      "methods": [ "put" ],
-      "route": "items/{id}"
-    },
-    {
-      "type": "table",
-      "name": "item",
-      "direction": "in",
-      "tableName": "items",
-      "partitionKey": "Example",
-      "rowKey": "{id}",
-      "connection": "ExampleStorageAccount"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
-    }
-  ]
-}
-```
-
-So when this function is invoked, the HTTP request payload passes an optional `String` for argument `in` and an Azure Table Storage `MyObject` type passed to argument `obj`. Use the `Optional<T>` type to handle inputs into your functions that can be null.
+When this function is triggered, the HTTP request is passed to the function by `String in`. An entry will be retrieved from the Azure Table Storage based on the ID in the route URL and made avaialble as `obj` in the function body.
 
 ## Outputs
 
 Outputs can be expressed both in return value or output parameters. If there is only one output, you are recommended to use the return value. For multiple outputs, you have to use output parameters.
 
-Return value is the simplest form of output, you just return the value of any type, and Azure Functions runtime will try to marshal it back to the actual type (such as an HTTP response). In `functions.json`, you use `$return` as the name of the output binding.
+Return value is the simplest form of output, you just return the value of any type, and Azure Functions runtime will try to marshal it back to the actual type (such as an HTTP response).  You could apply any output annotations to the function method (the name property of the annotation has to be $return) to define the return value output.
 
-To produce multiple output values, use `OutputBinding<T>` type defined in the `azure-functions-java-core` package. If you need to make an HTTP response and push a message to a queue as well, you can write something like:
+To produce multiple output values, use `OutputBinding<T>` type defined in the `azure-functions-java-library` package. If you need to make an HTTP response and push a message to a queue as well, you can write something like:
+
+For example, a blob content copying function could be defined as the following code. `@StorageAccount` annotation is used here to prevent the duplicating of the connection property for both `@BlobTrigger` and `@BlobOutput`.
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputBinding;
-import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import com.microsoft.azure.functions.annotation.*;
 
 public class MyClass {
-    public static String echo(String body, 
-    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
-        String result = "Hello, " + body + ".";
-        queue.setValue(result);
-        return result;
+    @FunctionName("copy")
+    @StorageAccount("AzureWebJobsStorage")
+    @BlobOutput(name = "$return", path = "samples-output-java/{name}")
+    public static String copy(@BlobTrigger(name = "blob", path = "samples-input-java/{name}") String content) {
+        return content;
     }
 }
 ```
 
-which should define the output binding in `function.json`:
+Use `OutputBinding<byte[]`>  to make a binary output value (for parameters); for return values, just use `byte[]`.
 
-```json
-{
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "name": "req",
-      "direction": "in",
-      "authLevel": "anonymous",
-      "methods": [ "post" ]
-    },
-    {
-      "type": "queue",
-      "name": "queue",
-      "direction": "out",
-      "queueName": "messages",
-      "connection": "AzureWebJobsStorage"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
-    }
-  ]
-}
-```
 ## Specialized Types
 
-Sometimes a function must have detailed control over inputs and outputs. Specialized types in the `azure-functions-java-core` package are provided for you to manipulate request information and tailor the return status of a HTTP trigger:
+Sometimes a function must have detailed control over inputs and outputs. Specialized types in the `azure-functions-java-core` package are provided for you to manipulate request information and tailor the return status of an HTTP trigger:
 
 | Specialized Type      |       Target        | Typical Usage                  |
 | --------------------- | :-----------------: | ------------------------------ |
@@ -282,7 +252,8 @@ For example, the `queryValue` in the following code snippet will be `"test"` if 
 package com.example;
 
 import java.util.Optional;
-import com.microsoft.azure.serverless.functions.annotation.*;
+import com.microsoft.azure.functions.annotation.*;
+
 
 public class MyClass {
     @FunctionName("metadata")
@@ -295,19 +266,20 @@ public class MyClass {
 }
 ```
 
-## Functions execution context
+## Execution context
 
-You interact with Azure Functions execution environment via the `ExecutionContext` object defined in the `azure-functions-java-core` package. Use the `ExecutionContext` object to use invocation information and functions runtime information in your code.
+Interact with Azure Functions execution environment via the `ExecutionContext` object defined in the `azure-functions-java-library` package. Use the `ExecutionContext` object to use invocation information and functions runtime information in your code.
 
-### Logging
+### Custom logging
 
 Access to the Functions runtime logger is available through the `ExecutionContext` object. This logger is tied to the Azure monitor and allows you to flag warnings and errors encountered during function execution.
 
 The following example code logs a warning message when the request body received is empty.
 
 ```java
-import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
-import com.microsoft.azure.serverless.functions.ExecutionContext;
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
 
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
@@ -319,11 +291,34 @@ public class Function {
 }
 ```
 
+## View logs and trace
+
+You can use the Azure CLI to stream Java standard out and error logging as well as other application logging. First, Configure your Function application to write application logging using the Azure CLI:
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+To stream logging output for your Function app using the Azure CLI, open a new command prompt, Bash, or Terminal session and enter the following command:
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+The [az webapp log tail](/cli/azure/webapp/log) command has options to filter output using the `--provider` option. 
+
+To download the log files as a single ZIP file using the Azure CLI, open a new command prompt, Bash, or Terminal session and enter the following command:
+
+```azurecli-interactive
+az webapp log download --resource-group resourcegroupname --name functionappname
+```
+
+You must have enabled file system logging in the Azure Portal or Azure CLI before running this command.
+
 ## Environment variables
 
-It is often desirable to extract out secret information from source code for security reasons. This allows code to be published to source code repos without accidentally providing credentials to other developers. This can be achieved simply by using environment variables, both when running Azure Functions locally, and when deploying your functions to Azure.
+Keep secret information such as keys or tokens out of your source code for security reasons. Use keys and tokens in your function code by reading them from environment variables.
 
-To easily set environment variables when running Azure Functions locally, you may choose to add these variables to the local.settings.json file. If one is not present in the root directory of your function project, feel free to create one. Here is what the file should look like:
+To set environment variables when running Azure Functions locally, you may choose to add these variables to the local.settings.json file. If one is not present in the root directory of your function project, you can create one. Here is what the file should look like:
 
 ```xml
 {
@@ -338,14 +333,17 @@ To easily set environment variables when running Azure Functions locally, you ma
 Each key / value mapping in the `values` map will be made available at runtime as an environment variable, accessible by calling `System.getenv("<keyname>")`, for example, `System.getenv("AzureWebJobsStorage")`. Adding additional key / value pairs is accepted and recommended practice.
 
 > [!NOTE]
-> If this approach is taken, be sure to consider whether adding the local.settings.json file to your repository ignore file, so that it is not committed.
+> If this approach is taken, be sure to add the local.settings.json file to your repository ignore file, so that it is not committed.
 
-With your code now depending on these environment variables, you can log in to the Azure Portal to set the same key / value pairs in your function app settings, so that your code functions equivalently when testing locally and when deployed to Azure.
+With your code now depending on these environment variables, you can sign in to the Azure portal to set the same key / value pairs in your function app settings, so that your code functions equivalently when testing locally and when deployed to Azure.
 
 ## Next steps
-For more information, see the following resources:
+
+For more information about Azure Function Java development, see the following resources:
 
 * [Best practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+- Local development and debug with [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), and [Eclipse](functions-create-maven-eclipse.md). 
 * [Remote Debug Java Azure Functions with Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Maven plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - Streamline function creation through the `azure-functions:add` goal and prepare a staging directory for [ZIP file deployment](deployment-zip-push.md).

@@ -2,42 +2,36 @@
 title: PowerShell example - Update SQL Data Sync sync schema | Microsoft Docs
 description: Azure PowerShell example script to update the sync schema for SQL Data Sync
 services: sql-database
-documentationcenter: sql-database
-author: allenwux
-manager: craigg
-editor: ''
-tags:
-ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data, mvc
+ms.subservice: data-movement
+ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 01/10/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
+manager: craigg
+ms.date: 01/10/2018
 ---
 # Use PowerShell to update the sync schema in an existing sync group
 
-This PowerShell example updates the sync schema in an existing SQL Data Sync sync group. When you're syncing multiple tables, this script helps you to update the sync schema efficiently.
+This PowerShell example updates the sync schema in an existing SQL Data Sync sync group. When you're syncing multiple tables, this script helps you to update the sync schema efficiently. This example demonstrates the use of the **UpdateSyncSchema** script, which is available on GitHub as [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
-This example demonstrates the use of the **UpdateSyncSchema** script, which is available on GitHub as [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md).
-## Prerequisites
 
-This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
- 
-Run `Connect-AzureRmAccount` to create a connection with Azure.
-
-## Examples
+## Sample script
 
 ### Example 1 - Add all tables to the sync schema
 
 The following example refreshes the database schema and adds all valid tables in the hub database to the sync schema.
 
-```powershell
+```powershell-interactive
 UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -RefreshDatabaseSchema $true -AddAllTables $true
 ```
 
@@ -45,7 +39,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 
 The following example adds `[dbo].[Table1]` and `[dbo].[Table2].[Column1]` to the sync schema and removes `[dbo].[Table3]`.
 
-```powershell
+```powershell-interactive
 UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
 ```
 
@@ -98,8 +92,6 @@ For more info about SQL Data Sync, see:
 -   Complete PowerShell examples that show how to configure SQL Data Sync:
     -   [Use PowerShell to sync between multiple Azure SQL databases](sql-database-sync-data-between-sql-databases.md)
     -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](sql-database-sync-data-between-azure-onprem.md)
-
--   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 For more info about SQL Database, see:
 

@@ -1,22 +1,21 @@
 ---
-title: Understand Azure Identity | Microsoft Docs
-description: Get a basic understanding of Microsoft Azure identity solution terms, concepts, and recommendations for you to make the best identity governance decision for your organization.
-keywords:
+title: What is Microsoft Azure Identity? | Microsoft Docs
+description: Learn about Microsoft Azure identity solution terms, concepts, and recommendations for you to make the best identity governance decision for your organization.
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: jsnow
-ms.author: lizross
-ms.date: 7/17/2017
-ms.topic: overview
-ms.prod:
-ms.service: azure-directory
+
+ms.service: active-directory
 ms.component: fundamentals
-ms.technology:
-ms.assetid:
-ms.custom: it-pro
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 7/17/2017
+ms.author: lizross
+ms.reviewer: jsnow
+custom: it-pro
 ---
 
-# Understand Azure identity solutions
+# What is Microsoft Azure identity?
 Microsoft Azure Active Directory (Azure AD) is an identity and access management cloud solution that provides directory services, identity governance, and application access management. Azure AD quickly [enables single sign on (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) to 1,000’s of pre-integrated commercial and custom apps in the [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Many of these apps you probably already use such as Office 365, Salesforce.com, Box, ServiceNow, and Workday.
 
 A single Azure AD directory is automatically associated with an Azure subscription when it is created. As the identity service in Azure, Azure AD then provides all identity management and access control functions for cloud-based resources. These resources can include users, apps, and groups for an individual tenant (organization) as shown in the following diagram:
@@ -98,17 +97,17 @@ Here are some common identity and access scenarios with recommendations as to wh
 |My organization has made large investments in on-premises Windows Server Active Directory, but we want to extend identity to the cloud.| The most widely used Azure identity solution is [hybrid identity](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). If you’ve already made investments in on-premises AD DS, you can easily extend identity to the cloud using Azure AD Connect.|
 |My business was born in the cloud and we have no investments in on-premises identity solutions.| [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is the best choice for cloud-only businesses with no on-premises investments.|
 |I need lightweight Azure VM configuration and control to meet on-premises identity requirements for app development and testing.|[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is a good choice if you need to use AD DS for lightweight Azure VM configuration control or are looking to develop or migrate legacy, directory-aware on-premises applications to the cloud.|  
-|I need to support a few virtual machines in Azure, but my company is still heavily invested in on-premises Active Directory (AD DS).|Use [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) to use Azure VMs when you need to support a few virtual machines and have large AD DS investments on-premises. |
+|I need to support a few virtual machines in Azure, but my company is still heavily invested in on-premises Active Directory (AD DS).|Use [DIY AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison#do-it-yourself-diy-ad-deployment-options) to use Azure VMs when you need to support a few virtual machines and have large AD DS investments on-premises. |
 
 ## Where can I learn more?
 We have a ton of great resources online to help you learn all about Azure AD. Here’s a list of great articles to get you started:
 
-* [Enabling your directory for hybrid management with Azure AD Connect](../connect/active-directory-aadconnect.md)
+* [Enabling your directory for hybrid management with Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
 * [Additional security for an ever connected world](../authentication/multi-factor-authentication.md)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md)
+* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md)
 * [Manage your passwords from anywhere](../user-help/active-directory-passwords-update-your-own-password.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md)
+* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md)
 * [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md)
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 * [What is Microsoft Azure Active Directory licensing?](active-directory-licensing-whatis-azure-portal.md)
@@ -121,5 +120,3 @@ Now that you understand Azure identity concepts and the options available to you
 [Learn more about Azure hybrid identity solutions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [Learn more in an Azure Proof of Concept environment](https://aka.ms/aad-poc)
-
-[Deploy Azure AD in production](https://aka.ms/aad-onboard)

@@ -1,12 +1,16 @@
 # Azure Dev Spaces
-## [Overview](azure-dev-spaces.md)
+## [Overview](index.yml)
 
 ## Quickstarts
+### [Java (VS Code & CLI)](quickstart-java.md)
 ### [.NET Core (VS Code & CLI)](quickstart-netcore.md)
 ### [.NET Core (Visual Studio 2017)](quickstart-netcore-visualstudio.md)
 ### [Node.js (VS Code & CLI)](quickstart-nodejs.md)
 
 ## Tutorials
+### Java (VS Code & CLI)
+#### [1 - Get started](get-started-java.md)
+#### [2 - Team development](team-development-java.md)
 ### .NET Core (VS Code & CLI)
 #### [1 - Get started](get-started-netcore.md)
 #### [2 - Team development](team-development-netcore.md)

@@ -3,18 +3,17 @@ title: Understand Azure Stack security controls | Microsoft Docs
 description: As a service administrator learn about the security controls applied to Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: PatAltimore
 manager: femila
 editor: ''
 
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: mabrigg
+ms.date: 09/12/2018
+ms.author: patricka
 
 ---
 # Azure Stack infrastructure security posture
@@ -83,3 +82,5 @@ Network ACLs are enforced in three layers:
 ## Next steps
 
 - [Learn how to rotate your secrets in Azure Stack](azure-stack-rotate-secrets.md)
+- [PCI-DSS and the CSA-CCM documents for Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [DoD and NIST documents for Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)

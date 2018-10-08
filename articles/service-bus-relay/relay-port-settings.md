@@ -3,7 +3,7 @@ title: Azure Relay port settings | Microsoft Docs
 description: Details about Azure Relay port values.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 

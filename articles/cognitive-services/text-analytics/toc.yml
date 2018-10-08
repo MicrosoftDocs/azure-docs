@@ -1,12 +1,11 @@
-
 - name: Text Analytics API Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is the Text Analytics API?
     href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: C#
     href: quickstarts/csharp.md
@@ -23,7 +22,7 @@
   - name: Ruby
     href: quickstarts/ruby.md
 - name: Tutorials
-  items: 
+  items:
    - name: Text Analytics with Power BI
      href: Tutorials/tutorial-power-bi-key-phrases.md
    - name: Text Analytics in Power Apps
@@ -36,20 +35,24 @@
      href: How-tos/text-analytics-how-to-access-key.md
    - name: Call the Text Analytics API
      href: How-tos/text-analytics-how-to-call-api.md
-   - name: Detect language 
+   - name: Detect language
      href: How-tos/text-analytics-how-to-language-detection.md
-   - name: Analyze sentiment 
+   - name: Analyze sentiment
      href: How-tos/text-analytics-how-to-sentiment-analysis.md
    - name: Extract key phrases
      href: How-tos/text-analytics-how-to-keyword-extraction.md
-   - name: Recognize linked entities
-     href: How-tos/text-analytics-how-to-entity-linking.md   
+   - name: Call named entity recognition
+     href: How-tos/text-analytics-how-to-entity-linking.md
    - name: Work with Visual Studio
      items:
       - name: Use the Text Analytics Connected Service
         href: vs-text-connected-service.md
 - name: Reference
-  items: 
+  items:
+  - name: CLI reference
+    href: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: PowerShell reference
+    href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Text Analytics API
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
 - name: Resources
@@ -58,6 +61,8 @@
     href: text-analytics-resource-external-community.md
   - name: FAQ
     href: text-analytics-resource-faq.md
+  - name: Language and region support
+    href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
   - name: Regional availability
@@ -66,9 +71,7 @@
     href: https://stackoverflow.com/questions/tagged/text-analytics-api
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=text-analytics
-  - name: Supported languages
-    href: text-analytics-supported-languages.md
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
-  - name: UserVoice 
-    href: https://cognitive.uservoice.com/forums/555922-text-analytics  
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/555922-text-analytics

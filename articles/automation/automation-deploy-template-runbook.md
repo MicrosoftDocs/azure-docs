@@ -28,7 +28,7 @@ In this topic, we create a PowerShell runbook that uses an Resource Manager temp
 
 To complete this tutorial, you need the following:
 
-* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](https://azure.microsoft.com/free/).
+* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or [sign up for a free account](https://azure.microsoft.com/free/).
 * [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * [Azure Storage account](../storage/common/storage-create-storage-account.md) in which to store the Resource Manager template
 * Azure Powershell installed on a local machine. See [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) for information about how to get Azure PowerShell.
@@ -56,6 +56,13 @@ In a text editor, copy the following text:
       "metadata": {
         "description": "Storage Account type"
       }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
   },
   "variables": {
@@ -65,8 +72,8 @@ In a text editor, copy the following text:
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-02-01",
+      "location": "[parameters('location')]",
       "sku": {
           "name": "[parameters('storageAccountType')]"
       },

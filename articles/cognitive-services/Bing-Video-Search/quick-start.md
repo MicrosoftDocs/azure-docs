@@ -1,18 +1,19 @@
 ---
-title: Video Search API quick start | Microsoft Docs
+title: "Quickstart: Bing Video Search API"
+titlesuffix: Azure Cognitive Services
 description: Shows how to get started using the Bing Video Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 7E59692A-83A8-4F4C-B122-1F0EDC8E5C86
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Your first video search query
+# Quickstart: Your first video search query
 
 Before you can make your first call, you need to get a Bing Search Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api).
 

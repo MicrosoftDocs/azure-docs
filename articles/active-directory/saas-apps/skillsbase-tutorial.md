@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: jeedes
 
 ---
@@ -107,7 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.skills-base.com/o/<customer-unique-key>`
 
 	> [!NOTE] 
-	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [Skills Base Client support team](mailto:support@skills-base.com) to get the value.
+	> You can get the Sign-On URL from Skills Base application. Please login as an Administrator and to go to Admin-> Settings-> Instance details -> Shortcut link. Copy the Sign-On URL and paste it in above textbox.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -138,7 +138,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click **Save**.
 	
-
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -176,7 +175,7 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in Skills Base. Skills Base supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Skills Base if it doesn't exist yet.
 
 >[!Note]
->If you need to create a user manually, contact [Skills Base Client support team](mailto:support@skills-base.com).
+>If you need to create a user manually, follow the instructions [here](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
 ### Assign the Azure AD test user
 

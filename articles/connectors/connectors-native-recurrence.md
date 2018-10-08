@@ -1,24 +1,19 @@
 ---
-title: Schedule tasks and regularly running workflows - Azure Logic Apps | Microsoft Docs
-description: Create and schedule regularly running tasks, actions, workflows, processes, and workloads with logic apps
+title: Create regularly running tasks and workflows with Azure Logic Apps | Microsoft Docs
+description: Automate tasks and workflows that run on a schedule with the Recurrence connector in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-
-ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/25/2017
-ms.author: LADocs; estfan
 ---
 
-# Create and schedule regularly running tasks with Azure Logic Apps
+# Create and run recurring tasks and workflows with Azure Logic Apps
 
 To schedule tasks, actions, workloads, or processes that run regularly, 
 you can create a logic app workflow that starts with the 

@@ -3,7 +3,7 @@ title: Azure stack storage differences and considerations | Microsoft Docs
 description: Understand the differences between Azure stack storage and Azure storage, along with Azure Stack deployment considerations.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 
 ms.assetid:
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
-ms.author: jeffgilb
+ms.date: 09/05/2018
+ms.author: mabrigg
 ms.reviwer: xiaofmao
 
 ---
-# Azure stack storage: Differences and considerations
+# Azure Stack storage: Differences and considerations
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure stack storage is the set of storage cloud services in Microsoft Azure Stack. Azure stack storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
+Azure Stack storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage services. It also lists things to consider when you deploy Azure Stack. To learn about high-level differences between global Azure and Azure Stack, see the [Key considerations](azure-stack-considerations.md) topic.
+This article summarizes the known Azure Stack Storage differences from Azure Storage services. It also lists things to consider when you deploy Azure Stack. To learn about high-level differences between global Azure and Azure Stack, see the [Key considerations](azure-stack-considerations.md) article.
 
 ## Cheat sheet: Storage differences
 
@@ -34,10 +34,9 @@ This article summarizes the known Azure Stack Storage differences from Azure Sto
 |Storage account type|General-purpose and Azure blob storage accounts|General-purpose only.
 |Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage.
 |Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee.
-|Managed disks|Premium and standard supported|Not yet supported.
+|Managed disks|Premium and standard supported|Supported when you use version 1808 or later.
 |Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
 |Block blob max size|4.75 TB (100 MB X 50,000 blocks)|4.75 TB (100 MB x 50,000 blocks) for the 1802 update or newer version. 50,000 X 4 MB (approx. 195 GB) for previous versions.
-|Page blob snapshot copy|Backup Azure unmanaged VM disks attached to a running VM supported|Not yet supported.
 |Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported.
 |Storage tiers for blob storage|Hot, cool, and archive storage tiers.|Not yet supported.
 Soft delete for blob storage|Preview|Not yet supported.

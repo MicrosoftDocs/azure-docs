@@ -1,23 +1,34 @@
 ---
-title: "Bing Custom Search: Share your custom search | Microsoft Docs"
-description: Describes how to share a custom search instance
+title: Share your custom search - Bing Custom Search
+titlesuffix: Azure Cognitive Services
+description: Describes how to share a custom search instance.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
 ---
 
 # Share your Custom Search instance
-You can share your Custom Search instance with anyone using just their email address. Sharing allows others to modify your Custom Search instances. Sign in to [Custom Search](https://customsearch.ai), select a Custom Search instance and click the settings icon (appears as a gear). In the **Share Your Instance** section, enter the email address of the person to share your instance with and click **Share**. The email address is shown in the list titled **Instance shared with**. Repeat for each person you want to share your custom search with. 
 
-To add someone's email to the list, it isn't necessary for them to have a Custom Search account. They will need to sign up for Custom Search before they make configuration changes. After you share an instance with someone, they'll see it in their list of Custom Search instances. Only one person can modify an instance at a time. If you try to modify an instance that someone else is editing, a warning is shown. An instance can be shared with a maximum of 10 users.
+You can easily allow collaborative editing and testing of your instance by sharing it with members of your team. You can share your instance with anyone using just their email address. To share an instance:
+
+- Sign in to [Custom Search](https://customsearch.ai)
+- Select a Custom Search instance
+- Click the settings icon (appears as a gear). 
+- Under **Share Your Instance**, enter the email address of the person to share your instance with and click **Share**. 
+
+After adding the email address, it's added to the **Instance shared with** list. Repeat the process for each person you want to share your instance with. 
+
+To add someone's email to the list, it isn't necessary for them to have a Custom Search account. They will need to sign up for Custom Search before they make configuration changes though. After you share an instance with someone, they'll see it in their list of Custom Search instances. Only one person can modify an instance at a time. If you try to modify an instance that someone else is editing, a warning is shown. An instance can be shared with a maximum of 10 users.
 
 ## Stop sharing
-To stop sharing an instance with someone, use the remove icon to remove their email address from the list.
+
+To stop sharing an instance with someone, use the remove icon to remove their email address from the list. This also removes the instance from their list of instances.
 
 ## Next steps
 

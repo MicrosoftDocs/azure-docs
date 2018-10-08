@@ -49,7 +49,7 @@ The output includes a JSON file (insights.json) with all the insights that were 
 |id|The line ID.|
 |text|The transcript itself.|
 |language|The transcript language. Intended to support transcript where each line can have a different language.|
-|instances|A list of time ranges where this line appeared. If the instance is a transcript, it will have only 1 instance.|
+|instances|A list of time ranges where this line appeared. If the instance is transcript, it will have only 1 instance.|
 
 Example:
 
@@ -123,54 +123,6 @@ Example:
   ],
 ```
 
-### keywords
-
-|Name|Description|
-|---|---|
-|id|The keyword ID.|
-|text|The keyword text.|
-|confidence|The keyword's recognition confidence.|
-|language|The keyword language (when translated).|
-|instances|A list of time ranges where this keyword appeared (a keyword can appear multiple times).|
-
-```json
-"keywords": [
-{
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
-}
-] 
-
-```
-
 ### faces
 
 |Name|Description|
@@ -178,13 +130,13 @@ Example:
 |id|The face ID.|
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
-|description|In case of a celebrity, its description. |
-|thumbnalId|The id of the thumbnail of that face.|
-|knownPersonId|In case of a known person, its internal ID.|
-|referenceId|In case of a Bing celebrity, its Bing ID.|
+|description|A description of the celebrity. |
+|thumbnalId|The ID of the thumbnail of that face.|
+|knownPersonId|If it is a known person, its internal ID.|
+|referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently just Bing.|
-|title|In case of a celebrity, its title (for example "Microsoft's CEO").|
-|imageUrl|In case of a celebrity, its image url.|
+|title|If it is a celebrity, its title (for example "Microsoft's CEO").|
+|imageUrl|If it is a celebrity, its image url.|
 |instances|These are instances of where the face appeared in the given time range. Each instance also has a thumbnailsId. |
 
 ```json
@@ -214,6 +166,111 @@ Example:
 		"end": "00:10:39.2390000"
 	}]
 }]
+```
+
+### shots
+
+|Name|Description|
+|---|---|
+|id|The shot ID.|
+|keyFrames|A list of key frames within the shot (each has an ID and a list of instances time ranges). Key frames instances have a thumbnailId field with the keyFrame’s thumbnail ID.|
+|instances|A list of time ranges of this shot (shots have only 1 instance).|
+
+```json
+"Shots": [
+    {
+      "id": 0,
+      "keyFrames": [
+        {
+          "id": 0,
+          "instances": [
+            {
+	            "thumbnailId": "00000000-0000-0000-0000-000000000000",
+              "start": "00: 00: 00.1670000",
+              "end": "00: 00: 00.2000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+	        "thumbnailId": "00000000-0000-0000-0000-000000000000",	
+          "start": "00: 00: 00.2000000",
+          "end": "00: 00: 05.0330000"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "keyFrames": [
+        {
+          "id": 1,
+          "instances": [
+            {
+	            "thumbnailId": "00000000-0000-0000-0000-000000000000",	    
+              "start": "00: 00: 05.2670000",
+              "end": "00: 00: 05.3000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+	  "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "start": "00: 00: 05.2670000",
+          "end": "00: 00: 10.3000000"
+        }
+      ]
+    }
+  ]
+```
+
+### statistics
+
+|Name|Description|
+|---|---|
+|CorrespondenceCount|Number of correspondences in the video.|
+|WordCount|The number of words per speaker.|
+|SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
+|SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
+|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
+
+
+### sentiments
+
+Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negative). For example, 0-0.1, 0.1-0.2.
+
+|Name|Description|
+|---|---|
+|id|The sentiment ID.|
+|averageScore |The average of all scores of all instances of that sentiment type - Positive/Neutral/Negative|
+|instances|A list of time ranges where this sentiment appeared.|
+|sentimentType |The type can be 'Positive', 'Neutral', or 'Negative'.|
+
+```json
+"sentiments": [
+{
+    "id": 0,
+    "averageScore": 0.87,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:23",
+        "end": "00:00:41"
+    }
+    ]
+}, {
+    "id": 1,
+    "averageScore": 0.11,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:13",
+        "end": "00:00:21"
+    }
+    ]
+}
+]
 ```
 
 ### labels
@@ -275,94 +332,92 @@ Example:
   ] 
 ```
 
-### shots
+### keywords
 
 |Name|Description|
 |---|---|
-|id|The shot ID.|
-|keyFrames|A list of key frames within the shot (each has an ID and a list of instances time ranges).|
-|instances|A list of time ranges of this shot (shots have only 1 instance).|
+|id|The keyword ID.|
+|text|The keyword text.|
+|confidence|The keyword's recognition confidence.|
+|language|The keyword language (when translated).|
+|instances|A list of time ranges where this keyword appeared (a keyword can appear multiple times).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
-```
-
-
-### sentiments
-
-Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negative). For example, 0-0.1, 0.1-0.2.
-
-|Name|Description|
-|---|---|
-|id|The sentiment ID.|
-|averageScore |The average of all scores of all instances of that sentiment type - Positive/Neutral/Negative|
-|instances|A list of time ranges where this sentiment appeared.|
-
-```json
-"sentiments": [
+"keywords": [
 {
     "id": 0,
-    "averageScore": 0.87,
+    "text": "office",
+    "confidence": 1.6666666666666667,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:23",
-        "end": "00:00:41"
+        "start": "00:00:00.5100000",
+        "end": "00:00:02.7200000"
+    },
+    {
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
     }
     ]
-}, {
+},
+{
     "id": 1,
-    "averageScore": 0.11,
+    "text": "icons",
+    "confidence": 1.4,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:13",
-        "end": "00:00:21"
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
+    },
+    {
+        "start": "00:00:13.9900000",
+        "end": "00:00:15.6100000"
     }
     ]
 }
-]
+] 
 ```
 
+#### visualContentModeration
+
+The visualContentModeration block contains time ranges which Video Indexer found to potentially have adult content. If visualContentModeration is empty, there is no adult content that was identified.
+
+Videos that are found to contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content, in which case the IsAdult attribute will contain the result of the human review.
+
+|Name|Description|
+|---|---|
+|id|The visual content moderation ID.|
+|adultScore|The adult score (from content moderator).|
+|racyScore|The racy score (from content moderation).|
+|instances|A list of time ranges where this visual content moderation appeared.|
+
+```json
+"VisualContentModeration": [
+{
+    "id": 0,
+    "adultScore": 0.00069,
+    "racyScore": 0.91129,
+    "instances": [
+    {
+        "start": "00:00:25.4840000",
+        "end": "00:00:25.5260000"
+    }
+    ]
+},
+{
+    "id": 1,
+    "adultScore": 0.99231,
+    "racyScore": 0.99912,
+    "instances": [
+    {
+        "start": "00:00:35.5360000",
+        "end": "00:00:35.5780000"
+    }
+    ]
+}
+] 
+```
 ## Next steps
 
 > [!div class="nextstepaction"]

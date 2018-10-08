@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -61,6 +61,8 @@ _BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
 _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
+
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
 
 ## Run the app
 
@@ -124,9 +126,10 @@ blob_client = azureblob.BlockBlobService(
 The app uses the `blob_client` reference to create a container in the storage account and to upload data files to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
 
 ```python
-input_file_paths = [os.path.realpath('./data/taskdata0.txt'),
-                    os.path.realpath('./data/taskdata1.txt'),
-                    os.path.realpath('./data/taskdata2.txt')]
+input_file_paths =  [os.path.join(sys.path[0], 'taskdata0.txt'),
+                     os.path.join(sys.path[0], 'taskdata1.txt'),
+                     os.path.join(sys.path[0], 'taskdata2.txt')]
+
 input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
     for file_path in input_file_paths]
@@ -135,8 +138,8 @@ input_files = [
 The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports Azure Active Directory authentication.
 
 ```python
-credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    BATCH_ACCOUNT_KEY)
+credentials = batch_auth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
+    _BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
@@ -175,8 +178,8 @@ A Batch job is a logical grouping of one or more tasks. A job includes settings 
 
 ```python
 job = batch.models.JobAddParameter(
-    job_id,
-    batch.models.PoolInformation(pool_id=pool_id))
+    id=job_id,
+    pool_info=batch.models.PoolInformation(pool_id=pool_id))
 batch_service_client.job.add(job)
 ```
 

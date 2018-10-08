@@ -12,13 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2018
+ms.date: 08/27/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
  
 # Manage cost by controlling data volume and retention in Log Analytics
-Log Analytics is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, its important to understand that the cost of a Log Analytisc workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
+
+> [!NOTE]
+> This article describes how to control your costs in Log Analytics by setting the data retention period.  Refer to the following articles for related information.
+> - [Analyze data usage in Log Analytics](log-analytics-manage-cost-storage.md) describes how to analyze and alert on your data usage.
+> - [Monitoring usage and estimated costs](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
+
+Log Analytics is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, its important to understand that the cost of a Log Analytics workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
 
 In this article we review how you can proactively monitor data volume and storage growth, and define limits to control those associated costs. 
 

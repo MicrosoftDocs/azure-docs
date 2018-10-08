@@ -12,14 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/23/2017
+ms.date: 08/20/2018
 ms.author: mbullwin
 
 ---
 # Export telemetry from Application Insights
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
-
-Using Continuous Export may incur an additional charge. Check your [pricing model](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Before you set up continuous export, there are some alternatives you might want to consider:
 
@@ -35,11 +33,9 @@ After Continuous Export copies your data to storage (where it can stay for as lo
 ## <a name="setup"></a> Create a Continuous Export
 1. In the Application Insights resource for your app, open Continuous Export and choose **Add**:
 
-    ![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
-
 2. Choose the telemetry data types you want to export.
 
-3. Create or select an [Azure storage account](../storage/common/storage-introduction.md) where you want to store the data.
+3. Create or select an [Azure storage account] (../storage/common/storage-introduction.md) where you want to store the data. For more information on storage pricing options visit the [official pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.

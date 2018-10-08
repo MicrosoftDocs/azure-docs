@@ -72,7 +72,8 @@ On Windows:
    -FilterHashtable @{ProviderName= "iotedged";
      LogName = "application"; StartTime = [datetime]::Today} |
    select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false}
+   sort-object @{Expression="TimeCreated";Descending=$false} |
+   format-table -autosize -wrap
    ```
 
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file
@@ -287,6 +288,38 @@ In the deployment manifest:
       }
     },
 ```
+## Can't get the IoT Edge daemon logs on Windows
+If you get an EventLogException when using `Get-WinEvent` on Windows, check your registry entries.
+
+### Root cause
+The `Get-WinEvent` PowerShell command relies on an registry entry to be present to find logs by a specific `ProviderName`.
+
+### Resolution
+Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
+"CustomSource"=dword:00000001
+"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
+"TypesSupported"=dword:00000007
+```
+
+## IoT Edge module fails to send a message to the edgeHub with 404 error
+
+A custom IoT Edge module fails to send a message to the edgeHub with a 404 `Module not found` error. The IoT Edge daemon prints the following message to the logs: 
+
+```output
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+```
+
+### Root cause
+The IoT Edge daemon enforces process identification for all modules connecting to the edgeHub for security reasons. It verifies that all messages being sent by a module come from the main process id of the module. If a message is being sent by a module from a different process id than initially established, it will reject the message with a 404 error message.
+
+### Resolution
+Make sure that the same process id is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file, since `CMD` will lead to one process id for the module and another process id for the bash command running the main program whereas `ENTRYPOINT` will lead to a single process id.
+
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 

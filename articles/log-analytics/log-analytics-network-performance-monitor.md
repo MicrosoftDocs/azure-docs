@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: na
+ms.component: 
 ---
 
 # Network Performance Monitor solution in Azure
@@ -43,6 +43,7 @@ NPM can monitor connectivity between networks and applications in any part of th
 * West Europe
 * West Central US
 * East US
+* East Japan
 * South East Asia
 * South East Australia
 * South UK

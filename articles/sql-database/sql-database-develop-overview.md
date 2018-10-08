@@ -2,15 +2,17 @@
 title: SQL Database Application Development Overview | Microsoft Docs
 description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
 services: sql-database
-author: stevestein
-manager: craigg
-ms.reviewer: genemi
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: 
+ms.devlang:
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: genemi
+manager: craigg
+ms.service: sql-database
+ms.date: 06/20/2018
 ---
 # SQL Database application development overview
 This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.
@@ -30,10 +32,10 @@ You can leverage open-source tools like [cheetah](https://github.com/wunderlist/
 ## Resource limitations
 Azure SQL Database manages the resources available to a database using two different mechanisms: Resources governance and enforcement of limits. For more information, see:
 
-- [DTU-based resource model limits - Single database](sql-database-dtu-resource-limits-elastic-pools.md)
-- [DTU-based resource model limits - Single database](sql-database-dtu-resource-limits-elastic-pools.md)
-- [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md)
-- [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
+- [DTU-based resource model limits - Single Database](sql-database-dtu-resource-limits-single-databases.md)
+- [DTU-based resource model limits - Elastic pools](sql-database-dtu-resource-limits-elastic-pools.md)
+- [vCore-based resource limits - Single Databases](sql-database-vcore-resource-limits-single-databases.md)
+- [vCore-based resource limits - Elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## Security
 Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.

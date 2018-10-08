@@ -1,6 +1,6 @@
 ---
-title: How to start an access review | Microsoft Docs
-description: Learn how to create an access review for privileged identities with the Azure Privileged Identity Management application.
+title: Start an access review for Azure AD directory roles in PIM | Microsoft Docs
+description: Learn how to start an access review for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,12 +10,12 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ---
-# How to start an access review in Azure AD Privileged Identity Management
+# Start an access review for Azure AD directory roles in PIM
 Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, privileged role administrators or global administrators should regularly create access reviews to ask admins to review the roles that users have been given. This document covers the steps for starting an access review in Azure AD Privileged Identity Management (PIM).
 
 ## Start an access review
@@ -72,5 +72,8 @@ You can track the progress as the reviewers complete their reviews in the Azure 
 Until the review period is over, you can remind users to complete their review, or stop the review early from the access reviews section.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## PIM Table of Contents
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+## Next steps
+
+- [Complete an access review for Azure AD directory roles in PIM](pim-how-to-complete-review.md)
+- [Perform an access review of my Azure AD directory roles in PIM](pim-how-to-perform-security-review.md)
+- [Start an access review for Azure resource roles in PIM](pim-resource-roles-start-access-review.md)

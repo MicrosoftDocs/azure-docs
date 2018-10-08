@@ -77,64 +77,66 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 
 ## <a name="cli"></a>Create peering - Azure CLI
 
-1. [Install](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) the Azure CLI 1.0 to create the virtual network (classic).
-2. Open a command session and log in to Azure using the `azure login` command.
-3. Run the CLI in Service Management mode by entering the `azure config mode asm` command.
-4. Enter the following command to create the virtual network (classic):
- 
-    ```azurecli
-    azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
-    ```
+Complete the following steps using the Azure classic CLI and the Azure CLI. You can complete the steps from the Azure Cloud Shell, by just selecting the **Try it** button in any of the following steps, or by installing the [classic CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and running the commands on your local computer.
 
-5. Create a resource group and a virtual network (Resource Manager). You can use either the CLI 1.0 or 2.0 ([install](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). In this tutorial, the CLI 2.0 is used to create the virtual network (Resource Manager), since 2.0 must be used to create the peering. Execute the following bash CLI script from your local machine with the CLI 2.0.4 or later installed. For options on running bash CLI scripts on Windows client, see [Install the Azure CLI on Windows](/cli/azure/install-azure-cli-windows). You can also run the script using the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Try it** button in the script that follows, which invokes a Cloud Shell that logs you can log in to your Azure account with. To execute the script, click the **Copy** button and paste, the contents into your Cloud Shell, then press `Enter`.
+1. If using the Cloud Shell, skip to step 2, because the Cloud Shell automatically signs you in to Azure. Open a command session and sign in to Azure using the `azure login` command.
+2. Run the CLI in Service Management mode by entering the `azure config mode asm` command.
+3. Enter the following command to create the virtual network (classic):
 
-    ```azurecli-interactive
-    #!/bin/bash
+   ```azurecli-interactive
+   azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
+   ```
 
-    # Create a resource group.
-    az group create \
-      --name myResourceGroup \
-      --location eastus
+4. Execute the following bash CLI script using the CLI, not the classic CLI. For options on running bash CLI scripts on Windows computer, see [Install the Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
 
-    # Create the virtual network (Resource Manager).
-    az network vnet create \
-      --name myVnet1 \
-      --resource-group myResourceGroup \
-      --location eastus \
-      --address-prefix 10.0.0.0/16
-    ```
+   ```azurecli-interactive
+   #!/bin/bash
 
-6. Create a virtual network peering between the two virtual networks created through the different deployment models. Copy the following script to a text editor on your PC. Replace `<subscription id>` with your subscription Id. If you don't know your subscription Id, enter the `az account show` command. The value for **id** in the output is your subscription Id. Paste the modified script in to your CLI session, and then press `Enter`.
+   # Create a resource group.
+   az group create \
+     --name myResourceGroup \
+     --location eastus
 
-    ```azurecli-interactive
-    # Get the id for VNet1.
-    vnet1Id=$(az network vnet show \
-      --resource-group myResourceGroup \
-      --name myVnet1 \
-      --query id --out tsv)
+   # Create the virtual network (Resource Manager).
+   az network vnet create \
+     --name myVnet1 \
+     --resource-group myResourceGroup \
+     --location eastus \
+     --address-prefix 10.0.0.0/16
+   ```
 
-    # Peer VNet1 to VNet2.
-    az network vnet peering create \
-      --name myVnet1ToMyVnet2 \
-      --resource-group myResourceGroup \
-      --vnet-name myVnet1 \
-      --remote-vnet-id /subscriptions/<subscription id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2 \
-      --allow-vnet-access
-    ```
-7. After the script executes, review the peering for the virtual network (Resource Manager). Copy the following command, paste it in your CLI session, and then press `Enter`:
+5. Create a virtual network peering between the two virtual networks created through the different deployment models using the CLI. Copy the following script to a text editor on your PC. Replace `<subscription id>` with your subscription Id. If you don't know your subscription Id, enter the `az account show` command. The value for **id** in the output is your subscription Id. Paste the modified script in to your CLI session, and then press `Enter`.
 
-    ```azurecli-interactive
-    az network vnet peering list \
-      --resource-group myResourceGroup \
-      --vnet-name myVnet1 \
-      --output table
-    ```
-    
-    The output shows **Connected** in the **PeeringState** column. 
+   ```azurecli-interactive
+   # Get the id for VNet1.
+   vnet1Id=$(az network vnet show \
+     --resource-group myResourceGroup \
+     --name myVnet1 \
+     --query id --out tsv)
 
-    Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server. Learn how to set up [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-8. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
-9. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-cli) in this article.
+   # Peer VNet1 to VNet2.
+   az network vnet peering create \
+     --name myVnet1ToMyVnet2 \
+     --resource-group myResourceGroup \
+     --vnet-name myVnet1 \
+     --remote-vnet-id /subscriptions/<subscription id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2 \
+     --allow-vnet-access
+   ```
+
+6. After the script executes, review the peering for the virtual network (Resource Manager). Copy the following command, paste it in your CLI session, and then press `Enter`:
+
+   ```azurecli-interactive
+   az network vnet peering list \
+     --resource-group myResourceGroup \
+     --vnet-name myVnet1 \
+     --output table
+   ```
+
+   The output shows **Connected** in the **PeeringState** column.
+
+   Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server. Learn how to set up [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+7. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
+8. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-cli) in this article.
 
 ## <a name="powershell"></a>Create peering - PowerShell
 
@@ -210,15 +212,15 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 ### <a name="delete-cli"></a>Azure CLI
 
-1. Use the Azure CLI 2.0 to delete the virtual network (Resource Manager) with the following command:
+1. Use the Azure CLI to delete the virtual network (Resource Manager) with the following command:
 
     ```azurecli-interactive
     az group delete --name myResourceGroup --yes
     ```
 
-2. Use the Azure CLI 1.0 to delete the virtual network (classic) with the following commands:
+2. Use the clasic CLI to delete the virtual network (classic) with the following commands:
 
-    ```azurecli
+    ```azurecli-interactive
     azure config mode asm
 
     azure network vnet delete --vnet myVnet2 --quiet

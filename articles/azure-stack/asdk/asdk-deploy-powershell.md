@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: 
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -87,6 +87,8 @@ Run the following PowerShell commands to deploy the development kit using Azure 
   ```
 
 A few minutes into ASDK installation you will be prompted for Azure AD credentials. You must provide global administrator credentials for your Azure AD tenant. 
+
+After deployment, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily re-instate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
 
 ### Deploy Azure Stack using AD FS 
 To deploy the development kit **using AD FS as the identity provider**, run the following PowerShell commands (you just need to add the -UseADFS parameter): 
