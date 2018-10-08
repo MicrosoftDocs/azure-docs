@@ -14,7 +14,7 @@ ms.author: govindk
 
 ---
 # Automatic online backup and restore with Azure Cosmos DB
-Azure Cosmos DB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your Cosmos DB container and later require data recovery or a disaster recovery solution.  
+Azure Cosmos DB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your Cosmos DB container and later require data recovery.  
 
 This article starts with a quick recap of the data redundancy and availability in Cosmos DB, and then discusses backups. 
 
@@ -69,7 +69,7 @@ The following image illustrates the support request creation for container(colle
 
 ![Restore a container for mistaken update or delete of data in Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-When restore is done for this kind of scenarios - data is restored to another account(with suffix of "-restored") and container. This restore is not done in place to provide a chance to customer to do validation of data and move the data as required. The restored container is in same region with same RUs and indexing policies. 
+When restore is done for this kind of scenarios - data is restored to another account(with suffix of "-restored") and container. This restore is not done in place to provide a chance to customer to do validation of data and move the data as required. The restored container is in same region with same RUs and indexing policies. User who is subscription admin or co-admin can see this restored account.
 
 ## Next steps
 
