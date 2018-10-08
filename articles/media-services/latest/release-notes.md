@@ -33,7 +33,7 @@ The [REST v3 GA release](https://github.com/Azure/azure-rest-api-specs/tree/mast
 
 ### Azure CLI 2.0
  
-Azure CLI 2.0 module for all features including Live, Content Key Policies, Account/Asset Filters, Streaming Policies.
+The Azure CLI 2.0 module for all features including Live, Content Key Policies, Account/Asset Filters, Streaming Policies.
 
 ### Azure Resource Management 
 
@@ -50,15 +50,15 @@ The following improvements were introduced:
 
 ### New Transform object
 
-The new "Transform" object simplifies the Encoding model. The new object makes it easy to create and share encoding Resource Manager templates and presets. 
+The new **Transform** object simplifies the Encoding model. The new object makes it easy to create and share encoding Resource Manager templates and presets. 
 
-### Azure AD Authentication and RBAC
+### Azure Active Directory uthentication and RBAC
 
-Azure AD Authentication and Role-Based Access Control (RBAC) enable secure Transforms, LiveEvents, Content Key Policies, or Assets by Role or Users in Azure Active Directory.
+Azure AD Authentication and Role-Based Access Control (RBAC) enable secure Transforms, LiveEvents, Content Key Policies, or Assets by Role or Users in Azure AD.
 
 ### Client SDKs  
 
-Currently supported languages: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
+Languages supported in Media Servies v3: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
 
 ### Live encoding updates
 
@@ -69,18 +69,16 @@ The following live encoding updates are introduced:
 - RTMPS secure ingest.
 
     When you create a LiveEvent, you now get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS. 
-- 24 hour transcoding support. 
+- 24-hour transcoding support. 
 - Improved ad-signaling support in RTMP via SCTE35.
 
 ### CMAF support
 
 CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players that support CMAF.
 
-### Web VTT Thumbnail Sprites
+### Web VTT thumbnail sprites
 
-You can now use Standard Encoder to generate a Thumbnail Sprite, which is a JPEG file that contains multiple small resolution thumbnails stitched together into a single (large) image, together with a VTT file. This VTT file specifies the time range in the input video that each thumbnail represents, together with the size and coordinates of that thumbnail within the large JPEG file. Video players use the VTT file and sprite image to show a 'visual' seekbar, providing a viewer with visual feedback when scrubbing back and forward along the video timeline.
-
-For more information, see [Generate a Thumbnail Sprite](TODO).
+You can now use Media Services to generate Web VTT thumbnail sprites. For more information, see [Generate a thumbnail sprite](generate-thumbnail-sprite.md).
 
 ### Improved Event Grid support
 

@@ -71,6 +71,8 @@
     href: job-state-events-cli-how-to.md    
   - name: Customize Transform presets - .NET Core
     href: customize-encoder-presets-how-to.md
+  - name: Generate a thumbnail sprite 
+    href: generate-thumbnail-sprite.md
   - name: Upload content 
     items:
     - name: From HTTPS - .NET
