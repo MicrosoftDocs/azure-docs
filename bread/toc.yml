@@ -139,7 +139,7 @@
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
-  - name: Azure portal customizations
+  - name: Azure portal customization
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
   - name: Resource Manager
