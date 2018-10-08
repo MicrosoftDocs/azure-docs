@@ -60,7 +60,7 @@ The fourth code block creates a Pitch Control object using the atlas [PitchContr
 
 The last block of code creates a Style Picker object by using the atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) and adds it to the map using map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. All of the control objects are added within the map **event listener** to ensure that they load after the map loads fully.
 
-The order of the control objects in the script dictates the order in which they appear on the map. To change the order of the controls on the map you can change the order in the script.
+The order of the control objects in the script dictates the order in which they appear on the map. To change the order of the controls on the map, you can change the order in the script.
 
 ## Next steps
 
