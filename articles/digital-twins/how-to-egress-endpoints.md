@@ -24,7 +24,7 @@ Here are the event formats for each of the event types:
 
 - `TopologyOperation`
 
-  Applies to graph changes. The `subject` property will contain the type of object affected. Types of objects that could trigger this event are: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space`,  `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`.
+  Applies to graph changes. The `subject` property specifies the type of object affected. Types of objects that could trigger this event are: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space`,  `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`.
 
   Example:
 
@@ -54,7 +54,7 @@ Here are the event formats for each of the event types:
 
 - `UdfCustom`
 
-  Represents an event sent by a user-defined function (UDF). Note, this event has to be explicitly sent from the UDF itself.
+  An event sent by a user-defined function (UDF). Note, this event has to be explicitly sent from the UDF itself.
 
   Example:
 
@@ -82,7 +82,7 @@ Here are the event formats for each of the event types:
 
 - `SensorChange`
 
-  Represents an update to a sensor's state based on telemetry changes.
+  An update to a sensor's state based on telemetry changes.
 
   Example:
 
@@ -117,7 +117,7 @@ Here are the event formats for each of the event types:
 
 - `SpaceChange`
 
-  Represents an update to a space's state based on telemetry changes.
+  An update to a space's state based on telemetry changes.
 
   Example:
 
@@ -160,7 +160,7 @@ Here are the event formats for each of the event types:
 
 ## Configuring Endpoints
 
-Endpoint management is exercised through the Endpoints API. Here are some examples about how to configure the different supported endpoints. Pay special attention to the event types array as it specifies the routing for the endpoint:
+Endpoint management is exercised through the Endpoints API. Here are some examples about how to configure the different supported endpoints. Pay special attention to the event types array as it defines the routing for the endpoint:
 
 ```plaintext
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
@@ -268,7 +268,7 @@ Whenever the system is in a back-off wait state, updating connections keys throu
 
 ## Unreachable endpoints
 
-When an endpoint becomes unreachable, the system will enter an exponential back off wait of up to 30 minutes where events will be dropped on each retry.
+When an endpoint becomes unreachable, the system will enter an exponential back-off wait time of up to 30 minutes. Events will be dropped on each triggered back-off wait time.
 
 ## Next steps
 
