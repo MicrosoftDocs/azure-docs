@@ -34,13 +34,14 @@ Azure Machine Learning allows you to automate hyperparameter exploration in an e
 
 ## Define search space
 
-Azure Machine Learning service automatically tunes hyperparameters by exploring the range of values defined for each hyperparameter.
+Automatically tune hyperparameters by exploring the range of values defined for each hyperparameter.
 
 ### Types of hyperparameters
 
 Each hyperparameter can either be discrete or continuous.
 
 #### Discrete hyperparameters 
+
 Discrete hyperparameters are specified as a `choice` among discrete values. `choice` can be:
 
 * one or more comma-separated values
@@ -138,7 +139,7 @@ param_sampling = BayesianParameterSampling( {
 
 ## Specify primary metric
 
-When tuning hyperparameters, specify the primary metric that you want the hyperparameter tuning experiment to optimize. Each training run is evaluated for the primary metric. Poorly performing runs (where the primary metric does not meet criteria set by the early termination policy) will be terminated. In addition to the primary metric name, you also specify the goal of the optimization - whether to maximize or minimize the primary metric.
+Specify the primary metric you want the hyperparameter tuning experiment to optimize. Each training run is evaluated for the primary metric. Poorly performing runs (where the primary metric does not meet criteria set by the early termination policy) will be terminated. In addition to the primary metric name, you also specify the goal of the optimization - whether to maximize or minimize the primary metric.
 
 * `primary_metric_name`: The name of the primary metric to optimize. The name of the primary metric needs to exactly match the name of the metric logged by the training script. See [Log metrics for hyperparameter tuning](#log-metrics-for-hyperparameter-tuning).
 * `primary_metric_goal`: It can be either `PrimaryMetricGoal.MAXIMIZE` or `PrimaryMetricGoal.MINIMIZE` and determines whether the primary metric will be maximized or minimized when evaluating the runs. 
@@ -152,7 +153,7 @@ Optimize the runs to maximize "accuracy".  Make sure to log this value in your t
 
 ### Log metrics for hyperparameter tuning
 
-In order to use Azure Machine Learning service for hyperparameter tuning, the training script for your model must log the relevant metrics while the model executes. When you configure the hyperparameter tuning, you specify the primary metric to use for evaluating run performance.  In your  training script, you log this metric. See [Specify a primary metric to optimize](#specify-a-primary-metric-to-optimize).
+The training script for your model must log the relevant metrics during model training. When you configure the hyperparameter tuning, you specify the primary metric to use for evaluating run performance. (See [Specify a primary metric to optimize](#specify-a-primary-metric-to-optimize).)  In your  training script, you must log this metric so it is available to the hyperparameter tuning process.
 
 Log this metric in your training script with the following sample snippet:
 
@@ -166,7 +167,7 @@ The training script calculates the `val_accuracy` and logs it as "accuracy", whi
 
 ## Specify early termination policy
 
-When using Azure Machine Learning service to tune hyperparameters, poorly performing runs are automatically early terminated. Termination reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
+Terminate poorly performing runs automatically with an early termination policy. Termination reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
 
 When using an early termination policy, you can configure the following parameters that control when a policy is applied:
 
@@ -177,7 +178,7 @@ Azure Machine Learning service supports the following Early Termination Policies
 
 ### Bandit policy
 
-Bandit Policy is a termination policy based on slack factor/slack amount and evaluation interval. The policy early terminates any runs where the primary metric is not within the specified slack factor / slack amount with respect to the best performing training run. It takes the following configuration parameters:
+Bandit is a termination policy based on slack factor/slack amount and evaluation interval. The policy early terminates any runs where the primary metric is not within the specified slack factor / slack amount with respect to the best performing training run. It takes the following configuration parameters:
 
 * `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training run. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
 
@@ -195,7 +196,7 @@ In this example, the early termination policy is applied at every interval when 
 
 ### Median stopping policy
 
-Median Stopping Policy is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy takes the following configuration parameters:
+Median stopping is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy takes the following configuration parameters:
 * `evaluation_interval`: the frequency for applying the policy (optional parameter).
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 
@@ -209,7 +210,7 @@ In this example, the early termination policy is applied at every interval start
 
 ### Truncation selection policy
 
-Truncation selection policy cancels a given percentage of lowest performing runs at each evaluation interval. Runs are compared based on their performance on the primary metric and the lowest X% are terminated. It takes the following configuration parameters:
+Truncation selection cancels a given percentage of lowest performing runs at each evaluation interval. Runs are compared based on their performance on the primary metric and the lowest X% are terminated. It takes the following configuration parameters:
 
 * `truncation_percentage`: the percentage of lowest performing runs to terminate at each evaluation interval. Specify an integer value between 1 and 99.
 * `evaluation_interval`: the frequency for applying the policy (optional parameter).
@@ -225,7 +226,7 @@ In this example, the early termination policy is applied at every interval start
 
 ### No termination policy
 
-If you want all training runs to run to completion, use NoTerminationPolicy. This will have the effect of not applying any early termination policy. 
+If you want all training runs to run to completion, use NoTerminationPolicy. This will have the effect of not applying any early termination policy.
 
 ```Python
 from azureml.train.hyperdrive import NoTerminationPolicy
@@ -264,7 +265,7 @@ This code configures the hyperparameter tuning experiment to use a maximum of 20
 
 ## Configure experiment
 
-Configure your hyperparameter tuning experiment using the defined hyperpameter search space, early termination policy, primary metric, and resource allocation from the sections above. Additionally, provide an `estimator` that will be called with the sampled hyperparameters. The `estimator` describes the training script you run, the resources per job (single or multi-gpu), and the compute target to use. Since concurrency for your hyperparameter tuning experiment is gated on the resources available, ensure that the compute target specified in the `estimator` has sufficient resources for your desired concurrency. (For more information on estimators, see [how to train models](how-to-train-ml-models.md).)
+Configure your hyperparameter tuning experiment using the defined hyperparameter search space, early termination policy, primary metric, and resource allocation from the sections above. Additionally, provide an `estimator` that will be called with the sampled hyperparameters. The `estimator` describes the training script you run, the resources per job (single or multi-gpu), and the compute target to use. Since concurrency for your hyperparameter tuning experiment is gated on the resources available, ensure that the compute target specified in the `estimator` has sufficient resources for your desired concurrency. (For more information on estimators, see [how to train models](how-to-train-ml-models.md).)
 
 Configure your hyperparameter tuning experiment:
 
