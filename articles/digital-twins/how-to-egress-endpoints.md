@@ -12,7 +12,7 @@ ms.author: alinast
 
 # Egress and endpoints
 
-Azure Digital Twins supports the concept of _endpoints_ where each endpoint represents a message/event broker that resides in the user's Azure subscription. We have currently enabled events and messages to be sent to Event Hub, Event Grid, and Service Bus Topics.
+Azure Digital Twins supports the concept of _endpoints_ where each endpoint represents a message/event broker that resides in the user's Azure subscription. Events and messages can be sent to **Event Hub**, **Event Grid**, and **Service Bus Topics**.
 
 Events will be sent to the endpoints according to pre-defined routing preferences: the user can specify which endpoint should receive any of the following events:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange`, or `DeviceMessage`.
 
@@ -258,7 +258,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 > [!NOTE]
 > Upon the creation of a new Endpoint, it may take up to 5 to 10 minutes to start receiving events at the endpoint.
 
-## Primary and secondary connection strings/keys
+## Primary and secondary connection keys
 
 When a primary connection key becomes unauthorized, the system automatically tries the secondary connection key. That provides a backup and allows the possibility to gracefully authenticate and update the primary key through the Endpoints API.
 

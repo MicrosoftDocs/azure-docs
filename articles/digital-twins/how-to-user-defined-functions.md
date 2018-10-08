@@ -45,7 +45,7 @@ Valid matcher condition targets:
 - `SensorDevice`
 - `SensorSpace`
 
-The following example matcher will evaluate to true on any sensor telemetry event with 'Temperature' as its data type. You can create multiple matchers on a user-defined function.
+The following example matcher will evaluate to true on any sensor telemetry event with `Temperature` as its data type value. You can create multiple matchers on a user-defined function.
 
 ```text
 POST https://yourManagementApiUrl/api/v1.0/matchers
