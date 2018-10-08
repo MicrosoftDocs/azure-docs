@@ -47,7 +47,7 @@ For more info about this role, see [Data Factory Contributor role](../role-based
 
 The **Data Factory Contributor** role, at the resource group level or above, lets users deploy Resource Manager templates. As a result, members of the role can use Resource Manager templates to deploy both data factories and their child resources, including datasets, linked services, pipelines, triggers, and integration runtimes. Membership in this role does not let the user create other resources, however.
 
-> [!WARNING]
+> [!IMPORTANT]
 > Resource Manager template deployment with the **Data Factory Contributor** role does not elevate your permissions. For example, if you deploy a template that creates an Azure virtual machine, and you don't have permission to create virtual machines, the deployment fails with an authorization error.
 
 ### Custom scenarios and custom roles
