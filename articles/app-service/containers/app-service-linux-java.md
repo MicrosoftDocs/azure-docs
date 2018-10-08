@@ -213,14 +213,18 @@ For shared server-level resources:
 
 4. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. To upload these files to your App Service instance, perform the following steps:  
     1. Install the Azure App Service webpp extension:
+
       ```azurecli-interactive
       az extension add –name webapp
       ```
+
     2. Run the following CLI command to create a SSH tunnel from your local system to App Service:
+
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
-    3. Connect to the local tunneling port with your SFTP client and upload the files to `/home/tomcat/lib`.
+
+    3. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
 
 5. Restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat` and use the updated configuration and classes.
 

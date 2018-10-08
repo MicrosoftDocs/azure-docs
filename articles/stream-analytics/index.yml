@@ -33,15 +33,15 @@ sections:
     - image: 
         src: media/index/stream-analytics.svg
       text: Azure portal
-      href: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal
+      href: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: PowerShell
-      href: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-powershell
+      href: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-powershell
     - image:
        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       text: Visual Studio
-      href: http://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs
+      href: http://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -60,6 +60,8 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: Previews
+      html: <p><a href="stream-analytics-previews#public-previews">Public previews</a></p><p><a href="stream-analytics-previews#private-previews">Private previews</a></p>
     - title: Command-line
       html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/?view=azurermps-6.8.1#stream_analytics">Azure PowerShell</a></p>
     - title: Languages
