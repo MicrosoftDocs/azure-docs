@@ -18777,6 +18777,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-properties-area.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-properties-area",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-editions.md",
             "redirect_url": "/azure/active-directory/active-directory-whatis",
             "redirect_document_id": false
@@ -21060,8 +21065,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-azureadjoin-user-upgrade.md",
-            "redirect_url": "/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup",
+            "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
+            "redirect_url": "/azure/active-directory/user-help/device-management-azuread-joined-devices-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-conditional-access-azure-authenticator-app.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
             "redirect_document_id": false
         },
         {
