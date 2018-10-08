@@ -20,9 +20,9 @@ abstract:
     image:
       alt: 
       height: 110
-      src: media/index/video3.png
+      src: media/index/video4.png
       width: 250  
-    title: <center>Azure Access Control retiring</center>
+    title: Notifications
     href: /azure/active-directory/develop/active-directory-acs-migration
     width: 250
 
