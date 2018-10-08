@@ -71,6 +71,9 @@ The following image illustrates the support request creation for container(colle
 
 When restore is done for this kind of scenarios - data is restored to another account(with suffix of "-restored") and container. This restore is not done in place to provide a chance to customer to do validation of data and move the data as required. The restored container is in same region with same RUs and indexing policies. User who is subscription admin or co-admin can see this restored account.
 
+
+> [!NOTE]
+> If you restore the data for fixing corruption issue or just for testing, please plan to remove them soon as your task is done as restored containers or a database will cost extra - based on provisioned throughput. 
 ## Next steps
 
 To replicate your database in multiple data centers, see [distribute your data globally with Cosmos DB](distribute-data-globally.md). 
