@@ -12,7 +12,7 @@ ms.author: alinast
 
 # Egress and endpoints
 
-Azure Digital Twins supports the concept of _endpoints_ where each endpoint represents a message/event broker that resides in the user's Azure subscription. Events and messages can be sent to **Event Hub**, **Event Grid**, and **Service Bus Topics**.
+Azure Digital Twins supports the concept of _endpoints_ where each endpoint represents a message/event broker in the user's Azure subscription. Events and messages can be sent to **Event Hub**, **Event Grid**, and **Service Bus Topics**.
 
 Events will be sent to the endpoints according to pre-defined routing preferences: the user can specify which endpoint should receive any of the following events:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange`, or `DeviceMessage`.
 
@@ -24,7 +24,7 @@ Here are the event formats for each of the event types:
 
 - `TopologyOperation`
 
-  Applies for graph changes, the `subject` property will contain the type of object affected. Types of objects that could trigger this event are: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space`,  `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`.
+  Applies to graph changes. The `subject` property will contain the type of object affected. Types of objects that could trigger this event are: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space`,  `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`.
 
   Example:
 
