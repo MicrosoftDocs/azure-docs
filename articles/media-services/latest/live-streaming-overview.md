@@ -21,8 +21,8 @@ ms.author: juliako
 When delivering live streaming events with Azure Media Services the following components are commonly involved:
 
 * A camera that is used to broadcast an event.
-* A live video encoder that converts signals from the camera (or another device, like laptop) to streams that are sent to the Media Services live streaming service. The signals may also include advertising SCTE-35 and Ad-cues. 
-* The Media Services live streaming service enables you to ingest, preview, package, record, encrypt, and broadcast the content to your customers, or to a CDN for further distribution.
+* A live video encoder that converts signals from the camera (or another device, like laptop) to streams that are sent to the Lve Streaming service. The signals may also include advertising SCTE-35 and Ad-cues. 
+* The Media Services Live Streaming service enables you to ingest, preview, package, record, encrypt, and broadcast the content to your customers, or to a CDN for further distribution.
 
 This article gives a detailed overview and includes diagrams of major components involved in live streaming with Media Services.
 
