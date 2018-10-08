@@ -33,7 +33,7 @@ There are three performance tiers for storage that you can choose from when crea
 
 ### Standard HDD disks
 
-Standard HDD disks are backed by HDDs, and deliver cost-effective storage. Standard HDD storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
+Standard HDD disks are backed by HDDs, and deliver cost-effective storage. Standard HDD storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, see [Azure Storage replication](../articles/storage/common/storage-redundancy.md).
 
 For more information about using Standard HDD disks, see [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md).
 
