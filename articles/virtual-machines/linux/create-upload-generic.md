@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 10/08/2018
 ms.author: szark
 
 ---
@@ -40,12 +40,12 @@ We recommend that you start with one of the [Linux on Azure Endorsed Distributio
 This article focuses on general guidance for running your Linux distribution on Azure.
 
 ## General Linux Installation Notes
-* The VHDX format isn't supported in Azure, only *fixed VHD*.  You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) cmdlet. If you're using VirtualBox, select **Fixed size** rather than the default (dynamically allocated) when creating the disk.
+* The Hyper-V virtual hard disk (VHDX) format isn't supported in Azure, only *fixed VHD*.  You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) cmdlet. If you're using VirtualBox, select **Fixed size** rather than the default (dynamically allocated) when creating the disk.
 * Azure only supports generation 1 virtual machines. You can convert a generation 1 virtual machine from VHDX to the VHD file format, and from dynamically expanding to a fixed sized disk. You can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 * The maximum size allowed for the VHD is 1,023 GB.
 * When installing the Linux system we recommend that you use standard partitions, rather than Logical Volume Manager (LVM) which is the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk is ever attached to another identical VM for troubleshooting. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks.
 * Kernel support for mounting UDF file systems is necessary. At first boot on Azure the provisioning configuration is passed to the Linux VM by using UDF-formatted media that is attached to the guest. The Azure Linux agent must mount the UDF file system to read its configuration and provision the VM.
-* Linux kernel versions below 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+* Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk, as described in the following steps.
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion, as described in the following steps.
 
@@ -57,18 +57,20 @@ The mechanism for rebuilding the initrd or initramfs image may vary depending on
 1. Back up the existing initrd image:
 
     ```
-    # cd /boot
-    # sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
+    cd /boot
+    sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
     ```
+
 2. Rebuild the initrd with the hv_vmbus and hv_storvsc kernel modules:
+
     ```
-    # sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
+    sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
     ```
 
 ### Resizing VHDs
 VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs created using Hyper-V are aligned correctly.  If the VHD isn't aligned correctly, you may receive an error message similar to the following when you try to create an image from your VHD.
 
-    "The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
+* The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
 
 In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using qemu-img to convert (if needed) and resize the VHD.
 
@@ -77,10 +79,13 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
 > 
 
 1. Resizing the VHD directly using tools such as qemu-img or vbox-manage may result in an unbootable VHD.  We recommend first converting the VHD to a RAW disk image.  If the VM image was created as a RAW disk image (the default for some hypervisors such as KVM), then you may skip this step.
+ 
     ```
-    # qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
+    qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
     ```
-2. Calculate the required size of the disk image so that the virtual size is aligned to 1 MB.  The following bash shell script uses `qemu-img info` to determine the virtual size of the disk image, and then calculates the size to the next 1 MB.
+
+1. Calculate the required size of the disk image so that the virtual size is aligned to 1 MB.  The following bash shell script uses `qemu-img info` to determine the virtual size of the disk image, and then calculates the size to the next 1 MB.
+
     ```bash
     rawdisk="MyLinuxVM.raw"
     vhddisk="MyLinuxVM.vhd"
@@ -93,15 +98,21 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
     
     echo "Rounded Size = $rounded_size"
     ```
+
 3. Resize the raw disk using `$rounded_size` as set above.
+
     ```bash
     qemu-img resize MyLinuxVM.raw $rounded_size
     ```
+
 4. Now, convert the RAW disk back to a fixed-size VHD.
+
     ```bash
     qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
+
    Or, with qemu version 2.6+, include the `force_size` option.
+
     ```bash
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
