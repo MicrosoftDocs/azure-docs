@@ -9,6 +9,22 @@
     href: about-digital-twins.md
   # - name: Smart Spaces in the Azure IoT ecosystem
   #  href: smart-spaces-in-iot.md
+- name: Quickstarts
+  items:
+  - name: View space occupancy
+    href: quickstart-view-occupancy-dotnet.md
+- name: Tutorials
+  items:
+  - name: Monitor facilities with Digital Twins
+    items:
+      - name: Provision a sample building
+        href: tutorial-facilities-setup.md
+      - name: Monitor conditions in your building
+        href: tutorial-facilities-udf.md
+      - name: Receive notifications from your building
+        href: tutorial-facilities-events.md
+      - name: Analyze events from your building
+        href: tutorial-facilities-analyze.md
 - name: Concepts
   items:
   - name: Digital Twins Object Models and Spatial Intelligence Graph
@@ -19,8 +35,8 @@
     href: concepts-user-defined-functions.md 
   - name: Event and Message Routing to Service Endpoints
     href: concepts-events-routing.md 
-  - name: Management API Limitations and Throttles
-    href: concepts-management-api-limits.md 
+  - name: Public preview service limits
+    href: concepts-service-limits.md 
   - name: Security
     items:
     - name: Security best practices
@@ -31,22 +47,16 @@
       href: security-create-manage-role-assignments.md
     - name: Management APIs authentication
       href: security-authenticating-apis.md
-    - name: Device connectivity
-      href: security-device-token.md
-- name: Quickstarts
-  items:
-  - name: View space occupancy
-    href: quickstart-view-occupancy-dotnet.md
-- name: Tutorials
-  items:
-  - name: Facilities app
-    href: tutorial-facilities-app.md
 - name: How-to guides
   items:
   - name: Enable multitenant applications with Azure Digital Twins
     href: how-to-multitenant-applications.md
   - name: Guide for Using User-Defined Functions with Azure Digital Twins
     href: how-to-user-defined-functions.md
+  - name: How to route events and messages via endpoints
+    href: how-to-egress-endpoints.md
+  - name: How to use Azure Digital Twins Swagger
+    href: how-to-use-swagger.md
 #- name: Reference
 #  items:
 - name: Related

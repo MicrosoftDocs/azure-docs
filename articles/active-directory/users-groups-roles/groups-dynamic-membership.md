@@ -137,6 +137,20 @@ If you want to compare the value of a user attribute against a number of differe
    user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
 
+
+### Using the -match operator 
+The **-match** operator is used for matching any regular expression. Examples:
+
+```
+user.displayName -match "Da.*"   
+```
+Da, Dav, David evaluate to true, aDa evaluates to false.
+
+```
+user.displayName -match ".*vid"
+```
+David evaluates to true, Da evaluates to false.
+
 ## Supported values
 
 The values used in an expression can consist of several types, including:

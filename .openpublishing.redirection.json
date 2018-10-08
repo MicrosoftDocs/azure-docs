@@ -10854,6 +10854,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-overview",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/service-bus-messaging/service-bus-java-amqp-overview.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp",
             "redirect_document_id": false
@@ -16313,6 +16318,11 @@
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-integrating-applications.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-add-azure-ad-app",
             "redirect_document_id": true
         },
@@ -27643,6 +27653,11 @@
         {
             "source_path": "articles/application-gateway/application-gateway-web-application-firewall-cli.md",
             "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-web-app-powershell.md",
+            "redirect_url": "/azure/application-gateway/create-web-app",
             "redirect_document_id": false
         },
         {
