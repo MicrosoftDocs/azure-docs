@@ -85,10 +85,6 @@ You can see the following Event Grid support improvements:
 
 CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players that support CMAF.
 
-### Web VTT thumbnail sprites
-
-You can now use Media Services to generate Web VTT thumbnail sprites using our v2 APIs. For more information, see [Generate a thumbnail sprite with AMS v2](../previous/generate-thumbnail-sprite.md).
-
 ### Video Indexer
 
 Video Indexer GA release was announced in August. For new information about currently supported features, see [What is Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
