@@ -87,7 +87,7 @@ CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players
 
 ### Web VTT thumbnail sprites
 
-You can now use Media Services to generate Web VTT thumbnail sprites using our v2 APIs. For more information, see [Generate a thumbnail sprite with AMS v2](generate-thumbnail-sprite.md).
+You can now use Media Services to generate Web VTT thumbnail sprites using our v2 APIs. For more information, see [Generate a thumbnail sprite with AMS v2](../previous/generate-thumbnail-sprite.md).
 
 ### Video Indexer
 
