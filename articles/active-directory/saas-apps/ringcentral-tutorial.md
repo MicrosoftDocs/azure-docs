@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/08/2018
 ms.author: jeedes
 
 ---
@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://service.ringcentral.eu` |
 
 	> [!NOTE]
-	> You will get the **Service Provider metadata file** which is explained later in the tutorial.
+	> You get the **Service Provider metadata file** on the RingCentral SSO Configuration page which is explained later in the tutorial.
 
 6. If you dont have **Service Provider metadata file**, perform the following steps:
 
@@ -187,9 +187,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click **Save**.
 
-	![image](./media/ringcentral-tutorial/ringcentral6.png)
+	e. From **Step 2** click **Download** to download the **Service Provider metadata file** and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal.
 
-	e. From **Step 2** click **Download** to download the **Service Provider metadata file** and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal. 
+	![image](./media/ringcentral-tutorial/ringcentral6.png) 
 
 	f. On the same page, navigate to **Enable SSO** section and perform the following steps:
 
@@ -199,7 +199,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. Select **Allow users to log in with SSO or RingCentral credential**.
 
-13. Click **Save**.
+	c. Click **Save**.
 
 ### Create an Azure AD test user
 
