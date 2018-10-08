@@ -18,7 +18,7 @@ ms.reviewer: johnhas
 # Article intent: As an partner OEM, enable the service to receive and perform tests with validation as service.
 ---
 
-# Tutorial: Set up your Validation as a Service resource
+# Tutorial: Set up your Validation as a Service resources
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -100,8 +100,9 @@ During test execution, VaaS outputs diagnostic logs to an Azure Storage account.
 
 1. To create a storage account, follow the instructions at [Create a storage account](https://docs.microsoft.com/azure/storage/storage-create-storage-account#create-a-storage-account).
 2. When selecting the type of storage account, select the **Blob storage** account type.
-    > [!TIP]
-    > In order to ensure that networking charges are not incurred for storing logs, it is recommended that the Azure Storage account be configured to use only the **US West** region. Data replication and the hot storage tier feature are not necessary for this data. Enabling either feature will dramatically increase partner costs.
+
+> [!TIP]  
+> In order to ensure that networking charges are not incurred for storing logs, it is recommended that the Azure Storage account be configured to use only the **US West** region. Data replication and the hot storage tier feature are not necessary for this data. Enabling either feature will dramatically increase partner costs.
 
 For details on using the storage account for VaaS, see the following articles:
 
@@ -113,4 +114,4 @@ For details on using the storage account for VaaS, see the following articles:
 In this tutorial, you set up the resources your need for Validation as a service for Azure Stack. You configured an Azure AD directory tenant and created an Azure storage account. To continue with Validation as a service, continue to the tutorial on deploying the local agent to run a test on your hardware.
 
 > [!div class="nextstepaction"]
-Deploy the local agent](azure-stack-vaas-local-agent.md).
+> Deploy the local agent](azure-stack-vaas-local-agent.md).
