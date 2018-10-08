@@ -12,7 +12,7 @@
   - name: Create logic apps - Visual Studio
     href: quickstart-create-logic-apps-with-visual-studio.md
   - name: Create logic apps - Visual Studio Code
-    href: create-logic-apps-visual-studio-code.md  
+    href: quickstart-create-logic-apps-visual-studio-code.md  
 - name: Tutorials
   items:
   - name: Check traffic regularly
