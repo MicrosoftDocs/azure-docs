@@ -191,7 +191,7 @@ Can create and manage all aspects of app registrations and enterprise apps.
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Application Developer
-Can create application registrations independent of the �Users can register applications� setting.
+Can create application registrations independent of the "Users can register applications" setting.
 
   > [!NOTE]
   > This role inherits additional permissions from the Directory Readers role.
