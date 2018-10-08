@@ -2949,17 +2949,17 @@
         {
             "source_path": "articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
             "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/logic-apps/logic-apps-what-are-logic-apps.md",
             "redirect_url": "/azure/logic-apps/logic-apps-overview",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/logic-apps/logic-apps-create-a-logic-app.md",
             "redirect_url": "/azure/logic-apps/quickstart-create-first-logic-app-workflow",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/logic-apps/logic-apps-use-logic-app-features.md",
@@ -2969,17 +2969,17 @@
         {
             "source_path": "articles/logic-apps/logic-apps-switch-case.md",
             "redirect_url": "/azure/logic-apps/logic-apps-control-flow-switch-statement",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/logic-apps/logic-apps-loops-and-scopes.md",
             "redirect_url": "/azure/logic-apps/logic-apps-control-flow-loops",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates.md",
             "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/logic-apps/logic-apps-manage-from-vs.md",
@@ -2994,6 +2994,11 @@
         {
             "source_path": "articles/connectors/connectors-create-api-sharepointserver.md",
             "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/create-logic-apps-visual-studio-code.md",
+            "redirect_url": "/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code",
             "redirect_document_id": true
         },
         {
@@ -3141,29 +3146,9 @@
             "redirect_url": "/azure/azure-functions/functions-create-first-azure-function",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/azure-functions/functions-create-cosmos-db-triggered-function.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb-v2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-functions/functions-create-storage-blob-triggered-function.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-storage-blob",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-functions/functions-create-storage-queue-triggered-function.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-storage-queue",
-            "redirect_document_id": false
-        },
-        {
+                {
             "source_path": "articles/azure-functions/functions-how-to-use-sendgrid.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb-v2",
             "redirect_document_id": false
         },
        {
@@ -10853,6 +10838,11 @@
             "redirect_url": "/azure/service-bus-messaging/service-bus-manage-with-ps",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-overview",
+            "redirect_document_id": false
+        },        
         {
             "source_path": "articles/service-bus-messaging/service-bus-java-amqp-overview.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp",

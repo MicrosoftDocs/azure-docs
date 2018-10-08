@@ -25,7 +25,7 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 For serial console documentation for Windows VMs, [click here](../windows/serial-console.md).
 
 > [!Note] 
-> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available in Azure Government or Azure China clouds.
+> Serial Console for virtual machines is generally available in global Azure regions. At this point Serial Console is not yet available in Azure Government or Azure China clouds.
 
 
 ## Prerequisites 
@@ -45,7 +45,7 @@ For serial console documentation for Windows VMs, [click here](../windows/serial
 
 
 ## Get started with Serial Console
-Serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access serial console for virtual machines via portal 
+Serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Ensure that you have met the [prerequisites](#prerequisites) above. Below are the steps to access serial console for virtual machines via portal:
 
   1. Open the Azure portal
   1. (Skip this if your VM has a user that uses password authentication) Add a user with username/password authentication by clicking on the "Reset password" blade
