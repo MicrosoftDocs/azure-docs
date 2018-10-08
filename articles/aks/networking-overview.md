@@ -2,13 +2,12 @@
 title: Network configuration in Azure Kubernetes Service (AKS)
 description: Learn about basic and advanced network configuration in Azure Kubernetes Service (AKS).
 services: container-service
-author: mmacy
-manager: jeconnoc
+author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: marsma
+ms.author: iainfou
 ---
 
 # Network configuration in Azure Kubernetes Service (AKS)
