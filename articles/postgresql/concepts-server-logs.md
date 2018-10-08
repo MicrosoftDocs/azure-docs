@@ -4,35 +4,55 @@ description: This article describes how Azure Database for PostgreSQL generates 
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 02/28/2018
+ms.topic: conceptual
+ms.date: 10/04/2018
 ---
-# Server Logs in Azure Database for PostgreSQL 
-Azure Database for PostgreSQL generates query and error logs. However, access to transaction logs is not supported. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
+# Server logs in Azure Database for PostgreSQL 
+Azure Database for PostgreSQL generates query and error logs. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. (Access to transaction logs is not included). 
 
-## Access server logs
-You can list and download Azure PostgreSQL server error logs using the Azure portal, [Azure CLI](howto-configure-server-logs-using-cli.md), and Azure REST APIs.
+## Configure logging 
+You can configure the logging on your server using the logging server parameters. On each new server **log_checkpoints** and **log_connections** are on by default. There are additional parameters you can adjust to suit your logging needs: 
 
-## Log retention
-You can set the retention period for system logs using the **log\_retention\_period** parameter associated with your server. The unit for this parameter is days. The default value is 3 days. The maximum value is 7 days. Your server must have enough allocated storage to contain the retained log files.
-The log files rotate every one hour or 100 MB size, whichever comes first.
+![Azure Database for PostgreSQL - Logging parameters](./media/concepts-server-logs/log-parameters.png)
 
-## Configure logging for Azure PostgreSQL server
-You can enable query logging and error logging for your server. Error logs can contain auto-vacuum, connection, and checkpoints information.
+For more information on these parameters, see PostgreSQL's [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) documentation. To learn how to configure Azure Database for PostgreSQL parameters, see the [portal documentation](howto-configure-server-parameters-using-portal.md) or the [CLI documentation](howto-configure-server-parameters-using-cli.md).
 
-You can enable query logging for your PostgreSQL DB instance by setting two server parameters: `log_statement` and `log_min_duration_statement`.
+## Access server logs through portal or CLI
+If you've enabled logs, you can access them from the Azure Database for PostgreSQL log storage using the [Azure portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md), and Azure REST APIs. The log files rotate every 1 hour or 100MB size, whichever comes first. You can set the retention period for this log storage using the **log\_retention\_period** parameter associated with your server. The default value is 3 days; the maximum value is 7 days. Your server must have enough allocated storage to hold the log files. (This retention parameter does not govern Azure Diagnostic Logs.)
 
-The **log\_statement** parameter controls which SQL statements are logged. We recommend setting this parameter to ***all*** to log all statements; the default value is none.
 
-The **log\_min\_duration\_statement** parameter sets the limit in milliseconds of a statement to be logged. All SQL statements that run longer than the parameter setting are logged. This parameter is disabled and set to minus 1 (-1) by default. Enabling this parameter can be helpful in tracking down unoptimized queries in your applications.
+## Diagnostic logs
+Azure Database for PostgreSQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled logs on your PostgreSQL server, you can choose to have them emitted to [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how-to section of the [diagnostic logs documentation](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
 
-The **log\_min\_messages** allows you to control which message levels are written to the server log. The default is WARNING. 
 
-For more information on these settings, see [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) documentation. For particularly configuring Azure Database for PostgreSQL server parameters, see [Customize server configuration parameters using Azure CLI](howto-configure-server-parameters-using-cli.md).
+The following table describes what's in each log. Depending on the output endpoint you choose, the fields included and the order in which they appear may vary. 
+
+|**Field** | **Description** |
+|---|---|
+| TenantId | Your tenant ID |
+| SourceSystem | `Azure` |
+| TimeGenerated [UTC] | Time stamp when the log was recorded in UTC |
+| Type | Type of the log. Always `AzureDiagnostics` |
+| SubscriptionId | GUID for the subscription that the server belongs to |
+| ResourceGroup | Name of the resource group the server belongs to |
+| ResourceProvider | Name of the resource provider. Always `MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceType | `Servers` |
+| ResourceId | Resource URI |
+| Resource | Name of the server |
+| Category | `PostgreSQLLogs` |
+| OperationName | `LogEvent` |
+| errorLevel | Logging level, example: LOG, ERROR, NOTICE |
+| Message | Primary log message | 
+| Domain | Server version, example: postgres-10 |
+| Detail | Secondary log message (if applicable) |
+| ColumnName | Name of the column (if applicable) |
+| SchemaName | Name of the schema (if applicable) |
+| DatatypeName | Name of the datatype (if applicable) |
+| LogicalServerName | Name of the server | 
+| _ResourceId | Resource URI |
 
 ## Next steps
-- To access logs using Azure CLI command-line interface, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-using-cli.md).
-- For more information on server parameters, see [Customize server configuration parameters using Azure CLI](howto-configure-server-parameters-using-cli.md).
+- Learn more about accessing logs from the [Azure portal](howto-configure-server-logs-in-portal.md) or [Azure CLI](howto-configure-server-logs-using-cli.md).
+- Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).

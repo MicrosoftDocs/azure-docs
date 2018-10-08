@@ -23,10 +23,18 @@
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
     items:
+    - name: Azure Cosmos DB
+      href: functions-create-cosmos-db-triggered-function.md
+    - name: Blob storage
+      href: functions-create-storage-blob-triggered-function.md
+    - name: Queue storage
+      href: functions-create-storage-queue-triggered-function.md
     - name: Timer
       href: functions-create-scheduled-function.md
   - name: Integrate
     items:
+    - name: Azure Cosmos DB
+      href: functions-integrate-store-unstructured-data-cosmosdb.md
     - name: Storage
       href: functions-integrate-storage-queue-output-binding.md
 - name: Tutorials
