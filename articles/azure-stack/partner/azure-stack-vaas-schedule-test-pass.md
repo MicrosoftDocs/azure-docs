@@ -43,7 +43,7 @@ Before you follow this quickstart, you should complete the following items:
 2. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
 3. Select **Start** on the **Test Passes** tile.
 
-## Provide hardware and test parameters
+## Add parameters
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
