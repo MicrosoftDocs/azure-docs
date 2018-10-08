@@ -11,7 +11,8 @@ manager: mbaldwin
 ms.date: 10/03/2018
 ---
 # Azure Key Vault Storage Account Keys
-Azure Key Vault Storage Account Keys
+
+[!NOTE] [Azure storage now supports AAD authorization](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad). We recommend using Azure AD auth to talk to Storage as users wouldn't have to worry about rotating their Storage Account keys. 
 
 - Azure Key Vault manages keys of an Azure Storage Account (ASA).
     - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.    
@@ -51,8 +52,9 @@ Step by step instructions
 5. Create a Key Vault Managed Storage Account.     <br /><br />
    Below command asks Key Vault to regenerate the key every 90 days.
    Below command asks Key Vault to regenerate your storage's access keys periodically, with a regeneration period. Below, we are setting a regeneration period of 30 days. After 30 days, Key Vault will regenerate 'key1' and swap the active key from 'key2' to 'key1'.
+   ### Key regeneration
     ```
-    az keyvault storage add --vault-name PrashanthOfficial -n <StorageAccountName> --active-key-name key2 --auto-generate-key --regeneration-period P30D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-generate-key --regeneration-period P30D --resource-id <Resource-id-of-storage-account>
     ```
     In case the user didn't create the storage account and does not have permissions to the storage account, the steps below set the permissions for your account to ensure that you can manage all the storage permissions in the Key Vault.
     [!NOTE] In the case that the user does not permissions to the storage account 
@@ -61,7 +63,7 @@ Step by step instructions
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name PrashanthOfficial --object-id 4dkjhkjhkj --storage-permissions backup delete list regeneratekey recover purge restore set setsas update
+    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover purge restore set setsas update
     ```
 
 ### Relevant Powershell cmdlets
