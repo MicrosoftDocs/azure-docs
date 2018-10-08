@@ -54,13 +54,13 @@ The following improvements were introduced:
 
 The new **Transform** object simplifies the Encoding model. The new object makes it easy to create and share encoding Resource Manager templates and presets. 
 
-#### Azure Active Directory uthentication and RBAC
+#### Azure Active Directory authentication and RBAC
 
 Azure AD Authentication and Role-Based Access Control (RBAC) enable secure Transforms, LiveEvents, Content Key Policies, or Assets by Role or Users in Azure AD.
 
 #### Client SDKs  
 
-Languages supported in Media Servies v3: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
+Languages supported in Media Services v3: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
 
 #### Live encoding updates
 
