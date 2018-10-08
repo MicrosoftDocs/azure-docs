@@ -24,8 +24,6 @@ ms.date: 10/08/2018
 
 Currently, the time it takes the SQL database engine (SQL Server and Azure SQL Database) to recover from an unexpected restart is (roughly) proportional to the size of the longest active transaction in the system at the time of the crash. Recovery requires a rollback of all incomplete transactions. The length of time required is proportional to the work that the transaction has performed and the time it has been active. Therefore, the SQL Server recovery process can take a long time in the presence of long running transactions (such as large bulk insert operations or index build operations against a large table).
 
-Currently, in SQL Server the time it takes for rollback of a large transaction to complete (E.g cancelling a DML statement against a large table that has been running for multiple hours) is 
-
 In addition, the SQL database engine cannot truncate the transaction log in the presence of long running transactions because their corresponding log records are needed for the recovery and rollback processes. As a result of this design of the SQL database engine, some customers face the problem that the the size of the transaction log grows very large and consumes huge amounts of log space.
 
 ## The Accelerated Database Recovery (ADR) process
