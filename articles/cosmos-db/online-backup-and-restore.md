@@ -63,7 +63,7 @@ If you need to restore your database because of data corruption issue (includes 
 
 Azure Cosmos DB retains the last two backups of every partition in the database account. This model works well when a container (collection of documents, graph, table) or a database is accidentally deleted since one of the last versions can be restored. However, in the case when users may introduce a data corruption issue, Azure Cosmos DB may be unaware of the data corruption, and it is possible that the corruption may have overwritten the existing backups. 
 
-As soon as corruption is detected, reach out to customer support with database account and container information with approximate time of corruption. Another action the user can do in case of corrupted(data deletion/updation) the user should delete the corrupted container (collection/graph/table) so that backups are protected from being overwritten with corrupted data.  
+As soon as corruption is detected, the user should delete the corrupted container (collection/graph/table) so that backups are protected from being overwritten with corrupted data. And most importantly reach out to Microsoft Support and raise a ticket with specific request of Severity 2. 
 
 The following image illustrates the support request creation for container(collection/graph/table) restore via Azure portal for accidental deletion or updating of data within a container
 
