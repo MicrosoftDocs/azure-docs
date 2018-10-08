@@ -22,13 +22,6 @@ ms.custom: mvc
 
 # What is Azure Media Services v3?
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Version 2 - GA](../previous/media-services-overview.md)
-> * [Version 3 - Preview](media-services-overview.md)
-
-> [!NOTE]
-> The latest version of Azure Media Services is in Preview and may be referred to as v3.
-
 Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you are an application developer, a call center, a government agency, an entertainment company, Media Services helps you create applications that deliver media experiences of outstanding quality to large audiences on today’s most popular mobile devices and browsers. 
 
 ## What can I do with Media Services?

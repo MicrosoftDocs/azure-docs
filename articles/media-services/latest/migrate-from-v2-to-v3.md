@@ -20,9 +20,6 @@ ms.author: juliako
 
 # Migrate from Media Services v2 to v3
 
-> [!NOTE]
-> The latest version of Azure Media Services is in Preview and may be referred to as v3.
-
 This article describes changes that were introduced in Azure Media Services (AMS) v3 and shows differences between two versions.
 
 ## Why should you move to v3?

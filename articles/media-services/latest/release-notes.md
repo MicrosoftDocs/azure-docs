@@ -15,7 +15,7 @@ ms.date: 09/25/2018
 ms.author: juliako
 ---
 
-# Azure Media Services v3 (preview) release notes 
+# Azure Media Services v3 release notes 
 
 To stay up-to-date with the most recent developments, this article provides you with information about:
 

@@ -18,9 +18,6 @@ ms.author: juliako
 
 # Quickstart: Create an Azure Media Services account
 
-> [!NOTE]
-> The latest version of Azure Media Services (2018-03-30) is in preview. This version is also called v3. 
-
 Whether you are a developer or a media content creator, to store, encrypt, encode, manage, and stream media content in Azure, you need to create a Media Services account. When creating a Media Services account, you need to supply the ID of an Azure Storage account resource. The specified storage account is attached to your Media Services account. This storage account resource has to be located in the same geographic region as the Media Services account.  
 
 This quickstart describes steps for creating a new Azure Media Services account using the Azure CLI.  
