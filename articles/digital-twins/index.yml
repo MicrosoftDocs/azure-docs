@@ -12,13 +12,13 @@ metadata:
   ms.date: 10/15/2018
   ms.author: dkshir
 abstract:
-  description: Learn how to use Azure Digital Twins to connect people, places and things together and build IoT solutions with spatial intelligence. Walk through the Quickstart and Tutorials to monitor an imaginary smart building, then learn in-depth concepts, and create your next generation IoT solution that models your physical environment.
+  description: Learn how to use Azure Digital Twins to connect people, places, and things, and build IoT solutions with spatial intelligence. Walk through the Quickstart and Tutorials to monitor an imaginary smart building, learn in-depth concepts, and create next generation IoT solution that models your physical environment.
 sections:
 - title: 5-Minute Quickstarts
   items:
   items:
   - type: paragraph
-    text: Learn how to <a href="quickstart-view-occupancy-dotnet">find available rooms with good air quality using Azure Digital Twins .NET samples</a>.
+    text: Learn how to <a href="quickstart-view-occupancy-dotnet">find available rooms with good air quality by using Azure Digital Twins .NET samples</a>.
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
