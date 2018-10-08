@@ -5,7 +5,7 @@ services: cognitive-services
 author: mahilleb-msft
 
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: mahilleb
