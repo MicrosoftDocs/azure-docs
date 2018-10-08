@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Route web traffic based on the URL - Azure CLI
-description: Learn how to route web traffic based on the URL to specific scalable pools of servers using the Azure CLI.
+description: In this tutorial, learn how to route web traffic based on the URL to specific scalable pools of servers using the Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -259,13 +259,6 @@ az group delete --name myResourceGroupAG --location eastus
 ```
 
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create listeners, URL path map, and rules
-> * Create scalable backend pools
 
 > [!div class="nextstepaction"]
 > [Create an application gateway with URL path-based redirection](./tutorial-url-redirect-cli.md)
