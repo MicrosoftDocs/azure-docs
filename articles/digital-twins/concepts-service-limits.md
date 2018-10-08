@@ -14,13 +14,15 @@ ms.author: dwalthermsft
 
 During Public Preview, Azure Digital Twins will have subscription, instance, and rate limits as described below.  
 
-These limits will be increased and/or removed by General Availability (GA).
+> [!NOTE]
+> These limits will be increased and/or removed by General Availability (GA).
 
 ## Per-Subscription limits
 
 During Public Preview, each Azure Subscription can create exactly one Azure Digital Twins instance.
 
-Should you need to delete your instance, you can create a new one.
+> [!TIP]
+> Deleting your instance will allow you to create a new one.
 
 ## Per-Instance limits
 
@@ -32,6 +34,8 @@ Each Azure Digital Twins instance can have:
 
 ## Management API limits
 
+The request rate limits for your Management API are:
+
 - 100 requests per second to Management API
 - A single Management API query can return up to 1000 objects
 
@@ -40,7 +44,7 @@ Each Azure Digital Twins instance can have:
 
 ## UDF Rate limits
 
-The following limits apply in aggregate to all of the user-defined functions running within your Azure Digital Twins instance:
+The following limits cap the total number of all user-defined function calls made within your Azure Digital Twins instance:
 
 - 400 client library calls per second
 - 100 SendNotification calls per second
@@ -53,7 +57,7 @@ The following limits apply in aggregate to all of the user-defined functions run
 
 ## Device Telemetry limits
 
-In aggregate, your devices may send up to 100 messages per second to your Azure Digital Twins instance.
+Your devices together may send up to 100 messages per second to your Azure Digital Twins instance.
 
 ## Next steps
 

@@ -12,7 +12,7 @@ ms.author: alinast
 
 # Device Connectivity and Telemetry Ingress
 
-The telemetry data sent by devices and sensors form the backbone of any IoT Solution. As such, representing these disparate resources and managing them within the context of a location is paramount to IoT app development. Azure Digital Twins simplifies developing IoT solutions by uniting devices and sensors with a digitized spatial graph.
+The telemetry data sent by devices and sensors form the backbone of any IoT Solution. As such, representing these disparate resources and managing them within the context of a location is a chief concern in IoT app development. Azure Digital Twins simplifies developing IoT solutions by uniting devices and sensors with a digitized spatial graph.
 
 To get started, an `IoTHub` resource should be created at the root of the spatial graph, allowing all devices beneath the root space to send messages. Once the IoT Hub has been created, and devices with sensors have been registered within the Digital Twins instance, the devices can start sending data to a Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
 
