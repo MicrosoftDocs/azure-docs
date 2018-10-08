@@ -40,7 +40,7 @@ Newer metrics for Azure resources are available as:
 
 ## Retirement of Classic monitoring and alerting platform
 
-As stated earlier, the classic monitoring and alerting platform currently usable from the [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal will be retired in 12 months given they have been replaced by the newer system.
+As stated earlier, the classic monitoring and alerting platform currently usable from the [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal will be retired in coming months given they have been replaced by the newer system.
 Older classic monitoring and alerting will be retired on 30 June 2019; including the closure of related APIs, Azure portal interface, and Services in it. Specifically, these features will be deprecated:
 
 - Older (classic) metrics and alerts for Azure resources as currently available via [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal; accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/en-us/rest/api/monitor/alertrules) resource
