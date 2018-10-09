@@ -83,15 +83,15 @@ If you have a proxy or firewall that is blocking anonymous traffic, as a Windows
 
 To generate a benign Windows Defender ATP test alert:
 
-1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM.  Open a Command prompt window.
+1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM.  Open a Command Prompt window.
 
-2. At the prompt, copy and run the following command. The Command prompt window will close automatically.
+2. At the prompt, copy and run the following command. The Command Prompt window will close automatically.
 
     ```
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
     ```
 
-   ![A command prompt window with the command above](media/security-center-wdatp/image4.jpeg)
+   ![A Command Prompt window with the command above](media/security-center-wdatp/image4.jpeg)
 
 3. If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Windows Defender ATP portal. This alert might take a few minutes to appear.
 
