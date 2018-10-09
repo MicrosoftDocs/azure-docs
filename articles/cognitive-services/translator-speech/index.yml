@@ -21,6 +21,8 @@ sections:
   items:
   - type: paragraph
     text: 'Get started using the Translator Speech API by making a translation request and viewing the response:'
+  - type: paragraph
+    text: '[!INCLUDE [Deprecation note](../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]' 
   - type: table
     style: dataMatrix
     columns:
