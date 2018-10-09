@@ -24,7 +24,7 @@ You can use the Data Factory UI in the Azure Portal or a programming interface t
 
 ## Supported data stores
 
-At this time, linked service parameterization is supported in Data Factory UI in the Azure portal for the following data stores. For all other data stores, you can parameterize the linked service by selecting the **Code** icon on the pipeline tab and using the JSON editor.
+At this time, linked service parameterization is supported in the Data Factory UI in the Azure portal for the following data stores. For all other data stores, you can parameterize the linked service by selecting the **Code** icon on the pipeline tab and using the JSON editor.
 - Azure SQL Database
 - Azure SQL Data Warehouse
 - SQL Server
