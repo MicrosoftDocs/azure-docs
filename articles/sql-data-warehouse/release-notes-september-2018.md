@@ -8,14 +8,14 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 10/08/2018
-ms.author: twounder
+ms.author: mausher
 ms.reviewer: twounder
 ---
 
 # What's new in Azure SQL Data Warehouse? September 2018
 Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in September 2018.
 
-## New Lower Entry Point for Gen2
+## New lower entry point for SQL Data Warehouse Gen2
 In April 2018, [Microsoft annouced](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 that offers 5x the performance, 5x the compute scale, 4x the concurrency, and unlimited storage. As noted in the [Data Warehouse in the cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) by Gigaom, SQL Data Warehouse Gen2 **outperforms Amazon Redshift by 42%**.
 
 Gen2 is now generally available at a lower entry point of DWU500c allowing you to run a smaller sized data warehouse or dev/test environments with all of the latest service improvements. The new entry point retains all of the Gen2 features including [Adaptive Caching](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [Lighting Fast Data Shuffling](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), and support for [real-time data warehouse](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
@@ -30,12 +30,12 @@ Azure SQL Data Warehouse Maintenance Scheduling is now in preview. This new feat
 
 Maintenance Scheduling takes advantage of the Azure Monitor and allows customers to determine how they wish to be notified of impending maintenance events and which automated flows should be triggered to manage downtime and minimize the impact to their operations. The notifications can include an email or text. 
 
-## Wide Row support in Polybase
+## Wide row support in Polybase
 When loading data into SQL Data Warehouse, the general guidance is to use [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading#options-for-loading-with-polybase) with is support for parallel data loading. This release enables support for wider columns from 32K to 1MB - allowing you to load tables with wide row size. The support for wide rows simplifies the data loading process for tables with wide rows.
 
 **Note:** Total row size cannot exceed 1MB in size.
 
-## Additional Language Support
+## Additional language support
 This release introduces support for the following T-SQL language elements:
 
 ### STRING_SPLIT
