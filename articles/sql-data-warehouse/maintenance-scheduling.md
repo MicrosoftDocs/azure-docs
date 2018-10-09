@@ -1,6 +1,6 @@
 ---
-title: Azure Maintenance schedules (Preview) | Microsoft Docs
-description: Maintenance scheduling allows customers to plan around the necessary scheduled maintenance events the Azure SQL Data warehouse service uses to roll out new features, upgrades and patches.  
+title: Azure maintenance schedules (preview) | Microsoft Docs
+description: Maintenance scheduling enables customers to plan around the necessary scheduled maintenance events that the Azure SQL Data Warehouse service uses to roll out new features, upgrades, and patches.  
 services: sql-data-warehouse
 author: antvgski
 manager: craigg
@@ -12,9 +12,9 @@ ms.author: anvang
 ms.reviewer: igorstan
 ---
 
-# Using maintenance schedules to manage service updates and maintenance
+# Use maintenance schedules to manage service updates and maintenance
 
-Azure SQL Data Warehouse Maintenance Scheduling is now in preview. This new feature seamlessly integrates the Service Health Planned Maintenance Notifications, Resource Health Check Monitor, and the Azure SQL Data Warehouse maintenance scheduling service.
+Azure SQL Data Warehouse maintenance scheduling is now in preview. This feature seamlessly integrates the Service Health Planned Maintenance Notifications, Resource Health Check Monitor, and the Azure SQL Data Warehouse maintenance scheduling service.
 
 Maintenance scheduling lets you schedule a time window when it is convenient to receive new features, upgrades, and patches. Customers will select a Primary and a Secondary maintenance window within a 7-day period, i.e. Saturday 22:00 – Sunday 01:00 (Primary) and Wednesday 19:00 – 22:00 (Secondary). If we are unable to perform maintenance during your Primary maintenance window, we will attempt it again during your Secondary maintenance window.
 
