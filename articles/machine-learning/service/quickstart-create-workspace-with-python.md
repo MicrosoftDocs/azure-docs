@@ -83,7 +83,7 @@ Find a value for `<azure-subscription-id>` in the [subscriptions list in the Azu
 
 ```python
 ws = Workspace.create(name='myworkspace',
-                      subscription_id='<azure-subscription-id>'
+                      subscription_id='<azure-subscription-id>',
                       resource_group='myresourcegroup',
                       create_resource_group=True,
                       location='eastus2' # or other supported Azure region
@@ -186,3 +186,5 @@ After installing these packages, follow the tutorials to train and deploy a mode
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md)
+
+You can also explore [more advanced examples on GitHub](https://aka.ms/aml-notebooks).

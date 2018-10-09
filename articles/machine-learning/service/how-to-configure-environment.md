@@ -113,6 +113,11 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
     pip install --upgrade azureml-sdk[notebooks,automl]
     ```
 
+    > [!NOTE]
+    > If you receive a message that `PyYAML` cannot be uninstalled, use the following command instead:
+    > 
+    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+
     It can take several minutes to install the SDK.
 
 4. To install packages for your machine learning experimentation, use the following command and replace `<new package>` with the package you want to install:
@@ -178,7 +183,7 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
     conda install <new package>
     ```
 
-6. Launch Visual Studio Code, and then use __CTRL-SHIFT-P__ to get the __Command Palette__. Enter *Python: Select Interpreter*, and select the conda environment you created.
+6. Launch Visual Studio Code, and then use __CTRL-SHIFT-P__ for Windows or __COMMAND-SHIFT-P__ for Mac to get the __Command Palette__. Enter *Python: Select Interpreter*, and select the conda environment you created.
 
     > [!NOTE]
     > Visual Studio Code is automatically aware of conda environments on your computer. For more information, see [Visual Studio code documentation](https://code.visualstudio.com/docs/python/environments#_conda-environments).

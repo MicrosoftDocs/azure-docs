@@ -55,7 +55,7 @@ In this quickstart, you'll learn how an ASP.NET web app can sign in personal acc
 
 #### Step 3: Configure your Visual Studio project
 
-1. Extract the zip file to a local folder (for example, **C:\Azure-Samples**)
+1. Extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
 1. Open the solution in Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. Edit **Web.config** and replace `Enter_the_Application_Id_here` with the Application ID from the application you just registered:
 
