@@ -155,6 +155,23 @@ In the utterance `Book 2 tickets from Seattle to Cairo`, Seattle is the origin l
 
     See [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) to learn more about extracting the hierarchical entity from the endpoint JSON query response. Try the hierarchical entity [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more about how to use a hierarchical entity.
 
+## Entity status predictions
+
+When you enter a new utterance in the LUIS portal, the utterance may have entity prediction errors. The prediction error is a difference between how an entity is labeled compared with how LUIS has predicted the entity. 
+
+This difference is visually represented in the LUIS portal with a red underline in the utterance. Right click on the entity. The entity box displays the **Entity status** with a red exclamation mark if there is a prediction discrepancy. To see the Entity status with information about the difference between labeled and predicted entities, select the entity status.
+
+![Screenshot of Entity status prediction discrepancy](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+The difference can be any of the following: 
+
+|Entity|Prediction|Solution|
+|--|--|--|
+|Unlabeled text|Correct prediction|Label the entity with the predicted value.|
+|Unlabeled text|Incorrect prediction|The current utterances using this incorrect entity need to be reviewed across all intents. The current utterances have mistaught LUIS that this text is the predicted entity.
+|Correctly labeled text|Incorrect prediction|Provide more utterances with the correctly labeled entity in a variety of places and usages in the utterance. |
+|Incorrectly labeled text|Correct prediction| Provide more utterances with the correctly labeled entity in a variety of places and usages in the utterance. 
+
 
 ## Remove entity labels from utterances
 You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 

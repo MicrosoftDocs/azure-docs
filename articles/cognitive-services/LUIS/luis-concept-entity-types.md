@@ -55,6 +55,10 @@ In the utterance "Book me a ticket to Paris", "Paris" is an entity of type locat
 ## Assign entities in None intent
 All intents, including the **None** intent, should have entities labeled. This helps LUIS learn more about where the entities are in the utterances and what words are around the entities. 
 
+## Entity status for predictions
+
+See [Entity Status predictions](luis-how-to-add-utterances.md#entity-status-predictions) for more information. 
+
 ## Types of entities
 LUIS offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
 
