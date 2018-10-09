@@ -27,4 +27,4 @@ If you don't plan to use the resources you created here, delete them so you don'
 
 1. Enter the resource group name, and then select **Delete**.
 
-   If you see the error message "Can not delete resource before nested resources are deleted," you must delete any nested resources first. For information on how to delete nested resources, see [this troubleshooting section](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 
+   If you see the error message "Cannot delete resource before nested resources are deleted," you must delete any nested resources first. For information on how to delete nested resources, see [this troubleshooting section](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 

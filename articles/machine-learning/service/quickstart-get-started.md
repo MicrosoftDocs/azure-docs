@@ -65,11 +65,11 @@ After you sign in, a new tab opens and a `Clone Library` prompt appears. Select 
 
 ### Run the notebook
 
-Along with two notebooks, you see a `config.json` file. This config file contains information about the workspace you just created.  
+Along with two notebooks, you see a `config.json` file. This config file contains information about the workspace you created.  
 
 Select `01.run-experiment.ipynb` to open the notebook.
 
-To run the cells one at a time, use `Shift`+`Enter`. Or select `Cells` > `Run All` to run the entire notebook. When you see an asterisk [*] next to a cell, it's running. When the code for that cell finishes, a number appears.
+To run the cells one at a time, use `Shift`+`Enter`. Or select `Cells` > `Run All` to run the entire notebook. When you see an asterisk [*] next to a cell, it's running. After the code for that cell finishes, a number appears.
 
 You might be prompted to sign in. Copy the code in the message. Then select the link, and paste the code into the new window. Be sure not to copy a space before or after the code. Sign in with the same account you used in the Azure portal.
 
