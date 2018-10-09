@@ -50,12 +50,12 @@ The gateway subnet contains the reserved IP addresses that the virtual network g
 2. On your virtual network page, click **Subnets** to expand **VNet1 - Subnets** page.
 3. Click **+Gateway subnet** at the top to open the **Add subnet** page.
 
-  ![Add the gateway subnet](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Add the gateway subnet")
+  ![Add the gateway subnet](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Add the gateway subnet")
 4. The **Name** for your subnet is automatically filled in with the required value 'GatewaySubnet'. Adjust the auto-filled **Address range** values to match the following values:
 
   **Address range (CIDR block)**: 10.1.255.0/27
 
-  ![Adding the gateway subnet](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Adding the gateway subnet")
+  ![Adding the gateway subnet](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Adding the gateway subnet")
 5. To create the gateway subnet, click **OK** at the bottom of the page.
 
 ## <a name="gwvalues"></a>Configure gateway settings

@@ -62,15 +62,25 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 >Public peering has been disabled on new ExpressRoute circuits. Azure services are available on Microsoft peering.
 >
 
+* Power BI
+* Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
+* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
+  The following services are NOT supported:
+    * CDN
+    * Azure DevOps Services Load Testing
+    * Multi-factor Authentication
+    * Traffic Manager
+
 ### Microsoft peering
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Visual Studio Team Services Load Testing
+* Azure DevOps Services Load Testing
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>The following services are **not supported**:
     * CDN
+    * Azure DevOps Services Load Testing
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -333,3 +343,11 @@ Your existing circuit will continue advertising the prefixes for Office 365 and 
 * Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through Microsoft peering, even if route filters are not defined.
 
 * Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. You will see no prefixes by default.
+
+## <a name="expressRouteDirect"></a>ExpressRoute Direct (Preview)
+
+[!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Global Reach (Preview)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

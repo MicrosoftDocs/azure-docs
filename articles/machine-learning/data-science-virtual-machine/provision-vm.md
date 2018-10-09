@@ -36,7 +36,7 @@ The Microsoft Data Science Virtual Machine (DSVM) is a Windows Azure virtual mac
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Visual data mining and machine learning software in Java.
   * [Apache Drill](https://drill.apache.org/). A schema-free SQL query engine for Apache Hadoop, NoSQL, and cloud storage.  It supports ODBC and JDBC interfaces for querying NoSQL and files from standard BI tools like Power BI, Microsoft Excel, and Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services.
-* Git, including Git Bash, to work with source code repositories that include GitHub and Visual Studio Team Services. Git provides several popular Linux command-line utilities that are accessible both on Git Bash and a command prompt. Examples are awk, sed, perl, grep, find, wget, and curl.
+* Git, including Git Bash, to work with source code repositories that include GitHub and Azure DevOps. Git provides several popular Linux command-line utilities that are accessible both on Git Bash and a command prompt. Examples are awk, sed, perl, grep, find, wget, and curl.
 
 Data science involves iterating on a sequence of tasks:
 
@@ -122,7 +122,7 @@ For development by using Python, Anaconda Python distributions 2.7 and 3.6 have 
 > 
 > 
 
-Anaconda Python 3.6 is installed under **C:\Anaconda**. Anaconda Python 2.7 is installed under **c:\Anaconda\envs\python2**. For detailed steps, see [PTVS documentation](/visualstudio/python/installing-python-interpreters.md). 
+Anaconda Python 3.6 is installed under **C:\Anaconda**. Anaconda Python 2.7 is installed under **c:\Anaconda\envs\python2**. For detailed steps, see [PTVS documentation](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters). 
 
 ### The Jupyter Notebook
 Anaconda distribution also comes with the Jupyter Notebook, an environment to share code and analysis. The Jupyter Notebook server is preconfigured with Python 2.7, Python 3.x, PySpark, Julia, and R kernels. To start the Jupyter server and launch the browser to access the notebook server, there's a desktop icon called **Jupyter Notebook**. 

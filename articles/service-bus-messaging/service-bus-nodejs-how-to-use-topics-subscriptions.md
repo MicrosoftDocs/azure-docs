@@ -3,7 +3,7 @@ title: How to use Azure Service Bus topics and subscriptions with Node.js | Micr
 description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2017
-ms.author: sethm
+ms.date: 08/10/2018
+ms.author: spelluru
 
 ---
 # How to Use Service Bus topics and subscriptions with Node.js
@@ -105,7 +105,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-The `createServiceBusService` method also supports additional options, which
+The `createTopicIfNotExists` method also supports additional options, which
 enable you to override default topic settings such as message time to
 live or maximum topic size. 
 
@@ -272,7 +272,7 @@ var rule={
 }
 ```
 
-When a message is now sent to `MyTopic`, it will be delivered to
+When a message is now sent to `MyTopic`, it is delivered to
 receivers subscribed to the `AllMessages` topic subscription, and
 selectively delivered to receivers subscribed to the `HighMessages` and
 `LowMessages` topic subscriptions (depending upon the message content).
@@ -285,8 +285,7 @@ Messages sent to Service Bus topics are **BrokeredMessage** objects.
 `Label` and `TimeToLive`), a dictionary that is used to hold custom
 application-specific properties, and a body of string data. An
 application can set the body of the message by passing a string value to
-the `sendTopicMessage` and any required standard properties will be
-populated by default values.
+the `sendTopicMessage` and any required standard properties are populated by default values.
 
 The following example demonstrates how to send five test messages to
 `MyTopic`. The `messagenumber` property value of each
@@ -331,9 +330,9 @@ receive operation is the simplest model, and works best for scenarios in
 which an application can tolerate not processing a message in the event
 of a failure. To understand this behavior, consider a scenario in which the
 consumer issues the receive request and then crashes before processing
-it. Because Service Bus will have marked the message as being consumed,
+it. Because Service Bus has marked the message as being consumed,
 then when the application restarts and begins consuming messages again,
-it will have missed the message that was consumed prior to the crash.
+it has missed the message that was consumed prior to the crash.
 
 If the `isPeekLock` parameter is set to **true**, the receive becomes
 a two-stage operation, which makes it possible to support applications

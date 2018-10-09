@@ -23,7 +23,7 @@ Which API are you going to use with Azure Cosmos DB?
 * **[SQL API](documentdb-introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data.
 * **[Table API](table-introduction.md)** - You can use the Data Migration tool or AzCopy to import data. See [Import data for use with the Azure Cosmos DB Table API](table-import.md) for more information.
 * **[MongoDB API](mongodb-introduction.md)** - The Data Migration tool does not currently support Azure Cosmos DB MongoDB API either as a source or as a target. If you want to migrate the data in or out of MongoDB API collections in Azure Cosmos DB, refer to [Azure Cosmos DB: How to migrate data for the MongoDB API](mongodb-migrate.md) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB SQL API collections for use with the SQL API. 
-* **[Graph API](graph-introduction.md)** - The Data Migration tool is not a supported import tool for Graph API accounts at this time. 
+* **[Gremlin API](graph-introduction.md)** - The Data Migration tool is not a supported import tool for Gremlin API accounts at this time. 
 
 This tutorial covers the following tasks:
 
@@ -37,7 +37,9 @@ Before following the instructions in this article, ensure that you have the foll
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) or higher.
 
-* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+* **Increase throughput:** The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+
+* **Create Azure Cosmos DB resources:** Before you start the migrating data, pre-create all your collections from the Azure portal. If you are migrating to an Azure Cosmos DB account that has database level throughput, make sure to provide a partition key when creating the Azure Cosmos DB collections.
 
 ## <a id="Overviewl"></a>Overview
 The Data Migration tool is an open-source solution that imports data to Azure Cosmos DB from a variety of sources, including:
@@ -166,7 +168,7 @@ Which returns the following (partial) results:
 
 ![Screenshot of SQL query results](./media/import-data/sqlqueryresults.png)
 
-Note the aliases such as Address.AddressType and Address.Location.StateProvinceName. By specifying a nesting separator of ‘.’, the import tool creates Address and Address.Location subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
+Note the aliases such as Address.AddressType and Address.Location.StateProvinceName. By specifying a nesting separator of '.', the import tool creates Address and Address.Location subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
 
 *{
   "id": "956",
@@ -200,7 +202,7 @@ Similar to the SQL source, the nesting separator property may be used to create 
 
 ![Screenshot of CSV sample records - CSV to JSON](./media/import-data/csvsample.png)
 
-Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By specifying a nesting separator of ‘.’, the import tool will create DomainInfo and RedirectInfo subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
+Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By specifying a nesting separator of '.', the import tool will create DomainInfo and RedirectInfo subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
 
 *{
   "DomainInfo": {
@@ -220,7 +222,7 @@ The import tool attempts to infer type information for unquoted values in CSV fi
 There are two other things to note about CSV import:
 
 1. By default, unquoted values are always trimmed for tabs and spaces, while quoted values are preserved as-is. This behavior can be overridden with the Trim quoted values checkbox or the /s.TrimQuoted command-line option.
-2. By default, an unquoted null is treated as a null value. This behavior can be overridden (that is, treat an unquoted null as a “null” string) with the Treat unquoted NULL as string checkbox or the /s.NoUnquotedNulls command-line option.
+2. By default, an unquoted null is treated as a null value. This behavior can be overridden (that is, treat an unquoted null as a "null" string) with the Treat unquoted NULL as string checkbox or the /s.NoUnquotedNulls command-line option.
 
 Here is a command-line sample for CSV import:
 

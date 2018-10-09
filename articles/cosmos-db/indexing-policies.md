@@ -53,7 +53,7 @@ Therefore, when we designed the Cosmos DB indexing subsystem, we set the followi
 You can customize the trade-offs between storage, write and query performance, and query consistency by overriding the default indexing policy on an Azure Cosmos DB collection. You can configure the following aspects:
 
 * **Include or exclude documents and paths to and from the index**. You can exclude or include specific documents in the index when you insert or replace the documents in the collection. You can also include or exclude specific JSON properties, also called *paths*, to be indexed across documents that are included in an index. Paths include wildcard patterns.
-* **Configure various index types**. For each included path, you can specify the type of index the path requires for a collection. You can specify the type of index based on the path's data, the expected query workload, and numeric/string “precision.”
+* **Configure various index types**. For each included path, you can specify the type of index the path requires for a collection. You can specify the type of index based on the path's data, the expected query workload, and numeric/string "precision."
 * **Configure index update modes**. Azure Cosmos DB supports three indexing modes: Consistent, Lazy, and None. You can configure the indexing modes via the indexing policy on an Azure Cosmos DB collection. 
 
 The following Microsoft .NET code snippet shows how to set a custom indexing policy when you create a collection. In this example, we set the policy with a Range index for strings and numbers at the maximum precision. You can use this policy to execute ORDER BY queries against strings.
@@ -86,7 +86,7 @@ Azure Cosmos DB supports three indexing modes that you can configure via the ind
 
 **Consistent**: If an Azure Cosmos DB collection’s policy is Consistent, the queries on a specific Azure Cosmos DB collection follow the same consistency level as specified for the point-reads (strong, bounded-staleness, session, or eventual). The index is updated synchronously as part of the document update (insert, replace, update, and delete a document in an Azure Cosmos DB collection).
 
-Consistent indexing supports consistent queries at the cost of a possible reduction in write throughput. This reduction is a function of the unique paths that need to be indexed and the “consistency level.” Consistent indexing mode is designed for “write quickly, query immediately” workloads.
+Consistent indexing supports consistent queries at the cost of a possible reduction in write throughput. This reduction is a function of the unique paths that need to be indexed and the "consistency level." Consistent indexing mode is designed for "write quickly, query immediately" workloads.
 
 **Lazy**:  The index is updated asynchronously when an Azure Cosmos DB collection is quiescent, that is, when the collection’s throughput capacity is not fully utilized to serve user requests.  Note that you might get inconsistent results because data is ingested and indexed slowly. This means that your COUNT queries or specific query results might not be consistent or repeatable at  given time. 
 

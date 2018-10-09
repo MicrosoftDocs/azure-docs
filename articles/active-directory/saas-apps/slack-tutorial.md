@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Slack | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Slack.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 09/14/2018
 ms.author: jeedes
 
 ---
@@ -111,11 +111,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.slack.com`
 
-	b. In the **Identifier** textbox, type the URL: `https://slack.com`
+    b. In the **Identifier** textbox, update the value with the Sign On URL. This is your workspace domain. For example: `https://contoso.slack.com`
 
-	> [!NOTE] 
-	> The value is not real. You have to update the value with the actual Sign On URL. Contact [Slack support team](https://slack.com/help/contact) to get the value.
-	 
 1. Slack application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure Single Sign-On](./media/slack-tutorial/tutorial_slack_attribute.png)
@@ -217,6 +214,9 @@ The objective of this section is to create a user called Britta Simon in Slack. 
 
 > [!NOTE]
 > If you need to create a user manually, you need to contact [Slack support team](https://slack.com/help/contact).
+
+> [!NOTE]
+> Azure AD Connect is the synchronization tool which can sync on premise Active Directory Identities to Azure AD and then these synced users can also use the applications as like other cloud users.
 
 ### Assigning the Azure AD test user
 

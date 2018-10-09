@@ -12,9 +12,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Troubleshooting service deployment and environment setup
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 The following information can help determine the cause of errors when setting up the model management environment.
 
 ## Model management environment

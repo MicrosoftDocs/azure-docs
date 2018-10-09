@@ -4,16 +4,12 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 services: functions
 documentationcenter: .net
 author: ggailey777  
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
+ms.service: azure-functions
 ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
-ms.date: 05/23/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: glenga
 ---
 # Develop Azure Functions using Visual Studio  
@@ -95,7 +91,7 @@ To set the storage account connection string:
 
 3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.
 
-## Create a function
+## Add a function to your project
 
 In pre-compiled functions, the bindings used by the function are defined by applying attributes in the code. When you use the Azure Functions Tools to create your functions from the provided templates, these attributes are applied for you. 
 
@@ -170,7 +166,9 @@ To test your function, press F5. If prompted, accept the request from Visual Stu
 
 With the project running, you can test your code as you would test deployed function. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). When running in debug mode, breakpoints are hit in Visual Studio as expected. 
 
+<!---
 For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 To learn more about using the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
 

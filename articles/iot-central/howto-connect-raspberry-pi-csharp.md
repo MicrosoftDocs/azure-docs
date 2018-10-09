@@ -258,6 +258,9 @@ To complete the following steps, you can use Visual Studio Code. For more inform
 
 Add your device-specific connection string to the code for the device to authenticate with Azure IoT Central. You made a note of this connection string when you added your real device to your Azure IoT Central application.
 
+  > [!NOTE]
+   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
+
 1. Replace `{your device connection string}` in the **Program.cs** file with the connection string you noted previously.
 
 1. Run the following command in your command-line environment:

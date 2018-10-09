@@ -2,13 +2,12 @@
 title: Mount a gitRepo volume Azure Container Instances
 description: Learn how to mount a gitRepo volume to clone a Git repository into your container instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
-ms.author: marsma
+ms.author: danlep
 ---
 
 # Mount a gitRepo volume in Azure Container Instances
@@ -87,17 +86,17 @@ For example, the Azure CLI `--gitrepo-url` parameter for a private GitHub reposi
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-For a VSTS Git repository, specify any user name (you can use "vstsuser" as in the following example) in combination with a valid PAT:
+For an Azure DevOps Git repository, specify any user name (you can use "azuredevopsuser" as in the following example) in combination with a valid PAT:
 
 ```azurecli
---gitrepo-url https://vstsuser:abcdef1234fdsa4321abcdef@vstsaccountname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azuredevopsuser:abcdef1234fdsa4321abcdef@azuredevopsorganizationname.visualstudio.com/_git/some-private-repository
 ```
 
-For more information about personal access tokens for GitHub and VSTS, see the following:
+For more information about personal access tokens for GitHub and Azure DevOps, see the following:
 
 GitHub: [Creating a personal access token for the command line][pat-github]
 
-VSTS: [Create personal access tokens to authenticate access][pat-vsts]
+Azure DevOps: [Create personal access tokens to authenticate access][pat-vsts]
 
 ## Next steps
 

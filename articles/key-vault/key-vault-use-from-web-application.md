@@ -10,7 +10,7 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 # Customer intent: As a web developer, I want to access a secret from Azure Key Vault so that it can be used in a web application.
 ---
@@ -38,8 +38,7 @@ To complete this tutorial, you must have the following items:
 
 Complete the steps in [Get Started with Azure Key Vault](key-vault-get-started.md) to get the URI to a secret, Client ID, Client Secret, and register the application. The web application will access the vault and needs to be registered in Azure Active Directory. It also needs to have access rights to Key Vault. If not, go back to Register an Application in the Get Started tutorial and repeat the steps listed. For more information about creating Azure Web Apps, see [Web Apps overview](../app-service/app-service-web-overview.md).
 
-This sample depends on manually provisioning Azure Active Directory Identities. But you should use [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) instead. MSIs can automatically provision Azure AD Identities. For more information, see the sample on [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) and the related [MSI with App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). You can also look at the Key Vault specific [MSI tutorial](tutorial-web-application-keyvault.md)
-
+This sample depends on manually provisioning Azure Active Directory identities. But you should use [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) instead, which automatically provisions Azure AD identities. For more information, see the [sample on GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) and the related [App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). You can also look at the Key Vault specific [Configure an Azure web application to read a secret from Key Vault tutorial](tutorial-web-application-keyvault.md).
 
 ## <a id="packages"></a>Add NuGet packages
 
@@ -141,14 +140,19 @@ Now that you understand authenticating an Azure AD app using Client ID and Clien
 
 ```powershell
 #Create self-signed certificate and export pfx and cer files 
-$PfxFilePath = "c:\data\KVWebApp.pfx" 
-$CerFilePath = "c:\data\KVWebApp.cer" 
-$DNSName = "MyComputer.Contoso.com" 
-$Password ="MyPassword" 
+$PfxFilePath = 'KVWebApp.pfx'
+$CerFilePath = 'KVWebApp.cer'
+$DNSName = 'MyComputer.Contoso.com'
+$Password = 'MyPassword"'
+
+$StoreLocation = 'CurrentUser' #be aware that LocalMachine requires elevated privileges
+$CertBeginDate = Get-Date
+$CertExpiryDate = $CertBeginDate.AddYears(1)
+
 $SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
-$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
-Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
-Export-Certificate -cert $cert -FilePath $CerFilePath 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\$StoreLocation\My" -NotBefore $CertBeginDate -NotAfter $CertExpiryDate -KeySpec Signature
+Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
 Make note of the end date and the password for the .pfx (in this example: May 15, 2019 and MyPassword). You'll need them for the script below. 

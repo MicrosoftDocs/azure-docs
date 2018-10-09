@@ -9,7 +9,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
 ---
@@ -104,6 +104,11 @@ Performance offers its own gallery of workbooks. For App Service the prebuilt Ap
 In this case, if you select edit you will see that this set of visualizations is powered by Azure Monitor Metrics.
 
  ![Screenshot of performance view with Azure Metrics](.\media\resource-group-insights\0012-performance-metrics.png)
+
+## Troubleshooting
+
+### Enabling access to alerts
+Azure Monitor for Resource Groups needs certain permissions to access the alert status of the resources in your resource group. If you see an error message when loading alerts, you don’t have sufficient permissions. Ask your administrator to grant you the **Owner** or **Contributor** role for the subscription containing the resource group.
 
 ## Next steps
 

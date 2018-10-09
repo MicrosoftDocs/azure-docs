@@ -72,7 +72,7 @@ Here's what you need to set up this scenario.
 
 ### Prerequisites for the configuration server
 
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+[!INCLUDE [site-recovery-config-server-reqs-physical](../../includes/site-recovery-config-server-reqs-physical.md)]
 
 
  

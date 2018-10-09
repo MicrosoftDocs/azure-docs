@@ -1,4 +1,4 @@
----
+﻿---
 title: Validate original equipment manufacturer (OEM) packages  in Azure Stack validation as a service | Microsoft Docs
 description: Learn how to check original equipment manufacturer (OEM) packages with validation as a service.
 services: azure-stack
@@ -19,7 +19,7 @@ ms.reviewer: johnhas
 
 # Validate OEM packages
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 You can test a new OEM package when there has been a change to the firmware or drivers for a completed solution validation. When your package has passed the test, it is signed by Microsoft. Your test must contain the updated OEM extension package with the drivers and firmware that have passed Windows Server logo and PCS tests.
 

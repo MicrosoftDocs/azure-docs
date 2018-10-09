@@ -31,12 +31,16 @@
         href: csharp-tutorial.md
       - name: Python tutorial
         href: python-tutorial.md
+      - name: Java tutorial
+        href: java-tutorial.md
     - name: Object Detection
       items:
       - name: C# tutorial
         href: csharp-tutorial-od.md
       - name: Python tutorial
         href: python-tutorial-od.md
+      - name: Java tutorial
+        href: java-tutorial-od.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
