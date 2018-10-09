@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/01/2018
+ms.date: 10/09/2018
 ms.author: alkohli
 ---
 # Use the Azure portal to manage bandwidth schedules on your Azure Data Box Gateway  
 
-This article describes how to manage users on your Azure Data Box Gateway. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules for upload and download operations from your device to the cloud. 
+This article describes how to manage users on your Azure Data Box Gateway. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud. 
 
 You can add, modify, or delete the bandwidth schedules for your Data Box Gateway via the Azure portal.
 
@@ -36,7 +36,7 @@ In this article, you learn how to:
 
 ## Add a schedule
 
-Perform the following steps in the Azure portal to add a user.
+Do the following steps in the Azure portal to add a user.
 
 1. In the Azure portal for your Data Box Gateway resource, go to **Bandwidth**.
 2. In the right pane, click **+ Add schedule**.
@@ -59,7 +59,7 @@ Perform the following steps in the Azure portal to add a user.
 
 ## Edit schedule
 
-Perform the following steps to edit a bandwidth schedule. 
+Do the following steps to edit a bandwidth schedule. 
 
 1. In the Azure portal, go to your Data Box Gateway resource and then go to Bandwidth. 
 2. From the list of bandwidth schedules, select and click a schedule that you want to modify.
@@ -76,15 +76,15 @@ Perform the following steps to edit a bandwidth schedule.
 
 ## Delete a schedule
 
-Perform the following steps to delete a bandwidth schedule associated with your Data Box Gateway device.
+Do the following steps to delete a bandwidth schedule associated with your Data Box Gateway device.
 
 1. In the Azure portal, go to your Data Box Gateway resource and then go to **Bandwidth**.  
 
-2. From the list of bandwidth schedules, select a schedule that you want to delete. Right-click to invoke the context menu and click **Delete**. 
+2. From the list of bandwidth schedules, select a schedule that you want to delete. Right-click to display the context menu and click **Delete**. 
 
    ![Delete a user](media/data-box-gateway-manage-bandwidth-schedules/delete-schedule-1.png)
 
-3.	After the schedule is deleted, the list of schedules is updated to reflect the deletion.
+3.	After the schedule is deleted, the list of schedules is updated.
 
 
 

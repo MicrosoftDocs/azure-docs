@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/01/2018
+ms.date: 10/09/2018
 ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Data Box Gateway 
@@ -33,19 +33,19 @@ In this article, you learn how to:
 
 ## About users
 
-Users can be read-only or full privilege. As the names indicate the read-only users can only view the share data whereas the full privilege users can read share data, write to these shares, and modify or delete the share data. 
+Users can be read-only or full privilege. As the names indicate, the read-only users can only view the share data. The full privilege users can read share data, write to these shares, and modify or delete the share data. 
 
  - **Full privilege user** - A local user with full access. 
- - **Read-only user** - A local user with read-only access. These users are associated with shares that allow read only operations.
+ - **Read-only user** - A local user with read-only access. These users are associated with shares that allow read-only operations.
 
 The user permissions are first defined when the user is created during share creation. After the permissions associated with a user are defined, these can be modified by using File Explorer. 
 
 
 ## Add a user
 
-Perform the following steps in the Azure portal to add a user.
+Do the following steps in the Azure portal to add a user.
 
-1. In the Azure portal go to your Data Box Gateway resource and then navigate to **Overview**. Click **+ Add user** on the command bar.
+1. In the Azure portal, go to your Data Box Gateway resource and then navigate to **Overview**. Click **+ Add user** on the command bar.
 
     ![Click add user](media/data-box-gateway-manage-users/add-user-1.png)
 
@@ -56,7 +56,7 @@ Perform the following steps in the Azure portal to add a user.
     > [!IMPORTANT] 
     > These users are reserved by the system and should not be used: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
 
-3. You are notified when the user creation starts and is completed. Once the user is created, from the command bar, click **Refresh** to view the updated list of users.
+3. You're notified when the user creation starts and is completed. Once the user is created, from the command bar, click **Refresh** to view the updated list of users.
 
 
 ## Modify user
@@ -65,9 +65,10 @@ You can change the password associated with a user once the user is created. Sel
  
 ![Modify user](media/data-box-gateway-manage-users/modify-user-1.png)
 
+
 ## Delete a user
 
-Perform the following steps in the Azure portal to delete a user.
+Do the following steps in the Azure portal to delete a user.
 
 1. Select and click a user from the list of users and then click **Delete**.  
 
