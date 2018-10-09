@@ -35,7 +35,7 @@ The following diagram shows a high-level architecture of provisioning engine con
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-The provisioning engine connects to each Active Directory forest and to the Azure AD. The process of reading information from each directory is called Import. Export refers to updating the directories from the provisioning engine. Sync evaluates the rules of how the objects will flow inside the provisioning engine. For a deeper dive you can refer to [Azure AD Connect sync: Understanding the architecture](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+The provisioning engine connects to each Active Directory forest and to Azure AD. The process of reading information from each directory is called Import. Export refers to updating the directories from the provisioning engine. Sync evaluates the rules of how the objects will flow inside the provisioning engine. For a deeper dive you can refer to [Azure AD Connect sync: Understanding the architecture](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
 
 Azure AD Connect uses the following staging areas, rules, and processes to allow the sync from Active Directory to Azure AD:
 
@@ -56,15 +56,13 @@ The Initial sync profile is the process of reading the connected directories, li
 
 ### Delta sync profile
 
-To optimize the sync process this run profile only process the changes (creates, deletes and updates) of objects in your connected directories, since the last sync process. By default, the delta sync profile runs every 30 minutes. Organizations should strive to keep the time it takes to below 30 minutes, to make sure the Azure AD is up-to-date. To monitor the health of Azure AD Connect, use the [health monitoring agent](how-to-connect-health-sync.md) to see any issues of the process. The delta sync profile includes the following steps:
+To optimize the sync process this run profile only process the changes (creates, deletes and updates) of objects in your connected directories, since the last sync process. By default, the delta sync profile runs every 30 minutes. Organizations should strive to keep the time it takes to below 30 minutes, to make sure the Azure AD is up-to-date. To monitor the health of Azure AD Connect, use the [health monitoring agent](how-to-connect-health-sync.md) to see any issues with the process. The delta sync profile includes the following steps:
 
 1. Delta import on all connectors
 2. Delta sync on all connectors
 3. Export on all connectors
 
 A typical enterprise organization delta sync scenario is:
-
-
 
 - ~1% of objects are deleted
 - ~1% of objects are created
@@ -88,7 +86,7 @@ The following operations are included in a full sync cycle:
 3. Export on all connectors
 
 > [!NOTE]
-> Careful planning is required when doing bulk updates to many objects in your Active Directory or Azure AD. Bulk updates will cause the delta sync process to take longer when importing, since a lot of objects have changed. Long imports can happen even if the bulk update does not influence the sync process. For example, assigning licenses to many users in Azure AD will cause a long import cycle from Azure AD, but will not result in any attribute changes in Active Directory.
+> Careful planning is required when doing bulk updates to many objects in your Active Directory or Azure AD. Bulk updates will cause the delta sync process to take longer when importing, since a lot of objects have changed. Long imports can happen even if the bulk update doesn't influence the sync process. For example, assigning licenses to many users in Azure AD will cause a long import cycle from Azure AD, but will not result in any attribute changes in Active Directory.
 
 ### Synchronization
 
@@ -97,7 +95,7 @@ The sync process runtime has the following performance characteristics:
 * Sync is single threaded, meaning the provisioning engine doesn't do any parallel processing of run profiles of connected directories, objects, or attributes.
 * Import time grows linearly with the number of objects being synced. For example, if 10,000 objects take 10 minutes to import, then 20,000 objects will take approximately 20 minutes on the same server.
 * Export is also linear.
-* The sync will grow exponentially based on the number of objects with references to other objects. Group memberships and nested groups have the main performance impact, because the members refer to user objects or other groups. These references must be found and referenced to actual objects in the MV to complete the sync cycle.
+* The sync will grow exponentially based on the number of objects with references to other objects. Group memberships and nested groups have the main performance impact, because their members refer to user objects or other groups. These references must be found and referenced to actual objects in the MV to complete the sync cycle.
 
 ### Filtering
 
@@ -141,7 +139,7 @@ The performance of Azure AD Connect is dependent on the performance of the conne
 
 ### Active Directory factors
 
-As mentioned previously, the number of objects to be imported influences performance significantly. The [hardware and prerequisites for Azure AD Connect](how-to-connect-install-prerequisites.md) outline specific hardware tiers based on the size of your deployment. Azure AD Connect only support specific topologies as outlined in [Topologies for Azure AD Connect](plan-connect-topologies.md). There are no performance optimizations and recommendations for unsupported topologies.
+As mentioned previously, the number of objects to be imported influences the performance significantly. The [hardware and prerequisites for Azure AD Connect](how-to-connect-install-prerequisites.md) outline specific hardware tiers based on the size of your deployment. Azure AD Connect only support specific topologies as outlined in [Topologies for Azure AD Connect](plan-connect-topologies.md). There are no performance optimizations and recommendations for unsupported topologies.
 
 Make sure your Azure AD Connect server meets the hardware requirements based on your Active Directory size you want to import. Bad or slow network connectivity between the Azure AD Connect server and your Active Directory domain controllers can slow down your import.
 
