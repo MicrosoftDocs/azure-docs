@@ -38,18 +38,21 @@ Learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-q
 ## Turn on diagnostics logging when creating logic apps
 
 1. In [Azure portal](https://portal.azure.com), create a logic app. 
-Choose **Create a resource** > **Enterprise Integration** > **Logic App**.
+Choose **Create a resource** > **Integration** > **Logic App**.
 
    ![Create a logic app](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 
-2. In the **Create logic app** page, perform these tasks as shown:
+1. Under **Create logic app**, perform these tasks as shown:
 
    1. Provide a name for your logic app and select your Azure subscription. 
-   2. Create or select an Azure resource group.
-   3. Set **Log Analytics** to **On**. 
-   Select the Log Analytics workspace where you want to 
-   send data for your logic app runs. 
-   4. When you're ready, choose **Pin to dashboard** > **Create**.
+
+   1. Create or select an Azure resource group.
+
+   1. Set **Log Analytics** to **On**. 
+
+   1. From the list Log Analytics workspace list, 
+   select the workspace where you want to send 
+   data for your logic app runs. 
 
       ![Create logic app](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
@@ -58,36 +61,38 @@ Choose **Create a resource** > **Enterprise Integration** > **Logic App**.
       Also, this step also automatically installs the 
       Logic Apps Management solution in your workspace.
 
-3. To view your logic app runs, 
+   1. When you're done, choose **Create**.
+
+1. To view your logic app runs, 
 [continue with these steps](#view-logic-app-runs-oms).
 
 ## Install the Logic Apps Management solution
 
 If you already turned on Log Analytics when you created your logic app, 
-skip this step. You already have the Logic Apps Management 
-solution installed.
+skip this step. You already have the Logic Apps Management solution installed.
 
-1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
-Search for "log analytics" as your filter, 
-and choose **Log Analytics** as shown:
+1. In the [Azure portal](https://portal.azure.com), 
+select **All services**. In the search box, 
+enter "log analytics" as your filter, 
+and select **Log Analytics**.
 
-   ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
+   ![Select "Log Analytics"](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-2. Under **Log Analytics**, find and select your Log Analytics workspace. 
+1. Under **Log Analytics**, find and select your Log Analytics workspace. 
 
-   ![Select your Log Analytics workspace](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
+   ![Select your Log Analytics workspace](./media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. Under **Management**, choose **Overview**.
+1. Under **Management**, select **Overview**.
 
    ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. On the Overview page, choose **Add** to open the Management Solutions tile. 
+1. On the Overview page, choose **Add** to open the Management Solutions tile. 
 
-   ![Choose "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Choose "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. Scroll through the list of **Management Solutions**, choose **Logic Apps Management** solution, and choose **Create** to install it to the Overview page.
+1. Scroll through the list of **Management Solutions**, choose **Logic Apps Management** solution, and choose **Create** to install it to the Overview page.
 
-   ![Choose "Add" for "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+   ![Choose "Add" for "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
