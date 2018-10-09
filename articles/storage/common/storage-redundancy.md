@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/21/2018
+ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
 ---
@@ -34,9 +34,13 @@ The following table provides a quick overview of the scope of durability and ava
 | A region-wide outage                                                                                     | No                              | No                               | Yes                                  | Yes                                  |
 | Read access to your data (in a remote, geo-replicated region) in the event of region-wide unavailability | No                              | No                               | No                                   | Yes                                  |
 | Designed to provide ___ durability of objects over a given year                                          | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
-| Supported storage account types                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
+| Supported storage account types                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1 (via PowerShell, Azure CLI, or resource provider API), GPv2, Blob                     | GPv1, GPv2, Blob                     |
+| Availability SLA for read requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.99% (99.9% for Cool Access Tier) |
+| Availability SLA for write requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) |
 
-See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different redundancy options.
+For pricing information for each redundancy option, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/). 
+
+For information about Azure Storage guarantees for durability and availability, see the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
 > Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md).
