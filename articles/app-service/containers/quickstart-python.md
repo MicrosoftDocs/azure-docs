@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/13/2018
+ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -148,6 +148,14 @@ git push azure master
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
 ![Updated sample app running in Azure](media/quickstart-python/hello-azure-in-browser.png)
+
+## Customizations
+
+The App Service on Linux container automatically looks for Flask apps with a startup module named *application.py*; if you use a different name, see [How to configure Python - Custom startup command file](how-to-configure-python.md#custom-startup-command-file).
+
+## Troubleshooting
+
+If the app doesn't appear as expected, see [How to configure Python apps - Troubleshooting](how-to-configure-python.md#troubleshooting).
 
 ## Manage your new Azure web app
 

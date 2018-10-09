@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/04/2018
+ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
 
@@ -35,9 +35,9 @@ This container has the following characteristics:
 
 - By default, the base image includes the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.7, such as Django.
 
-- To install additional packages, such as Django, create a [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) file in the root of your project using `pip freeze > requirements.txt`. You must then publish to App Service from Git, during which Kudu engine automatically runs `pip install -r requirements.txt` to install your app's dependencies.
+- To install additional packages, such as Django, create a [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) file in the root of your project using `pip freeze > requirements.txt`. Then, publish your project to App Service using Git deployment, which automatically runs `pip install -r requirements.txt` in the container to install your app's dependencies.
 
-- The container's startup process is driven by the code in [*entrypoint.py*](https://github.com/Azure-App-Service/python/blob/master/3.7.0/entrypoint.py). That process is what's described in this article and allows for customization.
+- If you'd like to see the details of the container's startup process, examine the code in [*entrypoint.py*](https://github.com/Azure-App-Service/python/blob/master/3.7.0/entrypoint.py). That process is what's described in this article and allows for customization.
 
 ## Container startup process and customizations
 
@@ -49,6 +49,27 @@ During startup, the App Service on Linux container runs the following steps:
 1. If no other app is found, start a default app that's built into the container.
 
 The following sections provide additional details for each option.
+
+### Django app
+
+For Django apps, App Service looks for a file named `wsgi.py` within your app code, and then runs Gunicorn using the following command:
+
+```bash
+# <module> is the path to the folder containing wsgi.py
+gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
+```
+
+If you want more specific control over the startup command, use a [custom startup command file](#custom-startup-command-file) and replace `<module>` with the name of the module that contains *wsgi.py*.
+
+### Flask app
+
+For Flask, App Service looks for a file named *application.py* and starts Gunicorn as follows:
+
+```bash
+gunicorn --bind=0.0.0.0 --timeout 600 application:app
+```
+
+If your main app module is contained in a different file, use a different name for the app object, or you want to provide additional arguments to Gunicorn, use a [custom startup command file](#custom-startup-command-file). That section gives an example for Flask using entry code in *hello.py* and a Flask app object named `myapp`.
 
 ### Custom startup command file
 
@@ -71,36 +92,9 @@ You can control the container's startup behavior by providing a file that contai
 > [!Warning]
 > App Service ignores any errors that occur when processing a custom command file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup file is deployed to App Service and that it doesn't contain any errors.
 
-### Django app
-
-For Django apps, App Service looks for a file named `wsgi.py` within your app code, and then runs Gunicorn using the following command:
-
-```bash
-# <module> is the path to the folder containing wsgi.py
-gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
-```
-
-If you want more specific control over the startup command, use a [custom startup command file](#custom-startup-command-file) and replace `<module>` with the name of the module that contains *wsgi.py*.
-
-### Flask app
-
-For Flask, App Service looks for a file named *application.py* and starts Gunicorn as follows:
-
-```bash
-gunicorn --bind=0.0.0.0 --timeout 600 application:app
-```
-
-If your main app module is contained in a different file, use a different name for the app object, or you want to provide additional arguments to Gunicorn, use a [custom startup command file](#custom-startup-command-file). That section given an example for Flask using entry code in *hello.py* and a Flask app object named `myapp`.
-
 ### Default behavior
 
-If the App Service doesn't find a custom command file, a Django app, or a Flask app, then it runs a default app, located in the _opt/defaultsite_ folder, using the following command:
-
-```bash
-gunicorn --bind=0.0.0.0 --chdir /opt/defaultsite application:app
-```
-
-The default app appears as follows:
+If the App Service doesn't find a custom command file, a Django app, or a Flask app, then it runs a default read-only app, located in the _opt/defaultsite_ folder. The default app appears as follows:
 
 ![Default App Service on Linux web page](media/how-to-configure-python/default-python-app.png)
 

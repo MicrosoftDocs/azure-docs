@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/04/20178
+ms.date: 10/09/20178
 ms.author: wesmc
 ms.custom: mvc
 
@@ -35,7 +35,6 @@ App Service on Linux supports a number of Built-in images in order to increase d
 | Python (Preview) | 3.7 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
-| Go | 1.0 |
 | Apache Tomcat | 8.5, 9.0 |
 
 See [Create a Java web app in App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java) for more details.
