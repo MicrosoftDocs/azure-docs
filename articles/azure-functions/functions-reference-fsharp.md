@@ -20,7 +20,7 @@ ms.author: syclebsc
 F# for Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. Data flows into your F# function via function arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens. 
 
 >[!IMPORTANT]
->F# script (.fsx) is only supported by [version 1.x](functions-versions.md#creating-1x-apps) of the Azure Functions runtime. If you want to use F# with the version 2.x runtime, you must use a precompiled F# class library project (.fs). You create, manage, and publish an F# class library project using Visual Studio as you would a [C# class library project](functions-dotnet-class-library.md). For more information about Functions versions, see [Azure Functions runtime versions overview](functions-versions).
+>F# script (.fsx) is only supported by [version 1.x](functions-versions.md#creating-1x-apps) of the Azure Functions runtime. If you want to use F# with the version 2.x runtime, you must use a precompiled F# class library project (.fs). You create, manage, and publish an F# class library project using Visual Studio as you would a [C# class library project](functions-dotnet-class-library.md). For more information about Functions versions, see [Azure Functions runtime versions overview](functions-versions.md).
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
