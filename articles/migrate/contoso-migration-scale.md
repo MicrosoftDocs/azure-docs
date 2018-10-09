@@ -320,7 +320,7 @@ Contoso will use DMS when migrating from SQL Server.
 In addition to DMS, Contoso can use other tools and services to identify VM information.
 
 - They have scripts to help with manual migrations. These are available in the GitHub repo.
-- A number of [partner tools](ttps://azure.microsoft.com/migration/partners/) can also be used for migration.
+- A number of [partner tools](https://azure.microsoft.com/migration/partners/) can also be used for migration.
 
 
 ## Phase 3: Optimize
