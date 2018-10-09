@@ -57,7 +57,7 @@ Computer Vision can analyze images that meet the following requirements:
 - The image must be presented in JPEG, PNG, GIF, or BMP format
 - The file size of the image must be less than 4 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels  
-  For OCR, the dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels, and the image can't be bigger than 10 megapixels.
+  For OCR, the dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels
 
 ## Next steps
 

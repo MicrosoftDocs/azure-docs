@@ -8,13 +8,13 @@ manager: carmonm
 editor: tysonn
 
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
-ms.service:  monitoring
+ms.service: monitoring
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
-ms.author: daseidma;bwren
+ms.date: 10/03/2018
+ms.author: magoedte
 
 ---
 
@@ -22,6 +22,10 @@ ms.author: daseidma;bwren
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
 This article describes the details of onboarding and using Service Map. For information about configuring Service Map and onboarding agents, see [Configuring Service Map solution in Azure]( monitoring-service-map-configure.md).
+
+>[!NOTE]
+>If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](monitoring-vminsights-overview.md).
+
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -228,6 +232,7 @@ To open the item in your connected ITSM solution, click **View Work Item**.
 
 To view the details of the item in Log Search, click **Show in Log Search**.
 Connection metrics are written to two new tables in Log Analytics 
+
 ## Change Tracking integration
 Service Map integration with Change Tracking is automatic when both solutions are enabled and configured in your Log Analytics workspace.
 
@@ -357,16 +362,16 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 | Property | Description |
 |:--|:--|
 |MaliciousIp |The RemoteIp address |
-|IndicatorThreadType | |
-|Description | |
-|TLPLevel | |
-|Confidence | |
-|Severity | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Threat indicator detected is one of the following values, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+|Description |Description of the observed threat. |
+|TLPLevel |Traffic Light Protocol (TLP) Level is one of the defined values, *White*, *Green*, *Amber*, *Red*. |
+|Confidence |Values are *0 – 100*. |
+|Severity |Values are *0 – 5*, where *5* is the most severe and *0* is not severe at all. Default value is *3*.  |
+|FirstReportedDateTime |The first time the provider reported the indicator. |
+|LastReportedDateTime |The last time the indicator was seen by Interflow. |
+|IsActive |Indicates indicators are deactivated with *True* or *False* value. |
+|ReportReferenceLink |Links to reports related to a given observable. |
+|AdditionalInformation |Provides additional information, if applicable, about the observed threat. |
 
 ### ServiceMapComputer_CL records
 Records with a type of *ServiceMapComputer_CL* have inventory data for servers with Service Map agents. These records have the properties in the following table:

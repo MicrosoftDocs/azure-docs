@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 09/10/2018
+ ms.date: 10/05/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -16,7 +16,11 @@ Virtual WAN provides large-scale site-to-site connectivity and is built for thro
 
 ### Which device providers (Virtual WAN partners) are supported at launch time? 
 
-At this time, Citrix and Riverbed support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+At this time, many partners support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://go.microsoft.com/fwlink/p/?linkid=2019615). 
+
+### What are the Virtual WAN partner automation steps?
+
+For partner automation steps, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### Am I required to use a preferred partner device?
 
@@ -36,7 +40,7 @@ Yes, Virtual WAN introduces new Resource Manager resources. For more information
 
 ### How many VPN devices can connect to a single Hub?
 
-Up to 100 connections are supported per virtual hub. Each connection consists of two tunnels that are in an active-active configuration. The tunnels terminate in an Azure Virtual Hub vpngateway.
+Up to 1000 connections are supported per virtual hub. Each connection consists of two tunnels that are in an active-active configuration. The tunnels terminate in an Azure Virtual Hub vpngateway.
 
 ### Can the on-premises VPN device connect to multiple Hubs?
 
@@ -61,7 +65,6 @@ No. The NVA VNet cannot have a virtual network gateway if it is connected to the
 ### Is there support for BGP?
 
 Yes, BGP is supported. To ensure that routes from an NVA VNet are advertised appropriately, spokes must disable BGP if they are connected to an NVA VNet, which in turn, is connected to a virtual hub. Additionally, connect the spoke VNets to the virtual hub to ensure spoke VNet routes are propagated to on-premises systems.
-Can I direct traffic using UDR in the virtual hub?
 
 ### Can I direct traffic using UDR in the virtual hub?
 
@@ -89,7 +92,7 @@ Yes.
 
 ### How is Virtual WAN different from the existing Azure Virtual Network Gateway?
 
-Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 100 branch connections with 2 Gbps in the hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 100 branches across hubs.
+Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1000 branch connections with 2 Gbps in the hub for all regions except the West Central region. For the West Central region, 20 Gbps is available. We will be rolling out 20 Gbps to additional regions in the future. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1000 branches across hubs.
 
 ### Does this Virtual WAN require ExpressRoute from each site?
 
@@ -97,7 +100,7 @@ No, the Virtual WAN does not require ExpressRoute from each site. It uses standa
 
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
-Number of branches is limited to 100 connections per hub/region and a total of 2 G in the hub.
+Number of branches is limited to 1000 connections per hub/region and a total of 2 G in the hub. The exception is West Central US, which has a total of 20 Gbps. We will be rolling 20 Gbps out to other regions in the future.
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel or is it always a single VPN tunnel?
 
@@ -105,7 +108,7 @@ Yes, you can have active-active tunnels (2 tunnels = 1 Azure Virtual WAN connect
 
 ### How is traffic routed on the Azure backbone?
 
-The traffic follows the pattern: branch device ->ISP->Microsoft Edge->Microsoft DC->Microsoft edge->ISP->branch device.
+The traffic follows the pattern: branch device ->ISP->Microsoft Edge->Microsoft DC->Microsoft edge->ISP->branch device
 
 ### In this model, what do you need at each site? Just an internet connection?
 
