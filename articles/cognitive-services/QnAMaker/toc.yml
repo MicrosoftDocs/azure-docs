@@ -42,6 +42,10 @@
       href: Quickstarts/publish-kb-nodejs.md
     - name: Python
       href: Quickstarts/publish-kb-python.md
+- Tutorials
+  items:
+  - name: Create a QnA bot with Azure Bot Service
+    href: Tutorials/create-qna-bot.md
 - name: Concepts
   items:
   - name: Knowledge base
@@ -82,8 +86,6 @@
     href: How-To/key-management.md
   - name: Create a knowledge base in a different language
     href: How-To/language-knowledge-base.md
-  - name: Create a QnA bot with Azure Bot Service
-    href: Tutorials/create-qna-bot.md
   - name: Integrate QnA Maker and LUIS
     href: Tutorials/integrate-qnamaker-luis.md
   - name: Create a business continuity plan for QnA Maker
