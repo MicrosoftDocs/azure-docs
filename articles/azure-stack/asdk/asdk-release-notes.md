@@ -37,25 +37,31 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 
 ### Fixed issues
 
-<!-- 2702741 - IS ASDK --> 
-Fixed issue in which public IPs that were deployed by using the Dynamic allocation method were not guaranteed to be preserved after a Stop-Deallocate is issued. They are now preserved.
+<!-- TBD - IS ASDK --> 
+- Fixed an issue in which you created virtual machines on the Azure Stack user portal, and the portal displayed an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
-<!-- 3078022 - IS ASDK --> 
-- If a VM was stop-deallocated before 1808 it could not be re-allocated after the 1808 update.  This issue is fixed in 1809. Instances that were in this state and could not be started can be started in 1809 with this fix. The fix also prevents this issue from reoccurring.
+- The following managed disk issues are fixed in 1809 as well as the 1808 [Azure Stack Hotfix 1.1808.4.108](https://support.microsoft.com/help/4467062/): 
+
+   <!--  2966665 – IS, ASDK --> 
+   - Fixed the issue in which attaching SSD data disks to premium size managed disk virtual machines  (DS, DSv2, Fs, Fs_V2) failed with an error:  *Failed to update disks for the virtual machine ‘vmname’ Error: Requested operation cannot be performed because storage account type ‘Premium_LRS’ is not supported for VM size ‘Standard_DS/Ds_V2/FS/Fs_v2)*. 
+   
+   - Creating a managed disk VM by using **createOption**: **Attach** fails with the following error: *Long running operation failed with status 'Failed'. Additional Info:'An internal execution error occurred.'*
+   ErrorCode: InternalExecutionError
+   ErrorMessage: An internal execution error occurred.
+   
+   This issue has now been fixed.
+
+- <!-- 2702741 -  IS, ASDK --> Fixed issue in which public IPs that were deployed by using the Dynamic allocation method were not guaranteed to be preserved after a Stop-Deallocate is issued. They are now preserved.
+
+- <!-- 3078022 - IS, ASDK --> If a VM was stop-deallocated before 1808 it could not be re-allocated after the 1808 update.  This issue is fixed in 1809. Instances that were in this state and could not be started can be started in 1809 with this fix. The fix also prevents this issue from reoccurring.
+
+<!-- 1697698  | IS, ASDK --> 
+- *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
 
 ### Changes
-
-<!-- 1697698  | IS, ASDK --> 
-- *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
-
-<!-- 2515955   | IS ,ASDK--> 
-- *All services* replaces *More services* in the Azure Stack admin and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
-
-<!--  TBD – IS, ASDK --> 
-- *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](../azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template. 
 
 ### Known issues
 
@@ -122,13 +128,10 @@ Fixed issue in which public IPs that were deployed by using the Dynamic allocati
    You can safely ignore the warning that says: *You've chosen to use a standard disk on a size that supports premium disks. This could impact operating system performance and is not recommended. Consider using premium storage (SSD) instead.*
 
 <!-- 2967447 - IS, ASDK --> 
-- The virtual machine scale set (VMSS) create experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another OS for your deployment or use an ARM template specifying another CentOS image which has been downloaded prior to deployment from the marketplace by the operator.
+- The virtual machine scale set (VMSS) create experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another OS for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.
 
 <!-- TBD -  IS ASDK --> 
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
-
-<!-- TBD -  IS ASDK --> 
-- When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach a D series VM. All supported D series VMs can accommodate as many data disks as the Azure configuration.
 
 <!-- TBD -  IS ASDK --> 
 - When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
