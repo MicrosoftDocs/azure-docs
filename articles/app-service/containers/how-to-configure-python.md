@@ -73,9 +73,9 @@ If your main app module is contained in a different file, use a different name f
 
 You can control the container's startup behavior by providing a custom Gunicorn startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object is named `myapp`, then the command is as follows:
 
-    ```bash
-    gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
-    ```
+```bash
+gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
+```
 
 You can also add any additional arguments for Gunicorn to the command, such as `--workers=4`. For more information, see [Running Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
@@ -89,7 +89,7 @@ To provide a custom command, do the following steps:
 
 1. Select **Save**. The App Service restarts automatically, and after a few seconds you should see the custom startup command applied.
 
-> [!Warning]
+> [!Note]
 > App Service ignores any errors that occur when processing a custom command file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup file is deployed to App Service and that it doesn't contain any errors.
 
 ### Default behavior
