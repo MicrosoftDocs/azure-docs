@@ -192,13 +192,6 @@ Fixed issue in which public IPs that were deployed by using the Dynamic allocati
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
 
-<<<<<<< HEAD
-- <!-- 2682594   | ASDK  -->   **All Azure Stack environments now use the Coordinated Universal Time (UTC) time zone format.**  All log data and related information now displays in UTC format. 
-
-- <!-- 2437250  | IS  ASDK --> **Managed Disks are supported.** You can now use Managed Disks in Azure Stack virtual machines and virtual machine scale sets. For more information, see [Azure Stack Managed Disks: Differences and considerations](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
- 
-- <!-- 2563799  | IS  ASDK -->  **Azure Monitor**. Like Azure Monitor on Azure, Azure Monitor on Azure Stack provides base-level infrastructure metrics and logs for most services. For more information, see [Azure Monitor on Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
-=======
 <!-- 1658937 | ASDK, IS --> 
 - **Start backups on a pre-defined schedule** - As an appliance, Azure Stack can now automatically trigger infrastructure backups periodically to eliminate human intervention. Azure Stack will also automatically clean up the external share for backups that are older than the defined retention period. For more information, see [Enable Backup for Azure Stack with PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
 
@@ -229,7 +222,6 @@ This build includes the following improvements and fixes for Azure Stack.
 - **Improvements to the Azure Stack syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
 
   To configure how the syslog client communicates (such as protocol, encryption, and authentication) with the syslog server, use the Set-SyslogServer cmdlet. This cmdlet is available from the privileged endpoint (PEP). 
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 - <!-- ASDK --> **Gallery items for Virtual Machine Scale Sets are now built-in**.  Virtual Machine Scale Set gallery items are now made available in the user and administrator portals without having to download them. 
 
@@ -239,10 +231,6 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- | IS ASDK--> **Kubernetes marketplace item**. You can now deploy Kubernetes clusters using the [Kubernetes Marketplace item](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Users can select the Kubernetes item and fill out a few parameters to deploy a Kubernetes cluster to Azure Stack. The purpose of the templates is to make it simple to users to setup dev/test Kubernetes deployments in a few steps.
 
-<<<<<<< HEAD
-- <!-- | IS ASDK--> **Blockchain templates**. You can now execute [Ethereum consortium deployments](/azure/azure-stack/azure-stack-ethereum) on Azure Stack. You can find three new templates in the [Azure Stack Quick Start Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). They allow the user to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge. The purpose of the templates is to make it simple to users to setup dev/test Blockchain deployments in a few steps.
-
-=======
 <!-- ####### | IS, ASDK -->  
 - **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more information about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
@@ -251,28 +239,10 @@ This build includes the following improvements and fixes for Azure Stack.
  
 <!-- 2536808 IS ASDK --> 
 - **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace.
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 ### Fixed issues
 - <!-- IS ASDK--> We fixed the issue for creating an availability set in the portal which resulted in the set having a fault domain and update domain of 1.
 
-<<<<<<< HEAD
-- <!-- IS ASDK --> Settings to scale virtual machine scale sets are now available in the portal.  
-
-- <!-- 2494144- IS, ASDK --> The issue that prevented some F-series virtual machine sizes from appearing when selecting a VM size for deployment is now resolved. 
-
-- <!-- IS, ASDK --> Improvements for performance when creating virtual machines, and more optimized use of underlying storage.
-
-- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
-
-
-### Changes
-- <!-- 1697698  | IS, ASDK --> *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
-
-- <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the Azure Stack admin and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
-
-- <!-- TBD | IS, ASDK --> *+ Create a resource* replaces *+ New* in the Azure Stack admin and user portals.  You can now use *+ Create a resource* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals. 
-=======
 <!-- TBD | ASDK, IS --> 
 - Various improvements were made to the update process to make it more reliable. In addition, fixes have been made to underlying infrastructure, which improves node drain, thereby minimizing potential downtime for workloads during the update.
 
@@ -311,7 +281,6 @@ This build includes the following improvements and fixes for Azure Stack.
 
 <!--  TBD ASDK --> 
 - The virtual machine that hosts the privilege endpoint (PEP) has been increased to 4GB. In the ASDK, this virtual machine is named AzS-ERCS01.
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 - <!--  TBD – IS, ASDK --> *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](.\.\azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template. 
 
@@ -324,13 +293,9 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD  ASDK --> The default time zone for all Azure Stack deployments are now set to Coordinated Universal Time (UTC). You can select a time zone when installing Azure Stack, however it automatically reverts to UTC as the default during installation.
 
-<<<<<<< HEAD
-- <!-- 2931230 – IS  ASDK --> Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
-=======
 #### Portal  
 <!-- 2931230 – IS  ASDK --> 
 - Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 <!--2760466 – IS  ASDK --> 
 - When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](.\.\azure-stack-registration.md) is required before you can use marketplace syndication. 
@@ -338,26 +303,18 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- TBD - IS ASDK --> 
 - The two administrative subscription types that were introduced with version 1804 should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider subscription** type.
 
-<<<<<<< HEAD
-- <!-- TBD -  IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
-=======
 <!-- 2403291 - IS ASDK --> 
 - You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
   ![Breadcrumb](media/asdk-release-notes/breadcrumb.png)
 
 <!-- TBD -  IS ASDK --> 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 <!-- TBD -  IS ASDK --> 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
 
-<<<<<<< HEAD
-
-=======
 <!--  TBD | ASDK -->  
 - The default time zone for your Azure Stack deployment will now get set to UTC. You can select a time zone when installing Azure Stack, however it will automatically revert to UTC as the default during installation.
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 #### Health and monitoring
 <!-- 1264761 - IS ASDK -->  
@@ -380,10 +337,6 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- 2368581 - IS. ASDK --> 
 - An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
-<<<<<<< HEAD
-
-#### Compute  
-=======
 <!-- TBD - IS. ASDK --> 
 - When running the **Test-AzureStack** cmdlet on the privileged endpoint (PEP), the **Azure Stack Infrastructure Role Instance Performance** test will generate a WARN message for the ERCS VM. You can safely ignore the WARN message and continue to use the ASDK.
 
@@ -391,7 +344,6 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- 2494144 - IS, ASDK --> 
 - When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
   As a workaround, use one of the following methods to deploy a VM. In each method, you need to specify the VM size you want to use.
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 - <!-- 3099544 – IS, ASDK --> When you create a new virtual machine (VM) using the Azure Stack portal, and you select the VM size, the USD/Month column is displayed with an **Unavailable** message. This column should not appear; displaying the VM pricing column is not supported in Azure Stack.
 
@@ -426,14 +378,8 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- 1662991 - IS ASDK --> 
 - Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.
 
-<<<<<<< HEAD
-- <!-- 2724961- IS ASDK --> When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page will not be able to show metric data.
- 
-  To find the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
-=======
 <!-- 2724961- IS ASDK --> 
 - When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the VM overview page doesn't show metrics data. 
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
  
 
@@ -457,17 +403,12 @@ This build includes the following improvements and fixes for Azure Stack.
 - In scenarios where the tenant is accessing their virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premise subnet was added to the Local Network Gateway after gateway was already created. 
 
 
-<<<<<<< HEAD
-<!--  #### SQL and MySQL  -->
-
-=======
 #### SQL and MySQL
 <!-- TBD - ASDK --> 
 - The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
 
 <!-- IS, ASDK --> 
 - Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 #### App Service
 <!-- 2352906 - IS ASDK --> 
@@ -476,11 +417,8 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- TBD - IS ASDK --> 
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.  
 
-<<<<<<< HEAD
-=======
 <!-- TBD - IS ASDK --> 
 - App Service can only be deployed into the *Default Provider subscription* at this time.
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 #### Usage  
 <!-- TBD -  IS ASDK --> 
@@ -514,14 +452,8 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2297790 | IS, ASDK -->  **Improvements to the Azure Stack syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
 
-<<<<<<< HEAD
-  To configure how the syslog client communicates (such as protocol, encryption, and authentication) with the syslog server, use the Set-SyslogServer cmdlet. This cmdlet is available from the privileged endpoint (PEP). 
-
-  To add the client-side certificate for the syslog client TLS 1.2 mutual authentication, use the Set-SyslogClient cmdlet in the PEP.
-=======
 <!-- 2297790 - IS, ASDK --> 
 - **Azure Stack now includes a *Syslog* client** as a *preview feature*. This client allows the forwarding of audit and security logs related to the Azure Stack infrastructure to a Syslog server or security information and event management (SIEM) software that is external to Azure Stack. Currently, the Syslog client only supports unauthenticated UDP connections over default port 514. The payload of each Syslog message is formatted in Common Event Format (CEF).
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
   With this preview, you can see a much larger number of audits and alerts. 
 
@@ -573,14 +505,6 @@ This build includes the following improvements and fixes for Azure Stack.
 
 ### Known issues
 
-<<<<<<< HEAD
-#### Portal  
-- <!-- 2931230 – IS  ASDK --> Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
-
-- <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](.\.\azure-stack-registration.md) is required before you can use marketplace syndication. 
-
-- <!-- TBD - IS ASDK --> The two administrative subscription types that were [introduced with version 1804](.\.\azure-stack-update-1804.md#new-features) should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider subscription** type.
-=======
 #### Portal
 <!-- 2931230 – IS  ASDK --> 
 - Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
@@ -604,7 +528,6 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- TBD - IS ASDK --> 
 - The ability [to open a new support request from the dropdown](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - For Azure Stack Development Kit, use https://aka.ms/azurestackforum.    
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 <!-- 2403291 - IS ASDK --> 
 - You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
@@ -639,14 +562,6 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- 2368581 - IS. ASDK --> 
 - An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
-<<<<<<< HEAD
-- <!-- TBD - IS. ASDK --> When running the **Test-AzureStack** cmdlet on the privileged endpoint (PEP), the **Azure Stack Infrastructure Role Instance Performance** test will generate a WARN message for the ERCS VM. You can safely ignore the WARN message and continue to use the ASDK.
-
-#### Compute
-
-- <!-- TBD - IS, ASDK --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
-- <!-- 2494144 - IS, ASDK --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
-=======
 <!-- TBD - IS. ASDK --> 
 - When running the Test-AzureStack cmdlet on the privilege endpoint (PEP), will generate a WARN message for the ERCS VM. You can continue to use the ASDK. 
 
@@ -654,7 +569,6 @@ This build includes the following improvements and fixes for Azure Stack.
 #### Compute
 <!-- TBD - IS, ASDK --> 
 - When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
   As a workaround, use one of the following methods to deploy a VM. In each method, you need to specify the VM size you want to use.
 
   - **Azure Resource Manager template:** When you use a template, set the *vmSize* in the template to equal the VM size you want to use. For example, the following entry is used to deploy a VM that uses the *F32s_v2* size:  
@@ -689,14 +603,6 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- 1662991 - IS ASDK --> 
 - Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.
 
-<<<<<<< HEAD
-- <!-- 2724961- IS ASDK --> When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the VM overview page doesn't show metrics data. 
-
-   To find metrics data, like the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
-
-#### Networking
-- <!-- 1766332 - IS, ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
-=======
 #### Networking
 <!-- TBD - IS ASDK --> 
 - You cannot create user-defined routes in either the admin or user portal. As a workaround, use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
@@ -718,7 +624,6 @@ This build includes the following improvements and fixes for Azure Stack.
 
 <!-- 2304134 IS ASDK --> 
 - You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription.
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 <!-- 1902460 -  IS ASDK --> 
 - Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
@@ -726,16 +631,8 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- 16309153 -  IS ASDK --> 
 - On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
 
-<<<<<<< HEAD
-- <!-- 2702741 -  IS ASDK --> Public IPs that are deployed by using the Dynamic allocation method are not guaranteed to be preserved after a Stop-Deallocate is issued.
-
-- <!-- 2529607 - IS ASDK --> During Azure Stack *Secret Rotation*, there is a period in which Public IP Addresses are unreachable for two to five minutes.
-
--	<!-- 2664148 - IS ASDK --> In scenarios where the tenant is accessing their virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premise subnet was added to the Local Network Gateway after gateway was already created. 
-=======
 <!-- TBD -  IS ASDK --> 
 - Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 
 #### SQL and MySQL
@@ -752,12 +649,8 @@ This build includes the following improvements and fixes for Azure Stack.
 <!-- TBD - IS ASDK --> 
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.  
 
-<<<<<<< HEAD
-- <!-- TBD - IS ASDK --> App Service can only be deployed into the *Default Provider subscription* at this time. In a future update, App Service will deploy into the new *Metering subscription* that was introduced in Azure Stack 1804. When Metering is supported for use, all existing deployments will be migrated to this new subscription type.
-=======
 <!-- TBD - IS ASDK --> 
 - App Service can only be deployed into the *Default Provider subscription* at this time. <!-- In a future update, App Service will deploy into the new *Metering subscription* that was introduced in Azure Stack 1804. When Metering is supported for use, all existing deployments will be migrated to this new subscription type. -->
->>>>>>> 9633edcb9b28f4c3f15629c26df47e2c5a9f1c9e
 
 #### Usage  
 <!-- TBD -  IS ASDK --> 

@@ -7239,11 +7239,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-update-1809.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/azure-stack/azure-stack-update-1802.md",
             "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
             "redirect_document_id": false
