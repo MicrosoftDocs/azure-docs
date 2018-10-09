@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -49,7 +49,9 @@ If you created a Batch account with pool allocation mode set to **user subscript
 | [Applications](batch-application-packages.md) per Batch account |20 |
 | Application packages per application |40 |
 | Maximum task lifetime | 7 days<sup>1</sup> |
-| Compute nodes in inter-node communication enabled pool | 100 |
+| Compute nodes in [inter-node communication enabled pool](batch-mpi.md) | 100 |
+| Dedicated compute nodes in [pool created with custom VM image](batch-custom-images.md) | 2500 |
+| Low-priority compute nodes in [pool created with custom VM image](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 7 days. Completed tasks persist indefinitely; data for tasks not completed within the maximum lifetime is not accessible.
 
