@@ -202,9 +202,9 @@ To enable Application Insights for your function app in Azure:
 
 1. Create an Application Insights instance in the [Azure portal](https://portal.azure.com) and copy its instrumentation key. To learn how, see [Manually connect an App Insights resource](functions-monitoring.md#manually-connect-an-app-insights-resource).  
 
-1. Add an app setting named `APPINSIGHTS_INSTRUMENTATIONKEY` that contains the instrumentation key to the function app settings in Azure, as described in [Function app settings](#function-app-settings).
+1. Add an app setting named `APPINSIGHTS_INSTRUMENTATIONKEY` to the function app settings in Azure, as described in [Function app settings](#function-app-settings). This app setting contains the instrumentation key that you created in the previous step.
 
-1. Remove the existing `AzureWebJobsDashboard` key from app settings in Azure, which disables built-in logging.  
+1. Remove the `AzureWebJobsDashboard` app setting from the function app in Azure, which disables built-in logging.  
 
 To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
