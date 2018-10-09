@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/03/2018
+ms.date: 10/09/2018
 ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk (Preview)
@@ -69,7 +69,7 @@ The activity log contains all write operations (such as PUT, POST, DELETE) perfo
 
 Activity logs are retained for 90 days. You can query for any range of dates, as long as the starting date is not more than 90 days in the past. You can also filter by one of the built-in queries in Insights. For instance, click error and then select and click specific failures to understand the root cause.
 
-## Data Box Disk unlock tool errors
+## Data Box Disk Unlock tool errors
 
 
 | Error message/Tool behavior      | Recommendations                                                                                               |
@@ -80,6 +80,20 @@ Activity logs are retained for 90 days. You can query for any range of dates, as
 | Following volumes are unlocked and verified. <br>Volume drive letters: E:<br>Could not unlock any volumes with the following passkeys: werwerqomnf, qwerwerqwdfda <br><br>The tool unlocks some drives and lists the successful and failed drive letters.| Partially succeeded. Could not unlock some of the drives with the supplied passkey. Contact Microsoft Support for next steps. |
 | Could not find locked volumes. Verify disk received from Microsoft is connected properly and is in locked state.          | The tool fails to find any locked drives. Either the drives are already unlocked or not detected. Ensure that the drives are connected and are locked.                                                           |
 | Fatal error: Invalid parameter<br>Parameter name: invalid_arg<br>USAGE:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Example: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Example: DataBoxDiskUnlock /SystemCheck<br>Example: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.<br>/Help:           This option provides help on cmdlet usage and examples.<br>/SystemCheck:    This option checks if your system meets the requirements to run the tool.<br><br>Press any key to exit. | Invalid parameter entered. The only allowed parameteres are /SystemCheck, /PassKey, and /Help.                                                                            |
+
+## Data Box Disk Split Copy tool errors
+
+|Error message/Warnings  |Recommendations |
+|---------|---------|
+|`[Info] Retrieving bitlocker password for volume: m` <br>`[Error] Exception caught while retrieving bitlocker key for volume m: : Sequence contains no elements.`|This error is thrown if the destination Data Box Disk are offline. <br> Use `diskmgmt.msc` tool to online disks.|
+|`[Error] Exception thrown: WMI operation failed: Method=UnlockWithNumericalPassword, ReturnValue=2150694965, Win32Message=The format of the recovery password provided is invalid. BitLocker recovery passwords are 48 digits. Verify that the recovery password is in the correct format and then try again.`     |Use Data Box Disk Unlock tool to first unlock the disks and retry the command. For more information, go to <li> Unlock Data Box Disk for Windows clients. </li><li> Unlock Data Box Disk for Linux clients. </li>|
+|`[Error] Exception thrown: DriveManifest.xml file was detected on the target drive which indicates the target drive might have been prepared with a different journal file. If you want to append more data to the same drive, use the previous journal file; If you want to delete everything on the target drive and reuse it for a new import job, please delete the DriveManifest.xml on it and rerun this command with a new journal file (you can't reuse the journal file specified on this command line).`     | This error is received when you attempt to use the same set of drives for multiple import session. <br> Use one set of drives only for one split and copy session only.|
+|`[Error] Exception thrown: CopySessionId importdata-sept-test-1 refers to a previous copy session and cannot be reused for a new copy session.`     |This error is reported when trying to use the same job name for a new job as a previous successfully completed job.<br> Assign a unique name for your new job.|
+|`[Info] Destination file or directory name exceeds the NTFS length limit. Renaming "\testuser-test-1002-a1\testuser-test-1002-a1-0\NewTestUser\NewTestUser@microsoft.com\DESKTOP-5EENF42\Data\C\Users\NewTestUser\Downloads\lrtimelapse\platform-tools-latest-windows\platform-tools\systrace\catapult\telemetry\third_party\tsproxy\tsproxy (2018_07_23 17_49_31 UTC).py" to "\testuser-test-1002-a1\testuser-test-1002-a1-0\___A7B832E1BDAC048F4F1C5042DF26FD9B9CC1014B.py".` |This message is reported when the destination file was renamed because of long file path.<br> Modify the disposition option in `config.json` file to control this behavior.|
+|`[Error] Exception thrown: Bad JSON escape sequence: \V. Path 'CopyDataFrom[0].BlockBlob[0]', line 7, position 13.`    |This message is reported when the config.json has format that is not valid. <br> Validate your `config.json` using JSONlint before you save the file.|
+
+
+
 ## Next steps
 
 - Learn how to [Manage Data Box Disk via Azure portal](data-box-portal-ui-admin.md).
