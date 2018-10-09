@@ -4008,7 +4008,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/digital-twins.svg" alt="" />
+                                                        <img src="media/index/digital-twin.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
