@@ -10,7 +10,7 @@ Contributing to open source is more than just providing updates, it's also letti
 
 You've decided to provide a contribution, that's great! There are a few tools which are needed to contribute to the documentation.
 
-Contributing to the documentation requires a GitHub account, if you don't have an account, follow the instructions for [GitHub account setup](https://docs.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
+Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for [GitHub account setup](https://docs.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
 
 #### Download
 
@@ -31,4 +31,4 @@ Please refer to [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE)
 ## Code of Conduct
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
