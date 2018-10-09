@@ -2,11 +2,11 @@
 title: Copy or move data to Azure Storage with AzCopy v10 (Preview) | Microsoft Docs
 description: Use the AzCopy v10 (Preview) utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-author: seguler; artemuwka
+author: seguler, artemuwka
 ms.service: storage
 ms.topic: article
 ms.date: 10/09/2018
-ms.author: seguler; artemuwka
+ms.author: seguler, artemuwka
 ms.component: common
 ---
 # Transfer data with the AzCopy v10 (Preview)
