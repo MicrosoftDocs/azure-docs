@@ -11,9 +11,9 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/20/2018
+ms.date: 10/05/2018
 ---
-# Securing your SQL Database
+# An overview ahd Azure SQL Database security capabilities
 
 This article walks through the basics of securing the data tier of an application using Azure SQL Database. In particular, this article gets you started with resources for protecting data, controlling access, and proactive monitoring.
 
@@ -49,7 +49,6 @@ SQL Database secures your data by limiting access to your database using firewal
 
 > [!IMPORTANT]
 > Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md).
->
 
 ### Firewall and firewall rules
 
@@ -61,11 +60,11 @@ SQL database authentication refers to how you prove your identity when connectin
 
 - **SQL Authentication**
 
-  Uses a username and password. When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
+  This authentication method uses a username and password. When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
 
 - **Azure Active Directory Authentication**
 
-  Uses identities managed by Azure Active Directory and is supported for managed and integrated domains. Use Active Directory authentication (integrated security) [whenever possible](https://msdn.microsoft.com/library/ms144284.aspx). If you want to use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can. See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) for a walkthrough of how to create an Azure AD admin to enable Azure Active Directory Authentication.
+  This authentication method uses identities managed by Azure Active Directory and is supported for managed and integrated domains. Use Active Directory authentication (integrated security) [whenever possible](https://msdn.microsoft.com/library/ms144284.aspx). If you want to use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can. See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) for a walkthrough of how to create an Azure AD admin to enable Azure Active Directory Authentication.
 
 ### Authorization
 
@@ -73,7 +72,7 @@ Authorization refers to what a user can do within an Azure SQL Database, and thi
 
 ### Row-level security
 
-Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context). For more information, see [Row-Level security](https://msdn.microsoft.com/library/dn765131).
+Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context). For more information, see [Row-Level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security).
 
 ### Dynamic data masking
 
@@ -97,7 +96,9 @@ In addition to the above features and functionality that can help your applicati
 
 ## Security management
 
-SQL Database helps you manage your data security by providing database scans and a centralized security dashboard using [SQL Vulnerability Assessment](sql-vulnerability-assessment.md) (currently in preview). This easy to configure tool is built into Azure SQL Database that can help you discover, track, and remediate potential database vulnerabilities. The assessment executes a vulnerability scan on your database, and generates a report that gives you visibility into your security state, including actionable steps to resolve security issues and enhance your database security. The assessment report can be customized for your environment, by setting an acceptable baseline for permission configurations, feature configurations, and database settings. This can help you to:
+SQL Database helps you manage your data security by providing database scans and a centralized security dashboard using [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
+
+**Vulnerability Assessment**: [SQL Vulnerability Assessment](sql-vulnerability-assessment.md) (currently in preview) is an easy to configure tool built into Azure SQL Database that can help you discover, track, and remediate potential database vulnerabilities. The assessment executes a vulnerability scan on your database, and generates a report that gives you visibility into your security state, including actionable steps to resolve security issues and enhance your database security. The assessment report can be customized for your environment, by setting an acceptable baseline for permission configurations, feature configurations, and database settings. This can help you to:
 
 - Meet compliance requirements that require database scan reports.
 - Meet data privacy standards.
