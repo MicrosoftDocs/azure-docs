@@ -14,10 +14,7 @@ ms.author: tulasim
 ---
 
 # QnA Maker API HTTP response codes
-The [management](https://aka.ms/luis-authoring-apis) and prediction APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general. 
-
-## Common status codes
-The following table lists some of the most common HTTP response status codes for the [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs:
+The [management](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) and prediction APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general. 
 
 ### Management
 
