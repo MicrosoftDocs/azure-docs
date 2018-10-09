@@ -1,5 +1,6 @@
 ---
 title: Query expression syntax - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
 description: Learn how to use query expression syntax in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
