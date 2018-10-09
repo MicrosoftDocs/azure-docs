@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Digital Twins | Microsoft Docs
-description: An introduction to Azure Digital Twins
+description: Learn more about Azure Digital Twins, an Azure IoT solution for spatial intelligence.
 author: julieseto
 ms.author: jseto
 ms.date: 10/03/2018
@@ -12,13 +12,13 @@ ms.custom: mvc
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Digital Twins has so that I can build next generation IoT services. 
 ---
 
-# Overview: What is Azure Digital Twins?
+# Overview of Azure Digital Twins
 
-Azure Digital Twins is an Azure IoT service that powers creating comprehensive models of the physical environment. Among its many features, is the ability to create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
+Azure Digital Twins is an Azure IoT service that powers creating comprehensive models of the physical environment. Among its many features is the ability to create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
 
-Azure Digital Twins allows querying data from a space rather than from many disparate sensors. Build reusable, highly scalable, spatially aware, experiences that link streaming data across the digital and physical world. Whether you are predicting maintenance needs for a factory, analyzing real-time energy requirements for an electrical grid, or optimizing the use of available space for an office, your apps are enhanced by these uniquely relevant contextual features.
+Azure Digital Twins allows querying data from a physical space rather than from many disparate sensors. This service helps you build reusable, highly scalable, spatially aware, experiences that link streaming data across the digital and physical world. Whether you are predicting maintenance needs for a factory, analyzing real-time energy requirements for an electrical grid, or optimizing the use of available space for an office, your apps are enhanced by these uniquely relevant contextual features.
 
-Azure Digital Twins applies to environments of all kinds. For example: warehouses, offices, schools, hospitals, banks, stadiums, factories, parking lots, parks, smart grids, and cities. Use cases include tracking daily temperature across several states, monitoring busy drone paths, identifying autonomous vehicles, analyzing occupancy levels for a building, or finding the busiest cash register in your store. Whatever your real-world business scenario is, a corresponding digital instance can be provisioned through Azure Digital Twins.
+Azure Digital Twins applies to environments of all kinds, for example, warehouses, offices, schools, hospitals, banks, stadiums, factories, parking lots, parks, smart grids, and cities. Use cases include tracking daily temperature across several states, monitoring busy drone paths, identifying autonomous vehicles, analyzing occupancy levels for a building, or finding the busiest cash register in your store. Whatever your real-world business scenario is, a corresponding digital instance can be provisioned through Azure Digital Twins.
 
 The following video takes a deeper dive into Digital Twins:
 
@@ -30,7 +30,7 @@ Key capabilities of Azure Digital Twins include:
 
 ### Spatial intelligence graph
 
-The [spatial intelligence graph](./concepts-objectmodel-spatialgraph.md) is a virtual representation of the physical environment that enables you to model the relationships between people, places, and devices.
+The [*spatial intelligence graph*](./concepts-objectmodel-spatialgraph.md) or *spatial graph* is a virtual representation of the physical environment that enables you to model the relationships between people, places, and devices.
 
 Consider a smart utility app that might involve several electricity usage meters connected across a neighborhood. To accurately monitor and predict electricity usage and billing, the smart utility company must model each device and sensor with context about the location and the customer that will be billed. The spatial intelligence graph enables you to model these kinds of complex relationships.
 
@@ -44,13 +44,13 @@ For example, a room occupancy application could use pre-defined space types such
 
 You can build solutions that scale securely and which can be reused for multiple tenants. You can also create multiple subtenants that can be accessed and used in an isolated and secure manner.
 
-Think how a space utilization app could be configured to isolate a tenant's data from other tenant data within a single building, or to combine data for a single tenant with multiple buildings.
+Your space utilization app could be configured to isolate a tenant's data from other tenant data within a single building, or to combine data for a single tenant with multiple buildings.
 
 ### Advanced compute capabilities
 
 Advanced compute capabilities called [user-defined functions](./concepts-user-defined-functions.md) let you define and run custom functions against incoming [telemetry messages](./concepts-device-ingress.md) to send signals to pre-defined endpoints. This capability improves customization and automation of device tasks.
 
-For example, a smart agriculture application could include a user-defined function that runs logic based on soil moisture sensor readings and the weather forecast, then sends signals.
+For example, a smart agriculture application could include a user-defined function to assess soil moisture sensor readings as well as the weather forecast, then send signals about the irrigation needs.
 
 ### Built-in access control
 
