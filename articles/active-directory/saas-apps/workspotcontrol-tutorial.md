@@ -92,7 +92,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 **To configure Azure AD single sign-on with Workspot Control, perform the following steps:**
 
-1. In the [Azure portal](https://portal.azure.com/), on the **[Application name]** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Workspot Control** application integration page, select **Single sign-on**.
 
     ![image](./media/workspotcontrol-tutorial/B1_B2_Select_SSO.png)
 
