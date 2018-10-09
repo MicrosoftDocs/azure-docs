@@ -1,5 +1,5 @@
 ---
-title: Configure the role claim issued in the SAML token for enterprise applications in Azure Active Directory | Microsoft Docs
+title: Configure the role claim issued in the SAML token for enterprise applications in Azure AD | Microsoft Docs
 description: Learn how to configure the role claim issued in the SAML token for enterprise applications in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/05/2018
 ms.author: jeedes
 ms.custom: aaddev
-
 ---
-# Configure the role claim issued in the SAML token for enterprise applications in Azure Active Directory
+
+# How to: Configure the role claim issued in the SAML token for enterprise applications
 
 By using Azure Active Directory (Azure AD), you can customize the claim type for the role claim in the response token that you receive after you authorize an app.
 
 ## Prerequisites
+
 - An Azure AD subscription with directory setup.
 - A subscription that has single sign-on (SSO) enabled. You must configure SSO with your application.
 

@@ -14788,6 +14788,12 @@
 "redirect_document_id": false
 },
 {
+"source_path": "articles/active-directory/active-directory-aadconnectsync-feature-prevent-accidental-deletes.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes",
+"redirect_document_id": false
+},
+
+{
 "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md",
 "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler",
 "redirect_document_id": false
@@ -16369,6 +16375,26 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-app-registration.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-claims-mapping.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-claims-mapping",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-configurable-token-lifetimes.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-configurable-token-lifetimes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-enterprise-app-role-management.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-enterprise-app-role-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-consent-experience.md",
+            "redirect_url": "/azure/active-directory/develop/application-consent-experience",
             "redirect_document_id": true
         },
         {
@@ -18847,6 +18873,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-properties-area.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-properties-area",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-editions.md",
             "redirect_url": "/azure/active-directory/active-directory-whatis",
             "redirect_document_id": false
@@ -21130,8 +21161,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-azureadjoin-user-upgrade.md",
-            "redirect_url": "/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup",
+            "source_path": "articles/active-directory/active-directory-conditional-access-azure-authenticator-app.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
             "redirect_document_id": false
         },
         {
@@ -26993,11 +27024,6 @@
         {
             "source_path": "articles/active-directory/application-proxy-enable-remote-access-sharepoint.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
-            "redirect_url": "/azure/active-directory/active-directory-enterprise-app-role-management",
             "redirect_document_id": false
         },
         {
