@@ -19,11 +19,11 @@ ms.author: barclayn
 # Windows Defender Advanced Threat Protection with Azure Security Center
 
 Azure Security Center is extending its Cloud Workload Protection Platforms offering by integrating with [Windows Defender Advanced Threat Protection](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
-This change brings comprehensive Endpoint Detection and Response (EDR) capabilities. With Windows Defender ATP integration, you can spot abnormalities as well as detect and respond to advanced attacks on server endpoints monitored by Azure Security Center.
+This change brings comprehensive Endpoint Detection and Response (EDR) capabilities. With Windows Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Azure Security Center.
 
 Azure Security Center customers can now use features of Windows Defender ATP:
 
-- **Next-gen post breach detection sensors**: Windows Defender ATP sensors for Windows servers collect a vast array of behavioral signals.
+- **Next-generation post breach detection sensors**: Windows Defender ATP sensors for Windows servers collect a vast array of behavioral signals.
 
 - **Analytics-based, cloud-powered post breach detection**: Windows Defender ATP quickly adapts to changing threats. It uses advanced analytics and big data. Windows Defender ATP is amplified by the power of the Intelligent Security Graph with signals across Windows, Azure, and Office to detect unknown threats. It provides actionable alerts and enables you to respond quickly.
 
@@ -43,7 +43,7 @@ You can [investigate the alert](security-center-investigation.md) in Azure Secur
 
 ![The alert investigation dashboard in Azure Security Center](media/security-center-wdatp/image2.png)
 
-You can further investigate the alert by pivoting to Windows Defender ATP. There you can see additional information such as the alert process tree, the incident graph, and a detailed machine timeline that shows every behavior for a historical period of up to six months.
+You can further investigate the alert by pivoting to Windows Defender ATP. There you can see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
 ![Windows Defender ATP page with detailed information about an alert](media/security-center-wdatp/image3.png)
 
@@ -55,7 +55,7 @@ Only servers in subscriptions for the standard service tier are supported.
 
 ## Onboarding instructions
 
-To view if Windows Defender ATP integration is enabled, you can select **Security center** > **Security policy** > **Subscription** > **Edit settings**.
+To view if Windows Defender ATP integration is enabled, select **Security center** > **Security policy** > **Subscription** > **Edit settings**.
 
   ![Azure Security Center Policy Management](media/security-center-wdatp/policy-management.png)
 
