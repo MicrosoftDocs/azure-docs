@@ -28,6 +28,7 @@ Your Azure Stack operator (either a service provider or an administrator in your
 
 - For an integrated system, the URL varies based on your operator's region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
 - If you're using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
+- The default time zone for all Azure Stack deployments is set to Coordinated Universal Time (UTC). You can select a time zone when installing Azure Stack, however it automatically reverts to UTC as the default during installation.
 
 ## Customize the dashboard
 
