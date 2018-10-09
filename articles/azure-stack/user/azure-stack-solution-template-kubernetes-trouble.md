@@ -29,7 +29,7 @@ The following article looks troubleshooting your Kubernetes cluster. You can rev
 
 ## Overview of deployment
 
-Before we get into the steps you may need to take troubleshooting your cluster, you may need a broad understanding of the deployment. The deployment uses an Azure Resource Manager solution template to create the VMs and installs the ACS Engine for your cluster.
+Before you get into the steps to troubleshoot, you may look at the Kubernetes deployment process. The deployment uses an Azure Resource Manager solution template to create the VMs and installs the ACS Engine for your cluster.
 
 ### Deployment workflow
 
@@ -39,7 +39,7 @@ The following diagram shows the general process for deploying the cluster.
 
 ### Deployment steps
 
-1. Collects input from the market place item.
+1. Collects input parameters from the market place item.
 
     You enter the values you need to set up the Kubernetes cluster including:
     -  **User name** User name for the Linux Virtual Machines that are part of the Kubernetes cluster and DVM.
@@ -62,7 +62,7 @@ The following diagram shows the general process for deploying the cluster.
 4. Runs the master script.
 
     The script:
-    - Installs etcd, Docker, and Kubernetes resources such as kubelet. etcd is a distributed key value store that provides a reliable way to store data across a cluster of machines. Docker supports bare-bones operating system level virtualizations known as containers. Kubelet is the node agent that runs on each Kubernetes node.
+    - Installs etcd, Docker, and Kubernetes resources such as kubelet. etcd is a distributed key value store that provides a way to store data across a cluster of machines. Docker supports bare-bones operating system level virtualizations known as containers. Kubelet is the node agent that runs on each Kubernetes node.
     - Sets up the etcd service.
     - Sets up Kubelet service.
     - Starts kubelet. This involves the following:
@@ -77,6 +77,21 @@ The following diagram shows the general process for deploying the cluster.
     - Install etcd.
     - Set up the Kubelet service.
     - Joins the Kubernetes cluster.
+
+## Steps for troubleshooting
+
+You can collect logs on the VMs supporting your Kubernetes cluster. You can also review the deployment log. You may also need to talk to your Azure Stack administrator to verify the version of Azure Stack you are using, and to get logs from Azure Stack related to your deployment.
+
+1. Review the [deployment status](#review-deployment-status) and the [retrieve the logs](#get-logs-from-a-vm) from the master node in your Kubernetes cluster.
+2. You need to be use the latest version of Azure Stack. If you are unsure of your version of Azure Stack, contact your Azure Stack administrator. The Kubernetes Cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
+3.  Review your VM creation files. You may have encountered the following issues:  
+    a.  The public key may be invalid. Review the key that you have created.  
+    b.  VM creation may have triggered an internal error or triggered a creation error. Errors may be caused by a number of factors including capacity limitations for your Azure Stack subscription.
+    c.  Does the fully qualified domain name (FDQN) for the VM begin with a duplicate prefix?
+4.  If the VM is **OK** then, evaluate the DVM. If the DVM has an error message:
+        a.  The public key may be invalid. Review the key that you have created.  
+        b.  You will need to contact your Azure Stack administrator to retrieve the logs for Azure Stack using the Privileged End Points. For more information, see [Azure Stack diagnostics tools](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
+5. If you still have been unable to identify the problem, compress your logs into an archive and send them to CSS at email@microsoft.com.
 
 ## Review deployment status
 
@@ -152,22 +167,6 @@ You will need a bash prompt on the machine your use to manage Azure Stack. You u
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log
-
-
-## Steps for troubleshooting
-
-You can collect logs on the VMs supporting your Kubernetes cluster. You can also review the deployment log. You may also need to talk to your Azure Stack administrator to verify the version of Azure Stack you are using, and to get logs from Azure Stack related to your deployment.
-
-1. Reviewed the deployment status and the retrieved the logs from the master node in your Kubernetes cluster.
-2. You need to be use the latest version of Azure Stack. If you are unsure of your version of Azure Stack, contact your Azure Stack administrator. The Kubernetes Cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
-3.  Review your VM creation files. You may have encountered the following issues:  
-    a.  The public key may be invalid. Review the key that you have created.  
-    b.  VM creation may have triggered an internal error or triggered a creation error. Errors may be caused by a number of factors including capacity limitations for your Azure Stack subscription.
-    c.  Does the fully qualified domain name (FDQN) for the VM begin with a duplicate prefix?
-4.  If the VM is **OK** then, evaluate the DVM. If the DVM has an error message:
-        a.  The public key may be invalid. Review the key that you have created.  
-        b.  You will need to contact your Azure Stack administrator to retrieve the logs for Azure Stack using the Privileged End Points. For more information, see [Azure Stack diagnostics tools](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
-5. If you still have been unable to identify the problem, compress your logs into an archive and send them to CSS at email@microsoft.com.
 
 ## Next steps
 
