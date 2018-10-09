@@ -33,6 +33,8 @@ one of the following messages:
 -  Installing Windows ##%. Don't turn off your PC. This will take a while. Your PC will restart several times
 -  Error XXXXXXXX applying update operations ##### of ##### (\Regist...)
 - Failure configuring Windows Updates. Reverting changes. Do not turn off your computer.
+
+
 - You’re locked out! Enter the recovery key to get going again (Keyboard Layout: US) The wrong sign-in info has been entered too many times, so your PC was locked to protect your privacy. To retrieve the recovery key, go to http://windows.microsoft.com/recoverykeyfaq from another PC or mobile device. In case you need it, the key ID is XXXXXXX. Or, you can reset your PC.
 
 - Enter the password to unlock this drive [ ] Press the Insert Key to see the password as you type.
@@ -40,10 +42,21 @@ one of the following messages:
 
 ## Solution
 
-
 Depending on the number of updates that are installing or rollbacking, the update process could take some time. Try not to break this process and leave the VM in this state while the OS attempts to recover itself. If after 8 hours, the VM is still in this state, restart the VM from the Azure portal. If this step does not work, try the following solution.
 Note: 
 •	The number of hours has direct relation with the amount of update that were pushed to the VM. The bigger the number of updates, the more time the machine will need to proceed with the installation.
 •	At the same time, the bigger the amount of updates are installed at once, the bigger the chance to end up on OS corruption and the VM may need to roll back the update and that will double or more the time for the OS to become available again. 
 
+### Remove the update that causes the problem
+
+1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md). 2. [Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md). 
+3. Now query its patch level to get the package name, so you can remove it with DISM tool
+
+        dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+
+    For exmaple, If the driver leter that is aagined to the attachde od sik is F, run the following command:
+
+        dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+4. Now open the Patch_level.txt in c:\temp fplder and then read it from the bottom up. This KB will be listed with the status Install Pending or Uninstall Pending
+5. 
 
