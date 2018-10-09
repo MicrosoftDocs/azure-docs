@@ -53,18 +53,18 @@ In the following section, we refer to the IP address range of the subnet, which 
 
 In the two previous graphics, the **virtual network address space** covers both the **Azure VM subnet IP address range** and the **virtual network gateway subnet IP address range**. 
 
-In some cases, you might need to conserve or be specific with your IP address ranges. To do this, you can restrict the **virtual network address space** of a virtual network to the specific ranges used by each subnet. You can define the **virtual network address space** of a virtual network as multiple specific ranges, as shown here:
+To  conserve or be specific with your IP address ranges, you can restrict the **virtual network address space** of a virtual network to the specific ranges used by each subnet. You can define the **virtual network address space** of a virtual network as multiple specific ranges, as shown here:
 
 ![Azure virtual network address space with two spaces](./media/hana-overview-connectivity/image3-azure-vnet-address-space_alternate.png)
 
-In this case, the **virtual network address space** has two spaces defined. These two spaces are the same as the IP address ranges that are defined for the **Azure VM subnet IP address range** and the **virtual network gateway subnet IP address range.**
+In this case, the **virtual network address space** has two spaces defined. They are the same as the IP address ranges that are defined for the **Azure VM subnet IP address range** and the **virtual network gateway subnet IP address range.**
 
 You can use any naming standard you like for these tenant subnets (VM subnets). However, **there must always be one, and only one, gateway subnet for each virtual network** that connects to the SAP HANA on Azure (Large Instances) ExpressRoute circuit. And **this gateway subnet has to be named "GatewaySubnet"** to make sure that the ExpressRoute gateway is properly placed.
 
 > [!WARNING] 
-> It is critical that the gateway subnet always is named "GatewaySubnet."
+> It's critical that the gateway subnet always be named "GatewaySubnet."
 
-You can use multiple VM subnets, and even utilize non-contiguous address ranges. These address ranges must be covered by the **virtual network address space** of the virtual network, either in an aggregated form or in a list of the exact ranges of the VM subnets and the gateway subnet.
+You can use multiple VM subnets and non-contiguous address ranges. These address ranges must be covered by the **virtual network address space** of the virtual network. They can be in an aggregated form or in a list of the exact ranges of the VM subnets and the gateway subnet.
 
 Following is a summary of the important fact about an Azure virtual network that connects to HANA Large Instances:
 
@@ -73,14 +73,14 @@ Following is a summary of the important fact about an Azure virtual network that
 - Or you can submit multiple ranges that cover the different IP address ranges of VM subnet IP address range(s) and the virtual network gateway IP address range.
 - The defined **virtual network address space** is used for BGP routing propagation.
 - The name of the gateway subnet must be: **"GatewaySubnet"**.
-- The  address space is used as a filter on the HANA Large Instance side to allow or disallow traffic to the HANA Large Instance units from Azure. If the BGP routing information of the Azure virtual network and the IP address ranges that are configured for filtering on the HANA Large Instance side don't match, connectivity issues can occur.
+- The  address space is used as a filter on the HANA Large Instance side to allow or disallow traffic to the HANA Large Instance units from Azure. Make sure that the BGP routing information of the Azure virtual network and the IP address ranges that are configured for filtering on the HANA Large Instance side match. Otherwise, connectivity issues can occur.
 - There are some details about the gateway subnet that are discussed later, in the section **Connecting a virtual network to HANA Large Instance ExpressRoute.**
 
 
 
 ## Different IP address ranges to be defined 
 
-We already introduced some of the IP address ranges that are necessary to deploy HANA Large Instances in earlier sections. But there are more IP address ranges that are also important. Let's go through some more  details. The following IP addresses, which don't all need to be submitted to Microsoft, need to be defined before sending a request for initial deployment:
+We already introduced some of the IP address ranges that are necessary to deploy HANA Large Instances in earlier sections. But there are more IP address ranges that are also important. Let's go through some more  details. The following IP addressesdon't all need to be submitted to Microsoft. However, they do need to be defined before sending a request for initial deployment:
 
 - **Virtual network address space** As introduced earlier, the **virtual network address space** is the IP address range (or ranges) that you've assigned (or plan to assign) to your address space parameter in the Azure virtual network(s) that connect to the SAP HANA Large Instance environment.
 
