@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/09/20178
+ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: mvc
 
