@@ -40,20 +40,20 @@ To complete this article, you need:
 * [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension.  See [Install the extension
 ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
 
-## Prepare the Key Vault
+## Prepare Key Vault
 
-To prevent the password spray attack, it is recommended to use an auto-generated password for the virtual machine administrator account, and use Key Vault to store the password. The following procedure creates a Key Vault and a secret (the password). It also configure the permissions needed for the template deployment to access the secret stored in the Key Vault.
+To prevent the password spray attacks, it is recommended to use an auto-generated password for the virtual machine administrator account, and use Key Vault to store the password. The following procedure creates a Key Vault and a secret to store the password. It also configure the permissions needed for the template deployment to access the secret stored in the Key Vault. Additional access policies are needed if the Key Vault are under a different Azure subscription. For details, see [Use Azure Key Vault to pass secure parameter value during deployment](./resource-manager-keyvault-parameter.md).
 
 1. Sign in to the [Azure Cloud Shell](https://shell.azure.com).
 2. Switch to your favorite environment, either **PowerShell** or **Bash** from the upper left corner.
 3. Run the following Azure PowerShell or Azure CLI command.  
 
-    ```cli-interactive
-    resourceGroupName='{your-resource-group-name}'
+    ```azurecli-interactive
+    resourceGroupName='<your-resource-group-name>'
     location='Central US'
-    keyVaultName='{your-unique-vault-name}'
+    keyVaultName='<your-unique-vault-name>'
     username='admin'
-    userPrincipalName='{your-email-address-associated-with-your-subscription}'
+    userPrincipalName='<your-email-address-associated-with-your-subscription>'
     
     az group create --name $resourceGroupName --location $location
     
@@ -69,32 +69,38 @@ To prevent the password spray attack, it is recommended to use an auto-generated
     az keyvault secret set --vault-name $keyVaultName --name $username --value $password
     ```
 
-    ```powershell-interactive
-    $keyVaultName = "{your-unique-vault-name}"
-    $resourceGroupName="{your-resource-group-name}"
+    ```azurepowershell-interactive
+    $keyVaultName = "<your-unique-vault-name>"
+    $resourceGroupName="<your-resource-group-name>"
     $location='Central US'
-    $username='admin'
-    $userPrincipalName='{your-email-address-associated-with-your-subscription}'
+    $userPrincipalName="<your-email-address-associated-with-your-subscription>"
     
+    # Create a resource group
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    
-    New-AzureRmKeyVault `
+        
+    # Create a Key Vault
+    $keyVault = New-AzureRmKeyVault `
       -VaultName $keyVaultName `
       -resourceGroupName $resourceGroupName `
       -Location $location `
       -EnabledForTemplateDeployment
     Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
-    
+      
+    # Create a secret
     $password = openssl rand -base64 32
-    echo$password
-    $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
-    Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $username -SecretValue $secretvalue
+    
+    $secretValue = ConvertTo-SecureString $password -AsPlainText -Force
+    Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretValue
+    
+    # Output
+    echo "You need the following values for the virtual machine deployment:"
+    echo "Resource group name is: $resourceGroupName."
+    echo "The admin password is: $password."
+    echo "The Key Vault resource ID is: " $keyVault.ResourceID
     ```
 
 > [!NOTE]
-> Each Azure service has specific password requirements. For example, the Azure virtual machine's requirements can be found at What are the password requirements when creating a VM?.
->
-> Additional access policies are needed if the Key Vault are under a different Azure subscription.  For details, see [Use Azure Key Vault to pass secure parameter value during deployment](./resource-manager-keyvault-parameter.md).
+> Each Azure service has specific password requirements. For example, the Azure virtual machine's requirements can be found at What are the password requirements when creating a VM?
 
 ## Open a Quickstart template
 
@@ -194,7 +200,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 6. Select the files you saved earlier in the tutorial. The default name is **azuredeploy.json** and **azuredeploy.paraemters.json**.  If you have files with the same file names, the old files will be overwritten without any notification.
 7. From the Cloud shell, run the following command to verify the file is uploaded successfully. 
 
-    ```shell
+    ```azurepowershell-interactive
     ls
     ```
 
@@ -204,15 +210,14 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 
 8. From the Cloud shell run the following command to verify the content of the JSON file:
 
-    ```shell
+    ```azurepowershell-interactive
     cat azuredeploy.json
     ```
 9. From the Cloud shell, run the following PowerShell commands:
 
-    ```powershell
+    ```azurepowershell-interactive
     $resourceGroupName = "<Enter the resource group name>"
     $location = "<Enter the Azure location>"
-
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
@@ -237,7 +242,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 
 10. Run the following PowerShell command to list the newly created virtual machine:
 
-    ```powershell
+    ```azurepowershell-interactive
     Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName <ResourceGroupName>
     ```
 
