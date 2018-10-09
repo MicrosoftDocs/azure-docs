@@ -1,18 +1,21 @@
 ---
-title: Anomaly Detection Python app - Microsoft Cognitive Services | Microsoft Docs
-description: Explore a Python notebook that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anomaly points.
+title: "Tutorial: Anomaly Detection, Python"
+titlesuffix: Azure Cognitive Services
+description: Explore a Python notebook that uses the Anomaly Detection API. Send original data points to API and get the expected value and anomaly points.
 services: cognitive-services
 author: chliang
 manager: bix
 
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author:  chliang
 ---
 
-# Anomaly Detection Python application
+# Tutorial: Anomaly Detection with Python application
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 The tutorial shows how to use the Anomaly Detection API in Python and how to visualize your results using popular libraries. Using Jupyter to run the tutorial and trying your own data with your subscription key. To learn how to get started
 with interactive Jupyter notebooks, refer to [Jupyter Documentation](http://jupyter.readthedocs.io/en/latest/index.html). 

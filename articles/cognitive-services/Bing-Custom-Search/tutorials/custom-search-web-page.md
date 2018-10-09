@@ -1,17 +1,19 @@
 ---
-title: "Bing Custom Search: Create a custom search web page | Microsoft Docs"
-description: Describes how to configure a custom search instance and integrate it into a web page
+title: "Tutorial: Create a custom search web page - Bing Custom Search"
+titlesuffix: Azure Cognitive Services
+description: Describes how to configure a custom search instance and integrate it into a web page.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
 ---
 
-# Build a Custom Search web page
+# Tutorial: Build a Custom Search web page
 
 Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a martial arts website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Your users see search results tailored to the content they care about instead of paging through general search results that may contain irrelevant content. 
 

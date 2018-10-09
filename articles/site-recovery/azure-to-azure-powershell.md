@@ -2,17 +2,15 @@
 title: Azure Site Recovery - Setup and test disaster recovery for Azure virtual machines using Azure PowerShell  | Microsoft Docs
 description: Learn how to set up disaster recovery for Azure virtual machines with Azure Site Recovery using Azure PowerShell.
 services: site-recovery
-author: bsiva
-manager: abhemraj
-editor: raynew
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: bsiva
-
-
+ms.date: 10/02/2018
+ms.author: sutalasi
 ---
 # Set up disaster recovery for Azure virtual machines using Azure PowerShell
+
 
 In this article, you see how to setup and test disaster recovery for Azure virtual machines using Azure PowerShell.
 
@@ -155,12 +153,15 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 ## Prepare the vault to start replicating Azure virtual machines
 
-####1. Create a Site Recovery fabric object to represent the primary(source) region
+### Create a Site Recovery fabric object to represent the primary (source) region
 
-The fabric object in the vault represents an Azure region. The primary fabric object, is the fabric object created to represent the Azure region that virtual machines being protected to the vault belong to. In the example in this article, the virtual machine being protected is in the East US region.
+The fabric object in the vault represents an Azure region. The primary fabric object is created to represent the Azure region that virtual machines being protected to the vault belong to. In the example in this article, the virtual machine being protected is in the East US region.
 
-> [!NOTE]
-> Azure Site Recovery operations are executed asynchronously. When you initiate an operation, an Azure Site Recovery job is submitted and a job tracking object is returned. Use the job tracking object to get the latest status for the job (Get-ASRJob), and to monitor the status of the operation.
+- Only one fabric object can be created per region. 
+- If you've previously enabled Site Recovery replication for a VM in the Azure portal, Site Recovery creates a fabric object automatically. If a fabric object exists for a region, you can't create a new one.
+
+
+Before you start, note that Site Recovery operations are executed asynchronously. When you initiate an operation, an Azure Site Recovery job is submitted and a job tracking object is returned. Use the job tracking object to get the latest status for the job (Get-ASRJob), and to monitor the status of the operation.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -180,7 +181,7 @@ $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
 ```
 If virtual machines from multiple Azure regions are being protected to the same vault, create one fabric object for each source Azure region.
 
-####2. Create a Site Recovery fabric object to represent the recovery region
+### Create a Site Recovery fabric object to represent the recovery region
 
 The recovery fabric object represents the recovery Azure location. Virtual machines will be replicated to and recovered to (in the event of a failover) the recovery region represented by the recovery fabric. The recovery Azure region used in this example is West US 2.
 
@@ -201,7 +202,7 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
 
 ```
 
-####3. Create a Site Recovery protection container in the primary fabric
+### Create a Site Recovery protection container in the primary fabric
 
 The protection container is a container used to group replicated items within a fabric.
 
@@ -219,7 +220,7 @@ Write-Output $TempASRJob.State
 
 $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 ```
-####4. Create a Site Recovery protection container in the recovery fabric
+### Create a Site Recovery protection container in the recovery fabric
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
@@ -238,7 +239,7 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
-####5. Create a replication policy
+### Create a replication policy
 
 ```azurepowershell
 #Create replication policy
@@ -255,7 +256,7 @@ Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
 ```
-####6. Create a protection container mapping between the primary and recovery protection container
+### Create a protection container mapping between the primary and recovery protection container
 
 A protection container mapping maps the primary protection container with a recovery protection container and a replication policy. Create one mapping for each replication policy that you'll use to replicate virtual machines between a protection container pair.
 
@@ -275,7 +276,7 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
-####7. Create a protection container mapping for failback (reverse replication after a failover)
+### Create a protection container mapping for failback (reverse replication after a failover)
 
 After a failover, when you are ready to bring the failed over virtual machine back to the original Azure region, you failback. To failback, the failed over virtual machine is reverse replicated from the failed over region to the original region. For reverse replication the roles of the original region and the recovery region switch. The original region now becomes the new recovery region, and what was originally the recovery region now becomes the primary region. The protection container mapping for reverse replication represents the switched roles of the original and recovery regions.
 

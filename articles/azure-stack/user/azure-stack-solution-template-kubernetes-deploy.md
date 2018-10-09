@@ -163,6 +163,9 @@ Give the service principal access to your subscription so that the principal can
 
 3. Select **OK** to deploy your cluster.
 
+> [!TIP]  
+>  If you have questions about your deployment, you can post your question or see if someone has already answered the question in the [Azure Stack Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+
 ## Connect to your cluster
 
 You are now ready to connect to your cluster. The master can be found in your cluster resource group, and is named `k8s-master-<sequence-of-numbers>`. Use an SSH client to connect to the master. On the master, you can use **kubectl**, the Kubernetes command-line client to manage your cluster. For instructions, see [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview).
