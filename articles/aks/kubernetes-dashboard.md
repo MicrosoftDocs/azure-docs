@@ -53,7 +53,9 @@ You can now access the Kubernetes dashboard in your RBAC-enabled cluster. To sta
 
 ## Create an application
 
-To see how the Kubernetes dashboard can reduce the complexity of management tasks, let's create an application. You can create an application from the Kubernetes dashboard by providing text input, a YAML file, or through a graphical wizard. To create an application, complete the following steps:
+To see how the Kubernetes dashboard can reduce the complexity of management tasks, let's create an application. You can create an application from the Kubernetes dashboard by providing text input, a YAML file, or through a graphical wizard.
+
+To create an application, complete the following steps:
 
 1. Select the **Create** button in the upper right window.
 1. To use the graphical wizard, choose to **Create an app**.
