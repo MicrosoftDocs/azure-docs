@@ -54,9 +54,9 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
 
 1. Configure the UDF to include the temperature matcher by adding the following line to the `matcherNames` node in the *provisionSample.yaml* file:
 
-```yaml
-        - Matcher Temperature
-```
+    ```yaml
+            - Matcher Temperature
+    ```
 
 1. Open the file *src\actions\userDefinedFunctions\availability.js* in your editor. This is the file mentioned in the **script** element of the *provisionSample.yaml*. The user-defined function in this file looks for conditions when no motion is detected in the room, as well as carbon dioxide levels are below 1000 ppm. Modify the JavaScript file to add monitor temperature in addition to other conditions. Add the following lines of code to look for conditions when no motion is detected in the room, carbon dioxide levels are below 1000 ppm, and temperature is below 73 degrees Fahrenheit:
     1. At the top of the file, add the following lines for temperature:
@@ -141,9 +141,10 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
     1. Save the file. 
 
 1. Open command window, and navigate to the folder **_occupancy-quickstart\src_**. Run the following command to provision your spatial intelligence graph and user-defined function. Sign in with your account when prompted. 
-```cmd/sh
-dotnet run ProvisionSample
-```
+
+    ```cmd/sh
+    dotnet run ProvisionSample
+    ```
 
 1. Once your login is authenticated, the application creates a sample spatial graph as configured in the *provisionSample.yaml*. Observe the messages in the command window and notice how your spatial graph gets created. Notice how it creates an IoT hub at the root node or the `Venue`. 
 
@@ -156,31 +157,35 @@ dotnet run ProvisionSample
 In this section, you will use the project named *device-connectivity* in the sample to simulate sensor data for detecting motion, temperature and carbon dioxide. This project generates random values for the sensors, and sends them to the IoT hub by using the device connection string.
 
 1. In a separate command window, navigate to the Digital Twins sample, and then to the **_device-connectivity_** folder.
+
 1. Run this command to make sure the dependencies for the project are correct:
-```cmd/sh
-dotnet restore
-```
+
+    ```cmd/sh
+    dotnet restore
+    ```
+
 1. Open the *appSettings.json* file in your editor, edit the following values:
     1. *DeviceConnectionString*: Assign the value of `ConnectionString` in the output window from the previous section.
     2. *HardwareId* within the *Sensors* array: Since we are simulating events from sensors provisioned to our Digital Twins instance, the hardware ID and the names of the sensors in this file should match with those in the `sensors` node of the *provisionSample.yaml* file. Add a new entry for the temperature sensor; the **Sensors** node in the *appSettings.json* should look like the following:
 
-    ```JSON
-    "Sensors": [{
-      "DataType": "Motion",
-      "HardwareId": "SAMPLE_SENSOR_MOTION"
-    },{
-      "DataType": "CarbonDioxide",
-      "HardwareId": "SAMPLE_SENSOR_CARBONDIOXIDE"
-    },{
-      "DataType": "Temperature",
-      "HardwareId": "SAMPLE_SENSOR_TEMPERATURE"
-    }]
-    ```
+        ```JSON
+        "Sensors": [{
+          "DataType": "Motion",
+          "HardwareId": "SAMPLE_SENSOR_MOTION"
+        },{
+          "DataType": "CarbonDioxide",
+          "HardwareId": "SAMPLE_SENSOR_CARBONDIOXIDE"
+        },{
+          "DataType": "Temperature",
+          "HardwareId": "SAMPLE_SENSOR_TEMPERATURE"
+        }]
+        ```
 
 1. Run this command to start simulating device events for temperature, motion and carbon dioxide:
-```cmd/sh
-dotnet run
-```
+
+    ```cmd/sh
+    dotnet run
+    ```
 
 ## Get results of User-Defined Function
 The user-defined function runs every time your instance receives telemetry data. This section queries your Digital Twins instance to get the results of the user-defined function. You will see in near real time, when a room is available, the air is fresh and temperature is right. 
@@ -189,10 +194,10 @@ The user-defined function runs every time your instance receives telemetry data.
 
 1. Run the following commands:
 
-```cmd/sh
-cd occupancy-quickstart\src
-dotnet run GetAvailableAndFreshSpaces
-```
+    ```cmd/sh
+    cd occupancy-quickstart\src
+    dotnet run GetAvailableAndFreshSpaces
+    ```
 
 The output window will show how the user-defined function executes, and intercepts events from the device simulation. 
 

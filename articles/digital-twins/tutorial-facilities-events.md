@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Integrate events with Event Grid
 > * Notify events with Logic App
-
+    
 If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
@@ -56,23 +56,23 @@ In this section, we will set up [Event Grid](../event-grid/overview.md) to colle
 
 1. In a command window, navigate to the Digital Twins sample, and then run the following:
 
-```cmd/sh
-cd occupancy-quickstart\src
-```
+    ```cmd/sh
+    cd occupancy-quickstart\src
+    ```
 
 1. Open the file **_actions\createEndpoints.yaml_** in your editor. Make sure it has the following contents:
 
-```yaml
-- type: EventGrid
-  eventTypes:
-  - SensorChange
-  - SpaceChange
-  - TopologyOperation
-  - UdfCustom
-  connectionString: Primary_connection_string_for_your_Event_Grid
-  secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-  path: Event_Grid_Topic_Path
-```
+    ```yaml
+    - type: EventGrid
+      eventTypes:
+      - SensorChange
+      - SpaceChange
+      - TopologyOperation
+      - UdfCustom
+      connectionString: Primary_connection_string_for_your_Event_Grid
+      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
+      path: Event_Grid_Topic_Path
+    ```
 
 1. Assign the value of **Key1** from the previous section to the `connectionString`, and the value of **Key2** to the `secondaryConnectionString`. 
 
@@ -82,9 +82,9 @@ cd occupancy-quickstart\src
 
 1. Save and close the file. Run the following in the command window. 
 
-```cmd/sh
-dotnet run CreateEndpoints
-```
+    ```cmd/sh
+    dotnet run CreateEndpoints
+    ```
 
    This creates the endpoint for the Event Grid. 
 

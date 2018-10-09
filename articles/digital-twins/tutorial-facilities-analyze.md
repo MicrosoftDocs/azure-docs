@@ -68,35 +68,38 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 
 1. In a command window, navigate to the Digital Twins sample, and then run change to the right directory:
 
-```cmd/sh
-cd occupancy-quickstart\src
-```
+    ```cmd/sh
+    cd occupancy-quickstart\src
+    ```
 
 1. Open the file **_actions\createEndpoints.yaml_** in your editor. Replace the contents with the following:
 
-```yaml
-- type: EventHub
-  eventTypes:
-  - SensorChange
-  - SpaceChange
-  - TopologyOperation
-  - UdfCustom
-  connectionString: Primary_connection_string_for_your_event_hub
-  secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-  path: Name_of_your_Event_Hubs_namespace
-- type: EventHub
-  eventTypes:
-  - DeviceMessage
-  connectionString: Primary_connection_string_for_your_event_hub
-  secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-  path: Name_of_your_Event_Hubs_namespace
-```
+    ```yaml
+    - type: EventHub
+      eventTypes:
+      - SensorChange
+      - SpaceChange
+      - TopologyOperation
+      - UdfCustom
+      connectionString: Primary_connection_string_for_your_event_hub
+      secondaryConnectionString: Secondary_connection_string_for_your_event_hub
+      path: Name_of_your_Event_Hubs_namespace
+    - type: EventHub
+      eventTypes:
+      - DeviceMessage
+      connectionString: Primary_connection_string_for_your_event_hub
+      secondaryConnectionString: Secondary_connection_string_for_your_event_hub
+      path: Name_of_your_Event_Hubs_namespace
+    ```
 
 1. Enter the value for **Connection string--primary key** for the event hub for `connectionString`, and the value for **Connection string--secondary key** for the `secondaryConnectionString`. Enter the name of your Event Hubs namespace as `path`.
-2. Save and close the file. Run the following command in the command window, and sign in with your Azure account when prompted.
-```cmd/sh
-dotnet run CreateEndpoints
-```
+
+1. Save and close the file. Run the following command in the command window, and sign in with your Azure account when prompted.
+
+    ```cmd/sh
+    dotnet run CreateEndpoints
+    ```
+   
    It creates two endpoints for your Event hub.
 
    ![Endpoints for Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
