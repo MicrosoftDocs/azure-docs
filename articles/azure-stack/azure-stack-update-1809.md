@@ -141,9 +141,6 @@ The following are post-installation known issues for this build version.
 <!--  2873083 - IS ASDK --> 
 -  When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
 
-<!-- TBD  ASDK --> 
-- The default time zone for all Azure Stack deployments is now set to Coordinated Universal Time (UTC). You can select a time zone when installing Azure Stack, however it automatically reverts to UTC as the default during installation.
-
 <!-- 2931230 – IS  ASDK --> 
 - Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
 
