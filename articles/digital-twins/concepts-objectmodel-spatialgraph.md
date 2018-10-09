@@ -20,6 +20,8 @@ With the _Digital Twins Object Models_ and _Ontology_ in place, you can now buil
 
 ![Digital Twins Spatial Graph Building][1]
 
+<a id="model" />
+
 ## Digital Twins Object Models
 
 Digital Twins Object Models support these main categories of objects:
@@ -42,6 +44,8 @@ Other categories of objects are:
 - **User-Defined-Functions** or **UDFs** allow customizable sensor telemetry processing within the spatial graph. For example, a UDF can set a sensor value, perform custom logic based on sensor readings and set the output to a space, attach metadata to a space, and send notifications when predefined conditions are met. Currently UDFs can be written in JavaScript.
 - **Matchers** are objects that determine which UDFs will be executed for a given telemetry message.
 - **Endpoints** are the locations where telemetry messages and Digital Twins events can be routed, for example `Event Hub`, `Service Bus`, `Event Grid`.
+
+<a id="graph" />
 
 ## Spatial Intelligence Graph
 
