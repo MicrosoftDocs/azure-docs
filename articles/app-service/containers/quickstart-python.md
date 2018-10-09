@@ -149,14 +149,6 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ![Updated sample app running in Azure](media/quickstart-python/hello-azure-in-browser.png)
 
-## Customizations
-
-The App Service on Linux container automatically looks for Flask apps with a startup module named *application.py*; if you use a different name, see [How to configure Python - Custom startup command file](how-to-configure-python.md#custom-startup-command-file).
-
-## Troubleshooting
-
-If the app doesn't appear as expected, see [How to configure Python apps - Troubleshooting](how-to-configure-python.md#troubleshooting).
-
 ## Manage your new Azure web app
 
 Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
@@ -175,13 +167,13 @@ The left menu provides different pages for configuring your app.
 
 ## Next steps
 
-The built-in Python image in App Service on Linux is currently in Preview. You can create production Python apps using a custom container instead.
+The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app . You can also create production Python apps using a custom container instead.
 
 > [!div class="nextstepaction"]
 > [Python with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure built-in Python image](how-to-configure-python.md)
+> [Configure a custom startup command](how-to-configure-python.md#custom-startup-command)
 
 > [!div class="nextstepaction"]
 > [Use custom images](tutorial-custom-docker-image.md)
