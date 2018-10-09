@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twin public preview service limits
+title: Azure Digital Twins public preview service limits
 description: Understanding Azure Digital Twins public preview service limits
 author: dwalthermsft
 manager: deshner
@@ -10,7 +10,7 @@ ms.date: 10/08/2018
 ms.author: dwalthermsft
 ---
 
-# Azure Digital Twin public preview service limits
+# Public preview service limits
 
 During Public Preview, Azure Digital Twins will have subscription, instance, and rate limits as described below.  
 
