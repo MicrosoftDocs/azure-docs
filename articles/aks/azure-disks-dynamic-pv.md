@@ -93,8 +93,8 @@ metadata:
   name: mypod
 spec:
   containers:
-    - name: myfrontend
-      image: nginx
+    - name: mypod
+      image: nginx:1.15.5
       volumeMounts:
       - mountPath: "/mnt/azure"
         name: volume
@@ -192,8 +192,8 @@ metadata:
   name: mypodrestored
 spec:
   containers:
-    - name: myfrontendrestored
-      image: nginx
+    - name: mypodrestored
+      image: nginx:1.15.5
       volumeMounts:
       - mountPath: "/mnt/azure"
         name: volume

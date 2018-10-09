@@ -48,8 +48,8 @@ metadata:
   name: nginx
 spec:
   containers:
-  - name: myfrontend
-    image: nginx
+  - name: mypod
+    image: nginx:1.15.5
     ports:
     - containerPort: 80
 ```

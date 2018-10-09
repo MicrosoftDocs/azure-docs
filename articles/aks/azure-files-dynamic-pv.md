@@ -156,8 +156,8 @@ metadata:
   name: mypod
 spec:
   containers:
-    - name: myfrontend
-      image: nginx
+    - name: mypod
+      image: nginx:1.15.5
       volumeMounts:
       - mountPath: "/mnt/azure"
         name: volume
@@ -177,7 +177,7 @@ You now have a running pod with your Azure disk mounted in the */mnt/azure* dire
 
 ```
 Containers:
-  myfrontend:
+  mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
     Image:          nginx
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
@@ -191,7 +191,7 @@ Containers:
 Volumes:
   volume:
     Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
-    ClaimName:  azurefile2
+    ClaimName:  azurefile
     ReadOnly:   false
 [...]
 ```

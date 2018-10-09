@@ -78,7 +78,7 @@ metadata:
  name: mypod
 spec:
  containers:
-  - image: nginx
+  - image: nginx:1.15.5
     name: mypod
     volumeMounts:
       - name: azure
