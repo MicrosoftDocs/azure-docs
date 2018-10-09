@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -162,6 +162,9 @@ Give the service principal access to your subscription so that the principal can
 2. Review your settings.
 
 3. Select **OK** to deploy your cluster.
+
+> [!TIP]  
+>  If you have questions about your deployment, you can post your question or see if someone has already answered the question in the [Azure Stack Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## Connect to your cluster
 
