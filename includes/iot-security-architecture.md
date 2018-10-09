@@ -1,12 +1,12 @@
 ---
  title: include file
  description: include file
- services: iot-suite
- author: dominicbetts
- ms.service: iot-suite
+ services: iot-fundamentals
+ author: robinsh
+ ms.service: iot-fundamentals
  ms.topic: include
- ms.date: 04/24/2018
- ms.author: dobett
+ ms.date: 08/07/2018
+ ms.author: robinsh
  ms.custom: include file
 ---
 
@@ -180,7 +180,7 @@ In each of the categories outlined in the Azure IoT architecture, this example t
 
 Here are some examples of threats in this category:
 
-Spoofing: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from.
+**Spoofing**: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from.
 
 **Denial of Service**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out cannot report data, at all.
 

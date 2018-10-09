@@ -41,10 +41,15 @@ To complete this quickstart:
 
 Download the sample Node.js project from [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) and extract the ZIP archive.
 
-In a terminal window, navigate to the root directory of the sample Node.js project (the one that contains _index.js_).
+Open _index.js_ and find the following line:
 
-> [!NOTE]
-> You don't need to use our sample app, you can use your own Node code if you want. Be aware, however, that the PORT for your app will be set at runtime by Azure, and is available as `process.env.PORT`. If you're using express, be sure that you have a check on startup (`app.listen`) for `process.env.PORT || 3000`. If you don't do this and your port doesn't match what is set at runtime by Azure, you will see a `Service Unavailable` message. 
+```javascript
+var port = process.env.PORT || 1337;
+```
+
+App Service injects process.env.PORT into your application, so the code uses the variable to know which port to listen. 
+
+In a terminal window, navigate to the root directory of the sample Node.js project (the one that contains _index.js_).
 
 ## Run the app locally
 

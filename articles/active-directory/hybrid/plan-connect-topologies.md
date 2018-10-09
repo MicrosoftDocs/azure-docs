@@ -12,12 +12,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
 ---
 # Topologies for Azure AD Connect
 This article describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution. This article includes both supported and unsupported configurations.
+
+>[!IMPORTANT]
+>Using a solution other than Azure AD Connect to sync Active Directory with Azure AD might result in an inconsistent or unsupported state. As a result, Microsoft cannot provide technical support for such deployments.
 
 Here's the legend for pictures in the article:
 
