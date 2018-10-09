@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 
@@ -38,7 +38,7 @@ An API profile is a combination of resource providers and API versions. You can 
     
       - This is to be specified in the Pom.xml file as a dependency, which loads modules automatically if you choose the right class from the dropdown list as you would with .NET.
         
-          - The top of each module appears as follows:         
+      - The top of each module appears as follows:         
            `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
              
 
@@ -61,7 +61,7 @@ Use the following steps to install the Java SDK:
 
 1.  Follow the official instructions to install Git. For instructions, see [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Follow the official instructions to install the [Java SDK](http://zulu.org/download/)) and [Maven](https://maven.apache.org/). The correct version is version 8 of the Java Developer Kit. The correct Apache Maven is version 3.0 or above. The JAVA_HOME environment variable must be set to the install location of the Java Development Kit to complete the quickstart. For more information, see [Create your first function with Java and Maven](../../azure-functions/functions-create-first-java-maven.md).
+2.  Follow the official instructions to install the [Java SDK](http://zulu.org/download/) and [Maven](https://maven.apache.org/). The correct version is version 8 of the Java Developer Kit. The correct Apache Maven is version 3.0 or above. The JAVA_HOME environment variable must be set to the install location of the Java Development Kit to complete the quickstart. For more information, see [Create your first function with Java and Maven](../../azure-functions/functions-create-first-java-maven.md).
 
 3.  To install the correct dependency packages, open the Pom.xml file in your Java application. Add a dependency as shown in the following code:
 
@@ -87,15 +87,15 @@ Use the following steps to install the Java SDK:
 
 ## Prerequisites
 
-To use the .NET Azure SDK with Azure Stack, you must supply the following values, and then set values with environment variables. To set the environmental variables, see the instructions following the table for your operating system.
+To use the Azure Java SDK with Azure Stack, you must supply the following values, and then set values with environment variables. To set the environmental variables, see the instructions following the table for your operating system.
 
 | Value                     | Environment variables | Description                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tenant ID                 | TENANT_ID            | The value of your Azure Stack [<span class="underline">tenant ID</span>](../azure-stack-identity-overview.md).                                                          |
-| Client ID                 | CLIENT_ID             | The service principal application ID saved when service principal was created on the previous section of this document.                                                                                              |
-| Subscription ID           | SUBSCRIPTION_ID      | The [<span class="underline">subscription ID</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions) is how you access offers in Azure Stack.                |
-| Client Secret             | CLIENT_SECRET        | The service principal application Secret saved when service principal was created.                                                                                                                                   |
-| Resource Manager Endpoint | ENDPOINT              | See [<span class="underline">the Azure Stack resource manager endpoint</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Tenant ID                 | AZURE_TENANT_ID            | The value of your Azure Stack [<span class="underline">tenant ID</span>](../azure-stack-identity-overview.md).                                                          |
+| Client ID                 | AZURE_CLIENT_ID             | The service principal application ID saved when service principal was created on the previous section of this document.                                                                                              |
+| Subscription ID           | AZURE_SUBSCRIPTION_ID      | The [<span class="underline">subscription ID</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions) is how you access offers in Azure Stack.                |
+| Client Secret             | AZURE_CLIENT_SECRET        | The service principal application Secret saved when service principal was created.                                                                                                                                   |
+| Resource Manager Endpoint | ARM_ENDPOINT              | See [<span class="underline">the Azure Stack resource manager endpoint</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Location                  | RESOURCE_LOCATION    | Local for Azure Stack                                                                                                                                                                                                |
 
 To find the tenant ID for your Azure Stack, please follow the instructions found [here](../azure-stack-csp-ref-operations.md). To set your environment variables, do the following:
@@ -105,7 +105,7 @@ To find the tenant ID for your Azure Stack, please follow the instructions found
 To set the environment variables in a Windows command prompt, use the following format:
 
 ```shell
-Set Azure_Tenant_ID=<Your_Tenant_ID>
+Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### MacOS, Linux, and Unix-based systems
@@ -113,7 +113,7 @@ Set Azure_Tenant_ID=<Your_Tenant_ID>
 In Unix based systems, you can use the following command:
 
 ```shell
-Export Azure_Tenant_ID=<Your_Tenant_ID>
+Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### The Azure Stack resource manager endpoint
@@ -127,7 +127,8 @@ Note the following considerations:
 - The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: https://management.local.azurestack.external/
 
 - The **ResourceManagerUrl** in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
-To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+
+To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
 Sample JSON file:
 
@@ -148,9 +149,7 @@ Sample JSON file:
 
 1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Latest profile built for Azure Stack. Use this profile for services to be most compatible with Azure Stack as long as you are on 1808 stamp or further.
 
-2.  **com.microsoft.azure.profile\_2017\_03\_09\_profile**: If you are on a stamp lower than the 1808 build, use this profile.
-
-3.  **com.microsoft.azure**: Profile consisting of the latest versions of all services. Use the latest versions of all the services.
+2.  **com.microsoft.azure**: Profile consisting of the latest versions of all services. Use the latest versions of all the services.
 
 For more information about Azure Stack and API profiles, see the [Summary
 of API profiles](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
@@ -162,7 +161,8 @@ The following code authenticates the service principal on Azure Stack. It create
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
                     .withDefaultSubscriptionId(subscriptionId);
-            Azure azureStack = Azure.configure().withLogLevel(com.microsoft.rest.LogLevel.BASIC)
+Azure azureStack = Azure.configure()
+                    .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
                     .authenticate(credentials, credentials.defaultSubscriptionId());
 ```
 
@@ -182,7 +182,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("activeDirectoryResourceId", settings.get("audience"));
                     put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
-                    put("keyVaultDnsSuffix", ".adminvault" + armEndpoint.substring(armEndpoint.indexOf('.')));
+                    put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
             });
 ```
@@ -205,8 +205,7 @@ HttpGet getRequest = new
 HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
 armEndpoint));
 
-// Add additional header to getRequest which accepts application/xml
-data
+// Add additional header to getRequest which accepts application/xml data
 getRequest.addHeader("accept", "application/xml");
 
 // Execute request and catch response
@@ -217,37 +216,37 @@ HttpResponse response = httpClient.execute(getRequest);
 
 You can use the following GitHub samples as references for creating solutions with .NET and Azure Stack API profiles:
 
-  - [Manage Resource Groups](https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid)
+  - [Manage Resource Groups](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [Manage Storage Accounts](https://github.com/viananth/storage-java-manage-storage-accounts/tree/stack/Hybrid)
+  - [Manage Storage Accounts](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [Manage a Virtual Machine](https://github.com/viananth/compute-java-manage-vm/tree/stack/Hybrid)
+  - [Manage a Virtual Machine](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
 ### Sample Unit Test Project 
 
 1.  Clone the repository using the following command:
     
-    `git clone https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid`
+    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
 2.  Create an Azure service principal and assign a role to access the subscription. For instructions on creating a service principal, see [Use Azure PowerShell to create a service principal with a certificate](../azure-stack-create-service-principals.md).
 
-3.  Retrieve the following required values:
+3.  Retrieve the following required environment variable values:
     
-   1.  Tenant ID
-   2.  Client ID
-   3.  Client Secret
-   4.  Subscription ID
-   5.  Resource Manager endpoint
-   6.  Resource location
+    -  AZURE_TENANT_ID
+    -  AZURE_CLIENT_ID
+    -  AZURE_CLIENT_SECRET
+    -  AZURE_SUBSCRIPTION_ID
+    -  ARM_ENDPOINT
+    -  RESOURCE_LOCATION
 
 4.  Set the following environment variables using the information you retrieved from the Service Principal you created using the command prompt:
     
-   1. export TENANT_ID={your tenant id}
-   2. export CLIENT_ID={your client id}
-   3. export CLIENT_SECRET={your client secret}
-   4. export SUBSCRIPTION_ID={your subscription id}
-   5. export ARM_ENDPOINT={your Azure Stack Resource manager URL}
-   6. export RESOURCE_LOCATION={location of Azure Stack}
+    - export AZURE_TENANT_ID={your tenant id}
+    - export AZURE_CLIENT_ID={your client id}
+    - export AZURE_CLIENT_SECRET={your client secret}
+    - export AZURE_SUBSCRIPTION_ID={your subscription id}
+    - export ARM_ENDPOINT={your Azure Stack Resource manager URL}
+    - export RESOURCE_LOCATION={location of Azure Stack}
 
    In Windows, use **set** instead of **export**.
 
@@ -273,10 +272,8 @@ You can use the following GitHub samples as references for creating solutions wi
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-7.  In the pom.xml file, add the dependency below to use the 2018-03-01-hybrid profile for Azure Stack. This dependency will install the modules associated with this profile for the Compute, Networking, Storage, KeyVault and App Services resource providers.
-    
-   Note that you can use latest profile to target Azure:
-        
+6.  In the pom.xml file, add the dependency below to use the 2018-03-01-hybrid profile for Azure Stack. This dependency will install the modules associated with this profile for the Compute, Networking, Storage, KeyVault and App Services resource providers.
+      
    ```xml
    <dependency>
    <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>

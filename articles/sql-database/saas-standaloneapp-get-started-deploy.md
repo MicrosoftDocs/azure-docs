@@ -21,7 +21,7 @@ The standalone application or app-per-tenant pattern deploys an application inst
 
 In this tutorial, you will deploy three standalone applications for three tenants into your Azure subscription.  You have full access to explore and work with the individual application components.
 
-The application source code and management scripts are available in the [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub repo.
+The application source code and management scripts are available in the [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub repo. The application was created using Visual Studio 2015, and does not successfully open and compile in Visual Studio 2017 without updating.
 
 
 In this tutorial you learn:

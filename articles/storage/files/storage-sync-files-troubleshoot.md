@@ -231,7 +231,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
 #### Handling unsupported characters
-If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective files. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evalation Tool](storage-sync-files-planning.md#evaluation-tool) can be used to identify characters that are not supported.
+If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) can be used to identify characters that are not supported.
 
 The table below contains all of the unicode characters Azure File Sync does not yet support.
 
@@ -314,6 +314,16 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 | **Remediation required** | Yes |
 
 This error occurs when there is a problem with the internal database used by Azure File Sync. When this issue occurs, create a support request and we will contact you to help you resolve this issue.
+
+<a id="-2134364053"></a>**The Azure File Sync agent version installed on the server is not supported.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (decimal)** | -2134364053 |
+| **Error string** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Remediation required** | Yes |
+
+This error occurs if the Azure File Sync agent version installed on the server is not supported. To resolve this issue, [upgrade]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) to a [supported agent version]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**You reached the Azure file share storage limit.**  
 | | |
@@ -765,11 +775,11 @@ To monitor tiering activity on a server, use Event ID 9002, 9003, 9016 and 9029 
 <a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**  
 To monitor recall activity on a server, use Event ID 9005, 9006, 9007 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer). Note, these events are logged hourly.
 
-- Event ID 9005 provides recall reliability for a sever endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
+- Event ID 9005 provides recall reliability for a server endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
 
 - Event ID 9006 provides recall error distribution for a server endpoint. For example, Total Failed Requests, ErrorCode, etc. Note, one event is logged per error code.
 
-- Event ID 9007 provides recall performance for a sever endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- Event ID 9007 provides recall performance for a server endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
 
 <a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
 If files fail to tier to Azure Files:

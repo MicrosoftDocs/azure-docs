@@ -2,13 +2,12 @@
 title: Update containers in Azure Container Instances
 description: Learn how to update running containers in your Azure Container Instances container groups.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
-ms.author: marsma
+ms.author: danlep
 ---
 
 # Update containers in Azure Container Instances
@@ -19,7 +18,7 @@ During normal operation of your container instances, you may find it necessary t
 
 Update the containers in a container group by redeploying an existing group with at least one modified property. When you update a container group, all running containers in the group are restarted in-place.
 
-Redeploy an existing container group by issuing the create command (or use the Azure portal) and specify the name of an existing group. Modify at least one valid property of the group when you issue the create command to trigger the redeployment. Not all container group properties are valid for redeployment. See [Properties that require delete](#properties-that-require-delete) for a list of unsupported properties.
+Redeploy an existing container group by issuing the create command (or use the Azure portal) and specify the name of an existing group. Modify at least one valid property of the group when you issue the create command to trigger the redeployment. Not all container group properties are valid for redeployment. See [Properties that require delete](#properties-that-require-container-delete) for a list of unsupported properties.
 
 The following Azure CLI example updates a container group with a new DNS name label. Because the DNS name label property of the group is modified, the container group is redeployed, and its containers restarted.
 

@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptal
-ms.date: 09/19/2018
+ms.date: 10/02/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Create a Log Analytics workspace with Azure CLI 2.0
@@ -113,7 +113,7 @@ The following parameters set a default value:
 4. You are ready to deploy this template. Use the following commands from the folder containing the template:
 
     ```azurecli
-    azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+    azure group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:

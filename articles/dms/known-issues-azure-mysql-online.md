@@ -3,14 +3,14 @@ title: Article about known issues/migration limitations with online migrations t
 description: Learn about known issues/migration limitations with online migrations to Azure Database for MySQL.
 services: database-migration
 author: HJToland3
-ms.author: jtoland
+ms.author: scphang
 manager: 
 ms.reviewer: 
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 10/09/2018
 ---
 
 # Known issues/migration limitations with online migrations to Azure DB for MySQL

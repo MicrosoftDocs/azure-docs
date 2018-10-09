@@ -29,8 +29,6 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Understand spending limit
     href: billing-spending-limit.md
-  - name: Set up billing alerts
-    href: billing-set-up-alerts.md
   - name: Save with Azure Reservations
     items:
     - name: What are Azure Reservations?
@@ -63,6 +61,8 @@
       href: billing-understand-reserved-instance-usage-ea.md
     - name: Manage Reservations
       href: billing-manage-reserved-vm-instance.md
+    - name: View Reservations
+      href: billing-view-reservations.md  
 - name: Manage account
   items:
   - name: Free account

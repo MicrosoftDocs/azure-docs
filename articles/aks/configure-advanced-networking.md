@@ -2,13 +2,12 @@
 title: Configured advanced networking in Azure Kubernetes Service (AKS)
 description: Learn how to configure advanced network in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
 services: container-service
-author: mmacy
-manager: jeconnoc
+author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: marsma
+ms.author: iainfou
 ---
 
 # Configure advanced networking in Azure Kubernetes Service (AKS)
