@@ -434,7 +434,7 @@ for (page.NotDone()) {
 
 ### List all scripts' execution history
 
-For this operation, you need to create a `ScriptExecutionHistoryClient` to use for, similarly to how you created `ClusterClient` to use for management operations. Once you have completed the Authentication section above, you can create a `ScriptActionsClient` like so:
+For this operation, you need to create a `ScriptExecutionHistoryClient` to use for <!-- incomplete sentence -->, similarly to how you created `ClusterClient` to use for management operations. Once you have completed the Authentication section above, you can create a `ScriptActionsClient` like so:
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)
