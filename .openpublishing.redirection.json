@@ -14788,6 +14788,12 @@
 "redirect_document_id": false
 },
 {
+"source_path": "articles/active-directory/active-directory-aadconnectsync-feature-prevent-accidental-deletes.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes",
+"redirect_document_id": false
+},
+
+{
 "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md",
 "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler",
 "redirect_document_id": false
