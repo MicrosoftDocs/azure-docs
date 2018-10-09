@@ -41,10 +41,9 @@ Do the following steps in the Azure portal to add a user.
 1. In the Azure portal for your Data Box Gateway resource, go to **Bandwidth**.
 2. In the right pane, click **+ Add schedule**.
 
+   ![Click add user](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-1.png)
 
-    ![Click add user](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-1.png)
-
-2. In the Add schedule: 
+2. In the **Add schedule**: 
 
     1. Provide the **Start day**, **End day**, **Start time**, and **End time** of the schedule. 
     2. If this schedule runs all day, then you can check the **All day** option. 
