@@ -30,7 +30,7 @@ Key capabilities of Azure Digital Twins include:
 
 ### Spatial intelligence graph
 
-The [spatial intelligence graph](./concepts-objectmodel-spatialgraph.md) is a virtual representation of the physical environment that enables you to model the relationships between people, places, and devices.
+The [*spatial intelligence graph*](./concepts-objectmodel-spatialgraph.md) or *spatial graph* is a virtual representation of the physical environment that enables you to model the relationships between people, places, and devices.
 
 Consider a smart utility app that might involve several electricity usage meters connected across a neighborhood. To accurately monitor and predict electricity usage and billing, the smart utility company must model each device and sensor with context about the location and the customer that will be billed. The spatial intelligence graph enables you to model these kinds of complex relationships.
 

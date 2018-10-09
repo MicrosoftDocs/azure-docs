@@ -2,12 +2,12 @@
 title: Deploy container instances into an Azure virtual network
 description: Learn how to deploy container groups to a new or existing Azure virtual network.
 services: container-instances
-author: mmacy
+author: dlepow
 
 ms.service: container-instances
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
+ms.author: danlep
 ---
 
 # Deploy container instances into an Azure virtual network
