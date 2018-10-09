@@ -52,11 +52,11 @@ As soon as the file arrives in your storage location and the corresponding blob 
 
 ### Map trigger properties to pipeline parameters
 
-When an event trigger fires for a specific blob, the event captures the folder path and file name of the blob into the properties `@triggerBody().folderPath` and `@triggerBody().fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline.parameters.parameterName` expression throughout the pipeline.
+When an event trigger fires for a specific blob, the event captures the folder path and file name of the blob into the properties `@triggerBody().folderPath` and `@triggerBody().fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline().parameters.parameterName` expression throughout the pipeline.
 
 ![Mapping properties to pipeline parameters](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-For example, in the preceding screenshot. the trigger is configured to fire when a blob path ending in `.csv` is created in the Storage Account. As a result, when a blob with the `.csv` extension is created anywhere in the Storage Account, the `folderPath` and `fileName` properties capture the location of the new blob. For example, `@triggerBody().folderPath` has a value like `/containername/foldername/nestedfoldername` and `@triggerBody().fileName` has a value like `filename.csv`. These values are mapped in the example to the pipeline parameters `sourceFolder` and `sourceFile`. You can use them throughout the pipeline as `@pipeline.parameters.sourceFolder` and `@pipeline.parameters.sourceFile` respectively.
+For example, in the preceding screenshot. the trigger is configured to fire when a blob path ending in `.csv` is created in the Storage Account. As a result, when a blob with the `.csv` extension is created anywhere in the Storage Account, the `folderPath` and `fileName` properties capture the location of the new blob. For example, `@triggerBody().folderPath` has a value like `/containername/foldername/nestedfoldername` and `@triggerBody().fileName` has a value like `filename.csv`. These values are mapped in the example to the pipeline parameters `sourceFolder` and `sourceFile`. You can use them throughout the pipeline as `@pipeline().parameters.sourceFolder` and `@pipeline().parameters.sourceFile` respectively.
 
 ## JSON schema
 
