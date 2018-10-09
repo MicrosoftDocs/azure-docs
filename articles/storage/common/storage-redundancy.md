@@ -3,9 +3,10 @@ title: Data replication in Azure Storage | Microsoft Docs
 description: Data in your Microsoft Azure Storage account is replicated for durability and high availability. Replication options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS).
 services: storage
 author: tamram
+
 ms.service: storage
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
 ---
@@ -34,7 +35,7 @@ The following table provides a quick overview of the scope of durability and ava
 | A region-wide outage                                                                                     | No                              | No                               | Yes                                  | Yes                                  |
 | Read access to your data (in a remote, geo-replicated region) in the event of region-wide unavailability | No                              | No                               | No                                   | Yes                                  |
 | Designed to provide ___ durability of objects over a given year                                          | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
-| Supported storage account types                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
+| Supported storage account types                                                                   | GPv1, GPv2, Blob                | GPv1 (via PowerShell, Azure CLI, or resource provider API), GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 | Availability SLA for read requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.99% (99.9% for Cool Access Tier) |
 | Availability SLA for write requests | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) |
 

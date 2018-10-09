@@ -13,7 +13,7 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 10/05/2018
 ---
-# An overview ahd Azure SQL Database security capabilities
+# An overview of Azure SQL Database security capabilities
 
 This article walks through the basics of securing the data tier of an application using Azure SQL Database. In particular, this article gets you started with resources for protecting data, controlling access, and proactive monitoring.
 
