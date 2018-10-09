@@ -7609,11 +7609,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cosmos-db/graph-partitioning.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/partition-data#PartitionedGraph",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cosmos-db/multi-master-workaround.md",
             "redirect_url": "/azure/cosmos-db/enable-multi-master",
             "redirect_document_id": false
@@ -9542,6 +9537,121 @@
             "source_path": "articles/cosmos-db/documentdb-sdk-java.md",
             "redirect_url": "/azure/cosmos-db/sql-api-sdk-java",
             "redirect_document_id": true
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-linux.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-connecting-devices-linux",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-node.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-connecting-devices-node",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-connecting-devices",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-custom-rule.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-custom-rule",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-dynamic-telemetry.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-dynamic-telemetry",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-faq.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-faq",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-getstarted-preconfigured-solutions",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-logic-apps-tutorial.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-logic-apps-tutorial",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-permissions.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-permissions",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-get-started.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-raspberry-pi-kit-get-started",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-remote-monitoring-device-info.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-remote-monitoring-device-info",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md",
+          "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-what-are-preconfigured-solutions",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "iot-suite-v1-gateway-kit-get-started-sensortag.md",
+          "redirect_url": "https://github.com/Azure/iot-edge/blob/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-sensortag.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
+          "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-sensortag.md",
+          "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-v1-gateway-kit-get-started-simulator.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-simulator.md",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/cosmos-db/documentdb-sdk-node.md",
@@ -13257,76 +13367,6 @@
         {
             "source_path": "articles/iot-suite/iot-suite-overview.md",
             "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-get-started.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-logic-apps-tutorial.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-dynamic-telemetry.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-custom-rule.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-remote-monitoring-device-info.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-getstarted-preconfigured-solutions.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-simulator.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-basic.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-advanced.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-simulator.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-basic.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-advanced.md",
-            "redirect_url": "/azure/iot-accelerators",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-simulator.md",
-            "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
         },
         {
@@ -23170,11 +23210,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "iot-suite-v1-gateway-kit-get-started-sensortag.md",
-            "redirect_url": "https://github.com/Azure/iot-edge/blob/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-sensortag.md",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md",
             "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md",
             "redirect_document_id": false
@@ -23320,23 +23355,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
-            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-sensortag.md",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-v1-gateway-kit-get-started-simulator.md",
-            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-simulator.md",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/iot-suite/iot-suite-connected-factory-publisher.md",
             "redirect_url": "https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md",
-            "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
             "redirect_document_id": false
         },
         {

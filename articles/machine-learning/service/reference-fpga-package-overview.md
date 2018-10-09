@@ -144,7 +144,7 @@ This sample code walks you through using the SDK to deploy a model to an FPGA.
 
 ## Reporting issues
 
-Use the [forum](https://aka.ms/aml-forum) to report any issues you encounter with the package.
+Use the [forum](https://aka.ms/aml-forum-service) to report any issues you encounter with the package.
 
 ## Next steps
 

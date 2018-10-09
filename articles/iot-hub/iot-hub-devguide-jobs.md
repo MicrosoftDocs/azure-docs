@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 10/09/2018
 ms.author: dobett
 ---
 
@@ -24,82 +24,82 @@ Consider using jobs when you need to schedule and track progress any of the foll
 
 ## Job lifecycle
 
-Jobs are initiated by the solution back end and maintained by IoT Hub. You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). To refresh the status of running jobs once a job is initiated, run a job query.
+Jobs are initiated by the solution back end and maintained by IoT Hub. You can initiate a job through a service-facing URI (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`) and query for progress on an executing job through a service-facing URI (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`). To refresh the status of running jobs once a job is initiated, run a job query.
 
 > [!NOTE]
 > When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
-> 
 
 ## Jobs to execute direct methods
 
 The following snippet shows the HTTPS 1.1 request details for executing a [direct method](iot-hub-devguide-direct-methods.md) on a set of devices using a job:
 
-    ```
-    PUT /jobs/v2/<jobId>?api-version=2016-11-14
+```
+PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
 
-    {
-        jobId: '<jobId>',
-        type: 'scheduleDirectRequest', 
-        cloudToDeviceMethod: {
-            methodName: '<methodName>',
-            payload: <payload>,                 
-            responseTimeoutInSeconds: methodTimeoutInSeconds 
-        },
-        queryCondition: '<queryOrDevices>', // query condition
-        startTime: <jobStartTime>,          // as an ISO-8601 date string
-        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
-    }
-    ```
+{
+    "jobId": "<jobId>",
+    "type": "scheduleDirectMethod",
+    "cloudToDeviceMethod": {
+        "methodName": "<methodName>",
+        "payload": <payload>,
+        "responseTimeoutInSeconds": methodTimeoutInSeconds
+    },
+    "queryCondition": "<queryOrDevices>", // query condition
+    "startTime": <jobStartTime>,          // as an ISO-8601 date string
+    "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
+}
+```
 
 The query condition can also be on a single device ID or on a list of device IDs as shown in the following examples:
 
 ```
-queryCondition = "deviceId = 'MyDevice1'"
-queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
-queryCondition = "deviceId IN ['MyDevice1']
+"queryCondition" = "deviceId = 'MyDevice1'"
+"queryCondition" = "deviceId IN ['MyDevice1','MyDevice2']"
+"queryCondition" = "deviceId IN ['MyDevice1']"
 ```
+
 [IoT Hub Query Language](iot-hub-devguide-query-language.md) covers IoT Hub query language in additional detail.
 
 ## Jobs to update device twin properties
 
 The following snippet shows the HTTPS 1.1 request details for updating device twin properties using a job:
 
-    ```
-    PUT /jobs/v2/<jobId>?api-version=2016-11-14
-    
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
+```
+PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
-    {
-        jobId: '<jobId>',
-        type: 'scheduleTwinUpdate', 
-        updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // query condition
-        startTime: <jobStartTime>,          // as an ISO-8601 date string
-        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
-    }
-    ```
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
+
+{
+    "jobId": "<jobId>",
+    "type": "scheduleTwinUpdate",
+    "updateTwin": <patch>                 // Valid JSON object
+    "queryCondition": "<queryOrDevices>", // query condition
+    "startTime": <jobStartTime>,          // as an ISO-8601 date string
+    "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
+}
+```
 
 ## Querying for progress on jobs
 
 The following snippet shows the HTTPS 1.1 request details for querying for jobs:
 
-    ```
-    GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
+```
+GET /jobs/v2/query?api-version=2018-06-30[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
-    ```
-    
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
+```
+
 The continuationToken is provided from the response.
 
 You can query for the job execution status on each device using the [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md).
