@@ -37,7 +37,7 @@ Azure AD supports the [device code grant](https://tools.ietf.org/html/draft-ietf
 
 The entire device code flow looks similar to the next diagram. We describe each of the steps later in this article.
 
-![Device code flow](./media/v2-oauth-device-flow/v2-oauth-device-flow.png)
+![Device code flow](media/v2-oauth2-device-flow/v2-oauth-device-flow.png)
 
 ## Device authorization request
 
