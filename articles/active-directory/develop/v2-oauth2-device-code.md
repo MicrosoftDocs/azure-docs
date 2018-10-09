@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # Azure Active Directory v2.0 and the OAuth 2.0 device code flow
 
-Azure AD supports the [device code grant](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to log in.  Once the user logs in, the device is able to get access tokens and refresh tokens as needed.  
+Azure AD supports the [device code grant](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
 
 > [!Important] 
 > At this time, the v2.0 endpoint only supports the device flow for Azure AD tenants, but not personal accounts.  This means that you must use a tenanted endpoint, or the organizations endpoint.  
@@ -41,7 +41,7 @@ The entire device code flow looks similar to the next diagram. We describe each 
 
 ## Device authorization request
 
-The client must first check with the authentication server for a device and user code, used to initiate authentication.  The client collects this request from the `/devicecode` endpoint. In this request, the client should also include the permissions it needs to acquire from the user.  From the moment this request is sent, the user has only XXXXX minutes to sign in, so the client should only make this request when the user has indicated they are ready to sign in.
+The client must first check with the authentication server for a device and user code, used to initiate authentication.  The client collects this request from the `/devicecode` endpoint. In this request, the client should also include the permissions it needs to acquire from the user.  From the moment this request is sent, the user has only 15 minutes to sign in (the usual value for `expires_in`), so only make this request when the user has indicated they're ready to sign in.
 
 ```
 // Line breaks are for legibility only.
