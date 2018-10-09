@@ -1,14 +1,14 @@
 ---
-title: "Tutorial: Deploy an image classification model in Azure Container Instance (ACI) - Azure Machine Learning"
-description: Learn how to deploy a scikit-learn image classification model with a Python Jupyter notebook.  This tutorial is part two of a two-part series.
-author: hning86
-ms.author: haining
+title: "Tutorial: Deploy an image classification model in Azure Container Instance (ACI) with Azure Machine Learning service"
+description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook.  This tutorial is part two of a two-part series.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
-ms.reviewer: sgilley
 ms.topic: tutorial
+
+author: hning86
+ms.author: haining
+ms.reviewer: sgilley
 ms.date: 09/24/2018
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---
@@ -32,14 +32,14 @@ ACI is not ideal for production deployments, but it is great for testing and und
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `tutorials/02.deploy-models.ipynb` notebook:
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb). Run the `02.deploy-models.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 
 ## Prerequisites
 
-Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) notebook.  
+Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) notebook.  
 
 
 ## Set up the environment
@@ -372,7 +372,7 @@ service.delete()
 
 ## Next steps
 
-In this Azure Machine Learning tutorial, you used Python to:
+In this Azure Machine Learning service tutorial, you used Python to:
 
 > [!div class="checklist"]
 > * Set up your testing environment
@@ -381,4 +381,4 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Deploy the model to ACI
 > * Test the deployed model
  
-You can also try out the [Automatic algorithm selection]() tutorial to see how Azure Machine Learning can auto-select and tune the best algorithm for your model and build that model for you.
+You can also try out the [Automatic algorithm selection]() tutorial to see how Azure Machine Learning service can auto-select and tune the best algorithm for your model and build that model for you.

@@ -12,13 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2018
+ms.date: 10/8/2018
 ms.author: kumud
 ---
 
-# Load Balancer Outbound Rules
+# Load Balancer outbound rules
 
-Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound.  Outbound rules make it simple to configure public [Standard Load Balancer](load-balancer-standard-overview.md)'s outbound network address translation (NAT).  You have full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
+Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound.  Outbound rules make it simple to configure public [Standard Load Balancer](load-balancer-standard-overview.md)'s outbound network address translation.  You have full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
+
+![Load Balancer outbound rules](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
 With outbound rules, you can use Load Balancer to: 
 - define outbound NAT from scratch.
@@ -174,10 +176,10 @@ Define a public Standard Load Balancer, place the VMs into the backend pool, and
 
 #### Outbound NAT for internal Standard Load Balancer scenarios
 
-When using an internal Standard Load Balancer, outbound NAT is not available until a public Standard Load Balancer has also been configured. You can change this by using and outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer.
+When using an internal Standard Load Balancer, outbound NAT is not available until outbound connectivity has been explicitly declared. You can define outbound connectivity using an outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer with these steps:
 
 1. Create a public Standard Load Balancer.
-2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer.
+2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer in addition to the internal Load Balancer.
 3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VMs.
 
 #### Enable both TCP & UDP protocols for outbound NAT with a public Standard Load Balancer
@@ -207,4 +209,5 @@ When using an internal Standard Load Balancer, outbound NAT is not available unt
 
 - Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md).
 - Learn about [Standard Load Balancer](load-balancer-standard-overview.md).
-- Learn about [bidirectional TCP Reset on idle timeout](https://aka.ms/lbtcpreset).
+- Learn about [bidirectional TCP Reset on idle timeout](load-balancer-tcp-reset.md).
+- [Configure outbound rules with Azure CLI 2.0](configure-load-balancer-outbound-cli.md).

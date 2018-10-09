@@ -3,35 +3,33 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Machine Learning?
+  - name: What is Azure Machine Learning service?
     href: overview-what-is-azure-ml.md
   - name: What happened to Workbench?
-    href: overview-what-happened-to-workbench.md
-  - name: How to migrate
-    href: how-to-migrate.md             
-  - name: Compare ML products at Microsoft
-    href: overview-more-machine-learning.md    
+    href: overview-what-happened-to-workbench.md 
 - name: Quickstarts
   items:
   - name: Get started - Portal
     href: quickstart-get-started.md
+  - name: Get started - Python
+    href: quickstart-create-workspace-with-python.md
 - name: Tutorials
   items:
-  - name: '1. Train models'
+  - name: 'Train models: Part 1'
     href: tutorial-train-models-with-aml.md
-  - name: '2. Deploy models'
+  - name: 'Deploy models: Part 2'
     href: tutorial-deploy-models-with-aml.md
   - name: Train automated ML models 
     href: tutorial-auto-train-models.md
 - name: Concepts   
   items: 
-  - name: Architecture and terms
+  - name: How the service works
     href: concept-azure-machine-learning-architecture.md    
   - name: Model management
     href: concept-model-management-and-deployment.md
-  - name: FPGA accelerations
+  - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md  
-  - name: ML pipelines
+  - name: Machine learning pipelines
     href: concept-ml-pipelines.md         
 - name: How-to guides
   items:  
@@ -43,8 +41,12 @@
       href: how-to-choose-a-dev-environment.md 
     - name: Configure an environment
       href: how-to-configure-environment.md
-  - name: Set up training environments	
-    href: how-to-set-up-training-targets.md
+    - name: VS Code Tools for AI
+      items:
+      - name: Get started
+        href: how-to-vscode-tools.md
+      - name: Train and deploy        
+        href: how-to-vscode-train-deploy.md
   - name: Prepare data
     href: how-to-data-prep.md   
     items:
@@ -54,19 +56,23 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
-  - name: Train and tune
+  - name: Access data
+    href: how-to-access-data.md
+  - name: Train models
     items:    
-    - name: Access data
-      href: how-to-access-data.md
-    - name: Train ML models
+    - name: Set up training environments	
+      href: how-to-set-up-training-targets.md
+    - name: Create estimators
       href: how-to-train-ml-models.md
       items:
-      - name: Train PyTorch models
+      - name: PyTorch
         href: how-to-train-pytorch.md
-      - name: Train TensorFlow models
+      - name: TensorFlow
         href: how-to-train-tensorflow.md
     - name: Create and deploy ONNX models
       href: how-to-build-deploy-onnx.md   
+  - name: Tune models
+    items:    
     - name: Tune hyperparameters
       href: how-to-tune-hyperparameters.md    
     - name: Track experiments and metrics
@@ -78,21 +84,28 @@
       href: how-to-configure-auto-train.md 
     - name: Use remote compute targets
       href: how-to-auto-train-remote.md
-  - name: Deploy and monitor	
+  - name: Deploy models	
     items:    
     - name: Where to deploy models
       href: how-to-deploy-and-where.md
-      items:
-       - name: Deploy to ACI
-         href: how-to-deploy-to-aci.md
-       - name: Deploy to AKS
-         href: how-to-deploy-to-aks.md
-       - name: Deploy to FPGAs
-         href: how-to-deploy-fpga-web-service.md  
-       - name: Deploy to IoT Edge
-         href: how-to-deploy-to-iot.md  
+    - name: Deploy to ACI
+      href: how-to-deploy-to-aci.md
+    - name: Deploy to AKS
+      href: how-to-deploy-to-aks.md
+    - name: Deploy to FPGAs
+      href: how-to-deploy-fpga-web-service.md  
+    - name: Deploy to IoT Edge
+      href: how-to-deploy-to-iot.md 
+    - name: Troubleshoot
+      href: how-to-troubleshoot-deployment.md 
+    - name: Secure with SSL
+      href: how-to-secure-web-service.md  
+  - name: Monitor models
+    items:  
     - name: Collect data in production  
       href: how-to-enable-data-collection.md
+    - name: Monitor with Application Insights  
+      href: how-to-enable-app-insights.md 
   - name: Manage resource quotas
     href: how-to-manage-quotas.md
   - name: Export and delete data
@@ -113,12 +126,16 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Export or delete account data
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+  - name: Release notes
+    href: azure-machine-learning-release-notes.md  
   - name: Known issues
     href: resource-known-issues.md
   - name: Get support
     href: support-for-aml-services.md
   - name: Deprecated docs
     items:  
+    - name: How to migrate
+      href: how-to-migrate.md             
     - name: Workbench quickstart
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Tutorial 1: Prepare data'
@@ -310,12 +327,8 @@
         - name: Overview and install
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Build and deploy text classification models
-          href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
-    - name: Older release notes
-      href: azure-machine-learning-release-notes.md       
+          href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md     
     - name: FAQs
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Old Issues
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-    - name: Support
-      href: support-for-aml-services.md

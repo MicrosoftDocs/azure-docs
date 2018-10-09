@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.  LUIS apps require design iterations to train LUIS to get the best data extraction.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

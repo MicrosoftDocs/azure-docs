@@ -59,7 +59,7 @@ Azure Database is a robust database platform, with a full range of security feat
 ## Next steps
 You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to:
 
-- Set up [firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for your sever and or database.
+- Set up [firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for your server and or database.
 - Protect your data with [encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Enable [SQL Database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 

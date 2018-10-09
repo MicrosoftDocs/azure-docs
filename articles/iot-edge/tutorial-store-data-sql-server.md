@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/30/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -37,7 +37,7 @@ An Azure IoT Edge device:
 
 Cloud resources:
 
-* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* A free-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 
 Development resources:
 
@@ -206,7 +206,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    * Linux containers:
 
       ```json
-      "image": "microsoft/mssql-server-linux:2017-latest",
+      "image": "mcr.microsoft.com/mssql/server:latest",
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 

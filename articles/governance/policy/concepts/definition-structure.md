@@ -18,7 +18,7 @@ specify that only certain types of virtual machines are allowed. Or, you can req
 resources have a particular tag. Policies are inherited by all child resources. So, if a policy is
 applied to a resource group, it is applicable to all the resources in that resource group.
 
-The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
+The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -93,6 +93,11 @@ of parameters like the fields on a form – `name`, `address`, `city`, `state`. 
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy
 definition, you can reuse that policy for different scenarios by using different values.
+
+> [!NOTE]
+> The parameters definition for a policy or initiative definition can only be configured during the
+> initial creation of the policy or initiative. The parameters definition can't be changed later.
+> This prevents existing assignments of the policy or initiative from indirectly being made invalid.
 
 For example, you could define a policy for a resource property to limit the locations where
 resources can be deployed. In this case, you would declare the following parameters when you create
@@ -256,7 +261,7 @@ Policy supports the following types of effect:
 - **Audit**: generates a warning event in audit log but does not fail the request
 - **Append**: adds the defined set of fields to the request
 - **AuditIfNotExists**: enables auditing if a resource does not exist
-- **DeployIfNotExists**: deploys a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
+- **DeployIfNotExists**: deploys a resource if it does not already exist.
 
 For **append**, you must provide the following details:
 

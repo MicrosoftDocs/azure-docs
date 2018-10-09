@@ -3,7 +3,7 @@ title: QnA bot with Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: tulasim88
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article

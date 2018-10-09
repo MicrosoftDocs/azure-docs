@@ -10,7 +10,7 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/24/2018
 ms.author: glenga
 ---
 
@@ -34,7 +34,6 @@ Unless otherwise noted, the examples in this article are for version 2.x.
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
-
 ### <a name="v1"></a>Version 1.x
 
 The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework (4.7) and is only supported on Windows computers. Before you install the version 1.x tools, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.
@@ -44,6 +43,7 @@ Use the following command to install the version 1.x tools:
 ```bash
 npm install -g azure-functions-core-tools@v1
 ```
+
 ### <a name="v2"></a>Version 2.x
 
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux).
@@ -99,6 +99,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
     | Linux distribution | Version |
     | --------------- | ----------- |
+    | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
@@ -108,7 +109,6 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
-
 
 ### <a name="v1"></a>Version 1.x
 
@@ -176,7 +176,7 @@ For more information, see [Azure Functions triggers and bindings concepts](funct
 
 ## Local settings file
 
-The file local.settings.json stores app settings, connection strings, and settings for Azure Functions Core Tools. It has the following structure:
+The file local.settings.json stores app settings, connection strings, and settings for Azure Functions Core Tools. Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure. Note that values in **ConnectionStrings** are never published. The file has the following structure:
 
 ```json
 {
@@ -214,11 +214,9 @@ The function app settings values can also be read in your code as environment va
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure. Values in **ConnectionStrings** are never published.
-
 When no valid storage connection string is set for **AzureWebJobsStorage** and the emulator isn't being used, the following error message is shown:  
 
->Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
+> Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
 
 ### Get your storage connection strings
 
@@ -421,7 +419,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publish to Azure
 
-Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x.
+Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x. You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create).
 
 In version 2.x, you must have [registered your extensions](#register-extensions) in your project before publishing. Projects that require compilation should be built so that the binaries can be deployed.
 
@@ -440,13 +438,8 @@ This command publishes to an existing function app in Azure. An error occurs whe
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
 
 >[!IMPORTANT]  
-> When you create a function app in Azure, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, add the application setting `FUNCTIONS_EXTENSION_VERSION=~1`.  
-Use the following Azure CLI code to add this setting to your function app:
-
-```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup --settings FUNCTIONS_EXTENSION_VERSION=~1
-```
+> When you create a function app in the Azure portal, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).  
+> You can't change the runtime version for a function app that has existing functions.
 
 You can use the following publish options, which apply for both versions, 1.x and 2.x:
 
@@ -480,7 +473,7 @@ The following custom container deployment options are available:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--registry`** | The name of a Docker Registry the the current user signed-in to. |
+| **`--registry`** | The name of a Docker Registry the current user signed-in to. |
 | **`--platform`** | Hosting platform for the function app. Valid options are `kubernetes` |
 | **`--name`** | Function app name. |
 | **`--max`**  | Optionally, sets the maximum number of function app instances to deploy to. |

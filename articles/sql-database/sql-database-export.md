@@ -2,14 +2,17 @@
 title: Export an Azure SQL database to a BACPAC file | Microsoft Docs
 description: Export an Azure SQL database to a BACPAC file  using the Azure portal
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
-ms.date: 09/14/2018
-ms.author: carlrab
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer:
+manager: craigg
+ms.date: 09/14/2018
+ms.topic: conceptual
 ---
 # Export an Azure SQL database to a BACPAC file
 
@@ -47,7 +50,7 @@ To monitor the progress of the export operation, open the page for the logical s
 
 ## Export to a BACPAC file using the SQLPackage utility
 
-To export a SQL database using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility, see [Export parameters and properties](https://msdn.microsoft.com/library/hh550080.aspx#Export Parameters and Properties). The SQLPackage utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) directly from the Microsoft download center.
+To export a SQL database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [Export parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#Export Parameters and Properties). The SQLPackage utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) directly from the Microsoft download center.
 
 We recommend the use of the SQLPackage utility for scale and performance in most production environments. For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 

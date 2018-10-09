@@ -155,8 +155,6 @@
               href: sql-api-java-application.md
             - name: Node.js
               href: sql-api-nodejs-application.md
-            - name: Python
-              href: sql-api-python-application.md
             - name: Xamarin
               href: mobile-apps-with-xamarin.md
         - name: 2 - Migrate data
@@ -187,6 +185,8 @@
           href: sql-api-sql-query-metrics.md
         - name : Stored procedures, triggers, and UDFs
           href: programming.md
+        - name: SQL data partitioning
+          href: sql-api-partition-data.md
         - name: Data types
           items:
           - name: DateTime
@@ -283,6 +283,8 @@
         items:
         - name: Import graph data 
           href: bulk-executor-graph-dotnet.md
+        - name: Graph data partitioning
+          href: graph-partitioning.md
     - name: Cassandra API Docs
       items: 
       - name: Introduction
@@ -419,8 +421,6 @@
           href: performance-testing.md
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
-      - name: SQL data partitioning
-        href: sql-api-partition-data.md
     - name: Integrate with other Azure services
       items: 
       - name: Change feed Ecommerce solution
@@ -465,6 +465,8 @@
         href: bulk-executor-java.md
   - name: Resources
     items:
+    - name: Build your skills with Microsoft Learn
+      href: /learn/browse/?products=azure-cosmos-db
     - name: Query cheat sheet
       href: query-cheat-sheet.md
     - name: SQL playground
@@ -473,6 +475,8 @@
       href: faq.md
     - name: Whitepapers
       href: whitepapers.md
+    - name: Partners
+      href: partners-migration-cosmosdb.md
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
     - name: Azure Roadmap

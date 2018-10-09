@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Adding chit-chat to your bot makes it more conversational and engaging. QnA Maker allows you to easily add a pre-populated set of the top chit-chat, into your KB. This can be a starting point for your bot's chit-chat and save you the time and cost of writing them from scratch.   
 services: cognitive-services
 author: tulasim88
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
@@ -23,9 +23,7 @@ QnA Maker makes it simple to add your existing data sources when creating a know
 
 ## Steps
 
-1. Sign into to the [QnA Maker portal](https://qnamaker.ai) with your Azure credentials and select **Create new service**.
-
-    ![Create KB ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+1. Sign into to the [QnA Maker portal](https://qnamaker.ai) with your Azure credentials and select **Create a knowledge base**.
 
 2. If you have not already created a QnA Maker service, select **Create a QnA service**. 
 

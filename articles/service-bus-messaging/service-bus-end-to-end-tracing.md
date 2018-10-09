@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
 
 ---
@@ -225,7 +225,6 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 ## Next steps
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Application Insights Correlation](../application-insights/application-insights-correlation.md)
 * [Application Insights Monitor Dependencies](../application-insights/app-insights-asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
 * [Track custom operations with Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md)

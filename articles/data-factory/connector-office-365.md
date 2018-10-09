@@ -12,15 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 10/08/2018
 ms.author: jingwang
 
 ---
 # Copy data from Office 365 into Azure using Azure Data Factory (Preview) 
 
-Azure Data Factory allows you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  For more information on Managed Access to Microsoft Graph in Microsoft Azure Preview, please refer to [this link](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
+Azure Data Factory allows you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  For more information on Microsoft Graph data connect, please refer to [this link](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Office 365. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+For a nine-minute introduction and demonstration about connecting Data Factory to Office 365 data, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## Supported capabilities
 
@@ -29,8 +33,8 @@ For now, within a single copy activity you can only **copy data from Office 365 
 >[!IMPORTANT]
 >- The Azure subscription containing the data factory and the sink data store must be under the same Azure Active Directory (Azure AD) tenant as Office 365 tenant.
 >- Ensure the Azure Integration Runtime region used for copy activity as well as the destination is in the same region where the Office 365 tenant users' mailbox is located. Refer [here](concepts-integration-runtime.md#integration-runtime-location) to understand how the Azure IR location is determined. Refer to [table here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) for the list of supported Office regions and corresponding Azure regions.
->-  If you are loading Office 365 data into **Azure Blob Storage** as destination, make sure you are using **[service principal authentication](connector-azure-blob-storage.md#service-principal-authentication)** when defining the Linked Service to Azure Blob Storage, and not using [account key](connector-azure-blob-storage.md#account-key-authentication), [shared access signature](connector-azure-blob-storage.md#shared-access-signature-authentication) or [managed service identity ](connector-azure-blob-storage.md#managed-service-identity-authentication) authentications.
->-  If you are loading Office 365 data into **Azure Data Lake Storage Gen1** as destination, make sure you are using [**service principal authentication**](connector-azure-data-lake-store.md#using-service-principal-authentication) when defining the Linked Service to Azure Data Lake Storage Gen1 and not using [managed service identity authentication](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+>-  If you are loading Office 365 data into **Azure Blob Storage** as destination, make sure you are using **[service principal authentication](connector-azure-blob-storage.md#service-principal-authentication)** when defining the Linked Service to Azure Blob Storage, and not using [account key](connector-azure-blob-storage.md#account-key-authentication), [shared access signature](connector-azure-blob-storage.md#shared-access-signature-authentication) or [managed identities for Azure resources](connector-azure-blob-storage.md#managed-identity) authentications.
+>-  If you are loading Office 365 data into **Azure Data Lake Storage Gen1** as destination, make sure you are using [**service principal authentication**](connector-azure-data-lake-store.md#using-service-principal-authentication) when defining the Linked Service to Azure Data Lake Storage Gen1 and not using [managed identities for Azure resources authentication](connector-azure-data-lake-store.md#managed-identity).
 
 ## Prerequisites
 
@@ -42,7 +46,6 @@ To copy data from Office 365 into Azure, you need to complete the following prer
     - Tenant ID.  For instructions, see [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner).
-- _(Recommended)_ [Assign Azure policies](../azure-policy/assign-policy-definition.md) for data encryption to your data stores. Policy compliance information will be shown to the data approvers as part of the data request. Once policy assignment is made, for every copy activity run, ADF will check to make sure the policy assignment is enforced. Refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) for a complete list of supported policies.
 
 ## Approving new data access requests
 
@@ -50,9 +53,23 @@ If this is the first time you are requesting data for this context (a combinatio
 
 Refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) on how the approver can approve the data access request, and refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
 
+## Policy validation
+
+If ADF is created as part of a managed app and Azure policies assignments are made on resources within the management resource group, then for every copy activity run, ADF will check to make sure the policy assignments are enforced. Refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) for a list of supported policies.
+
 ## Getting started
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+>[!TIP]
+>For a walkthrough of using Office 365 connector, see [Load data from Office 365](load-office-365-data.md) article.
+
+You can create a pipeline with the copy activity by using one of the following tools or SDKs. Select a link to go to a tutorial with step-by-step instructions to create a pipeline with a copy activity. 
+
+- [Azure portal](quickstart-create-data-factory-portal.md)
+- [.NET SDK](quickstart-create-data-factory-dot-net.md)
+- [Python SDK](quickstart-create-data-factory-python.md)
+- [Azure PowerShell](quickstart-create-data-factory-powershell.md)
+- [REST API](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager template](quickstart-create-data-factory-resource-manager-template.md). 
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Office 365 connector.
 

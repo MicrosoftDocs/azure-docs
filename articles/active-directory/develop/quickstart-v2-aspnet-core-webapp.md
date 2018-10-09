@@ -39,7 +39,7 @@ This quickstart contains a code sample that demonstrates how an ASP.NET Core Web
 > 1. Enter a name for your application, make sure the option for **Guided Setup** is unchecked, and click **Create**.
 > 1. Click `Add Platform`, then select `Web`.
 > 1. Make sure **Allow Implicit Flow** is *checked*.
-> 1. In **Redirect URLs**, enter `https://localhost:3110/`.
+> 1. In **Redirect URLs**, enter `http://localhost:3110/`.
 > 1. Scroll down to the bottom of the page and click **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -57,9 +57,9 @@ This quickstart contains a code sample that demonstrates how an ASP.NET Core Web
 
 #### Step 3: Configure your project
 
-1. Extract the zip file to a local folder (for example, **C:\Azure-Samples**)
+1. Extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
 1. If you use Visual Studio 2017, open the project in Visual Studio (optional)
-1. Edit **appsettings.json** and replace the value for `ClientId` with the the Application Id from the application you just registered:
+1. Edit **appsettings.json** and replace the value for `ClientId` with the Application Id from the application you just registered:
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"

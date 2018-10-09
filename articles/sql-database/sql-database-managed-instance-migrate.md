@@ -1,17 +1,17 @@
 ---
 title: Migrate SQL Server instance to Azure SQL Database Managed Instance | Microsoft Docs
 description: Learn how to migrate a SQL Server instance to Azure SQL Database Managed Instance. 
-keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
 author: bonova
+ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
-ms.topic: conceptual
-ms.date: 07/24/2018
-ms.author: bonova
-
+ms.date: 09/26/2018
 ---
 # SQL Server instance migration to Azure SQL Database Managed Instance
 
@@ -21,11 +21,11 @@ At a high level, the database migration process looks like:
 
 ![migration process](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Assess Managed Instance compatibility](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
-- [Choose app connectivity option](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
-- [Deploy to an optimally sized Managed Instance](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
-- [Select migration method and migrate](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
-- [Monitor applications](sql-database-managed-instance-migrate.md#monitor-applications)
+- [Assess Managed Instance compatibility](#assess-managed-instance-compatibility)
+- [Choose app connectivity option](sql-database-managed-instance-connect-app.md)
+- [Deploy to an optimally sized Managed Instance](#deploy-to-an-optimally-sized-managed-instance)
+- [Select migration method and migrate](#select-migration-method-and-migrate)
+- [Monitor applications](#monitor-applications)
 
 > [!NOTE]
 > To migrate a single database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
@@ -54,7 +54,7 @@ You can select compute and storage resources at deployment time and then change 
 To learn how to create the VNet infrastructure and a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> It is important to keep your destination VNet and subnet always in accordance with [Managed Instance VNET requirements](sql-database-managed-instance-vnet-configuration.md#requirements). Any incompatibility can prevent you from creating new instances or using those that you already created.
+> It is important to keep your destination VNet and subnet always in accordance with [Managed Instance VNet requirements](sql-database-managed-instance-vnet-configuration.md#requirements). Any incompatibility can prevent you from creating new instances or using those that you already created.
 
 ## Select migration method and migrate
 
@@ -102,6 +102,8 @@ The following table provides more information regarding the methods you can use 
 > - Restore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
 For a quickstart showing how to restore a database backup to a Managed Instance using a SAS credential, see [Restore from backup to a Managed Instance](sql-database-managed-instance-get-started-restore.md).
+
+> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 ## Monitor applications
 

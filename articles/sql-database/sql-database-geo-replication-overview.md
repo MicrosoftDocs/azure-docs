@@ -2,15 +2,16 @@
 title: Failover groups and active geo-replication - Azure SQL Database | Microsoft Docs
 description: Use auto-failover groups with active geo-replication and enable autoomatic failover in the event of an outage.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-
+manager: craigg
+ms.date: 09/14/2018
 ---
 # Overview: Active geo-replication and auto-failover groups
 
@@ -83,6 +84,10 @@ The active geo-replication feature provides the following essential capabilities
 ## Auto-failover group capabilities
 
 Auto-failover groups feature provides a powerful abstraction of active geo-replication by supporting group level replication and automatic failover. In addition, it removes the necessity to change the SQL connection string after failover by providing the additional listener end-points. 
+
+> [!NOTE]
+> Auto-failover is not available in Managed Instance.
+>  
 
 * **Failover group**: One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region.  
 * **Primary server**: A server that hosts the primary databases in the failover group.

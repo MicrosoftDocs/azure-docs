@@ -20,6 +20,8 @@
   items:
   - name: Manage devices using the Azure portal
     href: device-management-azure-portal.md
+  - name: Manage stale devices
+    href: manage-stale-devices.md
   - name: Plan Azure AD join
     href: azureadjoin-plan.md
   - name: Plan your hybrid Azure AD join implementation

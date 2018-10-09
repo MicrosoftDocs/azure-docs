@@ -28,8 +28,8 @@ If needed, OCR corrects the rotation of the recognized text, in degrees, around 
 Computer Vision can extract text using OCR from images that meet the following requirements:
 
 * The image must be presented in JPEG, PNG, GIF, or BMP format
-* The size of the input image must be between 40 x 40 and 3200 x 3200 pixels
-* The image can't be bigger than 10 megapixels
+* The size of the input image must be between 50 x 50 and 4200 x 4200 pixels
+
 
 The input image can be rotated by any multiple of 90 degrees plus a small angle of up to 40 degrees.
 

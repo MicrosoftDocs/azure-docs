@@ -32,7 +32,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 2. List all locations where ExpressRoute Direct is supported.
   
   ```powershell
-  Get-AzureRMExpressRoutePortLocations
+  Get-AzureRmExpressRoutePortsLocation
   ```
 
   **Example output**

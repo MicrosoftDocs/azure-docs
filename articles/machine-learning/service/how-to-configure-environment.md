@@ -5,15 +5,16 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
+ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
 ---
 
-# How to configure a development environment for the Azure Machine Learning service
+# Configure a development environment for the Azure Machine Learning service
 
-Learn how to configure your development environment to work with the Azure Machine Learning service. You will learn how to create a configuration file that associates your environment with an Azure Machine Learning workspace. You'll also learn how to configure the following development environments:
+Learn how to configure your development environment to work with the Azure Machine Learning service. You will learn how to create a configuration file that associates your environment with an Azure Machine Learning service workspace. You'll also learn how to configure the following development environments:
 
 * Jupyter Notebooks on your own computer
 * Visual Studio Code
@@ -30,21 +31,39 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
  * For Visual Studio Code environment, the [Python Extension](https://code.visualstudio.com/docs/python/python-tutorial).
 
+> [!NOTE]
+> Shell commands used in this document are tested with bash on Linux and macOS. The commands are also tested with cmd.exe on Windows.
+
 ## Create workspace configuration file
 
 The workspace configuration file is used by the SDK to communicate with your Azure Machine Learning service workspace.  There are two ways to get this file:
 
-* When you complete the [quickstart](quickstart-get-started.md), the file `config.json` is created for you in Azure notebooks.  This file contains the configuration information for your workspace.  Download it into the same directory as the scripts or notebooks that reference it.
+* Complete the [quickstart](quickstart-get-started.md) to create a workspace and configuration file. The file `config.json` is created for you in Azure notebooks.  This file contains the configuration information for your workspace.  Download or copy it into the same directory as the scripts or notebooks that reference it.
+
 
 * Create the configuration file yourself with following steps:
 
     1. Open your workspace in the [Azure portal](https://portal.azure.com). Copy the __Workspace name__, __Resource group__, and __Subscription ID__. These values are used to create the configuration file.
 
-       The portal's workspace dashboard is supported on Edge, Chrome and Firefox browsers only.
-    
         ![Azure portal](./media/how-to-configure-environment/configure.png) 
     
-    3. In a text editor, create a file called **config.json**.  Add the following content to that file, inserting your values from the portal:
+    1. Create the file with this Python code. Run the code in the same directory as the scripts or notebooks that reference the workspace:
+
+        ```python
+        from azureml.core import Workspace
+
+        subscription_id ='<subscription-id>'
+        resource_group ='<resource-group>'
+        workspace_name = '<workspace-name>'
+        
+        try:
+           ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
+           ws.write_config()
+           print('Library configuration succeeded')
+        except:
+           print('Workspace not found')
+        ```
+        This writes the following `aml_config/config.json` file: 
     
         ```json
         {
@@ -53,12 +72,11 @@ The workspace configuration file is used by the SDK to communicate with your Azu
         "workspace_name": "<workspace-name>"
         }
         ```
-    
-        >[!NOTE] 
-        >Later in your code, you read this file with:  `ws = Workspace.from_config()`
-    
-    4. Be sure to save **config.json** into the same directory as the scripts or notebooks that reference it.
-    
+        You can copy the `aml_config` directory or just the `config.json` file into any other directory that references the workspace.
+
+>[!NOTE] 
+>Other scripts or notebooks in the same directory or below will load the workspace with `ws=Workspace.from_config()`
+
 ## Azure Notebooks and Data Science Virtual Machine
 
 Azure Notebooks and Azure Data Science Virtual Machines (DSVM) are pre-configured to work with the Azure Machine Learning service. Required components, such as the Azure Machine Learning SDK, are pre-installed on these environments.
@@ -93,8 +111,13 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
 3. To install Azure Machine Learning SDK with notebook extras, use the following command:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl,contrib]
+    pip install --upgrade azureml-sdk[notebooks,automl]
     ```
+
+    > [!NOTE]
+    > If you receive a message that `PyYAML` cannot be uninstalled, use the following command instead:
+    > 
+    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
 
     It can take several minutes to install the SDK.
 
@@ -150,7 +173,7 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
 2. To install the Azure Machine Learning SDK, use the following command:
  
     ```shell
-    pip install --upgrade azureml-sdk[automl,contrib]
+    pip install --upgrade azureml-sdk[automl]
     ```
 
 4. To install the Visual Studio code Tools for AI, see the Visual Studio marketplace entry for [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 
@@ -161,7 +184,7 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
     conda install <new package>
     ```
 
-6. Launch Visual Studio Code, and then use __CTRL-SHIFT-P__ to get the __Command Palette__. Enter *Python: Select Interpreter*, and select the conda environment you created.
+6. Launch Visual Studio Code, and then use __CTRL-SHIFT-P__ for Windows or __COMMAND-SHIFT-P__ for Mac to get the __Command Palette__. Enter *Python: Select Interpreter*, and select the conda environment you created.
 
     > [!NOTE]
     > Visual Studio Code is automatically aware of conda environments on your computer. For more information, see [Visual Studio code documentation](https://code.visualstudio.com/docs/python/environments#_conda-environments).

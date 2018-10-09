@@ -3,16 +3,18 @@ title: 'Always Encrypted: SQL Database - Azure Key Vault | Microsoft Docs'
 description: This article shows you how to secure sensitive data in a SQL database with data encryption using the Always Encrypted Wizard in SQL Server Management Studio. 
 keywords: data encryption, encryption key, cloud encryption
 services: sql-database
-author: VanMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: VanMSFT
 ms.author: vanto
-
+ms.reviewer:
+manager: craigg
+ms.date: 10/05/2018
 ---
-# Always Encrypted: Protect sensitive data in SQL Database and store your encryption keys in Azure Key Vault
+# Always Encrypted: Protect sensitive data and store encryption keys in Azure Key Vault
 
 This article shows you how to secure sensitive data in a SQL database with data encryption using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
 

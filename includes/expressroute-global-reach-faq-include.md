@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: expressroute
  ms.topic: include
- ms.date: 09/12/2018
+ ms.date: 09/24/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -29,9 +29,13 @@ ExpressRoute enables connectivity from your on-premises network to Microsoft clo
 
 ExpressRoute Global Reach is supported in the following countries. The ExpressRoute circuits must be created at the peering locations in these countries.
 
-* United States
-* United Kingdom
+* Australia
 * Hong Kong
+* Ireland
+* Japan
+* Netherlands
+* United Kingdom
+* United States
 
 ### I have more than two on-premises networks, each connected to an ExpressRoute circuit. Can I enable ExpressRoute Global Reach to connect all of my on-premises networks together?
 
