@@ -1,13 +1,13 @@
 ---
-title: "Tutorial: Extract image details using the Bing Image Search API and C#"
+title: "Tutorial: Extract image details using C# - Bing Image Search API"
 titleSuffix: Azure Cognitive Services
-description: Use this article to create a C# application that extracts image details using the Bing Image Search API 
+description: Use this article to create a C# application that extracts image details using the Bing Image Search API.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 9/14/2018
 ms.author: aahi
 ---
@@ -31,11 +31,11 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* Any edition of [Visual studio 2017](https://visualstudio.microsoft.com/downloads/). 
+* Any edition of [Visual studio 2017](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Construct an image details search request 
+## Construct an image details search request
 
 The following is the `/details` endpoint, which accepts POST requests with image data in the body of the request.
 ```
@@ -67,7 +67,7 @@ Create a `WebClient` object, and set the headers. All requests to the Bing Searc
 ```javascript
 WebClient client = new WebClient();
 client.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-client.Headers["ContentType"] = "multipart/form-data"; 
+client.Headers["ContentType"] = "multipart/form-data";
 ```
 
 ## Upload the image, and display the results

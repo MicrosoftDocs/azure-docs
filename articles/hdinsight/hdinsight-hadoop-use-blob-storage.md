@@ -128,11 +128,11 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### Use Azure CLI
+### Use Azure Classic CLI
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-If you have [installed and configured the Azure CLI](../cli-install-nodejs.md), the following command can be used to a storage account and container.
+If you have [installed and configured the Azure Classic CLI](../cli-install-nodejs.md), the following command can be used to a storage account and container.
 
     azure storage account create <storageaccountname> --type LRS
 
@@ -259,24 +259,24 @@ This example shows how to list a folder from storage account that is not defined
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-### Use Azure CLI
+### Use Azure Classic CLI
 Use the following command to list the blob-related commands:
 
     azure storage blob
 
-**Example of using Azure CLI to upload a file**
+**Example of using Azure Classic CLI to upload a file**
 
     azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Example of using Azure CLI to download a file**
+**Example of using Azure Classic CLI to download a file**
 
     azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Example of using Azure CLI to delete a file**
+**Example of using Azure Classic CLI to delete a file**
 
     azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Example of using Azure CLI to list files**
+**Example of using Azure Classic CLI to list files**
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 

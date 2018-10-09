@@ -1,16 +1,18 @@
 ---
-title: Use Custom Vision Service from a C# application - Azure Cognitive Services | Microsoft Docs
-description: Explore a basic C# app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction by using the default endpoint.
+title: "Tutorial: Build a Windows app for Custom Vision Service with C#"
+titlesuffix: Azure Cognitive Services
+description: Create a project, add tags, upload images, train your project, and make a prediction by using the default endpoint.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
 ---
-# Use the Custom Vision Service from a C&#35; application
+# Tutorial: Use the Custom Vision Service from a C# application
 
 Learn how to use the Custom Vision Service from a C# application. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision Service API.
 

@@ -18,7 +18,7 @@ ms.topic: quickstart
 # Quickstart: Upload, list, and delete blobs using JavaScript/HTML in the Browser
 This quickstart demonstrates how to manage blobs from code running entirely in the browser. The approach used here shows how to use required security measures to ensure protected access to your blob storage account. To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## Setting up storage account CORS rules 
 Before your web application can access a blob storage from the client, the account must be configured to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS. 

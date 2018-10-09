@@ -5,18 +5,49 @@ metadata:
   document_id: 
   title: Language Understanding (LUIS) - Tutorials, Quickstarts, API Reference
   description: Learn how to use Language Understanding service to allow your application to understand what a person wants in their own words. 
-  author: Kaiqb
-  manager: carolz
+  author: nitinme
+  manager: cgronlun
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/28/2018
-  ms.author: kamrani
+  ms.date: 09/24/2018
+  ms.author: nitinme
 abstract:
   description: Language Understanding service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/luis-landing-page-video.png
+      width: 250  
+    title: What's new with LUIS (18:28)
+    href: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+    width: 250
 
 sections:
+
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/luis/what-is-luis
+          html: <p>Learn about Language Understanding service (LUIS).</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is LUIS?
+        - href: /azure/cognitive-services/luis/luis-how-plan-your-app
+          html: <p>Prepare an outline of the intents and entities relevant to your app.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Plan your LUIS app
+        - href: /azure/cognitive-services/luis/luis-concept-best-practices
+          html: <p>Use these best practices when creating a LUIS app.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Best practices for a LUIS app
 
 - title: 5-Minute Quickstarts
   items:
@@ -71,13 +102,20 @@ sections:
     - html: <a href="luis-quickstart-intent-and-key-phrase">Add keyPhrase entity</a>
     - html: <a href="luis-quickstart-intent-and-sentiment-analysis">Add sentiment analysis</a>
 
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="https://aka.ms/luis-code-samples">Samples on Github</a><br/>
+
 - title: Videos
   items:
   - type: list
     style: unordered
     items: 
     - html: <a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" > Azure Friday At Build 2018 - Cognitive Services - Language (LUIS)</a>
-    - html: <a href="https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player" > Build 2018 AI Show - What’s New with Language Understanding Service (LUIS)</a>
+    #- html: <a href="https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player" > Build 2018 AI Show - What’s New with Language Understanding Service (LUIS)</a>
     - html: <a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices</a>
 
 - title: Reference
@@ -90,6 +128,8 @@ sections:
       html: <p><a href="https://aka.ms/luis-endpoint-apis"> Endpoint API</a></p><p><a href="https://aka.ms/luis-authoring-apis"> Authoring API</a></p>
     - title: SDKs
       html: <p><a href="https://aka.ms/luis-endpoint-sdk"> .NET Endpoint SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Authoring SDK</a></p>
-    - title: Code samples
-      html: <p><a href="https://aka.ms/luis-code-samples"> Code Samples</a></p>
+    - title: PowerShell 
+      html: <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI 
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">Azure CLI</a></p>
       

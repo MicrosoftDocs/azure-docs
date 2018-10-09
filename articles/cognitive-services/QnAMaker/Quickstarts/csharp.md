@@ -7,8 +7,8 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
-ms.topic: article
+ms.component: qna-maker
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
 
@@ -32,6 +32,8 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Re-generate the current endpoint keys.](#PutKeys)
 - [Get the current set of word alterations.](#GetAlterations)
 - [Replace the current set of word alterations.](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## Prerequisites
 

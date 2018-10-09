@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Python Publish Knowledge Base - Qna Maker"
+title: "Quickstart: Python Publish Knowledge Base - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: How to publish a knowledge base in Python for QnA Maker.
 services: cognitive-services
@@ -7,15 +7,17 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
 ---
 
-# Publish a knowledge base in Python
+# Quickstart: Publish a knowledge base in Python
 
 The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 1. Create a new Python project in your favorite IDE.
 2. Add the code provided below.

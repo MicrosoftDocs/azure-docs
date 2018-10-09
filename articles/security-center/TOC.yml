@@ -39,9 +39,8 @@
     href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
-  - name: Server protection with Windows Defender ATP (Preview)
+  - name: Server protection with Windows Defender ATP
     href: security-center-wdatp.md
-  - name: Set security policy
   - name: Set security policies
     href: security-center-azure-policy.md
   - name: Customize the information protection policy
@@ -210,6 +209,8 @@
     href: https://azure.microsoft.com/updates/?product=security-center
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?term=securityS
   - name: Manage user data
     href: security-center-privacy.md
   - name: FAQ

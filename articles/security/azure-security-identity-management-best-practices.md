@@ -46,12 +46,14 @@ Azure identity management and access control security best practices discussed i
 * Control locations where resources are located
 
 ## Treat identity as the primary security perimeter
+
 Many consider identity to be the primary perimeter for security. This is a shift from the traditional focus on network security. Network perimeters keep getting more porous, and that perimeter defense can’t be as effective as it was before the explosion of [BYOD](http://aka.ms/byodcg) devices and cloud applications.
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) is the Azure solution for identity and access management. Azure AD is a multitenant, cloud-based directory and identity management service from Microsoft. It combines core directory services, application access management, and identity protection into a single solution.
 
 The following sections list best practices for identity and access security using Azure AD.
 
 ## Centralize identity management
+
 In a [hybrid identity](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one single location, regardless of where an account is created. Integration also helps your users to be more productive by providing a common identity for accessing both cloud and on-premises resources.
 
 
@@ -81,6 +83,7 @@ Use SSO to enable users to access their [SaaS applications](../active-directory/
 Organizations that don’t create a common identity to establish SSO for their users and applications are more exposed to scenarios where users have multiple passwords. These scenarios increase the likelihood of users reusing passwords or using weak passwords.
 
 ## Turn on conditional access
+
 Users can access your organization's resources by using a variety of devices and apps from anywhere. As an IT administrator, you want to make sure that these devices meet your standards for security and compliance. Just focusing on who can access a resource is not sufficient anymore.
 
 To balance security and productivity, you need to think about how a resource is accessed before you can make an access control decision. With Azure AD conditional access, you can address this requirement. With conditional access, you can make automated access control decisions for accessing your cloud apps that are based on conditions.
@@ -89,6 +92,7 @@ To balance security and productivity, you need to think about how a resource is 
 **Detail**: Configure Azure AD [conditional access](../active-directory/active-directory-conditional-access-azure-portal.md) based on a group, location, and application sensitivity for SaaS apps and Azure AD–connected apps.
 
 ## Enable password management
+
 If you have multiple tenants or you want to enable users to [reset their own passwords](../active-directory/active-directory-passwords-update-your-own-password.md), it’s important that you use appropriate security policies to prevent abuse.
 
 **Best practice**: Set up self-service password reset (SSPR) for your users.  
@@ -98,6 +102,7 @@ If you have multiple tenants or you want to enable users to [reset their own pas
 **Detail**: Monitor the users who are registering by using the Azure AD [Password Reset Registration Activity report](../active-directory/active-directory-passwords-get-insights.md). The reporting feature that Azure AD provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
 
 ## Enforce multi-factor verification for users
+
 We recommend that you require two-step verification for all of your users. This includes administrators and others in your organization who can have a significant impact if their account is compromised (for example, financial officers).
 
 There are multiple options for requiring two-step verification. The best option for you depends on your goals, the Azure AD edition you’re running, and your licensing program. See [How to require two-step verification for a user](../active-directory/authentication/howto-mfa-userstates.md) to determine the best option for you. See the [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages for more information about licenses and pricing.
@@ -127,11 +132,13 @@ This method uses the Azure AD Identity Protection risk evaluation to determine i
 Organizations that don’t add extra layers of identity protection, such as two-step verification, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
 
 ## Use role-based access control (RBAC)
+
 Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. You can use [role-based access control (RBAC)](../role-based-access-control/overview.md) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
 You can use [built-in RBAC](../role-based-access-control/built-in-roles.md) roles in Azure to assign privileges to users. Organizations that do not enforce data access control by using capabilities such as RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing user access to certain types of data (for example, high business impact) that they shouldn’t have.
 
 ## Lower exposure of privileged accounts
+
 Securing privileged access is a critical first step to protecting business assets. Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious user getting access, or an authorized user inadvertently affecting a sensitive resource.
 
 Privileged accounts are accounts that administer and manage IT systems. Cyber attackers target these accounts to gain access to an organization’s data and systems. To secure privileged access, you should isolate the accounts and systems from the risk of being exposed to a malicious user.
@@ -192,6 +199,7 @@ Evaluate the accounts that are assigned or eligible for the global admin role. I
 If you don’t secure privileged access, you might find that you have too many users in highly privileged roles and are more vulnerable to attacks. Malicious actors, including cyber attackers, often target admin accounts and other elements of privileged access to gain access to sensitive data and systems by using credential theft.
 
 ## Control locations where resources are created
+
 Enabling cloud operators to perform tasks while preventing them from breaking conventions that are needed to manage your organization's resources is very important. Organizations that want to control the locations where resources are created should hard code these locations.
 
 You can use [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) to create security policies whose definitions describe the actions or resources that are specifically denied. You assign those policy definitions at the desired scope, such as the subscription, the resource group, or an individual resource.
@@ -204,6 +212,7 @@ You can use [Azure Resource Manager](../azure-resource-manager/resource-group-ov
 Organizations that are not controlling how resources are created are more susceptible to users who might abuse the service by creating more resources than they need. Hardening the resource creation process is an important step to securing a multitenant scenario.
 
 ## Actively monitor for suspicious activities
+
 An active identity monitoring system can quickly detect suspicious behavior and trigger an alert for further investigation. The following table lists two Azure AD capabilities that can help organizations monitor their identities:
 
 **Best practice**: Have a method to identify:
@@ -222,4 +231,5 @@ An active identity monitoring system can quickly detect suspicious behavior and 
 Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
 
 ## Next step
+
 See [Azure security best practices and patterns](security-best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.

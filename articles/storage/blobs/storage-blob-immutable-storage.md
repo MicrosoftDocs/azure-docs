@@ -91,7 +91,7 @@ There is no additional charge for using this feature. Immutable data is priced i
 
 ## Getting started
 
-The most recent releases of the [Azure portal](http://portal.azure.com) and [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) as well as the preview version of [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) support immutable storage for Azure Blob storage.
+The most recent releases of the [Azure portal](http://portal.azure.com) and [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) as well as the preview version of [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) support immutable storage for Azure Blob storage.
 
 ### Azure portal
 
@@ -127,7 +127,7 @@ The most recent releases of the [Azure portal](http://portal.azure.com) and [Azu
 
 8. To clear a legal hold, simply remove the tag.
 
-### Azure CLI 2.0
+### Azure CLI
 
 The feature is included in the following command groups:
 `az storage container immutability-policy`  and `az storage container legal-hold`. Run `-h` on them to see the commands.

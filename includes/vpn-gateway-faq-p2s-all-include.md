@@ -24,8 +24,7 @@ The following client operating systems are supported:
 * Windows Server 2012 R2 (64-bit only)
 * Windows Server 2016 (64-bit only)
 * Windows 10
-* Mac OS X version 10.11 (El Capitan)
-* Mac OS X version 10.12 (Sierra)
+* Mac OS X version 10.11 or above
 * Linux (StrongSwan)
 * iOS
 

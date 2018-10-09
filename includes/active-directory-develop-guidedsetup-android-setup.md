@@ -7,7 +7,6 @@ author: andretms
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -44,7 +43,7 @@ Do you want to download this sample's Android Studio project instead? [Download 
 <!--start-collapse-->
 ### About this package
 
-The package in the preceding code installs Microsoft Authentication Library. MSAL handles all token operations including acquiring, caching, refreshing, and deleting.  The tokens are needed to access the APIs protected by Microsoft's identity platform.
+The package in the preceding code installs Microsoft Authentication Library. MSAL handles all token operations including acquiring, caching, refreshing, and deleting.  The tokens are needed to access the APIs protected by Microsoft identity platform.
 <!--end-collapse-->
 
 ## Create the app's UI

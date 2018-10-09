@@ -12,7 +12,7 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/23/2018
+ms.date: 09/22/2018
 ms.author: bsiva
 
 ---
@@ -56,14 +56,11 @@ The rest of this tutorial shows you how you can migrate on-premises VMware virtu
 
 ## Limitations and known issues
 
-- The Configuration Server, additional process servers, and mobility service used to migrate Windows Server 2008 SP2 servers should be running version 9.18.0.1 of the Azure Site Recovery software. The unified setup for version 9.18.0.1 of the Configuration Server and process server can be downloaded from [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup).
-
-- An existing Configuration Server or process server cannot be used to migrate servers running Windows Server 2008 SP2. A new Configuration Server should be provisioned with version 9.18.0.1 of the Azure Site Recovery software. This Configuration Server should only be used for migration of Windows servers to Azure.
+- The Configuration Server, additional process servers, and mobility service used to migrate Windows Server 2008 SP2 servers should be running version 9.19.0.0 or later of the Azure Site Recovery software.
 
 - Application consistent recovery points and the multi-VM consistency feature are not supported for replication of servers running Windows Server 2008 SP2. Windows Server 2008 SP2 servers should be migrated to a crash consistent recovery point. Crash consistent recovery points are generated every 5 minutes by default. Using a replication policy with a configured application consistent snapshot frequency will cause replication health to turn critical due to the lack of application consistent recovery points. To avoid false positives, set the application-consistent snapshot frequency in the replication policy to "Off".
 
 - The servers being migrated should have .NET Framework 3.5 Service Pack 1 for the mobility service to work.
-
 
 - If your server has dynamic disks, you may notice in certain configurations, that these disks on the failed over server are marked offline or shown as foreign disks. You may also notice that the mirrored set status for mirrored volumes across dynamic disks is marked "Failed redundancy". You can fix this issue from diskmgmt.msc by manually importing these disks and reactivating them.
 
@@ -107,48 +104,8 @@ The new vault is added to the **Dashboard** under **All resources**, and on the 
 
 ## Prepare your on-premises environment for migration
 
-- Download the Configuration Server installer (Unified Setup) from [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- Follow the steps outlined below to set up the source environment using the installer file downloaded in the previous step.
-
-> [!IMPORTANT]
-> - Ensure that you use the setup file downloaded in the first step above to install and register the Configuration Server. Do not download the setup file from the Azure portal. The setup file available at [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) is the only version that supports Windows Server 2008 migration.
->
-> - You cannot use an existing Configuration Server to migrate machines running Windows Server 2008. You'll need to setup a new Configuration Server using the link provided above.
->
-> - Follow the steps provided below to install the Configuration Server. Do not attempt to use the GUI based install procedure by running the unified setup directly. Doing so will result in the install attempt failing with an incorrect error stating that there is no internet connectivity.
-
- 
-1) Download the vault credentials file from the portal: On the Azure portal, select the Recovery Services vault created in the previous step. From the menu on the vault page select **Site Recovery Infrastructure** > **Configuration Servers**. Then click **+Server**. Select *Configuration Server for Physical* from the drop down form on the page that opens. Click the download button on step 4 to download the vault credentials file.
-
- ![Download vault registration key](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
-
-2) Copy the vault credentials file downloaded in the previous step and the unified setup file downloaded previously to the desktop of the Configuration Server machine (the Windows Server 2012 R2 or Windows Server 2016 machine on which you are going to install the configuration server software.)
-
-3) Ensure that the Configuration Server has internet connectivity, and that the system clock and time zone settings on the machine are configured correctly. Download the [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) installer and place it at *C:\Temp\ASRSetup* (create the directory if it doesnt exist.) 
-
-4) Create a MySQL credentials file with the following lines and place it on the desktop at **C:\Users\Administrator\MySQLCreds.txt** . Replace "Password~1" below with a suitable and strong password:
-
-```
-[MySQLCredentials]
-MySQLRootPassword = "Password~1"
-MySQLUserPassword = "Password~1"
-```
-
-5) Extract the contents of the downloaded unified setup file to the desktop by running the following command:
-
-```
-cd C:\Users\Administrator\Desktop
-
-MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
-```
-  
-6) Install the configuration server software using the extracted contents by executing the following commands:
-
-```
-cd C:\Users\Administrator\Desktop\9.18.1
-
-UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
-```
+- To migrate Windows Server 2008 virtual machines running on VMware, [setup the on-premises Configuration Server on VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
+- If the Configuration Server cannot be setup as a VMware virtual machine, [setup the Configuration Server on an on-premises physical server or virtual machine](physical-azure-disaster-recovery.md#set-up-the-source-environment).
 
 ## Set up the target environment
 

@@ -2,18 +2,17 @@
 title: Manage after migration - Azure SQL Database | Microsoft Docs
 description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
-author: joesackmsft
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: joesackmsft
 ms.author: josack
-ms.suite: sql
-ms.prod_service: sql-database
-ms.component: data-movement
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 10/05/2018
 ---
-
 # New DBA in the cloud – Managing your database in Azure SQL Database
 
 Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who: 
@@ -68,12 +67,12 @@ There are [two authentication methods](sql-database-control-access.md#authentica
 - [Azure Active Directory Authentication](sql-database-aad-authentication.md)
 - SQL authentication. 
 
-The traditional windows authentication is not supported. Azure Active Directory (AD) is a centralized identity and access management service. With this you can very conveniently provide a Single Sign-on Access (SSO) to all the personnel in your organization. What this means is that the credentials are shared across all Azure services for simpler authentication. AAD supports [MFA (Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) and a with a [few clicks](../active-directory/connect/active-directory-aadconnect-get-started-express.md) AAD can be integrated with Windows Server Active Directory. SQL Authentication works exactly like you’ve been using it in the past. You provide a username/password and you can authenticate users to any database on a given logical server. This also allows SQL Database and SQL Data Warehouse to offer multi-factor authentication and guest user accounts within an Azure AD domain. If you already have an Active Directory on-premises, you can federate the directory with Azure Active Directory to extend your directory to Azure.
+The traditional windows authentication is not supported. Azure Active Directory (AD) is a centralized identity and access management service. With this you can very conveniently provide a Single Sign-on Access (SSO) to all the personnel in your organization. What this means is that the credentials are shared across all Azure services for simpler authentication. AAD supports [MFA (Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) and a with a [few clicks](../active-directory/hybrid/how-to-connect-install-express.md) AAD can be integrated with Windows Server Active Directory. SQL Authentication works exactly like you’ve been using it in the past. You provide a username/password and you can authenticate users to any database on a given logical server. This also allows SQL Database and SQL Data Warehouse to offer multi-factor authentication and guest user accounts within an Azure AD domain. If you already have an Active Directory on-premises, you can federate the directory with Azure Active Directory to extend your directory to Azure.
 
 |**If you...**|**SQL Database / SQL Data Warehouse**|
 |---|---|
 |Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](sql-database-security-overview.md)|
-|Used AD on SQL Server on-premises|[Federate AD with Azure AD](../active-directory/connect/active-directory-aadconnect.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
+|Used AD on SQL Server on-premises|[Federate AD with Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
 |Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](sql-database-conditional-access.md), and use [Azure AD Universal authentication with MFA support](sql-database-ssms-mfa-authentication.md).|
 |Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](sql-database-ssms-mfa-authentication.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
 |Are logged in to Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](sql-database-aad-authentication-configure.md).|
@@ -84,7 +83,7 @@ The traditional windows authentication is not supported. Azure Active Directory 
 ### How do I limit or control connectivity access to my database?
 There are multiple techniques at your disposal that you could use to attain optimal connectivity organization for your application. 
 - Firewall Rules
-- VNET Service Endpoints
+- VNet Service Endpoints
 - Reserved IPs
 
 #### Firewall
@@ -93,11 +92,11 @@ A firewall prevents access to your server from an external entity by allowing on
 You can create firewall rules at the server level or at the database level. Server level firewall rules can either created through the portal or through SSMS. For learning more about how to set a server and database level firewall rule, see: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### Service endpoints
-By default, your SQL database is configured to “Allow all Azure services” – which means any Virtual Machine in Azure may attempt to connect to your database. These attempts still do have to get authenticated. However, if you would not like your database to be accessible by any Azure IPs, you can disable “Allow all Azure services”. Additionally, you can configure [VNET Service Endpoints](sql-database-vnet-service-endpoint-rule-overview.md).
+By default, your SQL database is configured to “Allow Azure services to access server” – which means any Virtual Machine in Azure may attempt to connect to your database. These attempts still do have to get authenticated. However, if you would not like your database to be accessible by any Azure IPs, you can disable “Allow Azure services to access server”. Additionally, you can configure [VNet Service Endpoints](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Service endpoints (SE) allow you to expose your critical Azure resources only to your own private virtual network in Azure. By doing so, you essentially eliminate public access to your resources. The traffic between your virtual network to Azure stays on the Azure backbone network. Without SE you get forced-tunneling packet routing. Your virtual network forces the internet traffic to your organization and the Azure Service traffic to go over the same route. With Service Endpoints, you can optimize this since the packets flow straight from your virtual network to the service on Azure backbone network.
 
-![VNET service endpoints](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![VNet service endpoints](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### Reserved IPs
 Another option is to provision [reserved IPs](../virtual-network/virtual-networks-reserved-public-ip.md) for your VMs, and whitelist those specific VM IP addresses in the server firewall settings. By assigning reserved IPs, you save the trouble of having to update the firewall rules with changing IP addresses.
@@ -166,7 +165,7 @@ Express Route also allows you to burst up to 2x the bandwidth limit you purchase
 - [Workflows](../expressroute/expressroute-workflows.md)
 
 ### Is SQL Database compliant with any regulatory requirements, and how does that help with my own organization's compliance?
-SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
+SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
 
 ## Intelligent database monitoring and maintenance after migration
 

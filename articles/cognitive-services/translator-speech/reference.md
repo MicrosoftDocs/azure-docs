@@ -11,6 +11,7 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
+ROBOTS: NOINDEX
 ---
 
 # Translator Speech API

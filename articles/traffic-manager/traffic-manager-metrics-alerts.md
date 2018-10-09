@@ -42,7 +42,7 @@ Figure 2 displays the same information, however, it is split by endpoints. As a 
 *Figure 2: Split view with query volume shown per endpoint returned*
 
 ## Endpoint status by endpoint
-Use [this metric](../monitoring-and-diagnostics/monitoring-supported-metrics.md) to understand the health status of the endpoints in the profile. It takes two values:
+Use [this metric](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) to understand the health status of the endpoints in the profile. It takes two values:
  - use **1** , if the endpoint is up.
  - use **0** if the endpoint is down.
 
