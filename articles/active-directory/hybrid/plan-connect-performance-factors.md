@@ -177,10 +177,10 @@ To optimize the performance of your Azure AD Connect implementation, consider th
 - Use the [recommended hardware configuration](how-to-connect-install-prerequisites.md) based on your implementation size for the Azure AD Connect server.
 - When upgrading Azure AD Connect in large scale deployments, consider using [swing migration method](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), to make sure you have the least downtime and best reliability. 
 - Use SSD for the SQL database for best writing performance.
-- Filter the Active Directory scope to only objects that needs to be provisioned in Azure AD, using domain, OU, or attribute filtering.
+- Filter the Active Directory scope to only include objects that need to be provisioned in Azure AD, using domain, OU, or attribute filtering.
 - If you require to change the default attribute flow rules, first copy the rule, then change the copy and disable the original rule. Remember to rerun a full sync.
 - Plan adequate time for the initial full sync run profile.
-- Strive the delta sync cycle completes in 30 minutes. If the delta sync profile doesn’t complete in 30 minutes, modify the default sync frequency to include a complete delta sync cycle.
+- Strive to complete the delta sync cycle in 30 minutes. If the delta sync profile doesn’t complete in 30 minutes, modify the default sync frequency to include a complete delta sync cycle.
 - Monitor your [Azure AD Connect sync health](how-to-connect-health-agent-install.md) in Azure AD.
 
 ## Next steps
