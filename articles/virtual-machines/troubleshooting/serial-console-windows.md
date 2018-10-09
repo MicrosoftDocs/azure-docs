@@ -24,7 +24,7 @@ The Virtual machine serial console on Azure provides access to a text-based cons
 For serial console documentation for Linux VMs, [click here](serial-console-linux.md).
 
 > [!NOTE] 
-> Serial console for virtual machines is generally available in global Azure regions. Serial console is not yet available in Azure government or Azure China clouds.
+> Serial console for virtual machines is generally available in global Azure regions. It is not yet available in Azure government or Azure China clouds.
 
  
 
@@ -55,8 +55,8 @@ To enable serial console for Windows VMs created before February 2018, use the f
 
 1. Connect to your Windows VM via Remote Desktop.
 2. From an administrative command prompt, run the following commands:
-- `bcdedit /ems {current} on`
-- `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+   - `bcdedit /ems {current} on`
+   - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 3. Reboot the system for the SAC console to be enabled.
 
 ![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
@@ -65,8 +65,8 @@ If needed, the SAC can be enabled offline as well:
 
 1. Attach the windows disk you want SAC configured for as a data disk to existing VM. 
 2. From an administrative command prompt, run the following commands: 
-- `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
-- `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+   - `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
+   - `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
 ### How do I know if SAC is enabled?
 
@@ -78,9 +78,9 @@ If you need to enable Windows boot loader prompts to show in the serial console,
 
 1. Connect to your Windows virtual machine via Remote Desktop.
 2. From an administrative command prompt, run the following commands: 
-- `bcdedit /set {bootmgr} displaybootmenu yes`
-- `bcdedit /set {bootmgr} timeout 30`
-- `bcdedit /set {bootmgr} bootems yes`
+   - `bcdedit /set {bootmgr} displaybootmenu yes`
+   - `bcdedit /set {bootmgr} timeout 30`
+   - `bcdedit /set {bootmgr} bootems yes`
 3. Reboot the system for the boot menu to be enabled.
 
 > [!NOTE] 
@@ -195,35 +195,35 @@ Issue                             |   Mitigation
 Hitting enter after the connection banner does not cause a sign-in prompt to be displayed | For more information, see [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This error can occur if you're running a custom VM, hardened appliance, or GRUB config that causers Windows to fail to properly connect to the serial port.
 Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk by using `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swap the disk back.
 Pasting into PowerShell in SAC results in a third character if original content had a repeating character | A workaround is to Past unload the PSReadLine module from the current session. Run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session; this action will not delete or uninstall the module.
-Some keyboard inputs produce strange SAC output (for example, **[A**, **[3~**) | [VT100](https://aka.ms/vtsequences) escape sequences are not supported by the SAC prompt.
-Pasting very long strings does not work | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
+Some keyboard inputs produce strange SAC output (for example, **[A**, **[3~**) | [VT100](https://aka.ms/vtsequences) escape sequences aren't supported by the SAC prompt.
+Pasting long strings doesn't work | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
 
 ## Frequently asked questions 
 
 **Q. How can I send feedback?**
 
-A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
+A. Provide feedback by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com.
 
 **Q. Does the serial console support copy/paste?**
 
-A. Yes it does. Use **Ctrl + Shift + C** and **Ctrl + Shift + V** to copy and paste into the terminal.
+A. Yes. Use **Ctrl + Shift + C** and **Ctrl + Shift + V** to copy and paste into the terminal.
 
 **Q. Who can enable or disable the serial console for my subscription?**
 
-A. In order to enable or disable serial console at a subscription-wide level, you must have write permissions to the subscription. Roles that have write permission include, but are not limited to, administrator or owner roles. Custom roles may also have write permissions.
+A. To enable or disable serial console at a subscription-wide level, you must have write permissions to the subscription. Roles that have write permission include, but aren't limited to, administrator or owner roles. Custom roles may also have write permissions.
 
 **Q. Who can access the serial console for my VM?**
 
-A. You must have contributor level access or higher to a VM in order to access the VM's serial console. 
+A. You must have contributor level access or higher to a VM to access the VM's serial console. 
 
-**Q. My serial console is not showing anything, what do I do?**
+**Q. My serial console isn't displaying anything, what do I do?**
 
 A. Your image is likely misconfigured for serial console access. See 
 [Enable serial console in custom or older images](#enable-serial-console-in-custom-or-older-images) for details on configuring your image to enable the serial console.
 
-**Q. Is the serial console available for Virtual Machine Scale Sets?**
+**Q. Is the serial console available for virtual machine scale sets?**
 
-A. At this time, access to the serial console for virtual machine scale set instances is not supported.
+A. At this time, access to the serial console for virtual machine scale set instances isn't supported.
 
 ## Next steps
 * For an in-depth guide to CMD and PowerShell commands you can use in the Windows SAC, see [Windows commands: CMD and PowerShell](serial-console-cmd-ps-commands.md).
