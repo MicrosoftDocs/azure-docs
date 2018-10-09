@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 10/09/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -52,6 +52,8 @@ The following sections provide more details.
 ## Requirements for virtual network configuration
 -   Make sure that `Microsoft.Batch` is a registered provider under the subscription of your virtual network subnet which hosts the Azure-SSIS IR. If you are using Classic virtual network, also join `MicrosoftAzureBatch` to the Classic Virtual Machine Contributor role for that virtual network. 
 
+-   Make sure you have the required permissions. See [Required permissions](#perms).
+
 -   Select the proper subnet to host the Azure-SSIS IR. See [Select the subnet](#subnet). 
 
 -   If you are using your own Domain Name Services (DNS) server on the virtual network, see [Domain Name Services server](#dns_server). 
@@ -61,6 +63,16 @@ The following sections provide more details.
 -   If you are using Azure Express Route or configuring User Defined Route (UDR), see [Use Azure ExpressRoute or User Defined Route](#route). 
 
 -   Make sure the Resource Group of the virtual network can create and delete certain Azure Network resources. See [Requirements for Resource Group](#resource-group). 
+
+### <a name="perms"></a> Required permissions
+
+- If you're joining the SSIS IR to an Azure virtual network of the current version, you have two options:
+
+  - Use the built-in role *Network Contributor*. This role requires the  *Microsoft.Network/\** permission, however, which has a much larger scope.
+
+  - Create a custom role that includes the permission *Microsoft.Network/virtualNetworks/\*/join/action*. 
+
+- If you're joining the SSIS IR to a classic Azure virtual network, we recommend that you use the built-in role *Classic Virtual Machine Contributor*. Otherwise you have to define a custom role that includes permission to join the virtual network.
 
 ### <a name="subnet"></a> Select the subnet
 -   Do not select the GatewaySubnet for deploying an Azure-SSIS Integration Runtime, because it is dedicated for virtual network gateways. 

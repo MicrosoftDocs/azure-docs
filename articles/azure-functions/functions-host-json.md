@@ -44,7 +44,7 @@ The following sample *host.json* files have all possible options specified.
         },
         "http": {
             "routePrefix": "api",
-            "maxConcurrentRequests": 5,
+            "maxConcurrentRequests": 100,
             "maxOutstandingRequests": 30
         },
         "queues": {

@@ -119,7 +119,7 @@ First Copy Session to Copy a Single/Multiple Directory to a single/multiple Disk
 WAImportExport tool PrepImport command for the first copy session to copy directories and/or files with a new copy session:
 
 ```
-WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] /DataSet:<dataset.csv>
 ```
 
 **Example:**
