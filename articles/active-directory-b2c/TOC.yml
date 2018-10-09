@@ -141,6 +141,8 @@
         href: active-directory-b2c-reference-kmsi-custom.md
     - name: Reference
       items:
+      - name: Claim resolvers
+        href: claim-resolver-overview.md
       - name: Identity Experience Framework schema
         items:
         - name: TrustFrameworkPolicy
