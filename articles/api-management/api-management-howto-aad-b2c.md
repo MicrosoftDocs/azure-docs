@@ -28,20 +28,20 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
 ## Authorize developer accounts by using Azure Active Directory B2C
 
-1. To get started, click **Publisher portal** in the Azure portal for your API Management service. This takes you to the API Management publisher portal.
-
-   ![Publisher portal][api-management-management-console]
+1. To get started, sign in to the [Azure portal](https://portal.azure.com) and locate your API Management instance.
 
    > [!NOTE]
    > If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management tutorial][Get started with Azure API Management].
 
-2. On the **API Management** menu, click **Security**. On the **Identities** tab, choose **Azure Active Directory B2C**.
+2. Under **SECURITY**, select **Identities**. Click **+Add** at the top.
 
-  ![External identities 1][api-management-howto-aad-b2c-security-tab]
+   The **Add identity provider** pane appears on the right. Choose **Azure Active Directory B2C**.
+    
+   ![Add AAD B2C as identity provider][api-management-howto-add-b2c-identity-provider]
 
-3. Make a note of the **Redirect URL** and switch over to Azure Active Directory B2C in the Azure portal.
+3. Copy the **Redirect URL** and switch over to your Azure Active Directory B2C tenant in the Azure portal.
 
-  ![External identities 2][api-management-howto-aad-b2c-security-tab-reply-url]
+  ![AAD B2C identity provider redirect URL][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
 4. Click the **Applications** button.
 
@@ -122,9 +122,8 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
 
 
-
-[api-management-howto-aad-b2c-security-tab]: ./media/api-management-howto-aad-b2c/api-management-b2c-security-tab.PNG
-[api-management-howto-aad-b2c-security-tab-reply-url]: ./media/api-management-howto-aad-b2c/api-management-b2c-security-tab-reply-url.PNG
+[api-management-howto-add-b2c-identity-provider]: ./media/api-management-howto-aad-b2c/api-management-add-b2c-identity-provider.PNG
+[api-management-howto-copy-b2c-identity-provider-redirect-url]: ./media/api-management-b2c-identity-provider-redirect-url.PNG
 [api-management-howto-aad-b2c-portal-menu]: ./media/api-management-howto-aad-b2c/api-management-b2c-portal-menu.PNG
 [api-management-howto-aad-b2c-add-button]: ./media/api-management-howto-aad-b2c/api-management-b2c-add-button.PNG
 [api-management-howto-aad-b2c-app-details]: ./media/api-management-howto-aad-b2c/api-management-b2c-app-details.PNG
