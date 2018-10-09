@@ -63,15 +63,15 @@ In this section, we will set up [Event Grid](../event-grid/overview.md) to colle
 1. Open the file **_actions\createEndpoints.yaml_** in your editor. Make sure it has the following contents:
 
     ```yaml
-    - type: EventGrid
+    - type:EventGrid
       eventTypes:
       - SensorChange
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString:Primary_connection_string_for_your_Event_Grid
+      secondaryConnectionString:Secondary_connection_string_for_your_Event_Grid
+      path:Event_Grid_Topic_Path
     ```
 
 1. Assign the value of **Key1** from the previous section to the `connectionString`, and the value of **Key2** to the `secondaryConnectionString`. 

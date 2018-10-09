@@ -75,24 +75,24 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 1. Open the file **_actions\createEndpoints.yaml_** in your editor. Replace the contents with the following:
 
     ```yaml
-    - type: EventHub
+    - type:EventHub
       eventTypes:
       - SensorChange
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_event_hub
-      secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
-    - type: EventHub
+      connectionString:Primary_connection_string_for_your_event_hub
+      secondaryConnectionString:Secondary_connection_string_for_your_event_hub
+      path:Name_of_your_Event_Hubs_namespace
+    - type:EventHub
       eventTypes:
       - DeviceMessage
-      connectionString: Primary_connection_string_for_your_event_hub
-      secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      connectionString:Primary_connection_string_for_your_event_hub
+      secondaryConnectionString:Secondary_connection_string_for_your_event_hub
+      path:Name_of_your_Event_Hubs_namespace
     ```
 
-1. Enter the value for **Connection string--primary key** for the event hub for `connectionString`, and the value for **Connection string--secondary key** for the `secondaryConnectionString`. Enter the name of your Event Hubs namespace as `path`.
+1. Enter the value for **Connection string--primary key** for the event hub for `connectionString`, and the value for **Connection string--secondary key** for the `secondaryConnectionString`. Enter the name of your Event Hubs namespace as `path`. Note that there are no extra spaces in any entered values. Enter all values without any quotes.
 
 1. Save and close the file. Run the following command in the command window, and sign in with your Azure account when prompted.
 
