@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 10/09/2018
 ms.author: tulasim
 #customer intent: As a developer, I want to know how to use QnA Maker for my FAQs and product manuals so that I can enable conversational question and answer sessions for my customers.
 ---
@@ -37,10 +37,10 @@ A QnA Maker provides two key services for your data:
             "questions": [
                 "How do I share a knowledge base with other?"
             ],
-            "answer": "Sharing works at the level of a QnA Maker service, i.e. all knowledge bases in the services will be shared. Read [here](https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/how-to/collaborate-knowledge-base)how to collaborate on a knowledge base.",
+            "answer": "Sharing works at the level of a QnA Maker service, i.e. all knowledge bases in the services will be shared. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/collaborate-knowledge-base)how to collaborate on a knowledge base.",
             "score": 70.95,
             "id": 4,
-            "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+            "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
             "metadata": []
         }
     ]
