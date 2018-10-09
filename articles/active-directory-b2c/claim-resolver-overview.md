@@ -98,7 +98,7 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 
 ### RESTful technical profile
 
-In a [RESTful](restful-technical-profile) technical profile, you may want to send the user language, policy name, scope, and client ID. Based on these claims the REST API can run custom business logic, and if necessary raise a localized error message. 
+In a [RESTful](restful-technical-profile.md) technical profile, you may want to send the user language, policy name, scope, and client ID. Based on these claims the REST API can run custom business logic, and if necessary raise a localized error message. 
 
 The following example shows a RESTful technical profile:
 
