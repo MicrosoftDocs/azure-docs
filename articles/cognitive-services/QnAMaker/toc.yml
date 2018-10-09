@@ -44,7 +44,7 @@
       href: Quickstarts/publish-kb-python.md
 - Tutorials
   items:
-  - name: Create a QnA bot with Azure Bot Service
+  - name: Create a QnA bot
     href: Tutorials/create-qna-bot.md
 - name: Concepts
   items:
