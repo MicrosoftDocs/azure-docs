@@ -75,15 +75,22 @@ To mount the Azure Files share into your pod, configure the volume in the contai
 apiVersion: v1
 kind: Pod
 metadata:
- name: mypod
+  name: mypod
 spec:
- containers:
+  containers:
   - image: nginx:1.15.5
     name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     volumeMounts:
       - name: azure
         mountPath: /mnt/azure
- volumes:
+  volumes:
   - name: azure
     azureFile:
       secretName: azure-secret
@@ -103,7 +110,7 @@ You now have a running pod with an Azure Files share mounted at */mnt/azure*. Yo
 Containers:
   mypod:
     Container ID:   docker://86d244cfc7c4822401e88f55fd75217d213aa9c3c6a3df169e76e8e25ed28166
-    Image:          nginx
+    Image:          nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
     State:          Running
       Started:      Mon, 08 Oct 2018 19:28:34 +0000

@@ -50,6 +50,13 @@ spec:
   containers:
   - name: mypod
     image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     ports:
     - containerPort: 80
 ```

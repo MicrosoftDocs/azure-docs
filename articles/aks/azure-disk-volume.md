@@ -64,15 +64,22 @@ To mount the Azure disk into your pod, configure the volume in the container spe
 apiVersion: v1
 kind: Pod
 metadata:
- name: mypod
+  name: mypod
 spec:
- containers:
+  containers:
   - image: nginx:1.15.5
     name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     volumeMounts:
       - name: azure
         mountPath: /mnt/azure
- volumes:
+  volumes:
       - name: azure
         azureDisk:
           kind: Managed
