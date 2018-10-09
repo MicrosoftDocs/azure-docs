@@ -14,6 +14,9 @@ ms.author: tulasim
 # Create a QnA Bot with Azure Bot Service v3
 This tutorial walks you through building a QnA bot with Azure Bot service v3 on the Azure portal.
 
+> [!Note] 
+This topic is for version 3 of the Bot SDK. You can find content for version 4 [here](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
+
 ## Prerequisite
 Before you build, follow the steps in [Create a knowledge base](../How-To/create-knowledge-base.md) to create a QnA Maker service with questions and answers.
 
