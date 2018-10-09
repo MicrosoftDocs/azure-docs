@@ -185,7 +185,9 @@
     items:
     - name: Current Release
       href: release-notes.md
-      name: v7.5.3
+    - name: v7.5.4
+      href: ~/release-notes/7-5-4.md
+    - name: v7.5.3
       href: ~/release-notes/7-5-3.md
     - name: v7.5.2
       href: ~/release-notes/7-5-2.md
