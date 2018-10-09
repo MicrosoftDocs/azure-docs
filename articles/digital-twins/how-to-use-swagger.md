@@ -10,7 +10,7 @@ ms.date: 10/08/2018
 ms.author: adgera
 ---
 
-# Azure Digital Twins Swagger
+# How to use Azure Digital Twins Swagger
 
 Each provisioned Azure Digital Twins instance includes its own automatically generated Swagger reference documentation.
 

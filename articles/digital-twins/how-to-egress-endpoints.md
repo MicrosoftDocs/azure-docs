@@ -1,5 +1,5 @@
 ---
-title: Egress and Endpoints with Azure Digital Twins | Microsoft Docs
+title: Egress and Endpoints in Azure Digital Twins | Microsoft Docs
 description: Guideline on how to create endpoints with Azure Digital Twins
 author: alinamstanciu
 manager: bertvanhoof

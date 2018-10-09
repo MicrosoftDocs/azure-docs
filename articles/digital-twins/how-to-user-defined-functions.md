@@ -1,5 +1,5 @@
 ---
-title: Guide for Using User-Defined Functions with Azure Digital Twins | Microsoft Docs
+title: How to use User-Defined Functions in Azure Digital Twins | Microsoft Docs
 description: Guideline on how to create user-defined functions, matchers and role assignments with Azure Digital Twins
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,7 +10,7 @@ ms.date: 10/08/2018
 ms.author: alinast
 ---
 
-# Guide for Using User-Defined Functions
+# How to use User-Defined Functions in Azure Digital Twins
 
 [User-defined functions](./concepts-user-defined-functions.md) enable the user to run custom logic against incoming telemetry messages and spatial graph metadata, allowing the user to send events to pre-defined endpoints. In this guide, we'll walk through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
 
