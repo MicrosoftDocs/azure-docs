@@ -10,11 +10,11 @@
     href: azure-stack-vaas-release-notes.md
 - name: Quickstart
   items:
-    - name: Schedule your first Test Pass
+    - name: Schedule your first test
       href: azure-stack-vaas-schedule-test-pass.md
 - name: Tutorial
   items:
-  - name: Set up your Validation as a Service resources
+  - name: Set up your resources
     href: azure-stack-vaas-set-up-resources.md
   - name: Deploy the local agent
     href: azure-stack-vaas-local-agent.md

@@ -6,4 +6,4 @@
  ms.author: mabrigg
 ---
 
-Click **Submit** to create the workflow.
+Select **Submit** to create the workflow.

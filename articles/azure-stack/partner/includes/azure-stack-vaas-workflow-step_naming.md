@@ -6,4 +6,4 @@
  ms.author: mabrigg
 ---
 
-Enter a **name** for the workflow. This must be unique within the solution. See [Naming convention for VaaS workflows](../azure-stack-vaas-best-practice.md#naming-convention-for-vaas-workflows) for naming suggestions.
+Enter a **name** for the workflow. The name must be unique within the solution. For more informatoin, see [Naming convention for VaaS workflows](../azure-stack-vaas-best-practice.md#naming-convention-for-vaas-workflows) for naming suggestions.
