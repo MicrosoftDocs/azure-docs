@@ -149,13 +149,13 @@ The following are post-installation known issues for this build version.
 - In both the administrator and user portals, clicking on the portal settings and selecting **Delete all settings and private dashboards** does not work as expected. An error notification is displayed. 
 
 <!-- 2930799 - IS ASDK --> 
-- In both the administrator and user portals, under **All services**, the asset **DDoS protection plans** is incorrectly listed. It is not actually available in Azure Stack. If you try to create it, an error is displayed stating that the portal could not create the marketplace item. 
+- In both the administrator and user portals, under **All services**, the asset **DDoS protection plans** is incorrectly listed. It is not available in Azure Stack. If you try to create it, an error is displayed stating that the portal could not create the marketplace item. 
 
 <!-- 2930820 - IS ASDK --> 
-- In both the administrator and user portals, if you search for "Docker," the item is incorrectly returned. It is not actually available in Azure Stack. If you try to create it, a blade with an error indication is displayed. 
+- In both the administrator and user portals, if you search for "Docker," the item is incorrectly returned. It is not available in Azure Stack. If you try to create it, a blade with an error indication is displayed. 
 
 <!-- 2967387 – IS, ASDK --> 
-- The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This occurs when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal.  
+- The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This message is displayed when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal.  
 
 <!--  2873083 - IS ASDK --> 
 -  When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
@@ -197,7 +197,7 @@ The following are post-installation known issues for this build version.
 
 
 <!-- 2812138 | IS --> 
-- You might see an alert for **Storage** component that have the following details:
+- You might see an alert for the **Storage** component that has the following details:
 
    - NAME: Storage service internal communication error  
    - SEVERITY: Critical  
@@ -224,7 +224,7 @@ The following are post-installation known issues for this build version.
    You can safely ignore the warning that says: *You've chosen to use a standard disk on a size that supports premium disks. This could impact operating system performance and is not recommended. Consider using premium storage (SSD) instead.*
 
 <!-- 2967447 - IS, ASDK --> 
-- The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another OS for your deployment or use an Azure Resource Manager template specifying another CentOS image which has been downloaded prior to deployment from the marketplace by the operator.  
+- The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another OS for your deployment or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
 
 <!-- 2724873 - IS --> 
 - When using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, the first attempt to start or stop the scale unit might fail. If the cmdlet fails on the first run, run the cmdlet a second time. The second run should succeed to complete the operation. 
