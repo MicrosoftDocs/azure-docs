@@ -147,7 +147,7 @@ The Microsoft Authenticator app or other third-party apps can be used as a softw
 
 ## OATH hardware tokens
 
-OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD will support the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Microsoft does not sell these tokens, customers must work with their vendor of choice to procure them.
+OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD will support the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can procure these tokens from the vendor of their choice. Note that secret keys are limited to 128 characters, which may not be compatible with all tokens.
 
 ![Uploading OATH tokens to the MFA Server OATH tokens blade in the Azure portal](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -158,11 +158,14 @@ upn,serial number,secret key,timeinterval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
 
+> [!NOTE]
+> Make sure you include the header row in your CSV file as shown above.
+
 Once properly formatted as a CSV file, an administrator can then sign in to the Azure portal and navigate to **Azure Active Directory**, **MFA Server**, **OATH tokens**, and upload the resulting CSV file.
 
 Depending on the size of the CSV file, it may take a few minutes to process. Click the **Refresh** button to get the current status. If there are any errors in the file, you will have the option to download a CSV file listing any errors for you to resolve.
 
-Once any errors have been addressed, the administrator then can activate the keys by clicking **Activate** for the user to be activated and entering the OTP displayed on the token.
+Once any errors have been addressed, the administrator then can activate each key by clicking **Activate** for the token to be activated and entering the OTP displayed on the token.
 
 ## Mobile phone
 
