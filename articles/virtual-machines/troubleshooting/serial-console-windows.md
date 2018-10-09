@@ -49,7 +49,7 @@ The serial console for virtual machines is accessible only via the Azure portal.
   4. Scroll down to the **Support + Troubleshooting** section and select the **Serial console** option. A new pane with the serial console will open and start the connection.
 
 
-## Enable serial console in custom or older images
+## Enable the serial console in custom or older images
 Newer Windows Server images on Azure have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but isn't available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
 To enable serial console for Windows VMs created before February 2018, use the following steps: 
 
@@ -219,7 +219,7 @@ A. You must have contributor level access or higher to a VM to access the VM's s
 **Q. My serial console isn't displaying anything, what do I do?**
 
 A. Your image is likely misconfigured for serial console access. See 
-[Enable serial console in custom or older images](#enable-serial-console-in-custom-or-older-images) for details on configuring your image to enable the serial console.
+[Enable the serial console in custom or older images](#enable-the-serial-console-in-custom-or-older-images) for details on configuring your image to enable the serial console.
 
 **Q. Is the serial console available for virtual machine scale sets?**
 

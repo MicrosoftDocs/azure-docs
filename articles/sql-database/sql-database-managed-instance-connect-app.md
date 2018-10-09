@@ -88,7 +88,7 @@ For troubleshooting connectivity issues, review the following:
 
    ![ingress/egress numbers](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
 
-- Check that the client machine (that is running the VPN client) has route entries for all the Vnets that you need to access. The routes are stored in 
+- Check that the client machine (that is running the VPN client) has route entries for all the VNets that you need to access. The routes are stored in 
 `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
 
