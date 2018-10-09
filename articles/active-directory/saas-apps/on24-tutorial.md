@@ -114,43 +114,43 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Identifier** text box, type a URL:
 
-	* **Production Environment URL**
+	 **Production Environment URL**
     
-		`SAML-VSHOW.on24.com`
+	`SAML-VSHOW.on24.com`
 
-		`SAML-Gateway.on24.com` 
-	
-		`SAP PROD    SAML-EliteAudience.on24.com` 
+	`SAML-Gateway.on24.com` 
+
+	`SAP PROD SAML-EliteAudience.on24.com` 
                 
-	* **QA Environment URL**
+	 **QA Environment URL**
     
-		`SAMLQA-VSHOW.on24.com` 
+	`SAMLQA-VSHOW.on24.com` 
 
-		`SAMLQA-Gateway.on24.com` 
+	`SAMLQA-Gateway.on24.com` 
 
-		`SAMLQA-EliteAudience.on24.com`
+	`SAMLQA-EliteAudience.on24.com`
  
 	b. In the **Reply URL** text box, type a URL:
     
-	* **Production Environment URL**
+	 **Production Environment URL**
     
-		`https://federation.on24.com/sp/ACS.saml2`
+	`https://federation.on24.com/sp/ACS.saml2`
 
-		`https://federation.on24.com/sp/eyJ2c2lkIjoiU0FNTC1WU2hvdy5vbjI0LmNvbSJ9/ACS.saml2`
+	`https://federation.on24.com/sp/eyJ2c2lkIjoiU0FNTC1WU2hvdy5vbjI0LmNvbSJ9/ACS.saml2`
 
-		`https://federation.on24.com/sp/eyJ2c2lkIjoiU0FNTC1HYXRld2F5Lm9uMjQuY29tIn0/ACS.saml2`
+	`https://federation.on24.com/sp/eyJ2c2lkIjoiU0FNTC1HYXRld2F5Lm9uMjQuY29tIn0/ACS.saml2`
 
-		`https://federation.on24.com/sp/eyJ2c2lkIjoiU0FNTC1FbGl0ZUF1ZGllbmNlLm9uMjQuY29tIn0/ACS.saml2`
+	`https://federation.on24.com/sp/eyJ2c2lkIjoiU0FNTC1FbGl0ZUF1ZGllbmNlLm9uMjQuY29tIn0/ACS.saml2`
 
-	* **QA Environment URL**
+	 **QA Environment URL**
     
-		`https://qafederation.on24.com/sp/ACS.saml2`
+	`https://qafederation.on24.com/sp/ACS.saml2`
 
-		`https://qafederation.on24.com/sp/eyJ2c2lkIjoiU0FNTFFBLVZzaG93Lm9uMjQuY29tIn0/ACS.saml2`
+	`https://qafederation.on24.com/sp/eyJ2c2lkIjoiU0FNTFFBLVZzaG93Lm9uMjQuY29tIn0/ACS.saml2`
 
-		`https://qafederation.on24.com/sp/eyJ2c2lkIjoiU0FNTFFBLUdhdGV3YXkub24yNC5jb20ifQ/ACS.saml2`
-         
-		`https://qafederation.on24.com/sp/eyJ2c2lkIjoiU0FNTFFBLUVsaXRlQXVkaWVuY2Uub24yNC5jb20ifQ/ACS.saml2` 
+	`https://qafederation.on24.com/sp/eyJ2c2lkIjoiU0FNTFFBLUdhdGV3YXkub24yNC5jb20ifQ/ACS.saml2`
+     
+	`https://qafederation.on24.com/sp/eyJ2c2lkIjoiU0FNTFFBLUVsaXRlQXVkaWVuY2Uub24yNC5jb20ifQ/ACS.saml2` 
 
     c. Click **Set additional URLs**. 
 
