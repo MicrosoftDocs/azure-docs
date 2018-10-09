@@ -19,6 +19,30 @@ ms.author: raiye
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+## September Guest OS - coming soon
+The September Guest OS is currently undergoing testing. It will be made available when the testing is complete, probably in mid-October 2018. The following patches are included in the September Guest OS. Until testing is complete, there is always a possibility that the list of patches will change.
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-09 | [4457131] | Windows 10 Security | 5.23 | September 11, 2018 |
+| Rel 18-09 | [4457145] | Windows Security only | 2.78 | September 11, 2018 |
+| Rel 18-09 | [4457140] | Windows Security only | 3.65 | September 11, 2018 |
+| Rel 18-09 | [4457143] | Windows Security only | 4.58 | September 11, 2018 |
+| Rel 18-09 | [4457055], [4457030] | .NET 3.5, 4.5 Security | 2.78 | September 11, 2018 |
+| Rel 18-09 | [4457053], [4457029] | .NET 3.5, 4.x Security | 3.65 | September 11, 2018 |
+| Rel 18-09 | [4457056], [4457028] | .NET 3.5, 4.x Security | 4.58 | September 11, 2018 |
+| Rel 18-09 | [4457146] | Flash | 3.65, 4.58, 5.23 | September 11, 2018 |
+| Rel 18-09 | [4457426] | Internet Explorer | 2.78, 3.65, 4.58 | September 11, 2018 |
+| N/A | [4343900] | August Non-Security rollup | 2.78 | August 14, 2018 |
+| N/A | [4344152] | August Non-Security .NET 3.5 rollup | 2.78 | August 14, 2018 |
+| N/A | [4344149] | August Non-Security .NET 4x rollup | 2.78 | August 14, 2018 |
+| N/A | [4343901] | August Non-Security rollup | 3.65 | August 14, 2018 |
+| N/A | [4344150] | August Non-Security .NET 3.5 rollup | 3.65 | August 14, 2018 |
+| N/A | [4344148] | August Non-Security .NET 4x rollup | 3.65 | August 14, 2018 |
+| N/A | [4343898] | August Non-Security rollup | 4.58 | August 14, 2018 |
+| N/A | [4344153] | August Non-Security .NET 3.5 rollup | 3.65 | August 14, 2018 |
+| N/A | [4344147] | August Non-Security .NET 4x rollup | 3.65 | August 14, 2018 |
+
 ## August Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
