@@ -33,7 +33,8 @@ Maintenance Scheduling takes advantage of the Azure Monitor and allows customers
 ## Wide row support in Polybase
 When loading data into SQL Data Warehouse, the general guidance is to use [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading#options-for-loading-with-polybase) with is support for parallel data loading. This release enables support for wider columns from 32K to 1MB - allowing you to load tables with wide row size. The support for wide rows simplifies the data loading process for tables with wide rows.
 
-**Note:** Total row size cannot exceed 1MB in size.
+> [!Note]
+> The total row size can't exceed 1 MB in size.
 
 ## Additional language support
 This release introduces support for the following T-SQL language elements:
