@@ -90,59 +90,19 @@ When you choose a partition key with above considerations, you don’t have to w
 
 ## <a name="prerequisites"></a>Prerequisites for partitioning
 
-Azure Cosmos DB containers can be created as fixed or unlimited in the Azure portal. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create a container as unlimited, you must specify a partition key and a minimum throughput of 1,000 RU/s. Azure Cosmos DB containers may also be configured to share throughput between a set of containers, in which each container must specificy a partition key and can grow unlimited. Following are the prerequisites to consider for partitioning and scaling:
+Azure Cosmos DB containers can be created as fixed or unlimited. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create a container as unlimited, you must specify a partition key and a minimum throughput of 1,000 RU/s. You can also create Azure Cosmos DB containers such that they share throughput. In such cases, each container must specificy a partition key and it can grow unlimited. 
 
-* When creating a container (e.g., a collection, a graph or a table) in the Azure portal, select the **Unlimited** storage capacity option to take advantage of unlimited scaling. For physical partitions to auto-split into **p1** and **p2** as described in [How does partitioning work](#how-does-partitioning-work), the container must be created with a throughput of 1,000 RU/s or more (or share throughput across a set of containers), and a partition key must be provided. 
+Following are the prerequisites to consider for partitioning and scaling:
 
-* If you created a container in the Azure portal or programmatically and the initial throughput was 1,000 RU/s or more, and you provided a partition key, you can take advantage of unlimited scaling with no changes to your container. This includes **Fixed** containers, so long as the initial container was created with at least 1,000 RU/s of throughput and a partition key is specified.
+* When creating a container (e.g., a collection, a graph or a table) in the Azure portal, select the **Unlimited** storage capacity option to take advantage of unlimited scaling. To auto-split physical partitions into **p1** and **p2** as described in [How does partitioning work](#how-does-partitioning-work) article, the container must be created with a throughput of 1,000 RU/s or more (or share throughput across a set of containers), and a partition key must be provided. 
+
+* If you create a container with the initial throughput greater than or equal to 1,000 RU/s and provide a partition key, then you can take advantage of unlimited scaling without any changes to your container. Which means even though you create a **Fixed** container, if the initial container is created with a throughput of at least 1,000 RU/s and if a partition key is specified, the container acts as an unlimited container.
 
 * All containers configured to share throughput as part of a set of containers are treated as **Unlimited** containers.
 
 If you created a **Fixed** container with no partition key or throughput less than 1,000 RU/s, the container will not auto-scale. To migrate the data from a fixed container to an unlimited container, you need to use the [Data Migration tool](import-data.md) or the [Change Feed library](change-feed.md). 
 
-## <a name="PartitionedGraph"></a>Requirements for partitioned graph
-
-Consider the following details when creating a partitioned graph container:
-
-- **Setting up partitioning is necessary** if the container is expected to be more than 10 GB in size and/or if allocating more than 10,000 request units per second (RU/s) will be required.
-
-- **Vertices and edges are stored as JSON documents** in the back-end of an Azure Cosmos DB Gremlin API.
-
-- **Vertices require a partition key**. This key determines which partition is used to store the vertex and this process uses a hashing algorithm. The name of this partition key is a single-word string without spaces or special characters, and it is defined when creating a new container using the format `/partitioning-key-name`.
-
-- **Edges are stored with their source vertex**. In other words, for each vertex its partition key defines where the vertex and its outgoing edges are stored. This is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
-
-- **Graph queries should specify a partition key**. To take full advantage of the horizontal partitioning in Azure Cosmos DB, whenever it's possible the graph queries should include partition key. For example when a single vertex is selected. The following example queries show how to include partition key when selecting one or multiple vertices in a partitioned graph:
-
-    - Selecting a vertex by ID, then **use the `.has()` step to specify the partition key property**: 
-    
-        ```
-        g.V('vertex_id').has('partitionKey', 'partitionKey_value')
-        ```
-    
-    - Selecting a vertex by **specifying a tuple including partition key value and ID**: 
-    
-        ```
-        g.V(['partitionKey_value', 'vertex_id'])
-        ```
-        
-    - Selecting a vertex by specifying an **array of tuples that include partition key values and IDs**:
-    
-        ```
-        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
-        ```
-        
-    - Selecting a set of vertices by **specifying a list of partition key values**: 
-    
-        ```
-        g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
-        ```
-
-* **Always specify the partition key value when querying a vertex**. Obtaining a vertex from a known partition is the most efficient way in terms of performance.
-
-* **Use the outgoing direction when querying edges** whenever it's possible. Edges are stored with their source vertices in the outgoing direction. This means that the chances of resorting to cross-partition queries are minimized when the data and queries are designed with this pattern in mind.
-
-## <a name="designing-for-partitioning"></a> Create partition key 
+## <a name="designing-for-partitioning"></a> Create a partition key 
 You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the provisioned throughput and partition key using each API.
 
 
@@ -220,6 +180,9 @@ For more information, see [Develop with the Table API](tutorial-develop-table-do
 ### Gremlin API
 
 With the Gremlin API, you can use the Azure portal or Azure CLI to create a container that represents a graph. Alternatively, because Azure Cosmos DB is multi-model, you can use one of the other APIs to create and scale your graph container.
+
+> [!NOTE]
+> You can’t use `/id` as partition key for a container in Gremlin API. 
 
 You can read any vertex or edge by using the partition key and ID in Gremlin. For example, for a graph with region ("USA") as the partition key and "Seattle" as the row key, you can find a vertex by using the following syntax:
 

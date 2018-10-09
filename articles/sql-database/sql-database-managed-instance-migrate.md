@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 09/26/2018
 ---
 # SQL Server instance migration to Azure SQL Database Managed Instance
 
@@ -54,7 +54,7 @@ You can select compute and storage resources at deployment time and then change 
 To learn how to create the VNet infrastructure and a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> It is important to keep your destination VNet and subnet always in accordance with [Managed Instance VNET requirements](sql-database-managed-instance-vnet-configuration.md#requirements). Any incompatibility can prevent you from creating new instances or using those that you already created.
+> It is important to keep your destination VNet and subnet always in accordance with [Managed Instance VNet requirements](sql-database-managed-instance-vnet-configuration.md#requirements). Any incompatibility can prevent you from creating new instances or using those that you already created.
 
 ## Select migration method and migrate
 
@@ -102,6 +102,8 @@ The following table provides more information regarding the methods you can use 
 > - Restore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
 For a quickstart showing how to restore a database backup to a Managed Instance using a SAS credential, see [Restore from backup to a Managed Instance](sql-database-managed-instance-get-started-restore.md).
+
+> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 ## Monitor applications
 

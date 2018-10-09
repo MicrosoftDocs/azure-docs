@@ -1,12 +1,14 @@
 ---
-title: Azure Content Moderator - video moderation | Microsoft Docs
+title:  Video moderation - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Use video moderation to scan for possible adult and racy content.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: sajagtap
 ---

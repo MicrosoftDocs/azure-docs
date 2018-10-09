@@ -18,6 +18,8 @@
     href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
   items:
+    - name: September 2018 
+      href: release-notes-september-2018.md
     - name: August 2018 
       href: release-notes-august-2018.md
     - name: July 2018 
@@ -157,6 +159,14 @@
       href: service-maintenance.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
+  - name: Maintenance schedules
+    items:
+    - name: Overview
+      href: maintenance-scheduling.md
+    - name: View maintenance schedule
+      href: viewing-maintenance-schedule.md
+    - name: Change maintenance schedule
+      href: changing-maintenance-schedule.md
   - name: Integration
     items:
     - name: Overview

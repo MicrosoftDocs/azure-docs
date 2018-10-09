@@ -62,6 +62,10 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       text:  Visual Studio
       href: /azure/azure-functions/functions-create-your-first-function-visual-studio
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+      text:  Visual Studio Code
+      href: /azure/azure-functions/functions-create-first-function-vs-code
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
