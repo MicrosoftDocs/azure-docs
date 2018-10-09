@@ -917,6 +917,8 @@
       href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
+  - name: Azure Functions
+    href: ../application-insights/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell
     items:
     - name: Monitor
