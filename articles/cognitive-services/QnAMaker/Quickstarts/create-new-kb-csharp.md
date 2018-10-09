@@ -9,18 +9,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/09/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically create a knowledge base using C#. 
 ---
 
 # Quickstart: Create a QnA Maker knowledge base in C#
 
-This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
+This quickstart walks you through programmatically creating and publishing a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
 
 This quickstart calls QnA Maker APIs:
 * [Create KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 * [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
 
 ## Prerequisites
 
@@ -43,24 +44,24 @@ At the top of Program.cs, replace the single using statement with the following 
 
 At the top of the Program class, add the following constants to access QnA Maker:
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=17-24 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=17-28 "Add the required constants")]
 
 ## Add the KB definition
 
 After the constants, add the following KB definition:
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=32-57 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=30-61 "Add the required constants")]
 
 ## Add supporting functions and structures
 Add the following code block inside the Program class:
 
-[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=59-82 "Add supporting functions and structures")]
+[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=63-86 "Add supporting functions and structures")]
 
 ## Add a POST request to create KB
 
 The following code makes an HTTPS request to the QnA Maker API to create a KB and receives the response:
 
-[!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=94-116 "Add a POST request to create KB")]
+[!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=89-120 "Add a POST request to create KB")]
 
 This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. 
 
@@ -78,7 +79,7 @@ This API call returns a JSON response that includes the operation ID in the head
 
 Check the status of the operation.
 
-[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=127-148 "Add GET request to determine creation status")]
+[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=122-152 "Add GET request to determine creation status")]
 
 This API call returns a JSON response that includes the operation status: 
 
@@ -107,15 +108,25 @@ Repeat the call until success or failure:
 
 ## Add CreateKB method
 
-The following method creates the KB and repeats checks on the status.  The _create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails.
+The following method creates the KB and repeats checks on the status.  The _create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. Because the KB creation may take some time, you need to repeat calls to check the status until the status is either successful or fails. When the operation succeeds, the KB ID is returned in **resourceLocation**. 
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=154-215 "Add CreateKB method")]
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=154-221 "Add CreateKB method")]
 
-## Add the CreateKB method to Main
+## Add publish method
+
+The following code makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
+
+[!code-csharp[AddPublishKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=223-251 "Add PublishKB method")]
+
+The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
+
+For any other response, that response is returned unaltered.
+
+## Add the CreateKB and PublishKB methods to Main
 
 Change the Main method to call the CreateKB method:
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=217-226 "Add CreateKB method")]
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaMakerQuickstart/Program.cs?range=252-265 "Add CreateKB method")]
 
 ## Build and run the program
 
