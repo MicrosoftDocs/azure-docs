@@ -1,6 +1,6 @@
 ---
 title: Azure Functions F# developer reference | Microsoft Docs
-description: Understand how to develop Azure Functions using F#.
+description: Understand how to develop Azure Functions using F# script.
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -11,13 +11,16 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.date: 09/09/2016
+ms.date: 10/09/2018
 ms.author: syclebsc
 
 ---
 # Azure Functions F# Developer Reference
 
-F# for Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. Data flows into your F# function via function arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
+F# for Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. Data flows into your F# function via function arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens. 
+
+>[!IMPORTANT]
+>F# script (.fsx) is only supported by [version 1.x](functions-versions.md#creating-1x-apps) of the Azure Functions runtime. If you want to use F# with the version 2.x runtime, you must use a precompiled F# class library project (.fs). You create, manage, and publish an F# class library project using Visual Studio as you would a [C# class library project](functions-dotnet-class-library.md). For more information about Functions versions, see [Azure Functions runtime versions overview](functions-versions).
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
