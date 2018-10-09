@@ -52,7 +52,7 @@ You can build and run the occupancy application using the outlined steps:
 
 ## Provision graph
 
-This step provisions your Digital Twins spatial graph with several spaces, one device, two sensors, two matchers, one user-defined function and one role assignment.
+This step provisions your Digital Twins spatial graph with several spaces, one device, two sensors, two matchers, one user-defined function and one role assignment. The spatial graph will be provisioned using [*provisionSample.yaml*](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
 1. Run `dotnet run ProvisionSample`.
     >[!NOTE]
@@ -99,10 +99,12 @@ If you plan to continue to the tutorials, do not clean up the resources created 
 
 ## Next steps
 
-If you haven't cleaned up the resources, and you wish to learn how to manipulate the simulated sensor data to create custom notifications and analyses, proceed to the following tutorial. 
+If you haven't cleaned up the resources, and you wish to learn how to build an end to end flow, proceed to the following tutorials: 
 
-> [!div class="nextstepaction"]
-> [Facility Management Tutorial](tutorial-facilities-events.md)
+1. [Provision a sample building](tutorial-facilities-setup.md)
+1. [Monitor conditions in your building](tutorial-facilities-setup.md)
+1. [Receive notifications from your building](tutorial-facilities-events.md)
+1. [Analyze events from your building](tutorial-facilities-analyze.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
