@@ -153,6 +153,7 @@ az container create \
     --vnet-name aci-vnet \
     --subnet aci-subnet
 ```
+
 After this second container deployment has completed, pull its logs so you can see the output of the `wget` command it executed:
 
 ```azurecli
@@ -169,32 +170,38 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 The log output should show that `wget` was able to connect and download the index file from the first container using its private IP address on the local subnet. Network traffic between the two container groups remained within the virtual network.
 
-## Deploy to existing Virtual Network using YAML
+## Deploy to existing virtual network - YAML
 
-Similarly, this section details out how we can use an YAML configuration file to create container attached to an existing virtual network. 
-In this file you will find additional parameters that need to be defined such as:
+You can also deploy a container group to an existing virtual network by using a YAML file. To deploy to a subnet in a virtual network, you specify several additional properties in the YAML:
 
-**IP Address**: This parameter allows you to specify the IP of the container.
+* `ipAddress`: The IP address settings for the container group.
+  * `ports`: The ports to open, if any.
+  * `protocol`: The protocol (TCP or UDP) for the opened port.
+* `networkProfile`: Specifies network settings like the virtual network and subnet for an Azure resource.
+  * `id`: The full Resource Manager resource ID of the `networkProfile`.
 
-**Port**: Specifies the ports to be open.
-
-**Protocol** : Specifies the protocols in use for this container.
-
-**NetworkProfile ID**: is the VNET and Subnet profile that this container will be attached to, you can find the profile ID by running the below CLI command and providing the resource group that hosts the virtual network.
+To deploy a container group to a virtual network with a YAML file, you first need to get the ID of the network profile. Execute the [az network profile list][az-network-profile-list] command, specifying the name of the resource group that contains your virtual network and delegated subnet.
 
 ``` azurecli
-az network profile list --resource-group myResourceGroup --output tsv
+az network profile list --resource-group myResourceGroup --query [0].id --output tsv
 ```
-Below is a example that will create a container named **yamlappcontainer** with an internal IP 10.2.1.4 with TCP Port 80 open. 
-Copy the contents of this example into a new file named **vnet-deployaci.yaml**.
+
+The output of the command displays the full resource ID for the network profile:
+
+```console
+$ az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
+```
+
+Once you have the network profile ID, copy the following YAML into a new file named *vnet-deploy-aci.yaml*. Under `networkProfile`, replace the `id` value with ID you just retrieved, then save the file. This YAML creates a container group named *appcontaineryaml* in your virtual network.
 
 ```YAML
 apiVersion: '2018-09-01'
 location: westus
-name: yamlappcontainer
+name: appcontaineryaml
 properties:
   containers:
-  - name: yamlappcontainer
+  - name: appcontaineryaml
     properties:
       image: microsoft/aci-helloworld
       ports:
@@ -205,44 +212,43 @@ properties:
           cpu: 1.0
           memoryInGB: 1.5
   ipAddress:
-    ip: 10.2.1.4
     type: Private
     ports:
     - protocol: tcp
       port: '80'
   networkProfile:
-    id: /subscriptions/abcd7dc89-fbf7-5f99-1234-567badefgh1a/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
   osType: Linux
   restartPolicy: Always
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Deploy the container with the [az container create][az-container-create] command, passing the YAML file as an argument:
-
-``` azurecli
-az container create --resource-group myResourceGroup --file vnet-deployaci.yaml
-```
-Within a few seconds, you should receive an initial response from Azure. later you can verify the deployment by running the below command
+Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name for the `--file` parameter:
 
 ```azurecli
-az container show --resource-group myResourceGroup --name yamlappcontainer --output table
+az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
 ```
-Output:
-```bash
-Name            ResourceGroup      Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
-------------     ---------------   --------  ------------------------  -----------  ---------  ---------------  --------  ----------
-yamlappcontainer  myResourceGroup  Running   microsoft/aci-helloworld  10.2.1.4:80  Private    1.0 core/1.5 gb  Linux     westus
+
+Once the deployment has completed, run the [az container show][az-container-show] command to display its status:
+
+```console
+$ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
+Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
+
 ## Clean up resources
 
 ### Delete container instances
 
-When you're done working with the container instances you created, delete both with the following commands:
+When you're done working with the container instances you created, delete them with the following commands:
 
 ```azurecli
 az container delete --resource-group myResourceGroup --name appcontainer -y
 az container delete --resource-group myResourceGroup --name commchecker -y
+az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### Delete network resources
@@ -299,4 +305,6 @@ Several virtual network resources and features were discussed in this article, t
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
+[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
