@@ -108,7 +108,7 @@ Yes, you can have active-active tunnels (2 tunnels = 1 Azure Virtual WAN connect
 
 ### How is traffic routed on the Azure backbone?
 
-The traffic follows the pattern: branch device ->ISP->Microsoft Edge->Microsoft DC->Microsoft edge->ISP->branch device.
+The traffic follows the pattern: branch device ->ISP->Microsoft Edge->Microsoft DC->Microsoft edge->ISP->branch device
 
 ### In this model, what do you need at each site? Just an internet connection?
 
