@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 10/08/2018
 ms.author: cynthn
 
 ---
@@ -21,12 +21,7 @@ ms.author: cynthn
 
 A snapshot is a full, read-only copy of a virtual hard drive (VHD). You can take a snapshot of an OS or data disk VHD to use as a backup, or to troubleshoot virtual machine (VM) issues. 
 
-You can take a snapshot in the following ways:
-
-- [Take a snapshot by using the Azure portal](#take-a-snapshot-by-using-the-azure-portal)
-- [Take a snapshot by using PowerShell](#take-a-snapshot-by-using-powershell)
-
-## Take a snapshot by using the Azure portal 
+## Use the Azure portal 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. From the left menu, select **Create a resource**, and then search for and select **snapshot**.
@@ -38,7 +33,7 @@ You can take a snapshot in the following ways:
 8. Select the **Account type** to use to store the snapshot. Select **Standard_HDD**, unless you need the snapshot to be stored on a high-performing disk.
 9. Select **Create**.
 
-## Take a snapshot by using PowerShell
+## Use PowerShell
 
 The following steps show how to copy the VHD disk, create the snapshot configuration, and take a snapshot of the disk by using the [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
