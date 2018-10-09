@@ -17,7 +17,7 @@ ms.date: 04/15/2018
 ms.author: juliako
 ---
 
-# CLI example: Create an Azure Media Services account
+# CLI example: Create an Asset
 
 The Azure CLI script in this article shows how to create a Media Services Asset to upload content to.
 
