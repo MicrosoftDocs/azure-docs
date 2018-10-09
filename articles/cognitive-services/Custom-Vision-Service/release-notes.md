@@ -27,12 +27,12 @@ Bugfixes, including for ONNX export with special characters.
 
 ## June 28, 2018
 - Bugfixes & backend improvements.
-- Enabeled Multiclass classification, for projects where images have exactly one label. In Predictions for multiclass mode, Probabilities will sum to one (all images are classified among your specified Tags).
+- Enabled Multiclass classification, for projects where images have exactly one label. In Predictions for multiclass mode, Probabilities will sum to one (all images are classified among your specified Tags).
 
 ## June 13, 2018
 - UX refresh, focused on ease of use and accessibility. 
 - Improvements to the machine learning pipeline to benefit multilabel projects with a large number of tags.
-- Fixed bug in TensorFlow export. Enabeled exported model versioning, so iterations can be exported more than once. 
+- Fixed bug in TensorFlow export. Enabled exported model versioning, so iterations can be exported more than once. 
 
 ## May 7, 2018
 - Introduced preview Object Detection feature for Limited Trial projects.
@@ -41,7 +41,7 @@ Bugfixes, including for ONNX export with special characters.
 - Significant backend improvements to the machine learning pipeline for image classification projects. Projects trained after April 27, 2018 will benefit from these updates.
 - Added model export to ONNX, for use with Windows ML.
 - Added model export to Dockerfile. This allows you to download the artifacts to build your own Windows or Linux containers, including a DockerFile, TensorFlow model, and service code. 
-- For newly trained models exported to TensorFlow in the General (Compact) and Landmark (Compact) Domains, [Mean Values are now (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), for consistency accross all projects. 
+- For newly trained models exported to TensorFlow in the General (Compact) and Landmark (Compact) Domains, [Mean Values are now (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), for consistency across all projects. 
 
 ## March 1, 2018
 - Entered paid preview and onboarded onto the Azure Portal. Projects can now be attached to Azure resources with an F0 (Free) or S0 (Standard) tier. Introduced S0 tier projects, which allow up to 100 tags and 25,000 images. 
