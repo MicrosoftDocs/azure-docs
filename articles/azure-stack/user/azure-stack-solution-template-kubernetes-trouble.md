@@ -29,7 +29,7 @@ The following article looks troubleshooting your Kubernetes cluster. You can rev
 
 ## Overview of deployment
 
-Before you get into the steps to troubleshoot your cluster, you may look Azure Stack Kubernetes cluster deployment process. The deployment uses an Azure Resource Manager solution template to create the VMs and installs the ACS Engine for your cluster.
+Before you get into the steps to troubleshoot your cluster, you may want to review the Azure Stack Kubernetes cluster deployment process. The deployment uses an Azure Resource Manager solution template to create the VMs and installs the ACS Engine for your cluster.
 
 ### Deployment workflow
 
