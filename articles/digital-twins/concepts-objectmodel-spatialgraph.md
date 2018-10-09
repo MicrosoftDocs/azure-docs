@@ -47,6 +47,8 @@ Other categories of objects are:
 - **Matchers** are objects that determine which UDFs will be executed for a given telemetry message.
 - **Endpoints** are the locations where telemetry messages and Digital Twins events can be routed, for example `Event Hub`, `Service Bus`, `Event Grid`.
 
+<a id="graph" />
+
 ## Spatial Intelligence Graph
 
 **Spatial Graph** is the hierarchical graph of spaces, devices, and people defined in the **Digital Twins Object Model**. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. Users can manage and interact with their spatial graph with a collection of REST APIs (see below).

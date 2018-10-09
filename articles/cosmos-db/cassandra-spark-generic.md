@@ -63,7 +63,7 @@ The following commands detail how to connect to Azure CosmosDB Cassandra API fro
 ```bash
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
-cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
+cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
 ```
 
 ### 1.  Azure Databricks
