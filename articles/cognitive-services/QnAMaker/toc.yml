@@ -42,7 +42,7 @@
       href: Quickstarts/publish-kb-nodejs.md
     - name: Python
       href: Quickstarts/publish-kb-python.md
-- Tutorials
+- name: Tutorials
   items:
   - name: Create a QnA bot
     href: Tutorials/create-qna-bot.md
