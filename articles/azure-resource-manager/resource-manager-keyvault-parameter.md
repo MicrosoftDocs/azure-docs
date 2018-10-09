@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2018
+ms.date: 10/09/2018
 ms.author: tomfitz
 
 ---
@@ -21,19 +21,22 @@ When you need to pass a secure value (like a password) as a parameter during dep
 
 ## Deploy a key vault and secret
 
-To create a key vault and secret, use either Azure CLI or PowerShell. `enabledForTemplateDeployment` is a key vault property. To access the secrets inside this Key Vault from Resource Manager deployment, `enabledForTemplateDeployment` must be `true`  
+To create a key vault and secret, use either Azure CLI or PowerShell. `enabledForTemplateDeployment` is a key vault property. To access the secrets inside this Key Vault from Resource Manager deployment, `enabledForTemplateDeployment` must be `true`. 
+
+The following sample Azure PowerShell and Azure CLI script demonstrates how to create a Key Vault and a secret.
 
 For Azure CLI, use:
 
 ```azurecli-interactive
-resourceGroupName='{your-resource-group-name}'
-location='Central US'
 keyVaultName='{your-unique-vault-name}'
-username='admin'
+resourceGroupName='{your-resource-group-name}'
+location='centralus'
 userPrincipalName='{your-email-address-associated-with-your-subscription}'
 
+# Create a resource group
 az group create --name $resourceGroupName --location $location
 
+# Create a Key Vault
 az keyvault create \
   --name $keyVaultName \
   --resource-group $resourceGroupName \
@@ -41,18 +44,18 @@ az keyvault create \
   --enabled-for-template-deployment true
 az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
 
+# Create a secret with the name, vmAdminPassword
 password=$(openssl rand -base64 32)
 echo $password
-az keyvault secret set --vault-name $keyVaultName --name $username --value $password
+az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
 ```
 
 For PowerShell, use:
 
-```powershell-interactive
+```azurepowershell-interactive
 $keyVaultName = "{your-unique-vault-name}"
 $resourceGroupName="{your-resource-group-name}"
 $location='Central US'
-$username='admin'
 $userPrincipalName='{your-email-address-associated-with-your-subscription}'
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
@@ -65,15 +68,23 @@ New-AzureRmKeyVault `
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
 
 $password = openssl rand -base64 32
-echo$password
+echo $password
 $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
-Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $username -SecretValue $secretvalue
+Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretvalue
 ```
+
+If running the PowerShell script outside the Cloud Shell, use the following command to generate password instead:
+
+```powershell
+Add-Type -AssemblyName System.Web
+[System.Web.Security.Membership]::GeneratePassword(16,3)
+```
+
+For using Resource Manager template:
+See [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
 
 > [!NOTE]
 > Each Azure service has specific password requirements. For example, the Azure virtual machine's requirements can be found at [What are the password requirements when creating a VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
-
-For using Resource Manager template, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
 
 ## Enable access to the secret
 
@@ -102,7 +113,7 @@ The following procedure shows how to create a role with the minimum permssion, a
 
 2. Create the new role using the JSON file:
 
-    ```powershell
+    ```azurepowershell
     $resourceGroupName= "<Resource Group Name>" # the resource group which contains the Key Vault
     $userPrincipalName = "<Email Address of the deployment operator>"
     New-AzureRmRoleDefinition -InputFile "<PathToTheJSONFile>" 
@@ -110,6 +121,7 @@ The following procedure shows how to create a role with the minimum permssion, a
     ```
 
     The `New-AzureRmRoleAssignment` sample assign the custom role to the user on the resource group level.  
+
 When using a Key Vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
 
 ## Reference a secret with static ID
