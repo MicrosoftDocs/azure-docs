@@ -1,6 +1,6 @@
 ---
 title: Append Variable Activity in Azure Data Factory | Microsoft Docs
-description: Learn how to se the Append Variable activity to add a value to an existing array variable defined in a Data Factory pipeline
+description: Learn how to set the Append Variable activity to add a value to an existing array variable defined in a Data Factory pipeline
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
