@@ -12,7 +12,7 @@ ms.author: dkshir
 
 # Tutorial: Visualize and analyze events from your building using Azure Digital Twins
 
-This tutorial demonstrates how to use Azure Digital Twins to manage your facilities for efficient space utilization. Once you have provisioned the spatial graph and user-defined function using the steps in the previous tutorials, you can integrate simulated device events with other services to visualize and analyze the data. In the third tutorial, you understood how to receive *hot data* (or instantaneous) events. This tutorial shows you steps to perform *warm path analytics* to visualize and store the sensor telemetry data at a slightly slower pace/storage, using [Azure Time Series Insights or TSI](../time-series-insights/time-series-insights-overview.md). You will use Azure Time Series Insights to create detailed visualizations and analyses of the telemetry data from your simulated device sensors.
+This tutorial demonstrates how to use Azure Digital Twins to manage your facilities for efficient space utilization. After provisioning your spatial graph in [the first tutorial](tutorial-facilities-setup.md), and monitoring simulated sensor data for room availability with optimum air quality/temperature in [the second tutorial](tutorial-facilities-udf.md), you can integrate the simulated device data with other services to visualize and analyze the data. In [the third tutorial](tutorial-facilities-events.md), you learned how to receive notifications for instantaneous events. This tutorial shows you how to analyze and visualize larger chunks of the sensor data at a slightly slower pace (or *warm path analytics*), using [Azure Time Series Insights or TSI](../time-series-insights/time-series-insights-overview.md). You will use Azure Time Series Insights to create detailed visualizations and analyses of the telemetry data from your simulated device sensors.
 
 In this tutorial, you learn how to:
 
@@ -26,7 +26,7 @@ If you don’t have an Azure account, create a [free account](https://azure.micr
 
 This tutorial assumes that you have completed the steps to [Provision your Azure Digital Twins setup](tutorial-facilities-setup.md), as well as [Custom monitor your Azure Digital Twins setup](tutorial-facilities-udf.md). Before proceeding, make sure that you have:
 - an instance of Digital Twins running, and 
-- the [Azure Digital Twins sample application](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded or cloned on your work machine.
+- the [Azure Digital Twins sample application](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
 
 
 ## Stream data using Event Hubs
@@ -66,8 +66,14 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 
 ### Create endpoint for the event hub
 
-1. In a command window, navigate to the Digital Twins sample, and then run `cd occupancy-quickstart\src`.
-1. Open the file *actions\createEndpoints.yaml* in your editor. Replace the contents with the following:
+1. In a command window, navigate to the Digital Twins sample, and then run change to the right directory:
+
+```cmd/sh
+cd occupancy-quickstart\src
+```
+
+1. Open the file **_actions\createEndpoints.yaml_** in your editor. Replace the contents with the following:
+
 ```yaml
 - type: EventHub
   eventTypes:
@@ -75,20 +81,25 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
   - SpaceChange
   - TopologyOperation
   - UdfCustom
-  connectionString: <Primary connection string for your event hub>
-  secondaryConnectionString: <Secondary connection string for your event hub>
-  path: <Name of your Event Hubs namespace>
+  connectionString: Primary_connection_string_for_your_event_hub
+  secondaryConnectionString: Secondary_connection_string_for_your_event_hub
+  path: Name_of_your_Event_Hubs_namespace
 - type: EventHub
   eventTypes:
   - DeviceMessage
-  connectionString: <Primary connection string for your event hub>
-  secondaryConnectionString: <Secondary connection string for your event hub>
-  path: <Name of your Event Hubs namespace>
+  connectionString: Primary_connection_string_for_your_event_hub
+  secondaryConnectionString: Secondary_connection_string_for_your_event_hub
+  path: Name_of_your_Event_Hubs_namespace
 ```
-1. Enter the value for **Connection string--primary key** for the event hub for `connectionString`, and the value for **Connection string--secondary key** for the `secondaryConnectionString`. Enter the name of your Event Hubs namespace as `path`.
-1. Save and close the file. Run `dotnet run CreateEndpoints` in the command window. Sign in with your Azure account when prompted. It creates two endpoints for your Event hub.
 
-    ![Endpoints for Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
+1. Enter the value for **Connection string--primary key** for the event hub for `connectionString`, and the value for **Connection string--secondary key** for the `secondaryConnectionString`. Enter the name of your Event Hubs namespace as `path`.
+2. Save and close the file. Run the following command in the command window, and sign in with your Azure account when prompted.
+```cmd/sh
+dotnet run CreateEndpoints
+```
+   It creates two endpoints for your Event hub.
+
+   ![Endpoints for Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
 
 ## Analyze with Time Series Insights
 
@@ -101,11 +112,14 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 
 1. Open the TSI instance once deployed, and then open the **Event Sources** pane. Click **Add** button at the top to add a consumer group.
 1. In the **New event source** pane, enter a **Name**, and make sure the other values are selected correctly. Select *ManageSend* as the **Event hub policy name**, and then select the *consumer group* we created in the previous section as the **Event hub consumer group**. Click **Create**.
+
     ![TSI event source](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
 1. Open the **Overview** pane for your Time Series Insights instance, and click **Go to Environment**. If you get a *data access warning*, then open the **Data Access Policies** pane for your TSI instance, click **Add**, select **Contributor** as the role, and select the appropriate user.
 
-1. The **Go to Environment** button opens the [Time Series Insights Explorer](../time-series-insights/time-series-insights-explorer.md). If it does not show any events, navigate to your Digital Twins sample, and then to the *device-connectivity* project. Run `dotnet run` to generate simulated device events. In the TSI explorer in the portal, click the refresh icon to *Refresh environment information*. You should see analyses and perspectives getting created for your simulated telemetry data.
+1. The **Go to Environment** button opens the [Time Series Insights Explorer](../time-series-insights/time-series-insights-explorer.md). If it does not show any events, navigate to your Digital Twins sample, and then to the *device-connectivity* project. Run `dotnet run` to generate simulated device events. 
+
+1. In the TSI explorer in the portal, click the refresh icon to *Refresh environment information*. You should see analytical charts getting created for your simulated sensor data. 
 
     ![TSI explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)
 
