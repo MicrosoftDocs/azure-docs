@@ -26,7 +26,7 @@ Why create your own keys? Custom keys give you more flexibility, so that you can
 To use customer-managed keys with SSE, you can either create a new key vault and key or you can use an existing key vault and key. The storage account and the key vault must be in the same region, but they can be in different subscriptions. 
 
 ### Step 1: Create a storage account
-First, create a storage account if you don't have one already. For more information, see [Create a new storage account](storage-quickstart-create-account.md).
+First, create a storage account if you don't have one already. For more information, see [Create a storage account](storage-quickstart-create-account.md).
 
 ### Step 2: Enable SSE for Blob and File storage
 To enable SSE using customer-managed keys, two key protection features, Soft Delete and Do Not Purge, must also be enabled in Azure Key Vault. These settings ensure the keys cannot be accidently or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors or ransomware attacks.

@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure AD reports and monitoring
+title: Azure Active Directory reports and monitoring
 metadata:
   document_id: 
   title: Azure Active Directory reports and monitoring documentation - Tutorials, quickstarts, concepts | Microsoft Docs
@@ -17,7 +17,7 @@ metadata:
   ms.author: priyamo
 abstract:
   description: "Learn how to view security and audit reports for your environment, or monitor them over time to gain insights into usage patterns.
-With Azure AD reports, you can gain insights into the security and usage patterns in your environment. For example, you can answer the following questions:<ul><li>How are the applications or services utilized by the users?</li><li>What are the potential risks affecting the health of the envrionment</li><li>How to troubleshoot issues preventing users from getting their work done</li>"
+With Azure Active Directory (Azure AD) reports, you can gain insights into the security and usage patterns in your environment. For example, you can answer the following questions:<ul><li>How are the applications or services utilized by the users?</li><li>What are the potential risks affecting the health of the envrionment</li><li>How to troubleshoot issues preventing users from getting their work done</li>"
 
 sections:
 - title: 5-minute quickstarts

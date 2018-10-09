@@ -37,17 +37,62 @@ The following image is for Update Management. Change tracking and Inventory have
 
 The list of virtual machines is filtered to show only the virtual machines that are in the same subscription and location. If your virtual machines are in more than three resource groups, the first three resource groups are selected.
 
+### <a name="resource-group-limit"></a> Onboarding limitations
+
+The number of resource groups you can use for onboarding is limited by the [Resource Manager deployment limits](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager deployments, not to be confused with Update deployments,  are limited to 5 resource groups per deployment. To ensure the integrity of onboarding, 2 of those resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with 3 resource groups to select for deployment.
+
 Use the filter controls to select virtual machines from different subscriptions, locations, and resource groups.
 
 ![Onboard Update management solution](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Review the choices for the Log analytics workspace and Automation account. A new workspace and Automation Account are selected by default. If you have an existing Log Analytics workspace and Automation Account you want to use, click **change** to select them from the **Configuration** page. When done, click **Save**.
+Review the choices for the Log analytics workspace and Automation account. An existing workspace and Automation Account are selected by default. If you want to use a different Log Analytics workspace and Automation Account, click **CUSTOM** to select them from the **Custom Configuration** page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation Account. If a linked Automation Account is found, you will see the following screen. When done, click **OK**.
 
 ![Select workspace and account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+If the workspace selected is not linked to an Automation Account, you'll see the following screen. Select an Automation Account and click **OK** when complete.
+
+![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 Deselect the checkbox next to any virtual machine that you don't want to enable. Virtual machines that can't be enabled are already deselected.
 
 Click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
+
+## Unlink workspace
+
+The following solutions are dependent on a Log Analytics workspace:
+
+* [Update Management](automation-update-management.md)
+* [Change Tracking](automation-change-tracking.md)
+* [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
+
+If you decide you no longer wish to integrate your Automation account with Log Analytics, you can unlink your account directly from the Azure portal. Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
+
+After you remove these solutions, you can perform the following steps to unlink your Automation account.
+
+> [!NOTE]
+> Some solutions including earlier versions of the Azure SQL monitoring solution may have created automation assets and may also need to be removed prior to unlinking the workspace.
+
+1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
+
+1. On the Unlink workspace page, click **Unlink workspace**.
+
+   ![Unlink workspace page](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+
+   You will receive a prompt verifying you wish to proceed.
+
+1. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
+
+If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
+
+* Update schedules - Each will have names that match the update deployments you created)
+
+* Hybrid worker groups created for the solution -  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+
+If you used the Start/Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
+
+* Start and stop VM runbook schedules
+* Start and stop VM runbooks
+* Variables
 
 ## Troubleshooting
 

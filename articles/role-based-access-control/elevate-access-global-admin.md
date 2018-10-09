@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -33,7 +33,9 @@ This elevation should be temporary and only done when needed.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## Elevate access for a Global Administrator using the Azure portal
+## Azure portal
+
+Follow these steps to elevate access for a Global Administrator using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com).
 
@@ -55,7 +57,9 @@ This elevation should be temporary and only done when needed.
 
 1. Perform the tasks you need to make at the elevated access. When you are done, set the switch back to **No**.
 
-## List role assignment at the root scope (/) using PowerShell
+## Azure PowerShell
+
+### List role assignment at the root scope (/)
 
 To list the User Access Administrator role assignment for a user at the root scope (`/`), use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command.
 
@@ -75,7 +79,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## Remove a role assignment at the root scope (/) using PowerShell
+### Remove a role assignment at the root scope (/)
 
 To remove a User Access Administrator role assignment for a user at the root scope (`/`), use the [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command.
 
@@ -84,7 +88,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## Elevate access for a Global Administrator using the REST API
+## REST API
+
+### Elevate access for a Global Administrator
 
 Use the following basic steps to elevate access for a Global Administrator using the REST API.
 
@@ -113,7 +119,7 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 1. Remove your User Access Administrator privileges until they're needed again.
 
-## List role assignments at the root scope (/) using the REST API
+### List role assignments at the root scope (/)
 
 You can list all of the role assignments for a user at the root scope (`/`).
 
@@ -123,7 +129,17 @@ You can list all of the role assignments for a user at the root scope (`/`).
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## Remove elevated access using the REST API
+### List deny assignments at the root scope (/)
+
+You can list all of the deny assignments for a user at the root scope (`/`).
+
+- Call GET denyAssignments where `{objectIdOfUser}` is the object ID of the user whose deny assignments you want to retrieve.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   ```
+
+### Remove elevated access
 
 When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to remove the assignment.
 

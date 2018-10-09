@@ -1,5 +1,5 @@
 ---
-title: Customize the Remote Monitoring solution UI - Azure | Microsoft Docs 
+title: Customize the Remote Monitoring solution UI - Azure | Microsoft Docs
 description: This article provides information about how you can access the source code for the Remote Monitoring solution accelerator UI and make some customizations.
 author: dominicbetts
 manager: timlt
@@ -30,7 +30,7 @@ The following steps outline the process to set up a local environment for UI dev
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    You should only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
+    You should only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
 1. Use the Azure portal or the [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to find the name and public IP address of your virtual machine. For example:
 

@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
+ms.author: cwatson
 ---
 # Prevent unexpected charges with Azure billing and cost management
 
@@ -49,17 +49,6 @@ For more information on pricing, see this [FAQ](https://azure.microsoft.com/pric
 Typically when you add a service in the Azure portal, there's a view that shows you a similar estimated cost per month. For example, when you choose the size of your Windows VM, you see the estimated monthly cost for the compute hours:
 
 ![Example: an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/vm-size-cost.PNG)
-
-### Set up billing alerts
-
-Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md).
-
-![Screenshot of a billing alert email](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> This feature is still in preview so you should check your usage regularly.
-
-You might want to use the cost estimate from the pricing calculator as a guideline for your first alert.
 
 ### <a name="spending-limit"></a> Check if you have a spending limit on
 
@@ -161,7 +150,7 @@ Enterprise cost views are currently in Public Preview. Items to note:
     - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
     - You purchased Azure through a channel partner, and the partner has not released pricing information.  
 - When settings related to cost access are updated within the Enterprise portal, there is a delay of a few minutes before the changes are reflected in the Azure portal.
-- Spending limit, billing alerts, and invoice guidance do not pertain to EA Subscriptions.
+- Spending limit, and invoice guidance don't apply to EA Subscriptions.
 
 ### Check your subscription and access
 

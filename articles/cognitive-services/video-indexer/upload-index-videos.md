@@ -1,18 +1,19 @@
 ---
-title: Upload and index your videos with Azure Video Indexer | Microsoft Docs
-description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Indexer 
+title: "Example: Upload and index videos with Video Indexer"
+titlesuffix: Azure Cognitive Services
+description: This topic demonstrates how to use APIs to upload and index your videos with Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: femila
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-
 ---
-# Upload and index your videos  
+
+# Example: Upload and index your videos  
 
 This article shows how to upload a video with Azure Video Indexer. The Video Indexer API provides two uploading options: 
 
@@ -31,6 +32,11 @@ The article also discusses some of the parameters that you can set on the API to
 - When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher)
 - The byte array option is limited to 2GB and times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
+
+> [!Tip]
+> It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
+>
+> If you must use older .NET frameworks, add one line into your code before making the REST API call:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## Configurations and params
 
@@ -238,8 +244,14 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
+## Common errors
 
+The status codes listed in the following table may be returned by the Upload operation.
 
+|Status code|ErrorType (in response body)|Description|
+|---|---|---|
+|400|VIDEO_ALREADY_IN_PROGRESS|Same video is already in progress of being processed in the given account.|
+|400|VIDEO_ALREADY_FAILED|Same video failed to process in the given account less than 2 hours ago. API clients should wait at least 2 hours before re-uploading a video.|
 
 ## Next steps
 

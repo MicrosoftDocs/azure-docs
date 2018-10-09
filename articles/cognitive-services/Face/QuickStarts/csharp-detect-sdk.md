@@ -1,10 +1,10 @@
 ---
-title: "Quickstart: Detect faces in an image - SDK, C# - Face"
-titleSuffix: "Azure Cognitive Services"
+title: "Quickstart: Detect faces in an image - SDK, C#"
+titleSuffix: Azure Cognitive Services
 description: In this quickstart, you detect faces from an image using the Face Windows C# client library in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: face-api
@@ -16,7 +16,7 @@ ms.author: nolachar
 
 In this quickstart, you detect human faces in an image using the Face Windows client library.
 
-Get the latest code as a Visual Studio solution from the [Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) GitHub repository.
+The source code for this sample is available on [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 ## Prerequisites
 

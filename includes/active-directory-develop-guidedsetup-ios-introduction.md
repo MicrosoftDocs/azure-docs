@@ -1,3 +1,22 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file 
+
+---
 
 # Call the Microsoft Graph API from an iOS application
 
@@ -6,7 +25,7 @@ This guide shows how a native iOS application (Swift) can call APIs that require
 After you complete the exercises in this guide, your application can call a protected API from any company or organization that has Azure AD. Your application can make protected API calls by using personal accounts like outlook.com, live.com, and others, as well as work or school accounts.
 
 ## Prerequisites
-- XCode version 8.x is required for the sample that is created in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
+- XCode version 10.x is required for the sample that is created in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - The [Carthage](https://github.com/Carthage/Carthage) dependency manager is required for package management.
 
 ## How this guide works

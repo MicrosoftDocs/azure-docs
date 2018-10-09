@@ -7,19 +7,18 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
 ---
 
-# Manage storage capacity for Azure Stack
+# Manage storage capacity for Azure Stack 
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -83,10 +82,15 @@ As a cloud operator, you can monitor the storage capacity of a share using the P
 - **Used capacity** is the amount of data in bytes that is used by the all the extents from the files that store the tenant data and associated metadata.
 
 ### Use the administrator portal
-As a cloud operator, you can use the admin portal to view the storage capacity of all shares. **Go to Storage** > **File Shares** to open the file share list where you can view the usage information.
-![Example: Storage file shares](media/azure-stack-manage-storage-shares/storage-file-shares.png)
-- **TOTAL** is the total space in bytes that are available on the share. This space is used for data and metadata that is maintained by the storage services.
-- **USED** is the amount of data in bytes that is used by the all the extents from the files that store the tenant data and associated metadata.
+As a cloud operator, you can use the admin portal to view the storage capacity of all shares.
+
+1. Sign in to the [admin portal](https://adminportal.local.azurestack.external).
+2. Select **All services** > **Storage** to open the file share list where you can view the usage information. 
+
+  ![Example: Storage file shares](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+
+  - **TOTAL** is the total space in bytes that are available on the share. This space is used for data and metadata that is maintained by the storage services.
+  - **USED** is the amount of data in bytes that is used by the all the extents from the files that store the tenant data and associated metadata.
 
 ### Storage space alerts
 When you use the admin portal, you receive alerts about shares that are low on space.

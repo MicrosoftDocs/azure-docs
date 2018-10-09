@@ -1,18 +1,19 @@
 ---
-title: Use Azure Video Indexer API | Microsoft Docs
+title: "Tutorial: Use the Video Indexer API"
+titlesuffix: Azure Cognitive Services
 description: This article shows how to get started using the Video Indexer API.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: femila
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: juliako
-
 ---
-# Use Azure Video Indexer API
+
+# Tutorial: Use the Video Indexer API
 
 > [!Note]
 > The Video Indexer V1 API was deprecated on August 1st, 2018. You should now use the Video Indexer v2 API. <br/>To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 

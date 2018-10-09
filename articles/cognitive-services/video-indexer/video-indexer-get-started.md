@@ -1,18 +1,19 @@
 ---
-title: Sign up for Azure Video Indexer and upload your first video | Microsoft Docs
-description: This topic demonstrates how to sign up and upload your first video using the Video Indexer website.
+title: "Tutorial: Sign up for Video Indexer and upload your first video"
+titlesuffix: Azure Cognitive Services
+description: Learn how to sign up and upload your first video using the Video Indexer portal.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: femila
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: tutorial
 ms.date: 09/15/2018
 ms.author: juliako
-
 ---
-# Sign up and upload your first video
+
+# Tutorial: How to sign up and upload your first video
 
 This getting started tutorial shows how to sign in to the Video Indexer website and how to upload your first video.
 
@@ -20,7 +21,7 @@ When creating a Video Indexer account, you can choose a free trial account (wher
 
 ## Sign up for Video Indexer
 
-To start developing with Video Indexer, browse to the the [Video Indexer](https://www.videoindexer.com) website and sign up.
+To start developing with Video Indexer, browse to the [Video Indexer](https://www.videoindexer.com) website and sign up.
 
 ## Upload a video using the Video Indexer website
 

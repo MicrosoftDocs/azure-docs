@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Analyze an image - SDK, C# - Computer Vision"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you analyze an image using the Computer Vision Windows C# client library in Cognitive Services.
+description: In this quickstart, you analyze an image using the Computer Vision Windows C# client library.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an image - SDK, C&#35; - Computer Vision
+# Quickstart: Analyze an image using the Computer Vision SDK and C#
 
 In this quickstart, you analyze both a local and a remote image to extract visual features using the Computer Vision Windows client library.
 
-Get the latest code as a Visual Studio solution from the [Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) GitHub repository.
+The source code for this sample is available on [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ namespace ImageAnalyze
             var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 

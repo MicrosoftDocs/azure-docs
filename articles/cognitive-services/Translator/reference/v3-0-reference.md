@@ -1,23 +1,23 @@
-
 ---
-title: Microsoft Translator Text API V3.0 Reference | Microsoft Docs
-description: Reference documentation for the V3.0 Microsoft Translator Text API.
+title: Translator Text API V3.0 Reference
+titlesuffix: Azure Cognitive Services
+description: Reference documentation for the Translator Text API V3.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-#Translator Text API v3.0
+# Translator Text API v3.0
 
 ## What's new?
 
-Version 3 of the Microsoft Translator Text API provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
+Version 3 of the Translator Text API provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
 
  * Transliteration to convert text in one language from one script to another script.
  * Translation to multiple languages in one request.

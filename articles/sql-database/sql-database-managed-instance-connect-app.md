@@ -1,15 +1,17 @@
 ---
 title: Azure SQL Database Managed Instance connect application | Microsoft Docs
 description: This article discusses how to connect your application to Azure SQL Database Managed Instance.
+services: sql-database
 ms.service: sql-database
-author: srdan-bozovic-msft
-manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
+manager: craigg
+ms.date: 09/14/2018
 ---
 
 # Connect your application to Azure SQL Database Managed Instance
@@ -18,7 +20,7 @@ Today you have multiple choices when deciding how and where you host your applic
  
 You may choose to host application in the cloud either by using Azure App Service or some of Azure's virtual network (VNet) integrated options like Azure App Service Environment, Virtual Machine, Virtual Machine Scale Set. You could also take hybrid cloud approach and keep your applications on-premises. 
  
-Whatever choice you made, you can connect it to a Managed Instance (preview).  
+Whatever choice you made, you can connect it to a Managed Instance.  
 
 ![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 ## Connect an application inside the same VNet 
@@ -53,7 +55,7 @@ If you've established on-premises to Azure connection successfully and you can't
 Managed Instance can be accessed only through a private IP address so in order to access it from your developer box, you first need to make a connection between your developer box and the Managed Instance VNet. To do so, configure a Point-to-Site connection to a VNet using native Azure certificate authentication. For more information, see  [Configure a point-to-site connection to connect to an Azure SQL Database Managed Instance from on-premises computer](sql-database-managed-instance-configure-p2s.md).
 
 ## Connect from on-premises with VNet peering
-Another scenario implemented by customers is where VPN gateway is installed in a separate virtual network and a subscription from the one hosting Managed Instance. The two virtual etworks are then peered. The following sample architecture diagram shows how this can be be implemented.
+Another scenario implemented by customers is where VPN gateway is installed in a separate virtual network and a subscription from the one hosting Managed Instance. The two virtual etworks are then peered. The following sample architecture diagram shows how this can be implemented.
 
 ![VNet peering](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
@@ -86,7 +88,7 @@ For troubleshooting connectivity issues, review the following:
 
    ![ingress/egress numbers](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
 
-- Check that the client machine (that is running the VPN client) has route entries for all the Vnets that you need to access. The routes are stored in 
+- Check that the client machine (that is running the VPN client) has route entries for all the VNets that you need to access. The routes are stored in 
 `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
 
@@ -133,7 +135,7 @@ The following minimal versions of the tools and drivers are recommended if you w
 |JDBC driver	| 6.4.0 |
 |Node.js driver	| 2.1.1 |
 |OLEDB driver	| 18.0.2.0 |
-|SSMS	| 17.8.1 or [higher](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS	| 17.8.1 or [higher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## Next steps
 
