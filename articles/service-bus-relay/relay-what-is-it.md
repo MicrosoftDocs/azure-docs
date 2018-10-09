@@ -1,10 +1,9 @@
 ---
-title: What is Azure Relay and why use it overview | Microsoft Docs
-description: Overview of Azure Relay
+title: What is Azure Relay? | Microsoft Docs
+description: This article provides an overview of the Azure Relay service, which allows you to develop cloud applications that consume on-premises services running in your corporate network without opening a firewall connection or making intrusive changes to your network infrastructure.  
 services: service-bus-relay
-documentationcenter: .net
 author: spelluru
-manager: timlt
+manager: 
 editor: ''
 
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
@@ -13,8 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/03/2018
+ms.date: 10/08/2018
 ms.author: spelluru
+
+#customer intent: As a developer, I want to consume my on-premises services from my applications running in the cloud. In some cases, I want my applications running in a customer network to access services running in my network. How do I go about it? 
 
 ---
 # What is Azure Relay?
@@ -22,11 +23,11 @@ The Azure Relay service enables you to securely expose services that run in your
 
 The relay service supports the following scenarios between on-premises services and applications running in the cloud or in another on-premises environment. 
 
-- Traditional one-way, request/response, and peer-to-peer traffic
+- Traditional one-way, request/response, and peer-to-peer communication 
 - Event distribution at internet-scope to enable publish/subscribe scenarios 
-- Bi-directional and unbuffered socket communication for increased point-to-point efficiency.
+- Bi-directional and unbuffered socket communication across network boundaries.
 
-Azure Relay differs from network-level integration technologies such as VPN. An Azure relay can be scoped to a single application endpoint on a single machine. The VPN technology is far more intrusive, as it relies on altering the network environment. It provides TCP-like throttling, endpoint discovery, connectivity status, and endpoint security.
+Azure Relay differs from network-level integration technologies such as VPN. An Azure relay can be scoped to a single application endpoint on a single machine. The VPN technology is far more intrusive, as it relies on altering the network environment. 
 
 ## Basic flow
 In the relayed data transfer pattern, the basic steps involved are:
@@ -34,7 +35,7 @@ In the relayed data transfer pattern, the basic steps involved are:
 1. An on-premises service connects to the relay service through an outbound port. 
 2. It creates a bi-directional socket for communication tied to a particular address. 
 3. The client can then communicate with the on-premises service by sending traffic to the relay service targeting that  address. 
-4. The relay service then *relays* data to the on-premises service through a bi-directional socket dedicated to each client. The client doesn't need a direct connection to the on-premises service. It doesn't need to know the location of the service. And, the on-premises service doesn't need any inbound ports open on the firewall.
+4. The relay service then *relays* data to the on-premises service through the bi-directional socket dedicated to the client. The client doesn't need a direct connection to the on-premises service. It doesn't need to know the location of the service. And, the on-premises service doesn't need any inbound ports open on the firewall.
 
 
 ## Features 
@@ -45,7 +46,7 @@ Azure Relay has two features:
 
 ## Hybrid Connections
 
-The Hybrid Connections feature in Azure Relay is a secure, and open-protocol evolution of the Relay features that existed earlier. You can use it on any platform and in any language. Hybrid Connections feature in Azure Relay is based on HTTP and WebSockets protocols. It allows you to send requests and receive responses over web sockets and HTTP(S). This feature is compatible with WebSocket API in common web browsers. 
+The Hybrid Connections feature in Azure Relay is a secure, and open-protocol evolution of the Relay features that existed earlier. You can use it on any platform and in any language. Hybrid Connections feature in Azure Relay is based on HTTP and WebSockets protocols. It allows you to send requests and receive responses over web sockets or HTTP(S). This feature is compatible with WebSocket API in common web browsers. 
 
 For details on the Hybrid Connection protocol, see [Hybrid Connections protocol guide](relay-hybrid-connections-protocol.md). You can use Hybrid Connections with any web sockets library for any runtime/language.
 
@@ -68,6 +69,7 @@ Hybrid Connections and WCF Relay both enable secure connection to assets that ex
 | **Multiple RPC programming models** | |x |
 
 ## Architecture: Processing of incoming relay requests
+The following diagram shows you how incoming relay requests are handled by the Azure Relay service:
 
 ![Processing of Incoming WCF Relay Requests](./media/relay-what-is-it/ic690645.png)
 
