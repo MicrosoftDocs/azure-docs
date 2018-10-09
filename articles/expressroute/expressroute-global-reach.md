@@ -42,7 +42,7 @@ Your ExpressRoute circuits must be created at the [ExpressRoute peering location
 
 ## Next Steps
 1. [Learn more about ExpressRoute Global Reach](expressroute-faqs.md)
-2. [How to enable ExpressRoute Global Reach](expressroute-howto-set-globalreach.md)
+2. [How to enable ExpressRoute Global Reach](expressroute-howto-set-global-reach.md)
 3. [Link ExpressRoute circuit to Azure virtual network](expressroute-howto-linkvnet-arm.md)
 
 
