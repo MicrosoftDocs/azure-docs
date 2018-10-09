@@ -137,6 +137,8 @@
       href: https://aka.ms/ams-v3-python-sdk
     - name: Node .js
       href: https://aka.ms/ams-v3-nodejs-sdk   
+    - name: Ruby
+      href: https://aka.ms/ams-v3-ruby-sdk
   - name: Release notes
     href: release-notes.md
   - name: Quotas and limitations
