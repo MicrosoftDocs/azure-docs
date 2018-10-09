@@ -79,7 +79,7 @@ Triggers and input bindings (bindings of `direction === "in"`) can be passed to 
 All bindings, regardless of direction, are also passed along on the `context` object using the `context.bindings` property.
 
 ### Exporting an async function
-When using the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (not available with Functions v1.x), you do not explicitly need to call the [`context.done` callback](#contextdone-method) to signal that your function has completed. Your function will complete when the exported async function/Promise completes.
+When using the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (not available with Functions v1.x), you do not explicitly need to call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function will complete when the exported async function/Promise completes.
 
 For example, this is a simple function that logs that it was triggered and immediately completes execution.
 ``` javascript
@@ -88,7 +88,7 @@ module.exports = async function (context) {
 };
 ```
 
-When exporting an async function, you can also configure output bindings to take the `return` value. This is an alternative approach to assigning outputs using the [`context.bindings` property](#contextbindings-property).
+When exporting an async function, you can also configure output bindings to take the `return` value. This is an alternative approach to assigning outputs using the [`context.bindings`](#contextbindings-property) property.
 
 To assign an output using `return`, change the `name` property to `$return` in `function.json`.
 ```json
