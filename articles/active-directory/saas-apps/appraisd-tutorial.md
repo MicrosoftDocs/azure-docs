@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Appraisd, you need the following items:
 
 - An Azure AD subscription
-- A Appraisd single sign-on enabled subscription
+- An Appraisd single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with Appraisd, you need to complet
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create an Appraisd test user](#create-an-appraisd-control-test-user)** - to have a counterpart of Britta Simon in Appraisd that is linked to the Azure AD representation of user.
+3. **[Create an Appraisd test user](#create-an-appraisd-test-user)** - to have a counterpart of Britta Simon in Appraisd that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -189,7 +189,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Select **Create**.
  
-### Create a Appraisd test user
+### Create an Appraisd test user
 
 To enable Azure AD users to log in to Appraisd, they must be provisioned into Appraisd. In Appraisd, provisioning is a manual task.
 
