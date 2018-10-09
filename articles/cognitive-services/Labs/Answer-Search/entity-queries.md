@@ -5,9 +5,10 @@ description: Queries for Entities using Project Answer Search
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: project-answer-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
 ---
