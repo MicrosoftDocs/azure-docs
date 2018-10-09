@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/24/2018
+ms.date: 9/24/2018
 ms.author: TylerMSFT
 
 ---
@@ -38,5 +38,5 @@ Here are the list of the Service Fabric versions that are supported and their su
 | 5.7.* | 5.4.164.* |Less than or equal to version  2.7 |December 15,2017  |
 | 6.0.* | 5.6.205.* |Less than or equal to version  2.8 |March 30,2018     |
 | 6.1.* | 5.7.221.* |Less than or equal to version  3.0 |July 15,2018      |
-| 6.2.* | 6.0.232.* |Less than or equal to version  3.1 |September 15,2018 |
+| 6.2.* | 6.0.232.* |Less than or equal to version  3.1 |October 26,2018 |
 | 6.3.* | 6.1.480.* |Less than or equal to version  3.2 |Current version and so no end date |
