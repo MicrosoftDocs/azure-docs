@@ -118,7 +118,7 @@ This function uses the *provisionSample.yaml* in the same folder to provision a 
 
 The sample *yaml* file demonstrates a spatial graph using the default Digital Twins object model, which is sufficient for a building. A spatial graph for a different type of space, like a factory or a mine, will use a different set of objects that are more relevant. The Digital Twins service provides a few predefined sets of objects: `Required`, `Default`, `BACnet`, and `Advanced`. In addition to the `Required` set of objects, your configuration may use any one of the others. The `Default` set provides generic names for most types (for example, Temperature for SensorDataType, Map for SpaceBlobType), and space types (for example, Room with subtypes FocusRoom, ConferenceRoom, and so on). You can see which sets are loaded or available by running the command `dotnet run GetOntologies` in the command line for the sample. For more details on spatial graphs and the object model that builds it, read [Understanding Digital Twins Object Model and Spatial Intelligence Graph](concepts-objectmodel-spatialgraph.md). 
 
-### Configure your spatial intelligence graph
+### Configure your spatial graph
 The *provisionSample.yaml* contains the following nodes:
 
 - **resources**: The `resources` node creates an IoT Hub resource to communicate with the devices in your setup. You should create an IoT hub at the root node of your graph, so that all the devices and sensors in that hierarchy can send telemetry to the same IoT hub.  
