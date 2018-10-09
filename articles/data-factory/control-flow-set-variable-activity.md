@@ -21,8 +21,8 @@ Use the Set Variable activity to set the value of an existing variable defined i
 
 ## Type properties
 
-Property | Description | Allowed values | Required
--------- | ----------- | -------------- | --------
+Property | Description | Required
+-------- | ----------- | --------
 name | Name of the activity in pipeline | Yes
 description | Text describing what the activity does | no
 type | Activity Type is SetVariable | yes

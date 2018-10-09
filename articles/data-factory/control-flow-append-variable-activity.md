@@ -21,8 +21,8 @@ Use the Append Variable activity to add a value to an existing array variable de
 
 ## Type properties
 
-Property | Description | Allowed values | Required
--------- | ----------- | -------------- | --------
+Property | Description | Required
+-------- | ----------- | --------
 name | Name of the activity in pipeline | Yes
 description | Text describing what the activity does | no
 type | Activity Type is AppendVariable | yes
