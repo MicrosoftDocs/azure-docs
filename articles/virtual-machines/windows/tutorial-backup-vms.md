@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2017
+ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: mvc
 
@@ -43,15 +43,14 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 Create a simple scheduled daily backup to a Recovery Services Vault. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the menu on the left, select **Virtual machines**. 
-3. From the list, select a VM to back up.
-4. On the VM blade, in the **Settings** section, click **Backup**. The **Enable backup** blade opens.
-5. In **Recovery Services vault**, click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and location as the virtual machine.
-6. Click **Backup policy**. For this example, keep the defaults and click **OK**.
-7. On the **Enable backup** blade, click **Enable Backup**. This creates a daily backup based on the default schedule.
-10. To create an initial recovery point, on the **Backup** blade click **Backup now**.
-11. On the **Backup Now** blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
-12. In the **Backup** blade for your VM, you see the number of recovery points that are complete.
+1. In the menu on the left, select **Virtual machines**. 
+1. From the list, select a VM to back up.
+1. On the VM blade, in the **Operations** section, click **Backup**. The **Enable backup** blade opens.
+1. In **Recovery Services vault**, click **Create new** and provide the name for the new vault. A new vault is created in the same resource group and location as the virtual machine.
+1. Under **Choose backup policy**, keep the default **(New) DailyPolicy**, and and then click **Enable Backup**.
+1. To create an initial recovery point, on the **Backup** blade click **Backup now**.
+1. On the **Backup Now** blade, click the calendar icon, use the calendar control to how long the restore point is retained, and click **OK**.
+1. In the **Backup** blade for your VM, you see the number of restory points that are complete.
 
 	![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
 	
@@ -86,6 +85,7 @@ In this example, we show how to recover the image file that is used in the defau
 16. Navigate to \inetpub\wwwroot and copy **iisstart.png** from the file share and paste it into \inetpub\wwwroot. For example, copy F:\inetpub\wwwroot\iisstart.png and paste it into c:\inetpub\wwwroot to recover the file.
 17. On your local computer, open the browser tab where you are connected to the IP address of the VM showing the IIS default page. Press CTRL + F5 to refresh the browser page. You should now see that the image has been restored.
 18. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button. If you forget to do this step, the connection to the mountpoint is automatically close after 12 hours. After those 12 hours, you need to download a new script to create a new mountpoint.
+
 
 
 ## Next steps
