@@ -57,7 +57,7 @@ To get started with the cluster autoscaler in AKS, see [Cluster Autoscaler on AK
 
 If a node does not have sufficient compute resources to run a requested pod, that pod cannot progress through the scheduling process. The pod cannot start unless additional compute resources are available within the node pool. When the cluster autoscaler notices pods that cannot be scheduled due to node pool resource constraints, the number of nodes within the node pool is increased to provide the additional compute resources. When those additional nodes are successfully deployed and available for use within the node pool, the pods are then scheduled to run on them.
 
-If your application needs to scale rapidly, some pods may remain in a state waiting to be scheduled until the additional nodes deployed by the cluster autoscaler can accept the scheduled pods. For applications that have high burst demands, you can [scale using the Azure Container Instance connector](#burst-to-azure-container-instance).
+If your application needs to scale rapidly, some pods may remain in a state waiting to be scheduled until the additional nodes deployed by the cluster autoscaler can accept the scheduled pods. For applications that have high burst demands, you can [scale with virtual nodes and Azure Container Instances](#burst-to-azure-container-instance).
 
 ### Scale down events
 
@@ -69,19 +69,19 @@ Your applications may experience some disruption as pods are scheduled on differ
 
 To rapidly scale your AKS cluster, you can integrate with Azure Container Instances (ACI). Kubernetes has built-in components to scale the replica and node count. However, if your application needs to rapidly scale, the horizontal pod autoscaler may schedule more pods than can be provided by the existing compute resources in the node pool. If configured, this scenario would then trigger the cluster autoscaler to deploy additional nodes in the node pool, but it may take a few minutes for those nodes to successfully provision and allow the Kubernetes scheduler to run pods on them.
 
-ACI lets you quickly deploy container instances without additional infrastructure overhead. When you connect with AKS, ACI becomes a secured, logical extension of your AKS cluster. The Virtual Kubelet component is installed in your AKS cluster that presents ACI as a Kubernetes node. Kubernetes can then schedule pods that run as ACI instances, not as pods on nodes directly in your AKS cluster. Your application requires no modification. Deployments can now scale across AKS and ACI and with no delay as cluster autoscaler deploys new nodes in your AKS cluster.
+ACI lets you quickly deploy container instances without additional infrastructure overhead. When you connect with AKS, ACI becomes a secured, logical extension of your AKS cluster. The Virtual Kubelet component is installed in your AKS cluster that presents ACI as a virtual Kubernetes node. Kubernetes can then schedule pods that run as ACI instances through virtual nodes, not as pods on VM nodes directly in your AKS cluster. Your application requires no modification. Deployments can now scale across AKS and ACI and with no delay as cluster autoscaler deploys new nodes in your AKS cluster.
 
-The ACI connector is deployed to an additional subnet in the same virtual network as your AKS cluster. This virtual network configuration allows the traffic between ACI and AKS to be secured. Like an AKS cluster, and ACI instance is a secure, logical compute resource that is isolated from other users.
+Virtual nodes are deployed to an additional subnet in the same virtual network as your AKS cluster. This virtual network configuration allows the traffic between ACI and AKS to be secured. Like an AKS cluster, an ACI instance is a secure, logical compute resource that is isolated from other users.
 
 ## Next steps
 
-To get started with scaling applications, follow the [quickstart to create an AKS cluster with the Azure CLI][aks-quickstart]. You can start to manually or automatically scale applications in your AKS cluster:
+To get started with scaling applications, first follow the [quickstart to create an AKS cluster with the Azure CLI][aks-quickstart]. You can then start to manually or automatically scale applications in your AKS cluster:
 
 - Manually scale [pods][aks-manually-scale-pods] or [nodes][aks-manually-scale-nodes]
 - Use the [horizontal pod autoscaler][aks-hpa]
 - Use the [cluster autoscaler][aks-cluster-autoscaler]
 
-For additional information on core Kubernetes and AKS concepts, see the following articles:
+For more information on core Kubernetes and AKS concepts, see the following articles:
 
 - [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
 - [Kubernetes / AKS access and identity][aks-concepts-identity]
