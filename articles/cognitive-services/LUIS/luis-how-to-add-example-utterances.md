@@ -159,7 +159,7 @@ In the utterance `Book 2 tickets from Seattle to Cairo`, Seattle is the origin l
 
 When you enter a new utterance in the LUIS portal, the utterance may have entity prediction errors. The prediction error is a difference between how an entity is labeled compared with how LUIS has predicted the entity. 
 
-This difference is visually represented in the LUIS portal with a red underline in the utterance. Right click on the entity. The entity box displays the **Entity status** with a red exclamation mark if there is a prediction discrepancy. To see the Entity status with information about the difference between labeled and predicted entities, select the entity status.
+This difference is visually represented in the LUIS portal with a red underline in the utterance.Select the entity in the utterance. The entity box displays the **Entity status** with a red exclamation mark if there is a prediction discrepancy. To see the Entity status with information about the difference between labeled and predicted entities, select **Entity status** then select the item to the right.
 
 ![Screenshot of Entity status prediction discrepancy](./media/luis-how-to-add-example-utterances/entity-status.png)
 

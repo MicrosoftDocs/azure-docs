@@ -57,7 +57,7 @@ All intents, including the **None** intent, should have entities labeled. This h
 
 ## Entity status for predictions
 
-See [Entity Status predictions](luis-how-to-add-utterances.md#entity-status-predictions) for more information. 
+See [Entity Status predictions](luis-how-to-add-example-utterances.md#entity-status-predictions) for more information. 
 
 ## Types of entities
 LUIS offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
