@@ -114,11 +114,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
 
-     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
+    c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    c. Click **set additional URLs**.
+	 ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
 
-    d. If you wish to configure the application in **SP** intiated mode, in the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<INSTANCENAME>-saml.workspot.com/`
 
     > [!NOTE]
