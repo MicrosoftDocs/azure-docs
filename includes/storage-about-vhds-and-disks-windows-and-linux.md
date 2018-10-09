@@ -2,7 +2,7 @@
 title: "include file"
 description: "include file"
 services: storage
-author: rogara
+author: roygara
 ms.service: storage
 ms.topic: "include"
 ms.date: 04/09/2018
@@ -29,11 +29,11 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 
 Azure Disks are designed for 99.999% availability. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate.
 
-There are three performance tiers for storage that you can choose from when creating your disks -- Premium SSD Disks, Standard SSD (Preview), and Standard HDD Storage. Also, there are two types of disks -- unmanaged and managed.
+There are three performance tiers for storage that you can choose from when creating your disks -- Premium SSD Disks, Standard SSD, and Standard HDD Storage. Also, there are two types of disks -- unmanaged and managed.
 
 ### Standard HDD disks
 
-Standard HDD disks are backed by HDDs, and deliver cost-effective storage. Standard HDD storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
+Standard HDD disks are backed by HDDs, and deliver cost-effective storage. Standard HDD storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, see [Azure Storage replication](../articles/storage/common/storage-redundancy.md).
 
 For more information about using Standard HDD disks, see [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md).
 

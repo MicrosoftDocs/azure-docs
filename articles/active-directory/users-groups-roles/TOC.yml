@@ -56,6 +56,8 @@
     items:
     - name: Administer your directory    
       href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Manage domain names
+      href: domains-manage.md
     - name: Delete a directory    
       href: directory-delete-howto.md
     - name: Multiple directories    

@@ -130,8 +130,6 @@
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log alerts
       href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json  
-    - name: Extend alerts from Log Analytics to Azure
-      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
   - name: Visualize data
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: Partner integrations
@@ -564,7 +562,7 @@
         href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: Capacity and performance
         href: ../log-analytics/log-analytics-capacity.md?toc=/azure/azure-monitor/toc.json
-      - name: VMWare Analytics
+      - name: VMware Analytics
         href: ../log-analytics/log-analytics-vmware.md?toc=/azure/azure-monitor/toc.json
       - name: Wire Data
         href: ../log-analytics/log-analytics-wire-data.md?toc=/azure/azure-monitor/toc.json
@@ -699,8 +697,14 @@
       items:
       - name: Create alert rules
         items:
-        - name: Copy alerts from OMS portal to Azure portal 
-          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+        - name: Configure new metric or log alerts in Azure portal
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
+        - name: Configure classic alerts in Azure portal
+          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json   
+        - name: Configure classic alerts with CLI
+          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
+        - name: Configure classic alerts with Azure PowerShell
+          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Use metric alerts
         items:
         - name: Create, view and manage metric alerts in Azure Monitor
@@ -903,8 +907,18 @@
       href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
     - name: Context
       href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
+  - name: Alerts
+    items:
+    - name: Extend alerts from Log Analytics to Azure
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
+    - name: Copy alerts from OMS portal to Azure portal 
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+    - name: Retirement of classic alerting & monitoring 
+      href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
+  - name: Azure Functions
+    href: ../application-insights/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell
     items:
     - name: Monitor
