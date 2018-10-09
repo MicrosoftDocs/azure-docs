@@ -302,7 +302,7 @@ From a PowerShell prompt, run this command:
 > Also, this command is only available on Windows Server 2012 R2 or later, 
 > and Windows 8.1 or later. On earlier OS versions, you can use Telnet to 
 > test connectivity. Learn more about 
-> [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Your results should look similar to this example 
 with **TcpTestSucceeded** set to **True**:
@@ -332,7 +332,7 @@ The gateway creates an outbound connection to
 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) 
 and communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354. 
 The gateway doesn't require inbound ports. Learn more about 
-[Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+[Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-messaging-overview.md).
 
 The gateway uses these fully qualified domain names:
 
