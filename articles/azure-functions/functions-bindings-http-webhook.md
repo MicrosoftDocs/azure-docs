@@ -529,17 +529,15 @@ When using one of these function app-level security methods, you should set the 
 ### Webhooks
 
 > [!NOTE]
-> Webhook mode is only available for version 1.x of the Functions runtime.
+> Webhook mode is only available for version 1.x of the Functions runtime. This change was made to improve the performance of HTTP triggers in version 2.x.
 
-Webhook mode provides additional validation for webhook payloads. In version 2.x, the base HTTP trigger still works and is the recommended approach for webhooks.
+In version 1.x, webhook templates provide additional validation for webhook payloads. In version 2.x, the base HTTP trigger still works and is the recommended approach for webhooks. 
 
 #### GitHub webhooks
 
 To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the **webHookType** property to `github`. Then copy its URL and API key into the **Add webhook** page of your GitHub repository. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-For an example, see [Create a function triggered by a GitHub webhook](functions-create-github-webhook-triggered-function.md).
 
 #### Slack webhooks
 
