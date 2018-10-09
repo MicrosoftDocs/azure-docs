@@ -7,7 +7,7 @@ services: cognitive-services
 author: wolfma61
 
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma

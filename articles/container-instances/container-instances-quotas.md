@@ -2,13 +2,12 @@
 title: Azure Container Instances quotas and region availability
 description: The default quotas and region availability of the Azure Container Instances service.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
-ms.author: marsma
+ms.author: danlep
 ---
 # Quotas and region availability for Azure Container Instances
 

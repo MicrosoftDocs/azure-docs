@@ -11,19 +11,19 @@
   #  href: smart-spaces-in-iot.md
 - name: Quickstarts
   items:
-  - name: View space occupancy
+  - name: Find available rooms
     href: quickstart-view-occupancy-dotnet.md
 - name: Tutorials
   items:
-  - name: Monitor facilities with Digital Twins
+  - name: Monitor a building with Digital Twins
     items:
-      - name: Provision a sample building
+      - name: Create spatial resources
         href: tutorial-facilities-setup.md
-      - name: Monitor conditions in your building
+      - name: Monitor temperature and air quality
         href: tutorial-facilities-udf.md
-      - name: Receive notifications from your building
+      - name: Notify for monitored events
         href: tutorial-facilities-events.md
-      - name: Analyze events from your building
+      - name: Analyze monitored events
         href: tutorial-facilities-analyze.md
 - name: Concepts
   items:
@@ -49,13 +49,13 @@
       href: security-authenticating-apis.md
 - name: How-to guides
   items:
-  - name: Multitenant apps in Azure Digital Twins
+  - name: How to enable multitenant applications
     href: how-to-multitenant-applications.md
-  - name: User-Defined Functions in Azure Digital Twins
+  - name: How to create User-Defined Functions
     href: how-to-user-defined-functions.md
   - name: How to route events and messages via endpoints
     href: how-to-egress-endpoints.md
-  - name: How to use Azure Digital Twins Swagger
+  - name: How to use Digital Twins Swagger
     href: how-to-use-swagger.md
 #- name: Reference
 #  items:
