@@ -210,7 +210,7 @@ The function app settings values can also be read in your code as environment va
 
 + [C# precompiled](functions-dotnet-class-library.md#environment-variables)
 + [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F#](functions-reference-fsharp.md#environment-variables)
++ [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
