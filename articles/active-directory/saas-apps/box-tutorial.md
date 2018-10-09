@@ -106,8 +106,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	In the **Sign-on URL** text box, type a URL using the following pattern:
+	a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.account.box.com`
+
+	b. In the **Identifier** textbox, type a URL:`box.net`
 
     ![image](./media/box-tutorial/tutorial_box_url.png)
 
