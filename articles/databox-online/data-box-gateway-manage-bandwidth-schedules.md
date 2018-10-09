@@ -17,11 +17,11 @@ ms.workload: TBD
 ms.date: 10/01/2018
 ms.author: alkohli
 ---
-# Use the Azure portal to manage bandwidth schedules on your Azure Data Box Gateway 
+# Use the Azure portal to manage bandwidth schedules on your Azure Data Box Gateway  
 
 This article describes how to manage users on your Azure Data Box Gateway. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules for upload and download operations from your device to the cloud. 
 
-You can add, modify, or delete the bandwidth schedules for your Azure Data Box Gateway via the Azure portal.
+You can add, modify, or delete the bandwidth schedules for your Data Box Gateway via the Azure portal.
 
 > [!IMPORTANT]
 > - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
@@ -32,8 +32,6 @@ In this article, you learn how to:
 > * Add a schedule
 > * Modify schedule
 > * Delete a schedule 
-
-## About bandwidth schedules
 
 
 ## Add a schedule
