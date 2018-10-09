@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Search for .gif images using the Bing Image Search API

@@ -7,13 +7,13 @@ author: ashmaka
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
 ---
 
-# What is Text Analytics
+# What is Text Analytics?
 
 The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, language detection, and entity linking.
 

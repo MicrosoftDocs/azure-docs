@@ -57,7 +57,7 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
 2. Select **Entities** from the left menu.
 
-3. Select the ellipsis ***(...)*** button to the right of the number entity in the list. Select **Delete**. 
+3. Select the checkbox to the left of the number entity in the list. Select **Delete**. 
 
 ## Add utterances to MoveEmployee intent
 
