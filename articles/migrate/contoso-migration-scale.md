@@ -35,7 +35,7 @@ This article is one in a series of articles that document how the fictitious com
 [Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Contoso rebuilds its SmartHotel app by using a range of Azure capabilities and services, including Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services, and Azure Cosmos DB. | Available	
 Article 14: Scale a migration to Azure | After trying out migration combinations, Contoso is now preparing to scale to a full migration to Azure. | This article
 
-# Business drivers
+## Business drivers
 
 The IT leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
@@ -289,7 +289,7 @@ Contoso needs to figure out how to deploy these components, based on capacity co
 **Process server** | Contoso will deploy a standalone dedicated process server with the ability to replicate 100-200 VMs:<br/><br/> CPU: 16 vCPUs (2 sockets * 8 cores @ 2.5 GHz)<br/><br/> Memory: 32 GB<br/><br/> Cache disk: 1 TB<br/><br/> Data change rate: 1 TB to 2 TB.<br/><br/> The process server will be working hard, and as such should be located on an ESXi host that can handle the disk I/O, network traffic and CPU required for the replication. Contoso will consider a dedicated host for this purpose. 
 **Networking** | Contoso has reviewed the current site-to-site VPN infrastructure, and decided to implement Azure ExpressRoute. The implementation is critical because it will lower latency, and improve bandwidth to Contoso's primary East US 2 Azure region.<br/><br/> **Monitoring**: Contoso will need to carefully monitor data flowing from the process server. If the data overloads the network bandwidth Contoso will consider [throttling the process server bandwidth](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Azure storage** | For migration, Contoso must identify the right type and number of target Azure storage accounts.  Site Recovery replicates VM data to Azure storage.<br/><br/> Site Recovery can replicate to standard or premium (SSD) storage accounts.<br/><br/> To decide about storage, Contoso must review [storage limits](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage), and factor in expected growth and increased usage over time. Given the speed and priority of migrations, Contoso has decided to use premium  storage accounts.<br/><br/> They will create and reuse multiple storage accounts during the migration process.
-Contoso has made the decision to use Managed disks for all VMs that are deployed to Azure.  The IOPS required will determine if the disks will be Standard (HDD) or Premium (SSD).<br.<br/>>
+Contoso has made the decision to use Managed disks for all VMs that are deployed to Azure.  The IOPS required will determine if the disks will be Standard (HDD) or Premium (SSD).<br/>.<br/>
 
 
 #### Data Migration Service 
@@ -320,7 +320,7 @@ Contoso will use DMS when migrating from SQL Server.
 In addition to DMS, Contoso can use other tools and services to identify VM information.
 
 - They have scripts to help with manual migrations. These are available in the GitHub repo.
-- A number of [partner tools](ttps://azure.microsoft.com/en-us/migration/partners/) can also be used for migration.
+- A number of [partner tools](ttps://azure.microsoft.com/migration/partners/) can also be used for migration.
 
 
 ## Phase 3: Optimize
