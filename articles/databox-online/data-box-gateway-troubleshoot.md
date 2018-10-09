@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/01/2018
+ms.date: 10/09/2018
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Data Box Gateway issues 
@@ -112,4 +112,4 @@ Any errors experienced during the upload and refresh processes are included in t
 
 ## Next steps
 
-- Learn how to [open a Support ticket](data-box-gateway-contact-support.md).
+- Learn more about the [known issues in this release](data-box-gateway-release-notes.md).
