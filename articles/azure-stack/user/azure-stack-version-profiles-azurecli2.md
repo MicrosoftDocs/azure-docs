@@ -189,10 +189,10 @@ Use the following steps to connect to Azure Stack:
     * AD FS Environments
 
         * Sign in as a *service principal*: 
-          1.	Prepare the .pem file to be used for service principal login
-                * On the client machine where the principal was created, export the service principal certificate as a pfx with the private key (located at cert:\CurrentUser\My; the cert name has the same name as the principal)
+          1.	Prepare the .pem file to be used for service principal login.
+                * On the client machine where the principal was created, export the service principal certificate as a pfx with the private key (located at cert:\CurrentUser\My; the cert name has the same name as the principal).
 
-                *	Convert the pfx to pem ([Instructions](https://support.citrix.com/article/CTX136444) see OpenSSL Utility)
+                *	Convert the pfx to pem (Use OpenSSL Utility).
 
           1.	Login to the CLI. :
                 ```azurecli
