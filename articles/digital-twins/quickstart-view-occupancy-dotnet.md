@@ -98,7 +98,7 @@ If you plan to continue to the tutorials, do not clean up the resources created 
 
 ## Next steps
 
-If you haven't cleaned up the resources, and you wish to learn how to build an end to end flow, proceed to the following tutorials: 
+If you haven't cleaned up the resources, and you wish to learn how to build an end to end flow, proceed to the following tutorials:
 
 1. [Provision a sample building](tutorial-facilities-setup.md)
 1. [Monitor conditions in your building](tutorial-facilities-setup.md)
