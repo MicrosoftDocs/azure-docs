@@ -72,7 +72,7 @@
     - name: Azure CLI
       href: howto-linkvnet-cli.md
   - name: Configure ExpressRoute Global Reach
-    href: expressroute-howto-set-globalreach.md
+    href: expressroute-howto-set-global-reach.md
   - name: Configure a site-to-site VPN over Microsoft peering
     href: site-to-site-vpn-over-microsoft-peering.md
   - name: Configure a virtual network gateway for ExpressRoute
