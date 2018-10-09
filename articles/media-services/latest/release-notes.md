@@ -48,6 +48,7 @@ Starting with this release, you can use Resource Manager templates to create Liv
 The following improvements were introduced:
 
 - Ingest from HTTP(s) URLs or Azure Blob Storage SAS URLs.
+- Specify you own container names for Assets. 
 - Easier output support to create custom workflows with Azure Functions.
 
 #### New Transform object
