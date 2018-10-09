@@ -17,7 +17,7 @@ ms.author: tilee
 
 ---
 
-# Application Insights for Azure Functions Supported Features
+# Application Insights for Azure Functions supported features
 
 Below is the currently supported list of features for the [Application Insights integration with Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring). Review Azure Functions' guide for [Getting started](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
 
@@ -26,7 +26,7 @@ Below is the currently supported list of features for the [Application Insights 
 |-----------------------------------	|---------------	|------------------	|
 | **Application Insights .Net SDK**     	| **2.5.0**         	| **2.7.2**             	|
 | | | | 
-| **Automatic  Collection of**          	|               	|                  	|           	
+| **Automatic  collection of**          	|               	|                  	|           	
 | &bull; Requests                        	| Yes           	| Yes              	| 
 | &bull; Exceptions                      	| Yes           	| Yes              	| 
 | &bull; Dependencies           	|               	|                  	|           	
@@ -35,7 +35,7 @@ Below is the currently supported list of features for the [Application Insights 
 | &mdash; EventHub                        	|               	| Yes              	| 
 | &mdash; SQL                              	|               	| Yes              	| 
 | | | | 
-| **Supported Features**                	|               	|                  	|           	
+| **Supported features**                	|               	|                  	|           	
 | &bull; QuickPulse/LiveMetrics                      	| Yes           	| Yes              	| 
 | &bull; Sampling                        	| Yes           	| Yes              	| 
 | &bull; Heartbeats                      	|   	| Yes              	| 
