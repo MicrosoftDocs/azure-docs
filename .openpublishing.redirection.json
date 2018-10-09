@@ -16540,6 +16540,11 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-tokens.md",
             "redirect_url": "/azure/active-directory/develop/v2-id-and-access-tokens",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/v2-id-and-access-tokens.md",
+            "redirect_url": "/azure/active-directory/develop/access-tokens",
             "redirect_document_id": true
         },
         {
