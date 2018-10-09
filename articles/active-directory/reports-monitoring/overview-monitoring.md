@@ -60,6 +60,6 @@ You can also install the pre-built views for Azure AD activity logs to monitor c
 
 ## Next steps
 
-* [Activity logs in Azure Monitor](concept-activity-logs-in-azure-monitor.md)
+* [Activity logs in Azure Monitor](concept-activity-logs-azure-monitor.md)
 * [Stream logs to event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Send logs to Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
