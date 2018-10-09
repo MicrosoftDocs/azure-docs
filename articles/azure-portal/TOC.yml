@@ -1,5 +1,15 @@
 - name: Azure portal customization documentation
   href: index.yml
+- name: Azure dashboards
+  items:
+  - name: Create and share Azure dashboards
+    href: azure-portal-dashboards.md
+  - name: Share dashboards with role-based access control
+    href: azure-portal-dashboard-share-access.md
+  - name: Structure of Azure dashboards
+    href: azure-portal-dashboards-structure.md
+  - name: Programmatically create Azure dashboards
+    href: azure-portal-dashboards-create-programmatically.md
 - name: Settings
   expanded: true
   items:
@@ -11,16 +21,6 @@
     href: azure-portal-change-theme-high-contrast.md
   - name: Export or delete user settings
     href: azure-portal-export-delete-settings.md
-- name: Azure dashboards
-  items:
-  - name: Create and share Azure dashboards
-    href: azure-portal-dashboards.md
-  - name: Share dashboards with role-based access control
-    href: azure-portal-dashboard-share-access.md
-  - name: Structure of Azure dashboards
-    href: azure-portal-dashboards-structure.md
-  - name: Programmatically create Azure dashboards
-    href: azure-portal-dashboards-create-programmatically.md
 - name: Resources
   items:
   - name: Azure roadmap
