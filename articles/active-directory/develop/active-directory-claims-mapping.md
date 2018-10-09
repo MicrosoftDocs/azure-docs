@@ -1,5 +1,5 @@
 ---
-title: Customize claims emitted in tokens for a specific app in a tenant (Public Preview)| Microsoft Docs'
+title: Customize claims emitted in tokens for a specific app in an Azure AD tenant (Public Preview)
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
 author: CelesteDG
@@ -26,7 +26,7 @@ This feature is used by tenant admins to customize the claims emitted in tokens 
 - Choose or change the source of data emitted in specific claims.
 
 > [!NOTE]
-> This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory premium subscription. This feature supports configuring claim mapping policies for WS-Fed, SAML, OAuth and OpenID Connect protocols.
+> This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure AD premium subscription. This feature supports configuring claim mapping policies for WS-Fed, SAML, OAuth, and OpenID Connect protocols.
 
 ## Claims mapping policy type
 
@@ -190,7 +190,7 @@ There are certain sets of claims that define how and when they're used in tokens
 |http://schemas.microsoft.com/identity/claims/identityprovider|
 |http://schemas.microsoft.com/identity/claims/objectidentifier|
 |http://schemas.microsoft.com/identity/claims/puid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier[MR1] |
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
 |http://schemas.microsoft.com/identity/claims/tenantid|
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
