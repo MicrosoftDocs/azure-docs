@@ -21,14 +21,12 @@ This article shows how you can achieve both goals using Azure Digital Twins. The
 
 ## Prerequisites
 
-1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+1. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 1. The two console applications you run in this quickstart are written using C#. You will need to install [.NET Core SDK](https://www.microsoft.com/net/download) on your development machine.
 
-1. Clone the sample C# projects repo:
-    ```bash
-    git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
-    ```
+1. Download the sample C# project from https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip and extract the ZIP archive.
+
 
 ## Create a Digital Twins instance in Azure Portal
 
@@ -44,28 +42,17 @@ Create a new instance of the Digital Twins in the [portal](https://portal.azure.
 
 You can build and run the occupancy application using the outlined steps:
 
-1. Open a command prompt, and navigate to the project you've cloned.
+1. Open a command prompt, and navigate to the project you've downloaded.
 1. Run `cd occupancy-quickstart/src`.
 1. Run `dotnet restore`.
-1. Edit `appsettings.json` to update the following variables to match your Digital Twins instance:
-    - `ClientId` with the value from previous step.
-    - `Tenant` with the value from previous step.
-    - `BaseUrl`, for example:
-
-        ```plaintext
-        https://yourInstanceName.yourLocation.azuresmartspaces.net/management/api/v1.0/
-        ```
-
-        | Custom Attribute Name | Replace With |
-        | --- | --- |
-        | `yourInstanceName` | The name of your Azure Digital Twins instance |
-        | `yourLocation` | Which server region your instance is hosted on |
-
-1. Run `dotnet run` to build and see application usage.
+1. Edit *appSettings.json* to update the following variables:
+    - *ClientId*: Enter the *Application ID* of your AAD app registration, noted in the preceding section.
+    - *Tenant*: Enter the *Directory Id* of your [AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant), also noted in the previous section.
+    - *BaseUrl*: The *Management API* URL of your Digital Twins instance, which will be in the following format, `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`.
 
 ## Provision graph
 
-This step provisions your Digital Twins spatial graph with several spaces, one device, two sensors, one matcher, one user-defined function and one role assignment.
+This step provisions your Digital Twins spatial graph with several spaces, one device, two sensors, two matchers, one user-defined function and one role assignment.
 
 1. Run `dotnet run ProvisionSample`.
     >[!NOTE]
@@ -74,33 +61,32 @@ This step provisions your Digital Twins spatial graph with several spaces, one d
 
 1. After running this step, copy the `ConnectionString` of the device for use in device simulator sample. See image below:
 
-    ![Provision Sample][3]
+    ![Provision Sample][1]
 
 ## Send sensor telemetry
 
 You can build and run the sensor simulator application using the steps below:
 
-1. Open a new command prompt and navigate to the project you've cloned.
+1. Open a new command prompt and navigate to the project you've downloaded.
 1. Run `cd device-connectivity`.
 1. Run `dotnet restore`.
-1. Edit `appsettings.json` to update the following variables to match your Digital Twins instance:
-    - `DeviceConnectionString` with the `ConnectionString` above.
-    - `HardwareId` of the sensors.
+1. Edit *appsettings.json* to update the following variables:
+    - *DeviceConnectionString* with the `ConnectionString` above.
 1. Run `dotnet run` to start sending telemetry, you should see telemetry being sent to Digital Twins service as in the image below:
 
-     ![Device Connectivity][4]
+     ![Device Connectivity][2]
 
 ## Find available spaces with fresh air
 
 The sensor telemetry sample is simulating random data values for two sensors, motion, and carbon dioxide. Available spaces with fresh air are defined in our sample by no presence in the room and carbon dioxide level is under 1000 ppm. If the condition is not fulfilled, then the space is not available, or the air quality is poor.
 
-1. Go to the `occupancy-quickstart` command prompt.
+1. Go to the `occupancy-quickstart/src` command prompt.
 1. Run `dotnet run GetAvailableAndFreshSpaces`.
-1. Look at the command prompt and the sensor telemetry command prompt side by side as outlined below. It will display one of these conditions in near real-time based on what the sensor telemetry has last sent:
+1. Look at the command prompt and the sensor telemetry command prompt side by side as outlined below. It will display one of these conditions in near real-time based on what the sensor telemetry has last sent.
     - Available rooms with fresh air.
     - Occupied or poor air quality of the room.
 
-     ![Get available spaces with fresh air][5]
+     ![Get available spaces with fresh air][3]
 
 ## Clean up resources
 
@@ -119,8 +105,6 @@ If you haven't cleaned up the resources, and you wish to learn how to manipulate
 > [Facility Management Tutorial](tutorial-facilities-events.md)
 
 <!-- Images -->
-[1]: media/quickstart-view-occupancy-dotnet/create-digital-twins-portal.png
-[2]: media/quickstart-view-occupancy-dotnet/create-digital-twins-param.png
-[3]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
-[4]: media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png
-[5]: media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png
+[1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
+[2]: media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png
+[3]: media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png
