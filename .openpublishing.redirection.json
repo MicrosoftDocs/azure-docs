@@ -19157,7 +19157,7 @@
         {
             "source_path": "articles/active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/reports-monitoring/concept-activity-logs-in-azure-monitor.md",
