@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 10/9/2018
 ms.author: patricka
 
 ---
@@ -20,7 +20,7 @@ ms.author: patricka
 
 *Applies to: Azure Stack integrated systems*
 
-Security considerations and compliance regulations are among the main drivers for using hybrid clouds. Azure Stack was designed for these scenarios, and it is important to understand the controls already in place when adopting Azure Stack.
+Security considerations and compliance regulations are among the main drivers for using hybrid clouds. Azure Stack is designed for these scenarios. This article explains the security controls in place for Azure Stack.
 
 Two security posture layers coexist in Azure Stack. The first layer is the Azure Stack infrastructure, which includes the hardware components up to the Azure Resource Manager. The first layer includes the Administrator and the Tenant portals. The second layer consists of the workloads created, deployed, and managed by tenants. The second layer includes items like virtual machines and App Services web sites.
 
@@ -46,14 +46,14 @@ All external infrastructure endpoints, such as the REST endpoints or the Azure S
 While self-signed certificates can be used for these external endpoints, Microsoft strongly advises against using them. 
 
 ## Secret management
-Azure Stack infrastructure uses a multitude of secrets, like passwords, to function. Most of them are automatically rotated frequently, because they are Group Managed Service accounts, which rotate every 24 hours.
+Azure Stack infrastructure uses a multitude of secrets, like passwords, to function. Most of them are automatically rotated frequently, because they are Group-Managed Service accounts, which rotate every 24 hours.
 
-The remaining secrets that are not Group Managed Service accounts can be rotated manually with a script in the Privileged Endpoint.
+The remaining secrets that are not Group-Managed Service accounts can be rotated manually with a script in the Privileged Endpoint.
 
 ## Code integrity
 Azure Stack makes use of the latest Windows Server 2016 security features. One of them is Windows Defender Device Guard, which provides application whitelisting, and ensures that only authorized code runs within the Azure Stack infrastructure. 
 
-Authorized code is signed by either Microsoft or the OEM partner, and it is included in the list of allowed software that is specified in a policy defined by Microsoft. In other words, only software that has been approved to run in the Azure Stack infrastructure can be executed. Any attempt to execute unauthorized code is blocked and an audit is generated.
+Authorized code is signed by either Microsoft or the OEM partner. The signed authorized code is included in the list of allowed software specified in a policy defined by Microsoft. In other words, only software that has been approved to run in the Azure Stack infrastructure can be executed. Any attempt to execute unauthorized code is blocked and an audit is generated.
 
 The Device Guard policy also prevents third-party agents or software from running in the Azure Stack infrastructure.
 
@@ -81,7 +81,7 @@ Network ACLs are enforced in three layers:
 
 ## Regulatory compliance
 
-Azure Stack has gone through a formal assessment by a 3rd party independent auditing firm. As a result, documentation on how the Azure Stack infrastructure meets the applicable controls from several major compliance standards is available. The documentation is not a certification of Azure Stack due to the standards including several personnel-related and process-related controls. Rather, customers can use this documentation to jump-start their certification process.
+Azure Stack has gone through a formal assessment by a third party-independent auditing firm. As a result, documentation on how the Azure Stack infrastructure meets the applicable controls from several major compliance standards is available. The documentation is not a certification of Azure Stack due to the standards including several personnel-related and process-related controls. Rather, customers can use this documentation to jump-start their certification process.
 
 The assessments include the following standards:
 
