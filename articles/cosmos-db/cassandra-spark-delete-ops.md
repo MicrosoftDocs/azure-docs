@@ -21,7 +21,7 @@ This article describes how to delete data in Azure Cosmos DB Cassandra API table
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 

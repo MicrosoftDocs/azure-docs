@@ -7,8 +7,8 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
-ms.topic: article
+ms.component: qna-maker
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
 
@@ -105,7 +105,7 @@ let post = function (path, content, callback) {
 		path : path,
 		headers : {
 			'Content-Type' : 'application/json',
-			'Content-Length' : content.length,
+			'Content-Length' : Buffer.byteLength(content),
 			'Ocp-Apim-Subscription-Key' : subscriptionKey,
 		}
 	};
@@ -304,7 +304,7 @@ let patch = function (path, content, callback) {
 		path : path,
 		headers : {
 			'Content-Type' : 'application/json',
-			'Content-Length' : content.length,
+			'Content-Length' : Buffer.byteLength(content),
 			'Ocp-Apim-Subscription-Key' : subscriptionKey,
 		}
 	};
@@ -505,7 +505,7 @@ let post = function (path, content, callback) {
 		path : path,
 		headers : {
 			'Content-Type' : 'application/json',
-			'Content-Length' : content.length,
+			'Content-Length' : Buffer.byteLength(content),
 			'Ocp-Apim-Subscription-Key' : subscriptionKey,
 		}
 	};
@@ -617,7 +617,7 @@ let put = function (path, content, callback) {
 		path : path,
 		headers : {
 			'Content-Type' : 'application/json',
-			'Content-Length' : content.length,
+			'Content-Length' : Buffer.byteLength(content),
 			'Ocp-Apim-Subscription-Key' : subscriptionKey,
 		}
 	};
@@ -893,7 +893,7 @@ let post = function (path, content, callback) {
 		path : path,
 		headers : {
 			'Content-Type' : 'application/json',
-			'Content-Length' : content.length,
+			'Content-Length' : Buffer.byteLength(content),
 			'Authorization' : 'EndpointKey ' + endpoint_key,
 		}
 	};
@@ -1255,7 +1255,7 @@ let http_delete = function (path, content, callback) {
 		path : path,
 		headers : {
 			'Content-Type' : 'application/json',
-			'Content-Length' : content.length,
+			'Content-Length' : Buffer.byteLength(content),
 			'Ocp-Apim-Subscription-Key' : subscriptionKey,
 		}
 	};
@@ -1468,7 +1468,7 @@ let patch = function (path, content, callback) {
 		path : path,
 		headers : {
 			'Content-Type' : 'application/json',
-			'Content-Length' : content.length,
+			'Content-Length' : Buffer.byteLength(content),
 			'Ocp-Apim-Subscription-Key' : subscriptionKey,
 		}
 	};
@@ -1698,7 +1698,7 @@ let put = function (path, content, callback) {
 		path : path,
 		headers : {
 			'Content-Type' : 'application/json',
-			'Content-Length' : content.length,
+			'Content-Length' : Buffer.byteLength(content),
 			'Ocp-Apim-Subscription-Key' : subscriptionKey,
 		}
 	};

@@ -40,13 +40,15 @@
   - name: Cluster operations
     items:
     - name: Create an AKS cluster
-      href: create-cluster.md
+      href: /cli/azure/aks#az-aks-create
+      maintainContext: true
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Delete an AKS cluster
-      href: delete-cluster.md
+      href: /cli/azure/aks#az-aks-delete
+      maintainContext: true
     - name: Azure AD-enabled AKS
       href: aad-integration.md
     - name: Use Virtual Kubelet

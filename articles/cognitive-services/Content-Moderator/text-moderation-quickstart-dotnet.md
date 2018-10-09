@@ -1,20 +1,22 @@
 ---
-title: Azure Content Moderator - Moderate text using .NET | Microsoft Docs
-description: How to moderate text using Azure Content Moderator SDK for .NET
+title: Moderate text - Content Moderator, .NET
+titlesuffix: Azure Cognitive Services
+description: How to moderate text using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: sajagtap
 ---
 
 # Moderate text using .NET
 
-This article provides information and code samples to help you get started using 
-the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
+This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
+
 - Detect potential profanity in text with term-based filtering
 - Use machine-learning-based models to [classify the text](text-moderation-api.md#classification) into three categories.
 - Detect personally identifiable information (PII) such as US and UK phone numbers, email addresses, and US mailing addresses.
@@ -102,7 +104,7 @@ Add the following code to create a Content Moderator client for your subscriptio
             // Create and initialize an instance of the Content Moderator API wrapper.
             ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-            client.BaseUrl = AzureBaseURL;
+            client.Endpoint = AzureBaseURL;
             return client;
         }
     }
@@ -115,13 +117,13 @@ Add the following static fields to the **Program** class in Program.cs.
     /// The name of the file that contains the text to evaluate.
     /// </summary>
     /// <remarks>You will need to create an input file and update this path
-    /// accordingly. Relative paths are ralative the execution directory.</remarks>
+    /// accordingly. Relative paths are relative to the execution directory.</remarks>
     private static string TextFile = "TextFile.txt";
 
     /// <summary>
     /// The name of the file to contain the output from the evaluation.
     /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
+    /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private static string OutputFile = "TextModerationOutput.txt";
 
 We used the following text to generate the output for this quickstart:
@@ -139,6 +141,8 @@ Add the following code to the **Main** method.
 
 	// Load the input text.
 	string text = File.ReadAllText(TextFile);
+	Console.WriteLine("Screening {0}", TextFile);
+
 	text = text.Replace(System.Environment.NewLine, " ");
 
 	// Save the moderation results to a file.
@@ -147,8 +151,8 @@ Add the following code to the **Main** method.
     	// Create a Content Moderator client and evaluate the text.
     	using (var client = Clients.NewClient())
     	{
-        	// Screen the input text: check for profanity, classify the text into three categories
-                // do autocorrect text, and check for personally identifying 
+        	// Screen the input text: check for profanity, classify the text into three categories,
+                // do autocorrect text, and check for personally identifying
                 // information (PII)
                 outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
                 var screenResult =

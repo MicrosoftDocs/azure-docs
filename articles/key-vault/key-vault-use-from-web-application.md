@@ -140,14 +140,19 @@ Now that you understand authenticating an Azure AD app using Client ID and Clien
 
 ```powershell
 #Create self-signed certificate and export pfx and cer files 
-$PfxFilePath = "c:\data\KVWebApp.pfx" 
-$CerFilePath = "c:\data\KVWebApp.cer" 
-$DNSName = "MyComputer.Contoso.com" 
-$Password ="MyPassword" 
+$PfxFilePath = 'KVWebApp.pfx'
+$CerFilePath = 'KVWebApp.cer'
+$DNSName = 'MyComputer.Contoso.com'
+$Password = 'MyPassword"'
+
+$StoreLocation = 'CurrentUser' #be aware that LocalMachine requires elevated privileges
+$CertBeginDate = Get-Date
+$CertExpiryDate = $CertBeginDate.AddYears(1)
+
 $SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
-$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
-Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
-Export-Certificate -cert $cert -FilePath $CerFilePath 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\$StoreLocation\My" -NotBefore $CertBeginDate -NotAfter $CertExpiryDate -KeySpec Signature
+Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
 Make note of the end date and the password for the .pfx (in this example: May 15, 2019 and MyPassword). You'll need them for the script below. 

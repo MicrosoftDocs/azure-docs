@@ -52,6 +52,8 @@ Examples include:
 Data scientists are recommended to use the Azure ML SDK.
 
 ## Common machine learning CLI commands
+> [!NOTE]
+> Sample files you can use to successfully execute the below commands can be found [here.](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)
 
 Use the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
@@ -59,7 +61,7 @@ Here is a sample of common commands:
 
 ### Workspace creation & compute setup
 
-+ Create an Azure Machine Learning Workspace, the top level resource for machine learning.
++ Create an Azure Machine Learning service workspace, the top level resource for machine learning.
    ```AzureCLI
    az ml workspace create -n myworkspace -g myresourcegroup
    ```
@@ -69,7 +71,7 @@ Here is a sample of common commands:
    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
    ```
 
-+ Create a DSVM (data science VM) for training models. You can also create BatchAI clusters for distributed training.
++ Create a DSVM (data science VM). You can also create BatchAI clusters for distributed training or AKS clusters for deployment.
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -80,7 +82,7 @@ Here is a sample of common commands:
   az ml project attach --experiment-name myhistory
   ```
 
-+ Submit an experiment against the Azure Machine Learning service on the compute target of your choice. This example executes against your local compute environment. You can find an example train.py script [here](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/train.py).
++ Submit an experiment against the Azure Machine Learning service on the compute target of your choice. This example will execute against your local compute environment. Make sure your conda environment file captures your python dependencies.
 
   ```AzureCLI
   az ml run submit -c local train.py
@@ -95,17 +97,17 @@ az ml history list
 
 + Register a model with Azure Machine Learning.
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + Create an image to contain your machine learning model and dependencies. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m mymodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + Deploy your packaged model to targets including ACI and AKS.
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## Full command list

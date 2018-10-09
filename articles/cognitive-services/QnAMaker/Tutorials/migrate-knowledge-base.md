@@ -32,9 +32,7 @@ Prerequisites
 
     ![Download knowledge base](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. Sign into to the [QnA Maker portal](https://qnamaker.ai) with your azure credentials and click on **Create new service**.
-
-    ![Create KB ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+4. Sign into to the [QnA Maker portal](https://qnamaker.ai) with your azure credentials and click on **Create a knowledge base**.
     
 5. If you have not already created a QnA Maker service, select **Create a QnA service**. Otherwise, choose a QnA Maker service from the drop-downs in Step 2. Select the QnA Maker service that will host the Knowledge Base.
 

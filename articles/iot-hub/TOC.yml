@@ -275,24 +275,14 @@
     - name: Use a physical device
       href: iot-hub-get-started-physical.md
       items:
-      - name: Raspberry Pi with Python
-        href: iot-hub-raspberry-pi-kit-python-get-started.md
       - name: Raspberry Pi with Node.js
         href: iot-hub-raspberry-pi-kit-node-get-started.md
       - name: Raspberry Pi with C
         href: iot-hub-raspberry-pi-kit-c-get-started.md
       - name: MXChip IoT DevKit with Arduino
         href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-      - name: Intel Edison with Node.js
-        href: iot-hub-intel-edison-kit-node-get-started.md
-      - name: Intel Edison with C
-        href: iot-hub-intel-edison-kit-c-get-started.md
       - name: Adafruit Feather HUZZAH ESP8266 with Arduino
         href: iot-hub-arduino-huzzah-esp8266-get-started.md
-      - name: Sparkfun ESP8266 Thing Dev with Arduino
-        href: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
-      - name: Adafruit Feather M0 with Arduino
-        href: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
     - name: Use MXChip IoT DevKit
       items:
       - name: Translate voice message with Azure Cognitive Services

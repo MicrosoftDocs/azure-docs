@@ -3,15 +3,15 @@ title: "Virtual Network service endpoints and rules for Azure SQL Database | Mic
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your Azure SQL Database. You SQL Database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-author: DhruvMsft
-manager: craigg
-ms.custom: "VNet Service endpoints"
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/18/2018
-ms.reviewer: genemi
+author: DhruvMsft
 ms.author: dmalik
-ms.reviewer: vanto
+ms.reviewer: vanto, genemi
+manager: craigg
+ms.date: 09/18/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse
 
@@ -182,7 +182,7 @@ PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. I
 #### Azure SQLDB Blob Auditing
 Blob auditing pushes audit logs to your own storage account. If this storage account uses the VNet Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
 
-## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
+## Adding a VNet Firewall rule to your server without turning On VNet Service Endpoints
 
 Long ago, before this feature was enhanced, you were required to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingServiceEndpoint** flag.
 
