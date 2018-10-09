@@ -48,7 +48,7 @@ AzCopy v10 (Preview) does not require an installation. Simply open a preferred c
 ## AzCopy v10 (Preview) Authentication Options
 
 AzCopy v10 (Preview) allows you to use the following options when authenticating with Azure Storage:
-- Azure Active Direcotory. Use ```.\azcopy login``` to log on using Azure Active Directory.
+- Azure Active Directory. Use ```.\azcopy login``` to log on using Azure Active Directory.
 - SAS token which needs to be appended to the Blob path. You can generate SAS token using Azure Portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestorageblobsastoken?view=azurermps-6.9.0) or other tools of your choice. See the following [examples](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2) for more details.
 
 ## Getting started with AzCopy v10 (Preview)
@@ -132,7 +132,7 @@ AzCopy v10 (Preview) by default uploads data into block blobs. However, if a sou
 ## Sync local file system to a storage account using AzCopy v10 (Preview)
 
 > [!NOTE]
-> Sync command synchronizes contents from source to destination and this includes DELETION of destination files if those do not exist in the source. Make sure you use the destination you intend to syncrhonize. Also, at this time `azcopy sync` allows only using the SAS token authentication.
+> Sync command synchronizes contents from source to destination and this includes DELETION of destination files if those do not exist in the source. Make sure you use the destination you intend to synchronize. Also, at this time `azcopy sync` allows only using the SAS token authentication.
 
 To sync your local file system to a storage account use the following command:
 
