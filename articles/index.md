@@ -1333,6 +1333,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-central/">
+                                                <img src="media/index/iot-central.svg" alt="" />
+                                                <p>IoT Central</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>IoT Hub</p>
@@ -1342,12 +1348,6 @@ featureFlags:
                                             <a href="/azure/iot-edge/">
                                                 <img src="media/index/iot-edge-alt.svg" alt="" />
                                                 <p>IoT Edge</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-central/">
-                                                <img src="media/index/iot-central.svg" alt="" />
-                                                <p>IoT Central</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1363,15 +1363,15 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/time-series-insights/">
-                                                <img src="media/index/time-series-insights.svg" alt="" />
-                                                <p>Time Series Insights</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/iot-dps/">
                                                 <img src="media/index/dps.svg" alt="" />
                                                 <p>IoT Hub Device Provisioning Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/time-series-insights/">
+                                                <img src="media/index/time-series-insights.svg" alt="" />
+                                                <p>Time Series Insights</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3926,6 +3926,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-central/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/iot-central.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Central</h3>
+                                                    <p>Experience SaaS for IoT, with no cloud expertise required</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-hub/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3957,25 +3976,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
                                                     <p>Extend intelligence from the cloud to edge devices</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/iot-central/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/iot-central.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>IoT Central</h3>
-                                                    <p>Experience SaaS for IoT, with no cloud expertise required</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4021,25 +4021,6 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/time-series-insights/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/time-series-insights.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Time Series Insights</h3>
-                                                    <p>Instantly explore and analyze time-series data</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/iot-dps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -4052,6 +4033,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>IoT Hub Device Provisioning Service</h3>
                                                     <p>Zero-touch, just-in-time provisioning for Azure IoT Hub</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/time-series-insights/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/time-series-insights.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Time Series Insights</h3>
+                                                    <p>Instantly explore and analyze time-series data</p>
                                                 </div>
                                             </div>
                                         </div>
