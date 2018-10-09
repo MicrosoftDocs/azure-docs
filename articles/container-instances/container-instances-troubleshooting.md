@@ -87,16 +87,16 @@ If the image can't be pulled, events like the following are shown in the output 
 
 ## Container continually exits and restarts (no long-running process)
 
-Container groups default to a [restart policy](container-instances-restart-policy.md) of **Always**, you may need to change this to **OnFailure** or **Never** if you intend to run task-based containers. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
+Container groups default to a [restart policy](container-instances-restart-policy.md) of **Always**, so containers in the container group always restart after they run to completion. You may need to change this to **OnFailure** or **Never** if you intend to run task-based containers. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
 
 When running container groups without long-running processes you may see repeated exits and restarts with images such as Ubuntu or Alpine. Connecting via [EXEC](https://docs.microsoft.com/azure/container-instances/container-instances-exec) will not work as the container has no process keeping it alive. To resolve this include a start command like the following with your container group deployment to keep the container running.
 
 azurecli-interactive
 ```
-az container create -g MyResourceGroup --name myapp --image myimage:latest --command-line "/bin/sh -c '/path to/myscript.sh'"
+az container create -g MyResourceGroup --name myapp --image ubuntu --command-line "tail -f /dev/null"
 ```
 
-The Container Instances API includes a `restartCount` property. To check the number of restarts for a container, you can use the [az container show][az-container-show] command in the Azure CLI. In following example output (which has been truncated for brevity), you can see the `restartCount` property at the end of the output.
+The Container Instances API and Azure portal includes a `restartCount` property. To check the number of restarts for a container, you can use the [az container show][az-container-show] command in the Azure CLI. In following example output (which has been truncated for brevity), you can see the `restartCount` property at the end of the output.
 
 ```json
 ...
