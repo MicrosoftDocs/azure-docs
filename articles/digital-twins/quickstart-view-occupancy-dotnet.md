@@ -13,7 +13,7 @@ ms.author: alinast
 # As a developer new to Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in a Azure Digital Twins and how to find available rooms with fresh air using a back-end application. 
 ---
 
-# Quickstart: Use Azure Digital Twins to find available rooms and monitor air quality (C#)
+# Quickstart: Find available rooms with fresh air using Azure Digital Twins
 
 As an employee in a busy office, it's important to find available rooms that fit your needs where you can be productive. [Research has shown](https://www.wsj.com/articles/why-office-buildings-should-run-like-spaceships-1507467601) that air quality in rooms can have a significant impact on strategic, creative, and collaborative thinking. With Azure Digital Twins, not only can you find available rooms, but you can also find rooms where the air quality will be optimal for your safety and productivity.
 
@@ -25,22 +25,22 @@ This article shows how you can achieve both goals using Azure Digital Twins. The
 
 1. The two console applications you run in this quickstart are written using C#. You will need to install [.NET Core SDK](https://www.microsoft.com/net/download) on your development machine.
 
-1. Download the sample C# project from https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip and extract the ZIP archive.
+1. Download the [sample C# project](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip) and extract the ZIP archive.
 
 
-## Create a Digital Twins instance in Azure Portal
+## Create a Digital Twins instance
 
 Create a new instance of the Digital Twins in the [portal](https://portal.azure.com) using the steps in this section.
 
 [!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
 
-## Grant permissions to the console applications to interact with Digital Twins Management APIs
+## Set permissions for your app
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 ## Build application
 
-You can build and run the occupancy application using the outlined steps:
+Build the occupancy application using the following steps:
 
 1. Open a command prompt, and navigate to the project you've downloaded.
 1. Run `cd occupancy-quickstart/src`.
@@ -48,7 +48,7 @@ You can build and run the occupancy application using the outlined steps:
 1. Edit *appSettings.json* to update the following variables:
     - *ClientId*: Enter the *Application ID* of your AAD app registration, noted in the preceding section.
     - *Tenant*: Enter the *Directory Id* of your [AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant), also noted in the previous section.
-    - *BaseUrl*: The *Management API* URL of your Digital Twins instance, which will be in the following format, `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`.
+    - *BaseUrl*: The *Management API* URL of your Digital Twins instance, which will be in the following format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Replace the placeholders in this URL with values for your instance from previous section.
 
 ## Provision graph
 
@@ -70,8 +70,7 @@ You can build and run the sensor simulator application using the steps below:
 1. Open a new command prompt and navigate to the project you've downloaded.
 1. Run `cd device-connectivity`.
 1. Run `dotnet restore`.
-1. Edit *appsettings.json* to update the following variables:
-    - *DeviceConnectionString* with the `ConnectionString` above.
+1. Edit *appsettings.json* to update *DeviceConnectionString* with the `ConnectionString` above.
 1. Run `dotnet run` to start sending telemetry, you should see telemetry being sent to Digital Twins service as in the image below:
 
      ![Device Connectivity][2]
@@ -82,7 +81,7 @@ The sensor telemetry sample is simulating random data values for two sensors, mo
 
 1. Go to the `occupancy-quickstart/src` command prompt.
 1. Run `dotnet run GetAvailableAndFreshSpaces`.
-1. Look at the command prompt and the sensor telemetry command prompt side by side as outlined below. It will display one of these conditions in near real-time based on what the sensor telemetry has last sent.
+1. Look at the command prompt and the sensor telemetry command prompt side by side as outlined below. It will display one of these conditions in near real-time based on what the sensor telemetry has last sent:
     - Available rooms with fresh air.
     - Occupied or poor air quality of the room.
 
