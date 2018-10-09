@@ -38,7 +38,6 @@ When taking a snapshot of Windows VMs, the Backup service coordinates with the V
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
-
 ## Create a backup
 Create a simple scheduled daily backup to a Recovery Services Vault. 
 
