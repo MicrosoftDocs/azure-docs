@@ -14,6 +14,13 @@ ms.author: anroth
 
 # Custom Vision Service Release Notes
 
+## October 9, 2018
+- Object Detection enters paid preview. You can now create Object Detection projects with an Azure resource.
+- Added "Move to Azure" feature to website, to make it easier to upgrade a Limited Trial project to link to an Azure. resource linked project (F0 or S0.) You can find this on the Settings page for your product.  
+- Added export to ONNX 1.2, to support Windows 2018 October Update version of Windows ML.
+Bugfixes, including for ONNX export with special characters. 
+
+
 ## August 14, 2018
 - Added "Get Started" widget to customvision.ai site to guide users through project training. 
 - Further improvements to the machine learning pipeline to benefit multilabel projects (new loss layer).
