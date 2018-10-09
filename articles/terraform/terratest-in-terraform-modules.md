@@ -1,3 +1,18 @@
+---
+
+title: 'Test Terraform modules using Terratest'
+description: Learn how to use Terratest to test your Terraform modules.
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, virtual machine, azure, terratest
+author: v-mavick
+manager: jeconnoc
+ms.author: v-mavick
+ms.topic: tutorial
+ms.date: 10/03/2018
+
+---
+
 # Terratest in Terraform Modules
 
 ## How to test Terraform Modules?
@@ -68,7 +83,7 @@ variable "html_path" {
 }
 ```
 
-As mentioned before, this module will also output an URL declared in `./outputs.tf`:
+As mentioned before, this module will also output a URL declared in `./outputs.tf`:
 
 ```hcl
 output "homepage_url" {
@@ -222,10 +237,10 @@ func TestUT_StorageAccountName(t *testing.T) {
 To run the unit tests, you will need to complete the following steps in command line.
 
 ```shell
-                             $ cd [Your GoPath]/src/staticwebpage
-     GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-     GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in test cases
-     GoPath/src/staticwebpage$ cd test
+$ cd [Your GoPath]/src/staticwebpage
+GoPath/src/staticwebpage$ dep init    # Run only once for this folder
+GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in test cases
+GoPath/src/staticwebpage$ cd test
 GoPath/src/staticwebpage/test$ go fmt
 GoPath/src/staticwebpage/test$ az login    # Required when no service principal environment variables present
 GoPath/src/staticwebpage/test$ go test -run TestUT_StorageAccountName
@@ -339,10 +354,10 @@ func TestIT_HelloWorldExample(t *testing.T) {
 To run the integration tests, you will need to complete the following steps in command line.
 
 ```shell
-                             $ cd [Your GoPath]/src/staticwebpage
-     GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-     GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in test cases
-     GoPath/src/staticwebpage$ cd test
+$ cd [Your GoPath]/src/staticwebpage
+GoPath/src/staticwebpage$ dep init    # Run only once for this folder
+GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in test cases
+GoPath/src/staticwebpage$ cd test
 GoPath/src/staticwebpage/test$ go fmt
 GoPath/src/staticwebpage/test$ az login    # Required when no service principal environment variables present
 GoPath/src/staticwebpage/test$ go test -run TestIT_HelloWorldExample
@@ -392,7 +407,7 @@ Here is one example of `./magefile.go`. In this build script, written in Go, we 
 - `Format`: this step will run `terraform fmt` and `go fmt` to format your code base.
 - `Unit`: this step will run all unit tests (using function name convention `TestUT_*`) under `./test/` folder.
 - `Integration`: similar to `Unit`, but instead of unit tests, it executes integration tests (`TestIT_*`).
-- `Full`: this step will just run `Clean`, `Format`, `Unit` and `Integration`, in sequence.
+- `Full`: this step runs `Clean`, `Format`, `Unit` and `Integration`, in sequence.
 
 ```go
 // +build mage
@@ -472,7 +487,7 @@ func Clean() error {
 Similar to the running steps before, you can leverage the following commands to execute a full test suite:
 
 ```shell
-                        $ cd [Your GoPath]/src/staticwebpage
+$ cd [Your GoPath]/src/staticwebpage
 GoPath/src/staticwebpage$ dep init    # Run only once for this folder
 GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
 GoPath/src/staticwebpage$ go fmt      # Only requied when you change the magefile
@@ -486,5 +501,5 @@ Feel free to replace the last command line with any mage steps, for instance `ma
 
 For more information about TerraTest, please refer to [its GitHub page](https://github.com/gruntwork-io/terratest). You might find some useful information about `mage` in [its GitHub page](https://github.com/magefile/mage) and [its home page](https://magefile.org/).
 
-Instead of involving `az login` before tests, set the service principal environment variables is an option. Find the [environment variable names here (only the first four is needed)](https://www.terraform.io/docs/providers/azurerm/index.html#testing). And following [these steps](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html
+Instead of involving `az login` before tests, set the service principal environment variables is an option. Find the [environment variable names here (only the first four are needed)](https://www.terraform.io/docs/providers/azurerm/index.html#testing). And following [these steps](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html
 ) to get the value of those environment variables.
