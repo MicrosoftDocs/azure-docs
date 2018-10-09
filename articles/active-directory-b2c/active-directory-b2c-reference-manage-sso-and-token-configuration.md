@@ -56,7 +56,7 @@ The following values are set in the previous example:
 
     For ACR, remove the **AuthenticationContextReferenceClaimPattern** item.
 
-- **Subject (sub) claim** - This option defaults to ObjectID, if you would like to switch this to `Not Supported`, replace this line 
+- **Subject (sub) claim** - This option defaults to ObjectID, if you would like to switch this setting to `Not Supported`, replace this line: 
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
@@ -70,7 +70,7 @@ The following values are set in the previous example:
 
 ## Session behavior and SSO
 
-To change your session behavior and SSO configurations, you add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. The inside of your **UserJourneyBehavors** element should look like this:
+To change your session behavior and SSO configurations, you add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. The inside of your **UserJourneyBehavors** element should look like this example:
 
 ```XML
 <UserJourneyBehaviors>
@@ -82,6 +82,6 @@ To change your session behavior and SSO configurations, you add a **UserJourneyB
 
 The following values are configured in the previous example:
 
-- **Single sign on (SSO)** - Single sign-on is configured with the **SingleSignOn**. The applicable values are `Tenant`, `Application`, `Policy` and `Suppressed`. 
+- **Single sign on (SSO)** - Single sign-on is configured with the **SingleSignOn**. The applicable values are `Tenant`, `Application`, `Policy`, and `Suppressed`. 
 - **Web app session lifetime (minutes)** - The web app session lifetime is set with the **SessionExpiryInSeconds** element. The default value is 86400 seconds (1440 minutes).
 - **Web app session time-out** - The web app session timeout is set with the **SessionExpiryType** element. The applicable values are `Absolute` and `Rolling`.
