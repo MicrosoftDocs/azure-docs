@@ -45,7 +45,7 @@ During startup, the App Service on Linux container runs the following steps:
 
 1. Check for and apply a custom startup command file, if provided.
 1. Check for the existence of a Django app's *wsgi.py* file, and if so, launch Gunicorn using that file.
-1. Check for a file named *application.py*, as is typical with Flask, and if found, launch Gunicorn using `application:app`.
+1. Check for a file named *application.py* and if found, launch Gunicorn using `application:app` assuming a Flask app.
 1. If no other app is found, start a default app that's built into the container.
 
 The following sections provide additional details for each option.
