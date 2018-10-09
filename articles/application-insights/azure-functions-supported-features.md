@@ -24,7 +24,7 @@ Below is the currently supported list of features for the [Application Insights 
 
 | Azure Functions                   	| V1            	| V2 (Ignite 2018) 	| 
 |-----------------------------------	|---------------	|------------------	|
-| **Application Insights .Net SDK**     	| **2.5.0**         	| **2.7.2**             	|
+| **Application Insights .NET SDK**     	| **2.5.0**         	| **2.7.2**             	|
 | | | | 
 | **Automatic  collection of**          	|               	|                  	|           	
 | &bull; Requests                        	| Yes           	| Yes              	| 
@@ -45,4 +45,4 @@ Below is the currently supported list of features for the [Application Insights 
 | &bull; EventHub                        	|               	| Yes              	| 
 | | | | 
 | **Configurable**                	|               	|                  	|           
-| &bull;Fully configurable.<br/>See [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) for instructions.<br/>See [Asp.Net Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) for all options.           	|               	| Yes                 	| 
+| &bull;Fully configurable.<br/>See [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) for instructions.<br/>See [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) for all options.           	|               	| Yes                 	| 
