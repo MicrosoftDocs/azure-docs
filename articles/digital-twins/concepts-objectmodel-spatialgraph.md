@@ -20,6 +20,8 @@ With _Digital Twins Object Models_ and _Ontology_ in place, one can populate a _
 
 ![Digital Twins Spatial Graph Building][1]
 
+<a id="model" />
+
 The spatial graph brings together spaces, devices, sensors, and users. Each is linked together in a way that models the real world: venue 43 has four floors, each with multiple different areas. Users are associated with their workstations and are given access to portions of the graph.  For example, an administrator would have rights to make changes to the spatial graph while a visitor might only have rights to view certain building data.
 
 ## Digital Twins Object Models
