@@ -21176,6 +21176,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-conditional-access-device-remediation.md",
+            "redirect_url": "/azure/active-directory/user-help/user-help-device-remediation",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-azure-authenticator-app.md",
             "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
             "redirect_document_id": false
