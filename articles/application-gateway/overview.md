@@ -57,7 +57,7 @@ Connection draining helps you achieve graceful removal of backend pool members d
 ## Custom error pages
 Application Gateway allows you to create custom error pages instead of displaying default error pages. You can use your own branding and layout using a custom error page.
 
-For more information, see Create Application Gateway custom error pages.
+For more information, see [Create Application Gateway custom error pages](custom-error.md).
 
 ## Secure Sockets Layer (SSL) termination
 
