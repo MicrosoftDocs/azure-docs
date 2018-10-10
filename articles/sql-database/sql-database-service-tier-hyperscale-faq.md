@@ -237,7 +237,7 @@ No. SQL Database Hyperscale is a SMP architecture and is not an asymmetric multi
 
 ### What is the oldest SQL Server version will SQL Database Hyperscale support migration from
 
-SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](sql-database-cloud-migrate#migrate-to-a-single-database-or-a-pooled-database.md). For compatibility issues, see [Resolving database migration compatibility issues](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database.md). For compatibility issues, see [Resolving database migration compatibility issues](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### Does SQL Database Hyperscale support migration from other data sources such as Aurora, MySQL, Oracle, DB2, and other database platforms
 
