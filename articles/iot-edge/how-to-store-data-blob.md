@@ -81,9 +81,10 @@ In the create options JSON, update `\<your storage account name\>` with any name
 In the create options JSON, update `<storage directory bind>` depending on your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data.  
 
    * Linux containers: **\<storage path>:/blobroot**. For example, /srv/containerdata:/blobroot. Or, my-volume:/blobroot. 
-   * Windows containers: **\<storage path>:C:/BlobRoot**. For example, C:/ContainerData:C:/BlobRoot. Or, my-volume:C:/blobroot. 
-> [!CAUTION]
-> Do not change the "/blobroot" for Linux and "C:/BlobRoot" for Windows, for **\<Storage directory bind>** values
+   * Windows containers: **\<storage path>:C:/BlobRoot**. For example, C:/ContainerData:C:/BlobRoot. Or, my-volume:C:/blobroot.
+   
+   > [!CAUTION]
+   > Do not change the "/blobroot" for Linux and "C:/BlobRoot" for Windows, for **\<Storage directory bind>** values.
 
 You don't need to provide registry credentials to access Azure Blob Storage on IoT Edge, and you don't need to declare any routes for your deployment. 
 
@@ -129,8 +130,9 @@ The solution template creates a deployment manifest template that includes your 
 
    * Linux containers: **\<storage path>:/blobroot**. For example, /srv/containerdata:/blobroot. Or, my-volume:/blobroot.
    * Windows containers: **\<storage path>:C:/BlobRoot**. For example, C:/ContainerData:C:/BlobRoot. Or, my-volume:C:/blobroot.
-> [!CAUTION]
-> Do not change the "/blobroot" for Linux and "C:/BlobRoot" for Windows, for **\<Storage directory bind>** values
+   
+   > [!CAUTION]
+   > Do not change the "/blobroot" for Linux and "C:/BlobRoot" for Windows, for **\<Storage directory bind>** values.
 
 5. Save **deployment.template.json**.
 
@@ -163,7 +165,7 @@ Specify your IoT Edge device as the blob endpoint for any storage requests that 
 ## Logs
 
 You can find the logs inside the container, under: 
-1. For Linux:  /blobroot/logs/platformblob.log
+* For Linux:  /blobroot/logs/platformblob.log
 
 ## Deploy multiple instances
 
