@@ -45,4 +45,4 @@ While you can’t delete the two default tags, isadult and isracy, you can delet
 
 ## Next steps ##
 
-To learn how to use tags for image moderation, see [how to review moderated images](Review-Moderated-Images.md).
+To learn how to use tags for image moderation, see [Review moderated images](Review-Moderated-Images.md).
