@@ -111,6 +111,21 @@ CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS
 GO
 ```
 
+## Migrate an existing Azure SQL Database to the Hyperscale service tier
+
+You can move your existing Azure SQL databases to Hyperscale using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). In public preview, this is a one-way migration. You can’t move databases from Hyperscale to another service tier. We recommend you make a copy of your production databases and migrate to Hyperscale for proof of concepts (POCs).
+
+The following T-SQL command moves a database into the Hyperscale service tier. You must specify both the edition and service objective in the `ALTER DATABASE` statement.
+
+```sql
+-- Alter a database to make it a HyperScale Database 
+ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen4_4');
+GO
+```
+
+> [!IMPORTANT]
+> [Transparent Database Encryption (TDE)](transparent-data-encryption-azure-sql.md) should be turned off before altering a non-Hyperscale database to HyperScale.
+
 ## Connect to a read-scale replica of a Hyperscale database
 
 In HyperScale databases, the `ApplicationIntent` argument in the connection string provided by the client dictates whether the connection is routed to the write replica or to a read-only secondary replica. If the `ApplicationIntent` set to `READONLY` and the database does not have a secondary replica, connection will be routed to the primary replica and defaults to `ReadWrite` behavior.
@@ -119,13 +134,6 @@ In HyperScale databases, the `ApplicationIntent` argument in the connection stri
 -- Connection string with application intent
 Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
-
-## Migrate an existing Azure SQL Database to the Hyperscale service tier
-
-You can move your existing Azure SQL databases to Hyperscale. In public preview, this is a one-way migration. You can’t move databases from Hyperscale to another service tier. We recommend you make a copy of your production databases and migrate to Hyperscale for proof of concepts (POCs).
-
-> [!IMPORTANT]
-> [Transparent Database Encryption (TDE)](transparent-data-encryption-azure-sql.md) should be turned off before altering a non-Hyperscale database to HyperScale.
 
 ## Available regions
 
