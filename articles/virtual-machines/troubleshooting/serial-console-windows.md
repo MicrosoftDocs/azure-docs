@@ -93,7 +93,7 @@ If you need to enable Windows boot loader prompts to display in the serial conso
 ## Use serial console for NMI calls in Windows VMs
 A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times. Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems that are hung.
 
-The serial console can be used to send an NMI to an Azure virtual machine using the keyboard icon in the command bar shown below. After the NMI is delivered, the virtual machine configuration will control how the system responds. Windows can be configured to crash and create a memory dump when receiving an NMI.
+The serial console can be used to send an NMI to an Azure virtual machine by using the keyboard icon in the command bar. After the NMI is delivered, the virtual machine configuration will control how the system responds. Windows can be configured to crash and create a memory dump when receiving an NMI.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 
@@ -173,13 +173,13 @@ Interacting with bootloader | Access BCD via the serial console. For information
 Accessibility is a key focus for the Azure serial console. To that end, we have ensured that the serial console is accessible for the visual and hearing impaired, as well as people who may not be able to use a mouse.
 
 ### Keyboard navigation
-Use the **tab** key on your keyboard to navigate around the serial console interface within the Aure portal. Your location will be highlighted on screen. To leave the focus of the serial console window, press **Ctrl + F6** on your keyboard.
+Use the **Tab** key on your keyboard to navigate around the serial console interface within the Aure portal. Your location will be highlighted on screen. To leave the focus of the serial console window, press **Ctrl + F6** on your keyboard.
 
 ### Use serial console with a screen reader
 The serial console has screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
 
 ## Errors
-Because most errors are transient in nature, retrying your connection can often fix them. The table below shows a list of errors and mitigations.
+Because most errors are transient in nature, retrying your connection can often fix them. The following table shows a list of errors and mitigations.
 
 Error                            |   Mitigation 
 :---------------------------------|:--------------------------------------------|
