@@ -192,7 +192,7 @@ To turn on automatic renewal of your certificate at anytime, click **Auto Renew 
 To manually renew the certificate instead, click **Manual Renew** instead. You can request to manually renew your certificate 60 days before expiration.
 
 > [!NOTE]
-> The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+> The renewed certificate is not automatically bound to your app when you renewed it manually. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
 
 ## More resources
 
