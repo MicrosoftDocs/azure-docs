@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 10/10/2018
 ms.author: jeedes
 
 ---
@@ -104,29 +104,43 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](./media/appraisd-tutorial/b1-domains_and_urlsedit.png)
 
-4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section perform the following steps, if you wish to configure the application in **IDP** initiated mode:
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_url.png)
 
-	a. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
+	a. Click **Set additional URLs**. 
 
-	 ![image](./media/appraisd-tutorial/tutorial_appraisd_url1.png)
+	b. In the **Relay State** text box, type a URL: `<TENANTCODE>`
 
-    b. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://app.appraisd.com/saml/<TENANTCODE>`
-
-	c. In the **Relay State** text box, type a value:`<TENANTCODE>`
+	c. If you wish to configure the application in **SP** initiated mode, in the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://app.appraisd.com/saml/<TENANTCODE>`:
 
     > [!NOTE]
-	> You get the actual Sign-on URL and Relay State value on the Appraisd SSO Configuration page which is explained later in the tutorial. 
+	> You get the actual Sign-on URL and Relay State value on the Appraisd SSO Configuration page which is explained later in the tutorial.
+	
+5. Appraisd application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the Certificate (Base64) and save it on your computer.
+	![image](./media/appraisd-tutorial/i3-attribute.png)
+
+6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+    
+	a. Click **Edit** button to open the **Manage user claims** dialog.
+
+	![image](./media/appraisd-tutorial/i2-attribute.png)
+
+	![image](./media/appraisd-tutorial/i4-attribute.png)
+
+	b. From the **Source attribute** list, selelct the attribute value.
+
+	c. Click **Save**. 
+
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and save it on your computer.
 
 	![image](./media/appraisd-tutorial/tutorial_appraisd_certficate.png) 
 
-6. On the **Set up Appraisd** section, copy the appropriate URL as per your requirement.
+8. On the **Set up Appraisd** section, copy the appropriate URL as per your requirement.
 
-	Note that the URL may say the following:
+	The URL may say the following:
 
 	a. Login URL
 
@@ -136,17 +150,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](./media/appraisd-tutorial/d1_samlsonfigure.png)
 
-7. In a different web browser window, login to Appraisd as a Security Administrator.
+9. In a different web browser window, sign in to Appraisd as a Security Administrator.
 
-8. On the top right of the page, click on **Settings** icon, then navigate to **Configuration**.
+10. On the top right of the page, click on **Settings** icon, then navigate to **Configuration**.
 
 	![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
-9. From the Left side of menu, click on **SAML single sign-on**.
+11. From the Left side of menu, click on **SAML single sign-on**.
 
 	![image](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
-10. On the **SAML 2.0 Single Sign-On configuration** page, perform the following steps:
+12. On the **SAML 2.0 Single Sign-On configuration** page, perform the following steps:
 	
 	![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
@@ -154,13 +168,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Copy the **Service-initiated login URL** value for your instance and paste it in **Sign on URL** textbox in **Basic SAML Configuration** on Azure portal.
 
-11. Scroll down the same page under **Identifying users**, perform the following steps:
+13. Scroll down the same page under **Identifying users**, perform the following steps:
 
 	![image](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
-	a. In the **Identity Provider Single Sign-On URL** textbox, paste the value of **Login URL** which you have copied from the Azure portal and click **Save**.
+	a. In the **Identity Provider Single Sign-On URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal and click **Save**.
 
-	b. In the **Identity Provider Issuer URL** textbox, paste the value of **Azure Ad Identifier** which you have copied from the Azure portal and click **Save**.
+	b. In the **Identity Provider Issuer URL** textbox, paste the value of **Azure Ad Identifier**, which you have copied from the Azure portal and click **Save**.
 
 	c. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **X.509 Certificate** box and click **Save**.
 
@@ -180,7 +194,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![image](./media/appraisd-tutorial/d_userproperties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
     b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
@@ -191,11 +205,11 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create an Appraisd test user
 
-To enable Azure AD users to log in to Appraisd, they must be provisioned into Appraisd. In Appraisd, provisioning is a manual task.
+To enable Azure AD users sign in to Appraisd, they must be provisioned into Appraisd. In Appraisd, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to Appraisd as a Security Administrator.
+1. Sign in to Appraisd as a Security Administrator.
 
 2. On the top right of the page, click on **Settings** icon, then navigate to **Administration centre**.
 
@@ -239,7 +253,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 4. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-5. In the **Add Assignment** dialog select the **Assign** button.
+5. In the **Add Assignment** dialog, select the **Assign** button.
 	
 ### Test single sign-on
 
