@@ -243,7 +243,6 @@
 
 #### Conditional Access
 ##### [Customer did not meet Device Registration pre-reqs](active-directory-conditional-access.md)
-##### [Tenant is getting blocked due to incorrect setting of Conditional Access policies](active-directory-conditional-access-device-remediation.md)
 ##### [How and when do off corpnet rules take effect?](https://aka.ms/calocation)
 ##### [How to increase the number of devices that user is allowed to register in Azure AD?](active-directory-azureadjoin-setup.md)
 ##### [How to set up Conditional Access for Exchange Online?](https://aka.ms/csforexchange)
