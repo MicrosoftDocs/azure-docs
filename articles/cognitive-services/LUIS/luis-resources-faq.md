@@ -109,7 +109,7 @@ See [Prediction differences between copies of same app](luis-concept-prediction-
 
 ### Some utterances go to the wrong intent after I made changes to my app. The issue seems to disappear at random. How do I fix it? 
 
-See [Train with all data](luis-how-to-train#train-with-all-data).
+See [Train with all data](luis-how-to-train.md#train-with-all-data).
 
 ## App publishing
 
