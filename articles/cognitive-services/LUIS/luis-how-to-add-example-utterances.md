@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 10/10/2018
 ms.author: diberry
 ---
 
@@ -169,8 +169,8 @@ The difference can be any of the following:
 |--|--|--|
 |Unlabeled text|Correct prediction|Label the entity with the predicted value.|
 |Unlabeled text|Incorrect prediction|The current utterances using this incorrect entity need to be reviewed across all intents. The current utterances have mistaught LUIS that this text is the predicted entity.
-|Correctly labeled text|Incorrect prediction|Provide more utterances with the correctly labeled entity in a variety of places and usages in the utterance. |
-|Incorrectly labeled text|Correct prediction| Provide more utterances with the correctly labeled entity in a variety of places and usages in the utterance. 
+|Correctly labeled text|Incorrect prediction|Provide more utterances with the correctly labeled entity in a variety of places and usages. |
+|Incorrectly labeled text|Correct prediction| Provide more utterances with the correctly labeled entity in a variety of places and usages. 
 
 
 ## Remove entity labels from utterances
