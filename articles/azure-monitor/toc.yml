@@ -233,8 +233,9 @@
         - name: Troubleshoot Logs Linux agent
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
     - name: Agent data sources
-      href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
       items:
+      - name: Overview
+        href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
       - name: Windows events
         href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
       - name: Custom JSON data
@@ -562,7 +563,7 @@
         href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: Capacity and performance
         href: ../log-analytics/log-analytics-capacity.md?toc=/azure/azure-monitor/toc.json
-      - name: VMWare Analytics
+      - name: VMware Analytics
         href: ../log-analytics/log-analytics-vmware.md?toc=/azure/azure-monitor/toc.json
       - name: Wire Data
         href: ../log-analytics/log-analytics-wire-data.md?toc=/azure/azure-monitor/toc.json
@@ -669,10 +670,12 @@
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
-      - name: Language reference
+      - name: Query language
         items:
         - name: Language reference
-          href: ../log-analytics/query-language/kusto.md
+          href: ../log-analytics/query-language/kusto.md?toc=/azure/azure-monitor/toc.json
+        - name: Examples
+          href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
         - name: app expression
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: workspace expression
@@ -917,6 +920,8 @@
       href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
+  - name: Azure Functions
+    href: ../application-insights/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell
     items:
     - name: Monitor
