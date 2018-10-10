@@ -58,13 +58,13 @@ The WMF check, verifies if the system has the required version of the Windows Ma
 
 This check determines if the agent can properly communicate with the agent service.
 
-Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the Job Runtime Data Service. For a list of addresses and ports to open, see[Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning)
+Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the the registration endpoint. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### Job Runtime Data service check
 
 This check determines if the agent can properly communicate with the Job Runtime Data Service.
 
-Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the Job Runtime Data Service. For a list of addresses and ports to open, see[Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning)
+Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the Job Runtime Data Service. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### TLS 1.2 Support
 
