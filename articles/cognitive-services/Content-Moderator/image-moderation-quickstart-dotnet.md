@@ -116,25 +116,24 @@ Add the following static fields to the **Program** class in Program.cs.
 
 ```csharp
 ///<summary>
-  ///The name of the file that contains the image URLs to evaluate.
-  ///</summary>
-  ///<remarks>You will need to create an input file and update 
-  ///this path accordingly. Paths are relative to the execution directory.
+///The name of the file that contains the image URLs to evaluate.
+///</summary>
+///<remarks>You will need to create an input file and update 
+///this path accordingly. Paths are relative to the execution directory.
 ///</remarks>
 private static string ImageUrlFile = "ImageFiles.txt";
 
-  ///<summary>
-  ///The name of the file to contain the output from the evaluation.
-  ///</summary>
-  ///<remarks>Paths are relative to the execution directory.
+///<summary>
+///The name of the file to contain the output from the evaluation.
+///</summary>
+///<remarks>Paths are relative to the execution directory.
 ///</remarks>
 private static string OutputFile = "ModerationOutput.json";
 ```
 
-> [!NOTE]
-> The sample uses the following images to generate the output for this quickstart.
-> - https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
-> - https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
+Create an input file, _ImageFiles.txt_, and add the URLs of images you wish to analyze. This quickstart uses the following two URLs to generate its sample output.
+- https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
+- https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 ## Create a class to handle results
 
@@ -169,7 +168,7 @@ public class EvaluationData
 }
 ```
 
-## Evaluate an image
+## Create the image evaluation method
 
 Add the following method to the **Program** class. This method evaluates a single image and returns the evaluation results.
 
@@ -226,7 +225,7 @@ The return value contains the object returned from the API call.
 The **FindFacesUrlInput** method is a wrapper for the Image Find Faces REST API.
 The return value contains the object returned from the API call.
 
-## Process the image URLs in your code
+## Evaluate the images in your code
 
 Add the following code to the **Main** method.
 
@@ -265,15 +264,10 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
 
 ## Run the program and review the output
 
-The following JSON object contains output for the program.
-
-> [!NOTE]
-> `isImageAdultClassified` represents the potential presence of images that may be considered sexually explicit or adult in certain situations.
-> `isImageRacyClassified` represents the potential presence of images that may be considered sexually suggestive or mature in certain situations.
+Open your _ModerationOutput.json_ file to view the output content. It should look something like the content below. Note that each image has different sections for `ImageModeration`, `FaceDetection`, and `TextDetection`, which correspond to the three API calls in your **EvaluateImage** method.
 
 ```json
-[
-{
+[{
   "ImageUrl": "https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg",
   "ImageModeration": {
     "cacheID": "7733c303-3b95-4710-a41e-7a322ae81a15_636488005858745661",
@@ -451,8 +445,7 @@ The following JSON object contains output for the program.
       }
     ]
   }
-}
-]
+}]
 ```
 
 ## Next steps - get the source code
