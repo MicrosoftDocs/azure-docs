@@ -14,7 +14,7 @@
   items:
   - name: Provisioning Dedicated HSM in a multi-region scenario
     href: provisioning-dedicated-hsm-multi-region.md
-  - name: Concepts
+- name: Concepts
   items:
   - name: High availability
     href: high-availability.md

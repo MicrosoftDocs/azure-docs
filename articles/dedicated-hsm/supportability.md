@@ -17,16 +17,16 @@ ms.author: barclayn
 
 # Azure Dedicated HSM Supportability
 
-The Azure Dedicated HSM Service provides a physical device for sole customer use with complete administrative control and management responsibility. The device made available is a Gemalto SafeNet Luna 7 HSM model A790.  Microsoft will have no administrative access once allocated to a customer, beyond physical serial port attachment, and no further involvement in the design, development, deployment and management of any applications that use the HSM.  The HSM devices will need management in terms of software updates, backup, monitoring, pulling logs etc. and this is the responsibility of the customer.  In this situation where Microsoft has so little involvement in the lifecycle of the devices and applications that use them, it is not possible to offer any kind of availability guarantee for the device.  Microsoft will ensure the device is reachable from a virtual networking standpoint and functional in terms of power, cooling and high security installation in Microsoft datacenters.  
+Azure Dedicated HSM Service provides a physical device for sole customer use with complete administrative control and management responsibility. The device made available is a Gemalto SafeNet Luna 7 HSM model A790.  Microsoft will have no administrative access once allocated to a customer, beyond physical serial port attachment, and no further involvement in the design, development, deployment, and management of any applications that use the HSM.  The HSM devices will need management in terms of software updates, backup, monitoring, pulling logs etc. and this is the responsibility of the customer.  In this situation where Microsoft has so little involvement in the lifecycle of the devices and applications that use them, it is not possible to offer any kind of availability guarantee for the device.  Microsoft will ensure the device is reachable from a virtual networking standpoint and functional in terms of power, cooling, and high security installation in Microsoft datacenters.  
 
 ## Gemalto support
 
-Every customer using the Dedicated HSM service must have a support contract in place with Gemalto prior to any kind of provisioning activities. This will enable appropriate guidance, support and services directly from Gemalto. The mechanism to get support from Gemalto is their [customer support portal](https://supportportal.gemalto.com/csm/).
-Gemalto will provide any software components required to use the HSM, any support on the configuration of the HSM and any required consulting services for the design, development and deployment of applications that make use of the HSM.
+Every customer using the Dedicated HSM service must have a support contract in place with Gemalto prior to any kind of provisioning activities. As part of the support contract customers receive guidance, support, and services directly from Gemalto. The mechanism to get support from Gemalto is their [customer support portal](https://supportportal.gemalto.com/csm/).
+Gemalto will provide any software components required to use the HSM. Any support on the configuration of the HSM and any required consulting services for the design, development, and deployment of applications that make use of the HSM.
 
 ### Software components
 
-Various software components are used in the configuration of HSM devices and application level access to the HSM.
+Various software components are used in the configuration of HSM devices:
 
 * Client software
 * SDK
@@ -43,11 +43,17 @@ Any software level issue or question in relation to using the HSM’s as part of
 
 ### Consulting services
 
-For any assistance in the design, development and deployment of custom applications that leverage the HSM, please contact your Gemalto account representative. 
+For any assistance in the design, development and deployment of custom applications that leverage the HSM, contact your Gemalto account representative.
 
 ## Microsoft support
 
-In delivering the Dedicated HSM service, Microsoft is responsible for making available physical HSM devices for the sole use of a single customer. Once provisioned, the customer has sole responsibility for any administration and management activities related to the ongoing use and health of the HSM device.  This includes, software updates, monitoring, pulling logs and backups. Microsoft will ensure the HSM device is functional in terms of power ensuring an operational state and in terms of reachability via virtual networking. Any physical device issues such as component failures or full device level failures should be reported to Microsoft as well as network access issues and issues related to provisioning and decommissioning.  
+As part of Dedicated HSM Microsoft is responsible for making available physical HSM devices for the exclusive use of a single customer. Once provisioned, the customer has sole responsibility for any administration and management activities related to the ongoing use and health of the HSM device.  This includes, software updates, monitoring, pulling logs and backups. Microsoft ensures the HSM device is functional. Keeping the device functional involves:
+
+* Making sure that the device has power
+* Ensuring an operational state
+* The device remains accessible over the network.
+
+Any physical device issues such as component failures or full device level failures should be reported to Microsoft as well as network access issues and issues related to provisioning and decommissioning.  
 
 ### Provisioning and decomissioning
 
