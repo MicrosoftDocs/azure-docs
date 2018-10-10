@@ -84,7 +84,7 @@ During event subscription creation, if you're seeing an error message such as "T
 * Do you have control of the application code in the target endpoint? For example, if you're writing an HTTP trigger based Azure Function, do you have access to the application code to make changes to it?
 * If you have access to the application code, implement the ValidationCode based handshake mechanism as shown in the sample above.
 
-* If you don't have access to the application code (for example, if you're using a third-party service that supports webhooks), you can use the manual handshake mechanism. Make sure you're using the 2018-05-01-preview API version or later (install Event Grid Azure CLI extension) to receive the validationUrl in the validation event. To complete the manual validation handshake, get the value of the "validationUrl" property and visit that URL in your web browser. If validation is successful, you should see a message in your web browser that validation is successful. You'll see that event subscription's provisioningState is "Succeeded". 
+* If you don't have access to the application code (for example, if you're using a third-party service that supports webhooks), you can use the manual handshake mechanism. Make sure you're using the 2018-05-01-preview API version or later (install Event Grid Azure CLI extension) to receive the validationUrl in the validation event. To complete the manual validation handshake, get the value of the `validationUrl` property and visit that URL in your web browser. If validation is successful, you should see a message in your web browser that validation is successful. You'll see that event subscription's provisioningState is "Succeeded". 
 
 ### Event delivery security
 
@@ -96,9 +96,9 @@ Finally, it's important to note that Azure Event Grid only supports HTTPS webhoo
 
 ## Event subscription
 
-To subscribe to an event, you must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the resource that is the event source. You need this permission because you're writing a new subscription at the scope of the resource. If you are using an event handler that is not a WebHook (such as an event hub or queue storage), you need write access to the resource. This authentication check proves that you have access to the resource and prevents an unauthorized user from sending event to your resource.
+To subscribe to an event, you must prove that you have access to the event source and handler. Proving that you own a WebHook was covered in the preceding section. If you're using an event handler that isn't a WebHook (such as an event hub or queue storage), you need write access to that resource. This permissions check prevents an unauthorized user from sending events to your resource.
 
-The required resource differs based on whether you're subscribing to a system topic or custom topic. Both types are described in this section.
+You must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the resource that is the event source. You need this permission because you're writing a new subscription at the scope of the resource. The required resource differs based on whether you're subscribing to a system topic or custom topic. Both types are described in this section.
 
 ### System topics (Azure service publishers)
 
