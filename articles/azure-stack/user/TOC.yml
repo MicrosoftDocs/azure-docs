@@ -128,8 +128,12 @@
       items:
       - name: Deploy a Service Fabric cluster
         href: azure-stack-solution-template-service-fabric-cluster.md
-      - name: Deploy a Kubernetes cluster
-        href: azure-stack-solution-template-kubernetes-deploy.md
+      - name: Add Kubernetes cluster
+        items:
+        - name: Deploy a Kubernetes cluster
+          href: azure-stack-solution-template-kubernetes-deploy.md
+        - name: Troubleshoot the Kubernetes cluster
+          href: azure-stack-solution-template-kubernetes-trouble.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
