@@ -10,15 +10,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/10/2018
 ms.author: barclayn
 
 ---
 
 # Azure Dedicated HSM deciding deployment architecture
 
-The Azure Dedicated HSM service provides a cryptographic key storage capability within Microsoft’s Azure Cloud that meets the most stringent security requirements. For customers requiring FIPS 140-2 Level 3 certification and sole access to, and complete control of the HSM devices, this would be the ideal solution.  
-The HSM devices are distributed globally across Microsoft’s datacenters and can be easily provisioned as a single device, or devices distributed across regions for a highly available solution.
+Dedicated HSM provides cryptographic key storage capabilities in Azure. It meets the most stringent security requirements. Customers who need:
+
+* To meet FIPS 140-2 Level 3 certification
+* to have exclusive access
+* complete control of their devices
+
+will benefit from using Azure Dedicated HSM.
+
+The HSMs are distributed across Microsoft’s datacenters and can be easily provisioned as a single device. They may also be deployed across regions for a highly available solution.
 The regions with Dedicated HSM available currently are:
 
 * East US
@@ -30,20 +37,20 @@ The regions with Dedicated HSM available currently are:
 * North Europe
 * West Europe
 
-Each of these regions has 2 independent datacenter deployments with the exception of South East Asia which has 3. That gives a total of 17 datacenters across Europe, Asia and the USA that offer the Dedicated HSM service. For more information on Azure regions please refer to the official [Azure regions information](https://azure.microsoft.com/global-infrastructure/regions/).
-Deployment architecture factors for any Dedicated HSM based solution are location, which is a significant factor for application latency, high availability and support for other distributed applications,
+Each of these regions has two independent datacenters. One exception is South East Asia, which has 3. There are a total of 17 datacenters across Europe, Asia, and the USA that offer the Dedicated HSM service. For more information on Azure regions, see the official [Azure regions information](https://azure.microsoft.com/global-infrastructure/regions/).
+Some design factors for any Dedicated HSM-based solution are location, high availability, and support for other distributed applications. Location is a significant factor for application latency,
 
 ## Device location
 
-Optimal HSM device location is in closest proximity to the applications performing cryptographic operations.
+Choose an HSM location as close as possible to the applications performing cryptographic operations.
 
 ## High availability
 
-It is always recommended to use 2 HSM devices in a region as a high availability pair. This ensures availability of keys when a single device has an issue that impacts its ability to process key operations and significantly reduces risk when performing break/fix maintenance such as power supply replacement. In a similar way, any kind of regional level failure which could occur in the event of natural disasters such as hurricanes, flood or earthquakes, should be mitigated with HSM Devices being provisioned in another region and paired in that region. This result in a minimum deployment for a high availability solution being 4 HDM devices across 2 regions. The architectural implications of this can be used as a baseline to add any further HSM device deployments to support latency, capacity or other application specific requirements.
+It is always recommended to use two HSM devices in a region as a high availability pair. This ensures availability of keys when a single device has an issue that impacts its ability to process key operations. It also significantly reduces risk when performing break/fix maintenance such as power supply replacement. It is important for a design to account for any kind of regional level failure. Regional level failures may occur in the event of natural disasters such as hurricanes, flood, or earthquakes. These types of events should be mitigated by provisioning HSM Devices in another region. Devices deployed in another region may be paired together. This means that the minimum deployment for a highly available solution is four HDM devices across two regions. Local redundancy and redundancy across regions can be used as a baseline to add any further HSM device deployments to support latency, capacity or to meet other application-specific requirements.
 
 ## Distributed application support
 
-Dedicated HSM devices are typically deployed in support of other business applications that have need for cryptographic operations in relation to key storage and retrieval. The Dedicated HSM devices in use have available 10 partitions for independent application support and hence device location should be based on a holistic view of all applications that need support for keys.
+Dedicated HSM devices are typically deployed in support of applications that need to perform key storage and key retrieval operations. Dedicated HSM devices have 10 partitions for independent application support. Device location should be based on a holistic view of all applications that need to use the service.
 
 ## Next steps
 
