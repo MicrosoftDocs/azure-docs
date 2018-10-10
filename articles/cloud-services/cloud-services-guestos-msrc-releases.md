@@ -38,8 +38,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4344150] | August Non-Security .NET 3.5 rollup | 3.65 | August 14, 2018 |
 | N/A | [4344148] | August Non-Security .NET 4x rollup | 3.65 | August 14, 2018 |
 | N/A | [4343898] | August Non-Security rollup | 4.58 | August 14, 2018 |
-| N/A | [4344153] | August Non-Security .NET 3.5 rollup | 3.65 | August 14, 2018 |
-| N/A | [4344147] | August Non-Security .NET 4x rollup | 3.65 | August 14, 2018 |
+| N/A | [4344153] | August Non-Security .NET 3.5 rollup | 4.58 | August 14, 2018 |
+| N/A | [4344147] | August Non-Security .NET 4x rollup | 4.58 | August 14, 2018 |
 
 ## August Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
