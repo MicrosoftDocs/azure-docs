@@ -13,19 +13,19 @@ manager: carmonm
 
 # Understand the agent check results in Update Management
 
-There may be many reasons your Non-Azure machine is not showing **Ready** in Update Management. In Update Management you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
+There may be many reasons your Non-Azure machine is not showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
 
 ## Start the troubleshooter
 
-By clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal, you launch the **Troubleshoot Update Agent** page. This page shows you problems with the agent and a link to this article in order to assist you in troubleshooting your issues.
+By clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal, you launch the **Troubleshoot Update Agent** page. This page shows you problems with the agent and a link to this article to assist you in troubleshooting your issues.
 
 ![vm list page](../media/update-agent-issues/vm-list.png)
 
-On The **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on machine to verify multiple dependencies the agent has.
+On The **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on machine to verify the dependencies that the agent has.
 
 ![troubleshoot page](../media/update-agent-issues/troubleshoot-page.png)
 
-When complete the results are returned in the window. The [Pre-requisite checks](#pre-requisistes-checks) section, provides information on what each check is looking for.
+When complete, the results are returned in the window. The [Pre-requisite checks](#pre-requisistes-checks) section, provides information on what each check is looking for.
 
 ![Update agent checks page](../media/update-agent-issues/update-agent-checks.png)
 
@@ -33,7 +33,7 @@ When complete the results are returned in the window. The [Pre-requisite checks]
 
 ### OS check
 
-The OS check, checks to ensure that the Hybrid Runbook Worker is running one of the following Operating Systems:
+The OS check, verifies if the Hybrid Runbook Worker is running one of the following Operating Systems:
 
 |Operating system  |Notes  |
 |---------|---------|
@@ -46,11 +46,11 @@ The OS check, checks to ensure that the Hybrid Runbook Worker is running one of 
 
 ### .NET Framework check
 
-The .NET framework check, ensures that the system has a minimum of [.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653) present.
+The .NET framework check, verifies if the system has a minimum of [.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653) present.
 
 ### WMF Check
 
-The WMF check, ensures that the system have the required version of the Windows Management. [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is the lowest version supported. It is recommended that you install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) for increased reliability of the Hybrid Runbook Worker.
+The WMF check, verifies if the system has the required version of the Windows Management. [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is the lowest version supported. It is recommended that you install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) for increased reliability of the Hybrid Runbook Worker.
 
 ## Connectivity Checks
 
@@ -68,7 +68,7 @@ Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to 
 
 ### TLS 1.2 Support
 
-This check, determines if you are using TLS 1.2 to encrypt your communications. TLS 1.0 is no longer supported by the platform and it is recommended that clients use TLS 1.2 to communicate with Update Management.
+This check, determines if you're using TLS 1.2 to encrypt your communications. TLS 1.0 is no longer supported by the platform and it's recommended that clients use TLS 1.2 to communicate with Update Management.
 
 ## VM Service Health Checks
 
@@ -94,6 +94,100 @@ The Crypto Folder Access check determines if Local System Account has access to 
 
 ## Troubleshoot offline
 
-Do troubleshoot the Hybrid worker offline, you can run the same script from the [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) script from the PowerShell Gallery.
+To troubleshoot the Hybrid worker offline, you can download the same script from the [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) script from the PowerShell Gallery. The output of this script can be returned as JSON, a compact format, or the expanded format, which is shown in the following example:
+
+```output
+RuleId                      : OperatingSystemCheck
+RuleGroupId                 : prerequisites
+RuleName                    : Operating System
+RuleGroupName               : Prerequisite Checks
+RuleDescription             : The Windows Operating system must be version 6.1.7601 (Windows Server 2008 R2 SP1) or higher
+CheckResult                 : Passed
+CheckResultMessage          : Operating System version is supported
+CheckResultMessageId        : OperatingSystemCheck.Passed
+CheckResultMessageArguments : {}
+
+RuleId                      : DotNetFrameworkInstalledCheck
+RuleGroupId                 : prerequisites
+RuleName                    : .Net Framework 4.5+
+RuleGroupName               : Prerequisite Checks
+RuleDescription             : .NET Framework version 4.5 or higher is required
+CheckResult                 : Passed
+CheckResultMessage          : .NET Framework version 4.5+ is found
+CheckResultMessageId        : DotNetFrameworkInstalledCheck.Passed
+CheckResultMessageArguments : {}
+
+RuleId                      : WindowsManagementFrameworkInstalledCheck
+RuleGroupId                 : prerequisites
+RuleName                    : WMF 5.1
+RuleGroupName               : Prerequisite Checks
+RuleDescription             : Windows Management Framework version 4.0 or higher is required (version 5.1 or higher is preferable)
+CheckResult                 : Passed
+CheckResultMessage          : Detected Windows Management Framework version: 5.1.17763.1
+CheckResultMessageId        : WindowsManagementFrameworkInstalledCheck.Passed
+CheckResultMessageArguments : {5.1.17763.1}
+
+RuleId                      : AutomationAgentServiceConnectivityCheck1
+RuleGroupId                 : connectivity
+RuleName                    : Registration endpoint
+RuleGroupName               : connectivity
+RuleDescription             : 
+CheckResult                 : Failed
+CheckResultMessage          : Unable to find Workspace registration information in registry
+CheckResultMessageId        : AutomationAgentServiceConnectivityCheck1.Failed.NoRegistrationFound
+CheckResultMessageArguments : {}
+
+RuleId                      : AutomationJobRuntimeDataServiceConnectivityCheck
+RuleGroupId                 : connectivity
+RuleName                    : Operations endpoint
+RuleGroupName               : connectivity
+RuleDescription             : Proxy and firewall configuration must allow Automation Hybrid Worker agent to communicate with eus2-jobruntimedata-prod-su1.azure-automation.net
+CheckResult                 : Passed
+CheckResultMessage          : TCP Test for eus2-jobruntimedata-prod-su1.azure-automation.net (port 443) succeeded
+CheckResultMessageId        : AutomationJobRuntimeDataServiceConnectivityCheck.Passed
+CheckResultMessageArguments : {eus2-jobruntimedata-prod-su1.azure-automation.net}
+
+RuleId                      : MonitoringAgentServiceRunningCheck
+RuleGroupId                 : servicehealth
+RuleName                    : Monitoring Agent service status
+RuleGroupName               : VM Service Health Checks
+RuleDescription             : HealthService must be running on the machine
+CheckResult                 : Failed
+CheckResultMessage          : Microsoft Monitoring Agent service (HealthService) is not running
+CheckResultMessageId        : MonitoringAgentServiceRunningCheck.Failed
+CheckResultMessageArguments : {Microsoft Monitoring Agent, HealthService}
+
+RuleId                      : MonitoringAgentServiceEventsCheck
+RuleGroupId                 : servicehealth
+RuleName                    : Monitoring Agent service events
+RuleGroupName               : VM Service Health Checks
+RuleDescription             : Event Log must not have event 4502 logged in the past 24 hours
+CheckResult                 : Failed
+CheckResultMessage          : Microsoft Monitoring Agent service Event Log (Operations Manager) does not exist on the machine
+CheckResultMessageId        : MonitoringAgentServiceEventsCheck.Failed.NoLog
+CheckResultMessageArguments : {Microsoft Monitoring Agent, Operations Manager, 4502}
+
+RuleId                      : CryptoRsaMachineKeysFolderAccessCheck
+RuleGroupId                 : permissions
+RuleName                    : Crypto RSA MachineKeys Folder Access
+RuleGroupName               : Access Permission Checks
+RuleDescription             : SYSTEM account must have WRITE and MODIFY access to 'C:\\ProgramData\\Microsoft\\Crypto\\RSA\\MachineKeys'
+CheckResult                 : Passed
+CheckResultMessage          : Have permissions to access C:\\ProgramData\\Microsoft\\Crypto\\RSA\\MachineKeys
+CheckResultMessageId        : CryptoRsaMachineKeysFolderAccessCheck.Passed
+CheckResultMessageArguments : {C:\\ProgramData\\Microsoft\\Crypto\\RSA\\MachineKeys}
+
+RuleId                      : TlsVersionCheck
+RuleGroupId                 : prerequisites
+RuleName                    : TLS 1.2
+RuleGroupName               : Prerequisite Checks
+RuleDescription             : Client and Server connections must support TLS 1.2
+CheckResult                 : Passed
+CheckResultMessage          : TLS 1.2 is enabled by default on the Operating System.
+CheckResultMessageId        : TlsVersionCheck.Passed.EnabledByDefault
+CheckResultMessageArguments : {}
+```
 
 ## Next steps
+
+To troubleshoot additional issues with your Hybrid Runbook Workers, see [Troubleshoot - Hybrid Runbook Workers](hybrid-runbook-worker.md)
