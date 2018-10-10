@@ -182,7 +182,7 @@ For more information, see [Develop with the Table API](tutorial-develop-table-do
 With the Gremlin API, you can use the Azure portal or Azure CLI to create a container that represents a graph. Alternatively, because Azure Cosmos DB is multi-model, you can use one of the other APIs to create and scale your graph container.
 
 > [!NOTE]
-> You can’t use `/id` as partition key for a container in Gremlin API. 
+> You can’t use `/id` and `/label` as partition key for a container in Gremlin API. 
 
 You can read any vertex or edge by using the partition key and ID in Gremlin. For example, for a graph with region ("USA") as the partition key and "Seattle" as the row key, you can find a vertex by using the following syntax:
 
