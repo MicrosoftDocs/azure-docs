@@ -146,8 +146,7 @@ Before you can see the To Do List Service in action, you need to configure the T
 1. In Visual Studio, open `App.config` in the TodoListClient project, and then enter your configuration values in the `<appSettings>` section.
 
     * `ida:Tenant` is the name of your Azure AD tenant, for example, contoso.onmicrosoft.com.
-    * `ida:ClientId` is the app ID that you copied from the Azure portal.
-    * `todo:TodoListResourceId` is the App ID URI of the To Do List Service application that you entered in the Azure portal.
+    * `ida:Audience` Enter App ID URI from the Azure Portal, e.g. https://contoso.onmicrosoft.com/TodoListService].
 
 1. Clean, build, and run each project.
 1. If you haven’t done so already, create a new user in your tenant with a *.onmicrosoft.com domain.
