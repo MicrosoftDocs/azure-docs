@@ -54,9 +54,7 @@ Your Azure AD user object ID is needed by the template to configure permissions.
 1. Run the following Azure PowerShell or Azure CLI command.  
 
     ```azurecli-interactive
-    echo "Input your user principal name (email address) used to sign in to Azure:"
-    read upn
-    az ad user show --upn-or-object-id $upn --query "objectId"
+    az ad user show --upn-or-object-id "<Your User Principle Name>" --query "objectId"
     openssl rand -base64 32
     ```
     ```azurepowershell-interactive
@@ -160,8 +158,11 @@ You don't need to make any changes to the template file.
 Follow the instructions in [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to deploy the template. You need to upload both **azuredeploy.json** and **azuredeploy.parameters.json** to the Cloud shell, and then use the following PowerShell script to deploy the template:
 
 ```azurepowershell
-$resourceGroupName = "<Enter the resource group name for the Key Vault>"
-$deploymentName = "<Enter the name for this deployment>"
+
+    $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure:"
+
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name of the Key Vault:"
+$deploymentName = Read-Host -Prompt "Enter the name for this deployment:"
 New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName `
     -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
 ```
