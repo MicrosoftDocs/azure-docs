@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Relay State** text box, type a URL: `<TENANTCODE>`
 
 	c. If you wish to configure the application in **SP** initiated mode, in the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://app.appraisd.com/saml/<TENANTCODE>`:
+    `https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
 	> You get the actual Sign-on URL and Relay State value on the Appraisd SSO Configuration page which is explained later in the tutorial.
@@ -130,17 +130,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](./media/appraisd-tutorial/i4-attribute.png)
 
-	b. From the **Source attribute** list, selelct the attribute value.
+	b. From the **Source attribute** list, select the attribute value.
 
 	c. Click **Save**. 
 
-7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and save it on your computer.
+7. In the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and save it on your computer.
 
 	![image](./media/appraisd-tutorial/tutorial_appraisd_certficate.png) 
 
 8. On the **Set up Appraisd** section, copy the appropriate URL as per your requirement.
-
-	The URL may say the following:
 
 	a. Login URL
 
