@@ -87,7 +87,7 @@ Raw data points (that is, items that you can query in Analytics and inspect in S
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 90 days.
 
-[Debug snapshots](app-insights-snapshot-debugger.md) are stored for seven days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the portal.
+[Debug snapshots](app-insights-snapshot-debugger.md) are stored for seven days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 
  To request an increase, customers should create a support ticket through the Portal
 
