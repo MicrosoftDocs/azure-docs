@@ -3,16 +3,16 @@ title: Understanding Azure Digital Twins device connectivity and authentication 
 description: Using Azure Digital Twins to connect and authenticate devices
 author: lyrana
 manager: alinast
-ms.service: azure-digital-twins
-services: azure-digital-twins
+ms.service: digital-twins
+services: digital-twins
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/02/2018
 ms.author: lyrana
 ---
 
 # Create and manage role assignments
 
-Azure Digital Twins uses [role-based access control](./security-role-based-access-control.md) to specify which Digital Twins graph resources are granted or revoked access, permissions, and roles.
+Azure Digital Twins uses [role-based access control](./security-role-based-access-control.md) to specify which Azure Digital Twins graph resources are granted or revoked access, permissions, and roles.
 
 Each role assignment includes:
 
@@ -26,8 +26,8 @@ Each role assignment includes:
 
 The table below shows what can be obtained by querying the System/Roles API:
 
-|**Role** | **Identifier** |
-|---------|---------|
+| **Role** | **Identifier** |
+| --- | --- |
 | Space Administrator | 98e44ad7-28d4-4007-853b-b9968ad132d1 |
 | User Administrator| dfaac54c-f583-4dd2-b45d-8d4bbc0aa1ac |
 | Device Administrator | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
@@ -56,9 +56,9 @@ HTTP POST /api/v1.0/roleassignments
 ```
 
 | **Name** | **Required** | **Type** | **Description** |
-|---------|---------|---------|---------|
-|roleId| Yes |string | The role definition identifier. Role definitions and their identifiers can be found by querying the system API. |
-|objectId | Yes |string | The object id for the role assignment that must be formatted according to its associated type. For the `DomainName` ObjectIdType, ObjectId must begin with the `“@”` character. |
+| --- | --- | --- | --- |
+| roleId| Yes |string | The role definition identifier. Role definitions and their identifiers can be found by querying the system API. |
+| objectId | Yes |string | The object id for the role assignment that must be formatted according to its associated type. For the `DomainName` ObjectIdType, ObjectId must begin with the `“@”` character. |
 | objectIdType | Yes |string | The type of the role assignment. Must be one of the following rows in this table. |
 | tenantId | Varies | string |The tenant identifier. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
 | path* | Yes | string |The full access path to the `Space` object. Ex: `/{Guid}/{Guid}` If an identifier needs the role assignment for the entire graph specify `"/"` which designates the root. However, using that is discouraged and **you should always follow the Principle of Least Privilege** |
@@ -107,7 +107,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 ```
 
 | **Name** | **In** | **Required** |	**Type** |	**Description** |
-|---------|---------|---------|---------|---------|
+| --- | --- | --- | --- | --- |
 | Path | Path | True | String |	The full path to the space |
 
 To DELETE a Role Assignment:
@@ -117,12 +117,12 @@ HTTP DELETE /api/v1/roleassignments/{id}
 ```
 
 | **Name** | **In** | **Required** | **Type** | **Description** |
-|---------|---------|---------|---------|---------|
-| Id | Path| True | String |	Role Assignment Id |
+| --- | --- | --- | --- | --- |
+| Id | Path | True | String |	Role Assignment Id |
 
 ## Next steps
 
 Read more about Azure Digital Twins security:
 
 > [!div class="nextstepaction"]
-> [API authentication] (./security-authenticating-apis.md)
+> [API authentication](./security-authenticating-apis.md)

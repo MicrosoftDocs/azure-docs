@@ -104,6 +104,14 @@
     href: prepare-transcription.md
   - name: Use custom audio streams
     href: how-to-use-audio-input-streams.md
+  - name: Migrate
+    items:
+    - name: From Bing Speech
+      href: how-to-migrate-from-bing-speech.md
+    - name: From the Custom Speech service
+      href: how-to-migrate-from-custom-speech-service.md
+    - name: From the Translator Speech API
+      href: how-to-migrate-from-translator-speech-api.md   
 - name: Concepts
   items:
   - name: Speech to Text
@@ -117,7 +125,7 @@
     displayName: translate speech, speech translation, translator, s2s, speech to speech
 - name: Reference
   items:
-  - name: Powershell
+  - name: PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
@@ -127,8 +135,8 @@
     href: regions.md
   - name: REST APIs
     href: rest-apis.md
-#  - name: Swagger Reference
-#    href: https://cris.ai/swagger/ui/index
+  - name: Swagger Reference
+    href: https://westus.cris.ai/swagger/ui/index
 #  - name: WebSockets protocols
 #    href: websockets.md
   - name: Speech SDK API
@@ -144,7 +152,7 @@
     - name: Speech to Text FAQ
       href: faq-stt.md
       displayName: recognize speech, speech recognition, speech to text, stt
-    - name: Text To Speech FAQ
+    - name: Text to Speech FAQ
       href: faq-text-to-speech.md
       displayName: synthesize speech, speech synthesis, text to speech, tts
     - name: Translator FAQ
@@ -179,10 +187,10 @@
     - name: License
       href: speech-devices-sdk-license.md
       displayName: roobo, speech devices sdk
-    - name: Third party notices
+    - name: Third-party notices
       href: devices-sdk-third-party-notices.md
       displayName: roobo, speech devices sdk
-  - name: Troubleshooting
+  - name: Troubleshoot the Speech SDK
     href: troubleshooting.md
   - name: Support
     href: support.md

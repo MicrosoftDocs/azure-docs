@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/03/2018s
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -28,13 +28,22 @@ In this quickstart, you learn how to:
 
 Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data.
 
-- Billing account
-- Department
-- Enrollment account
-- Management group
-- Subscription
-- Resource group
+|**Scope**|**Defined in**|**Required access to analyze costs on scope**|**Prerequisite EA setting**|**Rolls up billing info to**|
+|---                |---                  |---                   |---            |---           |
+|Billing account*|[https://ea.azure.com ](https://ea.azure.com )|Enterprise Admin|None|All subscriptions from the enterprise agreement|
+|Department|[https://ea.azure.com ](https://ea.azure.com )|Department Admin|DA view charges enabled|All subscriptions belonging to an enrollment account that is linked to the department|
+|Enrollment account**|[https://ea.azure.com ](https://ea.azure.com )|Account Owner|AO view charges enabled|All subscriptions from the enrollment account|
+|Management group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All subscriptions below the management group|
+|Subscription|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All resources/resource groups in the subscription|
+|Resource group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All resources in the resource group|
 
+> [!NOTE]
+>
+> (*) The billing acount is often referred to as the Enterprise Agreement or Enrollment
+> 
+> (**) The enrollment account is often referred to as the account owner
+
+For more information on configuring **DA view charges** and **AO view charges** look at [enabling access to costs](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs)
 
 ## Sign in to Azure
 
@@ -88,6 +97,11 @@ Pivot charts under the top Total view show views for different grouping and filt
 ![Full data for current view](./media/quick-acm-cost-analysis/full-data-set.png)
 
 The preceding image shows resource group names. Viewing tags for resources aren't available in any of the cost analysis views, filters, or groupings.
+
+When grouping costs by a specific attribute, the top ten cost contributors are shown from highest to lowest. If there are more than ten groups, the top nine cost contributors are shown as well as an **Others** group, which covers all remaining groups together.
+
+*Classic* (Azure Service Management or ASM) virtual machines, networking, and storage resources do not share detailed billing data. They are merged as **Classic services** when grouping costs.
+
 
 ## Download cost analysis data
 

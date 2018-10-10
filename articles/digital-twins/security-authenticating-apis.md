@@ -3,10 +3,10 @@ title: Understanding Azure Digital Twins API authentication | Microsoft Docs
 description: Using Azure Digital Twins to connect and authenticate to APIs
 author: lyrana
 manager: alinast
-ms.service: azure-digital-twins
-services: azure-digital-twins
+ms.service: digital-twins
+services: digital-twins
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/02/2018
 ms.author: lyrana
 ---
 
@@ -67,4 +67,4 @@ In order to get up and running with the Digital Twins APIs you can use a client 
 Read more about Azure Digital Twins security:
 
 > [!div class="nextstepaction"]
-> [Device connectivity and authentication] (./security-device-token.md)
+> [Create and manage role assignments](./security-create-manage-role-assignments.md)

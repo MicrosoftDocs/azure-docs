@@ -14,7 +14,7 @@ ms.author: govindk
 
 ---
 # Automatic online backup and restore with Azure Cosmos DB
-Azure Cosmos DB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your Cosmos DB container and later require data recovery or a disaster recovery solution.  
+Azure Cosmos DB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your Cosmos DB container and later require data recovery.  
 
 This article starts with a quick recap of the data redundancy and availability in Cosmos DB, and then discusses backups. 
 
@@ -57,20 +57,23 @@ If you accidentally delete your database or container, you can [file a support t
 If you need to restore your database because of data corruption issue (includes cases where documents within a container are deleted), see [Handling data corruption](#handling-data-corruption) as you need to take additional steps to prevent the corrupted data from overwriting the existing backups. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was available for the duration of the backup cycle for that snapshot.
 
 > [!NOTE]
-> Restore of collection or database is only done on demand from customer. It is customer's responsbility to delete the container or database immediately after restore's purpose is accomplished. Please remember if restored database or collections are not deleted they will incur cost at the rate of restored collection or database. It is super important to delete them immediately. 
+> Collections or databases can be restored only after a customer requests for restoring. It is the  customer's responsbility to delete the container or database immediately after restoring the data. If you don't delete the restored databases or collections, they will incur cost at the rate of restored collection or database. So, it is very important to delete them immediately. 
 
 ## Handling data corruption
 
 Azure Cosmos DB retains the last two backups of every partition in the database account. This model works well when a container (collection of documents, graph, table) or a database is accidentally deleted since one of the last versions can be restored. However, in the case when users may introduce a data corruption issue, Azure Cosmos DB may be unaware of the data corruption, and it is possible that the corruption may have overwritten the existing backups. 
 
-As soon as corruption is detected, reach out to customer support with database account and container information with approximate time of corruption. Another action the user can do in case of corrupted(data deletion/updation) the user should delete the corrupted container (collection/graph/table) so that backups are protected from being overwritten with corrupted data.  
+As soon as corruption is detected, the user should delete the corrupted container (collection/graph/table) so that backups are protected from being overwritten with corrupted data. And most importantly reach out to Microsoft Support and raise a ticket with specific request of Severity 2. 
 
 The following image illustrates the support request creation for container(collection/graph/table) restore via Azure portal for accidental deletion or updating of data within a container
 
 ![Restore a container for mistaken update or delete of data in Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-When restore is done for this kind of scenarios - data is restored to another account(with suffix of "-restored") and container. This restore is not done in place to provide a chance to customer to do validation of data and move the data as required. The restored container is in same region with same RUs and indexing policies. 
+When restore is done for this kind of scenarios - data is restored to another account(with suffix of "-restored") and container. This restore is not done in place to provide a chance to customer to do validation of data and move the data as required. The restored container is in same region with same RUs and indexing policies. User who is subscription admin or co-admin can see this restored account.
 
+
+> [!NOTE]
+> If you restore the data for fixing corruption issue or just for testing, please plan to remove them soon as your task is done as restored containers or a database will cost extra - based on provisioned throughput. 
 ## Next steps
 
 To replicate your database in multiple data centers, see [distribute your data globally with Cosmos DB](distribute-data-globally.md). 
