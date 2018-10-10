@@ -56,14 +56,14 @@ You can view this data in a visual Map form, or toggle the setting to view it in
 
 ## App page views and conversions by channel
 
-The Acquisition funnel shows you how many customers completed each step of the funnel, from viewing the Store page to using the add-in or app, along with the conversion rate. This data can help you identify areas where you might want to invest more to increase your page views, acquisitions, or activations.
+The Acquisition funnel shows you how many customers completed each step of the funnel, from viewing the AppSource page to using the add-in or app, along with the conversion rate. This data can help you identify areas where you might want to invest more to increase your page views, acquisitions, or activations.
 
 > [!NOTE]
 > Client surfaces do not generate funnel information, and provided data only covers AppSource acquisitions.
 
-In this chart, a channel refers to the method in which a customer arrived at your solution's listing page (for example, browsing and searching in the Store, a link from an external website, a link from one of your custom campaigns, and so on). The following channel types are included:
+In this chart, a channel refers to the method in which a customer arrived at your solution's listing page (for example, browsing and searching on AppSource, a link from an external website, a link from one of your custom campaigns, and so on). The following channel types are included:
 
-- Store traffic - The customer was browsing or searching within the Store when they viewed your app's listing.
+- Store traffic - The customer was browsing or searching within AppSource when they viewed your app's listing.
 
 - Custom campaign - The customer followed a link that used a [custom campaign ID](promote-your-office-store-solution.md).
 
@@ -72,7 +72,7 @@ In this chart, a channel refers to the method in which a customer arrived at y
 A page view means that a customer viewed your solutions's AppSource listing page. This includes views by people who aren't signed in. Some customers have opted out of providing this information to Microsoft.
 
 > [!NOTE] 
-> Customers can arrive at your app's listing by clicking a custom campaign not created by you. We stamp every page view within a session with the campaign ID from which the customer first entered the Store. We then attribute conversions to that campaign ID for all acquisitions within 24 hours. Because of this, you might see a higher number of total conversions than the total conversions for your campaign IDs, and you might have conversions or add-on conversions that have zero page views.
+> Customers can arrive at your app's listing by clicking a custom campaign not created by you. We stamp every page view within a session with the campaign ID from which the customer first landed on AppSource. We then attribute conversions to that campaign ID for all acquisitions within 24 hours. Because of this, you might see a higher number of total conversions than the total conversions for your campaign IDs, and you might have conversions or add-on conversions that have zero page views.
 
 ## App page views and conversions by campaign ID
 
