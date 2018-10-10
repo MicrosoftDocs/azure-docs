@@ -4,7 +4,7 @@ description: This article provides an overview of components and architecture us
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
 ---
