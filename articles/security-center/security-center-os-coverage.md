@@ -1,9 +1,9 @@
 ---
-title: Supported platforms in Azure Security Center | Microsoft Docs
-description: This document provides a list of Windows and Linux operatings systems supported in Azure Security Center.
+title: Features and platforms supported by Azure Security Center | Microsoft Docs
+description: This document provides a list of features and platforms supported by Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2018
-ms.author: terrylan
+ms.date: 10/10/2018
+ms.author: rkarlin
 
 ---
-# Supported platforms in Azure Security Center
+# Platforms and features supported by Azure Security Center
+
 Security state monitoring and recommendations are available for virtual machines (VMs), created using both the classic and Resource Manager deployment models, and computers.
 
 > [!NOTE]
@@ -25,7 +26,11 @@ Security state monitoring and recommendations are available for virtual machines
 >
 >
 
-## Supported platforms for Windows computers and VMs
+## Supported platforms 
+
+This section lists the platforms on which the Azure Security Center agent can run and from which it can gather data.
+
+### Supported platforms for Windows computers and VMs
 Supported Windows operating systems:
 
 * Windows Server 2008
@@ -35,7 +40,7 @@ Supported Windows operating systems:
 * Windows Server 2016
 
 
-## Supported platforms for Linux computers and VMs
+### Supported platforms for Linux computers and VMs
 Supported Linux operating systems:
 
 * Ubuntu versions 12.04 LTS, 14.04 LTS, 16.04 LTS
@@ -54,6 +59,35 @@ Supported Linux operating systems:
 
 ## VMs and Cloud Services
 VMs running in a cloud service are also supported. Only cloud services web and worker roles running in production slots are monitored. To learn more about cloud service, see [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).
+
+
+## Supported IaaS features
+
+
+|Server|Windows|Linux|
+|-----|-----|-----|
+|Environment|Azure|Non-Azure|Azure|Non-Azure|
+|VMBA Threat detection alerts|V|V|V (Auditd required)|V|
+|Network based threat detection alerts|V|X|V|X|
+|WDATP integration|V (on supported versions)|V|X|X|
+|Missing patches|V|V|V|V|
+|Security configurations|V|V|V|V|
+|Anti-malware|V|V|X|X|
+|JIT VM Access|V|X|V|X|
+|Adaptive application controls|V (only Azure)|X|X|X|
+|FIM|V|V|V|V|
+|Disk encryption|V|X|V|X|
+|3rd parties deployment|V|X|V|X|
+|NSGs|V|X|V|X|
+|Filess V1|V|V|X|X|
+|Filess V2|V|V|V|V|
+|Network map|V|X|V|X|
+|Adaptive network hardening|V|X|V|X|
+
+## Supported PaaS features
+
+
+
 
 ## Next steps
 

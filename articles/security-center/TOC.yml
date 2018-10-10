@@ -4,7 +4,8 @@
   items:
   - name: About Security Center
     href: security-center-intro.md
-   
+  - name: Security Center supported platforms & features
+    href: security-center-os-coverage.md
 - name: Quickstarts
   expanded: true
   items:
@@ -214,8 +215,6 @@
     href: security-center-privacy.md
   - name: FAQ
     href: security-center-faq.md
-  - name: Supported platforms
-    href: security-center-os-coverage.md
   - name: Planning and operations
     href: security-center-planning-and-operations-guide.md
   - name: Azure Security
