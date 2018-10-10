@@ -57,7 +57,7 @@ Hyperscale service tier is only available in [vCore model](sql-database-service-
 
 - **Compute**:
 
-  The Hyperscale compute unit price is per replica. The [Azure Hybrid Benifit](https://azure.microsoft.com/pricing/hybrid-benefit/) price is applied to read scale replicas automatically. In public preview, we create two replicas per Hyperscale database by default.
+  The Hyperscale compute unit price is per replica. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) price is applied to read scale replicas automatically. In public preview, we create two replicas per Hyperscale database by default.
 
 - **Storage**:
 
@@ -112,11 +112,11 @@ GO
 ```
 
 > [!IMPORTANT]
-> [Transparent Database Encyption (TDE)](transparent-data-encryption-azure-sql.md) should be turned off before altering a non-Hyperscale database to HyperScale.
+> [Transparent Database Encryption (TDE)](transparent-data-encryption-azure-sql.md) should be turned off before altering a non-Hyperscale database to HyperScale.
 
 ## Connect to a read-scale replica of a Hyperscale database
 
-In HyperScale databases, the `ApplicationIntent` argument in the connection string provided by the client dictates whether the connection is routed to the write replica or to a read-only secondary replica. If the `AplicationIntent` set to `READONLY` and the database does not have a secondary replica, connection will be routed to the primary replica and defaults to `ReadWrite` behavior.
+In HyperScale databases, the `ApplicationIntent` argument in the connection string provided by the client dictates whether the connection is routed to the write replica or to a read-only secondary replica. If the `ApplicationIntent` set to `READONLY` and the database does not have a secondary replica, connection will be routed to the primary replica and defaults to `ReadWrite` behavior.
 
 ```cmd
 -- Connection string with application intent
