@@ -30,7 +30,7 @@ Classic metric alerts in Azure Monitor provide a way to get notified when one of
 
 6. Select **Email owners...** if you want administrators and co-administrators to receive email notifications when the alert fires.
 
-7. If you want to send notifications to additional email addresses when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semicolons, in the following format: *email@contoso.com; email2@contoso.com*
+7. If you want to send notifications to additional email addresses when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semicolons, in the following format: *email@contoso.com;email2@contoso.com*
 
 8. Put in a valid URI in the **Webhook** field if you want it to be called when the alert fires.
 
