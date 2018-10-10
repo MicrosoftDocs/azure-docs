@@ -8,6 +8,7 @@
 ## [Register for Azure NetApp Files](azure-netapp-files-register.md)
 ## [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
 ## [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+## [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 ## [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 ## [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
 
