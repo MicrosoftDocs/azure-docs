@@ -28,6 +28,7 @@
 ### [Access control in Data Lake Store](data-lake-store-access-control.md)
 ### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 ### [Encryption](data-lake-store-encryption.md)
+### [Virtual network integration (preview)](data-lake-store-network-security.md)
 
 ## Authenticate with Data Lake Store
 ### [Authentication options](data-lakes-store-authentication-using-azure-active-directory.md)

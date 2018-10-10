@@ -16,9 +16,9 @@ ms.date: 10/09/2018
 ms.author: elsung
 
 ---
-# Virtual Network integration for Azure Data Lake Storage Gen1 - Public preview
+# Virtual Network integration for Azure Data Lake Storage Gen1 - Preview
 
-Introducing Virtual Network integration for Azure Data Lake Storage Gen1 (In Preview). VNet integration allows you to prevent unauthorized access to your Azure Data Lake Storage Gen1 accounts by locking these accounts to your specific virtual networks and subnets. You can now configure your ADLS Gen1 account to only accept traffic from the designated virtual vetworks and subnets and block access from everywhere else. This helps secure your ADLS account from external threats.
+Introducing Virtual Network integration for Azure Data Lake Storage Gen1 (in preview). VNet integration allows you to prevent unauthorized access to your Azure Data Lake Storage Gen1 accounts by locking these accounts to your specific virtual networks and subnets. You can now configure your ADLS Gen1 account to only accept traffic from the designated virtual vetworks and subnets and block access from everywhere else. This helps secure your ADLS account from external threats.
 
 VNet integration for ADLS Gen1 makes use of the virtual network service endpoint security between your Virtual Network and Azure Active Directory service to generate additional security claims in the access token. These claims are then used for authenticating your virtual network to your ADLS Gen1 account and allowing access.
 
