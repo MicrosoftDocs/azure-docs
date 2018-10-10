@@ -21,7 +21,7 @@ These constraints have been added to simplify learning about the new service and
 
 ## Per-Subscription limits
 
-During Public Preview, each Azure subscription can create exactly one Azure Digital Twins instance. Additionally, each subscription can have only one provisioned Azure Digital Twins instance at a time.
+During Public Preview, each Azure subscription can create exactly one Azure Digital Twins instance. Additionally, each subscription can have only one  Azure Digital Twins instance at a time.
 
 > [!TIP]
 > Deleting your instance will allow you to create a new one.
@@ -46,7 +46,7 @@ The request rate limits for your Management API are:
 
 ## UDF Rate limits
 
-The following limits cap the total number of all user-defined function calls made to your Azure Digital Twins instance:
+The following limits set the total number of all user-defined function calls made to your Azure Digital Twins instance:
 
 - 400 client library calls per second
 - 100 SendNotification calls per second
