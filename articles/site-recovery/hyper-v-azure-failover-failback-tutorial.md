@@ -5,9 +5,10 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 10/10/2018
 ms.author: raynew
+ms.custom: MVC
 ---
 
 # Failover and failback Hyper-V VMs replicated to Azure
