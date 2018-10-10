@@ -28,7 +28,7 @@ This article shows how to convert a managed disk from standard to premium, and v
 
 * Because the conversion requires a restart of the virtual machine (VM), you should schedule the migration of your disks storage during a pre-existing maintenance window. 
 * If you're using an unmanaged disk, first [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) to allow you to switch it between the storage types. 
-* The examples in this article require the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). Run [Connect-AzureRmAccount](https://docs.microsoft.com/en-us/powershell/module/azurerm.profile/connect-azurermaccount) to create a connection with Azure.
+* The examples in this article require the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). Run [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) to create a connection with Azure.
 
 
 ## Convert all the managed disks of a VM from standard to premium
