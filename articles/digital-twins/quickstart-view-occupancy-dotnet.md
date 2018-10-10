@@ -23,7 +23,7 @@ This article shows how you can achieve both goals using Azure Digital Twins. The
 
 1. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. The two console applications you run in this quickstart are written using C#. You will need to install [.NET Core SDK 2.1 or older](https://www.microsoft.com/net/download) on your development machine. Download the binaries that fit your platform. If you have .NET Core SDK installed, you can verify the current version of C# on your development machine running the `dotnet --version` in a command prompt.
+1. The two console applications you run in this quickstart are written using C#. You will need to install [.NET Core SDK 2.1 or above](https://www.microsoft.com/net/download) on your development machine. Download the binaries that fit your platform. If you have .NET Core SDK installed, you can verify the current version of C# on your development machine running the `dotnet --version` in a command prompt.
 
 1. Download the [sample C# project](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip) and extract the digital-twins-samples-csharp-master.zip archive. 
 
@@ -57,6 +57,11 @@ This step provisions your Digital Twins spatial graph with several spaces, one d
 1. Run `dotnet run ProvisionSample`.
     >[!NOTE]
     >We use Device Login Azure CLI tool to authenticate the user to Azure AD. The user needs to enter a given code to authenticate using [the Microsoft login](https://microsoft.com/devicelogin) page. After code is entered, follow steps to authenticate. The user is requested to authenticate every time when the tool is running.
+    
+    >[!NOTE]
+    > If you are getting below error when running this step, please check to make sure your variables were copied propertly. 
+    > `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
+
 
 1. The provisioning step might take few minutes or so. It will also provision an IoT Hub within your Digital Twins instance and it will loop thru until IoTHub has Status=`Running`
 
@@ -80,11 +85,15 @@ You can build and run the sensor simulator application using the steps below:
 
 1. Let this simulator run so you can view results side by side with the next step action. This window will show you the simulated sensor data being sent to Digital Twins and the next step will query in real-time to find available rooms with fresh air.
 
+    >[!NOTE]
+    > If you are getting below error when running this step, please check to make sure your `DeviceConnectionString` was copied propertly.  
+    > `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
+
 ## Find available spaces with fresh air
 
 The sensor telemetry sample is simulating random data values for two sensors, motion, and carbon dioxide. Available spaces with fresh air are defined in our sample by no presence in the room and carbon dioxide level is under 1000 ppm. If the condition is not fulfilled, then the space is not available, or the air quality is poor.
 
-1. Go to occupancy command prompt in the same folder you have ran provisioning step above `dotnet run ProvisionSample`
+1. Open the command prompt you used to run the provisioning step above.
 1. Run `dotnet run GetAvailableAndFreshSpaces`.
 1. Look at this command prompt and the sensor telemetry command prompt side by side as outlined below. 
 1. One command propmpt sends simulated motion and carbon dioxide telemetry to Digital Twins every 5 seconds, the other command reads in real-time teh graph to find out available rooms with fresh air based on random simulated data.It will display one of these conditions in near real-time based on what the sensor telemetry has last sent:
@@ -93,7 +102,8 @@ The sensor telemetry sample is simulating random data values for two sensors, mo
 
      ![Get available spaces with fresh air][3]
 
-To understand what happened in this quickstart and what APIs have been called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in the digital-twins-samples-csharp (see command below). Tutorials are going deep into the code and teach you how to modify configuration data
+To understand what happened in this quickstart and what APIs have been called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in the digital-twins-samples-csharp (see command below). Tutorials are going deep into the code and teach you how to modify configuration data and what APIs are called. For more understanding of Management APIs navigate your Digital Twins Swagger page `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net//management/swagger` or for convience reading browse [Docs Digital Twins](https://docs.westcentralus.azuresmartspaces.net/management/swagger). 
+
 ```
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
@@ -109,12 +119,15 @@ If you plan to continue to the tutorials, do not clean up the resources created 
 
 ## Next steps
 
-If you haven't cleaned up the resources, and you wish to learn how to build an end to end flow, proceed to the following tutorials:
+If you haven't cleaned up the resources, and you wish to learn step-by-step code tutorial on how to provision the spatial graph and how to monitor for custom business logic, proceed to the following tutorial:
 
-1. [Provision a sample building](tutorial-facilities-setup.md)
-1. [Monitor conditions in your building](tutorial-facilities-setup.md)
-1. [Receive notifications from your building](tutorial-facilities-events.md)
-1. [Analyze events from your building](tutorial-facilities-analyze.md)
+> [!div class="nextstepaction"]
+> [Provision a sample building](tutorial-facilities-setup.md)
+
+If you want to continue this quickstart and want to learn how to egress events out of Digital Twins and how to send email notification when available spaces have fresh air, proceed to the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Receive notifications from your building](tutorial-facilities-events.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
