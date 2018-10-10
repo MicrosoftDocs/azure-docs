@@ -276,7 +276,7 @@ Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
 
 After a few minutes, you should see the new VM in the Log Anaytics workspace.
 
-![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## Next steps
 
