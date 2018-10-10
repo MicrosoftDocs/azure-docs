@@ -26,7 +26,7 @@ The primary and secondary windows must have separate day ranges. An example is a
 To change the maintenance schedule for your data warehouse, complete the following steps:
 1.	Sign in to the [Azure portal](https://portal.azure.com/).
 2.	Select the data warehouse that you want to update. The page opens on the overview blade. 
-3.	Open the page for maintenance schedule settings by selecting the **Maintenance Schedule (preview) summary** link in the overview blade. Or, select the **Maintenance Schedule** option on the left-side resource menu.  
+3.	Open the page for maintenance schedule settings by selecting the **Maintenance Schedule (preview) summary** link on the overview blade. Or, select the **Maintenance Schedule** option on the left-side resource menu.  
 
     ![Overview blade options](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 

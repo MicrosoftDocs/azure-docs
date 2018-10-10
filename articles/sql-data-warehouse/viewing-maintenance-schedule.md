@@ -27,8 +27,8 @@ To view the maintenance schedule that has been applied to your data warehouse, c
 ![Overview blade](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 
 ## Next steps
-[Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) about creating, viewing, and managing alerts by using Azure Monitor.
-[Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) about webhook actions for log alert rules.
-[Learn more](https://docs.microsoft.com/azure/service-health/service-health-overview) about Azure Service Health.
+- [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) about creating, viewing, and managing alerts by using Azure Monitor.
+- [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) about webhook actions for log alert rules.
+- [Learn more](https://docs.microsoft.com/azure/service-health/service-health-overview) about Azure Service Health.
 
 
