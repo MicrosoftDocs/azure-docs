@@ -104,7 +104,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 ```
 
 > [!NOTE]
-> Make sure that you have the latest version of the Azure AD PowerShell for Graph module (AzureAD or AzureADPreview) installed. 
+> Make sure you have the latest version of the AzureAD PowerShell module or AzureADPreview PowerShell module. 
 
 ## See also
 
