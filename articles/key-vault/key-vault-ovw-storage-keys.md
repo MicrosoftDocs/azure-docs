@@ -12,7 +12,8 @@ ms.date: 10/03/2018
 ---
 # Azure Key Vault Storage Account Keys
 
-[!NOTE] [Azure storage now supports AAD authorization](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure Active Directory for authentication and authorization to Storage as users wouldn't have to worry about rotating their Storage Account keys. 
+> [!NOTE]
+> [Azure storage now supports AAD authorization](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure Active Directory for authentication and authorization to Storage as users wouldn't have to worry about rotating their Storage Account keys.
 
 - Azure Key Vault manages keys of an Azure Storage Account (ASA).
     - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.    
