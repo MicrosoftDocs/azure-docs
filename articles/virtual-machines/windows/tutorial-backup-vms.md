@@ -77,7 +77,7 @@ In this example, we show how to recover the image file that is used in the defau
 8. On the VM blade, in the **Settings** section, click **Backup**. The **Backup** blade opens. 
 9. In the menu at the top of the blade, select **File Recovery**. The **File Recovery** blade opens.
 10. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
-11. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Save the file to your **Downloads** folder.
+11. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Copy the password for the file and save it somewhere safe.
 12. On your local computer, open **File Explorer** and navigate to your **Downloads** folder and copy the downloaded .exe file. The filename is prefixed by your VM name. 
 13. On your VM (over the RDP connection) paste the .exe file to the Desktop of your VM. 
 14. Navigate to the desktop of your VM and double-click on the .exe. This launches a command prompt and then mount the recovery point as a file share that you can access. When it is finished creating the share, type **q** to close the command prompt.
