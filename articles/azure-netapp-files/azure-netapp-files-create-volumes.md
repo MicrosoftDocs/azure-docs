@@ -47,7 +47,8 @@ You must also have a subnet that is delegated to Azure NetApp Files.
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
 
     * **Virtual network**  
-        Specify the Azure virtual network (Vnet) from which you want to access the volume. The Vnet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can also access the volume from  your on-premise network through Express Route.   
+        Specify the Azure virtual network (Vnet) from which you want to access the volume.  
+        The Vnet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can also access the volume from  your on-premise network through Express Route.   
 
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  
