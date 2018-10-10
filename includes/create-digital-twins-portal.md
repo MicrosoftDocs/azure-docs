@@ -26,7 +26,7 @@
 
 1. Open the **Overview** pane of your Digital Twins instance. Note the link that shows under **Management API**  
 
-1. The Management API URL is formatted thus: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. It shows you the most current documentation for the Azure Digital Twins APIs as documented by [Swagger](how-to-use-swagger.md). 
+1. The Management API URL is formatted thus: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. It shows you the most current documentation for the Azure Digital Twins APIs as documented by [Swagger](../articles/digital-twins/how-to-use-swagger.md). 
 
 1. When you modify above link to the following format `https://yourDigitalTwinsName.yourDigitalTwinsName.azuresmartspaces.net/management/api/v1.0/`, it becomes the base URL that a client application will use to access your instance. Copy this modified URL to a temporary file. You will need this in the proceeding section.
 

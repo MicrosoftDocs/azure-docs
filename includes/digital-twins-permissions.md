@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Digital Twins uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) to control [read/write access](../active-directory/develop/v1-permissions-and-consent.md) to the service. Use the steps in this section to allow your sample application to connect with your Digital Twins instance. This is a one-time setup step that doesn't need to be repeated in quickstart or tutorials if already done.
+Digital Twins uses [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md) to control [read/write access](../articles/active-directory/develop/v1-permissions-and-consent.md) to the service. Use the steps in this section to allow your sample application to connect with your Digital Twins instance. This is a one-time setup step that doesn't need to be repeated in quickstart or tutorials if already done.
 
 1. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps), click **New application registration**.
     
