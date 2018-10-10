@@ -55,7 +55,7 @@ There are several ways to deploy modules to an IoT Edge device, and all of them 
 
 To deploy blob storage through the Azure portal, follow the steps in [Deploy Azure IoT Edge modules from the Azure portal](how-to-deploy-modules-portal.md). Before you go to deploy your module, copy the image URI and prepare the container create options based on your container operating system. Use these values in the **Configure a deployment manifest** section of the deployment article. 
 
-Provide the image URI for the blob storage module: **mcr.microsoft.com/azure-blob-storage**. 
+Provide the image URI for the blob storage module: **mcr.microsoft.com/azure-blob-storage:latest**. 
    
 Use the following JSON template for the **Container Create Options** field. Configure the JSON with your storage account name, storage account key, and storage directory bind.  
    
@@ -81,8 +81,10 @@ In the create options JSON, update `\<your storage account name\>` with any name
 In the create options JSON, update `<storage directory bind>` depending on your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data.  
 
    * Linux containers: **\<storage path>:/blobroot**. For example, /srv/containerdata:/blobroot. Or, my-volume:/blobroot. 
-   * Windows containers: **\<storage path>:C:/BlobRoot**. For example, C:/ContainerData:C:/BlobRoot. Or, my-volume:C:/blobroot. 
-
+   * Windows containers: **\<storage path>:C:/BlobRoot**. For example, C:/ContainerData:C:/BlobRoot. Or, my-volume:C:/blobroot.
+   
+   > [!CAUTION]
+   > Do not change the "/blobroot" for Linux and "C:/BlobRoot" for Windows, for **\<Storage directory bind>** values.
 
 You don't need to provide registry credentials to access Azure Blob Storage on IoT Edge, and you don't need to declare any routes for your deployment. 
 
@@ -106,7 +108,7 @@ Use the following steps to create a new IoT Edge solution with a blob storage mo
    
    4. **Provide a module name** - Enter a recognizable name for your module, like **azureBlobStorage**.
    
-   5. **Provide Docker image for the module** - Provide the image URI: **mcr.microsoft.com/azure-blob-storage**
+   5. **Provide Docker image for the module** - Provide the image URI: **mcr.microsoft.com/azure-blob-storage:latest**
 
 VS Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window. 
 
@@ -128,6 +130,9 @@ The solution template creates a deployment manifest template that includes your 
 
    * Linux containers: **\<storage path>:/blobroot**. For example, /srv/containerdata:/blobroot. Or, my-volume:/blobroot.
    * Windows containers: **\<storage path>:C:/BlobRoot**. For example, C:/ContainerData:C:/BlobRoot. Or, my-volume:C:/blobroot.
+   
+   > [!CAUTION]
+   > Do not change the "/blobroot" for Linux and "C:/BlobRoot" for Windows, for **\<Storage directory bind>** values.
 
 5. Save **deployment.template.json**.
 
@@ -154,7 +159,13 @@ You can use the account name and account key that you configured for your module
 
 Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured. 
 
-The blob endpoint for Azure Blob Storage on IoT Edge is `http://<IoT Edge device hostname>:11002/<account name>`. 
+1. For modules which are deployed on the same edge device where "Azure Blob Storage on IoT Edge" is running, the blob endpoint is: `http://<Module Name>:11002/<account name>`. 
+2. For modules which are deployed on different edge device, than the edge device where "Azure Blob Storage on IoT Edge" is running, then depending upon your setup the blob endpoint is: `http://<device IP >:11002/<account name>` or `http://<IoT Edge device hostname>:11002/<account name>` or `http://<FQDN>:11002/<account name>`
+
+## Logs
+
+You can find the logs inside the container, under: 
+* For Linux:  /blobroot/logs/platformblob.log
 
 ## Deploy multiple instances
 
