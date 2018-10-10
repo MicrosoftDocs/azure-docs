@@ -12,7 +12,7 @@
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
-1. From the left side navigation pane, click **Create a resource**. Then search for *digital twins*, and select **Digital Twins (preview)**. Click **Create** to start the deployment process.
+1. From the left side navigation pane, click **Create a resource**. Then search for *digital twins*, and select **Digital Twins (preview)**. Click **Create** to start the deployment process. This will take few 
 
 1. In the **Digital Twins** pane, enter the following information:
    * **Resource Name**: Create a unique name for your Digital Twins.
@@ -25,7 +25,9 @@
 1. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 
 1. Open the **Overview** pane of your Digital Twins instance. Note the link that shows under **Management API**  
-    - This URL is of the format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` and represents the Digital Twins Management APIs Swagger documentation. Click this link from the portal to learn about supported APIs. 
-    - URL `https://yourDigitalTwinsName.yourDigitalTwinsName.azuresmartspaces.net/management/api/v1.0/` represents the base URL that will be used to access the APIs by any client. Copy this URL to a temporary *Notepad* file. You will need this URL in proceeding steps. 
+
+1. The Management API URL is formatted thus: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. It shows you the most current documentation for the Azure Digital Twins APIs as documented by [Swagger](how-to-use-swagger.md). 
+
+1. When you modify above link to the following format `https://yourDigitalTwinsName.yourDigitalTwinsName.azuresmartspaces.net/management/api/v1.0/`, it becomes the base URL that a client application will use to access your instance. Copy this modified URL to a temporary file. You will need this in the proceeding section.
 
     ![Management APIs](./media/create-digital-twins-portal/digital-twins-management-api.png)
