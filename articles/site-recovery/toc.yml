@@ -142,7 +142,7 @@
       - name: Set up IP addressing for failover
         href: site-recovery-retain-ip-azure-vm-failover.md
       - name: Integrate ExpressRoute with Azure VM disaster recovery
-        href: azure-vm-disaster-recovery-with-express-route.md
+        href: azure-vm-disaster-recovery-with-expressroute.md
     - name: Disaster recovery
       items:
       - name: Disaster recovery of Azure VMs after migration to Azure
