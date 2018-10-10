@@ -22,7 +22,7 @@ ms.reviewer: quying
 You can host a SQL instance on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the SQL resource provider can connect to the instance.
 
 > [!NOTE]
-> SQL databases should be be created on the SQL resource provider server. The SQL resource provider should be created in the default provider subscription while SQL hosting servers should be created in a billable, user subscription. The resource provider server should not be used to host user databases.
+> SQL databases should be created on the SQL resource provider server. The SQL resource provider should be created in the default provider subscription while SQL hosting servers should be created in a billable, user subscription. The resource provider server should not be used to host user databases.
 
 ## Overview
 

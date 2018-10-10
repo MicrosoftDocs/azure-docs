@@ -3,7 +3,7 @@ title: Search with Azure Maps | Microsoft Docs
 description: Search nearby point of interest using Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/27/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -150,7 +150,7 @@ This section shows how to use the Maps Search API to find a point of interest on
          });
     ```
 
-4. Add the following script block **within the eventListener** to build the query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like any combination of address and point of interest (POI) tokens. It searches for nearby Gasoline Stations within the specified radius. The response is then parsed into GeoJSON format and converted into point features, which are added to the map as pins. The last part of the script adds camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property.
+4. Add the following script block **within the map load eventListener** to build the query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like any combination of address and point of interest (POI) tokens. It searches for nearby Gasoline Stations within the specified radius. The response is then parsed into GeoJSON format and converted into point features, which are added to the map as pins. The last part of the script adds camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property.
 
     ```JavaScript
 
@@ -248,6 +248,10 @@ In this tutorial, you learned how to:
 > * Get the primary key for your account
 > * Create new web page using Map Control API
 > * Use Search Service to find nearby point of interest
+
+You can access the code sample for this tutorial here:
+
+> [Search location with Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/search.html)
 
 The next tutorial demonstrates how to display a route between two locations.
 
