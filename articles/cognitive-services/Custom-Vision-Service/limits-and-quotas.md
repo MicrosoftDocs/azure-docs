@@ -22,7 +22,8 @@ Limited Trial project resources are attached to your Custom Vision login (that i
 ||**Limited Trial**|**F0 (Azure)**|**S0 (Azure)**|
 |-----|-----|-----|-----|
 |Projects|2|2|100|
-|Training images per project|5,000|5,000|50,000|
+|Training images per project, Classification|5,000|5,000|50,000|
+|Training images per project, Object Detection|5,000|5,000|10,000|
 |Predictions/ month|10,000 |10,000|Unlimited|
 |Tags/ project|50|50|250|
 |Iterations |10|10|10|

@@ -93,12 +93,14 @@
           href: single-sign-on-saml-protocol.md
         - name: Signout
           href: single-sign-out-saml-protocol.md
-        - name: WS-Federation
-          items:
-          - name: Federation metadata
-            href: azure-ad-federation-metadata.md
-        - name: Signing key rollover
-          href: active-directory-signing-key-rollover.md
+        - name: How Azure AD uses the SAML protocol
+          href: active-directory-saml-protocol-reference.md
+      - name: WS-Federation
+        items:
+        - name: Federation metadata
+          href: azure-ad-federation-metadata.md
+      - name: Signing key rollover
+        href: active-directory-signing-key-rollover.md
       - name: ID tokens
         href: id-tokens.md
       - name: Access tokens
@@ -123,7 +125,7 @@
       - name: Consent framework
         href: consent-framework.md
       - name: Application consent experiences
-        href: ../application-consent-experience.md
+        href: application-consent-experience.md
     - name: Conditional access
       href: conditional-access-dev-guide.md
     - name: National Clouds 
@@ -144,9 +146,15 @@
       - name: Configure claims
         items:
         - name: Configure role claims
-          href: ../active-directory-enterprise-app-role-management.md
+          href: active-directory-enterprise-app-role-management.md
         - name: Customize claims
           href: active-directory-saml-claims-customization.md
+        - name: Customize claims (Preview)
+          href: active-directory-claims-mapping.md
+        - name: Configure optional claims (Preview)
+          href: active-directory-optional-claims.md
+        - name: Configure token lifetimes (Preview)
+          href: active-directory-configurable-token-lifetimes.md
       - name: ADAL error handling best practices
         href: active-directory-devhowto-adal-error-handling.md      
     - name: Application configuration
@@ -196,8 +204,6 @@
       href: active-directory-authentication-libraries.md
     - name: Azure AD Graph API
       href: active-directory-graph-api.md
-    - name: Claims in Azure AD security tokens
-      href: active-directory-optional-claims.md
     - name: Application manifest
       href: reference-app-manifest.md
     - name: Authentication and authorization error codes
@@ -297,6 +303,8 @@
           href: v2-oauth2-on-behalf-of-flow.md
         - name: OAuth 2.0 client credentails grant
           href: v2-oauth2-client-creds-grant-flow.md
+        - name: OAuth 2.0 device code flow
+          href: v2-oauth2-device-code.md
       - name: ID tokens
         href: id-tokens.md
       - name: Access tokens
@@ -317,7 +325,7 @@
       - name: Consent framework
         href: consent-framework.md
       - name: Application consent experiences
-        href: ../application-consent-experience.md
+        href: application-consent-experience.md
     - name: National Clouds 
       href: authentication-national-cloud.md      
   - name: How-to guides
@@ -325,9 +333,17 @@
     - name: Authentication
       items:
       - name: Configure role claims
-        href: ../active-directory-enterprise-app-role-management.md
+        href: active-directory-enterprise-app-role-management.md
       - name: Customize claims
         href: active-directory-saml-claims-customization.md
+      - name: Customize claims (Preview)
+        href: active-directory-claims-mapping.md
+      - name: Configure optional claims (Preview)
+        href: active-directory-optional-claims.md
+      - name: Configure token lifetimes (Preview)
+        href: active-directory-configurable-token-lifetimes.md
+      - name: Authenticate with Azure AD and get a JWT token using OAuth 2.0
+        href: active-directory-protocols-oauth-get-jwt-token.md
     - name: Application configuration
       items:
       - name: Convert a single-tenant app to a multi-tenant app
