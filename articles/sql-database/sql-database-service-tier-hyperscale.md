@@ -118,7 +118,7 @@ You can move your existing Azure SQL databases to Hyperscale using the [Azure po
 The following T-SQL command moves a database into the Hyperscale service tier. You must specify both the edition and service objective in the `ALTER DATABASE` statement.
 
 ```sql
--- Alter a database to make it a HyperScale Database 
+-- Alter a database to make it a HyperScale Database
 ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen4_4');
 GO
 ```
