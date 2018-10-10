@@ -1,6 +1,6 @@
 ---
 title: Register for Azure NetApp Files | Microsoft Docs
-description: To enroll in the Public Preview program of Azure NetApp Files, you must submit a request to register your subscription for using the NetApp Resource Provider and the public preview feature. 
+description: Before using Azure NetApp Files, you must submit a request to enroll in the Azure NetApp Files service.  After the enrollment, you then register to use the service.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -17,30 +17,102 @@ ms.date: 09/19/2018
 ms.author: b-juche
 ---
 # Register for Azure NetApp Files
-To enroll in the Public Preview program of Azure NetApp Files, you must submit a request to register your subscription for using the NetApp Resource Provider and the public preview feature. 
+Before using Azure NetApp Files, you must submit a request to enroll in the Azure NetApp Files service.  After the enrollment, you then register to use the service.
 
-## Steps 
+## Request to enroll in the service
+Send a request as follows:
 
-1. To submit a request, run the following commands by using PowerShell or CLI 2.0:
-  * PowerShell  
+#### Steps 
 
-    `Register-AzureProvider -ProviderNamespace Microsoft.NetApp`  
 
-    `Register-AzureRmProviderFeature -FeatureName publicPreviewADC -ProviderNamespace Microsoft.NetApp`
-  * CLI 2.0  
+## Register to use the service 
 
-    `az provider register –-namespace Microsoft.NetApp`  
+After you have been enrolled in the Azure NetApp Files service, you must perform a few registration steps.
 
-    `az feature register –-namespace Microsoft.NetApp –-name publicPreviewADC`
+### Register the NetApp Resource Provider 
+You must register the Azure Resource Provider for Azure NetApp Files.
+
+#### Steps 
+1. From the Azure Portal, click the Azure Cloud Shell icon on the upper right-hand corner:
+
+      ![Azure Cloud Shell icon](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
+
+2. If you have multiple subscriptions on your Azure account, select the one that has been whitelisted for Azure NetApp Files:   
+
+   `az account set --subscription <subscriptionId>`
+
+3. In the Azure Cloud Shell console, enter the following command to verify that your subscription has been whitelisted:  
+
+   `az feature list | grep NetApp` 
+
+   The command output appears as follows: 
+
+   ```
+   "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC", 
+   "name": "Microsoft.NetApp/publicPreviewADC"
+   ```
   
-2.	After your request is approved, display your status to confirm that your subscription has been registered for the NetApp Resource Provider:  
 
-    1. From the Azure portal, click the **Subscriptions** blade.  
-    2. In the Subscriptions blade, click your subscription ID.  
-    3. In the settings of the subscription, click **Resource providers** to verify that Microsoft.NetApp shows **Registered**.  
+   `<SubID>` is your subscription ID.
+
+4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
+
+   `az provider register --namespace Microsoft.NetApp --wait`
+
+   The `--wait` parameter instructs the console to wait for the registration to complete. The registration process can take some time to complete.
+
+5. In the Azure Cloud Shell console, enter the following command to verify that the Azure Resource Provider has been registered:
+
+   `az provider show --namespace Microsoft.NetApp`
+
+   The command output appears as follows:
+   
+   ```
+   {
+   "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
+   "namespace": "Microsoft.NetApp",
+   "registrationState": "Registered",
+   "resourceTypes": [….
+   ```
+
+   The registrationState parameter value indicates Registered.   
+   `<SubID>` is your subscription ID. 
+
+6.	From the Azure Portal, click the **Subscriptions** blade.
+7.	In the Subscriptions blade, click your subscription ID. 
+8.	In the settings of the subscription, click **Resource providers** to verify that Microsoft.NetApp Provider indicates the Registered status:
+
 
       ![Registered Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
+### Register the AllowBaremetalServers Feature from Network Resource Provider
+
+You must also register the **AllowBaremetalServers** feature from the Network Resource Provider.
+
+#### Steps
+
+1.  In the Azure Cloud Shell console, enter the following command to register the AllowBaremetalServers feature:   
+
+   `az feature register –-name AllowBaremetalServers --namespace Microsoft.Network --wait `
+
+   The `--wait` parameter instructs the console to wait for the registration to complete. The registration process can take some time to complete.
+
+2.	In the Azure Cloud Shell console, enter the following command to verify that the AllowedBaremetalServers feature has been registered:   
+
+   `az feature show –-name AllowBaremetalServers --namespace Microsoft.Network`
+   
+   The command output appears as follows:
+
+   ```
+   {
+   "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowBaremetalServers",
+   "name": "Microsoft.Network/AllowBaremetalServers",
+   "properties":{
+   "state": "Registered",
+   …
+   ```
+
+   `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 
 
 ## Next steps  
