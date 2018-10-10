@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 10/10/2018
 ms.author: cynthn
 
 ---
@@ -63,7 +63,7 @@ Use the VHD as-is to create a new VM.
   
   * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM by using Sysprep.
   * Remove any guest virtualization tools and agents that are installed on the VM (such as VMware tools).
-  * Ensure the VM is configured to acquire its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the virtual network when it starts up. 
+  * Make sure the VM is configured to get the IP address and DNS settings from DHCP. This ensures that the server obtains an IP address within the virtual network when it starts up. 
 
 
 ### Get the storage account
@@ -243,7 +243,7 @@ Create networking and other VM resources to be used by the new VM.
 
 ### Create the subnet and virtual network
 
-Create the virtual network and subnet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
+Create the [virtual network](../../virtual-network/virtual-networks-overview.md) and subnet for the VM.
 
 1. Create the subnet. This example creates a subnet named *mySubNet*, in the resource group *myDestinationResourceGroup*, and sets the subnet address prefix to *10.0.0.0/24*.
    
@@ -267,7 +267,7 @@ Create the virtual network and subnet of the [virtual network](../../virtual-net
     
 
 ### Create the network security group and an RDP rule
-To be able to sign in to your VM with remote desktop protocol (RDP), you'll need to have a security rule that allows RDP access on port 3389. In our example, the VHD for the new VM was created from an existing specialized VM, you can use an account from the source virtual machine for RDP.
+To be able to sign in to your VM with remote desktop protocol (RDP), you'll need to have a security rule that allows RDP access on port 3389. In our example, the VHD for the new VM was created from an existing specialized VM, so you can use an account that existed on the source virtual machine for RDP.
 
 This example sets the network security group (NSG) name to *myNsg* and the RDP rule name to *myRdpRule*.
 
