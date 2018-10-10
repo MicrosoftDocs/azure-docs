@@ -13,7 +13,9 @@ ms.author: robinsh
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio is an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
 
-- Platform as a Service (PaaS): build your application using [Azure IoT solution accelerators](https://www.azureiotsolutions.com/), which are a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions, or [Azure Digital Twins](https://azure.microsoft.com/en-us/services/digital-twins/) service, which allows you to model the physical environment to create contextually-aware IoT solutions using a spatial intelligence graph and domain-specifc object models.
+- Platform as a Service (PaaS): build your application using any of the following services.
+    - [Azure IoT solution accelerators](https://www.azureiotsolutions.com/), which are a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions, or 
+    - [Azure Digital Twins](https://azure.microsoft.com/en-us/services/digital-twins/) service, which allows you to model the physical environment to create contextually-aware IoT solutions using a spatial intelligence graph and domain-specifc object models.
 
 - Software as a Service (SaaS): get started fast with [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources to build your own IoT solution, Azure IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
 
