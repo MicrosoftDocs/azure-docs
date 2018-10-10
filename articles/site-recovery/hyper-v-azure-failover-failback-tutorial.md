@@ -4,9 +4,10 @@ description: Learn how to fail over Hyper-V VMs to Azure, and fail back to the o
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: tutorial
+ms.date: 10/10/2018
 ms.author: raynew
+ms.custom: MVC
 ---
 
 # Failover and failback Hyper-V VMs replicated to Azure

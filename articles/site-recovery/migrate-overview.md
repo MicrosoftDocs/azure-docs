@@ -4,8 +4,8 @@ description: This article describes how to migrate on-premises and Azure VMs usi
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
 
 ---
