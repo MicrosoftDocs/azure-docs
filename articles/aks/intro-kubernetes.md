@@ -37,7 +37,7 @@ For more information, see [Monitor Azure Kubernetes Service container health][co
 
 ## Cluster and node
 
-AKS nodes run on Azure virtual machines. You can connect storage to nodes and pods, upgrade cluster components, and use GPUs. Right now, there is only Ubuntu Linux used as a operating system on nodes and it is not possible to load custom image.
+AKS nodes run on Azure virtual machines. You can connect storage to nodes and pods, upgrade cluster components, and use GPUs.
 
 ### Cluster node and pod scaling
 
