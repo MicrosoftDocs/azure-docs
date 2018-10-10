@@ -12484,6 +12484,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/load-balancer/load-balancer-configure-sqlao.md",
+            "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-portal.md",
             "redirect_url": "/azure/load-balancer/tutorial-load-balancer-basic-internal-portal",
             "redirect_document_id": false
@@ -16525,11 +16530,21 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-token-and-claims.md",
             "redirect_url": "/azure/active-directory/develop/v1-id-and-access-tokens",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/v1-id-and-access-tokens.md",
+            "redirect_url": "/azure/active-directory/develop/id-tokens",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-tokens.md",
             "redirect_url": "/azure/active-directory/develop/v2-id-and-access-tokens",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/v2-id-and-access-tokens.md",
+            "redirect_url": "/azure/active-directory/develop/access-tokens",
             "redirect_document_id": true
         },
         {

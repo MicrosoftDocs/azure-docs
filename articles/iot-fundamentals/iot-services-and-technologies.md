@@ -1,22 +1,23 @@
 ---
 title: Azure Internet of Things (IoT) technologies and solutions
 description: Presents the collection of PaaS/SaaS techologies and solutions available for building an Azure IoT solution.
-author: BryanLa
-manager: timlt
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
+ms.date: 10/09/2018
+ms.author: robinsh
 ---
 
 # Azure IoT technologies and solutions: PaaS and SaaS
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio is an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
+
 - Platform as a Service (PaaS): build your application using [Azure IoT solution accelerators](https://www.azureiotsolutions.com/), which are a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
+
 - Software as a Service (SaaS): get started fast with [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources to build your own IoT solution, Azure IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
 
-![Azure IoT technologies and solutions][img-paas-saas-technologies-solutions]
+![Azure IoT technologies and solutions](./media/iot-comparison/paas-saas-technologies-solutions.png)
 
 ## Solutions
 
@@ -72,9 +73,9 @@ Choosing your Azure IoT product is a critical part of planning your IoT solution
 
 The decision of which product to use to build your IoT solution is ultimately determined by:
 
-* Your business requirements.
+* Your business requirements
 * The type of solution you want to build
-* Your organization's skill set for building and maintaining the solution in the long term.
+* Your organization's skill set for building and maintaining the solution in the long term
 
 ## Technologies (PaaS)
 
@@ -91,20 +92,12 @@ Connect all your devices to Azure IoT using the open-source [device SDKs](/azure
 ### Edge
 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) is an Internet of Things (IoT) service. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge." By moving parts of your workload to the edge, you will experience reduced latency and have the option for off-line scenarios.
 
-
 ### Data and analytics
 Take advantage of an array of Azure data and analytics PaaS offerings in your IoT solution, from bringing cloud intelligence to the edge with Azure Machine Learning, to storing IoT device data in a cost-effective way with Azure Data Lake, to visualizing huge amount of data from IoT devices with [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
 
 ### Visualization and integration
 Microsoft Azure offers a complete cloud solution, one that combines a constantly growing collection of integrated cloud services with an industry-leading commitment to the protection and privacy of your data. Find out more about [Microsoft Azure](https://azure.microsoft.com/).
 
-
-
-
-
 ## Next steps
 
-Check out the [Get started](/azure/iot-hub/iot-hub-get-started) section to experience IoT features quickly and easily. Or for a more in-depth hands-on experience, try one of  the [Tutorials](/azure/iot-edge/tutorial-simulate-device-windows).
-
-[img-paas-saas-technologies-solutions]: media/iot-comparison/paas-saas-technologies-solutions.png
-
+Check out the [Get started section of the IoT Hub documentation](/azure/iot-hub/iot-hub-get-started) to experience IoT features quickly and easily. Or for a more in-depth hands-on experience, try one of the [IoT Edge Tutorials](/azure/iot-edge/tutorial-simulate-device-windows).
