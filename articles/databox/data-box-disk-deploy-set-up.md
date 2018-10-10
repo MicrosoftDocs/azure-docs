@@ -71,12 +71,14 @@ Depending on whether you are connected to a Windows or Linux client, the steps t
 Perform the following steps to connect and unlock your disks.
      
 1. In the Azure portal, go to **General > Device details**. 
-2. Download the Data Box Disk toolset corresponding to the Windows client. 
+2. Download the Data Box Disk toolset corresponding to the Windows client. This toolset contains 3 tools: Data Box Disk Unlock tool, Data Box Disk Validation tool, and Data Box Disk Split Copy tool. 
+
+    In this procedure, you will use only the Data Box Disk Unlock tool. The other two tools will be used later.
 
     > [!div class="nextstepaction"]
     > [Download Data Box Disk toolset for Windows](http://aka.ms/databoxdisktoolswin)         
 
-3. Extract the tool on the same computer that you will use to copy the data.
+3. Extract the toolset on the same computer that you will use to copy the data. 
 4. Open a Command Prompt window or run Windows PowerShell as administrator on the same computer.
 5. (Optional) To verify the computer that you are using to unlock the disk meets the operating system requirements, run the system check command. A sample output is shown below. 
 

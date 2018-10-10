@@ -13,7 +13,7 @@ ms.component: common
 Azure Storage provides a layered security model allowing you to secure your storage accounts to a specific set of allowed networks​.  When network rules are configured, only applications from allowed networks can access a storage account.  When calling from an allowed network, applications continue to require proper authorization (a valid access key or SAS token) to access the storage account.
 
 > [!IMPORTANT]
-> Turning on Firewall rules for your Storage account will block access to incoming requests for data, including from other Azure services.  This includes using the Portal, writing logs, etc.  For participating services you can re-enable functionality through the [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) section below.  To access the Portal you would need to do so from a machine within the trusted boundary (either IP or VNet) that you have set up.
+> Turning on Firewall rules for your Storage account will block access to incoming requests for data, including from other Azure services.  This includes using the Portal, writing logs, etc.  Azure services that operate from within a VNet can be granted access by allowing the subnet of the service instance.  Azure services that do not operate from within a VNet will be blocked by the firewall.  A limited number of scenarios can be enabled through the [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) mechanism described below.  To access the Portal you would need to do so from a machine within the trusted boundary (either IP or VNet) that you have set up.
 >
 
 ## Scenarios
