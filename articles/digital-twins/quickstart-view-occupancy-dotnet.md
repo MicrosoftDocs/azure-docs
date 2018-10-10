@@ -60,11 +60,11 @@ This step provisions your Digital Twins spatial graph with several spaces, one d
     >We use Device Login Azure CLI tool to authenticate the user to Azure AD. The user needs to enter a given code to authenticate using [the Microsoft login](https://microsoft.com/devicelogin) page. After code is entered, follow steps to authenticate. The user is requested to authenticate every time when the tool is running.
     
     >[!TIP]
-    > If you are getting below error when running this step, please check to make sure your variables were copied properly. 
+    > If you are getting the following error when running this step, please check to make sure your variables were copied properly. 
     > `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 
-1. The provisioning step might take few minutes or so. It will also provision an IoT Hub within your Digital Twins instance and it will loop through until IoTHub has Status=`Running`
+1. The provisioning step might take few minutes or so. It will also provision an IoT Hub within your Digital Twins instance and it will loop through until IoTHub has Status=`Running`.
 
     ![Provision Sample][4]
 
@@ -76,7 +76,7 @@ This step provisions your Digital Twins spatial graph with several spaces, one d
 
 You can build and run the sensor simulator application using the steps below:
 
-1. Open a new command prompt and navigate to the project you've downloaded, in digital-twins-samples-csharp-master folder
+1. Open a new command prompt and navigate to the project you've downloaded, in digital-twins-samples-csharp-master folder.
 1. Run `cd device-connectivity`.
 1. Run `dotnet restore`.
 1. Edit *appsettings.json* to update *DeviceConnectionString* with the `ConnectionString` above.
@@ -87,7 +87,7 @@ You can build and run the sensor simulator application using the steps below:
 1. Let this simulator run so you can view results side by side with the next step action. This window will show you the simulated sensor data sent to Digital Twins and the next step will query in real time to find available rooms with fresh air.
 
     >[!TIP]
-    > If you are getting below error when running this step, please check to make sure your `DeviceConnectionString` was copied properly.  
+    > If you are getting the following error when running this step, please check to make sure your `DeviceConnectionString` was copied properly.  
     > `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 ## Find available spaces with fresh air
