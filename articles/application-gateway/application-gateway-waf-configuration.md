@@ -19,6 +19,7 @@ The Azure Application Gateway web application firewall (WAF) provides protection
 
 ## WAF request size limits
 Web Application Firewall allows users to configure request size limits within lower and upper bounds. The following two size limits configurations are available:
+
 - The maximum request body size field is specified in KBs and controls overall request size limit excluding any file uploads. This field can range from 1-KB minimum to 128-KB maximum value. The default value for request body size is 128 KB.
 - The file upload limit field is specified in MB and it governs the maximum allowed file upload size. This field can have a minimum value of 1 MB and a maximum of 500 MB. The default value for file upload limit is 100 MB.
 
