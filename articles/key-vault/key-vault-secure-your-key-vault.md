@@ -18,10 +18,12 @@ ms.author: ambapat
 
 ---
 # Secure your key vault
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords) for your cloud applications. Since this data is sensitive and business critical, access to your key vaults must be secured so that only authorized applications and users can obtain access. This article provides an overview of key vault access model, explains authentication and authorization, and describes how to secure access to key vault for your cloud applications with an example.
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords). Since this data is sensitive and business critical, access to your key vaults must be secured, allowing only authorized applications and users to obtain access. 
+
+This article provides an overview of key vault access model, explains authentication and authorization, and describes how to secure access to key vault.
 
 ## Overview
-Access to a key vault is controlled through two separate interfaces: management plane and data plane. For both planes, proper authentication and authorization are required before a caller (a user or an application) can get access to key vault. Authentication establishes the identity of the caller, while authorization determines what operations the caller is allowed to perform.
+Access to a key vault is controlled through two separate interfaces: management plane and data plane. For both planes, proper authentication and authorization are required before a caller (a user or an application) can get access to key vault. Authentication establishes the identity of the caller, while authorization determines the operations the caller is allowed to perform.
 
 For authentication both management plane and data plane use Azure Active Directory. For authorization, management plane uses role-based access control (RBAC) while data plane uses key vault access policy.
 
@@ -38,7 +40,7 @@ Here is a brief overview of the topics covered:
 [Example](#example) - This example describes how to set up access control for your key vault to allow three different teams (security team, developers/operators, and auditors) to perform specific tasks to develop, manage, and monitor an application in Azure.
 
 ## Authentication using Azure Active Directory
-When you create a key vault in an Azure subscription, it is automatically associated with the subscription's Azure Active Directory tenant. All callers (users and applications) must be registered in this tenant to access this key vault. An application or a user must authenticate with Azure Active Directory to access key vault. This requirement applies to both management plane and data plane access. In both cases, an application can access key vault in two ways:
+When you create a key vault in an Azure subscription, it is automatically associated with the subscription's Azure Active Directory tenant. All callers (users and applications) must be registered in this tenant to access the key vault. An application or a user must first authenticate with Azure Active Directory. This requirement applies to both management plane and data plane access. In both cases, an application can access key vault in two ways:
 
 * **user+app access** - Used with applications that access key vault on behalf of a signed-in user. Azure PowerShell and Azure portal are examples of this type of access. There are two ways to grant access to users: 
 - Grant access to users so they can access key vault from any application.
