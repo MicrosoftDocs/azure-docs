@@ -47,10 +47,9 @@ You must register the Azure Resource Provider for Azure NetApp Files.
 
    The command output appears as follows: 
 
-   `
-   "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
-   "name": "Microsoft.NetApp/publicPreviewADC"
-   `
+   
+   `"id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",`
+   `"name": "Microsoft.NetApp/publicPreviewADC"`
    
    `<SubID>` is your subscription ID.
 
@@ -69,8 +68,7 @@ You must register the Azure Resource Provider for Azure NetApp Files.
    `
    {
    "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
-   "namespace": "Microsoft.NetApp",
-   "registrationState": "Registered",
+   "namespace": "Microsoft.NetApp", "registrationState": "Registered",
    "resourceTypes": [….
    `
 
@@ -79,8 +77,7 @@ You must register the Azure Resource Provider for Azure NetApp Files.
 
 6.	From the Azure portal, click the **Subscriptions** blade.
 7.	In the Subscriptions blade, click your subscription ID. 
-8.	In the settings of the subscription, click **Resource providers** to verify that Microsoft.NetApp Provider indicates the Registered status:
-
+8.	In the settings of the subscription, click **Resource providers** to verify that Microsoft.NetApp Provider indicates the Registered status: 
 
       ![Registered Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
