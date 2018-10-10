@@ -67,7 +67,7 @@ You can deploy your images to the following [deployment targets](how-to-deploy-a
 * Azure FPGA machines
 * Azure IoT Edge devices
 
-As your service is deployed, the inferencing request is automatically load-balanced and the cluster is scaled to satisfy any spikes on demand. [Telemetry about your service](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) can be captured into the Azure Application Insights service associated with your Workspace.
+As your service is deployed, the inferencing request is automatically load-balanced and the cluster is scaled to satisfy any spikes on demand. [Telemetry about your service can be captured](how-to-enable-app-insights.md) into the Azure Application Insights service associated with your Workspace.
 
 ## Step 4: Monitor models and collect data
 

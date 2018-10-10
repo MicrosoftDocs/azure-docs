@@ -57,6 +57,9 @@ Before you prepare your environment, be sure to understand these limitations:
   * Virtual machines with multiple reserved IP addresses
   * Virtual machines with multiple network adapters
 
+  > [!NOTE]
+  > Azure Backup supports [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), a new type of durable storage for Microsoft Azure virtual machines. It is supported for managed disks on [Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md).
+
 ## Create a Recovery Services vault for a VM
 A Recovery Services vault is an entity that stores the backups and recovery points that have been created over time. The Recovery Services vault also contains the backup policies that are associated with the protected virtual machines.
 
