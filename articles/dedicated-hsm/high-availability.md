@@ -10,23 +10,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/10/2018
 ms.author: barclayn
 
 ---
 # Azure Dedicated HSM High Availability
 
-The Azure Dedicated HSM service is inherently highly available in terms of power, cooling and network access as a result of being deployed across Microsoft’s global datacenters. However, any highly available datacenter is susceptible to localized and regional level failure. For this reason, Microsoft deploys HSM devices in different availability zones within a region, and also makes available HSM devices within other regions. Using Gemalto software, software level high availability can be achieved by pairing these HSM devices, firstly across availability zones within a region and secondly across regions. With this full high-availability configuration, any device failure will be automatically catered to in software in terms of continued operation of the application. All datacenters have spare device capacity in-rack and spare components on site therefore any failed device can be replaced in a timely fashion.
+Azure Dedicated HSM has redundant power, cooling, and network access. However, any highly available datacenter is vulnerable to localized and regional level failures. Microsoft deploys HSM devices in different availability zones within a region. It also makes available HSM devices in other regions. High availability can be achieved by pairing these HSMs across availability zones within a region. It is also possible to pair devices across regions. With this high-availability configuration, any device failure will be automatically addressed to keep applications working. All datacenters have spare devices and spare components on site so any failed device can be replaced in a timely fashion.
 
-Please refer to the Gemalto Luna Network HSM Administration Guide section 6 for more details on configuring HSM devices for high availability. This document is available on the [Gemalto Customer Support Portal](https://supportportal.gemalto.com/csm/).
+Information on how to configure HSM devices for high availability is in the 'Gemalto Luna network HSM Administration Guide'. This document is available on the [Gemalto Customer Support Portal](https://supportportal.gemalto.com/csm/).
 
-The following diagram depicts a typical high-availability architecture with multiple device in region and multiple devices pair in a separate region. The implication of the architecture is a minimum of 4 HSM devices in any customer solution as well as required virtual networking components.
+The following diagram shows a highly available architecture. It uses multiple devices in region and multiple devices paired in a separate region. This architecture uses a minimum of four HSM devices and virtual networking components.
 
 ![High availability diagram](media/high-availability/high-availability.png)
 
 ## Next steps
 
-It is recommended that all key concepts of the service, such as high availability and security for example, are well understood before and device provisioning and application design or deployment.
+It is recommended that all key concepts of the service, such as high availability and security, are well understood before device provisioning and application design or deployment.
 Further concept level topics:
 
 * [Deployment Architecture](deployment-architecture.md)
