@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: alkohli
 ms.custom: 
 
@@ -31,7 +31,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
 
 ## Data Box limits
 
-- Data Box can store a maximum of 5 million files.
+- Data Box can store a maximum of 500 million files.
 
 ## Azure storage limits
 
