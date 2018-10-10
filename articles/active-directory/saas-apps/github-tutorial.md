@@ -159,9 +159,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Settings](./media/github-tutorial/tutorial_github_config_github_051.png)
 
-	a. In the **Sign on URL** textbox, paste **SAML Single sign-on Service URL** value which you have copied from the Azure portal.
+	a. In the **Sign on URL** textbox, paste **Login URL** value which you have copied from the Azure portal.
 
-	b. In the **Issuer** textbox, paste **SAML Entity ID** value which you have copied from the Azure portal.
+	b. In the **Issuer** textbox, paste **Azure Ad Identifier** value which you have copied from the Azure portal.
 
 	c. Open the downloaded certificate from Azure portal in notepad, paste the content into the **Public Certificate** textbox.
 
