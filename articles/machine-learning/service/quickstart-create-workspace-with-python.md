@@ -82,6 +82,7 @@ Create a new Azure resource group and a new workspace.
 Find a value for `<azure-subscription-id>` in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor.
 
 ```python
+from azureml.core import Workspace
 ws = Workspace.create(name='myworkspace',
                       subscription_id='<azure-subscription-id>',
                       resource_group='myresourcegroup',

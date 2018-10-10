@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory access tokens reference | Microsoft Docs
-description: Accepting access tokens emitted by the v1.0 and v2.0 endpoints of Azure AD. 
+description: Learn about access tokens emitted by the v1.0 and v2.0 endpoints of Azure AD. 
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -83,6 +83,7 @@ Claims are present only if a value exists to fill it. Thus, your app should not 
 |-----|--------|-------------|
 | `aud` | String, an App ID URI | Identifies the intended recipient of the token. In access tokens, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value and reject the token if the value does not match. |
 | `iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
+|`idp`|String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim is not present, it means that the value of `iss` can be used instead.  For personal accounts being used in an orgnizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred. |
 | `nbf` | int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT must not be accepted for processing. |
 | `exp` | int, a UNIX timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT must not be accepted for processing. It's important to note that a resource may reject the token before this time as well, such as when a change in authentication is required or a token revocation has been detected. |
