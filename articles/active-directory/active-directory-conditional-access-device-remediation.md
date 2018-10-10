@@ -1,67 +1,51 @@
 ---
-title: You can't get there from here on the Azure portal from a Windows device| Microsoft Docs
-description: Learn where you can't get there from here comes from and what you could check to avoid running into this dialog.
+title: Potential reasons for the "You can't get there from here" error message in Azure Active Directory| Microsoft Docs
+description: Troubleshoot the potential reasons you're getting the "You can't get there from here" error message.
 services: active-directory
-keywords: device-based conditional access, device registration, enable device registration, device registration and MDM
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft 
 manager: mtillman
 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/15/2018
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 10/10/2018
+ms.author: lizross
 ms.reviewer: jairoc
 
 ---
-# You can't get there from here on a Windows device
+# Potential reasons for the "You can't get there from here" error message
+While accessing your organization's internal web apps or sites, you might receive an error message that says, **You can't get there from here**. This message appears when your organization has put a policy in place that's conditionally preventing access to your organization's resources. While it might be necessary to contact your Helpdesk to fix this problem, there are a few things you can try first.
 
-During an attempt to, for example, access your organization's SharePoint Online intranet you might run into a page that states that *you can't get there from here*. You are seeing this page, because your administrator has configured a conditional access policy that prevents access to your organization's resources under certain conditions. While it might be necessary to contact helpdesk or your administrator to get this problem solved, there are a few things you can try out yourself, first.
+## Make sure you're using a supported browser
+If you get the **You can't get there from here** message saying that your trying to access your organization's sites from an unsupported browser, you should check to see which browser you're running.
 
-If you are using a **Windows** device, you should check the following:
+![Error message related to browser support](media/active-directory-conditional-access-device-remediation/02.png)
 
-- Are you using a supported browser?
+To fix this problem, you must install and run a supported browser, based on your operating system. If you're using Windows 10, the supported browsers include Microsoft Edge, Internet Explorer, and Google Chrome. If you're using a different operating system, you can check the complete list of [supported browsers](../../conditional-access/technical-reference#supported-browsers.md).
 
-- Are you running a supported version of Windows on your device?
+## Make sure you're using a supported version of the operating system
+You must make sure that you're running a supported version of the operating system, including:
 
-- Is your device compliant?
+- **Windows Client.** Windows 7 or later.
 
+- **Windows Server.** Windows Server 2008 R2 or later.
 
+- **macOS.** macOS X or later
 
+- **Android and iOS.** Latest version of Android and iOS mobile operating systems
 
+## Make sure your device is joined to your organization's network
+If you get the **You can't get there from here** message saying that your device is out-of-compliance with your organization's access policy, you must make sure your device is joined to your on-premises network or your cloud network.
 
+![Error message related to browser support](media/active-directory-conditional-access-device-remediation/01.png)
 
-## Supported browser
-
-If your administrator has configured a conditional access policy, you can only access your organization's resources by using a supported browser. On a Windows device, only **Internet Explorer** and **Edge** are supported.
-
-You can easily identify whether you can't access a resource due to an unsupported browser by looking at the details section of the error page:
-
-!["You can't get there from here" message for unsupported browsers](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
-
-The only remediation is to use a browser that the application supports for your device platform. For a complete list of supported browsers, see [supported browsers](active-directory-conditional-access-supported-apps.md).  
-
-
-## Supported versions of Windows
-
-The following must be true about the Windows operating system on your device: 
-
-- If you are running a Windows desktop operating system on your device, it needs to be Windows 7 or later.
-- If you are running a Windows server operating system on your device, it needs to be Windows Server 2008 R2 or later. 
+### To make sure your device is joined to your on-premises network
 
 
-## Compliant device
 
-Your administrator might have configured a conditional access policy that allows access to your organization's resources only from compliant devices. To be compliant, your device must be either joined to your on-premises Active Directory or joined to your Azure Active Directory.
 
-You can easily identify whether you can't access a resource due to a device that is not compliant by looking at the details section of the error page:
- 
-!["You can't get there from here" messages for unregistered devices](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
 
 
 ### Is your device joined to an on-premises Active Directory?
@@ -144,17 +128,11 @@ If your device is not domain-joined and runs Windows 8.1, to do a Workplace Join
 
 
 **Windows 10 November 2015 Update (Version 1511):**
-
 1. Open the **Settings** app.
 2. Click **Accounts** > **Your accounts**.
 3. Click **Add work or school account**.
 4. Authenticate to your organization, provide multi-factor authentication if prompted, and then follow the steps that are shown.
 5. Try again to access the application.
 
-
-
-
-
 ## Next steps
 [Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md)
-
