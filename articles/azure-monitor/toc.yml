@@ -233,8 +233,9 @@
         - name: Troubleshoot Logs Linux agent
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
     - name: Agent data sources
-      href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
       items:
+      - name: Overview
+        href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
       - name: Windows events
         href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
       - name: Custom JSON data
