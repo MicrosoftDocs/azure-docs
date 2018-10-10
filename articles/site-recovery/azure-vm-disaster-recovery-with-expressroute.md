@@ -1,5 +1,5 @@
 ---
-title: Integrate disaster recovery for Azure VMs using Azure Site Recovery and Azure ExpressRoute | Microsoft Docs
+title: Integrate Azure ExpressRoute with disaster recovery for Azure VMs using Azure Site Recovery  | Microsoft Docs
 description: Describes how to set up disaster recovery for Azure VMs using Azure Site Recovery and Azure ExpressRoute
 services: site-recovery
 author: mayanknayar
@@ -10,7 +10,7 @@ ms.date: 10/02/2018
 ms.author: manayar
 
 ---
-# Integrate disaster recovery for Azure VMs with Azure ExpressRoute
+# Integrate Azure ExpressRoute with disaster recovery for Azure VMs
 
 
 This article describes how to integrate Azure ExpressRoute with [Azure Site Recovery](site-recovery-overview.md), when you set up disaster recovery for Azure VMs to a secondary Azure region.
@@ -157,8 +157,9 @@ This configuration helps protect against failure of the primary ExpressRoute cir
 - With simultaneous connections to primary and target, make sure that  on-premises routing only uses the secondary circuit and connection after failover.
 -	You can’t connect both circuits to the same vNet when circuits are created at the same peering location.
 
-### Access with a single route circuit
-In this configuration there's only one Expressroute circuit. Although the circuit has a redundant connection in case one goes down, a single route circulate will not provide resilience if your peering region goes down. Note that:
+### Access with a single circuit
+
+In this configuration there's only one Expressroute circuit. Although the circuit has a redundant connection in case one goes down, a single route circuit will not provide resilience if your peering region goes down. Note that:
 
 - You can replicate Azure VMs to to any Azure region in the [same geographic location](azure-to-azure-support-matrix.md#region-support). If the target Azure region isn't in the same location as the source, you need to enable ExpressRoute Premium if you’re using a single ExpressRoute circuit. Learn about [ExpressRoute locations](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 - You can’t connect source and target vNets simultaneously to the circuit if the same IP address space is used on the target region. In this scenario:    
