@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 10/10/2018
 ---
 
 # Hyperscale service tier (preview)
@@ -98,6 +98,30 @@ Backups are file-snapshot base and hence they are nearly instantaneous. Storage 
 ## Scale and performance advantages
 
 With the ability to rapidly spin up/down additional read-only compute nodes, the Hyperscale architecture allows significant read scale capabilities and can also free up the primary compute node for serving more write requests. Also, the compute nodes can be scaled up/down rapidly due to the shared-storage architecture of the Hyperscale architecture.
+
+## Create a HyperScale database
+
+A HyperScale database can be created using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). HyperScale Databases are available only using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
+
+The following T-SQL command creates a Hyperscale database.
+
+```sql
+-- Create a HyperScale Database
+CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen4_4');
+GO
+```
+
+> [!IMPORTANT]
+> [Transparent Database Encyption (TDE)](transparent-data-encryption-azure-sql.md) should be turned off before altering a non-Hyperscale database to HyperScale.
+
+## Connect to a read-scale replica of a Hyperscale database
+
+In HyperScale databases, the `ApplicationIntent` argument in the connection string provided by the client dictates whether the connection is routed to the write replica or to a read-only secondary replica. If the `AplicationIntent` set to `READONLY` and the database does not have a secondary replica, connection will be routed to the primary replica and defaults to `ReadWrite` behavior.
+
+```cmd
+-- Connection string with application intent
+Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+```
 
 ## Available regions
 
