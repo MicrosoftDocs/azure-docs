@@ -33,7 +33,7 @@ After you have been enrolled in the Azure NetApp Files service, you must perform
 You must register the Azure Resource Provider for Azure NetApp Files.
 
 #### Steps 
-1. From the Azure Portal, click the Azure Cloud Shell icon on the upper right-hand corner:
+1. From the Azure portal, click the Azure Cloud Shell icon on the upper right-hand corner:
 
       ![Azure Cloud Shell icon](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
@@ -78,7 +78,7 @@ You must register the Azure Resource Provider for Azure NetApp Files.
    The registrationState parameter value indicates Registered.   
    `<SubID>` is your subscription ID. 
 
-6.	From the Azure Portal, click the **Subscriptions** blade.
+6.	From the Azure portal, click the **Subscriptions** blade.
 7.	In the Subscriptions blade, click your subscription ID. 
 8.	In the settings of the subscription, click **Resource providers** to verify that Microsoft.NetApp Provider indicates the Registered status:
 
