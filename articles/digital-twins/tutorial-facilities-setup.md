@@ -44,8 +44,6 @@ Use the steps in this section to create a new instance of the Digital Twins serv
 
 ## Set permissions for your app
 
-Digital Twins uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) to control [read/write access](../active-directory/develop/v1-permissions-and-consent.md) to the service. Use the steps in this section to allow your sample application to connect with your Digital Twins instance. 
-
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 
