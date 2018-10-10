@@ -610,12 +610,12 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
     ![New console application](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 4. Run the following query on the Clinic database.
 
-```sql
-     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
- ```
+   ```sql
+      SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+   ```
 
      You can now see the plaintext data in the encrypted columns.
-  ![New console application](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
+     ![New console application](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
 ## Next steps
