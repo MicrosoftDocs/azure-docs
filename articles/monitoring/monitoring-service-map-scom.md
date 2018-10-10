@@ -43,6 +43,9 @@ You enable the integration between Operations Manager and Service Map by importi
 ## Configure the Service Map integration
 After you install the Service Map management pack, a new node, **Service Map**, is displayed under **Operations Management Suite** in the **Administration** pane. 
 
+>[!NOTE]
+>Operations Management Suite is now referred to as Log Analytics.
+
 To configure Service Map integration, do the following:
 
 1. To open the configuration wizard, in the **Service Map Overview** pane, click **Add workspace**.  
@@ -101,7 +104,12 @@ The Service Map folder has four nodes:
     ![The Operations Manager distributed application diagram](media/monitoring-service-map/scom-dad.png)
 
 ## Edit or delete the workspace
-You can edit or delete the configured workspace through the **Service Map Overview** pane (**Administration** pane > **Operations Management Suite** > **Service Map**). You can configure only one Log Analytics workspace for now.
+You can edit or delete the configured workspace through the **Service Map Overview** pane (**Administration** pane > **Operations Management Suite** > **Service Map**).
+
+>[!NOTE]
+>Operations Management Suite is now referred to as Log Analytics.
+
+You can configure only one Log Analytics workspace for now.
 
 ![The Operations Manager Edit Workspace pane](media/monitoring-service-map/scom-edit-workspace.png)
 
