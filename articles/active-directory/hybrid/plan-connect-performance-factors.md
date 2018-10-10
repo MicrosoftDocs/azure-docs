@@ -24,7 +24,7 @@ Azure AD Connect syncs your Active Directory to Azure AD. This server is a criti
 | Configuration| How Azure AD Connect processes the directories and information. |
 | Load| Frequency of object changes. The loads may vary during an hour, day, or week. Depending on the component, you may have to design for peak load or average load. |
 
-The purpose of this document is to describe the performance considerations influencing the performance of the provisioning engine of Azure AD Connect. The other components of Azure AD Connect, such as [Azure AD Connect health](how-to-connect-health-agent-install.md) and agents aren't covered here.
+The purpose of this document is to describe the factors influencing the performance of the Azure AD Connect provisioning engine. Very large or complex organizations (organizations managing the provisioning of more than 100,000 objects) can use the recommendations in this document to optimize their Azure AD Connect implementation, if they experience any performance issues outlined here. The other components of Azure AD Connect, such as [Azure AD Connect health](how-to-connect-health-agent-install.md) and agents aren't covered here.
 
 > [!IMPORTANT]
 > Microsoft doesn't support modifying or operating Azure AD Connect outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
