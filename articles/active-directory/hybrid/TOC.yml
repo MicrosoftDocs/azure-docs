@@ -78,6 +78,8 @@
       href: plan-connect-design-concepts.md
     - name: Topologies for Azure AD Connect
       href: plan-connect-topologies.md
+    - name: Factors influencing the performance of Azure AD Connect
+      href: plan-connect-performance-factors.md
     - name: How will users sign-in
       href: plan-connect-user-signin.md
     - name: Special considerations for instances
@@ -144,7 +146,7 @@
       href: how-to-connect-fed-single-adfs-multitenant-federation.md
     - name: Renew federation certificates for O365 and Azure AD 
       href: how-to-connect-fed-o365-certs.md
-    - name: Update the SSL cerfictate for AD FS
+    - name: Update the SSL certificate for AD FS
       href: how-to-connect-fed-ssl-update.md
     - name: Manage the AD FS trust with Azure AD
       href: how-to-connect-azure-ad-trust.md

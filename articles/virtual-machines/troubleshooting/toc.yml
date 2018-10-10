@@ -101,10 +101,19 @@
       href: troubleshoot-recovery-disks-linux.md
     - name: Azure portal
       href: troubleshoot-recovery-disks-portal-linux.md
-- name: BitLocker errors 
-  href: troubleshoot-bitlocker-boot-error.md  
-- name: Checking file system errors
-  href: troubleshoot-check-disk-boot-error.md
+- name: Boot errors
+  href: boot-error-troubleshoot.md
+  items:
+  - name: BitLocker errors 
+    href: troubleshoot-bitlocker-boot-error.md  
+  - name: Checking file system errors
+    href: troubleshoot-check-disk-boot-error.md
+  - name: Blue screen errors
+    href: troubleshoot-common-blue-screen-error.md
+  - name: VM startup is stuck
+    href: troubleshoot-vm-boot-configure-update.md
+  - name: Critical service failed
+    href: troubleshoot-critical-service-failed-boot-error.md
 - name: Throttling errors
   href: troubleshooting-throttling-errors.md
 - name: Use nested virtualization 

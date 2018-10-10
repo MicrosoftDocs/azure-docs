@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/09/2018
 ms.author: douglasl
 ---
 # Continuous integration and delivery (CI/CD) in Azure Data Factory
@@ -108,6 +108,11 @@ Here are the steps to set up an Azure Pipelines release so you can automate the 
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
+    g. Select the **Incremental** Deployment Mode.
+
+    > [!WARNING]
+    > If you select **Complete** deployment mode, existing resources may be deleted, including all the resources in the target resource group that are not defined in the Resource Manager template.
+
 1.  Save the release pipeline.
 
 1.  Create a new release from this release pipeline.
@@ -172,6 +177,9 @@ Deployment can fail if you try to update active triggers. To update active trigg
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 You can follow similar steps and use similar code (with the `Start-AzureRmDataFactoryV2Trigger` function) to restart the triggers after deployment.
+
+> [!IMPORTANT]
+> In continuous integration and deployment scenarios, the Integration Runtime type across different environments must be the same. For example, if you have a *Self-Hosted* Integration Runtime (IR) in the development environment, the same IR must be of type *Self-Hosted* in other environments such as test and production also. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the IRs as *Linked Self-Hosted* in all environments, such as development, test, and production.
 
 ## Sample deployment template
 
