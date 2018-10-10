@@ -88,8 +88,6 @@ Aggregated data (that is, counts, averages and other statistical data that you s
 
 [Debug snapshots](app-insights-snapshot-debugger.md) are stored for seven days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 
- To request an increase, customers should create a support ticket through the Portal
-
 ## Who can access the data?
 The data is visible to you and, if you have an organization account, your team members. 
 
