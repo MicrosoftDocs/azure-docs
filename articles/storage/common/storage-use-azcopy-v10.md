@@ -11,7 +11,7 @@ ms.component: common
 ---
 # Transfer data with the AzCopy v10 (Preview)
 
-AzCopy (v10 Preview) is the next-generation command-line utility for copying data to/from Microsoft Azure Blob and File storage, using simple commands designed for optimal performance. Using AzCopy you can copy data between a file system and a storage account, or between storage accounts.
+AzCopy v10 (Preview) is the next-generation command-line utility for copying data to/from Microsoft Azure Blob and File storage which offers completely redesigned command-line interface, new architecture for performant and reliable data transfers. Using AzCopy you can copy data between a file system and a storage account, or between storage accounts.
 
 ## What's New in AzCopy v10 (Preview)
 
@@ -22,7 +22,7 @@ AzCopy (v10 Preview) is the next-generation command-line utility for copying dat
 - List/Remove files and blobs in a given path.
 - Supports wildcard patterns in a path as well as --include and --exclude flags.
 - Improved resiliency: every AzCopy instance will create a job order and a related log file. You can view and restart previous jobs and resume failed jobs. AzCopy will also automatically retry a transfer after failure.
-- Improved performance all around! 
+- General performance improvements.
 
 ## Download and install AzCopy
 
@@ -95,13 +95,13 @@ Use the copy command to transfer data from the source to the destination. The so
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-The following command will upload all files under the folder C:\local\path recursively to the container "mycontainer1":
+The following command uploads all files under the folder C:\local\path recursively to the container "mycontainer1":
 
 ```azcopy
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
-The following command will upload all files under the folder C:\local\path (without recursing into the subdirectories) to the container "mycontainer1":
+The following command uploads all files under the folder C:\local\path (without recursing into the subdirectories) to the container "mycontainer1":
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
