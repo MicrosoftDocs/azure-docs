@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](./media/appraisd-tutorial/b1-domains_and_urlsedit.png)
 
-4. On the **Basic SAML Configuration** section perform the following steps, if you wish to configure the application in **IDP** initiated mode:
+4. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** initiated mode:
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_url.png)
 
@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     > [!NOTE]
 	> You get the actual Sign-on URL and Relay State value on the Appraisd SSO Configuration page which is explained later in the tutorial.
 	
-5. Appraisd application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+5. Appraisd application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. Click **Edit** button to open **User Attributes** dialog.
 
 	![image](./media/appraisd-tutorial/i3-attribute.png)
 
@@ -162,9 +162,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-	a. Copy the **Default Relay State** value for your instance and paste it in **Relay State** textbox in **Basic SAML Configuration** on Azure portal.
+	a. Copy the **Default Relay State** value and paste it in **Relay State** textbox in **Basic SAML Configuration** on Azure portal.
 
-	b. Copy the **Service-initiated login URL** value for your instance and paste it in **Sign on URL** textbox in **Basic SAML Configuration** on Azure portal.
+	b. Copy the **Service-initiated login URL** value and paste it in **Sign-on URL** textbox in **Basic SAML Configuration** on Azure portal.
 
 13. Scroll down the same page under **Identifying users**, perform the following steps:
 
