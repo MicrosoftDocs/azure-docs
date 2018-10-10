@@ -1,5 +1,5 @@
 ---
-title: "CRITICAL SERVICE FAILED" when booting an Azure VM | Microsoft Docs
+title: CRITICAL SERVICE FAILED when booting an Azure VM | Microsoft Docs
 description: Learn how to troubleshoot the "0x0000005A-CRITICAL SERVICE FAILED" error that occurs when booting | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -44,13 +44,13 @@ To resolve this problem, [contact support and submit a dump file](./troubleshoot
 
 ### Attach the OS disk to a recovery VM
 
-1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](snapshot-copy-managed-disk.md).
-2. [Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal.md). 
+1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
+2. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md). 
 3. Establish a remote desktop connection to the recovery VM.
 
 ### Enable dump logs and Serial Console
 
-The dump log and [Serial Console](serial-console.md) will help us to do further troubleshooting.
+The dump log and [Serial Console](./serial-console-windows.md) will help us to do further troubleshooting.
 
 To enable dump logs and Serial Console, run the following script.
 
@@ -91,7 +91,7 @@ To enable dump logs and Serial Console, run the following script.
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Detach the OS disk and then re-attach the OS disk to the affected VM](troubleshoot-recovery-disks-portal.md). The VM will boot into Safe mode. If you still experience the error, go to the [optional step](#optional-analysis-the-dump-logs-in-boot-debug-mode).
+2. [Detach the OS disk and then re-attach the OS disk to the affected VM](troubleshoot-recovery-disks-portal-windows.md). The VM will boot into Safe mode. If you still experience the error, go to the [optional step](#optional-analysis-the-dump-logs-in-boot-debug-mode).
 3. Open the **Run** box and run **verifier** to start the Driver Verifier Manager tool.
 4. Select **Automatically select unsigned drivers**, and then click **Next**.
 5. You will get the list of the driver files that are unsigned. Remember the file names.
@@ -133,7 +133,7 @@ To analyse the dump logs yourself, follow these steps:
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} recoveryenabled no
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} integrityservices disable
     ```
-9. [Detach the OS disk and then re-attach the OS disk to the affected VM](troubleshoot-recovery-disks-portal.md).
+9. [Detach the OS disk and then re-attach the OS disk to the affected VM](troubleshoot-recovery-disks-portal-windows.md).
 10.	Boot the VM to see if it shows dump analysis. Find the file that fails to load. You need to replace this file with a file from the working VM. 
 
     The following is sample of dump analysis. You can see that the **FAILURE** is on filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
