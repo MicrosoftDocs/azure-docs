@@ -91,15 +91,13 @@ Container groups default to a [restart policy](container-instances-restart-polic
 
 When running container groups without long-running processes you may see repeated exits and restarts with images such as Ubuntu or Alpine. Connecting via [EXEC](container-instances-exec.md) will not work as the container has no process keeping it alive. To resolve this include a start command like the following with your container group deployment to keep the container running.
 
-azurecli-interactive
-```
-# Deploying a Linux container
+```azurecli-interactive
+## Deploying a Linux container
 az container create -g MyResourceGroup --name myapp --image ubuntu --command-line "tail -f /dev/null"
 ```
 
-azurecli-interactive
-```
-# Deploying a Windows container
+```azurecli-interactive 
+## Deploying a Windows container
 az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
  --command-line "ping -t localhost"
 ```
