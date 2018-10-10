@@ -5,6 +5,7 @@ services: databox
 author: alkohli
 
 ms.service: databox
+ms.subservice: pod
 ms.topic: tutorial
 ms.date: 10/10/2018
 ms.author: alkohli
