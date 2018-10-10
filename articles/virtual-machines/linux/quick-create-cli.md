@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Quickstart: Create a Linux virtual machine with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a Linux virtual machine (VM) in Azure that runs Ubuntu. To see your VM in action, you then SSH to the VM and install the NGINX web server.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a Linux virtual machine (VM) in Azure. In this tutorial, we will be installing Ubuntu 160.04 LTS. To show the VM in action, you'll connect to it using SSH and install the NGINX web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,7 +31,7 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 
 Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command.
 
-The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys if they do not already exist in the default key location (*~/.ssh*). To use a specific set of keys, use the `--ssh-key-value` option:
+The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys, if they do not already exist, in the default key location (*~/.ssh*). To use a specific set of keys, use the `--ssh-key-value` option.
 
 ```azurecli-interactive
 az vm create \
