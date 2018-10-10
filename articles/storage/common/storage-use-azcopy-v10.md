@@ -13,7 +13,7 @@ ms.component: common
 
 AzCopy v10 (Preview) is the next-generation command-line utility for copying data to/from Microsoft Azure Blob and File storage, which offers redesigned command-line interface, new architecture for performant, and reliable data transfers. Using AzCopy you can copy data between a file system and a storage account, or between storage accounts.
 
-## What's New in AzCopy v10 (Preview)
+## What's New in AzCopy v10
 
 - Synchronize a file system to Azure Blob or vice versa. Use `azcopy sync <source> <destination>`. Ideal for incremental copy scenarios.
 - Supports Azure Data Lake Storage Gen2 APIs. Use `myaccount.dfs.core.windows.net` as a URI to call the ADLS Gen2 APIs.
@@ -43,17 +43,17 @@ Download the [AzCopy v7.3 supporting copying data to/from Microsoft Azure Table 
 
 ## Post-installation Steps
 
-AzCopy v10 (Preview) does not require an installation. Open a preferred command-line application and navigate to the folder where the `azcopy.exe` executable is located. If desired, you can add the AzCopy folder location to your system path.
+AzCopy v10 does not require an installation. Open a preferred command-line application and navigate to the folder where the `azcopy.exe` executable is located. If desired, you can add the AzCopy folder location to your system path.
 
-## AzCopy v10 (Preview) Authentication Options
+## AzCopy v10 Authentication Options
 
-AzCopy v10 (Preview) allows you to use the following options when authenticating with Azure Storage:
+AzCopy v10 allows you to use the following options when authenticating with Azure Storage:
 - Azure Active Directory. Use ```.\azcopy login``` to sign in using Azure Active Directory.
 - SAS token that needs to be appended to the Blob path. You can generate SAS token using Azure Portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestorageblobsastoken?view=azurermps-6.9.0), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
-## Getting started with AzCopy v10 (Preview)
+## Getting started with AzCopy v10
 
-AzCopy v10 (Preview) has a simple self-documented syntax. The general syntax looks as follows:
+AzCopy v10 has a simple self-documented syntax. The general syntax looks as follows:
 
 ```azcopy
 .\azcopy <command> <arguments> --<flag-name>=<flag-value>
@@ -78,7 +78,7 @@ To see the help page and examples for a specific command run the command below:
 .\azcopy cp -h
 ```
 
-## Copy data to Azure Storage using AzCopy v10 (Preview)
+## Copy data to Azure Storage using AzCopy v10
 
 Use the copy command to transfer data from the source to the destination. The source/destination can be a:
 - Local file system
@@ -87,7 +87,7 @@ Use the copy command to transfer data from the source to the destination. The so
 - Azure Data Lake Storage Gen2 Filesystem/Directory/File
 
 > [!NOTE]
-> At this time AzCopy v10 (Preview) supports copying only block blobs between two storage accounts.
+> At this time AzCopy v10 supports copying only block blobs between two storage accounts.
 
 ```azcopy
 .\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
@@ -113,7 +113,7 @@ To get more examples, use the following command:
 .\azcopy cp -h
 ```
 
-## Copy data between two storage accounts using AzCopy v10 (Preview)
+## Copy data between two storage accounts using AzCopy v10
 
 Copying data between two storage accounts uses the [Put Block From URL](https://docs.microsoft.com/en-us/rest/api/storageservices/put-block-from-url) API and does not utilize the client machine's network bandwidth. Data is copied between two Azure Storage servers directly while AzCopy simply orchestrates the copy operation. 
 
@@ -123,16 +123,16 @@ To copy the data between two storage accounts, use the following command:
 ```
 
 > [!NOTE]
-> The command will enumerate all blob containers and copy them to the destination account. At this time AzCopy v10 (Preview) supports copying only block blobs between two storage accounts. All other storage account objects (append blobs, page blobs, files, tables and queues) will be skipped.
+> The command will enumerate all blob containers and copy them to the destination account. At this time AzCopy v10 supports copying only block blobs between two storage accounts. All other storage account objects (append blobs, page blobs, files, tables and queues) will be skipped.
 
-## Copy a VHD image to a storage account using AzCopy v10 (Preview)
+## Copy a VHD image to a storage account using AzCopy v10
 
-AzCopy v10 (Preview) by default uploads data into block blobs. However, if a source file has .vhd extension, AzCopy v10 (Preview) will by default upload it to a page blob. This behavior isn't configurable.
+AzCopy v10 by default uploads data into block blobs. However, if a source file has .vhd extension, AzCopy v10 will by default upload it to a page blob. This behavior isn't configurable.
 
-## Sync local file system to a storage account using AzCopy v10 (Preview)
+## Sync local file system to a storage account using AzCopy v10
 
 > [!NOTE]
-> Sync command synchronizes contents from source to destination and this includes DELETION of destination files if those do not exist in the source. Make sure you use the destination you intend to synchronize. Also, at this time `azcopy sync` allows only using the SAS token authentication.
+> Sync command synchronizes contents from source to destination and this includes DELETION of destination files if those do not exist in the source. Make sure you use the destination you intend to synchronize.
 
 To sync your local file system to a storage account, use the following command:
 
@@ -140,13 +140,13 @@ To sync your local file system to a storage account, use the following command:
 .\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
-The command allows you to incrementally sync the source to the destination. If you add or delete a file to the source, AzCopy v10 (Preview) will do the same on the storage account.
+The command allows you to incrementally sync the source to the destination. If you add or delete a file to the source, AzCopy v10 will do the same on the storage account.
 
 ## Advanced configuration
 
-### Configure AzCopy v10 (Preview) proxy settings
+### Configure AzCopy v10 proxy settings
 
-To configure the proxy settings for AzCopy v10 (Preview), set the environment variable https_proxy using the following command:
+To configure the proxy settings for AzCopy v10, set the environment variable https_proxy using the following command:
 
 ```cmd
 # For Windows:
@@ -157,9 +157,9 @@ export https_proxy=<proxy IP>:<proxy port>
 export https_proxy=<proxy IP>:<proxy port>
 ```
 
-### Optimize AzCopy v10 (Preview) throughput
+### Optimize AzCopy v10 throughput
 
-Set the environment variable AZCOPY_CONCURRENCY_VALUE to configure the number of concurrent requests and control the throughput performance and resource consumption. The value is set to 300 by default. Reducing the value will limit the bandwidth and CPU used by AzCopy v10 (Preview).
+Set the environment variable AZCOPY_CONCURRENCY_VALUE to configure the number of concurrent requests and control the throughput performance and resource consumption. The value is set to 300 by default. Reducing the value will limit the bandwidth and CPU used by AzCopy v10.
 
 ```cmd
 # For Windows:
@@ -170,9 +170,9 @@ export AZCOPY_CONCURRENCY_VALUE=<value>
 export AZCOPY_CONCURRENCY_VALUE=<value>
 ```
 
-## Troubleshooting with AzCopy v10 (Preview)
+## Troubleshooting with AzCopy v10
 
-AzCopy v10 (Preview) creates log files and plan files for all the jobs. You can use the logs to investigate and troubleshoot any potential problems. The logs will contain the status of failure (UPLOADFAILED, COPYFAILED, and DOWNLOADFAILED), the full path, and the reason of the failure. The job logs and plan files are located in the %USERPROFILE\\.azcopy folder.
+AzCopy v10 creates log files and plan files for all the jobs. You can use the logs to investigate and troubleshoot any potential problems. The logs will contain the status of failure (UPLOADFAILED, COPYFAILED, and DOWNLOADFAILED), the full path, and the reason of the failure. The job logs and plan files are located in the %USERPROFILE\\.azcopy folder.
 
 ### Review the logs for errors
 
