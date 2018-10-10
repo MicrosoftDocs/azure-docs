@@ -11,7 +11,7 @@ ms.component: common
 ---
 # Transfer data with the AzCopy v10 (Preview)
 
-AzCopy v10 (Preview) is the next-generation command-line utility for copying data to/from Microsoft Azure Blob and File storage which offers completely redesigned command-line interface, new architecture for performant and reliable data transfers. Using AzCopy you can copy data between a file system and a storage account, or between storage accounts.
+AzCopy v10 (Preview) is the next-generation command-line utility for copying data to/from Microsoft Azure Blob and File storage, which offers redesigned command-line interface, new architecture for performant, and reliable data transfers. Using AzCopy you can copy data between a file system and a storage account, or between storage accounts.
 
 ## What's New in AzCopy v10 (Preview)
 
