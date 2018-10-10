@@ -16,7 +16,7 @@ ms.author: tulasim
 This tutorial walks you through building a QnA bot with Azure Bot service v3 on the Azure portal without writing any code. Connecting a published knowledge base (KB) to a bot is as simple as changing bot application settings. 
 
 > [!Note] 
-> This topic is for version 3 of the Bot SDK. You can find content for version 4 [here](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
+> This topic is for version 3 of the Bot SDK. You can find version 4 [here](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
 
 **In this tutorial, you learn how to:**
 
@@ -27,15 +27,13 @@ This tutorial walks you through building a QnA bot with Azure Bot service v3 on 
 > * Connect your published KB to the bot
 > * Test the bot with a question
 
-For this article, you can use the free QnA Maker [service](../how-to/set-up-qnamaker-service-azure.md) as the `QnASubscriptionKey`. If you do not have a published KB yet, sign in to [QnA Maker](https://qnamaker.ai) to [create](../how-to/create-knowledge-base.md) and [publish](../how-to/publish-knowledge-base.md) a KB. Once your KB is published, use the KBID for the `QAKnowledgebaseid` and the EndpointKey value for the `QnAEndpointHostName` in the bot application settings.
+For this article, you can use the free QnA Maker [service](../how-to/set-up-qnamaker-service-azure.md).
 
-## Prerequisite
-Before you build, follow the steps in [Create a knowledge base](../How-To/create-knowledge-base.md) to create a QnA Maker service with questions and answers.
-
-The bot responds to questions from the knowledge base you created, via the QnAMakerDialog.
+## Prerequisites
+You need to have a published knowledge base for this tutorial. If you do not have one, follow the steps in [Create a knowledge base](../How-To/create-knowledge-base.md) to create a QnA Maker service with questions and answers.
 
 ## Create a QnA Bot
-1. In the [Azure portal](https://portal.azure.com), select **Create** new resource in the menu blade, and then select **See all**.
+1. In the [Azure portal](https://portal.azure.com), select **Create** new resource.
 
     ![bot service creation](../media/qnamaker-tutorials-create-bot/bot-service-creation.png)
 
