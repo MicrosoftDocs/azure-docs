@@ -305,7 +305,7 @@ az vm extension set \
 
 After a few minutes, you should see the new VM in the Log Analytics workspace.
 
-![Log Analytics workspace](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## Next steps
 
