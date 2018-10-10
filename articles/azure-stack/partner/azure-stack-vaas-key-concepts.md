@@ -28,7 +28,7 @@ A VaaS solution represents a Azure Stack solution with a particular hardware bil
 
 1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
 2. On the solutions dashboard, click on **New solution**.
-3. Enter a name for the solution. See [Naming convention for VaaS solutions](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions) for naming suggestions.
+3. Enter a name for the solution. For naming suggestions, see [Naming convention for VaaS solutions](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. Click **Save** to create the solution.
 
 ## Workflows

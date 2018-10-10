@@ -25,7 +25,7 @@ This article contains the release notes for Azure Stack Validation as a Service.
 
 ## Version 4.0.1
 
-2018 October 3
+2018 October 8
 
 - VaaS prerequisites
 
