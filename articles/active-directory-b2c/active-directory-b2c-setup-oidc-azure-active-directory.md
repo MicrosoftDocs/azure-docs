@@ -25,7 +25,7 @@ This article shows you how to enable sign-in for users from a specific Azure Act
 To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant.
 
 >[!NOTE]
->`Contoso.com` is used for the organizational Azure AD tenant and `fabrikamb2c.onmicrosoft.com` is used as the Azure AD B2C tenant in the following instructions.
+>`Contoso.com` is used for the organizational Azure AD B2C tenant and `fabrikamb2c.onmicrosoft.com` is used as the Azure AD tenant in the following instructions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant (fabrikamb2c.onmicrosoft.com) by clicking the Directory and subscription filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
@@ -38,6 +38,8 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
     ```
     https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
     ```
+
+    All URLs should now be using [b2clogin.com](b2clogin.md).
 
 8. Click **Create**. Copy the **Application ID** to be used later.
 9. Select the application, and then select **Settings**.
