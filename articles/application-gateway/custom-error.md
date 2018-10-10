@@ -47,8 +47,10 @@ After you specify an error page, the application gateway downloads it from the s
 
     ![Application Gateway listeners](media/custom-error/ag-listener.png)
 3. Configure a custom error page for a 403 WAF error or a 502 maintenance page at the listener level.
+
     > [!NOTE]
     > Creating global level custom error pages from the Azure portal is currently not supported.
-4. Specify a publicly accessible blob URL for a given error status code and click Save. The Application Gateway is now configured with the custom error page.
+
+4. Specify a publicly accessible blob URL for a given error status code and click **Save**. The Application Gateway is now configured with the custom error page.
 
    ![Application Gateway error codes](media/custom-error/ag-error-codes.png)
