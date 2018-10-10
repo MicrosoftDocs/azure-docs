@@ -203,6 +203,8 @@
     href: troubleshoot/hybrid-runbook-worker.md
   - name: Update Management
     href: troubleshoot/update-management.md
+  - name: Troubleshoot Update Agent issues
+    href: troubleshoot/update-agent-issues.md
 - name: Reference
   items:
   - name: Azure PowerShell
