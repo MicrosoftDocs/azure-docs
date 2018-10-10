@@ -39,7 +39,7 @@ The following diagram shows the general process for deploying the cluster.
 
 ### Deployment steps
 
-1. Collects input parameters from the market place item.
+1. Collects input parameters from the marketplace item.
 
     You enter the values you need to set up the Kubernetes cluster including:
     -  **User name** User name for the Linux Virtual Machines that are part of the Kubernetes cluster and DVM.
@@ -49,7 +49,7 @@ The following diagram shows the general process for deploying the cluster.
 
 2. Creates deployment VM and custom script extension.
     -  Creates the deployment Linux VM using the marketplace Linux image, **Ubuntu Server 16.04-LTS**.
-    -  Download and execute customer script extension from the market place. The script is the **Custom Script for Linux 2.0**.
+    -  Download and execute customer script extension from the marketplace. The script is the **Custom Script for Linux 2.0**.
     -  Runs the DVM custom script. The script:
         1. Gets the gallery endpoint from Azure Resource Manager metadata endpoint.
         2. Gets the active directory resource ID from Azure Resource Manager metadata endpoint.
