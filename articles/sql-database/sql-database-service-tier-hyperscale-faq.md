@@ -13,7 +13,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 09/14/2018
 ---
-# Azure SQL Database FAQ about Azure SQL database in the Hyperscale service tier
+# FAQ about Azure SQL Hyperscale databases
 
 This article provides answers to frequently asked questions for customers considering a database in the Azure SQL Database Hyperscale service tier, commonly called a Hyperscale database (currently in public preview). This article describes the scenarios that Hyperscale supports and the cross-feature services are compatible with SQL Database Hyperscale in general.
 
