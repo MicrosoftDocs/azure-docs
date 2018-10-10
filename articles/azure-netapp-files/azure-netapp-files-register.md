@@ -48,11 +48,10 @@ You must register the Azure Resource Provider for Azure NetApp Files.
    The command output appears as follows: 
 
    `
-   "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",<br/><br/>  
+   "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
    "name": "Microsoft.NetApp/publicPreviewADC"
    `
-  
-
+   
    `<SubID>` is your subscription ID.
 
 4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
@@ -67,13 +66,13 @@ You must register the Azure Resource Provider for Azure NetApp Files.
 
    The command output appears as follows:
    
-   ```
+   `
    {
    "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
    "namespace": "Microsoft.NetApp",
    "registrationState": "Registered",
    "resourceTypes": [….
-   ```
+   `
 
    The registrationState parameter value indicates Registered.   
    `<SubID>` is your subscription ID. 
@@ -103,14 +102,13 @@ You must also register the **AllowBaremetalServers** feature from the Network Re
    
    The command output appears as follows:
 
-   ```
-   {
+   `{
    "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowBaremetalServers",
    "name": "Microsoft.Network/AllowBaremetalServers",
    "properties":{
    "state": "Registered",
    …
-   ```
+   `
 
    `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 
