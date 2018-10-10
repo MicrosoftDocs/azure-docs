@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Moderate images using .NET - Content Moderator"
+title: "Quickstart: Check image content in C# - Content Moderator"
 titlesuffix: Azure Cognitive Services
-description: How to moderate images using the Content Moderator SDK for .NET
+description: How to Check image content using the Content Moderator SDK for C#
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -13,20 +13,17 @@ ms.date: 09/10/2018
 ms.author: sajagtap
 ---
 
-# Quickstart: Moderate images using .NET
+# Quickstart: Check image content in C# 
 
-This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to: 
+This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to simultaneously check an image for: 
 
-- Check an image for adult or racy content
-- Detect and extract text from an image
-- Detect faces in an image
-
-This article assumes that you are already familiar with Visual Studio and C#.
+- adult or racy content
+- extractable text
+- human faces
 
 ## Sign up for Content Moderator services
 
-Before you can use Content Moderator services through the REST API or the SDK, you need an API key and the region of your API account.
-Refer to the [Quickstart](quick-start.md) to learn how to sign up for Content Moderator to obtain both.
+Before you can use Content Moderator services through the REST API or the SDK, you'll need an API key and the region of your API account. Subscribe to Content Moderator service in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) to obtain both.
 
 ## Create your Visual Studio project
 
