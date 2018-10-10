@@ -96,6 +96,8 @@
         href: sql-database-service-tiers-general-purpose-business-critical.md
       - name: Hyperscale
         href: sql-database-service-tier-hyperscale.md
+      - name: Hyperscale FAQ
+        href: sql-database-service-tier-hyperscale-faq.md
     - name: DTU service tiers
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
