@@ -1,3 +1,5 @@
+- name: VM startup is stuck
+  href: troubleshoot-vm-boot-configure-update.md
 - name: Troubleshooting Azure VMs
   href: index.md
 - name: Allocation failures

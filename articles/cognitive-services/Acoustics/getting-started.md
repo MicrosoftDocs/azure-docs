@@ -1,12 +1,14 @@
 ---
-title: Getting started with Project Acoustics - Cognitive Services
+title: Getting started with Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: This quickstart guide will show you how to integrate the plugin in your Unity project, bake your scene, and apply the acoustics to sound sources.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
 ---
@@ -88,9 +90,9 @@ Create an audio source. Click the checkbox at the bottom of the AudioSource's in
 ![Audio Source](media/AudioSource.png)
 
 ## Apply post-bake design
-You can attach the script **AcousticsDesign** to a sound source in your scene to enable additional source design parameters, by clicking **Add Component** and choosing **Scripts > Acoustics Design**:
+You can attach the script **AcousticsAdjust** to a sound source in your scene to enable additional source design parameters, by clicking **Add Component** and choosing **Scripts > Acoustics Adjust**:
 
-![Source Customization](media/AcousticsDesign.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
 There are also parameters on the **Microsoft Acoustics Mixer**. For more information about post-bake design, see [design parameters](design-process.md).
 

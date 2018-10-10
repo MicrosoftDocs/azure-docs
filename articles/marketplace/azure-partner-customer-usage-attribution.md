@@ -3,7 +3,7 @@ title: Azure partner and customer usage attribution
 description: Overview of how to track customer usage for Azure Marketplace solutions
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: ellacroi
+author: yijenj
 manager: nunoc
 editor:
 
@@ -13,8 +13,8 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 07/26/2018
-ms.author: ellacroi
+ms.date: 10/05/2018
+ms.author: yijenj
 
 ---  
 # Azure partner customer usage attribution
@@ -153,7 +153,7 @@ You can get [the original script](https://gist.github.com/bmoore-msft/ae6b822631
 ```
 Param(
     [GUID][Parameter(Mandatory=$true)]$guid,
-    [string][Parameter(Mandatory=$true)]$resourceGroupName'
+    [string][Parameter(Mandatory=$true)]$resourceGroupName
 )
 
 # Get the correlationId of the pid deployment
