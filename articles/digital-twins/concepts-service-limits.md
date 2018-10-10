@@ -6,27 +6,29 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/10/2018
 ms.author: dwalthermsft
 ---
 
 # Public preview service limits
 
-During Public Preview, Azure Digital Twins will have subscription, instance, and rate limits as described below.  
+During Public Preview, Azure Digital Twins will have temporary subscription, instance, and rate limits that are described below.
+
+These constraints have been added to simplify learning about the new service and its many features.
 
 > [!NOTE]
 > These limits will be increased and/or removed by General Availability (GA).
 
 ## Per-Subscription limits
 
-During Public Preview, each Azure Subscription can create exactly one Azure Digital Twins instance.
+During Public Preview, each Azure subscription can create exactly one Azure Digital Twins instance. Additionally, each subscription can have only one provisioned Azure Digital Twins instance at a time.
 
 > [!TIP]
 > Deleting your instance will allow you to create a new one.
 
 ## Per-Instance limits
 
-Each Azure Digital Twins instance can have:
+In turn, each Azure Digital Twins instance can have:
 
 - One `IoTHub` Resource
 - One `EventHub` endpoint for event type DeviceMessage
@@ -44,7 +46,7 @@ The request rate limits for your Management API are:
 
 ## UDF Rate limits
 
-The following limits cap the total number of all user-defined function calls made within your Azure Digital Twins instance:
+The following limits cap the total number of all user-defined function calls made to your Azure Digital Twins instance:
 
 - 400 client library calls per second
 - 100 SendNotification calls per second
@@ -57,7 +59,9 @@ The following limits cap the total number of all user-defined function calls mad
 
 ## Device Telemetry limits
 
-Your devices together may send up to 100 messages per second to your Azure Digital Twins instance.
+The limits below cap the total number of all messages your devices can send  to your Azure Digital Twins instance:
+
+- 100 messages per second
 
 ## Next steps
 
