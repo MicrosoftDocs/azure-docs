@@ -11,6 +11,7 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
+#As a C# developer of content-providing software, I want a way to analyze images for offensive or inappropriate content so that I can categorize and handle them accordingly.
 ---
 
 # Quickstart: Check image content in C# 
