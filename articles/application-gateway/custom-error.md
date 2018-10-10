@@ -20,7 +20,7 @@ Custom error pages are supported for the following two scenarios:
 - **Maintenance page** - This custom error page is sent instead of a 502 bad gateway page. It's shown when Application Gateway has no backend to route traffic to. For example, when there's scheduled maintenance or when an unforeseen issue effects backend pool access.
 - **Unauthorized access page** - This custom error page is sent instead of a 403 unauthorized access page. It's shown when the Application Gateway WAF detects malicious traffic and blocks it.
 
-If the backend sends an HTTP response with a status code of 403 or 502, then that response is sent back to the caller. A custom error page isn't served.
+If an error originates from the backend servers, then it's passed along unmodified back to the caller. A custom error page isn't displayed. Application gateway can display a custom error page when a request can't reach the backend.
 
 Custom error pages can be defined at the global level and the listener level:
 
@@ -49,6 +49,6 @@ After you specify an error page, the application gateway downloads it from the s
 3. Configure a custom error page for a 403 WAF error or a 502 maintenance page at the listener level.
     > [!NOTE]
     > Creating global level custom error pages from the Azure portal is currently not supported.
-4. Specify a publicly accessible blob URL for a given error status code and click Save. The Application Gateway should now be configured with the custom error page.
+4. Specify a publicly accessible blob URL for a given error status code and click Save. The Application Gateway is now configured with the custom error page.
 
    ![Application Gateway error codes](media/custom-error/ag-error-codes.png)
