@@ -49,7 +49,7 @@ Now that your client app is configured and you have your application ID, it's ti
 
 You can quickly create a key vault by running the following script. For a detailed explanation of these cmdlets and more information about creating and configuring a key vault, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
 
-```posh
+```powershell
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
@@ -102,6 +102,7 @@ In this section, you will create a table to hold patient data. It's not initiall
 2. Right-click the **Clinic** database and click **New Query**.
 3. Paste the following Transact-SQL (T-SQL) into the new query window and **Execute** it.
 
+```sql
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
          [SSN] [char](11) NOT NULL,
@@ -115,7 +116,7 @@ In this section, you will create a table to hold patient data. It's not initiall
          [BirthDate] [date] NOT NULL
          PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
          GO
-
+```
 
 ## Encrypt columns (configure Always Encrypted)
 SSMS provides a wizard that helps you easily configure Always Encrypted by setting up the column master key, column encryption key, and encrypted columns for you.
@@ -178,9 +179,10 @@ Now that Always Encrypted is set up, you can build an application that performs 
 
 Run these two lines of code in the Package Manager Console.
 
+```powershell
     Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
+```
 
 
 ## Modify your connection string to enable Always Encrypted
@@ -210,6 +212,7 @@ The following code shows how to enable Always Encrypted by setting [SqlConnectio
 ## Register the Azure Key Vault provider
 The following code shows how to register the Azure Key Vault provider with the ADO.NET driver.
 
+```C#
     private static ClientCredential _clientCredential;
 
     static void InitializeAzureKeyVaultProvider()
@@ -225,8 +228,7 @@ The following code shows how to register the Azure Key Vault provider with the A
        providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
        SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
     }
-
-
+```
 
 ## Always Encrypted sample console application
 This sample demonstrates how to:
@@ -239,7 +241,7 @@ This sample demonstrates how to:
 Replace the contents of **Program.cs** with the following code. Replace the connection string for the global connectionString variable in the line that directly precedes the Main method with your valid connection string from the Azure portal. This is the only change you need to make to this code.
 
 Run the app to see Always Encrypted in action.
-
+```CS
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -579,7 +581,7 @@ Run the app to see Always Encrypted in action.
         public DateTime BirthDate { get; set; }
     }
     }
-
+```
 
 
 ## Verify that the data is encrypted
@@ -587,7 +589,9 @@ You can quickly check that the actual data on the server is encrypted by queryin
 
 Run the following query on the Clinic database.
 
+```sql
     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 You can see that the encrypted columns do not contain any plaintext data.
 
@@ -603,9 +607,11 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
    
     ![New console application](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 4. Run the following query on the Clinic database.
-   
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-   
+
+```sql
+     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+ ```
+
      You can now see the plaintext data in the encrypted columns.
 
     ![New console application](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
