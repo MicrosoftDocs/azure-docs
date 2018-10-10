@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2018
+ms.date: 10/10/2018
 ms.author: rithorn
 ---
 # Create management groups for resource organization and management
@@ -75,7 +75,7 @@ management.
 On Azure CLI, you use the az account management-group create command.
 
 ```azurecli-interactive
-az account management-group create --group-name 'Contoso'
+az account management-group create --name 'Contoso'
 ```
 
 ## Next steps
