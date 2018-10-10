@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 10/10/2018
 ms.author: sajagtap
 #As a C# developer of content-providing software, I want a way to analyze images for offensive or inappropriate content so that I can categorize and handle them accordingly.
 ---
@@ -47,16 +47,18 @@ Install the following NuGet packages:
 
 ### Update the program's using statements
 
-Modify the program's using statements.
+Add the following `using` statements.
 
-	using Microsoft.Azure.CognitiveServices.ContentModerator;
-	using Microsoft.CognitiveServices.ContentModerator;
-	using Microsoft.CognitiveServices.ContentModerator.Models;
-	using Newtonsoft.Json;
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Threading;
+```csharp
+using Microsoft.Azure.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator.Models;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+```
 
 ### Create the Content Moderator client
 
