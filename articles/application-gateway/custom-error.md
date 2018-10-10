@@ -1,11 +1,11 @@
 ---
-title: Create custom error pages
+title: Create Azure Application Gateway custom error pages
 description: This article shows you how to create Application Gateway custom error pages.
 services: application-gateway
 author: amitsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 10/11/2018
 ms.author: victorh
 ---
 
@@ -54,3 +54,5 @@ After you specify an error page, the application gateway downloads it from the s
 4. Specify a publicly accessible blob URL for a given error status code and click **Save**. The Application Gateway is now configured with the custom error page.
 
    ![Application Gateway error codes](media/custom-error/ag-error-codes.png)
+## Next steps
+For information about Application Gateway diagnostics, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
