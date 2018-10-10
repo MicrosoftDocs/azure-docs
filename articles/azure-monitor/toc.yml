@@ -697,16 +697,6 @@
     items:
     - name: Alerts
       items:
-      - name: Create alert rules
-        items:
-        - name: Configure new metric or log alerts in Azure portal
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
-        - name: Configure classic alerts in Azure portal
-          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json   
-        - name: Configure classic alerts with CLI
-          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
-        - name: Configure classic alerts with Azure PowerShell
-          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Use metric alerts
         items:
         - name: Create, view and manage metric alerts in Azure Monitor
