@@ -14,7 +14,7 @@ ms.author: dwalthermsft
 
 During Public Preview, Azure Digital Twins will have temporary subscription, instance, and rate limits that are described below.
 
-These constraints have been added to simplify learning about the new service and its many features.
+These constraints exist to help simplify learning about the new service and its many features.
 
 > [!NOTE]
 > These limits will be increased and/or removed by General Availability (GA).
