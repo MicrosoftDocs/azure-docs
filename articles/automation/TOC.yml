@@ -25,7 +25,7 @@
     href: automation-tutorial-installed-software.md
   - name: Troubleshoot changes on a VM
     href: automation-tutorial-troubleshoot-changes.md
-- name: How to
+- name: How-to guides
   items:
     - name: Onboarding
       items:
@@ -191,18 +191,18 @@
       items:
         - name: Migrate from Orchestrator
           href: automation-orchestrator-migration.md
-    - name: Troubleshoot
-      items:
-        - name: Onboarding
-          href: troubleshoot/onboarding.md
-        - name: Runbooks
-          href: troubleshoot/runbooks.md
-        - name: Desired State Configuration (DSC)
-          href: troubleshoot/desired-state-configuration.md
-        - name: Hybrid Runbook Worker
-          href: troubleshoot/hybrid-runbook-worker.md
-        - name: Update Management
-          href: troubleshoot/update-management.md
+- name: Troubleshoot
+  items:
+  - name: Onboarding
+    href: troubleshoot/onboarding.md
+  - name: Runbooks
+    href: troubleshoot/runbooks.md
+  - name: State Configuration (DSC)
+    href: troubleshoot/desired-state-configuration.md
+  - name: Hybrid Runbook Worker
+    href: troubleshoot/hybrid-runbook-worker.md
+  - name: Update Management
+    href: troubleshoot/update-management.md
 - name: Reference
   items:
   - name: Azure PowerShell
