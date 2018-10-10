@@ -30,11 +30,8 @@ Note that these tutorials use the same samples as the [Quickstart to find availa
 ## Prerequisites
 
 - An Azure subscription. If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The Digital Twins samples you will use in these tutorials are written in C#. Make sure to install [.NET Core 2.1 or above SDK](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Verify if the right version is installed on your machine by running this command in a command window:
 
-```cmd/sh
-dotnet --version
-```
+- The Digital Twins samples you will use in these tutorials are written in C#. Make sure to install [.NET Core 2.1 or above SDK](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Check if the right version is installed on your machine by running `dotnet --version` in a command window.
 
 - [Visual Studio Code](https://code.visualstudio.com/) to explore the sample code. 
 
