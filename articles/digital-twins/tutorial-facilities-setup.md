@@ -48,12 +48,14 @@ Use the steps in this section to create a new instance of the Digital Twins serv
 
 ## Grant permissions to your app
 
-Digital Twins uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) to control [read/write access](../active-directory/develop/v1-permissions-and-consent.md) to the service. Using the steps in this section will enably any application to connect with your Digital Twins instance. You may skip this step if you already have your setup from the [Quickstart to view occupancy](quickstart-view-occupancy-dotnet.md).
+Digital Twins uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) to control [read/write access](../active-directory/develop/v1-permissions-and-consent.md) to the service. Any application that needs to connect with your Digital Twins instance, must be registered with Azure Active Directory. The steps in this section shows you how to register your sample app. 
+
+This section is optional if you already have an existing *app registration*; you can reuse it with your sample. 
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 
-## Modify Digital Twins sample
+## Configure Digital Twins sample
 
 This section walks you through a Digital Twins sample application that will communicate with the [Digital Twins REST APIs](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index). Note that this explores the same sample as used in the [Quickstart to view occupancy](quickstart-view-occupancy-dotnet.md); if you already have downloaded the samples, you can proceed to exploring it.
 

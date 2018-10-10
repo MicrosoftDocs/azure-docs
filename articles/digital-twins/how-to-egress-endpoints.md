@@ -1,18 +1,18 @@
 ---
-title: Egress and Endpoints with Azure Digital Twins | Microsoft Docs
+title: Egress and Endpoints in Azure Digital Twins | Microsoft Docs
 description: Guideline on how to create endpoints with Azure Digital Twins
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/08/2018
 ms.author: alinast
 ---
 
 # Egress and endpoints
 
-Azure Digital Twins supports the concept of _endpoints_ where each endpoint represents a message/event broker that resides in the user's Azure subscription. We have currently enabled events and messages to be sent to Event Hub, Event Grid, and Service Bus Topics.
+Azure Digital Twins supports the concept of _endpoints_ where each endpoint represents a message/event broker in the user's Azure subscription. Events and messages can be sent to **Event Hub**, **Event Grid**, and **Service Bus Topics**.
 
 Events will be sent to the endpoints according to pre-defined routing preferences: the user can specify which endpoint should receive any of the following events:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange`, or `DeviceMessage`.
 
@@ -24,7 +24,7 @@ Here are the event formats for each of the event types:
 
 - `TopologyOperation`
 
-  Applies for graph changes, the `subject` property will contain the type of object affected. Types of objects that could trigger this event are: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space`,  `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`.
+  Applies to graph changes. The `subject` property specifies the type of object affected. Types of objects that could trigger this event are: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space`,  `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`.
 
   Example:
 
@@ -54,7 +54,7 @@ Here are the event formats for each of the event types:
 
 - `UdfCustom`
 
-  Represents an event sent by a user-defined function (UDF). Note, this event has to be explicitly sent from the UDF itself.
+  An event sent by a user-defined function (UDF). Note, this event has to be explicitly sent from the UDF itself.
 
   Example:
 
@@ -82,7 +82,7 @@ Here are the event formats for each of the event types:
 
 - `SensorChange`
 
-  Represents an update to a sensor's state based on telemetry changes.
+  An update to a sensor's state based on telemetry changes.
 
   Example:
 
@@ -117,7 +117,7 @@ Here are the event formats for each of the event types:
 
 - `SpaceChange`
 
-  Represents an update to a space's state based on telemetry changes.
+  An update to a space's state based on telemetry changes.
 
   Example:
 
@@ -160,7 +160,7 @@ Here are the event formats for each of the event types:
 
 ## Configuring Endpoints
 
-Endpoint management is exercised through the Endpoints API. Here are some examples about how to configure the different supported endpoints. Pay special attention to the event types array as it specifies the routing for the endpoint:
+Endpoint management is exercised through the Endpoints API. Here are some examples about how to configure the different supported endpoints. Pay special attention to the event types array as it defines the routing for the endpoint:
 
 ```plaintext
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
@@ -185,8 +185,8 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     | Custom Attribute Name | Replace With |
     | --- | --- |
     | `yourNamespace` | The namespace of your endpoint |
-    | `yourPrimaryKey` | The primary key to authenticate |
-    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourPrimaryKey` | The primary connection string used to authenticate |
+    | `yourSecondaryKey` | The secondary connection string used to authenticate |
     | `yourTopicName` | The name of your customized topic |
 
 - Route to **Event Grid** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
@@ -207,8 +207,8 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Custom Attribute Name | Replace With |
     | --- | --- |
-    | `yourPrimaryKey` | The primary key to authenticate |
-    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourPrimaryKey` | The primary connection string used to authenticate|
+    | `yourSecondaryKey` | The secondary connection string used to authenticate |
     | `yourTopicName` | The name of your customized topic |
 
 - Route to **Event Hub** events types: `SensorChange`, `SpaceChange`, `TopologyOperation`
@@ -230,8 +230,8 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     | Custom Attribute Name | Replace With |
     | --- | --- |
     | `yourNamespace` | The namespace of your endpoint |
-    | `yourPrimaryKey` | The primary key to authenticate |
-    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourPrimaryKey` | The primary connection string used to authenticate |
+    | `yourSecondaryKey` | The secondary connection string used to authenticate |
     | `yourEventHubName` | The name of your Event Hub |
 
 - Route to **Event Hub** event types `DeviceMessage`. Note the inclusion of _EntityPath_ in the `connectionString`, which is mandatory.
@@ -251,20 +251,24 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     | Custom Attribute Name | Replace With |
     | --- | --- |
     | `yourNamespace` | The namespace of your endpoint |
-    | `yourPrimaryKey` | The primary key to authenticate |
-    | `yourSecondaryKey` | The secondary key to authenticate |
+    | `yourPrimaryKey` | The primary connection string used to authenticate |
+    | `yourSecondaryKey` | The secondary connection string used to authenticate |
     | `yourEventHubName` | The name of your Event Hub |
 
 > [!NOTE]
 > Upon the creation of a new Endpoint, it may take up to 5 to 10 minutes to start receiving events at the endpoint.
 
-## Primary and secondary connection strings/keys
+## Primary and secondary connection keys
 
-When a primary connection string/key becomes unauthorized, the system will automatically roll to the secondary connection string/key allowing for updating the primary key through the Endpoints API. When both primary and secondary connection strings/keys are unauthorized, the system will enter an exponential back off wait of up to 30 minutes, and events will be dropped on each retry. When the system is on a back off wait state, updating connections strings/keys through the Endpoints API may take up to 30 minutes to take effect.
+When a primary connection key becomes unauthorized, the system automatically tries the secondary connection key. That provides a backup and allows the possibility to gracefully authenticate and update the primary key through the Endpoints API.
+
+If both the primary and secondary connection keys are unauthorized, the system will enter an exponential back-off wait time of up to 30 minutes. Events will be dropped on each triggered back-off wait time.
+
+Whenever the system is in a back-off wait state, updating connections keys through the Endpoints API may take up to 30 minutes to take effect.
 
 ## Unreachable endpoints
 
-When an endpoint becomes unreachable, the system will enter an exponential back off wait of up to 30 minutes where events will be dropped on each retry.
+When an endpoint becomes unreachable, the system will enter an exponential back-off wait time of up to 30 minutes. Events will be dropped on each triggered back-off wait time.
 
 ## Next steps
 

@@ -47,9 +47,9 @@ In this section, we will set up an [Event Grid](../event-grid/overview.md) to co
 
     ![Create Event Grid Topic](./media/tutorial-facilities-events/create-event-grid-topic.png)
 
-1. Navigate to the event grid topic from your resource group, click on **Overview**, and copy the value for **Topic Endpoint** to a temporary *Notepad* file. You will need this URL in the proceeding section. 
+1. Navigate to the event grid topic from your resource group, click on **Overview**, and copy the value for **Topic Endpoint** to a temporary file. You will need this URL in the proceeding section. 
 
-1. Click on **Access keys**, and copy **Key 1** and **Key 2** to the temporary *Notepad* file. You will need these values to create the endpoint in the proceeding steps.
+1. Click on **Access keys**, and copy **Key 1** and **Key 2** to a temporary file. You will need these values to create the endpoint in the proceeding steps.
 
     ![Event Grid Keys](./media/tutorial-facilities-events/event-grid-keys.png)
 
