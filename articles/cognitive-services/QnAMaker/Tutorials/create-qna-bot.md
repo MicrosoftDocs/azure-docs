@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker`
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 10/10/2018
 ms.author: tulasim
 ---
 
@@ -27,7 +27,7 @@ This tutorial walks you through building a QnA bot with Azure Bot service v3 on 
 > * Connect your published KB to the bot
 > * Test the bot with a question
 
-For this article, you can use the free QnA Maker [service](set-up-qnamaker-service-azure.md) as the `QnASubscriptionKey`. If you do not have a published KB yet, sign in to [QnA Maker](https://qnamaker.ai) to [create](create-knowledge-base.md) and [publish](publish-knowledge-base.md) a KB. Once your KB is published, use the KBID for the `QAKnowledgebaseid` and the EndpointKey value for the `QnAEndpointHostName` in the bot application settings.
+For this article, you can use the free QnA Maker [service](../how-to/set-up-qnamaker-service-azure.md) as the `QnASubscriptionKey`. If you do not have a published KB yet, sign in to [QnA Maker](https://qnamaker.ai) to [create](../how-to/create-knowledge-base.md) and [publish](../how-to/publish-knowledge-base.md) a KB. Once your KB is published, use the KBID for the `QAKnowledgebaseid` and the EndpointKey value for the `QnAEndpointHostName` in the bot application settings.
 
 ## Prerequisite
 Before you build, follow the steps in [Create a knowledge base](../How-To/create-knowledge-base.md) to create a QnA Maker service with questions and answers.
@@ -110,7 +110,7 @@ When you are done with this tutorial's bot, remove the bot in the Azure portal. 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Concept: knowledge base](../concepts/knowledge-base)
+> [Concept: knowledge base](../concepts/knowledge-base.md)
 
 ## See also
 
