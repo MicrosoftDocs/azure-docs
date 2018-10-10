@@ -20,7 +20,7 @@ ms.author: jgao
 
 Learn how to retrieve secret values from Azure Key Vault and pass the secret values as parameters during Resource Manager deployment. The value is never exposed because you only reference its Key Vault ID. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](./resource-manager-keyvault-parameter.md)
 
-In this tutorial, you create a virtual machine and some dependent resources using the same template used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). The virtual machine administraotr password is retrieved from Azure Key Vault.
+In this tutorial, you create a virtual machine and some dependent resources using the same template used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). The virtual machine administrator password is retrieved from Azure Key Vault.
 
 This tutorial covers the following tasks:
 
@@ -121,7 +121,7 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     ```
 3. Select **Open** to open the file. It is the same scenario used in [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
 4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
-5. Repeat step 1-4 to open the following URL, and then save the file as **azuredeploy.parameters.json**.
+5. Repeat steps 1-4 to open the following URL, and then save the file as **azuredeploy.parameters.json**.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
@@ -171,7 +171,7 @@ When you deploy the template, use the same resource group as the Key Vault. It m
 After you have successfully deployed the virtual machine, test the login using the password stored in the Key Vault.
 
 1. Open the [Azure portal](https://portal.azure.com).
-2. Select **Resource grouips**//**YourResourceGroupName>**//**simpleWinVM**
+2. Select **Resource grouips**/**YourResourceGroupName>**/**simpleWinVM**
 3. Select **connect** from the top.
 4. Select **Download RDP File** and then follow the instructions to sign in into the virtual machine using the password stored in the Key Vault.
 
