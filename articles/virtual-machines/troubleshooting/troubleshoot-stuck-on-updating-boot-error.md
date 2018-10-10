@@ -38,13 +38,7 @@ This article helps you resolve the issue when your Virtual Machine (VM) is stuck
 
 ## Solution
 
-Depending on the number of updates that are installing or rollbacking, the update process could take some time. Leave the VM in this state for 8 hours. If the VM is still in this state, restart the VM from the Azure portal and see if it can start normally. If this step does not work, try the following solution.
-
-**Note**
-
-- The number of hours has direct relation with the amount of update that were pushed to the VM. The bigger the number of updates, the more time the machine will need to proceed with the installation.
-
-- At the same time, the bigger the amount of updates are installed at once, the bigger the chance to end up on OS corruption and the VM may need to roll back the update and that will double or more the time for the OS to become available again. 
+Depending on the number of updates that are installing or roll backing, the update process could take some time. Leave the VM in this state for 8 hours. If the VM is still in this state, restart the VM from the Azure portal and see if it can start normally. If this step does not work, try the following solution.
 
 ### Remove the update that causes the problem
 
@@ -54,7 +48,7 @@ Depending on the number of updates that are installing or rollbacking, the updat
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
-    For exmaple, If the driver leter that is assgined to the attachde od sik is F, run the following command:
+    For exmaple, If the driver letter that is assigned to the attached OS disk is F, run the following command:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
 4. Open the C:\temp\Patch_level.txt file, and then read it from the bottom up. Locate the update that the state is **Install Pending** or **Uninstall Pending**.  The following is a sample of the update status:
@@ -75,5 +69,5 @@ Depending on the number of updates that are installing or rollbacking, the updat
     ```
     dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     ```
-Note: Depend on the size of the paackage, DISk tool will take some time to process unintalling. Ususally the process will be completed within 16 minutes.
+Note: Depend on the size of the package, DISk tool will take some time to process uninstalling. Normally the process will be completed within 16 minutes.
 6. Once this has been completed, detach the OS disk, and then [rebuild the VM using the OS Disk](troubleshoot-recovery-disks-portal-windows.md). 
