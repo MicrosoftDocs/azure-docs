@@ -201,6 +201,7 @@ Add the following keyword to your connection string.
 ### Enable Always Encrypted with SqlConnectionStringBuilder
 The following code shows how to enable Always Encrypted by setting [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) to [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
+```CS
     // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder =
        new SqlConnectionStringBuilder("replace with your connection string");
@@ -208,6 +209,7 @@ The following code shows how to enable Always Encrypted by setting [SqlConnectio
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## Register the Azure Key Vault provider
 The following code shows how to register the Azure Key Vault provider with the ADO.NET driver.
