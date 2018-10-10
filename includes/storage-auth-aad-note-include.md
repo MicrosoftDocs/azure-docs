@@ -17,5 +17,9 @@ ms.custom: "include file"
 >
 > - You must use HTTPS to authenticate with Azure AD when calling blob and queue operations.
 >
-> - In the preview release, the Azure portal and Azure Storage Explorer do not use Azure AD credentials to read and write blob and queue data. Instead, these client applications continue to rely on the account access key. To view or update blob or queue data, a user must be assigned an RBAC role that encompasses  [Microsoft.Storage/storageAccounts/listkeys/action](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role), which grants permissions to call [Storage Accounts - List Keys](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/listkeys). The Contributor and Reader roles for blobs and queues do not currently include the **listkeys** action as part of the preview release and so do not provide data access through the Azure portal or Azure Storage Explorer. To explore identity-based access to blob and queue data during the preview release, use PowerShell or Azure CLI.
+> - The Azure portal now supports using Azure AD credentials to read and write blob data as part of the preview release.
+> 
+> - The Azure portal does not currently support using Azure AD credentials to read and write queue data. Queue data is accessed via your storage account keys.
+>
+> - [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) currently uses your storage account key to access blob and queue data.
 
