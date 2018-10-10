@@ -15,7 +15,7 @@ ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
-# Article intent: As an partner OEM, enable the service to receive and perform tests with validation as service.
+# Article intent: As a partner OEM, configure resources for executing tests with Validation as Service.
 ---
 
 # Tutorial: Set up your Validation as a Service resources
@@ -42,9 +42,9 @@ It is recommended to create a tenant specifically for use with VaaS with a descr
 
 1. Create an Azure Active Directory tenant in the [Azure portal](https://portal.azure.com), or use an existing tenant. For instructions on creating new Azure Active Directory tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad).
 
-2. Add members of your organization to the tenant. These users will be responsible for using the service to view or schedule tests. Once you complete registration, you will define users access levels in [Assign user roles](#assign-user-roles).
+2. Add members of your organization to the tenant. These users will be responsible for using the service to view or schedule tests. Once you complete registration, you will define users' access levels in [Assign user roles](#assign-user-roles).
 
-> [!TIP]  
+> [!TIP]
 > If you would like to isolate VaaS resources and operations among different groups within an organization, you can create multiple Azure AD tenant directories.
 
 ### Register your tenant
@@ -65,7 +65,7 @@ This process authorizes your tenant with the **Azure Stack Validation Service** 
 
 As the Azure AD administrator, give the VaaS Azure AD application the required permissions on behalf of your tenant:
 
-1. Use the global admin credentials for the tenant to sign into the [VaaS portal](https://azurestackvalidation.com/). Select on **My Account**.
+1. Use the global admin credentials for the tenant to sign into the [VaaS portal](https://azurestackvalidation.com/). Select **My Account**.
 
     ![Sign to the VaaS portal](media/vaas_portalsignin.png)
 
@@ -95,7 +95,7 @@ To assign roles in the **Azure Stack Validation Service** application:
 
 During test execution, VaaS outputs diagnostic logs to an Azure Storage account. In addition to test logs, the storage account may also be used to the upload the OEM extension packages for the Package Validation workflow.
 
-> [!NOTE]  
+> [!NOTE]
 > This Azure Storage account is hosted in the Azure public cloud, not on your Azure Stack environment.
 
 1. To create a storage account, follow the instructions at [Create a storage account](https://docs.microsoft.com/azure/storage/storage-create-storage-account#create-a-storage-account).
@@ -111,7 +111,7 @@ For details on using the storage account for VaaS, see the following articles:
 
 ## Next steps
 
-In this tutorial, you set up the resources your need for Validation as a service for Azure Stack. You configured an Azure AD directory tenant and created an Azure storage account. To continue with Validation as a service, continue to the tutorial on deploying the local agent to run a test on your hardware.
+In this tutorial, you set up the resources your need for Validation as a service for Azure Stack. You configured an Azure AD directory tenant and created an Azure storage account. If your environment does not allow in-bound connections, follow the tutorial on deploying the local agent to run a test on your hardware.
 
 > [!div class="nextstepaction"]
 > [Deploy the local agent](azure-stack-vaas-local-agent.md)

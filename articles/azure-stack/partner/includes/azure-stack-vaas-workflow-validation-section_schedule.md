@@ -16,4 +16,4 @@ Once a test has completed successfully, the **Schedule** action becomes disabled
 
 1. Select **Schedule** from the context menu to open a prompt for scheduling the test instance.
 
-1. Review the test parameters and then Select **Submit** to schedule the test for execution.
+1. Review the test parameters and then select **Submit** to schedule the test for execution.
