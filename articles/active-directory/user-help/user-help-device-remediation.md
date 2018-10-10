@@ -16,10 +16,10 @@ ms.reviewer: jairoc
 
 ---
 # Potential reasons for the "You can't get there from here" error message
-While accessing your organization's internal web apps or sites, you might receive an error message that says, **You can't get there from here**. This message appears when your organization has put a policy in place that's conditionally preventing access to your organization's resources. While it might be necessary to contact your Helpdesk to fix this problem, there are a few things you can try first.
+While accessing your organization's internal web apps or services, you might get an error message that says, **You can't get there from here**. This message means your organization has put a policy in place that's preventing your device from accessing your organization's resources. While you might end up having to contact your Helpdesk to fix this problem, there are a few things you can try first.
 
 ## Make sure you're using a supported browser
-If you get the **You can't get there from here** message saying that you're trying to access your organization's sites from an unsupported browser, you should check to see which browser you're running.
+If you get the **You can't get there from here** message saying that you're trying to access your organization's sites from an unsupported browser, you should check which browser you're running.
 
 ![Error message related to browser support](media/active-directory-conditional-access-device-remediation/02.png)
 
@@ -39,7 +39,7 @@ Make sure that you're running a supported version of the operating system, inclu
 To fix this problem, you must install and run a supported operating system.
 
 ## Make sure your device is joined to your organization's network
-If you get the **You can't get there from here** message saying that your device is out-of-compliance with your organization's access policy, you must make sure your device is joined to your on-premises network or joined to your cloud network.
+If you get the **You can't get there from here** message saying that your device is out-of-compliance with your organization's access policy, make sure your device is joined to your organization's network.
 
 ![Error message related to browser support](media/active-directory-conditional-access-device-remediation/01.png)
 
@@ -59,7 +59,7 @@ If your device isn't connected to your organization's network, you can do one of
 
 - Join your work device. Join your work-owned Windows 10 device to your organization's network so you can access potentially restricted resources. For more information and step-by-step instructions, see [Join your work device to your organization's network](user-help-join-device-on-network.md).
 
-- **Register your personal device for work.** Register your personal device, typically a phone or tablet, on your organization's network. After your device is registered, it will be able to access your organization's restricted resources. For more information and step-by-step instructions, see [Register your personal device on your organization's network](user-help-register-device-on-network.md).
+- **Register your personal device for work.** Register your personal device, typically a phone or tablet, on your organization's network. After your device is registered, it can access your organization's restricted resources. For more information and step-by-step instructions, see [Register your personal device on your organization's network](user-help-register-device-on-network.md).
 
 ## Next steps
 [What is the MyApps portal?](active-directory-saas-access-panel-introduction.md)
