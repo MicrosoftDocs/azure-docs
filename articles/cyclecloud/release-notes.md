@@ -22,12 +22,6 @@ ms.date: 10/09/2018
 * Account form includes inline help and validation of entered credentials
 * Can now specify `AuthorizedKeyPath` on Linux virtual machines
 * Cluster scaling now takes advantage of quota information to find capacity quickly
-* Slurm support for Ubuntu added
-* Slurm support for Ubuntu added
-* Slurm support for Ubuntu added
-* Slurm support for Ubuntu added
-* Slurm support for Ubuntu added
-* Slurm support for Ubuntu added
 * Added tool downloads and useful resources to About page
 * Now supports Azure Marketplace images that require acceptance of license terms
 * Can now override accelerated networking option
