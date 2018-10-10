@@ -3,11 +3,11 @@ title: Configure a HDInsight cluster with Enterprise Security Package by using A
 description: Learn how to set up and configure a HDInsight Enterprise Security Package cluster by using Azure Active Directory Domain Services.
 services: hdinsight
 ms.service: hdinsight
-author: omidm1
-ms.author: omidm
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/3/2018
+ms.date: 10/9/2018
 ---
 # Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services
 
@@ -19,6 +19,9 @@ In this article, you learn how to configure a HDInsight cluster with ESP by usin
 >ESP is GA in HDI 3.6 for Spark, Interactive, and Hadoop. ESP for HBase and Kafka cluster types is in preview.
 
 ## Enable Azure AD-DS
+
+> [!NOTE]
+> Only tenant administrators have the privileges to create an Azure AD-DS instance. If the cluster storage is Azure Data Lake Store (ADLS) Gen1 or Gen2, disable Multi-Factor Authentication (MFA) only for users who will access the cluster. If the cluster storage is Azure Blob Storage (WASB), do not disable MFA.
 
 Enabling AzureAD-DS is a prerequisite before you can create a HDInsight cluster with ESP. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
@@ -34,8 +37,7 @@ Change the configuration of the DNS servers in the Azure AD-DS VNET to use these
 
 ![Updating the VNET DNS Configuration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
-> [!NOTE]
-> Only tenant administrators have the privileges to create an Azure AD-DS instance. Multi-factor authentication needs to be disabled only for users who will access the cluster.
+
 
 When enabling secure LDAP, put the domain name in the subject name or the subject alternative name in the certificate. For example, if your domain name is *contoso.com*, make sure that exact name exists in your certificate subject name or subject alternative name. For more information, see [Configure secure LDAP for an Azure AD-DS managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
