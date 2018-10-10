@@ -24,13 +24,13 @@ Azure Key Vault enables Microsoft Azure applications and users to store and use 
 - Cryptographic keys: Supports multiple key types and algorithms, and enables the use of Hardware Security Modules (HSM) for high value keys. 
 - Secrets: Allows users to securely store secrets, such as passwords. Secrets are limited size octet objects with no specific semantics. 
 - Certificates: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature.
-- Azure Storage: Can manage keys of an Azure Storage account for you. Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. 
+- Azure Storage: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. 
 
-For more general information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/key-vault-whatis)
+For more general information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/key-vault-whatis)
 
 ## Azure Key Vault
 
-The following sections offer general information applicable across the implementation of the Azure Key Vault service.
+The following sections offer general information applicable across the implementation of the Key Vault service.
 
 ###  Supporting standards
 
@@ -58,11 +58,11 @@ Refer to the JOSE specifications for relevant data types for keys, encryption, a
 
 ###  Objects, identifiers, and versioning
 
-Objects stored in Azure Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique identifier and URL. When an object is first created, it is given a unique version identifier and is marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier and causes it to become the current version.  
+Objects stored in Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique identifier and URL. When an object is first created, it's given a unique version identifier and marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier, causing it to become the current version.  
 
-Objects in Azure Key Vault can be addressed using the current identifier or a version-specific identifier. For example, given a Key with the name `MasterKey`, performing operations with the current identifier causes the system to use the latest available version. Performing operations with the version-specific identifier causes the system to use that specific version of the object.  
+Objects in Key Vault can be addressed using the current identifier or a version-specific identifier. For example, given a Key with the name `MasterKey`, performing operations with the current identifier causes the system to use the latest available version. Performing operations with the version-specific identifier causes the system to use that specific version of the object.  
 
-Objects are uniquely identified within Azure Key Vault using a URL. No two objects in the system, regardless of geo-location, have the same URL. The complete URL to an object is called the Object Identifier. The URL consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. The Object Name is case-insensitive and immutable. Identifiers that do not include the Object Version are referred to as Base Identifiers.  
+Objects are uniquely identified within Key Vault using a URL. No two objects in the system have the same URL, regardless of geo-location. The complete URL to an object is called the Object Identifier. The URL consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. The Object Name is case-insensitive and immutable. Identifiers that don't include the Object Version are referred to as Base Identifiers.  
 
 For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md)
 
@@ -83,28 +83,28 @@ Where:
 
 ###  Keys and key types
 
-Cryptographic keys in Azure Key Vault are represented as JSON Web Key [JWK] objects. The base JWK/JWA specifications are also extended to enable key types unique to the Azure Key Vault implementation. For example, importing keys using  HSM vendor-specific packaging, enables secure transportation of keys that may only be used in Azure Key Vault HSMs.  
+Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The base JWK/JWA specifications are also extended to enable key types unique to the Key Vault implementation. For example, importing keys using  HSM vendor-specific packaging, enables secure transportation of keys that may only be used in Key Vault HSMs.  
 
-- **"Soft" keys**: A key processed in software by Key Vault, but is encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA or EC (Elliptic Curve) key, or request that Azure Key Vault generate one.
-- **"Hard" keys**: A key processed in an HSM (Hardware Security Module). These keys are protected in one of the Azure Key Vault HSM Security Worlds (there's one Security World per geography to maintain isolation). Clients may import an RSA or EC key, in soft form or by exporting from a compatible HSM device. Clients may also request Azure Key Vault to generate a key. This key type adds the T attribute to the JWK obtain to carry the HSM key material.
+- **"Soft" keys**: A key processed in software by Key Vault, but is encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA or EC (Elliptic Curve) key, or request that Key Vault generate one.
+- **"Hard" keys**: A key processed in an HSM (Hardware Security Module). These keys are protected in one of the Key Vault HSM Security Worlds (there's one Security World per geography to maintain isolation). Clients may import an RSA or EC key, in soft form or by exporting from a compatible HSM device. Clients may also request Key Vault to generate a key. This key type adds the T attribute to the JWK obtain to carry the HSM key material.
 
      For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
-Azure Key Vault supports RSA and Elliptic Curve keys only. Future releases may support other key types, such as symmetric.
+Key Vault supports RSA and Elliptic Curve keys only. Future releases may support other key types, such as symmetric.
 
 -   **EC**: "Soft" Elliptic Curve key.
 -   **EC-HSM**: "Hard" Elliptic Curve key.
 -   **RSA**: "Soft" RSA key.
 -   **RSA-HSM**: "Hard" RSA key.
 
-Azure Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Elliptic Curve key types P-256, P-384, P-521, and P-256K.
+Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Elliptic Curve key types P-256, P-384, P-521, and P-256K.
 
 ### Cryptographic protection
 
-The cryptographic modules that Azure Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don’t need to do anything special to run in FIPS mode. If you **create** or **import** keys as HSM-protected, they're guaranteed to be processed inside an HSM validated to FIPS 140-2 Level 2 or higher. If you **create** or **import** keys as software-protected, they're processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](#keys-and-key-types).
+The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don’t need to do anything special to run in FIPS mode. If you **create** or **import** keys as HSM-protected, they're guaranteed to be processed inside an HSM validated to FIPS 140-2 Level 2 or higher. If you **create** or **import** keys as software-protected, they're processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](#keys-and-key-types).
 
 ###  EC algorithms
- The following algorithm identifiers are supported with EC and EC-HSM keys in Azure Key Vault. 
+ The following algorithm identifiers are supported with EC and EC-HSM keys in Key Vault. 
 
 #### SIGN/VERIFY
 
@@ -114,7 +114,7 @@ The cryptographic modules that Azure Key Vault uses, whether HSM or software, ar
 -   **ES512** - ECDSA for SHA-512 digests and keys created with curve P-521. This algorithm is described at [RFC7518].
 
 ###  RSA algorithms  
- The following algorithm identifiers are supported with RSA and RSA-HSM keys in Azure Key Vault.  
+ The following algorithm identifiers are supported with RSA and RSA-HSM keys in Key Vault.  
 
 #### WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
@@ -130,32 +130,32 @@ The cryptographic modules that Azure Key Vault uses, whether HSM or software, ar
 
 ###  Key operations
 
-Azure Key Vault supports the following operations on key objects:  
+Key Vault supports the following operations on key objects:  
 
--   **Create**: Allows a client to create a key in Azure Key Vault. The value of the key is generated by Azure Key Vault and stored and is not released to the client. Asymmetric (and in the future, Elliptic Curve and Symmetric) keys may be created in Azure Key Vault.  
--   **Import**: Allows a client to import an existing key to Azure Key Vault. Asymmetric keys may be imported to Azure Key Vault using a number of different packaging methods within a JWK construct. In the future, Elliptic Curve and Symmetric will also be packaged the same.
--   **Update**: Allows a client with sufficient permissions to modify the metadata (key attributes) associated with a key previously stored within Azure Key Vault.  
--   **Delete**: Allows a client with sufficient permissions to delete a key from Azure Key Vault.  
--   **List**: Allows a client to list all keys in a given Azure Key Vault.  
--   **List versions**: Allows a client to list all versions of a given key in a given Azure Key Vault.  
--   **Get**: Allows a client to retrieve the public parts of a given key in an Azure Key Vault.  
+-   **Create**: Allows a client to create a key in Key Vault. The value of the key is generated by Key Vault and stored, and isn't released to the client. Asymmetric (and in the future, Elliptic Curve and Symmetric) keys may be created in Key Vault.  
+-   **Import**: Allows a client to import an existing key to Key Vault. Asymmetric keys may be imported to Key Vault using a number of different packaging methods within a JWK construct. In the future, Elliptic Curve and Symmetric will also be packaged the same.
+-   **Update**: Allows a client with sufficient permissions to modify the metadata (key attributes) associated with a key previously stored within Key Vault.  
+-   **Delete**: Allows a client with sufficient permissions to delete a key from Key Vault.  
+-   **List**: Allows a client to list all keys in a given Key Vault.  
+-   **List versions**: Allows a client to list all versions of a given key in a given Key Vault.  
+-   **Get**: Allows a client to retrieve the public parts of a given key in an Key Vault.  
 -   **Backup**: Exports a key in a protected form.  
 -   **Restore**: Imports a previously backed up key.  
 
 For more information, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault).  
 
-Once a key has been created in Azure Key Vault, the following cryptographic operations may be performed using the key:  
+Once a key has been created in Key Vault, the following cryptographic operations may be performed using the key:  
 
--   **Sign and Verify**: Strictly, this operation is "sign hash" or "verify hash" as Azure Key Vault does not support hashing of content as part of signature creation. Applications should hash the data to be signed locally and then request that Azure Key Vault sign the hash. 
+-   **Sign and Verify**: Strictly, this operation is "sign hash" or "verify hash", as Key Vault doesn't support hashing of content as part of signature creation. Applications should hash the data to be signed locally, then request that Key Vault sign the hash. 
 Verification of signed hashes is supported as a convenience operation for applications that may not have access to [public] key material. For best application performance, verify that operations are performed locally.  
--   **Key Encryption / Wrapping**: A key stored in Azure Key Vault may be used to protect another key, typically a symmetric content encryption key (CEK). When the key in Azure Key Vault is asymmetric, key encryption is used. For example, RSA-OAEP and the WRAPKEY/UNWRAPKEY operations are equivalent to ENCRYPT/DECRYPT. When the key in Azure Key Vault is symmetric, key wrapping is used. For example, AES-KW. The WRAPKEY operation is supported as a convenience for applications that may not have access to [public] key material. For best application performance, WRAPKEY operations should be performed locally.  
--   **Encrypt and Decrypt**: A key stored in Azure Key Vault may be used to encrypt or decrypt a single block of data. The size of the block is determined by the key type and selected encryption algorithm. The Encrypt operation is provided for convenience, for applications that may not have access to [public] key material. For best application performance, encrypt operations should be performed locally.  
+-   **Key Encryption / Wrapping**: A key stored in Key Vault may be used to protect another key, typically a symmetric content encryption key (CEK). When the key in Key Vault is asymmetric, key encryption is used. For example, RSA-OAEP and the WRAPKEY/UNWRAPKEY operations are equivalent to ENCRYPT/DECRYPT. When the key in Key Vault is symmetric, key wrapping is used. For example, AES-KW. The WRAPKEY operation is supported as a convenience for applications that may not have access to [public] key material. For best application performance, WRAPKEY operations should be performed locally.  
+-   **Encrypt and Decrypt**: A key stored in Key Vault may be used to encrypt or decrypt a single block of data. The size of the block is determined by the key type and selected encryption algorithm. The Encrypt operation is provided for convenience, for applications that may not have access to [public] key material. For best application performance, encrypt operations should be performed locally.  
 
 While WRAPKEY/UNWRAPKEY using asymmetric keys may seem superfluous (as the operation is equivalent to ENCRYPT/DECRYPT), the use of distinct operations is important. The distinction provides semantic and authorization separation of these operations, and consistency when other key types are supported by the service.  
 
-Azure Key Vault does not support EXPORT operations. Once a key is provisioned in the system, it cannot be extracted or its key material modified.  However, users of Azure Key Vault may require their key for other use cases, such as after it has been deleted. In this case, they may use the BACKUP and RESTORE operations to export/import the key in a protected form. Keys created by the BACKUP operation are not usable outside Azure Key Vault. Alternatively, the IMPORT operation may be used against multiple Azure Key Vault instances.  
+Key Vault doesn't support EXPORT operations. Once a key is provisioned in the system, it cannot be extracted or its key material modified. However, users of Key Vault may require their key for other use cases, such as after it has been deleted. In this case, they may use the BACKUP and RESTORE operations to export/import the key in a protected form. Keys created by the BACKUP operation are not usable outside Key Vault. Alternatively, the IMPORT operation may be used against multiple Key Vault instances.  
 
-Users may restrict any of the cryptographic operations that Azure Key Vault supports on a per-key basis using the key_ops property of the JWK object.  
+Users may restrict any of the cryptographic operations that Key Vault supports on a per-key basis using the key_ops property of the JWK object.  
 
 For more information on JWK objects, see [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
@@ -164,8 +164,8 @@ For more information on JWK objects, see [JSON Web Key (JWK)](http://tools.ietf.
 In addition to the key material, the following attributes may be specified. In a JSON Request, the attributes keyword and braces, ‘{‘ ‘}’, are required even if there are no attributes specified.  
 
 - *enabled*: boolean, optional, default is **true**. Specifies whether the key is enabled and useable for cryptographic operations. The *enabled* attribute is used in conjunction with *nbf* and *exp*. When an operation occurs between *nbf* and *exp*, it will only be permitted if *enabled* is set to **true**. Operations outside the *nbf* / *exp* window are automatically disallowed, except for certain operation types under [particular conditions](#date-time-controlled-operations).
-- *nbf*: IntDate, optional, default is now. The *nbf* (not before) attribute identifies the time before which the key MUST NOT be used for cryptographic operations, except for certain operation types under [particular conditions](#date-time-controlled-operations). The processing of the *nbf* attribute requires that the current date/time MUST be after or equal to the not-before date/time listed in the *nbf* attribute. Azure Key Vault MAY provide for some small leeway, normally no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
-- *exp*: IntDate, optional, default is "forever". The *exp* (expiration time) attribute identifies the expiration time on or after which the key MUST NOT be used for cryptographic operation, except for certain operation types under [particular conditions](#date-time-controlled-operations). The processing of the *exp* attribute requires that the current date/time MUST be before the expiration date/time listed in the *exp* attribute. Azure Key Vault MAY provide for some small leeway, typically no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
+- *nbf*: IntDate, optional, default is now. The *nbf* (not before) attribute identifies the time before which the key MUST NOT be used for cryptographic operations, except for certain operation types under [particular conditions](#date-time-controlled-operations). The processing of the *nbf* attribute requires that the current date/time MUST be after or equal to the not-before date/time listed in the *nbf* attribute. Key Vault MAY provide for some small leeway, normally no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
+- *exp*: IntDate, optional, default is "forever". The *exp* (expiration time) attribute identifies the expiration time on or after which the key MUST NOT be used for cryptographic operation, except for certain operation types under [particular conditions](#date-time-controlled-operations). The processing of the *exp* attribute requires that the current date/time MUST be before the expiration date/time listed in the *exp* attribute. Key Vault MAY provide for some small leeway, typically no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
 
 There are additional read-only attributes that are included in any response that includes key attributes:  
 
@@ -184,14 +184,14 @@ For more information on other possible attributes, see the [JSON Web Key (JWK)](
 
 ### Key tags
 
-You can specify additional application-specific metadata in the form of tags. Azure Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
+You can specify additional application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
 
 >[!Note]
 >Tags are readable by a caller if they have the *list* or *get* permission to that object type (keys, secrets, or certificates).
 
 ###  Key access control
 
-Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. There is an access control policy for keys that is distinct from the access control policy for secrets in the same Key Vault. Users may create one or more vaults to hold keys and are required to maintain scenario appropriate segmentation and management of keys. Access control for keys is independent of access control for secrets.  
+Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. The access control policy for keys, is distinct from the access control policy for secrets in the same Key Vault. Users may create one or more vaults to hold keys, and are required to maintain scenario appropriate segmentation and management of keys. Access control for keys is independent of access control for secrets.  
 
 The following permissions can be granted, on a per user / service principal basis, in the keys access control entry on a vault. These permissions closely mirror the operations allowed on a key object:  
 
@@ -223,11 +223,11 @@ For more information on working with keys, see [Key operations in the Key Vault 
 
 ### Working with secrets
 
-Secrets in Azure Key Vault are octet sequences with a maximum size of 25k bytes each. The Azure Key Vault service does not provide any semantics for secrets. It merely accepts the data, encrypts it, stores it, and returns a secret identifier ("id"). The identifier can be used to retrieve the secret at a later time.  
+Secrets in Key Vault are octet sequences with a maximum size of 25k bytes each. The Key Vault service doesn't provide semantics for secrets. It merely accepts the data, encrypts it, stores it, and returns a secret identifier ("id"). The identifier can be used to retrieve the secret at a later time.  
 
-For highly sensitive data, clients should consider additional layers of protection for data that is stored in Azure Key Vault. For example, by pre-encrypting data using a separate protection key.  
+For highly sensitive data, clients should consider additional layers of protection for data. Encrypting data using a separate protection key prior to storage in Key Vault is one example.  
 
-Azure Key Vault also supports a contentType field for secrets. Clients may specify the content type, "contentType", of a secret to assist in interpreting the secret data when it is retrieved. The maximum length of this field is 255 characters. There are no pre-defined values. The suggested usage is as a hint for interpreting the secret data. For instance, an implementation may store both passwords and certificates as secrets then use this field to indicate which. There are no predefined values.  
+Key Vault also supports a contentType field for secrets. Clients may specify the content type of a secret to assist in interpreting the secret data when it's retrieved. The maximum length of this field is 255 characters. There are no pre-defined values. The suggested usage is as a hint for interpreting the secret data. For instance, an implementation may store both passwords and certificates as secrets, then use this field to differentiate. There are no predefined values.  
 
 ### Secret attributes
 
@@ -235,7 +235,7 @@ In addition to the secret data, the following attributes may be specified:
 
 - *exp*: IntDate, optional, default is **forever**. The *exp* (expiration time) attribute identifies the expiration time on or after which the secret data SHOULD NOT be retrieved, except in [particular situations](#date-time-controlled-operations). This field is for **informational** purposes only as it informs users of key vault service that a particular secret may not be used. Its value MUST be a number containing an IntDate value.   
 - *nbf*: IntDate, optional, default is **now**. The *nbf* (not before) attribute identifies the time before which the secret data SHOULD NOT be retrieved, except in [particular situations](#date-time-controlled-operations). This field is for **informational** purposes only. Its value MUST be a number containing an IntDate value. 
-- *enabled*: boolean, optional, default is **true**. This attribute specifies whether or not the secret data can be retrieved. The enabled attribute is used in conjunction with and *exp* when an operation occurs between and exp, it will only be permitted if enabled is set to **true**. Operations outside the *nbf* and *exp* window are automatically disallowed, except in [particular situations](#date-time-controlled-operations).  
+- *enabled*: boolean, optional, default is **true**. This attribute specifies whether the secret data can be retrieved. The enabled attribute is used in conjunction with and *exp* when an operation occurs between and exp, it will only be permitted if enabled is set to **true**. Operations outside the *nbf* and *exp* window are automatically disallowed, except in [particular situations](#date-time-controlled-operations).  
 
 There are additional read-only attributes that are included in any response that includes secret attributes:  
 
@@ -250,7 +250,7 @@ For more information on data types, see [Data types](#data-types).
 
 ### Secret access control
 
-Access Control for secrets managed in Azure Key Vault is provided at the level of a Key Vault that acts as the container of those secrets. There is an access control policy for secrets that is distinct from the access control policy for keys in the same Key Vault. Users may create one or more vaults to hold secrets and are required to maintain scenario appropriate segmentation and management of secrets. Access controls for secrets are independent of access control for Keys.  
+Access Control for secrets managed in Key Vault, is provided at the level of the Key Vault that contains those secrets. The access control policy for secrets, is distinct from the access control policy for keys in the same Key Vault. Users may create one or more vaults to hold secrets, and are required to maintain scenario appropriate segmentation and management of secrets.   
 
 The following permissions can be used, on a per-principal basis, in the secrets access control entry on a vault, and closely mirror the operations allowed on a secret object:  
 
@@ -269,7 +269,7 @@ The following permissions can be used, on a per-principal basis, in the secrets 
 For more information on working with secrets, see [Secret operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
 ### Secret tags  
-You can specify additional application-specific metadata in the form of tags. Azure Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
+You can specify additional application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
 
 >[!Note]
 >Tags are readable by a caller if they have the *list* or *get* permission to that object type (keys, secrets, or certificates).
@@ -297,7 +297,7 @@ The identifier and version of certificates is similar to that of keys and secret
 
 ### Exportable or Non-exportable key
 
-When a Key Vault  certificate is created, it can be retrieved from the addressable secret with the private key in either PFX or PEM format if the policy used to create the certificate indicated that the key is exportable. If the policy used to create the Key Vault certificate indicated the key to be non-exportable, then the private key is not a part of the value when retrieved as a secret.  
+When a Key Vault certificate is created, it can be retrieved from the addressable secret with the private key in either PFX or PEM format. The policy used to create the certificate must indicate that the key is exportable. If the policy indicates non-exportable, then the private key isn't a part of the value when retrieved as a secret.  
 
 The addressable key becomes more relevant with non-exportable KV certificates. The addressable KV key’s operations are mapped from *keyusage* field of the KV certificate policy used to create the KV Certificate.  
 
@@ -334,15 +334,13 @@ There are additional read-only attributes that are included in response:
 
 ### Certificate policy
 
-A certificate policy contains information on how to create and manage lifecycle of a KV certificate. When a certificate with private key is imported into the key vault, a default policy is created by reading the x509 certificate.  
+A certificate policy contains information on how to create and manage lifecycle of a Key Vault certificate. When a certificate with private key is imported into the key vault, a default policy is created by reading the x509 certificate.  
 
-When a KV certificate is created from scratch, a policy needs to be supplied to Key Vault to inform it on how to create this KV certificate version or the next KV certificate version. Once a policy has been established, it is not required with successive create operations to create next KV certificate versions.  
-
-There is only one instance of a policy for all the versions of a KV certificate.  
+When a Key Vault certificate is created from scratch, a policy needs to be supplied. The policy specifies how to create this Key Vault certificate version, or the next Key Vault certificate version. Once a policy has been established, it isn't required with successive create operations for future  versions. There's only one instance of a policy for all the versions of a Key Vault certificate.  
 
 At a high level, a certificate policy contains the following information:  
 
--   X509 certificate properties: Contains subject name, subject alternate names etc. used to create an x509 certificate request.  
+-   X509 certificate properties: Contains subject name, subject alternate names, and other properties used to create an x509 certificate request.  
 -   Key Properties: contains key type, key length, exportable, and reuse key fields. These fields instruct key vault on how to generate a key.  
 -   Secret properties: contains secret properties such as content type of addressable secret to generate the secret value, for retrieving certificate as a secret.  
 -   Lifetime Actions: contains lifetime actions for the KV Certificate. Each lifetime action contains:  
@@ -409,7 +407,7 @@ If a certificate's policy is set to auto renewal, then a notification is sent on
 
 ### Certificate Access Control
 
- Access control for certificates is managed by Key Vault and is provided at the level of a Key Vault that acts as the container of those certificates. There is an access control policy for certificates that is distinct from the access control policy for keys and secrets in the same Key Vault. Users may create one or more vaults to hold certificates and are required to maintain scenario appropriate segmentation and management of certificates.  
+ Access control for certificates is managed by Key Vault, and is provided by the Key Vault that contains those certificates. The access control policy for certificates is distinct from the access control policies for keys and secrets in the same Key Vault. Users may create one or more vaults to hold certificates, to maintain scenario appropriate segmentation and management of certificates.  
 
  The following permissions can be used, on a per-principal basis, in the secrets access control entry on a key vault, and closely mirrors the operations allowed on a secret object:  
 
@@ -437,12 +435,12 @@ For more information, see the [Certificate operations in the Key Vault REST API 
 
 ## Azure Storage account key management
 
-Azure Key Vault can manage Azure storage account keys:
+Key Vault can manage Azure storage account keys:
 
-- Internally, Azure Key Vault can list (sync) keys with an Azure storage account. 
-- Azure Key Vault regenerates (rotates) the keys periodically.
+- Internally, Key Vault can list (sync) keys with an Azure storage account. 
+- Key Vault regenerates (rotates) the keys periodically.
 - Key values are never returned in response to caller.
-- Azure Key Vault manages keys of both storage accounts and classic storage accounts.
+- Key Vault manages keys of both storage accounts and classic storage accounts.
 
 For more information, see [Azure Key Vault Storage Account Keys](key-vault-ovw-storage-keys.md)
 
