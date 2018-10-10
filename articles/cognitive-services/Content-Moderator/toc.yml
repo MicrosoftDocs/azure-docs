@@ -3,10 +3,6 @@
   items:
   - name: What is Content Moderator?
     href: overview.md
-- name: Quickstarts
-  items:
-  - name: Get started with Content Moderator
-    href: quick-start.md
 - name: Samples
   items:
   - name: .NET SDK samples
@@ -26,9 +22,11 @@
   - name: Workflows
     href: workflow-api.md
 - name: How-to guides
-    items:
+  items:
   - name: Try Content Moderator
     items:
+    - name: Get started with Content Moderator
+      href: quick-start.md
     - name: Moderation APIs
       items:
       - name: Images - API console
