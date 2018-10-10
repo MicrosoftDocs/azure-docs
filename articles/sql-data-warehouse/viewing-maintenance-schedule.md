@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 
 ## Portal
 
-By default, all newly created Azure SQL Data Warehouse instances have an eight-hour, system-defined primary and secondary maintenance window applied during deployment. You can change the windows as soon deployment is complete. No maintenance will take place outside the specified maintenance windows without prior notification.
+By default, all newly created Azure SQL Data Warehouse instances have an eight-hour primary and secondary maintenance window applied during deployment. You can change the windows as soon deployment is complete. No maintenance will take place outside the specified maintenance windows without prior notification.
 
 To view the maintenance schedule that has been applied to your data warehouse, complete the following steps:
 
