@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 10/10/2018
 ms.author: jeedes
 
 ---
@@ -118,12 +118,20 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. On the **Basic SAML Configuration** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-   ![Salesforce Sandbox Domain and URLs single sign-on information](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url1.png)
+    a. Click **Upload metadata file**.
 
-   In the **Reply URL** textbox, type your organization specific **Reply URL**.
+    ![Upload metadata file](./media/salesforce-sandbox-tutorial/upload_metadata.png)
 
-   > [!NOTE]
-   > Update Reply URL value with the actual Reply URL which is explained later in this tutorial.
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	![choose metadata file](./media/salesforce-sandbox-tutorial/browse_upload_metadata.png)
+
+    > [!NOTE]
+    > You will get the service provider metadata file from the Salesforce Sandbox admin portal which is explained later in the tutorial.
+
+    c. After the metadata file is successfully uploaded, the **Reply URL** value will get auto populated in **Reply URL** textbox.
+
+    ![Salesforce Sandbox Domain and URLs single sign-on information](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url1.png)
 
 6. On the **SAML Signing Certificate** section, Click on **Download** to download **Federation Metadata XML** and then save the xml file on your computer.
 
@@ -159,15 +167,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
-15. On the **Single Sign-On Settings** page, click the **Download Metadata** button.
+15. On the **Single Sign-On Settings** page, click the **Download Metadata** button to download the service provider metadata file. Use this file in the **Basic SAML Configuration** section in the Azure portal for configuring the necessary URLs as explained above.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure4.png)
 
-16. Open the downloaded Metadata in a different browser window and copy the **Location** value and paste it into the **Reply URL** textbox on the **Salesforce Sandbox Domain and URLs** section in the Azure portal.  
-
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure5.png)
-
-17. If you wish to configure the application in **SP** initiated mode, following are the prerequisites for that:
+16. If you wish to configure the application in **SP** initiated mode, following are the prerequisites for that:
 
     a. You should have a verified domain.
 
@@ -182,41 +186,41 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     > [!NOTE]
     > This value should be copied from the Salesforce Sandbox portal once you have enabled the domain.
 
-18. On the **SAML Signing Certificate** section, click **Federation Metadata XML** and then save the xml file on your computer.
+17. On the **SAML Signing Certificate** section, click **Federation Metadata XML** and then save the xml file on your computer.
 
 	![The Certificate download link](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_certificate.png)
 
-19. Open a new tab in your browser and log in to your Salesforce Sandbox administrator account.
+18. Open a new tab in your browser and log in to your Salesforce Sandbox administrator account.
 
-20. Click on the **Setup** under **settings icon** on the top right corner of the page.
+19. Click on the **Setup** under **settings icon** on the top right corner of the page.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure1.png)
 
-21. Scroll down to the **SETTINGS** in the left navigation pane, click **Identity** to expand the related section. Then click **Single Sign-On Settings**.
+20. Scroll down to the **SETTINGS** in the left navigation pane, click **Identity** to expand the related section. Then click **Single Sign-On Settings**.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
-22. On the **Single Sign-On Settings** page, click the **Edit** button.
+21. On the **Single Sign-On Settings** page, click the **Edit** button.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure3.png)
 
-23. Select **SAML Enabled**, and then click **Save**.
+22. Select **SAML Enabled**, and then click **Save**.
 
 	![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-24. To configure your SAML single sign-on settings, click **New from Metadata File**.
+23. To configure your SAML single sign-on settings, click **New from Metadata File**.
 
 	![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-25. Click **Choose File** to upload the metadata XML file and click **Create**.
+24. Click **Choose File** to upload the metadata XML file and click **Create**.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-26. On the **SAML Single Sign-On Settings** page, fields populate automatically, type the name of the configuration (for example: *SPSSOWAAD_Test*) In the **Name** textbox and click save.
+25. On the **SAML Single Sign-On Settings** page, fields populate automatically, type the name of the configuration (for example: *SPSSOWAAD_Test*) In the **Name** textbox and click save.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
-27. To enable your domain on Salesforce Sandbox, perform the following steps:
+26. To enable your domain on Salesforce Sandbox, perform the following steps:
 
     > [!NOTE]
     > Before enabling the domain you need to create the same on Salesforce Sandbox. For more information, see [Defining Your Domain Name](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US). Once the domain is created, please make sure that it's configured correctly.
