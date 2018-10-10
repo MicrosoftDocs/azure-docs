@@ -88,7 +88,12 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 } 
 ```
 
-Support for configuring this property via Azure PowerShell and CLI 2.0 will be rolled out on 10/09.
+The following example uses the Azure CLI (2.0.47 or later) to configure automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
+
+```azurecli
+az vmss update --name myVMSS --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
+```
+Support for configuring this property via Azure PowerShell will be rolled out soon.
 
 ## Using Application Health Probes 
 
@@ -135,10 +140,10 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS -OSUpg
 ```
 
 ### Azure CLI 2.0
-The following example uses the Azure CLI (2.0.20 or later) to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
+The following example uses the Azure CLI (2.0.47 or later) to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```azurecli
-az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
+az vmss get-os-upgrade-history --resource-group myResourceGroup --name myVMSS
 ```
 
 ### REST API
@@ -188,10 +193,18 @@ The GET call returns properties similar to the following example output:
 
 ## How to get the latest version of a platform OS image? 
 
-You can get the image versions for automatic OS upgrade supported SKUs using the below PowerShell cmdlets: 
+You can get the image versions for automatic OS upgrade supported SKUs using the below examples: 
+
+```
+GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
+```
 
 ```powershell
 Get-AzureRmVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
+```
+
+```azurecli
+az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServer" --sku "16.04-LTS" --all
 ```
 
 ## Deploy with a template

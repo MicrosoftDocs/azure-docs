@@ -64,7 +64,7 @@ To create a Kafka on HDInsight cluster, use the following steps:
     | Setting | Value |
     | --- | --- |
     | Cluster Type | Kafka |
-    | Version | Kafka 1.0.0 (HDI 3.6) |
+    | Version | Kafka 1.1.0 (HDI 3.6) |
 
     Use the **Select** button to save the cluster type settings and return to __Basics__.
 
