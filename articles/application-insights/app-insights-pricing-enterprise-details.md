@@ -21,7 +21,7 @@ ms.author: mbullwin
 
 Azure Application Insights has two pricing plans: Basic and Enterprise. The [Basic](app-insights-pricing.md) pricing plan is the default plan. It includes all Enterprise plan features, at no additional cost. The Basic plan bills primarily on the volume of data that's ingested. 
 
-The Enterprise plan has a per-node charge, and each node receives a daily data allowance. In the Enterprise pricing plan, you are charged for data ingested above the included allowance. If you are using Operations Management Suite, you should choose the Enterprise plan. 
+The Enterprise plan has a per-node charge, and each node receives a daily data allowance. In the Enterprise pricing plan, you are charged for data ingested above the included allowance. If you are using Log Analytics, you should choose the Enterprise plan. 
 
 For current prices in your currency and region, see [Application Insights pricing](http://azure.microsoft.com/pricing/details/application-insights/).
 
