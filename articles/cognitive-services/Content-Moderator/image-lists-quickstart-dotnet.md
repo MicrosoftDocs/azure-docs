@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Moderate with custom image lists in C# - Content Moderator"
+title: "Quickstart: Check images against custom lists in C# - Content Moderator"
 titlesuffix: Azure Cognitive Services
-description: How to moderate with custom image lists using the Content Moderator SDK for C#.
+description: How to moderate images with custom image lists using the Content Moderator SDK for C#.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -11,6 +11,7 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
+#As a C# developer of content-providing software, I want to check images against a custom list of inappropriate images so that I can handle them more efficiently.
 ---
 
 # Quickstart: Moderate with custom image lists in C#

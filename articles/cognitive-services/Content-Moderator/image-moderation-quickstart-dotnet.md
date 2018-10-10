@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Check image content in C# - Content Moderator"
 titlesuffix: Azure Cognitive Services
-description: How to Check image content using the Content Moderator SDK for C#
+description: How to check image content using the Content Moderator SDK for C#
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -11,7 +11,7 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-#As a C# developer of content-providing software, I want a way to analyze images for offensive or inappropriate content so that I can categorize and handle them accordingly.
+#As a C# developer of content-providing software, I want to analyze images for offensive or inappropriate content so that I can categorize and handle them accordingly.
 ---
 
 # Quickstart: Check image content in C# 

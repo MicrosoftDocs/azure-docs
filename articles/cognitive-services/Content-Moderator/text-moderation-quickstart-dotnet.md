@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Check text content in C# - Content Moderator"
 titlesuffix: Azure Cognitive Services
-description: How to Check text content using the Content Moderator SDK for C#
+description: How to check text content using the Content Moderator SDK for C#
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -11,7 +11,7 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-#As a C# developer of content-providing software, I want a way to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
+#As a C# developer of content-providing software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
 # Quickstart: Check text content in C# 

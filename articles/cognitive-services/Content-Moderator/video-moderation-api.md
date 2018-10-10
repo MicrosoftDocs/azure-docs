@@ -11,7 +11,7 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-#As a C# developer of content-providing software, I want a way to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
+#As a C# developer of content-providing software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
 # Quickstart: Check video content in C#
