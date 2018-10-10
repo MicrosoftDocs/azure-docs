@@ -31,8 +31,6 @@
     items:
     - name: Moderation APIs
       items:
-      - name: Helper library - .NET
-        href: content-moderator-helper-quickstart-dotnet.md
       - name: Images - API console
         href: try-image-api.md
       - name: Images - .NET
