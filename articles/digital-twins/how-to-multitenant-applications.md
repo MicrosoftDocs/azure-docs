@@ -1,18 +1,20 @@
 ---
-title: Enable multitenant applications with Azure Digital Twins
+title: How to enable multitenant applications with Azure Digital Twins | Microsoft Docs
 description: Understanding how to register your customers' Azure Active Directory tenants with Azure Digital Twins
 author: mavoge
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/08/2018
 ms.author: mavoge
 ---
 
-# How to enable multi-tenant applications with Azure Digital Twins
+# How to enable multitenant applications with Azure Digital Twins
 
-As a developer using the Azure Digital Twins service, you'll likely want to build one application that you'll then provide to your customers.  This document details how you can set up your application to authenticate with numerous customers across various Azure Active Directory (AD) tenants.
+Developers using the Azure Digital Twins platform will likely want to build multitenant applications. A *multitenant application* is a single provisioned instance used to support multiple customers each with their own independent data and privileges.
+
+This document details how to create an Azure Digital Twins multitenant app supporting several Azure Active Directory (AD) tenants and customers.
 
 ## Scenario summary
 
@@ -34,8 +36,10 @@ In this scenario, consider Developer D and Customer C:
 To solve the scenario above, the following actions are needed to create a Digital Twins service principal within Customer C's Azure AD tenant:
 
 - If Customer C doesn't already have an Azure subscription with Azure AD tenant:
+
   - Customer C's Azure AD Tenant Admin will need to acquire a [pay-as-you-go Azure subscription](https://azure.microsoft.com/offers/ms-azr-0003p/).
   - Customer C's Azure AD Tenant Admin will then have to [link their tenant with the new subscription](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+
 - From the [Azure Portal](https://portal.azure.com), Customer C's Azure AD Tenant Admin should then:
   1. Open **Subscriptions**.
   1. Select the Subscription that has the Azure AD tenant to be used in Developer D's application.
