@@ -297,6 +297,8 @@
           href: v2-oauth2-on-behalf-of-flow.md
         - name: OAuth 2.0 client credentails grant
           href: v2-oauth2-client-creds-grant-flow.md
+        - name: OAuth 2.0 device code flow
+          href: v2-oauth2-device-code.md
       - name: ID tokens
         href: id-tokens.md
       - name: Access tokens
