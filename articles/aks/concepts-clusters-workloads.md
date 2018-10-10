@@ -60,6 +60,8 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 - Virtual networking is handled by the *kube-proxy* on each node. The proxy routes network traffic and manages IP addressing for services and pods.
 - The *container runtime* is the component that allows containerized applications to run and interact with additional resources such as the virtual network and storage. In AKS, Docker is used as the container runtime.
 
+![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
+
 The Azure VM size for your nodes defines how many CPUs, how much memory, and the size and type of storage available (such as high-performance SSD or regular HDD). If you anticipate a need for applications that require large amounts of CPU and memory or high-performance storage, plan the node size accordingly. You can also scale up the number of nodes in your AKS cluster to meet demand.
 
 In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux. When you create an AKS cluster or scale up the number of nodes, the Azure platform creates the requested number of VMs and configures them. There is no manual configuration for you to perform.
@@ -130,6 +132,8 @@ A common approach to managing applications in Kubernetes is with [Helm][helm]. Y
 
 To use Helm, a server component called *Tiller* is installed in your Kubernetes cluster. The Tiller manages the installation of charts within the cluster. The Helm client itself is installed locally on your computer, or can be used within the [Azure Cloud Shell][azure-cloud-shell]. You can search for or create Helm charts with the client, and then install them to your Kubernetes cluster.
 
+![Helm includes a client component and a server-side Tiller component that creates resources inside the Kubernetes cluster](media/concepts-clusters-workloads/use-helm.png)
+
 For more information, see [Install applications with Helm in Azure Kubernetes Service (AKS)][aks-helm].
 
 ## StatefulSets and DaemonSets
@@ -164,6 +168,8 @@ For more information, see [Kubernetes DaemonSets][kubernetes-daemonset].
 ## Namespaces
 
 Kubernetes resources, such as pods and Deployments, are logically grouped into a *namespace*. These groupings provide a way to logically divide an AKS cluster and restrict access to create, view, or manage resources. You can create namespaces to separate business groups, for example. Users can only interact with resources within their assigned namespaces.
+
+![Kubernetes namespaces to logically divide resources and applications](media/concepts-clusters-workloads/namespaces.png)
 
 When you create an AKS cluster, the following namespaces are available:
 
