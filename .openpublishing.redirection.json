@@ -12484,6 +12484,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/load-balancer/load-balancer-configure-sqlao.md",
+            "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-portal.md",
             "redirect_url": "/azure/load-balancer/tutorial-load-balancer-basic-internal-portal",
             "redirect_document_id": false
@@ -14788,6 +14793,12 @@
 "redirect_document_id": false
 },
 {
+"source_path": "articles/active-directory/active-directory-aadconnectsync-feature-prevent-accidental-deletes.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes",
+"redirect_document_id": false
+},
+
+{
 "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md",
 "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler",
 "redirect_document_id": false
@@ -16372,6 +16383,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-claims-mapping.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-claims-mapping",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-configurable-token-lifetimes.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-configurable-token-lifetimes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-enterprise-app-role-management.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-enterprise-app-role-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-consent-experience.md",
+            "redirect_url": "/azure/active-directory/develop/application-consent-experience",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/develop/active-directory-integrating-applications.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
             "redirect_document_id": false
@@ -16499,11 +16530,21 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-token-and-claims.md",
             "redirect_url": "/azure/active-directory/develop/v1-id-and-access-tokens",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/v1-id-and-access-tokens.md",
+            "redirect_url": "/azure/active-directory/develop/id-tokens",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-tokens.md",
             "redirect_url": "/azure/active-directory/develop/v2-id-and-access-tokens",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/v2-id-and-access-tokens.md",
+            "redirect_url": "/azure/active-directory/develop/access-tokens",
             "redirect_document_id": true
         },
         {
@@ -18847,6 +18888,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-properties-area.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-properties-area",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-editions.md",
             "redirect_url": "/azure/active-directory/active-directory-whatis",
             "redirect_document_id": false
@@ -21130,8 +21176,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-azureadjoin-user-upgrade.md",
-            "redirect_url": "/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup",
+            "source_path": "articles/active-directory/active-directory-conditional-access-azure-authenticator-app.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
             "redirect_document_id": false
         },
         {
@@ -26993,11 +27039,6 @@
         {
             "source_path": "articles/active-directory/application-proxy-enable-remote-access-sharepoint.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
-            "redirect_url": "/azure/active-directory/active-directory-enterprise-app-role-management",
             "redirect_document_id": false
         },
         {
