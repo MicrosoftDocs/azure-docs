@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Identify language from text -Translator Text API, C#"
+title: "Quickstart: Identify language from text - Translator Text API, C#"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you identify the language of the source text using the Translator Text API with C#.
 services: cognitive-services
