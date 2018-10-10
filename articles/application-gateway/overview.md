@@ -9,7 +9,7 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 10/4/2018
+ms.date: 10/11/2018
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
@@ -55,10 +55,9 @@ For more information, see [Azure Application Gateway Ingress Controller](https:/
 Connection draining helps you achieve graceful removal of backend pool members during planned service updates. This setting is enabled via the backend http setting and can be applied to all members of a backend pool during rule creation. Once enabled, Application Gateway ensures that all deregistering instances of a backend pool do not receive any new request while allowing existing requests to complete within a configured time limit. This applies to both backend instances that are explicitly removed from the backend pool by an API call as well as backend instances that are reported as unhealthy as determined by the health probes.
 
 ## Custom error pages
-TBD
+Application Gateway allows you to create custom error pages instead of displaying default error pages. You can use your own branding and layout using a custom error page.
 
-
-
+For more information, see Create Application Gateway custom error pages.
 
 ## Secure Sockets Layer (SSL) termination
 

@@ -4,7 +4,7 @@ description: This article provides an overview of web application firewall (WAF)
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.date: 10/6/2018
+ms.date: 10/11/2018
 ms.author: amsriva
 ---
 
@@ -42,7 +42,15 @@ The following are the core benefits that Application Gateway and web application
 
 ## Features
 
-### Public preview
+- SQL injection protection
+- Cross site scripting protection
+- Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
+- Protection against HTTP protocol violations
+- Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
+- Prevention against bots, crawlers, and scanners
+- Detection of common application misconfigurations (that is, Apache, IIS, etc.)
+
+### Public preview features
 
 The current WAF public preview SKU incudes the following features:
 
@@ -51,13 +59,7 @@ The current WAF public preview SKU incudes the following features:
 
 For more information about the WAF public preview, see [Web application firewall request size limits and exclusion lists (Public Preview)](application-gateway-waf-configuration.md).
 
-* SQL injection protection
-* Cross site scripting protection
-* Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
-* Protection against HTTP protocol violations
-* Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
-* Prevention against bots, crawlers, and scanners
-* Detection of common application misconfigurations (that is, Apache, IIS, etc.)
+
 
 
 
