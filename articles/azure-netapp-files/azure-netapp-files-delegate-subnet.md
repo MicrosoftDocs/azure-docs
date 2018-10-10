@@ -21,7 +21,8 @@ ms.author: b-juche
 You need to delegate a subnet to Azure NetApp Files.   When you create a volume, you will need to specify the delegated subnet.
 
 ## Steps 
-1.	From the Subnet delegation drop-down menu, select the **Microsoft.Netapp/volumes** service.
+1.	From the Subnet delegation drop-down menu, select the **Microsoft.Netapp/volumes** service.   
+
     ![Subnet delegation](../media/azure-netapp-files/azure-netapp-files-subnet-delegation.png)
 
 
