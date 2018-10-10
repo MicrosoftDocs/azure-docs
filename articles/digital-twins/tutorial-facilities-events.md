@@ -25,8 +25,11 @@ If you don’t have an Azure account, create a [free account](https://azure.micr
 ## Prerequisites
 
 This tutorial assumes that you have completed the steps to [Provision your Azure Digital Twins setup](tutorial-facilities-setup.md), as well as [Custom monitor your Azure Digital Twins setup](tutorial-facilities-udf.md). Before proceeding, make sure that you have:
-- an instance of Digital Twins running, and 
-- the [Azure Digital Twins sample application](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
+- an [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)),
+- an instance of Digital Twins running,
+- the [Azure Digital Twins samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine,
+- [.NET Core 2.1 or above SDK](https://www.microsoft.com/net/download) on your development machine to build and run the sample,
+- an Office 365 account to send notification e-mails.
 
 ## Integrate events with Event Grid 
 In this section, we will set up [Event Grid](../event-grid/overview.md) to collect events from your Digital Twin instance as the [source](../event-grid/event-sources.md), and redirect them to an [event handler](../event-grid/event-handlers.md) like the Logic App.
@@ -63,22 +66,25 @@ In this section, we will set up [Event Grid](../event-grid/overview.md) to colle
 1. Open the file **_actions\createEndpoints.yaml_** in your editor. Make sure it has the following contents:
 
     ```yaml
-    - type:EventGrid
+    - type: EventGrid
       eventTypes:
       - SensorChange
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString:Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString:Secondary_connection_string_for_your_Event_Grid
-      path:Event_Grid_Topic_Path
+      connectionString: Primary_connection_string_for_your_Event_Grid
+      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
+      path: Event_Grid_Topic_Path
     ```
 
-1. Assign the value of **Key1** from the previous section to the `connectionString`, and the value of **Key2** to the `secondaryConnectionString`. 
+1. Replace the placeholder `Primary_connection_string_for_your_Event_Grid` with the value of **Key1**. 
 
-1. Enter the path of the Event Grid Topic as the `path`. Get this path by modifying the **Topic Endpoint** URL to this format: **yourEventGridName.yourLocation.eventgrid.azure.net**.
+1. Replace the placeholder `Secondary_connection_string_for_your_Event_Grid` with the value of **Key2**.
 
-1. Enter all values without any quotes. Make sure there are no additional spaces, since *YAML* is a sensitive file format.
+1. Replace the placeholder `Event_Grid_Topic_Path` with the path of the Event Grid Topic. You can get this path by modifying the **Topic Endpoint** URL to this format: **yourEventGridName.yourLocation.eventgrid.azure.net**. 
+
+> [!IMPORTANT]
+> Enter all values without any quotes. Make sure there is at least one space character after the colon in the *YAML* file. Make sure there are no trailing spaces or extra characters, since *YAML* is a sensitive file format.
 
 1. Save and close the file. Run the following in the command window. 
 

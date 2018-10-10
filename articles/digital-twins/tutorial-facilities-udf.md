@@ -22,18 +22,18 @@ In this tutorial, you learn how to:
 > * Simulate sensor data
 > * Get results of User-Defined Function
 
-If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 ## Prerequisites
 
 This tutorial assumes that you have completed the steps to [Provision your Azure Digital Twins setup](tutorial-facilities-setup.md). Before proceeding, make sure that you have:
+- an [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)),
 - an instance of Digital Twins running, and 
-- the [Azure Digital Twins sample application](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
+- the [Azure Digital Twins samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine, and
+- [.NET Core 2.1 or above SDK](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Run `dotnet --version` to verify the right version is installed. 
 
 ## Define conditions to monitor
 You can define a set of specific conditions in the device or sensor data, these conditions are called **Matchers**. Matchers will help you take action on the particular set of conditions, with the help of *user-defined functions*. A user-defined function can use one or more matchers to implement a custom logic that acts on the events coming from your spaces and devices. For more information, read the [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
 
-In the Digital Twins sample, navigate to the folder *occupancy-quickstart\src\actions* and open the file *provisionSample.yaml*. Note the section that begins with the type **matchers**. Each entry under this type creates a matcher with the specified **Name**, that will monitor a sensor of type **dataTypeValue**. Notice how it relates to the space named *Focus Room A1*, which has a **devices** node, containing a few **sensors**. To provision a matcher that will track one of these sensors, its **dataTypeValue** should match with that sensor's **dataType**. 
+In the Digital Twins sample folder, navigate to **_occupancy-quickstart\src\actions_** and open the file *provisionSample.yaml*. Note the section that begins with the type **matchers**. Each entry under this type creates a matcher with the specified **Name**, that will monitor a sensor of type **dataTypeValue**. Notice how it relates to the space named *Focus Room A1*, which has a **devices** node, containing a few **sensors**. To provision a matcher that will track one of these sensors, its **dataTypeValue** should match with that sensor's **dataType**. 
 
 Add the following matcher below the existing matchers:
 
@@ -58,7 +58,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             - Matcher Temperature
     ```
 
-1. Open the file *src\actions\userDefinedFunctions\availability.js* in your editor. This is the file mentioned in the **script** element of the *provisionSample.yaml*. The user-defined function in this file looks for conditions when no motion is detected in the room, as well as carbon dioxide levels are below 1000 ppm. Modify the JavaScript file to add monitor temperature in addition to other conditions. Add the following lines of code to look for conditions when no motion is detected in the room, carbon dioxide levels are below 1000 ppm, and temperature is below 73 degrees Fahrenheit:
+1. Open the file **_src\actions\userDefinedFunctions\availability.js_** in your editor. This is the file mentioned in the **script** element of the *provisionSample.yaml*. The user-defined function in this file looks for conditions when no motion is detected in the room, as well as carbon dioxide levels are below 1000 ppm. Modify the JavaScript file to add monitor temperature in addition to other conditions. Add the following lines of code to look for conditions when no motion is detected in the room, carbon dioxide levels are below 1000 ppm, and temperature is below 73 degrees Fahrenheit:
     1. At the top of the file, add the following lines for temperature:
 
         ```JavaScript
@@ -146,7 +146,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
     dotnet run ProvisionSample
     ```
 
-1. Once your login is authenticated, the application creates a sample spatial graph as configured in the *provisionSample.yaml*. Observe the messages in the command window and notice how your spatial graph gets created. Notice how it creates an IoT hub at the root node or the `Venue`. 
+1. Once your login is authenticated, the application will start creating a sample spatial graph as configured in the *provisionSample.yaml*. It might take a few minutes to complete. Observe the messages in the command window and notice how your spatial graph gets created. Notice how it creates an IoT hub at the root node or the `Venue`. 
 
 1. From the output in the command window, copy the value of the `ConnectionString`, under the `Devices` section, to your clipboard. You will need this value to simulate the device connection in the following section.
 

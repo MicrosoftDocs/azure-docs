@@ -25,8 +25,10 @@ If you don’t have an Azure account, create a [free account](https://azure.micr
 ## Prerequisites
 
 This tutorial assumes that you have completed the steps to [Provision your Azure Digital Twins setup](tutorial-facilities-setup.md), as well as [Custom monitor your Azure Digital Twins setup](tutorial-facilities-udf.md). Before proceeding, make sure that you have:
-- an instance of Digital Twins running, and 
-- the [Azure Digital Twins sample application](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
+- an [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)),
+- an instance of Digital Twins running, 
+- the [Azure Digital Twins samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine,
+- [.NET Core 2.1 or above SDK](https://www.microsoft.com/net/download) on your development machine to build and run the sample. 
 
 
 ## Stream data using Event Hubs
@@ -75,24 +77,31 @@ This tutorial assumes that you have completed the steps to [Provision your Azure
 1. Open the file **_actions\createEndpoints.yaml_** in your editor. Replace the contents with the following:
 
     ```yaml
-    - type:EventHub
+    - type: EventHub
       eventTypes:
       - SensorChange
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString:Primary_connection_string_for_your_event_hub
-      secondaryConnectionString:Secondary_connection_string_for_your_event_hub
-      path:Name_of_your_Event_Hubs_namespace
-    - type:EventHub
+      connectionString: Primary_connection_string_for_your_event_hub
+      secondaryConnectionString: Secondary_connection_string_for_your_event_hub
+      path: Name_of_your_Event_Hubs_namespace
+    - type: EventHub
       eventTypes:
       - DeviceMessage
-      connectionString:Primary_connection_string_for_your_event_hub
-      secondaryConnectionString:Secondary_connection_string_for_your_event_hub
-      path:Name_of_your_Event_Hubs_namespace
+      connectionString: Primary_connection_string_for_your_event_hub
+      secondaryConnectionString: Secondary_connection_string_for_your_event_hub
+      path: Name_of_your_Event_Hubs_namespace
     ```
 
-1. Enter the value for **Connection string--primary key** for the event hub for `connectionString`, and the value for **Connection string--secondary key** for the `secondaryConnectionString`. Enter the name of your Event Hubs namespace as `path`. Note that there are no extra spaces in any entered values. Enter all values without any quotes.
+1. Replace the placeholders `Primary_connection_string_for_your_event_hub` with the value of the **Connection string--primary key** for the event hub. This should be of the format: **Endpoint=sb://yourEventHubName.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourSharedAccessKey;EntityPath=eventhub1**.
+
+1. Replace the placeholders `Secondary_connection_string_for_your_event_hub` with the value of the **Connection string--secondary key** for the event hub.
+
+1. Replace the placeholders `Name_of_your_Event_Hubs_namespace` with the name of your Event Hubs namespace.
+
+> [!IMPORTANT]
+> Enter all values without any quotes. Make sure there is at least one space character after the colon in the *YAML* file. Make sure there are no trailing spaces or extra characters, since *YAML* is a sensitive file format.
 
 1. Save and close the file. Run the following command in the command window, and sign in with your Azure account when prompted.
 
