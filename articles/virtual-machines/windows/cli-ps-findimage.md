@@ -308,6 +308,6 @@ You'll then pass the VM configuration along with network configuration objects t
 ## Next steps
 To create a virtual machine quickly with the `New-AzureRmVM` cmdlet by using basic image information, see [Create a Windows virtual machine with PowerShell](quick-create-powershell.md).
 
-See a PowerShell script example to [Create a fully configured virtual machine](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+See a PowerShell script example to [create a fully configured virtual machine](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
 
 
