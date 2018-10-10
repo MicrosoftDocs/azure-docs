@@ -25,7 +25,7 @@ ms.reviewer: waltero
 > [!Note]  
 > Kubernetes on Azure Stack is in preview.
 
-The following article looks troubleshooting your Kubernetes cluster. You can review the deployment alert and review the status of your deployment by the elements required for the deployment. You may need to collect the deployment logs from your Azure Stack or the Linux VMs that host Kubernetes. In addition, you may need to work with your Azure Stack administrator to retrieve logs from an administrative endpoint. 
+The following article looks troubleshooting your Kubernetes cluster. You can review the deployment alert and review the status of your deployment by the elements required for the deployment. You may need to collect the deployment logs from your Azure Stack or the Linux VMs that host Kubernetes. In addition, you may need to work with your Azure Stack administrator to retrieve logs from an administrative endpoint.
 
 ## Overview of deployment
 
@@ -41,7 +41,7 @@ The following diagram shows the general process for deploying the cluster.
 
 1. Collects input parameters from the marketplace item.
 
-    You enter the values you need to set up the Kubernetes cluster including:
+    Enter the values you need to set up the Kubernetes cluster including:
     -  **User name** User name for the Linux Virtual Machines that are part of the Kubernetes cluster and DVM.
     -  **SSH Public Key** The key used for authorization to all Linux machines created as part of the Kubernetes cluster and DVM
     -  **Service principle** The ID used by the Kubernetes Azure cloud provider. The Client ID identified as the Application ID when you are created your service principal. 
@@ -71,7 +71,7 @@ The following diagram shows the general process for deploying the cluster.
         3. Starts Scheduler service.
 5. Creates agent VMs.
 
-    Downloads and executes customer script extension.
+    Downloads and executes the customer script extension.
 
 6. Runs agent script. The agent custom script:
     - Install etcd.
@@ -83,22 +83,23 @@ The following diagram shows the general process for deploying the cluster.
 You can collect logs on the VMs supporting your Kubernetes cluster. You can also review the deployment log. You may also need to talk to your Azure Stack administrator to verify the version of Azure Stack you are using, and to get logs from Azure Stack related to your deployment.
 
 1. Review the [deployment status](#review-deployment-status) and the [retrieve the logs](#get-logs-from-a-vm) from the master node in your Kubernetes cluster.
-2. You need to be use the latest version of Azure Stack. If you are unsure of your version of Azure Stack, contact your Azure Stack administrator. The Kubernetes Cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
+2. You need to use the latest version of Azure Stack. If you are unsure of your version of Azure Stack, contact your Azure Stack administrator. The Kubernetes Cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
 3.  Review your VM creation files. You may have encountered the following issues:  
-    a.  The public key may be invalid. Review the key that you have created.  
-    b.  VM creation may have triggered an internal error or triggered a creation error. Errors may be caused by a number of factors including capacity limitations for your Azure Stack subscription.
-    c.  Does the fully qualified domain name (FDQN) for the VM begin with a duplicate prefix?
-4.  If the VM is **OK** then, evaluate the DVM. If the DVM has an error message:
-        a.  The public key may be invalid. Review the key that you have created.  
-        b.  You will need to contact your Azure Stack administrator to retrieve the logs for Azure Stack using the Privileged End Points. For more information, see [Azure Stack diagnostics tools](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
-5. If you still have been unable to identify the problem, compress your logs into an archive and send them to CSS at email@microsoft.com.
+    - The public key may be invalid. Review the key that you have created.  
+    - VM creation may have triggered an internal error or triggered a creation error. Errors may be caused by a number of factors including capacity limitations for your Azure Stack subscription.
+    - Does the fully qualified domain name (FDQN) for the VM begin with a duplicate prefix?
+4.  If the VM is **OK**, then, evaluate the DVM. If the DVM has an error message:
+
+    - The public key may be invalid. Review the key that you have created.  
+     - You will need to contact your Azure Stack administrator to retrieve the logs for Azure Stack using the Privileged End Points. For more information, see [Azure Stack diagnostics tools](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
+5. If you have questions about your deployment, you can post your question or see if someone has already answered the question in the [Azure Stack Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## Review deployment status
 
 You can review the deployment status when you deploy your Kubernetes cluster to review any issues.
 
 1. Open the [Azure Stack portal](https://portal.local.azurestack.external).
-2. Select **Resource groups** > the name of the resource group used in deploying the Kuberentes cluster.
+2. Select **Resource groups**, and then select the name of the resource group used when deploying the Kubernetes cluster.
 3. Select **Deployments** and then the **Deployment name**.
 
     ![Troubleshooting](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
@@ -121,7 +122,7 @@ You will need to connect to the master VM for your cluster, open a bash prompt, 
 
 ### Prerequisites
 
-You will need a bash prompt on the machine your use to manage Azure Stack. You use bash to run the scripts that access the logs. On a Windows machine, you can use the bash prompt installed with Git. To get the most recent version of git, see [git downloads](https://git-scm.com/downloads).
+You will need a bash prompt on the machine your use to manage Azure Stack. Use bash to run the scripts that access the logs. On a Windows machine, you can use the bash prompt installed with Git. To get the most recent version of git, see [git downloads](https://git-scm.com/downloads).
 
 ### Get logs
 
