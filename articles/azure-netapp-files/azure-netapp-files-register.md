@@ -47,10 +47,10 @@ You must register the Azure Resource Provider for Azure NetApp Files.
 
    The command output appears as follows: 
 
-   ```
-   "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC", 
+   `
+   "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",<br/><br/>  
    "name": "Microsoft.NetApp/publicPreviewADC"
-   ```
+   `
   
 
    `<SubID>` is your subscription ID.
