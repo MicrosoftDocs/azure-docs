@@ -6,4 +6,4 @@
  ms.author: tarcher
 ---
 
- and - if you don't have access to a Linux virtual machine - [create a virtual machine with Ansible](/azure/virtual-machines/linux/ansible-create-vm).
+ If you don't have access to a Linux virtual machine, [create a virtual machine with Ansible](/azure/virtual-machines/linux/ansible-create-vm).
