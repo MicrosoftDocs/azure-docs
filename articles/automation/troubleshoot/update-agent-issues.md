@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/20/2018
+ms.date: 10/10/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
@@ -21,7 +21,10 @@ By clicking the **Troubleshoot** link under the **Update Agent Readiness** colum
 
 ![vm list page](../media/update-agent-issues/vm-list.png)
 
-On The **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on machine to verify the dependencies that the agent has.
+> [!NOTE]
+> The checks require the VM to be running. If the VM is not running you are presented with a button to **Start the VM**.
+
+On The **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on machine to verify the dependencies that the agent has. When the troubleshooter is complete, it returns the result of the checks.
 
 ![troubleshoot page](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -31,7 +34,7 @@ When complete, the results are returned in the window. The [Pre-requisite checks
 
 ## Pre-requisite checks
 
-### OS check
+### Operating system
 
 The OS check, verifies if the Hybrid Runbook Worker is running one of the following Operating Systems:
 
@@ -44,35 +47,35 @@ The OS check, verifies if the Hybrid Runbook Worker is running one of the follow
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
 |Ubuntu 14.04 LTS and 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
 
-### .NET Framework check
+### .NET 4.5
 
 The .NET framework check, verifies if the system has a minimum of [.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653) present.
 
-### WMF Check
+### WMF 5.1
 
 The WMF check, verifies if the system has the required version of the Windows Management. [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is the lowest version supported. It is recommended that you install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) for increased reliability of the Hybrid Runbook Worker.
 
+### TLS 1.2
+
+This check, determines if you're using TLS 1.2 to encrypt your communications. TLS 1.0 is no longer supported by the platform and it's recommended that clients use TLS 1.2 to communicate with Update Management.
+
 ## Connectivity Checks
 
-### Automation Agent Service check
+### Registration endpoint
 
 This check determines if the agent can properly communicate with the agent service.
 
 Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the the registration endpoint. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
 
-### Job Runtime Data service check
+### Operations endpoint
 
 This check determines if the agent can properly communicate with the Job Runtime Data Service.
 
 Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the Job Runtime Data Service. For a list of addresses and ports to open, see [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning)
 
-### TLS 1.2 Support
-
-This check, determines if you're using TLS 1.2 to encrypt your communications. TLS 1.0 is no longer supported by the platform and it's recommended that clients use TLS 1.2 to communicate with Update Management.
-
 ## VM Service Health Checks
 
-### Microsoft Monitoring Agent service check
+### Monitoring Agent service status
 
 This check determines if the Microsoft Monitoring Agent, `HealthService` is running on the machine.
 
@@ -80,7 +83,7 @@ To learn more about troubleshooting the service, see [The Microsoft Monitoring A
 
 To reinstall the Microsoft Monitoring Agent, see [Install and configure the Microsoft Monitoring Agent](/log-analytics/log-analytics-concept-hybrid.md#install-and-configure-agent)
 
-### Event 4502 Check
+### Monitoring Agent service events
 
 This check determines if there have been any `4502` events in the Operations Manager log on the machine in the last 24 hours.
 
@@ -88,13 +91,13 @@ To learn more about this event, see the [troubleshooting guide](hybrid-runbook-w
 
 ## Access Permissions Checks
 
-### Crypto Folder Access
+### MachineKeys folder access
 
 The Crypto Folder Access check determines if Local System Account has access to `C:\ProgramData\Microsoft\Crypto\RSA`
 
 ## Troubleshoot offline
 
-To troubleshoot the Hybrid worker offline, you can download the same script from the [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) script from the PowerShell Gallery. The output of this script can be returned as JSON, a compact format, or the expanded format, which is shown in the following example:
+You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The script,  [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) can be found on the PowerShell Gallery. An example of the output of this script is shown in the following example:
 
 ```output
 RuleId                      : OperatingSystemCheck
