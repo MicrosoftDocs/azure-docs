@@ -63,11 +63,13 @@ VMs running in a cloud service are also supported. Only cloud services web and w
 
 ## Supported IaaS features
 
+> [!div class="mx-tableFixed"]
+> 
 
-|Server|Windows|Linux|
-|-----|-----|-----|
+|Server|Windows||Linux||
+|----|----|----|----|----|
 |Environment|Azure|Non-Azure|Azure|Non-Azure|
-|VMBA Threat detection alerts|✔|✔|✔ (Auditd required)|✔|
+|VMBA Threat detection alerts|✔|✔|✔ (on supported versions)|✔|
 |Network based threat detection alerts|✔|X|✔|X|
 |WDATP integration|V (on supported versions)|✔|X|X|
 |Missing patches|✔|✔|✔|✔|
@@ -83,6 +85,8 @@ VMs running in a cloud service are also supported. Only cloud services web and w
 |Filess V2|✔|✔|✔|✔|
 |Network map|✔|X|✔|X|
 |Adaptive network hardening|✔|X|✔|X|
+
+
 
 ## Supported PaaS features
 
