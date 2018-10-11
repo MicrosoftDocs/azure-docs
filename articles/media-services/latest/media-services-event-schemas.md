@@ -4,7 +4,7 @@ description: Describes the properties that are provided for Media Services event
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -22,14 +22,56 @@ For a list of sample scripts and tutorials, see [Media Services event source](..
 
 ## Available event types
 
-Media Services emits the following event types:
+### Job related event types
+
+Media Services emits the **Job** related event types described below. There are two categories for the **Job** related events: "Monitoring Job State Changes" and "Monitoring Job Output State Changes". 
+
+You can subscribe for just the events you care about (for example, final states like Error, Finished, and Canceled). Or, you can register for all of the events. If you do the latter, you can do it using the state change event or all of the other events.
+
+#### Monitoring Job State Changes
 
 | Event type | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| State of the Job changes. |
+| Microsoft.Media.JobScheduled| Job was scheduled. |
+| Microsoft.Media.JobProcessing| Job is processing. |
+| Microsoft.Media.JobCanceling| Job is being canceled. |
+| Microsoft.Media.JobFinished| Job finished processing. This is a final state that includes Job outputs.|
+| Microsoft.Media.JobCanceled| Job was canceled. This is a final state that includes Job outputs.|
+| Microsoft.Media.JobErrored| Job has encountered an error. This is a final state that includes Job outputs.|
+
+#### Monitoring Job Output State Changes
+
+| Event type | Description |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputStateChange|State of the Job's output changes. |
+| Microsoft.Media.JobOutputScheduled|Job output was scheduled. |
+| Microsoft.Media.JobOutputProcessing| Job output is processing. |
+| Microsoft.Media.JobOutputFinished|Job output finished.|
+| Microsoft.Media.JobOutputCanceling|Job output is being canceled.|
+| Microsoft.Media.JobOutputCanceled|Job output was canceled.|
+| Microsoft.Media.JobOutputErrored|Job output has encountered an error.|
+
+### Live event types
+
+Media Services also emits the **Live** event types described below. There are two categories for the **Live** events: stream-level events and track-level events. 
+
+#### Stream-level events
+
+Stream-level events are raised per stream or connection. Each event has a `StreamId` parameter that identifies the connection or stream. Each stream or connection has one or more tracks of different types. For example, one connection from an encoder may have one audio track and four video tracks. The stream event types are:
+
+| Event type | Description |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | Encoder's connection attempt is rejected. |
 | Microsoft.Media.LiveEventEncoderConnected | Encoder establishes connection with live event. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Encoder disconnects. |
+
+#### Track-level events
+
+Track-level events are raised per track. The track event types are:
+
+| Event type | Description |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | Media server drops data chunk because it's too late or has an overlapping timestamp (timestamp of new data chunk is less than the end time of the previous data chunk). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | Media server receives first data chunk for each track in the stream or connection. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media server detects audio and video streams are out of sync. Use as a warning because user experience may not be impacted. |
@@ -37,24 +79,9 @@ Media Services emits the following event types:
 | Microsoft.Media.LiveEventIngestHeartbeat | Published every 20 seconds for each track when live event is running. Provides ingest health summary. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media server detects discontinuity in the incoming track. |
 
-There are two categories for the **Live** events: stream-level events and track-level events. 
+## Event schemas and properties
 
-Stream-level events are raised per stream or connection. Each event has a `StreamId` parameter that identifies the connection or stream. Each stream or connection has one or more tracks of different types. For example, one connection from an encoder may have one audio track and four video tracks. The stream event types are:
-
-* LiveEventConnectionRejected
-* LiveEventEncoderConnected
-* LiveEventEncoderDisconnected
-
-Track-level events are raised per track. The track event types are:
-
-* LiveEventIncomingDataChunkDropped
-* LiveEventIncomingStreamReceived
-* LiveEventIncomingStreamsOutOfSync
-* LiveEventIncomingVideoStreamsOutOfSync
-* LiveEventIngestHeartbeat
-* LiveEventTrackDiscontinuityDetected
-
-## JobStateChange
+### JobStateChange
 
 The following example shows the schema of the **JobStateChange** event: 
 
@@ -85,7 +112,87 @@ The data object has the following properties:
 
 Where the Job state can be one of the values: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
-## LiveEventConnectionRejected
+### JobScheduled
+
+The Job was scheduled. 
+
+The data object has the following properties:
+
+### Microsoft.Media.JobProcessing
+
+The Job is processing. 
+
+### JobCanceling
+
+The Job is being canceled. 
+
+### JobFinished
+
+The Job finished processing. This is a final state that includes the Job outputs.
+
+The data object has the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| Outputs | Array | Gets the Job outputs.|
+
+### JobCanceled
+
+The Job was canceled. This is a final state that includes the Job outputs.
+
+The data object has the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| Outputs | Array | Gets the Job outputs.|
+
+### JobErrored
+
+The Job has encountered an error. This is a final state that includes the Job outputs.
+
+The data object has the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| Outputs | Array | Gets the Job outputs.|
+
+### JobOutputStateChange
+
+State of the Job output changes. 
+
+The data object has the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| previousState | string | The state of the job before the event. |
+| state | string | The new state of the job being notified in this event. For example, "Queued: The Job is awaiting resources" or "Scheduled: The job is ready to start".|
+
+
+### JobOutputScheduled
+
+The Job output was scheduled. 
+
+### JobOutputProcessing
+
+The Job output is processing. 
+
+### JobOutputFinished
+
+The Job output finished.
+
+### JobOutputCanceling
+
+The Job output is being canceled.
+
+### JobOutputCanceled
+
+The Job output was canceled.
+
+### JobOutputErrored
+
+The Job output has encountered an error.
+
+### LiveEventConnectionRejected
 
 The following example shows the schema of the **LiveEventConnectionRejected** event: 
 
@@ -132,7 +239,7 @@ The result codes are:
 | MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Aggregated bitrate exceeds max allowed limit. |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
 
-## LiveEventEncoderConnected
+### LiveEventEncoderConnected
 
 The following example shows the schema of the **LiveEventEncoderConnected** event: 
 
@@ -165,7 +272,7 @@ The data object has the following properties:
 | EncoderIp | string | IP of the encoder. |
 | EncoderPort | string | Port of the encoder from where this stream is coming. |
 
-## LiveEventEncoderDisconnected
+### LiveEventEncoderDisconnected
 
 The following example shows the schema of the **LiveEventEncoderDisconnected** event: 
 
@@ -221,7 +328,7 @@ The graceful disconnect result codes are:
 | MPI_REST_API_CHANNEL_STOP | Channel undergoing maintenance. |
 | MPI_STREAM_HIT_EOF | EOF stream is sent by the encoder. |
 
-## LiveEventIncomingDataChunkDropped
+### LiveEventIncomingDataChunkDropped
 
 The following example shows the schema of the **LiveEventIncomingDataChunkDropped** event: 
 
@@ -257,7 +364,7 @@ The data object has the following properties:
 | Timescale | string | Timescale of the timestamp. |
 | ResultCode | string | Reason of the data chunk drop. **FragmentDrop_OverlapTimestamp** or **FragmentDrop_NonIncreasingTimestamp**. |
 
-## LiveEventIncomingStreamReceived
+### LiveEventIncomingStreamReceived
 
 The following example shows the schema of the **LiveEventIncomingStreamReceived** event: 
 
@@ -299,7 +406,7 @@ The data object has the following properties:
 | Timestamp | string | First timestamp of the data chunk received. |
 | Timescale | string | Timescale in which timestamp is represented. |
 
-## LiveEventIncomingStreamsOutOfSync
+### LiveEventIncomingStreamsOutOfSync
 
 The following example shows the schema of the **LiveEventIncomingStreamsOutOfSync** event: 
 
@@ -315,7 +422,9 @@ The following example shows the schema of the **LiveEventIncomingStreamsOutOfSyn
       "minLastTimestamp": "319996",
       "typeOfStreamWithMinLastTimestamp": "Audio",
       "maxLastTimestamp": "366000",
-      "typeOfStreamWithMaxLastTimestamp": "Video"
+      "typeOfStreamWithMaxLastTimestamp": "Video",
+      "timescaleOfMinLastTimestamp": "10000000", 
+      "timescaleOfMaxLastTimestamp": "10000000"       
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -331,8 +440,10 @@ The data object has the following properties:
 | TypeOfTrackWithMinLastTimestamp | string | Type of the track (audio or video) with minimum last timestamp. |
 | MaxLastTimestamp | string | Maximum of all the timestamps among all the tracks (audio or video). |
 | TypeOfTrackWithMaxLastTimestamp | string | Type of the track (audio or video) with maximum last timestamp. |
+| TimescaleOfMinLastTimestamp| string | Gets the timescale in which "MinLastTimestamp" is represented.|
+| TimescaleOfMaxLastTimestamp| string | Gets the timescale in which "MaxLastTimestamp" is represented.|
 
-## LiveEventIncomingVideoStreamsOutOfSync
+### LiveEventIncomingVideoStreamsOutOfSync
 
 The following example shows the schema of the **LiveEventIncomingVideoStreamsOutOfSync** event: 
 
@@ -348,7 +459,8 @@ The following example shows the schema of the **LiveEventIncomingVideoStreamsOut
       "FirstTimestamp": "2162058216",
       "FirstDuration": "2000",
       "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000"
+      "SecondDuration": "2000",
+      "timescale": "10000000"      
     },
     "dataVersion": "1.0"
   }
@@ -363,8 +475,9 @@ The data object has the following properties:
 | FirstDuration | string | Duration of the data chunk with first timestamp. |
 | SecondTimestamp | string  | Timestamp received for some other track/quality level of the type video. |
 | SecondDuration | string | Duration of the data chunk with second timestamp. |
+| Timescale | string | Timescale of timestamps and duration.|
 
-## LiveEventIngestHeartbeat
+### LiveEventIngestHeartbeat
 
 The following example shows the schema of the **LiveEventIngestHeartbeat** event: 
 
@@ -413,7 +526,7 @@ The data object has the following properties:
 | State | string | State of the live event. |
 | Healthy | bool | Indicates whether ingest is healthy based on the counts and flags. Healthy is true if OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false. |
 
-## LiveEventTrackDiscontinuityDetected
+### LiveEventTrackDiscontinuityDetected
 
 The following example shows the schema of the **LiveEventTrackDiscontinuityDetected** event: 
 
@@ -452,7 +565,7 @@ The data object has the following properties:
 | DiscontinuityGap | string | Gap between above two timestamps. |
 | Timescale | string | Timescale in which both timestamp and discontinuity gap are represented. |
 
-## Common event properties
+### Common event properties
 
 An event has the following top-level data:
 
