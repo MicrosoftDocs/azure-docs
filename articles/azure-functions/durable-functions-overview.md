@@ -16,7 +16,7 @@ ms.author: azfuncdf
 
 *Durable Functions* is an extension of [Azure Functions](functions-overview.md) and [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
-The extension lets you define stateful workflows in a new type of function called an [*orchestrator function*](durable-functions-types-features-overview.md#orchestrator-functions). Here are some of the advantages of orchestrator functions:
+The extension lets you define stateful workflows in a new type of function called an *orchestrator function*. Here are some of the advantages of orchestrator functions:
 
 * They define workflows in code. No JSON schemas or designers are needed.
 * They can call other functions synchronously and asynchronously. Output from called functions can be saved to local variables.
@@ -72,6 +72,8 @@ module.exports = df.orchestrator(function*(ctx) {
 The values "F1", "F2", "F3", and "F4" are the names of other functions in the function app. Control flow is implemented using normal imperative coding constructs. That is, code executes top-down and can involve existing language control flow semantics, like conditionals, and loops.  Error handling logic can be included in try/catch/finally blocks.
 
 The `ctx` parameter ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) provides methods for invoking other functions by name, passing parameters, and returning function output. Each time the code calls `await`, the Durable Functions framework *checkpoints* the progress of the current function instance. If the process or VM recycles midway through the execution, the function instance resumes from the previous `await` call. More on this restart behavior later.
+
+A sample walkthrough of a function chaining example can be found [here](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sequence).
 
 ## Pattern #2: Fan-out/fan-in
 
@@ -129,6 +131,8 @@ module.exports = df.orchestrator(function*(ctx) {
 The fan-out work is distributed to multiple instances of function `F2`, and the work is tracked by using a dynamic list of tasks. The .NET `Task.WhenAll` API is called to wait for all of the called functions to finish. Then the `F2`function outputs are aggregated from the dynamic task list and passed on to the `F3` function.
 
 The automatic checkpointing that happens at the `await` call on `Task.WhenAll` ensures that any crash or reboot midway through does not require a restart of any already completed tasks.
+
+A sample walkthrough of a fan-out/fan-in example can be found [here](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-cloud-backup).
 
 ## Pattern #3: Async HTTP APIs
 
@@ -254,6 +258,8 @@ module.exports = df.orchestrator(function*(ctx) {
 
 When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the loop is exited. A durable timer is used to control the polling interval. Further work can then be performed, or the orchestration can end. When the `ctx.CurrentUtcDateTime` exceeds the `expiryTime`, the monitor ends.
 
+A sample walkthrough of a monitoring example can be found [here](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-monitor).
+
 ## Pattern #5: Human interaction
 
 Many processes involve some kind of human interaction. The tricky thing about involving humans in an automated process is that people are not always as highly available and responsive as cloud services. Automated processes must allow for this, and they often do so by using timeouts and compensation logic.
@@ -293,7 +299,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ```js
 const df = require("durable-functions");
-const df = require('moment');
+const moment = require('moment');
 
 module.exports = df.orchestrator(function*(ctx) {
     yield ctx.df.callActivityAsync("RequestApproval");
@@ -323,6 +329,8 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 }
 ```
 
+A sample walkthrough of a human interaction example can be found [here](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-phone-verification).
+
 ## The technology
 
 Behind the scenes, the Durable Functions extension is built on top of the [Durable Task Framework](https://github.com/Azure/durabletask), an open-source library on GitHub for building durable task orchestrations. Much like how Azure Functions is the serverless evolution of Azure WebJobs, Durable Functions is the serverless evolution of the Durable Task Framework. The Durable Task Framework is used heavily within Microsoft and outside as well to automate mission-critical processes. It's a natural fit for the serverless Azure Functions environment.
@@ -333,7 +341,7 @@ Orchestrator functions reliably maintain their execution state using a design pa
 
 The use of Event Sourcing by this extension is transparent. Under the covers, the `await` operator in an orchestrator function yields control of the orchestrator thread back to the Durable Task Framework dispatcher. The dispatcher then commits any new actions that the orchestrator function scheduled (such as calling one or more child functions or scheduling a durable timer) to storage. This transparent commit action appends to the *execution history* of the orchestration instance. The history is stored in a storage table. The commit action then adds messages to a queue to schedule the actual work. At this point, the orchestrator function can be unloaded from memory. Billing for it stops if you're using the Azure Functions Consumption Plan.  When there is more work to do, the function is restarted and its state is reconstructed.
 
-Once an orchestration function is given more work to do (for example, a response message is received or a durable timer expires), the orchestrator wakes up again and re-executes the entire function from the start in order to rebuild the local state. If during this replay the code tries to call a function (or do any other async work), the Durable Task Framework consults with the *execution history* of the current orchestration. If it finds that the [activity function](durable-functions-types-features-overview.md#activity-functions) has already executed and yielded some result, it replays that function's result, and the orchestrator code continues running. This continues happening until the function code gets to a point where either it is finished or it has scheduled new async work.
+Once an orchestration function is given more work to do (for example, a response message is received or a durable timer expires), the orchestrator wakes up again and re-executes the entire function from the start in order to rebuild the local state. If during this replay the code tries to call a function (or do any other async work), the Durable Task Framework consults with the *execution history* of the current orchestration. If it finds that the activity function has already executed and yielded some result, it replays that function's result, and the orchestrator code continues running. This continues happening until the function code gets to a point where either it is finished or it has scheduled new async work.
 
 ### Orchestrator code constraints
 
@@ -341,7 +349,7 @@ The replay behavior creates constraints on the type of code that can be written 
 
 ## Language support
 
-Currently C# (Functions v1 and v2), F# and JavaScript (Functions v2 only) are the only supported languages for Durable Functions. This includes orchestrator functions and activity functions. In the future, we will add support for all languages that Azure Functions supports. See the Azure Functions [GitHub repository issues list](https://github.com/Azure/azure-functions-durable-extension/issues) to see the latest status of our additional language support work.
+Currently C# (Functions v1 and v2) and JavaScript (Functions v2 only) are the only supported languages for Durable Functions. This includes orchestrator functions and activity functions. In the future, we will add support for all languages that Azure Functions supports. See the Azure Functions [GitHub repository issues list](https://github.com/Azure/azure-functions-durable-extension/issues) to see the latest status of our additional language support work.
 
 ## Monitoring and diagnostics
 
@@ -379,7 +387,7 @@ All known issues should be tracked in the [GitHub issues](https://github.com/Azu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Continue reading Durable Functions documentation](durable-functions-types-features-overview.md)
+> [Continue reading Durable Functions documentation](durable-functions-bindings.md)
 
 > [!div class="nextstepaction"]
 > [Install the Durable Functions extension and samples](durable-functions-install.md)
