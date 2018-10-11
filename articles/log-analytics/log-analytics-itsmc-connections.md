@@ -245,7 +245,7 @@ User the following procedure:
    
    >[!NOTE]
    >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS is now referred to as Log Analytics.     
-2.	After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft Log Analytics integrator.  
+2.	After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft OMS integrator.  
 3.	Click **Installation Checklist**.
 
     The status is displayed as  **Not complete** if the user role is yet to be created.
