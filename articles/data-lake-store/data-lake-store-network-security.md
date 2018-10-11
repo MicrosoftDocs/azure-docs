@@ -1,6 +1,6 @@
 ---
-title: Network security in Data Lake Store | Microsoft Docs
-description: Understand how the IP firewall and virtual network integration works in Azure Data Lake Store
+title: Network security in Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Understand how the IP firewall and virtual network integration works in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -25,11 +25,11 @@ VNet integration for ADLS Gen1 makes use of the virtual network service endpoint
 > [!NOTE]
 > This is a preview technology and we do not recommend use in production environments.
 >
->There is no additional charge associated with using these capabilities. Your account will be billed at the standard rate for ADLS Gen1 ([pricing](https://azure.microsoft.com/en-us/pricing/details/data-lake-store/?cdn=disable)) and all Azure services that you use ([pricing](https://azure.microsoft.com/en-us/pricing/#product-picker)).
+>There is no additional charge associated with using these capabilities. Your account will be billed at the standard rate for ADLS Gen1 ([pricing](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable)) and all Azure services that you use ([pricing](https://azure.microsoft.com/pricing/#product-picker)).
 
 ##Scenarios for VNET Integration for ADLS Gen1
 
-ADLS Gen1 VNet Integration allows you to restrict access to your ADLS Gen1 account from designated virtual networks and subnets.  Other VNets / VMs in Azure will not be allowed access to your account once it is locked to the specified VNet Subnet.  Functionally, ADLS Gen1 VNet Integration enables the same scenario as [virtual network service endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).  There are a few key differences detailed in the sections below. 
+ADLS Gen1 VNet Integration allows you to restrict access to your ADLS Gen1 account from designated virtual networks and subnets.  Other VNets / VMs in Azure will not be allowed access to your account once it is locked to the specified VNet Subnet.  Functionally, ADLS Gen1 VNet Integration enables the same scenario as [virtual network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).  There are a few key differences detailed in the sections below. 
 
 ![Scenario diagram for ADLS Gen1 VNet Integration](media/data-lake-store-network-security/scenario-diagram.png)
 
@@ -38,9 +38,9 @@ ADLS Gen1 VNet Integration allows you to restrict access to your ADLS Gen1 accou
 
 ##Optimal routing with ADLS Gen1 VNet integration
 
-A key benefit of VNet service endpoints is [optimal routing](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) from your virtual network.  To perform the same route optimization to ADLS Gen1 accounts, use the following [User Defined routes](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined) from your VNet to your ADLS Gen1 account:
+A key benefit of VNet service endpoints is [optimal routing](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) from your virtual network.  To perform the same route optimization to ADLS Gen1 accounts, use the following [User Defined routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) from your VNet to your ADLS Gen1 account:
 
-- **ADLS Public IP Address** – Use the public IP address for your target ADLS Gen1 accounts.  You can identify the IP addresses for your ADLS Gen1 account by [resolving the DNS names](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) of your accounts.  Create a separate entry for each address.
+- **ADLS Public IP Address** – Use the public IP address for your target ADLS Gen1 accounts.  You can identify the IP addresses for your ADLS Gen1 account by [resolving the DNS names](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) of your accounts.  Create a separate entry for each address.
 
 ```azurecli
 # Create a Route table for your resource group
@@ -61,8 +61,8 @@ In addition to securing the ADLS accounts for access from Virtual Network, you m
 Our recommendation is to use a Firewall solution in your VNet to filter the outbound traffic based on the destination account URL and allow access to only authorized ADLS Gen1 accounts.
 
 Some available options are:
-- [Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/overview) : You can [deploy and configure an Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/tutorial-firewall-deploy-portal) for your VNet and secure the outbound ADLS traffic and lock it down to the known and authorized account URL.
-- [Network Virtual Appliance](https://azure.microsoft.com/en-us/solutions/network-appliances/) Firewall: If your administrator only authorizes use of certain commercial Firewall vendors, you can use an NVA firewall solution available at the Azure Marketplace to perform the same function.
+- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview) : You can [deploy and configure an Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) for your VNet and secure the outbound ADLS traffic and lock it down to the known and authorized account URL.
+- [Network Virtual Appliance](https://azure.microsoft.com/solutions/network-appliances/) Firewall: If your administrator only authorizes use of certain commercial Firewall vendors, you can use an NVA firewall solution available at the Azure Marketplace to perform the same function.
 
 > [!NOTE]
 > Using Firewalls in the data path will introduce an additional hop in the data path and might have a network perf impact for End-to-End data exchange, including throughput available and connection latency. 
@@ -70,14 +70,14 @@ Some available options are:
 ##Limitations
 1.	HDInsight clusters must be newly created after being added to the preview.  Clusters created before ADLS Gen1 VNet integration support was available must be recreated to support this new feature. 
 2.	When creating a new HDInsight cluster, selecting an ADLS Gen1 account with VNet integration enabled will cause the process to fail. You must first disable the VNet rule or you can **Allow access from all networks and services** via the **Firewall and virtual networks** blade of the ADLS account.  See the [Exceptions](##Exceptions) section for more info.
-3.	The ADLS Gen1 VNet integration preview does not work with [managed identities for Azure resources](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview).  
+3.	The ADLS Gen1 VNet integration preview does not work with [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 4.	File/folder data in your VNet-enabled ADLS Gen1 account is not accessible from the portal.  This includes access from a VM that’s within the VNET and activities such as using Data Explorer.  Account management activities continue to work.  File/Folder data in you VNET-enabled ADLS account is accessible via all non-portal resources: SDK access, PowerShell scripts, other Azure services (when not originating from the portal), etc…. 
 
 ##Configuration
 
 ###Step1: Configure your VNET to use AAD Service Endpoint
 1.	Go to the Azure portal and log into your account. 
-2.	[Create a new virtual network ](https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-portal)in your subscription or navigate to an existing virtual network.  The VNET must currently be in the same region as the ADLS Gen 1 account. 
+2.	[Create a new virtual network ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)in your subscription or navigate to an existing virtual network.  The VNET must currently be in the same region as the ADLS Gen 1 account. 
 3.	From the Virtual network blade, choose **Service endpoints**. 
 4.	Click **Add** to add a new service endpoint.
 ![Adding a VNet service endpoint](media/data-lake-store-network-security/config-vnet-1.png)
