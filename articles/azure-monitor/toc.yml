@@ -31,9 +31,9 @@
       href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
 - name: Tutorials
   items:
-  - name: Analyze data in Log Analaytics
+  - name: Analyze data in Log Analytics
     href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
-  - name: Visualize data in Log Analaytics
+  - name: Visualize data in Log Analytics
     href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
   - name: Archive platform metric and log data 
     href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
