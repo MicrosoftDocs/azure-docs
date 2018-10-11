@@ -270,7 +270,7 @@ The RFC 6750 specification defines the following errors for resources that use t
 
 ## Refreshing the access tokens
 
-Access Tokens are short-lived and must be refreshed after they expire to continue accessing resources. You can refresh the `access_token` by submitting another `POST` request to the `/token` endpoint, but this time providing the `refresh_token` instead of the `code`.
+Access Tokens are short-lived and must be refreshed after they expire to continue accessing resources. You can refresh the `access_token` by submitting another `POST` request to the `/token` endpoint, but this time providing the `refresh_token` instead of the `code`.  Refresh tokens are valid for all resources that your client has already been given consent to access - thus, a refresh token issued on a request for `resource=https://graph.microsoft.com` can be used to request a new access token for `resource=https://contoso.com/api`. 
 
 Refresh tokens do not have specified lifetimes. Typically, the lifetimes of refresh tokens are relatively long. However, in some cases, refresh tokens expire, are revoked, or lack sufficient privileges for the desired action. Your application needs to expect and handle errors returned by the token issuance endpoint correctly.
 

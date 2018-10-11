@@ -3,7 +3,7 @@ title: Multiple routes with Azure Maps | Microsoft Docs
 description: Find routes for different modes of travel using Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -69,7 +69,7 @@ The following steps show you how to create a static HTML page embedded with the 
     </html>
     ```
     The HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. The *script* segment in the body of the HTML will contain the inline JavaScript code for the map.
-3. Add the following JavaScript code to the *script* block of the HTML file. Replace the string **\<your account key\>** with the primary key that you copied from your Maps account. If you don't tell the map where to focus, you see the whole world view. Set a center point and a zoom level on your map. This code sets the center point for the map, and declares a zoom level so that you can focus on a particular area by default.
+3. Add the following JavaScript code to the *script* block of the HTML file. Replace the string **\<your account key\>** with the primary key that you copied from your Maps account. If you don't tell the map where to focus, you see the whole world view. This code sets the center point for the map, and declares a zoom level so that you can focus on a particular area by default.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
@@ -160,7 +160,7 @@ For this tutorial, set the start point as a fictitious company in Seattle called
 
 ## Render routes prioritized by mode of travel
 
-This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).  All of the following code blocks should be added **within the eventListener** to ensure that they load after the map loads fully.
+This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).  All of the following code blocks should be added **within the map load eventListener** to ensure that they load after the map loads fully.
 
 1. First, add a new layer on the map to display the route path, or *linestring*. In this tutorial, there are two different routes, **car-route** and **truck-route**, each with their own styling. Add the following JavaScript code to the *script* block:
 
@@ -254,6 +254,10 @@ In this tutorial, you learned how to:
 > * Visualize traffic flow on your map
 > * Create route queries that declare mode of travel
 > * Display multiple routes on your map
+
+You can access the code sample for this tutorial here:
+
+> [Multiple routes with Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/truckRoute.html)
 
 To learn more about the coverage and capabilities of Azure Maps:
 

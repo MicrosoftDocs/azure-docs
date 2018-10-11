@@ -3,7 +3,7 @@ title: Find route with Azure Maps | Microsoft Docs
 description: Route to a point of interest using Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/28/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -140,7 +140,7 @@ For this tutorial, set the start point as Microsoft, and the destination point a
 
 ## Get directions
 
-This section shows how to use the Maps route service API to find the route from a given start point to a destination. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). All of the following functionalities should be added **within the eventListener** to ensure that they load after the map loads fully.
+This section shows how to use the Maps route service API to find the route from a given start point to a destination. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). All of the following functionalities should be added **within the map load eventListener** to ensure that they load after the map loads fully.
 
 1. First, add a new layer on the map to display the route path, or *linestring*. Add the following JavaScript code to the *script* block.
 
@@ -201,6 +201,10 @@ In this tutorial, you learned how to:
 > * Create a new web page using the map control API
 > * Set address coordinates
 > * Query the route service for directions to point of interest
+
+You can access the code sample for this tutorial here:
+
+> [Find route with Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 
 The next tutorial demonstrates how to create a route query with restrictions like mode of travel or type of cargo, then display multiple routes on the same map.
 

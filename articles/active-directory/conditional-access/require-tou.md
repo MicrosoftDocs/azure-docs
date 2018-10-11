@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Require terms of use to be accepted before accessing cloud apps that are protected by Azure Active Directory conditional access | Microsoft Docs
-description: In this quickstart, you learn how you can require that your terms of use are accepted before access to selected cloud apps is granted by by Azure Active Directory conditional access.
+description: In this quickstart, you learn how you can require that your terms of use are accepted before access to selected cloud apps is granted by Azure Active Directory conditional access.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies, terms of use
 documentationcenter: ''
