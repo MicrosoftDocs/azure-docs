@@ -1,18 +1,21 @@
 ---
 title: Create a static volume for pods in Azure Kubernetes Service (AKS)
-description: Learn how to manually create a volume with Azure disks for use with pods in Azure Kubernetes Service (AKS)
+description: Learn how to manually create a volume with Azure disks for use with a pod in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: iainfou
 ---
 
-# Manually create and use Kubernetes volume with Azure disks in Azure Kubernetes Service (AKS)
+# Manually create and use a volume with Azure disks in Azure Kubernetes Service (AKS)
 
-Container-based applications often need to access and persist data in an external data volume. Azure disks can be used as this external data store. In AKS, volumes can be created dynamically using persistent volume claims, or you can manually create and attach an Azure disk directly. This article shows you how to manually create an Azure disk and attach it to a pod in AKS.
+Container-based applications often need to access and persist data in an external data volume. If a single pod needs access to storage, you can use Azure disks to present a native volume for application use. This article shows you how to manually create an Azure disk and attach it to a pod in AKS.
+
+> [!NOTE]
+> An Azure disk can only be mounted to a single pod at a time. If you need to share a persistent volume across multiple pods, use [Azure Files][azure-files-volume].
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
@@ -61,15 +64,22 @@ To mount the Azure disk into your pod, configure the volume in the container spe
 apiVersion: v1
 kind: Pod
 metadata:
- name: azure-disk-pod
+  name: mypod
 spec:
- containers:
-  - image: microsoft/sample-aks-helloworld
-    name: azure
+  containers:
+  - image: nginx:1.15.5
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     volumeMounts:
       - name: azure
         mountPath: /mnt/azure
- volumes:
+  volumes:
       - name: azure
         azureDisk:
           kind: Managed
@@ -83,7 +93,32 @@ Use the `kubectl` command to create the pod.
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-You now have a running pod with an Azure disk mounted at `/mnt/azure`. You can use `kubectl describe pod azure-disk-pod` to verify the disk is mounted successfully.
+You now have a running pod with an Azure disk mounted at `/mnt/azure`. You can use `kubectl describe pod mypod` to verify the disk is mounted successfully. The following condensed example output shows the volume mounted in the container:
+
+```
+[...]
+Volumes:
+  azure:
+    Type:         AzureDisk (an Azure Data Disk mount on the host and bind mount to the pod)
+    DiskName:     myAKSDisk
+    DiskURI:      /subscriptions/<subscriptionID/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
+    Kind:         Managed
+    FSType:       ext4
+    CachingMode:  ReadWrite
+    ReadOnly:     false
+  default-token-z5sd7:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-z5sd7
+    Optional:    false
+[...]
+Events:
+  Type    Reason                 Age   From                               Message
+  ----    ------                 ----  ----                               -------
+  Normal  Scheduled              1m    default-scheduler                  Successfully assigned mypod to aks-nodepool1-79590246-0
+  Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "default-token-z5sd7"
+  Normal  SuccessfulMountVolume  41s   kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "azure"
+[...]
+```
 
 ## Next steps
 
@@ -103,3 +138,4 @@ For more information about AKS clusters interact with Azure disks, see the [Kube
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [install-azure-cli]: /cli/azure/install-azure-cli
+[azure-files-volume]: azure-files-volume.md

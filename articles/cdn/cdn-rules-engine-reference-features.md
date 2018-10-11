@@ -3,8 +3,8 @@ title: Azure CDN rules engine features | Microsoft Docs
 description: Reference documentation for Azure CDN rules engine features.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
+ms.author: magattus
 
 ---
 
