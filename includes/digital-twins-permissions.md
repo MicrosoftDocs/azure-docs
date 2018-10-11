@@ -26,7 +26,7 @@ Digital Twins uses [Azure Active Directory](../articles/active-directory/fundame
     - Click **Add** on the top left to open the **Add API access** pane.
     - Click **Select an API** and search for **Azure Digital Twins**.
         > [!TIP]
-        > If searching **Azure Digital Twins** doesn't locate the API, search for **Azure Smart Spaces** instead.
+        > If your search doesn't locate the API, search for **Azure Smart Spaces** instead.
     - Select the **Azure Digital Twins (Azure Smart Spaces Service)** option and click **Select**.
 
         ![Azure Active Directory app registration add api](./media/digital-twins-permissions/aad-app-reg-service.png)
