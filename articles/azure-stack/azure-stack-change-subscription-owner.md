@@ -3,7 +3,7 @@ title: Update the owner of Azure Stack user subscription | Microsoft Docs
 description: Change the Billing Owner for Azure STack user subscriptions.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
 ms.date: 06/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: shnatara
 
 ---

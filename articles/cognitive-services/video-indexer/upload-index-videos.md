@@ -33,6 +33,11 @@ The article also discusses some of the parameters that you can set on the API to
 - The byte array option is limited to 2GB and times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
 
+> [!Tip]
+> It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
+>
+> If you must use older .NET frameworks, add one line into your code before making the REST API call:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
 ## Configurations and params
 
 This section describes some of the optional parameters and when you would want to set them.
