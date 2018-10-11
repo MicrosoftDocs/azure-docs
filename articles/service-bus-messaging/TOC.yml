@@ -60,7 +60,7 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
-  - name: Managed Service Identity (preview)
+  - name: Managed identities for Azure resources
     href: service-bus-managed-service-identity.md
   - name: Role-Based Access Control (preview)
     href: service-bus-role-based-access-control.md
@@ -117,8 +117,6 @@
         href: service-bus-amqp-overview.md
       - name: .NET
         href: service-bus-amqp-dotnet.md
-      - name: Java
-        href: service-bus-amqp-java.md
       - name: Java Message Service and AMQP
         href: service-bus-java-how-to-use-jms-api-amqp.md
       - name: AMQP protocol guide

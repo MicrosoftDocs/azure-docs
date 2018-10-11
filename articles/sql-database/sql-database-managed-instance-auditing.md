@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 f1_keywords: 
   - "mi.azure.sqlaudit.general.f1"
-author: giladm
-ms.author: giladm
+author: ronitr
+ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018

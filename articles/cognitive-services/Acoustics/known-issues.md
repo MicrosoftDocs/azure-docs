@@ -1,16 +1,18 @@
 ---
-title: Known issues with acoustics plugin - Cognitive Services
+title: Known issues with Project Acoustics plugin
+titlesuffix: Azure Cognitive Services
 description: You might encounter the following known issues when using the Designer Preview for Project Acoustics.
 services: cognitive-services
 author: kylestorck
-manager: noelc
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kylestorck
 ---
-# Known Issues
+# Known issues
 You might encounter the following known issues when using the Designer Preview for Project Acoustics.
 
 ## Acoustic parameters are lost when you rename a scene

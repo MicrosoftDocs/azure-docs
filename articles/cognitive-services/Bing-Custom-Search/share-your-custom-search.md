@@ -1,12 +1,14 @@
 ---
-title: "Bing Custom Search: Share your custom search | Microsoft Docs"
-description: Describes how to share a custom search instance
+title: Share your custom search - Bing Custom Search
+titlesuffix: Azure Cognitive Services
+description: Describes how to share a custom search instance.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
 ---
