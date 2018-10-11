@@ -5,10 +5,9 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.custom: mvc 
 ---
 
 
@@ -17,15 +16,13 @@ ms.custom: mvc
 
 This article describes the architecture used when you replicate, fail over, and recover Azure virtual machines (VMs) between Azure regions, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
->[!NOTE]
->Azure VM replication with the Site Recovery service is currently in preview.
 
 
 
 ## Architectural components
 
 The following graphic provides a high-level view of an Azure VM environment in a specific region (in this example, the East US location). In an Azure VM environment:
-- Apps can be running on VMs with disks spread across storage accounts.
+- Apps can be running on VMs with managed disks or non-managed disks spread across storage accounts.
 - The VMs can be included in one or more subnets within a virtual network.
 
 
@@ -43,10 +40,11 @@ When you enable Azure VM replication, the following resources are automatically 
 
 **Resource** | **Details**
 --- | ---
-**Target resource group** | The resource group to which replicated VMs belong after failover.
+**Target resource group** | The resource group to which replicated VMs belong after failover. The location of this resource group can be in any Azure region except the Azure region in which the source virtual machines are hosted.
 **Target virtual network** | The virtual network in which replicated VMs are located after failover. A network mapping is created between source and target virtual networks, and vice versa.
 **Cache storage accounts** | Before source VM changes are replicated to a target storage account, they are tracked and sent to the cache storage account in source location. This step ensures minimal impact on production applications running on the VM.
-**Target storage accounts**  | Storage accounts in the target location to which the data is replicated.
+**Target storage accounts (If source VM does not use managed disks)**  | Storage accounts in the target location to which the data is replicated.
+** Replica managed disks (If source VM is on managed disks)**  | Managed disks in the target location to which data is replicated.
 **Target availability sets**  | Availability sets in which the replicated VMs are located after failover.
 
 ### Step 2
@@ -73,7 +71,7 @@ If you want Linux VMs to be part of a replication group, ensure the outbound tra
 
 ### Step 3
 
-After continuous replication is in progress, disk writes are immediately transferred to the cache storage account. Site Recovery processes the data, and sends it to the target storage account. After the data is processed, recovery points are generated in the target storage account every few minutes.
+After continuous replication is in progress, disk writes are immediately transferred to the cache storage account. Site Recovery processes the data, and sends it to the target storage account or replica managed disks. After the data is processed, recovery points are generated in the target storage account every few minutes.
 
 ## Failover process
 

@@ -3,17 +3,17 @@ title: Programmatically create Azure Dashboards | Microsoft Docs
 description: This article explains how to programmatically create Azure Dashboards.
 services: azure-portal
 documentationcenter: ''
-author: adamab
-manager: timlt
+author: adamabmsft
+manager: dougeby
 editor: tysonn
 
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
+ms.author: cwatson
 
 ---
 # Programmatically create Azure Dashboards
@@ -52,7 +52,7 @@ After you have configured the dashboard to your liking the next steps are to pub
 
 ![share command](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Clicking the Share command shows a dialog that asks you to choose which subscription and resource group to publish to. Keep in mind that [you must have write access](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) to the subscription and resource group that you choose.
+Clicking the Share command shows a dialog that asks you to choose which subscription and resource group to publish to. Keep in mind that [you must have write access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to the subscription and resource group that you choose.
 
 ![sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -85,11 +85,11 @@ Azure offers the ability to orchestrate the deployment of multiple resources. Yo
 If you’re going this route, then parameterization should be done using the template’s parameter syntax.  You replace all instances of the resource id we found earlier as shown here.
 
 ### Example JSON property with hard-coded resource Id
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### Example JSON property converted to a parameterized version based on template parameters
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 You also need to declare some required template metadata and the parameters at the top of the json template like this:
 
@@ -116,9 +116,9 @@ You also need to declare some required template metadata and the parameters at t
 
 __You can see the full, working template at the end of this document.__
 
-Once you have crafted your template you can deploy it using the [REST APIs](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), The [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create), or the [portal’s template deployment page](https://portal.azure.com/#create/Microsoft.Template).
+Once you have crafted your template you can deploy it using the [REST APIs](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), The [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create), or the [portal’s template deployment page](https://portal.azure.com/#create/Microsoft.Template).
 
-Here are are two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any VM and deployed using Azure Resource Manager.
+Here are two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any VM and deployed using Azure Resource Manager.
 
 ## JSON representation of our example dashboard (before templating)
 

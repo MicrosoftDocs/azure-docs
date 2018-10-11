@@ -1,18 +1,18 @@
 ---
 title: Delete a Site Recovery vault
 description: Learn how to delete an Azure Site Recovery vault, based on the Site Recovery scenario.
-service: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
 
 ---
 # Delete a Site Recovery vault
-Dependencies can prevent you from deleting an Azure Site Recovery vault. The actions you need to take vary based on the Site Recovery scenario: VMware to Azure, Hyper-V (with and without System Center Virtual Machine Manager) to Azure, and Azure Backup. To delete a vault used in Azure Backup, see [Delete a Backup vault in Azure](../backup/backup-azure-delete-vault.md).
+
+Dependencies can prevent you from deleting an Azure Site Recovery vault. The actions you need to take vary based on the Site Recovery scenario. To delete a vault used in Azure Backup, see [Delete a Backup vault in Azure](../backup/backup-azure-delete-vault.md).
 
 
 
@@ -32,12 +32,12 @@ To delete the vault, follow the recommended steps for your scenario.
 5. Delete the vault.
 
 
-### Hyper-V VMs (with Virtual Machine Manager) to Azure
-1. Delete all protected VMs by following the steps in[Disable protection for a Hyper-V virtual machine replicating to Azure using the System Center VMM to Azure scenario](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
+### Hyper-V VMs (with VMM) to Azure
+1. Delete all protected VMs by following the steps in[Disable protection for a Hyper-V VM (with VMM)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
 
 2. Disassociate & delete all replication policies by browsing to your Vault -> **Site Recovery Infrastructure** - > **For System Center VMM** -> **Replication Policies**
 
-3.	Delete references to Virtual Machine Manager servers by following the steps in [Unregister a connected VMM server](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
+3.	Delete references to VMM servers by following the steps in [Unregister a connected VMM server](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
 
 4.	Delete the vault.
 
@@ -46,7 +46,7 @@ To delete the vault, follow the recommended steps for your scenario.
 
 2. Disassociate & delete all replication policies by browsing to your Vault -> **Site Recovery Infrastructure** - > **For Hyper-V Sites** -> **Replication Policies**
 
-3. Delete references to Hyper-V servers by following the steps in [Unregister a Hyper-V host](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Delete references to Hyper-V servers by following the steps in [Unregister a Hyper-V host](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 4. Delete the Hyper-V site.
 
@@ -61,10 +61,12 @@ To delete the vault, follow the recommended steps for your scenario.
 
 To delete the Site Recovery vault even if there are protected items, use these commands:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionName "XXXXX"
 
-    $vault = Get-AzureRmSiteRecoveryVault -Name "vaultname"
+    $vault = Get-AzureRmRecoveryServicesVault -Name "vaultname"
 
-    Remove-AzureRmSiteRecoveryVault -Vault $vault
+    Remove-AzureRmRecoveryServicesVault -Vault $vault
+
+Learn more about [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0), and [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0).

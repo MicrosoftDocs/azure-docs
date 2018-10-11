@@ -1,29 +1,25 @@
 ---
 title: Understand Azure IoT Hub MQTT support | Microsoft Docs
 description: Developer guide - support for devices connecting to an IoT Hub device-facing endpoint using the MQTT protocol. Includes information about built-in MQTT support in the Azure IoT device SDKs.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.custom: H1Hack27Feb2017
-
 ---
+
 # Communicate with your IoT hub using the MQTT protocol
 
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using:
 
 * [MQTT v3.1.1][lnk-mqtt-org] on port 8883
 * MQTT v3.1.1 over WebSocket on port 443.
+
+IoT Hub is not a full-featured MQTT broker and does not support all the behaviors specified in the MQTT v3.1.1 standard. This article describes how devices can use supported MQTT behaviors to communicate with IoT Hub.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 All device communication with IoT Hub must be secured using TLS/SSL. Therefore, IoT Hub doesn’t support non-secure connections over port 1883.
 
@@ -80,7 +76,16 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens][lnk-sas-tokens].
 
-  When testing, you can also use the [device explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
+  When testing, you can also use the cross-platform [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or the [Device Explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
+
+For Azure IoT Toolkit:
+
+  1. Expand the **AZURE IOT HUB DEVICES** tab in the bottom left corner of Visual Studio Code.
+  2. Right-click your device and select **Generate SAS Token for Device**.
+  3. Set **expiration time** and press 'Enter'.
+  4. The SAS token is created and copied to clipboard.
+
+For Device Explorer:
 
   1. Go to the **Management** tab in **Device Explorer**.
   2. Click **SAS Token** (top right).
@@ -297,8 +302,8 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
-[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
+[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm
+[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
 [lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app

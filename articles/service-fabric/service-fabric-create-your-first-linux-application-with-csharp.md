@@ -1,6 +1,6 @@
 ---
-title: Create your first Azure microservices app on Linux using C#| Microsoft Docs
-description: Create and deploy a Service Fabric application using C#
+title: Create your first Azure Service Fabric app on Linux using C#| Microsoft Docs
+description: Learn how to create and deploy a Service Fabric application using C# and .NET Core 2.0.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
 ms.devlang: csharp
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 04/11/2018
 ms.author: subramar
 
 ---
@@ -37,27 +37,19 @@ Service Fabric provides scaffolding tools which help you create Service Fabric a
 
 1. Install nodejs and NPM on your machine
 
-   Ubuntu
    ```bash
-   sudo apt-get install npm
-   sudo apt install nodejs-legacy
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
-3. Install the Service Fabric Yeo Java application generator from NPM
+3. Install the Service Fabric Yeoman C# application generator from NPM
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
 ## Create the application
@@ -109,12 +101,24 @@ Once the application has been deployed, open a browser and navigate to
 [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Then, expand the **Applications** node and note
 that there is now an entry for your application type and another for the first instance of that type.
 
+> [!IMPORTANT]
+> To deploy the application to a secure Linux cluster in Azure, you need to configure a certificate to validate your application with the Service Fabric runtime. Doing so enables your Reliable Services services to communicate with the underlying Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
+
 ## Start the test client and perform a failover
 Actor projects do not do anything on their own. They require another service or client to send them messages. The actor
 template includes a simple test script that you can use to interact with the actor service.
 
 1. Run the script using the watch utility to see the output of the actor service.
 
+   In case of MAC OS X, you need to copy the myactorsvcTestClient folder into the some location inside the container by running the following additional commands.
+    
+    ```bash
+    docker cp  [first-four-digits-of-container-ID]:/home
+    docker exec -it [first-four-digits-of-container-ID] /bin/bash
+    cd /home
+    ```
+    
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh

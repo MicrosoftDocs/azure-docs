@@ -4,7 +4,7 @@ description: This article walks through the platform-supported migration of reso
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -19,7 +19,7 @@ ms.author: kasing
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
-These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure CLI 1.0](../../cli-install-nodejs.md). Since Azure CLI 2.0 is only applicable for Azure Resource Manager resources, it cannot be used for this migration.
+These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure classic CLI](../../cli-install-nodejs.md). Since Azure CLI is only applicable for Azure Resource Manager resources, it cannot be used for this migration.
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform will then try the action again.

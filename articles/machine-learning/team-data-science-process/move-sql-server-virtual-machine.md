@@ -3,18 +3,19 @@ title: Move data to SQL Server on an Azure virtual machine| Microsoft Docs
 description: Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 2c9ef1d3-4f5c-4b1f-bf06-223646c8af06
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Move data to SQL Server on an Azure virtual machine
@@ -36,7 +37,7 @@ The following table summarizes the options for moving data to SQL Server on an A
 Note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
 
 > [!TIP]
-> As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](../../data-factory/v1/data-factory-data-movement-activities.md).
+> As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](../../data-factory/copy-activity-overview.md).
 >
 >
 
@@ -44,7 +45,7 @@ Note that this document assumes that SQL commands are executed from SQL Server M
 This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [Manage your storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [Manage your storage access keys](../../storage/common/storage-account-manage.md#access-keys).
 * Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 

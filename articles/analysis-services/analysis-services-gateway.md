@@ -1,25 +1,16 @@
 ---
-title: On-premises data gateway | Microsoft Docs
+title: On-premises data gateway
 description: An On-premises gateway is necessary if your Analysis Services server in Azure will connect to on-premises data sources.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/02/2018
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 09/11/2018
 ms.author: owend
-
+ms.reviewer: minewiskan
 ---
 # Connecting to on-premises data sources with Azure On-premises Data Gateway
-The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same region with a single gateway. 
+The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. 
 
 Getting setup with the gateway the first time is a four-part process:
 
@@ -29,7 +20,7 @@ Getting setup with the gateway the first time is a four-part process:
 
 - **Create a gateway resource in Azure** - In this step, you create a gateway resource in your Azure subscription.
 
-- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it. You can connect multiple servers and other resources to it.
+- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it. You can connect multiple servers and other resources, provided they are in the same subscription and same region.
 
 To get started right away, see [Install and configure on-premises data gateway](analysis-services-gateway-install.md).
 
@@ -58,7 +49,7 @@ The gateway creates an outbound connection to Azure Service Bus. It communicates
 We recommend you whitelist the IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated weekly.
 
 > [!NOTE]
-> The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. For example, 10.0.0.0/24 does not mean 10.0.0.0 through 10.0.0.24. Learn more about the [CIDR notation](http://whatismyipaddress.com/cidr).
+> The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. To learn more, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -86,6 +77,11 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
     <value>Https</value>
 </setting>
 ```
+
+## Tenant level administration 
+
+There is currently no single place where tenant administrators  can manage all the gateways that other users have installed and configured.  If you’re a tenant administrator, it's recommended you ask users in your organization to add you as an administrator to every gateway they install. This allows you to manage all the gateways in your organization through the Gateway Settings page or through [PowerShell commands](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="faq"></a>Frequently asked questions
 
@@ -189,8 +185,6 @@ Log files are an important resource when troubleshooting.
 #### Configuration logs
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
-
-
 
 
 #### Event logs

@@ -1,13 +1,14 @@
 ---
-title: CalcHistogram method in the Academic Knowledge API | Microsoft Docs
-description: Use the CalcHistogram method to calculate the distribution of attribute values for a set of paper entities in Microsoft Cognitive Services.
+title: CalcHistogram method - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Use the CalcHistogram method to calculate the distribution of attribute values for a set of paper entities.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: academic-knowledge
-ms.topic: article
+ms.component: academic-knowledge
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ---

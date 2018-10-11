@@ -1,72 +1,83 @@
 ---
-title: Send push notifications to Chrome apps with Azure Notification Hubs | Microsoft Docs
+title: Push notifications to Chrome apps with Azure Notification Hubs | Microsoft Docs
 description: Learn how to use Azure Notification Hubs to send push notifications to a Chrome App.
 services: notification-hubs
 keywords: mobile push notifications,push notifications,push notification,chrome push notifications
 documentationcenter: ''
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 75d4ff59-d04a-455f-bd44-0130a68e641f
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-chrome
 ms.devlang: JavaScript
-ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
-
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+#Customer intent: As a developer, I want to create backend applications that send notifications to client applications running on desktops or mobile devices so that users can take appropriate actions, get up-to-date information about an event, or receive coupons based on your current location.
 ---
 
-# Send push notifications to Chrome apps with Azure Notification Hubs
+# Tutorial: Push notifications to Chrome apps with Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-This article shows you how to use Azure Notification Hubs to send push notifications to a Chrome App, which is displayed within the context of the Google Chrome browser. In this tutorial, you create a Chrome app that receives push notifications by using [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). 
-
-> [!NOTE]
-> To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
-> 
-> 
-
-The tutorial walks you through these basic steps to enable push notifications:
-
-* [Enable Google Cloud Messaging](#register)
-* [Configure your notification hub](#configure-hub)
-* [Connect your Chrome App to the notification hub](#connect-app)
-* [Send a push notification to your Chrome App](#send)
-* [Additional functionality & capabilities](#next-steps)
+This tutorial walks you through creating a notification hub and sending push notifications to a sample Google Chrome app by using [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). The Chrome app runs in the context of a Google Chrome browser and registers with the notification hub. 
 
 > [!NOTE]
 > Chrome app push notifications are not generic in-browser notifications - they are specific to the browser extensibility model (see [Chrome Apps Overview] for details). In addition to the desktop browser, Chrome apps run on mobile (Android and iOS) through Apache Cordova. For more information, see [Chrome Apps on Mobile].
-> 
-> 
 
-Configuring GCM and Azure Notification Hubs is identical to configuring for Android, since [Google Cloud Messaging for Chrome] has been deprecated and the same GCM now supports both Android devices and Chrome instances.
+In this tutorial, you take the following steps:
+
+> [!div class="checklist"]
+> * [Enable Google Cloud Messaging](#register)
+> * [Configure your notification hub](#configure-hub)
+> * [Connect your Chrome App to the notification hub](#connect-app)
+> * [Send a push notification to your Chrome App](#send)
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## <a id="register"></a>Enable Google Cloud Messaging
-1. Navigate to the [Google Cloud Console] website, sign in with your Google account credentials, and then click the **Create Project** button. Provide an appropriate **Project Name**, and then click the **Create** button.
-   
-    ![Google Cloud Console - Create Project][1]
-2. Make a note of the **Project Number** on the **Projects** page for the project that you created. You use the project number as the **GCM Sender ID** in the Chrome App to register with GCM.
-   
-    ![Google Cloud Console - Project Number][2]
-3. In the left pane, click **APIs & auth**, and then scroll down and click the toggle to enable **Google Cloud Messaging for Android**. You don't have to enable **Google Cloud Messaging for Chrome**.
-   
-    ![Google Cloud Console - Server Key][3]
-4. In the left pane, click **Credentials** > **Create New Key** > **Server Key** > **Create**.
-   
-    ![Google Cloud Console - Credentials][4]
-5. Make a note of the server **API Key**. You use this value to coinfgure the notification hub in the next section to enable it to send push notifications to GCM.
-   
-    ![Google Cloud Console - API Key][5]
+1. Navigate to the [Google Cloud Console](https://console.cloud.google.com/cloud-resource-manager) website, and sign in with your Google account credentials
+2. Select **Create Project** on the toolbar. 
 
-## <a id="configure-hub"></a>Configure your notification hub
+    ![Create Project button](media/notification-hubs-chrome-get-started/create-project-button.png)
+1. Provide an appropriate **Project Name**, and then click the **Create** button.
+2. Select the notifications icon (Bell) on the toolbar, and select the **Create Project** message. 
+
+    ![Project creation notification](media/notification-hubs-chrome-get-started/project-creation-notification.png)
+1. Make a note of the **Project Number** on the **Projects** page for the project that you created. You use the project number as the **GCM Sender ID** in the Chrome App to register with GCM.
+   
+    ![Google Cloud Console - Project Number](media/notification-hubs-chrome-get-started/gcm-project-number.png)
+3. In the dashboard, select **Go to APIs overview**. 
+
+    ![Go to API overviews button](media/notification-hubs-chrome-get-started/go-to-apis-overview-button.png)
+1. In the API & Services page, select **Enable APIs and Services**. 
+
+    ![Enable APIs and Services](media/notification-hubs-chrome-get-started/enable-apis-and-services.png)
+1. Search the list with **cloud messaging** keyword. Select **Google Cloud Messaging** in the filtered list. 
+
+    ![Google cloud messaging API](media/notification-hubs-chrome-get-started/google-cloud-messaging-api.png)
+1. On the **Google Cloud Messaging** page, select **Enable**.
+
+    ![Enable GCM](media/notification-hubs-chrome-get-started/enable-gcm.png)
+1. In the **API & Services** page, switch to the **Credentials** tab. Select **Create credentials**, and then select **API key**. 
+
+    ![Create API key button](media/notification-hubs-chrome-get-started/create-api-key-button.png)
+1. On the **API key created** dialog box, select the copy button to copy the key to the clipboard. Save it somewhere. You use this value to configure the notification hub in the next section to enable it to send push notifications to GCM.
+
+    ![API page](media/notification-hubs-chrome-get-started/api-created-page.png)
+12. Select your API key in the **API keys** list. In the API key page, select **IP addresses (web servers, cron jobs, etc.)**, and enter **0.0.0.0/0** for the IP address, and click Save. 
+
+    ![Enable IP addresses](media/notification-hubs-chrome-get-started/enable-ip-addresses.png)
+
+## <a id="configure-hub"></a>Create your notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-6.   On the **Settings** page, select **Notification Services** and then **Google (GCM)**. Enter the API key and save.
+6. Select **Google (GCM)** in the **NOTIFICATION SETTINGS** category, enter the **API key** for the GCM project, and click **Save**.
 
-        ![Azure Notification Hubs - Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+      ![Azure Notification Hubs - Google (GCM)](media/notification-hubs-chrome-get-started/configure-gcm-api-key.png)
 
 ## <a id="connect-app"></a>Connect your Chrome App to the notification hub
 Your notification hub is now configured to work with GCM, and you have the connection strings to register your app to both receive and send push notifications.
@@ -77,7 +88,7 @@ The following sample is based on the [Chrome App GCM Sample] and uses the recomm
 > [!NOTE]
 > We recommend that you download the source for this Chrome App from [Chrome App Notification Hub Sample]. 
 
-The Chrome App is created via JavaScript, and you can use any of your preferred word editors for creating it. The following image shows how the Chrome App looksd like:
+The Chrome App is created via JavaScript, and you can use any of your preferred word editors for creating it. The following image shows how the Chrome App looks like:
 
 ![Google Chrome App][15]
 
@@ -99,8 +110,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
           "icons": { "128": "gcm_128.png" }
         }
    
-    Notice the `permissions` element, which specifies that this Chrome App is allowed to receive push notifications from GCM. It must also specify the Azure Notification Hubs URI where the Chrome App makes a REST call to register.
-    The sample app also uses an icon file, `gcm_128.png`, that you find at the source that's reused from the original GCM sample. You can substitute it for any image that fits the [icon criteria](https://developer.chrome.com/apps/manifest/icons).
+    Notice the `permissions` element, which specifies that this Chrome App is allowed to receive push notifications from GCM. The sample app also uses an icon file, `gcm_128.png`, that you find at the source that's reused from the original GCM sample. You can substitute it for any image that fits the [icon criteria](https://developer.chrome.com/apps/manifest/icons).
 4. Create a file called `background.js` with the following code:
    
         // Returns a new notification ID used in the notification.
@@ -351,11 +361,11 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
    * **registerWithNH** is the second button-click handler, which registers with Notification Hubs. It gets `hubName` and `connectionString` (which the user has specified) and crafts the Notification Hubs Registration REST API call.
    * **splitConnectionString** and **generateSaSToken** are helpers that represent the JavaScript implementation of a SaS token creation process, that must be used in all REST API calls. For more information, see [Common Concepts](http://msdn.microsoft.com/library/dn495627.aspx).
    * **sendNHRegistrationRequest** is the function that makes an HTTP REST call to Azure Notification Hubs.
-   * **registrationPayload** defines the registration XML payload. For more information, see [Create Registration NH REST API]. You need to update the registration ID in it with the value received from GCM.
+   * **registrationPayload** defines the registration XML payload. For more information, see [Create Registration NH REST API]. Update the registration ID in it with the value received from GCM.
    * **client** is an instance of **XMLHttpRequest** that the application uses to make the HTTP POST request. Update the `Authorization` header with `sasToken`. Successful completion of this call registers this Chrome App instance with Azure Notification Hubs.
 
-The overall folder structure for this project should resemble this:
-       ![Google Chrome App - Folder Structure][21]
+        The overall folder structure for this project should be like the following structure:
+        ![Google Chrome App - Folder Structure][21]
 
 ### Set up and test your Chrome App
 1. Open your Chrome browser. Open **Chrome extensions** and enable **Developer mode**.
@@ -383,12 +393,12 @@ For testing purposes, send Chrome push notifications by using a .NET console app
 > 
 
 1. In Visual Studio, from the **File** menu, select **New** and then **Project**. Under **Visual C#**, click **Windows** and **Console Application**, and then click **OK**.  This step creates a new console application project.
-2. From the **Tools** menu, click **Nuget Package Manager** and then **Package Manager Console**. You see displays the Package Manager Console in the bottom window.
+2. From the **Tools** menu, click **NuGet Package Manager** and then **Package Manager Console**. You see displays the Package Manager Console in the bottom window.
 3. In the console window, execute the following command:
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-       This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
+   A reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package is automatically added to the project.</a>
 4. Open `Program.cs` and add the following `using` statement:
    
         using Microsoft.Azure.NotificationHubs;
@@ -401,12 +411,10 @@ For testing purposes, send Chrome push notifications by using a .NET console app
             await hub.SendGcmNativeNotificationAsync(message);
         }
    
-       Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the [portal](https://portal.azure.com) in your Notification Hub blade. Also, replace the connection string placeholder with the connection string called `DefaultFullSharedAccessSignature` that you obtained in the notification hub configuration section.
+    Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the [portal](https://portal.azure.com) in your Notification Hub page. Also, replace the connection string placeholder with the connection string called `DefaultFullSharedAccessSignature` that you obtained in the notification hub configuration section.
    
-   > [!NOTE]
-   > Make sure that you use the connection string with **Full** access, not **Listen** access. The **Listen** access connection string does not grant permissions to send push notifications.
-   > 
-   > 
+    > [!NOTE]
+    > Make sure that you use the connection string with **Full** access, not **Listen** access. The **Listen** access connection string does not grant permissions to send push notifications.
 6. Add the following calls in the `Main` method:
    
          SendNotificationAsync();
@@ -425,15 +433,12 @@ For testing purposes, send Chrome push notifications by using a .NET console app
 > 
 
 ## <a name="next-steps"> </a>Next steps
-Learn more about Notification Hubs in [Notification Hubs Overview].
+In this tutorial, you sent broadcast notifications to all clients that are registered with the backend. To learn how to push notifications to specific devices, advance to the following tutorial: 
 
-To target specific users, refer to the [Azure Notification Hubs Notify Users] tutorial. 
-
-If you want to segment your users by interest groups, you can follow the [Azure Notification Hubs breaking news] tutorial.
+> [!div class="nextstepaction"]
+>[Push notifications to specific devices](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Images. -->
-[1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
-[2]: ./media/notification-hubs-chrome-get-started/GoogleProjectNumber.png
 [3]: ./media/notification-hubs-chrome-get-started/EnableGCM.png
 [4]: ./media/notification-hubs-chrome-get-started/CreateServerKey.png
 [5]: ./media/notification-hubs-chrome-get-started/ServerKey.png
@@ -456,7 +461,6 @@ If you want to segment your users by interest groups, you can follow the [Azure 
 
 <!-- URLs. -->
 [Chrome App Notification Hub Sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
-[Google Cloud Console]: http://cloud.google.com/console
 [Notification Hubs Overview]: notification-hubs-push-notification-overview.md
 [Chrome Apps Overview]: https://developer.chrome.com/apps/about_apps
 [Chrome App GCM Sample]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications

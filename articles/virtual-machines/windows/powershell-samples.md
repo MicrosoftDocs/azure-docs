@@ -3,8 +3,8 @@ title: Azure Virtual Machine PowerShell Samples | Microsoft Docs
 description: Azure Virtual Machine PowerShell Samples
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/30/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 ---
 # Azure Virtual Machine PowerShell samples
@@ -38,6 +38,7 @@ The following table includes links to PowerShell scripts samples that create and
 | [Create a managed disk from a snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a managed disk from a snapshot. |
 | [Copy managed disk to same or different subscription](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | Copies managed disk to same or different subscription but in the same region as the parent managed disk. 
 | [Export a snapshot as VHD to a storage account](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Exports a managed snapshot as VHD to a storage account in different region. |
+| [Export the VHD of a managed disk to a storage account](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Exports the underlying VHD of a managed disk to a storage account in different region. |
 | [Create a snapshot from a VHD](../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates snapshot from a VHD to create multiple identical managed disks from snapshot in short amount of time.  |
 | [Copy snapshot to same or different subscription](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Copies snapshot to same or different subscription but in the same region as the parent snapshot. |
 |**Secure virtual machines**||

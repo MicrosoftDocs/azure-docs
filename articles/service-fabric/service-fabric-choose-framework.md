@@ -3,14 +3,14 @@ title: Service Fabric programming model overview | Microsoft Docs
 description: 'Service Fabric offers two frameworks for building services: the actor framework and the services framework. They offer distinct trade-offs in simplicity and control.'
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
@@ -18,10 +18,10 @@ ms.author: vturecek
 
 ---
 # Service Fabric programming model overview
-Service Fabric offers multiple ways to write and manage your services. Services can choose to use the Service Fabric APIs to take full advantage of the platform's features and application frameworks. Services can also be any compiled executable program written in any language or code running in a container simply hosted on a Service Fabric cluster.
+Service Fabric offers multiple ways to write and manage your services. Services can choose to use the Service Fabric APIs to take full advantage of the platform's features and application frameworks. Services can also be any compiled executable program written in any language or code running in a container hosted on a Service Fabric cluster.
 
 ## Guest executables
-A [guest executable](service-fabric-deploy-existing-app.md) is an existing, arbitrary executable (written in any language) that can be run as a service in your application. Guest executables do not call the Service Fabric SDK APIs directly. However they still benefit from features the platform offers, such as service discoverability, custom health and load reporting by calling REST APIs exposed by Service Fabric. They also have full application lifecycle support.
+A [guest executable](service-fabric-guest-executables-introduction.md) is an existing, arbitrary executable (written in any language) that can be run as a service in your application. Guest executables do not call the Service Fabric SDK APIs directly. However they still benefit from features the platform offers, such as service discoverability, custom health and load reporting by calling REST APIs exposed by Service Fabric. They also have full application lifecycle support.
 
 Get started with guest executables by deploying your first [guest executable application](service-fabric-deploy-existing-app.md).
 
@@ -42,12 +42,12 @@ Reliable Services can also be stateful, exclusive to Service Fabric, where state
 ## ASP.NET Core
 ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based Internet-connected applications, such as web apps, IoT apps, and mobile backends. Service Fabric integrates with ASP.NET Core so you can write both stateless and stateful ASP.NET Core applications that take advantage of Reliable Collections and Service Fabric's advanced orchestration capabilities.
 
-[Learn more about ASP.NET Core in Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) or get started by [writing your first ASP.NET Core Service Fabric application](service-fabric-reliable-services-communication-aspnetcore.md).
+[Learn more about ASP.NET Core in Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) or get started by [writing your first ASP.NET Core Service Fabric application](service-fabric-tutorial-create-dotnet-app.md).
 
 ## Reliable Actors
 Built on top of Reliable Services, the Reliable Actor framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built-in communication for actors and pre-set state persistence and scale-out configurations.
 
-As Reliable Actors itself is an application framework built on Reliable Services, it is fully integrated with the Service Fabric platform and benefits from the full set of features offered by the platform.
+Because Reliable Actors is an application framework built on Reliable Services, it is fully integrated with the Service Fabric platform and benefits from the full set of features offered by the platform.
 
 [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md) or get started by [writing your first Reliable Actor service](service-fabric-reliable-actors-get-started.md)
 

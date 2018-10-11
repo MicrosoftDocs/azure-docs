@@ -1,22 +1,15 @@
 ---
-title: MapReduce and SSH connection with Hadoop in HDInsight - Azure | Microsoft Docs
+title: MapReduce and SSH connection with Hadoop in HDInsight - Azure 
 description: Learn how to use SSH to run MapReduce jobs using Hadoop on HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/17/2018
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/10/2018
+ms.author: jasonh
 
 ---
 # Use MapReduce with Hadoop on HDInsight with SSH
@@ -39,16 +32,16 @@ Learn how to submit MapReduce jobs from a Secure Shell (SSH) connection to HDIns
 
 ## <a id="ssh"></a>Connect with SSH
 
-Connect to the cluster using SSH. For example, the following command connects to a cluster named **myhdinsight**:
+Connect to the cluster using SSH. For example, the following command connects to a cluster named **myhdinsight** as the **sshuser** account:
 
 ```bash
-ssh admin@myhdinsight-ssh.azurehdinsight.net
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **If you use a certificate key for SSH authentication**, you may need to specify the location of the private key on your client system, for example:
 
 ```bash
-ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **If you use a password for SSH authentication**, you need to provide the password when prompted.

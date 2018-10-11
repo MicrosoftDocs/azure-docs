@@ -7,9 +7,8 @@ ms.author: mtillman
 manager: angrobe
 ms.date: 03/01/2018
 ms.topic: article
-ms.prod:
+ms.component: develop
 ms.service: active-directory
-ms.technology: techgroup-identity
 
 # optional metadata
 
@@ -22,6 +21,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 #ms.custom: 
 
 ---
+# Azure Active Directory guided setup steps
 
 [!INCLUDE [active-directory-develop-guidedsetup-android-configure-arp.md](../../includes/active-directory-develop-guidedsetup-android-configure-arp.md)]
 [!INCLUDE [active-directory-develop-guidedsetup-aspnetwebapp-configure-arp.md](../../includes/active-directory-develop-guidedsetup-aspnetwebapp-configure-arp.md)]

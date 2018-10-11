@@ -1,9 +1,9 @@
 ---
-title: Deploy templates with PowerShell in Azure Stack | Microsoft Docs
-description: Learn how to deploy a virtual machine using a Resource Manager template and PowerShell.
+title: Deploy templates using PowerShell in Azure Stack | Microsoft Docs
+description: Deploy a template to Azure Stack using PowerShell.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,49 +13,56 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: brenduns
+ms.date: 09/18/2018
+ms.author: sethm
 ms.reviewer:
 
 ---
-# Deploy templates in Azure Stack using PowerShell
+
+# Deploy a template to Azure Stack using PowerShell
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Use PowerShell to deploy Azure Resource Manager templates to the Azure Stack Development Kit.  Resource Manager templates deploy and provision all resources for your application in a single, coordinated operation.
+You can use PowerShell to deploy Azure Resource Manager templates to Azure Stack. This article describes how to use PowerShell to deploy a template.
 
 ## Run AzureRM PowerShell cmdlets
-In this example, you run a script to deploy a virtual machine to Azure Stack Development Kit using a Resource Manager template.  Before proceeding, ensure you have [configured PowerShell](azure-stack-powershell-configure-user.md)  
 
-The VHD used in this example template is WindowsServer-2012-R2-Datacenter.
+This example uses AzureRM PowerShell cmdlets and a template stored on GitHub. The template creates a Windows Server 2012 R2 Datacenter virtual machine.
 
-1. Go to <http://aka.ms/AzureStackGitHub>, search for the **101-simple-windows-vm** template, and save it to the following location: c:\\templates\\azuredeploy-101-simple-windows-vm.json.
-2. In PowerShell, run the following deployment script. Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter to prevent overwriting your deployment.
-   
+>[!NOTE]
+>Before you try this example, make sure that you've [configured PowerShell](azure-stack-powershell-configure-user.md) for an Azure Stack user.
+
+1. Go to [http://aka.ms/AzureStackGitHub](http://aka.ms/AzureStackGitHub) and find the **101-simple-windows-vm** template. Save the template to this location: C:\\templates\\azuredeploy-101-simple-windows-vm.json.
+2. Open an elevated PowerShell command prompt.
+3. Replace *username* and *password* in the following script with your username and password, and then run the script.
+
    ```PowerShell
-       # Set Deployment Variables
-       $myNum = "001" #Modify this per deployment
-       $RGName = "myRG$myNum"
-       $myLocation = "local"
+   # Set deployment variables
+   $myNum = "001" #Modify this per deployment
+   $RGName = "myRG$myNum"
+   $myLocation = "local"
    
-       # Create Resource Group for Template Deployment
-       New-AzureRmResourceGroup -Name $RGName -Location $myLocation
+   # Create resource group for template deployment
+   New-AzureRmResourceGroup -Name $RGName -Location $myLocation
    
-       # Deploy Simple IaaS Template
-       New-AzureRmResourceGroupDeployment `
-           -Name myDeployment$myNum `
-           -ResourceGroupName $RGName `
-           -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
-           -NewStorageAccountName mystorage$myNum `
-           -DnsNameForPublicIP mydns$myNum `
-           -AdminUsername <username> `
-           -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
-           -VmName myVM$myNum `
-           -WindowsOSVersion 2012-R2-Datacenter
+   # Deploy simple IaaS template
+   New-AzureRmResourceGroupDeployment `
+       -Name myDeployment$myNum `
+       -ResourceGroupName $RGName `
+       -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
+       -NewStorageAccountName mystorage$myNum `
+       -DnsNameForPublicIP mydns$myNum `
+       -AdminUsername <username> `
+       -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
+       -VmName myVM$myNum `
+       -WindowsOSVersion 2012-R2-Datacenter
    ```
-3. Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
 
+   >[!IMPORTANT]
+   >Every time you run this script, increment the value of the `$myNum` parameter to prevent overwriting your deployment.
+
+4. Open the Azure Stack portal, select **Browse**, and then select  **Virtual machines** to find your new virtual machine (**myDeployment001**).
 
 ## Next steps
-[Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
 
+[Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)

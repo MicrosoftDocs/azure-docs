@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a SQL Server Windows VM with Azure PowerShell | Microsoft Docs
 description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine with Azure PowerShell.
 services: virtual-machines-windows
@@ -36,10 +36,10 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 ## Configure PowerShell
 
-1. Open PowerShell and establish access to your Azure account by running the **Add-AzureRmAccount** command.
+1. Open PowerShell and establish access to your Azure account by running the **Connect-AzureRmAccount** command.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. You should see a sign-in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
@@ -78,7 +78,7 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
    # Create a virtual network
    $Vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
-      -Name VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
+      -Name $VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
 
    # Create a public IP address and specify a DNS name
    $Pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `

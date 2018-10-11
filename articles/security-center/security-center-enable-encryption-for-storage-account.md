@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
@@ -24,7 +24,7 @@ Storage Service Encryption (SSE) works by encrypting the data when it is written
 
 
 > [!Note]
-> After enabling encryption, only new data is encrypted. Any existing blobs in your storage account remain unencrypted. To encrypt existing blobs, see the [Storage Service Encryption FAQ](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> After enabling encryption, only new data is encrypted. Any existing blobs in your storage account remain unencrypted. To encrypt existing blobs, see the [Storage Service Encryption FAQ](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
 >
 >
 

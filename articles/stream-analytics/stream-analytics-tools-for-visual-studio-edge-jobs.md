@@ -1,25 +1,17 @@
 ---
-title: Use Stream Analytics Visual Studio tools to set up the continuous integration and deployment process | Microsoft Docs
-description: Tutorial to develop Stream Analytics tools for Visual Studio to author, debug, and create your Stream Analytics Edge jobs.
-keywords: visual studio, NuGet, DevOps, Edge jobs, Stream analytics
-documentationcenter: ''
+title: Edge jobs in Azure Stream Analytics tools for Visual Studio 
+description: This article describes how to author, debug, and create your Stream Analytics Edge jobs using the Stream Analytics tools for Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: 
-editor: 
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/13/2018
 ms.author: sujie
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/13/2018
 --- 
 
-# Develop Stream Analytics Edge jobs by using Visual Studio tools
+# Develop Stream Analytics Edge jobs using Visual Studio tools
 
 In this tutorial, you learn how to use Stream Analytics tools for Visual Studio to author, debug, and create your Stream Analytics Edge jobs. After you create and test the job, you can go to the Azure portal to deploy it to your devices. 
 
@@ -96,7 +88,7 @@ To test the query locally, you should upload the sample data. You can get sample
 4. you can either run it locally or submit to Azure. To test the query > Select **Run Locally**.  
    ![Run options](./media/stream-analytics-tools-for-visual-studio-edge-jobs/run-options.png)
  
-5. The command prompt window shows the status of the job. When the job runs successfully, it creates a folder that looks like “2018-02-23-11-31-42” in your project folder path “Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42”. Navigate to the folder path to view the results in the local folder:
+5. The command prompt window shows the status of the job. When the job runs successfully, it creates a folder that looks like "2018-02-23-11-31-42" in your project folder path "Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42". Navigate to the folder path to view the results in the local folder:
 
    You can also sign in to the Azure portal and verify that the job is created. 
 
@@ -126,6 +118,6 @@ The job view window provides you with operations such as refreshing the job, del
 
 ## Next steps
 
-* [More information on Azure Iot Edge](../iot-edge/how-iot-edge-works.md)
+* [More information on Azure Iot Edge](../iot-edge/about-iot-edge.md)
 * [ASA on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

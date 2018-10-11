@@ -3,15 +3,11 @@ title: Azure Durable Functions unit testing
 description: Learn how to unit test Durable Functions.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: kadimitr
 ---
@@ -124,7 +120,7 @@ After combining all steps, the unit test will have the following code:
 
 ## Unit testing orchestrator functions
 
-Orchestrator functions are even more interesting for unit testing since they usually have a lot more business logic. Currently, Orchestrator functions can be implemented only in C#.
+Orchestrator functions are even more interesting for unit testing since they usually have a lot more business logic.
 
 In this section the unit tests will validate the output of the `E1_HelloSequence` Orchestrator function:
 

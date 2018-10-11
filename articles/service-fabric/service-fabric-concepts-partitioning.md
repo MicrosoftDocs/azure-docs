@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
@@ -359,6 +359,9 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     ![Browser screenshot](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+
+## Reliable Services and Actor forking subprocesses
+Service Fabric doesn't support reliable services and subsequently reliable actors forking subprocesses. An example of why its not supported is [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) can not be used to register an unsupported subprocess, and cancelation tokens are only sent to registred processes; resulting in all sorts of issues, such as upgrade failures, when subprocesses don't close after the parent process has received a cancelation token. 
 
 ## Next steps
 For information on Service Fabric concepts, see the following:

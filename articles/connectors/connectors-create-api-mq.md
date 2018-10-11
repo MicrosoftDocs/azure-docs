@@ -1,21 +1,19 @@
 ---
-title: Learn how to use the MQ connector in Azure Logic Apps | Microsoft Docs
-description: Connect to an on-premises or Azure MQ server from your logic app workflow to browse, receive, and send messages to WebSphere MQ
-services: logic-apps
+# required metadata
+title: Connect to MQ server - Azure Logic Apps | Microsoft Docs
+description: Send and retrieve messages with an Azure or on-premises MQ server and Azure Logic Apps 
 author: valthom
-manager: anneta
-documentationcenter: ''
-editor: ''
-tags: connectors
-
-ms.assetid:
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  integration
+manager: jeconnoc
+ms.author: valthom
 ms.date: 06/01/2017
-ms.author: valthom; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
 
 # Connect to an IBM MQ server from logic apps using the MQ connector 

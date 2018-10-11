@@ -1,19 +1,19 @@
 ---
-title: Video Search API quick start | Microsoft Docs
+title: "Quickstart: Bing Video Search API"
+titlesuffix: Azure Cognitive Services
 description: Shows how to get started using the Bing Video Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 
-ms.assetid: 7E59692A-83A8-4F4C-B122-1F0EDC8E5C86
 ms.service: cognitive-services
-ms.technology: bing-video-search
-ms.topic: article
+ms.component: bing-video-search
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Your first video search query
+# Quickstart: Your first video search query
 
 Before you can make your first call, you need to get a Bing Search Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api).
 
@@ -76,16 +76,16 @@ BingAPIs-Market: en-US
             "datePublished" : "2014-03-04T11:51:53",
             "publisher" : [
                 {
-                    "name" : "YouTube"
+                    "name" : "Fabrikam"
                 }
             ],
             "creator" : {
-                "name" : "sailaboattv"
+                "name" : "Marcus Appel"
             },
-            "contentUrl" : "https:\/\/www.youtube.com\/watch?v=vzmPjHZ--g",
+            "contentUrl" : "https:\/\/www.fabrikam.com\/watch?v=vzmPjHZ--g",
             "hostPageUrl" : "https:\/\/www.bing.com\/cr?IG=81EF7545D56944...",
             "encodingFormat" : "h264",
-            "hostPageDisplayUrl" : "https:\/\/www.youtube.com\/watch?v=vzmPjBZ--g",
+            "hostPageDisplayUrl" : "https:\/\/www.fabrikam.com\/watch?v=vzmPjBZ--g",
             "width" : 1280,
             "height" : 720,
             "duration" : "PT2M47S",

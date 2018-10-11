@@ -1,42 +1,65 @@
 ---
-title: Track changes with Azure Automation | Microsoft Docs
+title: Track changes with Azure Automation
 description: The Change Tracking solution helps you identify software and Windows Service changes that occur in your environment.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: ''
-ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: automation
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+ms.component: change-inventory-management
+author: georgewallace
 ms.author: gwallace
+ms.date: 08/31/2018
+ms.topic: conceptual
+manager: carmonm
 ms.custom: H1Hack27Feb2017
-
 ---
-# Track software changes in your environment with the Change Tracking solution
+# Track changes in your environment with the Change Tracking solution
 
 This article helps you use the Change Tracking solution to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows and Linux files, Windows registry keys, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
 
 Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
-## Enable Change Tracking and Inventory
+## Supported Windows operating systems
 
+The following versions of the Windows operating system are officially supported for the Windows agent:
+
+* Windows Server 2008 R2 or later
+
+## Supported Linux operating systems
+
+The following Linux distributions are officially supported. However, the Linux agent might also run on other distributions not listed. Unless otherwise noted, all minor releases are supported for each major version listed.  
+
+### 64-bit
+
+* CentOS 6 and 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 and 7
+* Red Hat Enterprise Linux Server 6 and 7
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+### 32-bit
+
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS and 16.04 LTS
+
+## Enable Change Tracking and Inventory
 
 To begin tracking changes, you need to enable the Change Tracking and Inventory solution for your Automation Account.
 
 1. In the Azure portal, navigate to your Automation Account
-1. Select **Change Tracking** under **CONFIGURATION**.
-2. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**.
+2. Select **Change Tracking** under **CONFIGURATION**.
+3. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**.
 
 This enables the solution for your automation account. The solution can take up to 15 minutes to enable. The blue banner notifies you when the solution is enabled. Navigate back to the **Change Tracking** page to manage the solution.
 
 ## Configuring Change Tracking and Inventory
 
-To learn how to onboard computers to the solution visit: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). When you enable a new file or registry key to track, it is enabled for both Change Tracking and Inventory.
+To learn how to onboard computers to the solution visit: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). Once you have a machine onboarding with the Change Tracking and Inventory solution you can configure the items to track. When you enable a new file or registry key to track, it is enabled for both Change Tracking and Inventory.
+
+For tracking changes in files on both Windows and Linux, MD5 hashes of the files are used. Theses hashes are then used to detect if a change has been made since the last inventory.
 
 ### Configure Linux files to track
 
@@ -56,6 +79,7 @@ Use the following steps to configure file tracking on Linux computers:
 |Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Use Sudo     | This setting determines if sudo is used when checking for the item.         |
 |Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and does not include the files/directories referenced.<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced.<br>**Manage** - Follows the symbolic links and allows altering of returned content.     |
+|Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
 
 > [!NOTE]
 > The "Manage" links option is not recommended. File content retrieval is not supported.
@@ -73,7 +97,24 @@ Use the following steps to configure files tracking on Windows computers:
 |Enabled     | Determines if the setting is applied.        |
 |Item Name     | Friendly name of the file to be tracked.        |
 |Group     | A group name for logically grouping files.        |
-|Enter Path     | The path to check for the file For example: "c:\temp\myfile.txt"       |
+|Enter Path     | The path to check for the file For example: "c:\temp\\\*.txt"<br>You can also use environment variables such as "%winDir%\System32\\\*.*"       |
+|Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
+|Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
+
+## Wildcard, recursion, and environment settings
+
+Recursion allows you to specify wildcards to simplify tracking across directories, and environment variables to allow you to track files across environments with multiple or dynamic drive names. The following is a list of common information you should know when configuring recursion:
+
+* Wildcards are required for tracking multiple files
+* If using wildcards, they can only be used in the last segment of a path. (such as C:\folder\\**file** or /etc/*.conf)
+* If an environment variable has an invalid path, validation will succeed but that path will fail when inventory runs.
+* Avoid general paths such as `c:\*.*` when setting the path, as this would result in too many folders being traversed.
+
+## Configure File Content tracking
+
+You can view the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
+
+![view changes in a file](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### Configure Windows registry keys to track
 
@@ -94,12 +135,8 @@ Use the following steps to configure registry key tracking on Windows computers:
 
 The Change Tracking solution does not currently support the following items:
 
-* Folders (directories) for Windows file tracking
-* Recursion for Windows file tracking
-* Wild cards for Windows file tracking
-* Path variables
+* Recursion for Windows registry tracking
 * Network file systems
-* File Content
 
 Other limitations:
 
@@ -111,7 +148,9 @@ Other limitations:
 ## Known Issues
 
 The Change Tracking solution is currently experiencing the following issues:
+
 * Hotfix updates are not collected for Windows 10 Creators Update and Windows Server 2016 Core RS3 machines.
+* For Windows files, Change Tracking does not currently detect when a new file has been added to a tracked folder path
 
 ## Change Tracking data collection details
 
@@ -119,14 +158,25 @@ The following table shows the data collection frequency for the types of changes
 
 | **Change type** | **Frequency** |
 | --- | --- |
-| Windows registry | 50 minutes | 
-| Windows file | 30 minutes | 
-| Linux file | 15 minutes | 
-| Windows services | 30 minutes | 
+| Windows registry | 50 minutes |
+| Windows file | 30 minutes |
+| Linux file | 15 minutes |
+| Windows services | 10 seconds to 30 minutes</br> Default: 30 minutes |
 | Linux daemons | 5 minutes |
-| Windows software | 30 minutes | 
-| Linux software | 5 minutes | 
+| Windows software | 30 minutes |
+| Linux software | 5 minutes |
 
+### Windows service tracking
+
+The default collection frequency for Windows services is 30 minutes. To configure the frequency go to **Change Tracking**. Under **Edit Settings** on the **Windows Services** tab, there is a slider that allows you to change the collection frequency for Windows services from as quickly as 10 seconds to as long as 30 minutes. Move the slider bar to the frequency you want and it automatically saves it.
+
+![Windows services slider](./media/automation-change-tracking/windowservices.png)
+
+The agent only tracks changes, this optimizes the performance of the agent. By setting too high of a threshold changes may be missed if the service reverted to their original state. Setting the frequency to a smaller value allows you to catch changes that may be missed otherwise.
+
+> [!NOTE]
+> While the agent can track changes down to a 10 second interval, the data still takes a few minutes to be displayed in the portal. Changes during the time to display in the portal are still tracked and logged.
+  
 ### Registry key change tracking
 
 The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the list of pre-configured registry keys. These keys are configured but not enabled. To track these registry keys, you must enable each one.

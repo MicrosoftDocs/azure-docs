@@ -1,4 +1,4 @@
----
+﻿---
 title: Provisioning guide for SQL Server VMs with Azure PowerShell | Microsoft Docs
 description: Provides steps and PowerShell commands for creating an Azure VM with SQL Server virtual machine gallery images.
 services: virtual-machines-windows
@@ -27,10 +27,10 @@ This article requires the Azure PowerShell module version 3.6 or later. Run `Get
 
 ## Configure your subscription
 
-1. Open PowerShell and establish access to your Azure account by running the **Add-AzureRmAccount** command.
+1. Open PowerShell and establish access to your Azure account by running the **Connect-AzureRmAccount** command.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. You should see a sign-in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
@@ -125,7 +125,7 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
 ## Create a storage account
-The virtual machine requires storage resources for the operating system disk and for the SQL Server data and log files. For simplicity, we create a single disk for both. You can attach additional disks later using the [Add-Azure Disk](/powershell/module/azure/add-azuredisk) cmdlet in order to place your SQL Server data and log files on dedicated disks. Use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet to create a standard storage account in your new resource group and with the storage account name, storage Sku name, and location defined using the variables that you previously initialized.
+The virtual machine requires storage resources for the operating system disk and for the SQL Server data and log files. For simplicity, we create a single disk for both. You can attach additional disks later using the [Add-Azure Disk](/powershell/module/servicemanagement/azure/add-azuredisk) cmdlet in order to place your SQL Server data and log files on dedicated disks. Use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet to create a standard storage account in your new resource group and with the storage account name, storage Sku name, and location defined using the variables that you previously initialized.
 
 Execute the following cmdlet to create your new storage account.
 
@@ -242,7 +242,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### Set the operating system properties for the virtual machine
-Now we are ready to set the virtual machine's operating system properties with [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](../agent-user-guide.md) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
+Now we are ready to set the virtual machine's operating system properties with [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](../../extensions/agent-windows.md) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
 
 Execute the following cmdlet to set the operating system properties for your virtual machine.
 
@@ -323,7 +323,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 You can also permanently delete all resources associated with the virtual machine with the **Remove-AzureRmResourceGroup** command. This permanently deletes the virtual machine as well, so use this command with care.
 
 ## Example script
-The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Add-AzureRmAccount** and **Select-AzureRmSubscription** commands.
+The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Connect-AzureRmAccount** and **Select-AzureRmSubscription** commands.
 
 ```PowerShell
 # Variables

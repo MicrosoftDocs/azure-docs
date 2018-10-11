@@ -3,13 +3,16 @@ title: 'Azure portal: Query Azure SQL Database using Query Editor | Microsoft Do
 description: Learn how to connect to SQL Database in the Azure portal by using the SQL Query Editor. Then, run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database,azure portal, portal, query editor
 services: sql-database
-author: ayoolubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 01/10/2018
+author: ayoolubeko
 ms.author: ayolubek
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 01/10/2018
 ---
 # Azure portal: Use the SQL Query editor to connect and query data
 
@@ -26,7 +29,7 @@ This quickstart uses as its starting point the resources created in one of these
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 
 ## Connect using SQL Authentication
@@ -137,19 +140,25 @@ Use the following code to delete the new product that you previously added using
 
 ## Query Editor considerations
 
-There are a few things to know when working with the Query Editor while it remains in preview state:
+There are a few things to know when working with the Query editor:
 
-1. Make sure that you have set the "Allow access to Azure Services" option in your Azure SQL Server firewall settings to "ON". This option gives the SQL Query Editor access to your SQL databases and datawarehouses.
+1. Make sure that you have set the "Allow access to Azure Services" option in your Azure SQL Server firewall settings to "ON". This option gives the SQL Query Editor access to your SQL databases and data warehouses.
 
-2. Azure Active Directory Administrator login does not work with accounts that have 2-factor authenticated enabled.
+2. If the SQL server is in a Virtual Network, the Query editor cannot be used to query the databases in that server.
 
-3. Email accounts (for example outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) are not yet supported as Active Directory administrators. Make sure to choose a user that was either created natively in the Azure Active Directory, or federated into the Azure Active directory
+3. Pressing the F5 key will refresh the Query editor page and lose the query that is being worked on. Use the Run button on the toolbar to execute queries.
 
-4. Spatial data types queries are not yet supported in the Query editor. Querying spatial columns will result in a 'System.IO.FileNotFoundException' error.
+4. Query editor does not support connecting to master DB
 
-5. There is no support for IntelliSense for database tables and views. However, the editor does support auto-complete on names that have already been typed.
+5. There is a 5 minute timeout for query execution.
 
-6. Pressing the F5 key will refresh the Query editor page and lose the query that is being worked on. Use the Run button on the toolbar to execute queries.
+6. Azure Active Directory Administrator login does not work with accounts that have 2-factor authenticated enabled.
+
+7. Email accounts (for example outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) are not yet supported as Active Directory administrators. Make sure to choose a user that was either created natively in the Azure Active Directory, or federated into the Azure Active directory
+
+8. The Query editor only supports cylindrical projection for geography data types.
+
+9. There is no support for IntelliSense for database tables and views. However, the editor does support auto-complete on names that have already been typed.
 
 
 ## Next steps

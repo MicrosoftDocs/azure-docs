@@ -1,18 +1,18 @@
 ---
-title: Bing Search SDK | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Preview of the Bing Search SDK for applications that search the web.
+title: Bing Video Search SDK
+titleSuffix: Azure Cognitive Services
+description: Bing Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: 
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: bing-video-search
-ms.topic: article
+ms.component: bing-video-search
+ms.topic: conceptual
 ms.date: 1/25/2018
-ms.author: v-gedod
+ms.author: rosh
 ---
-# Bing Search SDK preview
+# Bing Search SDK
 The Bing Video Search API samples include scenarios that:
 1.	Query for a simple video.
 2.	Query restricted to free, short, and with certain aspect ratio, showing video filtering capabilities.
@@ -21,12 +21,12 @@ The Bing Video Search API samples include scenarios that:
 
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
-    * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.1.0-preview)
+    * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0)
     * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingVideoSearch) for definitions and dependencies.
 * Get started with [Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * See also [Node.js libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/videoSearch) for definitions and dependencies.
 * Get started with [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * See also [Java libraries](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-videosearch) for definitions and dependencies.
+    * See also [Java libraries](hhttps://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) for definitions and dependencies.
 * Get started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * See also [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-videosearch) for definitions and dependencies.
 

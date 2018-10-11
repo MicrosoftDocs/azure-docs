@@ -1,17 +1,16 @@
----
+﻿---
 title: How to send events to an Azure Time Series Insights environment | Microsoft Docs
 description: This tutorial explains how to create and configure event hub and run a sample application to push events to be shown in Azure Time Series Insights.
-services: time-series-insights
 ms.service: time-series-insights
-author: venkatgct
-ms.author: venkatja
-manager: jhubbard
-editor: MarkMcGeeAtAquent
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
-ms.date: 11/15/2017
+ms.topic: conceptual
+ms.date: 04/09/2018
 ---
 # Send events to a Time Series Insights environment using event hub
 This article explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Time Series Insights](https://insights.timeseries.azure.com).
@@ -43,6 +42,18 @@ This article explains how to create and configure event hub and run a sample app
   ![Select Shared access policies and click Add button](media/send-events/shared-access-policy.png)  
 
   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
+
+## Add Time Series Insights reference data set 
+Using reference data in TSI contextualizes your telemetry data.  That context adds meaning to your data and makes it easier to filter and aggregate.  TSI joins reference data at ingress time and cannot retroactively join this data.  Therefore, it is critical to add reference data prior to adding an event source with data.  Data like location or sensor type are useful dimensions that you might want to join to a device/tag/sensor ID to make it easier to slice and filter.  
+
+> [!IMPORTANT]
+> Having a reference data set configured is critical when you upload historical data.
+
+Ensure that you have reference data in place when you bulk upload historical data to TSI.  Keep in mind, TSI will immediately start reading from a joined event source if that event source has data.  It's useful to wait to join an event source to TSI until you have your reference data in place, especially if that event source has data in it. Alternatively, you can wait to push data to that event source until the reference data set is in place.
+
+To manage reference data, there is the web-based user interface in the TSI Explorer, and there is a programmatic C# API. TSI Explorer has a visual user experience to upload files or paste-in existing reference data sets as JSON or CSV format. With the API, you can build a custom app when needed.
+
+For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## Create Time Series Insights event source
 1. If you haven't created an event source, follow [these instructions](time-series-insights-how-to-add-an-event-source-eventhub.md) to create an event source.
@@ -138,7 +149,7 @@ A simple JSON object.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### Output - 1 event
+#### Output - one event
 
 |id|timestamp|
 |--------|---------------|
@@ -160,7 +171,7 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
     }
 ]
 ```
-#### Output - 2 Events
+#### Output - two events
 
 |id|timestamp|
 |--------|---------------|
@@ -171,7 +182,7 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
 
 #### Input
 
-A JSON object with a nested JSON array containing two JSON objects.
+A JSON object with a nested JSON array that contains two JSON objects:
 ```json
 {
     "location":"WestUs",
@@ -188,8 +199,8 @@ A JSON object with a nested JSON array containing two JSON objects.
 }
 
 ```
-#### Output - 2 Events
-Note that the property "location" is copied over to each of the event.
+#### Output - two events
+Notice the property "location" is copied over to each of the event.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -231,12 +242,14 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
     ]
 }
 ```
-#### Output - 2 Events
+#### Output - two events
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+
+
 
 ## Next steps
 > [!div class="nextstepaction"]

@@ -1,27 +1,18 @@
 ---
-title: Configure Spark settings - Azure HDInsight | Microsoft Docs
-description: 'How to configure Spark for an HDInsight cluster.'
+title: Configure Spark settings - Azure HDInsight 
+description: How to configure Spark for an Azure HDInsight cluster.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+ms.author: maxluk
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
-ms.author: maxluk
-
 ---
 # Configure Spark settings
 
-An HDInsight Spark cluster includes an installation of the Apache Spark library.  Each HDInsight cluster includes default configuration parameters for all its installed services, including Spark.  A key aspect of managing a HDInsight Hadoop cluster is monitoring workload, including Spark Jobs, to make sure they are running in a predictable manner. To best run Spark jobs, consider the physical cluster configuration when determining how to optimize the cluster's logical configuration.
+An HDInsight Spark cluster includes an installation of the Apache Spark library.  Each HDInsight cluster includes default configuration parameters for all its installed services, including Spark.  A key aspect of managing a HDInsight Hadoop cluster is monitoring workload, including Spark Jobs, to make sure the jobs are running in a predictable manner. To best run Spark jobs, consider the physical cluster configuration when determining how to optimize the cluster's logical configuration.
 
 The default HDInsight Apache Spark cluster includes the following nodes: three ZooKeeper nodes, two head nodes, and one or more worker nodes:
 
@@ -31,12 +22,16 @@ The number of VMs, and the VM sizes, for the nodes in your HDInsight cluster can
 
 ## Spark versions
 
-You should also consider the best version of Spark for your cluster.  Spark 2.x can run much better than Spark 1.x. Spark 2.x has a number of performance optimizations, such as Tungsten, Catalyst Query Optimization, and more.  The HDInsight service includes multiple versions of both Spark and HDInsight itself.  Each version of Spark includes a set of default cluster settings.  When you create a new cluster, here are the current Spark versions to choose from:
+Use the best Spark version for your cluster.  The HDInsight service includes several versions of both Spark and HDInsight itself.  Each version of Spark includes a set of default cluster settings.  
+
+When you create a new cluster, here are the current Spark versions to choose from:
 
 ![Spark Versions](./media/apache-spark-settings/spark-version.png)
 
+Spark 2.x can run much better than Spark 1.x. Spark 2.x has a number of performance optimizations, such as Tungsten, Catalyst Query Optimization, and more.  
+
 > [!NOTE]
-> The default version of Apache Spark in the HDInsight service may change without notice. If you have a version dependency, Microsoft recommends that you specify that particular version when you create clusters using .NET SDK/Azure PowerShell and Azure CLI.
+> The default version of Apache Spark in the HDInsight service may change without notice. If you have a version dependency, Microsoft recommends that you specify that particular version when you create clusters using .NET SDK, Azure PowerShell, and Azure Classic CLI.
 
 Apache Spark has three system configuration locations:
 
@@ -44,7 +39,7 @@ Apache Spark has three system configuration locations:
 * Environment variables can be used to set per-machine settings, such as the IP address, through the `conf/spark-env.sh` script on each node.
 * Logging can be configured through `log4j.properties`.
 
-When you select a particular version of Spark, your cluster includes the default configuration settings.  You can change the default Spark configuration values by providing a custom Spark configuration file.  An example is shown below.
+When you select a particular version of Spark, your cluster includes the default configuration settings.  You can change the default Spark configuration values by using a custom Spark configuration file.  An example is shown below.
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -54,7 +49,7 @@ When you select a particular version of Spark, your cluster includes the default
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-The example shown above overrides several default values for five Spark configuration parameters.  These are the compression codec, Hadoop mapreduce split minimum size and parquet block sizes, and also the Spar SQL partition and open file sizes default values.  These configuration changes are chosen because the associated data and jobs (in this example, genomic data) have particular characteristics which will perform better using these custom configuration settings.
+The example shown above overrides several default values for five Spark configuration parameters.  These are the compression codec, Hadoop MapReduce split minimum size and parquet block sizes, and also the Spar SQL partition and open file sizes default values.  These configuration changes are chosen because the associated data and jobs (in this example, genomic data) have particular characteristics, which will perform better using these custom configuration settings.
 
 ---
 
@@ -123,7 +118,7 @@ YARN controls the maximum sum of memory used by the containers on each Spark nod
 
 ## Change parameters for an application running in Jupyter notebook
 
-Spark clusters in HDInsight include a number of components by default. Each of these components includes default configuration values which can be overridden as needed.
+Spark clusters in HDInsight include a number of components by default. Each of these components includes default configuration values, which can be overridden as needed.
 
 * Spark Core - Spark Core, Spark SQL, Spark streaming APIs, GraphX, and MLlib
 * Anaconda - a python package manager
@@ -145,7 +140,7 @@ The code below shows how to change the configuration for an application running 
 
 ## Conclusion
 
-There are a number of core configuration settings that you need to monitor and adjust to ensure your Spark jobs run in a predictable and performant way. These settings help determine the best Spark cluster configuration for your particular workloads.  You'll also need to monitor the execution of long-running and/or resource-consuming Spark job executions.  The most common challenges center around memory pressure due to improper configurations (particularly incorrectly-sized executors), long-running operations, and tasks which result in Cartesian operations.
+There are a number of core configuration settings that you need to monitor and adjust to ensure your Spark jobs run in a predictable and performant way. These settings help determine the best Spark cluster configuration for your particular workloads.  You'll also need to monitor the execution of long-running and/or resource-consuming Spark job executions.  The most common challenges center around memory pressure due to improper configurations (particularly incorrectly-sized executors), long-running operations, and tasks, which result in Cartesian operations.
 
 ## Next steps
 

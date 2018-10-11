@@ -1,23 +1,16 @@
 ---
-title: Use Beeline with Apache Hive - Azure HDInsight | Microsoft Docs
+title: Use Beeline with Apache Hive - Azure HDInsight 
 description: Learn how to use the Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: beeline hive,hive beeline
 
-ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/02/2018
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/20/2018
+ms.author: jasonh
 
 ---
 # Use the Beeline client with Apache Hive
@@ -107,7 +100,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    This information describes the columns in the table. While we could perform some queries against this data, let's instead create a brand new table to demonstrate how to load data into Hive and apply a schema.
+    This information describes the columns in the table.
 
 4. Enter the following statements to create a table named **log4jLogs** by using sample data provided with the HDInsight cluster:
 
@@ -140,7 +133,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
     * `SELECT` - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This query returns a value of **3** as there are three rows that contain this value.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` - Hive attempts to apply the schema to all files in the directory. In this case, the directory contains files that do not match the schema. To prevent garbage data in the results, this statement tells Hive that we should only return data from files ending in .log.
+    * `INPUT__FILE__NAME LIKE '%.log'` - Hive attempts to apply the schema to all files in the directory. In this case, the directory contains files that do not match the schema. To prevent garbage data in the results, this statement tells Hive that it should only return data from files ending in .log.
 
   > [!NOTE]
   > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
@@ -251,10 +244,17 @@ To find the fully qualified domain name of a headnode, use the information in th
 
 Spark provides its own implementation of HiveServer2, which is sometimes referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive, and may provide better performance depending on your query.
 
-To connect to the Spark Thrift server of a Spark on HDInsight cluster, use port `10002` instead of `10001`. For example, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+The __connection string__ used when connecting over the internet is slightly different. Instead of containing `httpPath=/hive2` it is `httpPath/sparkhive2`. The following is an example of connecting over the internet:
 
-> [!IMPORTANT]
-> The Spark Thrift server is not directly accessible over the internet. You can only connect to it from an SSH session or inside the same Azure Virtual Network as the HDInsight cluster.
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+When connecting directly from the cluster head node, or from a resource inside the same Azure Virtual Network as the HDInsight cluster, port `10002` should be used for Spark Thrift server instead of `10001`. The following is an example of connecting to directly to the head node:
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
 
 ## <a id="summary"></a><a id="nextsteps"></a>Next steps
 

@@ -6,8 +6,8 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 01/30/2018
+ms.topic: overview
+ms.date: 07/05/2018
 ms.author: tomfitz
 ---
 
@@ -23,35 +23,40 @@ Although they have some similarities, each service is designed for particular sc
 
 ## Event vs. message services
 
-There is an important distinction to note between services that deliver an event and services that deliver a message.
+There's an important distinction to note between services that deliver an event and services that deliver a message.
 
 ### Event
 
-An event is a lightweight notification of an action or a state change. The event data contains information about what happened but does not have the data that triggered the event. For example, an event notifies subscribers that a file was created. It may contain general information about the file, but it does not contain the file itself. Generally, events trigger event handlers to act in real time.
+An event is a lightweight notification of a condition or a state change. The publisher of the event has no expectation about how the event is handled. The consumer of the event decides what to do with the notification. Events can be discrete units or part of a series.
+
+Discrete events report state change and are actionable. To take the next step, the consumer only needs to know that something happened. The event data has information about what happened but doesn't have the data that triggered the event. For example, an event notifies consumers that a file was created. It may have general information about the file, but it doesn't have the file itself. Discrete events are ideal for serverless solutions that need to scale.
+
+Series events report a condition and are analyzable. The events are time-ordered and interrelated. The consumer needs the sequenced series of events to analyze what happened.
 
 ### Message
 
-A message is raw data produced by a service to be consumed or stored elsewhere. The message contains the data that triggered the message pipeline. This message can be anything from an e-commerce order to user telemetry. Unlike an event notification, the publisher of a message may expect a response. For example, a message contains the raw data but expects the next part of the system to create a file from that data.
+A message is raw data produced by a service to be consumed or stored elsewhere. The message contains the data that triggered the message pipeline. The publisher of the message has an expectation about how the consumer handles the message. A contract exists between the two sides. For example, the publisher sends a message with the raw data, and expects the consumer to create a file from that data and send a response when the work is done.
 
 ## Comparison of services
 
 | Service | Purpose | Type | When to use |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reactive programming | Event distribution | React to status changes |
-| Event Hubs | Big data pipeline | Event streaming | Telemetry and distributed data streaming |
+| Event Grid | Reactive programming | Event distribution (discrete) | React to status changes |
+| Event Hubs | Big data pipeline | Event streaming (series) | Telemetry and distributed data streaming |
 | Service Bus | High-value enterprise messaging | Message | Order processing and financial transactions |
 
 ### Event Grid
 
 Event Grid is an eventing backplane that enables event-driven, reactive programming. It uses a publish-subscribe model. Publishers emit events, but have no expectation about which events are handled. Subscribers decide which events they want to handle.
 
-Event Grid is deeply integrated with Azure services and can be integrated with third-party services. It simplifies event consumption and lowers costs by eliminating the need for constant polling. Event Grid efficiently and reliably routes events from Azure and non-Azure resources. It distributes the events to registered subscriber endpoints. The event message contains the information you need to react to changes in services and applications. Event Grid is not a data pipeline, and does not deliver the actual object that was updated.
+Event Grid is deeply integrated with Azure services and can be integrated with third-party services. It simplifies event consumption and lowers costs by eliminating the need for constant polling. Event Grid efficiently and reliably routes events from Azure and non-Azure resources. It distributes the events to registered subscriber endpoints. The event message has the information you need to react to changes in services and applications. Event Grid isn't a data pipeline, and doesn't deliver the actual object that was updated.
 
 It has the following characteristics:
 
 * dynamically scalable
 * low cost
 * serverless
+* at least once delivery
 
 ### Event Hubs
 
@@ -61,6 +66,7 @@ It has the following characteristics:
 
 * low latency
 * capable of receiving and processing millions of events per second
+* at least once delivery
 
 ### Service Bus
 
@@ -72,6 +78,8 @@ It has the following characteristics:
 
 * reliable asynchronous message delivery (enterprise messaging as a service) that requires polling
 * advanced messaging features like FIFO, batching/sessions, transactions, dead-lettering, temporal control, routing and filtering, and duplicate detection
+* at least once delivery
+* optional in-order delivery
 
 ## Use the services together
 

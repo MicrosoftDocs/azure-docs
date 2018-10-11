@@ -1,21 +1,20 @@
 ---
-title: C# Quickstart for Azure Cognitive Services, Bing Autosuggest API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing Autosuggest API, C#"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: autosuggest
-ms.topic: article
+ms.component: bing-autosuggest
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-
 ---
-# Quickstart for Bing Autosuggest API with C# 
-<a name="HOLTop"></a>
+# Quickstart for Bing Autosuggest API with C#
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with C#. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with C#. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
 
 ## Prerequisites
 
@@ -87,7 +86,7 @@ namespace AutosuggestSample1
         {
             if (string.IsNullOrEmpty(json)) {
                 return string.Empty;
-			}
+            }
 
             json = json.Replace(Environment.NewLine, "").Replace("\t", "");
 
@@ -154,7 +153,7 @@ namespace AutosuggestSample1
 }
 ```
 
-**Response**
+### Response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -227,7 +226,7 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Bing Autosuggest tutorial](../tutorials/autosuggest.md)
 
-## See also 
+## See also
 
-[Bing Autosuggest overview](../get-suggested-search-terms.md)
-[API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [What is Bing Autosuggest?](../get-suggested-search-terms.md)
+- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

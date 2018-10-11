@@ -1,27 +1,26 @@
----
-title: Java Quickstart for Azure Cognitive Services, Bing Spell Check API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Spell Check API in Microsoft Cognitive Services on Azure.
+﻿---
+title: "Quickstart: Bing Spell Check API, Java"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing Spell Check API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: spellcheck
-ms.topic: article
+ms.component: bing-spell-check
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-
 ---
 # Quickstart for Bing Spell Check API with Java 
-<a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with Java. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
+This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) with Java. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world."
 
 ## Prerequisites
 
 You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Spell Check API v7**. The [free trial](https://azure.microsoft.com/en-us/try/cognitive-services/#lang) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Spell Check API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#lang) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
 ## Get Spell Check results
 
@@ -129,7 +128,7 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Bing Spell Check tutorial](../tutorials/spellcheck.md)
 
-## See also 
+## See also
 
-[Bing Spell Check overview](../proof-text.md)
-[API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Bing Spell Check overview](../proof-text.md)
+- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

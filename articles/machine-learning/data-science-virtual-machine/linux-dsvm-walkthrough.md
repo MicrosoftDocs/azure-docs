@@ -3,18 +3,19 @@ title: Data science with the Linux Data Science Virtual Machine on Azure| Micros
 description: How to perform several common data science tasks with the Linux Data Science VM.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2017
-ms.author: bradsev;paulsh
+ms.topic: conceptual
+ms.date: 07/16/2018
+ms.author: gokuma
 
 ---
 # Data science with a Linux Data Science Virtual Machine on Azure
@@ -37,7 +38,7 @@ Before you can use a Linux Data Science Virtual Machine, you must have the follo
 The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains only 4601 examples. This is a convenient size to use when demonstrating that some of the key features of the Data Science VM as it keeps the resource requirements modest.
 
 > [!NOTE]
-> This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This size DSVM is capable of handling the procedures in this walkthrough.
+> This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine (CentOS Edition). This size DSVM is capable of handling the procedures in this walkthrough.
 >
 >
 
@@ -72,12 +73,8 @@ To get copies of the code samples used in this walkthrough, clone the **Azure-Ma
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Open a terminal window and start a new R session with the R interactive console.
+Open a terminal window and start a new R session with the R interactive console or use RStudio preinstalled on the machine.
 
-> [!NOTE]
-> You can also use RStudio for the following procedures. To install RStudio, execute this command at a terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
->
->
 
 To import the data and set up the environment, run:
 
@@ -188,6 +185,7 @@ Select **Authorization Tokens** from the overhead menu and note your **Primary A
 
 Load the **AzureML** package and then set values of the variables with your token and workspace ID in your R session on the DSVM:
 
+    if(!require("AzureML")) install.packages("AzureML")
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
@@ -202,29 +200,28 @@ Let's simplify the model to make this demonstration easier to implement. Pick th
 
 We need a prediction function that takes the features as an input and returns the predicted values:
 
-    predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
-        predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
-        "word_freq_remove" = word_freq_remove, "word_freq_hp" = word_freq_hp))
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
+    predictSpam <- function(newdata) {
+      predictDF <- predict(model.rpart, newdata = newdata)
+      return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
+
 
 Publish the predictSpam function to AzureML using the **publishWebService** function:
 
-    spamWebService <- publishWebService("predictSpam",
-        "spamWebService",
-        list("char_freq_dollar"="float", "word_freq_remove"="float","word_freq_hp"="float"),
-        list("spam"="int"),
-        wsID, wsAuth)
+    spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
+
 
 This function takes the **predictSpam** function, creates a web service named **spamWebService** with defined inputs and outputs, and returns information about the new endpoint.
 
-View details of the published web service, including its API endpoint and access keys with the command:
+View details of the latest published web service, including its API endpoint and access keys with the command:
 
-    spamWebService[[2]]
+    s<-tail(services(ws, name = "spamWebService"), 1)
+    ep <- endpoints(ws,s)
+    ep
 
 To try it out on the first 10 rows of the test set:
 
-    consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
+    consume(ep, smallTestSet[1:10, ])
 
 
 ## Use other tools available
@@ -260,7 +257,7 @@ XGBoost can also call from python or a command line.
 For development using Python, the Anaconda Python distributions 2.7 and 3.5 have been installed in the DSVM.
 
 > [!NOTE]
-> The Anaconda distribution includes [Condas](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
+> The Anaconda distribution includes [Conda](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
 >
 >
 
@@ -280,7 +277,7 @@ To make predictions:
 
 To show how to publish an AzureML endpoint, let's make a simpler model the three variables as we did when we published the R model previously.
 
-    X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)
@@ -312,6 +309,24 @@ To publish the model to AzureML:
 
 ## Jupyterhub
 The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-platform environment to share Python, R, or Julia code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password at ***https://\<VM DNS name or IP Address\>:8000/***. All configuration files for JupyterHub are found in directory **/etc/jupyterhub**.
+
+> [!NOTE]
+> To use the Python Package Manager (via the `pip` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
+```python
+   import sys
+   ! {sys.executable} -m pip install numpy -y
+```
+>
+>
+
+> [!NOTE]
+> To use the Conda installer (via the `conda` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
+```python
+   import sys
+   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+```
+>
+>
 
 Several sample notebooks are already installed on the VM:
 
@@ -525,6 +540,6 @@ And query with sqlcmd:
 You could also query with Squirrel SQL. Follow similar steps for PostgreSQL, using the Microsoft MSSQL Server JDBC Driver, which can be found in ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
 ## Next steps
-For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
+For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 
 For a description of other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios, see [Team Data Science Process walkthroughs](../team-data-science-process/walkthroughs.md). The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.

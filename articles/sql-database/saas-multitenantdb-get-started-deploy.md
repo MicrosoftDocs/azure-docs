@@ -1,16 +1,17 @@
 ---
 title: "Deploy a sharded multi-tenant database SaaS app that uses Azure SQL Database | Microsoft Docs"
 description: "Deploy and explore the sharded Wingtip Tickets SaaS multi-tenant database application, that demonstrates SaaS patterns by using Azure SQL Database."
-keywords: "sql database tutorial"
-services: "sql-database"
-author: "MightyPen"
-manager: "craigg"
-ms.service: "sql-database"
-ms.custom: "scale out apps"
-ms.workload: "data-management"
-ms.topic: "article"
-ms.date: "12/18/2017"
-ms.author: "genemi"
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib, stein
+manager: craigg
+ms.date: 04/02/2018
 ---
 # Deploy and explore a sharded multi-tenant application that uses Azure SQL Database
 
@@ -52,7 +53,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 In the steps of this section, you provide a *user* value that is used to ensure resource names are globally unique, and a name for the *resource group* which contains all the resources created by a deployment of the app. For a person named *Ann Finley*, we suggest:
 - *User:* **af1**  *(Her initials, plus a digit. Use a different value (e.g. af2) if you deploy the app a second time.)*
-- *Resource group:* **wingtip-dpt-af1** *(wingtip-dpt indicates this is the database-per-tenant app. Appending the user name af1 correlates the resource group name with the names of the resources it contains.)*
+- *Resource group:* **wingtip-mt-af1** *(wingtip-mt indicates this is the sharded multi-tenant app. Appending the user name af1 correlates the resource group name with the names of the resources it contains.)*
 
 Choose your names now, and write them down. 
 
@@ -167,7 +168,7 @@ The initial deployment includes three sample tenants in the *Tenants1* database.
 2. Press **F5** (not **F8**) to run the script (leave the default values for now).
 
    > [!NOTE]
-   > You must run the PowerShell scripts only by pressing the **F5** key, not by pressing **F8** to run a selected part of the script. The problem with **F8** is that the *$PSScriptRoot* variable is not evaluated. This variable is needed by many scripts to navigate of folders, or to invoke other scripts, or to import modules.
+   > You must run the PowerShell scripts only by pressing the **F5** key, not by pressing **F8** to run a selected part of the script. The problem with **F8** is that the *$PSScriptRoot* variable is not evaluated. This variable is needed by many scripts to navigate folders, invoke other scripts, or import modules.
 
 The new Red Maple Racing tenant is added to the *Tenants1* database and registered in the catalog. The new tenant's ticket-selling **Events** site opens in your browser:
 

@@ -2,14 +2,16 @@
 title: Getting Started with Temporal Tables in Azure SQL Database | Microsoft Docs
 description: Learn how to get started with using Temporal Tables in Azure SQL Database.
 services: sql-database
-author: bonova
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
-ms.topic: article
-ms.date: 01/10/2017
+ms.subservice: development
+ms.custom:
+ms.devlang: 
+ms.topic: conceptual
+author: bonova
 ms.author: bonova
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 03/21/2018
 ---
 # Getting Started with Temporal Tables in Azure SQL Database
 Temporal Tables are a new programmability feature of Azure SQL Database that allows you to track and analyze the full history of changes in your data, without the need for custom coding. Temporal Tables keep data closely related to time context so that stored facts can be interpreted as valid only within the specific period. This property of Temporal Tables allows for efficient time-based analysis and getting insights from data evolution.
@@ -17,7 +19,7 @@ Temporal Tables are a new programmability feature of Azure SQL Database that all
 ## Temporal Scenario
 This article illustrates the steps to utilize Temporal Tables in an application scenario. Suppose that you want to track user activity on a new website that is being developed from scratch or on an existing website that you want to extend with user activity analytics. In this simplified example, we assume that the number of visited web pages during a period of time is an indicator that needs to be captured and monitored in the website database that is hosted on Azure SQL Database. The goal of the historical analysis of user activity is to get inputs to redesign website and provide better experience for the visitors.
 
-The database model for this scenario is very simple - user activity metric is represented with a single integer field, **PageVisited**, and is captured along with basic information on the user profile. Additionally, for time based analysis, you would keep a series of rows for each user, where every row represents the number of pages a particular user visited within a specific period of time.
+The database model for this scenario is very simple - user activity metric is represented with a single integer field, **PageVisited**, and is captured along with basic information on the user profile. Additionally, for time-based analysis, you would keep a series of rows for each user, where every row represents the number of pages a particular user visited within a specific period of time.
 
 ![Schema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
@@ -36,11 +38,11 @@ Use context menu item “New System-Versioned Table” in SSMS Object Explorer t
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
 
-In SSDT, chose “Temporal Table (System-Versioned)” template when adding new items to the database project. That will open table designer and enable you to easily specify the table layout:
+In SSDT, choose “Temporal Table (System-Versioned)” template when adding new items to the database project. That will open table designer and enable you to easily specify the table layout:
 
 ![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 
-You can also a create temporal table by specifying the Transact-SQL statements directly, as shown in the example below. Note that the mandatory elements of every temporal table are the PERIOD definition and the SYSTEM_VERSIONING clause with a reference to another user table that will store historical row versions:
+You can also create temporal table by specifying the Transact-SQL statements directly, as shown in the example below. Note that the mandatory elements of every temporal table are the PERIOD definition and the SYSTEM_VERSIONING clause with a reference to another user table that will store historical row versions:
 
 ````
 CREATE TABLE WebsiteUserInfo 
@@ -60,7 +62,7 @@ When you create system-versioned temporal table, the accompanying history table 
 In this particular case, we aim to perform time-based trend analysis over a longer data history and with bigger data sets, so the storage choice for the history table is a clustered columnstore index. A clustered columnstore provides very good compression and performance for analytical queries. Temporal Tables give you the flexibility to configure indexes on the current and temporal tables completely independently. 
 
 > [!NOTE]
-> Columnstore indexes are only available in the premium service tier.
+> Columnstore indexes are available in the Premium tier and in the Standard tier, S3 and above.
 >
 
 The following script shows how default index on history table can be changed to the clustered columnstore:

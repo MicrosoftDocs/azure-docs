@@ -3,7 +3,7 @@ title: Create Service Bus Messaging namespace using Azure Resource Manager templ
 description: Use Azure Resource Manager template to create a Service Bus Messaging namespace
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/21/2017
-ms.author: sethm;shvija
+ms.date: 09/11/2018
+ms.author: spelluru
 
 ---
 
@@ -115,8 +115,7 @@ Creates a standard Service Bus namespace of type **Messaging**.
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
+            "name": "Standard",
         },
         "properties": {
         }

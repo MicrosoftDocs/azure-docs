@@ -1,21 +1,13 @@
 ---
-title: Troubleshoot slow backup of files and folders in Azure Backup| Microsoft Docs
+title: Troubleshoot slow backup of files and folders in Azure Backup
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
-
-ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-
 ---
 # Troubleshoot slow backup of files and folders in Azure Backup
 This article provides troubleshooting guidance to help you diagnose the cause of slow backup performance for files and folders when you're using Azure Backup. When you use the Azure Backup agent to back up files, the backup process might take longer than expected. This delay might be caused by one or more of the following:
@@ -84,4 +76,4 @@ This behavior occurs because while you're backing up the data and moving it to A
 The following indicators can help you understand the bottleneck and accordingly work on the next steps:
 
 * **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
-* **UI is not showing progress for the data transfer**. Open the logs located at C:\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).
+* **UI is not showing progress for the data transfer**. Open the logs located at C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).

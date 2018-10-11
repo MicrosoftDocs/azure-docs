@@ -1,23 +1,20 @@
 ---
-title: Overview of Jenkins and Azure | Microsoft Docs
+title: Overview of Jenkins and Azure
 description: Host the Jenkins build and deploy automation server in Azure and use Azure compute and storage resources to extend your continous integration and deployment (CI/CD) pipelines.
-services: jenkins
-author: rloutlaw
-manager: justhe
 ms.service: jenkins
-ms.devlang: NA
-ms.topic: article
-ms.workload: na
-ms.date: 08/22/2017
-ms.author: routlaw
-ms.custom: mvc
+keywords: jenkins, azure, devops, overview
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: overview
+ms.date: 07/25/2018
 ---
 
 # Azure and Jenkins
 
 [Jenkins](https://jenkins.io/) is a popular open-source automation server used to set up continuous integration and delivery (CI/CD) for your software projects. You can host your Jenkins deployment in Azure or extend your existing Jenkins configuration using Azure resources. Jenkins plugins are also available to simplify CI/CD of your applications to Azure.
 
-This article is an introduction to using Azure with Jenkins, detailing the core Azure features available to Jenkins users. To get started with your own Jenkins server in Azure, see our [quickstart](install-jenkins-solution-template.md).
+This article is an introduction to using Azure with Jenkins, detailing the core Azure features available to Jenkins users. For more information about getting started with your own Jenkins server in Azure, see [Create a Jenkins server on Azure](install-jenkins-solution-template.md).
 
 ## Host your Jenkins servers in Azure
 
@@ -27,7 +24,7 @@ Host Jenkins in Azure to centralize your build automation and scale your deploym
 - [Azure virtual machines](/azure/virtual-machines/linux/overview). See our [tutorial](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) to create a Jenkins instance on a VM.
 - On a Kubernetes cluster running in [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), see our [how-to](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Monitor and manage your Azure Jenkins deployment using [Log Analytics](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview), and the [Azure CLI](/cli/azure).
+Monitor and manage your Azure Jenkins deployment using [Log Analytics](/azure/log-analytics/log-analytics-overview) and the [Azure CLI](/cli/azure).
 
 ## Scale your build automation on demand
 
@@ -46,4 +43,3 @@ Use Jenkins plugins to deploy your applications to Azure as part of your Jenkins
 
 - [Azure Web App on Linux](/azure/app-service/containers/app-service-linux-intro). See the [tutorial](java-deploy-webapp-tutorial.md) to get started.
 - [Azure Web App](/azure/app-service/app-service-web-overview). See the [how-to](deploy-Jenkins-app-service-plugin.md) to get started.
-

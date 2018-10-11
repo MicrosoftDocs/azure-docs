@@ -1,24 +1,20 @@
----
-title: SQL Data Warehouse system views | Microsoft Docs
-description: Links to system views content for SQL Data Warehouse.
+﻿---
+title: System views - Azure SQL Data Warehouse | Microsoft Docs
+description: Links to the documentation for system views supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
-ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 01/22/2018
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: manage
+ms.date: 06/13/2018
+ms.author: twounder
+ms.reviewer: igorstan
 ---
-# System views
+
+# System views supported in Azure SQL Data Warehouse
+Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
+
 ## SQL Data Warehouse catalog views
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
@@ -159,7 +155,7 @@ SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW)
 | sys.dm_pdw_nodes_exec_query_resource_semaphores |[sys.dm_exec_query_resource_semaphores](http://msdn.microsoft.com/library/ms366321.aspx) |
 | sys.dm_pdw_nodes_exec_query_stats |[sys.dm_exec_query_stats](http://msdn.microsoft.com/library/ms189741.aspx) |
 | sys.dm_pdw_nodes_exec_requests |[sys.dm_exec_requests](http://msdn.microsoft.com/library/ms177648.aspx) |
-| sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/en-us/library/ms176013.aspx) |
+| sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) |
 | sys.dm_pdw_nodes_io_pending_io_requests |[sys.dm_io_pending_io_requests](http://msdn.microsoft.com/library/ms188762.aspx) |
 | sys.dm_pdw_nodes_io_virtual_file_stats |[sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) |
 | sys.dm_pdw_nodes_os_buffer_descriptors |[sys.dm_os_buffer_descriptors](http://msdn.microsoft.com/library/ms173442.aspx) |
@@ -230,14 +226,4 @@ The following DMVs are applicable to SQL Data Warehouse, but must be executed by
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse reference overview][SQL Data Warehouse reference overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->
-
-
-<!--Other Web references-->
+For more reference information, see [T-SQL statements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), and [T-SQL language elements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).

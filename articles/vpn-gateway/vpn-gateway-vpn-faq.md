@@ -2,19 +2,12 @@
 title: Azure VPN Gateway FAQ | Microsoft Docs
 description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
 
-ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/20/2017
-ms.author: cherylmc,yushwang,anzaman
+ms.topic: conceptual
+ms.date: 07/27/2018
+ms.author: cherylmc
 
 ---
 # VPN Gateway FAQ
@@ -163,13 +156,13 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## <a name="P2S"></a>Point-to-Site - native Azure certificate authentication
+## <a name="P2S"></a>Point-to-Site using native Azure certificate authentication
 
 This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Point-to-Site - RADIUS authentication
+## <a name="P2SRADIUS"></a>Point-to-Site using RADIUS authentication
 
 This section applies to the Resource Manager deployment model.
 

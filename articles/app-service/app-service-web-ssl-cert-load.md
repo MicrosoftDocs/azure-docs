@@ -47,7 +47,7 @@ All your uploaded and imported SSL certificates for this web app are shown here 
 
 In the left navigation, click **Application settings**.
 
-Add an app setting called `WEBSITE_LOAD_CERTIFICATES` and set its value to the thumbprint of the certificate. To make multiple certificates accessible, use comma-separated thumbprint values. To make all certificates accessible, set the value to `*`. 
+Add an app setting called `WEBSITE_LOAD_CERTIFICATES` and set its value to the thumbprint of the certificate. To make multiple certificates accessible, use comma-separated thumbprint values. To make all certificates accessible, set the value to `*`. Take note that this will place the certificate into the `CurrentUser\My` store.
 
 ![Configure app setting](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 

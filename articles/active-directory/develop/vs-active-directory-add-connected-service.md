@@ -1,20 +1,18 @@
 ---
-title: Adding an Azure Active Directory by using Connected Services in Visual Studio | Microsoft Docs
+title: Adding an Azure Active Directory by using Connected Services in Visual Studio
 description: Add an Azure Active Directory by using the Visual Studio Add Connected Services dialog box
-services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: ''
-
+services: active-directory
+author: ghogen
+manager: douge
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
-ms.service: active-directory
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/12/2018
-ms.author: kraigb
+ms.author: ghogen
 
 ---
 # Adding an Azure Active Directory by using Connected Services in Visual Studio
@@ -28,10 +26,11 @@ At present, the Active Directory connected service does not support ASP.NET Core
 ## Prerequisites
 
 - Azure account: if you don't have an Azure account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- **Visual Studio 2015** or later. [Download Visual Studio 2017 now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### Connect to Azure Active Directory using the Connected Services dialog
 
-1. In Visual Studio, create or open an ASP.NET MVC project, or an ASP.NET Web API project. You can use the MVC, Web API, Single Page Application, Azure API App, Azure Mobile App, and Azure Mobile Service templates.
+1. In Visual Studio, create or open an ASP.NET MVC project, or an ASP.NET Web API project. You can use the MVC, Web API, Single-Page Application, Azure API App, Azure Mobile App, and Azure Mobile Service templates.
 
 1. Select the **Project > Add Connected Service...** menu command, or double-click the **Connected Services** node found under the project in Solution Explorer.
 
@@ -71,5 +70,5 @@ When you add the connected service the wizard, Visual Studio adds Azure Active D
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Add sign-in with Microsoft to an ASP.NET web app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
+- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v1-aspnet-webapp.md)

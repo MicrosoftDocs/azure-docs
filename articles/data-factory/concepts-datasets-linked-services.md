@@ -4,14 +4,14 @@ description: 'Learn about datasets and linked services in Data Factory. Linked s
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 
@@ -19,13 +19,10 @@ ms.author: shlo
 
 # Datasets and linked services in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-create-datasets.md)
-> * [Version 2 - Preview](concepts-datasets-linked-services.md)
+> * [Version 1](v1/data-factory-create-datasets.md)
+> * [Current version](concepts-datasets-linked-services.md)
 
-This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory V2 pipelines. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Datasets in Data Factory V1](v1/data-factory-create-datasets.md).
+This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines. 
 
 If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview. 
 
@@ -123,7 +120,7 @@ The following table describes properties in the above JSON:
 Property | Description | Required |
 -------- | ----------- | -------- |
 name | Name of the dataset. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
-type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-types). | Yes |
+type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-type). | Yes |
 structure | Schema of the dataset. For details, see [Dataset structure](#dataset-structure). | No |
 typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes |
 
@@ -191,7 +188,7 @@ Property | Description | Required
 name | Name of the column. | Yes
 type | Data type of the column. Data Factory supports the following interim data types as allowed values: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan** | No
 culture | .NET-based culture to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. The default is `en-us`. | No
-format | Format string to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. | No
+format | Format string to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. | No
 
 ### Example
 In the following example, suppose the source Blob data is in CSV format and contains three columns: userid, name, and lastlogindate. They are of type Int64, String, and Datetime with a custom datetime format using abbreviated French names for day of the week.
@@ -217,13 +214,13 @@ The following guidelines help you understand when to include structure informati
 ## Create datasets
 You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal
 
-## V1 vs. V2 datasets
+## Current version vs. version 1 datasets
 
-Here are some differences between Data Factory v1 and v2 datasets: 
+Here are some differences between Data Factory and Data Factory version 1 datasets: 
 
-- The external property is not supported in v2. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
-- The policy and availability properties are not supported in V2. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
-- Scoped datasets (datasets defined in a pipeline) are not supported in V2. 
+- The external property is not supported in the current version. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
+- The policy and availability properties are not supported in the current version. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
+- Scoped datasets (datasets defined in a pipeline) are not supported in the current version. 
 
 ## Next steps
 See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 

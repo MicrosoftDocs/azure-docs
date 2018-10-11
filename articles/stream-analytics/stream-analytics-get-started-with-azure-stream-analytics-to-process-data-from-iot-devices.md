@@ -1,22 +1,14 @@
 ---
-title: IoT real-time data streams and Azure Stream Analytics | Microsoft Docs
+title: IoT real-time data streams using Azure Stream Analytics
 description: IoT sensor tags and data streams with stream analytics and real-time data processing
-keywords: iot solution, get started with iot
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.author: sngun
-
 ---
 # Get started with Azure Stream Analytics to process data from IoT devices
 In this tutorial, you will learn how to create stream-processing logic to gather data from Internet of Things (IoT) devices. We will use a real-world, Internet of Things (IoT) use case to demonstrate how to build your solution quickly and economically.
@@ -30,19 +22,21 @@ Contoso, which is a company in the industrial automation space, has completely a
 
 Here data is being generated from a Texas Instruments sensor tag device. The payload of the data is in JSON format and looks like the following:
 
-    {
-        "time": "2016-01-26T20:47:53.0000000",  
-        "dspl": "sensorE",  
-        "temp": 123,  
-        "hmdt": 34  
-    }  
+```json
+{
+    "time": "2016-01-26T20:47:53.0000000",  
+    "dspl": "sensorE",  
+    "temp": 123,  
+    "hmdt": 34  
+}  
+```
 
 In a real-world scenario, you could have hundreds of these sensors generating events as a stream. Ideally, a gateway device would run code to push these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) or [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/). Your Stream Analytics job would ingest these events from Event Hubs and run real-time analytics queries against the streams. Then, you could send the results to one of the [supported outputs](stream-analytics-define-outputs.md).
 
 For ease of use, this getting started guide provides a sample data file, which was captured from real sensor tag devices. You can run queries on the sample data and see results. In subsequent tutorials, you will learn how to connect your job to inputs and outputs and deploy them to the Azure service.
 
 ## Create a Stream Analytics job
-1. In the [Azure portal](http://portal.azure.com), click the plus sign and then type **STREAM ANALYTICS** in the text window to the right. Then select **Stream Analytics job** in the results list.
+1. In the [Azure portal](https://portal.azure.com), click the plus sign and then type **STREAM ANALYTICS** in the text window to the right. Then select **Stream Analytics job** in the results list.
    
     ![Create a new Stream Analytics job](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 2. Enter a unique job name and verify the subscription is the correct one for your job. Then either create a new resource group or select an existing one on your subscription.
@@ -87,7 +81,7 @@ The simplest form of query is a pass-through query that archives all input data 
     ![Test results](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### Query: Filter the data based on a condition
-Let’s try to filter the results based on a condition. We would like to show results for only those events that come from “sensorA.” The query is in the Filtering.txt file.
+Let’s try to filter the results based on a condition. We would like to show results for only those events that come from "sensorA." The query is in the Filtering.txt file.
 
 ![Filtering a data stream](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 

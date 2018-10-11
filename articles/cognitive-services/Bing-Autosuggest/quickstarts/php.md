@@ -1,21 +1,20 @@
 ---
-title: PHP Quickstart for Azure Cognitive Services, Bing Autosuggest API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing Autosuggest API, PHP"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: autosuggest
-ms.topic: article
+ms.component: bing-autosuggest
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-
 ---
-# Quickstart for Bing Autosuggest API with PHP 
-<a name="HOLTop"></a>
+# Quickstart for Bing Autosuggest API with PHP
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with PHP. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with PHP. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
 
 ## Prerequisites
 
@@ -51,22 +50,22 @@ $query = "sail";
 
 function get_suggestions ($host, $path, $key, $mkt, $query) {
 
-	$params = '?mkt=' . $mkt . '&q=' . $query;
+  $params = '?mkt=' . $mkt . '&q=' . $query;
 
-	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Subscription-Key: $key\r\n";
+  $headers = "Content-type: text/json\r\n" .
+    "Ocp-Apim-Subscription-Key: $key\r\n";
 
-	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
-	$options = array (
-		'http' => array (
-			'header' => $headers,
-			'method' => 'GET'
-		)
-	);
-	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path . $params, false, $context);
-	return $result;
+  // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+  // http://php.net/manual/en/function.stream-context-create.php
+  $options = array (
+    'http' => array (
+      'header' => $headers,
+      'method' => 'GET'
+    )
+  );
+  $context  = stream_context_create ($options);
+  $result = file_get_contents ($host . $path . $params, false, $context);
+  return $result;
 }
 
 $result = get_suggestions ($host, $path, $subscriptionKey, $mkt, $query);
@@ -75,7 +74,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Response**
+### Response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -148,7 +147,7 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Bing Autosuggest tutorial](../tutorials/autosuggest.md)
 
-## See also 
+## See also
 
-[Bing Autosuggest overview](../get-suggested-search-terms.md)
-[API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [What is Bing Autosuggest?](../get-suggested-search-terms.md)
+- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

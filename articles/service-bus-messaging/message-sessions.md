@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
-ms.author: sethm
+ms.date: 09/02/2018
+ms.author: spelluru
 
 ---
 
@@ -51,13 +51,7 @@ The lock is released when **Close** or **CloseAsync** are called, or when the lo
 
 When multiple concurrent receivers pull from the queue, the messages belonging to a particular session are dispatched to the specific receiver that currently holds the lock for that session. With that operation, an interleaved message stream residing in one queue or subscription is cleanly de-multiplexed to different receivers and those receivers can also live on different client machines, since the lock management happens service-side, inside Service Bus.
 
-A queue is, however, still a queue: there is no random access. If multiple concurrent receivers wait to accept specific sessions or wait for messages from specific sessions and there is a message at the top of a queue belonging to a session that no receiver has yet claimed, deliveries hold until a session receiver claims that session.
-
-The previous illustration shows three concurrent session receivers, all of which must actively take messages from the queue for every receiver to make progress. The previous session with `SessionId` = 4 has no active, owning client, which means that no messages are delivered to anyone until that message has been taken by a newly created, owning session receiver.
-
-While that might appear to be constraining, a single receiver process can handle many concurrent sessions easily, especially when they are written with strictly asynchronous code; juggling several dozen concurrent sessions is effectively automatic with the callback model.
-
-The strategy for handling many concurrent sessions, whereby each session only sporadically receives messages, is for the handler to drop the session after some idle time and resume processing when the session is accepted as the next session arrives.
+The previous illustration shows three concurrent session receivers. One Session with `SessionId` = 4 has no active, owning client, which means that no messages are delivered from this specific session. A session acts in many ways like a sub queue.
 
 The session lock held by the session receiver is an umbrella for the message locks used by the *peek-lock* settlement mode. A receiver cannot have two messages concurrently "in flight," but the messages must be processed in order. A new message can only be obtained when the prior message has been completed or dead-lettered. Abandoning a message causes the same message to be served again with the next receive operation.
 
@@ -84,7 +78,6 @@ The session state held in a queue or in a subscription counts towards that entit
 
 To learn more about Service Bus messaging, see the following topics:
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)

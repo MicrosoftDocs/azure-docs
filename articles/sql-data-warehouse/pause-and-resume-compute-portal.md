@@ -1,24 +1,19 @@
 ---
 title: 'Quickstart: Pause and resume compute in Azure SQL Data Warehouse - Azure portal | Microsoft Docs'
-description: Azure portal tasks that pause compute for an Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
+description: Use the Azure portal to pause compute in Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/23/2018
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
 ---
+
 # Quickstart: Pause and resume compute for an Azure SQL Data Warehouse in the Azure portal
-Pause compute for an Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
+Use the Azure portal to pause compute in Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

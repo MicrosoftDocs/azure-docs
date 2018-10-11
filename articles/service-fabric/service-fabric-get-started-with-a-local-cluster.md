@@ -1,5 +1,5 @@
 ---
-title: Deploy and upgrade Azure microservices locally | Microsoft Docs
+title: Deploy and upgrade Azure Service Fabric services locally | Microsoft Docs
 description: Learn how to set up a local Service Fabric cluster, deploy an existing application to it, and then upgrade that application.
 services: service-fabric
 documentationcenter: .net
@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
-ms.author: ryanwi;mikhegn
+ms.author: ryanwi
 
 ---
 # Get started with deploying and upgrading applications on your local cluster

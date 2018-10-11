@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - NGINX | Microsoft Docs
 description: Azure PowerShell Script Sample - NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 ---
 
@@ -31,7 +31,7 @@ This script creates an Azure Virtual Machine and then uses the Azure Virtual Mac
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.ps1 "Create VM NGINX")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources.
 

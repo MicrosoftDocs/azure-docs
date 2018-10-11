@@ -1,24 +1,18 @@
 ---
-title: Serverless scenario - Create a customer insights dashboard with Azure | Microsoft Docs
-description: Learn how you can manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
-keywords: ''
+title: Serverless scenario - Create customer insights dashboard with Azure services | Microsoft Docs
+description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
 services: logic-apps
-author: jeffhollan
-manager: SyntaxC4
-editor: ''
-documentationcenter: ''
-
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: estfan, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
-ms.date: 03/29/2017
-ms.author: jehollan; LADocs
+ms.date: 03/15/2018
 ---
 
-# Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions
+# Create streaming customer insights dashboard with Azure Logic Apps and Azure Functions
 
 Azure offers serverless tools that help you quickly build 
 and host apps in the cloud, without having to think about infrastructure. 
@@ -80,7 +74,7 @@ so that you can better understand the sentiments expressed.
 To detect the sentiment behind some text, 
 you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
 
-1. In Logic App Designer, under the trigger, choose **New step**
+1. In Logic App Designer, under the trigger, choose **New step**.
 
 2. Find the **Text Analytics** connector.
 
@@ -113,7 +107,7 @@ create a function app in your Azure subscription.
 Also, for your logic app to directly call a function, 
 the function must have an HTTP trigger binding, 
 for example, use the **HttpTrigger** template. 
-Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function-azure-portal.md)
+Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
 
 For this scenario, use the tweet text as 
 the request body for your Azure Function. 
@@ -121,7 +115,7 @@ In your function code, define the logic
 that determines whether the tweet 
 text contains a keyword or phrase. 
 Keep the function as simple or complex 
-as neccessary for the scenario.
+as necessary for the scenario.
 At the end of the function, return a 
 response to the logic app with some data, 
 for example, a simple boolean value such 
@@ -137,14 +131,13 @@ in the logic app that you're building.
 
 ## Add Azure function to logic app
 
-1. In Logic App Designer, under the **Detect Sentiment## action, 
+1. In Logic App Designer, under the **Detect Sentiment** action, 
 choose **New step**.
 
-2. Find and select the **Azure Functions** connector.
+2. Find the **Azure Functions** connector, 
+and then select the function that you created.
 
-3. Find and select the function that you created.
-
-4. Under **Request Body**, select **Tweet Text**.
+3. Under **Request Body**, select **Tweet Text**.
 
 ![Configured Azure Function step][2]
 
@@ -161,10 +154,14 @@ based on your specified schedule until a tweet that
 meets your criteria is found. While the run progresses, 
 the designer shows a live view for that run.
 
-To view previous run histories, in Visual Studio, 
-find and select your app by using Cloud Explorer. 
-In the Azure portal, on your logic app's menu, 
-choose **Overview**. 
+To view previous run histories in Visual Studio or the Azure portal: 
+
+* Open Visual Studio Cloud Explorer. 
+Find your logic app, open the app's shortcut menu. 
+Select **Open run history**.
+
+* In the Azure portal, find your logic app. 
+On your logic app's menu, choose **Overview**. 
 
 ## Create automated deployment templates
 
@@ -174,7 +171,7 @@ you can capture and deploy your app as an
 to any Azure region in the world. 
 You can use this capability both to modify parameters 
 for creating different versions of your app and for 
-integrating your solution into a build and release pipeline. 
+integrating your solution into Azure Pipelines. 
 You can also include Azure Functions in your deployment 
 template so that you can manage the entire solution 
 with all dependencies as a single template. Learn 

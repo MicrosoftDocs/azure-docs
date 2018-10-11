@@ -1,4 +1,4 @@
----
+﻿---
 title: Build your first data factory (Resource Manager template) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 
@@ -29,7 +29,7 @@ robots: noindex
 > 
  
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Quickstart: Create a data factory using Azure Data Factory version 2](../quickstart-create-data-factory-dot-net.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 In this article, you use an Azure Resource Manager template to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
 
@@ -312,7 +312,7 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 1. Start **Azure PowerShell** and run the following command: 
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```  
    * Run the following command to view all the subscriptions for this account.
 	```PowerShell

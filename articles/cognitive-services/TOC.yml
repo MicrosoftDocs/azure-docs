@@ -1,73 +1,37 @@
 
-- name: Overview
+- name: Azure Cognitive Services Documentation
   href: index.md
+- name: Overview
+  expanded: true
   items:
   - name: What is Cognitive Services?
     href: Welcome.md
-- name: Get Started
+  - name: Language support
+    href: language-support.md
+- name: Quickstarts
   items:
   - name: Create an account
     href: cognitive-services-apis-create-account.md
-- name: Services/APIs
+- name: Tutorials
   items:
-  - name: Academic Knowledge
-    href: Academic-Knowledge/Home.md
-  - name: Bing Autosuggest
-    href: Bing-Autosuggest/index.yml
-  - name: Bing Entities Search
-    href: Bing-Entities-Search/search-the-web.md
-  - name: Bing Image Search
-    href: Bing-Image-Search/index.yml
-  - name: Bing News Search
-    href: Bing-News-Search/search-the-web.md
-  - name: Bing Speech
-    href: Speech/Home.md
-  - name: Bing Spell Check
-    href: Bing-Spell-Check/index.yml
-  - name: Bing Video Search
-    href: Bing-Video-Search/index.yml
-  - name: Bing Web Search
-    href: Bing-Web-Search/index.yml
-  - name: Bing Custom Search
-    href: Bing-Custom-Search/index.md
-  - name: Computer Vision
-    href: Computer-vision/Home.md
-  - name: Content Moderator
-    href: Content-Moderator/overview.md
-  - name: Custom Decision Service
-    href: custom-decision-service/custom-decision-service-overview.md
-  - name: Custom Speech Service
-    href: Custom-Speech-Service/cognitive-services-custom-speech-home.md
-  - name: Custom Vision Service
-    href: Custom-Vision-Service/home.md
-  - name: Emotion
-    href: Emotion/Home.md
-  - name: Entity Linking
-    href: EntityLinking/Home.md
-  - name: Face
-    href: Face/Overview.md
-  - name: Video Indexer
-    href: video-indexer/video-indexer-overview.md
-  - name: Knowledge Exploration Service
-    href: KES/Overview.md
-  - name: Linguistic Analysis
-    href: LinguisticAnalysisAPI/Home.md
-  - name: Language Understanding (LUIS)
-    href: LUIS/index.yml
-  - name: QnAMaker
-    href: QnAMaker/Home.md
-  - name: Speaker Recognition
-    href: Speaker-recognition/Home.md
-  - name: Text Analytics
-    href: text-analytics/overview.md
-  - name: Translator
-    href: Translator/translator-info-overview.md
-  - name: Web Language Model
-    href: Web-Language-Model/Home.md
+  - name: Develop an app using Computer Vision
+    href: ./Computer-vision/tutorials/csharptutorial.md
+  - name: Recognize intents using Speech SDK and LUIS
+    href: ./speech-service/how-to-recognize-intents-from-speech-csharp.md
+  - name: Build a LUIS app
+    href: ./luis/luis-quickstart-intents-only.md
+  - name: Use Text Analytics with Power BI
+    href: ./Text-Analytics/tutorials/tutorial-power-bi-key-phrases.md
+  - name: Create a Bing Web Search app
+    href: ./bing-web-search/tutorial-bing-web-search-single-page-app.md
+  - name: Create a Bing Image Search app
+    href: ./bing-image-search/tutorial-bing-image-search-single-page-app.md
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=cognitive-services
+  - name: Language and region support
+    href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/
   - name: Pricing calculator
@@ -78,3 +42,5 @@
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Code of conduct
     href: http://go.microsoft.com/fwlink/?LinkId=698895
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase

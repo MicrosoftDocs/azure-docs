@@ -1,13 +1,14 @@
 ---
-title: Azure Content Moderator - Moderation workflows | Microsoft Docs
+title: Moderation workflows - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Use workflows with content moderation.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: content-moderator
-ms.topic: article
+ms.component: content-moderator
+ms.topic: conceptual
 ms.date: 02/04/2018
 ms.author: sajagtap
 ---

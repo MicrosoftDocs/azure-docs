@@ -1,17 +1,18 @@
-﻿---
+---
 title: Get started with Microsoft Speech Service | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use Microsoft Speech Service.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
-# Get started with Speech Service
+# Get started with Bing Speech
 
 To use the Microsoft speech recognition service to convert audio to text, see the Speech Recognition [REST APIs](GetStartedREST.md) or the [client libraries](GetStartedClientLibraries.md).
 

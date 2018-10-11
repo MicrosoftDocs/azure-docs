@@ -2,13 +2,16 @@
 title: Azure SQL Database connectivity architecture | Microsoft Docs
 description: This document explains the Azure SQLDB connectivity architecture from within Azure or from outside of Azure.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
-ms.topic: article
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: DhruvMsft
+ms.author: dhruv
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 01/24/2018
-ms.author: carlrab
 ---
 # Azure SQL Database Connectivity Architecture 
 
@@ -44,11 +47,18 @@ If you are connecting from outside Azure, your connections have a connection pol
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
+> [!IMPORTANT]
+> When using service endpoints with Azure SQL Database your policy is **Proxy** by default. To enable connectivity from inside your VNet, you must allow outbound connections to the Azure SQL Database Gateway IP addresses specified in the list below. 
+When using service endpoints we highly recommend changing your connection policy to **Redirect** to enable better performance. If you change your connection policy to **Redirect** it will not be sufficient to allow outbound on your NSG to Azure SQLDB gateway IPs listed below, you must allow outbound to all Azure SQLDB IPs. This can be accomplished with the help of NSG (Network Security Groups) Service Tags. For more information, see [Service Tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+
 ## Azure SQL Database gateway IP addresses
 
 To connect to an Azure SQL database from on-premises resources, you need to allow outbound network traffic to the Azure SQL Database gateway for your Azure region. Your connections only go via the gateway when connecting in Proxy mode, which is the default when connecting from on-premises resources.
 
 The following table lists the primary and secondary IPs of the Azure SQL Database gateway for all data regions. For some regions, there are two IP addresses. In these regions, the primary IP address is the current IP address of the gateway and the second IP address is a failover IP address. The failover address is the address to which we might move your server to keep the service availability high. For these regions, we recommend that you allow outbound to both the IP addresses. The second IP address is owned by Microsoft and does not listen in on any services until it is activated by Azure SQL Database to accept connections.
+
+> [!IMPORTANT]
+> If you are connecting from within Azure your connection policy will be **Redirect** by default (except if you are using service endpoints). It will not be sufficient to allow the following IPs. You must allow all Azure SQL Database IPs. If you are connecting from within a VNet, this can be accomplished with the help of NSG (Network Security Groups) Service Tags. For more information, see [Service Tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Region Name | Primary IP address | Secondary IP address |
 | --- | --- |--- |
@@ -86,7 +96,7 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 
 ## Change Azure SQL Database connection policy
 
-To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) command.
 
 - If your connection policy is set to **Proxy**, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of **Proxy** has more latency than a setting of **Redirect**.
 - If your connection policy is setting **Redirect**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs.
@@ -100,7 +110,7 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 The following PowerShell script shows how to change the connection policy.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <Subscription Name>
 
 # Azure Active Directory ID
@@ -151,10 +161,10 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## Script to change connection settings via Azure CLI 2.0
+## Script to change connection settings via Azure CLI
 
 > [!IMPORTANT]
-> This script requires the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 The following CLI script shows how to change the connection policy.
@@ -176,6 +186,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## Next steps
 
-- For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [Create or Update Server Connection Policy using the REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - For general application development overview information, see [SQL Database Application Development Overview](sql-database-develop-overview.md).

@@ -3,8 +3,7 @@ title: VMware to Azure replication architecture in Azure Site Recovery | Microso
 description: This article provides an overview of components and architecture used when replicating on-premises VMware VMs to Azure with Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/27/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ---
 
@@ -28,25 +27,27 @@ The following table and graphic provide a high-level view of the components used
 
 ![Components](./media/vmware-azure-architecture/arch-enhanced.png)
 
+
+
 ## Replication process
 
-1. Prepare Azure resources and on-premises components.
-2. In the Recovery Services vault, specify source replication settings. As part of this process, set up the on-premises configuration server. To deploy this server as a VMware VM, download a prepared OVF template and import it to VMware to create the VM.
-3. Specify target replication settings, create a replication policy, and enable replication for your VMware VMs.
-4. Machines replicate in accordance with the replication policy, and an initial copy of the VM data is replicated to Azure Storage.
-5. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in a .hrl file.
+1. When you enable replication for a VM, initial replication to Azure storage begins, using the specified replication policy. Note the following:
+    - For VMware VMs, replication is block-level, near-continuous, using the Mobility service agent running on the VM.
+    - Any replication policy settings are applied:
+        - **RPO threshold**. This setting does not affect replication. It helps with monitoring. An event is raised, and optionally an email sent, if the current RPO exceeds the threshold limit that you specify.
+        - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention on premium storage is 24 hours. On standard storage it's 72 hours. 
+        - **App-consistent snapshots**. App-consistent snapshot can be take every 1 to 12 hours, depending on your app needs. Snapshots are standard Azure blob snapshots. The Mobility agent running on a VM requests a VSS snapshot in accordance with this setting, and bookmarks that point-in-time as an application consistent point in the replication stream.
 
-    * Machines communicate with the configuration server on port HTTPS 443 inbound, for replication management.
+2. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute with [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
+3. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are sent to the process server.
+4. Communication happens as follows:
 
-    * Machines send replication data to the process server on port HTTPS 9443 inbound (can be modified).
+    - VMs communicate with the on-premises configuration server on port HTTPS 443 inbound, for replication management.
+    - The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
+    - VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
+    - The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
 
-    * The configuration server orchestrates replication management with Azure over port HTTPS 443 outbound.
 
-    * The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure Storage over port 443 outbound.
-
-    * If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Multi-VM is used if you group multiple machines into replication groups that share crash-consistent and app-consistent recovery points when they fail over. This method is useful if machines are running the same workload and need to be consistent.
-
-6. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
 
 
 **VMware to Azure replication process**
@@ -57,30 +58,23 @@ The following table and graphic provide a high-level view of the components used
 
 After replication is set up and you run a disaster recovery drill (test failover) to check that everything's working as expected, you can run failover and failback as you need to.
 
-1. You can fail over a single machine or create recovery plans to fail over multiple VMs.
-
-2. When you run a failover, Azure VMs are created from replicated data in Azure storage.
-
-3. After triggering the initial failover, you commit it to start accessing the workload from the Azure VM.
-
-When your primary on-premises site is available again, you can fail back.
-1. You need to set up a failback infrastructure, including:
+1. You run fail for a single machine, or create a recovery plans to fail over multiple VMs at the same time. The advantage of a recovery plan rather than single machine failover include:
+    - You can model app-dependencies by including all the VMs across the app in a single recovery plan.
+    - You can add scripts, Azure runbooks, and pause for manual actions.
+2. After triggering the initial failover, you commit it to start accessing the workload from the Azure VM.
+3. When your primary on-premises site is available again, you can prepare for fail back. In order to fail back, you need to set up a failback infrastructure, including:
 
     * **Temporary process server in Azure**: To fail back from Azure, you set up an Azure VM to act as a process server to handle replication from Azure. You can delete this VM after failback finishes.
-
     * **VPN connection**: To fail back, you need a VPN connection (or ExpressRoute) from the Azure network to the on-premises site.
-
     * **Separate master target server**: By default, the master target server that was installed with the configuration server on the on-premises VMware VM handles failback. If you need to fail back large volumes of traffic, set up a separate on-premises master target server for this purpose.
+    * **Failback policy**: To replicate back to your on-premises site, you need a failback policy. This policy is automatically created when you create a replication policy from on-premises to Azure.
+4. After the components are in place, failback occurs in three actions:
 
-    * **Failback policy**: To replicate back to your on-premises site, you need a failback policy. This policy was automatically created when you created your replication policy from on-premises to Azure.
-2. After the components are in place, failback occurs in three stages:
-
-    a. Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
-
-    b. Stage 2: Run a failover to the on-premises site.
-
-    c. Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
-
+    - Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
+    -  Stage 2: Run a failover to the on-premises site.
+    - Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
+    
+ 
 **VMware failback from Azure**
 
 ![Failback](./media/vmware-azure-architecture/enhanced-failback.png)

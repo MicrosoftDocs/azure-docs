@@ -3,16 +3,12 @@ title: Handling errors in Durable Functions - Azure
 description: Learn how to handle errors in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: azfuncdf
 ---
 
@@ -22,9 +18,9 @@ Durable Function orchestrations are implemented in code and can use the error-ha
 
 ## Errors in activity functions
 
-Any exception that is thrown in an activity function is marshalled back to the orchestrator function and thrown as a `TaskFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
+Any exception that is thrown in an activity function is marshalled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
 
-For example, consider the following orchestrator function which transfers funds from one account to another:
+For example, consider the following orchestrator function that transfers funds from one account to another:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -67,7 +63,7 @@ If the call to the **CreditAccount** function fails for the destination account,
 
 ## Automatic retry on failure
 
-When you call activity functions or sub-orchestration functions you can specify an automatic retry policy. The following example attempts to call a function up to 3 times and waits 5 seconds between each retry:
+When you call activity functions or sub-orchestration functions, you can specify an automatic retry policy. The following example attempts to call a function up to three times and waits 5 seconds between each retry:
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -76,13 +72,13 @@ public static async Task Run(DurableOrchestrationContext context)
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions);
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
     
     // ...
 }
 ```
 
-The `CallActivityWithRetryAsync` API takes a `RetryOptions` parameter. Sub-orchestration calls using the `CallSubOrchestratorWithRetryAsync` API can use these same retry policies.
+The `CallActivityWithRetryAsync` API takes a `RetryOptions` parameter. Suborchestration calls using the `CallSubOrchestratorWithRetryAsync` API can use these same retry policies.
 
 There are several options for customizing the automatic retry policy. They include the following:
 
@@ -91,7 +87,7 @@ There are several options for customizing the automatic retry policy. They inclu
 * **Backoff coefficient**: The coefficient used to determine rate of increase of backoff. Defaults to 1.
 * **Max retry interval**: The maximum amount of time to wait in between retry attempts.
 * **Retry timeout**: The maximum amount of time to spend doing retries. The default behavior is to retry indefinitely.
-* **Custom**: A user-defined callback can be specified which determines whether or not a function call should be retried.
+* **Handle**: A user-defined callback can be specified which determines whether or not a function call should be retried.
 
 ## Function timeouts
 
@@ -123,6 +119,9 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
     }
 }
 ```
+
+> [!NOTE]
+> This mechanism does not actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. For more information, see the [Timers](durable-functions-timers.md#usage-for-timeout) documentation.
 
 ## Unhandled exceptions
 

@@ -1,17 +1,16 @@
 ---
-title: Use and display requirements for the Bing Web Search APIs | Microsoft Docs
-description: Use data from the Bing Web Search APIs to improve results from searches on the web.
+title: Use and display requirements - Bing Custom Search API
+titlesuffix: Azure Cognitive Services
+description: Use data from the Bing Custom Search APIs to improve results from searches on the web.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-web-search
-ms.topic: article
-ms.date: 02/27/2017
+ms.component: bing-custom-search
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: v-brapel
 ---
-
-# Bing Search API use and display requirements
 
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

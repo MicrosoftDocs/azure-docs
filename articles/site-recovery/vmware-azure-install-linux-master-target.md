@@ -1,13 +1,10 @@
 ---
 title: Install a Linux master target server for failover from Azure to on-premises| Microsoft Docs
 description: Before reprotecting a Linux virtual machine, you need a Linux master target server. Learn how to install one.
-services: site-recovery
-documentationcenter: ''
 author: nsoneji
-manager: gauravd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
 
 ---
@@ -237,18 +234,13 @@ Use the following steps to create a retention disk:
 
 1. Attach a new 1-TB disk to the Linux master target virtual machine, and then start the machine.
 
-2. Use the **multipath -ll** command to learn the multipath ID of the retention disk.
-	
-  	 `multipath -ll`
+2. Use the **multipath -ll** command to learn the multipath ID of the retention disk: **multipath -ll**
 
-		![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![Multipath ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Format the drive, and then create a file system on the new drive.
-
+3. Format the drive, and then create a file system on the new drive: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**.
 	
-	`mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-	
-	![Creating a file system on the drive](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. After you create the file system, mount the retention disk.
 
@@ -332,9 +324,9 @@ After the installation has finished, register the configuration server by using 
      Wait until the script finishes. If the master target is registered successfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
 
 
-### Install VMware tools on the master target server
+### Install VMware tools / open-vm-tools on the master target server
 
-You need to install VMware tools on the master target so that it can discover the data stores. If the tools are not installed, the reprotect screen isn't listed in the data stores. After installation of the VMware tools, you need to restart.
+You need to install VMware tools or open-vm-tools on the master target so that it can discover the data stores. If the tools are not installed, the reprotect screen isn't listed in the data stores. After installation of the VMware tools, you need to restart.
 
 ### Upgrade the master target server
 

@@ -1,15 +1,17 @@
 ---
-title: Custom Speech Service meters and quotas on Azure | Microsoft Docs
+title: Service meters and quotas - Custom Speech
+titlesuffix: Azure Cognitive Services
 description: Information about meters and quotas of Custom Speech Service on Azure.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: custom-speech-service
-ms.topic: article
+ms.component: custom-speech
+ms.topic: conceptual
 ms.date: 07/08/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Custom Speech Service meters and quotas

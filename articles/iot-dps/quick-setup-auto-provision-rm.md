@@ -1,29 +1,25 @@
 ---
 title: Set up Device Provisioning using an Azure Resource Manager template | Microsoft Docs
 description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
-services: iot-dps
-keywords: 
-author: JimacoMS2
-ms.author: v-jamebr
-ms.date: 02/26/2018
-ms.topic: hero-article
+author: wesmc7777
+ms.author: wesmc
+ms.date: 06/18/2018
+ms.topic: quickstart
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
 ---
 
 # Set up the IoT Hub Device Provisioning Service with an Azure Resource Manager template
 
-You can use [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub, a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This Quickstart uses [Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-cli) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby, or other programming languages to perform these steps and deploy your template. 
+You can use [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub, a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This Quickstart uses [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby, or other programming languages to perform these steps and deploy your template. 
 
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- This Quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+- This Quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## Sign in to Azure and create a resource group
@@ -113,7 +109,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
 
    ```
 
-4. To create an IoT hub, add the following lines to the **resources** collection. The JSON specifies the minimum properties required to create an IoT Hub. The **name** and **location** properties are passed as parameters. To learn more about the properties you can specify for an IoT Hub in a template, see [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/iothubs).
+4. To create an IoT hub, add the following lines to the **resources** collection. The JSON specifies the minimum properties required to create an IoT Hub. The **name** and **location** properties are passed as parameters. To learn more about the properties you can specify for an IoT Hub in a template, see [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -133,9 +129,9 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
 
    ``` 
 
-5. To create the provisioning service, add the following lines after the IoT hub specification in the **resources** collection. The **name** and **location** of the provisioning service are passed in parameters. Specify the IoT hubs to link to the provisioning service in the **iotHubs** collection. At a minimum, you must specify the **connectionString** and **location** properties for each linked IoT hub. You can also set properties like **allocationWeight** and **applyAllocationPolicy** on each IoT hub, as well as properties like **allocationPolicy** and **authorizationPolicies** on the provisioning service itself. To learn more, see [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/provisioningservices).
+5. To create the provisioning service, add the following lines after the IoT hub specification in the **resources** collection. The **name** and **location** of the provisioning service are passed in parameters. Specify the IoT hubs to link to the provisioning service in the **iotHubs** collection. At a minimum, you must specify the **connectionString** and **location** properties for each linked IoT hub. You can also set properties like **allocationWeight** and **applyAllocationPolicy** on each IoT hub, as well as properties like **allocationPolicy** and **authorizationPolicies** on the provisioning service itself. To learn more, see [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
 
-   The **dependsOn** property is used to ensure that Resource Manager creates the IoT hub before it creates the provisioning service. The template requires the connection string of the IoT hub to specify its linkage to the provisioning service, so the hub and its keys must be created first. The template uses functions like **concat** and **listKeys** to create the connection string. To learn more, see [Azure Resource Manager template functions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions).
+   The **dependsOn** property is used to ensure that Resource Manager creates the IoT hub before it creates the provisioning service. The template requires the connection string of the IoT hub to specify its linkage to the provisioning service, so the hub and its keys must be created first. The template uses functions like **concat** and **listKeys** to create the connection string. To learn more, see [Azure Resource Manager template functions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 
    ```json
         {
@@ -152,7 +148,8 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
                 "iotHubs": [
                     {
                         "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                        "location": "[parameters('hubLocation')]"
+                        "location": "[parameters('hubLocation')]",
+                        "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
                     }
                 ]
             },
@@ -220,7 +217,8 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
                    "iotHubs": [
                        {
                            "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                           "location": "[parameters('hubLocation')]"
+                           "location": "[parameters('hubLocation')]",
+                           "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
                        }
                    ]
                },
@@ -298,7 +296,7 @@ The template that you defined in the last step uses parameters to specify the na
 
 Use the following Azure CLI commands to deploy your templates and verify the deployment.
 
-1. To deploy your template, run the following [command to start a deployment](https://docs.microsoft.com/en-us/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create):
+1. To deploy your template, run the following [command to start a deployment](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -309,7 +307,7 @@ Use the following Azure CLI commands to deploy your templates and verify the dep
    ![Provisioning output](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. To verify your deployment, run the following [command to list resources](https://docs.microsoft.com/en-us/cli/azure/resource?view=azure-cli-latest#az_resource_list) and look for the new provisioning service and IoT hub in the output:
+2. To verify your deployment, run the following [command to list resources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) and look for the new provisioning service and IoT hub in the output:
 
     ```azurecli
      az resource list -g {your resource group name}
@@ -337,7 +335,7 @@ To delete a resource group and all its resources, run the following command:
 az group delete --name {your resource group name}
 ```
 
-You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs or supported platform SDKs published for Azure Resource Manager or IoT Hub and Device Provisioning Service.
+You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs or supported platform SDKs published for Azure Resource Manager or IoT Hub Device Provisioning Service.
 
 ## Next steps
 

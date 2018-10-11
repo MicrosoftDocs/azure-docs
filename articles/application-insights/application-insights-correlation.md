@@ -3,15 +3,16 @@ title: Azure Application Insights Telemetry Correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 04/25/2017
+ms.topic: conceptual
+ms.date: 04/09/2018
+ms.reviewer: sergkanz
 ms.author: mbullwin
 
 ---
@@ -70,6 +71,34 @@ The standard also defines two schemas of `Request-Id` generation - flat and hier
 
 Application Insights defines the [extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) for the correlation HTTP protocol. It uses `Request-Context` name value pairs to propagate the collection of properties used by the immediate caller or callee. Application Insights SDK uses this header to set `dependency.target` and `request.source` fields.
 
+### W3C Distributed Tracing
+
+We are transitioning to (W3C Distributed tracing format)[https://w3c.github.io/distributed-tracing/report-trace-context.html]. It defines:
+- `traceparent` - carries globally unique operation id and unique identifier of the call
+- `tracestate` - carries tracing system specific context.
+
+#### Enable W3C distributed tracing support for ASP.NET Classic apps
+
+This feature is available in Microsoft.ApplicationInsights.Web and Microsoft.ApplicationInsights.DependencyCollector packages starting with version 2.8.0-beta1.
+It is **off** by default, to enable it, change `ApplicationInsights.config`:
+
+* under `RequestTrackingTelemetryModule` add `EnableW3CHeadersExtraction` element with value set to `true`
+* under `DependencyTrackingTelemetryModule` add `EnableW3CHeadersInjection` element with value set to `true`
+
+#### Enable W3C distributed tracing support for ASP.NET Core apps
+
+This feature is in Microsoft.ApplicationInsights.AspNetCore with version 2.5.0-beta1 and Microsoft.ApplicationInsights.DependencyCollector version 2.8.0-beta1.
+It is **off** by default, to enable it set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry(o => 
+        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
+    // ....
+}
+```
+
 ## Open tracing and Application Insights
 
 [Open Tracing](http://opentracing.io/) and Application Insights data models looks 
@@ -101,9 +130,36 @@ There is a new Http Module [Microsoft.AspNet.TelemetryCorrelation](https://www.n
 
 Application Insights SDK starting version `2.4.0-beta1` uses DiagnosticsSource and Activity to collect telemetry and associate it with the current activity. 
 
+<a name="java-correlation"></a>
+## Telemetry correlation in the Java SDK
+The [Application Insights Java SDK](app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
+
+Currently, automatic context propagation across messaging technologies (e.g. Kafka, RabbitMQ, Azure Service Bus) is not supported. It is possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` API's, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+
+<a name="java-role-name"></a>
+### Role Name
+At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the `cloud_roleName` by doing one of the following:
+
+Via a telemetry initializer (all telemetry items are tagged)
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+Via the [device context class](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (only this telemetry item is tagged)
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
+
 ## Next steps
 
 - [Write custom telemetry](app-insights-api-custom-events-metrics.md)
 - Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
+- [Application Insights confg reference](app-insights-configuration-with-applicationinsights-config.md)
+

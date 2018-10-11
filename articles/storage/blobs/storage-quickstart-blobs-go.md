@@ -1,14 +1,14 @@
 ---
-title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Go | Microsoft Docs
-description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: Azure Quickstart - Create a blob in object storage using Go | Microsoft Docs
+description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage  
 author: seguler
-manager: jeconnoc 
+ 
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: seguler
 ---
 
@@ -20,11 +20,14 @@ In this quickstart, you learn how to use the Go programming language to upload, 
 
 To complete this quickstart: 
 * Install [Go 1.8 or above](https://golang.org/dl/)
-* Download and install [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) using `go get -u github.com/azure/azure-storage-blob-go/2016-05-31/azblob`. 
+* Download and install [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) using `go get -u github.com/Azure/azure-storage-blob-go/2016-05-31/azblob`. 
+
+> [!WARNING]
+> Make sure that you capitalize Azure in the URL. Doing otherwise can cause case-related import problems when working with the SDK. You also need to capitalize Azure in your import statements.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) used in this quickstart is a basic Go application.  
@@ -36,6 +39,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 ```
 
 This command clones the repository to your local git folder. To open the Go sample for Blob storage, look for storage-quickstart.go file.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Configure your storage connection string
 This solution requires your storage account name and key to be securely stored in environment variables local to the machine running the sample. Follow one of the examples below depending on your operating System to create the environment variables.
@@ -147,7 +152,7 @@ file, err := os.Open(fileName)
 handleErrors(err)
 
 // You can use the low-level PutBlob API to upload files. Low-level APIs are simple wrappers for the Azure Storage REST APIs.
-// Note that PutBlob can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/en-us/rest/api/storageservices/put-blob
+// Note that PutBlob can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/rest/api/storageservices/put-blob
 // Following is commented out intentionally because we will instead use UploadFileToBlockBlob API to upload the blob
 // _, err = blobURL.PutBlob(ctx, file, azblob.BlobHTTPHeaders{}, azblob.Metadata{}, azblob.BlobAccessConditions{})
 // handleErrors(err)
@@ -209,6 +214,13 @@ containerURL.Delete(ctx, azblob.ContainerAccessConditions{})
 file.Close()
 os.Remove(fileName)
 ```
+
+## Resources for developing Go applications with blobs
+
+See these additional resources for Go development with Blob storage:
+
+- View and install the [Go client library source code](https://github.com/Azure/azure-storage-blob-go) for Azure Storage on GitHub.
+- Explore [Blob storage samples](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples) written using the Go client library.
 
 ## Next steps
  

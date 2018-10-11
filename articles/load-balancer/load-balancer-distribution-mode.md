@@ -18,8 +18,6 @@ ms.author: kumud
 
 # Configure the distribution mode for Azure Load Balancer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
-
 ## Hash-based distribution mode
 
 The default distribution mode for Azure Load Balancer is a 5-tuple hash. The tuple is composed of the source IP, source port, destination IP, destination port, and protocol type. The hash is used to map traffic to the available servers and the algorithm provides stickiness only within a transport session. Packets that are in the same session are directed to the same datacenter IP (DIP) instance behind the load-balanced endpoint. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different DIP endpoint.
@@ -46,7 +44,15 @@ Another use case scenario is media upload. The data upload happens through UDP, 
 
 ## Configure source IP affinity settings
 
-For virtual machines, use Azure PowerShell to change the timeout settings. Add an Azure endpoint to a virtual machine and configure the load balancer distribution mode:
+For virtual machines deployed with Resource Manager, use PowerShell to change the load balancer distribution settings on an existing load balancing rule. This updates the distribution mode: 
+
+```powershell 
+$lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
+Set-AzureRmLoadBalancer -LoadBalancer $lb 
+```
+
+For classic virtual machines, use Azure PowerShell to change the distribution settings. Add an Azure endpoint to a virtual machine and configure the load balancer distribution mode:
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM

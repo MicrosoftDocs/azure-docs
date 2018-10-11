@@ -4,17 +4,13 @@ description: Understand how to develop Azure Functions using C#.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 12/12/2017
+ms.date: 09/12/2018
 ms.author: glenga
 
 ---
@@ -36,12 +32,26 @@ This article assumes that you've already read the following articles:
 In Visual Studio, the **Azure Functions** project template creates a C# class library project that contains the following files:
 
 * [host.json](functions-host-json.md) - stores configuration settings that affect all functions in the project when running locally or in Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally.
+* [local.settings.json](functions-run-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally. This file contains secrets and isn't published to your function app in Azure. You must instead [add app settings to your function app](functions-develop-vs.md#function-app-settings).
+
+When you build the project, a folder structure that looks like the following is generated in the build output directory:
+
+```
+<framework.version>
+ | - bin
+ | - MyFirstFunction
+ | | - function.json
+ | - MySecondFunction
+ | | - function.json
+ | - host.json
+```
+
+This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
-> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To disable a function, use the [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribute. For example, add a Boolean app setting MY_TIMER_DISABLED, and apply `[Disable("MY_TIMER_DISABLED")]` to your function. You can then enable and disable it by changing the app setting.
+> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md#functions-2x---c-class-libraries).
 
-### FunctionName and trigger attributes
+## Methods recognized as functions
 
 In a class library, a function is a static method with a `FunctionName` and a trigger attribute, as shown in the following example:
 
@@ -58,13 +68,24 @@ public static class SimpleExample
 } 
 ```
 
-The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project.
+The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_` and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
 
 The trigger attribute specifies the trigger type and binds input data to a method parameter. The example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 
-### Additional binding attributes
+## Method signature parameters
 
-Additional input and output binding attributes may be used. The following example modifies the preceding one by adding an output queue binding. The function writes the input queue message to a new queue message in a different queue.
+The method signature may contain parameters other than the one used with the trigger attribute. Here are some of the additional parameters that you can include:
+
+* [Input and output bindings](functions-triggers-bindings.md) marked as such by decorating them with attributes.  
+* An `ILogger` or `TraceWriter` parameter for [logging](#logging).
+* A `CancellationToken` parameter for [graceful shutdown](#cancellation-tokens).
+* [Binding expressions](functions-triggers-bindings.md#binding-expressions-and-patterns) parameters to get trigger metadata.
+
+The order of parameters in the function signature does not matter. For example, you can put trigger parameters before or after other bindings, and you can put the logger parameter before or after trigger or binding parameters.
+
+### Output binding example
+
+The following example modifies the preceding one by adding an output queue binding. The function writes the queue message that triggers the function to a new queue message in a different queue.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -81,13 +102,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-### Order of parameters
+The binding reference articles ([Storage queues](functions-bindings-storage-queue.md), for example) explain which parameter types you can use with trigger, input, or output binding attributes.
 
-The order of parameters in the function signature does not matter. For example, you can put trigger parameters before or after other bindings, and you can put the logger parameter before or after trigger or binding parameters.
+### Binding expressions example
 
-### Binding expressions
-
-You can use binding expressions in attribute constructor parameters and in function parameters. For example, the following code gets the name of the queue to monitor from an app setting, and it gets the queue message creation time in the `insertionTime` parameter.
+The following code gets the name of the queue to monitor from an app setting, and it gets the queue message creation time in the `insertionTime` parameter.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -104,9 +123,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-For more information, see **Binding expressions and patterns** in [Triggers and bindings](functions-triggers-bindings.md#binding-expressions-and-patterns).
-
-### Conversion to function.json
+## Autogenerated function.json
 
 The build process creates a *function.json* file in a function folder in the build folder. As noted earlier, this file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. 
 
@@ -131,7 +148,7 @@ The generated *function.json* file includes a `configurationSource` property tha
 }
 ```
 
-### Microsoft.NET.Sdk.Functions NuGet package
+## Microsoft.NET.Sdk.Functions
 
 The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -166,7 +183,7 @@ The `Sdk` package also depends on [Newtonsoft.Json](http://www.nuget.org/package
 
 The source code for `Microsoft.NET.Sdk.Functions` is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-### Runtime version
+## Runtime version
 
 Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects. The Core Tools is a command-line interface for the Functions runtime.
 
@@ -184,11 +201,13 @@ Each binding has its own supported types; for instance, a blob trigger attribute
 
 ## Binding to method return value
 
-You can use a method return value for an output binding, by applying the attribute to the method return value. For examples, see [Triggers and bindings](functions-triggers-bindings.md#using-the-function-return-value).
+You can use a method return value for an output binding, by applying the attribute to the method return value. For examples, see [Triggers and bindings](functions-triggers-bindings.md#using-the-function-return-value). 
+
+Use the return value only if a successful function execution always results in a return value to pass to the output binding. Otherwise, use `ICollector` or `IAsyncCollector`, as shown in the following section.
 
 ## Writing multiple output values
 
-To write multiple values to an output binding, use the [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types. These types are write-only collections that are written to the output binding when the method completes.
+To write multiple values to an output binding, or if a successful function invocation might not result in anything to pass to the output binding, use the [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types. These types are write-only collections that are written to the output binding when the method completes.
 
 This example writes multiple queue messages into the same queue using `ICollector`:
 
@@ -198,12 +217,12 @@ public static class ICollectorExample
     [FunctionName("CopyQueueMessageICollector")]
     public static void Run(
         [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
-        [Queue("myqueue-items-destination")] ICollector<string> myQueueItemCopy,
+        [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
         TraceWriter log)
     {
         log.Info($"C# function processed: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 1: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 2: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 1: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 2: {myQueueItem}");
     }
 }
 ```
@@ -232,7 +251,7 @@ public static class SimpleExample
 
 ## Async
 
-To make a function asynchronous, use the `async` keyword and return a `Task` object.
+To make a function [asynchronous](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
 
 ```csharp
 public static class AsyncExample
@@ -249,6 +268,8 @@ public static class AsyncExample
     }
 }
 ```
+
+You can't use `out` parameters in async functions. For output bindings, use the [function return value](#binding-to-method-return-value) or a [collector object](#writing-multiple-output-values) instead.
 
 ## Cancellation tokens
 
@@ -300,6 +321,10 @@ public static class EnvironmentVariablesExample
     }
 }
 ```
+
+App settings can be read from environment variables both when developing locally and when running in Azure. When developing locally, app settings come from the `Values` collection in the *local.settings.json* file. In both environments, local and Azure, `GetEnvironmentVariable("<app setting name>")` retrieves the value of the named app setting. For instance, when you're running locally, "My Site Name" would be returned if your *local.settings.json* file contains `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
+
+The [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) property is an alternative API for getting app setting values, but we recommend that you use `GetEnvironmentVariable` as shown here.
 
 ## Binding at runtime
 
@@ -380,23 +405,7 @@ public static class IBinderExampleMultipleAttributes
 
 ## Triggers and bindings 
 
-The following table lists the trigger and binding attributes that are available in an Azure Functions class library project. All attributes are in the namespace `Microsoft.Azure.WebJobs`.
-
-| Trigger | Input | Output|
-|------   | ------    | ------  |
-| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input---attributes)| [Blob](functions-bindings-storage-blob.md#output---attributes)|
-| [CosmosDBTrigger](functions-bindings-cosmosdb.md#trigger---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#input---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#output---attributes) |
-| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
-| [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
-| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [Queue](functions-bindings-storage-queue.md#output---attributes) |
-| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [ServiceBus](functions-bindings-service-bus.md#output---attributes) |
-| [TimerTrigger](functions-bindings-timer.md#attributes) | ||
-| |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
-| |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 
-| |[Table](functions-bindings-storage-table.md#input---attributes)| [Table](functions-bindings-storage-table.md#output---attributes)  | 
-| ||[NotificationHub](functions-bindings-notification-hubs.md#attributes) |
-| ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
-| ||[Twilio](functions-bindings-twilio.md#attributes)| 
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## Next steps
 

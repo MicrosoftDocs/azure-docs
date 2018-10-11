@@ -4,7 +4,7 @@ description: Establish high availability for SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: timlt
+manager: jeconnoc
 editor:
 
 ms.service: virtual-machines-linux
@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 # High availability set up in SUSE using the STONITH
 This document provides the detailed step by step instructions to set up the High Availability on SUSE Operating system using the STONITH device.
 
-**Disclaimer:** *This guide is derived by testing the set up in the Microsoft HANA Large Instances environment, which successfully works. As Microsoft Service Management team for HANA Large Instances does not support Operating system, you may need to contact SUSE for any further troubleshooting or clarification on the operating system layer. Microsoft service management team does set up STONITH device and fully supports and can be involved for troubleshooting for STONITH device issues.*
+**Disclaimer:** *This guide is derived by testing the setup in the Microsoft HANA Large Instances environment, which successfully works. As Microsoft Service Management team for HANA Large Instances does not support Operating system, you may need to contact SUSE for any further troubleshooting or clarification on the operating system layer. Microsoft service management team does set up STONITH device and fully supports and can be involved for troubleshooting for STONITH device issues.*
 ## Overview
 To set up the High availability using SUSE clustering, the following pre-requisites must meet.
 ### Pre-requisites
@@ -29,10 +29,10 @@ To set up the High availability using SUSE clustering, the following pre-requisi
 - HANA Large Instances servers are connected to SMT server to get patches/packages
 - Operating system have latest patches installed
 - NTP (time server) is set up
-- Read and understand the latest version of SUSE documentation on HA set up
+- Read and understand the latest version of SUSE documentation on HA setup
 
-### Set up details
-- In this guide, we used the following set up:
+### Setup details
+This guide uses the following setup:
 - Operating System: SLES 12 SP1 for SAP
 - HANA Large Instances: 2xS192 (four sockets, 2 TB)
 - HANA Version: HANA 2.0 SP1
@@ -47,7 +47,7 @@ When you set up HANA Large Instances with HSR, you can request Microsoft Service
 - Customer Name (for example, Microsoft)
 - SID - HANA System Identifier (for example, H11)
 
-Once the STONITH device is configured, Microsoft Service Management team does provide you the SBD device name and IP address of the iSCSI storage, which you can use to configure STONITH set up. 
+Once the STONITH device is configured, Microsoft Service Management team does provide you the SBD device name and IP address of the iSCSI storage, which you can use to configure STONITH setup. 
 
 To set up the end to end HA using STONITH, the following steps needs to be followed:
 
@@ -61,7 +61,7 @@ To set up the end to end HA using STONITH, the following steps needs to be follo
 8.	Test the failover process
 
 ## 1.	Identify the SBD device
-This section describes on how to determine the SBD device for your set up after Microsoft service management team has configured the STONITH. **This section only applies to the existing customer**. If you are a new customer, Microsoft service management team does provide SBD device name to you and you can skip this section.
+This section describes on how to determine the SBD device for your setup after Microsoft service management team has configured the STONITH. **This section only applies to the existing customer**. If you are a new customer, Microsoft service management team does provide SBD device name to you and you can skip this section.
 
 1.1	Modify */etc/iscsi/initiatorname.isci* to 
 ``` 
@@ -131,13 +131,13 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### 3.2	Setting up the cluster
-3.2.1	You can either use *ha-cluster-init* command, or use the yast2 wizard to set up the cluster. In this case, we used yast2 wizard. You perform this step **only on the Primary node**.
+3.2.1	You can either use *ha-cluster-init* command, or use the yast2 wizard to set up the cluster. In this case, the yast2 wizard is used. You perform this step **only on the Primary node**.
 
 Follow yast2> High Availability > Cluster 
 ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-Click **cancel** as we already have the halk2 package installed.
+Click **cancel** since the halk2 package is already installed.
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
@@ -164,7 +164,7 @@ The authentication is performed using the IP addresses and pre-shared-keys in Cs
 Click **Next**
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
-In the default option, Booting was off, change it to “on” so pacemaker is started on boot. You can make the choice based on your set up requirements.
+In the default option, Booting was off, change it to “on” so pacemaker is started on boot. You can make the choice based on your setup requirements.
 Click **Next** and the cluster configuration is complete.
 
 ## 4.	Setting Up the Softdog Watchdog
@@ -263,7 +263,7 @@ You can also log in to hawk to check the cluster status *https://<node IP>:7630*
 
 ## 7. Configure Cluster Properties and Resources 
 This section describes the steps to configure the cluster resources.
-In this example, we did set up the following resource, the rest can be configured (if needed) by referencing the SUSE HA guide. Perform the config in **one of the nodes** only. Do on primary node.
+In this example, set up the following resource, the rest can be configured (if needed) by referencing the SUSE HA guide. Perform the config in **one of the nodes** only. Do on primary node.
 
 - Cluster bootstrap
 - STONITH Device
@@ -344,7 +344,7 @@ Now, stop the pacemaker service on **node2** and resources failed over to **node
 
 
 ## 9. Troubleshooting
-This section describes the few failure scenarios, which can be encountered during the set up. You may not necessarily face these issues.
+This section describes the few failure scenarios, which can be encountered during the setup. You may not necessarily face these issues.
 
 ### Scenario 1: Cluster node not online
 If any of the nodes does not show online in cluster manager, you can try following to bring it online.
@@ -371,7 +371,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### Scenario 2: yast2 does not show graphical view
-We used the yast2 graphical screen to set up the High Availability cluster in this document. If yast2 does not open with the graphical window as shown and throw Qt error, perform the steps as following. If it opens with the graphical window, you can skip the steps.
+The yast2 graphical screen is used to set up the High Availability cluster in this document. If yast2 does not open with the graphical window as shown and throw Qt error, perform the steps as following. If it opens with the graphical window, you can skip the steps.
 
 **Error**
 
@@ -449,7 +449,7 @@ Click **Continue**
 
 ![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
-Click **Next** when hte installation is complete
+Click **Next** when the installation is complete
 
 ![yast2-installation-report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 
@@ -539,9 +539,9 @@ After the preceding fix, node2 should get added to the cluster
 ![ha-cluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
 ## 10. General Documentation
-You can find more information on SUSE HA set up in the following articles: 
+You can find more information on SUSE HA setup in the following articles: 
 
 - [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
-- [Storage-based fencing](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)
+- [Storage-based fencing](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
 - [Blog - Using Pacemaker Cluster for SAP HANA- Part 1](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
 - [Blog - Using Pacemaker Cluster for SAP HANA- Part 2](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)

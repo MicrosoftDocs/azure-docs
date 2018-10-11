@@ -59,6 +59,9 @@ After the deployment succeeds, you should see the internal virtual IP address of
 
 ![API Management dashboard with an internal virtual network configured][api-management-internal-vnet-dashboard]
 
+> [!NOTE]
+> The Test console available on the Azure Portal will not work for **Internal** VNET deployed service, as the Gateway Url is not registered on the Public DNS. You should instead use the Test Console provided on the **Developer portal**.
+
 ### Enable a virtual network connection by using PowerShell cmdlets
 You can also enable virtual network connectivity by using PowerShell cmdlets.
 
@@ -70,14 +73,14 @@ You can also enable virtual network connectivity by using PowerShell cmdlets.
 When API Management is in external virtual network mode, the DNS is managed by Azure. For internal virtual network mode, you have to manage your own routing.
 
 > [!NOTE]
-> API Management service does not listen to requests coming from IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include gateway, the Developer portal, the Azurethe portal, direct management endpoint, and Git.
+> API Management service does not listen to requests coming from IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include gateway, the Azure portal and the Developer portal, direct management endpoint, and Git.
 
 ### Access on default host names
 When you create an API Management service, named "contoso" for example, the following service endpoints are configured by default:
 
    * Gateway or proxy: contoso.azure-api.net
 
-   * the Azure portal and the Developer portal: contoso.portal.azure-api.net
+   * The Azure portal and the Developer portal: contoso.portal.azure-api.net
 
    * Direct management endpoint: contoso.management.azure-api.net
 
@@ -114,7 +117,7 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 To learn more, see the following articles:
 * [Common network configuration problems while setting up Azure API Management in a virtual network][Common network configuration problems]
 * [Virtual network FAQs](../virtual-network/virtual-networks-faq.md)
-* [Creating a record in DNS](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
+* [Creating a record in DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png

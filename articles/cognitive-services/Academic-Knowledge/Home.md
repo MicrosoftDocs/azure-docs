@@ -1,15 +1,16 @@
 ---
-title: Academic Knowledge API for Microsoft Academic Graph | Microsoft Docs
-description: Use the Academic Knowledge API to interpret user queries and retrieve rich information from the Academic Graph in Microsoft Cognitive Services.
+title: What is Academic Knowledge API?
+titlesuffix: Azure Cognitive Services
+description: Use the Academic Knowledge API to interpret user queries and retrieve rich information from the Academic Graph.
 services: cognitive-services
 author: mvorvoreanu
-manager: kuansanw
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: academic-knowledge
-ms.topic: article
+ms.component: academic-knowledge
+ms.topic: overview
 ms.date: 03/27/2017
-ms.author: mvorvoreanu
+ms.author: mivorvor
 ---
 
 # Academic Knowledge API

@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 04/19/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 **Azure native certificate authentication**
 
 **Deployment model/method** | **Azure portal** | **PowerShell** |

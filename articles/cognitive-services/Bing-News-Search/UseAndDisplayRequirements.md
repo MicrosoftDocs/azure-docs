@@ -1,17 +1,16 @@
 ---
-title: Use and display requirements for Search APIs in Bing News Search | Microsoft Docs
+title: Use and display requirements for Bing News Search API
+titlesuffix: Azure Cognitive Services
 description: Modify your implementation of content and related information by using calls to search APIs in Bing News Search.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-news-search
-ms.topic: article
-ms.date: 04/27/2017
+ms.component: bing-news-search
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: scottwhi
 ---
-
-# Bing Search API Use and Display Requirements
 
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

@@ -58,9 +58,9 @@ First, we should do a quick sanity check on the request.  You can use your brows
 
 ![CDN request headers](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### Verify compression settings (Standard CDN profile)
+### Verify compression settings (standard CDN profiles)
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Standard from Akamai** profile. 
+> This step applies only if your CDN profile is an **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, or **Azure CDN Standard from Akamai** profile. 
 > 
 > 
 
@@ -71,9 +71,9 @@ Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and cl
 
 ![CDN compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### Verify compression settings (Premium CDN profile)
+### Verify compression settings (Premium CDN profiles)
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN Premium from Verizon** profile.
+> This step applies only if your CDN profile is an **Azure CDN Premium from Verizon** profile.
 > 
 > 
 
@@ -85,9 +85,9 @@ Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and cl
 
 ![CDN premium compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### Verify the content is cached
+### Verify the content is cached (Verizon CDN profiles)
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN from Verizon** profile (Standard or Premium).
+> This step applies only if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
 > 
 > 
 
@@ -98,9 +98,9 @@ Using your browser's developer tools, check the response headers to ensure the f
 
 ![CDN response headers](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### Verify the file meets the size requirements
+### Verify the file meets the size requirements (Verizon CDN profiles)
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN from Verizon** profile (Standard or Premium).
+> This step applies only if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
 > 
 > 
 

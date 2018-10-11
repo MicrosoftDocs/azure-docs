@@ -1,11 +1,14 @@
 ---
-title: Python Quickstart for Azure Cognitive Services, Bing News Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing News Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing News Search API, Python"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing News Search API.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: bing-search
-ms.topic: article
+ms.component: bing-news-search
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
 ---
@@ -26,7 +29,7 @@ First, set `subscription_key` to your API key for the Bing API service.
 
 
 ```python
-subscription_key = "96d05359d76f4e758906539daeab939e"
+subscription_key = None
 assert subscription_key
 ```
 
@@ -44,7 +47,7 @@ Set `search_term` to look for news articles about Microsoft.
 search_term = "Microsoft"
 ```
 
-The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-news-api-v7-reference) documentation.
+The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) documentation.
 
 
 ```python

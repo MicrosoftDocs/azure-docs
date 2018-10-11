@@ -1,31 +1,26 @@
 ---
-title: Invoke SSIS package using Azure Data Factory - Stored Procedure Activity | Microsoft Docs
-description: This article describes how to invoke a SQL Server Integration Services (SSIS) package from an Azure Data Factory pipeline using the Stored Procedure Activity.
+title: Run SSIS package with Stored Procedure Activity - Azure | Microsoft Docs
+description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Stored Procedure Activity.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
-
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
-ms.topic: article
-ms.date: 12/07/2017
+ms.topic: conceptual
+ms.date: 04/17/2018
 ms.author: jingwang
-
 ---
-# Invoke an SSIS package using stored procedure activity in Azure Data Factory
-This article describes how to invoke an SSIS package from an Azure Data Factory pipeline by using a stored procedure activity. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Invoke SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
+# Run an SSIS package with the Stored Procedure activity in Azure Data Factory
+This article describes how to run an SSIS package in an Azure Data Factory pipeline by using a Stored Procedure activity. 
 
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Private Preview).
+The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance.
 
 ## Create an Azure-SSIS integration runtime
 Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](tutorial-create-azure-ssis-runtime-portal.md).
@@ -55,7 +50,7 @@ First step is to create a data factory by using the Azure portal.
       - Select **Create new**, and enter the name of a resource group.   
          
     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
+4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported by Data Factory are shown in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other locations.
 6. Select **Pin to dashboard**.     
 7. Click **Create**.
@@ -82,12 +77,13 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
 4. In the **New Linked Service** window, do the following steps: 
 
     1. Select **Azure SQL Database** for **Type**.
-    2. Select your Azure SQL server that hosts the SSISDB database for the **Server name** field.
-    3. Select **SSISDB** for **Database name**.
-    4. For **User name**, enter the name of user who has access to the database.
-    5. For **Password**, enter the password of the user. 
-    6. Test the connection to the database by clicking **Test connection** button.
-    7. Save the linked service by clicking the **Save** button. 
+    2. Select the **Default** Azure Integration Runtime to connect to the Azure SQL Database that hosts the `SSISDB` database.
+    3. Select the Azure SQL Database that hosts the SSISDB database for the **Server name** field.
+    4. Select **SSISDB** for **Database name**.
+    5. For **User name**, enter the name of user who has access to the database.
+    6. For **Password**, enter the password of the user. 
+    7. Test the connection to the database by clicking **Test connection** button.
+    8. Save the linked service by clicking the **Save** button. 
 
         ![Azure SQL Database linked service](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. In the properties window, switch to the **Stored Procedure** tab from the **SQL Account** tab, and do the following steps: 
@@ -118,15 +114,18 @@ In this section, you trigger a pipeline run and then monitor it.
 
 1. To trigger a pipeline run, click **Trigger** on the toolbar, and click **Trigger now**. 
 
-    ![Trigger now](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+    ![Trigger now](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+
 2. In the **Pipeline Run** window, select **Finish**. 
 3. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
 
     ![Pipeline runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+
 3. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (stored procedure activity).
 
     ![Activity runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
-4.You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
+
+4. You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
 
     ```sql
     select * from catalog.executions
@@ -182,7 +181,7 @@ Note the following points:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+* For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ### Create an Azure SQL Database linked service
 Create a linked service to link your Azure SQL database that hosts the SSIS catalog to your data factory. Data Factory uses information in this linked service to connect to SSISDB database, and executes a stored procedure to run an SSIS package. 

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 01/30/2018
+ms.topic: tutorial
+ms.date: 08/22/2018
 ms.author: tomfitz
 ---
 # Stream big data into a data warehouse
 
-Azure [Event Grid](overview.md) is an intelligent event routing service that enables you to react to notifications from apps and services. The [Event Hubs Capture and Event Grid sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) shows how to use Azure Event Hubs Capture with Azure Event Grid to seamlessly migrate data from an event hub to a SQL Data Warehouse.
+Azure [Event Grid](overview.md) is an intelligent event routing service that enables you to react to notifications from apps and services. For example, it can trigger an Azure Function to process Event Hubs data that has been captured to an Azure Blob storage or Data Lake Store, and migrate the data to other data repositories. This [Event Hubs Capture and Event Grid sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) shows how to use Event Hubs Capture with Event Grid to seamlessly migrate Event Hubs data from blob storage to a SQL Data Warehouse.
 
 ![Application overview](media/event-grid-event-hubs-integration/overview.png)
 
@@ -70,7 +70,7 @@ To complete this tutorial, you must have:
 
 ## Deploy the infrastructure
 
-To simplify this article, you deploy the required infrastructure with a Resource Manager template. To see the resources that are deployed, view the [template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Use one of the [supported regions](overview.md) for the resource group location.
+To simplify this article, you deploy the required infrastructure with a Resource Manager template. To see the resources that are deployed, view the [template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
 
 For Azure CLI, use:
 
@@ -114,71 +114,45 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 1. Open the [EventHubsCaptureEventGridDemo sample project](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) in Visual Studio 2017 (15.3.2 or greater).
 
-2. In Solution Explorer, right-click **FunctionDWDumper**, and select **Publish**.
+1. In Solution Explorer, right-click **FunctionEGDWDumper**, and select **Publish**.
 
    ![Publish function app](media/event-grid-event-hubs-integration/publish-function-app.png)
 
-3. Select **Azure Function App** and **Select Existing**. Select **OK**.
+1. Select **Azure Function App** and **Select Existing**. Select **Publish**.
 
    ![Target function app](media/event-grid-event-hubs-integration/pick-target.png)
 
-4. Select the function app that you deployed through the template. Select **OK**.
+1. Select the function app that you deployed through the template. Select **OK**.
 
    ![Select function app](media/event-grid-event-hubs-integration/select-function-app.png)
 
-5. When Visual Studio has configured the profile, select **Publish**.
+1. When Visual Studio has configured the profile, select **Publish**.
 
    ![Select publish](media/event-grid-event-hubs-integration/select-publish.png)
 
-6. After publishing the function, go to the [Azure portal](https://portal.azure.com/). Select your resource group and function app.
-
-   ![View function app](media/event-grid-event-hubs-integration/view-function-app.png)
-
-7. Select the function.
-
-   ![Select function](media/event-grid-event-hubs-integration/select-function.png)
-
-8. Get the URL for the function. You need this URL when creating the event subscription.
-
-   ![Get function URL](media/event-grid-event-hubs-integration/get-function-url.png)
-
-9. Copy the value.
-
-   ![Copy URL](media/event-grid-event-hubs-integration/copy-url.png)
+After publishing the function, you're ready to subscribe to the event.
 
 ## Subscribe to the event
 
-You can use either Azure CLI or the portal to subscribe to the event. This article shows both approaches.
+1. Go to the [Azure portal](https://portal.azure.com/). Select your resource group and function app.
 
-### Portal
+   ![View function app](media/event-grid-event-hubs-integration/view-function-app.png)
 
-1. From the Event Hubs namespace, select **Event Grid** on the left.
+1. Select the function.
 
-   ![Select Event Grid](media/event-grid-event-hubs-integration/select-event-grid.png)
+   ![Select function](media/event-grid-event-hubs-integration/select-function.png)
 
-2. Add an event subscription.
+1. Select **Add Event Grid subscription**.
 
-   ![Add event subscription](media/event-grid-event-hubs-integration/add-event-subscription.png)
+   ![Add subscription](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-3. Provide values for the event subscription. Use the Azure Functions URL that you copied. Select **Create**.
+9. Give the event grid subscription a name. Use **Event Hubs Namespaces** as the event type. Provide values to select your instance of the Event Hubs namespace. Leave the subscriber endpoint as the provided value. Select **Create**.
 
-   ![Provide subscription values](media/event-grid-event-hubs-integration/provide-values.png)
-
-### Azure CLI
-
-To subscribe to the event, run the following commands (which require version 2.0.24 or later of Azure CLI):
-
-```azurecli-interactive
-namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
-az eventgrid event-subscription create \
-  --resource-id $namespaceid \
-  --name captureEventSub \
-  --endpoint <your-function-endpoint>
-```
+   ![Create subscription](media/event-grid-event-hubs-integration/set-subscription-values.png)
 
 ## Run the app to generate data
 
-You have finished setting up your event hub, SQL data warehouse, Azure function app, and event subscription. The solution is ready to migrate data from the event hub to the data warehouse. Before running an application that generates data for event hub, you need to configure a few values.
+You've finished setting up your event hub, SQL data warehouse, Azure function app, and event subscription. The solution is ready to migrate data from the event hub to the data warehouse. Before running an application that generates data for event hub, you need to configure a few values.
 
 1. In the portal, select your event hub namespace. Select **Connection Strings**.
 
@@ -188,16 +162,16 @@ You have finished setting up your event hub, SQL data warehouse, Azure function 
 
    ![Select key](media/event-grid-event-hubs-integration/show-root-key.png)
 
-3. Copy **Connection string - Primary Key**
+3. Copy **Connection string - primary Key**
 
    ![Copy key](media/event-grid-event-hubs-integration/copy-key.png)
 
 4. Go back to your Visual Studio project. In the WindTurbineDataGenerator project, open **program.cs**.
 
-5. Replace the two constant values. Use the copied value for **EventHubConnectionString**. Use the event hub name for **EventHubName**.
+5. Replace the two constant values. Use the copied value for **EventHubConnectionString**. Use **hubdatamigration** the event hub name.
 
    ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://tfdatamigratens.servicebus.windows.net/...";
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
    private const string EventHubName = "hubdatamigration";
    ```
 
@@ -205,6 +179,7 @@ You have finished setting up your event hub, SQL data warehouse, Azure function 
 
 ## Next steps
 
+* To learn about differences in the Azure messaging services, see [Choose between Azure services that deliver messages](compare-messaging-services.md).
 * For an introduction to Event Grid, see [About Event Grid](overview.md).
 * For an introduction to Event Hubs Capture, see [Enable Event Hubs Capture using the Azure portal](../event-hubs/event-hubs-capture-enable-through-portal.md).
 * For more information about setting up and running the sample, see [Event Hubs Capture and Event Grid sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).

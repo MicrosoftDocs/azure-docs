@@ -2,7 +2,7 @@
 title: "Azure Cloud Services Definition Schema (.csdef File) | Microsoft Docs"
 ms.custom: ""
 ms.date: "04/14/2015"
-ms.prod: "azure"
+services: cloud-services
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""
@@ -10,8 +10,8 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
 caps.latest.revision: 42
-author: "thraka"
-ms.author: "adegeo"
+author: "jpconnock"
+ms.author: "jeconnoc"
 manager: "timlt"
 ---
 # Azure Cloud Services Definition Schema (.csdef File)
@@ -66,4 +66,4 @@ The following table describes the attributes of the `ServiceDefinition` element.
 | name                    |Required. The name of the service. The name must be unique within the service account.|
 | topologyChangeDiscovery | Optional. Specifies the type of topology change notification. Possible values are:<br /><br /> -   `Blast` - Sends the update as soon as possible to all role instances. If you choose option, the role should be able to handle the topology update without being restarted.<br />-   `UpgradeDomainWalk` – Sends the update to each role instance in a sequential manner after the previous instance has successfully accepted the update.|
 | schemaVersion           | Optional. Specifies the version of the service definition schema. The schema version allows Visual Studio to select the correct SDK tools to use for schema validation if more than one version of the SDK is installed side-by-side.|
-| upgradeDomainCount      | Optional. Specifies the number of upgrade domains across which roles in this service are allocated. Role instances are allocated to an upgrade domain when the service is deployed. For more information, see [Update a cloud service role or deployment](cloud-services-how-to-manage-portal.md#how-to-update-a-cloud-service-role-or-deployment).<br /><br /> You can specify up to 20 upgrade domains. If not specified, the default number of upgrade domains is 5.|
+| upgradeDomainCount      | Optional. Specifies the number of upgrade domains across which roles in this service are allocated. Role instances are allocated to an upgrade domain when the service is deployed. For more information, see [Update a cloud service role or deployment](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment).<br /><br /> You can specify up to 20 upgrade domains. If not specified, the default number of upgrade domains is 5.|

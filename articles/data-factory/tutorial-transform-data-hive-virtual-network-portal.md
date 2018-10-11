@@ -3,17 +3,16 @@ title: 'Transform data using Hive in Azure Virtual Network | Microsoft Docs'
 description: 'This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+author: douglaslMS
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/04/2018
-ms.author: shengc
+ms.author: douglasl
 ---
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
 In this tutorial, you use Azure portal to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network (VNet). You perform the following steps in this tutorial:
@@ -26,9 +25,6 @@ In this tutorial, you use Azure portal to create a Data Factory pipeline that tr
 > * Trigger a pipeline run.
 > * Monitor the pipeline run 
 > * Verify the output
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -86,7 +82,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
       - Select **Create new**, and enter the name of a resource group.   
          
       To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
+4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
 6. Select **Pin to dashboard**.     
 7. Click **Create**.
@@ -110,7 +106,7 @@ As the Hadoop cluster is inside a virtual network, you need to install a self-ho
 2. In the **Integration Runtime Setup** window, Select **Perform data movement and dispatch activities to external computes** option, and click **Next**. 
 
    ![Select perform data movement and dispatch activities option](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. Select **Public Network**, and click **Next**.
+3. Select **Private Network**, and click **Next**.
     
    ![Select private network](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. Enter **MySelfHostedIR** for **Name**, and click **Next**. 

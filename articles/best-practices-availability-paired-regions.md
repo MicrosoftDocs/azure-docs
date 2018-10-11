@@ -1,19 +1,10 @@
 ---
 title: 'Business continuity and disaster recovery (BCDR): Azure Paired Regions | Microsoft Docs'
 description: Learn about Azure regional pairing, to ensure that applications are resilient during data center failures.
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-
-ms.assetid: c2d0a21c-2564-4d42-991a-bc31723f61a4
-ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: multiple
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 07/03/2018
 ms.author: raynew
 ---
 
@@ -23,45 +14,46 @@ ms.author: raynew
 
 Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography, containing one or more datacenters.
 
-Each Azure region is paired with another region within the same geography, together making a regional pair. The exception is Brazil South, which is paired with a region outside its geography.
+Each Azure region is paired with another region within the same geography, together making a regional pair. The exception is Brazil South, which is paired with a region outside its geography. Across the region pairs Azure will serialize platform updates (planned maintenance) so that only one paired region will be updated at a time. In addition, in the event of an outage affecting multiple regions at least one region in each pair will be prioritized for recovery.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Figure 1 – Azure regional pair diagram
+Figure 1 – Azure regional pairs
 
 | Geography | Paired regions |  |
 |:--- |:--- |:--- |
 | Asia |East Asia |Southeast Asia |
 | Australia |Australia East |Australia Southeast |
+| Australia |Australia Central |Australia Central 2 |
+| Brazil |Brazil South 2 |South Central US |
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
+| Europe |North Europe |West Europe |
+| France |France Central|France South|
+| Germany |Germany Central |Germany Northeast |
 | India |Central India |South India |
 | India |West India (1) |South India |
 | Japan |Japan East |Japan West |
 | Korea |Korea Central |Korea South |
-| North America |North Central US |South Central US |
 | North America |East US |West US |
 | North America |East US 2 |Central US |
-| North America |West US 2 |West Central US |
-| Europe |North Europe |West Europe |
-| Japan |Japan East |Japan West |
-| Brazil |Brazil South (2) |South Central US |
+| North America |North Central US |South Central US |
+| North America |West US 2 |West Central US 
+| UK |UK West |UK South |
+| US Department of Defense |US DoD East |US DoD Central |
+| US Government |US Gov Arizona |US Gov Texas |
 | US Government |US Gov Iowa (3) |US Gov Virginia |
 | US Government |US Gov Virginia (4) |US Gov Texas |
-| US Government |US Gov Arizona |US Gov Texas |
-| US Department of Defense |US DoD East |US DoD Central |
-| UK |UK West |UK South |
-| Germany |Germany Central |Germany Northeast |
 
 Table 1 - Mapping of Azure regional pairs
 
-- > (1) West India is different because it is paired with another region in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
-- > (2) Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US, but South Central US’s secondary region is not Brazil South.
-- > (3) US Gov Iowa's secondary region is US Gov Virginia, but US Gov Virginia's secondary region is not US Gov Iowa.
-- > (4) US Gov Virginia's secondary region is US Gov Texas, but US Gov Texas' secondary region is not US Gov Virginia.
+- (1) West India is different because it is paired with another region in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
+- (2) Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US, but South Central US’s secondary region is not Brazil South.
+- (3) US Gov Iowa's secondary region is US Gov Virginia, but US Gov Virginia's secondary region is not US Gov Iowa.
+- (4) US Gov Virginia's secondary region is US Gov Texas, but US Gov Texas' secondary region is not US Gov Virginia.
 
 
-We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies. For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions. That means that even in the rare event of a faulty update, both regions will not be affected simultaneously. Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.
+We recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure’s isolation and availability policies. For applications which support multiple active regions, we recommend using both regions in a region pair where possible. This will ensure optimal availability for applications and minimized recovery time in the event of a disaster. 
 
 ## An example of paired regions
 Figure 2 below shows a hypothetical application which uses the regional pair for disaster recovery. The green numbers highlight the cross-region activities of three Azure services (Azure compute, storage, and database) and how they are configured to replicate across regions. The unique benefits of deploying across paired regions are highlighted by the orange numbers.
@@ -73,11 +65,11 @@ Figure 2 – Hypothetical Azure regional pair
 ## Cross-region activities
 As referred to in figure 2.
 
-![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (PaaS)** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. For more information, see [Azure resiliency technical guidance](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (IaaS)** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. For more information, see [Azure resiliency technical guidance](resiliency/resiliency-technical-guidance.md).
 
 ![Storage](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - Geo-Redundant storage (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information, see [Azure Storage Redundancy Options](storage/common/storage-redundancy.md).
 
-![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Databases** – With Azure SQL Standard Geo-Replication, you can configure asynchronous replication of transactions to a paired region. With premium geo-replication, you can configure replication to any region in the world; however, we recommend you deploy these resources in a paired region for most disaster recovery scenarios. For more information, see [Geo-Replication in Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
+![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – With Azure SQL Database Geo-Replication, you can configure asynchronous replication of transactions to any region in the world; however, we recommend you deploy these resources in a paired region for most disaster recovery scenarios. For more information, see [Geo-Replication in Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 
 ![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** - Resource Manager inherently provides logical isolation of service management components across regions. This means logical failures in one region are less likely to impact another.
 

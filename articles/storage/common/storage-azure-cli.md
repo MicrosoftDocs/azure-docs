@@ -1,27 +1,20 @@
 ---
-title: Using the Azure CLI 2.0 with Azure Storage | Microsoft Docs
-description: Learn how to use the Azure Command-Line Interface (Azure CLI) 2.0 with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI 2.0 is a cross-platform tool written in Python.
+title: Using the Azure CLI with Azure Storage | Microsoft Docs
+description: Learn how to use the Azure Command-Line Interface (Azure CLI) with Azure Storage to create and manage storage accounts and work with Azure blobs and files.
 services: storage
-documentationcenter: na
-author: tamram
-manager: timlt
-editor: tysonn
-
-ms.assetid:
+author: roygara
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: tamram
-
+ms.author: rogarana
+ms.component: common
 ---
-# Using the Azure CLI 2.0 with Azure Storage
+# Using the Azure CLI with Azure Storage
 
-The open-source, cross-platform Azure CLI 2.0 provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com), including rich data access.
+The open-source, cross-platform Azure CLI provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com), including rich data access.
 
-In this guide, we show you how to use the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI 2.0 before using this guide.
+In this guide, we show you how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI before using this guide.
 
 The examples in the guide assume the use of the Bash shell on Ubuntu, but other platforms should perform similarly. 
 
@@ -32,11 +25,11 @@ This guide assumes that you understand the basic concepts of Azure Storage. It a
 
 ### Accounts
 * **Azure account**: If you don't already have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/).
-* **Storage account**: See [Create a storage account](storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](storage-create-storage-account.md).
+* **Storage account**: See [Create a storage account](storage-quickstart-create-account.md) in [About Azure storage accounts](storage-create-storage-account.md).
 
-### Install the Azure CLI 2.0
+### Install the Azure CLI
 
-Download and install the Azure CLI 2.0 by following the instructions outlined in [Install Azure CLI 2.0](/cli/azure/install-az-cli2).
+Download and install the Azure CLI by following the instructions outlined in [Install the Azure CLI](/cli/azure/install-az-cli2).
 
 > [!TIP]
 > If you have trouble with the installation, check out the [Installation Troubleshooting](/cli/azure/install-az-cli2#installation-troubleshooting) section of the article, and the [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide on GitHub.
@@ -97,16 +90,16 @@ To work with the resources in your Azure subscription, you must first log in to 
   * This doesn't work with Microsoft accounts or accounts that use multi-factor authentication.
 * **Log in with a service principal**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
-## Azure CLI 2.0 sample script
+## Azure CLI sample script
 
-Next, we'll work with a small shell script that issues a few basic Azure CLI 2.0 commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify.
+Next, we'll work with a small shell script that issues a few basic Azure CLI commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify.
 
 ```bash
 #!/bin/bash
 # A simple Azure Storage example script
 
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+export AZURE_STORAGE_KEY=<storage_account_key>
 
 export container_name=<container_name>
 export blob_name=<blob_name>
@@ -194,13 +187,24 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### Set default Azure storage account environment variables
+
 You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
+
+First, display your storage account keys by using the [az storage account keys list](/cli/azure/storage/account/keys#list) command:
+
+```azurecli-interactive
+az storage account keys list \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --output table
+```
+
+Now that you have the key, you can define it and the account name as environment variables:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
-export AZURE_STORAGE_ACCESS_KEY=<key>
+export AZURE_STORAGE_KEY=<key>
 ```
 
 Another way to set a default storage account is by using a connection string. First, get the connection string with the `show-connection-string` command:
@@ -218,8 +222,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> All examples in the following sections of this article assume that you've set the `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY` environment variables.
->
+> All examples in the following sections of this article assume that you've set the `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_KEY` environment variables.
 
 ## Create and manage blobs
 Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with Azure Blob storage concepts. For detailed information, see [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](/rest/api/storageservices/blob-service-concepts).
@@ -248,6 +251,8 @@ az storage blob upload \
     --container-name <container_name> \
     --name <blob_name>
 ```
+
+If you would like to upload directly into a folder inside the container in your storage account, replace `--name <blob_name>` with `--name <folder/blob_name>`.
 
  By default, the `blob upload` command uploads *.vhd files to page blobs, or block blobs otherwise. To specify another type when you upload a blob, you can use the `--type` argument--allowed values are `append`, `block`, and `page`.
 
@@ -317,7 +322,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 Azure Files offers shared storage for applications using the Server Message Block (SMB) protocol. Microsoft Azure virtual machines and cloud services, as well as on-premises applications, can share file data via mounted shares. You can manage file shares and file data via the Azure CLI. For more information on Azure Files, see [Introduction to Azure Files](../files/storage-files-introduction.md).
 
 ### Create a file share
-An Azure File share is an SMB file share in Azure. All directories and files must be created in a file share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. The following example creates a file share named **myshare**.
+An Azure file share is an SMB file share in Azure. All directories and files must be created in a file share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. The following example creates a file share named **myshare**.
 
 ```azurecli
 az storage share create --name myshare
@@ -508,8 +513,8 @@ Sample Output
 ```
 
 ## Next steps
-Here are some additional resources for learning more about working with the Azure CLI 2.0.
+Here are some additional resources for learning more about working with the Azure CLI. 
 
-* [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Azure CLI 2.0 command reference](/cli/azure)
-* [Azure CLI 2.0 on GitHub](https://github.com/Azure/azure-cli)
+* [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Azure CLI command reference](/cli/azure)
+* [Azure CLI on GitHub](https://github.com/Azure/azure-cli)

@@ -10,11 +10,11 @@ editor: vturecek; mani-ramaswamy
 ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
-ms.author: masnider;
+ms.author: masnider
 
 ---
 # Reliable Services overview
@@ -31,7 +31,7 @@ Service Fabric manages the lifetime of services, from provisioning and deploymen
 ## What are Reliable Services?
 Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. With the Reliable Services programming model, you get:
 
-* Access to the rest of the Service Fabric programming APIs. Unlike Service Fabric Services modeled as [Guest Executables](service-fabric-deploy-existing-app.md), Reliable Services get to use the rest of the Service Fabric APIs directly. This allows services to:
+* Access to the rest of the Service Fabric programming APIs. Unlike Service Fabric Services modeled as [Guest Executables](service-fabric-guest-executables-introduction.md), Reliable Services get to use the rest of the Service Fabric APIs directly. This allows services to:
   * query the system
   * report health about entities in the cluster
   * receive notifications about configuration and code changes
@@ -109,5 +109,5 @@ If any of the following characterize your application service needs, then you sh
 
 ## Next steps
 * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
-* [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
+* [Reliable collections](service-fabric-reliable-services-reliable-collections.md)
 * [The Reliable Actors programming model](service-fabric-reliable-actors-introduction.md)

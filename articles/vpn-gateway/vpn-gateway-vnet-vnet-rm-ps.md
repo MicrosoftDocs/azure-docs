@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Connect an Azure virtual network to another VNet using a VNet-to-VNet connection: PowerShell | Microsoft Docs'
 description: Connect virtual networks together using a VNet-to-VNet connection and PowerShell.
 services: vpn-gateway
@@ -150,7 +150,7 @@ We use the following values in the examples:
 2. Connect to your account. Use the following example to help you connect:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Check the subscriptions for the account.
@@ -346,7 +346,7 @@ This step must be done in the context of the new subscription. This part may be 
 2. Connect to subscription 5. Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Check the subscriptions for the account.
@@ -449,7 +449,7 @@ In this example, because the gateways are in the different subscriptions, we've 
   Connect to Subscription 1 before running the following example:
 
   ```powershell
-  $vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
+  $vnet5gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet5gw.Name = "VNet5GW"
   $vnet5gw.Id   = "/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW"
   $Connection15 = "VNet1toVNet5"
@@ -460,7 +460,7 @@ In this example, because the gateways are in the different subscriptions, we've 
   Connect to Subscription 5 before running the following example:
 
   ```powershell
-  $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
+  $vnet1gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet1gw.Name = "VNet1GW"
   $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
   $Connection51 = "VNet5toVNet1"

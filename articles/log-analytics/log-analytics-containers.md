@@ -3,7 +3,7 @@ title: Container Monitoring solution in Azure Log Analytics | Microsoft Docs
 description: The Container Monitoring solution in Log Analytics helps you view and manage your Docker and Windows container hosts in a single location.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/06/2017
+ms.topic: conceptual
+ms.date: 04/26/2018
 ms.author: magoedte
-
+ms.component: 
 ---
+
 # Container Monitoring solution in Log Analytics
 
 ![Containers symbol](./media/log-analytics-containers/containers-symbol.png)
@@ -30,8 +31,9 @@ The solution shows which containers are running, what container image they’re 
 - Service Fabric
 - Red Hat OpenShift
 
+If you are interested in monitoring the performance of your workloads deployed to Kubernetes environments hosted on Azure Kubernetes Service (AKS), see [Monitor Azure Kubernetes Service](../monitoring/monitoring-container-health.md). The Container Monitoring solution does not include support to monitor that platform.  
 
-The following diagram shows the relationships between various container hosts and agents with OMS.
+The following diagram shows the relationships between various container hosts and agents with Log Analytics.
 
 ![Containers diagram](./media/log-analytics-containers/containers-diagram.png)
 
@@ -87,7 +89,7 @@ The following table outlines the Docker orchestration and operating system monit
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-1. Add the Container Monitoring solution to your OMS workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+1. Add the Container Monitoring solution to your Log Analytics workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 2. Install and use Docker with an OMS agent. Based on your operating system and Docker orchestrator, you can use the following methods to configure your agent.
   - For standalone hosts:
@@ -96,7 +98,10 @@ Use the following information to install and configure the solution.
     - On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Log Analytics. Review [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) if you have a Windows environment.
   - For Docker multi-host orchestration:
     - If you have a Red Hat OpenShift environment, review [Configure an OMS agent for Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
-    - If you have a Kubernetes cluster using the Azure Container Service, review [Configure an OMS agent for Kubernetes](#configure-an-oms-agent-for-kubernetes).
+    - If you have a Kubernetes cluster using the Azure Container Service:
+       - Review [Configure an OMS Linux agent for Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
+       - Review [Configure an OMS Windows agent for Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Review [Use Helm to deploy OMS Agent on Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - If you have a Docker Swarm mode environment, learn more at [Configure an OMS agent for Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
     - If you have a Service Fabric cluster, learn more at [Monitor containers with OMS Log Analytics](../service-fabric/service-fabric-diagnostics-oms-containers.md).
@@ -109,40 +114,40 @@ Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/
 
 ### Install and configure Linux container hosts
 
-After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. First you need your OMS workspace ID and key, which you can find in the Azure portal. In your workspace, click **Quick Start** > **Computers** to view your **Workspace ID** and **Primary Key**.  Copy and paste both into your favorite editor.
+After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. First you need your Log Analytics workspace ID and key, which you can find in the Azure portal. In your workspace, click **Quick Start** > **Computers** to view your **Workspace ID** and **Primary Key**.  Copy and paste both into your favorite editor.
 
 **For all Linux container hosts except CoreOS:**
 
-- For more information and steps on how to install the OMS Agent for Linux, see [Connect your Linux Computers to Operations Management Suite (OMS)](log-analytics-agent-linux.md).
+- For more information and steps on how to install the OMS Agent for Linux, see [Connect your Linux Computers to Log Analytics](log-analytics-concept-hybrid.md).
 
 **For all Linux container hosts including CoreOS:**
 
-Start the OMS container that you want to monitor. Modify and use the following example:
+Start the container that you want to monitor. Modify and use the following example:
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
 **For all Azure Government Linux container hosts including CoreOS:**
 
-Start the OMS container that you want to monitor. Modify and use the following example:
+Start the container that you want to monitor. Modify and use the following example:
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
 ```
 
 **Switching from using an installed Linux agent to one in a container**
 
 If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove the OMS Agent for Linux. See [Uninstalling the OMS Agent for Linux](log-analytics-agent-linux.md) to understand how to successfully uninstall the agent.  
 
-#### Configure an OMS agent for Docker Swarm
+#### Configure an OMS Agent for Docker Swarm
 
-You can run the OMS Agent as a global service on Docker Swarm. Use the following information to create an OMS Agent service. You need to insert your OMS Workspace ID and Primary Key.
+You can run the OMS Agent as a global service on Docker Swarm. Use the following information to create an OMS Agent service. You need to provide your Log Analytics Workspace ID and Primary Key.
 
 - Run the following on the master node.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
     ```
 
 ##### Secure secrets for Docker Swarm
@@ -171,7 +176,7 @@ For Docker Swarm, once the secret for Workspace ID and Primary Key is created, u
 3. Run the following command to mount the secrets to the containerized OMS Agent.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
     ```
 
 #### Configure an OMS Agent for Red Hat OpenShift
@@ -183,8 +188,8 @@ There are three ways to add the OMS Agent to Red Hat OpenShift to start collecti
 
 In this section we cover the steps required to install the OMS Agent as an OpenShift daemon-set.  
 
-1. Sign on to the OpenShift master node and copy the yaml file [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) from GitHub to your master node and modify the value with your OMS Workspace ID and with your Primary Key.
-2. Run the following commands to create a project for OMS and set the user account.
+1. Sign on to the OpenShift master node and copy the yaml file [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) from GitHub to your master node and modify the value with your Log Analytics Workspace ID and with your Primary Key.
+2. Run the following commands to create a project for Log Analytics and set the user account.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -220,10 +225,10 @@ In this section we cover the steps required to install the OMS Agent as an OpenS
     No events.  
     ```
 
-If you want to use secrets to secure your OMS Workspace ID and Primary Key when using the OMS Agent daemon-set yaml file, perform the following steps.
+If you want to use secrets to secure your Log Analytics Workspace ID and Primary Key when using the OMS Agent daemon-set yaml file, perform the following steps.
 
-1. Sign on to the OpenShift master node and copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for OMS Workspace ID and Primary Key to secure your secrete information.  
-2. Run the following commands to create a project for OMS and set the user account. The secret generating script asks for your OMS Workspace ID <WSID> and Primary Key <KEY> and upon completion, it creates the ocp-secret.yaml file.  
+1. Sign on to the OpenShift master node and copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for Log Analytics Workspace ID and Primary Key to secure your secrete information.  
+2. Run the following commands to create a project for Log Analytics and set the user account. The secret generating script asks for your Log Analytics Workspace ID <WSID> and Primary Key <KEY> and upon completion, it creates the ocp-secret.yaml file.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -307,7 +312,7 @@ You can choose to create omsagent DaemonSets with or without secrets.
     1. Copy the script and secret template file and make sure they are on the same directory.
         - Secret generating script - secret-gen.sh
         - secret template - secret-template.yaml
-    2. Run the script, like the following example. The script asks for the OMS Workspace ID and Primary Key and after you enter them, the script creates a secret yaml file so you can run it.   
+    2. Run the script, like the following example. The script asks for the Log Analytics Workspace ID and Primary Key and after you enter them, the script creates a secret yaml file so you can run it.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -383,7 +388,7 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### Configure an OMS agent for Windows Kubernetes
+#### Configure an OMS Windows agent for Kubernetes
 For Windows Kubernetes, you use a script to generate the secrets yaml file for your Workspace ID and Primary Key to install the OMS Agent. At the [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) page, there are files that you can use with your secret information.  You need to install the OMS Agent separately for the master and agent nodes.  
 
 1. To use OMS Agent DaemonSet using secret information on the Master node, sign in and create the secrets first.
@@ -520,7 +525,7 @@ You can verify that the Container Monitoring solution is set correctly for Windo
 
 ## Solution components
 
-If you are using Windows agents, then the following management pack is installed on each computer with an agent when you add this solution. No configuration or maintenance is required for the management pack.
+From the OMS portal, navigate to the *Solutions Gallery* and add the **Container Monitoring Solution**. If you are using Windows agents, then the following management pack is installed on each computer with an agent when you add this solution. No configuration or maintenance is required for the management pack.
 
 - *ContainerManagement.xxx* installed in C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
@@ -540,21 +545,22 @@ The following table shows examples of records collected by the Container Monitor
 
 | Data type | Data type in Log Search | Fields |
 | --- | --- | --- |
-| Performance for hosts and containers | `Type=Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
-| Container inventory | `Type=ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Container image inventory | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
-| Container log | `Type=ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| Container service log | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
-| Container node inventory | `Type=ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes inventory | `Type=KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Container process | `Type=ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Kubernetes events | `Type=KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
+| Performance for hosts and containers | `Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
+| Container inventory | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Container image inventory | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
+| Container log | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| Container service log | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Container node inventory | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes inventory | `KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Container process | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Kubernetes events | `KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
 
 Labels appended to *PodLabel* data types are your own custom labels. The appended PodLabel labels shown in the table are examples. So, `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` will differ in your environment's data set and generically resemble `PodLabel_yourlabel_s`.
 
 
 ## Monitor containers
-After you have the solution enabled in the OMS portal, the **Containers** tile shows summary information about your container hosts and the containers running in hosts.
+After you have the solution enabled in the Log Analytics portal, the **Containers** tile shows summary information about your container hosts and the containers running in hosts.
+
 
 ![Containers tile](./media/log-analytics-containers/containers-title.png)
 
@@ -603,7 +609,7 @@ Log Analytics marks a container as **Failed** if it has exited with a non-zero e
    ![containers state](./media/log-analytics-containers/containers-log-search.png)
 3. Next, click the aggregated value of failed containers to view additional information. Expand **show more** to view the image ID.  
    ![failed containers](./media/log-analytics-containers/containers-state-failed.png)  
-4. Next, type the following in the search query. `Type=ContainerInventory <ImageID>` to see details about the image such as image size and number of stopped and failed images.  
+4. Next, type the following in the search query. `ContainerInventory <ImageID>` to see details about the image such as image size and number of stopped and failed images.  
    ![failed containers](./media/log-analytics-containers/containers-failed04.png)
 
 ## Search logs for container data
@@ -621,17 +627,17 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 
 
 ### To search logs for container data
-* Choose an image that you know has failed recently and find the error logs for it. Start by finding a container name that is running that image with a **ContainerInventory** search. For example, search for `Type=ContainerInventory ubuntu Failed`  
+* Choose an image that you know has failed recently and find the error logs for it. Start by finding a container name that is running that image with a **ContainerInventory** search. For example, search for `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Search for Ubuntu containers](./media/log-analytics-containers/search-ubuntu.png)
 
-  The name of the container next to **Name**, and search for those logs. In this example, it is `Type=ContainerLog cranky_stonebreaker`.
+  The name of the container next to **Name**, and search for those logs. In this example, it is `ContainerLog | where Name == "cranky_stonebreaker"`.
 
 **View performance information**
 
 When you're beginning to construct queries, it can help to see what's possible first. For example, to see all performance data, try a broad query by typing the following search query.
 
 ```
-Type=Perf
+Perf
 ```
 
 ![containers performance](./media/log-analytics-containers/containers-perf01.png)
@@ -639,7 +645,7 @@ Type=Perf
 You can scope the performance data you're seeing to a specific container by typing the name of it to the right of your query.
 
 ```
-Type=Perf <containerName>
+Perf <containerName>
 ```
 
 That shows the list of performance metrics that are collected for an individual container.
@@ -648,8 +654,6 @@ That shows the list of performance metrics that are collected for an individual 
 
 ## Example log search queries
 It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **Sample Queries** area to help you build more advanced queries.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Containers queries](./media/log-analytics-containers/containers-queries.png)
 

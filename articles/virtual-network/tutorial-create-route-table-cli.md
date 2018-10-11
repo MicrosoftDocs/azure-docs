@@ -1,12 +1,13 @@
 ---
 title: Route network traffic - Azure CLI | Microsoft Docs
-description: Learn how to route network traffic with a route table using the Azure CLI.
+description: In this article, learn how to route network traffic with a route table using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 
 ms.assetid: 
 ms.service: virtual-network
@@ -16,27 +17,26 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
+ms.custom:
 ---
 
 # Route network traffic with a route table using the Azure CLI
 
-Azure automatically routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this article you learn how to:
+Azure automatically routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a route table
-> * Create a route
-> * Create a virtual network with multiple subnets
-> * Associate a route table to a subnet
-> * Create an NVA that routes traffic
-> * Deploy virtual machines (VM) into different subnets
-> * Route traffic from one subnet to another through an NVA
+* Create a route table
+* Create a route
+* Create a virtual network with multiple subnets
+* Associate a route table to a subnet
+* Create an NVA that routes traffic
+* Deploy virtual machines (VM) into different subnets
+* Route traffic from one subnet to another through an NVA
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Create a route table
 
@@ -49,7 +49,7 @@ az group create \
   --location eastus
 ``` 
 
-Create a route table with [az network route-table create](/cli/azure/network/route#az_network_route_table_create). The following example creates a route table named *myRouteTablePublic*. 
+Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *myRouteTablePublic*. 
 
 ```azurecli-interactive 
 # Create a route table
@@ -60,7 +60,7 @@ az network route-table create \
 
 ## Create a route
 
-Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create). 
+Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create). 
 
 ```azurecli-interactive
 az network route-table route create \
@@ -117,7 +117,7 @@ az network vnet subnet update \
 
 An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.
 
-Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm#az_vm_create). When you create a VM, Azure creates and assigns a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the Internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
+Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm#az_vm_create). When you create a VM, Azure creates and assigns a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
 
 ```azure-cli-interactive
 az vm create \
@@ -200,7 +200,7 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
   "resourceGroup": "myResourceGroup"
 }
 ```
-Take note of the **publicIpAddress**. This address is used to access the VM from the Internet in a later step.
+Take note of the **publicIpAddress**. This address is used to access the VM from the internet in a later step.
 
 ## Route traffic through an NVA
 
@@ -212,7 +212,7 @@ ssh azureuser@<publicIpAddress>
 
 When prompted for a password, enter the password you selected in [Create virtual machines](#create-virtual-machines).
 
-Use the following command to install traceroute on the *myVmPrivate* VM:
+Use the following command to install trace route on the *myVmPrivate* VM:
 
 ```bash 
 sudo apt-get install traceroute
@@ -239,7 +239,7 @@ Use the following command to SSH to the *myVmPublic* VM from the *myVmPrivate* V
 ssh azureuser@myVmPublic
 ```
 
-Use the following command to install traceroute on the *myVmPublic* VM:
+Use the following command to install trace route on the *myVmPublic* VM:
 
 ```bash 
 sudo apt-get install traceroute
@@ -272,9 +272,6 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-In this article, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a public subnet to a private subnet. Deploy a variety of pre-configured NVAs that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Before deploying route tables for production use, it's recommended that you thoroughly familiarize yourself with [Routing in Azure](virtual-networks-udr-overview.md), [Manage route tables](manage-route-table.md), and [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+In this article, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a public subnet to a private subnet. Deploy a variety of pre-configured NVAs that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.md).
 
-While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. Advance to the next tutorial to learn how to restrict network access to Azure PaaS resources.
-
-> [!div class="nextstepaction"]
-> [Restrict network access to PaaS resources](virtual-network-service-endpoints-configure.md#azure-cli)
+While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. To learn how, see [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-cli.md).

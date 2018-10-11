@@ -1,23 +1,21 @@
 ---
-title: Learn how to use the FTP connector in logic apps| Microsoft Docs
-description: Create logic apps with Azure App service. Connect to FTP server to manage your files. You can perform various actions such as upload, update, get, and delete files in FTP server.
-services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
-editor: ''
-tags: connectors
-
-ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
-ms.service: logic-apps
-ms.devlang: multiple
+# required metadata
+title: Connect to FTP server - Azure Logic Apps | Microsoft Docs
+description: Create, monitor, and manage files on an FTP server with Azure Logic Apps
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
+ms.date: 07/22/2016 
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/22/2016
-ms.author: mandia; ladocs
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the FTP connector
 Use the FTP connector to monitor, manage and create files on an  FTP server. 
 
@@ -62,7 +60,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 Now that you have added a trigger, follow these steps to add an action that will get the contents of the new or modified file found by the trigger.    
 
-1. Select **+ New step** to add the the action to get the contents of the file on the FTP server  
+1. Select **+ New step** to add the action to get the contents of the file on the FTP server  
 2. Select the **Add an action** link.  
    ![FTP action image 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
 3. Enter *FTP* to search for all actions related to FTP.

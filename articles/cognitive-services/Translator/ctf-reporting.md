@@ -1,13 +1,14 @@
 ---
-title: Microsoft Translator Collaborative Translation Framework (CTF) Reporting
+title: Collaborative Translation Framework (CTF) Reporting - Translator Text
+titlesuffix: Azure Cognitive Services
 description: How to use Collaborative Translation Framework (CTF) reporting.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ---
@@ -15,7 +16,11 @@ ms.author: v-jansko
 # How to use Collaborative Translation Framework (CTF) reporting
 
 > [!NOTE]
-> The Collaborative Translations Framework (CTF) will be deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2018, these two functions will not accept new sentence submissions, and you will receive an error message. These functions are being retired and will not be replaced. Similar functionality is available in the Translator Hub API, allowing you to build a custom translation system with your terminology and style, and you can invoke it using the Category ID in the Translator Text API. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> This method is deprecated. It is not available in V3.0 of the Translator Text API.
+
+> The Collaborative Translations Framework (CTF), previously available for V2.0 of the Translator Text API, was deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2018, these two functions did not accept new sentence submissions, and users receive an error message. These functions were being retired and will not be replaced. 
+
+>Similar functionality is available in the Translator Hub API, allowing you to build a custom translation system with your terminology and style, and you can invoke it using the Category ID in the Translator Text API. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 The Collaborative Translation Framework (CTF) Reporting API returns statistics and the actual content in the CTF store. This API is different from the GetTranslations() method because it:
 * Returns the translated content and its total count only from your account (appId or Azure Marketplace account).
@@ -114,7 +119,7 @@ The result set contains array of the **UserTranslationCount**. Each UserTranslat
 
 ## GetUserTranslations method
 
-This method retrieves the translations that are created by the user. It provides the translations grouped by the uriPrefix, from, to, user, and minrating and maxRating request parameters.
+This method retrieves the translations that are created by the user. It provides the translations grouped by the uriPrefix, from, to, user, and minRating and maxRating request parameters.
 
 **Syntax**
 

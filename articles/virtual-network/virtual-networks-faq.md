@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 08/16/2018
 ms.author: jdial
 
 ---
@@ -40,7 +40,6 @@ Visit the [Virtual network documentation](https://docs.microsoft.com/azure/virtu
 Yes. You can use a VNet without connecting it to your premises. For example, you could run Microsoft Windows Server Active Directory domain controllers and SharePoint farms solely in an Azure VNet.
 
 ### Can I perform WAN optimization between VNets or a VNet and my on-premises data center?
-
 Yes. You can deploy a [WAN optimization network virtual appliance](https://azure.microsoft.com/marketplace/?term=wan+optimization) from several vendors through the Azure Marketplace.
 
 ## Configuration
@@ -187,7 +186,6 @@ Yes. You can (optionally) deploy Cloud Services role instances within VNets. To 
 Yes. You must connect a VMSS to a VNet.
 
 ### Is there a complete list of Azure services that can I deploy resources from into a VNet?
-
 Yes, For details, see [Virtual network integration for Azure services](virtual-network-for-azure-services.md).
 
 ### Which Azure PaaS resources can I restrict access to from a VNet?
@@ -219,5 +217,65 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/azurerm.network) and [classic](/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/azurerm.network) and [classic](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) deployment models.
 - The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) deployment models.  
+
+## VNet peering
+
+### What is VNet peering?
+VNet peering (or virtual network peering) enables you to connect virtual networks. A VNet peering connection between virtual networks enables you to route traffic between them privately through IPv4 addresses. Virtual machines in the peered VNets can communicate with each other as if they are within the same network. These virtual networks can be in the same region or in different regions (also known as Global VNet Peering). VNet peering connections can also be created across Azure subscriptions.
+
+### Can I create a peering connection to a VNet in a different region?
+Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions. You cannot globally peer from Azure public regions to National clouds. Global peering is not currently available in national clouds.
+
+### Can I enable VNet Peering if my virtual networks belong to subscriptions within different Azure Active Directory tenants?
+Yes. It is possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directory tenants. You can do this via PowerShell or CLI. Portal is not yet supported.
+
+### My VNet peering connection is in *Initiated* state, why can't I connect?
+If your peering connection is in an Initiated state, this means you have created only one link. A bidirectional link must be created in order to establish a successfuly connection. For example, to peer VNet A to VNet B, a link must be created from VNetA to VNetB and from VNetB to VNetA. Creating both links will change the state to *Connected.*
+
+### My VNet peering connection is in *Disconnected* state, why can't I create a peering connection?
+If your VNet peering connection is in a Disconnected state, it means one of the links created was deleted. In order to re-establish a peering connection, you will need to delete the link and recreate.
+
+### Can I peer my VNet with a VNet in a different subscription?
+Yes. You can peer VNets across subscriptions and across regions.
+
+### Can I peer two VNets with matching or overlapping address ranges?
+No. Address spaces must not overalap to enable VNet Peering.
+
+### How much do VNet peering links cost?
+There is no charge for creating a VNet peering connection. Data transfer across peering connections is charged. [See here](https://azure.microsoft.com/pricing/details/virtual-network/).
+
+### Is VNet peering traffic encrypted?
+No. Traffic between resources in peered VNets is private and isolated. It remains completely on the Microsoft Backbone.
+
+### Why is my peering connection in a disconnected state?
+VNet peering connections go into *Disconnected* state when one VNet peering link is deleted. You must delete both links in order to reestablish a successful peering connection.
+
+### If I peer VNetA to VNetB and I peer VNetB to VNetC, does that mean VNetA and VNetC are peered?
+No. Transitive peering is not supported. You must peer VNetA and VNetC for this to take place.
+
+### Are there any bandwidth limitations for peering connections?
+No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limits by the VM or compute resource.
+
+## Virtual network TAP
+
+### Which Azure regions are available for virtual network TAP?
+During developer preview, the capability is available in the West Central US region. The monitored network interfaces , the virtual network TAP resource, and the collector or analytics solution must be deployed in the same region.
+
+### Does Virtual Network TAP support any filtering capabilities on the mirrored packets?
+Filtering capabilities are not supported with the virtual network TAP preview. When a TAP configuration is added to a network interface a deep copy of all the ingress and egress traffic on the network interface is streamed to the TAP destination.
+
+### Can multiple TAP configurations be added to a monitored network interface?
+A monitored network interface can have only one TAP configuration. Check with the individual [partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) for the capability to stream multiple copies of the TAP traffic to the analytics tools of your choice.
+
+### Can the same virtual network TAP resource aggregate traffic from monitored network interfaces in more than one virtual network?
+Yes. The same virtual network TAP resource can be used to aggregate mirrored traffic from monitored network interfaces in peered virtual networks in the same subscription or a different subscription. The virtual network TAP resource and the destination load balancer or destination network interface must be in the same subscription. All subscriptions must be under the same Azure Active Directory tenant.
+
+### Are there any performance considerations on production traffic if I enable a virtual network TAP configuration on a network interface?
+
+Virtual network TAP is in developer preview. During preview, there is no service level agreement. The capability should not be used for production workloads. When a virtual machine network interface is enabled with a TAP configuration, the same resources on the azure host allocated to the virtual machine to send the production traffic is used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
+
+### Is accelerated networking for [Linux](create-vm-accelerated-networking-cli.md) or [Windows](create-vm-accelerated-networking-powershell.md) supported with virtual network TAP?
+
+You will be able to add a TAP configuration on a network interface attached to a virtual machine that is enabled with accelerated networking. But the performance and latency on the virtual machine will be affected by adding TAP configuration since the offload for mirroring traffic is currently not supported by Azure accelerated networking.

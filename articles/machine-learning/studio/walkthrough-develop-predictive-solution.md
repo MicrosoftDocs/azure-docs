@@ -4,18 +4,17 @@ description: A detailed walkthrough showing how to create a predictive analytics
 keywords: credit risk, predictive analytics solution,risk assessment
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
-editor: cgronlun
+author: heatherbshapiro
+ms.author: hshapiro
 
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/23/2017
-ms.author: garye
 
 ---
 # Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning

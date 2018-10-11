@@ -1,0 +1,54 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Active Directory B2B Documentation
+metadata:
+  document_id: 
+  title: Azure Active Directory B2B Documentation - Tutorials, quickstarts, concepts, references | Microsoft Docs
+  description: Learn how to use B2B guest user access so you can securely share resources and collaborate with external partners.
+  services: active-directory
+  ms.component: authentication
+  author: msmimart
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/10/2018
+  ms.author: mimart
+abstract:
+  description: "Learn how to use Azure AD business-to-business (B2B) collaboration to securely share your company's applications and services with guest users and external partners from any organization, while maintaining control over your own corporate data. 
+Here are some of the key features:<ul><li>Through a simple invitation and redemption process, guest users can start collaborating on the resources you want them to access.</li><li>Your guest users and external partners manage their own identities through Azure AD, social email accounts, or any identity provider.</li><li>You can protect your corporate resources with Azure AD features like multi-factor authentication.</li><li>You can use APIs to customize the experience, for example through a self-service sign-up portal.</li></ul>The following resources help you to quickly get started."
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video.png
+      width: 246  
+    title: Azure AD B2B explained
+    href: https://www.youtube.com/watch?v=AhwrweCBdsc
+    width: 246
+sections: 
+- title: 5-minute quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to invite guest users and get started with B2B collaboration.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: ./media/index/i_security-management.png
+      text: Add guest users in the Azure portal
+      href: b2b-quickstart-add-guest-users-portal.md
+    - image: 
+        src: ./media/index/i_security-management.png
+      text: Add a guest user with PowerShell
+      href: b2b-quickstart-invite-powershell.md
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn more about setting up B2B collaboration and securing your company's resources.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">Bulk invite B2B guest users with PowerShell</a>
+    - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">Enforce multi-factor authentication for B2B guest users</a>

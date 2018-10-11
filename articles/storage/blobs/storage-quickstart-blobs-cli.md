@@ -1,26 +1,26 @@
 ---
-title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using the Azure CLI | Microsoft Docs
-description: In this quickstart, you use the Azure CLI to create a storage account and a container. Then you use the CLI to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: Azure Quickstart - Create a blob in object storage using Azure CLI | Microsoft Docs
+description: In this quickstart, you use the Azure CLI  in object (Blob) storage. Then you use the CLI to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: tamram
-manager: jeconnoc
+author: roygara
+
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
-ms.author: tamram
+ms.date: 04/09/2018
+ms.author: rogarana
 ---
 
 # Quickstart: Upload, download, and list blobs using the Azure CLI
 
-The Azure CLI is Azure's command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also  install it on macOS, Linux, or Windows and run it from the command line. In this quickstart, you learn to use the Azure CLI to upload and download data to and from Azure Blob storage.
+The Azure CLI is Azure's command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows and run it from the command line. In this quickstart, you learn to use the Azure CLI to upload and download data to and from Azure Blob storage.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to determine your version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to determine your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
 

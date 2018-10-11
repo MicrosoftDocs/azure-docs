@@ -1,28 +1,31 @@
-﻿---
-title: Govern Azure virtual machines with Azure CLI | Microsoft Docs
-description: Tutorial - Manage Azure virtual machines by applying RBAC, polices, locks and tags with Azure CLI
+---
+title: Tutorial - Govern Azure virtual machines with Azure CLI | Microsoft Docs
+description: In this tutorial, you learn how to use the Azure CLI to manage Azure virtual machines by applying RBAC, polices, locks and tags
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
-ms.date: 02/21/2018
+ms.topic: tutorial
+ms.date: 07/20/2018
 ms.author: tomfitz
+ms.custom: mvc
 
+#Customer intent: As an IT administrator, I want to learn how to control and manage VM resources so that I can secure and audit resource access, and group resources for billing or management.
 ---
-# Virtual machine governance with Azure CLI
+
+# Tutorial: Learn about Linux virtual machine governance with Azure CLI
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-To install and use the CLI locally, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Understand scope
 
@@ -40,17 +43,17 @@ Currently, the resource group is empty.
 
 ## Role-based access control
 
-You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../active-directory/role-based-access-control-what-is.md) enables you to manage which users have permission to complete specific actions at a scope.
+You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../role-based-access-control/overview.md) enables you to manage which users have permission to complete specific actions at a scope.
 
 To create and remove role assignments, users must have `Microsoft.Authorization/roleAssignments/*` access. This access is granted through the Owner or User Access Administrator roles.
 
 For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
 
-* [Virtual Machine Contributor](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Network Contributor](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage Account Contributor](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../../active-directory/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
+Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
 
 The following example creates an Azure Active Directory group named *VMDemoContributors* with a mail nickname of *vmDemoGroup*. The mail nickname serves as an alias for the group.
 
@@ -66,13 +69,9 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
-## Azure policies
+## Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### Apply policies
-
-Your subscription already has several policy definitions. To see the available policy definitions, use the [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) command:
+[Azure Policy](../../azure-policy/azure-policy-introduction.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use the [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) command:
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table

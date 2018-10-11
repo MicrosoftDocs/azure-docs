@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
@@ -35,7 +35,7 @@ In addition to helping protect your SQL Database resources, Security Center also
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. The Free tier of Security Center is enabled with your subscription. For more information on Security Center’s Free and Standard tiers, see [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
-Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md). The Security Center FAQ provides information on [how permissions are handled in Security Center](security-center-faq.md#permissions).
+Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../role-based-access-control/role-assignments-portal.md). The Security Center FAQ provides information on [how permissions are handled in Security Center](security-center-faq.md#permissions).
 
 ## Access Security Center
 You access Security Center from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). [Sign in to the portal](https://portal.azure.com/) and select the **Security Center option**.

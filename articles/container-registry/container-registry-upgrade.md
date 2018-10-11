@@ -2,22 +2,25 @@
 title: Upgrade a Classic Azure container registry
 description: Take advantage of the expanded feature set of Basic, Standard, and Premium managed container registries by upgrading your unmanaged Classic container registry.
 services: container-registry
-author: mmacy
-manager: timlt
+author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
-ms.author: marsma
+ms.date: 08/28/2018
+ms.author: danlep
 ---
 
 # Upgrade a Classic container registry
 
-Azure Container Registry (ACR) is available in several service tiers, [known as SKUs](container-registry-skus.md). The initial release of ACR offered a single SKU, Classic, that lacks several features inherent to the Basic, Standard, and Premium SKUs (collectively known as *managed* registries). This article details how to migrate your unmanaged Classic registry to one of the managed SKUs so that you can take advantage of their enhanced feature set.
+Azure Container Registry (ACR) is available in several service tiers, [known as SKUs](container-registry-skus.md). The initial release of ACR offered a single SKU, Classic, that lacks several features inherent to the Basic, Standard, and Premium SKUs (collectively known as *managed* registries).
+
+The Classic SKU is being deprecated, and will be unavailable after March 2019. This article details how to migrate your unmanaged Classic registry to one of the managed SKUs so that you can take advantage of their enhanced feature set.
 
 ## Why upgrade?
 
-Because of the limited capabilities of Classic unmanaged registries, we recommend all Classic registries be upgraded to Basic, Standard, or Premium managed registries. These higher-level SKUs more deeply integrate the registry into the capabilities of Azure.
+The Classic registry SKU is being **deprecated**, and will be unavailable from **March 2019**. All existing Classic registries should be upgraded prior to March 2019.
+
+Because of the planned deprecation and limited capabilities of Classic unmanaged registries, all Classic registries be upgraded to Basic, Standard, or Premium managed registries. These higher-level SKUs more deeply integrate the registry into the capabilities of Azure.
 
 Managed registries provide:
 
@@ -26,14 +29,16 @@ Managed registries provide:
 * [Geo-replication](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Most of all, a Classic registry depends on the storage account that Azure automatically provisioned in your Azure subscription when you created the registry. By contrast, the Basic, Standard, and Premium SKUs take advantage of *managed storage*. That is, Azure transparently manages the storage of your images for you--a separate storage account is not created in your own subscription.
+The Classic registry depends on the storage account that Azure automatically provisions in your Azure subscription when you create the registry. By contrast, the Basic, Standard, and Premium SKUs take advantage of Azure's [advanced storage features](container-registry-storage.md) by transparently handling the storage of your images for you. A separate storage account is not created in your own subscription.
 
 Managed registry storage provides the following benefits:
 
-* Container images are [encrypted at rest](../storage/common/storage-service-encryption.md).
-* Images are stored using [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage), assuring backup of your images with multi-region replication.
+* Container images are [encrypted at rest](container-registry-storage.md#encryption-at-rest).
+* Images are stored using [geo-redundant storage](container-registry-storage.md#geo-redundant-storage), assuring backup of your images with multi-region replication.
 * Ability to freely [move between SKUs](container-registry-skus.md#changing-skus), enabling higher throughput when you choose a higher-level SKU. With each SKU, ACR can meet your throughput requirements as your needs increase.
 * Unified security model for the registry and its storage provides simplified rights management. You manage permissions only for the container registry, without having to also manage permissions for a separate storage account.
+
+For additional details on image storage in ACR, see [Container image storage in Azure Container Registry](container-registry-storage.md).
 
 ## Migration considerations
 
@@ -120,6 +125,6 @@ Once you've upgraded a Classic registry to Basic, Standard, or Premium, Azure no
 [update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
 
 <!-- LINKS - internal -->
-[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-update]: /cli/azure/acr#az-acr-update
 [azure-cli]: /cli/azure/install-azure-cli
 [azure-portal]: https://portal.azure.com

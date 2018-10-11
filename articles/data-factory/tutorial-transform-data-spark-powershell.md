@@ -1,19 +1,18 @@
----
+﻿---
 title: 'Transform data using Spark in Azure Data Factory | Microsoft Docs'
 description: 'This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+author: douglaslMS
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: shengc
+ms.author: douglasl
 ---
 # Transform data in the cloud by using Spark activity in Azure Data Factory
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that transforms data using Spark Activity and an on-demand HDInsight linked service. You perform the following steps in this tutorial:
@@ -24,9 +23,6 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
 > * Author and deploy a pipeline. 
 > * Start a pipeline run.
 > * Monitor the pipeline run.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -198,12 +194,12 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
     ```powershell
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
-2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     Run the following command to view all the subscriptions for this account:
 

@@ -3,18 +3,19 @@ title: Create features for data in SQL Server using SQL and Python | Microsoft D
 description: Process Data from SQL Azure
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: ''
 
 ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;garye
+ms.author: deguhath
 
 ---
 # Create features for data in SQL Server using SQL and Python
@@ -32,7 +33,7 @@ This **menu** links to topics that describe how to create features for data in v
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-quickstart-create-account.md)
 * Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md) for instructions on how to move the data there.
 
 ## <a name="sql-featuregen"></a>Feature generation with SQL

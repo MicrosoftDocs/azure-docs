@@ -1,21 +1,16 @@
 ---
 title: Manage logic apps with Visual Studio - Azure Logic Apps | Microsoft Docs
 description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
-author: ecfan
-manager: SyntaxC4
-editor: ''
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.author: estfan; LADocs
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
 # Manage logic apps with Visual Studio
@@ -62,7 +57,7 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
     <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">how to install this extension from inside Visual Studio</a>. 
     Make sure that you restart Visual Studio after you finish installing.
 
-* Access to the web while using the embedded Logic App Designer
+* Access to the web while using the embedded Logic Apps Designer
 
   The designer requires an internet connection to create resources in Azure 
   and to read the properties and data from connectors in your logic app. 
@@ -105,21 +100,21 @@ or **Resource Types**, follow these steps:
 
 ## Open in Visual Studio
 
-In Visual Studio, you can open logic apps that were 
-created and deployed either directly from the Azure portal 
-or as Azure Resource Manager projects from Visual Studio.
+In Visual Studio, you can open logic apps previously created 
+and deployed either directly through the Azure portal 
+or as Azure Resource Manager projects with Visual Studio.
 
 1. Open Cloud Explorer, and find your logic app. 
 
 2. On the logic app's shortcut menu, 
-select **Open With Logic App Editor**.
+select **Open with Logic App Editor**.
 
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
 
   ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   After the logic app opens in Logic App Designer, 
+   After the logic app opens in Logic Apps Designer, 
    at the bottom of the designer, you can choose **Code View** 
    so that you can review the underlying logic app definition structure. 
    If you want to create a deployment template for the logic app, 
@@ -134,8 +129,8 @@ select **Open With Logic App Editor**.
 You can download logic apps from the 
 <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 and save them as [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
-templates, which you can work on locally with Visual Studio 
-and customize for different deployment environments. 
+templates. You can then locally edit the templates with Visual Studio 
+and customize logic apps for different deployment environments. 
 Downloading logic apps automatically *parameterizes* their 
 definitions inside [Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment), 
 which also use JavaScript Object Notation (JSON).
@@ -145,14 +140,13 @@ then find and select the logic app
 that you want to download from Azure.
 
 2. On that app's shortcut menu, 
-select **Open With Logic App Editor**.
+select **Open with Logic App Editor**.
 
-   After the logic app opens in Logic App Designer, 
-   you can chooose **Code View** so that you can 
-   inspect the structure for the underlying logic app definition. 
+   The Logic App Designer opens and shows the logic app. 
+   To review logic app's underlying definition and structure, 
+   at the bottom of the designer, choose **Code View**. 
 
-3. After the logic app appears in Logic App Designer, 
-on the designer's toolbar, choose **Download**.
+3. On the designer toolbar, choose **Download**.
 
    ![Choose "Download"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
 
@@ -226,19 +220,22 @@ For example:
 
 ## Disable or enable logic app
 
-Without deleting your logic app, 
-you can stop the trigger from firing 
-the next time when the trigger condition is met. 
-Disabling your logic app prevents creating 
-and running future workflow instances for your logic app.
+Without deleting your logic app, you can stop the trigger from 
+firing the next time when the trigger condition is met. 
+Disabling your logic app prevents the Logic Apps engine 
+from creating and running future workflow instances for your logic app.
 In Cloud Explorer, open your logic app's shortcut menu, 
 and select **Disable**.
 
 ![Disable your logic app](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
-To let your logic app resume firing ger fire again 
-enable your logic app so that the trigger fires again when 
-the trigger criteria, in Cloud Explorer, 
+> [!NOTE]
+> When you disable a logic app, no new runs are instantiated. 
+> All in-progress and pending runs will continue until they finish, 
+> which might take time to complete. 
+
+When you're ready for your logic app to resume operation, 
+you can reactivate your logic app. In Cloud Explorer, 
 open your logic app's shortcut menu, and select **Enable**.
 
 ![Enable your logic app](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
@@ -251,10 +248,16 @@ and select **Delete**.
 
 ![Delete your logic app](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
 
+> [!NOTE]
+> When you delete a logic app, no new runs are instantiated. 
+> All in-progress and pending runs are canceled. 
+> If you have thousands of runs, cancellation might 
+> take significant time to complete. 
+
 ## Next steps
 
-In this article, you learned how to edit and manage deployed logic apps with Visual Studio. 
-Next, learn about advanced deployment for logic apps with Visual Studio:
+In this article, you learned how to manage deployed logic apps with Visual Studio. 
+Next, learn about customizing logic app definitions for deployment:
 
 > [!div class="nextstepaction"]
 > [Author logic app definitions in JSON](../logic-apps/logic-apps-author-definitions.md)

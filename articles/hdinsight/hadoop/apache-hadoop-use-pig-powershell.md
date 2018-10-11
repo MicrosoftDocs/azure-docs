@@ -1,21 +1,14 @@
 ---
-title: Use Hadoop Pig with PowerShell in HDInsight - Azure | Microsoft Docs
+title: Use Hadoop Pig with PowerShell in HDInsight - Azure 
 description: Learn how to submit Pig jobs to a Hadoop cluster on HDInsight using Azure PowerShell.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/16/2018
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 05/09/2018
+ms.author: jasonh
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -43,7 +36,7 @@ Azure PowerShell provides *cmdlets* that allow you to remotely run Pig jobs on H
 
 The following cmdlets are used when running Pig jobs on a remote HDInsight cluster:
 
-* **Login-AzureRmAccount**: Authenticates Azure PowerShell to your Azure Subscription.
+* **Connect-AzureRmAccount**: Authenticates Azure PowerShell to your Azure Subscription.
 * **New-AzureRmHDInsightPigJobDefinition**: Creates a *job definition* by using the specified Pig Latin statements.
 * **Start-AzureRmHDInsightJob**: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
 * **Wait-AzureRmHDInsightJob**: Uses the job object to check the status of the job. It waits until the job has completed, or the wait time has been exceeded.

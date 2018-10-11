@@ -2,18 +2,15 @@
 title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources | Microsoft Docs'
 description: Learn all about the SQL .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
-documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
-ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 03/08/2018
+ms.topic: reference
+ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -27,13 +24,11 @@ ms.custom: H1Hack27Feb2017
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
@@ -54,8 +49,45 @@ ms.custom: H1Hack27Feb2017
 
 The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
 
-> [!NOTE] 
-> The Azure Cosmos DB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+### <a name="2.1.2"/>2.1.2
+
+* Diagnostic tracing improvements.
+
+### <a name="2.1.1"/>2.1.1
+
+* Added more resilience to Multi-region request transient failures.
+
+### <a name="2.1.0"/>2.1.0
+
+* Added Multi-region write support.
+* Cross partition query performance improvements with TOP and MaxBufferedItemCount.
+
+### <a name="2.0.0"/>2.0.0
+
+* Added request cancellation support.
+* Added SetCurrentLocation to ConnectionPolicy, which automatically populates the preferred locations based on the region.
+* Fixed Bug in Cross Partition Queries with Min/Max and a filter that matches no documents on an individual partition.
+* DocumentClient methods now have parity with IDocumentClient.
+* Updated direct TCP transport stack to reduce the number of connections established.
+* Added support for Direct Mode TCP for non-Windows clients.
+
+### <a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Added request cancellation support.
+* Added SetCurrentLocation to ConnectionPolicy, which automatically populates the preferred locations based on the region.
+* Fixed Bug in Cross Partition Queries with Min/Max and a filter that matches no documents on an individual partition.
+
+### <a name="2.0.0-preview"/>2.0.0-preview
+
+* DocumentClient methods now have parity with IDocumentClient.
+* Updated direct TCP transport stack to reduce the number of connections established.
+* Added support for Direct Mode TCP for non-Windows clients.
+
+### <a name="1.10.0"/>1.10.0
+
+* Added ConsistencyLevel Property to FeedOptions.
+* Added JsonSerializerSettings to RequestOptions and FeedOptions.
+* Added EnableReadRequestsFallback to ConnectionPolicy.
 
 ### <a name="1.9.1"/>1.9.1
 
@@ -64,7 +96,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.8.2"/>1.8.2
 
-* Fixed bug that is hit under certain race conditions, that results in intermittent “Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token” errors when using Session consistency level.
+* Fixed bug that is hit under certain race conditions, that results in intermittent "Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token" errors when using Session consistency level.
 
 ### <a name="1.8.1"/>1.8.1
 
@@ -172,6 +204,10 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.2](#2.1.2) |October 04, 2018 |--- |
+| [2.1.1](#2.1.1) |September 27, 2018 |--- |
+| [2.1.0](#2.1.0) |September 21, 2018 |--- |
+| [2.0.0](#2.0.0) |September 07, 2018 |--- |
 | [1.9.1](#1.9.1) |March 09, 2018 |--- |
 | [1.8.2](#1.8.2) |February 21, 2018 |--- |
 | [1.8.1](#1.8.1) |February 05, 2018 |--- |

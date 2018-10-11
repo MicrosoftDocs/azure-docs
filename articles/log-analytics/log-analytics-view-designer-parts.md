@@ -4,7 +4,7 @@ description: By using View Designer in Log Analytics, you can create custom view
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/17/2018
+ms.topic: conceptual
+ms.date: 03/12/2018
 ms.author: bwren
-
+ms.component: 
 ---
+
 # Reference guide to View Designer visualization parts in Log Analytics
 By using View Designer in Azure Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations from your Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
 
@@ -25,21 +26,19 @@ For more information about View Designer, see:
 * [View Designer](log-analytics-view-designer.md): Provides an overview of View Designer and procedures for creating and editing custom views.
 * [Tile reference](log-analytics-view-designer-tiles.md): Provides a reference to the settings for each available tile in your custom views.
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), the queries in all views must be written in the [new query language](https://go.microsoft.com/fwlink/?linkid=856078). Any views that were created before the workspace upgrade are automatically converted.
 
 The available View Designer tile types are described in the following table:
 
 | View type | Description |
 |:--- |:--- |
 | [List of queries](#list-of-queries-part) |Displays a list of log search queries. You can select each query to display its results. |
-| [Number and list](#number-amp-list-part) |The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
-| [Two numbers and list](#two-numbers-amp-list-part) |The header displays two numbers that show counts of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
-| [Donut and list](#donut-amp-list-part) |The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records. |
-| [Two timelines and list](#two-timelines-amp-list-part) |The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Number and list](#number-and-list-part) |The header displays a single number that shows a count of records from a log search query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Two numbers and list](#two-numbers-and-list-part) |The header displays two numbers that show counts of records from separate log search queries. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Donut and list](#donut-and-list-part) |The header displays a single number that summarizes a value column in a log query. The donut graphically displays results of the top three records. |
+| [Two timelines and list](#two-timelines-and-list-part) |The header displays the results of two log queries over time as column charts, with a callout that displays a single number that summarizes a value column in a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Information](#information-part) |The header displays static text and an optional link. The list displays one or more items with a static title and text. |
-| [Line chart, callout, and list](#line-chart-callout-amp-list-part) |The header displays a line chart, with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
-| [Line chart and list](#line-chart-amp-list-part) |The header displays a line chart, with multiple series from a log query over time. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Line chart, callout, and list](#line-chart-callout-and-list-part) |The header displays a line chart, with multiple series from a log query over time and a callout with a summarized value. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
+| [Line chart and list](#line-chart-and-list-part) |The header displays a line chart, with multiple series from a log query over time. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time. |
 | [Stack of line charts part](#stack-of-line-charts-part) |Displays three separate line charts, with multiple series from a log query over time. |
 
 The next sections describe the tile types and their properties in detail.
@@ -75,13 +74,14 @@ The header displays a single number that shows a count of records from a log sea
 | **Title** | |
 | Legend |The text that's displayed at the top of the header. |
 | Query |The query to run for the header. The count of the records that are returned by the query is displayed. |
+| Click-through navigation | Action taken when you click on the header.  For more information, see [Common Settings](#click-through-navigation). |
 | **List** | |
 | Query |The query to run for the list. The first two properties for the first ten records in the results are displayed. The first property is a text value, and the second property is a numeric value. Bars are automatically created that are based on the relative value of the numeric column.<br><br>Use the `Sort` command in the query to sort the records in the list. To run the query and return all records, you can select **See all**. |
 | Hide graph |Select this link to disable the graph at the right of the numeric column. |
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
 | Name and value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
-| Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
+| Click-through navigation | Action taken when you click on an item in the list.  For more information, see [Common Settings](#click-through-navigation). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
 | Value |The text that's displayed at the top of the second column. |
@@ -100,6 +100,8 @@ The header has two numbers that display a count of records from separate log sea
 | New Group |Select this link to create a new group in the view, starting at the current view. |
 | Icon |The image file that's displayed next to the result in the header. |
 | Use Icon |Select this link to display the icon. |
+| **Title Navigation** | |
+| Click-through navigation | Action taken when you click on the header.  For more information, see [Common Settings](#click-through-navigation). |
 | **Title** | |
 | Legend |The text that's displayed at the top of the header. |
 | Query |The query to run for the header. The count of the records that are returned by the query is displayed. |
@@ -110,7 +112,7 @@ The header has two numbers that display a count of records from separate log sea
 | Color |The color of the bars or sparklines. |
 | Operation |The operation to perform for the sparkline. For more information, see [Common Settings](#sparklines). |
 | Name and value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
-| Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
+| Click-through navigation | Action taken when you click on an item in the list.  For more information, see [Common Settings](#click-through-navigation). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
 | Value |The text that's displayed at the top of the second column. |
@@ -134,6 +136,7 @@ The header displays a single number that summarizes a value column in a log quer
 | Subtitle |The text that's displayed under the title at the top of the header. |
 | **Donut** | |
 | Query |The query to run for the donut. The first property is a text value, and the second property is a numeric value. |
+| Click-through navigation | Action taken when you click on the header.  For more information, see [Common Settings](#click-through-navigation). |
 | **Donut** |**> Center** |
 | Text |The text that's displayed under the value inside the donut. |
 | Operation |The operation to perform on the value property to summarize it as a single value.<ul><li>Sum: Adds the values of all records.</li><li>Percentage: The ratio of the records returned by the values in **Result values used in center operation** to the total records in the query.</li></ul> |
@@ -150,7 +153,7 @@ The header displays a single number that summarizes a value column in a log quer
 | Color |The color of the bars or sparklines. |
 | Operation |The operation to perform for the sparkline. For more information, see [Common Settings](#sparklines). |
 | Name and value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
-| Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
+| Click-through navigation | Action taken when you click on an item in the list.  For more information, see [Common Settings](#click-through-navigation). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
 | Value |The text that's displayed at the top of the second column. |
@@ -169,6 +172,8 @@ The header displays the results of two log queries over time as column charts, w
 | New Group |Select this link to create a new group in the view, starting at the current view. |
 | Icon |The image file that's displayed next to the result in the header. |
 | Use Icon |Select this link to display the icon. |
+| **Title Navigation** | |
+| Click-through navigation | Action taken when you click on the header.  For more information, see [Common Settings](#click-through-navigation). |
 | **First chart<br>Second chart** | |
 | Legend |The text that's displayed under the callout for the first series. |
 | Color |The color to use for the columns in the series. |
@@ -180,7 +185,7 @@ The header displays the results of two log queries over time as column charts, w
 | Enable sparklines |Select this link to display a sparkline instead of a horizontal bar. For more information, see [Common Settings](#sparklines). |
 | Color |The color of the bars or sparklines. |
 | Operation |The operation to perform for the sparkline. For more information, see [Common Settings](#sparklines). |
-| Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
+| Click-through navigation | Action taken when you click on an item in the list.  For more information, see [Common Settings](#click-through-navigation). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
 | Value |The text that's displayed at the top of the second column. |
@@ -225,6 +230,7 @@ The header displays a line chart with multiple series from a log query over time
 | Subtitle |The text that's displayed under the title at the top of the header. |
 | **Line chart** | |
 | Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the *measure* keyword to summarize results. If the query uses the *interval* keyword, the x-axis of the chart uses this time interval. If the query does not include the *interval* keyword, the x-axis uses hourly intervals. |
+| Click-through navigation | Action taken when you click on the header.  For more information, see [Common Settings](#click-through-navigation). |
 | **Line chart** |**> Callout** |
 | Callout title |The text that's displayed above the callout value. |
 | Series Name |Property value for the series to use for the callout value. If no series is provided, all records from the query are used. |
@@ -240,7 +246,7 @@ The header displays a line chart with multiple series from a log query over time
 | Color |The color of the bars or sparklines. |
 | Operation |The operation to perform for the sparkline. For more information, see [Common Settings](#sparklines). |
 | Name and value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
-| Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
+| Click-through navigation | Action taken when you click on an item in the list.  For more information, see [Common Settings](#click-through-navigation). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
 | Value |The text that's displayed at the top of the second column. |
@@ -264,6 +270,7 @@ The header displays a line chart with multiple series from a log query over time
 | Subtitle |The text that's displayed under the title at the top of the header. |
 | **Line chart** | |
 | Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the *measure* keyword to summarize results. If the query uses the *interval* keyword, the x-axis of the chart uses this time interval. If the query does not include the *interval* keyword, the x-axis uses hourly intervals. |
+| Click-through navigation | Action taken when you click on the header.  For more information, see [Common Settings](#click-through-navigation). |
 | **Line chart** |**> Y-axis** |
 | Use Logarithmic Scale |Select this link to use a logarithmic scale for the y-axis. |
 | Units |Specify the units for the values to be returned by the query. This information is used to display chart labels that indicate the value types and, optionally, to convert the values. The *Unit* type specifies the category of the unit and defines the available *Current Unit* type values. If you select a value in *Convert to*, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
@@ -275,7 +282,7 @@ The header displays a line chart with multiple series from a log query over time
 | Color |The color of the bars or sparklines. |
 | Operation |The operation to perform for the sparkline. For more information, see [Common Settings](#sparklines). |
 | Name and value separator |The single-character delimiter to use to parse the text property into multiple values. For more information, see [Common Settings](#sparklines). |
-| Navigation query |The query to run when you select an item in the list. For more information, see [Common Settings](#navigation-query). |
+| Click-through navigation | Action taken when you click on an item in the list.  For more information, see [Common Settings](#click-through-navigation). |
 | **List** |**> Column titles** |
 | Name |The text that's displayed at the top of the first column. |
 | Value |The text that's displayed at the top of the second column. |
@@ -298,6 +305,7 @@ The stack of line chart displays three separate line charts, with multiple serie
 | Subtitle |The text that's displayed under the title at the top of the chart. |
 | **Chart 1<br>Chart 2<br>Chart 3** |**Line chart** |
 | Query |The query to run for the line chart. The first property is a text value, and the second property is a numeric value. This query ordinarily uses the *measure* keyword to summarize results. If the query uses the *interval* keyword, the x-axis of the chart uses this time interval. If the query does not include the *interval* keyword, the x-axis uses hourly intervals. |
+| Click-through navigation | Action taken when you click on the header.  For more information, see [Common Settings](#click-through-navigation). |
 | **Chart** |**> Y-axis** |
 | Use Logarithmic Scale |Select this link to use a logarithmic scale for the y-axis. |
 | Units |Specify the units for the values to be returned by the query. This information is used to display chart labels that indicate the value types and, optionally, to convert the values. The *Unit* type specifies the category of the unit and defines the available *Current Unit* type values. If you select a value in *Convert to*, the numeric values are converted from the *Current Unit* type to the *Convert to* type. |
@@ -311,10 +319,18 @@ The name and value separator is the single-character delimiter to use to parse t
 
 For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (-) for the name and value separator and *City-Building* for the name. This approach parses each value into two properties called *City* and *Building*.
 
-### <a name="navigation-query"></a>Navigation query
-The navigation query is the query to run when you select an item in the list. Use *{selected item}* to include the syntax for the item that the user selected.
+### <a name="click-through-navigation"></a>Click-Through Navigation
+Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Search portal](log-analytics-log-search-portals.md) or launch another view.
 
-For example, if the query has a column named *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* is run when you select a computer. If the navigation query is *Type=Event {selected item}*, the query *Type=Event Computer="MyComputer"* is run.
+The following table describes the settings for click-through navigation.
+
+| Setting           | Description |
+|:--|:--|
+| Log Search (Auto) | Log search to run when you select a header item.  This is the same log search that the item is based on.
+| Log Search        | Log search to run when you select an item in a list.  Type the query into the **Navigation query** box.   Use *{selected item}* to include the syntax for the item that the user selected.  For example, if the query has a column named *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* is run when you select a computer. If the navigation query is *Type=Event {selected item}*, the query *Type=Event Computer="MyComputer"* is run. |
+| View              | View to open when you select a header item or an item in a list.  Select the name of a view in your workspace in the **View Name** box. |
+
+
 
 ### <a name="sparklines"></a>Sparklines
 A sparkline is a small line chart that illustrates the value of a list entry over time. For visualization parts with a list, you can select whether to display a horizontal bar, which indicates the relative value of a numeric column, or a sparkline, which indicates its value over time.

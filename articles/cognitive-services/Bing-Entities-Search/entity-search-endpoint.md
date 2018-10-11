@@ -1,12 +1,14 @@
 ---
-title: Entity Search endpoints | Microsoft Docs
+title: Bing Entity Search endpoints
+titlesuffix: Azure Cognitive Services
 description: Summary of the Entity Search API endpoint.
 services: cognitive-services
 author: v-jaswel
-manager: kaiq
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: bing-entity-search
-ms.topic: article
+ms.component: bing-entity-search
+ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: v-jaswel
 ---
@@ -14,7 +16,7 @@ ms.author: v-jaswel
 # Entity Search endpoints
 The **Entity Search API**  includes one endpoint.
 
-##Endpoint
+## Endpoint
 To request entity search results, send a request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
 Endpoint `GET`: 

@@ -3,7 +3,7 @@ title: Azure Service Bus access control with Shared Access Signatures | Microsof
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2018
-ms.author: sethm;clemensv
+ms.date: 09/14/2018
+ms.author: spelluru
 
 ---
 
@@ -28,7 +28,7 @@ SAS guards access to Service Bus based on authorization rules. Those are configu
 
 Shared Access Signatures are a claims-based authorization mechanism using simple tokens. Using SAS, keys are never passed on the wire. Keys are used to cryptographically sign information that can later be verified by the service. SAS can be used similar to a username and password scheme where the client is in immediate possession of an authorization rule name and a matching key. SAS can also be used similar to a federated security model, where the client receives a time-limited and signed access token from a security token service without ever coming into possession of the signing key.
 
-SAS authentication in Service Bus is configured with named [Shared Access Authorization Rules](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) having associated access rights, and a pair of primary and secondary cryptographic keys. The keys are 256-bit values in Base64 representation. You can configure rules at the namespace level, on Service Bus [relays](service-bus-fundamentals-hybrid-solutions.md#relays), [queues](service-bus-fundamentals-hybrid-solutions.md#queues), and [topics](service-bus-fundamentals-hybrid-solutions.md#topics).
+SAS authentication in Service Bus is configured with named [Shared Access Authorization Rules](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) having associated access rights, and a pair of primary and secondary cryptographic keys. The keys are 256-bit values in Base64 representation. You can configure rules at the namespace level, on Service Bus [relays](../service-bus-relay/relay-what-is-it.md), [queues](/service-bus-messaging/service-bus-messaging-overview.md#queues), and [topics](/service-bus-messaging/service-bus-messaging-overview.md#topics).
 
 The [Shared Access Signature](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) token contains the name of the chosen authorization rule, the URI of the resource that shall be accessed, an expiry instant, and an HMAC-SHA256 cryptographic signature computed over these fields using either the primary or the secondary cryptographic key of the chosen authorization rule.
 
@@ -271,6 +271,7 @@ The following table shows the access rights required for various operations on S
 | Deadletter a message |Listen |Any valid queue address |
 | Get the state associated with a message queue session |Listen |Any valid queue address |
 | Set the state associated with a message queue session |Listen |Any valid queue address |
+| Schedule a message for later delivery; for example, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Listen | Any valid queue address
 | **Topic** | | |
 | Create a topic |Manage |Any namespace address |
 | Delete a topic |Manage |Any valid topic address |
@@ -297,7 +298,6 @@ The following table shows the access rights required for various operations on S
 
 To learn more about Service Bus messaging, see the following topics.
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)

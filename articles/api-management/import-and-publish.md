@@ -3,7 +3,7 @@ title: Import and publish your first API in Azure API Management | Microsoft Doc
 description: Learn how to import and publish your first API with API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 
 ---
@@ -47,7 +47,9 @@ This section shows how to import and publish an OpenAPI specification backend AP
 
     ![Create an API](./media/api-management-get-started/create-api.png)
 
-    You can set the API values during creation or later by going to the **Settings** tab.  
+    You can set the API values during creation or later by going to the **Settings** tab. The red star next to a field indicates that the field is required.
+
+    Use the values from the table below to create your first API.
 
     |Setting|Value|Description|
     |---|---|---|
@@ -55,42 +57,42 @@ This section shows how to import and publish an OpenAPI specification backend AP
     |**Display name**|*Demo Conference API*|If you press tab after entering the service URL, APIM will fill out this field based on what is in the json. <br/>This name is displayed in the Developer portal.|
     |**Name**|*demo-conference-api*|Provides a unique name for the API. <br/>If you press tab after entering the service URL, APIM will fill out this field based on what is in the json.|
     |**Description**|Provide an optional description of the API.|If you press tab after entering the service URL, APIM will fill out this field based on what is in the json.|
-    |**API URL suffix**|*conference*|The suffix is appended to the base URL for the API management service. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.|
     |**URL scheme**|*HTTPS*|Determines which protocols can be used to access the API. |
-    |**Products**|*Unlimited*| Publish the API by associating the API with a product. To optionally add this new API to a product, type the product name. This step can be repeated multiple times to add the API to multiple products.<br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**. |
+    |**API URL suffix**|*conference*|The suffix is appended to the base URL for the API management service. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.|
+    |**Products**|*Unlimited*|Products are associations of one or more APIs. You can include a number of APIs into a Product and offer them to developers through the developer portal. <br/>You publish the API by associating the API with a product (in this example, *Unlimited*). To add this new API to a product, type the product name (you can also do it later from the **Settings** page). This step can be repeated multiple times to add the API to multiple products.<br/>To get access to the API, developers must first subscribe to a product. When they subscribe, they get a subscription key that is good for any API in that product. <br/> If you created the APIM instance, you are an administrator already, so you are subscribed to every product.<br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**. |
+    |Version this API?||For more information about versioning, see [Publish multiple versions of your API](api-management-get-started-publish-versions.md)|
+    
+    >[!NOTE]
+    > To publish the API, you must associate it with a product. You can do it from the **Settings page**.
+    
 3. Select **Create**.
 
 ## Test the new APIM API in the Azure portal
 
 Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.  
-1. Select the API you created in the previous step.
+1. Select the API you created in the previous step (from the **APIs** tab).
 2. Press the **Test** tab.
     ![Test API](./media/api-management-get-started/test-api.png)
 3. Click on **GetSpeakers**.
-    The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. The key is filled in automatically.
+    The page displays fields for query parameters, in this case none, and headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. The key is filled in automatically.
 4. Press **Send**.
 
     Backend responds with **200 OK** and some data.
 
 ## <a name="call-operation"> </a>Call an operation from the developer portal
 
-Operations can also be called **Developer portal** to test APIs. 
+Operations can also be called from the **Developer portal** to test APIs.
 
-1. Select the API you created in the "Import and publish a back-end API" step.
-2. Press **Developer portal**.
+1. Navigate to the **Developer portal**.
+![Developer portal](./media/api-management-get-started/developer-portal.png)
 
-    ![Test in Developer portal](./media/api-management-get-started/developer-portal.png)
-
-    The "Developer portal" site opens up.
-3. Select **API**.
-4. Select **Demo Conference API**.
-5. Click **GetSpeakers**.
+2. Select **APIS**, click on **Demo Conference API** and then **GetSpeakers**.
     
-    The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically.
-6. Press **Try it**.
-7. Press **Send**.
+    The page displays fields for query parameters, in this case none, and headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically.
+3. Press **Try it**.
+4. Press **Send**.
     
-    After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
+    After an operation is invoked, the developer portal shows the responses.  
 
 ## <a name="next-steps"> </a>Next steps
 

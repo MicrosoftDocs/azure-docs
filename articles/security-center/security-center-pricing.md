@@ -3,18 +3,18 @@ title: Upgrade to Security Center's Standard tier for enhanced security | Micros
 description: This article provides information on pricing for Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
-ms.author: terrylan
+ms.date: 08/06/2018
+ms.author: rkarlin
 
 ---
 # Upgrade to Security Center's Standard tier for enhanced security
@@ -31,7 +31,7 @@ For more information, see the Security Center [pricing page](https://azure.micro
 ## Try Standard free for 60 days
 The Standard tier is offered free for the first 60 days. At the end of 60 days, should you choose to continue using the service, we will automatically start charging for usage.
 
-You can upgrade an entire Azure subscription to the Standard tier, which is inherited by all resources within the subscription, or you can define a unique policy to upgrade a specific Resource Group only.
+You can upgrade an entire Azure subscription to the Standard tier, which is inherited by all resources within the subscription.
 
 To get the Standard tier:
 

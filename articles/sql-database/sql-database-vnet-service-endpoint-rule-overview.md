@@ -2,20 +2,25 @@
 title: "Virtual Network service endpoints and rules for Azure SQL Database | Microsoft Docs"
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your Azure SQL Database. You SQL Database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
-author: MightyPen
-manager: craigg
-ms.custom: "VNet Service endpoints"
-ms.topic: article
-ms.date: 02/20/2018
-ms.reviewer: genemi
+ms.service: sql-database
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: DhruvMsft
 ms.author: dmalik
+ms.reviewer: vanto, genemi
+manager: craigg
+ms.date: 09/18/2018
 ---
-# Use Virtual Network service endpoints and rules for Azure SQL Database
+# Use Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse
 
-*Virtual network rules* are one firewall security feature that controls whether your Azure SQL Database server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
+*Virtual network rules* are one firewall security feature that controls whether your Azure [SQL Database](sql-database-technical-overview.md) or [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
-
 
 #### How to create a virtual network rule
 
@@ -115,7 +120,7 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 For Azure SQL Database, the virtual network rules feature has the following limitations:
 
-- A Web App can be mapped to a private IP in a VNet/subnet. Even if service endpoints are turned ON from the given VNet/subnet, connections from the Web App to the server will have an Azure public IP source, not a VNet/subnet source. To enable connectivity from a Web App to a server that has VNet firewall rules, you must **Allow all Azure services** on the server.
+- A Web App can be mapped to a private IP in a VNet/subnet. Even if service endpoints are turned ON from the given VNet/subnet, connections from the Web App to the server will have an Azure public IP source, not a VNet/subnet source. To enable connectivity from a Web App to a server that has VNet firewall rules, you must **Allow Azure services to access server** on the server.
 
 - In the firewall for your SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the SQL Database.
 
@@ -123,8 +128,8 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
 
-- Turning ON virtual network service endpoints to Azure SQL Database also enables the endpoints for the MySQL and PostGres Azure services. However, with endpoints ON, attempts to connect from the endpoints to your MySQL or Postgres instances will fail.
-    - The underlying reason is that MySQL and PostGres do not presently support ACLing.
+- Turning ON virtual network service endpoints to Azure SQL Database also enables the endpoints for the MySQL and PostgreSQL Azure services. However, with endpoints ON, attempts to connect from the endpoints to your MySQL or PostgreSQL instances will fail.
+    - The underlying reason is that MySQL and PostgreSQL do not presently support ACLing.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
@@ -134,38 +139,36 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 When using service endpoints for Azure SQL Database, review the following considerations:
 
 - **Outbound to Azure SQL Database Public IPs is required**: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG [Service Tags](../virtual-network/security-overview.md#service-tags) for Azure SQL Database.
-- **Azure Database for PostgreSQL and MySQL are unsupported**: Service endpoints are not supported for Azure Database for PostgreSQL or MySQL. Enabling service endpoints to SQL Database will break connectivity to these services. We have a mitigation for this; please contact *dmalik@microsoft.com*.
 
 #### ExpressRoute
 
-If your network is connected to the Azure network through use of [ExpressRoute][expressroute-indexmd-744v], each circuit is configured with two public IP addresses at the Microsoft Edge. The two IP addresses are used to connect to Microsoft Services, such as to Azure Storage, by using Azure Public Peering.
-
-To allow communication from your circuit to Azure SQL Database, you must create IP network rules for the public IP addresses of your circuits. In order to find the public IP addresses of your ExpressRoute circuit, open a support ticket with ExpressRoute by using the Azure portal.
-
+If you are using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering or Microsoft peering, you will need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP address(es) that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  
+To allow communication from your circuit to Azure SQL Database, you must create IP network rules for the public IP addresses of your NAT.
 
 <!--
 FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deployment model'.
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## Impact of removing 'Allow all Azure Services'
+## Impact of removing 'Allow Azure services to access server'
 
-Many users want to remove **Allow all Azure Services** from their Azure SQL Servers and replace it with a VNet Firewall Rule.
+Many users want to remove **Allow Azure services to access server** from their Azure SQL Servers and replace it with a VNet Firewall Rule.
 However removing this affects the following Azure SQLDB features:
 
 #### Import Export Service
 Azure SQLDB Import Export Service runs on VMs in Azure. These VMs are not in your VNet and hence get an Azure IP when connecting to your
-database. On removing **Allow all Azure Services** these VMs will not be able to access your databases.
+database. On removing **Allow Azure services to access server** these VMs will not be able to access your databases.
 You can work around the problem. Run the BACPAC import or export directly in your code by using the DACFx API. Ensure that this is deployed in a VM that is in the VNet-subnet for which you have set the firewall rule.
 
 #### SQL Database Query Editor
-The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are not in your VNet. Therefore the VMs get an Azure IP when connecting to your database. On removing **Allow all Azure Services**, these VMs will not be able to access your databases.
+The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are not in your VNet. Therefore the VMs get an Azure IP when connecting to your database. On removing **Allow Azure services to access server**, these VMs will not be able to access your databases.
 
 #### Table Auditing
 At present there are two ways to enable auditing on your SQL Database. Table auditing fails after you have enabled service endpoints on your Azure SQL Server. Mitigation here is to move to Blob auditing.
 
 #### Impact on Data Sync
-Azure SQLDB has the Data Sync feature that connects to your databases using Azure IPs. When using service endpoints, it is likely that you will turn off **Allow all Azure Services** access to your logical server. This will break the Data Sync feature.
+Azure SQLDB has the Data Sync feature that connects to your databases using Azure IPs. When using service endpoints, it is likely that you will turn off **Allow Azure services to access server** access to your logical server. This will break the Data Sync feature.
 
 ## Impact of using VNet Service Endpoints with Azure storage
 
@@ -173,15 +176,14 @@ Azure Storage has implemented the same feature that allows you to limit connecti
 If you choose to use this feature with a Storage account that is being used by an Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQLDB features that are impacted by this.
 
 #### Azure SQLDW PolyBase
-PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. There is a mitigation for this; please contact *dmalik@microsoft.com* for more information.
+PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. There is a mitigation for this, and you may contact Microsoft support for more information.
 
 #### Azure SQLDB Blob Auditing
-Blob auditing pushes audit logs to your own storage account. If this storage account uses the VENT Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
+Blob auditing pushes audit logs to your own storage account. If this storage account uses the VNet Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
 
+## Adding a VNet Firewall rule to your server without turning On VNet Service Endpoints
 
-## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
-
-Long ago before this feature was enhanced, you were required you to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingServiceEndpoint** flag.
+Long ago, before this feature was enhanced, you were required to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingServiceEndpoint** flag.
 
 Merely setting a Firewall rule does not help secure the server. You must also turn VNet service endpoints On for the security to take effect. When you turn service endpoints On, your VNet-subnet experiences downtime until it completes the transition from Off to On. This is especially true in the context of large VNets. You can use the **IgnoreMissingServiceEndpoint** flag to reduce or eliminate the downtime during transition.
 
@@ -221,9 +223,20 @@ A list of several SQL Database error messages is documented [here][sql-database-
 
 This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your Azure SQL Database. The rule tells your SQL Database to accept communication from a particular subnet that has been tagged as being a *Virtual Network service endpoint*.
 
+> [!NOTE]
+> If you intend to add a service endpoint to the VNet firewall rules of your Azure SQL Database server, first ensure that service endpoints are turned On for the subnet.
+>
+> If service endpoints are not turned on for the subnet, the portal asks you to enable them. Click the **Enable** button on the same blade on which you add the rule.
+
 #### PowerShell alternative
 
 A PowerShell script can also create virtual network rules. The crucial cmdlet **New-AzureRmSqlServerVirtualNetworkRule**. If interested, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+
+#### REST API alternative
+
+Internally, the PowerShell cmdlets for SQL VNet actions call REST APIs. You can call the REST APIs directly.
+
+- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r]
 
 #### Prerequisites
 
@@ -236,7 +249,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 
 ### Azure portal steps
 
-1. Log in to the [Azure portal][http-azure-portal-link-ref-477t].
+1. Sign in to the [Azure portal][http-azure-portal-link-ref-477t].
 
 2. Then navigate the portal to **SQL servers** &gt; **Firewall / Virtual Networks**.
 
@@ -284,6 +297,8 @@ The virtual network rule feature for Azure SQL Database became available in late
 ## Next steps
 
 - [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r] with REST APIs
+
 
 
 <!-- Link references, to images. -->
@@ -300,9 +315,9 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
-[expressroute-indexmd-744v]: ../expressroute/index.md
+[expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 
@@ -316,7 +331,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
-[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
+[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 
 
@@ -324,6 +339,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
+[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
 
 
 

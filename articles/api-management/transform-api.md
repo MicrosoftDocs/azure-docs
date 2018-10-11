@@ -3,7 +3,7 @@ title: Transform and protect your API with Azure API Management | Microsoft Docs
 description: Learn how to protect your API with quotas and throttling (rate-limiting) policies.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 
 ---
@@ -51,7 +51,7 @@ This section shows how to hide the HTTP headers that you do not want to show to 
 
 To see the original response:
 
-1. Select the **API** tab.
+1. In your APIM service instance, select **APIs** (under **API MANAGEMENT**).
 2. Click **Demo Conference API** from your API list.
 3. Select the **GetSpeakers** operation.
 4. Click the **Test** tab, on the top of the screen.
@@ -63,24 +63,24 @@ To see the original response:
 
 ### Set the transformation policy
 
-1. Browse to your APIM instance.
-2. Select the **API** tab.
-3. Click **Demo Conference API** from your API list.
-4. Select **All operations**.
-5. On the top of the screen, select **Design** tab.
-6. In the **Outbound processing** window, click the triangle (next to the pencil).
-7. Select **Code editor**.
-    
+1. Select **Demo Conference API**.
+2. On the top of the screen, select **Design** tab.
+3. Select **All operations**.
+4. In the **Outbound processing** window, click the triangle (next to the pencil) and select **Code editor**.
      ![Edit policy](./media/set-edit-policies/set-edit-policies01.png)
-9. Position the cursor inside the **<outbound>** element.
-10. In the right window, under **Transformation policies**, click **+ Set HTTP header** twice (to insert two policy snippets).
+5. Position the cursor inside the **&lt;outbound&gt;** element.
+6. In the right window, under **Transformation policies**, click **+ Set HTTP header** twice (to insert two policy snippets).
 
     ![Policies](./media/transform-api/transform-api.png)
-11. Modify your **<outbound>** code to look like this:
+7. Modify your **<outbound>** code to look like this:
 
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
-                
+
+    ![Policies](./media/transform-api/set-policy.png)
+8. Click the **Save** button.
+
+
 ## Replace original URLs in the body of the API response with APIM gateway URLs
 
 This section shows how to hide original URLs that appear in the body of API's HTTP response and instead redirect them to the APIM gateway.
@@ -89,11 +89,10 @@ This section shows how to hide original URLs that appear in the body of API's HT
 
 To see the original response:
 
-1. Select the **API** tab.
-2. Click **Demo Conference API** from your API list.
-3. Select the **GetSpeakers** operation.
-4. Click the **Test** tab, on the top of the screen.
-5. Press the **Send** button, at the bottom of the screen. 
+1. Select **Demo Conference API**.
+2. Select the **GetSpeakers** operation.
+3. Click the **Test** tab, on the top of the screen.
+4. Press the **Send** button, at the bottom of the screen. 
 
     As you can see the original response looks like this:
 
@@ -101,16 +100,13 @@ To see the original response:
 
 ### Set the transformation policy
 
-1. Browse to your APIM instance.
-2. Select the **API** tab.
-3. Click **Demo Conference API** from your API list.
-4. Select **All operations**.
-5. On the top of the screen, select **Design** tab.
-6. In the **Outbound processing** window, click the triangle (next to the pencil).
-7. Select **Code editor**.
-8. Position the cursor inside the **<outbound>** element.
-9. In the right window, under **Transformation policies**, click **+ Find and replace string in body**.
-10. Modify your **<find-and-replace** code (in the **<outbound>** element) to replace the URL to match your APIM gateway. For example:
+1. Select **Demo Conference API**.
+2. Select **All operations**.
+3. On the top of the screen, select **Design** tab.
+4. In the **Outbound processing** window, click the triangle (next to the pencil) and select **Code editor**.
+5. Position the cursor inside the **&lt;outbound&gt;** element.
+6. In the right window, under **Transformation policies**, click **+ Find and replace string in body**.
+7. Modify your **find-and-replace** code (in the **\<outbound\>** element) to replace the URL to match your APIM gateway. For example:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -118,22 +114,19 @@ To see the original response:
 
 This section shows how to add protection for your backend API by configuring rate limits. For example, you may want to limit a number of calls the API is called so it is not overused by developers. In this example, the limit is set to 3 calls per 15 seconds for each subscription Id. After 15 seconds, a developer can retry calling the API.
 
-1. Browse to your APIM instance.
-2. Select the **API** tab.
-3. Click **Demo Conference API** from your API list.
-4. Select **All operations**.
-5. On the top of the screen, select **Design** tab.
-6. In the **Inbound processing** window, click the triangle (next to the pencil).
-7. Select **Code editor**.
-8. Position the cursor inside the **<inbound>** element.
-9. In the right window, under **Access restriction policies**, click **+ Limit call rate per key**.
-10. Modify your **<rate-limit-by-key** code (in the **<inbound>** element) to the following code:
+1. Select **Demo Conference API**.
+2. Select **All operations**.
+3. On the top of the screen, select **Design** tab.
+4. In the **Inbound processing** window, click the triangle (next to the pencil) and select **Code editor**.
+5. Position the cursor inside the **&lt;inbound&gt;** element.
+6. In the right window, under **Access restriction policies**, click **+ Limit call rate per key**.
+7. Modify your **rate-limit-by-key** code (in the **\<inbound\>** element) to the following code:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## Test the transformations
         
-At this point your polices code looks like this:
+At this point if you look at the code in the code editor, your policies look like this:
 
 	<policies>
 	    <inbound>
@@ -158,12 +151,10 @@ The rest of this section tests policy transformations that you set in this artic
 
 ### Test the stripped response headers
 
-1. Browse to your APIM instance.
-2. Select the **API** tab.
-3. Click **Demo Conference API** from your API list.
-4. Click the **GetSpeakers** operation.
-5. Select the **Test** tab.
-6. Press **Send**.
+1. Select **Demo Conference API**.
+2. Click the **GetSpeakers** operation.
+3. Select the **Test** tab.
+4. Press **Send**.
 
     As you can see the headers have been stripped:
 
@@ -171,12 +162,10 @@ The rest of this section tests policy transformations that you set in this artic
 
 ### Test the replaced URL
 
-1. Browse to your APIM instance.
-2. Select the **API** tab.
-3. Click **Demo Conference API** from your API list.
-4. Click the **GetSpeakers** operation.
-5. Select the **Test** tab.
-6. Press **Send**.
+1. Select **Demo Conference API**.
+2. Click the **GetSpeakers** operation.
+3. Select the **Test** tab.
+4. Press **Send**.
 
     As you can see the URL has been replaced.
 
@@ -184,15 +173,13 @@ The rest of this section tests policy transformations that you set in this artic
 
 ### Test the rate limit (throttling)
 
-1. Browse to your APIM instance.
-2. Select the **API** tab.
-3. Click **Demo Conference API** from your API list.
-4. Click the **GetSpeakers** operation.
-5. Select the **Test** tab.
-6. Press **Send** three times in a row.
+1. Select **Demo Conference API**.
+2. Click the **GetSpeakers** operation.
+3. Select the **Test** tab.
+4. Press **Send** three times in a row.
 
 	After sending the request 3 times, you get **429 Too many requests** response.
-7. Wait 15 seconds or so and press **Send** again. This time you should get a **200 OK** response.
+5. Wait 15 seconds or so and press **Send** again. This time you should get a **200 OK** response.
 
 	![Throttling](./media/transform-api/test-throttling.png)
 

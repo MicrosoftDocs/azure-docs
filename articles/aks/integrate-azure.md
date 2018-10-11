@@ -3,7 +3,7 @@ title: Integrate with Azure-managed services using Open Service Broker for Azure
 description: Integrate with Azure-managed services using Open Service Broker for Azure (OSBA)
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: overview
@@ -17,13 +17,13 @@ Together with the [Kubernetes Service Catalog][kubernetes-service-catalog], Open
 ## Prerequisites
 * An Azure subscription
 
-* Azure CLI 2.0: You can [install it locally][azure-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
+* Azure CLI: [install it locally][azure-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7+: You can [install it locally][helm-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
+* Helm CLI 2.7+: [install it locally][helm-cli-install], or use it in the [Azure Cloud Shell][azure-cloud-shell].
 
 * Permissions to create a service principal with the Contributor role on your Azure subscription
 
-* An existing Azure Container Service (AKS) cluster. If you need an AKS cluster, follow the [Create an AKS cluster][create-aks-cluster] quickstart.
+* An existing Azure Kubernetes Service (AKS) cluster. If you need an AKS cluster, follow the [Create an AKS cluster][create-aks-cluster] quickstart.
 
 ## Install Service Catalog
 
@@ -39,10 +39,16 @@ Now, add the Service Catalog chart to the Helm repository:
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
-Finally, install Service Catalog with the Helm chart:
+Finally, install Service Catalog with the Helm chart. If your cluster is RBAC-enabled, run this command.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
+```
+
+If your cluster is not RBAC-enabled, run this command.
+
+```azurecli-interactive
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
 ```
 
 After the Helm chart has been run, verify that `servicecatalog` appears in the output of the following command:
@@ -64,7 +70,7 @@ v1beta1.storage.k8s.io               10
 
 ## Install Open Service Broker for Azure
 
-The next step is to install [Open Service Broker for Azure][open-service-broker-azure], which includes the catalog for the Azure-managed services. Examples of available Azure services are Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database, and others.
+The next step is to install [Open Service Broker for Azure][open-service-broker-azure], which includes the catalog for the Azure-managed services. Examples of available Azure services are Azure Database for PostgreSQL, Azure Database for MySQL, and Azure SQL Database.
 
 Start by adding the Open Service Broker for Azure Helm repository:
 
@@ -72,17 +78,45 @@ Start by adding the Open Service Broker for Azure Helm repository:
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Next, use the following script to create a [Service Principal][create-service-principal] and populate several variables. These variables are used when running the Helm chart to install the service broker.
+Create a [Service Principal][create-service-principal] with the following Azure CLI command:
 
 ```azurecli-interactive
-SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
-AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
-AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
-AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
-AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+az ad sp create-for-rbac
 ```
 
-Now that you've populated these environment variables, execute the following command to install the service broker.
+Output should be similar to the following. Take note of the `appId`, `password`, and `tenant` values, which you use in the next step.
+
+```JSON
+{
+  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
+  "displayName": "azure-cli-2017-10-15-02-20-15",
+  "name": "http://azure-cli-2017-10-15-02-20-15",
+  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
+  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+}
+```
+
+Set the following environment variables with the preceding values:
+
+```azurecli-interactive
+AZURE_CLIENT_ID=<appId>
+AZURE_CLIENT_SECRET=<password>
+AZURE_TENANT_ID=<tenant>
+```
+
+Now, get your Azure subscription ID:
+
+```azurecli-interactive
+az account show --query id --output tsv
+```
+
+Again, set the following environment variable with the preceding value:
+
+```azurecli-interactive
+AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
+```
+
+Now that you've populated these environment variables, execute the following command to install the Open Service Broker for Azure using the Helm chart:
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \
@@ -150,13 +184,13 @@ kubectl get secrets -n wordpress -o yaml
 
 ## Next steps
 
-By following this article, you deployed Service Catalog to an Azure Container Service (AKS) cluster. You used Open Service Broker for Azure to deploy a WordPress installation that uses Azure-managed services, in this case Azure Database for MySQL.
+By following this article, you deployed Service Catalog to an Azure Kubernetes Service (AKS) cluster. You used Open Service Broker for Azure to deploy a WordPress installation that uses Azure-managed services, in this case Azure Database for MySQL.
 
 Refer to the [Azure/helm-charts][helm-charts] repository to access other updated OSBA-based Helm charts. If you're interested in creating your own charts that work with OSBA, refer to [Creating a New Chart][helm-create-new-chart].
 
 <!-- LINKS - external -->
 [helm-charts]: https://github.com/Azure/helm-charts
-[helm-cli-install]: kubernetes-helm.md#install-helm-cli
+[helm-cli-install]: https://docs.helm.sh/helm/#helm-install
 [helm-create-new-chart]: https://github.com/Azure/helm-charts#creating-a-new-chart
 [kubernetes-service-catalog]: https://github.com/kubernetes-incubator/service-catalog
 [open-service-broker-azure]: https://github.com/Azure/open-service-broker-azure

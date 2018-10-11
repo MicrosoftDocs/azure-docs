@@ -1,20 +1,22 @@
----
+﻿---
 title: Retrain an existing predictive web service | Microsoft Docs
 description: Learn how to retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: raymondl
-editor: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.author: raymondl
+
 
 ---
 # Retrain an existing predictive web service
@@ -23,8 +25,8 @@ This document describes the retraining process for the following scenario:
 * You have a training experiment and a predictive experiment that you have deployed as an operationalized web service.
 * You have new data that you want your predictive web service to use to perform its scoring.
 
-> [!NOTE] 
-> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md). 
+> [!NOTE]
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).
 
 Starting with your existing web service and experiments, you need to follow these steps:
 
@@ -51,7 +53,7 @@ To update your training experiment:
 
 Run your experiment.
 
-Next, you must deploy the training experiment as a web service that produces a trained model and model evaluation results.  
+Next, you must deploy the training experiment as a web service that produces a trained model and model evaluation results.
 
 At the bottom of the experiment canvas, click **Set Up Web Service**, and then select **Deploy Web Service [New]**. The Azure Machine Learning Web Services portal opens to the **Deploy Web Service** page. Type a name for your web service, choose a payment plan, and then click **Deploy**. You can only use the Batch Execution method for creating trained models.
 
@@ -81,7 +83,7 @@ Locate the **apikey** declaration:
 In the **Basic consumption info** section of the **Consume** page, locate the primary key and copy it to the **apikey** declaration.
 
 ### Update the Azure Storage information
-The BES sample code uploads a file from a local drive (for example, "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.  
+The BES sample code uploads a file from a local drive (for example, "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.
 
 After running your experiment, the resulting workflow should be similar to the following:
 
@@ -123,7 +125,7 @@ The following is an example of retraining output:
 ## Evaluate the retraining results
 When you run the application, the output includes the URL and shared access signatures token that are necessary to access the evaluation results.
 
-You can see the performance results of the retrained model by combining the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results for *output2* (as shown in the preceding retraining output image) and pasting the complete URL into the browser address bar.  
+You can see the performance results of the retrained model by combining the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results for *output2* (as shown in the preceding retraining output image) and pasting the complete URL into the browser address bar.
 
 Examine the results to determine whether the newly trained model performs well enough to replace the existing one.
 
@@ -133,10 +135,10 @@ Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output 
 When you retrain a new web service, you update the predictive web service definition to reference the new trained model. The web service definition is an internal representation of the trained model of the web service and is not directly modifiable. Make sure that you are retrieving the web service definition for your predictive experiment and not your training experiment.
 
 ## Sign in to Azure Resource Manager
-You must first sign in to your Azure account from within the PowerShell environment by using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
+You must first sign in to your Azure account from within the PowerShell environment by using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
 
 ## Get the Web Service Definition object
-Next, get the Web Service Definition object by calling the [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
+Next, get the Web Service Definition object by calling the [Get-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice) cmdlet.
 
     $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
@@ -155,7 +157,7 @@ Alternatively, to determine the resource group name of an existing web service, 
 
 
 ## Export the Web Service Definition object as JSON
-To modify the definition of the trained model to use the newly trained model, you must first use the [Export-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) cmdlet to export it to a JSON-format file.
+To modify the definition of the trained model to use the newly trained model, you must first use the [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) cmdlet to export it to a JSON-format file.
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
@@ -176,13 +178,13 @@ In the assets, locate the [trained model], update the *uri* value in the *locati
       },
 
 ## Import the JSON into a Web Service Definition object
-You must use the [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet to convert the modified JSON file back into a Web Service Definition object that you can use to update the predicative experiment.
+You must use the [Import-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) cmdlet to convert the modified JSON file back into a Web Service Definition object that you can use to update the predicative experiment.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
 ## Update the web service
-Finally, use the [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet to update the predictive experiment.
+Finally, use the [Update-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) cmdlet to update the predictive experiment.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 

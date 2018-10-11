@@ -3,8 +3,8 @@ title: Customize web application firewall rules in Azure Application Gateway - P
 description: This article provides information on how to customize web application firewall rules in Application Gateway with PowerShell.
 documentationcenter: na
 services: application-gateway
-author: davidmu1 
-manager: timlt
+author: vhorne 
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: davidmu
+ms.author: victorh
 
 ---
 
@@ -23,7 +23,7 @@ ms.author: davidmu
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
+> * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
 The Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules. For more information on the specific rule groups and rules, see [List of web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 

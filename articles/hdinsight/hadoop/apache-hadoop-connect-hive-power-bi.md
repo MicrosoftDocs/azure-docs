@@ -1,22 +1,16 @@
 ---
-title: Visualize big data with Power BI in Azure HDInsight  | Microsoft Docs
+title: Visualize big data with Power BI in Azure HDInsight  
 description: Learn how to use Microsoft Power BI to visualize Hive data processed by Azure HDInsight.
 keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,odbc 
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2018
-ms.author: jgao
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: jasonh
 
 ---
 # Visualize Hive data with Microsoft Power BI using ODBC in Azure HDInsight

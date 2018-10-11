@@ -10,13 +10,14 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
-ms.author: magoedte;bwren
-
+ms.author: magoedte
+ms.component: 
 ---
+
 # Syslog data sources in Log Analytics
 Syslog is an event logging protocol that is common to Linux.  Applications will send messages that may be stored on the local machine or delivered to a Syslog collector.  When the OMS Agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent.  The agent then sends the message to Log Analytics where a corresponding record is created in the OMS repository.  
 
@@ -28,10 +29,10 @@ Syslog is an event logging protocol that is common to Linux.  Applications will 
 ![Syslog collection](media/log-analytics-data-sources-syslog/overview.png)
 
 ## Configuring Syslog
-The OMS Agent for Linux will only collect events with the facilities and severities that are specified in its configuration.  You can configure Syslog through the OMS portal or by managing configuration files on your Linux agents.
+The OMS Agent for Linux will only collect events with the facilities and severities that are specified in its configuration.  You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
 
-### Configure Syslog in the OMS portal
-Configure Syslog from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).  This configuration is delivered to the configuration file on each Linux agent.
+### Configure Syslog in the Azure portal
+Configure Syslog from the [Data menu in Log Analytics Advanced Settings](log-analytics-data-sources.md#configuring-data-sources).  This configuration is delivered to the configuration file on each Linux agent.
 
 You can add a new facility by typing in its name and clicking **+**.  For each facility, only messages with the selected severities will be collected.  Check the severities for the particular facility that you want to collect.  You cannot provide any additional criteria to filter messages.
 

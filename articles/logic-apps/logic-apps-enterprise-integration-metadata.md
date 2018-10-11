@@ -1,24 +1,18 @@
 ---
 title: Manage integration account artifact metadata - Azure Logic Apps | Microsoft Docs
-description: Add or retrieve artifact metadata from integration accounts for Azure Logic Apps
-author: padmavc
-manager: anneta
-editor: ''
+description: Add or retrieve artifact metadata from integration accounts in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 02/23/2018
-ms.author: LADocs; padmavc
 ---
 
-# Manage artifact metadata in integration accounts for logic apps
+# Manage artifact metadata from integration accounts in Azure Logic Apps with Enterprise Integration Pack
 
 You can define custom metadata for artifacts in integration accounts 
 and retrieve that metadata during runtime for your logic app. 
@@ -42,7 +36,7 @@ or [schema](logic-apps-enterprise-integration-schemas.md).
 
 1. In the Azure portal, create a [logic app](quickstart-create-first-logic-app-workflow.md).
 
-2. Create a [link from your logic app to your integration account](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app). 
+2. Create a [link from your logic app to your integration account](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 
 3. In Logic App Designer, add a trigger like **Request** or **HTTP** to your logic app.
 

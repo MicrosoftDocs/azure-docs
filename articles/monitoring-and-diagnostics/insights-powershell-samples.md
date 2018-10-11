@@ -1,21 +1,13 @@
 ---
-title: Azure Monitor PowerShell quick start samples. | Microsoft Docs
+title: Azure Monitor PowerShell quick start samples
 description: Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: c0761814-7148-4ab5-8c27-a2c9fa4cfef5
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
-
+ms.component: ""
 ---
 # Azure Monitor PowerShell quick start samples
 This article shows you sample PowerShell commands to help you access Azure Monitor features.
@@ -29,13 +21,13 @@ This article shows you sample PowerShell commands to help you access Azure Monit
 If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/overview).
 
 ## Examples in this article
-The examples in the article illustrate how you can use Azure Monitor cmdlets. You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
+The examples in the article illustrate how you can use Azure Monitor cmdlets. You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights).
 
 ## Sign in and use subscriptions
 First, log in to your Azure subscription.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 You'll see a sign in screen. Once you sign in your Account, TenantID, and default Subscription ID are displayed. All the Azure cmdlets work in the context of your default subscription. To view the list of subscriptions you have access to, use the following command:
@@ -335,7 +327,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 Many Azure services provide additional logs and telemetry that can do one or more of the following: 
  - be configured to save data in your Azure Storage account
  - sent to Event Hubs
- - sent to an OMS Log Analytics workspace. 
+ - sent to a Log Analytics workspace. 
 
 The operation can only be performed at a resource level. The storage account or event hub should be present in the same region as the target resource where the diagnostics setting is configured.
 
@@ -374,7 +366,7 @@ Enable diagnostic setting for Event Hubs
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
 ```
 
-Enable diagnostic setting for Log Analytics (OMS)
+Enable diagnostic setting for Log Analytics
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true

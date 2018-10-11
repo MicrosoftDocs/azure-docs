@@ -3,8 +3,8 @@ title: Pre-load assets on an Azure CDN endpoint | Microsoft Docs
 description: Learn how to pre-load cached content on an Azure CDN endpoint.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: mazha
+ms.author: magattus
 
 ---
 # Pre-load assets on an Azure CDN endpoint
@@ -64,6 +64,6 @@ This tutorial walks you through pre-loading cached content on all Azure CDN edge
 
 ## See also
 * [Purge an Azure CDN endpoint](cdn-purge-endpoint.md)
-* [Azure CDN REST API reference: Pre-load content on an endpoint](https://docs.microsoft.com/en-us/rest/api/cdn/endpoints/loadcontent)
-* [Azure CDN REST API reference: Purge content from an endpoint](https://docs.microsoft.com/en-us/rest/api/cdn/endpoints/purgecontent)
+* [Azure CDN REST API reference: Pre-load content on an endpoint](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Azure CDN REST API reference: Purge content from an endpoint](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

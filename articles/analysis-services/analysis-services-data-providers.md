@@ -1,21 +1,13 @@
 ---
 title: Client libraries required for connecting to Azure Analysis Services | Microsoft Docs
 description: Describes client libraries required for client applications and tools to connect Azure Analysis Services
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/27/2018
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 
@@ -27,10 +19,10 @@ Client libraries are necessary for client applications and tools to connect to A
 
 |Download  |Product version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.795      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.795      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.5.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.5.0.0     |
 
 ## AMO and ADOMD (NuGet packages)
 
@@ -38,8 +30,8 @@ Analysis Services Management Objects (AMO) and ADOMD client libraries are availa
 
 |Package  | Product version  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2.0      |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.7.0.2    |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.7.02     |
 
 NuGet package assemblies AssemblyVersion follow semantic versioning: MAJOR.MINOR.PATCH. NuGet references load the expected version even if there is a different version in the GAC (resulting from MSI install). PATCH is incremented for each release. AMO and ADOMD versions are kept in-sync.
 
@@ -77,7 +69,7 @@ Client libraries for client connections are different from data providers requir
   
 ### OLEDDB (MSOLAP)  
   
-1.  Go to `C:\Program Files\Microsoft Analysis Services\AS OLEDB\. If you have more than one folder, choose the higher number.
+1.  Go to `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`. If you have more than one folder, choose the higher number.
   
 2.  Right-click **msolap.dll** > **Properties** > **Details**. If the filename is msolap140.dll, it's older than latest version and should be upgraded.
     

@@ -1,17 +1,14 @@
 ---
 title: Provision a device using Azure IoT Hub Device Provisioning Service (.NET) | Microsoft Docs
 description: Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)
-services: iot-dps
-keywords: 
-author: msebolt
-ms.author: v-masebo
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: csharp
 ms.custom: mvc
 ---
 
@@ -46,7 +43,7 @@ This step involves adding the device's unique security artifacts to the Device P
 
 - For X.509 based devices:
     - The [X.509 certificate issued to the device](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), in the form of either a *.pem* or a *.cer* file. For individual enrollment, you need to use the *leaf certificate* for your X.509 system, while for enrollment groups, you need to use the *root certificate* or an equivalent *signer certificate*.
-    - The *Registration ID* that is used to uniquely identify a device in the namespace/scope. This may or may not be the same as the device ID. The ID is mandatory for every device. For X.509 based devices, the registration ID is derived from the certificate's common name (CN). For further information on these requirements see [Device concepts](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+    - The *Registration ID* that is used to uniquely identify a device in the namespace/scope. This may or may not be the same as the device ID. The ID is mandatory for every device. For X.509 based devices, the registration ID is derived from the certificate's common name (CN). For further information on these requirements see [Device concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 There are two ways to enroll the device to the Device Provisioning Service:
 
@@ -62,7 +59,7 @@ There are two ways to enroll the device to the Device Provisioning Service:
     
 1. In Solution Explorer, right-click the **DeviceProvisioning** project, and then click **Manage NuGet Packages...**.
 
-1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.provisioning.service**. Select the entry and click **Install** to install the **Microsoft.Azure.Devices.Provisioning.Service** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device provisioning service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
+1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.provisioning.service**. Select the entry and click **Install** to install the **Microsoft.Azure.Devices.Provisioning.Service** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT Device Provisioning Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
    
@@ -70,10 +67,10 @@ There are two ways to enroll the device to the Device Provisioning Service:
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the DPS connection string noted in the previous section.
+1. Add the following fields to the **Program** class. Replace the placeholder value with the Device Provisioning Service connection string noted in the previous section.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =
@@ -222,10 +219,10 @@ When the device is successfully enrolled, you should see it displayed in the por
 
 At this point, the following setup is ready for device registration:
 
-1. Your device or group of devices are enrolled to your Device Provisioning Service, and 
+1. Your device or group of devices are enrolled to your Device Provisioning service, and 
 2. Your device is ready with the security configured and accessible through the application using the Device Provisioning Service client SDK.
 
-Start the device to allow your client application to start the registration with your Device Provisioning Service.  
+Start the device to allow your client application to start the registration with your Device Provisioning service.  
 
 
 ## Verify the device is registered

@@ -3,16 +3,12 @@ title: Manage instances in Durable Functions - Azure
 description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 08/31/2018
 ms.author: azfuncdf
 ---
 
@@ -46,7 +42,7 @@ public static async Task Run(
 }
 ```
 
-For non-.NET languages, the function output binding can be used to start new instances as well. In this case, any JSON-serializable object that has the above three parameters as fields can be used. For example, consider the following Node.js function:
+For non-.NET languages, the function output binding can be used to start new instances as well. In this case, any JSON-serializable object that has the above three parameters as fields can be used. For example, consider the following JavaScript function:
 
 ```js
 module.exports = function (context, input) {
@@ -59,6 +55,19 @@ module.exports = function (context, input) {
 
     context.done(null);
 };
+```
+The code above assumes that in the function.json file you have defined an out binding with name as "starter" and type as "orchestrationClient". If the binding is not defined, then the durable function instance will not be created.
+
+For the durable function to be invoked the  function.json should be modified to have a binding for orchestration client as described below
+
+```js
+{
+    "bindings": [{
+        "name":"starter",
+        "type":"orchestrationClient",
+        "direction":"out"
+    }]
+}
 ```
 
 > [!NOTE]
@@ -73,8 +82,10 @@ The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/a
 * **CreatedTime**: The time at which the orchestrator function started running.
 * **LastUpdatedTime**: The time at which the orchestration last checkpointed.
 * **Input**: The input of the function as a JSON value.
+* **CustomStatus**: Custom orchestration status in JSON format. 
 * **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property will include the failure details. If the orchestrator function was terminated, this property will include the provided reason for the termination (if any).
 * **RuntimeStatus**: One of the following values:
+    * **Pending**: The instance has been scheduled but has not yet started running.
     * **Running**: The instance has started running.
     * **Completed**: The instance has completed normally.
     * **ContinuedAsNew**: The instance has restarted itself with a new history. This is a transient state.
@@ -94,13 +105,28 @@ public static async Task Run(
     // do something based on the current status.
 }
 ```
+## Querying all instances
 
-> [!NOTE]
-> Instance query is currently only supported for C# orchestrator functions.
+You can use the `GetStatusAsync` method to query the statuses of all orchestration instances. It doesn't take any parameters, or you can pass a `CancellationToken` object in case you want to cancel it. The method returns objects with the same properties as the `GetStatusAsync` method with parameters, except it doesn't return history. 
+
+```csharp
+[FunctionName("GetAllStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    TraceWriter log)
+{
+    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(); // You can pass CancellationToken as a parameter.
+    foreach (var instance in instances)
+    {
+        log.Info(JsonConvert.SerializeObject(instance));
+    };
+}
+```
 
 ## Terminating instances
 
-A running instance can be terminated using the [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. The two parameters are an `instanceId` and a `reason` string, which will be written to logs and to the instance status. A terminated instance will stop running as soon as it reaches the next `await` point, or it will terminate immediately if it is already on an `await`.
+A running orchestration instance can be terminated using the [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. The two parameters are an `instanceId` and a `reason` string, which will be written to logs and to the instance status. A terminated instance will stop running as soon as it reaches the next `await` point, or it will terminate immediately if it is already on an `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -114,7 +140,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Instance termination is currently only supported for C# orchestrator functions.
+> Instance termination does not currently propagate. Activity functions and sub-orchestrations will run to completion regardless of whether the orchestration instance that called them has been terminated.
 
 ## Sending events to instances
 
@@ -127,8 +153,6 @@ The parameters to [RaiseEventAsync](https://azure.github.io/azure-functions-dura
 * **EventData**: A JSON-serializable payload to send to the instance.
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -138,9 +162,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> Raising events is currently supported only for C# orchestrator functions.
 
 > [!WARNING]
 > If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
@@ -192,12 +213,71 @@ Depending on the time required to get the response from the orchestration instan
             "id": "d3b72dddefce4e758d92f4d411567177",
             "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
             "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "rewindPostUri": "https://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/rewind?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
 > [!NOTE]
 > The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The preceding example is for the Azure Functions 2.0 host.
+
+## Retrieving HTTP Management Webhook URLs
+
+External systems can communicate with Durable Functions via the webhook URLs that are part of the default response described in [HTTP API URL discovery](durable-functions-http-api.md). However, the webhook URLs also can be accessed programmatically in the orchestration client or in an activity function via the [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. 
+
+[CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) has one parameter:
+
+* **instanceId**: The unique ID of the instance.
+
+The method returns an instance of the [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) with the following string properties:
+
+* **Id**: The instance ID of the orchestration (should be the same as the `InstanceId` input).
+* **StatusQueryGetUri**: The status URL of the orchestration instance.
+* **SendEventPostUri**: The "raise event" URL of the orchestration instance.
+* **TerminatePostUri**: The "terminate" URL of the orchestration instance.
+* **RewindPostUri**: The "rewind" URL of the orchestration instance.
+
+Activity functions can send an instance of [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) to external systems to monitor or raise events to an orchestration:
+
+```csharp
+[FunctionName("SendInstanceInfo")]
+public static void SendInstanceInfo(
+    [ActivityTrigger] DurableActivityContext ctx,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [DocumentDB(
+        databaseName: "MonitorDB",
+        collectionName: "HttpManagementPayloads",
+        ConnectionStringSetting = "CosmosDBConnection")]out dynamic document)
+{
+    HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
+
+    // send the payload to Cosmos DB
+    document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
+
+## Rewinding instances (preview)
+
+A failed orchestration instance can be *rewound* into a previously healthy state using the [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API. It works by putting the orchestration back into the *Running* state and re-running the activity and/or sub-orchestration execution failures that caused the orchestration failure.
+
+> [!NOTE]
+> This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. For more details on error handling and retry policies, please see the [Error handling](durable-functions-error-handling.md) topic.
+
+One example use case for *rewind* is a workflow involving a series of [human approvals](durable-functions-overview.md#pattern-5-human-interaction). Suppose there are a series of activity functions that notify someone that their approval is needed and wait out the real-time response. After all of the approval activities have received responses or timed out, another activity fails due to an application misconfiguration (e.g. an invalid database connection string). The result is an orchestration failure deep into the workflow. With the `RewindAsync` API, an application administrator can fix the configuration error and *rewind* the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be re-approved and the orchestration can now complete successfully.
+
+> [!NOTE]
+> The *rewind* feature does not support rewinding orchestration instances that use durable timers.
+
+```csharp
+[FunctionName("RewindInstance")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindAsync(instanceId, reason);
+}
+```
 
 ## Next steps
 

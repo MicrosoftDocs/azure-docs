@@ -1,10 +1,10 @@
----
+﻿---
 title: Migrate from AWS and other platforms to Managed Disks in Azure | Microsoft Docs
 description: Create VMs in Azure using VHDs uploaded from other clouds like AWS or other virtualization platforms and take advantage of Azure Managed Disks.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -54,6 +54,7 @@ Based on your needs, you can choose from two types of storage options:
 
 This section helps you to make the best decision on VM and disk types.
 
+If you are planning on migrating from unmanaged disks to managed disks, you should be aware that users with the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role will not be able to change the VM size (as they could pre-conversion). This is because VMs with managed disks require the user to have the Microsoft.Compute/disks/write permission on the OS disks.
 
 ### Location
 
@@ -94,7 +95,7 @@ By default, disk caching policy is *Read-Only* for all the Premium data disks, a
 
 ### Pricing
 
-Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
+Review the [pricing for Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
 
 
 ## Next Steps

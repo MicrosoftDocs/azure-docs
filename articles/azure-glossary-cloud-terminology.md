@@ -22,12 +22,12 @@ ms.author: monicar
 
 The Microsoft Azure glossary is a short dictionary of cloud terminology for the Azure platform. See also:
 
-* [Microsoft Azure and Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Definitions of Azure services and their AWS counterparts.<!-- I propose to link to https://azure.microsoft.com/en-us/services/ instead of this -->
+* [Microsoft Azure and Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Definitions of Azure services and their AWS counterparts.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Cloud computing terms](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - General industry cloud terms.
 
 ## account
 An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account, or an Office 365 user name and password. You can also create an account to manage an Azure subscription when you sign up for the [free trial](https://azure.microsoft.com).  
-See [Sign up for an Azure subscription with your Office 365 account](billing/billing-use-existing-office-365-account-azure-subscription.md) and [Accounts you can use to sign in](active-directory/active-directory-how-subscriptions-associated-directory.md).
+See [Sign up for an Azure subscription with your Office 365 account](billing/billing-use-existing-office-365-account-azure-subscription.md) and [Accounts you can use to sign in](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## API app
 Another name for [App Service app](#app-service-app).
@@ -43,7 +43,7 @@ See [Manage the availability of Windows virtual machines](virtual-machines/windo
 One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Azure (the new model is Azure Resource Manager). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. The documentation for each Azure service specifies which model(s) they support.
 
 ## <a name="cli"></a>Azure command-line interface (CLI)
-A command-line interface that can be used to manage Azure services from Windows, macOS, and Linux.  Some services or service features can be managed only via PowerShell or the CLI. See [Azure CLI 2.0](/cli/azure)
+A command-line interface that can be used to manage Azure services from Windows, macOS, and Linux.  Some services or service features can be managed only via PowerShell or the CLI. See [Azure CLI](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 A command-line interface to manage Azure services via a command line from Windows PCs. Some services or service features can be managed only via PowerShell or the CLI.
@@ -108,7 +108,7 @@ See [Azure Resource Manager overview](azure-resource-manager/resource-group-over
 
 ## role
 A means for controlling access that can be assigned to users, groups, and services. Roles are able to perform actions such as create, manage, and read on Azure resources.  
-See [RBAC: Built-in roles](active-directory/role-based-access-built-in-roles.md)
+See [RBAC: Built-in roles](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>service level agreement (SLA)
 The agreement that describes Microsoft’s commitments for uptime and connectivity. Each Azure service has a specific SLA.  
@@ -123,7 +123,7 @@ See [About Azure storage accounts](storage/common/storage-create-storage-account
 
 ## subscription
 A customer's agreement with Microsoft that enables them to obtain Azure services. The subscription pricing and related terms are governed by the offer chosen for the subscription.
-See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/) and [How Azure subscriptions are associated with Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
+See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/) and [How Azure subscriptions are associated with Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ## tag
 An indexing term that enables you to categorize resources according to your requirements for managing or billing. When you have a complex collection of resources, you can use tags to visualize those assets in the way that makes the most sense. For example, you could tag resources that serve a similar role in your organization or belong to the same department.  

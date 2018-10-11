@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 
 ---
@@ -35,42 +35,27 @@ To use a sample repository to follow along, run the following command in your lo
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-## Prepare your repository
-
-Make sure that your repository root has the correct files in your project.
-
-| Runtime | Root directory files |
-|-|-|
-| ASP.NET (Windows only) | _*.sln_, _*.csproj_, or _default.aspx_ |
-| ASP.NET Core | _*.sln_ or _*.csproj_ |
-| PHP | _index.php_ |
-| Ruby (Linux only) | _Gemfile_ |
-| Node.js | _server.js_, _app.js_, or _package.json_ with a start script |
-| Python (Windows only) | _\*.py_, _requirements.txt_, or _runtime.txt_ |
-| HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, or _iisstart.htm_ |
-| WebJobs | _\<job_name>/run.\<extension>_ under _App\_Data/jobs/continuous_ (for continuous WebJobs) or _App\_Data/jobs/triggered_ (for triggered WebJobs). For more information, see [Kudu WebJobs documentation](https://github.com/projectkudu/kudu/wiki/WebJobs) |
-| Functions | See [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
-
-To customize your deployment, you can include a _.deployment_ file in the repository root. For more information, see [Customizing deployments](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) and [Custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
-
-> [!NOTE]
-> Be sure to `git commit` all the changes you want to deploy.
->
->
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user.md)]
+## Deploy from local Git with Kudu builds
 
-## Enable Git for your app
+The easiest way to enable local Git deployment for your app with the Kudu build server is to use the Cloud Shell.
 
-To enable Git deployment for an existing App Service app, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git) in the Cloud Shell.
+### Create a deployment user
+
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
+
+### Enable local Git with Kudu
+
+To enable local Git deployment for your app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in the Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-To create a Git-enabled app instead, run [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) in the Cloud Shell with the `--deployment-local-git` parameter.
+To create a Git-enabled app instead, run [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in the Cloud Shell with the `--deployment-local-git` parameter.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
@@ -94,7 +79,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-## Deploy your project
+### Deploy your project
 
 Back in the _local terminal window_, add an Azure remote to your local Git repository. Replace _\<url>_ with the URL of the Git remote that you got from [Enable Git for your app](#enable-git-for-you-app).
 
@@ -110,13 +95,58 @@ git push azure master
 
 You may see runtime-specific automation in the output, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python. 
 
-Once deployment is finished, your app in the Azure portal should now have a record of your `git push` in the **Deployment options** page.
+Browse to your app to verify that the content is deployed.
 
-![](./media/app-service-deploy-local-git/deployment_history.png)
+## Deploy from local Git with Azure DevOps Services builds
+
+> [!NOTE]
+> For App Service to create the necessary Azure Pipelines in your Azure DevOps Services organization, your Azure account must have the role of **Owner** in your Azure subscription.
+>
+
+To enable local Git deployment for your app with the Kudu build server, navigate to your app in the [Azure portal](https://portal.azure.com).
+
+In the left navigation of your app page, click **Deployment Center** > **Local Git** > **Continue**. 
+
+![](media/app-service-deploy-local-git/portal-enable.png)
+
+Click **Azure DevOps Services Continuous Delivery** > **Continue**.
+
+![](media/app-service-deploy-local-git/vsts-build-server.png)
+
+In the **Configure** page, configure a new Azure DevOps Services organization, or specify an existing organization. When finished, click **Continue**.
+
+> [!NOTE]
+> If you want to use an existing Azure DevOps Services organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+
+In the **Test** page, choose whether to enable load tests, then click **Continue**.
+
+Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to enable deployment slots, then click **Continue**.
+
+In the **Summary** page, verify your options and click **Finish**.
+
+It takes a few minutes for the Azure DevOps Services organization to be ready. When it's ready, copy the Git repository URL in the deployment center.
+
+![](media/app-service-deploy-local-git/vsts-repo-ready.png)
+
+Back in the _local terminal window_, add an Azure remote to your local Git repository. Replace _\<url>_ with the URL you got from the last step.
+
+```bash
+git remote add vsts <url>
+```
+
+Push to the Azure remote to deploy your app with the following command. When prompted by Git Credential Manager, sign in with your visualstudio.com user. For additional authentication methods, see [Azure DevOps Services authentication overview](/vsts/git/auth-overview?view=vsts).
+
+```bash
+git push vsts master
+```
+
+Once deployment is finished, you can find the build progress at `https://<vsts_account>.visualstudio.com/<project_name>/_build` and the deployment progress at `https://<vsts_account>.visualstudio.com/<project_name>/_release`.
 
 Browse to your app to verify that the content is deployed.
 
-## Troubleshooting
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## Troubleshooting Kudu deployment
 
 The following are common errors or problems when using Git to publish to an App Service app in Azure:
 
@@ -175,7 +205,7 @@ git config --global http.postBuffer 524288000
 **Resolution**: Additional messages with 'npm ERR!' should be logged before this error, and can provide additional context on the failure. The following are known causes of this error and the corresponding 'npm ERR!' message:
 
 * **Malformed package.json file**: npm ERR! Couldn't read dependencies.
-* **Native module that does not have a binary distribution for Windows**:
+* **Native module that doesn't have a binary distribution for Windows**:
 
   * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
 
@@ -186,3 +216,5 @@ git config --global http.postBuffer 524288000
 
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
 * [Continuous Deployment to Azure App Service](app-service-continuous-deployment.md)
+* [Sample: Create Web App and deploy code from a local Git repository (Azure CLI)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+* [Sample: Create Web App and deploy code from a local Git repository (PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

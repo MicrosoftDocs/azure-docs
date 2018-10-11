@@ -3,18 +3,19 @@ title: Create Hive tables and load data from Azure Blob Storage | Microsoft Docs
 description: Create Hive tables and load data in blob to hive tables
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Create Hive tables and load data from Azure Blob Storage
@@ -81,7 +82,7 @@ When the Hive query is more complicated and has multiple lines, editing queries 
 By default, after Hive query is submitted in Hadoop Command Line, the progress of the Map/Reduce job is printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use an argument `-S` ("S" in upper case) in the command line as follows:
 
     hive -S -f "<path to the .hql file>"
-.    hive -S -e "<Hive queries>"
+    hive -S -e "<Hive queries>"
 
 #### Submit Hive queries in Hive command console.
 You can also first enter the Hive command console by running command `hive` in Hadoop Command Line, and then submit Hive queries in Hive command console. Here is an example. In this example, the two red boxes highlight the commands used to enter the Hive command console, and the Hive query submitted in Hive command console, respectively. The green box highlights the output from the Hive query.

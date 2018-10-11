@@ -2,26 +2,28 @@
 title: Use PHP to query Azure SQL Database | Microsoft Docs
 description: This topic shows you how to use PHP to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
-author: CarlRabeler
-manager: jhubbard
 ms.service: sql-database
-ms.custom: mvc,develop apps
+ms.subservice: development
+ms.custom: 
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 11/29/2017
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Use PHP to query an Azure SQL database
 
-This quickstart tutorial demonstrates how to use [PHP](http://php.net/manual/en/intro-whatis.php) to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.
+This quickstart demonstrates how to use [PHP](http://php.net/manual/en/intro-whatis.php) to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.
 
 ## Prerequisites
 
-To complete this quickstart tutorial, make sure you have the following:
+To complete this quickstart, make sure you have the following:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quickstart tutorial.
+- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
 
 - You have installed PHP and related software for your operating system:
 

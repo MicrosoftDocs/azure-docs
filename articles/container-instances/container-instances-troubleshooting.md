@@ -3,166 +3,58 @@ title: Troubleshooting Azure Container Instances
 description: Learn how to troubleshoot issues with Azure Container Instances
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
 
-# Troubleshoot deployment issues with Azure Container Instances
+# Troubleshoot common issues in Azure Container Instances
 
-This article shows how to troubleshoot issues when deploying containers to Azure Container Instances. It also describes some of the common issues you might run into.
+This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances.
 
-## View logs and stream output
+## Naming conventions
 
-When you have a misbehaving container, start by viewing its logs with [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
+When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties. For more information on Azure naming conventions, see [Naming conventions][azure-name-restrictions] in the Azure Architecture Center.
 
-### View logs
+| Scope | Length | Casing | Valid characters | Suggested pattern | Example |
+| --- | --- | --- | --- | --- | --- | --- |
+| Container group name | 1-64 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Container name | 1-64 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Container ports | Between 1 and 65535 |Integer |Integer between 1 and 65535 |`<port-number>` |`443` |
+| DNS name label | 5-63 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>` |`frontend-site1` |
+| Environment variable | 1-63 |Case insensitive |Alphanumeric, and underscore (_) anywhere except the first or last character |`<name>` |`MY_VARIABLE` |
+| Volume name | 5-63 |Case insensitive |Lowercase letters and numbers, and hyphens anywhere except the first or last character. Cannot contain two consecutive hyphens. |`<name>` |`batch-output-volume` |
 
-To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command.
+## OS version of image not supported
 
-The following is log output from the example task-based container in [Run a containerized task in ACI](container-instances-restart-policy.md), after having fed it an invalid URL to process:
+If you specify an image that Azure Container Instances doesn't support, an `OsVersionNotSupported` error is returned. The error is similar to following, where `{0}` is the name of the image you attempted to deploy:
 
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
-Traceback (most recent call last):
-  File "wordcount.py", line 11, in <module>
-    urllib.request.urlretrieve (sys.argv[1], "foo.txt")
-  File "/usr/local/lib/python3.6/urllib/request.py", line 248, in urlretrieve
-    with contextlib.closing(urlopen(url, data)) as fp:
-  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
-    return opener.open(url, data, timeout)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 532, in open
-    response = meth(req, response)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 642, in http_response
-    'http', request, response, code, msg, hdrs)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 570, in error
-    return self._call_chain(*args)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
-    result = func(*args)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 650, in http_error_default
-    raise HTTPError(req.full_url, code, msg, hdrs, fp)
-urllib.error.HTTPError: HTTP Error 404: Not Found
-```
-
-### Attach output streams
-
-The [az container attach][az-container-attach] command provides diagnostic information during container startup. Once the container has started, it streams STDOUT and STDERR to your local console.
-
-For example, here is output from the task-based container in [Run a containerized task in ACI](container-instances-restart-policy.md), after having supplied a valid URL of a large text file to process:
-
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
-Container 'mycontainer' is in state 'Unknown'...
-Container 'mycontainer' is in state 'Waiting'...
-Container 'mycontainer' is in state 'Running'...
-(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
-
-Start streaming logs:
-[('the', 22979),
- ('I', 20003),
- ('and', 18373),
- ('to', 15651),
- ('of', 15558),
- ('a', 12500),
- ('you', 11818),
- ('my', 10651),
- ('in', 9707),
- ('is', 8195)]
-```
-
-## Get diagnostic events
-
-If your container fails to deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider. To view the events for your container, run the [az container show][az-container-show] command:
-
-```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
-```
-
-The output includes the core properties of your container, along with deployment events (shown here truncated):
-
-```JSON
+```json
 {
-  "containers": [
-    {
-      "command": null,
-      "environmentVariables": [],
-      "image": "microsoft/aci-helloworld",
-      ...
-        "events": [
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:49+00:00",
-            "lastTimestamp": "2017-12-21T22:50:49+00:00",
-            "message": "pulling image \"microsoft/aci-helloworld\"",
-            "name": "Pulling",
-            "type": "Normal"
-          },
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Successfully pulled image \"microsoft/aci-helloworld\"",
-            "name": "Pulled",
-            "type": "Normal"
-          },
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Created container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
-            "name": "Created",
-            "type": "Normal"
-          },
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Started container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
-            "name": "Started",
-            "type": "Normal"
-          }
-        ],
-        "previousState": null,
-        "restartCount": 0
-      },
-      "name": "mycontainer",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": null
-        }
-      ],
-      ...
-    }
-  ],
-  ...
+  "error": {
+    "code": "OsVersionNotSupported",
+    "message": "The OS version of image '{0}' is not supported."
+  }
 }
 ```
 
-## Common deployment issues
+This error is most often encountered when deploying Windows images that are based on a Semi-Annual Channel (SAC) release. For example, Windows versions 1709 and 1803 are SAC releases, and generate this error upon deployment.
 
-The following sections describe common issues that account for most errors in container deployment:
+Azure Container Instances supports Windows images based only on Long-Term Servicing Channel (LTSC) versions. To mitigate this issue when deploying Windows containers, always deploy LTSC-based images.
 
-* [Image version not supported](#image-version-not-supported)
-* [Unable to pull image](#unable-to-pull-image)
-* [Container continually exits and restarts](#container-continually-exits-and-restarts)
-* [Container takes a long time to start](#container-takes-a-long-time-to-start)
-* ["Resource not available" error](#resource-not-available-error)
-
-## Image version not supported
-
-If you specify an image that Azure Container Instances cannot support, an `ImageVersionNotSupported` error is returned. The value of the error is `The version of image '{0}' is not supported.`, and currently applies to Windows 1709 images. To mitigate this issue, use an LTS Windows image. Support for Windows 1709 images is underway.
+For details about the LTSC and SAC versions of Windows, see [Windows Server Semi-Annual Channel overview][windows-sac-overview].
 
 ## Unable to pull image
 
-If Azure Container Instances is unable to pull your image initially, it retries for some period before eventually failing. If the image cannot be pulled, events like the following are shown in the output of [az container show][az-container-show]:
+If Azure Container Instances is initially unable to pull your image, it retries for a period of time. If the image pull operation continues to fail, ACI eventually fails the deployment, and you may see a `Failed to pull image` error.
+
+To resolve this issue, delete the container instance and retry your deployment. Ensure that the image exists in the registry, and that you've typed the image name correctly.
+
+If the image can't be pulled, events like the following are shown in the output of [az container show][az-container-show]:
 
 ```bash
 "events": [
@@ -193,13 +85,24 @@ If Azure Container Instances is unable to pull your image initially, it retries 
 ],
 ```
 
-To resolve, delete the container and retry your deployment, paying close attention that you have typed the image name correctly.
+## Container continually exits and restarts (no long-running process)
 
-## Container continually exits and restarts
+Container groups default to a [restart policy](container-instances-restart-policy.md) of **Always**, so containers in the container group always restart after they run to completion. You may need to change this to **OnFailure** or **Never** if you intend to run task-based containers. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
 
-If your container runs to completion and automatically restarts, you might need to set a [restart policy](container-instances-restart-policy.md) of **OnFailure** or **Never**. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
+When running container groups without long-running processes you may see repeated exits and restarts with images such as Ubuntu or Alpine. Connecting via [EXEC](container-instances-exec.md) will not work as the container has no process keeping it alive. To resolve this include a start command like the following with your container group deployment to keep the container running.
 
-The Container Instances API includes a `restartCount` property. To check the number of restarts for a container, you can use the [az container show][az-container-show] command in the Azure CLI 2.0. In following example output (which has been truncated for brevity), you can see the `restartCount` property at the end of the output.
+```azurecli-interactive
+## Deploying a Linux container
+az container create -g MyResourceGroup --name myapp --image ubuntu --command-line "tail -f /dev/null"
+```
+
+```azurecli-interactive 
+## Deploying a Windows container
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+ --command-line "ping -t localhost"
+```
+
+The Container Instances API and Azure portal includes a `restartCount` property. To check the number of restarts for a container, you can use the [az container show][az-container-show] command in the Azure CLI. In the following example output (which has been truncated for brevity), you can see the `restartCount` property at the end of the output.
 
 ```json
 ...
@@ -249,11 +152,11 @@ The two primary factors that contribute to container startup time in Azure Conta
 * [Image size](#image-size)
 * [Image location](#image-location)
 
-Windows images have [additional considerations](#use-recent-windows-images).
+Windows images have [additional considerations](#cached-windows-images).
 
 ### Image size
 
-If your container takes a long time to start, but eventually succeeds, start by looking at the size of your container image. Because Azure Container Instances pulls your container image on demand, the startup time you experience is directly related to its size.
+If your container takes a long time to start, but eventually succeeds, start by looking at the size of your container image. Because Azure Container Instances pulls your container image on demand, the startup time you see is directly related to its size.
 
 You can view the size of your container image by using the `docker images` command in the Docker CLI:
 
@@ -269,7 +172,7 @@ The key to keeping image sizes small is ensuring that your final image does not 
 
 Another way to reduce the impact of the image pull on your container's startup time is to host the container image in [Azure Container Registry](/azure/container-registry/) in the same region where you intend to deploy container instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
 
-### Use recent Windows images
+### Cached Windows images
 
 Azure Container Instances uses a caching mechanism to help speed container startup time for images based on certain Windows images.
 
@@ -277,6 +180,10 @@ To ensure the fastest Windows container startup time, use one of the **three mos
 
 * [Windows Server 2016][docker-hub-windows-core] (LTS only)
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+
+### Windows containers slow network readiness
+
+Windows containers may incur no inbound or outbound connectivity for up to 5 seconds on initial creation. After initial setup, container networking should resume appropriately.
 
 ## Resource not available error
 
@@ -291,12 +198,19 @@ This error indicates that due to heavy load in the region in which you are attem
 * Deploy to a different Azure region
 * Deploy at a later time
 
+## Cannot connect to underlying Docker API or run privileged containers
+
+Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](https://aka.ms/aci/rest) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
+
+## Next steps
+Learn how to [retrieve container logs & events](container-instances-get-logs.md) to help debug your containers.
+
 <!-- LINKS - External -->
+[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
 [docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-logs]: /cli/azure/container#az_container_logs
-[az-container-show]: /cli/azure/container#az_container_show
+[az-container-show]: /cli/azure/container#az-container-show

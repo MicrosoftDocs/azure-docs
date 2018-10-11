@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 10/10/2018
 ms.author: raynew
 
 ---
@@ -23,18 +23,25 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 > * Create a replication policy
 > * Enable replication for a server
 
+[review the architecture](concepts-hyper-v-to-azure-architecture.md) for this disaster recovery scenario.
+
 ## Prerequisites
 
 To complete this tutorial:
 
-- Make sure that you understand the [scenario architecture and components](physical-azure-architecture.md).
+- Make sure that you understand the [architecture and components](physical-azure-architecture.md) for this scenario.
 - Review the [support requirements](vmware-physical-secondary-support-matrix.md) for all components.
 - Make sure that the servers you want to replicate comply with [Azure VM requirements](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
 
-> [!NOTE]
-> Before you begin, note that after failover to Azure, physical servers can't be failed back to on-premises physical machines. You can only fail back to VMware VMs. 
+Before you begin, note that:
+
+- After failover to Azure, physical servers can't be failed back to on-premises physical machines. You can only fail back to VMware VMs. 
+- This tutorial sets up physical server disaster recovery to Azure with the simplest settings. If you want to learn about other options, read through our How To guides:
+    - Set up the [replication source](physical-azure-set-up-source.md), including the Site Recovery configuration server.
+    - Set up the [replication target](physical-azure-set-up-target.md).
+    - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
 
 
 ### Set up an Azure account
@@ -50,7 +57,7 @@ Get a Microsoft [Azure account](http://azure.microsoft.com/).
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [role-based access](../active-directory/role-based-access-control-configure.md) permissions. 
+- Verify and modify [role-based access](../role-based-access-control/role-assignments-portal.md) permissions. 
 
 
 
@@ -64,7 +71,7 @@ Set up an [Azure network](../virtual-network/quick-create-portal.md).
 
 ## Set up an Azure storage account
 
-Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Set up an [Azure storage account](../storage/common/storage-quickstart-create-account.md).
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
@@ -113,20 +120,25 @@ Set up the configuration server, register it in the vault, and discover VMs.
 
 Do the following before you start: 
 
-- On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
-- Make sure the machine can access these URLs:
-        [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+#### Verify time accuracy
+On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
 
-- IP address-based firewall rules should allow communication to Azure.
-- Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
-- Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
+#### Verify connectivity
+Make sure the machine can access these URLs based on your environment: 
 
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering be done.
+
+- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the AAD, Backup, Replication, and Storage URLs.  
+- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support AAD, Backup, Replication, and Storage URLs.  
+
+#### Run setup
 Run Unified Setup as a Local Administrator, to install the configuration server. The process server and the master target server are also installed by default on the configuration server.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 After registration finishes, the configuration server is displayed on the **Settings** > **Servers** page in the vault.
-
 
 ## Set up the target environment
 

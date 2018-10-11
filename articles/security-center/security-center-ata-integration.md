@@ -3,14 +3,14 @@ title: Connecting Microsoft Advanced Threat Analytics to Azure Security Center |
 description: Learn how Azure Security Center integrates with Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
 editor: ''
 
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
@@ -55,7 +55,7 @@ Assuming that you already have ATA installed, and working properly on-premises, 
 
 	![Direct agent](./media/security-center-ata-integration/security-center-ata-integration-fig6.png)
 
-12. Install this agent in the ATA Center. During the installation, make sure to select the option **Connect the agent to Azure Log Analytics (OMS)**, and provide the *workspace ID*, and *primary key* when requested.
+12. Install this agent in the ATA Center. During the installation, make sure to select the option **Connect the agent to Azure Log Analytics**, and provide the *workspace ID*, and *primary key* when requested.
 
 
 Once you finish the installation, the integration is completed, and you will be able to see new alerts sent from ATA to Security Center in the **Search** result. The solution appears in the **Security Solutions** page, under **Connected solutions**. 

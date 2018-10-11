@@ -28,7 +28,7 @@ Perform the following steps to download the software update from the Microsoft U
 Perform the following steps to install and verify regular-mode hotfixes. If you already installed them using the Azure portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
-2. Select **Option 1** to log on to the device with full access. We recommend that you install the hotfix on the passive controller first.
+2. Select option 1, **Log in with full access**. We recommend that you install the hotfix on the passive controller first.
 3. To install the hotfix, at the command prompt, type:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -164,7 +164,7 @@ To install the disk firmware updates, follow the instructions below.
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
-4. After the installation is complete, the controller on which the maintenance mode hotfix was installed restarts. Log in as option 1 with full access and verify the disk firmware version. Type:
+4. After the installation is complete, the controller on which the maintenance mode hotfix was installed restarts. Sign in as option 1, **Log in with full access**, and verify the disk firmware version. Type:
    
    `Get-HcsFirmwareVersion`
    

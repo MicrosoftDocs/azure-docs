@@ -1,21 +1,15 @@
 ---
-title: Java user-defined function (UDF) with Hive in HDInsight - Azure | Microsoft Docs
+title: Java user-defined function (UDF) with Hive in HDInsight - Azure 
 description: Learn how to create a Java-based user-defined function (UDF) that works with Hive. This example UDF converts a table of text strings to lowercase.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/20/2018
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: jasonh
 
 ---
 # Use a Java UDF with Hive in HDInsight
@@ -74,14 +68,14 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
     </dependencies>
     ```
 
-    These entries specify the version of Hadoop and Hive included with HDInsight 3.5. You can find information on the versions of Hadoop and Hive provided with HDInsight from the [HDInsight component versioning](../hdinsight-component-versioning.md) document.
+    These entries specify the version of Hadoop and Hive included with HDInsight 3.6. You can find information on the versions of Hadoop and Hive provided with HDInsight from the [HDInsight component versioning](../hdinsight-component-versioning.md) document.
 
     Add a `<build>` section before the `</project>` line at the end of the file. This section should contain the following XML:
 
     ```xml
     <build>
         <plugins>
-            <!-- build for Java 1.8. This is required by HDInsight 3.5  -->
+            <!-- build for Java 1.8. This is required by HDInsight 3.6  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

@@ -4,7 +4,7 @@ description: By using View Designer in Log Analytics, you can create custom view
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: bwren
-
+ms.component: 
 ---
+
 # Create custom views by using View Designer in Log Analytics
 By using View Designer in [Azure Log Analytics](log-analytics-overview.md), you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
 
@@ -25,8 +26,6 @@ For more information about View Designer, see:
 * [Tile reference](log-analytics-view-designer-tiles.md): Provides a reference guide to the settings for each of the available tiles in your custom views.
 * [Visualization part reference](log-analytics-view-designer-parts.md): Provides a reference guide to the settings for the visualization parts that are available in your custom views.
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), queries in all views must be written in the [new query language](https://go.microsoft.com/fwlink/?linkid=856078). Any views that were created before the workspace was upgraded are automatically converted.
 
 ## Concepts
 Views are displayed on the **Overview** page of your Log Analytics workspace in the Azure portal. The tiles in each custom view are displayed alphabetically, and the tiles for the solutions are installed the same workspace.
@@ -52,14 +51,15 @@ The options are described in the following table:
 | Option | Description |
 |:--|:--|
 | Refresh   | Refreshes the view with the latest data. | 
-| Analytics | Opens the [Advanced Analytics portal](log-analytics-log-search-portals.md#advanced-analytics-portal) to analyze data with log searches. |
-| Filter    | Sets a time filter for the data that's included in the view. |
-| Edit      | Opens the view in View Designer to edit its contents and configuration.  |
-| Clone     | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
+| Analytics | Opens the [Advanced Analytics portal](log-analytics-log-search-portals.md) to analyze data with log queries. |
+| Edit       | Opens the view in View Designer to edit its contents and configuration.  |
+| Clone      | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
+| Date range | Set the date and time range filter for the data that's included in the view. This date range is applied before any date ranges set in queries in the view.  |
+| +          | Define a custom filter that's defined for the view. |
 
 
 ## Create a new view
-You can create a new view in View Designer by selecting the **View Designer** tile on the **Overview** page of your Log Analytics workspace.
+You can create a new view in View Designer by selecting **View Designer** in the menu of your Log Analytics workspace.
 
 ![View Designer tile](media/log-analytics-view-designer/view-designer-tile.png)
 
@@ -102,7 +102,6 @@ The options for working with views in edit mode are described in the following t
 | Export      | Exports the view to an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) that you can import into another workspace. The name of the file is the name of the view, and it has an *omsview* extension. |
 | Import      | Imports the *omsview* file that you exported from another workspace. This action overwrites the configuration of the existing view. |
 | Clone       | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
-| Publish     | Exports the view to a JSON file that you can insert into a [Management solution](../operations-management-suite/operations-management-suite-solutions-resources-views.md). The file name is the same as the view name, but with a *json* extension. A second file, which is created with a *resjson* extension, includes values for the resources that are defined in the JSON file.
 
 ## Next steps
 * Add [Tiles](log-analytics-view-designer-tiles.md) to your custom view.

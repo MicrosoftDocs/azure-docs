@@ -1,23 +1,17 @@
----
+﻿---
 title: Cheat sheet for Azure SQL Data Warehouse | Microsoft Docs
 description: Find links and best practices to quickly build your Azure SQL Data Warehouse solutions.
 services: sql-data-warehouse
-documentationcenter: NA
 author: acomet
-manager: jhubbard
-editor: ''
-
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/20/2018
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
 ms.author: acomet
-
+ms.reviewer: igorstan
 ---
+
 # Cheat sheet for Azure SQL Data Warehouse
 This cheat sheet provides helpful tips and best practices for building your Azure SQL Data Warehouse solutions. Before you get started, learn more about each step in detail by reading [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), which explains what SQL Data Warehouse is and what it is not.
 
@@ -36,7 +30,7 @@ Knowing the types of operations in advance helps you optimize the design of your
 
 ## Data migration
 
-First, load your data into [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) or Azure Blob storage. Next, use PolyBase to load your data into SQL Data Warehouse in a staging table. Use the following configuration:
+First, load your data into [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) or Azure Blob storage. Next, use PolyBase to load your data into SQL Data Warehouse in a staging table. Use the following configuration:
 
 | Design | Recommendation |
 |:--- |:--- |
@@ -45,7 +39,7 @@ First, load your data into [Azure Data Lake Store](https://docs.microsoft.com/en
 | Partitioning | None |
 | Resource Class | largerc or xlargerc |
 
-Learn more about [data migration], [data loading], and the [Extract, Load, and Transform (ELT) process](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
+Learn more about [data migration], [data loading], and the [Extract, Load, and Transform (ELT) process](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
 
 ## Distributed or replicated tables
 
@@ -80,7 +74,7 @@ Indexing is helpful for reading tables quickly. There is a unique set of technol
 **Tips:**
 * On top of a clustered index, you might want to add a nonclustered index to a column heavily used for filtering. 
 * Be careful how you manage the memory on a table with CCI. When you load data, you want the user (or the query) to benefit from a large resource class. Make sure to avoid trimming and creating many small compressed row groups.
-* Optimized for Compute Tier rocks with CCI.
+* On Gen2, CCI tables are cached locally on the compute nodes to maximize performance.
 * For CCI, slow performance can happen due to poor compression of your row groups. If this occurs, rebuild or reorganize your CCI. You want at least 100,000 rows per compressed row groups. The ideal is 1 million rows in a row group.
 * Based on the incremental load frequency and size, you want to automate when you reorganize or rebuild your indexes. Spring cleaning is always helpful.
 * Be strategic when you want to trim a row group. How large are the open row groups? How much data do you expect to load in the coming days?
@@ -113,7 +107,7 @@ SQL Data Warehouse uses resource groups as a way to allocate memory to queries. 
 
 If you notice that queries take too long, check that your users do not run in large resource classes. Large resource classes consume many concurrency slots. They can cause other queries to queue up.
 
-Finally, by using the Compute Optimized Tier, each resource class gets 2.5 times more memory than on the Elastic Optimized Tier.
+Finally, by using Gen2 of SQL Data Warehouse, each resource class gets 2.5 times more memory than Gen1.
 
 Learn more how to work with [resource classes and concurrency].
 
@@ -143,12 +137,14 @@ Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 [Sketch]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
-[data loading]:./design-elt-data-loading.md
-[deeper guidance]: ./guidance-for-loading-data.md
-[indexes]:./sql-data-warehouse-tables-index.md
-[partitions]:./sql-data-warehouse-tables-partition.md
-[statistics]:./sql-data-warehouse-tables-statistics.md
-[resource classes and concurrency]:./sql-data-warehouse-develop-concurrency.md
+[data loading]:design-elt-data-loading.md
+[deeper guidance]:guidance-for-loading-data.md
+[indexes]:sql-data-warehouse-tables-index.md
+[partitions]:sql-data-warehouse-tables-partition.md
+[statistics]:sql-data-warehouse-tables-statistics.md
+[resource classes and concurrency]:resource-classes-for-workload-management.md
+[replicated tables]:design-guidance-for-replicated-tables.md
+[distributed tables]:sql-data-warehouse-tables-distribute.md
 
 <!--MSDN references-->
 
@@ -157,8 +153,7 @@ Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [data migration]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-[replicated tables]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables
-[distributed tables]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
-[Azure Data Lake Store]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
+
+[Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
+[sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
+[sys.dm_pdw_request_steps]:/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

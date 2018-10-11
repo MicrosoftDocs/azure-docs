@@ -1,30 +1,24 @@
 ---
-title: Copy data from Netezza using Azure Data Factory (Beta) | Microsoft Docs
+title: Copy data from Netezza using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Netezza to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/26/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: jingwang
 
 ---
-# Copy data from Netezza using Azure Data Factory (Beta)
+# Copy data from Netezza using Azure Data Factory 
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Netezza. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> This connector is currently in Beta. You can try it out and give us feedback. Do not use it in production environments.
 
 ## Supported capabilities
 
@@ -47,6 +41,13 @@ The following properties are supported for Netezza linked service:
 | type | The type property must be set to: **Netezza** | Yes |
 | connectionString | An ODBC connection string to connect to Netezza. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+
+A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. More properties you can set per your case:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | The level of security (SSL/TLS) that the driver uses for the connection to the data store. E.g. `SecurityLevel=preferredSecured`. Supported values are:<br/>- Only Unsecured (**onlyUnSecured**): The driver does not use SSL.<br/>- **Preferred Unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver does not use SSL. <br/>- **Preferred Secured (preferredSecured)**: If the server provides a choice, the driver uses SSL. <br/>- **Only Secured (onlySecured)**: The driver does not connect unless an SSL connection is available | No |
+| CaCertFile | The full path to the SSL certificate that is used by the server. E.g. `CaCertFile=<cert path>;`| Yes, if SSL is enabled |
 
 **Example:**
 

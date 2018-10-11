@@ -1,46 +1,61 @@
 ---
-title: Get kubelet logs from Azure Container Service (AKS)
-description: Get kubelet logs from Azure Container Service (AKS) cluster nodes
+title: View kubelet logs in Azure Kubernetes Service (AKS)
+description: How to view troubleshooting information in the kubelet logs from Azure Kubernetes Service (AKS) nodes
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: nepeters
-ms.custom: mvc
+ms.date: 08/21/2018
+ms.author: iainfou
 ---
 
-# Get kubelet logs from Azure Container Service (AKS) cluster nodes
+# Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes
 
-Occasionally, you may need to get kubelet logs from an Azure Container Service (AKS) node for troubleshooting purposes. This document details one option for pulling these logs.
+Occasionally, you may need to get *kubelet* logs from an Azure Kubernetes Service (AKS) node for troubleshooting purposes. This article shows you how you can use `journalctl` to view the *kubelet* logs.
 
 ## Create an SSH connection
 
-First, create an SSH connection with the node on which you need to pull kubelet logs. This operation is detailed in the [SSH into Azure Container Service (AKS) cluster nodes][aks-ssh] document.
+First, create an SSH connection with the node on which you need to view *kubelet* logs. This operation is detailed in the [SSH into Azure Kubernetes Service (AKS) cluster nodes][aks-ssh] document.
 
 ## Get kubelet logs
 
-Once you have connected to the node, run the following command to pull the kubelet logs.
-
-```azurecli-interactive
-docker logs $(docker ps -a | grep "hyperkube kubele" | awk -F ' ' '{print $1}')
-```
-
-Sample Output:
+Once you have connected to the node, run the following command to pull the *kubelet* logs:
 
 ```console
-2018-03-05 00:04:00.883195 I | proto: duplicate proto type registered: google.protobuf.Any
-2018-03-05 00:04:00.883242 I | proto: duplicate proto type registered: google.protobuf.Duration
-2018-03-05 00:04:00.883253 I | proto: duplicate proto type registered: google.protobuf.Timestamp
-Flag --non-masquerade-cidr has been deprecated, will be removed in a future version
-Flag --non-masquerade-cidr has been deprecated, will be removed in a future version
-I0305 00:04:00.978560    8021 feature_gate.go:144] feature gates: map[Accelerators:true]
-I0305 00:04:00.978996    8021 azure.go:174] azure: using client_id+client_secret to retrieve access token
-I0305 00:04:00.979041    8021 server.go:439] Successfully initialized cloud provider: "azure" from the config file: "/etc/kubernetes/azure.json"
-I0305 00:04:00.979058    8021 server.go:740] cloud provider determined current node name to be aks-nodepool1-42032720-0
+sudo journalctl -u kubelet -o cat
 ```
 
+The following sample output shows the *kubelet* log data:
+
+```
+I0508 12:26:17.905042    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:26:27.943494    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:26:28.920125    8672 server.go:796] GET /stats/summary: (10.370874ms) 200 [[Ruby] 10.244.0.2:52292]
+I0508 12:26:37.964650    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:26:47.996449    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:26:58.019746    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:27:05.107680    8672 server.go:796] GET /stats/summary/: (24.853838ms) 200 [[Go-http-client/1.1] 10.244.0.3:44660]
+I0508 12:27:08.041736    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:27:18.068505    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:27:28.094889    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:27:38.121346    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:27:44.015205    8672 server.go:796] GET /stats/summary: (30.236824ms) 200 [[Ruby] 10.244.0.2:52588]
+I0508 12:27:48.145640    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:27:58.178534    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:28:05.040375    8672 server.go:796] GET /stats/summary/: (27.78503ms) 200 [[Go-http-client/1.1] 10.244.0.3:44660]
+I0508 12:28:08.214158    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:28:18.242160    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:28:28.274408    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:28:38.296074    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:28:48.321952    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
+```
+
+## Next steps
+
+If you need additional troubleshooting information from the Kubernetes master, see [view Kubernetes master node logs in AKS][aks-master-logs].
+
 <!-- LINKS - internal -->
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
+[aks-master-logs]: view-master-logs.md
