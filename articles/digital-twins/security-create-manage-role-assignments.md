@@ -12,13 +12,15 @@ ms.author: lyrana
 
 # Create and manage role assignments
 
-Azure Digital Twins uses role-based access control ([RBAC](./security-role-based-access-control.md)) to manage access to resources. Each role assignment includes:
+Azure Digital Twins uses role-based access control ([RBAC](./security-role-based-access-control.md)) to manage access to resources.
 
-* An **object identifier** (an Azure Active Directory Id, service principal object Id, or domain name).
+Each role assignment includes:
+
+* An **object identifier** (an Azure Active Directory ID, service principal object ID, or domain name).
 * An **object identifier type**.
-* A **role definition Id**.
+* A **role definition ID**.
 * A **space path**.
-* (In most cases) an Azure Active Directory **tenant Id**.
+* (In most cases) an Azure Active Directory **tenant ID**.
 
 ## Role definition identifiers
 
@@ -56,16 +58,16 @@ HTTP POST /api/v1.0/roleassignments
 | **Name** | **Required** | **Type** | **Description** |
 | --- | --- | --- | --- |
 | roleId| Yes |string | The role definition identifier. Role definitions and their identifiers can be found by querying the system API. |
-| objectId | Yes |string | The object id for the role assignment that must be formatted according to its associated type. For the `DomainName` ObjectIdType, ObjectId must begin with the `“@”` character. |
+| objectId | Yes |string | The object ID for the role assignment that must be formatted according to its associated type. For the `DomainName` ObjectIdType, ObjectId must begin with the `“@”` character. |
 | objectIdType | Yes |string | The type of the role assignment. Must be one of the following rows in this table. |
 | tenantId | Varies | string |The tenant identifier. Disallowed for `DeviceId` and `TenantId` ObjectIdTypes. Required for `UserId` and `ServicePrincipalId` ObjectIdTypes. Optional for the DomainName ObjectIdType. |
-| path* | Yes | string |The full access path to the `Space` object. Ex: `/{Guid}/{Guid}` If an identifier needs the role assignment for the entire graph specify `"/"` which designates the root. However, using that is discouraged and **you should always follow the Principle of Least Privilege** |
+| path* | Yes | string |The full access path to the `Space` object. Ex: `/{Guid}/{Guid}` If an identifier needs the role assignment for the entire graph, specify `"/"` (which designates the root). However, using that is discouraged and **you should always follow the Principle of Least Privilege**. |
 
 ## Sample configuration
 
 A user needs administrative access to a floor of a tenant space:
 
-  ```json
+  ```JSON
     {
       "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
       "ObjectId" : " 0fc863bb-eb51-4704-a312-7d635d70e599",
@@ -77,7 +79,7 @@ A user needs administrative access to a floor of a tenant space:
 
 An application that runs test scenarios mocking devices and sensors:
 
-  ```json
+  ```JSON
     {
       "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
       "ObjectId" : "cabf7acd-af0b-41c5-959a-ce2f4c26565b",
@@ -89,7 +91,7 @@ An application that runs test scenarios mocking devices and sensors:
 
 All users part of a domain will receive read access for spaces, sensors, and users, including their corresponding related objects:
 
-  ```json
+  ```JSON
     {
       "RoleId": " b1ffdb77-c635-4e7e-ad25-948237d85b30",
       "ObjectId" : "@microsoft.com",
@@ -116,7 +118,7 @@ HTTP DELETE /api/v1/roleassignments/{id}
 
 | **Name** | **In** | **Required** | **Type** | **Description** |
 | --- | --- | --- | --- | --- |
-| Id | Path | True | String |	Role Assignment Id |
+| ID | Path | True | String |	Role Assignment ID |
 
 ## Next steps
 
