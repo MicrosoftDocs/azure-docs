@@ -57,6 +57,7 @@
 - name: Tutorials
   items: 
   - name: Create, publish, answer from KB
+  href: create-publish-answer.md
 - name: How-to guides
   items:
   - name: Set up a QnA Maker service
