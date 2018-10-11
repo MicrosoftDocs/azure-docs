@@ -116,6 +116,8 @@
     href: limits.md
   - name: Glossary
     href: glossary.md
+  - name: HTTP response codes
+    href: http-response-codes.md
 - name: Resources
   items:
   - name: Regional Availability
