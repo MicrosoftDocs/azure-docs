@@ -30,9 +30,9 @@ You can use the following Azure Automation solutions to manage Windows VMs that 
 These solutions are the same as the ones used to manage Azure VMs. Both Azure and Azure Stack Windows VMs are managed in the same way, from the same interface, using the same tools.
 
 ## Prerequisites
-Before using these solutions to update and manage Azure Stack Windows VMs several prerequisites must be met. These include steps that must be taken in the Azure portal as well as the Azure Stack administration portal.
+Several prerequisites must be met before using these solutions to update and manage Azure Stack Windows VMs. These include steps that must be taken in the Azure portal as well as the Azure Stack administration portal.
 
-### In the Azure Portal
+### In the Azure portal
 To configure the Update Management, Change Tracking, and Inventory solutions for Azure Stack Windows VMs, you first need to enable these solutions in Azure.
 
 > [!NOTE]
@@ -45,16 +45,16 @@ Next, you must [create an Automation Account](https://docs.microsoft.com/azure/a
   ![The Update Management solution, after it was enabled](media/vm-update-management/1.PNG) 
 
 ### In the Azure Stack Administration Portal
-After enabling the Azure Automation solutions in the Azure Portal, you next need to sign in to the Azure Stack administration poral as a cloud administrator and download the **Azure Update and Configuration Management** extension Azure Stack marketplace item. 
+After enabling the Azure Automation solutions in the Azure portal, you next need to sign in to the Azure Stack administration portal as a cloud administrator and download the **Azure Update and Configuration Management** extension Azure Stack marketplace item. 
 
-  ![Azure update and configuration managerment extension marketplace item](media/vm-update-management/2.PNG) 
+  ![Azure update and configuration management extension marketplace item](media/vm-update-management/2.PNG) 
 
 ## Enable Update Management for Azure Stack virtual machines
 Follow these steps to enable update management for Azure Stack Windows VMs.
 
 1. Log into the Azure Stack user portal.
 
-2. In the Azure Stack user-portal, go to the Extensions blade of the Windows virtual machines for which you want to enable these solutions, click Add and select the **Azure Update and Configuration Management** solution:
+2. In the Azure Stack user-portal, go to the Extensions blade of the Windows virtual machines for which you want to enable these solutions, click Add, and then select the **Azure Update and Configuration Management** solution:
 
     ![Windows VM extension blade](media/vm-update-management/3.PNG) 
 
