@@ -27,7 +27,7 @@ You need to delegate a subnet to Azure NetApp Files.   When you create a volume,
 
 
 ## Next steps  
-1. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-2. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
-3. [Learn about virtual network integration for Azure services](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-for-azure-services)
+* [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
+* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-for-azure-services)
+
 

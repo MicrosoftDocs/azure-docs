@@ -64,6 +64,6 @@ You must also have a subnet that is delegated to Azure NetApp Files.
 A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
 ## Next steps  
-[Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
-[Learn about virtual network integration for Azure services](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-for-azure-services)
+* [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
+* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-for-azure-services)
 

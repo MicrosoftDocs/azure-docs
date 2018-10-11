@@ -112,7 +112,4 @@ You must also register the **AllowBaremetalServers** feature from the Network Re
 
 ## Next steps  
 
-1. [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
-1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
-1. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-1. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
+[Create a NetApp account](azure-netapp-files-create-netapp-account.md)

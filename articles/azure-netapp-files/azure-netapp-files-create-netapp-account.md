@@ -55,6 +55,5 @@ You must have registered your subscription for using the NetApp Resource Provide
 
 ## Next steps  
 
-1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
-2. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-3. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
+[Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+

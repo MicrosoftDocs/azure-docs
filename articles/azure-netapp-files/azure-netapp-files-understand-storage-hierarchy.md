@@ -52,8 +52,4 @@ The following example shows the relationships of the Azure subscription, NetApp 
 
 ## Next steps
 
-1. [Register for Azure NetApp Files](azure-netapp-files-register.md)
-1. [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
-1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
-1. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-1. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
+[Register for Azure NetApp Files](azure-netapp-files-register.md)
