@@ -6,8 +6,8 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
 
 ---

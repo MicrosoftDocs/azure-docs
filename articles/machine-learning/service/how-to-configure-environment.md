@@ -5,6 +5,7 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
+ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
@@ -116,7 +117,7 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
     > [!NOTE]
     > If you receive a message that `PyYAML` cannot be uninstalled, use the following command instead:
     > 
-    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML` 
 
     It can take several minutes to install the SDK.
 

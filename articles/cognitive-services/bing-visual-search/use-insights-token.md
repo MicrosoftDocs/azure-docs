@@ -7,7 +7,7 @@ author: swhite-msft
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi

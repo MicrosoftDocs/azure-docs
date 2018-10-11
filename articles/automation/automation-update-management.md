@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/05/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -509,9 +509,9 @@ To learn how to integrate the management solution with System Center Configurati
 
 ## Inclusion behavior
 
-Update inclusion allows you to specify specific updates to apply. Patches or packages that are set to be included are installed no matter the classifications selected for the deployment.
+Update inclusion allows you to specify specific updates to apply. Patches or packages that are set to be included are installed. When Patches or packages are set to be included and a classification is selected as well, both the included items and items that meet the classification are installed.
 
-For Linux machines if a package is included but has a dependant package that was specifcally excluded, the package is not installed.
+It is important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, then no patches or packages are installed as they are all excluded. For Linux machines if a package is included but has a dependant package that was specifcally excluded, the package is not installed.
 
 ## Patch Linux machines
 

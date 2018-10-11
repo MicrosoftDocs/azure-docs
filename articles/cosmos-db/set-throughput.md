@@ -186,6 +186,21 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
+## Get the request charge using Cassandra API 
+
+The Cassandra API supports a way to provide extra information about the request units charge for a given operation. For example, RU/s charge for the insert operation can be retrieved as follows:
+
+```csharp
+var insertResult = await tableInsertStatement.ExecuteAsync();
+ foreach (string key in insertResult.Info.IncomingPayload)
+        {
+            byte[] valueInBytes = customPayload[key];
+            string value = Encoding.UTF8.GetString(valueInBytes);
+            Console.WriteLine($“CustomPayload:  {key}: {value}”);
+        }
+```
+
+
 ## Get throughput by using MongoDB API portal metrics
 
 The simplest way to get a good estimate of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimate of how many request units each operation is consuming and how many request units they consume relative to one another.
