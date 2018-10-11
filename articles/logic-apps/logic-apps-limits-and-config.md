@@ -157,6 +157,18 @@ Some connector operations make asynchronous calls or listen for webhook requests
 | Retry min delay | 5 seconds | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 |||| 
 
+<a name="sftp"></a>
+
+## SFTP and SFTP-SSH limits
+
+### File size
+
+| Name | Limit | Notes |
+|------|-------|-------|
+| SFTP | 50 MB | To work around this limit, use the [SFTP-SSH connector](..connectors/connectors-sft-ssh-md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP-SSH | 1 GB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+|||| 
+
 <a name="custom-connector-limits"></a>
 
 ## Custom connector limits

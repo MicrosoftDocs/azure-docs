@@ -32,14 +32,15 @@ your logic apps to perform tasks with files on your SFTP server.
 You can also have other actions use the output from SFTP actions. 
 For example, if you regularly retrieve files from your SFTP server, 
 you can send email about those files and their content by using 
-the Office 365 Outlook connector or Outlook.com connector.
+the Office 365 Outlook connector or Outlook.com connector. 
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> To work with files larger than 50 MB up to 1 GB, 
+> For files larger than 50 MB and up to 1 GB, 
 > use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
-> The SFTP connector supports only files that are 50 MB or smaller.
+> The SFTP connector supports only files that are 50 MB or smaller 
+> unless you use [chunking for handling large messages](../logic-apps/handle-large-messages.md). 
 
 ## Prerequisites
 
