@@ -2,17 +2,11 @@
 title: Quickstart for Microsoft Azure Data Box| Microsoft Docs
 description: Learn how to quickly deploy your Azure Data Box in Azure portal
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/04/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
