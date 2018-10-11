@@ -2,17 +2,11 @@
 title: Microsoft Azure Data Box Disk overview | Microsoft Docs in data 
 description: Describes Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
