@@ -23,10 +23,10 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 This tutorial assumes that you have completed the steps to [configure your Azure Digital Twins setup](tutorial-facilities-setup.md), as well as [provision and monitor your Azure Digital Twins setup](tutorial-facilities-udf.md). Before proceeding, make sure that you have:
-- an [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F),
-- an instance of Digital Twins running, 
-- the [Azure Digital Twins samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine,
-- [.NET Core 2.1 or above SDK](https://www.microsoft.com/net/download) on your development machine to run the sample. 
+- An [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An instance of Digital Twins running.
+- The [Digital Twins C# samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
+- [.NET Core SDK version 2.1 or above](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify if the right version is installed. 
 
 
 ## Stream data using Event Hubs
@@ -35,13 +35,12 @@ This tutorial assumes that you have completed the steps to [configure your Azure
 ### Create an event hub
 
 1. Sign in to [Azure portal](https://portal.azure.com).
-1. On the left navigation panel, select **Resource groups**, and search for the resource group you created or used for your Digital Twins instance. 
 
-1. On the **Overview** pane of your resource group, click the **Add** button.
+1. On the left navigation panel, click **Create a resource**. 
 
 1. Search for and select **Event Hubs**. Click **Create**.
 
-1. Enter a **Name** for your Event Hubs namespace, choose *Standard* **Pricing tier**, your **Subscription**, your existing **Resource group**, and the **Location**. Click **Create**. 
+1. Enter a **Name** for your Event Hubs namespace, choose *Standard* **Pricing tier**, your **Subscription**, the **Resource group** you used for your Digital Twins instance, and the **Location**. Click **Create**. 
 
 1. Once deployed, navigate to the Event Hubs namespace *deployment*, and click on the namespace under **RESOURCE**.
 
@@ -62,11 +61,11 @@ This tutorial assumes that you have completed the steps to [configure your Azure
 
     ![Event Hub connection strings](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
 
-1. Open the *ManageSend* policy that you just created, and copy the values for **Connection string--primary key** and **Connection string--secondary key** to a temporary *Notepad* file. You will need these values to create an endpoint for the event hub in your Digital Twin instance in the next section.
+1. Open the *ManageSend* policy that you just created, and copy the values for **Connection string--primary key** and **Connection string--secondary key** to a temporary file. You will need these values to create an endpoint for the event hub in your Digital Twin instance in the next section.
 
 ### Create endpoint for the event hub
 
-1. In a command window, navigate to the **_occupancy-quickstart\src** folder of the Digital Twins sample.
+1. In the command window, make sure you are in the **_occupancy-quickstart\src** folder of the Digital Twins sample.
 
 1. Open the file **_actions\createEndpoints.yaml_** in your editor. Replace the contents with the following:
 
@@ -95,7 +94,8 @@ This tutorial assumes that you have completed the steps to [configure your Azure
 1. Replace the placeholders `Name_of_your_Event_Hubs_namespace` with the name of your Event Hubs namespace.
 
     > [!IMPORTANT]
-    > Enter all values without any quotes. Make sure there is at least one space character after the colon in the *YAML* file. Make sure there are no trailing spaces or extra characters, since *YAML* is a sensitive file format.
+    > Enter all values without any quotes. Make sure there is at least one space character after the colons in the *YAML* file. You may also validate your *YAML* file contents using any online YAML validator such as [this tool](https://onlineyamltools.com/validate-yaml).
+
 
 1. Save and close the file. Run the following command in the command window, and sign in with your Azure account when prompted.
 
@@ -109,11 +109,11 @@ This tutorial assumes that you have completed the steps to [configure your Azure
 
 ## Analyze with Time Series Insights
 
-1. In the left navigation pane of the [Azure portal](https://portal.azure.com), click **Resource groups**, and then select the resource group you created or used for your Digital Twins instance. 
+1. In the left navigation pane of the [Azure portal](https://portal.azure.com), click **Create a resource**. 
 
-1. Click **Add** button on top, and search and select a new **Time Series Insights** resource. Click **Create**.
+1. Search for and select a new **Time Series Insights** resource. Click **Create**.
 
-1. Enter a **Name** for your Time Series Insights instance, and then select your **Subscription**, your **Resource group**, and **Location**. Click **Create**.
+1. Enter a **Name** for your Time Series Insights instance, and then select your **Subscription**, the **Resource group** you used for your Digital Twins instance, and your **Location**. Click **Create**.
 
     ![Create TSI](./media/tutorial-facilities-analyze/create-tsi.png)
 
