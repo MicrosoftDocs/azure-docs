@@ -1,8 +1,8 @@
 ---
 title: Accelerated database recovery - Azure SQL Database | Microsoft Docs
-description: The Azure SQL Database has a new feature that provides ast and consistent database recovery, instantaneous transaction rollback, and aggressive log truncation.
+description: The Azure SQL Database has a new feature that provides fast and consistent database recovery, instantaneous transaction rollback, and aggressive log truncation for single databases, elastic pools, and Azure SQL Data Warehouse.
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: 
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 10/11/2018
 ---
-# Enable Accelerated Database Recovery (preview) for fast recovery and instantaneous transaction rollback
+# Accelerated Database Recovery (preview)
 
 **Accelerated Database Recovery (ADR)** is a new SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL database engine recovery process. ADR is currently available for single databases, elastic pools, and Azure SQL Data Warehouse. The primary benefits of ADR are:
 

@@ -160,6 +160,8 @@
       href: sql-database-business-continuity.md
     - name: High availability
       href: sql-database-high-availability.md
+    - name: Accelerated database recovery
+      href: sql-database-accelerated-database-recovery.md
     - name: Database backups
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
@@ -178,15 +180,13 @@
         href: sql-database-geo-replication-portal.md
       - name: Configure security for replicas
         href: sql-database-geo-replication-security-config.md
-    - name: Database recovery
+    - name: Database recovery options
       items:
-      - name: Database recovery
+      - name: Recovery using backups
         href: sql-database-recovery-using-backups.md
-      - name: Accelerated database recovery
-        href: sql-database-accelerated-database-recovery.md
-      - name: Recover from outage
+      - name: Outage recovery guidance
         href: sql-database-disaster-recovery.md
-      - name: Perform recovery drill
+      - name: Recovery drills
         href: sql-database-disaster-recovery-drills.md
     - name: App design
       items:
