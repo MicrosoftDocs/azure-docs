@@ -54,6 +54,9 @@
     href: Concepts/confidence-score.md
   - name: Data sources supported
     href: Concepts/data-sources-supported.md
+- name: Tutorials
+  items: 
+  - name: Create, publish, answer from KB
 - name: How-to guides
   items:
   - name: Set up a QnA Maker service
