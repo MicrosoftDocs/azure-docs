@@ -25,7 +25,7 @@ If you get the **You can't get there from here** message saying that you're tryi
 
 To fix this problem, you must install and run a supported browser, based on your operating system. If you're using Windows 10, the supported browsers include Microsoft Edge, Internet Explorer, and Google Chrome. If you're using a different operating system, you can check the complete list of [supported browsers](../conditional-access/technical-reference.md#supported-browsers).
 
-## Make sure you're using a supported version of the operating system
+## Make sure you're using a supported operating system
 Make sure that you're running a supported version of the operating system, including:
 
 - **Windows Client.** Windows 7 or later.
@@ -38,26 +38,26 @@ Make sure that you're running a supported version of the operating system, inclu
 
 To fix this problem, you must install and run a supported operating system.
 
-## Make sure your device is joined to your organization's network
+## Make sure your device is joined to your network
 If you get the **You can't get there from here** message saying that your device is out-of-compliance with your organization's access policy, make sure you've joined your device to your organization's network.
 
 ![Error message related to whether you're on your network](media/user-help-device-remediation/network-version.png)
 
-### To check whether your device is joined to your on-premises network
+### To check whether your device is joined to your network
 1. Sign in to Windows using your work or school account. For example, alain@contoso.com.
 
 2. Connect to your organization's network through a virtual private network (VPN) or DirectAccess.
 
-3. After you're connected, press the Windows logo key+L to lock your device.
+3. After you're connected, press the **Windows logo key+L** to lock your device.
 
-4. Unlock your device using your work or school account and try to access the problematic app or service again.
+4. Unlock your device using your work or school account, and then try to access the problematic app or service again.
 
-    If you see the same **You can't get there from here** error message, select the **More details** link, and then contact your Helpdesk with the details.
+    If you see the **You can't get there from here** error message again, select the **More details** link, and then contact your Helpdesk with the details.
 
 ### To join your device to your network
-If your device isn't connected to your organization's network, you can do one of two things:
+If your device isn't joined to your organization's network, you can do one of two things:
 
-- Join your work device. Join your work-owned Windows 10 device to your organization's network so you can access potentially restricted resources. For more information and step-by-step instructions, see [Join your work device to your organization's network](user-help-join-device-on-network.md).
+- **Join your work device.** Join your work-owned Windows 10 device to your organization's network so you can access potentially restricted resources. For more information and step-by-step instructions, see [Join your work device to your organization's network](user-help-join-device-on-network.md).
 
 - **Register your personal device for work.** Register your personal device, typically a phone or tablet, on your organization's network. After your device is registered, it can access your organization's restricted resources. For more information and step-by-step instructions, see [Register your personal device on your organization's network](user-help-register-device-on-network.md).
 
