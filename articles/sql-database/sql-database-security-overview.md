@@ -29,7 +29,7 @@ SQL Database secures your data by providing encryption for data in motion with [
 For other ways to encrypt your data, consider:
 
 * [Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
-* If you need a Hardware Security Module or central management of your encryption key hierarchy, consider using [Azure Key Vault with SQL Server in an Azure VM](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
+* If you need a Hardware Security Module or Bring Your Own Key (BYOK) technology for Transparent Data Encryption, consider using [Azure SQL Transparent Data Encryption: Bring Your Own Key support](https://docs.microsoft.com/en-us/azure/sql-database/transparent-data-encryption-byok-azure-sql).
 
 ### Data Discovery & Classification
 Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. Discovering and classifying your utmost sensitive data (business/financial, healthcare, PII, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
