@@ -22,7 +22,9 @@
   - name: Train automated ML models 
     href: tutorial-auto-train-models.md
 - name: Samples
-  href: http://aka.ms/aml-notebooks
+  items:
+  - name: Jupyter notebooks (GitHub)
+    href: http://aka.ms/aml-notebooks
 - name: Concepts   
   items: 
   - name: How the service works
