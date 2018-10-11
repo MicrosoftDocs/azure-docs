@@ -2,9 +2,10 @@
 title: Hyper-V replication to secondary site architecture in Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of the architecture for replicating on-premises Hyper-V VMs to a secondary System Center VMM site with Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ---
 
