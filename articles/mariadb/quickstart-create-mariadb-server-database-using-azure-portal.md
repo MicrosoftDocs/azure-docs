@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create Azure Database for MariaDB server - Azure portal'
+title: 'Quickstart: Create an Azure Database for MariaDB server - Azure portal'
 description: This article steps you through using the Azure portal to quickly create a sample Azure Database for MariaDB server in about five minutes. 
 author: ajlam
 ms.author: andrela
@@ -13,43 +13,45 @@ ms.date: 09/24/2018
 
 # Create an Azure Database for MariaDB server by using the Azure portal
 
-Azure Database for MariaDB is a managed service that you use to run, manage, and scale highly available MariaDB Databases in the cloud. This Quickstart shows you how to create an Azure Database for MariaDB server in about five minutes using the Azure portal.  
+Azure Database for MariaDB is a managed service that you use to run, manage, and scale highly available MariaDB databases in the cloud. This quickstart shows you how to create an Azure Database for MariaDB server in about five minutes by using the Azure portal.  
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
-Open your web browser, and then go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+
+In your web browser, go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MariaDB server
-You create an Azure Database for MariaDB server with a defined set of compute and storage resources <!-- [compute and storage resources](./concepts-compute-unit-and-storage.md)-->. You create the server within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
-Follow these steps to create an Azure Database for MariaDB server:
+You create an Azure Database for MariaDB server with a defined set of compute and storage resources <!-- [compute and storage resources](./concepts-compute-unit-and-storage.md)-->. You create the server in an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
-1. Select the **Create a resource** button (+) in the upper-left corner of the  portal.
+To create an Azure Database for MariaDB server:
 
-2. Type **Azure Database for MariaDB** in the search box to find the service.
+1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
+
+2. In the search box, enter **Azure Database for MariaDB** to find the service.
 
    ![Azure Database for MariaDB option](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
-3. Fill out the new server details form with the following information:
+3. Enter or select the following server details:
    
    ![Create server form](./media/quickstart-create-mariadb-server-database-using-azure-portal/4-create-form.png)
 
-    **Setting** | **Suggested value** | **Field description**
+    Setting | Suggested value | Description
     ---|---|---
-    Server name | Unique server name | Choose a unique name that identifies your Azure Database for MariaDB server. For example, mydemoserver. The domain name *.mariadb.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
-    Subscription | Your subscription | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
-    Resource group | *myresourcegroup* | Provide a new or existing resource group name.    Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
-    Select source | *Blank* | Select *Blank* to create a new server from scratch. (You select *Backup* if you are creating a server from a geo-backup of an existing Azure Database for MariaDB server).
-    Server admin login | myadmin | A sign-in account to use when you're connecting to the server. The admin sign-in name cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
-    Password | *Your choice* | Provide a new password for the server admin account. It must contain from 8 to 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
-    Confirm password | *Your choice*| Confirm the admin account password.
-    Location | *The region closest to your users*| Choose the location that is closest to your users or your other Azure applications.
-    Version | *The latest version*| The latest version (unless you have specific requirements that require another version).
-    Pricing tier | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 5*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
+    Server name | *a unique server name* | Choose a unique name that identifies your Azure Database for MariaDB server. For example, **mydemoserver**. The domain name *.mariadb.database.azure.com* is appended to the server name you enter. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.
+    Subscription | *your subscription* | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you are billed for the resource.
+    Resource group | *myresourcegroup* | Enter a new or existing resource group name. 
+    Select source | **Blank** | Select **Blank** to create a new server from scratch. (Select **Backup** if you are creating a server from a geo-backup of an existing Azure Database for MariaDB server.)
+    Server admin login | *myadmin* | A sign-in account to use when you're connecting to the server. The admin sign-in name cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
+    Password | *your choice* | Provide a new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+    Confirm password | *your choice*| Confirm the admin account password.
+    Location | *the region closest to your users*| Choose the location that is closest to your users or to your other Azure applications.
+    Version | *the latest version*| The latest version (unless you have specific requirements to use a different version).
+    Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (2 vCores)</li><li>**Storage** (5 GB)</li><li>**Backup Retention Period** (7 days)</li></ul><br>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
   
     > [!IMPORTANT]
-    > The server admin sign-in and password that you specify here are required to sign in to the server and its databases later in this Quickstart. Remember or record this information for later use.
+    > The server admin sign-in and password that you specify here are required to sign in to the server and its databases later in this quickstart. Remember or record this information for later use.
     > 
 
    ![Create server - pricing tier window](./media/quickstart-create-mariadb-server-database-using-azure-portal/3-pricing-tier.png)
@@ -60,41 +62,42 @@ Follow these steps to create an Azure Database for MariaDB server:
    
   By default, the following databases are created under your server: **information_schema**, **mysql**, **performance_schema**, and **sys**.
 
-## Configure a server-level firewall rule
 
-The Azure Database for MariaDB service creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless a firewall rule is created to open the firewall for specific IP addresses. 
+## <a name="configure-firewall-rule"></a>Configure a server-level firewall rule
 
-1.	 After the deployment finishes, locate your server. If necessary, you can search for it. For example, select **All Resources** from the menu on the left. Then type in the server name, such as the example **mydemoserver**, to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
+The Azure Database for MariaDB service creates a firewall at the server level. It prevents external applications and tools from connecting to the server or to any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. To create a server-level firewall rule:
+
+1.	 After the deployment finishes, locate your server. If necessary, you can search for it. For example, select **All Resources** from the menu on the left. Then, enter the server name. For example, enter **mydemoserver** to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
 
 2. On the server page, select **Connection security**.
 
-3.	Under the **Firewall rules** heading, select the blank text box in the **Rule Name** column to begin creating the firewall rule. Specify the precise IP range of the clients that will be connecting to this server.
+3.	Under the **Firewall rules** heading, select the blank text box in the **Rule Name** column to begin creating the firewall rule. Specify the precise IP range of the clients that will connect to this server.
    
    ![Connection security - Firewall rules](./media/quickstart-create-mariadb-server-database-using-azure-portal/5-firewall-2.png)
 
-4. On the upper toolbar of the **Connection security** page, select **Save**. Wait until the notification appears stating that the update has finished successfully before you continue. 
+4. On the upper toolbar of the **Connection security** page, select **Save**. Before you continue, wait until you see the notification that says the update has finished successfully. 
 
    > [!NOTE]
    > Connections to Azure Database for MariaDB communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 3306.
    > 
 
 ## Get the connection information
-To connect to your database server, you need the full server name and admin sign-in credentials. You might have noted those values earlier in the Quickstart article. If you didn't, you can easily find the server name and sign-in information from the server **Overview** page or the **Properties** page in the Azure portal.
 
-To find these values, take the following steps: 
+To connect to your database server, you need the full server name and admin sign-in credentials. You might have noted those values earlier in the quickstart article. If you didn't, you can easily find the server name and sign-in information on the server **Overview** page or on the **Properties** page in the Azure portal:
 
-1. Open your server's **Overview** page. Make a note of the **Server name** and **Server admin login name**. 
+1. Go to your server's **Overview** page. Make a note of the values for **Server name** and **Server admin login name**. 
 
-2. Hover your cursor over each field, and the copy icon appears to the right of the text. Select the copy icon as needed to copy the values.
+2. Place your cursor over the field you want to copy. The copy icon appears to the right of the text. Select the copy icon as needed to copy the values.
 
-In this example, the server name is **mydemoserver.mariadb.database.azure.com**, and the server admin sign-in is **myadmin@mydemoserver**.
+In this example, the server name is **mydemoserver.mariadb.database.azure.com** and the server admin sign-in is **myadmin@mydemoserver**.
 
-## Connect to MariaDB using mysql command-line
-There are a number of applications you can use to connect to your Azure Database for MariaDB server.
+## Connect to MariaDB by using the mysql command line
 
-Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) command-line tool to illustrate how to connect to the server. You can also use a web browser and Azure Cloud Shell as described here without installing additional software. If you have the mysql utility installed locally, you can connect from there as well.
+You can use a variety of applications to connect to your Azure Database for MariaDB server.
 
-1. Launch Azure Cloud Shell via the terminal icon (**>_**) on the upper right of the Azure portal.
+Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) command-line tool to illustrate how to connect to the server. You can also use a web browser and Azure Cloud Shell as described here without installing additional software. If you have the mysql utility installed locally, you also can connect from there.
+
+1. Start Azure Cloud Shell via the terminal icon (**>_**) on the upper right of the Azure portal.
 ![Azure Cloud Shell terminal symbol](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
 
 2.  Azure Cloud Shell opens in your browser, where you can type bash shell commands.
@@ -141,47 +144,49 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
     mysql>
     ```
     > [!TIP]
-    > If the firewall is not configured to allow the IP address of Azure Cloud Shell, the following error occurs:
+    > If the firewall isn't configured to allow the IP address of Azure Cloud Shell, the following error occurs:
     >
     > ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server.
     >
-    > To resolve the error, make sure the server configuration matches the steps in the "Configure a server-level firewall rule" section of the article.
+    > To resolve the error, make sure that the server configuration matches the steps in [Configure a server-level firewall rule](#configure-firewall-rule).
 
-4. To ensure the connection is functional, view the server status by typing `status` at the mysql> prompt.
+4. To verify the connection, check the server status by entering **status** at the **mysql>** prompt.
 
     ```sql
     status
     ```
 
    > [!TIP]
-   > For additional commands, see [MySQL 5.7 Reference Manual--Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
+   > For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-5.  Create a blank database at the **mysql>** prompt by typing the following command:
+5.  Create a blank database at the **mysql>** prompt by entering the following command:
+
     ```sql
     CREATE DATABASE quickstartdb;
     ```
     The command might take a few moments to complete. 
 
-    Within an Azure Database for MariaDB server, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. There is no limit to the number of databases that you can create, but multiple databases share the same server resources. 
+    You can create one or more databases in an Azure Database for MariaDB server. You can choose to create a single database per server to utilize all resources, or you can create multiple databases to share the resources. There's no limit on the number of databases that you can create, but multiple databases share the same server resources. 
 
-6. List the databases at the **mysql>** prompt by typing the following command:
+6. To list the databases, at the **mysql>** prompt, enter the following command:
 
     ```sql
     SHOW DATABASES;
     ```
 
-7.  Type `\q`, and then select the **Enter** key to quit the mysql tool. You can close Azure Cloud Shell after you are done.
+7.  Type **\q**, and then press the Enter key to close the mysql tool. Then, you can close Azure Cloud Shell.
 
-Now you have connected to the Azure Database for MariaDB server and created a blank user database. Continue to the next section for a similar exercise. The next exercise connects to the same server by using another common tool, MySQL Workbench.
+Now you have connected to the Azure Database for MariaDB server and created a blank user database. In the next exercise, section you connect to the same server by using another common tool, MySQL Workbench.
 
-## Connect to server using MySQL Workbench
-To connect to the server using MySQL Workbench, use the following steps:
+## Connect to server by using MySQL Workbench
+
+To connect to the server by using MySQL Workbench:
 
 1. Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
 2. Create a new connection. Click the plus (+) icon beside the **MySQL Connections** heading.
 
-3. In the **Setup New Connection** dialog box, enter your server connection information on the **Parameters** tab. Placeholder values are shown as an example. Replace the Hostname, Username, and Password with your own values.
+3. In the **Setup New Connection** dialog box, on the **Parameters** tab, enter your server connection information. Placeholder values are shown as an example. Replace the **Hostname**, **Username**, and **Password** with your own values.
 
    ![Set up new connection](./media/quickstart-create-mariadb-server-database-using-azure-portal/setup-new-connection.png)
 
@@ -194,12 +199,13 @@ To connect to the server using MySQL Workbench, use the following steps:
     Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MariaDB server earlier. Our example username is **myadmin@mydemoserver**. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
     Password | *Your password* | Select the **Store in Vault...** button to save the password. |
 
-4. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
+4. Select **Test Connection** to test whether all parameters are  configured correctly. Then, select **OK** to save the connection. 
 
     > [!NOTE]
     > SSL is enforced by default on your server and requires extra configuration  to connect successfully. <!--For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).--> To disable SSL for this Quickstart, go to the Azure portal. Then select the Connection security page to disable the **Enforce SSL** connection toggle button.
 
 ## Clean up resources
+
 You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the one server resource.
 
 > [!TIP]
@@ -223,4 +229,5 @@ To delete only the newly created server, take the following steps:
 3.	Confirm the name of the server that you want to delete, and show the databases under it that are affected. Type your server name in the box (such as our example **mydemoserver**). Select **Delete**.
 
 ## Next steps
+
 - [Design your first Azure Database for MariaDB database](./tutorial-design-database-using-portal.md)
