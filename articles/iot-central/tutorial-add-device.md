@@ -153,15 +153,11 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
 1. Add the following variable declarations to the file:
 
- 
-
    ```javascript
    var connectionString = '{your device connection string}';
    var targetTemperature = 0;
    var client = clientFromConnectionString(connectionString);
    ```
-   
-
    > [!NOTE]
    > You update the placeholder `{your device connection string}` in a later step. 
 

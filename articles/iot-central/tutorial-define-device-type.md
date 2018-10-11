@@ -22,7 +22,7 @@ In this tutorial, you create a **Connected Air Conditioner** device template. A 
 * Sends telemetry such as temperature and humidity.
 * Reports state such as whether it is on or off.
 * Has device properties such as firmware version and serial number.
-* Has settings such as target temperature and fan speed.
+* Has settings such as target temperature.
 
 In this tutorial, you learn how to:
 
@@ -98,7 +98,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
     
     * Define the settings used to control the device.
     
-    * Define the properties used to record information about the device.
+    * Define the properties that are the device metadata.
 
     * Define the commands to be run directly on the device.
     
@@ -351,7 +351,7 @@ You use *application properties* to store information about your device in the a
     
     Choose **Save**.
     
-    > ![NOTE]
+    > [!NOTE]
     > Device Property is sent from the device to the application. The values of firmware version and serial number will update when your real device connects to IoT Central.
 
 ## Use commands
@@ -443,7 +443,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
     | Title                   | Set target temperature |
     | Settings and Properties | Set Temperature |
 
-    Settings and properties that you have previously configured on the Settings and Properties pages are shown in the Available Columns. 
+    Settings and properties that you have previously defined on the Settings and Properties pages are shown in the Available Columns. 
 
     ![Set temperature property settings](./media/tutorial-define-device-type/propertysettings4.png)
 
