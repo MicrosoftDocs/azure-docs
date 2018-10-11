@@ -26,7 +26,7 @@ This article provides answers to frequently asked questions for customers consid
 
 A Hyperscale database is an Azure SQL database in the Hyperscale service tier that is backed by the Hyperscale scale-out storage technology. A Hyperscale database supports up to 100 TB of data and provides high throughput and performance, as well as rapid scaling to adapt to the workload requirements. Scaling is transparent to the application – connectivity, query processing, and so on, work like any other SQL database.
 
-### Where is a Hyperscale database available
+### What resource types and purchasing models support Hyperscale
 
 The Hyperscale service tier is only available for single databases using the vCore-based purchasing model in Azure SQL Database.  
 
