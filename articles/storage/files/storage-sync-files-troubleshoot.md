@@ -126,7 +126,7 @@ This issue can occur if the Storage Sync Monitor process is not running or the s
 
 To resolve this issue, perform the following steps:
 
-1. Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, uninstall and reinstall the Azure File Sync agent (Note: Server settings are retained when uninstalling and reinstalling the agent).
+1. Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade the Azure File Sync agent to version [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) if not currently installed.
 2. Verify Firewall and Proxy settings are configured correctly:
 	- If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) are accessible.
 	- If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
@@ -775,11 +775,11 @@ To monitor tiering activity on a server, use Event ID 9002, 9003, 9016 and 9029 
 <a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**  
 To monitor recall activity on a server, use Event ID 9005, 9006, 9007 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer). Note, these events are logged hourly.
 
-- Event ID 9005 provides recall reliability for a sever endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
+- Event ID 9005 provides recall reliability for a server endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
 
 - Event ID 9006 provides recall error distribution for a server endpoint. For example, Total Failed Requests, ErrorCode, etc. Note, one event is logged per error code.
 
-- Event ID 9007 provides recall performance for a sever endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- Event ID 9007 provides recall performance for a server endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
 
 <a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
 If files fail to tier to Azure Files:
