@@ -15,8 +15,12 @@ metadata:
   ms.date: 3/5/2018
   ms.author: v-jansko
 abstract:
-  description: '[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)] \n Microsoft Translator Speech API, part of the Microsoft Cognitive Services API collection, is a cloud-based machine translation service that provides speech to speech or speech to text translation. Based on the industry standard REST technology, it can be used to add end-to-end, real-time, speech translations to any application, tool, or solution requiring multi-language speech translation regardless of the target OS or development languages. For the list of supported languages, see the <a href="languages.md">Supported languages</a> article.' 
+  description: '[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]' 
 sections:
+- title: 
+  items:
+  - type: paragraph
+    text: Microsoft Translator Speech API, part of the Microsoft Cognitive Services API collection, is a cloud-based machine translation service that provides speech to speech or speech to text translation. Based on the industry standard REST technology, it can be used to add end-to-end, real-time, speech translations to any application, tool, or solution requiring multi-language speech translation regardless of the target OS or development languages. For the list of supported languages, see the <a href="languages.md">Supported languages</a> article.  
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
