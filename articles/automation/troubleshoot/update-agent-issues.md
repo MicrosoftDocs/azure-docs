@@ -26,9 +26,9 @@ By clicking the **Troubleshoot** link under the **Update Agent Readiness** colum
 
 On The **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on machine to verify the dependencies that the agent has. When the troubleshooter is complete, it returns the result of the checks.
 
-![troubleshoot page](../media/update-agent-issues/troubleshoot-page.png)
+![Troubleshoot page](../media/update-agent-issues/troubleshoot-page.png)
 
-When complete, the results are returned in the window. The [Pre-requisite checks](#pre-requisistes-checks) section, provides information on what each check is looking for.
+When complete, the results are returned in the window. The [check sections](#pre-requisistes-checks) provide information on what each check is looking for.
 
 ![Update agent checks page](../media/update-agent-issues/update-agent-checks.png)
 
