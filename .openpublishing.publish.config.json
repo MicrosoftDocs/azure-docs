@@ -214,8 +214,8 @@
     },
     {
       "path_to_root": "remote-monitoring-webui",
-      "url": "https://github.com/dominicbetts/pcs-remote-monitoring-webui.git",
-      "branch": "add-doc-tags",
+      "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
