@@ -25,7 +25,7 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 > [!IMPORTANT]
 > Hyperscale service tier is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier.
 
-## What are the capabilities of the Hyperscale service tier
+## What are the Hyperscale capabilities
 
 The Hyperscale service tier in Azure SQL Database provides the following additional capabilities:
 
@@ -51,7 +51,7 @@ The Hyperscale service tier supports all SQL Server workloads, but it is primari
 > [!IMPORTANT]
 > Elastic pools do not support the Hyperscale service tier.
 
-## Understand Hyperscale pricing
+## Hyperscale pricing model
 
 Hyperscale service tier is only available in [vCore model](sql-database-service-tiers-vcore.md). To align with the new architecture, the pricing model is slightly different from General Purpose or Business Critical service tiers:
 
@@ -65,9 +65,9 @@ Hyperscale service tier is only available in [vCore model](sql-database-service-
 
 For more information about Hyperscale pricing, see [Azure SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
-## Architecture: Distributing functions to isolate capabilities
+## Distributed functions architecture
 
-Unlike traditional database engines that have centralized all of the data management functions in one location/process (even so called distributed databases in production today have multiple copies of a monolithic data engine), a Hyperscale database separates the query processing engine, where the semantics of various data engines diverge, from the components that provide long-term storage and durability for the data. In this way, the storage capacity can be smoothly scaled out as far as needed (initial target is 100 TB). Read-only replicas share the same compute components so no data copy is required to spin up a new readable replica.
+Unlike traditional database engines that have centralized all of the data management functions in one location/process (even so called distributed databases in production today have multiple copies of a monolithic data engine), a Hyperscale database separates the query processing engine, where the semantics of various data engines diverge, from the components that provide long-term storage and durability for the data. In this way, the storage capacity can be smoothly scaled out as far as needed (initial target is 100 TB). Read-only replicas share the same compute components so no data copy is required to spin up a new readable replica. During preview, only 1 read-only replica is supported.
 
 The following diagram illustrates the different types of nodes in a Hyperscale database:
 
@@ -138,6 +138,17 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 ## Available regions
 
 Hyperscale service tier is currently in public preview and available in following Azure regions: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+
+## Known limitations
+
+| Issue | Description |
+| :---- | :--------- |
+| ManageBackups pane for a logical server does not show Hyperscale databases will be filtered from SQL server->  | Hyperscale has a separate method for managing backups, and as such the Long Term Retention and Point in Time backup Retention settings do not apply / are invalidated. Accordingly, Hyperscale databases do not appear in the Manage Backup pane. |
+| Point-in-time restore | Once a database is migrated into the Hyperscale service tier, restore to a point-in-tIme is not supported.|
+| If a database file grows during migration due to an active workload and crosses the 1 TB per file boundary, the migration fails | Mitigations: <br> - If possible, migrate the database when there is no update workload running.<br> - Re-try the migration, it will succeed as long as the 1 TB boundary is not crossed during the migration.|
+| Managed Instance is not currently supported | Not currently supported |
+| Migration to Hyperscale is currently a one-way operation | Once a database is migrated to Hyperscale, it cannot be migrated directly to a non-Hyperscale service tier. At present, the only way to migrate a database from Hyperscale to non-Hyperscale is to export/import using a BACPAC file.|
+| Migration of databases with in-memory objects is not currently supported | The migration workflow checks for in-memory objects before starting the migration but missed to undeploy hekaton, that is drop memory optimized file groups that are not currently supported. This results in unavailability until migration is cancelled (rolled back) by dev ops.
 
 ## Next steps
 

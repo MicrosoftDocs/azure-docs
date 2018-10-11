@@ -20,6 +20,7 @@ Azure SQL Database is highly available database Platform as a Service that guara
 Azure platform fully manages every Azure SQL Database and guarantees no data loss and a high percentage of data availability. Azure automatically handles patching, backups, replication, failure detection, underlying potential hardware, software or network failures, deploying bug fixes, failovers, database upgrades, and other maintenance tasks. SQL Server engineers have implemented the best-known practices, ensuring that all the maintenance operations are completed in less than 0.01% time of your database life. This architecture is designed to ensure that committed data is never lost and that maintenance operations are performed without affecting workload. There are no maintenance windows or downtimes that should require you to stop the workload while the database is upgraded or maintained. Built-in high availability in Azure SQL Database guarantees that database will never be single point of failure in your software architecture.
 
 Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are two high-availability architectural models that are used in Azure SQL Database (both of them ensuring 99.99% availability):
+
 - Standard/general purpose service tier model that is based on a separation of compute and storage. This architectural model relies on high availability and reliability of storage tier, but it might have some potential performance degradation during maintenance activities.
 - Premium/business critical service tier model that is based on a cluster of database engine processes. This architectural model relies on a fact that there is always a quorum of available database engine nodes and has minimal performance impact on your workload even during maintenance activities.
 
@@ -52,6 +53,34 @@ Both the SQL Server Database Engine process and underlying mdf/ldf files are pla
 
 In addition, Business Critical cluster has built-in [Read Scale-Out](sql-database-read-scale-out.md) capability that provides free-of charge built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload.
 
+## Hyperscale service tier availability
+
+[Azure SQL Database Hyperscale](sql-database-service-tier-hyperscale.md) has a multi-level, distributed architecture with redundancy and availability built-in.  
+
+The following diagram illustrates the different types of nodes in a Hyperscale database:
+
+![architecture](./media/sql-database-hyperscale/hyperscale-architecture.png)
+
+### Compute
+
+Starting at the Compute layer, where client sessions connect to the database, the compute is stateless outside of a cache used for performance, and each compute server has at least one secondary running at all times. Failover in this case is very similar to the Premium/Business Critical failover experience, in that the secondary automatically takes up the Primary role, and connections are re-routed to the new primary role. The original Primary is re-started to re-establish redundancy, or a new compute resource is configured and started. Since the data is not permanently stored on the compute server, startup is extremely fast.
+
+### Log Service
+
+The log service does not have a hot standby, however this is mitigated by the fact that the log service is stateless, with no local storage. Log records are initially written by the compute nodes to very high performance Azure storage, which the log service then processes. Transactions can continue to commit uninterrupted while the log service is restarting, so there is no disruption in service.
+
+### Page servers
+
+Page servers each manage approximately 1TB of data pages, and each page server has a hot standby to facilitate availability.  Page servers each have local SSD based cache, but this is a performance optimization only, and the authoritative copy of the data is in Azure Standard Storage.  If a page server were to crash, it's standby would immediately take over, and a new page server could take its place very quickly, filling its cache as a background operation.
+
+### Azure Standard Storage
+
+The data pages are stored in Azure storage, which itself is a highly available service, with multiple redundancies build in.  Log records are also persisted in Azure standard storage for long term storage, as a background operation.
+
+### Summary
+
+As you can see, there are no single points of failure in the Hyperscale architecture, and at every level, high availability without disruption in operations is a key consideration.
+
 ## Zone redundant configuration (preview)
 
 By default, the quorum-set replicas for the local storage configurations are created in the same datacenter. With the introduction of [Azure Availability Zones](../availability-zones/az-overview.md), you have the ability to place the different replicas in the quorum-sets to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Because the zone redundant configuration does not create additional database redundancy, the use of Availability Zones (preview) in the Premium or Business Critical service tiers is available at no extra cost. By selecting a zone redundant database, you can make your Premium or Business Critical databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic. You can also convert any existing Premium or Business Critical databases or pools to the zone redundant configuration.
@@ -59,17 +88,18 @@ By default, the quorum-set replicas for the local storage configurations are cre
 Because the zone redundant quorum-set has replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone redundancy setting. This process is a size of data operation and is similar to the regular service tier update. At the end of the process, the database or pool is migrated from a zone redundant ring to a single zone ring or vice versa.
 
 > [!IMPORTANT]
-> Zone redundant databases and elastic pools are currently only supported in the Premium service tier. During public preview, backups and audit records are stored in RA-GRS storage and therefore may not be automatically available in case of a zone-wide outage. 
+> Zone redundant databases and elastic pools are currently only supported in the Premium service tier. During public preview, backups and audit records are stored in RA-GRS storage and therefore may not be automatically available in case of a zone-wide outage.
 
 The zone redundant version of the high availability architecture is illustrated by the following diagram:
- 
+
 ![high availability architecture zone redundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## Conclusion
-Azure SQL Database is deeply integrated with the Azure platform and is highly dependent on Service Fabric for failure detection and recovery, on Azure Storage Blobs for data protection and Availability Zones for higher fault tolerance. At the same time, Azure SQL database fully leverages the Always On Availability Group technology from SQL Server box product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs. 
+
+Azure SQL Database is deeply integrated with the Azure platform and is highly dependent on Service Fabric for failure detection and recovery, on Azure Storage Blobs for data protection and Availability Zones for higher fault tolerance. At the same time, Azure SQL database fully leverages the Always On Availability Group technology from SQL Server box product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs.
 
 ## Next steps
 
 - Learn about [Azure Availability Zones](../availability-zones/az-overview.md)
 - Learn about [Service Fabric](../service-fabric/service-fabric-overview.md)
-- Learn about [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) 
+- Learn about [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
