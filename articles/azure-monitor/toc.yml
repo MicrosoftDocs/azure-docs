@@ -186,16 +186,16 @@
       items:
       - name: Agent comparison
         href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
-      - name: Log store agents  
+      - name: Log Analytics agents  
         items:
+        - name: Monitor hybrid environments
+          href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
         - name: Windows agents
           href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
         - name: VM Extension for Windows
           href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: VM Extension for Linux
           href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-        - name: Monitor hybrid environments
-          href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
         - name: Operations Manager
           href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
         - name: OMS Gateway

@@ -132,7 +132,7 @@
         items:
         - name: Deploy a Kubernetes cluster
           href: azure-stack-solution-template-kubernetes-deploy.md
-        - name: Troubleshoot the Kubernetes cluster
+        - name: Troubleshoot Kubernetes cluster
           href: azure-stack-solution-template-kubernetes-trouble.md
   - name: Build apps
     items:
