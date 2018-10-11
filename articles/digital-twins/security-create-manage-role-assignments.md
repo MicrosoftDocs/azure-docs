@@ -6,15 +6,13 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/10/2018
 ms.author: lyrana
 ---
 
 # Create and manage role assignments
 
-Azure Digital Twins uses [role-based access control](./security-role-based-access-control.md) to specify which Azure Digital Twins graph resources are granted or revoked access, permissions, and roles.
-
-Each role assignment includes:
+Azure Digital Twins uses role-based access control ([RBAC](./security-role-based-access-control.md)) to manage access to resources. Each role assignment includes:
 
 * An **object identifier** (an Azure Active Directory Id, service principal object Id, or domain name).
 * An **object identifier type**.
