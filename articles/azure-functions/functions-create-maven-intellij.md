@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 > [!NOTE] 
 > Java for Azure Functions is currently in preview.
 
-This article shows you how to create a [serverless](https://azure.microsoft.com/solutions/serverless//) function project with IntelliJ IDEA and Apache Maven, test and debug it on your own computer from the IDE, and deploy it to Azure Functions. 
+This article shows you how to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function project with IntelliJ IDEA and Apache Maven, test and debug it on your own computer from the IDE, and deploy it to Azure Functions. 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 

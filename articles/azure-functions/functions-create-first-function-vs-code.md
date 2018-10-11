@@ -17,7 +17,7 @@ ms.custom: mvc, devcenter
 ---
 # Create your first function using Visual Studio Code
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless//) environment without having to first create a VM or publish a web application.
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application.
 
 In this article, you learn how to use the [Azure Functions extension for Visual Studio Code] to create and test a "hello world" function on your local computer using Microsoft Visual Studio Code. You then publish the function code to Azure from Visual Studio Code.
 
