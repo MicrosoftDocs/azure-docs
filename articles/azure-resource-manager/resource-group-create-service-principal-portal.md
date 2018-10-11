@@ -78,6 +78,8 @@ Your service principal is set up. You can start using it to run your scripts or 
 
 ## Get values for signing in
 
+### Get tenant ID
+
 When programmatically signing in, you need to pass the tenant ID with your authentication request.
 
 1. Select **Azure Active Directory**.
@@ -91,6 +93,8 @@ When programmatically signing in, you need to pass the tenant ID with your authe
 1. Copy the **Directory ID** to get your tenant ID.
 
    ![Tenant ID](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
+
+### Get application ID and authentication key
 
 You also need the ID for your application and an authentication key. To get those values, use the following steps:
 
