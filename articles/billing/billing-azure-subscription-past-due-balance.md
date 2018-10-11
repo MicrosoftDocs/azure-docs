@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2017
-ms.author: genli
+ms.date: 05/11/2018
+ms.author: cwatson
 
 ---
 # Resolve past due balance for your Azure subscription after getting an email from Azure

@@ -25,6 +25,40 @@ The **Transform** object is the recipe and a **Job** is the actual request to Az
 
 Since this API is driven by Azure Resource Manager, you can use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can also be set at the resource level in this API, allowing you to lock down access to specific resources like Transforms.
 
+## Transform definition
+
+The following table shows Transform's properties and gives their definitions.
+
+|Name|Type|Description|
+|---|---|---|
+|Id|string|Fully qualified resource ID for the resource.|
+|name|string|The name of the resource.|
+|properties.created |string|The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
+|properties.description |string|An optional verbose description of the Transform.|
+|properties.lastModified |string|The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.|
+|properties.outputs |TransformOutput[]|An array of one or more TransformOutputs that the Transform should generate.|
+|type|string|The type of the resource.|
+
+For the full definition, see [Transforms](https://docs.microsoft.com/rest/api/media/transforms).
+
+## Job definition
+
+The following table shows Job's properties and gives their definitions.
+
+|Name|Type|Description|
+|---|---|---|
+|Id|string|Fully qualified resource ID for the resource.|
+|name|string|The name of the resource.|
+|properties.created |string|The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
+|properties.description |string|An optional verbose description of the Job.|
+|properties.lastModified |string|The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.|
+|properties.outputs |JobOutput[]:JobOutputAsset[] |The outputs for the Job.|
+|properties.priority |Priority |Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+|properties.state |JobState |The current state of the job.
+|type|string|The type of the resource.|
+
+For the full definition, see [Jobs](https://docs.microsoft.com/rest/api/media/jobs).
+
 ## Typical workflow and example
 
 1. Create a Transform 

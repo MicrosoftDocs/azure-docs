@@ -1,4 +1,4 @@
-﻿---
+---
 title: App Service on Azure Stack update 1 release notes | Microsoft Docs
 description: Learn about what's in update one for App Service on Azure Stack, the known issues, and where to download the update.
 services: azure-stack
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
-ms.reviewer: brenduns
+ms.reviewer: sethm
 
 ---
 # App Service on Azure Stack update 1 release notes
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-These release notes describe the improvements and fixes in Azure App Service on Azure Stack Update 1 and any known issues. Known issues are divided into issues directly related to the deployment, update process, and issues with the build     (post-installation).
+These release notes describe the improvements and fixes in Azure App Service on Azure Stack Update 1 and any known issues. Known issues are divided into issues directly related to the deployment, update process, and issues with the build (post-installation).
 
 > [!IMPORTANT]
 > Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
@@ -36,7 +36,7 @@ The App Service on Azure Stack Update 1 build number is **69.0.13698.9**
 ### Prerequisites
 
 > [!IMPORTANT]
-> New deployments of Azure App Service on Azure Stack now require a [three-subject wildcard certificate](azure-stack-app-service-before-you-get-started.md#get-certificates) due to improvements in the way in which SSO for Kudu is now handled in Azure App Service. The new subject is ** *.sso.appservice.<region>.<domainname>.<extension>**
+> New deployments of Azure App Service on Azure Stack now require a [three-subject wildcard certificate](azure-stack-app-service-before-you-get-started.md#get-certificates) due to improvements in the way in which SSO for Kudu is now handled in Azure App Service. The new subject is **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 >
 >
 
@@ -195,7 +195,7 @@ Site slot swap is broken in this release. To restore functionality, complete the
     ```
 - Workers are unable to reach file server when App Service is deployed in an existing virtual network and the file server is only available on the private network.
  
-If you chose to deploy into an existing virtual network and an internal IP address to connect to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server. To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+If you chose to deploy into an existing virtual network and an internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server. To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
  * Source: Any
  * Source port range: *
  * Destination: IP Addresses

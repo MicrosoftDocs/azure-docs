@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 05/15/2018
 ms.author: terrylan
 
 ---
@@ -22,7 +22,7 @@ Azure Security Center may recommend that you add a web application firewall (WAF
 
 A WAF recommendation is shown for any public facing IP (either Instance Level IP or Load Balanced IP) that has an associated network security group with open inbound web ports (80,443).
 
-Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on external App Service Environments. An App Service Environment (ASE) is a [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps. To learn more about ASE, see the [App Service Environment Documentation](../app-service/environment/intro.md).
+Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on external App Service Environments (ASE) deployed under the [Isolated](https://azure.microsoft.com/pricing/details/app-service/windows/) service plan. The Isolated plan hosts your apps in a private, dedicated Azure environment and is ideal for apps that require secure connections with your on-premises network, or additional performance and scale. In addition to your app being in an isolated environment, your app needs to have an external IP address load balancer. To learn more about ASE, see the [App Service Environment Documentation](../app-service/environment/intro.md).
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This document is not a step-by-step guide.

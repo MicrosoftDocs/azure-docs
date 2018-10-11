@@ -1,16 +1,16 @@
 ---
 title: Automatic update of Mobility Service in Azure to Azure disaster recovery | Microsoft Docs
-description: Provides an overview of Automatic update of Mobility Service, which is used for replication of Azure VMs using Azure Site Recovery.
+description: Provides an overview of automatic update of Mobility Service, when replicating Azure VMs using Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram 
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
 
 ---
-# Automatic update of Mobility Service extension in Azure to Azure replication
+# Automatic update of the Mobility Service in Azure to Azure replication
 
 Azure Site Recovery has a monthly release cadence where enhancements to existing features or new ones are added, and known issues if any are fixed. This would mean that to remain current with the service, you need to plan for deployment of these patches, monthly. In order to avoid the over head associated with the upgrade, users can instead choose to allow Site Recovery to manage updates of the components. As detailed in the [architecture reference](azure-to-azure-architecture.md) for Azure to Azure disaster recovery, Mobility Service gets installed on all Azure virtual machines for which replication is enabled while replicating virtual machines from one Azure region to another. Once you enable automatic update, the Mobility service extension gets updated with every new release. This document details the following:
 
@@ -25,6 +25,12 @@ The runbook schedule can also be modified via the automation account by the user
 
 > [!NOTE]
 > Enabling automatic updates doesn't require a reboot of your Azure VMs, and doesn't affect on-going replication.
+
+> [!NOTE]
+> Billing for jobs used by automation account is based on the number of job run time minutes used in the month and by default 500 minutes are included as free units for an automation account. The execution of the job daily amounts from a **few seconds to about a minute** and will be **covered in the free credits**.
+
+FREE UNITS INCLUDED (PER MONTH)**	PRICE
+Job run time	500 minutes	₹0.14/minute
 
 ## Enable automatic updates
 
@@ -60,7 +66,7 @@ If there is an issue with the automatic updates, you'll be notified of the same 
 In case you tried to enable automatic updates and it failed, refer below for troubleshooting.
 
 **Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal. 
-- Recommended Action: Ensure that the logged in account is assigned the 'Contributor' and retry the operation.
+- Recommended Action: Ensure that the logged in account is assigned the 'Contributor' and retry the operation. Refer to [this](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) document for further information on assigning the right permissions.
  
 Once automatic updates are turned ON, most of the issues can be healed by the Site Recovery service and requires you to click on the '**Repair**' button.
 
@@ -70,8 +76,8 @@ In case the repair button isn't available, refer to the error message displayed 
 
  - **Error**: The Run As account does not have the permission to access the recovery services resource.
 
-    **Recommended Action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) or make sure that the Automation Run As account's Azure Active Directory Application has access to the recovery services resource.
+    **Recommended Action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account) or make sure that the Automation Run As account's Azure Active Directory Application has access to the recovery services resource.
 
 - **Error**: Run As account is not found. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection. 
 
-    **Recommended Action**: Delete and [then re-create the Run As account](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **Recommended Action**: Delete and [then re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

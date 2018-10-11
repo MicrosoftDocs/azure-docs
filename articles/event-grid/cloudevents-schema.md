@@ -6,8 +6,8 @@ author: banisadr
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 05/09/2018
+ms.topic: conceptual
+ms.date: 07/13/2018
 ms.author: babanisa
 ---
 
@@ -69,9 +69,9 @@ CloudEvents v0.1 has the following properties available:
 
 For more information, see the [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
-## Configure Event Grid for CloudEvents
+The headers values for events delivered in the CloudEvents schema and the Event Grid schema are the same, with the exception of `content-type`. For CloudEvents schema, that header value is `"content-type":"application/cloudevents+json; charset=utf-8"`. For Event Grid schema, that header value is `"content-type":"application/json; charset=utf-8"`.
 
-Currently, Azure Event Grid has preview support for CloudEvents JSON format input and output in **West Central US**, **Central US**, and **North Europe**.
+## Configure Event Grid for CloudEvents
 
 You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. It can also transform those events on the wire back and forth.
 
@@ -87,11 +87,15 @@ For all event schemas, Event Grid requires validation when publishing to an even
 
 ### Input schema
 
-To set the input schema on a custom topic to CloudEvents, use the following parameter in Azure CLI when you create your topic `--input-schema cloudeventv01schema`. The custom topic now expects incoming events in CloudEvents v0.1 format.
+To set the input schema on a custom topic to CloudEvents, use the following parameter in Azure CLI when you create your custom topic `--input-schema cloudeventv01schema`. The custom topic now expects incoming events in CloudEvents v0.1 format.
 
 To create an event grid topic, use:
 
 ```azurecli
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create \
   --name <topic_name> \
   -l westcentralus \
@@ -109,14 +113,14 @@ To create an event subscription, use:
 
 ```azurecli
 az eventgrid event-subscription create \
-  --name <event_subscription_name> \  
+  --name <event_subscription_name> \
   --topic-name <topic_name> \
   -g gridResourceGroup \
   --endpoint <endpoint_URL> \
   --event-delivery-schema cloudeventv01schema
 ```
 
-The current version of the CloudEvents doesn't support batching of events. An event subscription that's configured for CloudEvent schema receives each event individually.
+The current version of the CloudEvents doesn't support batching of events. An event subscription that's configured for CloudEvent schema receives each event individually. Currently, you can't use an Event Grid trigger for an Azure Functions app when the event is delivered in the CloudEvents schema. You must use an HTTP trigger. For examples of implementing an HTTP trigger that receives events in the CloudEvents schema, see [Use an HTTP trigger as an Event Grid trigger](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## Next steps
 

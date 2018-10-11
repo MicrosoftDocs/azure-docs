@@ -6,19 +6,21 @@
     href: cache-overview.md
 - name: Quickstarts
   items:
-  - name: ASP.NET
+  - name: Create an ASP.NET app
     href: cache-web-app-howto.md
-  - name: .NET
+  - name: Create a .NET app
     href: cache-dotnet-how-to-use-azure-redis-cache.md
-  - name: Node
+  - name: Create a .NET Core app
+    href: cache-dotnet-core-quickstart.md
+  - name: Create a Node.js app
     href: cache-nodejs-get-started.md
-  - name: Java
+  - name: Create a Java app
     href: cache-java-get-started.md
-  - name: Python
+  - name: Create a Python app
     href: cache-python-get-started.md
 - name: Tutorials
   items:
-  - name: Caching leaderboards
+  - name: Use caching with leaderboards
     href: cache-web-app-cache-aside-leaderboard.md  
 - name: Samples
   items:
@@ -48,6 +50,8 @@
       href: cache-how-to-premium-vnet.md
     - name: Distribute your cache with clustering
       href: cache-how-to-premium-clustering.md
+    - name: Migrate from Managed Cache Service
+      href: cache-migrate-to-redis.md
   - name: Automate
     items:
     - name: Deploy and manage using Azure Powershell
@@ -116,6 +120,8 @@
     href: https://docs.microsoft.com/rest/api/redis/
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-redis-cache
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing

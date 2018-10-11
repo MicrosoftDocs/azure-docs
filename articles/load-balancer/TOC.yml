@@ -10,18 +10,26 @@
     href: quickstart-create-basic-load-balancer-portal.md
   - name: Create Basic Load Balancer - Azure CLI 
     href: quickstart-create-basic-load-balancer-cli.md
+  - name: Create Basic Load Balancer - Azure PowerShell 
+    href: quickstart-create-basic-load-balancer-powershell.md
   - name: Create Standard Load Balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
   - name: Create Standard Load Balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
+  - name: Create Standard Load Balancer - Azure PowerShell
+    href: quickstart-create-standard-load-balancer-powershell.md
 - name: Tutorials
   items:
+  - name: Create and manage Load Balancer
+    href: tutorial-load-balancer-standard-manage-portal.md
   - name: Load balance internal traffic to VMs
     href: tutorial-load-balancer-basic-internal-portal.md
   - name: Load balance VMs across availability zones
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
+  - name: Configure port fowarding in Load Balancer
+    href: tutorial-load-balancer-port-forwarding-portal.md  
 - name: Samples
   items:
   - name: Azure CLI
@@ -32,7 +40,7 @@
   items:
   - name: What is Load Balancer Standard?
     href: load-balancer-standard-overview.md
-  - name: Load Balancer probes
+  - name: Health probes
     href: load-balancer-custom-probe-overview.md
   - name: High Availability ports
     href: load-balancer-ha-ports-overview.md
@@ -42,6 +50,10 @@
     href: load-balancer-multivip-overview.md
   - name: Outbound connections
     href: load-balancer-outbound-connections.md
+  - name: Outbound Rules
+    href: load-balancer-outbound-rules-overview.md
+  - name: TCP reset on idle timeout
+    href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
     href: load-balancer-standard-availability-zones.md
   - name: Standard Load Balancer metrics and diagnostics
@@ -49,7 +61,7 @@
 - name: How to
   items:
   - name: Create a zone redundant public Standard Load Balancer
-    href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+    href: load-balancer-get-started-internet-az-portal.md
     items:
     - name: Create a zone redundant public Standard Load Balancer (PowerShell)
       href: load-balancer-get-started-internet-az-powershell.md
@@ -66,6 +78,10 @@
     href: load-balancer-standard-public-zone-redundant-cli.md
   - name: Load balance VMs within a zone (CLI)
     href: load-balancer-standard-public-zonal-cli.md
+  - name: Configure outbound rules
+    href: configure-load-balancer-outbound-cli.md
+  - name: Create an Azure Load Balancer using REST API
+    href: create-load-balancer-rest-api.md 
   - name: Create Basic Load Balancer (Template)
     href: load-balancer-get-started-internet-arm-template.md
   - name: Create public Load Balancer with IPv6
@@ -76,7 +92,6 @@
     - name: Create public Load Balancer with IPv6 (Template)
       href: load-balancer-ipv6-internet-template.md
   - name: Configure internal Load Balancer
-    href: load-balancer-get-started-ilb-arm-portal.md
     items:
     - name: Configure internal Load Balancer (PowerShell)
       href: load-balancer-get-started-ilb-arm-ps.md
@@ -99,6 +114,8 @@
       href: load-balancer-multiple-ip-powershell.md
   - name: Log analytics for Azure Load Balancer
     href: load-balancer-monitor-log.md
+  - name: Get Load Balancer metrics with REST
+    href: load-balancer-query-metrics-rest-api.md
   - name: Configure High Availability Ports for Internal Load Balancer
     href: load-balancer-configure-ha-ports.md
   - name: Troubleshoot
@@ -164,6 +181,8 @@
     href: /azure/dns/
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Pricing

@@ -2,22 +2,27 @@
 title: 'Azure Cosmos DB: Build a todo app with Xamarin | Microsoft Docs'
 description: Presents a Xamarin code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: codemillmatt
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
-ms.author: sngun
+ms.date: 05/30/2018
+ms.author: masoucou
 
 ---
 # Azure Cosmos DB: Build a todo app with Xamarin
+
+> [!div class="op_single_selector"]
+> * [.NET](create-sql-api-dotnet.md)
+> * [Java](create-sql-api-java.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Python](create-sql-api-python.md)
+> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+>  
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -72,10 +77,10 @@ Now let's clone the Xamarin SQL API app from github, review the code, obtain the
 3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
-    git clone https://github.com/Azure/azure-documentdb-dotnet.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
-3. Then open the ToDoItems.sln file from the samples/xamarin/ToDoItems folder in Visual Studio.
+4. Then open the ToDoItems.sln file from the samples/xamarin/ToDoItems folder in Visual Studio.
 
 ## Obtain your API keys
 
@@ -94,6 +99,8 @@ Go back to the Azure portal to get your API key information and copy it into the
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `Cosmos Auth Key` in APIKeys.cs.
 
     `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+
+[!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
 ## Review the code
 

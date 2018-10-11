@@ -1,12 +1,12 @@
 ---
  title: include file
  description: include file
- services: iot-suite
- author: dominicbetts
- ms.service: iot-suite
+ services: iot-fundamentals
+ author: robinsh
+ ms.service: iot-fundamentals
  ms.topic: include
  ms.date: 04/24/2018
- ms.author: dobett
+ ms.author: robinsh
  ms.custom: include file
 ---
 
@@ -28,19 +28,19 @@ Given the security, privacy, transparency, and compliance concerns, choosing the
 
 ## Secure infrastructure from the ground up
 
-The [Microsoft Cloud](https://www.microsoft.com/enterprise/microsoftcloud/default.aspx#fbid=WzBsRQi6aGk) infrastructure supports more than one billion customers in 127 countries. Drawing on Microsoft's decades-long experience building enterprise software and running some of the largest online services in the world, the Microsoft Cloud provides higher levels of enhanced security, privacy, compliance, and threat mitigation practices than most customers could achieve on their own.
+The [Microsoft Cloud](https://azure.microsoft.com) infrastructure supports more than one billion customers in 127 countries. Drawing on Microsoft's decades-long experience building enterprise software and running some of the largest online services in the world, the Microsoft Cloud provides higher levels of enhanced security, privacy, compliance, and threat mitigation practices than most customers could achieve on their own.
 
 The [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) provides a mandatory company-wide development process that embeds security requirements into the entire software lifecycle. To help ensure that operational activities follow the same level of security practices, SDL uses rigorous security guidelines laid out in Microsoft's Operational Security Assurance (OSA) process. Microsoft also works with third-party audit firms for ongoing verification that it meets its compliance obligations, and Microsoft engages in broad security efforts through the creation of centers of excellence, including the Microsoft Digital Crimes Unit, Microsoft Security Response Center, and Microsoft Malware Protection Center.
 
 ## Microsoft Azure - secure IoT infrastructure for your business
 
-Microsoft Azure offers a complete cloud solution, one that combines a constantly growing collection of integrated cloud services—analytics, machine learning, storage, security, networking, and web—with an industry-leading commitment to the protection and privacy of your data. Microsoft's [assume breach](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) strategy uses a dedicated *red team* of software security experts who simulate attacks, testing the ability of Azure to detect, protect against emerging threats, and recover from breaches. Microsoft's [global incident response](https://www.microsoft.com/TrustCenter/Security/DesignOpSecurity) team works around the clock to mitigate the effects of attacks and malicious activity. The team follows established procedures for incident management, communication, and recovery, and uses discoverable and predictable interfaces with internal and external partners.
+Microsoft Azure offers a complete cloud solution, one that combines a constantly growing collection of integrated cloud services—analytics, machine learning, storage, security, networking, and web—with an industry-leading commitment to the protection and privacy of your data. Microsoft's [assume breach](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) strategy uses a dedicated *red team* of software security experts who simulate attacks, testing the ability of Azure to detect, protect against emerging threats, and recover from breaches. Microsoft's [global incident response](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity) team works around the clock to mitigate the effects of attacks and malicious activity. The team follows established procedures for incident management, communication, and recovery, and uses discoverable and predictable interfaces with internal and external partners.
 
 Microsoft's systems provide continuous intrusion detection and prevention, service attack prevention, regular penetration testing, and forensic tools that help identify and mitigate threats. [Multi-factor authentication](../articles/active-directory/authentication/multi-factor-authentication.md) provides an extra layer of security for end users to access the network. And for the application and the host provider, Microsoft offers access control, monitoring, anti-malware, vulnerability scanning, patches, and configuration management.
 
 The solution accelerators take advantage of the security and privacy built into the Azure platform along with the SDL and OSA processes for secure development and operation of all Microsoft software. These procedures provide infrastructure protection, network protection, and identity and management features fundamental to the security of any solution.
 
-The [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) within the [IoT solution accelerators](../articles/iot-suite/iot-suite-what-is-azure-iot.md) offers a fully-managed service that enables reliable and secure bi-directional communication between IoT devices and Azure services such as [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) and [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) by using per-device security credentials and access control.
+The [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md) within the [IoT solution accelerators](../articles/iot-fundamentals/iot-introduction.md) offers a fully-managed service that enables reliable and secure bi-directional communication between IoT devices and Azure services such as [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) and [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) by using per-device security credentials and access control.
 
 To best communicate security and privacy features built into the Azure IoT solution accelerators, this article breaks down the suite into the three primary security areas.
 
@@ -57,7 +57,9 @@ Azure IoT Hub access control policies in the cloud enable activation and disabli
 Additional device security features include:
 
 * Devices do not accept unsolicited network connections. They establish all connections and routes in an outbound-only fashion. For a device to receive a command from the backend, the device must initiate a connection to check for any pending commands to process. Once a connection between the device and IoT Hub is securely established, messaging from the cloud to the device and device to the cloud can be sent transparently.
+
 * Devices only connect to or establish routes to well-known services with which they are peered, such as an Azure IoT Hub.
+
 * System-level authorization and authentication use per-device identities, making access credentials and permissions near-instantly revocable.
 
 ### Secure connectivity
@@ -71,7 +73,9 @@ Scalability requires the ability to securely interoperate with a wide range of d
 Additional connection security features include:
 
 * The communication path between devices and Azure IoT Hub, or between gateways and Azure IoT Hub, is secured using industry-standard Transport Layer Security (TLS) with Azure IoT Hub authenticated using X.509 protocol.
+
 * In order to protect devices from unsolicited inbound connections, Azure IoT Hub does not open any connection to the device. The device initiates all connections.
+
 * Azure IoT Hub durably stores messages for devices and waits for the device to connect. These commands are stored for two days, enabling devices connecting sporadically, due to power or connectivity concerns, to receive these commands. Azure IoT Hub maintains a per-device queue for each device.
 
 ### Secure processing and storage in the cloud
@@ -95,9 +99,13 @@ The solution accelerators build in security measures by design, enabling secure 
 Each solution accelerator creates instances of Azure services, such as:
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): Your gateway that connects the cloud to devices. You can scale to millions of connections per hub and process massive volumes of data with per-device authentication support helping you secure your solution.
+
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. Azure Cosmos DB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
+
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Real-time stream processing in the cloud that enables you to rapidly develop and deploy a low-cost analytics solution to uncover real-time insights from devices, sensors, infrastructure, and applications. The data from this fully-managed service can scale to any volume while still achieving high throughput, low latency, and resiliency.
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): A cloud platform to build powerful web and mobile apps that connect to data anywhere; in the cloud or on-premises. Build engaging mobile apps for iOS, Android, and Windows. Integrate with your Software as 
-  a Service (SaaS) and enterprise applications with out-of-the-box connectivity to dozens of cloud-based services and enterprise applications. Code in your favorite language and IDE—.NET, Node.js, PHP, Python, or Java—to build web apps and APIs faster than ever.
+
+* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): A cloud platform to build powerful web and mobile apps that connect to data anywhere; in the cloud or on-premises. Build engaging mobile apps for iOS, Android, and Windows. Integrate with your Software as a Service (SaaS) and enterprise applications with out-of-the-box connectivity to dozens of cloud-based services and enterprise applications. Code in your favorite language and IDE—.NET, Node.js, PHP, Python, or Java—to build web apps and APIs faster than ever.
+
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): The Logic Apps feature of Azure App Service helps integrate your IoT solution to your existing line-of-business systems and automate workflow processes. Logic Apps enables developers to design workflows that start from a trigger and then execute a series of steps—rules and actions that use powerful connectors to integrate with your business processes. Logic Apps offers out-of-the-box connectivity to a vast ecosystem of SaaS, cloud-based, and on-premises applications.
-* [**Azure blob storage**](https://azure.microsoft.com/services/storage/): Reliable, economical cloud storage for the data that your devices send to the cloud.
+
+* [**Azure Blob storage**](https://azure.microsoft.com/services/storage/): Reliable, economical cloud storage for the data that your devices send to the cloud.

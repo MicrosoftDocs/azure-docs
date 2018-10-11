@@ -1,16 +1,16 @@
 # Overview
 ## [About Azure networking](networking-overview.md)
 ## Architecture
-### [Virtual Datacenters](networking-virtual-datacenter.md)
+### [Virtual Datacenters](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [Asymmetric routing with multiple network paths](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Secure network designs](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Hub-spoke topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 ### [Network security best practices](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Combine load balancing methods](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Disaster recovery using Azure DNS and Traffic Manager](disaster-recovery-dns-traffic-manager.md)
 ## Plan and design
 ### [Virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Traffic filtering](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Cross-premises connectivity - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Cross-premises connectivity - dedicated private](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -44,18 +44,16 @@
 ### [Create a dedicated private connection (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Management
+### [Network monitoring overview](network-monitoring-overview.md)
+### [Check resource usage against Azure limits](check-usage-against-limits.md)
 ### [View network topology](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Manage packet capture](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Determine routing next hop](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Verify IP flows for a VM](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Network Monitoring Overview](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Sample scripts
 ### [Azure CLI](cli-samples.md)
 ### [Azure PowerShell](powershell-samples.md)
 
 ## Tutorials
-### [Load balance VMs](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Load balance VMs](../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connect a computer to a virtual network](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Reference

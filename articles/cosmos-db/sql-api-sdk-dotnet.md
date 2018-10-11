@@ -2,17 +2,14 @@
 title: 'Azure Cosmos DB: SQL .NET API, SDK & resources | Microsoft Docs'
 description: Learn all about the SQL .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
 services: cosmos-db
-documentationcenter: .net
 author: rnagpal
 manager: kfile
 editor: cgronlun
 
-ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
@@ -49,6 +46,40 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="2.1.2"/>2.1.2
+
+* Diagnostic tracing improvements
+
+### <a name="2.1.1"/>2.1.1
+
+* Added more resilience to Multi-region request transient failures.
+
+### <a name="2.1.0"/>2.1.0
+
+* Added Multi-region write support.
+* Cross partition query performance improvements with TOP and MaxBufferedItemCount.
+
+### <a name="2.0.0"/>2.0.0
+
+* Added request cancellation support.
+* Added SetCurrentLocation to ConnectionPolicy, which automatically populates the preferred locations based on the region.
+* Fixed Bug in Cross Partition Queries with Min/Max and a filter that matches no documents on an individual partition.
+* DocumentClient methods now have parity with IDocumentClient.
+* Updated direct TCP transport stack to reduce the number of connections established.
+* Added support for Direct Mode TCP for non-Windows clients.
+
+### <a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Added request cancellation support.
+* Added SetCurrentLocation to ConnectionPolicy, which automatically populates the preferred locations based on the region.
+* Fixed Bug in Cross Partition Queries with Min/Max and a filter that matches no documents on an individual partition.
+
+### <a name="2.0.0-preview"/>2.0.0-preview
+
+* DocumentClient methods now have parity with IDocumentClient.
+* Updated direct TCP transport stack to reduce the number of connections established.
+* Added support for Direct Mode TCP for non-Windows clients.
+
 ### <a name="1.22.0"/>1.22.0
 
 * Added ConsistencyLevel Property to FeedOptions.
@@ -62,7 +93,7 @@ ms.custom: H1Hack27Feb2017
 
 ### <a name="1.20.2"/>1.20.2
 
-* Fixed bug that is hit under certain race conditions, that results in intermittent “Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token” errors when using Session consistency level.
+* Fixed bug that is hit under certain race conditions, that results in intermittent "Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token" errors when using Session consistency level.
 
 ### <a name="1.20.1"/>1.20.1
 
@@ -296,6 +327,10 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.2](#2.1.2) |October 04, 2018 |--- |
+| [2.1.1](#2.1.1) |September 27, 2018 |--- |
+| [2.1.0](#2.1.0) |September 21, 2018 |--- |
+| [2.0.0](#2.0.0) |September 07, 2018 |--- |
 | [1.22.0](#1.22.0) |April 19, 2018 |--- |
 | [1.21.1](#1.20.1) |March 09, 2018 |--- |
 | [1.20.2](#1.20.1) |February 21, 2018 |--- |

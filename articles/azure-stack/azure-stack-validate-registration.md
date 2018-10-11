@@ -3,7 +3,7 @@ title:    Validate Azure registration for Azure Stack | Microsoft Docs
 description: Use the Azure Stack Readiness Checker to validate Azure registration.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
-ms.author: brenduns
+ms.date: 06/08/2018
+ms.author: sethm
 ms.reviewer:
 
 ---
@@ -24,7 +24,7 @@ ms.reviewer:
 Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate that your Azure subscription is ready to use with Azure Stack. Validate registration before you begin an Azure Stack deployment. 
 The readiness checker validates:
 - The Azure subscription you use is a supported type. Subscriptions must be a Cloud Service Provider (CSP) or Enterprise Agreement (EA). 
-- The account you use to register your subscription with Azure can log in to Azure and is a subscription owner. 
+- The account you use to register your subscription with Azure can sign in to Azure and is a subscription owner. 
 
 For more information about Azure Stack registration, see [Register Azure Stack with Azure](azure-stack-registration.md). 
 

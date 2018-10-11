@@ -4,7 +4,7 @@ description: Load balancing across primary and secondary IP configurations.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jpconnock
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
 ms.service: load-balancer
@@ -168,7 +168,7 @@ Configure a health probe for your load balancer:
 
 For each website (contoso.com and fabrikam.com), configure the load balancing rules:
     
-1. <a name="step6-1"></a>Under **Settings**, select **Health probe**. In the next pane, near the top, select **Add**. 
+1. <a name="step6-1"></a>Under **Settings**, select **Load balancing rules**. In the next pane, near the top, select **Add**. 
 
 2. For **Name**, type a name for the load balancing rule (for example, **HTTPc** for contoso.com, or **HTTPf** for fabrikam.com).
 
@@ -176,7 +176,7 @@ For each website (contoso.com and fabrikam.com), configure the load balancing ru
 
 4. For **Port** and **Backend port**, keep the default value **80**.
 
-5. For **Floating IP (direct server return)**, select **Enabled**.
+5. For **Floating IP (direct server return)**, select **Disabled**.
 
 6. <a name="step6-6"></a>Select **OK**.
 

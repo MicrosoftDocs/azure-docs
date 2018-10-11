@@ -1,6 +1,6 @@
 ---
 title: Bind an existing custom SSL certificate to Azure Web Apps | Microsoft Docs
-description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
+description: Learn how to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -27,9 +27,11 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Upgrade your app's pricing tier
-> * Bind your custom SSL certificate to App Service
-> * Enforce HTTPS for your app
-> * Automate SSL certificate binding with scripts
+> * Bind your custom certificate to App Service
+> * Renew certificates
+> * Enforce HTTPS
+> * Enforce TLS 1.1/1.2
+> * Automate TLS management with scripts
 
 > [!NOTE]
 > If you need to get a custom SSL certificate, you can get one in the Azure portal directly and bind it to your web app. Follow the [App Service Certificates tutorial](web-sites-purchase-ssl-web-site.md).
@@ -59,7 +61,7 @@ To use a certificate in App Service, the certificate must meet all the following
 
 ## Prepare your web app
 
-To bind a custom SSL certificate to your web app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, or **Premium** tier. In this step, you make sure that your web app is in the supported pricing tier.
+To bind a custom SSL certificate to your web app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, **Premium**, or **Isolated** tier. In this step, you make sure that your web app is in the supported pricing tier.
 
 ### Log in to Azure
 
@@ -79,17 +81,17 @@ In the left-hand navigation of your web app page, scroll to the **Settings** sec
 
 ![Scale-up menu](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Check to make sure that your web app is not in the **Free** or **Shared** tier. Your web app's current tier is highlighted by a dark blue box.
+Check to make sure that your web app is not in the **F1** or **D1** tier. Your web app's current tier is highlighted by a dark blue box.
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-Custom SSL is not supported in the **Free** or **Shared** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](#upload).
+Custom SSL is not supported in the **F1** or **D1** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** page and skip to [Upload and bind your SSL certificate](#upload).
 
 ### Scale up your App Service plan
 
-Select one of the **Basic**, **Standard**, or **Premium** tiers.
+Select any of the non-free tiers (**B1**, **B2**, **B3**, or any tier in the **Production** category). For additional options, click **See additional options**.
 
-Click **Select**.
+Click **Apply**.
 
 ![Choose pricing tier](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
@@ -209,6 +211,14 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 
 <a name="bkmk_enforce"></a>
 
+## Renew certificates
+
+Your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, follow these steps in order:
+
+1. Upload the new certificate.
+2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.
+3. Delete the old certificate. 
+
 ## Enforce HTTPS
 
 By default, anyone can still access your web app using HTTP. You can redirect all HTTP requests to the HTTPS port.
@@ -223,23 +233,15 @@ When the operation is complete, navigate to any of the HTTP URLs that point to y
 - `http://contoso.com`
 - `http://www.contoso.com`
 
-## Enforce TLS 1.1/1.2
+## Enforce TLS versions
 
-Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by default, which is no longer considered secure by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce higher TLS versions, follow these steps:
+Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 by default, which is the recommended TLS level by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce different TLS versions, follow these steps:
 
-In your web app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want.
+In your web app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want. This setting controls the inbound calls only. 
 
 ![Enforce TLS 1.1 or 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 When the operation is complete, your app rejects all connections with lower TLS versions.
-
-## Renew certificates
-
-Your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, follow these steps in order:
-
-1. Upload the new certificate.
-2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.
-3. Delete the old certificate. 
 
 ## Automate with scripts
 
@@ -269,6 +271,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+The following command enforces minimum TLS version of 1.2.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### Azure PowerShell
 
 The following command uploads an exported PFX file and adds an SNI-based SSL binding.
@@ -293,13 +304,15 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Upgrade your app's pricing tier
-> * Bind your custom SSL certificate to App Service
-> * Enforce HTTPS for your app
-> * Automate SSL certificate binding with scripts
+> * Bind your custom certificate to App Service
+> * Renew certificates
+> * Enforce HTTPS
+> * Enforce TLS 1.1/1.2
+> * Automate TLS management with scripts
 
 Advance to the next tutorial to learn how to use Azure Content Delivery Network.
 
 > [!div class="nextstepaction"]
-> [Add a Content Delivery Network (CDN) to an Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+> [Add a Content Delivery Network (CDN) to an Azure App Service](../cdn/cdn-add-to-web-app.md)
 
 For more information, see [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md).

@@ -7,13 +7,20 @@ ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
+
+ROBOTS: NOINDEX
 ---
 
 
 # Getting started with data preparation
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Welcome to the Data Preparation Getting Started Guide. 
 

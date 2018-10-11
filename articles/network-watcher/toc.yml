@@ -39,8 +39,8 @@
     href: network-watcher-nsg-flow-logging-overview.md
   - name: Network security group view
     href: network-watcher-security-group-view-overview.md
-  - name: View network topology
-    href: network-watcher-topology-overview.md
+  - name: Role-based access control permissions
+    href: required-rbac-permissions.md
 - name: How-to guides
   items:
   - name: Configure Network Watcher
@@ -79,8 +79,6 @@
           href: network-watcher-packet-capture-manage-powershell.md
         - name: Azure CLI
           href: network-watcher-packet-capture-manage-cli.md
-        - name: Azure CLI 1.0
-          href: network-watcher-packet-capture-manage-cli-nodejs.md
         - name: REST
           href: network-watcher-packet-capture-manage-rest.md
       - name: Analyze a packet capture
@@ -101,8 +99,6 @@
         href: network-watcher-nsg-flow-logging-powershell.md
       - name: Azure CLI
         href: network-watcher-nsg-flow-logging-cli.md
-      - name: Azure CLI 1.0
-        href: network-watcher-nsg-flow-logging-cli-nodejs.md
       - name: REST
         href: network-watcher-nsg-flow-logging-rest.md
     - name: Analyze NSG flow logs
@@ -128,8 +124,6 @@
         href: network-watcher-security-group-view-powershell.md
       - name: Azure CLI
         href: network-watcher-security-group-view-cli.md
-      - name: Azure CLI 1.0
-        href: network-watcher-security-group-view-cli-nodejs.md
       - name: REST
         href: network-watcher-security-group-view-rest.md
     - name: Perform compliance and audit your network
@@ -142,26 +136,18 @@
         href: network-watcher-troubleshoot-manage-powershell.md
       - name: Azure CLI
         href: network-watcher-troubleshoot-manage-cli.md
-      - name: Azure CLI 1.0
-        href: network-watcher-troubleshoot-manage-cli-nodejs.md
       - name: REST
         href: network-watcher-troubleshoot-manage-rest.md
     - name: Monitor VPN gateway with Azure Automation
       href: network-watcher-monitor-with-azure-automation.md
     - name: Diagnose on-premises connectivity via VPN gateway
       href: network-watcher-diagnose-on-premises-connectivity.md
-  - name: View your network topology
-    items:
-    - name: Azure PowerShell
-      href: network-watcher-topology-powershell.md
-    - name: Azure CLI
-      href: network-watcher-topology-cli.md
-    - name: Azure CLI 1.0
-      href: network-watcher-topology-cli-nodejs.md
-    - name: REST
-      href: network-watcher-topology-rest.md
+  - name: View network topology
+    href: view-network-topology.md
   - name: Determine relative latency between a location and Azure region
     href: view-relative-latencies.md
+  - name: Monitor network performance
+    href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
 - name: Reference
   items:
   - name: Azure CLI

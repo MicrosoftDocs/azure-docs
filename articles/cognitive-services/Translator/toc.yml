@@ -1,15 +1,114 @@
 - name: Translator Text API Documentation
   href: index.yml
 - name: Overview
-  items: 
-  - name: What is Translator Text API?
+  items:
+  - name: What is the Translator Text API?
     href: translator-info-overview.md
-  - name: Supported languages
-    href: languages.md
-- name: Samples
-  items: 
-  - name: Samples on GitHub
-    href: https://aka.ms/TranslatorGitHub
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: C#
+      items:
+      - name: Translate text
+        href: quickstart-csharp-translate.md
+      - name: Convert text script
+        href: quickstart-csharp-transliterate.md
+      - name: Identify language from text
+        href: quickstart-csharp-detect.md
+      - name: Get alternate translations
+        href: quickstart-csharp-dictionary.md
+      - name: Get supported languages
+        href: quickstart-csharp-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-csharp-sentences.md
+    - name: Go
+      items:
+      - name: Translate text
+        href: quickstart-go-translate.md
+      - name: Convert text script
+        href: quickstart-go-transliterate.md
+      - name: Identify language from text
+        href: quickstart-go-detect.md
+      - name: Get alternate translations
+        href: quickstart-go-dictionary.md
+      - name: Get supported languages
+        href: quickstart-go-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-go-sentences.md
+    - name: Java
+      items:
+      - name: Translate text
+        href: quickstart-java-translate.md
+      - name: Convert text script
+        href: quickstart-java-transliterate.md
+      - name: Identify language from text
+        href: quickstart-java-detect.md
+      - name: Get alternate translations
+        href: quickstart-java-dictionary.md
+      - name: Get supported languages
+        href: quickstart-java-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-java-sentences.md
+    - name: Node.js
+      items:
+      - name: Translate text
+        href: quickstart-nodejs-translate.md
+      - name: Convert text script
+        href: quickstart-nodejs-transliterate.md
+      - name: Identify language from text
+        href: quickstart-nodejs-detect.md
+      - name: Get alternate translations
+        href: quickstart-nodejs-dictionary.md
+      - name: Get supported languages
+        href: quickstart-nodejs-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-nodejs-sentences.md
+    - name: PHP
+      items:
+      - name: Translate text
+        href: quickstart-php-translate.md
+      - name: Convert text script
+        href: quickstart-php-transliterate.md
+      - name: Identify language from text
+        href: quickstart-php-detect.md
+      - name: Get alternate translations
+        href: quickstart-php-dictionary.md
+      - name: Get supported languages
+        href: quickstart-php-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-php-sentences.md
+    - name: Python
+      items:
+      - name: Translate text
+        href: quickstart-python-translate.md
+      - name: Convert text script
+        href: quickstart-python-transliterate.md
+      - name: Identify language from text
+        href: quickstart-python-detect.md
+      - name: Get alternate translations
+        href: quickstart-python-dictionary.md
+      - name: Get supported languages
+        href: quickstart-python-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-python-sentences.md
+    - name: Ruby
+      items:
+      - name: Translate text
+        href: quickstart-ruby-translate.md
+      - name: Convert text script
+        href: quickstart-ruby-transliterate.md
+      - name: Identify language from text
+        href: quickstart-ruby-detect.md
+      - name: Get alternate translations
+        href: quickstart-ruby-dictionary.md
+      - name: Get supported languages
+        href: quickstart-ruby-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-ruby-sentences.md
+- name: Tutorials
+  items:
+  - name: Create a WPF app for Translator Text
+    href: tutorial-wpf-translation-csharp.md
 - name: Concepts
   items:
   - name: Customize and improve text translation
@@ -28,24 +127,8 @@
     href: word-alignment.md
   - name: Use the dynamic dictionary feature
     href: dynamic-dictionary.md
-  - name: Use Translator Text API
-    items:
-    - name: C#
-      href: quickstarts/csharp.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
-    - name: Create a Translator Text app with WPF
-      href: tutorial-wpf-translation-csharp.md
 - name: Reference
-  items: 
+  items:
   - name: v3 Translator Text API reference
     href: reference/v3-0-reference.md
     items:
@@ -64,7 +147,7 @@
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
   - name: v2 Translator Text API reference (Deprecated)
-    href: http://docs.microsofttranslator.com/text-translate.html
+    href: reference/v2-0-reference.md
     items:
     - name: Transform text
       href: transform-text.md
@@ -74,15 +157,19 @@
       href: return-n-best-translations.md
 - name: Resources
   items:
-  - name: FAQ
-    href: https://www.microsoft.com/en-us/translator/faq.aspx 
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/ 
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/558796-translator
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-translator
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
   - name: Code samples on GitHub
     href: https://aka.ms/TranslatorGitHub
+  - name: FAQ
+    href: https://www.microsoft.com/translator/faq.aspx
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
+  - name: Language and region support
+    href: language-support.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-translator
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/558796-translator

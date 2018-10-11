@@ -1,20 +1,20 @@
-﻿---
+---
 title: Create a Service Principal for Azure Stack | Microsoft Docs
 description: Describes how to create a service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
-
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
+ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
-ms.author: mabrigg
+ms.date: 08/22/2018
+ms.author: sethm
+ms.reviewer: thoroet
 
 ---
 # Give applications access to Azure Stack resources by creating service principals
@@ -59,7 +59,7 @@ Check to see that you have the [required Azure AD permissions](../../azure-resou
 
 To create a service principal for your application:
 
-1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
+1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **App registrations** > **Add**.
 3. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
 
@@ -91,54 +91,7 @@ If you deployed Azure Stack using AD FS as the identity store, you can use Power
 * Assign service principal to a role.
 * Sign in using the service principal's identity.
 
-### Before you begin
-
-[Download the required Azure Stack tools to your local computer.](azure-stack-powershell-download.md)
-
-### Import the Identity PowerShell module
-
-Navigate to the download folder for the Azure Stack tools and import the Identity PowerShell module by using the following command:
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-When you import the Identity module, you might get this error message: "AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system”.
-
-To fix this issue, you need to configure the execution policy to allow running the script. To set the execution policy, run the following command in an elevated PowerShell session:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### Create the service principal
-
-You can create a service principal by running the following command, making sure to update the **DisplayName** parameter:
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### Assign a role
-
-After you create the service principal, you must [assign it to a role](azure-stack-create-service-principals.md#assign-role-to-service-principal).
-
-### Sign in using PowerShell
-
-You can sign to Azure Stack by running the following command, making sure to update the **EnvironmentName** parameter with the name of your app:
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+For details on how to create the service principal, see [Create service principal for AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
 ## Assign the service principal to a role
 

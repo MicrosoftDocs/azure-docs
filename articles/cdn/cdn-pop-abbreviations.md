@@ -3,8 +3,8 @@ title: Azure CDN POP locations by abbreviation | Microsoft Docs
 description: This article lists Azure CDN POP locations, sorted by POP abbreviation, for Azure CDN from Verizon.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
-ms.author: mazha
+ms.author: magattus
 
 ---
 # Azure CDN POP locations by abbreviation
@@ -33,8 +33,6 @@ AGB | Atlanta, Georgia, USA | North America: East Coast U.S.
 AKL | Auckland, New Zealand | Asia
 AMA | Amsterdam, Netherlands | Europe
 AMB | Amsterdam, Netherlands | Europe
-AMM | Amsterdam, Netherlands | Europe
-AMN | Amsterdam, Netherlands | Europe
 AMS | Amsterdam, Netherlands | Europe
 ARN | Stockholm, Sweden | Europe
 ATL | Atlanta, Georgia, USA | North America: East Coast U.S.
@@ -78,8 +76,6 @@ HEL | Helsinki, Finland | Europe
 HHP | Hong Kong | Asia
 HKC | Hong Kong | Asia
 HKG | Hong Kong | Asia
-HKM | Hong Kong | Asia
-HKN | Hong Kong | Asia
 HND | Tokyo, Japan | Asia
 IAD | Ashburn, Virginia, USA | North America: East Coast U.S.
 ICN | Seoul, Korea | Asia
@@ -135,15 +131,11 @@ RIX | Riga, Latvia | Europe
 RTM | Amsterdam, Netherlands | Europe
 SAA | San Jose, California, USA | North America: West Coast U.S.
 SAB | San Jose, California, USA | North America: West Coast U.S.
-SAM | San Jose, California, USA | North America: West Coast U.S.
-SAN | San Jose, California, USA | North America: West Coast U.S.
 SCL | Valparaíso, Chile | Latin America
 SEA | Seattle, Washington, USA | North America: West Coast U.S.
 SEB | Seattle, Washington, USA | North America: West Coast U.S.
 SEC | Seattle, Washington, USA | North America: West Coast U.S.
 SGB | Singapore | Asia
-SGM | Singapore | Asia
-SGN | Singapore | Asia
 SIN | Singapore | Asia
 SJC | San Jose, California, USA | North America: West Coast U.S.
 SJO | San Jose, California, USA | North America: West Coast U.S.

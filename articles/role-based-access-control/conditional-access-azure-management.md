@@ -3,17 +3,18 @@ title: Manage access to Azure management with conditional access in Azure Active
 description: Learn about using conditional access in Azure AD to manage access to Azure management.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: rolyon
 manager: mtillman
-editor: bryanla
+editor: skwan
 ms.assetid: 0adc8b11-884e-476c-8c43-84f9bf12a34b
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2017
-ms.author: skwan
+ms.author: rolyon
+ms.reviewer: skwan
 ---
 
 # Manage access to Azure management with conditional access

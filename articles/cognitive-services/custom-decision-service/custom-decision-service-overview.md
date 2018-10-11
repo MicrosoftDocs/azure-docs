@@ -1,21 +1,22 @@
 ---
-title: What is Custom Decision Service? - Azure Cognitive Services | Microsoft Docs
-description: This article overviews Azure Custom Decision Service, a cloud-based API for contextual decision-making that sharpens with experience.
+title: What is Custom Decision Service?
+titlesuffix: Azure Cognitive Services
+description: This article provides an overview of the Custom Decision Service.
 services: cognitive-services
 author: alekh
-manager: slivkins
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: overview
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
+ms.author: slivkins
 ---
 # What is Custom Decision Service?
 
-Azure Custom Decision Service helps you create intelligent systems with a cloud-based, contextual decision-making API that sharpens with experience. Custom Decision Service uses reinforcement learning and adapts the content in your application to maximize user engagement. The system includes user feedback into its decisions in real time and responds to emergent trends and breaking stories in minutes.
+In a typical web or mobile application, a front page links to several articles or other types of content. As the front page loads, it could request the Custom Decision Service to rank articles included on that front page. So, when a user chooses an article by clicking on it, a second request could be sent to the Custom Decision Service, which will log the outcome of that user decision.
 
-In a typical application, a front page links to several articles or other types of content. As the front page loads, it requests the Custom Decision Service to rank articles included on the page. When you choose an article, a second request is sent to the Custom Decision Service that logs the outcome of that decision.
-
-Custom Decision Service is easy to use. The easiest integration mode requires only an RSS feed for your content and a few lines of JavaScript to be added into your application.
+Custom Decision Service is easy to use, as it requires only an RSS feed for your content and a few lines of JavaScript to be added into your application.
 
 Custom Decision Service converts your content into features for machine learning. The system uses these features to understand your content in terms of its text, images, videos, and overall sentiment. It uses several other [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services), like
 [Entity Linking](../entitylinking/home.md),
@@ -36,7 +37,7 @@ Custom Decision Service can be used in applications that are not in the content 
 
 ## API usage modes
 
-Custom Decision Service can be applied to both webpages and apps. The APIs can be called from either a browser or an app. The API usage is similar on both modes, but some of the details are different.
+Custom Decision Service can be applied to both webpages and mobile apps. The APIs can be called from either a browser or an app. The API usage is similar on both, but some of the details are different.
 
 ## Glossary of terms
 

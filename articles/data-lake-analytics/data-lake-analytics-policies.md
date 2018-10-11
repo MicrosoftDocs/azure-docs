@@ -1,21 +1,15 @@
 ---
-title: Manage Azure Data Lake Analytics policies | Microsoft Docs
+title: Manage Azure Data Lake Analytics policies
 description: Learn how to use policies to control usage of a Data Lake Analytics account.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-
-ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/30/2018
+author: saveenr
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
+ms.topic: conceptual
+ms.date: 04/30/2018
 ---
 # Manage Azure Data Lake Analytics using policies
 

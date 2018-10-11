@@ -5,14 +5,11 @@ keywords: NoSQL example
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: java
 
-ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
 
@@ -22,6 +19,7 @@ ms.author: sngun
 > [!div class="op_single_selector"]
 > * [.NET Examples](sql-api-dotnet-samples.md)
 > * [Java Examples](sql-api-java-samples.md)
+> * [Async Java Examples](sql-api-async-java-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

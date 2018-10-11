@@ -4,10 +4,11 @@ description: This article describes how to create and validate an AWS credential
 keywords: aws authentication, configure aws
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/17/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # Authenticate Runbooks with Amazon Web Services

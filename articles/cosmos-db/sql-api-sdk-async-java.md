@@ -2,17 +2,14 @@
 title: 'Azure Cosmos DB: SQL Async Java API, SDK & resources | Microsoft Docs'
 description: Learn all about the SQL Async Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
 services: cosmos-db
-documentationcenter: java
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: a452ffa2-c15d-4b0a-a8c1-ec9b750ce52b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: reference
+ms.date: 09/05/2018
 ms.author: sngun
 
 ---
@@ -37,7 +34,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 <tr><td>**SDK Download**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Java API reference documentation](https://azure.github.io/azure-cosmosdb-java/)</td></tr>
+<tr><td>**API documentation**</td><td>[Java API reference documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client?view=azure-java-stable)</td></tr>
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -51,6 +48,39 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 </table></br>
 
 ## Release notes
+
+### <a name="2.1.0"/>2.1.0
+* Added support for Proxy.
+* Added support for resource token authorization.
+* Fixed a bug in handling large partition keys ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* Documentation improved.
+* SDK restructured into more granular modules.
+
+### <a name="2.0.1"/>2.0.1
+* Fixed a bug for non-english locales ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Added helper methods in Conflict Resource.
+
+### <a name="2.0.0"/>2.0.0
+* Replaced org.json dependency by jackson due to performance reasons and licensing ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Removed deprecated OfferV2 class.
+* Added accessor method to Offer class for throughput content.
+* Any method in Document/Resource returning org.json types changed to return a jackson object type.
+* getObject(.) method of classes extending JsonSerializable changed to return a jackson ObjectNode type.
+* getCollection(.) method changed to return Collection of ObjectNode.
+* Removed JsonSerializable subclasses' constructors with org.json.JSONObject arg.
+* JsonSerializable.toJson (SerializationFormattingPolicy.Indented) now uses two spaces for indentation.
+  
+### <a name="1.0.2"/>1.0.2
+* Added support for Unique Index Policy.
+* Added support for limiting response continuation token size in feed options.
+* Added support for Partition Split in Cross Partition Query.
+* Fixed a bug in Json timestamp serialization ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Fixed a bug in Json enum serialization.
+* Fixed a bug in managing documents of 2MB size ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Dependency com.fasterxml.jackson.core:jackson-databind upgraded to 2.9.5 due to a bug ([jackson-databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Dependency on rxjava-extras upgraded to 0.8.0.17 due to a bug ([rxjava-extras: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* The metadata description in pom file updated to be inline with the rest of documentation.
+* Syntax improvement ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="1.0.1"/>1.0.1
 * Added back-pressure support in query.
@@ -76,6 +106,10 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |September 5, 2018|--- |
+| [2.0.1](#2.0.1) |August 16, 2018|--- |
+| [2.0.0](#2.0.0) |June 20, 2018|--- |
+| [1.0.2](#1.0.2) |May 18, 2018|--- |
 | [1.0.1](#1.0.1) |April 20, 2018|--- |
 | [1.0.0](#1.0.0) |February 27, 2018|--- |
 

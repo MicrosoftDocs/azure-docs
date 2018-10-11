@@ -2,18 +2,15 @@
 title: 'Azure Cosmos DB: SQL Python API, SDK & resources | Microsoft Docs'
 description: Learn all about the SQL Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
 services: cosmos-db
-documentationcenter: python
 author: rnagpal
 manager: kfile
 editor: cgronlun
 
-ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
-ms.date: 5/8/2018
+ms.topic: reference
+ms.date: 9/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -35,13 +32,13 @@ ms.custom: H1Hack27Feb2017
 
 <table>
 
-<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Python API reference documentation](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td>**API documentation**</td><td>[Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
 
-<tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
 <tr><td>**Get started**</td><td>[Get started with the Python SDK](sql-api-python-application.md)</td></tr>
 
@@ -49,6 +46,12 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="3.0.0"/>3.0.0
+* Support for multi-region writes.
+* Namespace changed to azure.cosmos.
+* Collection and document concepts renamed to container and item, document_client renamed to cosmos_client. 
+
 ### <a name="2.3.2"/>2.3.2
 * Added support for default retries on connection issues.
 

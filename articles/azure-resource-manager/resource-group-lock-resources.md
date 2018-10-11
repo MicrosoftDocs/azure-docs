@@ -12,7 +12,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: tomfitz
 ---
@@ -154,7 +154,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## Azure CLI
 
-You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az_lock_create) command.
+You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az-lock-create) command.
 
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
@@ -168,7 +168,7 @@ To lock a resource group, provide the name of the resource group.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-To get information about a lock, use [az lock list](/cli/azure/lock#az_lock_list). To get all the locks in your subscription, use:
+To get information about a lock, use [az lock list](/cli/azure/lock#az-lock-list). To get all the locks in your subscription, use:
 
 ```azurecli
 az lock list
@@ -215,5 +215,5 @@ In the request, include a JSON object that specifies the properties for the lock
 * To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
 * To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
 * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
@@ -227,7 +227,23 @@ When a container service restarts or moves to another node in the cluster, the I
      </Endpoints>
    </Resources>
    ```
+   
+6. For Windows, a VM reboot will cause the open network to be recreated. This is to mitigate an underlying issue in the networking stack. The default behaviour is to recreate the network. If this behaviour needs to be turned off, the following configuration can be used followed by a config upgrade.
 
+```json
+"fabricSettings": [
+                {
+                    "name": "Setup",
+                    "parameters": [
+                    {
+                            "name": "SkipContainerNetworkResetOnReboot",
+                            "value": "true"
+                    }
+                    ]
+                }
+            ],          
+ ``` 
+ 
 ## Next steps
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
 * [Learn more about the Service Fabric service manifest resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)

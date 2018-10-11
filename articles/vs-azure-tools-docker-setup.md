@@ -20,7 +20,7 @@ ms.author: mlearned
 # Configure a Docker Host with VirtualBox
 ## Overview
 This article guides you through configuring a default Docker instance using Docker Machine and VirtualBox. 
-If you’re using the [Docker for Windows beta](http://beta.docker.com/), this configuration is not necessary.
+If you’re using the [Docker for Windows](https://www.docker.com/products/docker-desktop), this configuration is not necessary.
 
 ## Prerequisites
 The following tools need to be installed.

@@ -1,15 +1,55 @@
 - name: QnA Maker Documentation
-  href: Overview/overview.md
+  href: index.yml
 - name: Overview
   items:
-  - name: Supported languages
-    href: Overview/languages-supported.md
+  - name: What is QnA Maker?
+    href: Overview/overview.md
+- name: Quickstarts
+  items:
+  - name: Create a new knowledge base
+    items:
+    - name: C#
+      href: Quickstarts/create-new-kb-csharp.md
+    - name: Go
+      href: Quickstarts/create-new-kb-go.md
+    - name: Java
+      href: Quickstarts/create-new-kb-java.md
+    - name: Node.js
+      href: Quickstarts/create-new-kb-nodejs.md
+    - name: Python
+      href: Quickstarts/create-new-kb-python.md
+  - name: Update a knowledge base
+    items:
+    - name: C#
+      href: Quickstarts/update-kb-csharp.md
+    - name: Go
+      href: Quickstarts/update-kb-go.md
+    - name: Java
+      href: Quickstarts/update-kb-java.md
+    - name: Node.js
+      href: Quickstarts/update-kb-nodejs.md
+    - name: Python
+      href: Quickstarts/update-kb-python.md
+  - name: Publish a knowledge base
+    items:
+    - name: C#
+      href: Quickstarts/publish-kb-csharp.md
+    - name: Go
+      href: Quickstarts/publish-kb-go.md
+    - name: Java
+      href: Quickstarts/publish-kb-java.md
+    - name: Node.js
+      href: Quickstarts/publish-kb-nodejs.md
+    - name: Python
+      href: Quickstarts/publish-kb-python.md
 - name: Concepts
   items:
   - name: Knowledge base
     href: Concepts/knowledge-base.md
   - name: Development lifecyle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
+  - name: Best practices
+    href: Concepts/best-practices.md
   - name: Confidence score
     href: Concepts/confidence-score.md
   - name: Data sources supported
@@ -22,8 +62,12 @@
     href: Quickstarts/create-publish-knowledge-base.md
   - name: Create a knowledge base
     href: How-To/create-knowledge-base.md
-  - name: Import a knowledge base
-    href: How-To/migrate-knowledge-base.md
+  - name: Add chit-chat to knowledge base
+    href: How-to/chit-chat-knowledge-base.md
+  - name: Use metadata with GenerateAnswer API
+    href: How-To/metadata-generateanswer-usage.md
+  - name: Migrate a knowledge base from Preview
+    href: Tutorials/migrate-knowledge-base.md
   - name: Edit a knowledge base
     href: How-To/edit-knowledge-base.md
   - name: Collaborate on a knowledge base
@@ -48,6 +92,8 @@
     href: Tutorials/choosing-capacity-qnamaker-deployment.md
   - name: Upgrade your QnA Maker service
     href: How-To/upgrade-qnamaker-service.md
+  - name: Troubleshoot and update QnAMaker runtime
+    href: How-To/troubleshooting-runtime.md
   - name: Use QnA Maker API
     items:
     - name: C#
@@ -61,25 +107,29 @@
     - name: Go
       href: Quickstarts/go.md
 - name: Reference
-  items: 
+  items:
   - name: API Reference
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
   - name: FAQ
     href: faqs.md
-  - name: Best Practices
-    href: Concepts/best-practices.md
   - name: Limits
     href: limits.md
   - name: Glossary
     href: glossary.md
+  - name: HTTP response codes
+    href: http-response-codes.md
 - name: Resources
   items:
+  - name: Regional Availability
+    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://aka.ms/qnamaker-pricing
+  - name: Language and region support
+    href: Overview/language-support.md
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/QnAMaker 
+    href: https://stackoverflow.com/questions/tagged/QnAMaker
   - name: UserVoice
     href: https://aka.ms/qnamaker-uservoice
   - name: Search

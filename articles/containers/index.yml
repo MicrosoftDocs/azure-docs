@@ -63,17 +63,21 @@ sections:
       title: Create a private Docker registry in Azure Container Registry
       image:
         src: /azure/media/index/container-registry.svg
-- title: Free Pluralsight video training for Azure and containers
+    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
+      title: Run a container app on-demand in Azure Container Instances
+      image:
+        src: /azure/media/index/containerinstances.svg
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
     className: cardsM
     columns: 3
     items:
-    - href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - href: https://go.microsoft.com/fwlink/?linkid=2012827
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-      title: 'Microsoft Azure Virtual Machines - Getting Started'
+      title: ' Azure Administrator'
 - title: Samples
   items:
   - type: list

@@ -7,13 +7,12 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -40,12 +39,30 @@ Infrastructure service certificates for external-facing services that are provid
     - ADFS<sup>*</sup>
     - Graph<sup>*</sup>
 
-    > <sup>*</sup> Only applicable if the environment’s identity provider is Active Directory Federated Services (AD FS).
+   <sup>*</sup> Only applicable if the environment’s identity provider is Active Directory Federated Services (AD FS).
 
 > [!NOTE]
 > All other secure keys and strings, including BMC and switch passwords, user and administrator account passwords are still manually updated by the administrator. 
 
 In order to maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure’s secrets at frequencies that are consistent with their organization’s security requirements.
+
+### Rotating Secrets with External Certificates from a new Certificate Authority
+
+Azure Stack supports secret rotation with external certificates from a new Certificate Authority (CA) in the following contexts:
+
+|Installed Certificate CA|CA to Rotate To|Supported|Azure Stack Versions Supported|
+|-----|-----|-----|-----|
+|From Self-Signed|To Enterprise|Not Supported||
+|From Self-Signed|To Self-Signed|Not Supported||
+|From Self-Signed|To Public<sup>*</sup>|Supported|1803 & Later|
+|From Enterprise|To Enterprise|Supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
+|From Enterprise|To Self-Signed|Not Supported||
+|From Enterprise|To Public<sup>*</sup>|Supported|1803 & Later|
+|From Public<sup>*</sup>|To Enterprise|Not Supported|1803 & Later|
+|From Public<sup>*</sup>|To Self-Signed|Not Supported||
+|From Public<sup>*</sup>|To Public<sup>*</sup>|Supported|1803 & Later|
+
+<sup>*</sup> Here Public Certificate Authorities are those that are part of the Windows Trusted Root Program. You can find the full list [Microsoft Trusted Root Certificate Program: Participants (as of June 27, 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
 ## Alert remediation
 
@@ -59,20 +76,20 @@ Running secret rotation using the instructions below will remediate these alerts
 
 ## Pre-steps for secret rotation
 
+   > [!IMPORTANT]  
+   > Ensure secret rotation hasn't been successfully executed on your environment. If secret rotation has already been performed, update Azure Stack to version 1807 or later before you execute secret rotation. 
 1.  Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
-
     > [!note]  
     > The next steps only apply when rotating Azure Stack external secrets.
-
-2.  Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-3.  Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
-3.  Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
-4.  Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare. 
-5.  Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
+3. Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+4.  Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
+5.  Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
+6.  Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare. 
+7.  Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
 ## Rotating external and internal secrets
 
-To rotate both external an internal secrets:
+To rotate both external an internal secret:
 
 1. Within the newly created **/Certificates** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Create a PowerShell Session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) using the **CloudAdmin** account and store the sessions as a variable. You will use this variable as the parameter in the next step.
@@ -90,6 +107,8 @@ To rotate both external an internal secrets:
     A secure string of the password used for all of the pfx certificate files created.
 4. Wait while your secrets rotate.  
 When secret rotation successfully completes, your console will display **Overall action status: Success**. 
+    > [!note]  
+    > If secret rotation fails, follow the instructions in the error message and re-run start-secretrotation with the **-Rerun** Parameter. Contact Support if you experience repeated secret rotation failures. 
 5. After successful completion of secret rotation, remove your certificates from the share created in the pre-step and store them in their secure backup location. 
 
 ## Walkthrough of secret rotation
@@ -116,6 +135,10 @@ To rotate only Azure Stack’s internal secrets:
 
 1. Create a PowerShell session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. In the Privileged Endpoint session, run **Start-SecretRotation** with no arguments.
+3. Wait while your secrets rotate.  
+When secret rotation successfully completes, your console will display **Overall action status: Success**. 
+    > [!note]  
+    > If secret rotation fails, follow the instructions in the error message and rerun start-secretrotation with the **-Rerun** Parameter. Contact Support if you experience repeated secret rotation failures. 
 
 ## Start-SecretRotation reference
 
@@ -137,9 +160,10 @@ The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure S
 
 | Parameter | Type | Required | Position | Default | Description |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | String  | False  | Named  | None  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating internal and external secrets. End directory must be **\Certificates**. |
+| PfxFilesPath | String  | False  | Named  | None  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets or all secrets. End directory must be **\Certificates**. |
 | CertificatePassword | SecureString | False  | Named  | None  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when both internal and external secrets are rotated. |
-|
+| PathAccessCredential | PSCredential | False  | Named  | None  | The PowerShell credential for the fileshare of the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets or all secrets.  |
+| Rerun | SwitchParameter | False  | Named  | None  | Rerun must be used anytime secret rotation is re-attempted after a failed attempt. |
 
 ### Examples
  

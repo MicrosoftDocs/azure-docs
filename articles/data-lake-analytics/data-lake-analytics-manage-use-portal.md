@@ -1,26 +1,21 @@
 ---
-title: Manage Azure Data Lake Analytics by using the Azure portal | Microsoft Docs
-description: Learn how to manage Data Lake Analytics acounts, data sources, users, and jobs.
+title: Manage Azure Data Lake Analytics by using the Azure portal
+description: This article describes how to use the Azure portal to manage Data Lake Analytics accounts, data sources, users, & jobs.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
+ms.topic: conceptual
+ms.date: 12/05/2016
 ---
-# Manage Azure Data Lake Analytics by using the Azure portal
+# Manage Azure Data Lake Analytics using the Azure portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, account data sources, users, and jobs by using the Azure portal. To see management topics about using other tools, click a tab at the top of the page.
+This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs by using the Azure portal.
+
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -165,4 +160,4 @@ To view a list of U-SQL jobs that are recurring:
 
 * [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Manage Azure Data Lake Analytics by using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Manage Azure Data Lake Analytics using policies](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-policies)
+* [Manage Azure Data Lake Analytics using policies](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies)

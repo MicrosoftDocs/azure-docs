@@ -1,18 +1,19 @@
 ---
-title: Microsoft Translator Text API Detect Method | Microsoft Docs
-description: Use the Microsoft Translator Text API Detect method.
+title: Translator Text API Detect Method
+titlesuffix: Azure Cognitive Services
+description: Use the Translator Text API Detect method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: Detect
+# Translator Text API 3.0: Detect
 
 Identifies the language of a piece of text.
 
@@ -86,7 +87,7 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `isTranslationSupported`: A boolean value which is true if the detected language is one of the languages supported for text translation.
 
-  * `isTransliterationSupported`: A boolean value which is true if the detected language is one of the languages supported for translatiteration.
+  * `isTransliterationSupported`: A boolean value which is true if the detected language is one of the languages supported for transliteration.
   
   * `alternatives`: An array of other possible languages. Each element of the array is another object with the same properties listed above: `language`, `score`, `isTranslationSupported` and `isTransliterationSupported`.
 
@@ -172,7 +173,7 @@ The following example shows how to retrieve languages supported for text transla
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://dev.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
 ```
 
 ---

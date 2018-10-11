@@ -4,11 +4,10 @@ description: This article provides considerations and guidelines for configuring
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 09/27/2018
 ---
 # Azure Database for PostgreSQL servers
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL servers.
@@ -40,13 +39,23 @@ The following elements help ensure safe access to your database:
 | **TCP/IP** | The protocol is supported over TCP/IP, and over Unix-domain sockets. |
 | **Firewall** | To help protect your data, a firewall rule prevents all access to your server and to its databases, until you specify which computers have permission. See [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md). |
 
-## How do I manage a server?
+## Managing your server
 You can manage Azure Database for PostgreSQL servers by using the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/postgres).
+
+While creating a server, you set up the credentials for your admin user. The admin user is the highest privilege user you have on the server. It belongs to the role azure_pg_admin. This role does not have full superuser permissions. 
+
+The PostgreSQL superuser attribute is assigned to the azure_superuser, which belongs to the managed service. You do not have access to this role.
+
+An Azure Database for PostgreSQL server has two default databases: 
+- **postgres** - A default database you can connect to once your server is created.
+- **azure_maintenance** - This database is used to separate the processes that provide the managed service from user actions. You do not have access to this database.
+- **azure_sys** - A database for the Query Store. This database does not accumulate data when Query Store is off; this is the default setting. For more information, see the [Query Store overview](concepts-query-store.md).
+
 
 ## Server parameters
 The PostgreSQL server parameters determine the configuration of the server. In Azure Database for PostgreSQL, the list of parameters can be viewed and edited using the Azure portal or the Azure CLI. 
 
-As a managed service for Postgres, the configurable parameters in Azure Database for PostgreSQL are a subset of the parameters in a local Postgres instance (For more information on Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Your Azure Database for PostgreSQL server is enabled with default values for each parameter on creation. Parameters that would require a server restart or superuser access for changes to take effect cannot be configured by the user.
+As a managed service for Postgres, the configurable parameters in Azure Database for PostgreSQL are a subset of the parameters in a local Postgres instance (For more information on Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Your Azure Database for PostgreSQL server is enabled with default values for each parameter on creation. Some parameters that would require a server restart or superuser access for changes to take effect cannot be configured by the user.
 
 
 ## Next steps

@@ -1,10 +1,11 @@
 ---
-title: What is Bing News Search? | Microsoft Docs
+title: What is Bing News Search?
+titlesuffix: Azure Cognitive Services
 description: Shows how to use the Bing News Search API to search the web for news.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 4B35B035-34FB-403A-9F52-6470AF726FB6
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: overview
@@ -62,10 +63,10 @@ The following shows the response to the previous query. You must display each ne
                 "height" : 341
             }
         },
-        "description" : "Sailing World's College Rankings, presented by Zim...",
+        "description" : "College Rankings, presented by Zim...",
         "provider" : [{
             "_type" : "Organization",
-            "name" : "gocrimson.com"
+            "name" : "contoso.com"
         }],
         "datePublished" : "2017-04-14T15:28:00"
     },
@@ -73,7 +74,7 @@ The following shows the response to the previous query. You must display each ne
     ...
 
     {
-        "name" : "Restronguet Sailing Club to host Mirror Dinghy...",
+        "name" : "Fabrikam Sailing Club to host Mirror Dinghy...",
         "url" : "http:\/\/www.bing.com\/cr?IG=CCE2F06CA750455891F...",
         "image" : {
             "thumbnail" : {
@@ -82,10 +83,10 @@ The following shows the response to the previous query. You must display each ne
                 "height" : 300
             }
         },
-        "description" : "The Cornish sailing club that trained Olympian Ben...",
+        "description" : "The sailing club that trained Olympian Ben...",
         "provider" : [{
             "_type" : "Organization",
-            "name" : "Cornish Guardian"
+            "name" : "Contoso"
         }],
         "datePublished" : "2017-04-04T11:02:00",
         "category" : "Sports"
@@ -184,7 +185,7 @@ The following JSON is the response to the preceding request. Each trending news 
             "url" : "https:\/\/www.bing.com\/th?id=OPN.RTNews_hHD...",
             "provider" : [{
                 "_type" : "Organization",
-                "name" : "© CHRIS ROUSSAKIS\/AFP\/Getty Images"
+                "name" : "Contoso Images"
             }]
         },
         "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=070292D8CEDD...",
@@ -199,13 +200,13 @@ The following JSON is the response to the preceding request. Each trending news 
             "url" : "https:\/\/www.bing.com\/th?id=OPN.RTNews_Bfbmg8h...",
             "provider" : [{
                 "_type" : "Organization",
-                "name" : "© Ben Margot\/AP"
+                "name" : "Contoso"
             }]
         },
         "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=070292D8CEDD...",
         "isBreakingNews" : false,
         "query" : {
-            "text" : "John Madden Las Vegas"
+            "text" : "Marcus Appel Las Vegas"
         }
     },
 
@@ -221,7 +222,7 @@ If there are other articles that are related to a news article, the news article
 
 ```json
     {
-        "name" : "NBA playoffs 2017: Betting lines, point spreads...",
+        "name" : "Playoffs 2017: Betting lines, point spreads...",
         "url" : "http:\/\/www.bing.com\/cr?IG=4B7056CEC271408997D115...",
         "image" : {
             "thumbnail" : {
@@ -233,17 +234,17 @@ If there are other articles that are related to a news article, the news article
         "description" : "April 14, 2017 3:37pm EDT April 14, 2017 3:34pm...",
         "provider" : [{
             "_type" : "Organization",
-            "name" : "Sporting News"
+            "name" : "Contoso"
         }],
         "datePublished" : "2017-04-14T19:43:00",
         "category" : "Sports",
         "clusteredArticles" : [{
-            "name" : "NBA playoffs 2017: Betting odds, favorites to win...",
+            "name" : "Playoffs 2017: Betting odds, favorites to win...",
             "url" : "http:\/\/www.bing.com\/cr?IG=4B7056CEC271408997D1159E...",
             "description" : "April 14, 2017 3:30pm EDT April 14, 2017 3:27pm...",
             "provider" : [{
                 "_type" : "Organization",
-                "name" : "Sporting News"
+                "name" : "Contoso"
             }],
             "datePublished" : "2017-04-14T19:37:00",
             "category" : "Sports"

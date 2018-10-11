@@ -1,583 +1,72 @@
 ---
-title: Azure Marketplace and AppSource publisher guide
-description: Overview of what Azure Marketplace and AppSource are for app and service publishers
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Azure Marketplace and AppSource publishing guide | Azure
+description: An overview of the Azure Marketplace and Microsoft AppSource for app and service publishers.
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: ellacroi
-manager: msmbaldwin
+manager: nunoc
 editor:
 
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
-ms.service: marketplace
+ms.service: Marketplace
 ms.workload: 
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
 
 ---
 
+# Azure Marketplace and AppSource publishing guide
 
+The Marketplace publishing guide is designed to help new and existing publishers learn how to use storefronts in the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) to grow their business in partnership with Microsoft by listing applications and services.
 
-# Azure Marketplace and AppSource Publisher Guide
+This guide covers the following topics: 
+*   What the Marketplace is and how it works 
+*   The difference between Azure Marketplace and AppSource storefronts 
+*   The benefits of participating in the Marketplace 
+*   How to become a publisher and list your application or service 
+*   How to grow your business 
 
-## Overview
+This guide contains both technical and business information about the steps you need to take before you list your applications and services. Use the table of contents to go to different sections of the guide and to go directly to key topics.
 
-Welcome to the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [AppSource](https://appsource.microsoft.com) publisher guide. This guide is designed to help new and existing publishers understand how to use the Azure Marketplace and AppSource storefronts, how to publish their applications and services, and how to grow their business in partnership with Microsoft. 
+For questions about the Azure Marketplace and AppSource, send us a message under **Problem Type** > **Marketplace Onboarding**.  Our Marketplace Publisher Onboarding Team will be happy to help! 
 
-By the end of this guide, you'll know more about each of these topics and know where to find more detailed information:
+## Benefits of participating in the Marketplace 
 
-- What the benefits are for listing in one of the marketplace storefronts
-- How to use the storefronts
-- Which storefront is right for your offers and services 
-- What kinds of applications and services offers can be published
-- What the technical and business requirements are for each publishing option
-- How to create a pre-publishing asset checklist
-- How to become a publisher
-- Where to create and publish offers
-- How to optimize a listing and use go-to-market resources to drive impact
-- Where to get help and support
+The Marketplace is the launch pad for joint go-to-market activities with Microsoft that can help accelerate your business growth. By using launch promotion, demand generation, and joint sales and marketing, your Marketplace offers can be the centerpiece of your cloud business engine. There are no fees for participating in the Marketplace.
 
-For questions about the Azure Marketplace, AppSource, or this publishing guide, contact the Marketplace team at cloudmarketplace@microsoft.com. 
+Our goal is to connect Microsoft customers with the best solutions that our partner ecosystem offers. To do that, we support you throughout your journey, from onboarding to publishing and growth. 
 
-## Benefits
+Take advantage of the capabilities in the Marketplace to grow your business.
 
-**Benefits of participating in the marketplace**
+### Expand to new markets and segments and generate new sales opportunities
 
-The Azure Marketplace and AppSource are the launchpad for joint Go-To-Market activities with Microsoft and the doorway to a Co-sell Ready partnership opportunity. By using launch promotion, demand generation, and joint sales and marketing, you can make your marketplace listings the centerpiece of your cloud business engine and a flywheel for business growth. There are no fees for participating in the marketplace. Our goal is to connect Microsoft customers with the best solutions and services that our partner ecosystem offers.
+Use the Marketplace as a channel to access new markets, segments, and Microsoft cloud users with your portfolio of solutions. Generate new marketing leads, and nurture new leads to sales opportunities. Benefit from joint marketing and sales activities to get more customers.
 
-Take advantage of marketplace capabilities to grow your business:
+### Enhance business value and increase deal size with existing and new customers 
 
-- **Generate leads and sales opportunities**. Enter new markets with an expanded portfolio of solutions on the Microsoft cloud platform. Upsell and cross-sell marketplace offerings. 
-- **Enhance business value and increase deal size with existing and new customers**. Grow deal size and address customer problems when you're moving workloads to the cloud. Reduce sales cycles and increase deal profitability by selling complete solutions that target specific workloads and industry scenarios.
-- **Get actionable insights**. Your success is our success. Get insights on the performance of your listings via the Cloud Partner Portal. Learn what is performing, what leads you have generated, and how to maximize your campaign activities.
+Upsell and cross-sell your solutions by addressing customer problems after you move workloads to the cloud. If you sell or deploy through the Marketplace, you can reduce sales cycles, accelerate projects, and increase deal profitability by selling complete solutions that target specific workloads and industry scenarios. 
 
->[!NOTE]
->Apps that extend Office will access insights through the publishing process for Office apps.
+### Get actionable insights 
 
-## Storefronts
+Get insights on the performance of your listings through the insights and analytics that are available to you through the Marketplace. Get more information about campaign performance, orders and payouts, and how to maximize campaign activities for your solution.
 
-Microsoft provides two distinct marketplace storefronts that allow partners to list offers, enable trials, and transact directly with Microsoft customers and ecosystem: [Azure Marketplace](https://azuremarketplace.microsoft.com) and [AppSource](https://appsource.microsoft.com). These storefronts enable customers to find, try, and buy applications and services that accelerate their digital transformation. They help publishers grow their businesses by increasing access to Microsoft customers and partner ecosystems.
- 
-Each storefront offers specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
+### Marketplace go-to-market benefits 
 
+New listings in the Marketplace are eligible for a diverse set of free benefits to help partners grow their business in the Marketplace. These benefits fall into the following categories: 
 
-|          |Azure Marketplace |AppSource  |
-|---------|---------|---------|
-|Target audience     |IT pros and developers (specialist roles include DBAs, SecOps, DevOps)    | Line-of-business decision makers (specialist roles include procurement, manufacturing, accounting)      |
-|Built with or to extend     |Azure         | Azure, Dynamics 365, Office 365, Power BI, PowerApps       |
-|Types of solutions and services     |  Infrastructure solutions, professional services   | Finished line-of-business cloud applications, Office 365 add-ins, professional services        |
-|Publishing options     |  Contact Me, Consulting Services offer, trial, virtual machine, solution template, managed app       |  Free trial, Get Now, test drive, Contact Me, Consulting Services offer      |
-|In-app experience to give users access to apps and services in the context of their application  | Azure portal and Azure CLI         | Office 365, Dynamics 365, Power BI, Office client apps       |
+*   Technical: Everything you need to get your application ready for launch. From technical support, application design, and architecture design, to Azure credits for development and testing. 
 
-## How to Publish on Cloud Marketplace
+*   Co-marketing: Everything you need to launch your offer. Access free Microsoft Go-To-Market Launch Fundamentals to help you launch and promote your solution. You might also be eligible for additional Microsoft marketing campaign inclusion and opportunities to be featured in the Marketplace.
 
-Becoming a cloud marketplace publisher is an easy three-step process:
-1.	Determine the listing type right for your offer
-2.	Sign up to become a cloud marketplace publisher
-3.	Complete technical and content pre-requisites required by offer and listing type
+*   Co-selling: Begin or accelerate your journey to selling with Microsoft through the Marketplace. Access programs and support to drive joint sales with Microsoft teams.
 
+After you [submit your solution](https://azuremarketplace.microsoft.com/sell/signup) to the Marketplace, our onboarding team contacts you to support your publishing experience.
 
-**1.	Determine the Listing Type Right for Your Offer**
+For more information about Microsoft Go-To-Market benefits and ways to grow your business in the Marketplace, see [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
-Each storefront supports multiple publishing options and offer types. Select an offer type that best represents your application and service details. All publishing options will give partners access to lead sharing.
+## Next steps
 
-|**Publishing option**  | **Offer type** | **Storefront**  |
-|---------|---------|---------|
-|**List**    |    Contact Me, Consulting Services     |  Azure Marketplace, AppSource       |
-|**Trial**   |     Free trial, SaaS trial, interactive demo, test drive    |  Azure Marketplace, AppSource       |
-|**Transaction**     |   Virtual machine, solution template, managed application, containers, SaaS subscriptions      |    Azure Marketplace     |
-
-
-
-**2.	Become a cloud partner publisher**
-
-Follow the steps below to register as a publisher on our cloud marketplace. Depending on your existing engagement with Microsoft and selected listing type, some steps may not be required: 
-
-|Marketplace registration step  |Time  |Description  |
-|---------|---------|---------|
-| 1. Register in Microsoft Partner Network | 15 min | Join the Microsoft Partner Network (MPN) to become an official Microsoft partner and receive additional benefits and support for being an Azure Marketplace Publisher. To register in MPN, please visit Microsoft Partner Network and click “Enroll.” You will be able to join your organization’s existing membership, if applicable, during registration. Once registered, take note of your organization’s MPN ID: we will ask for it to activate your publisher profile in Cloud Partner Portal (Step 3).      |
-|2. Create a Microsoft ID     |   15 minutes      |  This Microsoft ID will be used to access the Cloud Partner Portal. This email address needs to be registered as a Microsoft ID and is used for both the Cloud Partner Portal (Step 3) and the Microsoft Developer Center (Step 4). The selected email address should preferably be in your corporate domain and controlled by your IT team. For guidelines prior to creating an ID, review the sections in Guidelines and How-Tos. |
-|3. Submit the marketplace nomination form     |  1-3 days       | Nominate your organization to become a Microsoft Cloud Marketplace publisher. The form includes information about your organization, the first application or service offer you would like to publish, and the level of support that you will provide. <ul><li>[Azure Marketplace nomination form](http://aka.ms/listonazuremarketplace)</li><li>[AppSource nomination form](http://aka.ms/listonappsource)</li></ul> After you submit the form, the Marketplace team will review the application and validate the request. After the request is reviewed, you will be notified via email with the next steps for becoming an approved partner and accessing the Cloud Partner Portal, where you can complete your first offer listing and create additional offers. If approved, you will also receive a promotional code to waive the registration fee for Microsoft Development Center (Step 4). |
-|4. Register in the Developer Center     |    5-10 days     | The Microsoft Developer Center is required for publishing applications that will have transact capabilities in the marketplace, such as Virtual Machines, Solution Templates and Azure Managed Apps. This requirement will allow Microsoft to validate your company information company's legal, tax and banking entities. The registrant must be a valid representative of the organization and must provide personal information to validate identity. The person registering must use a Microsoft ID (Step 2) that is shared for the company, and the same account must be used in the Cloud Partner Portal. <ul>Note that if you haven't completed the marketplace nomination form, you'll be asked to pay a $99 registration fee. To have this fee waived, complete the marketplace nomination form and you'll receive a promotional code via email. Important: Before you try to create a Microsoft Developer Center account, make sure your company doesn't already have one. For a step-by-step explanation of this process, see Instructions on how to register in the Developer Center.</ul>   |
-|5. Sign in to the Cloud Partner Portal     |  15 minutes       |  Once the Nomination has been approved and you have registered in the [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) and in [Microsoft Developer Center](https://dev.windows.com/), an account will be created for you to access the [Cloud Partner Portal](https://cloudpartner.azure.com/). First-time sign-in credentials will be included in the Nomination approval email. For detailed information on how to use the Cloud Partner Portal, go to the [Learn](https://cloudpartner.azure.com/#Learn) menu in the portal and review the Documentation section.    |
-
-**3.	Complete offer and listing type prerequisites:**
-
-The technical and marketing content requirements varies by storefront, offer type, and listing type. Review the following specifications to ensure you’re meeting :
--	Storefront Requirements: Azure Marketplace and AppSource
--	Listing Type Requirements: List, Trial, and Transact
--	Offer Type Requirements: 
- -	App – Virtual Machine, Container, or SaaS
- -	Consulting Offer
-
-## Support
-
-**Support**
-
-This is the list of the support options for the Azure Marketplace:
-
-**Azure Marketplace general inquiries**
-
-|Support channel |Description |
-|---------|---------|
-|Email: cloudmarketplace@microsoft.com     |  Onboarding support distribution list. Used for onboarding requests, setting up discovery sessions, and architecture design sessions with partners.        |
-
-**Azure Marketplace publishing support**
-
-|Support channel  |Description  |
-|---------|---------|
-|Email: azurecertified@microsoft.com |   Support for partners' Azure Marketplace publishing applications. Business hours are in the Pacific time zone.      |
-|Email: AzureMarketOnboard@microsoft.com |   Support for the Azure Marketplace solution nomination form and process. Business hours are in the Pacific time zone.      |
-|Email: Amp-testdrive@microsoft.com |   Onboarding access to test drives. Business hours are in the Pacific time zone. | 
-
-**Azure Marketplace portal support**
-
-|Support channel  |Description  |
-|---------|---------|
-|Email: [Support](https://go.microsoft.com/fwlink/?linkid=844975)    |   Marketplace Publishing Portal support. Support is provided at all times, day and night.        |
-
-**Technical support**
-
-|Support channel  |Description  |
-|---------|---------|
-|MSDN forums: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network forum.         |
-|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Stack Overflow environment to get solutions and ask questions about everything related to Azure and the Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
-
-
-**Marketing resources**
-
-|Support channel  |Description  |
-|---------|---------|
-|Email: cosell@microsoft.com    |  Support for onboarding processes and questions related to the Co-Sell program. Based in the Pacific time zone.        |
-|Email: gtm@microsoft.com    |  Support for go-to-market benefits and program questions. Business hours are in the Pacific time zone.        |
-|Email: CEBrand@Microsoft.com     |  Answers to questions about usage for Azure logos and branding.       |
-
-
-### Go-To-Market Benefits
-
-Azure Marketplace and AppSource allows publishers to showcase their solutions to millions of customers. New listings in the marketplace are automatically offered a set of free Go-To-Market benefits to help drive awareness of your offer to our customer ecosystem.
-
-Listing your offer in the marketplace storefront is a launchpad for joint Go-To-Market activities with Microsoft and the doorway to a Co-sell Ready partnership opportunity. All new listings are automatically offered a set of no cost Go-To-Market benefits to help drive awareness of your offer to our customer ecosystem. The GTM benefits deliver a variety of co-marketing and co-sell activities designed to leverage our brand, channels and ecosystem to help partners drive awareness for their solution and generate sales. No action is required by partner. As soon as an offer is published, our GTM team will reach out to the partner to begin delivery.
-For more information on our GTM benefits and ways to grow your business in the marketplace please visit [GTM benefits on the MPN site](https://partner.microsoft.com/en-US/reach-customers/gtm).
-
-
-### Requirements by Listing Type
-
-#### Prerequisites for Marketplace Publishing
-
-**AppSource: Prerequisites for publishing options**
-
-|**Requirement**  |**Details**  |**Required or Recommended**  |
-|---------|---------|---------|
-|**Azure Active Directory (AAD)**    |  Your app must allow Azure Active Directory federated single sign-on (AAD federated SSO) with consent enabled. Go here for information on how to enable AAD federated SSO     |    Required   |
-|**Integration with Microsoft Cloud Services**    |  Your app should integrate with other Microsoft Cloud services like Microsoft Power BI, Cortana Intelligence, or Microsoft Azure services such as Internet of Things       |    Recommended    |
-|**Audience**    |  AppSource offers must be for line-of-business users and business owners     |    Required   |
-|**Software as a service (SaaS) app for business**    |  Your app must be: <ul><li>Line-of-business SaaS app</li><li>Business-process focused</li><li>Targeted to business customers</li><li>Enable users to sign in with their work credentials (user name and password)</li></ul>       |    Required    |
-|**Free trial period and trial experience**    |  A customer must be able to use your app for free for a limited time. Your free trial can take one of two forms: <ul><li>Provide a “try” option so customers can initiate a trial from within AppSource</li><li>Have customers “request trial” from within AppSource</li></ul> In either method, the free trial must offer the customer a minimum amount of time to try out the app for no additional cost.      |    Required    |
-|**Easily configurable, turnkey solution**    |  Your app must be easy and quick to configure and setup (no customization required)     |    Required   |
-|**Lead management**    |  To receive leads from the Marketplace, you must enable your CRM (Marketo, Microsoft Dynamics, or Salesforce) to accept lead data.       |    Required    |
-|**Privacy policy and terms of use**    |  Your privacy policy must be available via a public URL. Your terms of use must be entered as text during publishing.     |    Required   |
-|**Support**    |  Your offer must include a publicly available support URL where customers can find help. For trials, support must be provided at no additional cost for the trial period.     |    Required   |
-
-**Azure Marketplace: Prerequisites for publishing options**
-
-|**Requirement**  |**Details**  |**Publishing option**  |
-|---------|---------|---------|
-|**Participation policies**    | Review Azure Marketplace [participation policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | List, trial, transaction        |
-|**Integration with Microsoft**    | Azure Marketplace offers should use or extend Microsoft Azure service types such as compute, networking, or storage. They should align to an existing Azure Marketplace category such as databases, security, and networking. See the [full list](https://azuremarketplace.microsoft.com/marketplace/apps).        | List, trial, transaction        |
-|**Audience**    | Azure Marketplace offers must be for IT pros, cloud developers, or other technical customer roles.       |  List, trial, transaction 
-|**Lead management**    | To receive leads from the Marketplace, you must enable your CRM (Marketo, Microsoft Dynamics, or Salesforce) to accept lead data.        |   List, trial, transaction      |
-|**Privacy policy and terms of use**     |   Your privacy policy must be available via a public URL. Your terms of use must be entered as text during publishing.      |   List, trial, transaction      |
-|**Support**     |  Your offer must include a publicly available support URL where customers can find help. For trials, support must be provided at no additional cost for the trial period.       |  Trial, transaction       |
-
-#### Prerequisites Specific to Trial Publishing
-
-|**Requirement**  | **Details**  |**Publishing option**  |
-|---------|---------|---------|
-|**Free trial period and trial experience**     |  A customer must be able to use your app for free for a limited time.<br><br>This means that the customer will not be subject to license or subscription fees for your product, nor the cost of the underlying Microsoft first-party product or service. Because all trial options are deployed to the publisher's Microsoft product subscription, the publisher solely controls trial cost optimization and management.<br><br>You can choose a free trial, interactive demo, or test drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try the app for no additional cost.<br><br>To begin the process of creating a test drive, reach out to amp-testdrive@microsoft.com. <br><br>Note that Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Trial      | 
-| **Easily configurable, turnkey solution**    |  Your app must be easy and quick to configure and set up.       |  Trial       |
-|**Availability/uptime**    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |    Trial     |
-|**Azure Active Directory**    |    Your offer must allow Azure Active Directory (Azure AD) federated single sign-on (SSO) with consent enabled.      |  Trial|
-
-#### Prerequisites Specific to Transaction Publishing
-
-|**Requirement**  |**Details** |**Publishing option**  |
-|---------|---------|---------|
-|**Billing and metering**    |  Your virtual machine must support either Bring Your Own License or usage-based, monthly billing.       |    Transaction    |
-|**Azure-compatible virtual hard disk (VHD)**     |   Virtual machines must be built on [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) or [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaction      |
-
-#### Prerequisites Specific to Transaction Publishing for Containers
-
-
-|**Requirement**  |**Details** |**Publishing option**  |
-|---------|---------|---------|
-|**Billing and metering**   |  Your container must support either free or Bring Your Own License billing models.       |  Transaction       |
-|**Docker-based image**    |   Container images must be based on the Docker image format and must be pulled from Azure Container Registries.      |  Transaction       |
-
-#### Prerequisites Specific to Transation Publishing for SaaS App Subscriptions
-
-|**Requirement**  |**Details** |**Publishing option**  |
-|---------|---------|---------|
-|**Billing and metering**    |   Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based "true-up" capabilities are not supported at this time.      |   Transaction      |
-|**Cancelation**  |   Your offer is cancelable by the customer at any time.      |   Transaction      |
-|**Transaction Landing Page**     |   You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account.      |    Transaction     |
-|**SaaS Subscription API**    |   You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically.      |     Transaction    |
-
-### Prerequisites Specific to Consulting Services Publishing
-
-|**Requirements** |**Details**  |**Publishing option**  |
-|---------|---------|---------|
-|**Service offer characteristics**     | Your consulting service must be: <br>- Delivered as a fixed-scope, fixed-duration, fixed-price (or free) engagement. <br>- Primarily pre-sales oriented. <br>- Limited to a single customer. <br>- Conducted on site.        |    List     |
-|**Partner requirements for Consulting Services**    |   *AppSource only*:  <br>- **Dynamics 365 for Customer Engagement**: Have Silver or Gold [Cloud Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency) competency. <br>- **Dynamics 365 for Finance and Operations Enterprise edition**: Have Silver or Gold [Enterprise Resource Planning](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) competency, and a minimum revenue of $25,000 in cloud operations in the trailing 12 months. <br>- **Dynamics 365 for Finance and Operations, Business edition**: Serve as [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) or [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) for at least one customer. <br>- **Power BI**: Meet the [Solution Partner](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf) criteria. <br>- **PowerApps**: Have a [Partner Showcase](https://powerapps.microsoft.com/en-us/partner-showcase/) solution. |    List     |
-|**Partner requirements for Consulting Services**    |  *Azure Marketplace only*: <br>Partners are also required to have a **silver or gold competency** in the relevant area for their service. The eligible competencies are listed in the following:</br><br><ul><li> **Competency:** Cloud Platform and Infrastructure. <br>**Solution Area:** Cloud Platform, Data Center</li><br><li>**Competency:** Application Development and ISV <br>**Solution Area:** Application Development, Application Integration, DevOps</li><br><li>**Competency:** Data Management and Analytics <br>**Solution Area:** Data Analytics, Data Platform </li></br></ul>For more information, see [Competencies Through Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies).</br><br>For more information on listing, see [Consulting Services in Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/consulting-services) |    List     | 
-
-
-#### Cloud Partner Portal Pre-publishing Checklist for the Azure Marketplace
-
-Before you start the publishing process, it's helpful to understand the required components for building an offer. The following artifacts are required to complete the Create Offer publishing workflow in the Cloud Partner Portal. 
-
-**Storefront Details**
-
-|You'll need this publishing artifact  |For this offer type  |
-|---------|---------|
-|**Offer name (200 characters) and description (2,000 characters)**    |  All        |
-|**Microsoft Partner Network (MPN) ID**   |  All       |
-|**Country/region availability**   | All        |
-|**Duration of engagement**     |   Consulting Services      |
-|**Applicable industries, categories, and search keywords**     |  All       |
-|**Company logos (48x48, 216x216)**     |  Consulting Services       |
-|**Product overview video (optional)**  |  All       |
-|**Screenshots (maximum 5, 1280x720)**   |    All     |
-|**Marketing documents (maximum 3)**    |  All       |
-|**Lead destination**    |   All      |
-
-**Contacts**
-
-|You'll need this publishing artifact  |For this offer type  |
-|---------|---------|
-|**Contact information (support, engineering, commercial)**    |    All     |
-
-
-**Technical Info**
-
-|You'll need this publishing artifact  |For this offer type |
-|---------|---------|
-|**Trial URL**     |  All trial offer types       |
-|**Supported languages**    |   All trial offer types      |
-|**App version number and release date**    |   All trial offer types      |
-|**Support URL**    |   All trial offer types, virtual machines      |
-|**Terms of use and privacy policy URL**     |    All     |
-
-
-**Test Drive**
-
-|You'll need this publishing artifact  |For this offer type  |
-|---------|---------|
-|**Description and duration**     |  Test drive only       |
-|**User manual**     |   Test drive only      |
-|**Test drive video (maximum 1)**     |  Test drive only       |
-|**Test drive country/region availability**    |   Test drive only      |
-|**Azure resource group name**   |         |
-|**Azure subscription ID**     |  Test drive only       |
-|**Azure AD tenant ID**   |    Test drive only     |
-|**Azure AD app ID**  |  Test drive only       |
-|**Azure AD app key**     |   Test drive only      |
-
-
-**Storefront/Marketplace**
-
-|You'll need this publishing artifact  |For this offer type  |
-|---------|---------|
-|**Title (maximum 50 characters)**    |  Transaction: virtual machines, Azure apps (solution templates and managed apps), containers, SaaS subscriptions       |
-|**Summary (maximum 200 characters)**    |  Transaction: virtual machines, Azure apps (solution templates and managed apps), containers, SaaS subscriptions       |
-|**Long summary (maximum 256 characters)**     |   Transaction: virtual machines, Azure apps (solution templates and managed apps), containers, SaaS subscriptions      |
-|**HTML-based description (maximum 3,000 characters)**    |  Transaction: virtual machines, Azure apps (solution templates and managed apps), containers, SaaS subscriptions      |
-|**Company logos (40x40, 90x90, 115x115, 255x115, 815x290)**    |  Transaction: virtual machines, Azure apps (solution templates and managed apps), containers, SaaS subscriptions     |
-
-
-**SKU**
-
-|You'll need this publishing artifact  |For this offer type  |
-|---------|---------|
-|**Version number**     |    Transaction: Azure apps (solution templates and managed apps)     |
-|**Package file that contains all the template files and createUIDefinitionFile**   |Transaction: Azure apps (solution templates and managed apps)         |
-|**Operating system details**    |   Transaction: virtual machines      |
-|**Ports and protocols in use**    |  Transaction: virtual machines       |
-|**Disk version and SAS URL for each VHD in use**   |  Transaction: virtual machines       |
-|**Azure Container Registry (ACR) Image repository details including the Subscription ID, Resource group name, Registry name, Repository name, Username, Password, and Image Tags (optional)** | Transaction: containers |
-
-
-#### Using Azure Active Directory to enable trials
-Azure Active Directory is a cloud identity service that enables authentication with a Microsoft work or school account by using industry-standard protocols: OAuth and OpenID Connect. Learn more about Azure AD on the [product webpage](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
-
-Microsoft authenticates all Marketplace users with Azure AD. When an authenticated user clicks through your trial listing in the Marketplace and is redirected to your trial environment, you can provision the user directly into a trial without requiring an additional sign-in step. The [token that your app receives from Azure AD during authentication](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) includes valuable user information that you can use to create a user account in your app. You can then automate the provisioning experience and increase the likelihood of conversion. 
-
-Using Azure AD to enable one-click authentication to your app or trial:
-
-- Streamlines the customer experience from Marketplace to trial. 
-- Maintains the feel of an in-product experience, even when the user is redirected from the Marketplace to your domain or trial environment.
-- Decreases the likelihood of abandonment on redirect because there's no additional sign-in step.
-- Reduces deployment barriers for the large population of Azure AD users.
-
-**Certify Your Azure AD Integration for the Marketplace: Multitenant Applications**
-
-If you support Azure AD today:
-
-- Register your application in the Azure portal.
-- Enable the multitenancy support feature in Azure AD to get a one-click trial experience.
-- [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-
-If you are new to Azure AD Federated SSO:
-
-- Register your application in the Azure portal.
-- Develop SSO with Azure AD by using [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) or [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-- Enable the multitenancy support feature in Azure AD to get a one-click trial experience.
-- [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
-
-**Certify Your Azure AD Integration for the Marketplace: Single-Tenant Applications**
-
-There are multiple options for single-tenant applications:
-
-- Add users to your directory as guest users by using [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-- Manually provision trials for customers via Contact Me.
-- Develop a per-customer test drive.
-- Build a multitenant sample demo app with SSO.
-
-
-### Become a Cloud Marketplace Publisher
-
-#### Becoming a Publisher
-
-In this section, we explain the steps to: <ul><li>Become a publisher in the Azure Marketplace and AppSource.</li><li>Gain access to the Cloud Partner Portal. You'll use that portal to build, publish, and maintain your offer.</li></ul>
-
-**Process Overview**
-
-|Marketplace registration step  |Time  |Description  |
-|---------|---------|---------|
-| 1. Register in Microsoft Partner Network | 15 min | Join the Microsoft Partner Network (MPN) to become an official Microsoft partner and receive additional benefits and support for being an Azure Marketplace Publisher. To register in MPN, please visit Microsoft Partner Network and click “Enroll.” You will be able to join your organization’s existing membership, if applicable, during registration. Once registered, take note of your organization’s MPN ID: we will ask for it to activate your publisher profile in Cloud Partner Portal (Step 3).      |
-|2. Create a Microsoft ID     |   15 minutes      |  This Microsoft ID will be used to access the Cloud Partner Portal. This email address needs to be registered as a Microsoft ID and is used for both the Cloud Partner Portal (Step 3) and the Microsoft Developer Center (Step 4). The selected email address should preferably be in your corporate domain and controlled by your IT team. For guidelines prior to creating an ID, review the sections in Guidelines and How-Tos. |
-|3. Submit the marketplace nomination form     |  1-3 days       | Nominate your organization to become a Microsoft Cloud Marketplace publisher. The form includes information about your organization, the first application or service offer you would like to publish, and the level of support that you will provide. <ul><li>[Azure Marketplace nomination form](http://aka.ms/listonazuremarketplace)</li><li>[AppSource nomination form](http://aka.ms/listonappsource)</li></ul> After you submit the form, the Marketplace team will review the application and validate the request. After the request is reviewed, you will be notified via email with the next steps for becoming an approved partner and accessing the Cloud Partner Portal, where you can complete your first offer listing and create additional offers. If approved, you will also receive a promotional code to waive the registration fee for Microsoft Development Center (Step 4). |
-|4. Register in the Developer Center     |    5-10 days     | The Microsoft Developer Center is required for publishing applications that will have transact capabilities in the marketplace, such as Virtual Machines, Solution Templates and Azure Managed Apps. This requirement will allow Microsoft to validate your company information company's legal, tax and banking entities. The registrant must be a valid representative of the organization and must provide personal information to validate identity. The person registering must use a Microsoft ID (Step 2) that is shared for the company, and the same account must be used in the Cloud Partner Portal. <ul>Note that if you haven't completed the marketplace nomination form, you'll be asked to pay a $99 registration fee. To have this fee waived, complete the marketplace nomination form and you'll receive a promotional code via email. Important: Before you try to create a Microsoft Developer Center account, make sure your company doesn't already have one. For a step-by-step explanation of this process, see Instructions on how to register in the Developer Center.</ul>   |
-|5. Sign in to the Cloud Partner Portal     |  15 minutes       |  Once the Nomination has been approved and you have registered in the [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) and in [Microsoft Developer Center](https://dev.windows.com/), an account will be created for you to access the [Cloud Partner Portal](https://cloudpartner.azure.com/). First-time sign-in credentials will be included in the Nomination approval email. For detailed information on how to use the Cloud Partner Portal, go to the [Learn](https://cloudpartner.azure.com/#Learn) menu in the portal and review the Documentation section.    |
-
-
-#### Guidelines and How-Tos
-
-**Guidelines for creating a Microsoft ID to manage an Azure Marketplace account**
-
-When you're creating a company account, follow these guidelines if more than one person will need to access the account by logging in with the Microsoft account that opened the account.
-
->[!IMPORTANT]
->To allow multiple users to access your Developer Center account, we recommend using Azure Active Directory to assign roles to individual users. These users can access the account by signing in with their individual Azure AD credentials. For more information, see [Guidance for Microsoft IDs in an Azure AD federated domain](#guidance-for-microsoft-ids-in-an-azure-ad-federated-domain). Create your Microsoft account by using an email address that belongs to your company's domain, but not to an individual. An example is windowsapps@fabrikam.com.
-
-- Limit access to this Microsoft account to the smallest possible number of developers.
-- Set up a corporate email distribution list that includes everyone who needs to access the developer account, and add this email address to your security information. This allows all the employees on the list to receive security codes when needed and to manage your Microsoft account's security information. If setting up a distribution list is not feasible, the owner of the individual email account needs to be available to access and share the security code when prompted. (For example, the owner is prompted when new security information is added to the account or when it must be accessed from a new device.)
-- Add a company phone number that does not require an extension and is accessible to key team members.
-- In general, have developers use trusted devices to sign in to your company's developer account. All key team members should have access to these trusted devices. This access will reduce the need for security codes to be sent when someone is accessing the account.
-- If you need to allow access to the account from a non-trusted PC, limit that access to a maximum of five developers. Ideally, these developers should access the account from machines that share the same geographical and network location.
-- Frequently review your company's security information on the [management page](https://account.live.com/proofs/Manage) to make sure it's all current.
-
-Your developer account should be accessed primarily from trusted PCs. This is critical because there's a limit to the number of codes generated per account, per week. Using trusted PCs also enables the most seamless sign-in experience.
-
-For more information on additional developer account guidelines and security, see [Opening a developer account](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
-
-### Guidance for Microsoft IDs in an Azure AD federated domain
-
-Your corporate account can be federated through [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). It will return an error if you try to create a Microsoft ID with a corporate email address. If you get an error, first check with your IT team to make sure this is the case. This is a known issue, and we are working on resolving it. 
-
-As a workaround, we recommend that you create a new email address in the @outlook.com domain and create a rule. Follow these steps:
-
-1. Go to the [signup page](https://signup.live.com/signup) and select **Get a new email address**.
-
-
-2. Create the new email address and enter a password. This step creates both a new Microsoft ID and an email mailbox in the outlook.com service. Continue the registration process until the account is created.
-
-   >[!IMPORTANT]
-   >Ensure that the email ID or distribution list that you will use for registering in the Developer Center is registered as a Microsoft account. (We recommend a distribution list to remove dependency from individuals.) If not, [register now](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1).
-   >
-   >Also, *any email ID under the Microsoft company domain* cannot be used for Developer Center registration.
-
-3. After you create the Microsoft ID with this account, sign in to the account [mailbox](https://outlook.live.com/owa/). [Create an email forwarding rule](https://support.office.com/en-us/article/Use-rules-in-Outlook-Web-App-to-automatically-forward-messages-to-another-account-1433e3a0-7fb0-4999-b536-50e05cb67fed) to move all the emails on this mailbox to the email address that you created in your domain to manage the Azure Marketplace account.
-
-After you complete the last step, Outlook will send all emails/communications from the Microsoft ID to your email account in your domain. You need to use the @outlook.com email address to authenticate in both the Microsoft Developer Center and the Cloud Partner Portal.
-
-### Instructions on how to register in the Developer Center
-
-1. Open a new Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you're not signed in to a personal account.
-2. Go to the [Developer Center](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller.
-3. Complete the **Help us protect your account** wizard, which will verify your identity via phone number or email address.
-
-   ![Boxes for phone info in the "Help us protect your account" wizard](./media/marketplace-publishers-guide/registerdevcenteremail.png)
-
-4. In the **Registration-Account Info** section, select your account country/region from the drop-down menu.
-
-   ![Account info with box for country/region](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
-   
-   >[!WARNING]
-   >To sell your services on the Azure Marketplace, make sure that your registered entity is from one of the approved "sell-from" countries. This restriction is for payout and taxation reasons. For more information, see the [Marketplace participation policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
-
-5. For **Account Type**, select **Company** and then select the **Next** button.
-
-   >[!IMPORTANT]
-   >To better understand account types and which is best for you to choose, see [Account types, locations, and fees](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
-
-6. For **Publisher display name**, enter the display name (typically the name of your company).
-
-   >[!TIP]
-   >The publisher display name entered in the Developer Center is not displayed in the Azure Marketplace after your offer is listed. But you must fill this box to complete the registration process.
-
-7. For **Contact info**, enter the information for the account verification.
-
-   >[!IMPORTANT]
-   >You must provide accurate contact information. The verification process will use it for approving your company in the Developer Center.
-
-8. For **Company Approver**, enter the contact information for the approver. The approver is the person who can verify that you are authorized to create an account in the Developer Center on behalf of your organization. Select **Next** when you're finished.
-
-   !["Account info" page with sections highlighted](./media/marketplace-publishers-guide/devcenterregistrationpayment.png)
-
-9. Enter your payment information to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card information, or PayPal information in supported markets. When you're finished, select **Next**.
-
-   ![Developer Center payment information](./media/marketplace-publishers-guide/devcenterregistrationpayment2.png)
-
-10. Review your account information and confirm that everything is correct. Then, read and accept the terms and conditions of the Microsoft Azure Marketplace publisher agreement. Select the box to indicate that you have read and accepted these terms.
-11. Select **Finish** to confirm your registration. We'll send a confirmation message to your email address.
-12. If you're planning to publish only free offers, select **Go to the Cloud Partner Portal**.
-
-    If you're planning to publish commercial (transaction) offers--for example, virtual machine offers with an hourly billing model--select **Update your account information**. Then you must fill in the bank and tax information in your Developer Center account, as described in the next section.
-
-#### Add bank and tax information
-
-If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Developer Center. If you will publish only free or BYOL offers, you don't need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
-
->[!IMPORTANT]
->For commercial (transaction) offers, you can't push your offers to production until you complete the bank and tax information.
-
-To add bank information:
-1. Sign in to the Microsoft Developer Center with your Microsoft account.
-2. Select **Payout account** on the left menu. Under **Choose payment method**, select **Bank account** or **PayPal**.
-
-   >[!IMPORTANT]
-   >If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
-
-3. Enter the payment information, and select **Save** when you're satisfied.
-
-   >[!IMPORTANT]
-   >If you need to update or change your payout account, follow the same preceding steps, but replace the current information with the new information. Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified. Any payments due for the current payment cycle will be added to the next one.
-
-4. Select **Next**. 
-
-To add tax information:
-
-1. Sign in to the [Microsoft Developer Center](https://dev.windows.com) with your Microsoft account (if needed).
-2. Select **Tax profile** on the left menu.
-3. On the **Set up your tax form** page, select the country or region where you have permanent residency, and then select the country or region where you hold primary citizenship. Select **Next**.
-4. Enter your tax details, and then select **Next**.
-
-If you have issues with Developer Center registration, log a support ticket:
-
-1. Go to the [support page](https://developer.microsoft.com/windows/support).
-2. Under **Contact Us**, select the **Submit an incident** button.
-
-   !["Submit an incident" button](./media/marketplace-publishers-guide/devcentersubmitincident.png)
-
-3. Select **Help with Dev Center** as **Problem type**, and select **Publish and manage apps** as **Category**. After that, select the **Start email** button.   
-4. On the sign-in page, use any Microsoft account to sign in. If you don't have a Microsoft account, create one by using the link. 
-5. Fill in the details of the issue, and submit the ticket by selecting the **Submit** button.
-
-#### Billing Options
-
-**Marketplace Commercial Considerations**
-
-There are no fees for participating in the Marketplace. There is no revenue share for participating in the Marketplace when you're publishing by using the list, trial, and BYOL transaction options. For more information, see the [Marketplace participation policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
-
-**Pay-As-You-Go and Bring Your Own License Billing Options**
-
-When you use a Pay-As-You-Go transaction as a publishing option, your usage-based software licensing revenue is shared 80%/20% between you and Microsoft, respectively. A single offer can be priced at both Pay-As-You-Go and Bring Your Own License billing models, and can coexist at the offer level as separate SKUs. You can configure this in your offer in the Cloud Partner Portal.
-
-Consider the following example.
-
-If you enable Pay-As-You-Go as an option:
-
-
-|Your license cost   | $1.00 per hour        |
-|---------|---------|
-|Azure usage cost (D1/1-Core)     | $0.14 per hour  |
-|**Customer is billed by Microsoft**    | **$1.14 per hour**       |
-
-In this scenario, Microsoft bills $1.14 per hour for use of your published virtual machine image.
-
-
-|**Microsoft bills** |**$1.14 per hour**  |
-|---------|---------|
-|Microsoft pays you 80% of your license cost | $0.80 per hour        |
-|Microsoft keeps 20% of your license cost    | $0.20 per hour        |
-|Microsoft keeps the Azure usage cost     |   $0.14 per hour      |
-
-Conversely, if you enable Bring Your Own License as an option:
-
-|Your license cost     | License fee negotiated and billed by publisher        |
-|---------|---------|
-|Azure usage cost (D1/1-Core)    | $0.14 per hour         |
-|**Customer is billed by Microsoft**     | **$0.14 per hour**        |
-
-In this scenario, Microsoft bills $0.14 per hour for use of your published virtual machine image. 
-
-|**Microsoft bills**    |   **$0.14 per hour**      |
-|---------|---------|
-|Microsoft keeps the Azure usage cost     |    $0.14 per hour     |
-|Microsoft keeps 0% of your license cost     |  $0.00 per hour       |
-
-**Single-billing and Payment Methods**
-
-An important benefit of using the transaction publishing option is that Microsoft can single-bill your license costs at the same time as the underlying Azure usage directly to the customer. In this scenario, Microsoft bills and collects on your behalf, eliminating the need for you to create your own procurement relationship with the customer. This can save you time and resources to focus on landing the sale, not collecting the bill.
-
-**Enterprise Agreement**
-
-Microsoft customers sometimes use an Enterprise Agreement to pay for Microsoft products, including Azure usage. This payment option is designed for organizations that want to license software and cloud services for a minimum three-year period. Customers have the option to spread payments instead of one making up-front payment. When an EA customer uses Pay-As-You-Go transaction listing, billing for the publisher's software license costs follows the quarterly EA overage billing cycle.
-
-**Monetary Commitment** 
-
-Any Enterprise Agreement customer can add Azure to their agreement by making an upfront monetary commitment to Azure. That commitment is consumed throughout the year by using any combination of the wide variety of cloud services that Azure offers from its global datacenters.
-
-
-### Azure Marketplace vs. AppSource
-
-Each storefront serves unique customer needs. It enables targeting by role, so you can offer the right solution or service based on who your customer is.
-
-Engage IT pros and cloud developers through the **Azure Marketplace** to discover, try, and buy IaaS, SaaS, and PaaS solutions:
-
-
-|**Customer Need**  |**Azure Marketplace** |
-|---------|---------|
-|**Demands additional cloud platform functionality to meet business and technical needs**     |  Offers a growing portfolio of complementary applications and services optimized to run on Azure       |
-|**Finds it challenging to discover the right application or service**    |  Provides a one-stop shop to discover, try, and buy solutions and services for Azure        |
-|**Needs a scalable deployment mechanism for third-party applications and services**   | Enables the creation and configuration of scalable deployments for third-party applications and services        |
-|**Requires new applications and services to integrate and work with existing solutions**  |   Easily integrates third-party applications and services with existing solutions on Azure      |
-
-Engage business users on **AppSource** to find, try, and get line-of-business SaaS applications and implementation services to help drive business results and reduce time to value: 
-
-
-|**Customer Need**  |**AppSource**  |
-|---------|---------|
-|**Business solutions that work with Microsoft products they already use** | Enables customers to use third-party applications and services to extend Microsoft cloud applications and technologies       |
-|**Ability to easily find the right solution or implementation service.**    |   Provides a one-stop shop to discover, try, and get applications and services, add-ins, and more      |
-|**Industry-specific line-of-business solutions to address their specific business challenges**   | Provides finished end-to-end industry solutions to help address specific requirements across many industries     |
-|**Apps to help improve productivity, efficiency, and business insights**    | Provides apps for lines of business, including customer service, HR, operations, and many more        |
-| **Experienced implementation partner to help adapt apps to their unique situation** | Provides a catalog of Consulting Services offerings for solutions based on Dynamics 365, Power BI, PowerApps, and third-party apps to help business users deliver predictable outcomes |
-
-#### Understanding the Differences Between Storefronts
-
-Choosing a storefront starts with identifying the target audience for your offer. If your solution targets both audiences, you need to publish only once to list in both storefronts.
- 
-Consider the additional benefits of each storefront:
-
-|Storefront benefit  |Azure Marketplace  |AppSource   |
-|---------|---------|---------|
-|**Billing flexibility**    | For virtual machines, Pay-As-You-Go billing options use Microsoft Enterprise Agreements (EAs) or web direct sales models. Pricing options also include a Free Tier subscription where an offering is perpetually free. They also include a Try It Now subscription that is promotionally free for a limited period, after which it's converted to a paid subscription. Bring Your Own License activation is also an option for supporting publishers. <br><br>For both billing options, in scenarios where virtual machines are deployed via Azure apps (for example, a solution template or managed app), all provisioned Azure resources are billed directly to the customer. | AppSource offers provisioning of a trial experience but does not currently offer a commerce-enabled publishing option. You can use your current ordering and billing infrastructure with no additional investment or changes.        |
-|**Facilitation of connections with other partners**     |The Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer, but will launch this functionality in 2018.         |  Independent software vendors, systems integrators, and managed service providers can be linked for specific implementation scenarios. This ability supports collaborative selling to new customers.      |
-|**Automation**     |    The Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer.     | Take advantage of automated SaaS with add-in provisioning. Use solution templates to automate SaaS-based data collection and deployment scenarios.        |Independent software vendors, systems integrators, and managed service providers can be linked for specific implementation scenarios, supporting collaborative selling to new customers.
-|**Multiple cloud types**     |   Publish both public cloud and on-premises solutions through Azure Stack, or publish to Azure Government and regional clouds, including China and Germany.      |    AppSource does not currently offer support for Azure Stack, Azure Government, or regional clouds.     |
-|**In-context presentation to customers**     |  Make your solution available in the Azure in-portal experience for contextual search (virtual machines and solution templates).       |  Reach more customers through the in-app experience for Microsoft products such as Dynamics 365, Power BI, and Office 365.    |
-
+Review in-depth information on cloud marketplace topics by exploring the table of contents to the left. 

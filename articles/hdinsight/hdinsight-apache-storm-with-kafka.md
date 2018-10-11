@@ -1,20 +1,14 @@
 ---
-title: 'Tutorial: Apache Kafka with Storm on HDInsight - Azure | Microsoft Docs'
+title: 'Tutorial: Apache Kafka with Storm on HDInsight - Azure '
 description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/06/2018
-ms.author: larryfr
+ms.date: 05/21/2018
 #Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Storm and Kafka to process streaming data.
 ---
 # Tutorial: Use Apache Storm with Kafka on HDInsight
@@ -56,7 +50,7 @@ The following environment variables may be set when you install Java and the JDK
     * The directory where Maven is installed.
 
 > [!IMPORTANT]
-> The steps in this document require an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
+> The steps in this document require an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
 > 
 > For your convenience, this document links to a template that can create all the required Azure resources. 
 >

@@ -1,18 +1,18 @@
 ---
 title: Azure TextBox UI element | Microsoft Docs
 description: Describes the Microsoft.Common.TextBox UI element for Azure portal.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
 
 ---
@@ -28,8 +28,8 @@ A control that can be used to edit unformatted text.
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
-  "label": "Some text box",
-  "defaultValue": "my value",
+  "label": "Example text box 1",
+  "defaultValue": "my text value",
   "toolTip": "Use only allowed characters",
   "constraints": {
     "required": true,
@@ -41,21 +41,15 @@ A control that can be used to edit unformatted text.
 ```
 
 ## Remarks
-- If `constraints.required` is set to **true**, then the text box must contain a
-value to validate successfully. The default value is **false**.
-- `constraints.regex` is a JavaScript regular expression pattern. If specified,
-then the text box's value must match the pattern to validate successfully. The
-default value is **null**.
-- `constraints.validationMessage` is a string to display when the text box's
-value fails validation. If not specified, then the text box's built-in
-validation messages are used. The default value is **null**.
-- It's possible to specify a value for `constraints.regex` when
-`constraints.required` is set to **false**. In this scenario, a value is not required for the text box to validate successfully. If one is specified, it must match the regular expression pattern.
+- If `constraints.required` is set to **true**, then the text box must have a value to validate successfully. The default value is **false**.
+- `constraints.regex` is a JavaScript regular expression pattern. If specified, then the text box's value must match the pattern to validate successfully. The default value is **null**.
+- `constraints.validationMessage` is a string to display when the text box's value fails validation. If not specified, then the text box's built-in validation messages are used. The default value is **null**.
+- It's possible to specify a value for `constraints.regex` when `constraints.required` is set to **false**. In this scenario, a value isn't required for the text box to validate successfully. If one is specified, it must match the regular expression pattern.
 
 ## Sample output
 
 ```json
-"my value"
+"my text value"
 ```
 
 ## Next steps

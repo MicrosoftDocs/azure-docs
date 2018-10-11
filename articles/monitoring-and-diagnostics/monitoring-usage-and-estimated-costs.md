@@ -1,22 +1,22 @@
 ---
-title: Monitoring usage and estimated costs in Azure Monitor | Microsoft Docs
+title: Monitoring usage and estimated costs in Azure Monitor
 description: Overview of the process of using Azure Monitor usage and estimated costs page
 author: dalekoetke
-manager: carmonmills
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/09/2018
-ms.author: Dale.Koetke;mbullwin
-
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 08/11/2018
+ms.author: mbullwin
+ms.reviewer: Dale.Koetke
+ms.component: ""
 ---
 # Monitoring usage and estimated costs
+
+> [!NOTE]
+> This article describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models.  Refer to the following articles for related information.
+> - [Manage cost by controlling data volume and retention in Log Analytics](../log-analytics/log-analytics-manage-cost-storage.md) describes how to control your costs by changing your data retention period.
+> - [Analyze data usage in Log Analytics](../log-analytics/log-analytics-usage.md) describes how to analyze and alert on your data usage.
+> - [Manage pricing and data volume in Application Insights](../application-insights/app-insights-pricing.md) describes how to analyze data usage in Application Insights.
 
 In the Monitor hub of the Azure portal, the **Usage and estimated costs** page explains the usage of core monitoring features such as [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/), and [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). For customers on the pricing plans available before April 2018, this also includes Log Analytics usage purchased through the Insights and Analytics offer.
 
@@ -89,7 +89,7 @@ The new pricing model simplifies Log Analytics and Application Insights pricing 
 The cost estimation shows the effects of these changes.
 
 > [!WARNING]
-> Here an important note if you use Azure Resource Manager or PowerShell to deploy [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) or [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) in a subscription you have moved to the new pricing model. If you specify a pricing tier/plan other than the “pergb2018” for Log Analytics or “Basic” for Application Insights, rather than failing the deployment due to specifying an invalid pricing tier/plan, it will succeed **but it will use only the valid pricing tier/plan**. 
+> Here an important note if you use Azure Resource Manager or PowerShell to deploy [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) or [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) in a subscription you have moved to the new pricing model. If you specify a pricing tier/plan other than the “pergb2018” for Log Analytics or “Basic” for Application Insights, rather than failing the deployment due to specifying an invalid pricing tier/plan, it will succeed **but it will use only the valid pricing tier/plan** (This does not apply to the Log Analytics Free tier where an invalid pricing tier message is generated).
 >
 
 ## Moving to the new pricing model
@@ -103,3 +103,146 @@ The **Pricing model selection** page will open. It shows a list of each of the s
 ![Pricing model selection screenshot](./media/monitoring-usage-and-estimated-costs/007.png)
 
 To move a subscription to the new pricing model, just select the box and then select **Save**. You can move back to the older pricing model in the same way. Keep in mind that subscription owner or contributor permissions are required to change the pricing model.
+
+## Automate moving to the new pricing model
+
+The scripts below require the Azure PowerShell Module. To check if you have the latest version see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+
+Once you have the latest version of Azure PowerShell, you would first need to run ``Connect-AzureRmAccount``.
+
+``` PowerShell
+# To check if your subscription is eligible to adjust pricing models.
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+A result of True under isGrandFatherableSubscription indicates that this subscription's pricing model can be moved between pricing models. The lack of a value under optedInDate means this subscription is currently set to the old pricing model.
+
+```
+isGrandFatherableSubscription optedInDate
+----------------------------- -----------
+                         True            
+```
+
+To migrate this subscription to the new pricing model run:
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+```
+
+To confirm that the change was successful rerun:
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+If the migration was successful, your result should now look like:
+
+```
+isGrandFatherableSubscription optedInDate                      
+----------------------------- -----------                      
+                         True 2018-05-31T13:52:43.3592081+00:00
+```
+
+The optInDate now contains a timestamp of when this subscription opted in to the new pricing model.
+
+If you need to revert back to the old pricing model, you would run:
+
+```PowerShell
+ $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action rollbacktolegacypricingmodel `
+ -Force
+```
+
+If you then rerun the previous script that has ``-Action listmigrationdate``, you should now see an empty optedInDate value indicating your subscription has been returned to the legacy pricing model.
+
+If you have multiple subscriptions, that you wish to migrate which are hosted under the same tenant you could create your own variant using pieces of the following scripts:
+
+```PowerShell
+#Query tenant and create an array comprised of all of your tenants subscription ids
+$TenantId = <Your-tenant-id>
+$Tenant =Get-AzureRMSubscription -TenantId $TenantId
+$Subscriptions = $Tenant.Id
+```
+
+To check to see if all the subscriptions in your tenant are eligible for the new pricing model, you can run:
+
+```PowerShell
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+}
+```
+
+The script could be refined further by creating a script that generates three arrays. One array will consist of all subscription id's that have ```isGrandFatherableSubscription``` set to True and optedInDate does not currently have a value. A second array of any subscriptions currently on the new pricing model. And a third array populated only with subscription ids in your tenant that are not eligible for the new pricing model:
+
+```PowerShell
+[System.Collections.ArrayList]$Eligible= @{}
+[System.Collections.ArrayList]$NewPricingEnabled = @{}
+[System.Collections.ArrayList]$NotEligible = @{}
+
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+$Result= Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+
+     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
+     {
+     $Eligible.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
+     {
+     $NewPricingEnabled.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $False)
+     {
+     $NotEligible.add($id)
+     }
+}
+```
+
+> [!NOTE]
+> Depending on the number of subscriptions the above script may take some time to run. Due to the use of the .add() method the PowerShell window will echo incrementing values as items are added to each array.
+
+Now that you have your subscriptions divided into the three arrays you should carefully review your results. You may want to make a backup copy of the contents of the arrays so that you can easily revert your changes should you need to in the future. If you decided, you wanted to convert all the eligible subscriptions that are currently on the old pricing model to the new pricing model this task could now be accomplished with:
+
+```PowerShell
+Foreach ($id in $Eligible)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+}
+
+```

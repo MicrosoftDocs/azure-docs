@@ -1,33 +1,34 @@
 ---
-title: What is Bing Entity Search? | Microsoft Docs
+title: What is Bing Entity Search?
+titlesuffix: Azure Cognitive Services
 description: Learn how to use the Bing Entity Search API to search the web for entities and places.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 0B54E747-61BF-42AA-8788-E25D63F625FC
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
 ---
 # What is Bing Entity Search?
 
-The Bing Entity Search API sends a search query to Bing and gets results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc.
+The Bing Entity Search API sends a search query to Bing and gets results that include entities and places. Place results include restaurants, hotel, or other local businesses. Bing returns places if the query specifies the name of the local business or asks for a type of business (for example, restaurants near me). Bing returns entities if the query specifies well-known people, places (tourist attractions, states, countries, etc.), or things.
 
 ## Suggesting & using search terms
 
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
-After the user enters their search term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) query parameter. For example, if the user enters *Bill Gates*, set `q` to `Bill+Gates` or `Bill%20Gates`.
+After the user enters their search term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) query parameter. For example, if the user enters *Marcus Appel*, set `q` to *Marcus+Appel* or *Marcus%20Appel*.
 
 If the search term contains a spelling mistake, the search response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search.
 
 ```json
 "queryContext": {
-    "originalQuery": "Bill Gares",
-    "alteredQuery": "bill gates",
-    "alterationOverrideQuery": "+Bill Gares",
+    "originalQuery": "hollo wrld",
+    "alteredQuery": "hello world",
+    "alterationOverrideQuery": "+hollo wrld",
     "adultIntent": false
 }
 ```
@@ -36,11 +37,17 @@ If the search term contains a spelling mistake, the search response includes a [
 
 For an example request, see [Making your first request](./quick-start.md).
 
-The response contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) object. If Bing finds an entity or place that's relevant, the object includes the `entities` field, `places` field, or both. If Bing does not find relevant entities, the response object will not include the fields.
+## The response
 
-The `entities` field is an [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) object that contains a list of [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objects (see the `value` field). The list may contain a single dominant entity, multiple disambiguation entities or both. A dominant entity is an entity that Bing believes is the only entity that satisfies the request (there is no ambiguity as to which entity satisfies the request). If multiple entities could satisfy the request, the list will contain more than one disambiguation entity. For example, if the request uses the generic title of a movie franchise, the list would likely contain disambiguation entities. But, if the request specifies a specific title from the franchise, the list would likely contain a siingle dominant entity.
+The response contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) object. If Bing finds an entity or place that's relevant, the object includes the `entities` field, `places` field, or both. Otherwise, the response object does not include either field.
+> [!NOTE]
+> Entity responses support multiple markets, but the Places response supports only US Business locations. 
 
-Entities include persons such as Adam Levine, places such as Mount Rainier or Pike Place Market, and things such as banana, goldendoodle, book, or movie title. The [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) field contains hints that identify the entity's type. For example, if it's a person, movie, animal, or attraction. For a list of possible types, see [Entity Types](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+The `entities` field is an [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) object that contains a list of [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objects (see the `value` field). The list may contain a single dominant entity, multiple disambiguation entities, or both. 
+
+A dominant entity is an entity that Bing believes is the only entity that satisfies the request (there is no ambiguity as to which entity satisfies the request). If multiple entities could satisfy the request, the list contains more than one disambiguation entity. For example, if the request uses the generic title of a movie franchise, the list likely contains disambiguation entities. But, if the request specifies a specific title from the franchise, the list likely contains a single dominant entity.
+
+Entities include well-known personalities such as singers, actors, athletes, models, etc.; places and landmarks such as Mount Rainier or Lincoln Memorial; and things such as a banana, goldendoodle, book, or movie title. The [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) field contains hints that identify the entity's type. For example, if it's a person, movie, animal, or attraction. For a list of possible types, see [Entity Types](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -50,54 +57,54 @@ Entities include persons such as Adam Levine, places such as Mount Rainier or Pi
 }, ...
 ```
 
-The following shows a response that includes a dominant and disambiguation entities.
+The following shows a response that includes a dominant and disambiguation entity.
 
 ```json
 {
     "_type": "SearchResponse",
     "queryContext": {
-        "originalQuery": "pike place market"
+        "originalQuery": "Mount Rainier"
     },
     "entities": {
         "value": [{
             "contractualRules": [{
-                "_type": "ContractualRules\/LicenseAttribution",
+                "_type": "ContractualRules/LicenseAttribution",
                 "targetPropertyName": "description",
                 "mustBeCloseToContent": true,
                 "license": {
                     "name": "CC-BY-SA",
-                    "url": "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"
+                    "url": "http://creativecommons.org/licenses/by-sa/3.0/"
                 },
                 "licenseNotice": "Text under CC-BY-SA license"
             },
             {
-                "_type": "ContractualRules\/LinkAttribution",
+                "_type": "ContractualRules/LinkAttribution",
                 "targetPropertyName": "description",
                 "mustBeCloseToContent": true,
-                "text": "en.wikipedia.org",
-                "url": "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
+                "text": "contoso.com",
+                "url": "http://contoso.com/mount_rainier"
             },
             {
-                "_type": "ContractualRules\/MediaAttribution",
+                "_type": "ContractualRules/MediaAttribution",
                 "targetPropertyName": "image",
                 "mustBeCloseToContent": true,
-                "url": "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
+                "url": "http://contoso.com/mount-rainier"
             }],
-            "webSearchUrl": "https:\/\/www.bing.com\/search?q=Pike%20Place%20Market...",
-            "name": "Pike Place Market",
-            "url": "http:\/\/www.pikeplacemarket.org\/",
+            "webSearchUrl": "https://www.bing.com/search?q=Mount%20Rainier...",
+            "name": "Mount Rainier",
+            "url": "http://www.northwindtraders.com/",
             "image": {
-                "name": "Pike Place Market",
-                "thumbnailUrl": "https:\/\/www.bing.com\/th?id=A4ae343983daa4...",
+                "name": "Mount Rainier",
+                "thumbnailUrl": "https://www.bing.com/th?id=A4ae343983daa4...",
                 "provider": [{
                     "_type": "Organization",
-                    "url": "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
+                    "url": "http://contoso.com/mount_rainier"
                 }],
-                "hostPageUrl": "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/72\/Pike_Place...",
+                "hostPageUrl": "http://contoso.com/commons/7/72/mount_rain...",
                 "width": 110,
                 "height": 110
             },
-            "description": "Pike Place Market is a public market overlooking the Elliott...",
+            "description": "Mount Rainier is 14,411 ft tall and the highest mountain...",
             "entityPresentationInfo": {
                 "entityScenario": "DominantEntity",
                 "entityTypeHints": ["Attraction"]
@@ -106,26 +113,26 @@ The following shows a response that includes a dominant and disambiguation entit
         },
         {
             "contractualRules": [{
-                "_type": "ContractualRules\/MediaAttribution",
+                "_type": "ContractualRules/MediaAttribution",
                 "targetPropertyName": "image",
                 "mustBeCloseToContent": true,
-                "url": "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Fish_Market"
+                "url": "http://contoso.com/mount_rainier_national_park"
             }],
-            "webSearchUrl": "https:\/\/www.bing.com\/search?q=Pike%20Place%20Fish%20Market...",
-            "name": "Pike Place Fish Market",
-            "url": "http:\/\/pikeplacefish.com\/",
+            "webSearchUrl": "https://www.bing.com/search?q=Mount%20Rainier%20National...",
+            "name": "Mount Rainier National Park",
+            "url": "http://worldwideimporters.com/",
             "image": {
-                "name": "Pike Place Fish Market",
-                "thumbnailUrl": "https:\/\/www.bing.com\/th?id=A91bdc5a1b648a695a39...",
+                "name": "Mount Rainier National Park",
+                "thumbnailUrl": "https://www.bing.com/th?id=A91bdc5a1b648a695a39...",
                 "provider": [{
                     "_type": "Organization",
-                    "url": "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Fish_Market"
+                    "url": "http://contoso.com/mount_rainier_national_park"
                 }],
-                "hostPageUrl": "http:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/7a...",
+                "hostPageUrl": "http://contoso.com/en/7/7a...",
                 "width": 50,
                 "height": 50
             },
-            "description": "The Pike Place Fish Market, founded in 1930, is an open air fish market...",
+            "description": "Mount Rainier National Park is a United States National Park...",
             "entityPresentationInfo": {
                 "entityScenario": "DisambiguationItem",
                 "entityTypeHints": ["Organization"]
@@ -140,27 +147,27 @@ The entity includes a `name`, `description`, and `image` field. When you display
 
 ```json
 "contractualRules": [{
-    "_type": "ContractualRules\/LicenseAttribution",
+    "_type": "ContractualRules/LicenseAttribution",
     "targetPropertyName": "description",
     "mustBeCloseToContent": true,
     "license": {
         "name": "CC-BY-SA",
-        "url": "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"
+        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
     },
     "licenseNotice": "Text under CC-BY-SA license"
 },
 {
-    "_type": "ContractualRules\/LinkAttribution",
+    "_type": "ContractualRules/LinkAttribution",
     "targetPropertyName": "description",
     "mustBeCloseToContent": true,
-    "text": "en.wikipedia.org",
-    "url": "http:\/\/en.wikipedia.org\/wiki\/Mount_Rainier"
+    "text": "contoso.com",
+    "url": "http://contoso.com/wiki/Mount_Rainier"
 },
 {
-    "_type": "ContractualRules\/MediaAttribution",
+    "_type": "ContractualRules/MediaAttribution",
     "targetPropertyName": "image",
     "mustBeCloseToContent": true,
-    "url": "http:\/\/en.wikipedia.org\/wiki\/Mount_Rainier"
+    "url": "http://contoso.com/wiki/Mount_Rainier"
 }], ...
 ```
 
@@ -179,14 +186,16 @@ Places include restaurant, hotels, or local businesses. The [entityPresentationI
     "Restaurant"]
 }, ...
 ```
+> [!NOTE]
+> Entity responses support multiple markets, but the Places response supports only US Business locations. 
 
-Local aware entity queries such as *restaurant near me* require the user's location to provide accurate results. Your requests should always use the X-Search-Location and X-MSEdge-ClientIP headers to specify the user's location. If Bing thinks the query would benefit from the user's location, it sets `askUserForLocation` field of [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) to **true**. 
+Local aware entity queries such as *restaurant near me* require the user's location to provide accurate results. Your requests should always use the X-Search-Location and X-MSEdge-ClientIP headers to specify the user's location. If Bing thinks the query would benefit from the user's location, it sets the `askUserForLocation` field of [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) to **true**. 
 
 ```json
 {
     "_type": "SearchResponse",
     "queryContext": {
-        "originalQuery": "cafe flora",
+        "originalQuery": "Sinful Bakery and Cafe",
         "askUserForLocation": true
     },
     ...
@@ -199,9 +208,9 @@ A place result includes the place's name, address, telephone number, and URL to 
 "places": {
     "value": [{
         "_type": "Restaurant",
-        "webSearchUrl": "https:\/\/www.bing.com\/search?q=Cafe%20Flora...",
-        "name": "Cafe Flora",
-        "url": "http:\/\/cafeflora.com\/",
+        "webSearchUrl": "https://www.bing.com/search?q=Sinful%20Bakery...",
+        "name": "Liberty's Delightful Sinful Bakery & Cafe",
+        "url": "http://libertysdelightfulsinfulbakeryandcafe.com/",
         "entityPresentationInfo": {
             "entityScenario": "ListItem",
             "entityTypeHints": ["Place",
@@ -215,7 +224,7 @@ A place result includes the place's name, address, telephone number, and URL to 
             "addressCountry": "US",
             "neighborhood": "Madison Park"
         },
-        "telephone": "(206) 325-9100"
+        "telephone": "(800) 555-1212"
     }]
 }
 ```
@@ -236,21 +245,21 @@ The following example shows an entity that includes a MediaAttribution contractu
     "contractualRules": [
         ...
         {
-            "_type": "ContractualRules\/MediaAttribution",
+            "_type": "ContractualRules/MediaAttribution",
             "targetPropertyName": "image",
             "mustBeCloseToContent": true,
-            "url": "http:\/\/en.wikipedia.org\/wiki\/Space_Needle"
+            "url": "http://contoso.com/mount_rainier"
         }
     ],
     ...
     "image": {
-        "name": "Space Needle",
-        "thumbnailUrl": "https:\/\/www.bing.com\/th?id=A46378861201...",
+        "name": "Mount Rainier",
+        "thumbnailUrl": "https://www.bing.com/th?id=A46378861201...",
         "provider": [{
             "_type": "Organization",
-            "url": "http:\/\/en.wikipedia.org\/wiki\/Space_Needle"
+            "url": "http://contoso.com/mount_rainier"
         }],
-        "hostPageUrl": "http:\/\/www.citydictionary.com\/Uploaded...",
+        "hostPageUrl": "http://www.graphicdesigninstitute.com/Uploaded...",
         "width": 110,
         "height": 110
     },
@@ -260,20 +269,20 @@ The following example shows an entity that includes a MediaAttribution contractu
 
 If a contractual rule includes the `targetPropertyName` field, the rule applies only to the targeted field. Otherwise, the rule applies to the parent object that contains the `contractualRules` field.
 
-In the following example, the `LinkAttribution` rule includes the `targetPropertyName` field, so the rule applies to the `description` field. For rules that apply to specific fields, you must include a line immediately following the targeted data that contains a hyperlink to the provider's website. For example, to attribute the description, include a line immediately following the description text that contains a hyperlink to the data on the provider's website, in this case create a link to en.wikipedia.org.
+In the following example, the `LinkAttribution` rule includes the `targetPropertyName` field, so the rule applies to the `description` field. For rules that apply to specific fields, you must include a line immediately following the targeted data that contains a hyperlink to the provider's website. For example, to attribute the description, include a line immediately following the description text that contains a hyperlink to the data on the provider's website, in this case create a link to contoso.com.
 
 ```json
 "entities": {
     "value": [{
             ...
-            "description": "Peyton Williams Manning is a former American....",
+            "description": "Marcus Appel is a former American....",
             ...
             "contractualRules": [{
-                    "_type": "ContractualRules\/LinkAttribution",
+                    "_type": "ContractualRules/LinkAttribution",
                     "targetPropertyName": "description",
                     "mustBeCloseToContent": true,
-                    "text": "en.wikipedia.org",
-                    "url": "http:\/\/www.bing.com\/cr?IG=B8AD73..."
+                    "text": "contoso.com",
+                    "url": "http://contoso.com/cr?IG=B8AD73..."
                  },
             ...
   
@@ -293,7 +302,7 @@ The license notice that you display must include a hyperlink to the website that
 
 The [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) and [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) rules are typically used to identify the provider of the data. The `targetPropertyName` field identifies the field that the rule applies to.
 
-To attribute the providers, include a line immediately following the content that the attributions apply to (for example, the targeted field). The line should be clearly labeled to indicate that the providers are the source of the data. For example, "Data from: en.wikipedia.org". For `LinkAttribution` rules, you must create a hyperlink to the provider's website.
+To attribute the providers, include a line immediately following the content that the attributions apply to (for example, the targeted field). The line should be clearly labeled to indicate that the providers are the source of the data. For example, "Data from: contoso.com". For `LinkAttribution` rules, you must create a hyperlink to the provider's website.
 
 The following shows an example that includes `LinkAttribution` and `TextAttribution` rules.
 
@@ -303,7 +312,7 @@ The following shows an example that includes `LinkAttribution` and `TextAttribut
 
 If the entity includes an image and you display it, you must provide a click-through link to the provider's website. If the entity includes a [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) rule, use the rule's URL to create the click-through link. Otherwise, use the URL included in the image's `provider` field to create the click-through link.
 
-The following shows an example that includes an image's `provider` field and contractual rules. Because the example includes the contractual rule, you will ignore the image's `provider` field and apply the `MediaAttribution` rule.
+The following shows an example that includes an image's `provider` field and contractual rules. Because the example includes the contractual rule, you ignore the image's `provider` field and apply the `MediaAttribution` rule.
 
 ![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)
 

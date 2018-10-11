@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/22/2017
-ms.author: genli
+ms.date: 05/11/2018
+ms.author: cwatson
 
 ---
 # Add, update, or remove a credit or debit card for Azure

@@ -7,14 +7,21 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article 
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Supported data exports for this preview 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 It is possible to export to several different formats. You can use these formats to retain the intermediate results of data preparation before you integrate the results into the rest of the Machine Learning workflow.
 
 ## Types 

@@ -1,20 +1,15 @@
 ---
-title: Manage Hadoop clusters in HDInsight using Azure portal | Microsoft Docs
+title: Manage Hadoop clusters in HDInsight using Azure portal 
 description: Learn how to create and manage HDInsight clusters using the Azure portal.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
-ms.author: jgao
+ms.date: 05/18/2018
+ms.author: jasonh
 
 ---
 # Manage Hadoop clusters in HDInsight by using the Azure portal
@@ -59,7 +54,7 @@ You must specify an Azure subscription when you create an HDInsight cluster. The
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Click **Subscription** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
     3. Click the subscription that you use to create clusters. 
-    4. Click **My permissions**.  It shows your [role](../role-based-access-control/overview.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
+    4. Click **My permissions**.  It shows your [role](../role-based-access-control/built-in-roles.md) on the subscription. You need at least Contributor access to create HDInsight cluster.
 
 - To use an existing resource group:
 
@@ -103,7 +98,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **Monitoring**: Monitor the cluster in Azure Log Analytics.
     * **Properties**: View the cluster properties.
     * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
-    * **Data Lake Store access**: Configure access Data Lake Stores.  See [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Data Lake Store access**: Configure access Data Lake Stores.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Resource health**: See [Azure resource health overview](../service-health/resource-health-overview.md).
     * **New support request**: Allows you to create a support ticket with Microsoft support.
     
@@ -124,7 +119,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
    * **Default data source**: The default cluster file system.
    * **Worker nodes size**: The selected VM size of the worker nodes.
    * **Head node size**: The selected VM size of the head nodes.
-   * **Virtual network**: The name of the Virtual Network and subnet to which the cluster is deployed, if one was selected at deployment time.
+   * **Virtual network**: The name of the Virtual Network which the cluster is deployed, if one was selected at deployment time.
 
 ## Delete clusters
 Deleting a cluster does not delete the default storage account nor any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. We recommend using a new default Blob container when you re-create the cluster.
@@ -210,7 +205,7 @@ There are many ways you can program the process:
 
 * User Azure Data Factory. See [Create on-demand Linux-based Hadoop clusters in HDInsight using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) for creating on-demand HDInsight linked services.
 * Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
-* Use Azure CLI. See [Manage HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
+* Use Azure Classic CLI. See [Manage HDInsight clusters using Azure Classic CLI](hdinsight-administer-use-command-line.md).
 * Use HDInsight .NET SDK. See [Submit Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
@@ -294,7 +289,7 @@ HDInsight clusters have the following HTTP web services (all of these services h
 * Oozie
 * Templeton
 
-By default, these services are granted for access. You can revoke/grant the access using [Azure CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) and [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+By default, these services are granted for access. You can revoke/grant the access using [Azure Classic CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) and [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## Find the subscription ID
 
@@ -366,7 +361,7 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 In this article, you have learned some basic administrative functions. To learn more, see the following articles:
 
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
+* [Administer HDInsight Using Azure Classic CLI](hdinsight-administer-use-command-line.md)
 * [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Read more about using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [Details on using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -2,25 +2,19 @@
 title: Insulating Azure Service Bus applications against outages and disasters | Microsoft Docs
 description: Techniques to protect applications against a potential Service Bus outage.
 services: service-bus-messaging
-documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: ''
 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
-ms.author: sethm
+ms.date: 09/14/2018
+ms.author: spelluru
 
 ---
 
 # Best practices for insulating applications against Service Bus outages and disasters
 
-Mission-critical applications must operate continuously, even in the presence of unplanned outages or disasters. This topic describes techniques you can use to protect Service Bus applications against a potential service outage or disaster.
+Mission-critical applications must operate continuously, even in the presence of unplanned outages or disasters. This article describes techniques you can use to protect Service Bus applications against a potential service outage or disaster.
 
 An outage is defined as the temporary unavailability of Azure Service Bus. The outage can affect some components of Service Bus, such as a messaging store, or even the entire datacenter. After the problem has been fixed, Service Bus becomes available again. Typically, an outage does not cause loss of messages or other data. An example of a component failure is the unavailability of a particular messaging store. An example of a datacenter-wide outage is a power failure of the datacenter, or a faulty datacenter network switch. An outage can last from a few minutes to a few days.
 
@@ -32,7 +26,9 @@ Service Bus uses multiple messaging stores to store messages that are sent to qu
 All Service Bus messaging entities (queues, topics, relays) reside in a service namespace, which is affiliated with a datacenter. Service Bus now supports [*Geo-disaster recovery* and *Geo-replication*](service-bus-geo-dr.md) at the namespace level.
 
 ## Protecting queues and topics against messaging store failures
-A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue, on the other hand, consists of multiple fragments. Each fragment is stored in a different messaging store. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. If the corresponding messaging store is unavailable, Service Bus writes the message to a different fragment, if possible. For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
+A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue, on the other hand, consists of multiple fragments. Each fragment is stored in a different messaging store. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. If the corresponding messaging store is unavailable, Service Bus writes the message to a different fragment, if possible. Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
+
+For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
 
 ## Protecting against datacenter outages or disasters
 To allow for a failover between two datacenters, you can create a Service Bus service namespace in each datacenter. For example, the Service Bus service namespace **contosoPrimary.servicebus.windows.net** might be located in the United States North/Central region, and **contosoSecondary.servicebus.windows.net** might be located in the US South/Central region. If a Service Bus messaging entity must remain accessible in the presence of a datacenter outage, you can create that entity in both namespaces.
@@ -79,6 +75,17 @@ The [Geo-replication with Service Bus brokered messages][Geo-replication with Se
 
 Service Bus supports Geo-disaster recovery and Geo-replication, at the namespace level. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md). The disaster recovery feature, available for the [Premium SKU](service-bus-premium-messaging.md) only, implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces.
 
+## Availability Zones (preview)
+
+The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
+
+> [!NOTE]
+> The Availability Zones preview is supported only in the **Central US**, **East US 2**, and **France Central** regions.
+
+You can enable Availability Zones on new namespaces only, using the Azure portal. Service Bus does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
+
+![1][]
+
 ## Next steps
 To learn more about disaster recovery, see these articles:
 
@@ -94,3 +101,5 @@ To learn more about disaster recovery, see these articles:
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png

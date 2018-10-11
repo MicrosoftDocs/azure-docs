@@ -3,8 +3,8 @@ title: Use Azure Resource Manager templates to Create and Configure a Log Analyt
 description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: mgoedtel
+manager: carmonm
 editor: ''
 
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
-ms.topic: article
-ms.date: 04/25/2018
-ms.author: richrund
-
+ms.topic: conceptual
+ms.date: 06/11/2018
+ms.author: magoedte
+ms.component: 
 ---
+
 # Manage Log Analytics using Azure Resource Manager templates
 You can use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
 
@@ -32,6 +33,16 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/resourc
 * Configure log analytics to index data collected using Azure diagnostics
 
 This article provides template samples that illustrate some of the configuration that you can perform with templates.
+
+## API versions
+The following table lists the API version for the resources used in this example.
+
+| Resource | Resource type | API version |
+|:---|:---|:---|:---|
+| Workspace   | workspaces    | 2017-03-15-preview |
+| Search      | savedSearches | 2017-03-15-preview |
+| Data source | datasources   | 2015-11-01-preview |
+| Solution    | solutions     | 2015-11-01-preview |
 
 ## Create a Log Analytics workspace
 The following example creates a workspace using a template from  your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment.  
@@ -82,7 +93,7 @@ The following parameters set a default value:
 	        "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
 		}
-          },
+          }
     },
     "resources": [
         {

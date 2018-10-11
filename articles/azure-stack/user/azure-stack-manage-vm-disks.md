@@ -1,9 +1,9 @@
 ---
 title: Manage VM disks in Azure Stack | Microsoft Docs
-description: Provision disks for virtual machines for Azure Stack.
+description: Provision disks for virtual machines in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,54 +13,75 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
-ms.author: brenduns
+ms.date: 09/05/2018
+ms.author: mabrigg
 ms.reviewer: jiahan
 ---
 
-# Virtual Machine disk storage for Azure Stack
+# Provision virtual machine disk storage in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack supports the use of [unmanaged disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) in a Virtual Machine as both an operating system (OS) disk and a data disk. To use unmanaged disks, you create a [storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) and then store the disks as page blobs in containers within the storage account. These disks are then referred to as VM disks.
+This article describes how to provision virtual machine disk storage by using the Azure Stack portal or by using PowerShell.
 
-To improve performance and reduce the management cost of the Azure Stack system, we recommend you place each VM disk in a separate container. A container should hold either an OS disk or a data disk, but not both at the same time. However, there is no restriction that prevents putting both into the same container.
+## Overview
 
-If you add one or more data disks to a VM, plan to use additional containers as a location to hold those disks. Like data disks, the OS disk for additional VMs should also be in their own separate containers.
+Beginning with version 1808, Azure Stack supports the use of managed disks and unmanaged disks on virtual machines, as both an operating system (OS) and a data disk. Prior to version 1808, only unmanaged disks are supported. 
 
-When you create multiple VMs, you can reuse the same storage account for each new VM. Only the containers you create should be unique.  
+**[Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)** simplify disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. You only have to specify the size of disk you need, and Azure Stack creates and manages the disk for you.
 
-To add disks to a VM, use the user portal, or PowerShell.
+**[Unmanaged disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, require that you create a [storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to store the disks. The disks you create are referred to as VM disks and are stored in containers in the storage account.
+
+ 
+
+### Best practice guidelines
+
+To improve performance and reduce the overall costs, we recommend you place each VM disk in a separate container. A container should hold either an OS disk or a data disk, but not both at the same time. (However, there's nothing to prevent you from putting both kinds of disk in the same container.)
+
+If you add one or more data disks to a VM, use additional containers as a location to store these disks. The OS disk for additional VMs should also be in their own containers.
+
+When you create multiple VMs, you can reuse the same storage account for each new virtual machine. Only the containers you create should be unique.
+
+### Adding new disks
+
+The following table summarizes how to add disks by using the portal and by using PowerShell.
 
 | Method | Options
 |-|-|
-|[User portal](#use-the-portal-to-add-additional-disks-to-a-vm)|- Add new data disks to a VM that was previously provisioned. New disks are created by Azure Stack. </br> </br>- Add an existing .vhd file as a disk to a VM that was previously provisioned. To do this you must first prepare and upload the .vhd file to Azure Stack. |
+|[User portal](#use-the-portal-to-add-additional-disks-to-a-vm)|- Add new data disks to an existing VM. New disks are created by Azure Stack. </br> </br>- Add an existing disk (.vhd) file to a  previously provisioned VM. To do this, you must prepare the .vhd  and then upload the file to Azure Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | - Create a new VM with an OS disk, and at the same time add one or more data disks to that VM. |
 
+## Use the portal to add disks to a VM
 
-## Use the portal to add additional disks to a VM
-By default, when you use the portal to create a VM for most marketplace items, only an OS disk is created. Disks created by Azure are called managed disks.
+By default, when you use the portal to create a VM for most marketplace items, only the OS disk is created.
 
-After you provision a VM, you can use the portal to add a new data disk or an existing data disk to that VM. Each additional disk should be put in a separate container. The disks that you add to a VM are called unmanaged disks.
+After you create a VM, you can use the portal to:
+* Create a new data disk and attach it to the VM.
+* Upload an existing data disk and attach it to the VM.
 
-### Use the portal to attach a new data disk to a VM
+Each unmanaged disk you add should be put in a separate container.
 
-1.	In the portal, click **Virtual machines**.    
+>[!NOTE]
+>Disks created and managed by Azure are called [managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+
+### Use the portal to create and attach a new data disk
+
+1.	In the portal, choose **Virtual machines**.    
     ![Example: VM dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.	Select a virtual machine that has previously been provisioned.   
     ![Example: Select a VM in the dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.	For the virtual machine, click **Disks** > **Attach new**.       
+3.	For the virtual machine, select **Disks** > **Attach new**.       
     ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.	In the **Attach new disk** pane, click **Location**. By default, the Location is set to the same container that holds the OS disk.      
+4.	In the **Attach new disk** pane, select **Location**. By default, the Location is set to the same container that holds the OS disk.      
     ![Example: Set the disk location](media/azure-stack-manage-vm-disks/disk-location.png)
 
-5.	Select the **Storage account** to use. Next, select the **Container** where you want to put the data disk. From the **Containers** page, you can create a new container if you want. You can then change the location for the new disk to its own container. When you use a separate container for each disk, you distribute the placement of the data disk that can improve performance. Click **Select** to save the selection.     
+5.	Select the **Storage account** to use. Next, select the **Container** where you want to put the data disk. From the **Containers** page, you can create a new container if you want. You can then change the location for the new disk to its own container. When you use a separate container for each disk, you distribute the placement of the data disk that can improve performance. Choose **Select** to save the selection.     
     ![Example: Select a container](media/azure-stack-manage-vm-disks/select-container.png)
 
-6.	In the **Attach new disk** page, update the **Name**, **Type**, **Size**, and **Host caching** settings of the disk. Then click **OK** to save the new disk configuration for the VM.  
+6.	In the **Attach new disk** page, update the **Name**, **Type**, **Size**, and **Host caching** settings of the disk. Then select **OK** to save the new disk configuration for the VM.  
     ![Example: Complete disk attachment](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.	After Azure Stack creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **DATA DISKS**.   
@@ -68,27 +89,28 @@ After you provision a VM, you can use the portal to add a new data disk or an ex
 
 
 ### Attach an existing data disk to a VM
+
 1.	[Prepare a .vhd file](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) for use as data disk for a VM. Upload that .vhd file to a storage account that you use with the VM that you want to attach the .vhd file to.
 
   Plan to use a different container to hold the .vhd file than the container that holds the OS disk.   
   ![Example: Upload a VHD file](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.	After the .vhd file is uploaded, you are ready to attach the VHD to a VM. In the menu on the left, click **Virtual machines**.  
+2.	After the .vhd file is uploaded, you are ready to attach the VHD to a VM. In the menu on the left, select  **Virtual machines**.  
  ![Example: Select a VM in the dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3.	Select the virtual machine from the list.    
+3.	Choose the virtual machine from the list.    
   ![Example: Select a VM in the dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.	On the page for the virtual machine, click **Disks** > **Attach existing**.   
+4.	On the page for the virtual machine, select **Disks** > **Attach existing**.   
   ![Example: Attach an existing disk](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.	In the **Attach existing disk** page, click **VHD File**. The **Storage accounts** page opens.    
+5.	In the **Attach existing disk** page, select **VHD File**. The **Storage accounts** page opens.    
   ![Example: Select a VHD file](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.	Under **Storage accounts**, select the account to use, and then select a container that holds the .vhd file you previously uploaded. Select the .vhd file, and then click **Select** to save the selection.    
+6.	Under **Storage accounts**, select the account to use, and then choose a container that holds the .vhd file you previously uploaded. Select the .vhd file, and then choose **Select** to save the selection.    
   ![Example: Select a container](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.	Under **Attach existing disk**, the file you selected is listed under **VHD File**. Update the **Host caching** setting of the disk, and then click **OK** to save the new disk configuration for the VM.    
+7.	Under **Attach existing disk**, the file you selected is listed under **VHD File**. Update the **Host caching** setting of the disk, and then select **OK** to save the new disk configuration for the VM.    
   ![Example: Attach the VHD file](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.	After Azure Stack creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.   

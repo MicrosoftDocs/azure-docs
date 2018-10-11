@@ -1,15 +1,16 @@
 ---
-title: Java Quickstart for Microsoft QnA Maker API (v4) - Azure Cognitive Services | Microsoft Docs
+title: "Quickstart: Java for QnA Maker API (v4)"
+titleSuffix: Azure Cognitive Services 
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
-ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
+ms.component: qna-maker
+ms.topic: quickstart
+ms.date: 09/12/2018
+ms.author: diberry
 
 ---
 # Quickstart for Microsoft QnA Maker API with Java 
@@ -32,9 +33,11 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Get the current set of word alterations.](#GetAlterations)
 - [Replace the current set of word alterations.](#PutAlterations)
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
 ## Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+You will need [JDK 7 or 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft QnA Maker API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -206,7 +209,7 @@ public class CreateKB {
 
 		Question q = new Question();
 		q.id = 0;
-		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa";
+		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600";
 		q.source = "Custom Editorial";
 		q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
 
@@ -324,7 +327,7 @@ import com.google.gson.reflect.TypeToken;
 
 // Java does not natively support HTTP PATCH requests, so Apache HttpClient is required.
 /*
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -451,13 +454,13 @@ public class UpdateKB {
 		HttpPatch patch = new HttpPatch(url.toString());
 		// HttpPatch implements HttpMessage, which includes addHeader. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPatch.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
 		patch.addHeader("Content-Type", "application/json");
 		// Note: Adding the Content-Length header causes the exception:
 		// "Content-Length header already present."
 		patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 		// HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
 		HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
 
@@ -467,8 +470,8 @@ public class UpdateKB {
 		// CloseableHttpResponse implements HttpMessage, which includes getAllHeaders. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/CloseableHttpResponse.html
 		// Header implements NameValuePair. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
 		Map<String, List<String>> headers = new HashMap<String, List<String>>();
 		for (Header header : response.getAllHeaders()) {
 			List<String> list = new ArrayList<String>() {
@@ -480,9 +483,9 @@ public class UpdateKB {
 		}
 
 		// CloseableHttpResponse implements HttpResponse, which includes getEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
 		// HttpEntity implements getContent, which returns an InputStream. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
 		StringBuilder output = new StringBuilder ();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
 		String line;
@@ -515,7 +518,7 @@ public class UpdateKB {
 
 		Question q = new Question();
 		q.id = 0;
-		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa";
+		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600";
 		q.source = "Custom Editorial";
 		q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
 
@@ -859,7 +862,7 @@ public class ReplaceKB {
 
 		Question q = new Question();
 		q.id = 0;
-		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa";
+		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600";
 		q.source = "Custom Editorial";
 		q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
 
@@ -1013,7 +1016,7 @@ A successful response is returned in JSON, as shown in the following example:
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -1051,7 +1054,7 @@ The following code gets answers to a question using the specified knowledge base
 1. Add the code provided below.
 1. Replace the `host` value with the Website name for your QnA Maker subscription. For more information see [Create a QnA Maker service](../How-To/set-up-qnamaker-service-azure.md).
 1. Replace the `endpoint_key` value with a valid endpoint key for your subscription. Note this is not the same as your subscription key. You can get your endpoint keys using the [Get endpoint keys](#GetKeys) method.
-1. Replace the `kb` value with the the ID of the knowledge base you want to query for answers. Note this knowledge base must already have been published using the [Publish](#Publish) method.
+1. Replace the `kb` value with the ID of the knowledge base you want to query for answers. Note this knowledge base must already have been published using the [Publish](#Publish) method.
 1. Run the program.
 
 ```java
@@ -1721,7 +1724,7 @@ import com.google.gson.reflect.TypeToken;
 
 // Java does not natively support HTTP PATCH requests, so Apache HttpClient is required.
 /*
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -1774,13 +1777,13 @@ public class RefreshKeys {
 		HttpPatch patch = new HttpPatch(url.toString());
 		// HttpPatch implements HttpMessage, which includes addHeader. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPatch.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
 		patch.addHeader("Content-Type", "application/json");
 		// Note: Adding the Content-Length header causes the exception:
 		// "Content-Length header already present."
 		patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 		// HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
 		HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
 
@@ -1790,8 +1793,8 @@ public class RefreshKeys {
 		// CloseableHttpResponse implements HttpMessage, which includes getAllHeaders. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/CloseableHttpResponse.html
 		// Header implements NameValuePair. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
 		Map<String, List<String>> headers = new HashMap<String, List<String>>();
 		for (Header header : response.getAllHeaders()) {
 			List<String> list = new ArrayList<String>() {
@@ -1803,9 +1806,9 @@ public class RefreshKeys {
 		}
 
 		// CloseableHttpResponse implements HttpResponse, which includes getEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
 		// HttpEntity implements getContent, which returns an InputStream. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
 		StringBuilder output = new StringBuilder ();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
 		String line;

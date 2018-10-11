@@ -4,7 +4,7 @@
   items:
   - name: What is Bing Autosuggest?
     href: get-suggested-search-terms.md
-- name: Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
   - name: C#
@@ -26,7 +26,7 @@
   - name: Single-page web app (source code)
     href: tutorials/autosuggest-source.md
 - name: How-to guides
-  items: 
+  items:
   - name: Use and display requirements
     href: UseAndDisplayRequirements.md
   - name: Upgrade from v5 to v7
@@ -57,10 +57,9 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
-  - name: Autosuggest endpoint
+  - name: Bing Autosuggest endpoint
     href: autosuggest-endpoint.md
-  - name: Supported languages
-    href: bing-autosuggest-supported-languages.md
-  - name: Analytics for Autosuggest API
+  - name: Language and region support
+    href: language-support.md
+  - name: Analytics for Bing Autosuggest API
     href: bing-autosuggest-stats.md
-

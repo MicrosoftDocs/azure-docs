@@ -1,18 +1,13 @@
 ---
 title: Traffic coverage in Azure Maps | Microsoft Docs
 description: Learn about traffic coverage in Azure Maps
-services: azure-maps
-keywords: 
-author: kgremban
-ms.author: kgremban
-ms.date: 11/28/2017
-ms.topic: article
+author: dsk-2015
+ms.author: dkshir
+ms.date: 09/12/2018
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
-ms.custom: 
 ---
 
 
@@ -97,4 +92,4 @@ However, Maps does not have the same level of information and accuracy for all r
 |United States     |✓         |✓        |
 |+Puerto Rico     |✓         |✓         |
 
-For more information about Azure Maps traffic data, see the [Traffic](https://docs.microsoft.com/rest/api/azure-maps/traffic) reference pages.
+For more information about Azure Maps traffic data, see the [Traffic](https://docs.microsoft.com/rest/api/maps/traffic) reference pages.

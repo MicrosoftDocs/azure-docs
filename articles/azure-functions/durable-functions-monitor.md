@@ -3,16 +3,12 @@ title: Monitors in Durable Functions - Azure
 description: Learn how to implement a status monitor using the Durable Functions extension for Azure Functions.
 services: functions
 author: kashimiz
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: azfuncdf
 ---
 
@@ -60,7 +56,7 @@ This article explains the following functions in the sample app:
 * `E3_GetIsClear`: An activity function that checks the current weather conditions for a location.
 * `E3_SendGoodWeatherAlert`: An activity function that sends an SMS message via Twilio.
 
-The following sections explain the configuration and code that are used for C# scripting. The code for Visual Studio development is shown at the end of the article.
+The following sections explain the configuration and code that are used for C# scripting and JavaScript. The code for Visual Studio development is shown at the end of the article.
  
 ## The weather monitoring orchestration (Visual Studio Code and Azure portal sample code)
 
@@ -70,7 +66,13 @@ The **E3_Monitor** function uses the standard *function.json* for orchestrator f
 
 Here is the code that implements the function:
 
+### C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
+
+### JavaScript (Functions v2 only)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
 This orchestrator function performs the following actions:
 
@@ -83,12 +85,14 @@ This orchestrator function performs the following actions:
 
 Multiple orchestrator instances can run simultaneously by sending multiple **MonitorRequests**. The location to monitor and the phone number to send an SMS alert to can be specified.
 
-## Strongly-typed data transfer
+## Strongly-typed data transfer (.NET only)
 
-The orchestrator requires multiple pieces of data, so [shared POCO objects](functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer:
+The orchestrator requires multiple pieces of data, so [shared POCO objects](functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
+
+The JavaScript sample uses regular JSON objects as parameters.
 
 ## Helper activity functions
 
@@ -96,9 +100,15 @@ As with other samples, the helper activity functions are regular functions that 
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
 
-And here is the implementation. Like the POCOs used for data transfer, logic to handle the API call and parse the response JSON is abstracted into a shared class. You can find it as part of the [Visual Studio sample code](#run-the-sample).
+And here is the implementation. Like the POCOs used for data transfer, logic to handle the API call and parse the response JSON is abstracted into a shared class in C#. You can find it as part of the [Visual Studio sample code](#run-the-sample).
+
+### C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
+
+### JavaScript (Functions v2 only)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
 The **E3_SendGoodWeatherAlert** function uses the Twilio binding to send an SMS message notifying the end user that it's a good time for a walk. Its *function.json* is simple:
 
@@ -106,7 +116,13 @@ The **E3_SendGoodWeatherAlert** function uses the Twilio binding to send an SMS 
 
 And here is the code that sends the SMS message:
 
+### C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
+
+### JavaScript (Functions v2 only)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
 ## Run the sample
 
@@ -127,6 +143,9 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
+
+   > [!NOTE]
+   > Currently, JavaScript orchestration starter functions cannot return instance management URIs. This capability will be added in a later release.
 
 The **E3_Monitor** instance starts and queries the current weather conditions for the requested location. If the weather is clear, it calls an activity function to send an alert; otherwise, it sets a timer. When the timer expires, the orchestration will resume.
 

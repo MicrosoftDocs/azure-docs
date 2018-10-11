@@ -1,13 +1,15 @@
 ---
-title: Use and display requirements for the Bing Autosuggest APIs | Microsoft Docs
+title: Use and display requirements - Bing Autosuggest API
+titlesuffix: Azure Cognitive Services
 description: Use data from the Bing Autosuggest APIs to improve search results from automated processes.
 services: cognitive-services
 author: dwlin
-manager: zhang
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
-ms.date: 02/27/2017
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: dwlin
 ---
 

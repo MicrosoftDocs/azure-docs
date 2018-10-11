@@ -1,23 +1,15 @@
 ---
-title: What is Azure Backup? | Microsoft Docs
+title: What is Azure Backup?
 description: Use Azure Backup to back up and restore data and workloads from Windows Servers, Windows workstations, System Center DPM servers, and Azure virtual machines.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor:
 keywords: backup and restore; recovery services; backup solutions
-
-ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 3/1/2018
-ms.author: markgal;trinadhk;anuragm
+ms.date: 8/2/2018
+ms.author: markgal
 ms.custom: mvc
-
 ---
 # Overview of the features in Azure Backup
 Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. Azure Backup offers multiple components that you download and deploy on the appropriate computer, server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (no matter whether you're protecting data on-premises or in the cloud) can be used to back up data to a Recovery Services vault in Azure. See the [Azure Backup components table](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (later in this article) for information about which component to use to protect specific data, applications, or workloads.
@@ -159,8 +151,8 @@ With **Full Backup**, each backup copy contains the entire data source. Full bac
 ### Security
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| Network security<br/> (to Azure) |![Yes][green] |![Yes][green] |![Yes][green] |![Partially][yellow] |
-| Data security<br/> (in Azure) |![Yes][green] |![Yes][green] |![Yes][green] |![Partially][yellow] |
+| Network security<br/> (to Azure) |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
+| Data security<br/> (in Azure) |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
 
 ![table key](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -173,7 +165,7 @@ All backup traffic from your servers to the Recovery Services vault is encrypted
 >
 
 #### Data security
-Backing up Azure VMs requires setting up encryption *within* the virtual machine. Use BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines. Azure Backup does not automatically encrypt backup data that comes through this path.
+Backing up Azure VMs requires setting up encryption *within* the virtual machine. Azure Backup supports Azure Disk Encryption, which uses BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines. On the back end, Azure Backup uses [Azure Storage Service encryption](../storage/common/storage-service-encryption.md), which protects data at rest.
 
 ### Network
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |

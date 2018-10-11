@@ -4,7 +4,7 @@ description: Learn how to install SAP NetWeaver HA on a Windows failover cluster
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''

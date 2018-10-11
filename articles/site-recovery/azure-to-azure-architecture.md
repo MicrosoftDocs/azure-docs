@@ -5,10 +5,9 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.custom: mvc 
 ---
 
 
@@ -17,8 +16,6 @@ ms.custom: mvc
 
 This article describes the architecture used when you replicate, fail over, and recover Azure virtual machines (VMs) between Azure regions, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
->[!NOTE]
->Azure VM replication with the Site Recovery service is currently in preview.
 
 
 

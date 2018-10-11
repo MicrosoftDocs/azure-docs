@@ -2,15 +2,16 @@
 title: Connect Excel to SQL Database | Microsoft Docs
 description: Learn how to connect Microsoft Excel to Azure SQL database in the cloud. Import data into Excel for reporting and data exploration.
 services: sql-database
-keywords: connect excel to sql, import data to excel
-author: joseidz
-manager: jhubbard
 ms.service: sql-database
-ms.custom: develop apps
-ms.topic: article
-ms.date: 03/10/2017
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: joseidz
 ms.author: craigg
-
+ms.reviewer: 
+manager: craigg
+ms.date: 03/10/2017
 ---
 # Connect Excel to an Azure SQL database and create a report
 

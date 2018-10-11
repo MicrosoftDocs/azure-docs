@@ -1,12 +1,14 @@
 ---
-title: Azure Content Moderator - video moderation | Microsoft Docs
+title:  Video moderation - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Use video moderation to scan for possible adult and racy content.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: sajagtap
 ---
@@ -15,7 +17,7 @@ ms.author: sajagtap
 
 Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you lower the cost of your moderation efforts.
 
-## Sign up for the Content Moderator media processor (public preview)
+## Sign up for the Content Moderator media processor (preview)
 
 ### Create a free Azure account
 
@@ -354,14 +356,18 @@ These methods download the Content Moderator output file (JSON) from the Azure M
 
 After the Content Moderation job is completed, analyze the JSON response. It consists of these elements:
 
-- Video summary
-- **Shots** as "**fragments**", each including
-- **Clips** as "**events**" with
-- **Key frames** that include a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores (between 0 and 1).
+- Video information summary
+- **Shots** as "**fragments**"
+- **Key frames** as "**events**" with a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores
+- **start**, **duration**, **totalDuration**, and **timestamp** are in "ticks". Divide by **timescale** to get the number in seconds.
  
 > [!NOTE]
 
-> Location of a keyframe in seconds = timestamp/timescale
+> - `adultScore` represents the potential presence and prediction score of content that may be considered sexually explicit or adult in certain situations.
+> - `racyScore` represents the potential presence and prediction score of content that may be considered sexually suggestive or mature in certain situations.
+> - `adultScore` and `racyScore` are between 0 and 1. The higher the score, the higher the model is predicting that the category may be applicable. This preview relies on a statistical model rather than manually coded outcomes. We recommend testing with your own content to determine how each category aligns to your requirements.
+> - `reviewRecommended` is either true or false depending on the internal score thresholds. Customers should assess whether to use this value or decide on custom thresholds based on their content policies.
+>
 
     {
     "version": 2,

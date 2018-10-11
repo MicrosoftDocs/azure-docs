@@ -1,20 +1,15 @@
 ---
 title: Send telemetry to Azure IoT Hub quickstart (Node.js) | Microsoft Docs
-description: In this quickstart, you run two sample Node.js applications to send simulated telemetry to an IoT hub and to read telemetry from from the IoT hub for processing in the cloud.
-services: iot-hub
+description: In this quickstart, you run two sample Node.js applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: dobett
-
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -50,42 +45,59 @@ Download the sample Node.js project from https://github.com/Azure-Samples/azure-
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure CLI to register a simulated device.
+A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with the name you chose for your IoT hub:
+1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyNodeDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
 
-1. Run the following command to get the _device connection string_ for the device you just registered:
+    If you choose a different name for your device, update the device name in the sample applications before you run them.
+
+1. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
+
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
+    
+    Make a note of the device connection string, which looks like:
 
-    Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
+    You use this value later in the quickstart.
+
+1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub in order to retrieve the messages. The following command retrieves the service connection string for your IoT hub:
+   
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string --hub-name YourIoTHubName --output table
     ```
+     
+    Make a note of the service connection string, which looks like:
 
-    Make a note of the service connection string, which looks like `Hostname=...=`. You use this value later in the quickstart. The service connection string is different from the device connection string.
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+
+    You use this value later in the quickstart. The service connection string is different from the device connection string.
+
 
 ## Send simulated telemetry
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
 
-1. In a terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **Quickstarts\simulated-device** folder.
+1. Open your local terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
 
 1. Open the **SimulatedDevice.js** file in a text editor of your choice.
 
     Replace the value of the `connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.js** file.
 
-1. In the terminal window, run the following commands to install the required libraries and run the simulated device application:
+1. In the local terminal window, run the following commands to install the required libraries and run the simulated device application:
 
     ```cmd/sh
     npm install
@@ -100,13 +112,13 @@ The simulated device application connects to a device-specific endpoint on your 
 
 The back-end application connects to the service-side **Events** endpoint on your IoT Hub. The application receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
 
-1. In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **read-d2c-messages** folder.
+1. Open another local terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **iot-hub\Quickstarts\read-d2c-messages** folder.
 
-1. Open the **Quickstarts\ReadDeviceToCloudMessages.js** file in a text editor of your choice.
+1. Open the **ReadDeviceToCloudMessages.js** file in a text editor of your choice.
 
     Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **ReadDeviceToCloudMessages.js** file.
 
-1. In the terminal window, run the following commands to install the required libraries and run the back-end application:
+1. In the local terminal window, run the following commands to install the required libraries and run the back-end application:
 
     ```cmd/sh
     npm install
@@ -119,9 +131,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
 ## Clean up resources
 
-If you plan to complete the next quickstart, leave the resource group and IoT hub and reuse them later.
-
-If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the **qs-iot-hub-rg** resource group that contains your IoT hub and click **Delete**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## Next steps
 

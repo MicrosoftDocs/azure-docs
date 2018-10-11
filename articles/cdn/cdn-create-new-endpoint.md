@@ -1,10 +1,10 @@
 ---
 title: Quickstart - Create an Azure CDN profile and endpoint | Microsoft Docs
-description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and endpoint.
+description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and CDN endpoint.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/13/2018
-ms.author: mazha
+ms.date: 05/24/2018
+ms.author: magattus
 ms.custom: mvc
 
 ---
@@ -24,7 +24,7 @@ In this quickstart, you enable Azure Content Delivery Network (CDN) by creating 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
-For the purposes of this quickstart, you must have created a storage account named *mystorageacct123*, which you use for the origin hostname. For more information, see [Integrate an Azure storage account with Azure CDN](cdn-create-a-storage-account-with-cdn.md)
+For the purposes of this quickstart, you must have created a storage account named *mystorageacct123*, which you use for the origin hostname. For more information, see [Integrate an Azure storage account with Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
@@ -43,23 +43,23 @@ After you've created a CDN profile, you can use it to create an endpoint.
    
     ![CDN profile](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    The **Add an endpoint** page appears.
+    The **Add an endpoint** pane appears.
 
-    Use the settings specified in the table following the image.
-   
-    ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+3. For the endpoint settings, use the values specified in the following table:
 
     | Setting | Value |
     | ------- | ----- |
-    | **Name** | Enter *my-endpoint-123* for your endpoint hostname. This name must be globally unique; if it is already in use, you may enter a different one. This name is used to access your cached resources at the domain _&lt;endpoint name&gt;_.azureedge.net.|
+    | **Name** | Enter *my-endpoint-123* for your endpoint hostname. This name must be globally unique; if it is already in use, you may enter a different name. This name is used to access your cached resources at the domain _&lt;endpoint name&gt;_.azureedge.net.|
     | **Origin type** | Select **Storage**. | 
-    | **Origin hostname** | Enter *mystorageacct123.blob.core.windows.net* for your hostname. This name must be globally unique; if it is already in use, you may enter a different one |
+    | **Origin hostname** | Enter *mystorageacct123.blob.core.windows.net* for your hostname. This name must be globally unique; if it is already in use, you may enter a different name. |
     | **Origin path** | Leave blank. |
     | **Origin host header** | Leave the default generated value. |  
     | **Protocol** | Leave the default **HTTP** and **HTTPS** options selected. |
     | **Origin port** | Leave the default port values. | 
     | **Optimized for** | Leave the default selection, **General web delivery**. |
-    
+
+    ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+
 3. Select **Add** to create the new endpoint.
    
    After the endpoint is created, it appears in the list of endpoints for the profile.
@@ -67,7 +67,7 @@ After you've created a CDN profile, you can use it to create an endpoint.
    ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
-   - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in ten minutes. 
+   - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
    - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
    - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
 

@@ -63,7 +63,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Deep learning framework      |
+| What is it?   | High-level deep learning API      |
 | Supported DSVM Editions      | Windows, Linux     |
 | How is it configured / installed on the DSVM?  | TensorFlow is installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Links to Samples      | https://github.com/fchollet/keras/tree/master/examples      |
@@ -78,6 +78,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | What is it?   | Deep learning framework      |
 | Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | Caffe is installed in `/opt/caffe`.    |
+| How to switch to Python 2.7 | Run `source activate root` |
 | Links to Samples      | Samples are included in `/opt/caffe/examples`.      |
 | Related Tools on the DSVM      | Caffe2      |
 ### How to use / run it?  
@@ -86,12 +87,15 @@ Use X2Go to log in to your VM, then start a new terminal and enter
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 A new browser window opens with sample notebooks.
 
-Binaries are installed in /opt/caffe/build/install/bin. 
+Binaries are installed in /opt/caffe/build/install/bin.
+
+Installed version of Caffe requires Python 2.7 and won't work with Python 3.5 activated by default. Run `source activate root` to switch Anaconda environment. 
 
 ## Caffe2
 
@@ -114,7 +118,7 @@ Binaries are installed in /opt/caffe/build/install/bin.
 | How is it configured / installed on the DSVM?  | Chainer is installed in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). ChainerRL and ChainerCV are also installed.   |
 | Links to Samples      | Sample notebooks are included in JupyterHub. |
 | Related Tools on the DSVM      | Caffe      |
-| How to use / run it?  | * At the terminal: activate the [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) environment, run _python_, then import Chainer. <br/>
+| How to use / run it?  | * At the terminal: activate the [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) environment, run _python_, then import chainer. <br/>
 * In JupyterHub: [connect to JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then navigate to the Chainer directory to find sample notebooks.
 
 
@@ -171,7 +175,7 @@ The service takes about one minute to start. Start a web browser and navigate to
 
 
 
-## nvdia-smi
+## nvidia-smi
 
 |    |           |
 | ------------- | ------------- |
