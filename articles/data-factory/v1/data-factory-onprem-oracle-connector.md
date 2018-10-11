@@ -559,8 +559,8 @@ The pipeline contains a copy activity that's configured to use the input and out
 
 **Possible causes**
 
-* The .NET Framework Data Provider for Oracle was not installed.
-* The .NET Framework Data Provider for Oracle was installed to .NET Framework 2.0 and is not found in the .NET Framework 4.0 folders.
+* The .NET Framework Data Provider for Oracle wasn't installed.
+* The .NET Framework Data Provider for Oracle was installed to .NET Framework 2.0 and isn't found in the .NET Framework 4.0 folders.
 
 **Resolution**
 
@@ -568,9 +568,9 @@ The pipeline contains a copy activity that's configured to use the input and out
 * If you see the error message even after you install the provider, complete the following steps:
    1. Open the machine config file for .NET 2.0 from the folder <system disk\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
    2. Search for **Oracle Data Provider for .NET**. You should be able to find an entry as shown in the following sample under **system.data** > **DbProviderFactories**:
-        <add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
+        `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Copy this entry to the machine.config file in the following .NET 4.0 folder: <system disk\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Then, change the version to 4.xxx.x.x.
-* Install "<ODP.NET Installed Path\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll” in the global assembly cache (GAC) by running `gacutil /i [provider path]`.
+* Install <ODP.NET Installed Path\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll in the global assembly cache (GAC) by running **gacutil /i [provider path]**.
 
 ### Problem 2: Date/time formatting
 

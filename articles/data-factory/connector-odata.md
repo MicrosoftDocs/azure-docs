@@ -22,7 +22,7 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-odata-connector.md)
 > * [Current version](connector-odata.md)
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from an OData source. It builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from an OData source. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 ## Supported capabilities
 
@@ -31,7 +31,7 @@ You can copy data from an OData source to any supported sink data store. For a l
 Specifically, this OData connector supports:
 
 - OData version 3.0 and 4.0.
-- Copying data by using the following authentications: **Anonymous**, **Basic**, or **Windows**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, or **Windows**.
 
 ## Get started
 
@@ -47,10 +47,10 @@ The following properties are supported for an OData linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **OData**. |Yes |
 | url | The root URL of the OData service. |Yes |
-| authenticationType | The type of authentication used to connect to the OData source.<br/>Allowed values are **Anonymous**, **Basic**, and **Windows**. OAuth isn't supported. | Yes |
+| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, and **Windows**. OAuth isn't supported. | Yes |
 | userName | Specify **userName** if you use Basic or Windows authentication. | No |
 | password | Specify **password** for the user account you specified for **userName**. Mark this field as a **SecureString** type to store it securely in Data Factory. You also can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can choose Azure Integration Runtime or a self-hosted Integration Runtime (if your data store is located in a private network). If not specified, the default Azure Integration Runtime is used. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can choose Azure Integration Runtime or a self-hosted Integration Runtime (if your data store is located in a private network). If not specified, the default Azure Integration Runtime is used. |No |
 
 **Example 1: Using Anonymous authentication**
 
@@ -123,7 +123,7 @@ The following properties are supported for an OData linked service:
 
 This section provides a list of properties that the OData dataset supports.
 
-For a full list of sections and properties that are available for defining datasets, see the datasets article. 
+For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). 
 
 To copy data from OData, set the **type** property of the dataset to **ODataResource**. The following properties are supported:
 
@@ -201,7 +201,7 @@ To copy data from OData, set the **source** type in Copy Activity to **Relationa
 
 ## Data type mapping for OData
 
-When you copy data from OData, the following mappings are used from OData data types to Azure Data Factory interim data types. To learn how Copy Activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from OData, the following mappings are used between OData data types and Azure Data Factory interim data types. To learn how Copy Activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 | OData data type | Data Factory interim data type |
 |:--- |:--- |

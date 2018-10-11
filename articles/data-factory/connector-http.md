@@ -22,7 +22,7 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-http-connector.md)
 > * [Current version](connector-http.md)
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. It builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 ## Supported capabilities
 
@@ -31,7 +31,7 @@ You can copy data from an HTTP source to any supported sink data store. For a li
 You can use this HTTP connector to:
 
 - Retrieve data from an HTTP/S endpoint by using the HTTP **GET** or **POST** methods.
-- Retrieve data by using the following authentications: **Anonymous**, **Basic**, **Digest**, **Windows**, or **ClientCertificate**.
+- Retrieve data by using one of the following authentications: **Anonymous**, **Basic**, **Digest**, **Windows**, or **ClientCertificate**.
 - Copy the HTTP response as-is or parse it by using [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 The difference between this connector and the [Web table connector](connector-web-table.md) is that the Web table connector extracts table content from an HTML webpage.
@@ -53,9 +53,9 @@ The following properties are supported for the HTTP linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **HttpServer**. | Yes |
 | url | The base URL to the web server. | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect to an HTTP endpoint. If your HTTPS server uses a self-signed certificate, set the **enableServerCertificateValidation** property to **false**. | No<br /> (the default is **true**) |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect to an HTTP endpoint. If your HTTPS server uses a self-signed certificate, set this property to **false**. | No<br /> (the default is **true**) |
 | authenticationType | Specifies the authentication type. Allowed values are **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. <br><br> See the sections that follow this table for more properties and JSON samples for these authentication types. | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime or a self-hosted Integration Runtime (if your data store is located in a private network). If not specified, the **connectVia** property uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted Integration Runtime (if your data store is located in a private network). If not specified, this property uses the default Azure Integration Runtime. |No |
 
 ### Using Basic, Digest, or Windows authentication
 
@@ -97,7 +97,7 @@ To use ClientCertificate authentication, set the **authenticationType** property
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-encoded certificate data. | Specify either **embeddedCertData** or **certThumbprint**. |
-| certThumbprint | The thumbprint of the certificate that's installed on your self-hosted Integration Runtime machine's cert store. Applies only when the self-hosted type of Integration Runtime is specified in **connectVia**. | Specify either **embeddedCertData** or **certThumbprint**. |
+| certThumbprint | The thumbprint of the certificate that's installed on your self-hosted Integration Runtime machine's cert store. Applies only when the self-hosted type of Integration Runtime is specified in the **connectVia** property. | Specify either **embeddedCertData** or **certThumbprint**. |
 | password | The password that's associated with the certificate. Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
 If you use **certThumbprint** for authentication and the certificate is installed in the personal store of the local computer, grant read permissions to the self-hosted Integration Runtime:
@@ -155,7 +155,7 @@ If you use **certThumbprint** for authentication and the certificate is installe
 
 This section provides a list of properties that the HTTP dataset supports. 
 
-For a full list of sections and properties that are available for defining datasets, see the datasets article. 
+For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). 
 
 To copy data from HTTP, set the **type** property of the dataset to **HttpFile**. The following properties are supported:
 
@@ -163,11 +163,11 @@ To copy data from HTTP, set the **type** property of the dataset to **HttpFile**
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **HttpFile**. | Yes |
 | relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. | No |
-| requestMethod | The HTTP method.<br/>Allowed values are **Get** (default) and **Post**. | No |
+| requestMethod | The HTTP method. Allowed values are **Get** (default) and **Post**. | No |
 | additionalHeaders | Additional HTTP request headers. | No |
 | requestBody | The body for the HTTP request. | No |
 | format | If you want to retrieve data from the HTTP endpoint as-is without parsing it, and then copy the data to a file-based store, skip the **format** section in both the input and output dataset definitions.<br/><br/>If you want to parse the HTTP response content during copy, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Under **format**, set the **type** property to one of these values. For more information, see [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Text format](supported-file-formats-and-compression-codecs.md#text-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format). |No |
-| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels:  **Optimal** and **Fastest**. |No |
+| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Supported types: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels:  **Optimal** and **Fastest**. |No |
 
 > [!NOTE]
 > The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
@@ -219,12 +219,12 @@ For a full list of sections and properties that are available for defining activ
 
 ### HTTP as source
 
-To copy data from HTTP, set **source type** in Copy Activity to **HttpSource**. The following properties are supported in the Copy Activity **source** section:
+To copy data from HTTP, set **source type** in the copy activity to **HttpSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property of the Copy Activity source must be set to **HttpSource**. | Yes |
-| httpRequestTimeout | The timeout (**TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data.<br/> Default value is **00:01:40**.  | No |
+| type | The **type** property of the copy activity source must be set to **HttpSource**. | Yes |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**.  | No |
 
 **Example**
 

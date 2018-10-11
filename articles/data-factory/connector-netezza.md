@@ -18,7 +18,7 @@ ms.author: jingwang
 ---
 # Copy data from Netezza by using Azure Data Factory 
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from Netezza. It builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from Netezza. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 ## Supported capabilities
 
@@ -40,7 +40,7 @@ The following properties are supported for the Netezza linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **Netezza**. | Yes |
 | connectionString | An ODBC connection string to connect to Netezza. Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can choose a self-hosted Integration Runtime or the Azure Integration Runtime (if your data store is publicly accessible). If not specified, the default Azure Integration Runtime is used. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can choose a self-hosted Integration Runtime or the Azure Integration Runtime (if your data store is publicly accessible). If not specified, the default Azure Integration Runtime is used. |No |
 
 A typical connection string is `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. The following table describes more properties that you can set:
 
