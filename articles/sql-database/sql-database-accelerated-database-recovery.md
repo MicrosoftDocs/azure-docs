@@ -30,7 +30,7 @@ ms.date: 10/11/2018
 
 ## The current database recovery process
 
-Database recovery in SQL Server follows the ARIES recovery model and consists of three phases, which are illustrated in the following diagram and explained in more detail following the diagram.
+Database recovery in SQL Server follows the [ARIES](https://people.eecs.berkeley.edu/~brewer/cs262/Aries.pdf) recovery model and consists of three phases, which are illustrated in the following diagram and explained in more detail following the diagram.
 
 ![current recovery process](./media/sql-database-accelerated-database-recovery/current-recovery-process.png)
 
