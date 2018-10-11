@@ -16,7 +16,8 @@ ms.author: nolachar
 
 In this quickstart, you detect human faces in an image using the Face Windows client library.
 
-The source code for this sample is available on [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 ## Prerequisites
 

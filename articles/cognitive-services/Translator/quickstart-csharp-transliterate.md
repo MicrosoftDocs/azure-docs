@@ -16,7 +16,8 @@ ms.author: nolachar
 
 In this quickstart, you convert text in one language from one script to another using the Translator Text API.
 
-The source code for this sample is available on [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+> [!TIP]
+> Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## Prerequisites
 

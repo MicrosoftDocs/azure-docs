@@ -16,7 +16,8 @@ ms.author: nolachar
 
 In this quickstart, you identify the language of the source text using the Translator Text API.
 
-The source code for this sample is available on [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+> [!TIP]
+> Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## Prerequisites
 
