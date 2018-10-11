@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Scheduler Integration
 
-The Azure CycleCloud platform has built-in, first-class support for several grid scheduling software solutions allowing for simplified resource and job management in the cloud. Azure CycleCloud can automatically create, manage, and scale several well known and widely adopted scheduling technologies including but not limited to: [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net), [HTCondor](https://research.cs.wisc.edu/htcondor/), [PBS Pro](http://pbspro.org/), and [Torque](http://www.adaptivecomputing.com/products/open-source/torque/), as well as Cycle's own Jupiter scheduler.
+The Azure CycleCloud platform has built-in, first-class support for several grid scheduling software solutions allowing for simplified resource and job management in the cloud. Azure CycleCloud can automatically create, manage, and scale several well known and widely adopted scheduling technologies including but not limited to: [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net), [HTCondor](https://research.cs.wisc.edu/htcondor/), [PBS Pro](http://pbspro.org/), and [Torque](http://www.adaptivecomputing.com/products/open-source/torque/).
 
 ## Open Grid Scheduler (Grid Engine)
 
