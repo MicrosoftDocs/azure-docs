@@ -25,7 +25,7 @@
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](fundamentals/active-directory-architecture.md)
-### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
+### [Claims mapping in Azure Active Directory](develop/active-directory-claims-mapping.md)
 ### [Deploy a hybrid identity solution](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Determine requirements
 ##### [Identity](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
@@ -200,7 +200,7 @@
 #### [Tenant restrictions](manage-apps/tenant-restrictions.md)
 #### [Use SCIM provision users](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Understanding Azure AD application consent experiences](application-consent-experience.md)
+### [Understanding Azure AD application consent experiences](develop/application-consent-experience.md)
 
 ### Troubleshoot
 
@@ -323,7 +323,7 @@
 
 ### [Integrate on-premises identities using Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
-### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
+### [Configure token lifetimes](develop/active-directory-configurable-token-lifetimes.md)
 
 ## Secure your identities
 

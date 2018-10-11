@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.reviewer: brenduns
+ms.reviewer: sethm
 
 ---
 # App Service on Azure Stack update 3 release notes
