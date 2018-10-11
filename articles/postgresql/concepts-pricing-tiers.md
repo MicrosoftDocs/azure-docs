@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/10/2018
 ---
 
 # Azure Database for PostgreSQL pricing tiers
