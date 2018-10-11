@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/25/2018
+ms.date: 10/04/2018
 ms.topic: tutorial
 ms.author: jgao
 
@@ -251,12 +251,12 @@ The following screenshot only shows some parts of the rollout definition:
 
 ![Azure Deployment Manager tutorial rollout template resources rollout](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-rollout.png)
 
-- **dependsOn**: The rollout resource depends on the artifact source resource.
+- **dependsOn**: The rollout resource depends on the artifact source resource, and any of the steps defined.
 - **artifactSourceId**: used to associate the artifact source resource to the rollout resource.
 - **targetServiceTopologyId**: used to associate the service topology resource to the rollout resource.
 - **deploymentTargetId**: It is the service unit resource ID of the service topology resource.
 - **preDeploymentSteps** and **postDeploymentSteps**: contains the rollout steps. In the template, a wait step is called.
-- **dependsOnStepGroup**: configure the dependencies between the step groups.
+- **dependsOnStepGroups**: configure the dependencies between the step groups.
 
 ### Rollout parameters file
 

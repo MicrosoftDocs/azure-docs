@@ -114,7 +114,7 @@ Now you can specify autoscale configuration for the application gateway. Two aut
 - **Fixed capacity mode**. In this mode, the application gateway does not autoscale and operates at a fixed Scale Unit capacity.
 
    ```azurepowershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
+   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
    ```
 - **Autoscaling mode**. In this mode, the application gateway autoscales based on the application traffic pattern.
 
