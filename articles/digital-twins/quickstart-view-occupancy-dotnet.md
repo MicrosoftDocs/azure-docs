@@ -36,6 +36,8 @@ Create a new instance of the Digital Twins in the [portal](https://portal.azure.
 
 ## Set permissions for your app
 
+This section registers your sample application to Azure Active Directory (AAD), so it can access your Digital Twins instance. You can skip this if you already have an AAD app registration, which can be reused for your sample. 
+
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 
