@@ -41,7 +41,7 @@ You can add a new facility by typing in its name and clicking **+**.  For each f
 By default, all configuration changes are automatically pushed to all agents.  If you want to configure Syslog manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
 
 ### Configure Syslog on Linux agent
-When the [OMS Agent is installed on a Linux client](log-analytics-linux-agents.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected.  You can modify this file to change the configuration.  The configuration file is different depending on the Syslog daemon that the client has installed.
+When the [OMS agent is installed on a Linux client](log-analytics-linux-agents.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected.  You can modify this file to change the configuration.  The configuration file is different depending on the Syslog daemon that the client has installed.
 
 > [!NOTE]
 > If you edit the syslog configuration, you must restart the syslog daemon for the changes to take effect.
