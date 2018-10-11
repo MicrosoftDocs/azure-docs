@@ -52,7 +52,7 @@ Azure IoT Edge modules are based on container images. To deploy your model to an
 1. Register the model into your workspace. Replace the default text with your model path, name, tags, and description:
 
     > [!IMPORTANT]
-    > If you used Azure Machine Learning to train the model, it may already be registered in the workspace. If so, skip this step.
+    > If you used Azure Machine Learning to train the model, it may already be registered in the workspace. If so, skip this step. To see a list of models registered with this workspace, use `Model.list(ws)`.
 
     ```python
     from azureml.core.model import Model
