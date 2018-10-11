@@ -26,13 +26,13 @@ You might have additional network requirements as part of a deployment of large 
 
 Use either the Azure portal, PowerShell, or the Azure CLI when you add more IP addresses or subnets.
 
-In this case, the recommendation is to add the new IP address range as a new range to the virtual network address space, instead of generating a new aggregated range. In either case, you need to submit this change to Microsoft to allow connectivity out of that new IP address range to the HANA large instance units in your client. You can open an Azure support request to get the new virtual network address space added. After you receive confirmation, perform the next steps.
+Add the new IP address range as a new range to the virtual network address space, instead of generating a new aggregated range. Submit this change to Microsoft to allow connectivity out of that new IP address range to the HANA large instance units in your client. You can open an Azure support request to get the new virtual network address space added. After you receive confirmation, perform the next steps.
 
 To create an additional subnet from the Azure portal, see [Create a virtual network using the Azure portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). To create one from PowerShell, see [Create a virtual network using PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## Add virtual networks
 
-After initially connecting one or more Azure virtual networks, you might want to connect additional ones that access SAP HANA on Azure (large instances). First, submit an Azure support request. In that request, include both the specific information identifying the particular Azure deployment, and the IP address space range or ranges of the Azure virtual network address space. SAP HANA on the classic deployment model then provides the necessary information you need to connect the additional virtual networks and Azure ExpressRoute. For every virtual network, you need a unique authorization key to connect to the ExpressRoute circuit to HANA large instances.
+After initially connecting one or more Azure virtual networks, you might want to connect additional ones that access SAP HANA on Azure (large instances). First, submit an Azure support request. In that request, include the specific information identifying the particular Azure deployment. Also include the IP address space range or ranges of the Azure virtual network address space. SAP HANA on the classic deployment model then provides the necessary information you need to connect the additional virtual networks and Azure ExpressRoute. For every virtual network, you need a unique authorization key to connect to the ExpressRoute circuit to HANA large instances.
 
 ## Increase ExpressRoute circuit bandwidth
 
