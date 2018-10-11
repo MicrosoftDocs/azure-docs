@@ -33,7 +33,7 @@ Enabled by Azure AD Identity Protection - This method uses the Azure AD Identity
 > More information about licenses and pricing can be found on the [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
 ) and [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages.
 
-## Enable Azure MFA by changing user status
+## Enable Azure MFA by changing user state
 
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
