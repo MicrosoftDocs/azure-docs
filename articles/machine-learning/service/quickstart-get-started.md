@@ -55,7 +55,7 @@ Click on the `Open Azure Notebooks` button to try your first experiment.
 
  ![Launch Azure Notebook](./media/quickstart-get-started/explore_ws.png)
 
-Your organizations may require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
+Your organization may require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
 
 After you sign in, a new tab opens and a `Clone Library` prompt appears.  Click on `Clone`
 
