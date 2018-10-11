@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/11/2018
 ms.author: juliako
 ---
 
@@ -26,7 +26,7 @@ For a list of sample scripts and tutorials, see [Media Services event source](..
 
 Media Services emits the **Job** related event types described below. There are two categories for the **Job** related events: "Monitoring Job State Changes" and "Monitoring Job Output State Changes". 
 
-You can subscribe for just the events you care about (for example, final states like Error, Finished, and Canceled). Or, you can register for all of the events. If you do the latter, you can do it using the state change event or all of the other events.
+You can register for all of the events by subscribing to the JobStateChange event. Or, you can subscribe for specific events only (for example, final states like Error, Finished, and Canceled). 
 
 #### Monitoring Job State Changes
 
