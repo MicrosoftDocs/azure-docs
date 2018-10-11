@@ -39,15 +39,17 @@ View the health status of your Azure Active Directory Domain Services by selecti
 
 ## Add managed identity
 
-Create a user-assigned managed identity if you don’t have one already. See [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) for instructions. 
+A **user-assigned managed identity** is used to simplify domain services operations. When you assign the managed identity to the HDInsight Domain Services Contributor role, it can read, create, modify, and delete domain services operations. Certain domain services operations such as creating OUs and service principles are needed for the HDInsight Enterprise Security Package. Managed identities can be created in any subscription. For more information, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-The managed identity is used to simplify domain services operations. This identity has access to read, create, modify, and delete domain services operations that are needed for the HDInsight Enterprise Security Package such as creating OUs and service principles.
-
-After you enable Azure AD-DS, create a user-assigned managed identity and assign it to the **HDInsight Domain Services Contributor** role in Azure AD-DS Access control.
+To set up a managed identity for use with HDInsight ESP clusters, create a user-assigned managed identity if you don’t have one already. See [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) for instructions. Next, assign the managed identity to the **HDInsight Domain Services Contributor** role in Azure AD-DS Access control (AAD-DS admin privileges are required to make this role assignment).
 
 ![Azure Active Directory Domain Services Access control](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-Assigning a managed identity to the **HDInsight Domain Services Contributor** role ensures that the identity has proper access to perform certain domain services operations on the AAD-DS domain. For more information, see [What is managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Assigning a managed identity to the **HDInsight Domain Services Contributor** role ensures that the identity has proper access to perform certain domain services operations on the AAD-DS domain.
+
+Once the managed identity is created and given the correct role, the AAD-DS admin can set up who can use this managed identity. To set up users for the managed identity, the admin should select the managed identity in the portal, then click **Access Control (IAM)** under **Overview**. Then, on the right, assign the “Managed Identity Operator” role to the users or groups that want to create HDInsight ESP clusters. For example, the AAD-DS admin can assign this role to the “MarketingTeam” group for the “sjmsi” managed identity as shown in the picture below.
+
+![HDInsight Managed Identity Operator Role Assignment](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
 ## Create a HDInsight cluster with ESP
 
@@ -75,7 +77,7 @@ When you create a HDInsight cluster with ESP, you must supply the following para
 
 - **LDAPS URL**: An example is ldaps://contoso.com:636.
 
-The following screenshot shows a successful configurations in the Azure portal:
+The following screenshot shows a successful configuration in the Azure portal:
 
 ![Azure HDInsight ESP Active Directory Domain Services configuration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
