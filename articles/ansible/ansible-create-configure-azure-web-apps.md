@@ -80,7 +80,7 @@ localhost                  : ok=2    changed=2    unreachable=0    failed=0
 ```
 
 ## Create an app service by using Traffic Manager
-You can use [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Traffic Manager keeps track of the status of your App Service apps (running, stopped, or deleted). Traffic Manager can then decide which of those endpoints should receive traffic.
+You can use [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Traffic Manager tracks the status of your App Service apps. Statuses include running, stopped, and deleted. Traffic Manager can then decide which of those endpoints should receive traffic.
 
 In App Service, an app runs in an [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
 ). An App Service plan defines a set of compute resources for a web app to run. You can manage your App Service plan and web app in different groups.
