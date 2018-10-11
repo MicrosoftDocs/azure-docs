@@ -3,7 +3,7 @@ title: Overview of Azure Digital Twins | Microsoft Docs
 description: An introduction to Azure Digital Twins
 author: julieseto
 ms.author: jseto
-ms.date: 10/03/2018
+ms.date: 10/10/2018
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
@@ -22,7 +22,7 @@ Azure Digital Twins applies to environments of all kinds. For example: warehouse
 
 The following video takes a deeper dive into Digital Twins:
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2EU76]
+> [!VIDEO https://www.youtube.com/embed/TvN_NxpgyzQ]
 
 ## Key Capabilities
 
