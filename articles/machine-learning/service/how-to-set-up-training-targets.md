@@ -409,11 +409,11 @@ Follow the above steps to view the list of compute targets, then use the followi
 
 ## Examples
 The following notebooks demonstrate concepts in this article:
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
-* `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
-* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
-* `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
-* `tutorials/01.train-models.ipynb`
+* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
+* [01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci)
+* [01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
+* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
 
 Get these notebooks:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
