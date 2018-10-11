@@ -134,7 +134,7 @@ You can remove a facility by removing its section of the configuration file.  Yo
 
 
 ### Collecting data from additional Syslog ports
-The OMS Agent listens for Syslog messages on the local client on port 25224.  When the agent is installed, a default syslog configuration is applied and found in the following location:
+The OMS agent listens for Syslog messages on the local client on port 25224.  When the agent is installed, a default syslog configuration is applied and found in the following location:
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
@@ -160,7 +160,7 @@ You can change the port number by creating two configuration files: a FluentD co
     > If you modify this value in the configuration file `95-omsagent.conf`, it will be overwritten when the agent applies a default configuration.
     >
 
-        # Log Analytics Syslog collection for workspace %WORKSPACE_ID%
+        # OMS Syslog collection for workspace %WORKSPACE_ID%
         kern.warning              @127.0.0.1:%SYSLOG_PORT%
         user.warning              @127.0.0.1:%SYSLOG_PORT%
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
@@ -176,7 +176,7 @@ You can change the port number by creating two configuration files: a FluentD co
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
         log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
 
-After completing the changes, the Syslog and the OMS Agent service needs to be restarted to ensure the configuration changes take effect.   
+After completing the changes, the Syslog and the OMS agent service needs to be restarted to ensure the configuration changes take effect.   
 
 ## Syslog record properties
 Syslog records have a type of **Syslog** and have the properties in the following table.
