@@ -21,6 +21,6 @@ ms.custom: "include file"
 > 
 > - The Azure portal does not currently support using Azure AD credentials to read and write queue data. Queue data is accessed via your storage account keys.
 >
-> - [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) currently uses your storage account key to access blob and queue data.
+> - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) currently uses your storage account key to access blob and queue data.
 
 
