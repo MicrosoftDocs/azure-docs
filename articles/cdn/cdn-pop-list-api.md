@@ -3,8 +3,8 @@ title: Retrieve the current Verizon POP list for Azure CDN| Microsoft Docs
 description: Learn how to retrieve the current Verizon POP list by using the REST API.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: v-deasim
+ms.author: kumud
 ms.custom: 
 
 ---

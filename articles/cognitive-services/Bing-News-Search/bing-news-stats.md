@@ -1,14 +1,14 @@
 ---
-title: Bing analytics for Bing Web Search APIs | Microsoft Docs
-titleSuffix: Cognitive Services
+title: Bing analytics for Bing News Search API
+titleSuffix: Azure Cognitive Services
 description: Describes how to get analytics for Bing News Search API. 
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-news-search
-ms.topic: article
+ms.component: bing-news-search
+ms.topic: conceptual
 ms.date: 04/05/2018
 ms.author: scottwhi
 ---

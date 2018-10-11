@@ -6,10 +6,10 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 10/09/2018
 ms.author: raynew
 ---
-# Replicate Azure Stack VMs to Azure (preview)
+# Replicate Azure Stack VMs to Azure
 
 This article shows you how to set up disaster recovery to Azure for Azure Stack VMs, using the [Azure Site Recovery service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
@@ -19,10 +19,6 @@ Site Recovery contributes to your business continuity and disaster recovery (BCD
 - When an outage occurs in your primary site, you use Site Recovery to fail over to Azure.
 - On failover, Azure VMs are created from the stored VM data, and users can continue accessing workloads running on those Azure VMs.
 - When everything's up and running again, you can fail back Azure VMs to your primary site, and start replicating to Azure storage again.
-
-
-> [!NOTE]
-> Site Recovery for Azure Stack is currently in public preview.
 
 
 In this article, you learn how to:
