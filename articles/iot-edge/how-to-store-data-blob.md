@@ -236,7 +236,7 @@ Unsupported:
 ### Block blobs
 
 Supported: 
-* Put block
+* Put block :- The block must be less than or equal to 4 MB in size
 * Put and get block list
 
 Unsupported:
