@@ -34,7 +34,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 
 The following are the supported match criteria operators:
 
-- **Equals**:  This operator is used for an exact match. As an example, for selecting header named **bearerToken**”** use equals operator with selector set as **bearerToken**. 
+- **Equals**:  This operator is used for an exact match. As an example, for selecting header named **bearerToken** use equals operator with selector set as **bearerToken**.
 - **Starts with**: This operator matches all fields that start with specified selector value. 
 - **Ends with**:  This operator matches all request fields that end with specified selector value. 
 - **Contains**: This operator matches all request fields that contain specified selector value.
