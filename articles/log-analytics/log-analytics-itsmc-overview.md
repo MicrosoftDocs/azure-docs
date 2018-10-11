@@ -58,9 +58,13 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
     ![Add ITSMC solution](./media/log-analytics-itsmc/add-itsmc-solution.png)
 
 3.	In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install the solution.
+   >[!NOTE]
+   >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
 4.	In the **OMS Workspace Settings** section, select the ResourceGroup where you want to create the solution resource.
 
     ![ITSMC workspace](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    >[!NOTE]
+    >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
 
 5.	Click **Create**.
 
@@ -285,7 +289,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on-prem Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.	If data from ServiceNow is not getting synced to Log Analytics, ensure that the ServiceNow instance is not sleeping. ServiceNow Dev Instances sometimes go to sleep when idle for a long period. Else, report the issue.
-3.	If OMS Alerts fire but work items are not created in ITSM product or configuration items are not created/linked to work items or for any other generic information, look in the following places:
+3.	If Log Analytics alerts fire but work items are not created in ITSM product or configuration items are not created/linked to work items or for any other generic information, look in the following places:
  -  ITSMC: The solution shows a summary of connections/work items/computers etc. Click the tile showing **Connector Status**, which takes you to **Log Search**  with the relevant query. Look at the log records with LogType_S as ERROR for more information.
  - **Log Search** page: view the errors/related information directly using the query `*`ServiceDeskLog_CL`*`.
 
