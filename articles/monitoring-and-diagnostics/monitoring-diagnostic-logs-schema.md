@@ -47,14 +47,14 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
+| Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL diagnostic logs](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Cognitive Services | Schema not available. |
 | Content Delivery Network | [Azure Diagnostic Logs for CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB Logging](../cosmos-db/logging.md) |
 | Data Factory | [Monitor Data Factories using Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| DB for MySQL | [Azure Database for MySQL diagnostic logs](../mysql/concepts-server-logs.md#diagnostic-logs) |
-| DB for PostgreSQL | [Azure Database for PostgreSQL diagnostic logs](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
 | Azure Firewall | Schema not available. |
