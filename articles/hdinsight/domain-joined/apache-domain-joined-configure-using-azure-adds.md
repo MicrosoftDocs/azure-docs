@@ -24,7 +24,7 @@ Enabling Azure AD-DS is a prerequisite before you can create a HDInsight cluster
 
 When Azure AD-DS is enabled, all users and objects start synchronizing from Azure Active Directory (AAD) to Azure AD-DS by default. The length of the sync operation depends on the number of objects in AAD. The sync could take a few days for hundreds of thousands of objects. 
 
-Customers can choose to sync only the groups that need access to the HDInsight clusters. This option of syncing only certain groups is called *scoped synchronization*. See [Configure Scoped Synchronization from Azure AD to your managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) for instructions.
+Customers can choose to sync only the groups that need access to the HDInsight clusters. This option of syncing only certain groups is called *scoped synchronization*. See [Configure Scoped Synchronization from Azure AD to your managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) for instructions.
 
 > [!NOTE]
 > Only tenant administrators have the privileges to create an Azure AD-DS instance. Multi-factor authentication needs to be disabled only for users who will access the cluster.
@@ -41,7 +41,7 @@ View the health status of your Azure Active Directory Domain Services by selecti
 
 A **user-assigned managed identity** is used to simplify domain services operations. When you assign the managed identity to the HDInsight Domain Services Contributor role, it can read, create, modify, and delete domain services operations. Certain domain services operations such as creating OUs and service principles are needed for the HDInsight Enterprise Security Package. Managed identities can be created in any subscription. For more information, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-To set up a managed identity for use with HDInsight ESP clusters, create a user-assigned managed identity if you don’t have one already. See [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) for instructions. Next, assign the managed identity to the **HDInsight Domain Services Contributor** role in Azure AD-DS Access control (AAD-DS admin privileges are required to make this role assignment).
+To set up a managed identity for use with HDInsight ESP clusters, create a user-assigned managed identity if you don’t have one already. See [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) for instructions. Next, assign the managed identity to the **HDInsight Domain Services Contributor** role in Azure AD-DS Access control (AAD-DS admin privileges are required to make this role assignment).
 
 ![Azure Active Directory Domain Services Access control](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
