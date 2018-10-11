@@ -45,10 +45,10 @@ You must register the Azure Resource Provider for Azure NetApp Files.
 
    `az feature list | grep NetApp` 
 
-   The command output appears as follows: 
+   The command output appears as follows:
 
-   
-   `"id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",`
+    {
+   `"id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",`   
    `"name": "Microsoft.NetApp/publicPreviewADC"`
    
    `<SubID>` is your subscription ID.
@@ -61,19 +61,14 @@ You must register the Azure Resource Provider for Azure NetApp Files.
 
 5. In the Azure Cloud Shell console, enter the following command to verify that the Azure Resource Provider has been registered:
 
-   `az provider show --namespace Microsoft.NetApp`
+  `az provider show --namespace Microsoft.NetApp`
 
-   The command output appears as follows:
+  The command output appears as follows:   
    
-   `
-   {
-   "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
-   "namespace": "Microsoft.NetApp", "registrationState": "Registered",
-   "resourceTypes": [….
-   `
+      "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC", 
+      "name": "Microsoft.NetApp/publicPreviewADC"
 
-   The registrationState parameter value indicates Registered.   
-   `<SubID>` is your subscription ID. 
+   `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 
 6.	From the Azure portal, click the **Subscriptions** blade.
 7.	In the Subscriptions blade, click your subscription ID. 
@@ -99,13 +94,12 @@ You must also register the **AllowBaremetalServers** feature from the Network Re
    
    The command output appears as follows:
 
-   `{
-   "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowBaremetalServers",
-   "name": "Microsoft.Network/AllowBaremetalServers",
-   "properties":{
-   "state": "Registered",
-   …
-   `
+    {
+    "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowBaremetalServers",
+    "name": "Microsoft.Network/AllowBaremetalServers",
+    "properties":{
+	  "state": "Registered",
+    …
 
    `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 
