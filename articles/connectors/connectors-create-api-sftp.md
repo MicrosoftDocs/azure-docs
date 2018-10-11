@@ -36,6 +36,11 @@ the Office 365 Outlook connector or Outlook.com connector.
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
+> [!NOTE]
+> To work with files larger than 50 MB up to 1 GB, 
+> use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
+> The SFTP connector supports only files that are 50 MB or smaller.
+
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
