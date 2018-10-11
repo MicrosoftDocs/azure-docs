@@ -11,12 +11,8 @@
     items:
     - name: Check image content
       href: image-moderation-quickstart-dotnet.md
-    - name: Check images against custom lists
-      href: image-lists-quickstart-dotnet.md
     - name: Check text content
       href: text-moderation-quickstart-dotnet.md
-    - name: Check text against custom terms
-      href: term-lists-quickstart-dotnet.md
     - name: Check video content
       href: video-moderation-api.md
 - name: Samples
@@ -45,10 +41,14 @@
       items:
       - name: Images - API console
         href: try-image-api.md
+      - name: Check images against custom lists
+        href: image-lists-quickstart-dotnet.md
       - name: Custom images - API console
         href: try-image-list-api.md
       - name: Text - API console
         href: try-text-api.md
+      - name: Check text against custom terms
+        href: term-lists-quickstart-dotnet.md
       - name: Custom terms - API console
         href: try-terms-list-api.md
     - name: Review APIs
