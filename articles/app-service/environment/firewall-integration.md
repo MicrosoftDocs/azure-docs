@@ -16,7 +16,7 @@ ms.author: ccompy
 
 ---
 
-# App Service Environment certificates overview 
+# Locking down Azure App Service Environment outbound traffic 
 
 The App Service Environment (ASE) has a number of external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network (VNet). Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their VNet.
 
