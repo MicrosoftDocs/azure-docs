@@ -76,7 +76,7 @@ The ADR recovery process has the same three phases as the current recovery proce
       Redo from sLog (oldest uncommitted Tx up to last checkpoint). This is a very fast operation as we only need to process very few records from the sLog.
   - P2
 
-     Redo from Transaction Log starts from last checkpoint (instead of oldest uncommitted Tx) 
+     Redo from Transaction Log starts from last checkpoint (instead of oldest uncommitted Tx)
 - **Undo phase**
 
    The Undo phase with ADR completes almost instantaneously by using sLog to undo non-versioned operations and Persisted Version Store (PVS) with Logical Revert to perform row level version-based Undo.
