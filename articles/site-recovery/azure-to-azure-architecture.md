@@ -8,7 +8,6 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.custom: mvc 
 ---
 
 
