@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: batch
+ author: dlepow
+ ms.service: batch
+ ms.topic: include
+ ms.date: 10/11/2018
+ ms.author: danlep
+ ms.custom: include file
+---
+
 | **Resource** | **Default Limit** | **Maximum Limit** |
 | --- | --- | --- |
 | Batch accounts per region per subscription | 1 - 3 |50 |
