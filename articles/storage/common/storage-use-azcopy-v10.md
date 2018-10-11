@@ -129,7 +129,7 @@ To copy the data between two storage accounts, use the following command:
 
 AzCopy v10 by default uploads data into block blobs. However, if a source file has vhd extension, AzCopy v10 will by default upload it to a page blob. This behavior isn't configurable.
 
-## Sync: incremental Copy and Delete
+## Sync: incremental copy and delete
 
 > [!NOTE]
 > Sync command synchronizes contents from source to destination and this includes DELETION of destination files if those do not exist in the source. Make sure you use the destination you intend to synchronize.
