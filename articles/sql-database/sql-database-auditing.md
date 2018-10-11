@@ -11,7 +11,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/10/2018
+ms.date: 10/02/2018
 ---
 # Get started with SQL database auditing
 Azure SQL database auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing also:
