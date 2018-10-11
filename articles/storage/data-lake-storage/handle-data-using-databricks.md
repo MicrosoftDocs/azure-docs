@@ -12,7 +12,7 @@ ms.date: 06/27/2018
 ---
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
-In this tutorial, you perform an ETL (extract, transform, and load data) operation to move data from Azure Data Lake Storage Gen2 Preview to Azure SQL Data Warehouse, using Azure Databricks.
+In this tutorial, you perform an ETL (extract, transform, and load data) operation to move data from an azure storage account with Azure Data Lake Storage Gen2 Preview enabled, to Azure SQL Data Warehouse, using Azure Databricks.
 
 The following illustration shows the application flow:
 
@@ -38,7 +38,7 @@ To complete this tutorial:
 
 * Create an Azure SQL Data Warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions at [Quickstart: Create an Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md)
 * Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-* [Create a Azure Data Lake Storage Gen2 account](quickstart-create-account.md)
+* [Create an Azure storage account with Data Lake Storage Gen2 enabled](quickstart-create-account.md)
 
 ## Sign in to the Azure Portal
 
@@ -46,7 +46,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure Databricks workspace
 
-In this section, you create an Azure Databricks workspace using the Azure portal. 
+In this section, you create an Azure Databricks workspace using the Azure portal.
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
@@ -63,7 +63,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |**Workspace name**     | Provide a name for your Databricks workspace.        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
-    |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
+    |**Location**     | Select **West US 2**.        |
     |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Select **Pin to dashboard** and then select **Create**.
@@ -132,14 +132,14 @@ The next step is to upload a sample data file to the storage account to later tr
 
 2. Next, you upload the sample data into your storage account. The method you use to upload data into your storage account differs depending on whether you have the hierarchical namespace enabled.
 
-    If the hierarchical namespace is enabled on your Azure Storage account created for Gen2 account, you can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview customers. To use AzCopy pase in the following code into a command window:
+    If the hierarchical namespace is enabled on your Azure Storage account created for Gen2 account, you can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview customers. To use AzCopy, paste in the following code into a command window:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
     set ACCOUNT_KEY=<ACCOUNT_KEY>
     azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/data --recursive 
     ```
-    
+
 ## Extract data from Azure Storage
 
 Return to your DataBricks Notebook and enter the following code in a new cell:
@@ -178,7 +178,7 @@ Return to your DataBricks Notebook and enter the following code in a new cell:
     ...
     ```
 
-You have now extracted the data from Azure Data Lake Storage Gen2 into Azure Databricks.
+You have now extracted the data from your storage account into Azure Databricks.
 
 ## Transform data in Azure Databricks
 
