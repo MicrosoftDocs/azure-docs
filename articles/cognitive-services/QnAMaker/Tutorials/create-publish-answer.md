@@ -41,8 +41,6 @@ This quickstart calls QnA Maker APIs:
 
 At the top of Program.cs, replace the single _using_ statement with the following lines to add necessary dependencies to the project:
 
-[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/create-knowledge-base.cs "Add the required dependencies")]
-
 [!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=1-11 "Add the required dependencies")]
 
 ## Add a KBDetails class
