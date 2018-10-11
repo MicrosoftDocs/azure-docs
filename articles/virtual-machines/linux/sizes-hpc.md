@@ -63,7 +63,7 @@ Azure provides several options to create clusters of Linux HPC VMs that can comm
 
 * **Azure CycleCloud** - Create an HPC cluster in [Azure CycleCloud](/azure/cyclecloud/) to run MPI jobs on Linux nodes.
 
-* **Azure Batch** - Create an [Azure Batch](../../batch/) pool to run MPI workloads on Linux compute nodes. For more information, see [Use RDMA-capable or GPU-enabled instances in Batch pools](../../batch/batch-pool-compute-intensive-sizes.md). Also see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) project, for running container-based workloads on Batch.
+* **Azure Batch** - Create an [Azure Batch](/azure/batch/) pool to run MPI workloads on Linux compute nodes. For more information, see [Use RDMA-capable or GPU-enabled instances in Batch pools](../../batch/batch-pool-compute-intensive-sizes.md). Also see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) project, for running container-based workloads on Batch.
 
 * **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) supports several Linux distributions to run on compute nodes deployed in RDMA-capable Azure VMs, managed by a Windows Server head node. For an example deployment, see [Create HPC Pack Linux RDMA Cluster in Azure](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
 
