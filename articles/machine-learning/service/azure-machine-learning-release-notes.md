@@ -18,10 +18,10 @@ In this article, learn about the Azure Machine Learning service releases.
 
 ### Azure Machine Learning SDK for Python v0.1.68
 
-### New features
+#### New features
  * Multiple tenant support when creating new workspace.
 
-### Bugs fixed
+#### Bugs fixed
  * The pynacl library version no longer needs to be pinned when deploying web servcie.
 
 ## 2018-10-01
