@@ -204,7 +204,8 @@ You can also associate a reserved IP to a cloud service by using a service confi
       </NetworkConfiguration>
     </ServiceConfiguration>
 
-You can set the new reserved IP for your running cloud service deployment using Azure CLI 1.0 as follows:
+## Associate a new reserved IP to a running cloud service deployment 
+You can set a new reserved IP to your running cloud service deployment using Azure CLI 1.0 as follows:
 
 ```azurecli
 azure network reserved-ip associate <name> <service-name> <deployment-name>
