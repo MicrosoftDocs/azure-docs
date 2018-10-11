@@ -39,7 +39,7 @@ To open the configuration for Network Performance Monitor, open the [Network Per
 ![Configure Network Performance Monitor](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 
-### Configure Operations Management Suite agents for monitoring
+### Configure Log Analytics agents for monitoring
 Enable the following firewall rules on the nodes used for monitoring so that the solution can discover the topology from your nodes to the service endpoint: 
 
 ```
