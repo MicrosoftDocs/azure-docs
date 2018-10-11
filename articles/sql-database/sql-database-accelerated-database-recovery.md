@@ -10,11 +10,11 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 10/08/2018
+ms.date: 10/11/2018
 ---
 # Enable Accelerated Database Recovery (preview) for fast recovery and instantaneous transaction rollback
 
-**Accelerated Database Recovery (ADR)** is a new SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL database engine recovery process. The primary benefits of Accelerated Database Recovery (ADR) are:
+**Accelerated Database Recovery (ADR)** is a new SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL database engine recovery process. ADR is currently available for single databases, elastic pools, and Azure SQL Data Warehouse. The primary benefits of ADR are:
 
 - **Fast and consistent database recovery**
 
@@ -52,9 +52,9 @@ Also, cancelling/rolling back a large transaction based on this design can also 
 
 In addition, the SQL database engine cannot truncate the transaction log when there are long running transactions because their corresponding log records are needed for the recovery and rollback processes. As a result of this design of the SQL database engine, some customers face the problem that the size of the transaction log grows very large and consumes huge amounts of log space.
 
-## The Accelerated Database Recovery (ADR) process
+## The Accelerated Database Recovery process
 
-Accelerated Database Recovery (ADR) addresses the above issues by completely redesigning the SQL database engine recovery process to:
+ADR addresses the above issues by completely redesigning the SQL database engine recovery process to:
 
 - Make it constant time/instant by avoiding having to scan the log from/to the beginning of the oldest active transaction. With ADR, the transaction log is only processed from the last successful checkpoint (or oldest dirty page Log Sequence Number(LSN). As a result, recovery time is not impacted by long running transactions.
 - Minimize the required transaction log space since there is no longer a need to process the log for the whole transaction. As a result, the transaction log can be truncated aggressively as checkpoints and backups occur.
@@ -68,22 +68,22 @@ The ADR recovery process has the same three phases as the current recovery proce
 - **Analysis phase**
 
   The process remains the same as today with the addition of reconstructing sLog and copying log records for non-versioned ops.
-- Redo phase
+- **Redo** phase
 
   Broken into two phases (P)
-  - P1
+  - Phase 1
 
-      Redo from sLog (oldest uncommitted Tx up to last checkpoint). Redo is a fast operation as it only needs to process a few records from the sLog.
-  - P2
+      Redo from sLog (oldest uncommitted transaction up to last checkpoint). Redo is a fast operation as it only needs to process a few records from the sLog.
+  - Phase 2
 
-     Redo from Transaction Log starts from last checkpoint (instead of oldest uncommitted Tx)
+     Redo from Transaction Log starts from last checkpoint (instead of oldest uncommitted transaction)
 - **Undo phase**
 
    The Undo phase with ADR completes almost instantaneously by using sLog to undo non-versioned operations and Persisted Version Store (PVS) with Logical Revert to perform row level version-based Undo.
 
-## High-level architecture
+## ADR recovery components
 
-The four key architectural components of ADR are:
+The four key components of ADR are:
 
 - **Persisted Version Store (PVS)**
 
@@ -111,14 +111,14 @@ The four key architectural components of ADR are:
 
   The cleaner is the asynchronous process that wakes up periodically and cleans page versions that are not needed.
 
-## Who should consider Accelerated Database Recovery (ADR)
+## Who should consider Accelerated Database Recovery
 
 The following types of customers should consider enabling ADR:
 
 - Customers that have workloads with long running transactions.
-- Customers that have seen cases where their transaction log is growing significantly.  
+- Customers that have seen cases where active transactions are causing the transaction log to grow significantly.  
 - Customers that have experienced long periods of database unavailability due to SQL Server long running recovery (such as unexpected SQL Server restart or manual transaction rollback).
 
 ## To enable ADR during this preview period
 
-During the preview period for this feature, send an email to adr@microsoft.com to learn more and try out Accelerated Database Recovery (ADR). In the e-mail, include the name of your managed instance or logical server (for single databases and elastic pools). Since this is a preview feature, your testing server should be a non-production server.
+During the preview period for this feature, send an email to [mailto:adr@microsoft.com](mailto:adr@microsoft.com) to learn more and try out Accelerated Database Recovery (ADR). In the e-mail, include the name of your logical server (for single databases, elastic pools, and Azure Data Warehouse). Since this is a preview feature, your testing server should be a non-production server.
