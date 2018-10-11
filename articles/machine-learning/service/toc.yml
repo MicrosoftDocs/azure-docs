@@ -5,7 +5,7 @@
   items:
   - name: What is Azure Machine Learning service?
     href: overview-what-is-azure-ml.md
-  - name: What happened to Workbench?
+  - name: What's happening to Workbench?
     href: overview-what-happened-to-workbench.md 
 - name: Quickstarts
   items:

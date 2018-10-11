@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/05/2018
+ms.date: 10/11/2018
 ms.author: harijay
 ---
 
-# Virtual machine serial console
+# Virtual machine serial console for Windows
 
-The virtual machine (VM) serial console on the Azure portal provides access to a text-based console for Windows virtual machines. This serial connection connects to the COM1 serial port of the virtual machine, providing access to it, independent of the virtual machine's network or operating system state. Access to the serial console for a virtual machine can be done only via the Azure portal. It's allowed only for those users who have VM Contributor or higher access to the virtual machine. 
+The virtual machine (VM) serial console on the Azure portal provides access to a text-based console for Windows virtual machines. This serial connection connects to the COM1 serial port of the virtual machine, providing access to it, independent of the virtual machine's network or operating system state. Access to the serial console for a virtual machine can be done only by using the Azure portal. It's allowed only for those users who have VM Contributor or higher access to the virtual machine. 
 
-For serial console documentation for Linux VMs, [click here](serial-console-linux.md).
+For serial console documentation for Linux VMs, see [Virtual machine serial console for Linux](serial-console-linux.md).
 
 > [!NOTE] 
 > The serial console for virtual machines is generally available in global Azure regions. It is not yet available in Azure government or Azure China clouds.
@@ -36,11 +36,11 @@ For serial console documentation for Linux VMs, [click here](serial-console-linu
     ![Boot diagnostics settings](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 * The account using the serial console must have the [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
-* The virtual machine for which you are accessing the serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionality of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
+* The virtual machine for which you are accessing the serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
 
 
 ## Get started with the serial console
-The serial console for virtual machines is accessible only via the Azure portal. Follow these steps to access the serial console for virtual machines:
+The serial console for virtual machines is accessible only through the Azure portal:
 
   1. Open the [Azure portal](https://portal.azure.com).
   2. On the left menu, select **Virtual machines**.
@@ -49,10 +49,10 @@ The serial console for virtual machines is accessible only via the Azure portal.
 
 
 ## Enable the serial console in custom or older images
-Newer Windows Server images on Azure have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but isn't available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
-To enable serial console for Windows VMs created before February 2018, use the following steps: 
+Newer Windows Server images on Azure have the [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but isn't available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
+To enable the serial console for Windows VMs created before February 2018, use the following steps: 
 
-1. Connect to your Windows VM via Remote Desktop.
+1. Connect to your Windows VM by using Remote Desktop.
 
 2. From an administrative command prompt, run the following commands:
    - `bcdedit /ems {current} on`
@@ -74,23 +74,23 @@ If needed, the SAC can be enabled offline as well:
 
 If [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not enabled, the serial console won't display the SAC prompt. In some cases, VM health information will be shown, and in other cases it will be blank. If you are using a Windows Server image created before February 2018, SAC will likely not be enabled.
 
-## Enable the Windows boot menu in serial console 
+## Enable the Windows boot menu in the serial console 
 
 If you need to enable Windows boot loader prompts to display in the serial console, you can add the following additional options to your boot configuration data. For more information, see [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
 
-1. Connect to your Windows virtual machine via Remote Desktop.
+1. Connect to your Windows virtual machine by using Remote Desktop.
 
 2. From an administrative command prompt, run the following commands: 
    - `bcdedit /set {bootmgr} displaybootmenu yes`
-   - `bcdedit /set {bootmgr} timeout 30`
+   - `bcdedit /set {bootmgr} timeout 10`
    - `bcdedit /set {bootmgr} bootems yes`
 
-3. Reboot the system for the boot menu to be enabled.
+3. Reboot the system for the boot menu to be enabled
 
 > [!NOTE] 
-> The timeout that you set for the boot manager menu to show up will impact your OS boot time in the future. While it may be acceptable to some to add a 30 second timeout to ensure that the boot manager is visible via serial console, others may want a shorter timeout. Set the timeout value to a value that you are comfortable with.
+> The timeout that you set for the boot manager menu to display will impact your OS boot time. If you think the 10-second timeout value is too short or too long, set it to a different value.
 
-## Use serial console for NMI calls in Windows VMs
+## Use the serial console for NMI calls in Windows VMs
 A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times. Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems that are hung.
 
 The serial console can be used to send an NMI to an Azure virtual machine by using the keyboard icon in the command bar. After the NMI is delivered, the virtual machine configuration will control how the system responds. Windows can be configured to crash and create a memory dump when receiving an NMI.
@@ -100,19 +100,19 @@ The serial console can be used to send an NMI to an Azure virtual machine by usi
 For information on configuring Windows to create a crash dump when it receives an NMI, see [How to generate a complete crash dump file or a kernel crash dump file by using an NMI on a Windows-based system](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ## Disable the serial console
-By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
+By default, all subscriptions have serial console access enabled for all VMs. You can disable the serial console at either the subscription level or VM level.
 
 > [!NOTE] 		
-> In order to enable or disable serial console for a subscription, you must have write permissions to the subscription. This includes, but is not limited to, administrator or owner roles. Custom roles may also have write permissions.
+> To enable or disable the serial console for a subscription, you must have write permissions to the subscription. These permissions include, but are not limited to, administrator or owner roles. Custom roles can also have write permissions.
 
 ### Subscription-level disable
-The serial console can be disabled for an entire subscription through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). You can use the **Try It** functionality available on this API documentation page to disable and enable serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter "default" for **default**, and then select **Run**. Azure CLI commands aren't yet available.
+The serial console can be disabled for an entire subscription through the [Disable Console REST API call](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter "default" for **default**, and then select **Run**. Azure CLI commands aren't yet available.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
 Alternatively, you can use the following set of bash commands in Cloud Shell to disable, enable, and view the disabled status of the serial console for a subscription: 
 
-* To get the disabled status of serial console for a subscription:
+* To get the disabled status of the serial console for a subscription:
     ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
@@ -120,7 +120,7 @@ Alternatively, you can use the following set of bash commands in Cloud Shell to 
 
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
-* To disable serial console for a subscription:
+* To disable the serial console for a subscription:
     ```azurecli-interactive 
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
@@ -128,7 +128,7 @@ Alternatively, you can use the following set of bash commands in Cloud Shell to 
 
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
-* To enable serial console for a subscription:
+* To enable the serial console for a subscription:
     ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
@@ -143,7 +143,7 @@ The serial console can be disabled for specific VMs by disabling that VM's boot 
 ## Serial console security 
 
 ### Access security 
-Access to the serial console is limited to users who have [VM Contributors](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or higher access to the virtual machine. If your AAD tenant requires multi-factor authentication, then access to the serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
+Access to the serial console is limited to users who have [VM Contributors](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or higher access to the virtual machine. If your Azure Active Directory tenant requires multi-factor authentication, then access to the serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
 
 ### Channel security
 All data that is sent back and forth is encrypted on the wire.
@@ -152,22 +152,22 @@ All data that is sent back and forth is encrypted on the wire.
 All access to the serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.  
 
 >[!CAUTION] 
-No access passwords for the console are logged. However, if commands run within the console contain or output passwords, secrets, user names, or any other form of personally identifiable information (PII), those will be written to the VM boot diagnostics logs. They will be written along with all other visible text, as part of the implementation of the serial console's scroll back functionality. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them. However, we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII. 
+No access passwords for the console are logged. However, if commands run within the console contain or output passwords, secrets, user names, or any other form of personally identifiable information (PII), those will be written to the VM boot diagnostics logs. They will be written along with all other visible text, as part of the implementation of the serial console's scroll back function. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them. However, we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII. 
 
 ### Concurrent usage
 If a user is connected to the serial console and another user successfully requests access to that same virtual machine, the first user will be disconnected and the second user connected.
 
 >[!CAUTION] 
-This means that a user who's disconnected won't be logged out. The ability to enforce a logout upon disconnect (via SIGHUP or similar mechanism) is still in the roadmap. For Windows, there's an automatic timeout enabled in SAC; for Linux, you can configure the terminal timeout setting. 
+This means that a user who's disconnected won't be logged out. The ability to enforce a logout upon disconnect (by using SIGHUP or similar mechanism) is still in the roadmap. For Windows, there's an automatic timeout enabled in SAC; for Linux, you can configure the terminal timeout setting. 
 
 ## Common scenarios for accessing the serial console 
 Scenario          | Actions in the serial console                
 :------------------|:-----------------------------------------
 Incorrect firewall rules | Access serial console and fix Windows firewall rules. 
-Filesystem corruption/check | Access serial console and recover filesystem. 
-RDP configuration issues | Access serial console and change settings. Go to the [RDP documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) to get started.
-Network lock down system | Access serial console via portal to manage system. Some network commands are listed in [Windows commands: CMD and PowerShell](serial-console-cmd-ps-commands.md). 
-Interacting with bootloader | Access BCD via the serial console. For information, see [Enabling boot menu to show in the serial console](#enabling-boot-menu-to-show-in-the-serial-console). 
+Filesystem corruption/check | Access the serial console and recover the filesystem. 
+RDP configuration issues | Access the serial console and change the settings. Go to the [RDP documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) to get started.
+Network lock down system | Access the serial console via portal to manage system. Some network commands are listed in [Windows commands: CMD and PowerShell](serial-console-cmd-ps-commands.md). 
+Interacting with bootloader | Access BCD via the serial console. For information, see [Enable the Windows boot menu in the serial console](#enable-the-windows-boot-menu-in-the-serial-console). 
 
 ## Accessibility
 Accessibility is a key focus for the Azure serial console. To that end, we have ensured that the serial console is accessible for the visual and hearing impaired, as well as people who may not be able to use a mouse.
@@ -175,21 +175,21 @@ Accessibility is a key focus for the Azure serial console. To that end, we have 
 ### Keyboard navigation
 Use the **Tab** key on your keyboard to navigate around the serial console interface within the Aure portal. Your location will be highlighted on screen. To leave the focus of the serial console window, press **Ctrl + F6** on your keyboard.
 
-### Use serial console with a screen reader
+### Use the serial console with a screen reader
 The serial console has screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
 
 ## Errors
-Because most errors are transient in nature, retrying your connection can often fix them. The following table shows a list of errors and mitigations.
+Because most errors are transient, retrying your connection can often fix them. The following table shows a list of errors and mitigations.
 
 Error                            |   Mitigation 
 :---------------------------------|:--------------------------------------------|
 Unable to retrieve boot diagnostics settings for *&lt;VMNAME&gt;*. To use the serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md) enabled. 
 The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access the serial console
-You do not have the required permissions to use this VM serial console. Ensure you have at least VM Contributor role permissions.| The serial console access requires certain permission to access. For information, see [access requirements](#prerequisites).
-Unable to determine the resource group for the boot diagnostics storage account *&lt;STORAGEACCOUNTNAME&gt;*. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access. For more information, see [Access requirements](#prerequisites).
-A "Forbidden" response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
-Web socket is closed or could not be opened. | You may need to whitelist `*.console.azure.com`. A more detailed but longer approach is to whitelist the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653), which change fairly regularly.
-Only health information is shown when connecting to a Windows VM| This error occurs if the Special Administrative Console has not been enabled for your Windows image. See [Access serial console for Windows](#access-serial-console-for-windows) for instructions on how to manually enable SAC on your Windows VM. For more information, see [Windows health signals](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
+You do not have the required permissions to use this VM serial console. Ensure you have at least VM Contributor role permissions.| The serial console access requires certain permission to access. For information, see [Prerequisites](#prerequisites).
+Unable to determine the resource group for the boot diagnostics storage account *&lt;STORAGEACCOUNTNAME&gt;*. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access. For more information, see [Prerequisites](#prerequisites).
+A "Forbidden" response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for the serial console to function.
+Web socket is closed or could not be opened. | You may need to whitelist `*.console.azure.com`. A more detailed but longer approach is to whitelist the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which change fairly regularly.
+Only health information is shown when connecting to a Windows VM| This error occurs if the Special Administrative Console has not been enabled for your Windows image. See [Enable the serial console in custom or older images](#enable-the-serial-console-in-custom-or-older-images) for instructions on how to manually enable SAC on your Windows VM. For more information, see [Windows health signals](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 
 ## Known issues 
 We're aware of some issues with the serial console. Here's a list of these issues and steps for mitigation.
@@ -206,7 +206,7 @@ Pasting long strings doesn't work. | The serial console limits the length of str
 
 **Q. How can I send feedback?**
 
-A. Provide feedback by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com.
+A. Provide feedback by creating a GitHub issue at  https://aka.ms/serialconsolefeedback. Alternatively (less preferred), you can send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com.
 
 **Q. Does the serial console support copy/paste?**
 
@@ -214,7 +214,7 @@ A. Yes. Use **Ctrl + Shift + C** and **Ctrl + Shift + V** to copy and paste into
 
 **Q. Who can enable or disable the serial console for my subscription?**
 
-A. To enable or disable serial console at a subscription-wide level, you must have write permissions to the subscription. Roles that have write permission include, but aren't limited to, administrator or owner roles. Custom roles may also have write permissions.
+A. To enable or disable the serial console at a subscription-wide level, you must have write permissions to the subscription. Roles that have write permission include, but aren't limited to, administrator or owner roles. Custom roles may also have write permissions.
 
 **Q. Who can access the serial console for my VM?**
 
