@@ -7,15 +7,15 @@ author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
 ms.topic: tutorial
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: cfowler
+manager: jeconnoc
 ---
 
 # Create a function on Linux using a custom image (preview)
 
-Azure Functions lets you host your functions on Linux in your own custom container. You can also [host on a default Azure App Service container](functions-create-first-azure-function-azure-cli-linux.md). This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md), which is also in preview.
+Azure Functions lets you host your functions on Linux in your own custom container. You can also [host on a default Azure App Service container](functions-create-first-azure-function-azure-cli-linux.md). This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md).
 
 In this tutorial, you learn how to deploy a function app as a custom Docker image. This pattern is useful when you need to customize the built-in App Service container image. You may want to use a custom image when your functions need a specific language version or require a specific dependency or configuration that isn't provided within the built-in image.
 
@@ -141,7 +141,7 @@ Now, you can use this image as the deployment source for a new function app in A
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0.21 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0.21 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 

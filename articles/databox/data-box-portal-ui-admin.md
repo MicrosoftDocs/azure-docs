@@ -1,23 +1,16 @@
 ---
-title: Azure Data Box portal admin guide | Microsoft Docs 
+title: Azure Data Box Disk portal admin guide | Microsoft Docs 
 description: Describes how to use the Azure portal to administer your Azure Data Box.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 ---
-# Use Azure portal to administer your Data Box (Preview)
+# Use Azure portal to administer your Data Box Disk (Preview)
 
 The tutorials in this article apply to the Microsoft Azure Data Box Disk during Preview. This article describes some of the complex workflows and management tasks that can be performed on the Data Box Disk. 
 

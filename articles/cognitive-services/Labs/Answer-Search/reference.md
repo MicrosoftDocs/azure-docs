@@ -1,12 +1,14 @@
 ---
-title: Project Answer Search reference - Microsoft Cognitive Services | Microsoft Docs
+title: Project Answer Search reference
+titlesuffix: Azure Cognitive Services
 description: Reference for Project Answer Search endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ---
@@ -116,7 +118,7 @@ The top-level object that the response includes when the request fails.
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Type hint.|String|  
-|<a name="errors" />errors|A list of errors that describe the reasons why the request failed.|[Error](#error)[]|  
+|<a name="errors" />errors|A list of errors that describe the reasons why the request failed.|[Error](#error)|  
 
   
   

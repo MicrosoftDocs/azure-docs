@@ -1,13 +1,15 @@
 ---
-title: Enterprise concepts for a LUIS app - Azure | Microsoft Docs
+title: Enterprise concepts for a LUIS app - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Understand design concepts for large LUIS apps.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 
@@ -45,9 +47,7 @@ Use the [Dispatch][dispatch-tool] command-line tool, found in [BotBuilder-tools]
 
 ![Conceptual image of dispatch architecture](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-The parent domain is noted in LUIS as a **V Dispatch** app. 
-
-![Screenshot of LUIS apps list with LUIS app created by dispatch tool](./media/luis-concept-enterprise/dispatch.png)
+The parent domain is noted in LUIS with a version named `Dispatch` in the apps list. 
 
 The chatbot receives the utterance, then sends to the parent LUIS app for prediction. The top predicted intent from the parent app determines which child LUIS app is called next. The chatbot sends the utterance to the child app for a more specific prediction.
 
@@ -61,4 +61,4 @@ A dispatch application has 500 dispatch sources, equivalent to 500 intents, as t
 * Learn how to [test a batch](luis-how-to-batch-test.md)
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

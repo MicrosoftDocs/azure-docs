@@ -4,15 +4,11 @@ description: Azure CLI Script Sample - Map a custom domain to a function app in 
 services: functions
 documentationcenter: 
 author: ggailey777   
-manager: cfowler
-editor: 
-tags: azure-service-management
+manager: jeconnoc
 
 ms.assetid: d127e347-7581-47d7-b289-e0f51f2fbfbc
-ms.service: functions
-ms.workload: na
+ms.service: azure-functions
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
@@ -28,7 +24,7 @@ To run this sample script, you must have already configured an A record in your 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you must use the Azure CLI version 2.0 or a later version. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, you must use the Azure CLI version 2.0 or a later version. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## Sample script

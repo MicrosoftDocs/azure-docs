@@ -54,7 +54,7 @@ If you create resources for use with your AKS cluster, such as storage accounts 
 
 ## Can I modify tags and other properties of the AKS resources in the MC_* resource group?
 
-Modifying and deleting tags and other properties of resources in the *MC_** resource group can lead to unexpected results such as scaling and upgrading errors. Modifying the resources under the *MC_** in the AKS cluster breaks the SLO.
+Modifying and deleting the Azure-created tags and other properties of resources in the *MC_** resource group can lead to unexpected results such as scaling and upgrading errors. It is supported to create and modify additional custom tags, such as to assign a business unit or cost center. Modifying the resources under the *MC_** in the AKS cluster breaks the SLO.
 
 ## What Kubernetes admission controllers does AKS support? Can admission controllers be added or removed?
 

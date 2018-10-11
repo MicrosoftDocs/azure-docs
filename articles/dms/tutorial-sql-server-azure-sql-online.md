@@ -2,15 +2,15 @@
 title: Use the Azure Database Migration Service to perform an online migration of SQL Server to Azure SQL Database | Microsoft Docs
 description: Learn to perform an online migration from SQL Server on-premises to Azure SQL Database by using the Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: 
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 10/10/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database online using DMS
@@ -25,6 +25,9 @@ In this tutorial, you learn how to:
 > * Run the migration.
 > * Monitor the migration.
 > * Download a migration report.
+
+> [!IMPORTANT]
+> For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
 ## Prerequisites
 To complete this tutorial, you need to:

@@ -3,7 +3,7 @@ title:    Validation report for Azure Stack | Microsoft Docs
 description: Use the Azure Stack Readiness Checker report to review validation results.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer:
 
 ---
 
 
 # Azure Stack validation report
-The Azure Stack Readiness Checker tool runs validations that support deployment and servicing of an Azure Stack environment. The tool writes validation results to a .json report file. The report displays detailed and summarized data on the state of prerequisites for deployment of Azure Stack and on Secrets Rotation for existing Azure Stack Deployments.  
+Use the Azure Stack Readiness Checker tool to run validations that support deployment and servicing of an Azure Stack environment. The tool writes results to a .json report file. The report displays detailed and summarized data about the state of prerequisites for deployment of Azure Stack. The report also displays information about Secrets Rotation for existing Azure Stack Deployments.  
 
  ## Where to find the report
 When the tool runs, it logs results to **AzsReadinessCheckerReport.json**. The tool also creates a log named **AzsReadinessChecker.log**. The location of these files displays with the validation results in PowerShell.
@@ -35,7 +35,7 @@ By default, both files are written to *C:\Users\<username>\AppData\Local\Temp\Az
 - Use the **-CleanReport** parameter at the end of the run command to clear information from *AzsReadinessCheckerReport.json*. about previous runs of the tool.
 
 ## View the report
-To view the report in PowerShell, supply the path to the report as a value for **-ReportPath**. This command displays the contents of the report and also identifies validations that do not yet have results.
+To view the report in PowerShell, supply the path to the report as a value for **-ReportPath**. This command displays the contents of the report and identifies validations that do not yet have results.
 
 For example, to view the report from a PowerShell prompt that is open to the location where the report is located, run: 
    > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json` 
@@ -54,7 +54,7 @@ The summary shows validations that don't have results and indicates pass or fail
 
 
 ## View a filtered report
-To view a report filtered on a single type of validation, use the **-ReportSections** parameter and specify one of the following values that correspond to the validation type you want to view:
+To view a report that is filtered on a single type of validation, use the **-ReportSections** parameter with one of the following values:
 - Certificate
 - AzureRegistration
 - AzureIdentity

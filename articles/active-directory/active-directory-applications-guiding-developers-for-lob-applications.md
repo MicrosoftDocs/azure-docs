@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 09/11/2018
 ms.author: kgremban
 
 ms.custom: seohack1
@@ -76,4 +76,4 @@ For more information about user consent and the consent experience in Azure, see
 ## Related Articles
 * [Enable secure remote access to on-premises applications with Azure AD Application Proxy](manage-apps/application-proxy.md)
 * [Managing access to apps with Azure AD](manage-apps/what-is-access-management.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+

@@ -1,26 +1,22 @@
 ---
-title: Webhook connector for Azure Logic Apps | Microsoft Docs
-description: How to use webhook actions and triggers to perform actions like Filter Array from logic apps
+title: Create event-based workflows or actions - Azure Logic Apps | Microsoft Docs
+description: Automate event-based workflows or actions by using webhooks and Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-
-ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+tags: connectors
 ms.date: 07/21/2016
-ms.author: jehollan; LADocs
-
 ---
-# Get started with the webhook connector
 
-With the webhook action and trigger, you can start, pause, and resume flows to perform these tasks:
+# Create event-based workflows or actions by using webhooks and Azure Logic Apps
+
+With the webhook action and trigger, you can start, pause, 
+and resume flows to perform these tasks:
 
 * Trigger from an [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) when an item is received
 * Wait for an approval before continuing a workflow

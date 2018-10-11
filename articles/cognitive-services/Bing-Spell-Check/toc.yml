@@ -49,6 +49,8 @@
     href: bing-spell-check-stats.md
   - name: FAQ
     href: bing-spell-check-resource-faq.md
+  - name: Language and region support
+    href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/
   - name: Regional availability
@@ -57,8 +59,6 @@
     href: https://stackoverflow.com/questions/tagged/bing-api
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
-  - name: Supported languages
-    href: bing-spell-check-supported-languages.md
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/spell-check/
   - name: UserVoice

@@ -4,7 +4,7 @@ description: Load balancing across primary and secondary IP configurations.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jpconnock
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
 ms.service: load-balancer
@@ -176,7 +176,7 @@ For each website (contoso.com and fabrikam.com), configure the load balancing ru
 
 4. For **Port** and **Backend port**, keep the default value **80**.
 
-5. For **Floating IP (direct server return)**, select **Enabled**.
+5. For **Floating IP (direct server return)**, select **Disabled**.
 
 6. <a name="step6-6"></a>Select **OK**.
 

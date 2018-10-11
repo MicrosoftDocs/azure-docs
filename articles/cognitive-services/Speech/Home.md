@@ -1,5 +1,6 @@
 ---
 title: Microsoft Bing Speech Service | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use Microsoft Speech API to add speech-driven actions to your apps, including real-time interaction with users.
 services: cognitive-services
 author: zhouwangzw
@@ -7,11 +8,12 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 
-# Microsoft Bing Speech API overview
+# What is Bing Speech?
 
 The cloud-based Microsoft Bing Speech API provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, user dialog using natural speech conversation, and speech transcription and dictation. The Microsoft Speech API supports both *Speech to Text* and *Text to Speech* conversion.
 
@@ -19,7 +21,7 @@ The cloud-based Microsoft Bing Speech API provides developers an easy way to cre
 - **Text to Speech** API converts text to audio streams that can be played back to the user of your application.
 
 > [!NOTE] 
-> In May 2018, we released the new [Speech service](/speech-service/overview.md) in public preview. We encourage you to [try it out for free](/speech-service/get-started.md).
+> Since September 2018, the new [Speech service](../speech-service/index.yml) has become generally available. We encourage you to [try it out for free](../speech-service/get-started.md).
 
 ## Speech to text (speech recognition)
 

@@ -55,7 +55,7 @@ Add apt source for Microsoft Linux product repository and install AzCopy:
 ```bash
 sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
-apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
+sudo apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
 ```
 
 ```bash
@@ -70,7 +70,7 @@ Add apt source for Microsoft Linux product repository and install AzCopy:
 ```bash
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
-apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
+sudo apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
 ```
 
 ```bash
@@ -701,7 +701,7 @@ For more information about Azure Storage and AzCopy, see the following resources
 * [Introduction to Azure Storage](../storage-introduction.md)
 * [Create a storage account](../storage-create-storage-account.md)
 * [Manage blobs with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
-* [Using the Azure CLI 2.0 with Azure Storage](../storage-azure-cli.md)
+* [Using the Azure CLI with Azure Storage](../storage-azure-cli.md)
 * [How to use Blob storage from C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [How to use Blob storage from Java](../blobs/storage-java-how-to-use-blob-storage.md)
 * [How to use Blob storage from Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)

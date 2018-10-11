@@ -18,6 +18,8 @@
     href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
   items:
+    - name: September 2018 
+      href: release-notes-september-2018.md
     - name: August 2018 
       href: release-notes-august-2018.md
     - name: July 2018 
@@ -87,6 +89,8 @@
     items:
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
+    - name: Best practices
+      href: sql-data-warehouse-best-practices-development.md
     - name: Tables
       items:
       - name: Overview
@@ -141,18 +145,28 @@
       href: memory-and-concurrency-limits.md
   - name: Manageability & monitoring
     items:
-    - name: Query Activity & Resource Utilization  
-      href: sql-data-warehouse-manage-monitor.md
+    - name: Overview
+      href: sql-data-warehouse-overview-manageability-monitoring.md
+    - name: Scale, pause, resume
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: Resource utilization & query activity 
+      href: sql-data-warehouse-concept-resource-utilization-query-activity.md 
     - name: Data protection
       href: backup-and-restore.md
-    - name: Scale-out, pause, resume
-      href: sql-data-warehouse-manage-compute-overview.md
-    - name: Maintenance schedule
-      href: service-maintenance.md
     - name: Recommendations 
       href: sql-data-warehouse-concept-recommendations.md
+    - name: Maintenance schedule
+      href: service-maintenance.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
+  - name: Maintenance schedules
+    items:
+    - name: Overview
+      href: maintenance-scheduling.md
+    - name: View maintenance schedule
+      href: viewing-maintenance-schedule.md
+    - name: Change maintenance schedule
+      href: changing-maintenance-schedule.md
   - name: Integration
     items:
     - name: Overview
@@ -181,7 +195,7 @@
       href: load-data-from-azure-blob-storage-using-polybase.md
     - name: Contoso public data
       href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-    - name: Azure Data Lake Store
+    - name: Azure Data Lake Storage Gen1
       href: sql-data-warehouse-load-from-azure-data-lake-store.md
     - name: Azure Databricks
       href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
@@ -211,14 +225,14 @@
       href: analyze-your-workload.md    
   - name: Monitor and tune
     items:
-    - name: Restore - Portal
-      href: sql-data-warehouse-restore-database-portal.md
-    - name: Restore - PowerShell
-      href: sql-data-warehouse-restore-database-powershell.md
-    - name: Restore - REST API
-      href: sql-data-warehouse-restore-database-rest-api.md
+    - name: Monitor your workload
+      href: sql-data-warehouse-manage-monitor.md
     - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
+    - name: Monitor Gen2 cache
+      href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Restore your data warehouse
+      href: sql-data-warehouse-restore.md
     - name: Automate performance levels
       href: manage-compute-with-azure-functions.md
   - name: Integrate

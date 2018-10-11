@@ -37,7 +37,7 @@ Azure CDN global and Azure CDN China have the following features:
 
      - Four pricing tiers: Microsoft standard, Verizon standard, Verizon premium, and Akamai standard
 
-     - [Documentation](https://docs.microsoft.com/en-us/azure/cdn/)
+     - [Documentation](https://docs.microsoft.com/azure/cdn/)
 
 - Azure CDN China:
 
@@ -60,7 +60,7 @@ To learn more about Azure CDN China, see:
 
 - [Use the Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [Azure service availability in China](https://docs.microsoft.com/en-us/azure/china/china-get-started-service-availability)
+- [Azure service availability in China](https://docs.microsoft.com/azure/china/china-get-started-service-availability)
 
 
 

@@ -2,13 +2,12 @@
 title: Image storage in Azure Container Registry
 description: Details on how your Docker container images are stored in Azure Container Registry, including security, redundancy, and capacity.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: marsma
+ms.author: danlep
 ---
 
 # Container image storage in Azure Container Registry
@@ -39,7 +38,7 @@ The following table describes the container image and storage limits in place fo
 | Tags | No limit|
 | Storage | 5 TB |
 
-Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry maintenance routine. Deleted registry resources like repositories, images, and tags *cannot* be recovered after deletion.
+Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images as part of your registry maintenance routine. Deleted registry resources like repositories, images, and tags *cannot* be recovered after deletion. For more information about deleting registry resources, see [Delete container images in Azure Container Registry](container-registry-delete.md).
 
 ## Storage cost
 

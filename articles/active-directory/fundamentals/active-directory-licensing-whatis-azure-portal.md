@@ -1,15 +1,14 @@
 ---
-title: What is group-based licensing in Azure AD? | Microsoft Docs
-description: Description of Azure Active Directory group-based licensing, how it works and best practices
+title: What is group-based licensing in Azure Active Directory? | Microsoft Docs
+description: Learn about Azure Active Directory group-based licensing, including how it works and best practices.
 services: active-directory
 keywords: Azure AD licensing
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
+
 ms.service: active-directory
 ms.component: fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/13/2018
 ms.author: lizross
@@ -17,7 +16,7 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ---
 
-# Group-based licensing basics in Azure Active Directory
+# What is group-based licensing in Azure Active Directory?
 
 Microsoft paid cloud services, such as Office 365, Enterprise Mobility + Security, Dynamics 365, and other similar products, require licenses. These licenses are assigned to each user who needs access to these services. To manage licenses, administrators use one of the management portals (Office or Azure) and PowerShell cmdlets. Azure Active Directory (Azure AD) is the underlying infrastructure that supports identity management for all Microsoft cloud services. Azure AD stores information about license assignment states for users.
 

@@ -213,7 +213,7 @@
   items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/backup?view=azure-cli-latest
   - name: PowerShell
     href: /powershell/module/azurerm.recoveryservices.backup

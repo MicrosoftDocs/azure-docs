@@ -16,6 +16,12 @@ ms.author: anshan
 
 This article provides guidance for shaping JSON, to maximize the efficiency of your Azure Time Series Insights (TSI) queries.
 
+## Video: 
+
+### In this video, we cover best practices around shaping JSON to meet your storage needs.</br>
+
+> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
+
 ## Best practices
 
 It's important to think about how you send events to Time Series Insights. Namely, you should always:
