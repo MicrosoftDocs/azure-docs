@@ -46,7 +46,7 @@ Monitoring IoT resources to watch for outliers, threats, or resource parameters 
 
 ## Azure Active Directory best practices
 
-Azure Digital Twins enforces an [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow through Azure Active Directory to authenticate to downstream APIs. Familiar best practices for securely interacting with APIs through OAuth 2.0 apply here as well. A few key practices to secure your IoT space for Azure Active Directory include:
+Azure Digital Twins uses Azure Active Directory to authenticate users and protect applications. Azure Active Directory supports authentication for a variety of modern architectures, all of them based on industry-standard protocols such as OAuth 2.0 or OpenID Connect. A few key practices to secure your IoT space for Azure Active Directory include:
 
 > [!div class="checklist"]
 > * Store Azure Active Directory app and secret keys in a secure location such as [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
