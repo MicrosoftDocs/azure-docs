@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 09/19/2018
+ ms.date: 10/04/2018
  ms.author: tamram
  ms.custom: include file
 ---
@@ -18,5 +18,7 @@ As part of the preview, Azure Files also supports preserving, inheriting, and en
 
 > [!NOTE]
 > Azure AD authentication over SMB is not supported for Linux VMs for the preview release. Only Windows Server VMs are supported.
->
+
+> Azure AD authentication over SMB is not supported for on-prem machines accessing Azure Files using either AD or AAD credentials.
+
 > Azure AD authentication is available only for storage accounts created after September 24, 2018.

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 10/2/2018
 ms.author: victorh
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall in a hybrid network so that I can control access from an on-premise newtork to an Azure VNet.
 ---
@@ -171,11 +171,13 @@ $AzfwPrivateIP
 
 ### Configure network rules
 
+<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+   -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
+
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
-$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort *
+
 $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
@@ -299,6 +301,9 @@ Next, create a couple routes:
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
 
+> [!NOTE]
+> Azure Firewall learns your on-premise networks using BGP. This may include a default route, which will route Internet traffic back through your on-premise network. If instead you want Internet traffic to be sent directly from the firewall to the Internet, add a user-defined default route (0.0.0.0/0) on the AzureFirewallSubnet with next hop type **Internet**. Your on-premise destined traffic is still forced-tunneled through the VPN/ExpressRoute gateway using the more specific routes learned from BGP.
+
 ```azurepowershell
 #Create a route table
 $routeTableHubSpoke = New-AzureRmRouteTable `
@@ -395,8 +400,9 @@ Set-AzureRmVMExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
+```
 
-#Create a host firewall rule to allow ping in
+<!---#Create a host firewall rule to allow ping in
 Set-AzureRmVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -405,8 +411,8 @@ Set-AzureRmVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
-    -Location $Location1
-```
+    -Location $Location1--->
+
 
 ### Create the OnPrem virtual machine
 This is a simple virtual machine that you can connect to using Remote Desktop to the public IP address. From there, you can then connect to the OnPrem server through the firewall. When prompted, type a user name and password for the virtual machine.
@@ -429,10 +435,10 @@ $NIC.IpConfigurations.privateipaddress
 ```
 
 1. From the Azure portal, connect to the **VM-Onprem** virtual machine.
-2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
+<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
-   You should get a reply.
-1. Open a web browser on **VM-Onprem**, and browse to http://\<VM-spoke-01 private IP\>
+   You should get a reply.--->
+2. Open a web browser on **VM-Onprem**, and browse to http://\<VM-spoke-01 private IP\>
 
    You should see the Internet Information Services default page.
 
@@ -442,7 +448,7 @@ $NIC.IpConfigurations.privateipaddress
 
 So now you have verified that the firewall rules are working:
 
-- You can ping the server on the spoke VNet.
+<!---- You can ping the server on the spoke VNet.--->
 - You can browse web server on the spoke VNet.
 - You can connect to the server on the spoke VNet using RDP.
 

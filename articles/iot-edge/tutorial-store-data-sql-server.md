@@ -37,7 +37,7 @@ An Azure IoT Edge device:
 
 Cloud resources:
 
-* A free-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 
 Development resources:
 
@@ -206,7 +206,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    * Linux containers:
 
       ```json
-      "image": "microsoft/mssql-server-linux:2017-latest",
+      "image": "mcr.microsoft.com/mssql/server:latest",
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 

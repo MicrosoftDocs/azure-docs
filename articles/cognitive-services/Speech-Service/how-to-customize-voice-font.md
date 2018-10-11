@@ -16,12 +16,9 @@ To create your voice font, you make a studio recording and upload the associated
 
 You can get started with a small amount of data for a proof of concept. But the more data you provide, the more natural and professional your voice sounds.
 
-
 ## Prerequisites
 
-The **Text to Speech** voice customization feature is currently in private preview. [Fill out the application form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) to be considered for access.
-
-You also need an Azure account and a subscription to the Speech service. [Create one](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows:
+You need an Azure account and a subscription to the Speech service. [Create one](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as shown here.
 
 1. Sign in to the [Custom Voice portal](https://customvoice.ai) using the same Microsoft account that you used to apply for access.
 
@@ -31,7 +28,6 @@ You also need an Azure account and a subscription to the Speech service. [Create
 
 3. On the Subscriptions page, choose **Connect existing subscription**. Note that Speech Services supports different regions. Check the region where your subscription key was created, and make sure that you connect your key to the correct sub-portal.  
 
-     
 4. Paste your subscription key into the table, as shown in the following example. Each subscription has two keys, and you can use either of them.
 
      ![Add Subscription](media/custom-voice/add-subscription.png)
@@ -50,7 +46,7 @@ To create a voice for production use, we recommend you use a professional record
 
 ### Audio files
 
-Each audio file should contain a single utterance (for example, a single sentence or a single turn of a dialog system). All files must be in the same language. (Multilanguage custom voices are not supported.)The audio files must also each have a unique numeric filename with the filename extension `.wav`.
+Each audio file should contain a single utterance (for example, a single sentence or a single turn of a dialog system). All files must be in the same language. (Multilanguage custom voices are not supported.) The audio files must also each have a unique numeric filename with the filename extension `.wav`.
 
 Audio files should be prepared as follows. Other formats are unsupported and will be rejected.
 
@@ -69,7 +65,7 @@ Audio files should be prepared as follows. Other formats are unsupported and wil
 
 ### Transcripts
 
-The transcription file is a plain text file (ANSI,UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE). Each line of the transcription file must have the name of an audio file, followed by a tab (code point 9) character, and finally its transcript. No blank lines are allowed.
+The transcription file is a plain text file (ANSI, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE). Each line of the transcription file must have the name of an audio file, followed by a tab (code point 9) character, and finally its transcript. No blank lines are allowed.
 
 For example:
 
@@ -86,7 +82,7 @@ The custom voice system normalizes transcripts by converting the text to lowerca
 
 ## Upload your datasets
 
-After you prepre your audio file archive and transcripts, upload them via the [Custom Voice service portal](https://customvoice.ai).
+After you prepare your audio file archive and transcripts, upload them via the [Custom Voice service portal](https://customvoice.ai).
 
 > [!NOTE]
 > Datasets cannot be edited after they have been uploaded. If you forget to include transcripts of some of the audio files, for example, or accidentally choose the wrong gender, you must upload the entire dataset again. Check your dataset and settings thoroughly before starting the upload.

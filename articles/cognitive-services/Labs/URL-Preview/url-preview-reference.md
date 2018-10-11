@@ -1,14 +1,16 @@
 ---
-title: Project URL Preview reference - Microsoft Cognitive Services | Microsoft Docs
+title: Project URL Preview reference
+titlesuffix: Azure Cognitive Services
 description: Reference for Project URL Preview endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Project URL Preview v7 reference
