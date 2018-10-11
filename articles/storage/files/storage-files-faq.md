@@ -4,7 +4,7 @@ description: Find answers to frequently asked questions about Azure Files.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 09/11/2018
+ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
 ---
@@ -144,7 +144,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Why do tiered files exist outside of the server endpoint namespace?**  
-    Prior to Azure File Sync agent version 3, Azure File Sync blocked the move of tiered files outside the server endpoint but on the same volume as the server endpoint. Copy operations, moves of non-tiered files, and moves of tiered to other volumes were unaffected. The reason for this behavior was the implicit assumption that File Explorer and other Windows APIs have that move operations on the same volume are (nearly) instanenous rename operations. This means moves will make File Explorer or other move methods (such as command line or PowerShell) appear unresponsive while Azure File Sync recalls the data from the cloud. Starting with [Azure File Sync agent version 3.0.12.0](storage-files-release-notes.md#agent-version-30120), Azure File Sync will allow you to move a tiered file outside of the server endpoint. We avoid the negative effects previously mentioned by allowing the tiered file to exist as a tiered file outside of the server endpoint and then recalling the file in the background. This means that moves on the same volume are instaneous, and we do all the work to recall the file to disk after the move has completed. 
+    Prior to Azure File Sync agent version 3, Azure File Sync blocked the move of tiered files outside the server endpoint but on the same volume as the server endpoint. Copy operations, moves of non-tiered files, and moves of tiered to other volumes were unaffected. The reason for this behavior was the implicit assumption that File Explorer and other Windows APIs have that move operations on the same volume are (nearly) instanenous rename operations. This means moves will make File Explorer or other move methods (such as command line or PowerShell) appear unresponsive while Azure File Sync recalls the data from the cloud. Starting with [Azure File Sync agent version 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync will allow you to move a tiered file outside of the server endpoint. We avoid the negative effects previously mentioned by allowing the tiered file to exist as a tiered file outside of the server endpoint and then recalling the file in the background. This means that moves on the same volume are instaneous, and we do all the work to recall the file to disk after the move has completed. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc). Should I remove and recreate my server endpoint?**  
@@ -152,8 +152,11 @@ This article answers common questions about Azure Files features and functionali
     
 * <a id="afs-resource-move"></a>
 **Can I move the storage sync service and/or storage account to a different resource group or subscription?**  
-   Yes, the storage sync service and/or storage account can be moved to a different resource group or subscription. If the storage account is moved, you need to give the Hybrid File Sync Service access to the storage account (see [Ensure Azure File Sync has access to the storage account](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+   Yes, the storage sync service and/or storage account can be moved to a different resource group or subscription within the existing Azure AD tenant. If the storage account is moved, you need to give the Hybrid File Sync Service access to the storage account (see [Ensure Azure File Sync has access to the storage account](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
+    > [!Note]  
+    > Azure File Sync does not support moving the subscription to a different Azure AD tenant.
+    
 * <a id="afs-ntfs-acls"></a>
 **Does Azure File Sync preserve directory/file level NTFS ACLs along with data stored in Azure Files?**
 
@@ -174,7 +177,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-support-regions"></a>
 **Is the preview of Azure AD over SMB for Azure Files available in all Azure regions?**
 
-    The preview is available in all public regions except for: West US, West US 2, South Central US, East US, East US 2, Central US, North Central US, East Australia, West Europe, North Europe.
+    The preview is available in all public regions except for: West US, South Central US, Central US, West Europe, North Europe.
 
 * <a id="ad-support-on-premises"></a>
 **Does Azure AD authentication over SMB for Azure Files (Preview) support authentication using Azure AD from on-premises machines?**

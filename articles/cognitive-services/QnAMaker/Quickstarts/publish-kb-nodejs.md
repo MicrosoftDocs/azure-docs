@@ -7,7 +7,7 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: diberry
@@ -87,7 +87,7 @@ Build and run the program. It will automatically send the request to the QnA Mak
 Once your knowledge base is published, you can query it from the endpoint with a client application or chat bot. 
 
 ```bash
-npm start
+node publish-knowledge-base.js
 ```
 
 ## Next steps
