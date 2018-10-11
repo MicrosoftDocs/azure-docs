@@ -27,7 +27,7 @@ Microsoft AppSource and Azure Marketplace customers use in-product experiences t
 
 - Faster engagement and an optimized customer experience
 - Single sign-on (SSO) for millions of enterprise users
-- Consistent sign-in experience across applications published by different partners
+- Consistent, sign-in experience across applications published by different partners
 - Scalable, cross-platform authentication for mobile and cloud apps
 
 ## Offers that require Azure AD implementation
@@ -44,21 +44,21 @@ Certain AppSource and Azure Marketplace offers must implement Azure AD Single si
 | Containers  | N/A | N/A | N/A | No |
 | Consulting Services  | No | N/A | N/A | N/A |
 
-For more information about SaaS technical requirements, view [SaaS applications Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
+For more information about SaaS technical requirements, see [SaaS applications Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 ## Azure AD integration
 
-- Refer to [Azure Active Directory for developers]( https://aka.ms/aaddev) for information on how to enable single sign-on by integrating Azure AD into your listing.
-- Go to [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) to get details about Azure AD single sign-on.
+- For information on how to enable single sign-on by integrating Azure AD into your listing, see [Azure Active Directory for developers]( https://aka.ms/aaddev).
+- To get details about Azure AD single sign-on, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Enable a trial listing with Azure AD
 
-Automated customer set up can increase the likelihood of conversion. When your customer selects your trial listing and is redirected to your trial environment:
+Automated customer setup can increase the likelihood of conversion. When your customer selects your trial listing and is redirected to your trial environment, the follow actions occur:
 
 - Azure AD lets you set up the customer directly without requiring additional sign-in steps.
 - During authentication, Azure AD sends a token to your app or offer.
   - The user information provided by the token enables the creation of a user account in your app or offer. 
-  - Refer to [Sample tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) for more information about the token sent from Azure AD during authentication.
+  - For more information about the token sent from Azure AD during authentication, see [Sample tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
 
 When you use Azure AD to enable one-click authentication in your app or trial listing, you:
 
@@ -69,13 +69,12 @@ When you use Azure AD to enable one-click authentication in your app or trial li
 
 ## Verify Azure AD integration
 
-**For multitentant solutions**, you can test Azure AD integration by performing the following actions.
+**For multitentant solutions**, you can test Azure AD integration by following these steps:
 
 1. Register your app in one of marketplace storefronts. View [App registration](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) or [AppSource certification](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified) for more information.
 1. Enable the multitenancy support feature in Azure AD to get a one-click trial experience.
 
-
-If you are new to using Azure AD federated single sign-on, complete these steps:
+If you're new to using Azure AD federated single sign-on, take these steps:
 
 1. Register your app in the marketplace.
 1. Develop SSO with Azure AD by using [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) or [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
@@ -90,5 +89,5 @@ If you are new to using Azure AD federated single sign-on, complete these steps:
 
 ## Next steps
 
-- Make sure you have [registered in Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- Make sure you've [registered in Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 - Sign in to [Cloud Partner Portal](https://cloudpartner.azure.com/) to create or complete your offer.
