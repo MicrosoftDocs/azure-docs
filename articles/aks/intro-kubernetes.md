@@ -21,7 +21,7 @@ To get started, complete the AKS quickstart [in the Azure portal][aks-portal] or
 
 ## Access, security, and monitoring
 
-For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access controls. You can also the monitor the health of your cluster and resources.
+For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access controls. You can also monitor the health of your cluster and resources.
 
 ### Identity and security management
 
