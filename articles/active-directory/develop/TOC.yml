@@ -85,7 +85,7 @@
           href: v1-protocols-oauth-code.md
         - name: OAuth 2.0 on-behalf-of flow
           href: v1-oauth2-on-behalf-of-flow.md
-        - name: OAuth 2.0 client credentails grant
+        - name: OAuth 2.0 client credentials grant
           href: v1-oauth2-client-creds-grant-flow.md
       - name: SAML 2.0 protocol
         items:
@@ -301,7 +301,7 @@
           href: v2-oauth2-auth-code-flow.md
         - name: OAuth 2.0 on-behalf-of flow
           href: v2-oauth2-on-behalf-of-flow.md
-        - name: OAuth 2.0 client credentails grant
+        - name: OAuth 2.0 client credentials grant
           href: v2-oauth2-client-creds-grant-flow.md
       - name: ID tokens
         href: id-tokens.md

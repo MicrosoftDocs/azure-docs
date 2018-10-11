@@ -25,7 +25,7 @@ For improved security and management, AKS lets you integrate with Azure Active D
 
 ### Identity and security management
 
-To limit access to cluster resources, AKS supports [Kubernetes role-based access control (RBAC)][kubernetes-rbac]. RBAC lets you control how can access Kubernetes resources and namespaces, and what permissions that have on those resources. You can also configure an AKS cluster to integrate with Azure Active Directory (AD). With Azure AD integration, Kubernetes access can be configured based on existing identity and group membership. Your existing Azure AD users and groups can be provided access to AKS resources and with an integrated sign-on experience.
+To limit access to cluster resources, AKS supports [Kubernetes role-based access control (RBAC)][kubernetes-rbac]. RBAC lets you control access to Kubernetes resources and namespaces, and permissions to those resources. You can also configure an AKS cluster to integrate with Azure Active Directory (AD). With Azure AD integration, Kubernetes access can be configured based on existing identity and group membership. Your existing Azure AD users and groups can be provided access to AKS resources and with an integrated sign-on experience.
 
 To secure your AKS clusters, see [Integrate Azure Active Directory with AKS][aks-aad].
 
