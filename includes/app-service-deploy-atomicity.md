@@ -16,4 +16,4 @@ All the officially supported deployment methods have one thing in common: they m
 
 - Stop your app or enable offline mode for your app during deployment. For more information, see [Dealing with locked files during deployment](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
 - Deploy to a [staging slot](../articles/app-service/web-sites-staged-publishing.md) with [auto swap](../articles/app-service/web-sites-staged-publishing.md#configure-auto-swap) enabled. 
-- Use [Run-from-Zip](https://github.com/Azure/app-service-announcements/issues/84) instead.
+- Use [Run From Package](https://github.com/Azure/app-service-announcements/issues/84) instead.
