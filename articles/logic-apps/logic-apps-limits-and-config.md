@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 10/11/2018
 ---
 
 # Limits and configuration information for Azure Logic Apps

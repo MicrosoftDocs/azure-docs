@@ -10,7 +10,7 @@ ms.reviewer: klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 08/24/2018
+ms.date: 10/11/2018
 ---
 
 # Monitor, create, and manage SFTP files by using Azure Logic Apps
