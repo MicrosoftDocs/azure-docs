@@ -29,9 +29,6 @@ Currently, the following Bing Speech client libraries are available:
 - [Java library for Android](GetStartedJavaAndroid.md)
 - [Objective-C library for iOS](Get-Started-ObjectiveC-iOS.md)
 
-> [!NOTE] 
-In May 2018, we also released the new [Speech Service](../../speech-service/index.yml) in public preview. We encourage you to [try it out for free](../../speech-service/get-started.md). 
-
 ## Additional resources
 
 - The [samples](../samples.md) page provides complete samples to use Speech client libraries.

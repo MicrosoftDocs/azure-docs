@@ -21,9 +21,6 @@ The cloud-based Microsoft Bing Speech API provides developers an easy way to cre
 - **Speech to Text** API converts human speech to text that can be used as input or commands to control your application.
 - **Text to Speech** API converts text to audio streams that can be played back to the user of your application.
 
-> [!NOTE] 
-> Since September 2018, the new Speech service has become generally available. We encourage you to [try it out for free](../speech-service/get-started.md).
-
 ## Speech to text (speech recognition)
 
 Microsoft speech recognition API *transcribes* audio streams into text that your application can display to the user or act upon as command input. It provides two ways for developers to add Speech to their apps: REST APIs **or** Websocket-based client libraries.
