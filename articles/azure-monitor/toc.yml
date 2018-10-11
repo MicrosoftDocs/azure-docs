@@ -186,7 +186,7 @@
       items:
       - name: Agent comparison
         href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
-      - name: Log store agents  
+      - name: Log Analytics agents  
         items:
         - name: Windows agents
           href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
