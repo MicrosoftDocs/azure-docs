@@ -45,7 +45,7 @@ An Azure IoT Edge device:
 
 Cloud resources:
 
-* A free-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 
 
 ## Create an Azure Stream Analytics job
