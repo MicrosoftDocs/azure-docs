@@ -69,17 +69,17 @@ VMs running in a cloud service are also supported. Only cloud services web and w
 |Server|Windows||Linux||
 |----|----|----|----|----|
 |Environment|Azure|Non-Azure|Azure|Non-Azure|
-|VMBA Threat detection alerts|✔|✔|✔ (on supported versions)|✔|
+|VMBA threat detection alerts|✔|✔|✔ (on supported versions)|✔|
 |Network based threat detection alerts|✔|X|✔|X|
-|WDATP integration|V (on supported versions)|✔|X|X|
+|Windows Defender ATP integration|V (on supported versions)|✔|X|X|
 |Missing patches|✔|✔|✔|✔|
 |Security configurations|✔|✔|✔|✔|
 |Anti-malware|✔|✔|X|X|
-|JIT VM Access|✔|X|✔|X|
+|JIT VM access|✔|X|✔|X|
 |Adaptive application controls|✔ (only Azure)|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Disk encryption|✔|X|✔|X|
-|3rd parties deployment|✔|X|✔|X|
+|Third party deployment|✔|X|✔|X|
 |NSGs|✔|X|✔|X|
 |Filess V1|✔|✔|X|X|
 |Filess V2|✔|✔|✔|✔|
