@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/10/2018
 ---
 # Supported Azure Database for MySQL server versions
-Azure Database for MySQL has been developed from [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB engine.  Azure Database for MySQL currently supports the following versions:
+Azure Database for MySQL has been developed from [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB engine. Azure Database for MySQL currently supports the following versions:
 
 ## MySQL Version 5.6.39
 Refer to the MySQL [documentation](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html) to learn more about improvements and fixes in MySQL 5.6.39.
