@@ -193,7 +193,7 @@ The **HTTP 202** response also includes a **Location** response header that refe
 
 You can also query all instances status. Remove the `instanceId` from the 'Get instance status' request. The parameters are the same as the 'Get instance status.' 
 
-One thing to remember is taht connection and code are optional. If you have anonymous auth on the function then code isn't required.
+One thing to remember is that `connection` and `code` are optional. If you have anonymous auth on the function then code isn't required.
 If you don't want to use a different blob storage connection string other than defined in the AzureWebJobsStorage app setting, then you can safely ignore the connection query string parameter.
 
 #### Request
