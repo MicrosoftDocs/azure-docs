@@ -40,7 +40,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to set up an experiment and operationalize your models.'
+    text: '<b>Tutorials</b>: Learn how to set up an experiment and operationalize your models.'
   - type: list
     style: unordered
     items:
@@ -48,7 +48,7 @@ sections:
     - html: <a href="tutorial-auto-train-models">Let us auto-generate and auto-tune a model for you</a>
     - html: <a href="tutorial-deploy-models-with-aml">Deploy a model as a web service</a>
   - type: paragraph
-    text: Explore Azure Machine Learning with <a href="http://aka.ms/aml-notebooks">these Jupyter notebooks.</a>
+    text: <b>Sample notebooks</b>: Explore Azure Machine Learning with <a href="http://aka.ms/aml-notebooks">these Jupyter notebooks.</a>
 
 - title: Reference
   items:
