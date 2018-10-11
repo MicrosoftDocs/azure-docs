@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 8/21/2018
+ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
 ---
@@ -53,7 +53,8 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Data Factory | [Monitor Data Factories using Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| DB for PostgreSQL |  Schema not available. |
+| DB for MySQL | [Azure Database for MySQL diagnostic logs](../mysql/concepts-server-logs.md#diagnostic-logs) |
+| DB for PostgreSQL | [Azure Database for PostgreSQL diagnostic logs](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
 | Azure Firewall | Schema not available. |
@@ -98,6 +99,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
 |Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
 |Microsoft.DataLakeStore/accounts|Requests|Request Logs|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL slow query logs|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL Server Logs|
 |Microsoft.Devices/IotHubs|Connections|Connections|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Device Telemetry|
