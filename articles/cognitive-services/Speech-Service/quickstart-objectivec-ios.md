@@ -8,7 +8,7 @@ author: chlandsi
 ms.service: cognitive-services
 ms.component: Speech
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: chlandsi
 ---
 
@@ -27,7 +27,7 @@ In this article, you learn how to create an iOS app in Objective-C using the Cog
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.0.0`.
+The current version of the Cognitive Services Speech SDK is `1.0.1`.
 
 The Cognitive Services Speech SDK for Mac and iOS is currently distributed as a Cocoa Framework.
 It can be downloaded from https://aka.ms/csspeech/iosbinary. Download the file to your home directory.
