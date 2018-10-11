@@ -83,4 +83,4 @@ The Azure Stack Windows VMs can now be included in scheduled update deployments 
 If you have a large number of Azure Stack Windows VMs, you can use [this ARM template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) to deploy the solution on all the VMs.
  
 ## Next steps
-[Download the ASDK deployment package](asdk-download.md)
+[Optimize SQL Server performance](azure-stack-sql-server-vm-considerations.md)
