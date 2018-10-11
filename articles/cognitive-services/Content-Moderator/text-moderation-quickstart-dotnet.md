@@ -160,13 +160,13 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
     using (var client = Clients.NewClient())
     {
         // Screen the input text: check for profanity, classify the text into three categories,
-                // do autocorrect text, and check for personally identifying
-                // information (PII)
-                outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
-                var screenResult =
-                client.TextModeration.ScreenText("eng", "text/plain", text, true, true, null, true);
-                outputWriter.WriteLine(
-                        JsonConvert.SerializeObject(screenResult, Formatting.Indented));
+		// do autocorrect text, and check for personally identifying
+		// information (PII)
+		outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
+		var screenResult =
+		client.TextModeration.ScreenText("eng", "text/plain", text, true, true, null, true);
+		outputWriter.WriteLine(
+				JsonConvert.SerializeObject(screenResult, Formatting.Indented));
     }
     outputWriter.Flush();
     outputWriter.Close();
@@ -185,9 +185,9 @@ The sample output for the program, as written to the log file, is:
 Autocorrect typos, check for matching terms, PII, and classify.
 {
 "OriginalText": "\"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).\"",
-  "NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
-  "AutoCorrectedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
-  "Misrepresentation": null,
+"NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
+"AutoCorrectedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
+"Misrepresentation": null,
   	
 "Classification": {
     	"Category1": {
