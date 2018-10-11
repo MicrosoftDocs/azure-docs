@@ -11,7 +11,7 @@ ms.date: 09/20/2018
 ---
 
 # Create Azure App Service web apps by using Ansible (preview)
-[The Web Apps feature of Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)  (or just Web Apps) hosts web applications, REST APIs, and mobile back ends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
+[The Web Apps feature of Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview) hosts web applications, REST APIs, and mobile back ends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
 
 Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create a web app by using the Java runtime. 
 

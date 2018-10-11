@@ -25,7 +25,7 @@ This quickstart shows you how use Ansible to create an Azure Database for MySQL 
 ## Create a resource group
 A resource group is a logical container in which Azure resources are deployed and managed.  
 
-The following example creates a resource group named **myResourceGroup** in the **eastus** location.
+The following example creates a resource group named **myResourceGroup** in the **eastus** location:
 
 ```yml
 - hosts: localhost
@@ -47,7 +47,7 @@ ansible-playbook rg.yml
 ## Create a MySQL server and database
 The following example creates a MySQL server named **mysqlserveransible** and an Azure Database for MySQL instance named **mysqldbansible**. This is a Gen 5 Basic Purpose server with one vCore. 
 
-The value of **mysqlserver_name** must be unique. To understand the valid values per region and per tier, see the [pricing tiers documentation](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers). Replace `<server_admin_password>` with a password:
+The value of **mysqlserver_name** must be unique. To understand the valid values per region and per tier, see the [pricing tiers documentation](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers). Replace `<server_admin_password>` with a password.
 
 ```yml
 - hosts: localhost
@@ -116,7 +116,7 @@ Enter your own values for **startIpAddress** and **endIpAddress**. Use the range
 > Connections to Azure Database for MySQL communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. In that case, you can't connect to your server unless your IT department opens port 3306.
 > 
 
-Here the **azure_rm_resource** module is used to perform this task. It allows direct use of the REST API.
+Here, the **azure_rm_resource** module is used to perform this task. It allows direct use of the REST API.
 
 Save the preceding playbook as **mysql_firewall.yml**. To run the playbook, use the **ansible-playbook** command as follows:
 ```bash
