@@ -34,7 +34,7 @@ Before you can create applications or users, you need an Azure AD B2C tenant. If
 After you have a B2C tenant, you need to register your application using the [Azure portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> To use the Graph API with your B2C tenant, you need to register an application using the *App Registrations* service in the Azure portal, **NOT** Azure AD B2C's *Applications* menu. The following instructions lead you to the appropropriate menu. You can't reuse existing B2C applications that you registered in the Azure AD B2C's *Applications* menu.
+> To use the Graph API with your B2C tenant, you need to register an application using the *App Registrations* service in the Azure portal, **NOT** Azure AD B2C's *Applications* menu. The following instructions lead you to the appropriate menu. You can't reuse existing B2C applications that you registered in the Azure AD B2C's *Applications* menu.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD B2C tenant by selecting your account in the top right corner of the page.

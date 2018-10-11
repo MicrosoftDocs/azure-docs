@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/09/2018
 ms.author: tamram
 ms.component: common
 ---
@@ -30,8 +30,7 @@ Keep in mind the following points about the preview:
     - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage)
     - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
     - Python
-        - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/)
-        - [Queue](https://github.com/Azure/azure-storage-python/releases/tag/)
+        - [Blob, Queue and Files](https://github.com/Azure/azure-storage-python)
     - [Node.js](https://www.npmjs.com/package/azure-storage)
     - [JavaScript](https://aka.ms/downloadazurestoragejs)
 

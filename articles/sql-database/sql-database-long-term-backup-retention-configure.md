@@ -7,6 +7,7 @@ ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
