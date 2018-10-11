@@ -15,8 +15,7 @@ ms.reviewer: michmcla
 
 ---
 # How to require two-step verification for a user
-
-You can take one of two approaches for requiring two-step verification. The first option is to enable each user for Azure Multi-Factor Authentication (MFA). When users are enabled individually, they perform two-step verification each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remembered devices_ feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.
+You can take one of two approaches for requiring two-step verification, both of which require using a global administrator account. The first option is to enable each user for Azure Multi-Factor Authentication (MFA). When users are enabled individually, they perform two-step verification each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remembered devices_ feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.
 
 > [!TIP]
 > Choose one of these methods to require two-step verification, not both. Enabling a user for Azure Multi-Factor Authentication overrides any conditional access policies.
