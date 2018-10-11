@@ -40,7 +40,7 @@ Consult with SAP HANA on the classic deployment model. If they advise you to inc
 
 ## Add an additional ExpressRoute circuit
 
-Consult with SAP HANA on the classic deployment model. If they advise you to add an additional ExpressRoute circuit, create an Azure support request (including a request to get authorization information to connect to the new circuit). The address space that is going be used on the virtual networks must be defined before making the request, in order for SAP HANA on the classic deployment model to provide authorization.
+Consult with SAP HANA on the classic deployment model. If they advise you to add an additional ExpressRoute circuit, create an Azure support request (including a request to get authorization information to connect to the new circuit). The address space used on the virtual networks must be defined before making the request, in order for SAP HANA on the classic deployment model to provide authorization.
 
 When the new circuit is created, and the SAP HANA on the classic deployment model configuration is complete, you receive a notification with the information you need to proceed. You are not able to connect Azure virtual networks to this additional circuit if they are already connected to another SAP HANA on Azure (large instance) ExpressRoute circuit in the same Azure region.
 
