@@ -37,31 +37,31 @@ The following table describes the different statuses that are possible for a job
 | Failed, waiting for resources |The job failed because it reached the [fair share](#fair-share) limit three times and started from the same checkpoint or from the start of the runbook each time. |
 | Queued |The job is waiting for resources on an Automation worker to come available so that it can be started. |
 | Starting |The job has been assigned to a worker, and the system is starting it. |
-| Resuming |The system is in the process of resuming the job after it was suspended. |
+| Resuming |The system is resuming the job after it was suspended. |
 | Running |The job is running. |
 | Running, waiting for resources |The job has been unloaded because it reached the [fair share](#fair-share) limit. It resumes shortly from its last checkpoint. |
 | Stopped |The job was stopped by the user before it was completed. |
 | Stopping |The system is stopping the job. |
-| Suspended |The job was suspended by the user, by the system, or by a command in the runbook. If a runbook doesn't have a point it starts from the beginning of the runbook. If it has a checkpoint, it can start again and resume from its last checkpoint. The runbook is only be suspended by the system when an exception occurs. By default, ErrorActionPreference is set to **Continue**, meaning that the job keeps running on an error. If this preference variable is set to **Stop**, then the job suspends on an error. Applies to [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. |
+| Suspended |The job was suspended by the user, by the system, or by a command in the runbook. If a runbook doesn't have a checkpoint, it starts from the beginning of the runbook. If it has a checkpoint, it can start again and resume from its last checkpoint. The runbook is only be suspended by the system when an exception occurs. By default, ErrorActionPreference is set to **Continue**, meaning that the job keeps running on an error. If this preference variable is set to **Stop**, then the job suspends on an error. Applies to [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. |
 | Suspending |The system is trying to suspend the job at the request of the user. The runbook must reach its next checkpoint before it can be suspended. If it already passed its last checkpoint, then it completes before it can be suspended. Applies to [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. |
 
 ## Viewing job status from the Azure portal
 
-You can view a summarized status of all runbook jobs or drill into details of a specific runbook job in the Azure portal or by configuring integration with your Log Analytics workspace to forward runbook job status and job streams. For more information about integrating with Log Analytics, see [Forward job status and job streams from Automation to Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+You can view a summarized status of all runbook jobs or drill into details of a specific runbook job in the Azure portal. You can also configuring integration with your Log Analytics workspace to forward runbook job status and job streams. For more information about integrating with Log Analytics, see [Forward job status and job streams from Automation to Log Analytics](automation-manage-send-joblogs-log-analytics.md).
 
 ### Automation runbook jobs summary
 
-On the right of your selected Automation account, you can see a summary of all of the runbook jobs for a selected Automation account under **Job Statistics** tile.
+On the right of your selected Automation account, you can see a summary of all of the runbook jobs under **Job Statistics** tile.
 
 ![Job Statistics tile](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 This tile displays a count and graphical representation of the job status for all jobs executed.
 
-Clicking on the tile presents the **Jobs** page, which includes a summarized list of all jobs executed, with status, job execution, and start and completion times.
+Clicking on the tile presents the **Jobs** page, which includes a summarized list of all jobs executed. This page shows the status, start times, and completion times.
 
 ![Automation account Jobs page](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
 
-You can filter the list of jobs by selecting **Filter jobs**  and filter on a specific runbook, job status, or from the drop-down list, the date/time range to search within.
+You can filter the list of jobs by selecting **Filter jobs**  and filter on a specific runbook, job status, or from the drop-down list, and the time range to search within.
 
 ![Filter Job status](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
@@ -141,8 +141,7 @@ If the runbook has no checkpoints or the job had not reached the first checkpoin
 
 For long running tasks, it is recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers are not limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers.
 
-
-If you are using a PowerShell Workflow runbook on Azure, when you create a runbook, you should ensure that the time to run any activities between two checkpoints does not exceed three hours. You may need to add checkpoints to your runbook to ensure that it does not reach this three-hour limit or break up long running operations. For example, your runbook might perform a reindex on a large SQL database. If this single operation does not complete within the fair share limit, then the job is unloaded and restarted from the beginning. In this case, you should break up the reindex operation into multiple steps, such as reindexing one table at a time, and then insert a checkpoint after each operation so that the job could resume after the last operation to complete.
+If you are using a PowerShell Workflow runbook on Azure, when you create a runbook, you should make sure the time to run any activities between two checkpoints does not exceed three hours. You may need to add checkpoints to your runbook to make sure it does not reach this three-hour limit or break up long running operations. For example, your runbook might run a reindex on a large SQL database. If this single operation does not complete within the fair share limit, then the job is unloaded and restarted from the beginning. In this case, you should break up the reindex operation into multiple steps, such as reindexing one table at a time, and then insert a checkpoint after each operation so the job could resume after the last operation to complete.
 
 ## Next steps
 
