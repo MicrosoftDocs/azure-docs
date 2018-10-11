@@ -33,7 +33,7 @@
     href: concepts-device-ingress.md
   - name: Data Processing and User-Defined Functions
     href: concepts-user-defined-functions.md 
-  - name: Event and Message Routing to Service Endpoints
+  - name: Routing events and messages
     href: concepts-events-routing.md 
   - name: Public preview service limits
     href: concepts-service-limits.md 
