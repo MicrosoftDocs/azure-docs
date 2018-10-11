@@ -18,7 +18,6 @@ You can use Azure Blockchain Workbench to create blockchain applications that re
 
 You learn how to:
 
-> [!div class="checklist"]
 > * Configure a blockchain application
 > * Create a smart contract code file
 > * Add a blockchain application to Blockchain Workbench
