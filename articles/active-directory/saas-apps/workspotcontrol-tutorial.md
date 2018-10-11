@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 10/11/2018
 ms.author: jeedes
 
 ---
@@ -109,17 +109,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.workspot.com/saml/metadata`
+    `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.workspot.com/saml/assertion`
+    `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
 
     c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	 ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.workspot.com/`
+    `https://<INSTANCENAME>-saml.workspot.com/`
 
     > [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Workspot Control Client support team](mailto:support@workspot.com) to get these values. 
