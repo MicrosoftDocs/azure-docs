@@ -50,11 +50,11 @@ Azure Digital Twins uses Azure Active Directory to authenticate users and protec
 
 > [!div class="checklist"]
 > * Store Azure Active Directory app secrets and keys in a secure location such as [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
-> * Use trusted [Certificate Authorities](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) rather than app secrets to authenticate.
+> * Use a certificate issued by a trusted [Certificate Authorities](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) rather than app secrets to authenticate.
 > * Limit OAuth 2.0 scope of access for a token.
-> * Verifying the length of time a token is valid and whether a token remains valid.
-> * Setting appropriate lengths of time that tokens are valid for.
-> * Refreshing expired tokens.
+> * Verify the length of time a token is valid and whether a token remains valid.
+> * Set appropriate lengths of time that tokens are valid for.
+> * Refresh expired tokens.
 
 ## Role-Based Access Control best practices
 
