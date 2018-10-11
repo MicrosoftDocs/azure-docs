@@ -18,11 +18,11 @@ ms.author: shlo
 ---
 # How to read or write partitioned data in Azure Data Factory
 
-In version 1, Azure Data Factory supported reading or writing partitioned data by using the **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd** system variables. In the current version of Data Factory, you can achieve this behavior by using a pipeline parameter and a trigger's start time or scheduled time as a value of the parameter. 
+In Azure Data Factory version 1, you can read or write partitioned data by using the **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd** system variables. In the current version of Data Factory, you can do this by using a pipeline parameter and a trigger's start time or scheduled time as a value of the parameter. 
 
 ## Use a pipeline parameter 
 
-In version 1, you could use the **partitionedBy** property and **SliceStart** system variable as shown in the following example: 
+In Data Factory version 1, you can use the **partitionedBy** property and **SliceStart** system variable as shown in the following example: 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -33,13 +33,13 @@ In version 1, you could use the **partitionedBy** property and **SliceStart** sy
 ],
 ```
 
-For more information about the **partitonedBy** property, see [Copy data to or from Azure Blob Storage by using Azure Data Factory](v1/data-factory-azure-blob-connector.md#dataset-properties). 
+For more information about the **partitonedBy** property, see [Copy data to or from Azure Blob storage by using Azure Data Factory](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-In the current version of Data Factory, you can achieve this behavior by completing the following steps: 
+To do this in the current version of Data Factory: 
 
 1. Define a *pipeline parameter* of type **string**. In the following example, the name of the pipeline parameter is **windowStartTime**. 
 2. Set **folderPath** in the dataset definition to reference the value of the pipeline parameter. 
-3. Pass the actual value for the parameter when you invoke the pipeline on demand or pass a trigger's start time or scheduled time dynamically at runtime. 
+3. Pass the actual value for the parameter when you invoke the pipeline on demand. You can also pass a trigger's start time or scheduled time dynamically at runtime. 
 
 ```json
 "folderPath": {
