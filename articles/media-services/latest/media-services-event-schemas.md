@@ -116,8 +116,6 @@ Where the Job state can be one of the values: *Queued*, *Scheduled*, *Processing
 
 The Job was scheduled. 
 
-The data object has the following properties:
-
 ### Microsoft.Media.JobProcessing
 
 The Job is processing. 
