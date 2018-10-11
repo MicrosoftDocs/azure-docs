@@ -72,12 +72,14 @@ You can now stream events from your applications that use the Kafka protocol int
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
+    
 4. Run the producer code and stream into Kafka-enabled Event Hubs:
    
     ```shell
     mvn clean package
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
+    
 5. Navigate to `azure-event-hubs/samples/kafka/quickstart/consumer`.
 
 6. Update the configuration details for the consumer in `src/main/resources/consumer.config` as follows:

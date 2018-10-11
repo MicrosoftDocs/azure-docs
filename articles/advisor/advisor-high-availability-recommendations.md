@@ -78,7 +78,7 @@ Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob
 For more information about Advisor recommendations, see:
 * [Introduction to Azure Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-performance-recommendations.md)
+* [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
 
