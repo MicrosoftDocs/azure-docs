@@ -11,7 +11,6 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
 ms.date: 09/21/2017
-#Customer intent: As a Java developer, I want use the Custom Vision API to add image classification to my app.
 ---
 
 # Tutorial: Computer Vision API Java

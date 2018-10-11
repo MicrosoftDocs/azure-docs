@@ -10,7 +10,6 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: v-deken
-#Customer intent: As a Windows developer, I want use the Custom Vision API to add image classification to my app.
 ---
 
 # Tutorial: Build an image processing app - C&#35;

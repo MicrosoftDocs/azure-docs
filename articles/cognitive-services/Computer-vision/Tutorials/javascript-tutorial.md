@@ -11,7 +11,6 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-#Customer intent: As a JavaScript developer, I want use the Custom Vision API to add image classification to my app.
 ---
 
 # Tutorial: Computer Vision API JavaScript

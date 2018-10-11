@@ -11,7 +11,6 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 02/25/2017
 ms.author: kefre
-#Customer intent: As a Python developer, I want use the Custom Vision API to add image classification to my app.
 ---
 
 # Tutorial: Computer Vision API Python
