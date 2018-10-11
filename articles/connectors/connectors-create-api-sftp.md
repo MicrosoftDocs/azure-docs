@@ -40,7 +40,7 @@ If you're new to logic apps, review
 > For files larger than 50 MB and up to 1 GB, 
 > use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
 > The SFTP connector supports only files that are 50 MB or smaller 
-> unless you use [chunking for handling large messages](../logic-apps/handle-large-messages.md). 
+> unless you use [chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## Prerequisites
 
