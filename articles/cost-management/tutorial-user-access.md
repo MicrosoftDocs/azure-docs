@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Assign access in Azure Cost Management | Microsoft Docs
-description: In this tutorial you learn how to assign access to cost management data with user accounts that define access levels to entities.
+title: Tutorial - Assign access with Cloudyn in Azure | Microsoft Docs
+description: In this tutorial you learn how to assign access to Cloudyn data with user accounts that define access levels to entities.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 07/10/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:
@@ -13,13 +13,13 @@ manager: dougeby
 ---
 
 
-# Tutorial: Assign access to cost management data
+# Tutorial: Assign access to Cloudyn data
 
-Access to cost management data is provided by user or entity management. Cloudyn user accounts determine access to *entities* and administrative functions. There two types of access: admin and user. Unless modified per user, admin access allows a user unrestricted use of all functions in the Cloudyn portal, including: user management, recipient lists management and root entity access to all entity data. User access is intended for end users to view reports and create reports using the access they have to entity data.
+Access to Cloudyn data is provided by user or entity management. Cloudyn user accounts determine access to *entities* and administrative functions. There two types of access: admin and user. Unless modified per user, admin access allows a user unrestricted use of all functions in the Cloudyn portal, including: user management, recipient lists management and root entity access to all entity data. User access is intended for end users to view reports and create reports using the access they have to entity data.
 
 Entities are used to reflect your business organization's hierarchical structure. They identify departments, divisions, and teams in your organization in Cloudyn. The entity hierarchy helps you accurately track spending by the entities.
 
-When you registered your Azure agreement or account, an account with admin permission was created in Cloudyn, so you can perform all the steps in this tutorial. This tutorial covers access to cost management data including  user management and entity management. You learn how to:
+When you registered your Azure agreement or account, an account with admin permission was created in Cloudyn, so you can perform all the steps in this tutorial. This tutorial covers access to Cloudyn data including  user management and entity management. You learn how to:
 
 > [!div class="checklist"]
 > * Create a user with admin access
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a  [free account](https://azure.
 ## Prerequisites
 
 - You must have an Azure account.
-- You must have either a trial registration or paid subscription for Azure Cost Management.
+- You must have either a trial registration or paid subscription for Cloudyn.
 
 ## Create a user with admin access
 
@@ -43,10 +43,10 @@ Although you already have admin access, coworkers in your organization might als
 Enter required information about the user. The **login ID** must be a valid e-mail address. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management allow the user to edit recipient lists. A link with sign in information gets sent to the user by e-mail from Cloudyn when you select **Notify user by email**. On first sign-in the user sets a password.
 
 Under **User has admin access**, the root entity of your organization is selected. Leave root selected and then save the user information. Selecting the root entity allows the user to have admin permission not only to the root entity in the tree, but also to all the entities that reside below it.  
-  ![add new user with admin access](.\media\tutorial-user-access\new-admin-access.png)
+  ![Add new user with admin access](.\media\tutorial-user-access\new-admin-access.png)
 
 ## Create a user with user access
-Typical users that need access to cost management data like dashboards and reports should have user access to view them. Create a new user with user access similar to the one you created with admin access, with the following differences:
+Typical users that need access to Cloudyn data like dashboards and reports should have user access to view them. Create a new user with user access similar to the one you created with admin access, with the following differences:
 
 - Clear **Allow User Management**, **Allow Recipient lists Management**, and clear all in the **User has admin access** list.
 - Select the entities that the user needs access to in the **User has user access** list.
@@ -54,7 +54,7 @@ Typical users that need access to cost management data like dashboards and repor
 
 ![add new user with user access](.\media\tutorial-user-access\new-user-access.png)
 
-To watch a tutorial video about adding users, see [Adding Users to Azure Cost Management](https://youtu.be/Nzn7GLahx30).
+To watch a tutorial video about adding users, see [Adding Users to Cloudyn](https://youtu.be/Nzn7GLahx30).
 
 ## Delete a user
 
@@ -84,11 +84,11 @@ When you registered your Azure agreement or account with Cloudyn, your Azure res
 
 In the Cloudyn portal, click the gear symbol in the upper right and select **Cloud Accounts**. You start with a single entity (root) and build your entity tree under the root. Here's an example of an entity hierarchy that might resemble many IT organizations after the tree is complete:
 
-![entity tree](.\media\tutorial-user-access\entity-tree.png)
+![Entity tree](.\media\tutorial-user-access\entity-tree.png)
 
 Next to **Entities**, click **Add Entity**. Enter information about the person or department that you want to add. The **Full Name** and **Email** fields to do not have to match existing users. If you want to view a list of access levels, search in help for *Adding an entity*.
 
-![add entity](.\media\tutorial-user-access\add-entity.png)
+![Add entity](.\media\tutorial-user-access\add-entity.png)
 
 When you're done, **Save** the entity.
 
@@ -110,9 +110,9 @@ In the Cloudyn portal, click the gear symbol in the upper right and select  **Cl
 
 You can also associate multiple accounts to an entity. Select the accounts and then click **Move**. In the Move Accounts box, select the entity where you want to move the account to and then click **Save**. The Move accounts box asks you to verify that you want to move the accounts. Click **Yes**, and then click **OK**.
 
-To watch a tutorial video about creating a cost entity hierarchy, see [Creating a Cost Entity Hierarchy in Azure Cost Management](https://youtu.be/dAd9G7u0FmU).
+To watch a tutorial video about creating a cost entity hierarchy, see [Creating a Cost Entity Hierarchy in Cloudyn](https://youtu.be/dAd9G7u0FmU).
 
-If you are an Azure Enterprise Agreement user, watch a tutorial video about associating accounts and subscriptions to entities at [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk).
+If you are an Azure Enterprise Agreement user, watch a tutorial video about associating accounts and subscriptions to entities at [Connecting to Azure Resource Manager with Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
 ## Next steps
 

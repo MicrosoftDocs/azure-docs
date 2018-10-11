@@ -2,15 +2,16 @@
 title: Azure SQL Data Sync | Microsoft Docs
 description: This overview introduces Azure SQL Data Sync
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.custom: data-sync
+manager: craigg
+ms.date: 08/09/2018
 ---
 # Sync data across multiple cloud and on-premises databases with SQL Data Sync
 
@@ -119,6 +120,8 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 -   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 
 -   Azure Active Directory authentication is not supported.
+
+-   Tables with same name but different schema (for example, dbo.customers and sales.customers) are not supported.
 
 #### Unsupported data types
 

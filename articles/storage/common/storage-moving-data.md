@@ -33,7 +33,7 @@ If you require or are more comfortable with a command-line utility (e.g. System 
 ### AzCopy
 AzCopy is a command-line utility designed for high-performance copying of data to and from Azure Storage. You can also copy data within a storage account, or between different storage accounts. AzCopy is available on [Windows](storage-use-azcopy.md) and on [Linux](storage-use-azcopy-linux.md).
 
-See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) or [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md) to learn more.
+To learn how to migrate on-premises data to Azure Storage, see [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md).
 
 ### Azure PowerShell
 Azure PowerShell is a module that provides cmdlets for managing services on Azure. It's a task-based command-line shell and scripting language designed especially for system administration.

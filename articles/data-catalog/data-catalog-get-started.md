@@ -2,8 +2,8 @@
 title: Get started with Azure Data Catalog
 description: End-to-end tutorial presenting the scenarios and capabilities of Azure Data Catalog.
 services: data-catalog
-author: steelanddata
-ms.author: spelluru
+author: markingmyname
+ms.author: maghan
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual

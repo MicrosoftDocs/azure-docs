@@ -3,7 +3,7 @@ title: Report Azure Stack usage data to Azure | Microsoft Docs
 description: Learn how to set up usage data reporting in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredop
 
 ---

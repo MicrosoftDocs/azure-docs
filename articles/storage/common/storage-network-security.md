@@ -13,7 +13,7 @@ ms.component: common
 Azure Storage provides a layered security model allowing you to secure your storage accounts to a specific set of allowed networks​.  When network rules are configured, only applications from allowed networks can access a storage account.  When calling from an allowed network, applications continue to require proper authorization (a valid access key or SAS token) to access the storage account.
 
 > [!IMPORTANT]
-> Turning on Firewall rules for your Storage account will block access to incoming requests for data, including from other Azure services.  This includes using the Portal, writing logs, etc.  For participating services you can re-enable functionality through the [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) section below.  To access the Portal you would need to do so from a machine within the trusted boundary (either IP or VNet) that you have set up.
+> Turning on Firewall rules for your Storage account will block access to incoming requests for data, including from other Azure services.  This includes using the Portal, writing logs, etc.  Azure services that operate from within a VNet can be granted access by allowing the subnet of the service instance.  Azure services that do not operate from within a VNet will be blocked by the firewall.  A limited number of scenarios can be enabled through the [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) mechanism described below.  To access the Portal you would need to do so from a machine within the trusted boundary (either IP or VNet) that you have set up.
 >
 
 ## Scenarios
@@ -64,7 +64,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### CLIv2
-1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
 2. Display the status of the default rule for the storage account.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -146,7 +146,7 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### CLIv2
-1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
 2. List Virtual Network rules
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -237,7 +237,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### CLIv2
-1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
 2. List IP network rules
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -284,7 +284,9 @@ When the "Trusted Microsoft Services" exception is enabled, the following servic
 |Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing.  [Learn more](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture.  [Learn More](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure Networking|Microsoft.Networking|Store and analyze network traffic logs.  [Learn more](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-||||
+|Azure Monitor|Microsoft.Insights| Allows writing of monitoring data to a secured storaage account [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|
+
 
 ### Storage analytics data access
 In some cases, access to read diagnostic logs and metrics is required from outside the network boundary.  Exceptions to the network rules can be granted to allow read-access to Storage account log files, metrics tables, or both. [Learn more about working with storage analytics.](/azure/storage/storage-analytics)
@@ -321,7 +323,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### CLIv2
-1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
 2. Display the exceptions for the storage account network rules.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass

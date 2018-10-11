@@ -17,6 +17,9 @@ ms.author: luisca
 
 The **Named Entity Recognition** skill extracts named entities from text. Available entities include the types `person`, `location`, and `organization`.
 
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+
 ## @odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 

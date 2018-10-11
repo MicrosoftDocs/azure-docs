@@ -4,7 +4,7 @@ description: In this tutorial, you deploy Azure Stream Analytics as a module to 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -45,7 +45,7 @@ An Azure IoT Edge device:
 
 Cloud resources:
 
-* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* A free-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 
 
 ## Create an Azure Stream Analytics job
@@ -134,7 +134,9 @@ Using the three elements of input, output, and query, this section creates a job
 
 To prepare your Stream Analytics job to be deployed on an IoT Edge device, you need to associate the job with a container in a storage account. When you go to deploy your job, the job definition is exported to the storage container. 
 
-1. Under **Configure**, select **IoT Edge settings**.
+1. Under **Configure**, select **Storage account settings**.
+
+1. Select **Add storage account**. 
 
 1. Select your **Storage account** from the drop-down menu.
 

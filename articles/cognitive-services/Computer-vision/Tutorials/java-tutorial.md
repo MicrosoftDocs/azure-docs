@@ -1,22 +1,24 @@
 ---
-title: Computer Vision API Java tutorial | Microsoft Docs
-description: Explore a basic Java Swing app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
-services: cognitive-services 
+title: "Tutorial: Computer Vision API Java"
+titlesuffix: "Azure Cognitive Services"
+description: Explore a basic Java Swing app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
+services: cognitive-services
 author: KellyDF
+manager: cgronlun
+
+ms.service: cognitive-services
+ms.component: computer-vision
+ms.topic: tutorial
 ms.author: kefre
 ms.date: 09/21/2017
-ms.topic: tutorial
-ms.service: cognitive-services
-ms.devlang: java
-manager: corncar
 #Customer intent: As a Java developer, I want use the Custom Vision API to add image classification to my app.
 ---
 
-# Computer Vision API Java tutorial
+# Tutorial: Computer Vision API Java
 
-This tutorial shows the features of the Microsoft Cognitive Services Computer Vision REST API.
+This tutorial shows the features of the Azure Cognitive Services Computer Vision REST API.
 
-Explore a Java Swing application that uses the Computer Vision REST API to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag, and describe visual features, including faces, in an image. This example lets you submit an image URL for analysis or processing. You can use this open source example as a template for building your own Java app Java to use the Computer Vision REST API.
+Explore a Java Swing application that uses the Computer Vision REST API to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag, and describe visual features, including faces, in an image. This example lets you submit an image URL for analysis or processing. You can use this open source example as a template for building your own app in Java to use the Computer Vision REST API.
 
 This tutorial will cover how to use Computer Vision to:
 

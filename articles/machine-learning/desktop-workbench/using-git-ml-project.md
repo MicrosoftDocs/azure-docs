@@ -11,8 +11,15 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
+
+ROBOTS: NOINDEX
 ---
+
 # Use a Git repo with a Machine Learning Workbench project
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Learn how Azure Machine Learning Workbench uses Git to provide version control, and ensure reproducibility in your data science experiment. Learn how to associate your project with a cloud Git repository (repo).
 
 Machine Learning Workbench is designed for Git integration. When you create a new project, the project folder is automatically "Git-initialized" as a local Git repo. A second, hidden local Git repo is also created, with a branch named AzureMLHistory/\<project GUID\>. The branch keeps track of project folder changes for each execution. 
@@ -36,7 +43,7 @@ To get started using a remote Git repo, complete the steps that are described in
 > Currently, Azure Machine Learning supports Git repositories only on Azure DevOps organizations.
 
 ## Step 1. Create a Machine Learning Experimentation account
-Create a Machine Learning Experimentation account and install the Azure Machine Learning Workbench app. For more information, see [Install and create Quickstart](../service/quickstart-installation.md).
+Create a Machine Learning Experimentation account and install the Azure Machine Learning Workbench app. For more information, see [Install and create Quickstart](quickstart-installation.md).
 
 ## Step 2. Create an Azure DevOps project or use an existing project
 In the [Azure portal](https://portal.azure.com/), create a new project:

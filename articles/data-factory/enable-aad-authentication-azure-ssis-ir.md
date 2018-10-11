@@ -16,9 +16,9 @@ ms.author: douglasl
 ---
 # Enable Azure Active Directory authentication for the Azure-SSIS integration runtime
 
-This article shows you how to create an Azure-SSIS IR with Azure Data Factory service identity. Azure Active Directory (Azure AD) authentication with the Managed Service Identity (MSI) for the Azure-SSIS integration runtime lets you use the Data Factory MSI instead of SQL authentication to create an Azure-SSIS integration runtime.
+This article shows you how to create an Azure-SSIS IR with Azure Data Factory service identity. Azure Active Directory (Azure AD) authentication with the managed identity for Azure resources for the Azure-SSIS integration runtime lets you use the Data Factory MSI instead of SQL authentication to create an Azure-SSIS integration runtime.
 
-For more info about the Data Factory MSI, see [Azure Data Factory service identity](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity).
+For more info about the Data Factory MSI, see [Azure Data Factory service identity](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > If you have already created an Azure-SSIS integration runtime with SQL authentication, you can't reconfigure the IR to use Azure AD authentication with PowerShell at this time.
@@ -48,7 +48,7 @@ You can use an existing Azure AD group, or create a new one using Azure AD Power
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Add the Data Factory MSI to the group. You can follow [Azure Data Factory service identity](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) to get the principal SERVICE IDENTITY ID (for example, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use SERVICE IDENTITY APPLICATION ID for this purpose).
+3.  Add the Data Factory MSI to the group. You can follow [Azure Data Factory service identity](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) to get the principal SERVICE IDENTITY ID (for example, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use SERVICE IDENTITY APPLICATION ID for this purpose).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -66,7 +66,7 @@ Azure SQL Database supports creating a database with an Azure AD user. As a resu
 
 ### Enable Azure AD authentication for the Azure SQL Database
 
-You can [configure Azure AD authentication for the SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure)
+You can [configure Azure AD authentication for the SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
 using the following steps:
 
 1.  In the Azure portal, select **All services** -> **SQL servers** from the left-hand navigation.
@@ -90,7 +90,7 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 2.  In the **Connect to Server** dialog, enter your SQL server name in
     the **Server name** field.
 
-3.  In the **Authentication** field, select **Active Directory - Universal with MFA support**. (You can also use other two Active Directory authentication types. See [Configure and manage Azure Active Directory authentication with SQL Database, Managed Instance](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure).)
+3.  In the **Authentication** field, select **Active Directory - Universal with MFA support**. (You can also use other two Active Directory authentication types. See [Configure and manage Azure Active Directory authentication with SQL Database, Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).)
 
 4.  In the **User name** field, enter the name of the Azure AD account that you set as the server administrator - for example, testuser@xxxonline.com.
 
@@ -120,7 +120,7 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
 Azure SQL Database Managed Instance doesn't support creating a database with any Azure AD user other than AD admin. As a result, you have to set the Azure AD Group as the Active Directory admin. You don't need to create the contained user.
 
-You can [configure Azure AD authentication for the SQL Database Managed Instance server](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) using the following steps:
+You can [configure Azure AD authentication for the SQL Database Managed Instance server](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) using the following steps:
 
 7.  In the Azure portal, select **All services** -> **SQL servers** from the left-hand navigation.
 
@@ -138,7 +138,7 @@ You can [configure Azure AD authentication for the SQL Database Managed Instanc
 
 When you provision your Azure-SSIS IR with the Azure portal, on the **SQL Settings** page, check the "Use AAD authentication with your ADF MSI" option. (The following screenshot shows the settings for IR with Azure SQL Database. For the IR with Managed Instance, the "Catalog Database Service Tier" property is not available; other settings are the same.)
 
-For more info about how to create an Azure-SSIS integration runtime, see [Create an Azure-SSIS integration runtime in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+For more info about how to create an Azure-SSIS integration runtime, see [Create an Azure-SSIS integration runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
 ![Settings for the Azure-SSIS integration runtime](media/enable-aad-authentication-azure-ssis-ir/enable-aad-authentication.png)
 

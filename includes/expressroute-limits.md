@@ -12,7 +12,7 @@
 #### ExpressRoute Limits
 The following limits apply to ExpressRoute resources per subscription.
 
-| Resource | Default Limit |
+| Resource | Default/Max Limit |
 | --- | --- |
 | ExpressRoute circuits per subscription |10 |
 | ExpressRoute circuits per region per subscription (Azure Resource Manager) |10 |

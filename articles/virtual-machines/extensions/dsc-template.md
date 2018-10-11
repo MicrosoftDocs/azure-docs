@@ -2,7 +2,7 @@
 title: Desired State Configuration extension with Azure Resource Manager templates
 description: Learn about the Resource Manager template definition for the Desired State Configuration (DSC) extension in Azure.
 services: virtual-machines-windows
-author: DCtheGeek
+author: bobbytreed
 manager: carmonm
 tags: azure-resource-manager
 keywords: 'dsc'
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 09/11/2018
-ms.author: dacoulte
+ms.date: 10/05/2018
+ms.author: robreed
 ---
 # Desired State Configuration extension with Azure Resource Manager templates
 
@@ -53,13 +53,13 @@ For more information, see
             "configurationArguments": {
                 "RegistrationUrl" : "registrationUrl",
                 "NodeConfigurationName" : "nodeConfigurationName"
-            },
-            "protectedSettings": {
-                "configurationArguments": {
-                    "RegistrationKey": {
-                        "userName": "NOT_USED",
-                        "Password": "registrationKey"
-                    }
+            }
+        },
+        "protectedSettings": {
+            "configurationArguments": {
+                "RegistrationKey": {
+                    "userName": "NOT_USED",
+                    "Password": "registrationKey"
                 }
             }
         }

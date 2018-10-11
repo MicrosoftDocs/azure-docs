@@ -7,13 +7,12 @@ author: andretms
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file 
 
@@ -34,7 +33,7 @@ Do you want to download this sample's Android Studio project instead? [Download 
 1.	In Android Studio, select **Gradle Scripts** > **build.gradle (Module: app)**.
 2.	Under **Dependencies**, paste the following code:
 
-    ```ruby  
+    ```gradle  
     compile ('com.microsoft.identity.client:msal:0.1.+') {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
@@ -44,10 +43,10 @@ Do you want to download this sample's Android Studio project instead? [Download 
 <!--start-collapse-->
 ### About this package
 
-The package in the preceding code installs Microsoft Authentication Library. MSAL handles acquiring, caching and refreshing user tokens that are used to access the APIs that are protected by the Azure Active Directory v2 endpoint.
+The package in the preceding code installs Microsoft Authentication Library. MSAL handles all token operations including acquiring, caching, refreshing, and deleting.  The tokens are needed to access the APIs protected by Microsoft identity platform.
 <!--end-collapse-->
 
-## Create the application UI
+## Create the app's UI
 
 1. Go to **res** > **layout**, and then open **activity_main.xml**. 
 2. Change the activity layout from `android.support.constraint.ConstraintLayout` or other to `LinearLayout`.
