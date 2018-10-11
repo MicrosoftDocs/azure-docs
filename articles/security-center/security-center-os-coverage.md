@@ -67,25 +67,48 @@ VMs running in a cloud service are also supported. Only cloud services web and w
 |Server|Windows|Linux|
 |-----|-----|-----|
 |Environment|Azure|Non-Azure|Azure|Non-Azure|
-|VMBA Threat detection alerts|V|V|V (Auditd required)|V|
-|Network based threat detection alerts|V|X|V|X|
-|WDATP integration|V (on supported versions)|V|X|X|
-|Missing patches|V|V|V|V|
-|Security configurations|V|V|V|V|
-|Anti-malware|V|V|X|X|
-|JIT VM Access|V|X|V|X|
-|Adaptive application controls|V (only Azure)|X|X|X|
-|FIM|V|V|V|V|
-|Disk encryption|V|X|V|X|
-|3rd parties deployment|V|X|V|X|
-|NSGs|V|X|V|X|
-|Filess V1|V|V|X|X|
-|Filess V2|V|V|V|V|
-|Network map|V|X|V|X|
-|Adaptive network hardening|V|X|V|X|
+|VMBA Threat detection alerts|✔|✔|✔ (Auditd required)|✔|
+|Network based threat detection alerts|✔|X|✔|X|
+|WDATP integration|V (on supported versions)|✔|X|X|
+|Missing patches|✔|✔|✔|✔|
+|Security configurations|✔|✔|✔|✔|
+|Anti-malware|✔|✔|X|X|
+|JIT VM Access|✔|X|✔|X|
+|Adaptive application controls|✔ (only Azure)|X|X|X|
+|FIM|✔|✔|✔|✔|
+|Disk encryption|✔|X|✔|X|
+|3rd parties deployment|✔|X|✔|X|
+|NSGs|✔|X|✔|X|
+|Filess V1|✔|✔|X|X|
+|Filess V2|✔|✔|✔|✔|
+|Network map|✔|X|✔|X|
+|Adaptive network hardening|✔|X|✔|X|
 
 ## Supported PaaS features
 
+
+|Service|Recommendations|Threat detection|
+|----|----|----|
+|SQL|✔| ✔|
+|PostGreSQL|✔| ✔|
+|MySQL|✔| ✔|
+|Blob storage accounts|✔| ✔|
+|App services|✔| ✔|
+|Cloud services|✔| ✔|
+|Redis cache|✔| X|
+|Service fabric|✔| X|
+|Azure automation|✔| X|
+|Data lake |✔| X|
+|Key vault|✔| ✔|
+|Service bus|✔| X|
+|Stream analytics|✔| X|
+|Batch|✔| X|
+|Logic apps|✔| X|
+|Vnets|✔| ✔|
+|Subnets|✔| ✔|
+|NICs|✔| ✔|
+|NSGs|✔| ✔|
+|Subscription|✔| ✔|
 
 
 
