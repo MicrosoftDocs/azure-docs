@@ -347,7 +347,7 @@ For more information about how to create a subscription, see [the blob storage q
 You can get the system key by using the following API (HTTP GET):
 
 ```
-http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
 
 This is an admin API, so it requires your function app [master key](functions-bindings-http-webhook.md#authorization-keys). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
@@ -356,7 +356,7 @@ Here's an example of the response that provides the system key:
 
 ```
 {
-  "name": "eventgridextensionconfig_extension",
+  "name": "eventgrid_extension",
   "value": "{the system key for the function}",
   "links": [
     {
