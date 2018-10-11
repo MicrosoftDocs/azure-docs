@@ -46,7 +46,7 @@ When the new circuit is created, and the SAP HANA on the classic deployment mode
 
 ## Delete a subnet
 
-To remove a virtual network subnet, you can use the Azure portal, PowerShell, or the Azure CLI. If your Azure virtual network IP address range or address space was an aggregated range, there is no follow up for you with Microsoft. (Note, however, that the virtual network is still propagating the BGP route address space that includes the deleted subnet.) If you defined the Azure virtual network address range or address space as multiple IP address ranges, of which one was assigned to your deleted subnet, delete that from your virtual network address space. Then inform SAP HANA on the classic deployment model to remove it from the ranges that SAP HANA on Azure (large instances) is allowed to communicate with.
+To remove a virtual network subnet, you can use the Azure portal, PowerShell, or the Azure CLI. If your Azure virtual network IP address range or address space was an aggregated range, there is no follow up for you with Microsoft. (Note, however, that the virtual network is still propagating the BGP route address space that includes the deleted subnet.) You might have defined the Azure virtual network address range or address space as multiple IP address ranges, of which one was assigned to your deleted subnet. Be sure to delete that from your virtual network address space. Then inform SAP HANA on the classic deployment model to remove it from the ranges that SAP HANA on Azure (large instances) is allowed to communicate with.
 
 For more information, see [Delete a subnet](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet).
 
@@ -56,9 +56,9 @@ For information, see [Delete a virtual network](../../../virtual-network/manage-
 
 SAP HANA on the classic deployment model removes the existing authorizations on the SAP HANA on Azure (large instances) ExpressRoute circuit. It also removes the Azure virtual network IP address range or address space for the communication with HANA large instances.
 
-After the virtual network is removed, open an Azure support request to provide the IP address space range or ranges to be removed.
+After you remove the virtual network, open an Azure support request to provide the IP address space range or ranges to be removed.
 
-To ensure everything is removed, delete the ExpressRoute connection, the virtual network gateway, the virtual network gateway public IP, and the virtual network.
+To ensure you remove everything, delete the ExpressRoute connection, the virtual network gateway, the virtual network gateway public IP, and the virtual network.
 
 ## Delete an ExpressRoute circuit
 
