@@ -194,8 +194,8 @@ The following notebooks demonstrate how to create ONNX models and deploy them wi
 + `/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb`
 
 The following notebooks demonstrate how to deploy existing ONNX models with Azure Machine Learning: 
-+ `/onnx/onnx-inference-mnist.ipynb` 
-+ `/onnx/onnx-inference-emotion-recognition.ipynb`
++ [onnx/onnx-inference-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist.ipynb) 
++ [onnx/onnx-inference-emotion-recognition.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-emotion-recognition.ipynb)
  
 Get this notebook:
  
