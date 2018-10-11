@@ -7,6 +7,8 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
+f1_keywords: 
+  - "mi.azure.sqlaudit.general.f1"
 author: giladm
 ms.author: giladm
 ms.reviewer: vanto
