@@ -85,7 +85,7 @@
           href: v1-protocols-oauth-code.md
         - name: OAuth 2.0 on-behalf-of flow
           href: v1-oauth2-on-behalf-of-flow.md
-        - name: OAuth 2.0 client credentails grant
+        - name: OAuth 2.0 client credentials grant
           href: v1-oauth2-client-creds-grant-flow.md
       - name: SAML 2.0 protocol
         items:
@@ -149,11 +149,11 @@
           href: active-directory-enterprise-app-role-management.md
         - name: Customize claims
           href: active-directory-saml-claims-customization.md
-        - name: Customize claims (Public Preview)
+        - name: Customize claims (Preview)
           href: active-directory-claims-mapping.md
-        - name: Configure optional claims (Public Preview)
+        - name: Configure optional claims (Preview)
           href: active-directory-optional-claims.md
-        - name: Configure token lifetimes (Public Preview)
+        - name: Configure token lifetimes (Preview)
           href: active-directory-configurable-token-lifetimes.md
       - name: ADAL error handling best practices
         href: active-directory-devhowto-adal-error-handling.md      
@@ -301,7 +301,7 @@
           href: v2-oauth2-auth-code-flow.md
         - name: OAuth 2.0 on-behalf-of flow
           href: v2-oauth2-on-behalf-of-flow.md
-        - name: OAuth 2.0 client credentails grant
+        - name: OAuth 2.0 client credentials grant
           href: v2-oauth2-client-creds-grant-flow.md
       - name: ID tokens
         href: id-tokens.md
@@ -334,11 +334,11 @@
         href: active-directory-enterprise-app-role-management.md
       - name: Customize claims
         href: active-directory-saml-claims-customization.md
-      - name: Customize claims (Public Preview)
+      - name: Customize claims (Preview)
         href: active-directory-claims-mapping.md
-      - name: Configure optional claims (Public Preview)
+      - name: Configure optional claims (Preview)
         href: active-directory-optional-claims.md
-      - name: Configure token lifetimes (Public Preview)
+      - name: Configure token lifetimes (Preview)
         href: active-directory-configurable-token-lifetimes.md
       - name: Authenticate with Azure AD and get a JWT token using OAuth 2.0
         href: active-directory-protocols-oauth-get-jwt-token.md
