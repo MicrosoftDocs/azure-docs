@@ -16,12 +16,9 @@ To create your voice font, you make a studio recording and upload the associated
 
 You can get started with a small amount of data for a proof of concept. But the more data you provide, the more natural and professional your voice sounds.
 
-
 ## Prerequisites
 
-The **Text to Speech** voice customization feature is currently in private preview. [Fill out the application form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) to be considered for access.
-
-You also need an Azure account and a subscription to the Speech service. [Create one](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows:
+You need an Azure account and a subscription to the Speech service. [Create one](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as shown here.
 
 1. Sign in to the [Custom Voice portal](https://customvoice.ai) using the same Microsoft account that you used to apply for access.
 
@@ -31,7 +28,6 @@ You also need an Azure account and a subscription to the Speech service. [Create
 
 3. On the Subscriptions page, choose **Connect existing subscription**. Note that Speech Services supports different regions. Check the region where your subscription key was created, and make sure that you connect your key to the correct sub-portal.  
 
-     
 4. Paste your subscription key into the table, as shown in the following example. Each subscription has two keys, and you can use either of them.
 
      ![Add Subscription](media/custom-voice/add-subscription.png)
