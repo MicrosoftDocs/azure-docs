@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/10/2018
 ms.author: adgera
 ---
 
@@ -49,7 +49,9 @@ Monitoring IoT resources to watch for outliers, threats, or resource parameters 
 Azure Digital Twins enforces an [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow through Azure Active Directory to authenticate to downstream APIs. Familiar best practices for securely interacting with APIs through OAuth 2.0 apply here as well. A few key practices to secure your IoT space for Azure Active Directory include:
 
 > [!div class="checklist"]
-> * Limiting OAuth 2.0 scope of access for a token.
+> * Store Azure Active Directory app and secret keys in a secure location such as [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
+> * Use trusted [Certificate Authorities](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) rather than client secret keys to authenticate.
+> * Limit OAuth 2.0 scope of access for a token.
 > * Verifying the length of time a token is valid and whether a token remains valid.
 > * Setting appropriate lengths of time that tokens are valid for.
 > * Refreshing expired tokens.
