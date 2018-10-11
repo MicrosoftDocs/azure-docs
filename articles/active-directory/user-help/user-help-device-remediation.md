@@ -21,7 +21,7 @@ While accessing your organization's internal web apps or services, you might get
 ## Make sure you're using a supported browser
 If you get the **You can't get there from here** message saying that you're trying to access your organization's sites from an unsupported browser, check which browser you're running.
 
-![Error message related to browser support](media/user-help-device-remediation/02.png)
+![Error message related to browser support](media/user-help-device-remediation/browser-version.png)
 
 To fix this problem, you must install and run a supported browser, based on your operating system. If you're using Windows 10, the supported browsers include Microsoft Edge, Internet Explorer, and Google Chrome. If you're using a different operating system, you can check the complete list of [supported browsers](../conditional-access/technical-reference.md#supported-browsers).
 
@@ -41,7 +41,7 @@ To fix this problem, you must install and run a supported operating system.
 ## Make sure your device is joined to your organization's network
 If you get the **You can't get there from here** message saying that your device is out-of-compliance with your organization's access policy, make sure you've joined your device to your organization's network.
 
-![Error message related to browser support](media/user-help-device-remediation/01.png)
+![Error message related to whether you're on your network](media/user-help-device-remediation/network-version.png)
 
 ### To check whether your device is joined to your on-premises network
 1. Sign in to Windows using your work or school account. For example, alain@contoso.com.
