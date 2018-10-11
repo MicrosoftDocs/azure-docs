@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/10/2018
 ms.author: lyrana
 ---
 
@@ -14,7 +14,7 @@ ms.author: lyrana
 
 Azure Digital Twins enables precise access control to specific data, resources, and actions in your spatial graph. It does so through granular role and permission management called _Role-Based Access Control_. Role-Based Access Control consists of _Roles_, or the level of permissions, and _Role Assignments_, or the association of a role to a user or device.
 
-Using Role-Based Access Control, permission can be granted to a user, a device, a user-defined function, or all users belonging to a domain, service principal, or tenant. Additionally, the degree of access can also be fine-tuned.
+Using Role-Based Access Control, permission can be granted to a user, a device, a service principal, a user-defined function, all users belonging to a domain, or a tenant. Additionally, the degree of access can also be fine-tuned.
 
 Role-Based Access Control is unique in that permissions are inherited down the spatial graph.
 
