@@ -135,4 +135,4 @@ You will now see a new entry in the acoustic models table corresponding to this 
 In this tutorial, you've developed a custom acoustic model for use with audio files and transcripts. To create a custom language file for use with text files, continue to the tutorial on creating a custom language model.
 
 > [!div class="nextstepaction"]
-> [Create a custom acoustic model](cognitive-services-custom-speech-create-language-model.md)
+> [Create a custom language model](cognitive-services-custom-speech-create-language-model.md)
