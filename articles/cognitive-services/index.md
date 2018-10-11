@@ -23,7 +23,7 @@ ms.technology: cognitive-services
                     <div class="cardPadding">
                         <div class="card">
                             <div class="cardImageOuter">
-                                <div class="cardImage"> 
+                                <div class="cardImage">
                                     <img src="media/index/i_overview.svg" alt="" />
                                 </div>
                             </div>
@@ -110,6 +110,8 @@ ms.technology: cognitive-services
                         <h3>Recognize speech using Speech Service</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">Using C#</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Using Java</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Using Objective-C</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">Using JavaScript</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">Using C++</a></p>
                     </div>
                 </div>
@@ -269,7 +271,7 @@ ms.technology: cognitive-services
                 <div class="card">
                     <div class="cardText">
                         <h3>Speech API</h3>
-						<p><a href="/azure/cognitive-services/speech-service">Speech Service</a></p>
+						<p><a href="/azure/cognitive-services/speech-service">Speech Service API</a></p>
                         <p><a href="/azure/cognitive-services/speech/home">Bing Speech API</a></p>
                         <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
