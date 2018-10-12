@@ -27,6 +27,11 @@ In this article, learn about the Azure Machine Learning service releases.
 #### Bugs fixed
  * The pynacl library version no longer needs to be pinned when deploying web servcie.
 
+### Azure Machine Learning Data Prep SDK v0.3.0
+
+#### New features:
+* Added method transform_partition_with_file(script_path), which allows users to pass in the path of a Python file to execute
+
 ## 2018-10-01
 
 ### Azure Machine Learning SDK for Python v0.1.65
