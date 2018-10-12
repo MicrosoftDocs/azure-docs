@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left navigation panel, and then open the **Properties** pane. Copy the **Directory ID** to a temporary file. You will use this to configure sample application in the following section.
+1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left navigation panel, and then open the **Properties** pane. Copy the **Directory ID** to a temporary file. You will use this value to configure sample application in the following section.
 
     ![Azure Active Directory directory id](./media/digital-twins-permissions/aad-app-reg-tenant.png)
 

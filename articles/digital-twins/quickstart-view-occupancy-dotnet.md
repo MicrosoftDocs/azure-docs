@@ -17,7 +17,7 @@ ms.author: alinast
 
 The Azure Digital Twins service allows you to recreate a digital image of your physical environment. You can then get notified by events in your environment and customize your responses to them. 
 
-This quickstart uses [a pair of .NET samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) to digitize an imaginery office building, and shows you how to find available rooms in that building. With Digital Twins, you can multiple sensors to your environment. Along with room availability, you can also find out if the air quality of your available room is optimal, with the help of a simulated sensor for carbon dioxide. One of the sample applications will generate random sensor data to help you visualize this scenario.
+This quickstart uses [a pair of .NET samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) to digitize an imaginary office building, and shows you how to find available rooms in that building. With Digital Twins, you can associate multiple sensors with your environment. Along with room availability, you can also find out if the air quality of your available room is optimal, with the help of a simulated sensor for carbon dioxide. One of the sample applications will generate random sensor data to help you visualize this scenario.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Create a new instance of the Digital Twins in the [portal](https://portal.azure.
 
 ## Set permissions for your app
 
-This section registers your sample application to Azure Active Directory (AAD), so it can access your Digital Twins instance. You can skip this if you already have an AAD app registration, which can be reused for your sample. 
+This section registers your sample application to Azure Active Directory (AAD), so it can access your Digital Twins instance. You can skip this section if you already have an AAD app registration, which can be reused for your sample. 
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
@@ -74,7 +74,7 @@ This step provisions your Digital Twins spatial graph with several spaces, one d
 
     ![Provision Sample][1]
 
-## Send sensor telemetry
+## Send sensor data
 
 You can build and run the sensor simulator application using the steps below:
 
@@ -82,7 +82,7 @@ You can build and run the sensor simulator application using the steps below:
 1. Run `cd device-connectivity`.
 1. Run `dotnet restore`.
 1. Edit *appsettings.json* to update *DeviceConnectionString* with the `ConnectionString` above.
-1. Run `dotnet run` to start sending telemetry, you should see telemetry being sent to Digital Twins service as in the image below:
+1. Run `dotnet run` to start sending sensor data, you should see it being sent to Digital Twins service as in the image below:
 
      ![Device Connectivity][2]
 
@@ -94,18 +94,18 @@ You can build and run the sensor simulator application using the steps below:
 
 ## Find available spaces with fresh air
 
-The sensor telemetry sample is simulating random data values for two sensors, motion, and carbon dioxide. Available spaces with fresh air are defined in our sample by no presence in the room and carbon dioxide level is under 1000 ppm. If the condition is not fulfilled, then the space is not available, or the air quality is poor.
+The sensor sample is simulating random data values for two sensors, motion, and carbon dioxide. Available spaces with fresh air are defined in our sample by no presence in the room and carbon dioxide level is under 1000 ppm. If the condition is not fulfilled, then the space is not available, or the air quality is poor.
 
 1. Open the command prompt you used to run the provisioning step above.
 1. Run `dotnet run GetAvailableAndFreshSpaces`.
-1. Look at this command prompt and the sensor telemetry command prompt side by side as outlined below. 
-1. One command prompt sends simulated motion and carbon dioxide telemetry to Digital Twins every 5 seconds. The other command reads in real time the graph to find out available rooms with fresh air based on random simulated data. It will display one of these conditions in near real time based on what the sensor telemetry has last sent:
+1. Look at this command prompt and the sensor data command prompt side by side as outlined below. 
+1. One command prompt sends simulated motion and carbon dioxide data to Digital Twins every 5 seconds. The other command reads in real time the graph to find out available rooms with fresh air based on random simulated data. It will display one of these conditions in near real time based on what the sensor data was last sent:
     - Available rooms with fresh air.
     - Occupied or poor air quality of the room.
 
      ![Get available spaces with fresh air][3]
 
-To understand what happened in this quickstart and what APIs have been called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in the digital-twins-samples-csharp (see command below). The tutorials are going deep into the code and teach you how to modify configuration data and what APIs are called. For more understanding of Management APIs navigate your Digital Twins Swagger page `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net//management/swagger` or for convience browse [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger). 
+To understand what happened in this quickstart and what APIs have been called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in the digital-twins-samples-csharp (see command below). The tutorials are going deep into the code and teach you how to modify configuration data and what APIs are called. For more understanding of Management APIs navigate your Digital Twins Swagger page `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net//management/swagger` or for convenience browse [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger). 
 
 ```
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
@@ -118,7 +118,7 @@ The tutorials go into detail about how to build an application for facility mana
 If you plan to continue to the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart:
 
 1. Delete the folder that was created when downloading the sample repository.
-1. From the left-hand menu in the [Azure portal](http://portal.azure.com), click **All resources** and then select your Digital Twins resource. At the top of the **All resources** blade, click **Delete**.
+1. From the left-hand menu in the [Azure portal](http://portal.azure.com), click **All resources** and then select your Digital Twins resource. At the top of the **All resources** pane, click **Delete**.
 
 ## Next steps
 
