@@ -121,7 +121,7 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
 $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
-  -Name "myNetworkSecurityGroup" 
+  -Name "myNetworkSecurityGroup" `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
