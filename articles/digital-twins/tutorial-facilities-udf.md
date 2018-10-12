@@ -1,16 +1,16 @@
 ---
 title: Monitor a space with Azure Digital Twins | Microsoft Docs
-description: Learn how to monitor the working conditions of your spaces with Azure Digital Twins using the steps in this tutorial.
+description: Learn how to provision your spatial resources and monitor the working conditions with Azure Digital Twins using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
 
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 08/30/2018
+ms.date: 10/15/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Monitor temperature and air in your building with Azure Digital Twins
+# Tutorial: Provision your building and monitor working conditions with Azure Digital Twins
 
 This tutorial demonstrates how to use Azure Digital Twins to monitor your spaces for desired temperature conditions and comfort level. Once you have [configured your sample building](tutorial-facilities-setup.md), you can provision your building and run custom functions on your sensor data using the steps in this tutorial.
 

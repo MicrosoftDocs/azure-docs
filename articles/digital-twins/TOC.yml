@@ -14,9 +14,9 @@
   items:
   - name: Monitor a building with Digital Twins
     items:
-      - name: Create spatial resources
+      - name: Deploy and configure 
         href: tutorial-facilities-setup.md
-      - name: Customize action for events
+      - name: Provision and monitor conditions
         href: tutorial-facilities-udf.md
       - name: Notify with Logic Apps
         href: tutorial-facilities-events.md

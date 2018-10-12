@@ -1,12 +1,12 @@
 ---
 title: Provision Azure Digital Twins (.NET) | Microsoft Docs
-description: Learn how to deploy and provision your instance of Azure Digital Twins using the steps in this tutorial.
+description: Learn how to deploy your instance of Azure Digital Twins and configure your spatial resources using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
 
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 10/04/2018
+ms.date: 10/15/2018
 ms.author: dkshir
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to use the features of Digital Twins to create an intelligent IoT solution. 
 ---
@@ -164,5 +164,5 @@ If you wish to stop exploring Azure Digital Twins beyond this point, feel free t
 
 Proceed to the next tutorial in the series to learn how to implement a custom logic to monitor conditions in your sample building. 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor temperature and air in your building](tutorial-facilities-udf.md)
+> [Tutorial: Provision your building and monitor working conditions](tutorial-facilities-udf.md)
 

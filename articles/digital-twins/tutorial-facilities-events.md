@@ -6,7 +6,7 @@ author: dsk-2015
 
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 08/30/2018
+ms.date: 10/15/2018
 ms.author: dkshir
 ---
 
