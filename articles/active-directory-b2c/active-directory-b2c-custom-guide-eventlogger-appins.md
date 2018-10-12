@@ -39,7 +39,7 @@ Complete the steps in [Get started with custom policies](active-directory-b2c-ge
 
 ## Create an Application Insights resource
 
-When you're using Application Insights with Azure AD B2C, all you need to do is create a resource and obtain an instrumentation key.
+When you're using Application Insights with Azure AD B2C, all you need to do is create a resource and get the instrumentation key.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Make sure you're using the directory that contains your Azure subscription by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your subscription. This tenant is not your Azure AD B2C tenant.
@@ -49,7 +49,7 @@ When you're using Application Insights with Azure AD B2C, all you need to do is 
 6. For **Application Type**, select **ASP.NET web application**.
 7. For **Resource Group**, select an existing group or enter a name for a new group.
 8. Click **Create**.
-4. After you create the Application Insights resource, open it, exapnd **Essentials**, and copy the instrumentation key.
+4. After you create the Application Insights resource, open it, expand **Essentials**, and copy the instrumentation key.
 
 ![Application Insights Overview and Instrumentation Key](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
 
