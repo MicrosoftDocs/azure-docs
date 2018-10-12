@@ -142,11 +142,16 @@ Here's the *function.json* file:
 
 The [configuration](#trigger---configuration) section explains these properties.
 
+> [!NOTE]
+> The name parameter reflects as `context.bindings.<name>` in the JavaScript code which contains the queue item payload. This payload is also passed as the second parameter to the function.
+
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
+module.exports = async function (context, message) {
+    context.log('Node.js queue trigger function processed work item', message);
+    // OR access using context.bindings.<name>
+    // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
     context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
@@ -240,7 +245,7 @@ The following table explains the binding configuration properties that you set i
 |---------|---------|----------------------|
 |**type** | n/a| Must be set to `queueTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**direction**| n/a | In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a |The name of the variable that represents the queue in function code.  | 
+|**name** | n/a |The name of the variable that contains the queue item payload in the function code.  | 
 |**queueName** | **QueueName**| The name of the queue to poll. | 
 |**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
@@ -531,14 +536,15 @@ In JavaScript functions, use `context.bindings.<name>` to access the output queu
 
 ## Next steps
 
+* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+
+<!--
 > [!div class="nextstepaction"]
 > [Go to a quickstart that uses a Queue storage trigger](functions-create-storage-queue-triggered-function.md)
+-->
 
 > [!div class="nextstepaction"]
 > [Go to a tutorial that uses a Queue storage output binding](functions-integrate-storage-queue-output-binding.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
 
 <!-- LINKS -->
 

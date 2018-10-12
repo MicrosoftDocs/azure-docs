@@ -1,0 +1,115 @@
+- name: Reports and monitoring documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What are Azure AD reports?
+    href: overview-reports.md
+
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Reports
+    items:
+    - name: Download a sign-in report
+      href: quickstart-download-sign-in-report.md
+    - name: Download an audit report
+      href: quickstart-download-audit-report.md
+    - name: Configure named locations
+      href: quickstart-configure-named-locations.md
+    - name: Install Power BI content pack
+      href: quickstart-install-power-bi-content-pack.md
+      
+  - name: Monitoring
+    items:
+    - name: Route logs to storage account
+      href: quickstart-azure-monitor-route-logs-to-storage-account.md
+
+- name: Tutorials
+  items:
+  - name: Reports
+    items:
+    - name: Access Reporting API with certificates
+      href: tutorial-access-api-with-certificates.md
+
+  - name: Monitoring
+    items:
+    - name: Stream logs to event hub
+      href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Integrate activity logs with Splunk
+      href: tutorial-integrate-activity-logs-with-splunk.md
+
+- name: Concepts
+  items:
+  - name: Reports
+    items:
+    - name: Audit logs
+      href: concept-audit-logs.md
+    - name: Sign-in logs
+      href: concept-sign-ins.md
+    - name: Risky sign-ins
+      href: concept-risky-sign-ins.md
+    - name: Risk events
+      href: concept-risk-events.md
+    - name: Users at risk
+      href: concept-user-at-risk.md
+    - name: Reporting APIs
+      href: concept-reporting-api.md
+      
+  - name: Monitoring
+    items:
+    - name: Azure AD logs in Azure Monitor
+      href: concept-activity-logs-in-azure-monitor.md
+
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Reports
+    items:
+    - name: Find activity reports
+      href: howto-find-activity-reports.md
+    - name: Remediate users flagged for risk
+      href: howto-remediate-users-flagged-for-risk.md
+    - name: Use Power BI Content Pack for Azure AD reports
+      href: howto-power-bi-content-pack.md
+    - name: Configure prerequisites for Reporting API
+      href: howto-configure-prerequisites-for-reporting-api.md
+
+  - name: Monitoring
+    items:
+    - name: Integrate activity logs with SumoLogic
+      href: howto-integrate-activity-logs-with-sumologic.md
+
+  - name: Troubleshoot
+    items:
+    - name: Missing audit data
+      href: troubleshoot-missing-audit-data.md
+    - name: Missing data in download
+      href: troubleshoot-missing-data-download.md
+    - name: Cannot access Graph APIs for reporting
+      href: troubleshoot-graph-api.md
+    - name: Errors in Power BI Content pack
+      href: troubleshoot-content-pack.md
+
+- name: Reference
+  expanded: true
+  items:
+  - name: Reports
+    items:
+    - name: Audit activities
+      href: reference-audit-activities.md
+    - name: Data retention policies
+      href: reference-reports-data-retention.md
+    - name: Reporting latencies
+      href: reference-reports-latencies.md
+    - name: Sign-in error codes
+      href: reference-sign-ins-error-codes.md
+    - name: Frequently asked questions
+      href: reports-faq.md
+      
+  - name: Monitoring
+    items:
+    - name: Audit log schema
+      href: reference-azure-monitor-audit-log-schema.md
+    - name: Sign-in log schema
+      href: reference-azure-monitor-sign-ins-log-schema.md
+

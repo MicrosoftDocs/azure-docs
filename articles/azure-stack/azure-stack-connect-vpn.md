@@ -3,7 +3,7 @@ title: Connect Azure Stack to Azure using VPN
 description: How to connect virtual networks in Azure Stack to virtual networks in Azure using VPN.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/12/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: scottnap
 
 ---
@@ -58,7 +58,7 @@ First you create the network resources for Azure. The following instructions sho
 ### Create the virtual network and virtual machine (VM) subnet
 
 1. Sign in to the [Azure portal](http://portal.azure.com/) using your Azure account.
-2. In the user portal, select **New**.
+2. In the user portal, select **+ Create a resource**.
 3. Go to **Marketplace**, and then select **Networking**.
 4. Select **Virtual network**.
 5. Use the information from the network configuration table to identify the values for Azure **Name**, **Address space**, **Subnet name**, and **Subnet address range**.
@@ -83,7 +83,7 @@ First you create the network resources for Azure. The following instructions sho
 
 ### Create the virtual network gateway
 
-1. In the Azure portal, select **New**.  
+1. In the Azure portal, select **+ Create a resource**.  
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of network resources, select **Virtual network gateway**.
 4. In **Name**, type **Azure-GW**.
@@ -95,7 +95,7 @@ First you create the network resources for Azure. The following instructions sho
 
 ### Create the local network gateway resource
 
-1. In the Azure portal, select **New**.
+1. In the Azure portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of resources, select **Local network gateway**.
 4. In **Name**, type **Azs-GW**.
@@ -106,7 +106,7 @@ First you create the network resources for Azure. The following instructions sho
 
 ## Create the connection
 
-1. In the user portal, select **New**.
+1. In the user portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of resources, select **Connection**.
 4. On the **Basic** settings section, for the **Connection type**, choose **Site-to-site (IPSec)**.
@@ -125,7 +125,7 @@ First you create the network resources for Azure. The following instructions sho
 
 Create a virtual machine in Azure now, and put it on your VM subnet in your virtual network.
 
-1. In the Azure portal, select **New**.
+1. In the Azure portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Compute**.
 3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Oval** image.
 4. On the **Basics** section, for **Name**, type **AzureVM**.
@@ -154,7 +154,7 @@ you sign in.
 ### Create the virtual network and a VM subnet
 
 1. Use a user account to sign in to the user portal.
-2. In the user portal, select **New**.
+2. In the user portal, select **+ Create a resource**.
 
     ![Create new virtual network](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
@@ -181,7 +181,7 @@ you sign in.
 
 ### Create the virtual network gateway
 
-1. In the Azure Stack portal, select **New**.
+1. In the Azure Stack portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of network resources, select **Virtual network gateway**.
 4. In **Name**, type **Azs-GW**.
@@ -202,7 +202,7 @@ A more generic way to think about this is that the local network gateway resourc
 ### Create the local network gateway resource
 
 1. Sign in to the Azure Stack portal.
-2. In the user portal, select **New**.
+2. In the user portal, select **+ Create a resource**.
 3. Go to **Marketplace**, and then select **Networking**.
 4. From the list of resources, select **local network gateway**.
 5. In **Name**, type **Azure-GW**.
@@ -212,7 +212,7 @@ A more generic way to think about this is that the local network gateway resourc
 
 ### Create the connection
 
-1. In the user portal, select **New**.
+1. In the user portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of resources, select **Connection**.
 4. On the **Basics** settings section, for the **Connection type**, select **Site-to-site (IPSec)**.
@@ -227,7 +227,7 @@ A more generic way to think about this is that the local network gateway resourc
 
 To check the VPN connection, you need to create two VMs, one in Azure, and one in Azure Stack. After you create these VMs, you can use them to send and receive data through the VPN tunnel.
 
-1. In the Azure portal, select **New**.
+1. In the Azure portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Compute**.
 3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Oval** image.
 4. On the **Basics** section, in **Name**, type **Azs-VM**.

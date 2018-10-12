@@ -22,7 +22,7 @@ Selecting **Edit**, will open the dashboard library in a panel to the left. Ther
 
 ![Dashboard library](media\howto-configure-homepage\image2.png)
 
-For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties. To do so, first select a **Device Template** then select a **Device Instance**. After that give the tile a title and select a **Setting** or a **Property** to display. In this case we've selected **Fan Speed**. Clicking **Done** will cause this tile to appear on the Homepage.
+For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties. To do so, first select a **Device Template** then select a **Device Instance**. After that give the tile a title and select a **Setting** or a **Property** to display. In this case we've selected **Set Temperature**. Clicking **Done** will cause this tile to appear on the Homepage.
 
 !["Configure Device Details" form with details for settings and properties](media\howto-configure-homepage\image3.png)
 

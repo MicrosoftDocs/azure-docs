@@ -55,7 +55,7 @@ To check roles assigned to a user for a subscription:
 3. To list all the roles that are assigned to a specified user, use
     **Get-AzureRmRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
 
-If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## In which Azure regions are traffic analytics available?
@@ -193,7 +193,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Traffic analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
 
-For example, as per the [pricing plan](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), considering West Central US region, if flow logs data stored in a storage account processed by Traffic Analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
+For example, as per the [pricing plan](https://azure.microsoft.com/pricing/details/network-watcher/), considering West Central US region, if flow logs data stored in a storage account processed by Traffic Analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## How can I navigate by using the keyboard in the geo map view?

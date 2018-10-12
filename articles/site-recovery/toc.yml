@@ -65,6 +65,10 @@
       href: azure-to-azure-architecture.md
     - name: Azure to Azure support matrix
       href: azure-to-azure-support-matrix.md
+    - name: Accelerated networking for Azure VM disaster recovery
+      href: azure-vm-disaster-recovery-with-accelerated-networking.md
+    - name: ExpressRoute with Azure VM disaster recovery
+      href: azure-vm-disaster-recovery-with-expressroute.md
   - name: VMware VMs and physical servers
     items:
     - name: Replication to Azure
@@ -113,6 +117,8 @@
       href: concepts-expressroute-with-site-recovery.md
     - name: Network Security Groups with Site Recovery
       href: concepts-network-security-group-with-site-recovery.md
+    - name: Public IP Address with Site Recovery
+      href: concepts-public-ip-address-with-site-recovery.md
   - name: Disaster recovery for apps
     href: site-recovery-workload.md
   - name: About recovery plans
@@ -135,9 +141,7 @@
         href: azure-to-azure-network-mapping.md
       - name: Set up IP addressing for failover
         href: site-recovery-retain-ip-azure-vm-failover.md
-      - name: Accelerated Networking with Azure VM disaster recovery
-        href: azure-vm-disaster-recovery-with-accelerated-networking.md
-      - name: ExpressRoute with Azure VM disaster recovery
+      - name: Integrate ExpressRoute with Azure VM disaster recovery
         href: azure-vm-disaster-recovery-with-expressroute.md
     - name: Disaster recovery
       items:
@@ -149,6 +153,8 @@
       items:
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
+      - name: Enable Azure to Azure replication for encrypted VMs
+        href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Reprotect from an Azure secondary region to primary
         href: azure-to-azure-how-to-reprotect.md
     - name: Troubleshooting
@@ -208,7 +214,7 @@
       - name: Set up the source environment for physical server replication
         href: physical-azure-set-up-source.md
       - name: Set up the target environment for physical server replication
-        href: physical-azure-set-up-target.md
+        href: vmware-azure-set-up-target.md
       - name: Set up disaster recovery for Azure Stack VMs
         href: azure-stack-site-recovery.md
     - name: Deploy the Mobility service
@@ -257,7 +263,7 @@
         href: site-recovery-monitor-and-troubleshoot.md
       - name: Troubleshoot VMware to Azure replication
         href: vmware-azure-troubleshoot-replication.md
-      - name: Troubleshoot the Mobility service in VMware and physical server replication
+      - name: Troubleshoot mobility service/push installation in VMware and physical server replication
         href: vmware-azure-troubleshoot-push-install.md
       - name: Troubleshoot failover to Azure
         href: site-recovery-failover-to-azure-troubleshoot.md

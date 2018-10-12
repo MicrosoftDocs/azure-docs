@@ -3,7 +3,7 @@ title: Create an offer in Azure Stack | Microsoft Docs
 description: As a cloud administrator, learn how to create an offer for your users in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/20/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: efemmano
 
 ---
@@ -21,7 +21,7 @@ ms.reviewer: efemmano
 
 [Offers](azure-stack-key-features.md) are groups of one or more plans that providers present to users to buy or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md). This offer gives subscribers the ability to set up virtual machines.
 
-1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external) and select **New** > **Tenant Offers + Plans** > **Offer**.
+1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external) and select **+ Create a resource** > **Tenant Offers + Plans** > **Offer**.
 
    ![Create an offer](media/azure-stack-create-offer/image01.png)
   

@@ -18,6 +18,8 @@
     href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
   items:
+    - name: September 2018 
+      href: release-notes-september-2018.md
     - name: August 2018 
       href: release-notes-august-2018.md
     - name: July 2018 
@@ -157,6 +159,14 @@
       href: service-maintenance.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
+  - name: Maintenance schedules
+    items:
+    - name: Overview
+      href: maintenance-scheduling.md
+    - name: View maintenance schedule
+      href: viewing-maintenance-schedule.md
+    - name: Change maintenance schedule
+      href: changing-maintenance-schedule.md
   - name: Integration
     items:
     - name: Overview
@@ -185,7 +195,7 @@
       href: load-data-from-azure-blob-storage-using-polybase.md
     - name: Contoso public data
       href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-    - name: Azure Data Lake Store
+    - name: Azure Data Lake Storage Gen1
       href: sql-data-warehouse-load-from-azure-data-lake-store.md
     - name: Azure Databricks
       href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json

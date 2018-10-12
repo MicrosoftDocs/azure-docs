@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
 
 ---
@@ -23,8 +23,8 @@ ms.author: anwestg
 
 Use the guidance in this article to deploy App Service in Azure Stack.
 
->[!IMPORTANT]  
->Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.3.
+> [!IMPORTANT]  
+> Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.3.
 
 You can give your users the ability to create web and API applications. To let users create these applications, you need to:
 
@@ -93,7 +93,7 @@ To deploy App Service resource provider, follow these steps:
 8. Enter the information for your file share and then select **Next**. The address of the file share must use the Fully Qualified Domain Name (FQDN), or the IP address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
 
    >[!NOTE]
-   >The installer tries to test connectivity to the fileshare before proceeding. But, if you're deploying to an existing virtual network, this connectivity test might fail. You're given a warning and a prompt to continue. If the fileshare information is correct, continue the deployment.
+   >The installer tries to test connectivity to the file share before proceeding. But, if you're deploying to an existing virtual network, this connectivity test might fail. You're given a warning and a prompt to continue. If the file share information is correct, continue the deployment.
 
    ![App Service Installer][7]
 
@@ -224,7 +224,7 @@ After you deploy and register the App Service resource provider, test it to make
 
 To create a test web app, follow these steps:
 
-1. In the Azure Stack tenant portal, select **New** > **Web + Mobile** > **Web App**.
+1. In the Azure Stack user portal, select **+ Create a resource** > **Web + Mobile** > **Web App**.
 
 2. Under **Web App**, enter a name in **Web app**.
 

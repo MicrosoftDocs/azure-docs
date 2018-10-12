@@ -33,7 +33,7 @@ This article summarizes supported configurations and components when you replica
 --- | --- | ---
 **Move vault across resource groups** | Not supported<br/><br/> You can't move a Recovery services vault across resource groups.
 **Move compute/storage/network resources across resource groups** | Not supported.<br/><br/> If you move a VM or associated components such as storage/network after it's replicating, you need to disable replication and reenable replication for the VM.
-**Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant for 'Resource manager deployment model' VMs. Not supported for 'Classic deployment model' VMs.
+**Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant. Not supported for classic VMs.
 **Migrate VMs across regions within the supported geographical clusters (within and across subscriptions)** | Supported within the same Azure Active Directory tenant for 'Resource manager deployment model' VMs. Not supported for 'Classic deployment model' VMs.
 **Migrate VMs within the same region** | Not supported.
 
@@ -64,7 +64,7 @@ The below support is applicable for any workload running on the mentioned OS.
 - SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (supported kernel versions)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
-- Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
+- Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
 
 (Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you need to disable replication and protect the machine again post the upgrade.)
 
@@ -102,6 +102,7 @@ Debian 8 | 9.16 | 3.16.0-4-amd64 to 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default to 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default to 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default to 4.4.126-94.22-default |
 
@@ -120,7 +121,7 @@ You can replicate and recover VMs between any two regions within the same geogra
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
 Europe | UK West, UK South, North Europe, West Europe, France Central, France South
 Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
-Australia	| Australia East, Australia Southeast
+Australia	| Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germany	| Germany Central, Germany Northeast
 China | China East, China North
@@ -166,7 +167,8 @@ Standard Managed disks | Supported in Azure regions in which Azure Site Recovery
 Premium Managed disks | Supported in Azure regions in which Azure Site Recovery is supported. |
 Storage spaces | Supported |   	 	 
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.	 
-Azure Disk Encryption (ADE) | Not supported |
+Azure Disk Encryption (ADE) for Windows OS | VMs enabled for [encryption with Azure AD app](https://aka.ms/ade-aad-app) are supported |
+Azure Disk Encryption (ADE) for Linux OS | Not supported |
 Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Not supported|	Temporary disk is excluded by default.
 Storage Spaces Direct  | Not supported|
@@ -202,7 +204,7 @@ Authenticated Proxy | Not supported | If the VM is using an authenticated proxy 
 Site to Site VPN with on-premises (with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site recovery traffic is not routed to on-premises. Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
 VNET to VNET connection	| Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
 Virtual Network Service Endpoints | Supported | Azure Storage firewalls for virtual networks are not supported. Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported.
-Accelerated Networking | Not supported | A VM with Accelerated Networking enabled can be replicated, but the failover VM will not have Accelerated Networking enabled. Accelerated Networking will also be disabled for source VM on failback.
+Accelerated Networking | Supported | Accelerated Networking must be enabled on source VM. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 ## Next steps

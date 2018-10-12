@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 09/11/2018
 ms.author: jingwang
 
 ---
@@ -30,10 +30,14 @@ You can copy data from Azure Cosmos DB to any supported sink data store, or copy
 
 Specifically, this Azure Cosmos DB connector supports:
 
-- Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Copying data from/to Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Writing into Cosmos DB as INSERT or UPSERT.
 - Importing/exporting JSON documents as-is, or copying data from/to tabular dataset e.g. SQL database, CSV files, etc. To copy documents as-is to/from JSON files or another Cosmos DB collection, see [Import/Export JSON documents](#importexport-json-documents).
 
 Data Factory integrates with [Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to provide the best performance writing into Cosmos DB.
+
+>[!TIP]
+>Watch [this video](https://youtu.be/5-SRNiC_qOU) which walks through copying data from Azure Blob storage to Cosmos DB and describes performance tuning considerations for ingesting data into Cosmos DB in general.
 
 ## Getting started
 

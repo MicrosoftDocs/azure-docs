@@ -45,18 +45,22 @@
     href: container-service-quotas.md
   - name: Migrate from ACS to AKS
     href: acs-aks-migration.md
+  - name: Supported Kubernetes version
+    href: supported-kubernetes-versions.md
 - name: How-to guides
   items:
   - name: Cluster operations
     items:
     - name: Create an AKS cluster
-      href: create-cluster.md
+      href: /cli/azure/aks#az-aks-create
+      maintainContext: true
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Delete an AKS cluster
-      href: delete-cluster.md
+      href: /cli/azure/aks#az-aks-delete
+      maintainContext: true
     - name: Azure AD-enabled AKS
       href: aad-integration.md
     - name: Create virtual nodes
@@ -139,6 +143,9 @@
       href: gpu-cluster.md
   - name: DevOps
     items:
+    - name: Use Ansible to create AKS clusters
+      href: /azure/ansible/ansible-create-configure-aks
+      maintainContext: true
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
     - name: Azure DevOps Project
@@ -152,6 +159,8 @@
     items:
     - name: Common issues
       href: troubleshooting.md
+    - name: Checking for best practices
+      href: kube-advisor-tool.md
     - name: SSH node access
       href: ssh.md
 - name: Reference
@@ -174,6 +183,8 @@
     href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Resources
   items:
+  - name: Build your skill with Microsoft Learn
+    href: /learn/browse/?products=azure-container-instances&azure-container-registry
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing

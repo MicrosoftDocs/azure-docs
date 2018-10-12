@@ -40,7 +40,7 @@ Create a virtual network using the [az network vnet create][az-network-vnet-crea
 az network vnet create \
     --resource-group myResourceGroup \
     --name myVnet \
-    --address-prefixes 10.8.0.0/8 \
+    --address-prefixes 10.0.0.0/8 \
     --subnet-name myAKSSubnet \
     --subnet-prefix 10.240.0.0/16
 ```
@@ -246,10 +246,10 @@ Close the terminal session to your test pod with `exit`. When your session is en
 
 ## Remove virtual nodes
 
-If you no longer wish to use virtual nodes, you can disable them using the [az aks disable-addons][az aks disable-addons] command. The following example disables *both* the Linux and Windows virtual nodes. To only disable one OS virtual node, instead specify the OS name:
+If you no longer wish to use virtual nodes, you can disable them using the [az aks disable-addons][az aks disable-addons] command. The following example disables the Linux virtual nodes:
 
 ```azurecli-interactive
-az aks disable-addons -resource-group myResourceGroup --name myAKSCluster –-add-ons virtual-nodes --os-type both
+az aks disable-addons -resource-group myResourceGroup --name myAKSCluster –-add-ons virtual-nodes --os-type linux
 ```
 
 ## Next steps

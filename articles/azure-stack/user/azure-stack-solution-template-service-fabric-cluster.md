@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/08/2018
+ms.date: 09/12/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
 ---
@@ -21,7 +21,7 @@ ms.reviewer: shnatara
 
 Use the **Service Fabric Cluster** item from the Azure Marketplace to deploy a secured Service Fabric cluster in Azure Stack. 
 
-For more information about working with Service Fabric, see [Overview of Azure Service Frabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) and [Service Fabric cluster security scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), in the Azure documentation.
+For more information about working with Service Fabric, see [Overview of Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) and [Service Fabric cluster security scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), in the Azure documentation.
 
 ## Prerequisites
 
@@ -118,7 +118,7 @@ PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-man
 
 ## Deploy the Marketplace item
 
-1. In the user portal, go to **New** > **Compute** > **Service Fabric Cluster**. 
+1. In the user portal, go to **+ Create a resource** > **Compute** > **Service Fabric Cluster**. 
 
    ![Select Service Fabric Cluster](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 

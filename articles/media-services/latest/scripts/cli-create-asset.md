@@ -4,7 +4,7 @@ description: The Azure CLI script in this topic shows how to create a Media Serv
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: 
 
 ms.assetid:
@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/15/2018
+ms.date: 10/09/2018
 ms.author: juliako
 ---
 
-# CLI example: Create an Azure Media Services account
+# CLI example: Create an Asset
 
 The Azure CLI script in this article shows how to create a Media Services Asset to upload content to.
 

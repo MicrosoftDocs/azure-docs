@@ -3,8 +3,8 @@ title: Tutorial - Add Azure CDN to an Azure App Service web app | Microsoft Docs
 description: In this tutorial, Azure Content Delivery Network (CDN) is added to an Azure App Service web app to cache and deliver your static files from servers close to your customers around the world.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/14/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
 
 ---
@@ -39,7 +39,7 @@ What you'll learn:
 To complete this tutorial:
 
 - [Install Git](https://git-scm.com/)
-- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

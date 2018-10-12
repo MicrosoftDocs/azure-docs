@@ -35,7 +35,7 @@ Service Fabric has built-in environment variables set for each service instance.
 | Fabric_NodeId                                | The node ID of the node running the process                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | The IP or FQDN of the node, as specified in the cluster manifest file. | localhost or 10.0.0.1                                                |
 | Fabric_NodeName                              | The node name of the node running the process                          | _Node_0                                                              |
-| Fabric_ServiceName                           | The name of the service, if service is hosted in ExclusiveProcess mode. This variable value is only available if you create the service with ServicePackageActivationMode ExclusiveProcess.  | MyService                                               |
+| Fabric_ServiceName                           | The fabric uri name of the service, if service is hosted in ExclusiveProcess mode. This variable value is only available if you create the service with ServicePackageActivationMode ExclusiveProcess.  | fabric:/MyApplication/MyService                                               |
 | Fabric_ServicePackageActivationId            | The ServicePackageActivationId                                         | A GUID                                                               |
 | Fabric_ServicePackageName                    | Name of the service package the process is part of                     | Web1Pkg                                                              |
 

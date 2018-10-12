@@ -30,6 +30,8 @@
     href: storage-quickstart-blobs-go.md
   - name: Work with blobs - Ruby 
     href: storage-quickstart-blobs-ruby.md
+  - name: Work with blobs - Node.js (Storage SDK v10)
+    href: storage-quickstart-blobs-nodejs-v10.md
   - name: Work with blobs - Node.js
     href: storage-quickstart-blobs-nodejs.md
   - name: Work with blobs - JS/HTML
@@ -83,7 +85,12 @@
 - name: Concepts
   items:
   - name: Storage accounts
-    href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    items:
+    - name: Manage a storage account
+      href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Upgrade a storage account
+      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Authorization
     href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     items:
@@ -190,8 +197,10 @@
       href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Using the Azure CDN to access blobs with custom domains over HTTPs
       href: storage-https-custom-domain-cdn.md
-    - name: Immutable storage feature of Azure Blob storage (Preview)
+    - name: Immutable blobs
       href: storage-blob-immutable-storage.md
+    - name: Advanced Threat Protection (preview)
+      href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Enable secure TLS for Azure Storage client
       href: ../common/storage-security-tls.md
     - name: Compliance offerings
@@ -287,8 +296,6 @@
         href: ../common/storage-import-export-file-format-log.md
 - name: How to
   items:
-  - name: Create a storage account
-    href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Develop
     items:
     - name: REST
@@ -305,9 +312,9 @@
       href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: PowerShell for China, Government, and German clouds
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure CLI 1.0
+    - name: Azure classic CLI
       href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage blobs with Storage Explorer
       href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -343,9 +350,11 @@
     href: storage-blob-static-website.md
   - name: Transfer data
     items:
-    - name: AzCopy on Windows
+    - name: AzCopy (v10)
+      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: AzCopy on Windows (v8)
       href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: AzCopy on Linux
+    - name: AzCopy on Linux (v8)
       href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Mount Blob storage as a file system on Linux
       href: storage-how-to-mount-container-linux.md

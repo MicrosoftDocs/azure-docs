@@ -84,7 +84,7 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 
 ## ConvertDateToDateTimeClaim
 
-Converts a **Date** ClaimType to a **DateTime** ClaimTpye. The claims transformation converts the time format and adds 12:00:00 AM to the date.
+Converts a **Date** ClaimType to a **DateTime** ClaimType. The claims transformation converts the time format and adds 12:00:00 AM to the date.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |

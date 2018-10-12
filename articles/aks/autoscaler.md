@@ -247,7 +247,7 @@ spec:
     spec:
       serviceAccountName: cluster-autoscaler
       containers:
-      - image: k8s.gcr.io/cluster-autoscaler:{{ ca_version }}
+      - image: gcr.io/google-containers/cluster-autoscaler:v1.2.2
         imagePullPolicy: Always
         name: cluster-autoscaler
         resources:

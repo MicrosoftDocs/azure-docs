@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 
 ms.custom: H1Hack27Feb2017
@@ -107,7 +107,6 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
 
 ## Related articles
-* [Article index for application management in Azure Active Directory](../active-directory-apps-index.md)
 * [Automate user provisioning and deprovisioning to SaaS applications](user-provisioning.md)
 * [Customize attribute mappings for user provisioning](customize-application-attributes.md)
 * [Write expressions for attribute mappings](functions-for-customizing-application-data.md)

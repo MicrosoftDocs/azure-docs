@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 09/04/2018 
+ms.date: 09/13/2018 
 ms.author: jeffgilb 
 ms.reviewer: jeffgo 
 ---
@@ -37,7 +37,7 @@ The **UpdateMySQLProvider.ps1** script creates a new VM with the latest resource
 >We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a **single** MSU package in the local dependency path. The script will fail if there's more than one MSU file in this location.
 
 >[!NOTE]  
->If you are running a version of the Azure Stack before the 1808 build, you will to have to use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
+> 
 
 The script requires use of the same arguments that are described for the DeployMySqlProvider.ps1 script. Provide the certificate here as well.  
 
@@ -49,13 +49,16 @@ Following is an example of the *UpdateMySQLProvider.ps1* script that you can run
 ```powershell 
 # Install the AzureRM.Bootstrapper module and set the profile. 
 Install-Module -Name AzureRm.BootStrapper -Force 
-Use-AzureRmProfile -Profile 2018-03-01-hybrid 
+Use-AzureRmProfile -Profile 2017-03-09-profile 
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
 $domain = "AzureStack" 
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines 
 $privilegedEndpoint = "AzS-ERCS01" 
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted. 
 $tempDir = 'C:\TEMP\MYSQLRP' 
@@ -82,6 +85,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -VMLocalCredential $vmLocalAdminCreds ` 
 -CloudAdminCredential $cloudAdminCreds ` 
 -PrivilegedEndpoint $privilegedEndpoint ` 
+-AzureEnvironment $AzureEnvironment `
 -DefaultSSLCertificatePassword $PfxPass ` 
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
@@ -96,7 +100,7 @@ You can specify these parameters in the command line. If you don't, or if any pa
 | **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials as you used for deploying Azure Stack. | _Required_ | 
 | **VMLocalCredential** |The credentials for the local administrator account of the SQL resource provider VM. | _Required_ | 
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ | 
-| **AzureEnvironment** | The azure environment of the service admin account which you used for deploying Azure Stack. Required only if it’s NOT ADFS. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | The Azure environment of the service admin account which you used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure AD, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Your certificate .pfx file must be placed in this directory as well. | _Optional_ (_mandatory_ for multi-node) | 
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ | 
 | **MaxRetryCount** | The number of times you want to retry each operation if there is a failure.| 2 | 

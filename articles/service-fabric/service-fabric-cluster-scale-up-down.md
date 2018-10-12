@@ -29,7 +29,7 @@ Virtual machine scale sets are an Azure compute resource that you can use to dep
 > 
 
 ## Choose the node type/Virtual Machine scale set to scale
-Currently, you are not able to specify the auto-scale rules for virtual machine scale sets using the portal, so let us use Azure PowerShell (1.0+) to list the node types and then add auto-scale rules to them.
+Currently, you are not able to specify the auto-scale rules for virtual machine scale sets using the portal to create a Service Fabric Cluster, so let us use Azure PowerShell (1.0+) to list the node types and then add auto-scale rules to them.
 
 To get the list of virtual machine scale set that make up your cluster, run the following cmdlets:
 

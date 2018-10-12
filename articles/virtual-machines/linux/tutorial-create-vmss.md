@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create a virtual machine scale set for Linux in Azure | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to create and deploy a highly available application on Linux VMs using a virtual machine scale set
+description: In this tutorial, you learn how to use the Azure CLI to create and deploy a highly available application on Linux VMs using a virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -21,7 +21,7 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to learn about autoscaling VMs in Azure so that I can deploy a highly-available and scalable infrastructure.
 ---
 
-# Tutorial: Create a virtual machine scale set and deploy a highly available app on Linux with the Azure CLI 2.0
+# Tutorial: Create a virtual machine scale set and deploy a highly available app on Linux with the Azure CLI
 
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure. You learn how to:
 
@@ -35,7 +35,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Scale Set overview
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. VMs in a scale set are distributed across logic fault and update domains in one or more *placement groups*. These are groups of similarly configured VMs, similar to [availability sets](tutorial-availability-sets.md).
@@ -154,7 +154,7 @@ To see the scale set in action, you can force-refresh your web browser to see th
 
 
 ## Management tasks
-Throughout the lifecycle of the scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. The Azure CLI 2.0 provides a quick way to do those tasks. Here are a few common tasks.
+Throughout the lifecycle of the scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. The Azure CLI provides a quick way to do those tasks. Here are a few common tasks.
 
 ### View VMs in a scale set
 To view a list of VMs running in your scale set, use [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances) as follows:

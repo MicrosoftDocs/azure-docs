@@ -6,7 +6,7 @@ author: eross-msft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 
-ms.service: active-directoary
+ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
@@ -21,7 +21,7 @@ The Microsoft Authenticator app help prevent unauthorized access to accounts and
 
 When using the app for two-step verification, it can work in one of two ways:
 
-- **Notification.** The app sends a notification to your device. Make sure the notification is right, and then select **Verify**. If you don’t recognize the notification, select **Deny**.
+- **Notification.** The app sends a notification to your device. Make sure the notification is right, and then select **Verify**. If you don’t recognize the notification, select **Deny**. Users are given the opportunity to mark a request as fraud if they deny. 
 
 - **Verification code.** After you type your username and password, you can open the app and copy the verification code provided on the **Accounts** screen on to the sign-in screen. The verification code acts as a second form of authentication.
 

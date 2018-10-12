@@ -1,6 +1,6 @@
 ---
 title: Register a new Azure IoT Edge device (CLI) | Microsoft Docs 
-description: Use the IoT extension for Azure CLI 2.0 to register a new IoT Edge device
+description: Use the IoT extension for Azure CLI to register a new IoT Edge device
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -11,19 +11,19 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Register a new Azure IoT Edge device with Azure CLI 2.0
+# Register a new Azure IoT Edge device with Azure CLI
 
 Before you can use your IoT devices with Azure IoT Edge, you need to register them with your IoT hub. Once you register a device, you receive a connection string that can be used to set up your device for Edge workloads. 
 
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI 2.0 with features such as device management and full IoT Edge capability.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
 
-This article shows how to register a new IoT Edge device using Azure CLI 2.0.
+This article shows how to register a new IoT Edge device using Azure CLI.
 
 ## Prerequisites
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription. 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
-* The [IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
+* The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## Create a device
 
@@ -62,4 +62,4 @@ The device id parameter is case-sensitive. Don't copy the quotation marks around
 
 ## Next steps
 
-Learn how to [Deploy modules to a device with Azure CLI 2.0](how-to-deploy-modules-cli.md)
+Learn how to [Deploy modules to a device with Azure CLI](how-to-deploy-modules-cli.md)

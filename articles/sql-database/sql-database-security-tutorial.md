@@ -2,14 +2,16 @@
 title: Secure your Azure SQL database | Microsoft Docs
 description: Learn about techniques and features to secure your Azure SQL database.
 services: sql-database
-author: DRediske
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,security
+ms.subservice: security
+ms.custom:
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 09/07/2018
+author: DRediske
 ms.author: daredis
-
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/07/2018
 ---
 # Secure your Azure SQL Database
 
@@ -166,7 +168,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
 1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 
-2. In the Settings blade, select **Auditing & Threat Detection**. Notice that sever-level auditing is diabled and that there is a **View server settings** link that allows you to view or modify the server auditing settings from this context.
+2. In the Settings blade, select **Auditing & Threat Detection**. Notice that server-level auditing is disabled and that there is a **View server settings** link that allows you to view or modify the server auditing settings from this context.
 
     ![Auditing Blade](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
