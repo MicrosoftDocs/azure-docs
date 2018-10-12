@@ -32,7 +32,7 @@ The ability to identify human faces is important in many scenarios including sec
 
 Face verification performs an authentication against two detected faces or from one detected face to one person object. For more detailed information, see [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-### Finding similar face
+### Finding similar faces
 
 Given a target detected face and a set of candidate faces to search with, the service finds a small set of faces that look most similar to the target face. Two working modes, **matchFace** and **matchPerson** are supported. **matchPerson** mode returns similar faces after applying a same-person threshold derived from [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). **matchFace** mode ignores the same-person threshold and returns top similar candidate faces. In the following example, candidate faces are listed.
 ![Overview - Face Find Similar](./Images/FaceFindSimilar.Candidates.jpg)
@@ -71,7 +71,7 @@ Face Storage allows a Standard subscription to store additional persisted faces 
 
 For example, if your account used 10,000 persisted faces each day for the first half of the month and none the second half, you would be billed only for the 10,000 faces for the days stored. Alternatively, if each day during the month you persist 1,000 faces for a few hours and then delete them each night, you would still be billed for 1,000 persisted faces each day.
 
-## Sample Apps
+## Sample apps
 
 Take a look at these sample applications that make use of Face API.
 
