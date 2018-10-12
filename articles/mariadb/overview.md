@@ -24,7 +24,7 @@ Azure Database for MariaDB delivers:
 - Automatic backups and point-in-time-restore for up to 35 days.
 - Enterprise-grade security and compliance.
 
-These capabilities require almost no administration. They're provided at no additional cost. Instead of allocating precious time and resources to managing virtual machines and infrastructure, you can use Azure Database for MariaDB to help you rapidly develop your app and accelerate your time to market. You can also continue to develop your application by using the open-source tools and platform of your choice. Deliver with the speed and efficiency your business demands, all without learning new skills.
+These capabilities require almost no administration. They're provided at no additional cost. Azure Database for MariaDB can help you rapidly develop your app and accelerate your time to market. You don't have to allocate precious time and resources to managing virtual machines and infrastructure. You can also continue to develop your application by using the open-source tools and platform of your choice. Deliver with the speed and efficiency your business demands, all without learning new skills.
 
 To learn about core concepts and features in Azure Database for MariaDB, including performance, scalability, and manageability, see these quickstarts:
 
@@ -46,7 +46,7 @@ How do you decide when to scale up or down? You can use the built-in performance
 
 ## Keep your app and business running
 
-Azure's industry-leading 99.99% availability SLA (not offered during public preview) is powered by a global network of Microsoft-managed datacenters, which help keep your app running 24/7. Every Azure Database for MariaDB server helps you gain built-in security, fault tolerance, and data protection that you otherwise would buy or design, build, and manage. With Azure Database for MariaDB, you can use point-in-time restore to recover a server to an earlier state, as far back as 35 days.
+Azure's industry-leading 99.99% availability SLA (not offered during public preview) is powered by a global network of Microsoft-managed datacenters. The network helps keep your app running 24/7. Every Azure Database for MariaDB server helps you gain built-in security, fault tolerance, and data protection that you otherwise would buy or design, build, and manage. With Azure Database for MariaDB, you can use point-in-time restore to recover a server to an earlier state, as far back as 35 days.
 
 ## Secure your data
 
