@@ -126,7 +126,6 @@
     - name: Develop with Dev Spaces
       href: ../dev-spaces/azure-dev-spaces.md
       maintainContext: true
-      expanded: true
       items:
       - name: Java (VS Code & CLI)
         items:
