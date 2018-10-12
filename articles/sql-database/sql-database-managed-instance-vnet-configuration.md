@@ -119,7 +119,7 @@ If you would like to create new one:
 
 If you want to create a Managed Instance inside an existing subnet, we recommend the following PowerShell script to prepare the subnet.
 ```powershell
-$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet/prepareSubnet.ps1'
 
 $parameters = @{
     subscriptionId = '<subscriptionId>'
