@@ -56,23 +56,14 @@ Azure Digital Twins uses Azure Active Directory to authenticate users and protec
 > * Set appropriate lengths of time that tokens are valid for.
 > * Refresh expired tokens.
 
-## Role-Based Access Control best practices
+## Role-based access control best practices
 
 [!INCLUDE [digital-twins-rbac-best-practices](../../includes/digital-twins-rbac-best-practices.md)]
 
 ## Next steps
 
-Learn more about Azure IoT best practices:
+To learn more about Azure IoT best practices, read [IoT security best practices](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/).
 
-> [!div class="nextstepaction"]
-> [IoT security best practices](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/)
+To learn about Role-Based Access Control, read [Role-Based Access Control](./security-role-based-access-control.md).
 
-Read more about Role-Based Access Control:
-
-> [!div class="nextstepaction"]
-> [Role-Based Access Control](./security-role-based-access-control.md)
-
-Read more about authenticating to APIs:
-
-> [!div class="nextstepaction"]
-> [Authenticating with APIs](./security-authenticating-apis.md)
+For authentication, read [Authenticating with APIs](./security-authenticating-apis.md).

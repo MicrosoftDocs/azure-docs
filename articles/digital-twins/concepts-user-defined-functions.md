@@ -10,7 +10,7 @@ ms.date: 10/08/2018
 ms.author: alinast
 ---
 
-# Data Processing and User-Defined Functions
+# Data processing and user-defined functions
 
 Azure Digital Twins offers advanced compute capabilities. Developers can define and run custom functions against incoming telemetry messages to send events to pre-defined endpoints.
 
@@ -83,9 +83,9 @@ _Matchers_ define a set of conditions that evaluate what actions will take place
 >   - `/spaces/{id}?includes=properties,types,location,timezone` for the sensor's parent space.
 > - The comparisons are case-insensitive.
 
-### User-Defined Functions
+### User-defined functions
 
-A _User-Defined Function_, or _UDF_, is a custom function that runs within an isolated environment in Azure Digital Twins. UDFs have access to both the raw sensor telemetry message as it was received, as well as to the spatial graph and dispatcher service. Once the UDF is registered within the graph, a matcher (detailed above) must be created to specify when to run the UDF. When Digital Twins receives new telemetry from a given sensor, the matched UDF can calculate a moving average of the last few sensor readings, for example.
+A _user-defined function_, or _UDF_, is a custom function that runs within an isolated environment in Azure Digital Twins. UDFs have access to both the raw sensor telemetry message as it was received, as well as to the spatial graph and dispatcher service. Once the UDF is registered within the graph, a matcher (detailed above) must be created to specify when to run the UDF. When Digital Twins receives new telemetry from a given sensor, the matched UDF can calculate a moving average of the last few sensor readings, for example.
 
 UDFs can be written in JavaScript and allow developers to execute custom snippets of code against sensor telemetry messages. There are also helper methods to interact with the graph in the user-defined execution environment. With a UDF, developers can:
 
@@ -96,7 +96,7 @@ UDFs can be written in JavaScript and allow developers to execute custom snippet
 
 Refer to [How to User User-Defined Functions](how-to-user-defined-functions.md) for more details.
 
-### Role Assignment
+### Role assignment
 
 A UDF's actions are subject to Digital Twins' role-based access control to secure data within the service. Role assignments ensure that a given UDF has the proper permissions to interact with the spatial graph. For example, a UDF might attempt to create, read, update, or delete graph data under a given space. A UDF's level of access is checked when the UDF asks the graph for data or attempts an action. For more information, see [Role-Based Access Control](security-create-manage-role-assignments.md).
 
@@ -104,15 +104,9 @@ It's possible for a matcher to trigger a UDF that has no role assignments. In th
 
 ## Next steps
 
-Learn more about how to routing events and telemetry messages to other Azure services:
+To learn more about how to routing events and telemetry messages to other Azure services, read [Routing events and messages](concepts-events-routing.md).
 
-> [!div class="nextstepaction"]
-> [Routing events and messages](concepts-events-routing.md)
-
-Learn more about how to create matchers, user-defined functions, and role assignments:
-
-> [!div class="nextstepaction"]
-> [Guide for Using User-Defined Functions](how-to-user-defined-functions.md)
+To learn more about how to create matchers, user-defined functions, and role assignments, read [Guide for using user-defined functions](how-to-user-defined-functions.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-data-processing-flow.png

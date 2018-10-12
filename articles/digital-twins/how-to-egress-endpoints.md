@@ -1,5 +1,5 @@
 ---
-title: Egress and Endpoints in Azure Digital Twins | Microsoft Docs
+title: Egress and endpoints in Azure Digital Twins | Microsoft Docs
 description: Guideline on how to create endpoints with Azure Digital Twins
 author: alinamstanciu
 manager: bertvanhoof
@@ -18,7 +18,7 @@ Events will be sent to the endpoints according to pre-defined routing preference
 
 For a basic understanding of events routing and event types, refer to [Routing events and messages](concepts-events-routing.md).
 
-## Event Types description
+## Event types description
 
 Here are the event formats for each of the event types:
 
@@ -158,7 +158,7 @@ Here are the event formats for each of the event types:
 > - `DeviceMessage` is combinable only with `EventHub`; you will not be able to combine `DeviceMessage` with any of the other event types.
 > - You will be able to specify only one endpoint of the combination of type `EventHub`/`DeviceMessage`.
 
-## Configuring Endpoints
+## Configuring endpoints
 
 Endpoint management is exercised through the Endpoints API. Here are some examples about how to configure the different supported endpoints. Pay special attention to the event types array as it defines the routing for the endpoint:
 
@@ -272,12 +272,6 @@ When an endpoint becomes unreachable, the system will enter an exponential back-
 
 ## Next steps
 
-Learn how to use Azure Digital Twins Swagger:
+To learn how to use Azure Digital Twins Swagger, read [Azure Digital Twins Swagger](how-to-use-swagger.md).
 
-> [!div class="nextstepaction"]
-> [Azure Digital Twins Swagger](how-to-use-swagger.md)
-
-Learn more about routing events and messages in Azure Digital Twins:
-
-> [!div class="nextstepaction"]
-> [Routing events and messages](concepts-events-routing.md)
+To learn more about routing events and messages in Azure Digital Twins, read [Routing events and messages](concepts-events-routing.md).

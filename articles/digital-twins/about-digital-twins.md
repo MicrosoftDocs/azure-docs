@@ -24,7 +24,7 @@ The following video takes a deeper dive into Digital Twins:
 
 > [!VIDEO https://www.youtube.com/embed/TvN_NxpgyzQ]
 
-## Key Capabilities
+## Key capabilities
 
 Key capabilities of Azure Digital Twins include:
 

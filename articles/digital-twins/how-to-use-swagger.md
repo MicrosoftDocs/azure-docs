@@ -103,15 +103,9 @@ To interactively test requests against API resources protected by OAuth 2.0, see
 
 ## Next steps
 
-Read more about Azure Digital Twins Object Models and Spatial Intelligence Graph:
+To read more about Azure Digital Twins object models and spatial intelligence graph, read [this article](./concepts-objectmodel-spatialgraph.md).
 
-> [!div class="nextstepaction"]
-> [Object Models](./concepts-objectmodel-spatialgraph.md)
-
-Learn how to authenticate with your Management API:
-
-> [!div class="nextstepaction"]
-> [Authenticating with APIs](./security-authenticating-apis.md)
+To learn how to authenticate with your Management API, read [Authenticating with APIs](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.png

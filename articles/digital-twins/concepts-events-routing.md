@@ -59,15 +59,9 @@ Azure Digital Twins currently supports the following **EventTypes** that will be
 
 ## Next steps
 
-Learn about public preview limits:
+To learn about public preview limits, read [Azure Digital Twins preview limits](concepts-service-limits.md).
 
-> [!div class="nextstepaction"]
-> [Azure Digital Twins preview limits](concepts-service-limits.md)
-
-Try out a quickstart Azure Digital Twins sample:
-
-> [!div class="nextstepaction"]
-> [Find Available Rooms with Fresh Air](quickstart-view-occupancy-dotnet.md)
+To try out an Azure Digital Twins sample, read [Quickstart to find available rooms](quickstart-view-occupancy-dotnet.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-events-routing.png
