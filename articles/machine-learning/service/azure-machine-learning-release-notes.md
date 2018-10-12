@@ -21,6 +21,9 @@ In this article, learn about the Azure Machine Learning service releases.
 #### New features
  * Multiple tenant support when creating new workspace.
 
+#### Breaking changes
+ * **Upcoming in next release** *Workspace.compute_targets, datastores, experiments, images, models* and *webservices* will become properties instead of methods. For example, replace *Workspace.compute_targets()* with *Workspace.compute_targets*.
+
 #### Bugs fixed
  * The pynacl library version no longer needs to be pinned when deploying web servcie.
 
