@@ -29,7 +29,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to send and receive messages to and from Service Bus:'
+    text: 'Learn how to send and receive messages to and from Service Bus queues:'
   - type: list
     style: icon48
     items: 
@@ -45,6 +45,23 @@ sections:
         src: /azure/service-bus-messaging/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/service-bus-messaging/service-bus-quickstart-powershell
+  - type: paragraph
+    text: 'Learn how to publish and subscribe for messages using Service Bus topics and subscriptions:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/service-bus-messaging/media/index/portal.svg
+      text: Azure portal
+      href: /azure/service-bus-messaging/service-bus-quickstart-portal?branch=release-mvc-service-bus
+    - image: 
+        src: /azure/service-bus-messaging/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/service-bus-messaging/service-bus-quickstart-cli?branch=release-mvc-service-bus
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/service-bus-messaging/service-bus-quickstart-powershell      
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
