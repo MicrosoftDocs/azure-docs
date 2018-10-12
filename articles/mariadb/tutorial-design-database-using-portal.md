@@ -47,9 +47,9 @@ You create an Azure Database for MariaDB server with a defined set of compute an
     Setting | Suggested value | Field description 
     ---|---|---
     Server name | Unique server name | Choose a unique name that identifies your Azure Database for MariaDB server. For example, **mydemoserver**. The domain name *.mariadb.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.
-    Subscription | *your subscription* | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
-    Resource group | *myresourcegroup* | Provide a new or existing resource group name.
-    Select source | **Blank** | Select *Blank* to create a new server from scratch. (Select *Backup* if you are creating a server from a geo-backup of an existing Azure Database for MariaDB server).
+    Subscription | *your subscription* | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you are billed for the resource.
+    Resource group | *myresourcegroup* | Select an existing resource group name or enter a new resource group name.
+    Select source | **Blank** | Select *Blank* to create a new server. (If you're creating a server from a geo-backup of an existing Azure Database for MariaDB server, select **Backup**).
     Server admin login | myadmin | A sign-in account to use when you connect to the server. The admin sign-in name can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
     Password | *your choice* | Provide a new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
     Confirm password | *your choice*| Confirm the admin account password.
@@ -69,25 +69,26 @@ An Azure Database for MariaDB is protected by a firewall. By default, all connec
    
    ![Connection security](./media/tutorial-design-database-using-portal/1-Connection-security.png)
 2. You can select **Add My IP** or configure firewall rules here. Remember to select **Save** after you create the rules.
+
 You can now connect to the server by using the mysql command-line tool or the MySQL Workbench GUI tool.
 
 > [!TIP]
-> The Azure Database for MariaDB server communicates over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed by your network's firewall. If so, you cannot connect to the Azure Database for MariaDB server unless your IT department opens port 3306.
+> The Azure Database for MariaDB server communicates over port 3306. If you try to connect from inside a corporate network, outbound traffic over port 3306 might not be allowed by your network's firewall. To connect to the Azure Database for MariaDB server, your IT department must open port 3306.
 
 ## Get connection information
 
 Get values for **Server name** (fully qualified) and **Server admin login name** for your Azure Database for MariaDB server from the Azure portal. You use the fully qualified server name to connect to your server by using the mysql command-line tool. 
 
-1. In [Azure portal](https://portal.azure.com/), in the left menu, select **All resources**. Type the server name and search for your Azure Database for MariaDB server. Select the server name to view the details.
+1. In the [Azure portal](https://portal.azure.com/), in the left menu, select **All resources**. Type the server name and search for your Azure Database for MariaDB server. Select the server name to view the server details.
 
-2. On the **Overview** page, note the values for **Server name** and **Server admin login name**. You can click the **copy** button next to each field to copy the value to the clipboard.
+2. On the **Overview** page, make a note of the values for **Server name** and **Server admin login name**. You can also click the **copy** button next to each field to copy the value to the clipboard.
    ![Server properties](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-In this example, the server name is *mydemoserver.mariadb.database.azure.com*, and the server admin login is *myadmin@mydemoserver*.
+In this example, the server name is **mydemoserver.mariadb.database.azure.com** and the server admin login is **myadmin@mydemoserver**.
 
 ## Connect to the server by using mysql
 
-Use the [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MariaDB server. You can run the mysql command-line tool from Azure Cloud Shell in the browser or from your own computer by using the mysql tools installed locally. To open Azure Cloud Shell, select the **Try It** button on a code block in this article or visit the Azure portal and click the **>_** icon in the top right toolbar. 
+Use the [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MariaDB server. You can run the mysql command-line tool from Azure Cloud Shell in the browser or from your computer by using the mysql tools installed locally. To open Azure Cloud Shell, select the **Try It** button on a code block in this article or go to the Azure portal and click the **>_** icon in the top right toolbar. 
 
 Type the command to connect:
 ```azurecli-interactive
@@ -96,7 +97,7 @@ mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
 
 ## Create a blank database
 
-After you’re connected to the server, create a blank database to work with:
+When you’re connected to the server, create a blank database to work with:
 
 ```sql
 CREATE DATABASE mysampledb;
@@ -133,7 +134,7 @@ INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 
 ## Query and update the data in the tables
 
-Execute the following query to retrieve information from the database table:
+Run the following query to retrieve information from the database table:
 
 ```sql
 SELECT * FROM inventory;

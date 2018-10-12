@@ -22,7 +22,7 @@ Azure Database for MariaDB is a relational database service in the Microsoft clo
 - Automatic backups and point-in-time-restore for up to 35 days.
 - Enterprise-grade security and compliance.
 
-These capabilities require almost no administration. They're provided at no additional cost. Instead of allocating precious time and resources to managing virtual machines and infrastructure, you can use MariaDB to rapidly develop your app and accelerate your time to market. You can also continue to develop your application by usinig the open-source tools and platform of your choice. Deliver with the speed and efficiency your business demands, all without learning new skills.
+These capabilities require almost no administration. They're provided at no additional cost. Instead of allocating precious time and resources to managing virtual machines and infrastructure, you can use Azure Database for MariaDB to rapidly develop your app and accelerate your time to market. You can also continue to develop your application by usinig the open-source tools and platform of your choice. Deliver with the speed and efficiency your business demands, all without learning new skills.
 
 Learn about core concepts and features in Azure Database for MariaDB, including performance, scalability, and manageability. See these quickstarts to get started:
 - [Create an Azure Database for MariaDB server using Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md)

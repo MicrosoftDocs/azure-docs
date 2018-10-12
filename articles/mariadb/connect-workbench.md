@@ -1,6 +1,6 @@
 ---
-title: 'Connect to Azure Database for MariaDB from MySQL Workbench'
-description: This quickstart provides the steps to use MySQL Workbench to connect and query data from Azure Database for MariaDB.
+title: Connect to Azure Database for MariaDB from MySQL Workbench
+description: This quickstart provides the steps to use MySQL Workbench to connect to and query data from Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 editor: jasonwhowell
@@ -13,11 +13,12 @@ ms.date: 09/24/2018
 
 # Azure Database for MariaDB: Use MySQL Workbench to connect and query data
 
-This quickstart demonstrates how to connect to an Azure Database for MariaDB by using the MySQL Workbench application. 
+This quickstart demonstrates how to connect to an Azure Database for MariaDB instance by using MySQL Workbench. 
 
 ## Prerequisites
 
 This quickstart uses the resources created in either of these guides as a starting point:
+
 - [Create an Azure Database for MariaDB server by using the Azure portal](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 - [Create an Azure Database for MariaDB server by using the Azure CLI](./quickstart-create-mariadb-server-database-using-azure-cli.md)
 
@@ -27,23 +28,23 @@ Download and install MySQL Workbench on your computer from [the MySQL website](h
 
 ## Get connection information
 
-Get the connection information required to connect to the Azure Database for MariaDB. You need the fully qualified server name and sign-in credentials.
+Get the connection information required to connect to the Azure Database for MariaDB instance. You need the fully qualified server name and sign-in credentials.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. In the left-hand menu in Azure portal, select **All resources**. Search for the server you created (such as **mydemoserver**).
+2. In the left menu in the Azure portal, select **All resources**. Search for the server you created (such as **mydemoserver**).
 
 3. Select the server name.
 
-4. On the server's **Overview** panel, make a note of the values for **Server name** and **Server admin login name**. If you forget your password, you can also reset the password on this page.
+4. On the server's **Overview** page, make a note of the values for **Server name** and **Server admin login name**. If you forget your password, you can also reset the password on this page.
 
  ![Azure Database for MariaDB server name](./media/connect-workbench/1_server-overview-name-login.png)
 
 ## Connect to server by using MySQL Workbench
 
-To connect to an Azure Database for MariaDB server using MySQL Workbench use the following steps:
+To connect to an Azure Database for MariaDB server by using MySQL Workbench:
 
-1.	Launch the MySQL Workbench application on your computer. 
+1.	Open MySQL Workbench on your computer. 
 
 2.	In the **Setup New Connection** dialog box, on the **Parameters** tab, enter the following information:
 
@@ -53,12 +54,12 @@ To connect to an Azure Database for MariaDB server using MySQL Workbench use the
     |---|---|---|
     |	Connection Name | Demo Connection | Specify a label for this connection. |
     | Connection Method | Standard (TCP/IP) | Standard (TCP/IP) is sufficient. |
-    | Hostname | *server name* | Specify the server name value that you used to create the Azure Database for MariaDB. Our example server is **mydemoserver.mariadb.database.azure.com**. Use the fully qualified domain name (\*.mariadb.database.azure.com) as shown in the example. Follow the steps in the preceding section to get the connection information if you don't remember your server name.  |
+    | Hostname | *server name* | Specify the server name value that you used to create the Azure Database for MariaDB instance. Our example server is **mydemoserver.mariadb.database.azure.com**. Use the fully qualified domain name (\*.mariadb.database.azure.com) as shown in the example. If you don't remember your server name, complete the steps in the preceding section to get the connection information.  |
     | Port | 3306 | Always use port 3306 when you connect to Azure Database for MariaDB. |
-    | Username |  *server admin login name* | Enter the server admin login user name you used to create the Azure Database for MariaDB. Our example user name is **myadmin@mydemoserver**. Follow the steps in the preceding section to get the connection information if you don't remember the user name. The format is *username@servername*.
-    | Password | *your password* | Select the **Store in Vault...** button to save the password. |
+    | Username |  *server admin login name* | Enter the server admin login user name you used to create the Azure Database for MariaDB instance. Our example user name is **myadmin@mydemoserver**. If you don't remember the user name, complete the steps in the preceding section to get the connection information. The format is *username@servername*.
+    | Password | *your password* | To save the password, select **Store in Vault**. |
 
-3.   Select **Test Connection** to test whether all parameters are configured correctly. 
+3.   To check that all parameters are configured correctly, select **Test Connection**. 
 
 4.   Select **OK** to save the connection. 
 
@@ -67,7 +68,7 @@ To connect to an Azure Database for MariaDB server using MySQL Workbench use the
     A new SQL tab opens with a blank editor where you can type your queries.
     
     > [!NOTE]
-    > By default, SSL connection security is required and enforced on your Azure Database for MariaDB server. Although typically no additional configuration with SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the SSL CA certification with MySQL Workbench. If you need to disable SSL, go to the Azure portal and select the **Connection security** to disable the **Enforce SSL connection** toggle button.
+    > By default, SSL connection security is required and is enforced on your Azure Database for MariaDB server. Although typically no additional configuration with SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the SSL CA certification with MySQL Workbench. If you need to disable SSL, on the server overview page in the Azure portal, select **Connection security** from the menu. For **Enforce SSL connection**, select **Disabled**.
 
 ## Create table and insert, read, update, and delete data
 
@@ -100,7 +101,7 @@ To connect to an Azure Database for MariaDB server using MySQL Workbench use the
     SELECT * FROM inventory;
     ```
 
-    The screenshot shows an example of the SQL code in SQL Workbench and the output after it runs.
+    The screenshot shows an example of the SQL code in SQL Workbench and the output after it runs:
     
     ![Select the MySQL Workbench SQL tab to run sample SQL code](media/connect-workbench/3-workbench-sql-tab.png)
 

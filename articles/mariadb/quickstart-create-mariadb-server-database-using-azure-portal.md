@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Database for MariaDB server - Azure portal'
-description: This article steps you through using the Azure portal to quickly create a sample Azure Database for MariaDB server in about five minutes. 
+description: This article shows you how to use the Azure portal to quickly create a sample Azure Database for MariaDB server in about five minutes. 
 author: ajlam
 ms.author: andrela
 editor: jasonwhowell
@@ -27,7 +27,7 @@ You create an Azure Database for MariaDB server with a defined set of compute an
 
 To create an Azure Database for MariaDB server:
 
-1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
+1. Select the **Create a resource** button (+) in the upper left corner of the portal.
 
 2. In the search box, enter **Azure Database for MariaDB** to find the service.
 
@@ -54,7 +54,7 @@ To create an Azure Database for MariaDB server:
     > The server admin sign-in and password that you specify here are required to sign in to the server and its databases later in this quickstart. Remember or record this information for later use.
     > 
 
-   ![Create server - pricing tier window](./media/quickstart-create-mariadb-server-database-using-azure-portal/3-pricing-tier.png)
+   ![Create server - Pricing tier window](./media/quickstart-create-mariadb-server-database-using-azure-portal/3-pricing-tier.png)
 
 4.	Select **Create** to provision the server. Provisioning can take up to 20 minutes.
    
@@ -67,46 +67,46 @@ To create an Azure Database for MariaDB server:
 
 The Azure Database for MariaDB service creates a firewall at the server level. It prevents external applications and tools from connecting to the server or to any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. To create a server-level firewall rule:
 
-1.	 After the deployment finishes, locate your server. If necessary, you can search for it. For example, select **All Resources** from the menu on the left. Then, enter the server name. For example, enter **mydemoserver** to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
+1.	 After the deployment finishes, locate your server. If necessary, you can search for it. For example, in the left menu, select **All Resources**. Then, enter the server name. For example, enter **mydemoserver** to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
 
-2. On the server page, select **Connection security**.
+2. On the server overview page, select **Connection security**.
 
-3.	Under the **Firewall rules** heading, select the blank text box in the **Rule Name** column to begin creating the firewall rule. Specify the precise IP range of the clients that will connect to this server.
+3.	Under **Firewall rules**, select the blank text box in the **Rule Name** column to begin creating the firewall rule. Specify the precise IP range of the clients that will connect to this server.
    
    ![Connection security - Firewall rules](./media/quickstart-create-mariadb-server-database-using-azure-portal/5-firewall-2.png)
 
 4. On the upper toolbar of the **Connection security** page, select **Save**. Before you continue, wait until you see the notification that says the update has finished successfully. 
 
    > [!NOTE]
-   > Connections to Azure Database for MariaDB communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 3306.
+   > Connections to Azure Database for MariaDB communicate over port 3306. If you try to connect from inside a corporate network, outbound traffic over port 3306 might not be allowed. To connect to your server, your IT department must open port 3306.
    > 
 
 ## Get the connection information
 
-To connect to your database server, you need the full server name and admin sign-in credentials. You might have noted those values earlier in the quickstart article. If you didn't, you can easily find the server name and sign-in information on the server **Overview** page or on the **Properties** page in the Azure portal:
+To connect to your database server, you need the full server name and admin sign-in credentials. You might have noted those values earlier in this article. If you didn't, you can easily find the server name and sign-in information on the server **Overview** page or on the **Properties** page in the Azure portal:
 
 1. Go to your server's **Overview** page. Make a note of the values for **Server name** and **Server admin login name**. 
 
-2. Place your cursor over the field you want to copy. The copy icon appears to the right of the text. Select the copy icon as needed to copy the values.
+2. To copy the values, place your cursor over the field you want to copy. The copy icon appears to the right of the text. Select the copy icon as needed to copy the values.
 
 In this example, the server name is **mydemoserver.mariadb.database.azure.com** and the server admin sign-in is **myadmin@mydemoserver**.
 
-## Connect to MariaDB by using the mysql command line
+## Connect to Azure Database for MariaDB by using the mysql command line
 
 You can use a variety of applications to connect to your Azure Database for MariaDB server.
 
-Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) command-line tool to illustrate how to connect to the server. You can also use a web browser and Azure Cloud Shell as described here without installing additional software. If you have the mysql utility installed locally, you also can connect from there.
+Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) command-line tool to illustrate how to connect to the server. You can also use a web browser and Azure Cloud Shell without installing additional software. If you have the mysql utility installed locally, you also can connect from there.
 
-1. Start Azure Cloud Shell via the terminal icon (**>_**) on the upper right of the Azure portal.
+1. Start Azure Cloud Shell via the terminal icon (**>_**) on the upper right toolbar in the Azure portal.
 ![Azure Cloud Shell terminal symbol](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
 
-2.  Azure Cloud Shell opens in your browser, where you can type bash shell commands.
+2.  Azure Cloud Shell opens in your browser. You can use bash shell commands in Cloud Shell.
 
-   ![Command prompt--mysql command-line example](./media/quickstart-create-mariadb-server-database-using-azure-portal/8-bash.png)
+   ![Command prompt - mysql command-line example](./media/quickstart-create-mariadb-server-database-using-azure-portal/8-bash.png)
 
-3. At the Cloud Shell prompt, connect to your Azure Database for MariaDB server by typing the mysql command line.
+3. At the Cloud Shell prompt, connect to your Azure Database for MariaDB server by entering the mysql command line.
 
-    To connect to an Azure Database for MariaDB server with the mysql utility, use the following format:
+    To connect to an Azure Database for MariaDB server by using the mysql utility, use the following format:
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -122,11 +122,11 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
     ---|---|---
     --host | *server name* | The server name value that you used to create the Azure Database for MariaDB server. Our example server is **mydemoserver.mariadb.database.azure.com**. Use the fully qualified domain name (**\*.mariadb.database.azure.com**) as shown in the example. If you don't remember your server name, complete the steps in the preceding section to get the connection information.
     --user | *server admin login name* |The server admin login user name that you used to create the Azure Database for MariaDB server. If you don't remember the user name, complete the steps in the preceding section to get the connection information. The format is *username@servername*.
-    -p | *wait until prompted* |When prompted, enter the password that you used to create the server. The typed password characters are not shown on the bash prompt when you type them. After you've entered the password, press Enter.
+    -p | *wait until prompted* |When prompted, enter the password that you used to create the server. The typed password characters are not shown on the bash prompt when you type them. After you enter the password, press Enter.
 
-   After it's connected, the mysql utility displays a **mysql>** prompt at which you can type commands. 
+   When it's connected, the mysql utility displays a `mysql>` prompt, at which you can type commands. 
 
-   Following is example mysql output:
+   Here's example mysql output:
 
     ```bash
     Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -147,11 +147,11 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
     > [!TIP]
     > If the firewall isn't configured to allow the IP address of Azure Cloud Shell, the following error occurs:
     >
-    > ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server.
+    >   ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server.
     >
-    > To resolve the error, make sure that the server configuration matches the steps in [Configure a server-level firewall rule](#configure-firewall-rule).
+    > To resolve the error, ensure that the server configuration matches the steps in [Configure a server-level firewall rule](#configure-firewall-rule).
 
-4. To verify the connection, check the server status by entering **status** at the **mysql>** prompt.
+4. To verify the connection, enter **status** at the `mysql>` prompt to check the server status.
 
     ```sql
     status
@@ -160,74 +160,76 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
    > [!TIP]
    > For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-5.  Create a blank database at the **mysql>** prompt by entering the following command:
+5.  Create a blank database at the `mysql>` prompt by entering the following command:
 
     ```sql
     CREATE DATABASE quickstartdb;
     ```
-    The command might take a few moments to complete. 
+    The command might take a few minutes to finish. 
 
-    You can create one or more databases in an Azure Database for MariaDB server. You can choose to create a single database per server to utilize all resources, or you can create multiple databases to share the resources. There's no limit on the number of databases that you can create, but multiple databases share the same server resources. 
+    You can create one or more databases on an Azure Database for MariaDB server. You can create a single database per server to utilize all resources, or you can create multiple databases to share the resources. There's no limit on the number of databases that you can create, but multiple databases share the same server resources. 
 
-6. To list the databases, at the **mysql>** prompt, enter the following command:
+6. To list the databases, at the `mysql>` prompt, enter the following command:
 
     ```sql
     SHOW DATABASES;
     ```
 
-7.  Type **\q**, and then press the Enter key to close the mysql tool. Then, you can close Azure Cloud Shell.
+7.  Type **\q**, and then press Enter to close the mysql tool. Then, you can close Azure Cloud Shell.
 
-Now you have connected to the Azure Database for MariaDB server and created a blank user database. In the next exercise, section you connect to the same server by using another common tool, MySQL Workbench.
+Now you have connected to the Azure Database for MariaDB server and created a blank user database. In the next section, you connect to the same server by using another common tool, MySQL Workbench.
 
-## Connect to server by using MySQL Workbench
+## Connect to the server by using MySQL Workbench
 
 To connect to the server by using MySQL Workbench:
 
-1. Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+1. Open MySQL Workbench on your client computer. To download and install MySQL Workbench, go to [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-2. Create a new connection. Select the plus (+) icon beside the **MySQL Connections** heading.
+2. To create a new connection, select the plus icon (**+**) next to the **MySQL Connections** heading.
 
-3. In the **Setup New Connection** dialog box, on the **Parameters** tab, enter your server connection information. Placeholder values are shown as an example. Replace the **Hostname**, **Username**, and **Password** with your own values.
+3. In the **Setup New Connection** dialog box, on the **Parameters** tab, enter your server connection information. Placeholder values are shown as an example. Replace **Hostname**, **Username**, and **Password** with your own values.
 
-   ![Set up new connection](./media/quickstart-create-mariadb-server-database-using-azure-portal/setup-new-connection.png)
+   ![Set up a new connection](./media/quickstart-create-mariadb-server-database-using-azure-portal/setup-new-connection.png)
 
     |Setting |Suggested value|Field description|
     |---|---|---|
-     Connection name | Demo connection | A label for this connection. |
-    Connection method | Standard (TCP/IP) | Standard (TCP/IP) is sufficient. |
-    Hostname | *Server name* | The server name value that you used when you created the Azure Database for MariaDB server earlier. Our example server is **mydemoserver.mariadb.database.azure.com**. Use the fully qualified domain name (**\*.mariadb.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information.|
-     Port | 3306 | The port to use when connecting to your Azure Database for MariaDB server. |
-    Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MariaDB server earlier. Our example username is **myadmin@mydemoserver**. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
-    Password | *Your password* | Select the **Store in Vault...** button to save the password. |
+     Connection name | **Demo connection** | A label for this connection. |
+    Connection method | **Standard (TCP/IP)** | Standard (TCP/IP) is sufficient. |
+    Hostname | *server name* | The server name value that you used to create the Azure Database for MariaDB server. Our example server is **mydemoserver.mariadb.database.azure.com**. Use the fully qualified domain name (**\*.mariadb.database.azure.com**) as shown in the example. If you don't remember your server name, complete the steps in the preceding section to get the connection information.|
+     Port | 3306 | The port to use when you connect to your Azure Database for MariaDB server. |
+    Username |  *server admin login name* | The server admin sign-in information that you used to create the Azure Database for MariaDB server. Our example user name is **myadmin@mydemoserver**. If you don't remember the user name, complete the steps in the preceding section to get the connection information. The format is *username@servername*.
+    Password | *your password* | To save the password, select **Store in Vault**. |
 
-4. Select **Test Connection** to test whether all parameters are  configured correctly. Then, select **OK** to save the connection. 
+4. To check that all parameters are configured correctly, select **Test Connection**. Then, select **OK** to save the connection. 
 
     > [!NOTE]
-    > SSL is enforced by default on your server and requires extra configuration  to connect successfully. <!--For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).--> To disable SSL for this Quickstart, go to the Azure portal. Then select the Connection security page to disable the **Enforce SSL** connection toggle button.
+    > SSL is enforced by default on your server. It requires additional configuration to connect successfully. <!--For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).--> To disable SSL for this quickstart, on the server overview page in the Azure portal, select **Connection security** from the menu. For **Enforce SSL connection**, select **Disabled**.
+    >
+    > ![Disable SSL](./media/howto-configure-ssl/enable-ssl.png)
 
 ## Clean up resources
 
-You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the one server resource.
+You can clean up the resources that you created in this quickstart in two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the one server resource.
 
 > [!TIP]
-> Other Quickstarts in this collection build on this Quickstart. If you plan to continue working with Quickstarts, don't clean up the resources that you created in this Quickstart. If you don't plan to continue, use the following steps to delete all the resources that you created with this Quickstart.
+> Other quickstarts in this collection build on this article. If you plan to continue working with Azure Database for MariaDB quickstarts, don't clean up the resources that you created in this quickstart. If you don't plan to continue, use the following steps to delete all the resources that you created with this quickstart.
 >
 
-To delete the entire resource group including the newly created server, take the following steps:
+To delete the entire resource group, including the newly created server:
 
-1.	Locate your resource group in the Azure portal. On the menu on the left, select **Resource groups**, and then select the name of your resource group (such as our example, **myresourcegroup**).
+1.	In the Azure portal, locate your resource group. In the left menu, select **Resource groups**, and then select the name of your resource group (in our example, **myresourcegroup**).
 
-2.	On your resource group page, select **Delete**. Then type the name of your resource group (such as our example **myresourcegroup**) in the box to confirm deletion, and select **Delete**.
+2.	On your resource group page, select **Delete**. Then, type the name of your resource group (in our example, **myresourcegroup**) to confirm deletion. Select **Delete**.
 
-To delete only the newly created server, take the following steps:
+To delete only the newly created server:
 
-1.	Locate your server in the Azure portal if you don't already have it open. From the menu on the left in the Azure portal, select **All resources**. Then search for the server you created.
+1.	In the Azure portal, locate your server if you don't already have it open. In the left menu, select **All resources**. Then, search for the server you created.
 
 2.	On the **Overview** page, select **Delete**. 
 
-   ![Azure Database for MariaDB--Delete server](./media/quickstart-create-mariadb-server-database-using-azure-portal/delete-server.png)
+   ![Azure Database for MariaDB - Delete server](./media/quickstart-create-mariadb-server-database-using-azure-portal/delete-server.png)
 
-3.	Confirm the name of the server that you want to delete, and show the databases under it that are affected. Type your server name in the box (such as our example **mydemoserver**). Select **Delete**.
+3.	Confirm the name of the server you want to delete. Show the databases under it that will be affected by the deletion. Type your server name (in our example, **mydemoserver**) to confirm the deletion. Select **Delete**.
 
 ## Next steps
 
