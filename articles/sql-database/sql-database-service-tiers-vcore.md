@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/09/2018
+ms.date: 10/12/2018
 ---
 # vCore service tiers, Azure Hybrid Use Benefit, and migration
 
@@ -60,7 +60,11 @@ In the vCore-based purchasing model, you can exchange your existing licenses for
 
 ## Migration from DTU model to vCore model
 
-### Migration of single databases with geo-replication links
+### Migration of a database
+
+Migrating to from DTU-based model to vCore-based model is similar to upgrading or downgrading between Standard and Premium databases.
+
+### Migration of databases with geo-replication links
 
 Migrating to from DTU-based model to vCore-based model is similar to upgrading or downgrading the geo-replication relationships between Standard and Premium databases. It does not require terminating geo-replication but the user must observe the sequencing rules. When upgrading, you must upgrade the secondary database first, and then upgrade the primary. When downgrading, reverse the order: you must downgrade the primary database first, and then downgrade the secondary. 
 
@@ -82,7 +86,7 @@ The following table provides guidance for the specific migration scenarios:
 
 \* Each 100 DTU in Standard tier requires at least 1 vCore and each 125 DTU in Premium tier requires at least 1 vCore
 
-### Migration of failover groups 
+### Migration of failover groups
 
 Migration of failover groups with multiple databases requires individual migration of the primary and secondary databases. During that process, the same considerations and sequencing rules apply. After the databases are converted to the vCore-based model, the failover group will remain in effect with the same policy settings. 
 
