@@ -23,6 +23,8 @@ Roles give a name to those differences:
 |--|--|--|
 |Location|origin|where the plane leaves from|
 |Location|destination|where the plane lands|
+|Prebuilt datetimeV2|to|end date|
+|Prebuilt datetimeV2|from|beginning date|
 
 ## How are roles used in patterns?
 In a pattern's template utterance, roles are used within the utterance: 
@@ -42,6 +44,14 @@ Hierarchical entities provide the same contextual information as roles but only 
 |--|--|
 |hierarchical entities|intents|
 |roles|patterns|
+
+## Roles with Prebuilt entities
+
+Use roles with prebuilt entities to give meaning to different instances of the prebuilt entity within an utterance. 
+
+### Roles with datetimeV2
+
+The prebuilt entity, datetimeV2, does a great job of understanding a wide range of variety in dates and times in utterances. You may want to specify dates and date ranges differently than the prebuilt entity's default understanding. 
 
 ## Next steps
 
