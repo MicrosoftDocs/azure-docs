@@ -21,7 +21,7 @@ ms.author: bahariri
 This quickstart shows how to stream into Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. You learn how to use your producers and consumers to talk to Kafka-enabled Event Hubs with just a configuration change in your applications. Azure Event Hubs supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]
-> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs)
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/quickstart/java)
 
 ## Prerequisites
 
@@ -60,9 +60,9 @@ You can now stream events from your applications that use the Kafka protocol int
 
 ## Send and receive messages with Kafka in Event Hubs
 
-1. Clone the [Azure Event Hubs repository](https://github.com/Azure/azure-event-hubs).
+1. Clone the [Azure Event Hubs repository](https://github.com/Azure/azure-event-hubs-for-kafka).
 
-2. Navigate to `azure-event-hubs/samples/kafka/quickstart/producer`.
+2. Navigate to `azure-event-hubs-for-kafka/quickstart/java/producer`.
 
 3. Update the configuration details for the producer in `src/main/resources/producer.config` as follows:
 
@@ -80,7 +80,7 @@ You can now stream events from your applications that use the Kafka protocol int
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
     
-5. Navigate to `azure-event-hubs/samples/kafka/quickstart/consumer`.
+5. Navigate to `azure-event-hubs-for-kafka/quickstart/java/consumer`.
 
 6. Update the configuration details for the consumer in `src/main/resources/consumer.config` as follows:
    
