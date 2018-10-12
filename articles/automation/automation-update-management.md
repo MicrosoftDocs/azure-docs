@@ -267,6 +267,7 @@ The following addresses are required specifically for Update Management. Communi
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 For more information about ports that the Hybrid Runbook Worker requires, see [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
