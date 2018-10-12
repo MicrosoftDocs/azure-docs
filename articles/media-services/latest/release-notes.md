@@ -90,11 +90,11 @@ CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players
 
 Video Indexer GA release was announced in August. For new information about currently supported features, see [What is Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 
-## Plans for changes
+### Plans for changes
 
 The Azure CLI release is coming on 10/23/2018.
 
-## Known issues
+### Known issues
 
 Only customers that used the preview API for Asset or AccountFilters are impacted by the following issue.
 
