@@ -1,5 +1,5 @@
 ---
-title: Get started with Content Moderator
+title: "Quickstart: Get started with Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: How to get started with Content Moderator.
 services: cognitive-services
@@ -9,13 +9,13 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/10/2018
 ms.author: sajagtap
 ---
 
 # Quickstart: Get familiar with Content Moderator
 
-This article will show you how to use the online Content Moderator Review Tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
+In this quickstart, you will use the online Content Moderator Review Tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
 
 ## Set up the review tool
 The Content Moderator Review Tool is a web-based tool that allows human reviewers to aid the cognitive service in making decisions. In this guide, you will go through the short process of setting up the review tool so that you can see how the Content Moderator service works. Go to the [Content Moderator Review Tool](http://contentmoderator.cognitive.microsoft.com/) site and sign up.
