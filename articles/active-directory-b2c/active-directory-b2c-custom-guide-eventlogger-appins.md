@@ -13,9 +13,9 @@ ms.author: davidmu
 ms.component: B2C
 
 ---
-# Track user behavior in Azure Acitve Directory B2C using Application Insights
+# Track user behavior in Azure Active Directory B2C using Application Insights
 
-Azure Active Directory (Azure AD) B2C works well with Azure Application Insights. They provide detailed and customized event logs for your custom-created user journeys. This article shows how to get started so you can:
+When you use Azure Active Directory (Azure AD) B2C together with Azure Application Insights, you can get detailed and customized event logs for your user journeys. In this article, you learn how to:
 
 * Gain insights on user behavior.
 * Troubleshoot your own policies in development or in production.
@@ -39,14 +39,19 @@ Complete the steps in [Get started with custom policies](active-directory-b2c-ge
 
 ## Create an Application Insights resource
 
-When you're using Application Insights with Azure AD B2C, the only requirement is to create a resource and obtain an instrumentation key. You create a resource in the [Azure portal.](https://portal.azure.com)
+When you're using Application Insights with Azure AD B2C, all you need to do is create a resource and obtain an instrumentation key.
 
-1. In the Azure portal, within your subscription tenant, select **+ Create a resource**. This tenant is not your Azure AD B2C tenant.  
-2. Search for and select **Application Insights**.  
-3. Create a resource that uses **ASP.NET web application** as **Application Type**, under a subscription of your preference.
-4. After you create the Application Insights resource, open it and note the instrumentation key.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Make sure you're using the directory that contains your Azure subscription by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your subscription. This tenant is not your Azure AD B2C tenant.
+3. Choose **Create a resource** in the top-left corner of the Azure portal, and then search for and select **Application Insights**.
+4. Click **Create**.
+5. Enter a **Name** for the resource.
+6. For **Application Type**, select **ASP.NET web application**.
+7. For **Resource Group**, select an existing group or enter a name for a new group.
+8. Click **Create**.
+4. After you create the Application Insights resource, open it, exapnd **Essentials**, and copy the instrumentation key.
 
-![Application Insights Overview and Instrumentation Key](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-key.png)
+![Application Insights Overview and Instrumentation Key](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
 
 ## Add new ClaimType definitions
 
@@ -108,7 +113,7 @@ Technical profiles can be considered functions in the Identity Experience Framew
 | AzureInsights-UserSignup | Creates a UserSignup event when the user triggers the sign-up option in a sign-up/sign-in journey. | 
 | AzureInsights-SignInComplete | Records the successful completion of an authentication when a token has been sent to the relying party application. | 
 
-Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pack by adding these elements to the **ClaimsProviders** element:
+Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pack. Add these elements to the **ClaimsProviders** element:
 
 ```xml
 <ClaimsProvider>
@@ -194,7 +199,7 @@ Immediately *before* the `SendClaims` orchestration step, add a new step that ca
   </ClaimsExchanges>
 ```
 
-Immediately after the `SendClaims` orchestration step, call `Azure-Insights-SignInComplete`. This step reflects a successfully completed journey.
+Immediately after the `SendClaims` orchestration step, call `Azure-Insights-SignInComplete`. This step shows a successfully completed journey.
 
 ```xml
 <!-- Track that we have successfully sent a token -->
