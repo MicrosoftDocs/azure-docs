@@ -22,10 +22,10 @@ You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run
 
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
+## Detect request
+
 > [!TIP]
 > Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
-
-## Detect request
 
 The following code identifies the language of the source text using the [Detect](./reference/v3-0-detect.md) method.
 

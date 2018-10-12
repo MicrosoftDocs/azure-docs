@@ -22,10 +22,10 @@ In this quickstart, you extract handwritten or printed text from an image using 
 * Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 * The [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
+## RecognizeTextAsync method
+
 > [!TIP]
 > Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
-
-## RecognizeTextAsync method
 
 The `RecognizeTextAsync` and `RecognizeTextInStreamAsync` methods wrap the [Recognize Text API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) for remote and local images, respectively. The `GetTextOperationResultAsync` method wraps the [Get Recognize Text Operation Results API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).  You can use these methods to detect text in an image and extract recognized characters into a machine-usable character stream.
 

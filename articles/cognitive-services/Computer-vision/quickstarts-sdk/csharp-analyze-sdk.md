@@ -22,10 +22,10 @@ In this quickstart, you analyze both a local and a remote image to extract visua
 * Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 * The [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
+## AnalyzeImageAsync method
+
 > [!TIP]
 > Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
-
-## AnalyzeImageAsync method
 
 The `AnalyzeImageAsync` and `AnalyzeImageInStreamAsync` methods wrap the [Analyze Image API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for remote and local images, respectively. You can use these methods to extract visual features based on image content and choose which features to return, including:
 

@@ -22,10 +22,10 @@ You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run
 
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
+## Languages request
+
 > [!TIP]
 > Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
-
-## Languages request
 
 The following code gets a list of supported languages for translation, transliteration, and dictionary lookup and examples, using the [Languages](./reference/v3-0-languages.md) method.
 

@@ -22,10 +22,10 @@ You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run
 
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
+## Dictionary Lookup request
+
 > [!TIP]
 > Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
-
-## Dictionary Lookup request
 
 The following gets alternate translations for a word using the [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md) method.
 

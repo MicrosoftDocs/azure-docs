@@ -28,10 +28,10 @@ Here are a few things that you'll need before running this quickstart:
   * [NuGet Package Manager](https://github.com/jmrog/vscode-nuget-package-manager)
 * [.Net Core SDK](https://www.microsoft.com/net/download)
 
+## Create a project and install dependencies
+
 > [!TIP]
 > Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
-
-## Create a project and install dependencies
 
 The first step is to create a new console project. If you need help setting up a console project, see [Hello World -- Your First Program (C# Programming Guide)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). To use the Bing Web Search SDK in your application, you'll need to install `Microsoft.Azure.CognitiveServices.Search.WebSearch` using the NuGet Package Manager.
 

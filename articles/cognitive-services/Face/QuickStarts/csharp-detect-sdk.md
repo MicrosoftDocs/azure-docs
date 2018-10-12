@@ -22,10 +22,10 @@ In this quickstart, you detect human faces in an image using the Face Windows cl
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
+## DetectWithUrlAsync method
+
 > [!TIP]
 > Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
-
-## DetectWithUrlAsync method
 
 The `DetectWithUrlAsync` and `DetectWithStreamAsync` methods wrap the [Face - Detect API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for remote and local images, respectively. You can use these methods to detect faces in an image and return face attributes including:
 

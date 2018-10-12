@@ -22,10 +22,10 @@ You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run
 
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
+## Transliterate request
+
 > [!TIP]
 > Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
-
-## Transliterate request
 
 The following converts text in one language from one script to another script using the [Transliterate](./reference/v3-0-transliterate.md) method.
 
