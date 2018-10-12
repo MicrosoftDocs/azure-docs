@@ -69,7 +69,7 @@ You can link a normal HDInsight cluster by using the Ambari managed username. Si
    ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
 
-1. You have two options to link clusters. For linking HDInsight cluster, choose **HDInsight Cluster** in field **Cluster Info**, enter **Cluster Name/URL**, **User Name** and **Password**. For linking Livy Service cluster, choose **Livy Service** in field **Cluster Info**, enter **Livy Endpoint**, **Cluster Name**. **Yarn Endpoint** is optional. In field **Authentication**, two options are provided. They are **Basic Authentication** and  **No Authentication**. When you select **Basic Authentication**, **User Name** and **Password** should be provided. You need to check the username and password if got the authentication failure.
+1. You have two options to link clusters. For linking HDInsight cluster, choose **HDInsight Cluster** in field **Cluster Info**, enter **Cluster Name/URL**, **User Name**, and **Password**. For linking Livy Service cluster, choose **Livy Service** in field **Cluster Info**, enter **Livy Endpoint**, **Cluster Name**. **Yarn Endpoint** is optional. In field **Authentication**, two options are provided. They are **Basic Authentication** and  **No Authentication**. When you select **Basic Authentication**, **User Name** and **Password** should be provided. You need check the username and password if got the authentication failure.
    
    ![link hdinsight cluster dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
    ![link livy cluster dialog](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
@@ -84,7 +84,7 @@ You can link a normal HDInsight cluster by using the Ambari managed username. Si
 
 ## Run a Spark Scala application on an HDInsight Spark cluster
 
-1. Start IntelliJ IDEA, and then create a project. In the **New Project** dialog box, do the following: 
+1. Start IntelliJ IDEA, and then create a project. In the **New Project** dialog box, follow below steps: 
 
    a. Select **HDInsight** > **Spark on HDInsight (Scala)**.
 
@@ -161,7 +161,7 @@ You can link a normal HDInsight cluster by using the Ambari managed username. Si
       
       ![The Submit Spark Application to HDInsight command](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-   b. You are prompted to enter your Azure subscription credentials. In the **Spark Submission** dialog box, provide the following values, and then select **Submit**.
+   b. You are prompted to enter your Azure subscription credentials. In the **Edit configuration** dialog box, provide the following values, and then select **SparkJobRun**.
       
       * For **Spark clusters (Linux only)**, select the HDInsight Spark cluster on which you want to run your application.
 
@@ -179,7 +179,7 @@ You can link a normal HDInsight cluster by using the Ambari managed username. Si
 
         ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
-      * You can choose the Storage Type you want to submit your job. There are three Storage types:**Azure Blob**, **Use Spark interactive session to upload artifacts**, and **Use cluster default storage account**. Below screenshot is the example of Azure Blob.
+      * You can choose the Storage Type you want to submit your job. There are three Storage types: **Azure Blob**, **Use Spark interactive session to upload artifacts**, and **Use cluster default storage account**. Below screenshot is the example of Azure Blob.
 
         ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
         ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-blob.png)
@@ -254,7 +254,7 @@ You can run Spark Local Console(Scala) or run Spark Livy Interactive Session Con
 
     ![Local Console Set Configuration](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
 
-4. You launch local console again as step1, then an error about dependencies will pop up. You need add the dependencies manually. In menu **File**->**Project Structures**->**Project Settings**->**Libraries**, then click **+**, choose **From Maven...**. Then enter **org.apache.spark:spark-repl_2.11:2.1.0** in the pop up dialog. After add the dependencies in libraries, you need move the dependency to the first line in **Modules** in **Project Structures** window. Before moving, change the **Scope** to **Runtime**.
+4. You launch local console again as step1, then an error about dependencies will pop up. You need add the dependencies manually. In menu **File**->**Project Structures**->**Project Settings**->**Libraries**, then click **+**, choose **From Maven...**. Then enter **org.apache.spark:spark-repl_2.11:2.1.0** in the pop-up dialog. After adding the dependencies in libraries, you need move the dependency to the first line in **Modules** in **Project Structures** window. Before moving, change the **Scope** to **Runtime**.
 
     ![Local Console Dependency Error](./media/apache-spark-intellij-tool-plugin/local-console-dependency-error.png)
 
@@ -267,8 +267,12 @@ You can run Spark Local Console(Scala) or run Spark Livy Interactive Session Con
     ![Local Console Move to First Line](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
 ### Spark Livy Interactive Session Console(Scala)
-1. Locate a script file and right click **Spark Console**, then click **Run Spark Livy Interactive Session Console(Scala)**. Or go to menu **Tools**,then click **Spark Console**, then **Run Spark Livy Interactive Session Console(Scala)** to launch the console.
-2. Please refer to local console steps to launch Livy Interactive Session Console. Livy Interactive Session Console doesn't need add dependencies.
+1. Locate a script file and right click **Spark Console**, then click **Run Spark Livy Interactive Session Console(Scala)**. Or go to menu **Tools**, then click **Spark Console**, then **Run Spark Livy Interactive Session Console(Scala)** to launch the console.
+2. Set up the configuration by following steps.
+
+    ![Local Console Set Configuration](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
+
+3. Launch Interactive session console again as step1. After launching successfully, you can do something you want. For example, enter **sc.appName**, press ctrl+Enter, then the result will be shown.
 
 ## Convert existing IntelliJ IDEA applications to use Azure Toolkit for IntelliJ
 You can convert the existing Spark Scala applications that you created in IntelliJ IDEA to be compatible with Azure Toolkit for IntelliJ. You can then use the plug-in to submit the applications to an HDInsight Spark cluster.
