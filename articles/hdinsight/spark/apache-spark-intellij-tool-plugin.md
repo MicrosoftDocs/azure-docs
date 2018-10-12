@@ -162,11 +162,11 @@ You can link a normal HDInsight cluster by using the Ambari managed username. Si
 ## Run a Spark Scala application on an HDInsight Spark cluster
 After creating a Scala application, you can submit it to the cluster.
 
-1. In the Project Explorer, locate a Java or Scala file and then select and then select **Submit Spark Application to HDInsight** in the right-click menu.
+1. In the Project Explorer, locate a Java or Scala file and then select **Submit Spark Application to HDInsight** in the right-click menu.
     
       ![The Submit Spark Application to HDInsight command](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-2. In the configuration dialog window, provide the following values, then click SparkJobRun **SparkJobRun**.
+2. In the configuration dialog window, provide the following values, then click **SparkJobRun**.
 
       ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
       
@@ -186,10 +186,9 @@ After creating a Scala application, you can submit it to the cluster.
 
       ![The Spark Submission dialog box jar files meaning](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
 
-      > [!NOTE]
-      > To upload your Referenced JARs and Referenced Files, refer to: [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
+       > [!NOTE]
+       > To upload your Referenced JARs and Referenced Files, refer to: [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
                          
-
     * **Upload Path**: You can indicate the storage location for the Jar or Scala project resources submission. There are three storage types supported: **Azure Blob**, **Use Spark interactive session to upload artifacts**, and **Use cluster default storage account**. Below screenshot is an example for Azure Blob.
 
         ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
