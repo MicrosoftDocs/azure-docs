@@ -61,13 +61,9 @@
       href: data-box-edge-deploy-configure-compute.md
 - name: Resources
   items:
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=storage
-  - name: Azure Data Box marketing
+  - name: Data Box Edge/Gateway product  
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=databox
 
 
