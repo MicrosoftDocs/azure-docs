@@ -51,4 +51,4 @@ Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/a
 
 ## Sampling
 
-Azure Functions enables Sampling by default in their configuration. See [Configure Sampling](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) for more information.
+Azure Functions enables Sampling by default in their configuration. For more information, see [Configure Sampling](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
