@@ -11,9 +11,9 @@ ms.author: asrastog
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
 
-Azure Event Grid helps you build event based applications and easily integrate IoT events in your business solutions. This article walks you through a set up which can be used to track and store the latest device connection state in Cosmos DB. We will use the sequence number available in the Device Connected and Device Disconnected events and store the latest state in Cosmos DB. We are going to use a stored procedure, which is an application logic that is executed against a collection in Cosmos DB.
+Azure Event Grid helps you build event-based applications and easily integrate IoT events in your business solutions. This article walks you through a setup which can be used to track and store the latest device connection state in Cosmos DB. We will use the sequence number available in the Device Connected and Device Disconnected events and store the latest state in Cosmos DB. We are going to use a stored procedure, which is an application logic that is executed against a collection in Cosmos DB.
 
-The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you are converting the string to hex, then the number will be a 256 bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn’t support ordering of events.
+The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you are converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn’t support ordering of events.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ First, create a stored procedure and set it up to run a logic that compares sequ
 
    ![Create stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2. Enter a stored procedure id and paste the following in the “Stored Procedure body”. Note that this code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device id by identifying the highest sequence number. 
+2. Enter a stored procedure ID and paste the following in the “Stored Procedure body”. Note that this code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device ID by identifying the highest sequence number. 
 
     ```javascript
     // SAMPLE STORED PROCEDURE
@@ -155,7 +155,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 1. In the connectors and triggers search bar, type **HTTP**.
 
-2. Select **Request - When a HTTP request is received** as the trigger. 
+2. Select **Request - When an HTTP request is received** as the trigger. 
 
    ![Select HTTP request trigger](./media/iot-hub-how-to-order-connection-state-events/http-request-trigger.png)
 
@@ -191,7 +191,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 ### Create a condition
 
-In your the logic app workflow, conditions help run specific actions after passing that specific condition. Once the condition is met, a desired action can be defined. For this tutorial, the condition is to check whether eventType is device connected or device disconnected. The action will be to execute the stored procedure in your database. 
+In your logic app workflow, conditions help run specific actions after passing that specific condition. Once the condition is met, a desired action can be defined. For this tutorial, the condition is to check whether eventType is device connected or device disconnected. The action will be to execute the stored procedure in your database. 
 
 1. Select **New step** then **Built-ins** and **Condition**. 
 
@@ -219,7 +219,7 @@ In your the logic app workflow, conditions help run specific actions after passi
 
 ### Copy the HTTP URL
 
-Before you leave the Logic Apps Designer, copy the URL that your logic apps is listening to for a trigger. You use this URL to configure Event Grid. 
+Before you leave the Logic Apps Designer, copy the URL that your logic app is listening to for a trigger. You use this URL to configure Event Grid. 
 
 1. Expand the **When a HTTP request is received** trigger configuration box by clicking on it. 
 
@@ -251,7 +251,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
    ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-   * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
+   * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
    The form looks similar to the following example: 
 
    ![Sample event subscription form](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
@@ -276,7 +276,7 @@ Now that your event subscription is set up, let's test by connecting a device.
 
    ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
 
-6. Copy the **Connection string -- primary key** for use later.
+6. Copy the **Connection string -- primary key** for later use.
 
    ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
@@ -286,7 +286,7 @@ Now that your event subscription is set up, let's test by connecting a device.
 
 [Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
-### Run a sample applciation on the Raspberry Pi web simulator
+### Run a sample application on the Raspberry Pi web simulator
 
 This will trigger a device connected event.
 
@@ -322,13 +322,13 @@ If you don't want to lose the work on your logic app, disable it instead of dele
 
 1. Navigate to your logic app.
 
-2. On the **Overview** blade select **Delete** or **Disable**. 
+2. On the **Overview** blade, select **Delete** or **Disable**. 
 
 Each subscription can have one free IoT hub. If you created a free hub for this tutorial, then you don't need to delete it to prevent charges.
 
 1. Navigate to your IoT hub. 
 
-2. On the **Overview** blade select **Delete**. 
+2. On the **Overview** blade, select **Delete**. 
 
 Even if you keep your IoT hub, you may want to delete the event subscription that you created. 
 
@@ -338,7 +338,7 @@ Even if you keep your IoT hub, you may want to delete the event subscription tha
 
 3. Select **Delete**. 
 
-To remove an Azure Cosmos DB account from the Azure portal, righ-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete).
+To remove an Azure Cosmos DB account from the Azure portal, right-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete).
 
 ## Next steps
 
