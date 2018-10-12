@@ -29,7 +29,7 @@ If a gateway already exists, check whether it's an ExpressRoute gateway or not. 
 
 - Use either the [Azure portal](https://portal.azure.com/) or PowerShell to create an ExpressRoute VPN gateway connected to your virtual network.
   - If you use the Azure portal, add a new **Virtual Network Gateway**, and then select **ExpressRoute** as the gateway type.
-  - If you use PowerShell, first download and use the latest [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) to ensure an optimal experience. The following commands create an ExpressRoute gateway. The texts preceded by a _$_ are user defined variables that should be updated with your specific information.
+  - If you use PowerShell, first download and use the latest [Azure PowerShell SDK](https://azure.microsoft.com/downloads/). The following commands create an ExpressRoute gateway. The texts preceded by a _$_ are user defined variables that should be updated with your specific information.
 
 ```PowerShell
 # These Values should already exist, update to match your environment
@@ -89,7 +89,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID
 ```
 
-If you want to connect the gateway to multiple ExpressRoute circuits that are associated with your subscription, you might need to run this step more than once. For example, you're likely going to connect the same virtual network gateway to the ExpressRoute circuit that connects the virtual network to your on-premises network.
+To connect the gateway to more than one ExpressRoute circuit associated with your subscription, you might need to run this step more than once. For example, you're likely going to connect the same virtual network gateway to the ExpressRoute circuit that connects the virtual network to your on-premises network.
 
 ## Next steps
 
