@@ -19,7 +19,7 @@ ms.author: tilee
 
 # Application Insights for Azure Functions supported features
 
-Below is the currently supported list of features for the [Application Insights integration with Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring). Review Azure Functions' guide for [Getting started](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
+Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/azure-functions/functions-monitoring) with Application Insights, which is exposed through the ILogger Interface. Below is the list of currently supported features. Review Azure Functions' guide for [Getting started](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
 
 
 | Azure Functions                   	| V1            	| V2 (Ignite 2018) 	| 
@@ -46,3 +46,9 @@ Below is the currently supported list of features for the [Application Insights 
 | | | | 
 | **Configurable**                	|               	|                  	|           
 | &bull;Fully configurable.<br/>See [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) for instructions.<br/>See [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) for all options.           	|               	| Yes                 	| 
+
+
+
+## Sampling
+
+Azure Functions enables Sampling by default in their configuration. See [Configure Sampling](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) for more information.
