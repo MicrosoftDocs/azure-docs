@@ -66,8 +66,6 @@
   items:
   - name: Access audit logs 
     href: active-directory-b2c-reference-audit-logs.md
-  - name: Collect logs using Application Insights
-    href: active-directory-b2c-troubleshoot-custom.md
   - name: Configure tokens
     href: active-directory-b2c-token-session-sso.md
   - name: Customize language
@@ -89,6 +87,8 @@
     items:
     - name: Create a custom policy
       href: active-directory-b2c-get-started-custom.md
+    - name: Collect logs using Application Insights
+      href: active-directory-b2c-troubleshoot-custom.md
     - name: Integrate RESTful APIs
       items:
       - name: Validate user input
@@ -103,6 +103,8 @@
         href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
     - name: OIDC/OAUTH providers
       items:
+      - name: Amazon
+        href: setup-amazon-custom.md
       - name: Azure AD (Single-Tenant)
         href: active-directory-b2c-setup-aad-custom.md
       - name: Azure AD (Multi-Tenant) 

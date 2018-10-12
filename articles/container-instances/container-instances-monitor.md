@@ -2,13 +2,12 @@
 title: Monitor containers in Azure Container Instances
 description: Details on how to monitor the consumption of compute resources like CPU and memory by your containers in Azure Container Instances.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2018
-ms.author: marsma
+ms.author: danlep
 ---
 # Monitor container resources in Azure Container Instances
 

@@ -3,20 +3,21 @@ title: What is the Speech service?
 description: "The Speech service, part of Microsoft's Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation."
 titleSuffix: "Azure Cognitive Services"
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 
 # What is the Speech service?
 
-The Speech service unites the Azure speech features previously available via the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), and [Custom Voice](http://customvoice.ai/) services. Now, one subscription provides access to all of these capabilities.
 
-Like the other Azure speech services, the Speech service is powered by the speech technologies used in products like Cortana and Microsoft Office. You can count on the quality of the results and the reliability of the cloud platform.
+Like the other Azure speech services, the Speech service is powered by the speech technologies used in products like Cortana and Microsoft Office.
+
+The Speech service unites the Azure speech features previously available via the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), and [Custom Voice](http://customvoice.ai/) services. Now, one subscription provides access to all of these capabilities.
 
 ## Main Speech service functions
 
@@ -45,7 +46,7 @@ You can use your custom models anywhere you use the standard models in your app'
 
 ## Use the Speech service
 
-To simplify the development of speech-enabled applications, Microsoft provides the [Speech SDK](speech-sdk.md) for use with the new Speech service. The Speech SDK provides consistent native Speech-to-Text and Speech Translation APIs for C#, C++, and Java. If you develop with one of these languages, the Speech SDK makes development easier by handling the network details for you.
+To simplify the development of speech-enabled applications, Microsoft provides the [Speech SDK](speech-sdk.md) for use with the Speech service. The Speech SDK provides consistent native Speech-to-Text and Speech Translation APIs for C#, C++, and Java. If you develop with one of these languages, the Speech SDK makes development easier by handling the network details for you.
 
 The Speech service also has a [REST API](rest-apis.md) that works with any programming language that can make HTTP requests. The REST interface does not offer the streaming, real-time functionality of the SDK.
 

@@ -3,13 +3,11 @@ title: Deploy containers with Helm in Kubernetes on Azure
 description: Use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 10/01/2018
 ms.author: iainfou
-ms.custom: mvc
 ---
 
 # Install applications with Helm in Azure Kubernetes Service (AKS)
@@ -22,32 +20,11 @@ This article shows you how to configure and use Helm in a Kubernetes cluster on 
 
 The steps detailed in this document assume that you have created an AKS cluster and have established a `kubectl` connection with the cluster. If you need these items see, the [AKS quickstart][aks-quickstart].
 
-## Install Helm CLI
-
-The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm.
-
-If you use the Azure Cloud Shell, the Helm CLI is already installed. To install the Helm CLI on a Mac, use `brew`. For additional installation options see, [Installing Helm][helm-install-options].
-
-```console
-brew install kubernetes-helm
-```
-
-Output:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
-```
+You also need the Helm CLI installed, the client that runs on your development system and allows you to start, stop, and manage applications with Helm. If you use the Azure Cloud Shell, the Helm CLI is already installed. For installation instructions on your local platform see, [Installing Helm][helm-install].
 
 ## Create a service account
 
-Before you can deploy Helm in an RBAC-enabled cluster, you need a service account and role binding for the Tiller service. For more information on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac]. If your cluster is not RBAC enabled, skip this step.
+Before you can deploy Helm in an RBAC-enabled AKS cluster, you need a service account and role binding for the Tiller service. For more information on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac]. If your AKS cluster is not RBAC enabled, skip this step.
 
 Create a file named `helm-rbac.yaml` and copy in the following YAML:
 
@@ -72,10 +49,10 @@ subjects:
     namespace: kube-system
 ```
 
-Create the service account and role binding with the `kubectl create` command:
+Create the service account and role binding with the `kubectl apply` command:
 
 ```console
-kubectl create -f helm-rbac.yaml
+kubectl apply -f helm-rbac.yaml
 ```
 
 ## Secure Tiller and Helm
@@ -92,7 +69,7 @@ To deploy a basic Tiller into an AKS cluster, use the [helm init][helm-init] com
 helm init --service-account tiller
 ```
 
-If you configured TLS/SSL between Helm and Tiller provide the `--tiller-tls-` parameters and names of your own certificates, as shown in the following example:
+If you configured TLS/SSL between Helm and Tiller provide the `--tiller-tls-*` parameters and names of your own certificates, as shown in the following example:
 
 ```console
 helm init \

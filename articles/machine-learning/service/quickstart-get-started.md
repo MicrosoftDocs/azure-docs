@@ -11,7 +11,7 @@ ms.author: roastala
 ms.date: 09/24/2018
 ---
 
-# Quickstart: use the Azure portal to started with Azure Machine Learning service
+# Quickstart: Use the Azure portal to get started with Azure Machine Learning service
 
 In this quickstart, you'll use the Azure portal to create an Azure Machine Learning service workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service. 
 
@@ -55,6 +55,8 @@ Click on the `Open Azure Notebooks` button to try your first experiment.
 
  ![Launch Azure Notebook](./media/quickstart-get-started/explore_ws.png)
 
+Your organization may require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
+
 After you sign in, a new tab opens and a `Clone Library` prompt appears.  Click on `Clone`
 
 
@@ -64,9 +66,9 @@ Along with two notebooks, you will see a  `config.json` file.  This config file 
 
 Click on `01.run-experiment.ipynb` to open the notebook.
 
-You can run the cells one at a time by using `Shift`+`Enter`.  Or use the menu `Cells` > `Run All` to run the entire notebook.
+You can run the cells one at a time by using `Shift`+`Enter`.  Or use the menu `Cells` > `Run All` to run the entire notebook.  When you see [*] next to a cell, it is running.  When the code for that cell completes, a number will appear.
 
-You may be prompted to log in.  Copy the code in the message, then click on the link and paste the code into the new window.  Be sure not to copy a space before or after the code.
+You may be prompted to sign in.  Copy the code in the message, then click on the link and paste the code into the new window.  Be sure not to copy a space before or after the code.  Sign in with the same account you used in the Azure portal.
 
  ![login](./media/quickstart-get-started/login.png)
 
@@ -93,7 +95,7 @@ You can view these values in your workspace after the code has run.
 
 ## View logged values
 
-After all the cells in the notebook have completed, go back to the portal page.  
+After you run all the cells in the notebook, go back to the portal page.  
 
 Click  on  `View Experiments`.
 
@@ -107,9 +109,11 @@ See information about the run you just performed.  Scroll down the page to find 
 
  ![run history link](./media/quickstart-get-started/report.png)
 
-You see plots that were automatically created of the logged values:
+You see plots that were automatically created of the logged values.  
 
    ![view history](./media/quickstart-get-started/plots.png)
+
+Since the code to approximate pi uses random values, your plots will show different values.
 
 ## Clean up resources 
 

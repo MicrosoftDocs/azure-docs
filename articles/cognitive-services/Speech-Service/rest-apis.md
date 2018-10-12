@@ -2,21 +2,21 @@
 title: Speech service REST APIs
 description: Reference for REST APIs for the Speech service.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 # Speech service REST APIs
 
-The REST APIs of the Azure Cognitive Services unified Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the Bing Speech service. Regional endpoints are available, and you must use a subscription key that corresponds to the endpoint you're using.
+The REST APIs of the Azure Cognitive Services Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the Bing Speech service. Regional endpoints are available, and you must use a subscription key that corresponds to the endpoint you're using.
 
 ## Speech to Text
 
-The endpoints for the Speech to Text REST API are shown in the following table. Use the one that matches your subscription region.
+The endpoints for the Speech to Text REST API are shown in the following table. Use the one that matches your subscription region. 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -24,6 +24,7 @@ The endpoints for the Speech to Text REST API are shown in the following table. 
 > If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
 
 This API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API returns only final results, not partial or interim results. The Speech service also has a [batch transcription](batch-transcription.md) API that can transcribe longer audio.
+
 
 ### Query parameters
 
@@ -50,13 +51,19 @@ The following fields are sent in the HTTP request header.
 
 ### Audio format
 
-The audio is sent in the body of the HTTP `PUT` request. It should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz.
+The audio is sent in the body of the HTTP `PUT` request. It should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz of the following formats/encoding.
+
+* WAV format with PCM codec
+* Ogg format with OPUS codec
+
+>[!NOTE]
+>The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](/index.yml) currently only supports the WAV format with PCM codec. 
 
 ### Chunked transfer
 
 Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file while it's being transmitted. The REST API does not provide partial or interim results. This option is intended solely to improve responsiveness.
 
-The following code illustrates how to send audio in chunks. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
+The following code illustrates how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))

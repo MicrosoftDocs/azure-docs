@@ -35,7 +35,7 @@ All Traffic Manager profiles include monitoring of endpoint health and automatic
 
 Often an organization wants to provide reliability for its services by deploying one or more backup services in case their primary service goes down. The 'Priority' traffic-routing method allows Azure customers to easily implement this failover pattern.
 
-![Azure Traffic Manager 'Priority' traffic-routing method][1]
+![Azure Traffic Manager 'Priority' traffic-routing method](media/traffic-manager-routing-methods/priority.png)
 
 The Traffic Manager profile contains a prioritized list of service endpoints. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint. If both the primary and secondary endpoints are not available, the traffic goes to the third, and so on. Availability of the endpoint is based on the configured status (enabled or disabled) and the ongoing endpoint monitoring.
 
@@ -43,10 +43,10 @@ The Traffic Manager profile contains a prioritized list of service endpoints. By
 
 With Azure Resource Manager, you configure the endpoint priority explicitly using the 'priority' property for each endpoint. This property is a value between 1 and 1000. Lower values represent a higher priority. Endpoints cannot share priority values. Setting the property is optional. When omitted, a default priority based on the endpoint order is used.
 
-##<a name = "weighted"></a>Weighted traffic-routing method
+## <a name = "weighted"></a>Weighted traffic-routing method
 The 'Weighted' traffic-routing method allows you to distribute traffic evenly or to use a pre-defined weighting.
 
-![Azure Traffic Manager 'Weighted' traffic-routing method][2]
+![Azure Traffic Manager 'Weighted' traffic-routing method](media/traffic-manager-routing-methods/weighted.png)
 
 In the Weighted traffic-routing method, you assign a weight to each endpoint in the Traffic Manager profile configuration. The weight is an integer from 1 to 1000. This parameter is optional. If omitted, Traffic Managers uses a default weight of '1'. The higher weight, the higher the priority.
 
@@ -74,7 +74,7 @@ These DNS caching effects are common to all DNS-based traffic routing systems, n
 
 Deploying endpoints in two or more locations across the globe can improve the responsiveness of many applications by routing traffic to the location that is 'closest' to you. The 'Performance' traffic-routing method provides this capability.
 
-![Azure Traffic Manager 'Performance' traffic-routing method][3]
+![Azure Traffic Manager 'Performance' traffic-routing method](media/traffic-manager-routing-methods/performance.png)
 
 The 'closest' endpoint is not necessarily closest as measured by geographic distance. Instead, the 'Performance' traffic-routing method determines the closest endpoint by measuring network latency. Traffic Manager maintains an Internet Latency Table to track the round-trip time between IP address ranges and each Azure datacenter.
 
