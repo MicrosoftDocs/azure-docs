@@ -19,7 +19,7 @@
     href: asdk-advanced-eval.md
 - name: How to
   items:
-  - name: Setup the ASDK
+  - name: Set up the ASDK
     items:
     - name: Download and extract the development kit
       href: asdk-download.md
