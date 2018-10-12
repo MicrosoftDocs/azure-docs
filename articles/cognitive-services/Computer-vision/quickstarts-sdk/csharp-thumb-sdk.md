@@ -16,8 +16,6 @@ ms.author: nolachar
 
 In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows client library.
 
-The source code for this sample is available on [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
-
 ## Prerequisites
 
 * To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
@@ -25,6 +23,9 @@ The source code for this sample is available on [Github](https://github.com/Azur
 * The [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
 ## GenerateThumbnailAsync method
+
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 The `GenerateThumbnailAsync` and `GenerateThumbnailInStreamAsync` methods wrap the [Get Thumbnail API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) for remote and local images, respectively.  You can use these methods to generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the region of interest and generate cropping coordinates based on that region.
 
