@@ -156,7 +156,7 @@ You are now ready to use the two applications to send and receive cloud-to-devic
 
    ![View sample IoT device app](media/iot-hub-ios-swift-c2d/view-d2c.png)
 
-2. In the **IoTHub Service Client Sample** app running on the simulated service device, enter the ID for the IoT device that you want a to send a message to. 
+2. In the **IoTHub Service Client Sample** app running on the simulated service device, enter the ID for the IoT device that you want to send a message to. 
 
 3. Write a plaintext message, then click **Send**. 
 
