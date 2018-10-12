@@ -27,7 +27,7 @@ Network Performance Monitor detects network issues like traffic blackholing, rou
 
 More information on the various capabilities supported by [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is available online.
 
-## Setup and Configure Agents
+## Set up and configure agents
 
 ### What are the platform requirements for the nodes to be used for monitoring by NPM?
 Listed below are the platform requirements for NPM's various capabilities:
@@ -36,7 +36,7 @@ Listed below are the platform requirements for NPM's various capabilities:
 - NPM's ExpressRoute Monitor capability supports only Windows server (2008 SP1 or later) operating system.
 
 ### Can I use Linux machines as monitoring nodes in NPM?
-The capability to monitor networks using Linux based nodes is currently in private preview. Please reach out to your Account Manager to know more. Once you provide the workspace id we will go ahead and enable the capability. Note that Linux agents provide monitoring capability only for NPM's Performance Monitor capability, and are not available for the Service Connectivity Monitor and ExpressRoute Monitor capabilities
+The capability to monitor networks using Linux-based nodes is currently in private preview. Reach out to your Account Manager to know more. Once you provide the workspace ID, we will go ahead and enable the capability. Note that Linux agents provide monitoring capability only for NPM's Performance Monitor capability, and are not available for the Service Connectivity Monitor and ExpressRoute Monitor capabilities
 
 ### What are the size requirements of the nodes to be used for monitoring by NPM?
 For running the NPM solution on node VMs to monitor networks, the nodes should have at least 500MB memory and 1 core. Note that you do not need to use separate nodes for running NPM. The solution can run on nodes that have other workloads running on it. The solution has the capability to stop the monitoring process in case it utilizes more than 5% CPU.
@@ -44,10 +44,10 @@ For running the NPM solution on node VMs to monitor networks, the nodes should h
 ### To use NPM, should I connect my nodes as Direct agent or through System Center Operations Manager?
 Both the Performance Monitor and the Service Connectivity Monitor capabilities support nodes [connected as Direct Agents](log-analytics-agent-windows.md) as well as [connected through Operations Manager](log-analytics-om-agents.md).
 
-In case of ExpressRoute Monitor capability, the Azure nodes should be connected as Direct Agents only. Azure nodes which are connected through Operations Manager are not supported. In case of on-premises nodes, the nodes connected as Direct Agents as well as through Operations Manager are supported for monitoring an ExpressRoute circuit.
+In case of ExpressRoute Monitor capability, the Azure nodes should be connected as Direct Agents only. Azure nodes, which are connected through Operations Manager are not supported. In case of on-premises nodes, the nodes connected as Direct Agents as well as through Operations Manager are supported for monitoring an ExpressRoute circuit.
 
 ### Which protocol among TCP and ICMP should be chosen for monitoring?
-If you are monitoring your network using Windows server based nodes, we recommend you use TCP as the monitoring protocol since it provides better accuracy. 
+If you are monitoring your network using Windows server-based nodes, we recommend you use TCP as the monitoring protocol since it provides better accuracy. 
 
 In case of Windows desktops/client operating system based nodes, ICMP is recommended since this platform does not allow TCP data to be sent over raw sockets, which is required by NPM to discover network topology.
 
@@ -56,45 +56,45 @@ You can get more details on the relative advantages of each protocol [here](log-
 ### How can I configure a node to support monitoring using TCP protocol?
 For the node to support monitoring using TCP protocol: 
 * Ensure that the node platform is Windows Server (2008 SP1 or later).
-* Run [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell script on the node.  See [instructions](log-analytics-network-performance-monitor.md#configure-operations-management-suite-agents-for-monitoring) for more details.
+* Run [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell script on the node. See [instructions](log-analytics-network-performance-monitor.md#configure-operations-management-suite-agents-for-monitoring) for more details.
 
 
 ### How can I change the TCP port being used by NPM for monitoring?
-You can change the TCP port used by NPM for monitoring, by running the  [EnableRules.ps1](https://aka.ms/npmpowershellscript) script. You need enter the port number you intend to use as a parameter. For example, to enable TCP on port 8060, run `EnableRules.ps1 8060`. Ensure that you use the same TCP port on all the nodes being used for monitoring.
+You can change the TCP port used by NPM for monitoring, by running the [EnableRules.ps1](https://aka.ms/npmpowershellscript) script. You need enter the port number you intend to use as a parameter. For example, to enable TCP on port 8060, run `EnableRules.ps1 8060`. Ensure that you use the same TCP port on all the nodes being used for monitoring.
 
 The script configures only Windows Firewall locally. If you have network firewall or Network Security Group (NSG) rules, make sure that they allow the traffic destined for the TCP port used by NPM.
 
 ### How many agents should I use?
-It is recommended to use at least one agent for each subnet that you want to monitor.
+You should use at least one agent for each subnet that you want to monitor.
 
 ## Monitoring
 
 ### How are loss and latency calculated
-Source agents send either TCP SYN requests (if TCP is chosen as the protocol for monitoring) or ICMP ECHO requests (if ICMP is chosen as the protocol for monitoring)  to destination IP at regular intervals to ensure that all the paths between the source-destination IP combination are covered. The percentage of packets received and packet round trip time is measured to calculate the loss and latency of each path. This data is aggregated over the polling interval and over all the paths to get the aggregated values of loss and latency for the IP combination for the particular polling interval.
+Source agents send either TCP SYN requests (if TCP is chosen as the protocol for monitoring) or ICMP ECHO requests (if ICMP is chosen as the protocol for monitoring) to destination IP at regular intervals to ensure that all the paths between the source-destination IP combination are covered. The percentage of packets received and packet round-trip time is measured to calculate the loss and latency of each path. This data is aggregated over the polling interval and over all the paths to get the aggregated values of loss and latency for the IP combination for the particular polling interval.
 
 ### With what frequency does the source agent send packets to the destination for monitoring?
 In case of the Performance Monitor and ExpressRoute Monitor capabilities, the source sends packets every 5 seconds and records the network measurements. This data is aggregated over a 3-minute polling interval to calculate the average and peak values of loss and latency. In case of the Service Connectivity Monitor capability, the frequency of sending the packets for network measurement is determined by the frequency entered by the user for the specific test while configuring the test.
 
 ### How many packets are sent for monitoring?
-The number of packets sent by the source agent to destination in a polling is adaptive and is decided by our proprietary algorithm which can be different for different network topologies. More the number of network paths between the source-destination IP combination, more is the number of packets that are sent. The system ensures that all paths between the source-destination IP combination are covered.
+The number of packets sent by the source agent to destination in a polling is adaptive and is decided by our proprietary algorithm, which can be different for different network topologies. More the number of network paths between the source-destination IP combination, more is the number of packets that are sent. The system ensures that all paths between the source-destination IP combination are covered.
 
 ### How does NPM discover network topology between source and destination?
 NPM uses a proprietary algorithm based on Traceroute to discover all the paths and hops between source and destination.
 
 ### Does NPM provide routing and switching level info 
-Though NPM can detect all the possible routes between the source agent and the destination, it does not provide visibility into which route was taken by the packets sent by your specific workloads. The solution can help you identify the paths and underlying network hops which are adding more latency than you expected.
+Though NPM can detect all the possible routes between the source agent and the destination, it does not provide visibility into which route was taken by the packets sent by your specific workloads. The solution can help you identify the paths and underlying network hops, which are adding more latency than you expected.
 
 ### Why are some of the paths unhealthy?
 Different network paths can exist between the source and destination IPs and each path can have a different value of loss and latency. NPM marks those paths as unhealthy (denoted with red color) for which the values of loss and/or latency is greater than the respective threshold set in the monitoring configuration.
 
 ### What does a hop in red color signify in the network topology map?
-If a hop is in red color it signifies that it is part of at-least one unhealthy path. NPM only marks the paths as unhealthy, it does not segregate the health status of each path. To identify the troublesome hops, you can view the hop-by-hop latency and segregate the ones adding more than expected latency.
+If a hop is red it signifies that it is part of at-least one unhealthy path. NPM only marks the paths as unhealthy, it does not segregate the health status of each path. To identify the troublesome hops, you can view the hop-by-hop latency and segregate the ones adding more than expected latency.
 
 ### How does fault localization in Performance Monitor work?
-NPM uses a probabilistic mechanism to assign fault-probabilities to each network path, network segment and the constituent network hops based on the number of unhealthy paths they are a part of. As the network segments and hops become part of more number of unhealthy paths, the fault-probability associated with them increases. This algorithm works best when you have many nodes with NPM agent connected to each other as this increases the data points for calculating the fault-probabilities.
+NPM uses a probabilistic mechanism to assign fault-probabilities to each network path, network segment, and the constituent network hops based on the number of unhealthy paths they are a part of. As the network segments and hops become part of more number of unhealthy paths, the fault-probability associated with them increases. This algorithm works best when you have many nodes with NPM agent connected to each other as this increases the data points for calculating the fault-probabilities.
 
 ### How can I create alerts in NPM?
-Refer to [alerts section in the documentation](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-network-performance-monitor#alerts) for step-by-step instructions.
+Refer to [alerts section in the documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) for step-by-step instructions.
 
 ### Can NPM monitor routers and servers as individual devices?
 NPM only identifies the IP and host name of underlying network hops (switches, routers, servers, etc.) between the source and destination IPs. It also identifies the latency between these identified hops. It does not individually monitor these underlying hops.
@@ -127,7 +127,7 @@ NPM can monitor connectivity between networks in any part of the world, from a w
 NPM can monitor connectivity to services in any part of the world, from a workspace that is hosted in one of the [supported regions](log-analytics-network-performance-monitor.md#supported-regions)
 
 ### Which regions are supported for NPM's ExpressRoute Monitor?
-NPM can monitor your ExpressRoute circuits located in any Azure region. To onboard to NPM, you will require a Log Analytics workspace. Your Log Analytics workspace needs to be hosted in one of the [supported regions](/azure/expressroute/how-to-npm#regions)
+NPM can monitor your ExpressRoute circuits located in any Azure region. To onboard to NPM, you will require a Log Analytics workspace that must be hosted in one of the [supported regions](/azure/expressroute/how-to-npm#regions)
 
 ## Troubleshoot
 
@@ -143,33 +143,33 @@ A hop may not respond to a traceroute in one or more of the below scenarios:
 * A firewall is blocking the ICMP_TTL_EXCEEDED response from the network device.
 
 ### The solution shows 100% loss but there is connectivity between the source and destination
-This can happen if either the host firewall or the intermediate firewall (network firewall or Azure NSG) is blocking the communication between the source agent and the destination over the port being used for monitoring by NPM (by default the port is 8084, unless the customer has specifically changed this).
+This can happen if either the host firewall or the intermediate firewall (network firewall or Azure NSG) is blocking the communication between the source agent and the destination over the port being used for monitoring by NPM (by default the port is 8084, unless the customer has changed this).
 
 * To verify that the host firewall is not blocking the communication on the required port, view the health status of the source and destination nodes from the following view: 
   Network Performance Monitor -> Configuration -> Nodes. 
   If they are unhealthy, view the instructions and take corrective action. If the nodes are healthy, move to the step b. below.
-* To verify that an intermediate network firewall or Azure NSG is not blocking the communication on the required port, use the third party PsPing utility using the below instructions:
-  * psping utility is available for download [here](https://technet.microsoft.com/en-us/sysinternals/psping.aspx) 
+* To verify that an intermediate network firewall or Azure NSG is not blocking the communication on the required port, use the third-party PsPing utility using the below instructions:
+  * psping utility is available for download [here](https://technet.microsoft.com/sysinternals/psping.aspx) 
   * Run following command from the source node.
     * psping -n 15 \<destination node IPAddress\>:portNumber 
-    By default NPM uses 8084 port. In case you have explicitly changed this by using the EnableRules.ps1 script, enter the custom port number you are using). This is a ping from Azure machine to On-Prem
+    By default NPM uses 8084 port. In case you have explicitly changed this by using the EnableRules.ps1 script, enter the custom port number you are using). This is a ping from Azure machine to on-premises
 * Check if the pings are successful. If not, then it indicates that an intermediate network firewall or Azure NSG is blocking the traffic on this port.
 * Now, run the command from destination node to source node IP.
 
 
 ### There is loss from node A to B, but not from node B to A. Why?
-As the network paths between A to B can be totally different from the network paths between B to A, different values for loss and latency can be observed.
+As the network paths between A to B can be different from the network paths between B to A, different values for loss and latency can be observed.
 
 ### Why are all my ExpressRoute circuits and peering connections not being discovered?
 This can happen if your circuit and peering connections are distributed across multiple subscriptions. NPM discovers only those ExpressRoute private peering connections in which the VNETs connected to the ExpressRoute are in the same subscription as the one linked with the NPM workspace. Additionally, NPM discovers those Microsoft peering connections in which the connected ExpressRoute circuit is in the same subscription as the one linked with the NPM workspace. This can be clarified from the below example:
 
- If you have 2 VNETS-  VNET A in subscription A and VNET B in subscription B respectively, connected to an ExpressRoute in subscription C. Additionally, there is another VNET -VNET  C in subscription C. The ER also has MS peering in subscription C. 
+ If you have 2 VNETS- VNET A in subscription A and VNET B in subscription B respectively, connected to an ExpressRoute in subscription C. Additionally, there is another VNET -VNET C in subscription C. The ER also has MS peering in subscription C. 
 
 Then,
 
 * If NPM workspace is linked with subscription A, then you will be able to monitor connectivity via ER to VNET A only.
 * If NPM workspace is linked with subscription B, then you will be able to monitor connectivity via ER to VNET B only.
-* If NPM workspace is linked with subscription C, then you will be able to able to monitor connectivity via ER to VNET C as well as MS peering.
+* If NPM workspace is linked with subscription C, then you will be able to monitor connectivity via ER to VNET C as well as MS peering.
 
 Note that the cross-subscription support will soon be available. After this you will be able to monitor all your ExpressRoute private and Microsoft peering connections in different subscriptions, from one workspace.
 ### The ER Monitor capability has a diagnostic message "Traffic is not passing through ANY circuit". What does that mean?
