@@ -112,7 +112,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             var noAlert = "Either room is occupied, or working conditions are not right.";
         ```
     
-    1. Remove the following code block after the comment `// Modify this code block for your sensor`:
+    1. Remove the following *if-else* code block after the comment `// Modify this code block for your sensor`:
 
         ```JavaScript
             // If carbonDioxide less than threshold and no presence in the room => log, notify and set parent space computed value
@@ -132,7 +132,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             }
         ```
       
-       And replace it with the following block:
+       And replace it with the following *if-else* block:
 
         ```JavaScript
             // If sensor values are within range and room is available
