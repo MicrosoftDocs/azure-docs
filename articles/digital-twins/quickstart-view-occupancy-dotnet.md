@@ -1,5 +1,5 @@
 ---
-title: Find available rooms with fresh air with Azure Digital Twins quickstart (C#) | Microsoft Docs
+title: Find available rooms with Azure Digital Twins (C#) | Microsoft Docs
 description: In this quickstart, you run two .NET Core sample applications to send simulated motion and carbon dioxide telemetry to a space in Azure Digital Twins. The goal is to find available rooms with fresh air from Management APIs after computed processing in the cloud.
 author: alinamstanciu
 manager: bertvanhoof
@@ -23,7 +23,7 @@ This quickstart uses [a pair of .NET samples](https://github.com/Azure-Samples/d
 
 1. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. The two console applications you run in this quickstart are written using C#. You will need to install [.NET Core SDK 2.1 or above](https://www.microsoft.com/net/download) on your development machine. If you have .NET Core SDK installed, you can verify the current version of C# on your development machine running the `dotnet --version` in a command prompt.
+1. The two console applications you run in this quickstart are written using C#. You will need to install [.NET Core SDK version 2.1.403 or above](https://www.microsoft.com/net/download) on your development machine. If you have .NET Core SDK installed, you can verify the current version of C# on your development machine running the `dotnet --version` in a command prompt.
 
 1. Download the [sample C# project](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip) and extract the digital-twins-samples-csharp-master.zip archive. 
 
@@ -36,7 +36,7 @@ Create a new instance of the Digital Twins in the [portal](https://portal.azure.
 
 ## Set permissions for your app
 
-This section registers your sample application to Azure Active Directory (AAD), so it can access your Digital Twins instance. You can skip this section if you already have an AAD app registration, which can be reused for your sample. 
+This section registers your sample application to Azure Active Directory (AAD), so it can access your Digital Twins instance. If you already have an AAD app registration, you may reuse it for your sample, making sure it is configured as mentioned in this section. 
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
@@ -125,7 +125,7 @@ If you plan to continue to the tutorials, do not clean up the resources created 
 This quickstart gave you an overview of a simple scenario of finding rooms with good working conditions. For a more in-depth analysis of this scenario, proceed to this tutorial:
 
 > [!div class="nextstepaction"]
-> [Provision a sample building](tutorial-facilities-setup.md)
+> [Tutorial: Deploy Azure Digital Twins and configure a spatial graph](tutorial-facilities-setup.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png

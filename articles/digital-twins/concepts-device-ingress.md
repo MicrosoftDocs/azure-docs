@@ -10,21 +10,21 @@ ms.date: 10/08/2018
 ms.author: alinast
 ---
 
-# Device Connectivity and Telemetry Ingress
+# Device connectivity and telemetry ingress
 
 The telemetry data sent by devices and sensors form the backbone of any IoT Solution. As such, representing these disparate resources and managing them within the context of a location is a chief concern in IoT app development. Azure Digital Twins simplifies developing IoT solutions by uniting devices and sensors with a spatial intelligence graph.
 
 To get started, an `IoTHub` resource should be created at the root of the spatial graph, allowing all devices beneath the root space to send messages. Once the IoT Hub has been created, and devices with sensors have been registered within the Digital Twins instance, the devices can start sending data to a Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
 
-A step-by-step guide for onboarding devices can be found in the [Facility Management Tutorial](tutorial-facilities-setup.md). At a glance, the steps are:
+A step-by-step guide for onboarding devices can be found in the [Tutorial to deploy and configure Digital Twins](tutorial-facilities-setup.md). At a glance, the steps are:
 
 - Deploy an Azure Digital Twins instance from the [Azure portal](https://portal.azure.com)
 - Create spaces in your graph
 - Create an `IoTHub` resource and assign it to a space in your graph
 - Create devices and sensors in your graph, and assign them to the spaces created in the steps above
 - Create a matcher to filter telemetry messages based on conditions
-- Create a [**User-Defined Function**](concepts-user-defined-functions.md) and assign it to a space in the graph for custom processing of your telemetry messages
-- Assign a role to allow the User-Defined Function to access the graph data
+- Create a [**user-defined function**](concepts-user-defined-functions.md) and assign it to a space in the graph for custom processing of your telemetry messages
+- Assign a role to allow the user-defined function to access the graph data
 - Get the IoT Hub device connection string from the Digital Twins Management APIs
 - Configure the device connection string on the device with the Azure IoT Device SDK
 

@@ -21,7 +21,7 @@ These constraints exist to help simplify learning about the new service and its 
 
 ## Per-Subscription limits
 
-During Public Preview, each Azure subscription can create exactly one Azure Digital Twins instance. Additionally, each subscription can have only one  Azure Digital Twins instance at a time.
+During Public Preview, each Azure subscription can create or have running exactly one Azure Digital Twins instance at a time.
 
 > [!TIP]
 > Deleting your instance will allow you to create a new one.

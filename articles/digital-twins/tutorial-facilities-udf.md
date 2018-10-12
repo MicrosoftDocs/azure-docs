@@ -18,9 +18,9 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Define conditions to monitor
-> * Create a User-Defined Function
+> * Create a user-defined function
 > * Simulate sensor data
-> * Get results of User-Defined Function
+> * Get results of user-defined function
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ This tutorial assumes that you have [configured your Azure Digital Twins setup](
 - an [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F),
 - an instance of Digital Twins running, 
 - the [Digital Twins C# samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine, 
-- [.NET Core SDK version 2.1 or above](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Run `dotnet --version` to verify if the right version is installed. 
+- [.NET Core SDK version 2.1.403 or above](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Run `dotnet --version` to verify if the right version is installed. 
 - [Visual Studio Code](https://code.visualstudio.com/) to explore the sample code. 
 
 ## Define conditions to monitor
@@ -47,8 +47,8 @@ This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that you added in [the fi
 
 <a id="udf" />
 
-## Create a User-Defined Function
-User-defined functions or UDFs allow you to customize the processing of your sensor data. They are custom JavaScript code that can run within your Digital Twins instance, when specific conditions as described by the matchers occur. You can create *matchers* and *user-defined functions* for each sensor that you want to monitor. For more detailed information, read [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
+## Create a user-defined function
+User-defined functions or UDFs allow you to customize the processing of your sensor data. They are custom JavaScript code that can run within your Digital Twins instance, when specific conditions as described by the matchers occur. You can create *matchers* and *user-defined functions* for each sensor that you want to monitor. For more detailed information, read [Data processing and user-defined functions](concepts-user-defined-functions.md). 
 
 In the sample *provisionSample.yaml* file, look for a section beginning with the type **userdefinedfunctions**. This section provisions a user-defined function with a given **Name**, that acts on the list of matchers under the **matcherNames**. Notice how you can provide your own JavaScript file for the UDF as the **script**. Also note the section named **roleassignments**. It assigns the *Space Administrator* role to the user-defined function; this allows it to access the events coming from any of the provisioned spaces. 
 
@@ -215,7 +215,7 @@ In this section, you will use the project named *device-connectivity* in the sam
    > [!NOTE] 
    > Since the simulation sample does not directly communicate with your Digital Twin instance, it does not require you to authenticate.
 
-## Get results of User-Defined Function
+## Get results of user-defined function
 The user-defined function runs every time your instance receives device and sensor data. This section queries your Digital Twins instance to get the results of the user-defined function. You will see in near real time, when a room is available, the air is fresh and temperature is right. 
 
 1. Open the command window you used to provision the sample, or a new command window, and navigate to the **_occupancy-quickstart\src_** folder of the sample again. 
@@ -230,7 +230,7 @@ The output window will show how the user-defined function executes, and intercep
 
    ![Execute UDF](./media/tutorial-facilities-udf/udf-running.png)
 
-Depending on whether the monitored condition is met, user-defined function sets the value of space with the relevant message as we saw in [the section above](#udf), which the *GetAvailableAndFreshSpaces` function prints out on the console. 
+Depending on whether the monitored condition is met, user-defined function sets the value of space with the relevant message as we saw in [the section above](#udf), which the `GetAvailableAndFreshSpaces` function prints out on the console. 
 
 ## Clean up resources
 

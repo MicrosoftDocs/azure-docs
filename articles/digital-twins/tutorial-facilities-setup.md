@@ -1,5 +1,5 @@
 ---
-title: Provision Azure Digital Twins (.NET) | Microsoft Docs
+title: Deploy Azure Digital Twins | Microsoft Docs
 description: Learn how to deploy your instance of Azure Digital Twins and configure your spatial resources using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
@@ -8,7 +8,7 @@ ms.service: digital-twins
 ms.topic: tutorial 
 ms.date: 10/15/2018
 ms.author: dkshir
-#Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to use the features of Digital Twins to create an intelligent IoT solution. 
+#Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to use the features of Digital Twins to create a spatially aware intelligent IoT solution. 
 ---
 
 # Tutorial: Deploy Azure Digital Twins and configure a spatial graph
@@ -31,7 +31,7 @@ These tutorials use and modify the same samples that the [quickstart to find ava
 
 - An Azure subscription. If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The Digital Twins samples used in these tutorials are written in C#. Make sure to install [.NET Core SDK version 2.1 or above](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Check if the right version is installed on your machine by running `dotnet --version` in a command window.
+- The Digital Twins samples used in these tutorials are written in C#. Make sure to install [.NET Core SDK version 2.1.403 or above](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Check if the right version is installed on your machine by running `dotnet --version` in a command window.
 
 - [Visual Studio Code](https://code.visualstudio.com/) to explore the sample code. 
 
@@ -50,7 +50,7 @@ Use the steps in this section to create a new instance of the Digital Twins serv
 
 Digital Twins uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) to control [read/write access](../active-directory/develop/v1-permissions-and-consent.md) to the service. Any application that needs to connect with your Digital Twins instance, must be registered with Azure Active Directory. The steps in this section show how to register your sample app.
 
-This section is optional; if you already have an *app registration*, you can reuse it for your sample. 
+If you already have an *app registration*, you can reuse it for your sample. However, browse through this section to make sure your app registration is configured correctly.
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
@@ -129,7 +129,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 This function uses the *provisionSample.yaml* in the same folder. Open this file, and note the hierarchy of an office building: the *Venue*, *Floor*, *Area*, and the *Rooms*. Any of these physical spaces can contain *devices* and *sensors*. Each entry has a predefined `type`, for example, *Floor*, *Room*. 
 
-The sample *yaml* file shows a spatial graph using the `Default` Digital Twins object model. This model provides generic names for most types (for example, Temperature for SensorDataType, Map for SpaceBlobType), and space types (for example, Room with subtypes FocusRoom, ConferenceRoom, and so on), which is sufficient for a building. If you had to create a spatial graph for a different type venue, such as a factory, you might need a different object model. You can find out which models are available to use by running the command `dotnet run GetOntologies` in the command line for the provisioning sample. For more details on spatial graphs and the object models, read [Understanding Digital Twins Object Model and Spatial Intelligence Graph](concepts-objectmodel-spatialgraph.md). 
+The sample *yaml* file shows a spatial graph using the `Default` Digital Twins object model. This model provides generic names for most types (for example, Temperature for SensorDataType, Map for SpaceBlobType), and space types (for example, Room with subtypes FocusRoom, ConferenceRoom, and so on), which is sufficient for a building. If you had to create a spatial graph for a different type venue, such as a factory, you might need a different object model. You can find out which models are available to use by running the command `dotnet run GetOntologies` in the command line for the provisioning sample. For more details on spatial graphs and the object models, read [Understanding Digital Twins object model and spatial intelligence graph](concepts-objectmodel-spatialgraph.md). 
 
 ### Modify sample spatial graph
 The *provisionSample.yaml* contains the following nodes:

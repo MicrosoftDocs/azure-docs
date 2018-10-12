@@ -24,11 +24,11 @@
         href: tutorial-facilities-analyze.md
 - name: Concepts
   items:
-  - name: Digital Twins Object Models and Spatial Intelligence Graph
+  - name: Digital Twins object model and spatial intelligence graph
     href: concepts-objectmodel-spatialgraph.md
-  - name: Device Connectivity and Telemetry Ingress
+  - name: Device connectivity and telemetry ingress
     href: concepts-device-ingress.md
-  - name: Data Processing and User-Defined Functions
+  - name: Data processing and user-defined functions
     href: concepts-user-defined-functions.md 
   - name: Routing events and messages
     href: concepts-events-routing.md 
@@ -38,7 +38,7 @@
     items:
     - name: Security best practices
       href: security-best-practices.md
-    - name: Role Based Access Control
+    - name: Role based access control
       href: security-role-based-access-control.md
     - name: Create and manage role assignments
       href: security-create-manage-role-assignments.md
@@ -48,7 +48,7 @@
   items:
   - name: How to enable multitenant applications
     href: how-to-multitenant-applications.md
-  - name: How to create User-Defined Functions
+  - name: How to create user-defined functions
     href: how-to-user-defined-functions.md
   - name: How to route events and messages via endpoints
     href: how-to-egress-endpoints.md

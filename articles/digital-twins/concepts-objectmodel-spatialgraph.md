@@ -10,7 +10,7 @@ ms.date: 10/08/2018
 ms.author: alinast
 ---
 
-# Understanding Digital Twins Object Models and Spatial Intelligence Graph
+# Understanding Digital Twins object models and spatial intelligence graph
 
 Azure Digital Twins is an Azure IoT service that powers comprehensive virtual representations of physical environments and associated devices, sensors, and people. It improves development by organizing domain-specific concepts into helpful models, which are themselves situated within a spatial intelligence graph. Such concepts faithfully model the relationships and interactions between people, spaces, and devices.
 
