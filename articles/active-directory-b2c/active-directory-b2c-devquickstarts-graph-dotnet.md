@@ -4,7 +4,6 @@ description: How to call the Graph API for a B2C tenant by using an application 
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -155,7 +154,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 {
     // First, use ADAL to acquire a token by using the app's identity (the credential)
     // The first parameter is the resource we want an access_token for; in this case, the Graph API.
-    AuthenticationResult result = authContext.AcquireToken("https://graph.windows.net", credential);
+    AuthenticationResult result = authContext.AcquireToken("https://graph.microsoft.com", credential);
 
     ...
 
@@ -167,7 +166,7 @@ You can get an access token for the Graph API by calling the ADAL `Authenticatio
 When you want to get a list of users or get a particular user from the Graph API, you can send an HTTP `GET` request to the `/users` endpoint. A request for all of the users in a tenant looks like this:
 
 ```
-GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
+GET https://graph.microsoft.com/contosob2c.onmicrosoft.com/users?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
@@ -191,7 +190,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
     // For B2C user management, be sure to use the 1.6 Graph API version.
     HttpClient http = new HttpClient();
-    string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=1.6";
+    string url = "https://graph.microsoft.com/" + tenant + api + "?" + "api-version=1.6";
     if (!string.IsNullOrEmpty(query))
     {
         url += "&" + query;
@@ -209,7 +208,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 When you create user accounts in your B2C tenant, you can send an HTTP `POST` request to the `/users` endpoint:
 
 ```
-POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
+POST https://graph.microsoft.com/contosob2c.onmicrosoft.com/users?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 Content-Type: application/json
 Content-Length: 338
@@ -261,7 +260,7 @@ You can see how the POST request is constructed in `B2CGraphClient.SendGraphPost
 When you update user objects, the process is similar to the one you use to create user objects. But this process uses the HTTP `PATCH` method:
 
 ```
-PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
+PATCH https://graph.microsoft.com/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 Content-Type: application/json
 Content-Length: 37
@@ -301,7 +300,7 @@ B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%2
 The process for deleting a user is straightforward. Use the HTTP `DELETE` method and construct the URL with the correct object ID:
 
 ```
-DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
+DELETE https://graph.microsoft.com/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
