@@ -63,6 +63,10 @@ sections:
       title: Create a private Docker registry in Azure Container Registry
       image:
         src: /azure/media/index/container-registry.svg
+    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
+      title: Run a container app on-demand in Azure Container Instances
+      image:
+        src: /azure/media/index/containerinstances.svg
 - title: Free Pluralsight Video Training
   items:
   - type: list
