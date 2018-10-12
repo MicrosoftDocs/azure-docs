@@ -45,13 +45,16 @@ Next, create a public IP address with the *static* allocation method using the [
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
-Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step.
+Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter.
 
 > [!TIP]
 > The following examples install the ingress controller and certificates in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. Also, if your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    --set controller.service.loadBalancerIP="40.121.63.72"  \
+    --set controller.replicaCount=2
 ```
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, your static IP address is assigned, as shown in the following example output:

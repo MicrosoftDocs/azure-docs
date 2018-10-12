@@ -17,6 +17,9 @@ The HTTP application routing solution makes it easy to access applications that 
 
 When the add-on is enabled, it creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing][dns-pricing].
 
+> [!CAUTION]
+> The HTTP application routing add-on is designed to let you quickly create an ingress controller and access your applications. This add-on is not recommended for production use. For production-ready ingress deployments that include multiple replicas and TLS support, see [Create an HTTPS ingress controller](https://docs.microsoft.com/en-us/azure/aks/ingress-tls).
+
 ## HTTP routing solution overview
 
 The add-on deploys two components: a [Kubernetes Ingress controller][ingress] and an [External-DNS][external-dns] controller.

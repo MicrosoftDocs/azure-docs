@@ -43,13 +43,16 @@ controller:
       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 ```
 
-Now deploy the *nginx-ingress* chart with Helm. To use the manifest file created in the previous step, add the `-f internal-ingress.yaml` parameter:
+Now deploy the *nginx-ingress* chart with Helm. To use the manifest file created in the previous step, add the `-f internal-ingress.yaml` parameter. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter.
 
 > [!TIP]
 > The following example installs the ingress controller in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system -f internal-ingress.yaml
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    -f internal-ingress.yaml \
+    --set controller.replicaCount=2
 ```
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, your internal IP address is assigned, as shown in the following example output:
