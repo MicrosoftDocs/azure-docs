@@ -7,7 +7,7 @@
   items:
   - name: Get started with Content Moderator
     href: quick-start.md
-  - name: Using .NET SDK
+  - name: Using the .NET SDK
     items:
     - name: Check image content
       href: image-moderation-quickstart-dotnet.md
