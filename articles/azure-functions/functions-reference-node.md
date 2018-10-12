@@ -52,7 +52,7 @@ The binding extensions required in [version 2.x](functions-versions.md) of the F
 
 JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). Your exported function should be a JavaScript function that will execute when triggered.
 
-By default, the Functions runtime looks for your function in `index.js`, where `index.js` shares the same parent directory as the corresponding `function.json`. In the default case, your exported function should be the only export from its file or the export named `run` or `index`). To configure the file location and export name of your function, read about [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point) below.
+By default, the Functions runtime looks for your function in `index.js`, where `index.js` shares the same parent directory as its corresponding `function.json`. In the default case, your exported function should be the only export from its file or the export named `run` or `index`. To configure the file location and export name of your function, read about [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point) below.
 
 Your exported function is passed a number of arguments on execution. The first argument it takes is always a `context` object. If your function is synchronous (does not return a Promise), you must pass the `context` object, as calling `context.done` is required for correct use.
 
@@ -65,7 +65,7 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### Exporting an async function
-When using the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (not available with Functions v1.x), you do not explicitly need to call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function will complete when the exported async function/Promise completes.
+When using the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or otherwise returning a JavaScript [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (not available with Functions v1.x), you do not explicitly need to call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function will complete when the exported async function/Promise completes.
 
 For example, this is a simple function that logs that it was triggered and immediately completes execution.
 ``` javascript
@@ -125,7 +125,7 @@ Trigger and input bindings (bindings of `direction === "in"`) can be read by a f
 Outputs (bindings of `direction === "out"`) can be written to by a function in a number of ways. In all cases, the `name` property of the binding as defined in *function.json* corresponds to the name of the object member written to in your function. 
 
 You can assign data to output bindings in one of the following ways. You should not combine these methods.
-- **_[Recommended for multiple outputs]_ Returning an object.** If you are using a async/Promise returning function, you can return an object. In the example below, the output bindings are named "httpResponse" and "queueOutput" in *function.json*.
+- **_[Recommended for multiple outputs]_ Returning an object.** If you are using a async/Promise returning function, you can return an object with assigned output data. In the example below, the output bindings are named "httpResponse" and "queueOutput" in *function.json*.
   ``` javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
@@ -138,7 +138,7 @@ You can assign data to output bindings in one of the following ways. You should 
   };
   ```
   If you are using a synchronous function, you can return this object using [`context.done`](#contextdone-method) (see example).
-- **_[Recommended for single output]_ Returning a value directly and using the $return binding name.** This only works for async/Promise returning functions. See example in (exporting an async function)[#exporting-an-async-function]. 
+- **_[Recommended for single output]_ Returning a value directly and using the $return binding name.** This only works for async/Promise returning functions. See example in [exporting an async function](#exporting-an-async-function). 
 - **Assigning values to `context.bindings`** You can assign values directly to context.bindings.
   ``` javascript
   module.exports = async function(context) {
@@ -350,7 +350,7 @@ The `context.res` (response) object has the following properties:
 
 When you work with HTTP triggers, you can access the HTTP request and response objects in a number of ways:
 
-+ From `req` and `res` properties on the `context` object. In this way, you can use the conventional pattern to access HTTP data from the context object, instead of having to use the full `context.bindings.name` pattern. The following example shows how to access the `req` and `res` objects on the `context`:
++ **From `req` and `res` properties on the `context` object.** In this way, you can use the conventional pattern to access HTTP data from the context object, instead of having to use the full `context.bindings.name` pattern. The following example shows how to access the `req` and `res` objects on the `context`:
 
     ```javascript
     // You can access your http request off the context ...
@@ -359,7 +359,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ From the named input and output bindings. In this way, the HTTP trigger and bindings work the same as any other binding. The following example sets the response object by using a named `response` binding: 
++ **From the named input and output bindings.** In this way, the HTTP trigger and bindings work the same as any other binding. The following example sets the response object by using a named `response` binding: 
 
     ```json
     {
@@ -371,9 +371,9 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ _[Response only]_ By calling `context.res.send(body?: any)`. An HTTP response is created with input `body` as the response body. `context.done()` is implicitly called.
++ **_[Response only]_ By calling `context.res.send(body?: any)`.** An HTTP response is created with input `body` as the response body. `context.done()` is implicitly called.
 
-+ _[Response only]_ By calling `context.done()`. A special kind of HTTP binding returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
++ **_[Response only]_ By calling `context.done()`.** A special kind of HTTP binding returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
 
     ```json
     {
