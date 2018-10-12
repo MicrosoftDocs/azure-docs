@@ -18,10 +18,10 @@ ms.author: wolfma
 
 Reliability improvements and bug fixes:
 
-* Fixing potential fatal error when disposing in the case of multiple recognizer.
-* Fixed potential fatal error in case of unset properties.
+* Fix potential fatal error due to race condition in disposing recognizer
+* Fix potential fatal error in case of unset properties.
 * Additional error and parameter checking.
-* Objective-C: fix possible fatal error for cancelled recognition results.
+* Objective-C: fix possible fatal error caused by name overriding in NSString.
 * Objectice-C: adjust visibility of API
 * JavaScript: fixes regarding events and their payloads.
 * Documentation improvements.
