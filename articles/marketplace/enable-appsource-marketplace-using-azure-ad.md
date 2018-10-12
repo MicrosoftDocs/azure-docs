@@ -57,7 +57,7 @@ Automated customer setup can increase the likelihood of conversion. When your cu
 
 - Azure AD lets you set up the customer directly without requiring additional sign-in steps.
 - During authentication, Azure AD sends a token to your app or offer.
-  - The user information provided by the token enables the creation of a user account in your app or offer. 
+  - The user information provided by the token enables the creation of a user account in your app or offer.
   - For more information about the token sent from Azure AD during authentication, see [Sample tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
 
 When you use Azure AD to enable one-click authentication in your app or trial listing, you:
@@ -80,7 +80,7 @@ If you're new to using Azure AD federated single sign-on, take these steps:
 1. Develop SSO with Azure AD by using [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) or [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
 1. Enable the multitenancy support feature in Azure AD to provide a one-click trial experience.
 
-**For single-tentant solutions**, you can test Azure AD integration by performing one of the following actions.
+**For single-tentant solutions**, you can test Azure AD integration by performing one of the following actions:
 
 - Add guest users to your directory by using [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 - Manually set up trials for customers by using the **Contact Me** publishing option.
