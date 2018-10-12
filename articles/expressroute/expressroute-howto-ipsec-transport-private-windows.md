@@ -307,7 +307,7 @@ The following network capture shows the results for on-premises host1 with displ
 
 If you run the powershell script on-premisies (HTTP client), the network capture in the Azure VM shows a similar trace.
 
-## Next Steps
+## Next steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
 
