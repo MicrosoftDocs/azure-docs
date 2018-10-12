@@ -1,22 +1,16 @@
 ---
 title: Azure Data Box Gateway Preivew release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Data Box Gateway running Preview release.
-services: databox-edge-gateway
-documentationcenter: ''
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ 
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-
 ---
+
 # Azure Data Box Gateway Preview release notes
 
 ## Overview
