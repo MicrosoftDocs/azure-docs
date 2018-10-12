@@ -92,6 +92,9 @@ Shortly after you save the rule, it becomes live. When the conditions defined in
 
 ![Email action](media/tutorial-configure-rules/email.png)
 
+> [!NOTE]
+> After your testing is complete, turn off the rule to stop receiving alerts in your Inbox. 
+
 ## Next steps
 
 In this tutorial, you learned how to:

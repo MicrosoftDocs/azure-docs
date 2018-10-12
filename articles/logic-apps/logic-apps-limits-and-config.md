@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 10/11/2018
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -155,6 +155,18 @@ Some connector operations make asynchronous calls or listen for webhook requests
 | Retry attempts | 90 | The default is 4. To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Retry max delay | 1 day | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Retry min delay | 5 seconds | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+|||| 
+
+<a name="sftp"></a>
+
+## SFTP and SFTP-SSH limits
+
+### File size
+
+| Name | Limit | Notes |
+|------|-------|-------|
+| SFTP | 50 MB | To work around this limit, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP-SSH | 1 GB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
 |||| 
 
 <a name="custom-connector-limits"></a>
