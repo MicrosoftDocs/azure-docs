@@ -17,20 +17,20 @@ ms.date: 09/12/2018
 ms.author: qianw211
 
 ---
-# Manage marketplace application customer identity by using Azure Active Directory
+# Azure Active Directory integration in marketplace listings
 
  Azure Active Directory (Azure AD) is a cloud identity service that enables authentication with a Microsoft account. Azure AD uses industry-standard frameworks. [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
-## Azure AD benefits for marketplace listings
+## Azure AD benefits
 
-Microsoft AppSource and Azure Marketplace customers use in-product experiences to search the listing catalogs. These actions require them to sign in to the product. Azure AD integration provides the following benefits:
+Microsoft AppSource and Azure Marketplace customers use in-product experiences to search the listing catalogs. These actions require customers to sign in to the product. Azure AD integration provides the following benefits:
 
 - Faster engagement and an optimized customer experience
 - Single sign-on (SSO) for millions of enterprise users
 - Consistent, sign-in experience across applications published by different partners
 - Scalable, cross-platform authentication for mobile and cloud apps
 
-## Offers that require Azure AD implementation
+## Offers that require Azure AD
 
 Certain AppSource and Azure Marketplace offers must implement Azure AD Single sign-on. See the following table for details, and refer to  [publishing options](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) for a full list of listing options and offer types.
 
@@ -51,7 +51,7 @@ For more information about SaaS technical requirements, see [SaaS applications O
 - For information on how to enable single sign-on by integrating Azure AD into your listing, see [Azure Active Directory for developers]( https://aka.ms/aaddev).
 - To get details about Azure AD single sign-on, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-## Enable a trial listing with Azure AD
+## Enable a trial listing
 
 Automated customer setup can increase the likelihood of conversion. When your customer selects your trial listing and is redirected to your trial environment, the follow actions occur:
 
