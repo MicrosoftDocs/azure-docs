@@ -57,7 +57,7 @@ Once the automation account is created, you need to enable the Inventory, Change
 
 5. Repeat steps 2-4 to enable all three features. 
 
-> [![](media/vm-update-management/1-sm.PNG "Enable automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
+   [![](media/vm-update-management/1-sm.PNG "Enable automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
 
 ### In the Azure Stack Administration Portal
 After enabling the Azure Automation solutions in the Azure portal, you next need to sign in to the Azure Stack administration portal as a cloud administrator and download the **Azure Update and Configuration Management** extension Azure Stack marketplace item. 
