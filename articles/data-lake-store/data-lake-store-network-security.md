@@ -91,8 +91,10 @@ Some available options are:
 ###Step 2: Set up the allowed VNET/Subnet for your ADLS Gen1 account
 1.	After configuring your VNET, [create a new Azure Data Lake Storage Gen1 account](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) in your subscription or navigate to an existing ADLS Gen1 account. The ADLS Gen1 account must currently be in the same region as the VNET. 
 2.	Choose **Firewall and virtual networks**.
+
 > [!NOTE]
 > If you do not see **Firewall and virtual networks** in the settings then please log off the portal. Close the browser. Clear the browser cache. Restart the machine and retry.
+
 ![Adding a VNet rule to your ADLS account](media/data-lake-store-network-security/config-adls-1.png)
 3.	Choose **Selected networks**. 
 4.	Click **Add existing virtual network**.
@@ -101,8 +103,10 @@ Some available options are:
 ![Choosing the VNet and subnets](media/data-lake-store-network-security/config-adls-3.png)
 6.	Ensure that the VNets and subnets show up correctly in the list and **Save**.
 ![Saving the new rule](media/data-lake-store-network-security/config-adls-4.png)
+
 > [!NOTE]
 > It may take up to 5 minutes for the settings to take into effect after saving.
+
 7.	[Optional] In addition to VNets and subnets, if you wish to allow connectivity from specific IP addresses, you may do that in the **Firewall** section on the same page. 
 
 ##Exceptions
