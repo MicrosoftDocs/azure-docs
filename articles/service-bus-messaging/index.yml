@@ -71,6 +71,30 @@ sections:
     style: icon48
     items: 
     - image: 
+        src: /azure/service-bus-messaging/media/index/logo_net.svg
+      text: .NET
+      href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_java.svg
+      text: Java
+      href: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_php.svg
+      text: PHP
+      href: /azure/service-bus-messaging/service-bus-php-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_python.svg
+      text: Python
+      href: /azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/ruby.svg
+      text: Ruby
+      href: /azure/service-bus-messaging/service-bus-ruby-how-to-use-topics-subscriptions
+    - image: 
         src: /azure/service-bus-messaging/media/index/portal.svg
       text: Azure portal
       href: /azure/service-bus-messaging/service-bus-quickstart-portal
