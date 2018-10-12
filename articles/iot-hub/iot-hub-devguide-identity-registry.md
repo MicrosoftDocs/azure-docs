@@ -24,7 +24,9 @@ Use the identity registry when you need to:
 * Control per-device/per-module access to your hub's device or module-facing endpoints.
 
 > [!NOTE]
-> The identity registry does not contain any application-specific metadata.
+> * The identity registry does not contain any application-specific metadata.
+> * Module identity and module twin is in public preview. Below feature will be supported on module identity when it's general available.
+>
 
 ## Identity registry operations
 
@@ -35,7 +37,6 @@ The IoT Hub identity registry exposes the following operations:
 * Retrieve device or module identity by ID
 * Delete device or module identity
 * List up to 1000 identities
-> Module identity and module twin is in public preview. Below feature will be supported on module identity when it's general available.
 * Export device identities to Azure blob storage
 * Import device identities from Azure blob storage
 
