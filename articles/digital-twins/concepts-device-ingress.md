@@ -10,7 +10,7 @@ ms.date: 10/08/2018
 ms.author: alinast
 ---
 
-# Device Connectivity and Telemetry Ingress
+# Device connectivity and telemetry ingress
 
 The telemetry data sent by devices and sensors form the backbone of any IoT Solution. As such, representing these disparate resources and managing them within the context of a location is a chief concern in IoT app development. Azure Digital Twins simplifies developing IoT solutions by uniting devices and sensors with a spatial intelligence graph.
 
@@ -23,8 +23,8 @@ A step-by-step guide for onboarding devices can be found in the [Facility Manage
 - Create an `IoTHub` resource and assign it to a space in your graph
 - Create devices and sensors in your graph, and assign them to the spaces created in the steps above
 - Create a matcher to filter telemetry messages based on conditions
-- Create a [**User-Defined Function**](concepts-user-defined-functions.md) and assign it to a space in the graph for custom processing of your telemetry messages
-- Assign a role to allow the User-Defined Function to access the graph data
+- Create a [**user-defined function**](concepts-user-defined-functions.md) and assign it to a space in the graph for custom processing of your telemetry messages
+- Assign a role to allow the user-defined function to access the graph data
 - Get the IoT Hub device connection string from the Digital Twins Management APIs
 - Configure the device connection string on the device with the Azure IoT Device SDK
 

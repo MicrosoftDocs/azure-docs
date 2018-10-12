@@ -17,14 +17,14 @@
     ![Create Digital Twins](./media/create-digital-twins-portal/create-digital-twins.png)
 
 1. In the **Digital Twins** pane, enter the following information:
-   * **Resource Name**: Create a unique name for your Digital Twins.
+   * **Resource Name**: Create a unique name for your Digital Twins instance.
    * **Subscription**: Choose the subscription that you want to use to create this Digital Twins instance. 
    * **Resource group**: Select or create a [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) for the Digital Twins instance.
    * **Location**: Select the closest location to your devices.
 
     ![Create Digital Twins](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
-1. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
+1. Review your Digital Twins information, then click **Create**. Your Digital Twins instance might take a few minutes to get created. You can monitor the progress in the **Notifications** pane.
 
 1. Open the **Overview** pane of your Digital Twins instance. Note the link that shows under **Management API**.
 

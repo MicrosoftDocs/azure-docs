@@ -28,7 +28,7 @@ This tutorial assumes that you have [configured](tutorial-facilities-setup.md) a
 - An [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An instance of Digital Twins running.
 - The [Digital Twins C# samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
-- [.NET Core 2.1 or above SDK](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify if the right version is installed. 
+- [.NET Core SDK version 2.1.403 or above](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify if the right version is installed. 
 - An Office 365 account to send notification e-mails.
 
 ## Integrate events with Event Grid 
@@ -185,4 +185,4 @@ You may proceed to the next tutorial to learn how to visualize your sensor data,
 
 You may also proceed to learn more about the spatial intelligence graphs and object models in Azure Digital Twins. 
 > [!div class="nextstepaction"]
-> [Understanding Digital Twins Object Models and Spatial Intelligence Grap](concepts-objectmodel-spatialgraph.md)
+> [Understanding Digital Twins object models and spatial intelligence graph](concepts-objectmodel-spatialgraph.md)
