@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 10/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -23,7 +23,7 @@ ms.reviewer: waltero
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes on Azure Stack is in preview. Your Azure Stack operator will need to request access to the Kubernetes Cluster Marketplace item needed to perform the instructions in this article.
+> Kubernetes on Azure Stack is in preview.
 
 The following article looks at using an Azure Resource Manager solution template to deploy and provision the resources for Kubernetes in a single, coordinated operation. You will need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud. Note the template is not the same managed AKS service offered in global Azure.
 
@@ -36,6 +36,8 @@ You can use Kubernetes to:
 - Develop massively scalable, upgradable, applications that can be deployed in seconds. 
 - Simplify the design of your application and improve its reliability by different Helm applications. [Helm](https://github.com/kubernetes/helm) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications.
 - Easily monitor and diagnose the health of your applications with scale and upgrade functionality.
+
+You will only be charged for the compute usage required by the nodes supporting your cluster. For more information, see [Usage and billing in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
 ## Prerequisites 
 
@@ -52,6 +54,8 @@ To get started, make sure you have the right permissions and that your Azure Sta
 1. Check that you have a valid subscription in your Azure Stack tenant portal, and that you have enough public IP addresses available to add new applications.
 
     The cluster cannot be deployed to an Azure Stack **Administrator** subscription. You must use a **User** subscription. 
+
+1. If you do not have Kubernetes Cluster in your marketplace, talk to the administrator of Azure Stack.
 
 ## Create a service principal in Azure AD
 
@@ -160,6 +164,9 @@ Give the service principal access to your subscription so that the principal can
 2. Review your settings.
 
 3. Select **OK** to deploy your cluster.
+
+> [!TIP]  
+>  If you have questions about your deployment, you can post your question or see if someone has already answered the question in the [Azure Stack Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## Connect to your cluster
 

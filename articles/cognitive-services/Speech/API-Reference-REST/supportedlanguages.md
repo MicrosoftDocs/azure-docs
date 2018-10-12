@@ -1,22 +1,22 @@
 ---
-title: Bing Speech Supported Languages | Microsoft Docs
-titlesuffix: Azure Cognitive Services
-description: A list of spoken languages that are supported by Bing Speech.
+title: Language support - Speech API
+titleSuffix: Azure Cognitive Services
+description: A list of natural languages that are supported by the Speech API.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/25/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX
 ---
-# Supported languages
+# Language and region support for Speech API
 
 ## Interactive and dictation mode
 
-The Microsoft speech recognition API supports the following languages in `interactive` and `dictation` modes. 
+The Microsoft speech recognition API supports the following languages in `interactive` and `dictation` modes.
 
 |Code | Language | Code | Language |
 |-----|-----|-----|-----|
@@ -39,7 +39,7 @@ The Microsoft speech recognition API supports the following languages in `intera
 
 ## Conversation mode
 
-The Microsoft speech recognition API supports the following languages in `conversation` modes. 
+The Microsoft speech recognition API supports the following languages in `conversation` modes.
 
 | Code | Language | Code | Language |
 |-----|-----|-----|-----|

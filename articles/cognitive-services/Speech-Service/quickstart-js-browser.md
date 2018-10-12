@@ -6,7 +6,7 @@ services: cognitive-services
 author: fmegen
 
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
@@ -32,6 +32,8 @@ The application is based on the Microsoft Cognitive Services Speech SDK ([Downlo
 Create a new, empty folder. In case you want to host the sample on a web server, make sure that the web server can access the folder.
 
 ## Unpack the Speech SDK for JavaScript into that folder
+
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This should result in two files being unpacked, i.e., `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 The latter file is optional and used to help debugging into SDK code, if necessary.

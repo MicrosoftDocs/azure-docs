@@ -264,7 +264,7 @@ The **Password** user input type is used to record a password entered by the use
 
 ### DateTimeDropdown
 
-The **DateTimeDropdown** user input type is used to provide a set of drop-downs to select a day, month, and year.
+The **DateTimeDropdown** user input type is used to provide a set of drop-downs to select a day, month, and year. You can use Predicates and PredicateValidations elements to control the minimum and maximum date values. For more information, see the **Configure a date range** section of [Predicates and PredicateValidations](predicates.md).
 
 ![Using claim type with datetimedropdown](./media/claimsschema/datetimedropdown.png)
 
