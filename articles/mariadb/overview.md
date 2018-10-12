@@ -52,13 +52,13 @@ Azure's industry-leading 99.99% availability SLA (not offered during public prev
 
 Azure database services have a tradition of data security that Azure Database for MariaDB upholds. Azure Database for MariaDB offers features that limit access, protect data at rest and in motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/en-us/trustcenter/security) for information about Azure's platform security.
 
-The Azure Database for MariaDB service uses storage encryption for data at rest. Data, including backup data, is encrypted on disk. (This doesn't include temporary files that are created by the engine when it runs queries.) The service uses AES 256-bit cipher, which is included in Azure Storage encryption. The keys are system managed. Storage encryption is always on and can't be disabled.
+The Azure Database for MariaDB service uses storage encryption for data at rest. Data, including backup data, is encrypted on disk. (Temporary files that are created by the engine when it runs queries are not encrypted on disk.) The service uses AES 256-bit cipher, which is included in Azure Storage encryption. The keys are system managed. Storage encryption is always on and can't be disabled.
 
 By default, the Azure Database for MariaDB service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in motion across the network. Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. Optionally, you can disable the SSL requirement for connecting to your database service if your client application doesn't support SSL connectivity.
 
 ## Contacts
 
-You can send any questions or suggestions you have about working with Azure Database for MariaDB to the [Azure Database for MariaDB Team](mailto:AskAzureDBforMariaDB@service.microsoft.com). This is not a technical support alias.
+You can send any questions or suggestions you have about working with Azure Database for MariaDB to the [Azure Database for MariaDB Team](mailto:AskAzureDBforMariaDB@service.microsoft.com) (not a technical support alias).
 
 You can also use the following points of contact:
 - To contact Azure Support, [open a support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) in the Azure portal.
