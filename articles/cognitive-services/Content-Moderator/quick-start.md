@@ -50,7 +50,7 @@ At this point, you have used the Content Moderator Review Tool to see examples o
 
 ## Learn more about the review tool
 
-To learn more about how to use the Content Moderator Review Tool, take a look at the the [Human-in-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) guide, and see the Review Tool APIs to learn how to fine-tune the human review experience:
+To learn more about how to use the Content Moderator Review Tool, take a look at the [Human-in-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) guide, and see the Review Tool APIs to learn how to fine-tune the human review experience:
 - The [Job API](try-review-api-job.md) scans your content by using the moderation APIs and generates reviews in the review tool. 
 - The [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without first scanning the content. 
 - The [Workflow API](try-review-api-workflow.md) creates, updates, and gets details about the custom workflows that your team creates.
