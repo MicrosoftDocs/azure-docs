@@ -321,6 +321,7 @@
   - name: Data Box family
     tocHref: /azure/databox-family/
     topicHref: /azure/databox-family/
+    items:
     - name: Data Box offline transfer
       tocHref: /azure/databox/
       topicHref: /azure/databox/
