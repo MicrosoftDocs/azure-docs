@@ -10,9 +10,9 @@ ms.date: 10/01/2018
 ms.author: cherylmc
 
 ---
-# Configure IPsec transport mode using GPOs - ExpressRoute private peering
+# Configure IPsec transport mode for ExpressRoute private peering
 
-This article helps you create IPsec tunnels in transport mode between Azure VMs running Windows, and on-premises Windows hosts over ExpressRoute private peering. While it is possible to create this configuration without using organizational units (OUs) and group policy objects (GPOs), the combination of OUs and GPOs will help simplify the control of your security policies and allows you to quickly scale up. The steps in this article assume that you already have an Active Directory configuration and that you are familiar with using OUs and GPOs.
+This article helps you create IPsec tunnels in transport mode over ExpressRoute private peering between Azure VMs running Windows, and on-premises Windows hosts. The steps in this article create this configuration using group policy objects. While it is possible to create this configuration without using organizational units (OUs) and group policy objects (GPOs), the combination of OUs and GPOs will help simplify the control of your security policies and allows you to quickly scale up. The steps in this article assume that you already have an Active Directory configuration and that you are familiar with using OUs and GPOs.
 
 ## About this configuration
 
