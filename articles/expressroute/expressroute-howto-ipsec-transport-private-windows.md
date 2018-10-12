@@ -16,7 +16,7 @@ This article helps you create IPsec tunnels in transport mode over ExpressRoute 
 
 ## About this configuration
 
-The configuration in the steps below use a single Azure Virtual Network (VNet) with ExpressRoute private peering. However, this configuration can span more Azure VNets and on-premises networks. This article will help you define an IPsec encryption policy, and apply it to a group of Azure VMs and hosts on-premises that are part of the same OU. You configure encryption between the Azure VMs (vm1 and vm2), and the on-premises host1 only for HTTP traffic with destination port 8080. Different types of IPsec policy can be created based on your requirements.
+The configuration in the following steps use a single Azure virtual network (VNet) with ExpressRoute private peering. However, this configuration can span more Azure VNets and on-premises networks. This article will help you define an IPsec encryption policy, and apply it to a group of Azure VMs and hosts on-premises that are part of the same OU. You configure encryption between the Azure VMs (vm1 and vm2), and the on-premises host1 only for HTTP traffic with destination port 8080. Different types of IPsec policy can be created based on your requirements.
 
 ### Working with OUs 
 
@@ -185,7 +185,7 @@ Create a filter list that specifies encrypted HTTP traffic with destination port
 
 ## <a name="filterlist2"></a>5. Edit the IP filter list
 
-To encrypt the same type of traffic in opposite direction, from the on-premises host to the Azure VM, you need a second IP filter. The process of setting up of the new filter is the same process you used to set up the first IP filter. The only differences are the source subnet and destination subnet.
+To encrypt the same type of traffic in opposite direction (from the on-premises host to the Azure VM) you need a second IP filter. The process of setting up of the new filter is the same process you used to set up the first IP filter. The only differences are the source subnet and destination subnet.
 
 1. To add a new IP filter to the IP Filter List, select **Edit**.
 
