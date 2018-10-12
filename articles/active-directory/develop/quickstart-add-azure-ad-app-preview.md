@@ -54,11 +54,11 @@ To get started, make sure have an Azure AD tenant that you can use to register y
 
 1. When finished, select **Register**.
 
-    ![Register a new application in the Azure portal](./media/quickstart-add-azure-ad-app-preview/register-new-app.png)
+    [![Register a new application in the Azure portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
 Azure AD assigns a unique application ID to your app, and you're taken to your application's **Overview** page. To add additional capabilities to your application, you can select other configuration options including branding, certificates and secrets, API permissions, and more.
 
-![Newly registered app's overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page.png)
+[![Newly registered app's overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## Next steps
 

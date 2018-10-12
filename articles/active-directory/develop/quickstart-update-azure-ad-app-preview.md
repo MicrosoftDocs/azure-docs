@@ -78,6 +78,8 @@ Additionally, before a client can access a web API exposed by a resource applica
     1. Locate the Suggested **Redirect URIs for public clients (mobile, desktop)** section.
     1. Select the appropriate Redirect URI(s) for your application using the checkboxes.
 
+    [![Add custom redirect URIs for web and public client apps](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png#lightbox)
+
 #### To add a credential to your web application
 
 1. From the app's **Overview** page, select the **Certificates & secrets** section.
@@ -97,9 +99,11 @@ Additionally, before a client can access a web API exposed by a resource applica
         > [!NOTE]
         > After you save the configuration changes, the right-most column will contain the client secret value. **Be sure to copy the value** for use in your client application code as it's not accessible once you leave this page.
 
+    [![Add certificates and client secrets](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png#lightbox)
+
 #### Add permissions to access web APIs
 
-Follow these steps to add permission(s) to access resource APIs from your client.
+To add permission(s) to access resource APIs from your client:
 
 1. From the app's **Overview** page, select **API permissions**.
 1. Select the **Add a permission** button.
