@@ -78,7 +78,7 @@ A gateway connects two networks and routes traffic.  A gateway allows your servi
 
 ## Volumes
 
-Volumes are directories that get mounted inside your container instances that you can use to persist state. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it.
+Containers often make temporary disks available. Temporary disks are ephemeral, however.  When the container crashes, you get a new temporary disk and lose the information. It is also difficult to share temporary disks with other containers. Volumes are directories that get mounted inside your container instances that you can use to persist state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs. Volumes are backed by Azure File Storage or the Service Fabric Volume disk. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it (either Azure File storage or Service Fabric Volume disk).  Service Fabric Volume disk uses Reliable Collections to replicate data to local disks, so reads/writes are local operations.  Azure File storage uses network storage, so reads and writes take place over the network.
 
 ## Programming models
 Service resource only requires a container image to run, which is referenced in the code package(s) associated with the resource. You can run any code, written in any language, using any framework inside the container without requiring to know, or use, Service Fabric Mesh specific APIs. 
