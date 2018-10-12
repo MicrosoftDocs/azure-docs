@@ -45,15 +45,15 @@ After you have created a workspace, note the WorkspaceID and Key. To view this i
 
 Next, you must [create an Automation Account](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). An Automation Account is a container for your Azure Automation resources. It provides a way to separate your environments or further organize your Automation workflows and resources.
 
-Once the automation account is created, you need to enable the Inventory, Change tracking, and Update management features. To do this, follow these steps for each:
+Once the automation account is created, you need to enable the Inventory, Change tracking, and Update management features. To do this, follow these steps to enable each feature:
 
 1. In the Azure portal, go to the Automation Account that you want to use.
-2. Select the solution to enable (either **Inventory**, **Change tracking**, or **Update management**).
+2. Select the feature to enable (either **Inventory**, **Change tracking**, or **Update management**).
 3. Use the **Select Workspace...** drop-down list to select the Log Analytics Workpace to use.
-4. Verify that all remaining information is correct, and then click **Enable** to enable the solution.
-5. Repeat steps 2-4 to enable all three solutions. 
+4. Verify that all remaining information is correct, and then click **Enable** to enable the feature.
+5. Repeat steps 2-4 to enable all three features. 
 
-    [![](media/vm-update-management/1-sm.PNG "Enable automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
+  [![](media/vm-update-management/1-sm.PNG "Enable automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
 
 ### In the Azure Stack Administration Portal
 After enabling the Azure Automation solutions in the Azure portal, you next need to sign in to the Azure Stack administration portal as a cloud administrator and download the **Azure Update and Configuration Management** extension Azure Stack marketplace item. 
