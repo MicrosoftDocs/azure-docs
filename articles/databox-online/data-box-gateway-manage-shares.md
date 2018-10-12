@@ -1,19 +1,12 @@
 ---
 title: Azure Data Box Gateway manage shares | Microsoft Docs 
 description: Describes how to use the Azure portal to manage shares on your Azure Data Box Gateway.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: gateway
 ms.topic: overview
-ms.custom: 
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 10/09/2018
 ms.author: alkohli
 ---
