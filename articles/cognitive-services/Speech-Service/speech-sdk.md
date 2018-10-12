@@ -3,13 +3,13 @@ title: About the Cognitive Services Speech SDK
 description: An overview of the SDKs available for the Speech service.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 
 # About the Cognitive Services Speech SDK
