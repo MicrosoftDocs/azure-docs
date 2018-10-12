@@ -92,12 +92,13 @@ You must also register the **AllowBaremetalServers** feature from the Network Re
    `az feature show –-name AllowBaremetalServers --namespace Microsoft.Network`
    
    The command output appears as follows:
-
-    {
-     "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
-     "namespace": "Microsoft.NetApp",
-     "registrationState": "Registered",
-     "resourceTypes": [….
+   
+        {
+        "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
+        "namespace": "Microsoft.NetApp",
+        "registrationState": "Registered",
+        "resourceTypes": [….
+  
 
    `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 
