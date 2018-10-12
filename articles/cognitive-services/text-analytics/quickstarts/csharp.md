@@ -62,14 +62,20 @@ namespace ConsoleApp1
 {
     class Program
     {
-        /// <summary>
-        /// Container for subscription credentials. Make sure to enter your valid key.
-        /// </summary>
+        // Make sure to enter your valid subscription key.
+        private const string subscriptionKey = "<SubscriptionKey>";
+        
         class ApiKeyServiceClientCredentials : ServiceClientCredentials
         {
+            private readonly string subscriptionKey;
+            public ApiKeyServiceClientCredentials(string subscriptionKey)
+            {
+                this.subscriptionKey = subscriptionKey;
+            }
+
             public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
             {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", "4d4705adaf4a4656b1118b68d671d5b6");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
         }
@@ -77,8 +83,8 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
-            // Create a client.
-            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
+            // Create a client. 
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(subscriptionKey))
             {
                 Endpoint = "https://westus.api.cognitive.microsoft.com"
             }; //Replace 'westus' with the correct region for your Text Analytics subscription
