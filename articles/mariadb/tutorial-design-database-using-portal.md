@@ -32,7 +32,7 @@ In your browser, go to the [Azure portal](https://portal.azure.com/). Enter your
 
 ## Create an Azure Database for MariaDB server
 
-You create an Azure Database for MariaDB server with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+You create an Azure Database for MariaDB server with a defined set of compute and storage resources. The server is created in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1. Select the **Create a resource** button (+) in the upper left corner of the portal.
 
