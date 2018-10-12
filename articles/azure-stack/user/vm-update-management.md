@@ -53,7 +53,6 @@ Once the automation account is created, you need to enable the Inventory, Change
 4. Verify that all remaining information is correct, and then click **Enable** to enable the solution.
 5. Repeat steps 2-4 to enable all three solutions. 
 
-
     [![](media/vm-update-management/1-sm.PNG "Enable automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
 
 ### In the Azure Stack Administration Portal
