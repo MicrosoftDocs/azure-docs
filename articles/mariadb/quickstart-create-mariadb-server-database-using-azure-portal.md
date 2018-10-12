@@ -23,7 +23,7 @@ In your web browser, go to the [Azure portal](https://portal.azure.com/). Enter 
 
 ## Create an Azure Database for MariaDB server
 
-You create an Azure Database for MariaDB server with a defined set of [compute and storage resources](./concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+You create an Azure Database for MariaDB server with a defined set of [compute and storage resources](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
 To create an Azure Database for MariaDB server:
 
@@ -48,7 +48,7 @@ To create an Azure Database for MariaDB server:
     Confirm password | *your choice*| Confirm the admin account password.
     Location | *the region closest to your users*| Choose the location that is closest to your users or to your other Azure applications.
     Version | *the latest version*| The latest version (unless you have specific requirements to use a different version).
-    Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (2 vCores)</li><li>**Storage** (5 GB)</li><li>**Backup Retention Period** (7 days)</li></ul>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
+    Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (2 vCores)</li><li>**Storage** (5 GB)</li><li>**Backup Retention Period** (7 days)</li></ul><br>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
   
     > [!IMPORTANT]
     > The server admin sign-in and password that you specify here are required to sign in to the server and its databases later in this quickstart. Remember or record this information for later use.
