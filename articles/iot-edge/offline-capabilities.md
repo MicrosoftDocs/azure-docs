@@ -133,7 +133,7 @@ You can configure environment variables and the create options for the Edge hub 
 }
 ```
 
-please make sure to replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both host path and container path must be an absolute path.  For example, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` means host path `/etc/iotedge/storage` is mapped to container path `/iotedge/storage/`.  You can also find more details about createOptions from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both host and module storage path must be an absolute path.  For example, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` means host path `/etc/iotedge/storage` is mapped to container path `/iotedge/storage/`.  You can also find more details about createOptions from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## Next steps
 
