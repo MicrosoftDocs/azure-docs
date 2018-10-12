@@ -63,13 +63,12 @@ You can move an app to another App Service plan, as long as the source plan and 
 
 1. In the **App Service plan** selector, select an existing plan to move this app into.   
 
-> [!IMPORTANT]
-> The **Select App Service plan** page is filtered by the following criteria: 
-> - Exists in the same resource group 
-> - Exists in the same geographical region 
-> - Exists in the same webspace  
+> [!NOTE]
+> The **Select App Service plan** page shows only plans that are in the same resource group and geographical region as the current app's App Service plan. 
 > 
-> A _webspace_ is a logical construct in App Service that defines a grouping of server resources. A geographical region (such as West US) contains many webspaces in order to allocate customers who use App Service. Currently, you can't move App Service resources between webspaces. 
+> Azure deploys each new App Service plan into a deployment unit, (internally called a webspace). Each region can have many webspaces, but your app can only move between plans that are created in the same webspace. If the plan you want to move to isn’t listed in the Change App Service plan page, it’s most likely because that plan is created in a different webspace. An App Service Environment is an isolated webspace, so apps can be moved between plans in the same App Service Environment, but not between plans in different App Service Environments.
+>
+> You can’t specify the webspace you want when creating a plan, but it’s possible to ensure that a plan is created in the same webspace as an existing plan. In brief, all plans created with the same resource group and region combination are deployed into the same webspace. For example, if you created a plan in resource group A and region B, then any plan you subsequently create in resource group A and region B is deployed into the same webspace. Note that plans can’t move webspaces after they’re created, so you can’t move a plan into “the same webspace” as another plan by moving it to another resource group.
 > 
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
