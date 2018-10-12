@@ -114,9 +114,11 @@ However, in this quickstart, you will prepare a development environment used to 
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this section, you will use the Azure CLI with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to register a simulated device.
+A device must be registered with your IoT hub before it can connect. In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to register a simulated device.
 
-1. Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with the name you chose for your IoT hub:
+1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -125,7 +127,9 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
     If you choose a different name for your device, update the device name in the sample applications before you run them.
 
-2. Run the following command to get the _device connection string_ for the device you just registered:
+2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just    registered:
+
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
