@@ -32,7 +32,7 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 * **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default but can be customized to other values using the slider.
 
-   ![Configure IoT Hub file upload in the portal](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
+   ![Configure IoT Hub file upload in the portal](./media/iot-hub-configure-file-upload/fileupload_selected_container.png)
 
 ## Next steps
 
