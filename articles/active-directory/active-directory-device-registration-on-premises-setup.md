@@ -20,6 +20,7 @@ ms.reviewer: jairoc
 ms.custom: seohack1
 ---
 # Setting up on-premises conditional access by using Azure Active Directory device registration
+
 When you require users to workplace-join their personal devices to the Azure Active Directory (Azure AD) device registration service, their devices can be marked as known to your organization. Following is a step-by-step guide for enabling conditional access to on-premises applications by using Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 
 > [!NOTE]
@@ -30,12 +31,14 @@ When you require users to workplace-join their personal devices to the Azure Act
 These capabilities are available to customers who purchase an Azure Active Directory Premium license.
 
 ## Supported devices
+
 * Windows 7 domain-joined devices
 * Windows 8.1 personal and domain-joined devices
 * iOS 6 and later for the Safari browser
 * Android 4.0 or later, Samsung GS3 or later phones, Samsung Galaxy Note 2 or later tablets
 
 ## Scenario prerequisites
+
 * Subscription to Office 365 or Azure Active Directory Premium
 * An Azure Active Directory tenant
 * Windows Server Active Directory (Windows Server 2008 or later)
@@ -47,17 +50,21 @@ These capabilities are available to customers who purchase an Azure Active Direc
 * Verified domain
 
 ## Known issues in this release
+
 * Device-based conditional access policies require device object writeback to Active Directory from Azure Active Directory. It can take up to three hours for device objects to be written back to Active Directory.
 * iOS 7 devices  always prompt the user to select a certificate during client certificate authentication.
 * Some versions of iOS 8 before iOS 8.3 do not work.
 
 ## Scenario assumptions
+
 This scenario assumes that you have a hybrid environment consisting of an Azure AD tenant and an on-premises Active Directory. These tenants should be connected with Azure AD Connect, with a verified domain, and with AD FS for SSO. Use the following checklist to help you configure your environment according to the requirements.
 
 ## Checklist: Prerequisites for conditional access scenario
+
 Connect your Azure AD tenant with your on-premises Active Directory instance.
 
 ## Configure Azure Active Directory device registration service
+
 Use this guide to deploy and configure the Azure Active Directory device registration service for your organization.
 
 This guide assumes that you've configured Windows Server Active Directory and have subscribed to Microsoft Azure Active Directory. See the prerequisites described earlier.
@@ -65,6 +72,7 @@ This guide assumes that you've configured Windows Server Active Directory and ha
 To deploy the Azure Active Directory device registration service with your Azure Active Directory tenant, complete the tasks in the following checklist in order. When a reference link takes you to a conceptual topic, return to this checklist afterward, so that you can proceed with the remaining tasks. Some tasks include a scenario validation step that can help you confirm whether the step was completed successfully.
 
 ## Part 1: Enable Azure Active Directory device registration
+
 Follow the steps in the checklist to enable and configure the Azure Active Directory device registration service.
 
 | Task | Reference | 
@@ -117,8 +125,8 @@ The deployment is now complete, and you can try out some scenarios. Use the foll
 > 
 
 1. Sign in to your domain controller with an account that has both enterprise administrator and schema administrator rights.
-2. Copy the **[media]\support\adprep** directory and subdirectories to one of your Active Directory domain controllers (where **[media]** is the path to the Windows Server 2012 R2 installation media).
-4. From a command prompt, go to the **adprep** directory and run **adprep.exe /forestprep**. Follow the onscreen instructions to complete the schema upgrade.
+1. Copy the **[media]\support\adprep** directory and subdirectories to one of your Active Directory domain controllers (where **[media]** is the path to the Windows Server 2012 R2 installation media).
+1. From a command prompt, go to the **adprep** directory and run **adprep.exe /forestprep**. Follow the onscreen instructions to complete the schema upgrade.
 
 ## Prepare your Active Directory to support devices
 
@@ -195,15 +203,15 @@ The following steps show you how to implement this scenario.
 > 
 
 1. Open the AD FS MMC tool, and then select **AD FS** > **Trust Relationships** > **Relying Party Trusts**.
-2. Locate the application to which this new access rule applies. Right-click the application, and then select **Edit Claim Rules**.
-3. Select the **Issuance Authorization Rules** tab, and then select **Add Rule**.
-4. From the **Claim rule** template drop-down list, select **Permit or Deny Users Based on an Incoming Claim**. Then select **Next**.
-5. In the **Claim rule name** field, type **Permit access from registered devices**.
-6. From the **Incoming claim type** drop-down list, select **Is Registered User**.
-7. In the **Incoming claim value** field, type **true**.
-8. Select the **Permit access to users with this incoming claim** radio button.
-9. Select **Finish**, and then select **Apply**.
-10. Remove any rules that are more permissive than the rule you created. For example, remove the default rule **Permit Access to all Users**.
+1. Locate the application to which this new access rule applies. Right-click the application, and then select **Edit Claim Rules**.
+1. Select the **Issuance Authorization Rules** tab, and then select **Add Rule**.
+1. From the **Claim rule** template drop-down list, select **Permit or Deny Users Based on an Incoming Claim**. Then select **Next**.
+1. In the **Claim rule name** field, type **Permit access from registered devices**.
+1. From the **Incoming claim type** drop-down list, select **Is Registered User**.
+1. In the **Incoming claim value** field, type **true**.
+1. Select the **Permit access to users with this incoming claim** radio button.
+1. Select **Finish**, and then select **Apply**.
+1. Remove any rules that are more permissive than the rule you created. For example, remove the default rule **Permit Access to all Users**.
 
 Your application is now configured to allow access only when the user is coming from a device that they registered and joined to the workplace. For more advanced access polices, see [Manage Risk with Additional Multi-Factor Authentication for Sensitive Applications](https://technet.microsoft.com/library/dn280949.aspx).
 
