@@ -62,7 +62,11 @@ Additionally, before a client can access a web API exposed by a resource applica
 
 ### Add redirect URIs, application credentials, or permissions to access web APIs
 
-#### To add Redirect URI(s) to your application
+#### Add Redirect URI(s) to your application
+
+[![Add custom redirect URIs for web and public client apps](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png#lightbox)
+
+To add a redirect URI to your application:
 
 1. From the app's **Overview** page, select the **Authentication** section.
 1. Add a custom redirect URI for web and public client applications, or choose from suggested redirect URIs for public clients.
@@ -78,9 +82,11 @@ Additionally, before a client can access a web API exposed by a resource applica
     1. Locate the Suggested **Redirect URIs for public clients (mobile, desktop)** section.
     1. Select the appropriate Redirect URI(s) for your application using the checkboxes.
 
-    [![Add custom redirect URIs for web and public client apps](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png#lightbox)
+#### Add credentials to your web application
 
-#### To add a credential to your web application
+[![Add certificates and client secrets](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png#lightbox)
+
+To add a credential to your web application:
 
 1. From the app's **Overview** page, select the **Certificates & secrets** section.
 1. Add a certificate or a client secret.
@@ -99,9 +105,9 @@ Additionally, before a client can access a web API exposed by a resource applica
         > [!NOTE]
         > After you save the configuration changes, the right-most column will contain the client secret value. **Be sure to copy the value** for use in your client application code as it's not accessible once you leave this page.
 
-    [![Add certificates and client secrets](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png#lightbox)
-
 #### Add permissions to access web APIs
+
+[![Add API permissions](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
 
 To add permission(s) to access resource APIs from your client:
 
@@ -123,7 +129,11 @@ You can develop a web API and make it available to client applications by exposi
 
 In this example, you'll learn how to expose a new scope called `Employees.Read.All` on your resource/API.
 
-#### To expose a new scope through the UI
+#### Expose a new scope through the UI
+
+[![Expose an API using the UI](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+
+To expose a new scope through the UI:
 
 1. From the app's **Overview** page, select the **Expose an API** section.
 1. Select **Add a scope**.
@@ -144,9 +154,13 @@ In this example, you'll learn how to expose a new scope called `Employees.Read.A
     | **User consent display name** | Enter a meaningful name for your scope, which users will see.<br><br>For example: "Read-only access to your Employee records." |
     | **User consent description** | Enter a meaningful description for your scope, which users will see.<br><br>For example: "Allow the application to have read-only access to your Employee data." |
 
-#### To expose a new scope or role through the application manifest
-
 Alternatively, you can expose scopes or roles by modifying the resource application's manifest.
+
+#### Expose a new scope or role through the application manifest
+
+[![Expose a new scope using the oauth2Permissions collection in the manifest](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+
+To expose a new scope through the application manifest:
 
 1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application.
 1. In this example, you'll expose a new scope called `Employees.Read.All` on your resource/API by adding the following JSON element to the `oauth2Permissions` collection.
