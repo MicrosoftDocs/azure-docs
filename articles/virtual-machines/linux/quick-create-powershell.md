@@ -211,7 +211,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-When done, type **exit** to leave the SSH session.
+When done, type `exit` to leave the SSH session.
 
 
 ## View the web server in action
