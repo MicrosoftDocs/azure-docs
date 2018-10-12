@@ -46,9 +46,10 @@ You must register the Azure Resource Provider for Azure NetApp Files.
    `az feature list | grep NetApp` 
 
    The command output appears as follows:
-    
-    "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC", 
-    "name": "Microsoft.NetApp/publicPreviewADC"
+   
+        "id":
+        "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
+        "name": "Microsoft.NetApp/publicPreviewADC"
        
    `<SubID>` is your subscription ID.
 
@@ -62,10 +63,10 @@ You must register the Azure Resource Provider for Azure NetApp Files.
 
   `az provider show --namespace Microsoft.NetApp`
 
-  The command output appears as follows:   
+  The command output appears as follows:
    
-      "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC", 
-      "name": "Microsoft.NetApp/publicPreviewADC"
+        "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC", 
+        "name": "Microsoft.NetApp/publicPreviewADC"
 
    `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 
