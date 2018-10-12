@@ -32,9 +32,9 @@ Prerequisites
       
 Step by step instructions
 -------------------------
+In the below instructions we are assigning Key Vault as a service to have operator permissions on your storage accountn
 
-1. Get the resource ID of the Azure Storage Account you want to manage.
-    a. After creating a storage account run the following command to get the resource ID of the storage account you want to manage
+1. After creating a storage account run the following command to get the resource ID of the storage account you want to manage
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
@@ -48,7 +48,7 @@ Step by step instructions
     ```
 4. Create a Key Vault Managed Storage Account.     <br /><br />
    Below command asks Key Vault to regenerate your storage's access keys periodically, with a regeneration period. Below, we are setting a regeneration period of 90 days. After 90 days, Key Vault will regenerate 'key1' and swap the active key from 'key2' to 'key1'.
-   ### Key regeneration
+5. Key regeneration
     ```
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-generate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
