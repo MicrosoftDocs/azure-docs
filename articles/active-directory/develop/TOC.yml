@@ -15,12 +15,16 @@
       items:
       - name: Register an app
         href: quickstart-v1-add-azure-ad-app.md
-      - name: Register an app with Microsoft identity platform (Preview)
+      - name: Register an app (Preview)
         href: quickstart-add-azure-ad-app-preview.md
       - name: Update an app
         href: quickstart-v1-update-azure-ad-app.md
+      - name: Update an app (Preview)
+        href: quickstart-update-azure-ad-app-preview.md
       - name: Remove an app
         href: quickstart-v1-remove-azure-ad-app.md
+      - name: Remove an app (Preview)
+        href: quickstart-remove-azure-ad-app-preview.md
     - name: Single-page apps
       items:
       - name: AngularJS
@@ -225,12 +229,16 @@
       items:
       - name: Register an app
         href: quickstart-v2-register-an-app.md
-      - name: Register an app with Microsoft identity platform (Preview)
+      - name: Register an app (Preview)
         href: quickstart-add-azure-ad-app-preview.md
       - name: Update an app
         href: quickstart-v1-update-azure-ad-app.md
+      - name: Update an app (Preview)
+        href: quickstart-update-azure-ad-app-preview.md
       - name: Remove an app
         href: quickstart-v1-remove-azure-ad-app.md
+      - name: Remove an app (Preview)
+        href: quickstart-remove-azure-ad-app-preview.md
     - name: Single-page apps
       items:
       - name: JavaScript

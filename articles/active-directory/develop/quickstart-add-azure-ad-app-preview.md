@@ -50,7 +50,7 @@ To get started, make sure have an Azure AD tenant that you can use to register y
         - For web applications, provide the base URL of your app. For example, `http://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application.
         - For public client applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, such as `http://MyFirstApp`.
 
-    To see specific examples for web applications or native applications, check out our [quickstarts](index.yml#quickstarts).
+    To see specific examples for web applications or native applications, check out our [quickstarts](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
 
 1. When finished, select **Register**.
 
@@ -63,6 +63,6 @@ Azure AD assigns a unique application ID to your app, and you're taken to your a
 ## Next steps
 
 - See [Azure AD consent framework](consent-framework.md) for an overview of consent.
-- To enable additional configuration features in your application registration, such as credentials and permissions, and enable sign-in for users from other tenants, see [Update an application registered with Microsoft identity platform](quickstart-update-azure-ad-app.md).
+- To enable additional configuration features in your application registration, such as credentials and permissions, and enable sign-in for users from other tenants, see [Update an application registered with Microsoft identity platform](quickstart-update-azure-ad-app-preview.md).
 - Learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
 - Learn more about the branding guidelines you should use when developing apps, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
