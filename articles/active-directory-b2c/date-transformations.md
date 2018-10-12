@@ -154,7 +154,7 @@ To run the claim transformation, you first need to get the current dateTime and 
     <InputClaim ClaimTypeReferenceId="extension_LastTOSAccepted" TransformationClaimType="secondDateTime" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="operator" DataType="string" Value="greater than" />
+    <InputParameter Id="operator" DataType="string" Value="later than" />
     <InputParameter Id="timeSpanInSeconds" DataType="int" Value="7776000" />
   </InputParameters>
   <OutputClaims>
@@ -169,7 +169,7 @@ To run the claim transformation, you first need to get the current dateTime and 
     - **firstDateTime**: 2018-01-01T00:00:00.100000Z
     - **secondDateTime**: 2018-04-01T00:00:00.100000Z
 - Input parameters:
-    - **operator**: greater than
+    - **operator**: later than
     - **timeSpanInSeconds**: 7776000 (90 days)
 - Output claims: 
     - **result**: true

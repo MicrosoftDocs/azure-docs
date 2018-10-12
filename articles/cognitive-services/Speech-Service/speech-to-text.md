@@ -3,13 +3,13 @@ title: About Speech to Text
 description: An overview of the capabilities of Speech to Text API.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 # About the Speech to Text API
 
