@@ -122,7 +122,4 @@ HTTP DELETE /api/v1/roleassignments/{id}
 
 ## Next steps
 
-Read more about Azure Digital Twins security:
-
-> [!div class="nextstepaction"]
-> [API authentication](./security-authenticating-apis.md)
+To learn about Azure Digital Twins security, read [API authentication](./security-authenticating-apis.md).

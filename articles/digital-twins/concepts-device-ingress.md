@@ -1,5 +1,5 @@
 ---
-title: Device Connectivity and Telemetry Ingress with Azure Digital Twins | Microsoft Docs
+title: Device connectivity and telemetry ingress with Azure Digital Twins | Microsoft Docs
 description: Overview of onboarding a device with Azure Digital Twins
 author: alinamstanciu
 manager: bertvanhoof
@@ -50,11 +50,11 @@ https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourDeviceHardwareId&i
 
 In the response payload, copy the device's `connectionString` property, which you'll use when calling the Azure IoT Device SDK to send data to Azure Digital Twins.
 
-## Device-to-Cloud Telemetry Message
+## Device to cloud message
 
 You can customize your device's message format and payload to fit your solution's needs. You can use any data contract that can be serialized into a byte array or stream that is supported by the [Azure IoT Device Client Message class, Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). The message can be a custom binary format of your choice, as long as you decode the data contract in a corresponding User-Defined Function. The only requirement for a Device-to-Cloud message is to maintain a set of properties (see below) to ensure your message is routed appropriately to the processing engine.
 
-### Telemetry Properties
+### Telemetry properties
 
 While the payload contents of a `Message` can be arbitrary data up to 256 kb in size, there are few requirements on expected [Message.Properties](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). The steps outlined below reflect the required and optional properties supported by the system:
 
@@ -71,7 +71,5 @@ Use the DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/micr
 
 ## Next steps
 
-Read more about Azure Digital Twins' data processing and User-Defined Functions capabilities:
+To learn about Azure Digital Twins' data processing and User-Defined Functions capabilities, read [Azure Digital Twins data processing and user-defined functions](concepts-user-defined-functions.md).
 
-> [!div class="nextstepaction"]
-> [Azure Digital Twins Data Processing and User-Defined Functions](concepts-user-defined-functions.md)

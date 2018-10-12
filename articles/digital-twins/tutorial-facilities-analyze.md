@@ -89,9 +89,15 @@ The [Event Hubs](../event-hubs/event-hubs-about.md) service allows you to create
       path: Name_of_your_Event_Hubs_namespace
     ```
 
-1. Replace the placeholders `Primary_connection_string_for_your_event_hub` with the value of the **Connection string--primary key** for the event hub. Make sure the format of this connection string is: **Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub**.
+1. Replace the placeholders `Primary_connection_string_for_your_event_hub` with the value of the **Connection string--primary key** for the event hub. Make sure the format of this connection string is as following:
+```
+Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
+```
 
-1. Replace the placeholders `Secondary_connection_string_for_your_event_hub` with the value of the **Connection string--secondary key** for the event hub. Make sure the format of this connection string is: **Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub**.
+1. Replace the placeholders `Secondary_connection_string_for_your_event_hub` with the value of the **Connection string--secondary key** for the event hub. Make sure the format of this connection string is as following: 
+```
+Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
+```
 
 1. Replace the placeholders `Name_of_your_Event_Hubs_namespace` with the name of your Event Hubs namespace.
 

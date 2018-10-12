@@ -1,5 +1,5 @@
 ---
-title: Understanding Digital Twins Object Models and Spatial Intelligence Graph with Azure Digital Twins | Microsoft Docs
+title: Understanding Digital Twins object models and spatial intelligence graph | Microsoft Docs
 description: Using Azure Digital Twins to model relationships between people, places, and devices
 author: alinamstanciu
 manager: bertvanhoof
@@ -24,9 +24,9 @@ With _Digital Twins Object Models_ and _Ontology_ in place, one can populate a _
 
 The spatial graph brings together spaces, devices, sensors, and users. Each is linked together in a way that models the real world: venue 43 has four floors, each with multiple different areas. Users are associated with their workstations and are given access to portions of the graph.  For example, an administrator would have rights to make changes to the spatial graph while a visitor might only have rights to view certain building data.
 
-## Digital Twins Object Models
+## Digital Twins object models
 
-Digital Twins Object Models support these main categories of objects:
+Digital Twins object models support these main categories of objects:
 
 - **Spaces** are virtual or physical locations, for example `Tenant`, `Customer`, `Region`, `Venue`.
 - **Devices** are virtual or physical pieces of equipment, for example `AwesomeCompany Device`, `Raspberry Pi 3`.
@@ -49,9 +49,9 @@ Other categories of objects are:
 
 <a id="graph" />
 
-## Spatial Intelligence Graph
+## Spatial intelligence graph
 
-**Spatial Graph** is the hierarchical graph of spaces, devices, and people defined in the **Digital Twins Object Model**. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. Users can manage and interact with their spatial graph with a collection of REST APIs (see below).
+**Spatial graph** is the hierarchical graph of spaces, devices, and people defined in the **Digital Twins object model**. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. Users can manage and interact with their spatial graph with a collection of REST APIs (see below).
 
 The user who deploys a Digital Twins service in their subscription becomes the global administrator of the root node, automatically granting full access to entire structure. This user can then provision spaces in the graph using the `Space` API. Devices could be provisioned using the `Device` API, sensors could be provisioned using `Sensor` API, etc. We also offer [open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) to provision the graph in bulk.
 
@@ -65,7 +65,7 @@ Azure Digital Twins guarantees graph _scalability_, so it can handle your real-w
 
 Graph _extensibility_ allows users to customize the underlying Digital Twins Object Models with new types and ontologies. Your digital twins' data can also be enriched with extensible properties and values.
 
-### Spatial Intelligence Graph Management APIs
+### Spatial intelligence graph Management APIs
 
 Once you deploy Azure Digital Twins from the [Azure portal](https://portal.azure.com), the [Swagger](https://swagger.io/tools/swagger-ui/) URL of the Management APIs is automatically generated and will be displayed in the Azure portal's **Overview** section with the following format:
 
@@ -94,15 +94,9 @@ All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azu
 
 ## Next steps
 
-Read more about device connectivity and how to send telemetry messages to Azure Digital Twins service:
+To learn about device connectivity and how to send telemetry messages to Azure Digital Twins service, read [Azure Digital Twins device connectivity and telemetry ingress](concepts-device-ingress.md).
 
-> [!div class="nextstepaction"]
-> [Azure Digital Twins Device Connectivity and Telemetry Ingress](concepts-device-ingress.md)
-
-Read more about Management API limitations and throttles:
-
-> [!div class="nextstepaction"]
-> [Azure Digital Twins API Management and Limitations](concepts-service-limits.md)
+To learn about Management API limitations and throttles, read [Azure Digital Twins API management and limitations](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

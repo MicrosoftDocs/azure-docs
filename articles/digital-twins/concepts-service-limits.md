@@ -44,7 +44,7 @@ The request rate limits for your Management API are:
 > [!IMPORTANT]
 > If you exceed the 1000 object limit, you will receive an error and will need to simplify your query.
 
-## UDF Rate limits
+## UDF rate limits
 
 The following limits set the total number of all user-defined function calls made to your Azure Digital Twins instance:
 
@@ -57,7 +57,7 @@ The following limits set the total number of all user-defined function calls mad
 > - UDF definition updates
 > - Devices sending telemetry for the first time
 
-## Device Telemetry limits
+## Device telemetry limits
 
 The limits below cap the total number of all messages your devices can send  to your Azure Digital Twins instance:
 
@@ -65,7 +65,4 @@ The limits below cap the total number of all messages your devices can send  to 
 
 ## Next steps
 
-Try out an Azure Digital Twins quickstart sample:
-
-> [!div class="nextstepaction"]
-> [Find Available Rooms with Fresh Air](./quickstart-view-occupancy-dotnet.md)
+To try out an Azure Digital Twins sample, go to [Quickstart to find available rooms](./quickstart-view-occupancy-dotnet.md).

@@ -57,7 +57,4 @@ For detailed instructions about how to orchestrate the on-behalf-of flow visit [
 
 ## Next steps
 
-Read more about Azure Digital Twins security:
-
-> [!div class="nextstepaction"]
-> [Create and manage role assignments](./security-create-manage-role-assignments.md)
+To learn about Azure Digital Twins security, read [Create and manage role assignments](./security-create-manage-role-assignments.md).

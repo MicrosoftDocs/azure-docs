@@ -49,12 +49,6 @@ To solve the scenario above, the following actions are needed to create a Digita
   
 ## Next steps
 
-Learn more about using User-Defined Functions with Azure Digital Twins:
+To learn more about using user-defined functions with Azure Digital Twins, read [Azure Digital Twins UDFs](how-to-user-defined-functions.md).
 
-> [!div class="nextstepaction"]
-> [Azure Digital Twins UDFs](how-to-user-defined-functions.md)
-
-Learn how to use role-based access control to further secure the application with role assignments:
-
-> [!div class="nextstepaction"]
-> [Digital Twins role-based access control](security-create-manage-role-assignments.md)
+To learn how to use role-based access control to further secure the application with role assignments, read [Digital Twins role-based access control](security-create-manage-role-assignments.md).

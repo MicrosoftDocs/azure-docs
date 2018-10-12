@@ -84,7 +84,7 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
-  - name: Azure Digital Twins Samples for C# (.NET)
+  - name: Azure Digital Twins samples for C# (.NET)
     href: https://github.com/Azure-Samples/digital-twins-samples-csharp 
   - name: Azure Digital Twins REST API
     href: https://docs.westcentralus.azuresmartspaces.net/management/swagger 
@@ -100,7 +100,7 @@
     href: https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/ 
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
-  - name: Azure Roadmap
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Videos
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true

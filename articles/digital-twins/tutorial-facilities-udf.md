@@ -112,7 +112,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             var noAlert = "Either room is occupied, or working conditions are not right.";
         ```
     
-    1. Remove the following code block after the comment `// Modify this code block for your sensor`:
+    1. Remove the following *if-else* code block after the comment `// Modify this code block for your sensor`:
 
         ```JavaScript
             // If carbonDioxide less than threshold and no presence in the room => log, notify and set parent space computed value
@@ -132,7 +132,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             }
         ```
       
-       And replace it with the following block:
+       And replace it with the following *if-else* block:
 
         ```JavaScript
             // If sensor values are within range and room is available
@@ -191,7 +191,8 @@ In this section, you will use the project named *device-connectivity* in the sam
 
 1. Open the *appSettings.json* file in your editor, edit the following values:
     1. *DeviceConnectionString*: Assign the value of `ConnectionString` in the output window from the previous section. Make sure to copy this string completely, within the quotes, for the simulator to connect properly with the IoT hub.
-    2. *HardwareId* within the *Sensors* array: Since you are simulating events from sensors provisioned to your Digital Twins instance, the hardware ID and the names of the sensors in this file should match with `sensors` node of the *provisionSample.yaml* file. Add a new entry for the temperature sensor; the **Sensors** node in the *appSettings.json* should look like the following:
+
+    1. *HardwareId* within the *Sensors* array: Since you are simulating events from sensors provisioned to your Digital Twins instance, the hardware ID and the names of the sensors in this file should match with `sensors` node of the *provisionSample.yaml* file. Add a new entry for the temperature sensor; the **Sensors** node in the *appSettings.json* should look like the following:
 
         ```JSON
         "Sensors": [{

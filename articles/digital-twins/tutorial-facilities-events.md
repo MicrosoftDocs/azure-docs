@@ -108,7 +108,9 @@ The [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service allows you 
 
 1. In the **When a resource event occurs (Preview)** window, 
     1. Select the **Subscription** that you used to create the Event Grid previously,
+
     1. Select **Microsoft.EventGrid.Topics** as the **Resource Type**,
+
     1. Select your Event Grid resource from the dropdown box for the **Resource Name**.
 
     ![Create Logic App](./media/tutorial-facilities-events/logic-app-resource-event.png)
@@ -117,8 +119,11 @@ The [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service allows you 
 
 1. In the **Choose an action** window,
     1. Search the phrase *parse json*, and select the **Parse JSON** action.
+
     1. Click within the **Content** field, and select **Body** from the **Dynamic content** list.
+
     1. Click **Use sample to payload to generate schema**. Paste the following JSON payload, and then click **Done**.
+
         ```JSON
         {
         "id": "32162f00-a8f1-4d37-aee2-9312aabba0fd",
@@ -145,15 +150,20 @@ The [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service allows you 
 
 1. In the **Choose an action** window,
     1. Search and select **Condition Control** from the list of **Actions**. 
+
     1. Click within the first **Choose a value** textbox, and select **eventType** from the **Dynamic content** list for the **Parse JSON** window.
+
     1. Click within the second **Choose a value** textbox, and type *UdfCustom*.
 
     ![Logic App Parse JSON for Event Grid](./media/tutorial-facilities-events/logic-app-condition.png)
 
 1. In the **If true** window,
     1. Click on **Add an action**, and select *Office 365 Outlook*.
+
     1. From the list of **Actions**, select **Send an email**. Click **Sign in** and use your email account credentials. Click **Allow access** when prompted.
+
     1. In the **To** box, enter your email ID to receive notifications. In the **Subject**, enter the text *Digital Twins notification for poor air quality in space*, and then select **TopologyObjectId** from the **Dynamic content** list for **Parse JSON**.
+
     1. In the **Body** of the same window, enter text similar to this: *Poor air quality detected in a room, and temperature needs to be adjusted*. Feel free to elaborate using elements from the **Dynamic content** list as shown below.
 
     ![Logic App Send an email](./media/tutorial-facilities-events/logic-app-send-email.png)
