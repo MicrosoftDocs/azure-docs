@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/29/2018
+ms.date: 10/12/2018
 ms.author: vturecek
 ---
 
