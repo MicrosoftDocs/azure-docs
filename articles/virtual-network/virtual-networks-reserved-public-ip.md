@@ -110,11 +110,6 @@ Command:
 ```azurecli
 azure network reserved-ip list
 ```
-Example: 
-
-```azurecli
-azure network reserved-ip list
-```
 Once an IP is reserved, it remains associated to your subscription until you delete it. Delete a reserved IP as follows:
 
 Command:
@@ -137,15 +132,16 @@ You can reserve the IP address of an existing cloud service by adding the `-Serv
 
 - Using Azure CLI (classic):
   
-Command:
-  ```azurecli
-  azure network reserved-ip create <name> <location> -r <service-name> -d <deployment-name>
-  ```
-Example:
+    Command:
 
-```azurecli
-  azure network reserved-ip create MyReservedIP centralus -r TestService -d asmtest8942
-```
+    ```azurecli
+     azure network reserved-ip create <name> <location> -r <service-name> -d <deployment-name>
+    ```
+    Example:
+
+    ```azurecli
+      azure network reserved-ip create MyReservedIP centralus -r TestService -d asmtest8942
+    ```
 
 ## Associate a reserved IP to a new cloud service
 The following script creates a new reserved IP, then associates it to a new cloud service named *TestService*.
