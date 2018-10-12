@@ -1,6 +1,6 @@
 ﻿---
-title: Manage Azure reserved IP addresses (Classic) - PowerShell | Microsoft Docs
-description: Understand reserved IP addresses (Classic) and how to manage them using PowerShell.
+title: Manage Azure reserved IP addresses (Classic) | Microsoft Docs
+description: Understand reserved IP addresses (Classic) and how to manage them using Azure PowerShell and Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -13,19 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2018
+ms.date: 10/12/2018
 ms.author: genli
 
 ---
-# Reserved IP addresses (Classic)
+# Reserved IP addresses (classic deployment)
 
-> [!div class="op_single_selector"]
-> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
-
-IP addresses in Azure fall into two categories: dynamic and reserved. Public IP addresses managed by Azure are dynamic by default. That means that the IP address used for a given cloud service (VIP) or to access a VM or role instance directly (ILPIP) can change from time to time, when resources are shut down or stopped (deallocated).
+ IP addresses in Azure fall into two categories: dynamic and reserved. Public IP addresses managed by Azure are dynamic by default. That means that the IP address used for a given cloud service (VIP) or to access a VM or role instance directly (ILPIP) can change from time to time, when resources are shut down or stopped (deallocated).
 
 To prevent IP addresses from changing, you can reserve an IP address. Reserved IPs can be used only as a VIP, ensuring that the IP address for the cloud service remains the same, even as resources are shut down or stopped (deallocated). Furthermore, you can convert existing dynamic IPs used as a VIP to a reserved IP address.
 
@@ -53,25 +47,16 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 
 ## Manage reserved VIPs
 
-Ensure you have installed and configured PowerShell by completing the steps in the [Install and configure PowerShell](/powershell/azure/overview) article. 
+### Using Azure PowerShell (classic)
 
 Before you can use reserved IPs, you must add it to your subscription. Create a reserved IP from the pool of public IP addresses available in the *Central US* location as follows:
 
-- Using Azure PowerShell (classic):
+> [!NOTE]
+> For classic deployment model, you must install the Service Management version of Azure PowerShell. For more information, see [Install the Azure PowerShell Service Management module](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0). 
+
   ```powershell
     New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
   ```
-- Using Azure CLI:
-  
-    Command:
-    ```azurecli
-      azure network reserved-ip create MyReservedIP centralus
-    ```
-    Example:
-    ```azurecli
-      azure network reserved-ip create MyReservedIP centralus
-    ```
-
 Notice, however, that you cannot specify what IP is being reserved. To view what IP addresses are reserved in your subscription, run the following PowerShell command, and notice the values for *ReservedIPName* and *Address*:
 
 ```powershell
@@ -96,6 +81,29 @@ Expected output:
 >[!NOTE]
 >When you create a reserved IP address with PowerShell, you cannot specify a resource group to create the reserved IP in. Azure places it into a resource group named *Default-Networking* automatically. If you create the reserved IP using the [Azure portal](http://portal.azure.com), you can specify any resource group you choose. If you create the reserved IP in a resource group other than *Default-Networking* however, whenever you reference the reserved IP with commands such as `Get-AzureReservedIP` and `Remove-AzureReservedIP`, you must reference the name *Group resource-group-name reserved-ip-name*.  For example, if you create a reserved IP named *myReservedIP* in a resource group named *myResourceGroup*, you must reference the name of the reserved IP as *Group myResourceGroup myReservedIP*.   
 
+
+Once an IP is reserved, it remains associated to your subscription until you delete it. Delete a reserved IP as follows:
+
+- Using Azure PowerShell (classic):
+  ```powershell
+  Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
+  ```
+
+### Using Azure CLI (classic)
+Create a reserved IP from the pool of public IP addresses available in the *Central US* location as Using Azure classic CLI follows:
+
+> [!NOTE]
+> For classic deployment, you must use Azure classic CLI. For information about installing Azure classic CLI, see [Install the Azure classic CLI](https://docs.microsoft.com/cli/azure/install-classic-cli?view=azure-cli-latest)
+  
+    Command:
+    ```azurecli
+      azure network reserved-ip create MyReservedIP centralus
+    ```
+    Example:
+    ```azurecli
+      azure network reserved-ip create MyReservedIP centralus
+    ```
+
 To view what IP addresses are reserved in your subscription using Azure CLI, run the following command: 
 
 ```azurecli
@@ -106,14 +114,13 @@ Example:
 ```azurecli
 azure network reserved-ip list
 ```
-
 Once an IP is reserved, it remains associated to your subscription until you delete it. Delete a reserved IP as follows:
 
 - Using Azure PowerShell (classic):
   ```powershell
   Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
   ```
-- Using Azure CLI:
+- Using Azure CLI (classic):
   Command:
   ```azurecli
   azure network reserved-ip delete <name>
@@ -122,8 +129,6 @@ Once an IP is reserved, it remains associated to your subscription until you del
   ```azurecli
   azure network reserved-ip delete MyReservedIP
   ```
-
-
 ## Reserve the IP address of an existing cloud service
 You can reserve the IP address of an existing cloud service by adding the `-ServiceName` parameter. Reserve the IP address of a cloud service *TestService* in the *Central US* location as follows:
 
@@ -133,7 +138,7 @@ You can reserve the IP address of an existing cloud service by adding the `-Serv
   New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US" -ServiceName TestService
   ```
 
-- Using Azure CLI:
+- Using Azure CLI (classic):
   Command:
   ```azurecli
   azure network reserved-ip create <name> <location> -r <service-name> -d <deployment-name>
@@ -169,7 +174,7 @@ Remove a reserved IP added to a new cloud service as follows:
 Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService
 ```
 
-### Using Azure CLI
+### Using Azure CLI (classic)
 Command:
 
 ```azurecli
@@ -201,7 +206,7 @@ azure network reserved-ip delete MyReservedIP
 
 ## Associate a reserved IP to a running deployment
 
-### Using Azure PowerShell
+### Using Azure PowerShell (classic)
 
 The following commands create a cloud service named *TestService2* with a new VM named *TestVM2*. The existing reserved IP named *MyReservedIP* is then associated to the cloud service.
 
@@ -236,7 +241,7 @@ You can also associate a reserved IP to a cloud service by using a service confi
     </ServiceConfiguration>
 ```
 
-## Using Azure CLI
+### Using Azure CLI (classic)
 You can associate a new reserved IP to your running cloud service deployment using Azure CLI as follows:
 Command:
 ```azurecli
