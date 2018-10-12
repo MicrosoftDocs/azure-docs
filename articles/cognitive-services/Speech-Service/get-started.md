@@ -3,13 +3,13 @@ title: Try the Speech service for free
 description: Discover how you can try the Speech service at no cost.
 titleSuffix: "Azure Cognitive Services"
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 
 # Try the Speech service for free
@@ -107,7 +107,7 @@ To switch from one subscription to another, for example when your free trial exp
 > [!NOTE]
 > Free trial keys are created in the West US (`westus`) region. A subscription created via the Azure dashboard may be in some other region if you so choose.
 
-* If your application uses a [Speech SDK](speech-sdk.md), you provide the region code, such as `westus`, when instantiating `RecognizerFactory`. 
+* If your application uses a [Speech SDK](speech-sdk.md), you provide the region code, such as `westus`, when creating a speech configuration.
 * If your application uses one of the Speech service's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
 
 Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.

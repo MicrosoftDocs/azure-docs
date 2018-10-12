@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: diberry
 ---
 
@@ -183,8 +183,8 @@ Before changing any code or settings, verify the bot works.
 
     ```JSON
     {
-    "botFileSecret": "J2pU6SRynDYEUmvoo7KFRj687/3xPI5mlUALwh1I71E=",
-    "botFilePath": "./diberry-csharp-basic-bot.bot"
+    "botFileSecret": "",
+    "botFilePath": ""
 
     }
     ```
@@ -281,7 +281,7 @@ In the `BasicBot.cs` file, add code to handle the new intents.
 
     ```JSON
     TurnOn intent found, JSON response: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
-    ```    ```
+    ```    
 
 ## Learn more about Bot Framework
 Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot framework:

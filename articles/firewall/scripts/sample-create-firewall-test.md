@@ -20,7 +20,7 @@ A user defined route is created that points the network traffic from the Servers
 
 You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. 
 
-If you run PowerShell locally, this script requires the latest AzureRM PowerShell module version. To find the installed version, run `Get-Module -ListAvailable AzureRM`. 
+If you run PowerShell locally, this script requires the latest AzureRM PowerShell module version (6.9.0 or greater). To find the installed version, run `Get-Module -ListAvailable AzureRM`. 
 
 You can use `PowerShellGet` if you need to upgrade, which is built into Windows 10 and Windows Server 2016.
 

@@ -10,7 +10,7 @@ ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ---
@@ -37,17 +37,19 @@ Next, you create a function in the new function app.
 
 ## Create a Blob storage triggered function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
+1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step three.
 
-    ![Functions quickstart page in the Azure portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+   ![Functions quickstart page in the Azure portal](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
 
-1. In the search field, type `blob` and then choose the Blob storage trigger template.
+1. Choose **More templates** then **Finish and view templates**.
 
-    ![Choose the Blob storage trigger template.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Functions quickstart choose more templates](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-    If this is your first function, you must also choose a language. All subsequent functions added to the function app use the same language templates.
+1. In the search field, type `blob` and then choose the **Blob trigger** template.
 
-1. Select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
+1. If prompted, select **Install** to install the Azure Storage extension any dependencies in the function app. After installation succeeds, select **Continue**.
+
+    ![Install binding extensions](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
 1. Use the settings as specified in the table below the image.
 

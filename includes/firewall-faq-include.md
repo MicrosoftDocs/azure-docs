@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 9/14/2018
+ ms.date: 10/4/2018
  ms.author: victorh
  ms.custom: include file
 ---
@@ -64,7 +64,7 @@ Azure Firewall is a basic firewall service that can address certain customer sce
  
 ### What is the difference between Application Gateway WAF and Azure Firewall?
 
-The Web Application Firewall (WAF) is a feature of Application Gateway that provides centralized inbound protection of your web applications from common exploits and vulnerabilities. Azure Firewall provides outbound network-level protection for all ports and protocols and application-level protection for outbound HTTP/S. Inbound protection for non-HTTP/S protocols (for example, RDP, SSH, FTP) is tentatively planned for Azure Firewall GA.
+The Web Application Firewall (WAF) is a feature of Application Gateway that provides centralized inbound protection of your web applications from common exploits and vulnerabilities. Azure Firewall provides inbound protection for non-HTTP/S protocols (for example, RDP, SSH, FTP), outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S.
 
 ### What is the difference between Network Security Groups (NSGs) and Azure Firewall?
 
@@ -96,6 +96,9 @@ $publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName
 $azfw.Allocate($vnet,$publicip)
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
+
+> [!NOTE]
+> You must reallocate a firewall and public IP to the original resource group and subscription.
 
 ### What are the known service limits?
 

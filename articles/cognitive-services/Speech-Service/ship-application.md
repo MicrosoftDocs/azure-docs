@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # Ship an application
 
-Observe the [Speech SDK license](license.md), as well as the [third-party software notices](third-party-notices.md) when you distribute the Azure Cognitive Services Speech SDK. Also, review the [Microsoft Privacy Statement](https://aka.ms/csspeech/privacy).
+Observe the [Speech SDK license](https://aka.ms/csspeech/license201809), as well as the [third-party software notices](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html) when you distribute the Azure Cognitive Services Speech SDK. Also, review the [Microsoft Privacy Statement](https://aka.ms/csspeech/privacy).
 
 Depending on the platform, different dependencies exist to execute your application.
 

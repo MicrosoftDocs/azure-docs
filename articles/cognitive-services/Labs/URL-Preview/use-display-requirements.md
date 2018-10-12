@@ -1,13 +1,16 @@
 ---
-title: Project URL Preview use and display requirements - Microsoft Cognitive Services | Microsoft Docs
+title: Use and display requirements - Project URL Preview
+titlesuffix: Azure Cognitive Services
 description: Use and display requirements for the Project URL Preview API endpoint.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Project URL Preview use and display requirements

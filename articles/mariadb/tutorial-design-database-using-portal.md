@@ -29,7 +29,7 @@ In this tutorial, you use the Azure portal to learn how to:
 Open your favorite web browser, and visit the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MariaDB server
-An Azure Database for MariaDB server is created with a defined set of compute and storage resources <!--[compute and storage resources](./concepts-compute-unit-and-storage.md)-->. The server is created within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+An Azure Database for MariaDB server is created with a defined set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
 
@@ -152,9 +152,9 @@ Imagine you have accidentally deleted an important database table, and cannot re
    - **Location**: The region is same as the source server, and cannot be changed.
    - **Pricing tier**: The pricing tier is the same as the source server, and cannot be changed.
    
-3. Click **OK** to restore the server to restore to a point in time <!--[restore to a point in time](./howto-restore-server-portal.md)--> before the table was deleted. Restoring a server creates a new copy of the server, as of the point in time you specify. 
+3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md)before the table was deleted. Restoring a server creates a new copy of the server, as of the point in time you specify.
 
-<!--## Next steps
+## Next steps
 In this tutorial, you use the Azure portal to learned how to:
 
 > [!div class="checklist"]
@@ -166,5 +166,5 @@ In this tutorial, you use the Azure portal to learned how to:
 > * Update data
 > * Restore data
 
-><> [!div class="nextstepaction"]
-> [How to connect applications to Azure Database for MariaDB](./howto-connection-string.md)-->
+> [!div class="nextstepaction"]
+> [How to connect applications to Azure Database for MariaDB](./howto-connection-string.md)

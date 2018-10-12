@@ -50,7 +50,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 
-    # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
+    # Install Azure Stack Module Version 1.5.0.
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
@@ -93,7 +93,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
   
   # AzureStack requries 1.5.0 for version 1808, 1.4.0 for versions after 1803, and 1.2.11 for versions before 1803
   Save-Package `
-    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path Force -RequiredVersion 1.5.0
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
   ```
 
   Next, copy the downloaded packages to the ASDK computer and register the location as the default repository and install the AzureRM and AzureStack modules from this repository:

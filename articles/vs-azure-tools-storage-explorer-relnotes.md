@@ -18,17 +18,159 @@ ms.author: cawa
 ---
 # Microsoft Azure Storage Explorer release notes
 
-This article contains the release notes for Azure Storage Explorer 1.4.1 release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 1.4.3 release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
+## Version 1.4.3
+10/11/2018
+
+### Download Azure Storage Explorer 1.4.3
+- [Azure Storage Explorer 1.4.3 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.4.3 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.4.3 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### Hotfixes
+* The Azure Resource Management Api Version has been rolled back to unblock Azure US Government users. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Loading spinners are now using CSS animations to reduce the amount of GPU used by Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### New
+* External resource attachments, such as for SAS connections and emulators, has been significantly improved. Now you can:
+   * Customize the display name of the resource you are attaching. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Attach to multiple local emulators using different ports. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Add attached resources to Quick Access. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Storage Explorer now supports Soft Delete. You can:
+   * Configure a Soft Delete policy by right-clicking on the Blob Containers node for your Storage account.
+   * View soft deleted blobs in the Blob Editor by selecting "Active and deleted blobs" in the dropdown next to the navigation bar.
+   * Undelete soft deleted blobs.
+
+### Fixes
+* The "Configure CORS Settings" action is no longer available on Premium Storage accounts because Premium Storage accounts do not support CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* There is now a Shared Access Signature property for SAS Attached Services. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* The "Set Default Access Tier" action is now available For Blob and GPV2 Storage accounts that have been pinned to Quick Access. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Sometimes, Storage Explorer would fail to show Classic Storage accounts. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### Known Issues
+* When using emulators, such as Azure Storage Emulator or Azurite, you will need to have them listen for connections on their default ports. Otherwise, Storage Explorer will not be able to connect to them.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, please comment on [this issue](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
+* Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
+## Previous releases
+
+* [Version 1.4.2](#version-142)
+* [Version 1.4.1](#version-141)
+* [Version 1.3.0](#version-130)
+* [Version 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Version 0.9.4 and 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Version 0.9.1 and 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 and 0.8.11 and 0.8.10](#version-0812-and-0811-and-0810)
+* [Version 0.8.9 and 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
+## Version 1.4.2
+09/24/2018
+
+### Hotfixes
+* Update Azure Resource Management Api Version to 2018-07-01 to add support for new Azure Storage Account kinds. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+
+### New
+* External resource attachments, such as for SAS connections and emulators, has been significantly improved. Now you can:
+   * Customize the display name of the resource you are attaching. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Attach to multiple local emulators using different ports. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Add attached resources to Quick Access. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Storage Explorer now supports Soft Delete. You can:
+   * Configure a Soft Delete policy by right-clicking on the Blob Containers node for your Storage account.
+   * View soft deleted blobs in the Blob Editor by selecting "Active and deleted blobs" in the dropdown next to the navigation bar.
+   * Undelete soft deleted blobs.
+
+### Fixes
+* The "Configure CORS Settings" action is no longer available on Premium Storage accounts because Premium Storage accounts do not support CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* There is now a Shared Access Signature property for SAS Attached Services. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* The "Set Default Access Tier" action is now available For Blob and GPV2 Storage accounts that have been pinned to Quick Access. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Sometimes, Storage Explorer would fail to show Classic Storage accounts. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### Known Issues
+* When using emulators, such as Azure Storage Emulator or Azurite, you will need to have them listen for connections on their default ports. Otherwise, Storage Explorer will not be able to connect to them.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, please comment on [this issue](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
+* Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
 ## Version 1.4.1
 08/28/2018
-
-### Download Azure Storage Explorer 1.4.1
-- [Azure Storage Explorer 1.4.1 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.4.1 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.4.1 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### Hotfixes
 * On first launch, Storage Explorer was unable to generate the key used to encrypt sensitive data. This would cause issues when using Quick Access and attaching resources. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
@@ -86,35 +228,6 @@ This article contains the release notes for Azure Storage Explorer 1.4.1 release
 	```
 	sudo apt-get install libgconf-2-4
 	```
-
-## Previous releases
-
-* [Version 1.3.0](#version-130)
-* [Version 1.2.0](#version-120)
-* [Version 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [Version 0.9.6](#version-096)
-* [Version 0.9.5](#version-095)
-* [Version 0.9.4 and 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Version 0.9.1 and 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 and 0.8.11 and 0.8.10](#version-0812-and-0811-and-0810)
-* [Version 0.8.9 and 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
 
 ## Version 1.3.0
 07/09/2018

@@ -2,19 +2,12 @@
 title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data 
 description: Contains frquently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/04/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk? (Preview)
@@ -136,10 +129,10 @@ A.  Once the order status for Data Copy shows as complete, you should be able to
 A.  When you copy the data under *BlockBlob* and *PageBlob* folders on your disk, a container is created in the Azure storage account for each subfolder under the *BlockBlob* and *PageBlob* folder. If you copied the files under *BlockBlob* and *PageBlob* folders directly, then these are in a default container *$root* under the Azure Storage account. 
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
-A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail.
+A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail. For more information, go to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
 
 ### Q. How do I verify the data I copied onto multiple Data Box Disks?
-A.  After the data copy is complete, you can run `AzureExpressDiskService.cmd` provided in the *AzureImportExport* folder to generate checksums for validation. If you have multiple disks, you need to open a command window per disk and run this command. Keep in mind that this operation can take a long time (~hours) depending upon the size of your data.
+A.  After the data copy is complete, you can run `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder to generate checksums for validation. If you have multiple disks, you need to open a command window per disk and run this command. Keep in mind that this operation can take a long time (~hours) depending upon the size of your data.
 
 ### Q. What happens to my data after I have returned the disks?
 A.  Once the data copy to Azure is complete, the data from the disks is securely erased as per the NIST SP 800-88 Revision 1 guidelines.  

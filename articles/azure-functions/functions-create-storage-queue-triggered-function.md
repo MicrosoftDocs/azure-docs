@@ -10,7 +10,7 @@ ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 03/28/2018
+ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ---
@@ -38,21 +38,24 @@ Next, you create a function in the new function app.
 
 ## Create a Queue triggered function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
+1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step three.
 
-    ![Functions quickstart page in the Azure portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
+   ![Functions quickstart page in the Azure portal](./media/functions-create-storage-queue-triggered-function/function-app-quickstart-choose-portal.png)
 
-1. In the search field, type `queue` and then choose the Queue storage trigger template.
+1. Choose **More templates** then **Finish and view templates**.
 
-    ![Choose the storage queue trigger template.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Functions quickstart choose more templates](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-    If this is your first function, you must also choose a language. All subsequent functions added to the function app use the same language templates.
+1. In the search field, type `queue` and then choose the **Queue trigger** template.
 
-1. Select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
+1. If prompted, select **Install** to install the Azure Storage extension any dependencies in the function app. After installation succeeds, select **Continue**.
+
+    ![Install binding extensions](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 
 1. Use the settings as specified in the table below the image.
+
     ![Configure the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
-    
+
     | Setting | Suggested value | Description |
     |---|---|---|
     | **Name** | Unique in your function app | Name of this queue triggered function. |
