@@ -45,9 +45,9 @@ For more detailed information on how to create SSH key pairs, including the use 
 
 If you create your SSH key pair using the Cloud Shell, it will be stored in an Azure File Share that is [automatically mounted by the Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Don't delete this file share or storage account until after you have retrieved your keys or you will lose access to the VM. 
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create virtual machine
 
