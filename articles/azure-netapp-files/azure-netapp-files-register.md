@@ -37,13 +37,13 @@ You must register the Azure Resource Provider for Azure NetApp Files.
 
       ![Azure Cloud Shell icon](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. If you have multiple subscriptions on your Azure account, select the one that has been whitelisted for Azure NetApp Files:   
+2. If you have multiple subscriptions on your Azure account, select the one that has been whitelisted for Azure NetApp Files:
+    
+        az account set --subscription <subscriptionId>
 
-   `az account set --subscription <subscriptionId>`
-
-3. In the Azure Cloud Shell console, enter the following command to verify that your subscription has been whitelisted:  
-
-   `az feature list | grep NetApp` 
+3. In the Azure Cloud Shell console, enter the following command to verify that your subscription has been whitelisted:
+    
+        az feature list | grep NetApp
 
    The command output appears as follows:
    
@@ -53,15 +53,15 @@ You must register the Azure Resource Provider for Azure NetApp Files.
        
    `<SubID>` is your subscription ID.
 
-4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
-
-   `az provider register --namespace Microsoft.NetApp --wait`
+4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider:
+    
+        az provider register --namespace Microsoft.NetApp --wait
 
    The `--wait` parameter instructs the console to wait for the registration to complete. The registration process can take some time to complete.
 
 5. In the Azure Cloud Shell console, enter the following command to verify that the Azure Resource Provider has been registered:
-
-  `az provider show --namespace Microsoft.NetApp`
+    
+        az provider show --namespace Microsoft.NetApp
 
   The command output appears as follows:
    
@@ -82,15 +82,15 @@ You must also register the **AllowBaremetalServers** feature from the Network Re
 
 #### Steps
 
-1.  In the Azure Cloud Shell console, enter the following command to register the AllowBaremetalServers feature:   
-
-   `az feature register –-name AllowBaremetalServers --namespace Microsoft.Network --wait `
+1.  In the Azure Cloud Shell console, enter the following command to register the AllowBaremetalServers feature:
+    
+        az feature register –-name AllowBaremetalServers --namespace Microsoft.Network --wait
 
    The `--wait` parameter instructs the console to wait for the registration to complete. The registration process can take some time to complete.
 
-2.	In the Azure Cloud Shell console, enter the following command to verify that the AllowedBaremetalServers feature has been registered:   
-
-   `az feature show –-name AllowBaremetalServers --namespace Microsoft.Network`
+2.	In the Azure Cloud Shell console, enter the following command to verify that the AllowedBaremetalServers feature has been registered:
+    
+        az feature show –-name AllowBaremetalServers --namespace Microsoft.Network
    
    The command output appears as follows:
    
@@ -100,7 +100,6 @@ You must also register the **AllowBaremetalServers** feature from the Network Re
         "registrationState": "Registered",
         "resourceTypes": [….
   
-
    `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 
 
