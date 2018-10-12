@@ -27,22 +27,29 @@ You can use the following Azure Automation solutions to manage Windows VMs that 
 
 - **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. The Inventory tracking for an Azure Stack Windows virtual machine provides a browser-based user interface for setting up and configuring inventory collection. 
 
-These solutions are the same as the ones used to manage Azure VMs. Both Azure and Azure Stack Windows VMs are managed in the same way, from the same interface, using the same tools.
+> [!IMPORTANT]
+> These solutions are the same as the ones used to manage Azure VMs. Both Azure and Azure Stack Windows VMs are managed in the same way, from the same interface, using the same tools.
 
 ## Prerequisites
 Several prerequisites must be met before using these solutions to update and manage Azure Stack Windows VMs. These include steps that must be taken in the Azure portal as well as the Azure Stack administration portal.
 
 ### In the Azure portal
-To configure the Update Management, Change Tracking, and Inventory solutions for Azure Stack Windows VMs, you first need to enable these solutions in Azure.
+To use the inventory, change tracking, and update management solutions for Azure Stack Windows VMs, you first need to enable these solutions in Azure.
 
-> [!NOTE]
-> If you already have these solutions enabled for Azure VMs, you can directly use the LogAnalytics WorkspaceID and Key, and go to the Azure Stack Administration Portal section.
+> [!TIP]
+> If you already have these solutions enabled for Azure VMs, you can use your pre-existing LogAnalytics Workspace credentials. If you already have a LogAnalytics WorkspaceID and Primary Key that you want to use, skip ahead to the next section. Otherwise, continue in this section to create a new LogAnalytics Workspace and automation account.
 
 The first step in enabling these solutions is to [create a LogAnalytics Workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) in your Azure subscription. After you have created a workspace, note the WorkspaceID and Key. To view this information, go to the workspace blade, click on **Advanced settings**, and review the **Workspace ID** and **Primary Key** values.
 
-Next, you must [create an Automation Account](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). Once the automation account is created, you need to enable the Update Management, Change Tracking, and Inventory solutions. To do this, in the Azure portal go to the Automation Account and, under the **Update Management**, enable the solutions using the LogAnalytics workspace and the Automation Account.
+Next, you must [create an Automation Account](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). Once the automation account is created, you need to enable the Inventory, Change tracking, and Update management solutions. To do this, follow these steps for each of the solutions:
 
-  ![The Update Management solution, after it was enabled](media/vm-update-management/1.PNG) 
+1. In the Azure portal, go to the Automation Account that you want to use.
+2. Select the solution to enable (either **Inventory**, **Change tracking**, or **Update management**).
+3. Use the **Select Workspace...** drop-down list to select the Log Analytics Workpace to use.
+4. Verify that all remaining information is correct, and then click **Enable** to enable the solution.
+5. Repeat steps 2-4 to enable all three solutions. 
+
+    [![](media/vm-update-management/1-sm.PNG "Enable automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
 
 ### In the Azure Stack Administration Portal
 After enabling the Azure Automation solutions in the Azure portal, you next need to sign in to the Azure Stack administration portal as a cloud administrator and download the **Azure Update and Configuration Management** extension Azure Stack marketplace item. 
