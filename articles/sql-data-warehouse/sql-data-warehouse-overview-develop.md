@@ -2,21 +2,16 @@
 title: Resources for developing a data warehouse in Azure | Microsoft Docs
 description: Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: barbkess
-editor: ''
-
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: develop
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 08/29/2018
+ms.author: kevinvngo
+ms.reviewer: igorstan
 ---
+
 # Design decisions and coding techniques for SQL Data Warehouse
 Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for SQL Data Warehouse.
 
@@ -46,7 +41,7 @@ These articles highlight specific coding techniques, tips, and recommendations f
 * [variable assignment][variable assignment]
 
 ## Next steps
-For more reference information, see the [Transact-SQL reference][Transact-SQL reference] page for SQL Data Warehouse.
+For more reference information, see [SQL Data Warehouse T-SQL statements](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 
@@ -68,7 +63,7 @@ For more reference information, see the [Transact-SQL reference][Transact-SQL re
 [user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
 [variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
 [views]: ./sql-data-warehouse-develop-views.md
-[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
