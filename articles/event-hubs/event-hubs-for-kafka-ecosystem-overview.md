@@ -66,7 +66,7 @@ This article provided an introduction to Event Hubs for Kafka. To learn more, se
 
 * [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md)
 * [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [Explore more samples on our GitHub] (https://github.com/Azure/azure-event-hubs-for-kafka)
+* [Explore more samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 * Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
