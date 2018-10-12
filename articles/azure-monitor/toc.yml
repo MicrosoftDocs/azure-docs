@@ -539,6 +539,8 @@
           href: ../log-analytics/log-analytics-network-performance-monitor-expressroute.md?toc=/azure/azure-monitor/toc.json
         - name: Pricing
           href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
+        - name: FAQ
+          href: ../log-analytics/log-analytics-network-performance-monitor-faq.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor virtual machines
       items:
       - name: Azure Monitor for VMs

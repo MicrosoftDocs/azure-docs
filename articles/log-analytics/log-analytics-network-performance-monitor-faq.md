@@ -221,4 +221,4 @@ NPM rounds the latency numbers in the UI and in milliseconds. The same data is s
 
 ## Next steps
 
-- Learn more about Network Performance Monitor by referring to [Network Performance Monitor solution in Azure](log-analytics-network-performance-monitor.md)
+- Learn more about Network Performance Monitor by referring to [Network Performance Monitor solution in Azure](log-analytics-network-performance-monitor.md).
