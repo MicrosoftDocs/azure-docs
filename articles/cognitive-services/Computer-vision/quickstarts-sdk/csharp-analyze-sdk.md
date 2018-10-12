@@ -16,14 +16,14 @@ ms.author: nolachar
 
 In this quickstart, you analyze both a local and a remote image to extract visual features using the Computer Vision Windows client library.
 
-> [!TIP]
-> Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
-
 ## Prerequisites
 
 * To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 * Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 * The [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
+
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## AnalyzeImageAsync method
 

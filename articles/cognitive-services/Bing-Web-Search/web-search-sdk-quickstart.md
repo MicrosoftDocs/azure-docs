@@ -16,9 +16,6 @@ ms.author: erhopf
 
 The Bing Web Search SDK makes it easy to integrate Bing Web Search into your C# application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 
-> [!TIP]
-> Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Prerequisites
@@ -30,6 +27,9 @@ Here are a few things that you'll need before running this quickstart:
   * [C# for Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [NuGet Package Manager](https://github.com/jmrog/vscode-nuget-package-manager)
 * [.Net Core SDK](https://www.microsoft.com/net/download)
+
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
 ## Create a project and install dependencies
 

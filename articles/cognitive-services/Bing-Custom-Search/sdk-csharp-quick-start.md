@@ -17,9 +17,6 @@ ms.author: scottwhi
 
 The Bing Custom Search SDK provides an easier programming model than the Bing Custom Search REST API. This section walks you through making your first Custom Search calls using the C# SDK.
 
-> [!TIP]
-> Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
-
 ## Prerequisites
 
 To complete this quickstart, you need:
@@ -41,6 +38,9 @@ Installing the NuGet Custom Search package also installs the following assemblie
 
 
 ## Run the code
+
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
 To run this example, follow these steps:
 

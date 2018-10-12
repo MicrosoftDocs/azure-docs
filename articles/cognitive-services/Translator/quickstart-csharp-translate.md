@@ -16,14 +16,14 @@ ms.author: nolachar
 
 In this quickstart, you translate text from one language to another using the Translator Text API.
 
-> [!TIP]
-> Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
-
 ## Prerequisites
 
 You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
 
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
+
+> [!TIP]
+> Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## Translate request
 
