@@ -37,7 +37,7 @@ An Application resource is the unit of deployment, versioning, and lifetime of a
 - Container name, version, and registry
 - CPU and memory resources required for each container
 - Network endpoints
-- Volumes to mount in the container, referencing a separate volume resource.
+- References to other resources such networks, volumes, and secrets 
 
 All the code packages defined as part of a Service resource are deployed and activated together as a group. The Service resource also describes how many instances of the service to run and also references other Resources (for example, Network resource) it depends upon.
 
@@ -68,10 +68,13 @@ As alluded earlier, the lifecycle of each Application instance can be managed in
 
 ## Networks
 
-Network resource is individually deployable resource, independent of an Application or Service resource that may refer to it as their dependency. It is used to create a private network for your applications. Multiple Services from different Applications can be part of the same network.
+Network resource is individually deployable resource, independent of an Application or Service resource that may refer to it as their dependency. It is used to create a private network for your applications. Multiple Services from different Applications can be part of the same network.  Service Fabric Mesh also provides isolated networks, which allow Services to communicate with each other directly.  Service communications do not go through the Azure Load Balancer, making communication faster.
 
 > [!NOTE]
 > The current preview only supports a one to one mapping between applications and networks
+
+## Gateways
+A gateway connects two networks and routes traffic.  A gateway allows your services to communicate with external clients and provides an ingress into your service(s).  A gateway can also be used to connect your Mesh application with your own, existing virtual network.
 
 ## Volumes
 
