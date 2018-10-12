@@ -22,7 +22,12 @@
 
 1. Open your app registration pane, and click **Settings** > **Required permissions**:
     - Click **Add** on the top left to open the **Add API access** pane.
-    - Click **Select an API**, search for **Azure Smart Spaces** API, select the **Azure Digital Twins (Azure Smart Spaces Service)** and click **Select**.
+    - Click **Select an API** and search for **Azure Digital Twins**.
+    
+        >[!TIP]
+        >If your search doesn't locate the API, search for **Azure Smart Spaces** instead.
+        
+    - Select the **Azure Digital Twins (Azure Smart Spaces Service)** option and click **Select**.
 
         ![Azure Active Directory app registration add api](./media/digital-twins-permissions/aad-app-reg-service.png)
 

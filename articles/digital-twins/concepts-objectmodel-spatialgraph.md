@@ -6,21 +6,23 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 10/08/2018
 ms.author: alinast
 ---
 
 # Understanding Digital Twins Object Models and Spatial Intelligence Graph
 
-Azure Digital Twins is a service in the Azure IoT Platform that allows you to create a comprehensive model of the physical environment. It provides a spatial intelligence graph and pre-loaded domain-specific concepts to model the relationships and interactions between people, spaces, and devices.
+Azure Digital Twins is an Azure IoT service that powers comprehensive virtual representations of physical environments and associated devices, sensors, and people. It improves development by organizing domain-specific concepts into helpful models, which are themselves situated within a spatial intelligence graph. Such concepts faithfully model the relationships and interactions between people, spaces, and devices.
 
-We start first with _Digital Twins Object Models_ to describe domain-specific concepts, categories, and properties. Models are predefined by users who are looking to customize the solution for their specific needs. Together, these pre-defined Digital Twins Object Models make up an _Ontology_. A smart buildings ontology would describe regions, venues, floors, offices, zones, conference rooms, and focus rooms. An energy grid ontology would describe various power stations, substations, energy resources, and customers. These Digital Twins Object Models and ontologies allow you to customize the Azure Digital Twins service to your needs.
+_Digital Twins Object Models_ describe domain-specific concepts, categories, and properties. Models are predefined by users who are looking to tailor the solution to their specific needs. Together, these pre-defined Digital Twins Object Models make up an _Ontology_. A smart building's ontology would describe regions, venues, floors, offices, zones, conference rooms, and focus rooms. An energy grid ontology would describe various power stations, substations, energy resources, and customers. These Digital Twins Object Models and ontologies allow customizing Azure Digital Twins to diverse scenarios and needs.
 
-With the _Digital Twins Object Models_ and _Ontology_ in place, you can now build your _Spatial Graph_. This spatial graph is the virtual representation of the relationship and structure between spaces, devices, and people. Using a smart buildings ontology, the diagram below shows an example of a spatial graph. The spatial graph brings together spaces, devices, sensors, and users. Each is linked together in a way that models the real world: venue 43 has four floors, each with multiple different areas. Users are associated with their workstations and are given access to portions of the graph.  For example, an administrator would have rights to make changes to the spatial graph while a visitor might only have rights to view certain building data.
+With _Digital Twins Object Models_ and _Ontology_ in place, one can populate a _Spatial Graph_. Spatial graphs are virtual representations of the many relationships between spaces, devices, and people relevant to an IoT solution. The diagram below shows an example of a spatial graph using a smart building's ontology.
 
 ![Digital Twins Spatial Graph Building][1]
 
 <a id="model" />
+
+The spatial graph brings together spaces, devices, sensors, and users. Each is linked together in a way that models the real world: venue 43 has four floors, each with multiple different areas. Users are associated with their workstations and are given access to portions of the graph.  For example, an administrator would have rights to make changes to the spatial graph while a visitor might only have rights to view certain building data.
 
 ## Digital Twins Object Models
 
@@ -80,11 +82,11 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 ![Digital Twins Portal Management API][2]
 
-For more details on how to use the Spatial Intelligence Graph, please visit the Azure Digital Twins Management APIs sneak preview.
+For more details on using Spatial Intelligence Graphs, visit the Azure Digital Twins Management APIs sneak preview.
 
->[!TIP]
->For your convenience, a Swagger sneak preview is provided to demonstrate the API feature set.
->It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+> [!TIP]
+> A Swagger sneak preview is provided to demonstrate the API feature set.
+> It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
 Learn more about [how to use Swagger](how-to-use-swagger.md).
 
