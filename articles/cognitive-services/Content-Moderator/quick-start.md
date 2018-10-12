@@ -13,28 +13,26 @@ ms.date: 01/15/2018
 ms.author: sajagtap
 ---
 
-# Get started with Content Moderator
+# Quickstart: Get familiar with Content Moderator
 
-You get started with Content Moderator in the following ways:
+This article will show you how to use the online Content Moderator Review Tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
 
-- [Start with the review tool](#start-with-the-review-tool) to get the API key and create a review team. The benefit is that you can use the API key to call the moderation APIs for scanning content and the review APIs for generating reviews, without additional steps.
 - [Subscribe to Content Moderator](#start-with-the-apis) in Azure to get the API key. Check out the [API reference](api-reference.md) and the [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). You still need to sign up online to create a review team.
 - [Use the Flow connector and templates](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) to check out a wide range of integrations with an easy-to-use designer.
 
 Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
 
 ## Start with the review tool
-[Sign up](http://contentmoderator.cognitive.microsoft.com/) on the Content Moderator review tool web site.
+The Content Moderator Review Tool is a web-based tool that allows human reviewers to aid the cognitive service in making the desired decision. In this guide, you will go through the short process of setting up the review tool so that you can see how the Content Moderator service works. Go to the [Content Moderator Review Tool](http://contentmoderator.cognitive.microsoft.com/) site and sign up.
 
 ![Content Moderator Home Page](images/homepage.PNG)
 
-### Create a review team
-Give your team a name. If you want to invite your colleagues, you can do so by entering their email addresses.
+Next, create a review team. You only need to give your team a name, but if you wish to invite your colleagues to the team, you can do so by entering their email addresses here.
 
 ![Invite team member](images/QuickStart-2-small.png)
 
-### Upload images or enter text
-Click **Try > Image** or **Try > Text**. Upload up to five sample images or enter sample text for moderation.
+Now you are ready to upload sample content.
+Select **Try > Image**, **Try > Text**, or **Try > Video**. This guide will follow the workflow for text moderation.
 
 ![Try Image or Text Moderation](images/tryimagesortext.png)
 
