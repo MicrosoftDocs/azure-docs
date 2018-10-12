@@ -49,7 +49,7 @@ For more information about SaaS technical requirements, see [SaaS applications O
 ## Azure AD integration
 
 - For information on how to enable single sign-on by integrating Azure AD into your listing, see [Azure Active Directory for developers]( https://aka.ms/aaddev).
-- To get details about Azure AD single sign-on, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+- To get details about Azure AD single sign-on, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 ## Enable a trial listing with Azure AD
 
