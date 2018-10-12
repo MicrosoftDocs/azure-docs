@@ -22,9 +22,9 @@ Azure Database for MariaDB is a relational database service in the Microsoft clo
 - Automatic backups and point-in-time-restore for up to 35 days.
 - Enterprise-grade security and compliance.
 
-These capabilities require almost no administration and all are provided at no additional cost. They allow you to focus on rapid app development and accelerating your time to market rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice to deliver with the speed and efficiency your business demands, all without having to learn new skills.
+These capabilities require almost no administration. They're provided at no additional cost. Instead of allocating precious time and resources to managing virtual machines and infrastructure, you can use MariaDB to rapidly develop your app and accelerate your time to market. You can also continue to develop your application by usinig the open-source tools and platform of your choice. Deliver with the speed and efficiency your business demands, all without learning new skills.
 
-This article is an introduction to Azure Database for MariaDB core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quickstarts to get you started:
+Learn about core concepts and features in Azure Database for MariaDB, including performance, scalability, and manageability. See these quickstarts to get started:
 - [Create an Azure Database for MariaDB server using Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - [Create an Azure Database for MariaDB server using Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
@@ -43,13 +43,13 @@ How do you decide when to dial up and down? You use the built-in performance mon
 
 ## Keep your app and business running
 
-Azure's industry leading 99.99% availability service level agreement (SLA) (not offered during public preview), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. With every Azure Database for MariaDB server, you benefit from built-in security, fault tolerance, and data protection that you would otherwise have to buy or design, build, and manage. With Azure Database for MariaDB, you can use point-in-time restore to recover a server to an earlier state, as far back as 35 days.
+Azure's industry-leading 99.99% availability SLA (not offered during public preview) is powered by a global network of Microsoft-managed datacenters. It helps keep your app running 24/7. Every Azure Database for MariaDB server helps you gain built-in security, fault tolerance, and data protection that you would otherwise have to buy or design, build, and manage. With Azure Database for MariaDB, you can use point-in-time restore to recover a server to an earlier state, as far back as 35 days.
 
 ## Secure your data
 
-Azure database services have a tradition of data security that Azure Database for MariaDB upholds, with features that limit access, protect data at rest and in motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/en-us/trustcenter/security) for information about Azure's platform security.
+Azure database services have a tradition of data security that Azure Database for MariaDB upholds. Azure Database for MariaDB offers features that limit access, protect data at rest and in motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/en-us/trustcenter/security) for information about Azure's platform security.
 
-The Azure Database for MariaDB service uses storage encryption for data at rest. Data, including backups, is encrypted on disk (with the exception of temporary files that are created by the engine when it runs queries). The service uses AES 256-bit cipher, which is included in Azure storage encryption. The keys are system managed. Storage encryption is always on and can't be disabled.
+The Azure Database for MariaDB service uses storage encryption for data at rest. Data, including backup data, is encrypted on disk (with the exception of temporary files that are created by the engine when it runs queries). The service uses AES 256-bit cipher, which is included in Azure storage encryption. The keys are system managed. Storage encryption is always on and can't be disabled.
 
 By default, the Azure Database for MariaDB service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in motion across the network. Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. Optionally, you can disable the SSL requirement for connecting to your database service if your client application doesn't support SSL connectivity.
 
