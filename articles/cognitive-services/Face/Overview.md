@@ -82,6 +82,12 @@ Take a look at these sample applications that make use of Face API.
 - [Video Frame Analysis Sample](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
   - Win32 sample app that shows analyzing live video streams in near real time using the Face, Computer Vision, and Emotion APIs.
 
+## Tutorials
+The following tutorials demonstrate the Face API's basic functionalities and subscriptions processes:
+- [Getting Started with Face API in CSharp Tutorial](Tutorials/FaceAPIinCSharpTutorial.md)
+- [Getting Started with Face API in Java for Android Tutorial](Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+- [Getting Started with Face API in Python Tutorial](Tutorials/FaceAPIinPythonTutorial.md)
+
 ## Next steps
 
 Try a quickstart to implement a simple Face API scenario.
