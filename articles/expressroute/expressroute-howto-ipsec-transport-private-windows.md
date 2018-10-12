@@ -84,15 +84,15 @@ Ensure that you meet the following prerequisites:
 4. Create an IPsec Policy with **Security Rules**.
 5. Assign the IPsec GPO to the OU.
 
-#### Example values
+### Example values
 
-**Domain Name:** ipsectest.com
+* **Domain Name:** ipsectest.com
 
-**OU:** IPSecOU
+* **OU:** IPSecOU
 
-**On-premises Windows computer:** host1
+* **On-premises Windows computer:** host1
 
-**Azure Windows VMs:** vm1, vm2
+* **Azure Windows VMs:** vm1, vm2
 
 ## <a name="creategpo"></a>1. Create a GPO
 
