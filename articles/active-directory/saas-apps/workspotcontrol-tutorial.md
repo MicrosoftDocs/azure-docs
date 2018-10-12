@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/12/2018
 ms.author: jeedes
 
 ---
@@ -207,9 +207,9 @@ To enable Azure AD users to log in to Workspot Control, they must be provisioned
 
 	c. In **Email** text box, enter the email of user like **Brittasimon@contoso.com**.
 
-	d. Select the appropriate role from the **Role** dropdown as per your organisaton.
+	d. Select the appropriate user role from the **Role** dropdown.
 
-	e. Select the appropriate group from the **Group** dropdown as per your organisaton.
+	e. Select the appropriate user group from the **Group** dropdown.
 
 	f. Click **Add User**.
 
