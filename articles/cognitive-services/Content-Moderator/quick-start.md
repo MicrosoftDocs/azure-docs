@@ -32,7 +32,7 @@ Next, create a review team. You only need to give your team a name, but if you w
 ![Invite team member](images/QuickStart-2-small.png)
 
 Now you are ready to upload sample content.
-Select **Try > Image**, **Try > Text**, or **Try > Video**. This guide will follow the workflow for text moderation.
+Select **Try > Image**, **Try > Text**, or **Try > Video**.
 
 ![Try Image or Text Moderation](images/tryimagesortext.png)
 
@@ -40,9 +40,7 @@ Submit your content for moderation. Internally, the review tool will call the mo
 
 ![Moderate files](images/submitted.png)
 
-Review the applied moderation tags. You can see which tags were applied to your content and what the score was in each category. See the [Tags guide](TODO) for information on what the different moderation tags indicate. 
-
-TODO: text or images? is there a database?
+Review the applied moderation tags. You can see which tags were applied to your content and what the score was in each category.
 
 ![Review results](images/reviewresults.png)
 
