@@ -97,4 +97,4 @@ Dive deep into a facilities management application using Azure Digital Twins:
 Learn about core Azure Digital Twins concepts:
 
 > [!div class="nextstepaction"]
-> [Understanding the Digital Twins Object Model and Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md)
+> [Understanding the Digital Twins object model and spatial intelligence graph](./concepts-objectmodel-spatialgraph.md)
