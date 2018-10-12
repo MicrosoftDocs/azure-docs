@@ -25,7 +25,7 @@ Computer Vision can recognize printed and handwritten text in images that meet t
 
 - The image must be presented in JPEG, PNG, or BMP format
 - The file size of the image must be less than 4 megabytes (MB)
-- The dimensions of the image must be between 40 x 40 and 3200 x 3200 pixels
+- The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels
 
 > [!NOTE]
 > This technology is currently in preview and is only available for English text.
