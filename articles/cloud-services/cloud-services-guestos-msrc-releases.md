@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/13/2018
+ms.date: 10/9/2018
 ms.author: raiye
 
 ---
@@ -63,7 +63,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4338815] |July Non-Security rollup |4.57 | July 10, 2018 |
 | N/A | [4338424] |July Non-Security .NET 3.5 rollup |3.64 | July 10, 2018 |
 | N/A | [4338415] |July Non-Security .NET 4x rollup |3.64 | July 10, 2018 |
-
 
 ## July Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -735,6 +734,27 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4457131]: http://support.microsoft.com/kb/4457131
+[4457145]: http://support.microsoft.com/kb/4457145
+[4457140]: http://support.microsoft.com/kb/4457140
+[4457143]: http://support.microsoft.com/kb/4457143
+[4457055]: http://support.microsoft.com/kb/4457055
+[4457030]: http://support.microsoft.com/kb/4457030
+[4457053]: http://support.microsoft.com/kb/4457053
+[4457029]: http://support.microsoft.com/kb/4457029
+[4457056]: http://support.microsoft.com/kb/4457056
+[4457028]: http://support.microsoft.com/kb/4457028
+[4457146]: http://support.microsoft.com/kb/4457146
+[4457426]: http://support.microsoft.com/kb/4457426
+[4343900]: http://support.microsoft.com/kb/4343900
+[4344152]: http://support.microsoft.com/kb/4344152
+[4344149]: http://support.microsoft.com/kb/4344149
+[4343901]: http://support.microsoft.com/kb/4343901
+[4344150]: http://support.microsoft.com/kb/4344150
+[4344148]: http://support.microsoft.com/kb/4344148
+[4343898]: http://support.microsoft.com/kb/4343898
+[4344153]: http://support.microsoft.com/kb/4344153
+[4344147]: http://support.microsoft.com/kb/4344147
 
 [4457131]: http://support.microsoft.com/kb/4457131
 [4457145]: http://support.microsoft.com/kb/4457145

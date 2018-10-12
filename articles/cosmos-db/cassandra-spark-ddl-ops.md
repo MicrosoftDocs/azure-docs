@@ -22,7 +22,7 @@ This article details keyspace and table DDL operations against Azure Cosmos DB C
 ```scala
 import org.apache.spark.sql.cassandra._
 
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 

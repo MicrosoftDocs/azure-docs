@@ -1,13 +1,14 @@
 ---
-title: Bing Image Search single-page Web app | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Shows how to use the Bing Image Search API in a single-page Web application.
+title: "Tutorial: Build a single-page Web app - Bing Visual Search"
+titleSuffix: Azure Cognitive Services
+description: Shows how to use the Bing Visual Search API in a single-page Web application.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-brapel
 ---

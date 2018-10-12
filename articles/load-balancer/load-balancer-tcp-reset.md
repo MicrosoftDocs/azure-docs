@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/08/2018
 ms.author: kumud
 ---
 
@@ -72,6 +72,7 @@ This parameter is currently effective in the following regions.  In regions not 
 | Region |
 |---|
 | Asia Southeast |
+| Europe West |
 | US East 2 |
 | US North |
 | US West |

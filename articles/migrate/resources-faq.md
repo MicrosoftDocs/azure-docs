@@ -49,7 +49,7 @@ Azure Migrate currently supports East US and West Central US as migration projec
 
 The connection can be over the internet or use ExpressRoute with public peering.
 
-### Can I harden the VM set up with the.OVA template?
+### Can I harden the VM set up with the .OVA template?
 
 Additional components (for example anti-virus) can be added into the .OVA template as long as the communication and firewall rules required for the Azure Migrate appliance to work are left as is.   
 

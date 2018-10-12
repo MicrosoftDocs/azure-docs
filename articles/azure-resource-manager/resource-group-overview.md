@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/26/2018
 ms.author: tomfitz
 
 ---
@@ -151,6 +151,12 @@ After defining your template, you're ready to deploy the resources to Azure. For
 * [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md)
 * [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md)
 
+## Safe deployment practices
+
+When deploying a complex service to Azure, you might need to deploy your service to multiple regions, and check its health before proceeding to the next step. Use [Azure Deployment Manager](deployment-manager-overview.md) to coordinate a staged rollout of the service. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need these precautions, the deployment operations in the preceding section are the better option.
+
+Deployment Manager is currently in public preview.
+
 ## Tags
 Resource Manager provides a tagging feature that enables you to categorize resources according to your requirements for managing or billing. Use tags when you have a complex collection of resource groups and resources, and need to visualize those assets in the way that makes the most sense to you. For example, you could tag resources that serve a similar role in your organization or belong to the same department. Without tags, users in your organization can create multiple resources that may be difficult to later identify and manage. For example, you may wish to delete all the resources for a particular project. If those resources aren't tagged for the project, you have to manually find them. Tagging can be an important way for you to reduce unnecessary costs in your subscription. 
 
@@ -172,20 +178,6 @@ The following example shows a tag applied to a virtual machine.
   }
 ]
 ```
-
-To retrieve all the resources with a tag value, use the following PowerShell cmdlet:
-
-```powershell
-Find-AzureRmResource -TagName costCenter -TagValue Finance
-```
-
-Or, the following Azure CLI command:
-
-```azurecli
-az resource list --tag costCenter=Finance
-```
-
-You can also view tagged resources through the Azure portal.
 
 The [usage report](../billing/billing-understand-your-bill.md) for your subscription includes tag names and values, which enables you to break out costs by tags. For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
@@ -224,29 +216,8 @@ In some cases, you want to run code or script that accesses resources, but you d
 
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
-## Activity logs
-Resource Manager logs all operations that create, modify, or delete a resource. You can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource. You can filter the logs by many different values including which user initiated the operation. For information about working with the activity logs, see [View activity logs to manage Azure resources](resource-group-audit.md).
-
 ## Customized policies
 Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include diverse scenarios. You can enforce a naming convention on resources, limit which types and instances of resources can be deployed, or limit which regions can host a type of resource. You can require a tag value on resources to organize billing by departments. You create policies to help reduce costs and maintain consistency in your subscription. 
-
-You define policies with JSON and then apply those policies either across your subscription or within a resource group. Policies are different than role-based access control because they're applied to resource types.
-
-The following example shows a policy that ensures tag consistency by specifying that all resources include a costCenter tag.
-
-```json
-{
-  "if": {
-    "not" : {
-      "field" : "tags",
-      "containsKey" : "costCenter"
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}
-```
 
 There are many more types of policies you can create. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).
 

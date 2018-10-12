@@ -27,7 +27,7 @@ This quickstart helps you configure a firewall for your Azure Analysis Services 
 
 1. Click on your server to open the Overview page. 
 2. In **SETTINGS** > **Firewall** > **Enable firewall**, click **On**.
-3. To allow DirectQuery access from Power BI service, in **Allow accesss from Power BI**, click **On**.  
+3. To allow DirectQuery access from Power BI service, in **Allow access from Power BI**, click **On**.  
 4. (Optional) Specify one or more IP address ranges. Enter a name, starting, and ending IP address for each range. 
 5. Click **Save**.
 

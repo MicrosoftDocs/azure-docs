@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: yashar
+ms.author: cwatson
 ---
 # Understand how an Azure reservation discount is applied to SQL Databases
 

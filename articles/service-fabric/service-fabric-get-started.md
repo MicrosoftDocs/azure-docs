@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/25/2018
 ms.author: ryanwi
 
 ---
@@ -44,6 +44,8 @@ The following operating system versions are supported for development:
 >
 
 ## Install the SDK and tools
+Web Platform Installer (WebPI) is the recommended way to install the SDK and tools. If you receive runtime errors using WebPI, you can also find direct links to the installers in the release notes for a specific Service Fabric release. The release notes can be found in the various release announcements on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
+
 ### To use Visual Studio 2017
 The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
 In addition, you need to install the Microsoft Azure Service Fabric SDK and runtime using Web Platform Installer.
@@ -60,8 +62,8 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.2.176
-* Service Fabric runtime 6.3.176
+* Service Fabric SDK and Tools 3.2.187
+* Service Fabric runtime 6.3.187
 * Service Fabric Tools for Visual Studio 2015 2.3.10710.3
 * Visual Studio 2017 15.7 includes Service Fabric Tools for Visual Studio 2.3.10710.1 
 
@@ -87,7 +89,6 @@ Now that you've finished setting up your development environment, start building
 * [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
 * [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
-* [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric campaign page"

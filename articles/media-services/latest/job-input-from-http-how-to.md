@@ -18,7 +18,7 @@ ms.author: juliako
 
 In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. One of the options is to specify an HTTP(s) URL as a job input (as shown in this example). Note that currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs. For a full example, see this [github sample](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
-## .Net sample
+## .NET sample
 
 The following code shows how to create a job with an HTTPS URL input.
 

@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
+ms.reviewer: spunukol
 
 
 #Customer intent: As a IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
@@ -47,7 +47,7 @@ Stale devices in Azure AD can interfere with the general lifecycle policies for 
 
 ## Detect stale devices
 
-Because a stale device is defined as registered device that hasn't been used to access any cloud apps for a specific timeframe, detecting stale devices requires a timestamp-related property. In Azure AD, this property is called **ApproximateLastLogonTimestamp** or **activity timestamp**. If the delta between now and the value of the **activity timestamp** exceeds the timeframe you have defined for active devices, a device is considered to be stale.
+Because a stale device is defined as registered device that hasn't been used to access any cloud apps for a specific timeframe, detecting stale devices requires a timestamp-related property. In Azure AD, this property is called **ApproximateLastLogonTimestamp** or **activity timestamp**. If the delta between now and the value of the **activity timestamp** exceeds the timeframe you have defined for active devices, a device is considered to be stale. This **activity timestamp** is now in public preview.
 
 ## How is the value of the activity timestamp managed?  
 
@@ -101,7 +101,7 @@ Define a timeframe that is your indicator for a stale device. When defining your
 
 ### Disable devices
 
-It is not advisable to immediately delete a device that appears to be stale because you can't undo a deletion in the case of false positives. As a best practice, disable a device for a grace period before deleting it. In your policy, define a timeframe to disable a policy before deleting it.
+It is not advisable to immediately delete a device that appears to be stale because you can't undo a deletion in the case of false positives. As a best practice, disable a device for a grace period before deleting it. In your policy, define a timeframe to disable a device before deleting it.
 
 
 ### MDM-controlled devices
@@ -111,7 +111,7 @@ If your device is under control of Intune or any other MDM solution, retire the 
 
 ### System-managed devices
 
-Don't delete system-managed devices. These are generally devices such as auto-pilot. Once deleted, these devices  can't be reprovisioned. The new Get-MmsolDevice cmdlet excludes system-managed devices by default. 
+Don't delete system-managed devices. These are generally devices such as auto-pilot. Once deleted, these devices  can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
 
 
 ### Hybrid Azure AD joined devices
@@ -137,7 +137,7 @@ Disable or delete Azure AD registered devices in the Azure AD.
 
 
 
-## Cleanup stale devices in the Azure portal  
+## Clean up stale devices in the Azure portal  
 
 While you can cleanup stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V1 module to use the timestamp filter and to filter out system-managed devices such as auto-pilot. At this point, using PowerShell V2 is not recommended.
 
@@ -150,7 +150,9 @@ A typical routine consists of the following steps:
 
 3. Disable the device using the [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet. 
 
-4. Remove the device using the [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet.
+4. Wait for the grace period of however many days you choose before deleting the device.
+
+5. Remove the device using the [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet.
 
 ### Get the list of devices
 

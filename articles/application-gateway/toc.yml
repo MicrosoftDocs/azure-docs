@@ -136,8 +136,6 @@
       href: create-web-app.md
   - name: Redirect web traffic using Azure PowerShell
     href: tutorial-url-redirect-powershell.md
-  - name: Create a zone redundant application gateway
-    href: create-zone-redundant.md
   - name: Custom probes
     items:
       - name: Portal
@@ -152,6 +150,8 @@
         href: application-gateway-troubleshooting-502.md
       - name: Diagnostics
         href: application-gateway-diagnostics.md
+  - name: Custom error pages
+    href: custom-error.md
 - name: Reference
   items:
   - name: CRS rules
