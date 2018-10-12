@@ -36,20 +36,20 @@ Listed below are the platform requirements for NPM's various capabilities:
 - NPM's ExpressRoute Monitor capability supports only Windows server (2008 SP1 or later) operating system.
 
 ### Can I use Linux machines as monitoring nodes in NPM?
-The capability to monitor networks using Linux-based nodes is currently in private preview. Reach out to your Account Manager to know more. Once you provide the workspace ID, we will go ahead and enable the capability. Note that Linux agents provide monitoring capability only for NPM's Performance Monitor capability, and are not available for the Service Connectivity Monitor and ExpressRoute Monitor capabilities
+The capability to monitor networks using Linux-based nodes is currently in private preview. Reach out to your Account Manager to know more. Once you provide the workspace ID, we will go ahead and enable the capability. Linux agents provide monitoring capability only for NPM's Performance Monitor capability, and are not available for the Service Connectivity Monitor and ExpressRoute Monitor capabilities
 
 ### What are the size requirements of the nodes to be used for monitoring by NPM?
-For running the NPM solution on node VMs to monitor networks, the nodes should have at least 500MB memory and 1 core. Note that you do not need to use separate nodes for running NPM. The solution can run on nodes that have other workloads running on it. The solution has the capability to stop the monitoring process in case it utilizes more than 5% CPU.
+For running the NPM solution on node VMs to monitor networks, the nodes should have at least 500 MB memory and one core. You do not need to use separate nodes for running NPM. The solution can run on nodes that have other workloads running on it. The solution has the capability to stop the monitoring process in case it utilizes more than 5% CPU.
 
 ### To use NPM, should I connect my nodes as Direct agent or through System Center Operations Manager?
 Both the Performance Monitor and the Service Connectivity Monitor capabilities support nodes [connected as Direct Agents](log-analytics-agent-windows.md) as well as [connected through Operations Manager](log-analytics-om-agents.md).
 
-In case of ExpressRoute Monitor capability, the Azure nodes should be connected as Direct Agents only. Azure nodes, which are connected through Operations Manager are not supported. In case of on-premises nodes, the nodes connected as Direct Agents as well as through Operations Manager are supported for monitoring an ExpressRoute circuit.
+For ExpressRoute Monitor capability, the Azure nodes should be connected as Direct Agents only. Azure nodes, which are connected through Operations Manager are not supported. For on-premises nodes, the nodes connected as Direct Agents as well as through Operations Manager are supported for monitoring an ExpressRoute circuit.
 
 ### Which protocol among TCP and ICMP should be chosen for monitoring?
 If you are monitoring your network using Windows server-based nodes, we recommend you use TCP as the monitoring protocol since it provides better accuracy. 
 
-In case of Windows desktops/client operating system based nodes, ICMP is recommended since this platform does not allow TCP data to be sent over raw sockets, which is required by NPM to discover network topology.
+For Windows desktops/client operating system-based nodes, ICMP is recommended since this platform does not allow TCP data to be sent over raw sockets, which is required by NPM to discover network topology.
 
 You can get more details on the relative advantages of each protocol [here](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
@@ -73,7 +73,7 @@ You should use at least one agent for each subnet that you want to monitor.
 Source agents send either TCP SYN requests (if TCP is chosen as the protocol for monitoring) or ICMP ECHO requests (if ICMP is chosen as the protocol for monitoring) to destination IP at regular intervals to ensure that all the paths between the source-destination IP combination are covered. The percentage of packets received and packet round-trip time is measured to calculate the loss and latency of each path. This data is aggregated over the polling interval and over all the paths to get the aggregated values of loss and latency for the IP combination for the particular polling interval.
 
 ### With what frequency does the source agent send packets to the destination for monitoring?
-In case of the Performance Monitor and ExpressRoute Monitor capabilities, the source sends packets every 5 seconds and records the network measurements. This data is aggregated over a 3-minute polling interval to calculate the average and peak values of loss and latency. In case of the Service Connectivity Monitor capability, the frequency of sending the packets for network measurement is determined by the frequency entered by the user for the specific test while configuring the test.
+For Performance Monitor and ExpressRoute Monitor capabilities, the source sends packets every 5 seconds and records the network measurements. This data is aggregated over a 3-minute polling interval to calculate the average and peak values of loss and latency. For Service Connectivity Monitor capability, the frequency of sending the packets for network measurement is determined by the frequency entered by the user for the specific test while configuring the test.
 
 ### How many packets are sent for monitoring?
 The number of packets sent by the source agent to destination in a polling is adaptive and is decided by our proprietary algorithm, which can be different for different network topologies. More the number of network paths between the source-destination IP combination, more is the number of packets that are sent. The system ensures that all paths between the source-destination IP combination are covered.
@@ -88,7 +88,7 @@ Though NPM can detect all the possible routes between the source agent and the d
 Different network paths can exist between the source and destination IPs and each path can have a different value of loss and latency. NPM marks those paths as unhealthy (denoted with red color) for which the values of loss and/or latency is greater than the respective threshold set in the monitoring configuration.
 
 ### What does a hop in red color signify in the network topology map?
-If a hop is red it signifies that it is part of at-least one unhealthy path. NPM only marks the paths as unhealthy, it does not segregate the health status of each path. To identify the troublesome hops, you can view the hop-by-hop latency and segregate the ones adding more than expected latency.
+If a hop is red, it signifies that it is part of at-least one unhealthy path. NPM only marks the paths as unhealthy, it does not segregate the health status of each path. To identify the troublesome hops, you can view the hop-by-hop latency and segregate the ones adding more than expected latency.
 
 ### How does fault localization in Performance Monitor work?
 NPM uses a probabilistic mechanism to assign fault-probabilities to each network path, network segment, and the constituent network hops based on the number of unhealthy paths they are a part of. As the network segments and hops become part of more number of unhealthy paths, the fault-probability associated with them increases. This algorithm works best when you have many nodes with NPM agent connected to each other as this increases the data points for calculating the fault-probabilities.
@@ -171,7 +171,7 @@ Then,
 * If NPM workspace is linked with subscription B, then you will be able to monitor connectivity via ER to VNET B only.
 * If NPM workspace is linked with subscription C, then you will be able to monitor connectivity via ER to VNET C as well as MS peering.
 
-Note that the cross-subscription support will soon be available. After this you will be able to monitor all your ExpressRoute private and Microsoft peering connections in different subscriptions, from one workspace.
+The cross-subscription support will soon be available. After this you will be able to monitor all your ExpressRoute private and Microsoft peering connections in different subscriptions, from one workspace.
 ### The ER Monitor capability has a diagnostic message "Traffic is not passing through ANY circuit". What does that mean?
 
 There can be a scenario where there is a healthy connection between the on-premises and Azure nodes but the traffic is not going over the ExpressRoute circuit configured to be monitored by NPM. 
@@ -216,8 +216,8 @@ NPM only creates a local Windows Firewall rule on the nodes on which the EnableR
 ### How can I check the health of the nodes being used for monitoring?
 You can view the health status of the nodes being used for monitoring from the following view: Network Performance Monitor -> Configuration -> Nodes. If a node is unhealthy, you can view the error details and take the suggested action.
 
-### Can NPM report latency numbers in microseconds ?
-NPM rounds the latency numbers in the UI and in milliseconds. The same data is stored at a higher granularity (sometimes up to 4 decimal places).
+### Can NPM report latency numbers in microseconds?
+NPM rounds the latency numbers in the UI and in milliseconds. The same data is stored at a higher granularity (sometimes up to four decimal places).
 
 ## Next steps
 
