@@ -39,7 +39,7 @@ So, let's look a bit closer at the Azure virtual network creation for HANA Large
 
 You can use the Azure portal, PowerShell, an Azure template, or the Azure CLI to create the virtual network. (For more information, see [Create a virtual network using the Azure portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). In the following example, we look at a virtual network created by using the Azure portal.
 
-If we look into the definitions of an Azure virtual network through the Azure portal, we'll see how these definitions relate to what we list as different IP address ranges. When we're talking about the **address space**, we mean the address space that the Azure virtual network is allowed to use. This address space is also the address range that the virtual network uses for BGP route propagation. This **address space** can be seen here:
+We'll see how the definitions of the virtual networks relate to what we list as different IP address ranges. When we're talking about the **address space**, we mean the address space that the Azure virtual network is allowed to use. This address space is also the address range that the virtual network uses for BGP route propagation. This **address space** can be seen here:
 
 ![Address space of an Azure virtual network displayed in the Azure portal](./media/hana-overview-connectivity/image1-azure-vnet-address-space.png)
 
@@ -80,7 +80,7 @@ Following is a summary of the important fact about an Azure virtual network that
 
 ## Different IP address ranges to be defined 
 
-We already introduced some of the IP address ranges that are necessary to deploy HANA Large Instances in earlier sections. But there are more IP address ranges that are also important. Let's go through some more  details. The following IP addressesdon't all need to be submitted to Microsoft. However, they do need to be defined before sending a request for initial deployment:
+We already introduced some of the IP address ranges that are necessary to deploy HANA Large Instances in earlier sections. But there are more IP address ranges that are also important. Let's go through some more  details. The following IP addresses don't all need to be submitted to Microsoft. However, they do need to be defined before sending a request for initial deployment:
 
 - **Virtual network address space** As introduced earlier, the **virtual network address space** is the IP address range (or ranges) that you've assigned (or plan to assign) to your address space parameter in the Azure virtual network(s) that connect to the SAP HANA Large Instance environment.
 
