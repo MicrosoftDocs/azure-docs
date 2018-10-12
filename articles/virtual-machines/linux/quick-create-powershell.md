@@ -37,17 +37,19 @@ If you want to install and use the PowerShell locally, this tutorial requires th
 
 You need an SSH key pair to complete this quickstart. If you already have an SSH key pair, you can skip this step.
 
-Open a bash shell and use ssh-keygen to create an SSH key pair. If you don't have a bash shell on your local computer, you can use the [Azure Cloud Shell](https://shell.azure.com/bash).  
+Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If you don't have a bash shell on your local computer, you can use the [Azure Cloud Shell](https://shell.azure.com/bash).  
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-The command output includes the file name of the public key file. Display the key and copy it to your clipboard. In this example, the key is stored in the *.ssh* directory with the name *id_rsa.pub*.
+The above command generates public and private keys with the default name of `id_rsa` in the `~/.ssh directory`. The command returns the full path to the public key. Use the path to the public key to display its contents with `cat`.
 
 ```bash 
 cat ~/.ssh/id_rsa.pub
 ```
+
+Save the output of this command. You will need it when configuring your administrator account to log in to your VM.
 
 For more detailed information on how to create SSH key pairs, including the use of PuTTy, see [How to use SSH keys with Windows](ssh-from-windows.md).
 
@@ -191,7 +193,7 @@ Create an SSH connection with the VM using the public IP address. To see the pub
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Using the same bash shell you used to create your SSH key pair (like the [Azure Cloud Shell](https://shell.azure.com/bash) or your local bash shell) paste the SSH connection command into the shell to create a session.
+Using the same bash shell you used to create your SSH key pair (like the [Azure Cloud Shell](https://shell.azure.com/bash) or your local bash shell) paste the SSH connection command into the shell to create an SSH session.
 
 ```bash
 ssh azureuser@10.111.12.123
