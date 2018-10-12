@@ -46,7 +46,7 @@ How do you decide when to scale up or down? You can use the built-in performance
 
 ## Keep your app and business running
 
-Azure's industry-leading 99.99% availability SLA (not offered during public preview) is powered by a global network of Microsoft-managed datacenters. The network helps keep your app running 24/7. Every Azure Database for MariaDB server helps you gain built-in security, fault tolerance, and data protection that you otherwise would buy or design, build, and manage. With Azure Database for MariaDB, you can use point-in-time restore to recover a server to an earlier state, as far back as 35 days.
+Azure's industry-leading 99.99% availability SLA (not offered during public preview) is powered by a global network of Microsoft-managed datacenters. The network helps keep your app running 24/7. You benefit from the built-in security, fault tolerance, and data protection in Azure Database for MariaDB. With Azure Database for MariaDB, you can use point-in-time restore to recover a server to an earlier state, as far back as 35 days.
 
 ## Secure your data
 

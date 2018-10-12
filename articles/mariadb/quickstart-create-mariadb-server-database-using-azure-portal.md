@@ -41,7 +41,7 @@ To create an Azure Database for MariaDB server:
     ---|---|---
     Server name | *a unique server name* | Choose a unique name that identifies your Azure Database for MariaDB server. For example, **mydemoserver**. The domain name *.mariadb.database.azure.com* is appended to the server name you enter. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.
     Subscription | *your subscription* | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you are billed for the resource.
-    Resource group | *myresourcegroup* | Enter a new resource group name or select an existing resource group. 
+    Resource group | **myresourcegroup** | Enter a new resource group name or select an existing resource group. 
     Select source | **Blank** | Select **Blank** to create a new server from scratch. (Select **Backup** if you are creating a server from a geo-backup of an existing Azure Database for MariaDB server.)
     Server admin login | **myadmin** | A sign-in account to use when you're connecting to the server. The admin sign-in name cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
     Password | *your choice* | Enter a new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
@@ -179,7 +179,7 @@ First, we'll use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
 
 7.  Enter **\q**, and then press Enter to close the mysql tool. Then, you can close Azure Cloud Shell.
 
-Now you have connected to the Azure Database for MariaDB server and created a blank user database. In the next section, you connect to the same server by using another common tool, MySQL Workbench.
+You have connected to the Azure Database for MariaDB server and created a blank user database. In the next section, you connect to the same server by using another common tool, MySQL Workbench.
 
 ## Connect to the server by using MySQL Workbench
 
