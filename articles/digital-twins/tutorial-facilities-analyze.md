@@ -10,9 +10,11 @@ ms.date: 08/30/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Visualize and analyze events from your building using Azure Digital Twins
+# Tutorial: Visualize and analyze events from your Azure Digital Twins spaces using Time Series Insights
 
-This tutorial demonstrates how to visualize and analyze data received from the spaces and other resources provisioned in your Azure Digital Twins instance. After configuring your spatial graph in [the first tutorial](tutorial-facilities-setup.md), and provisioning and monitoring simulated sensor data in [the second tutorial](tutorial-facilities-udf.md), you can integrate the simulated device data with other services to visualize and analyze this data. In [the third tutorial](tutorial-facilities-events.md), you learned how to receive notifications for instantaneous events. This tutorial shows you how to analyze larger chunks of the sensor data at a slightly slower pace (or *warm path analytics*), using [Azure Time Series Insights or TSI](../time-series-insights/time-series-insights-overview.md).
+Once you have deployed your Azure Digital Twins instance, provisioned your spaces, as well as implemented custom function to monitor specific conditions, you can then visualize the events and telemetry data coming from your spaces to look for trends and anomalies. 
+
+In [the first tutorial](tutorial-facilities-setup.md), you configured the spatial graph of an imaginery building, with a room containing sensors for motion, carbon dioxide and temperature. In [the second tutorial](tutorial-facilities-udf.md), you provisioned your graph and a custom function called the user-defined function to monitor these sensor values and trigger notifications when the room is empty, and the temperature and carbon dioxide are in a comfortable range. This tutorial shows you how you can integrate the notifications and data coming from your Digital Twins setup with Azure Time Series Insights. You can then visualize your sensor values over time, and look for trends such as which room is getting most use, which are the most busy times of the day, and so on. You can also detect anomalies such as, which rooms are stuffier and hotter, or whether an area in your building is sending consistently high temperature values and might indicate a faulty air conditioning.
 
 In this tutorial, you learn how to:
 
@@ -131,6 +133,9 @@ This tutorial assumes that you have completed the steps to [configure your Azure
 
     ![TSI explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)
 
+1. In the Time Series Explorer, you can then generate charts and heatmaps for different events and telemetry data. On the left hand side, click the drop-down boxes named **MEASURE** and **SPLIT BY** to create your own visualizations. For example, select *Events* as the **MEASURE** and *DigitalTwins-SensorHardwareId* to **SPLIT BY**, to generate a heatmap for each of your sensors, similar to the following image:
+
+    ![TSI explorer](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)
 
 ## Clean up resources
 

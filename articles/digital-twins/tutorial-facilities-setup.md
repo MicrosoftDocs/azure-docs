@@ -95,7 +95,7 @@ In the extracted sample folder, open the file **_digital-twins-samples-csharp\di
 1. In Visual Studio Code, open the **_appSettings.json_** file belonging to the **occupancy-quickstart** project, and update the following values:
     1. *ClientId*: Enter the **Application ID** of your AAD app registration, noted in the section to [set app permissions](#permissions).
     1. *Tenant*: Enter the **Directory ID** of your [AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant), also noted in the section to [set app permissions](#permissions).
-    1. *BaseUrl*: Enter the URL of your Digital Twins instance. To get this URL, modify the **Management API** URL from [the section to create your instance](#deploy) to have this format, **https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/**. Or replace the placeholders in this URL with values for your instance.
+    1. *BaseUrl*: Enter the URL of your Digital Twins instance. To get this URL, replace the placeholders in this URL with values for your instance: **https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/**. You can also get this by modifying the **Management API** URL from [the deployment section](#deploy), replacing the **swagger/** with **api/v1.0/**.
 
 1. See a list of Digital Twins features that you can explore using the sample, by running the following command.
 

@@ -10,9 +10,11 @@ ms.date: 08/30/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Receive notifications from your building with Azure Digital Twins 
+# Tutorial: Receive notifications from your Azure Digital Twins spaces using Logic Apps
 
-This tutorial demonstrates how to use Azure Digital Twins to receive notifications for events in your provisioned spaces. In [the first tutorial](tutorial-facilities-setup.md), you configured the spatial graph, while in [the second tutorial](tutorial-facilities-udf.md), you provisioned your graph and a custom function to monitor the simulated sensor data. Now you are ready to integrate these device and sensor events with other services to create a custom notification system. In this tutorial, you will use Azure Logic Apps to create email notifications for the monitored sensor data.
+Once you have deployed your Azure Digital Twins instance, provisioned your spaces, as well as implemented custom function to monitor specific conditions, you can generate email notifications each time the monitored conditions are met. 
+
+In [the first tutorial](tutorial-facilities-setup.md), you configured the spatial graph of an imaginery building, with a room containing sensors for motion, carbon dioxide and temperature. In [the second tutorial](tutorial-facilities-udf.md), you provisioned your graph and a custom function called the user-defined function to monitor these sensor values and trigger notifications when the room is empty, and the temperature and carbon dioxide are in a comfortable range. This tutorial shows you how you can integrate these notifications with Azure Logic Apps and send emails when such a room is available. As an office administrator, you can use these email notifications to help your colleagues book their ideal meeting room. 
 
 In this tutorial, you learn how to:
 
@@ -142,15 +144,15 @@ In this section, you will set up an [Event Grid](../event-grid/overview.md) to c
 1. Click the **New step** button.
 
 1. In the **Choose an action** window,
-    1. Search and select **Condition** Action. 
+    1. Search and select **Condition Control** from the list of **Actions**. 
     1. Click within the first **Choose a value** textbox, and select **eventType** from the **Dynamic content** list for the **Parse JSON** window.
     1. Click within the second **Choose a value** textbox, and type *UdfCustom*.
 
     ![Logic App Parse JSON for Event Grid](./media/tutorial-facilities-events/logic-app-condition.png)
 
 1. In the **If true** window,
-    1. Click on **Add an action**, select *Office 365 Outlook* as the email client.
-    1. Select **Send an email** from the **Actions** list. Click **Sign in** and use your email account credentials. Click **Allow access** when prompted.
+    1. Click on **Add an action**, and select *Office 365 Outlook*.
+    1. From the list of **Actions**, select **Send an email**. Click **Sign in** and use your email account credentials. Click **Allow access** when prompted.
     1. In the **To** box, enter your email ID to receive notifications. In the **Subject**, enter the text *Digital Twins notification for poor air quality in space*, and then select **TopologyObjectId** from the **Dynamic content** list for **Parse JSON**.
     1. In the **Body** of the same window, enter text similar to this: *Poor air quality detected in a room, and temperature needs to be adjusted*. Feel free to elaborate using elements from the **Dynamic content** list as shown below.
 
@@ -177,7 +179,10 @@ If you wish to stop exploring Azure Digital Twins beyond this point, feel free t
 
 ## Next steps
 
-Proceed to the next tutorial to learn how to create warm data analysis on your Digital Twins telemetry. 
+You may proceed to the next tutorial to learn how to visualize the sensor data to analyze trends and spot anomalies. 
 > [!div class="nextstepaction"]
-> [Tutorial: Visualize and analyze events from your building](tutorial-facilities-analyze.md)
+> [Tutorial: Visualize and analyze events from your Azure Digital Twins spaces using Time Series Insights](tutorial-facilities-analyze.md)
 
+Or, you may also proceed to learn more about the spatial intelligence graph and object model in Azure Digital Twins. 
+> [!div class="nextstepaction"]
+> [Understanding Digital Twins Object Models and Spatial Intelligence Grap](concepts-objectmodel-spatialgraph.md)

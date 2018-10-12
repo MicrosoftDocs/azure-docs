@@ -45,6 +45,7 @@ Add the following matcher below the existing matchers, making sure the keys are 
 
 This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that you added in [the first tutorial](tutorial-facilities-setup.md).
 
+<a id="udf" />
 
 ## Create a User-Defined Function
 User-defined functions or UDFs allow you to customize the processing of telemetry data from your sensors. They are custom JavaScript code that can run within your Digital Twins instance, when specific conditions as described by the matchers occur. You can create *matchers* and *user-defined functions* for each sensor that you want to monitor. For more detailed information, read [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
@@ -107,12 +108,14 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
        Replace them with the following:
 
         ```JavaScript
-            var availableFresh = "Room is available, air is fresh, and temperature is just right.";`.
+            var alert = "Room with fresh air and comfortable temperature is available.";
+            var noAlert = "Either room is occupied, or working conditions are not right.";
         ```
     
     1. Remove the following code block after the comment `// Modify this code block for your sensor`:
 
         ```JavaScript
+            // If carbonDioxide less than threshold and no presence in the room => log, notify and set parent space computed value
             if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
                 log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
                 setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
@@ -132,21 +135,25 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
        And replace it with the following:
 
         ```JavaScript
-            if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && !presence) {
-                log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
-                setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
+            // If sensor values are within range and room is available
+            if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && presence) {
+                log(`${alert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
 
-                // Set up custom notification for air quality
-                parentSpace.Notify(JSON.stringify(availableFresh));
+                // log, notify and set parent space computed value
+                setSpaceValue(parentSpace.Id, spaceAvailFresh, alert);
+
+                // Set up notification for this alert
+                parentSpace.Notify(JSON.stringify(alert));
             }
             else {
-                log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
-                setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
-
-                // Set up custom notification for air quality
-                parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
+                log(`${noAlert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
+    
+                // log, notify and set parent space computed value
+                setSpaceValue(parentSpace.Id, spaceAvailFresh, noAlert);
             }
         ```
+        
+        The modified UDF will look for a condition where a room becomes available and has the carbon dioxide and temperature within tolerable limits. It will generate a notification with the statement `parentSpace.Notify(JSON.stringigy(alert));` when this condition is met. It will set the value of the monitored space regardless of whether the condition is met, with the corresponding message.
     
     1. Save the file. 
 
@@ -223,6 +230,7 @@ The output window will show how the user-defined function executes, and intercep
 
    ![Execute UDF](./media/tutorial-facilities-udf/udf-running.png)
 
+Depending on whether the monitored condition is met, user-defined function sets the value of space with the relevant message as we saw in [the section above](#udf), which the *GetAvailableAndFreshSpaces` function prints out on the console. 
 
 ## Clean up resources
 
@@ -234,7 +242,12 @@ If you wish to stop exploring Azure Digital Twins beyond this point, feel free t
 
 ## Next steps
 
-Proceed to the next tutorial in the series to learn how to create notifications for the simulated sensor data for your sample building. 
-> [!div class="nextstepaction"]
-> [Tutorial: Receive notifications from your building](tutorial-facilities-events.md)
+Now that you have provisioned your spaces and created a framework to trigger custom notifications, you can proceed to any of the following tutorials. 
 
+> [!div class="nextstepaction"]
+> [Tutorial: Receive notifications from your Azure Digital Twins spaces using Logic Apps](tutorial-facilities-events.md)
+
+Or,
+
+> [!div class="nextstepaction"]
+> [Tutorial: Visualize and analyze events from your Azure Digital Twins spaces using Time Series Insights](tutorial-facilities-analyze.md)

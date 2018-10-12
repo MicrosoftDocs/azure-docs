@@ -13,11 +13,11 @@ ms.author: alinast
 # As a developer new to Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in a Azure Digital Twins and how to find available rooms with fresh air using a back-end application. 
 ---
 
-# Quickstart: Find available rooms with fresh air using Azure Digital Twins
+# Quickstart: Find available rooms using Azure Digital Twins
 
-As an employee in a busy office, it's important to find available rooms that fit your needs where you can be productive. [Research has shown](https://www.wsj.com/articles/why-office-buildings-should-run-like-spaceships-1507467601) that air quality in rooms can have a significant impact on strategic, creative, and collaborative thinking. With Azure Digital Twins, not only can you find available rooms, but you can also find rooms where the air quality will be optimal for your safety and productivity.
+The Azure Digital Twins service allows you to recreate a digital image of your physical environment. You can then get notified by events in your environment and customize your responses to them. 
 
-This article shows how you can achieve both goals using Azure Digital Twins. The [quickstart code](https://github.com/Azure-Samples/digital-twins-samples-csharp) demonstrates two sample .NET Core console applications that use the Digital Twins APIs. The first one provisions a simple spatial graph in your Digital Twins instance. The second sample sends motion and carbon dioxide telemetry to that spatial graph. Together, these samples will find available rooms with fresh air based on real-time sensor data through Digital Twins.
+This quickstart uses [a pair of .NET samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) to digitize an imaginery office building, and shows you how to find available rooms in that building. With Digital Twins, you can multiple sensors to your environment. Along with room availability, you can also find out if the air quality of your available room is optimal, with the help of a simulated sensor for carbon dioxide. One of the sample applications will generate random sensor data to help you visualize this scenario.
 
 ## Prerequisites
 
@@ -122,15 +122,10 @@ If you plan to continue to the tutorials, do not clean up the resources created 
 
 ## Next steps
 
-If you haven't cleaned up the resources, and you wish to learn step-by-step code tutorial on how to provision the spatial graph and how to monitor for custom business logic, proceed to the following tutorial:
+This quickstart gave you an overview of a simple scenario of finding rooms with good working conditions. For a more in-depth analysis of this scenario, proceed to this tutorial:
 
 > [!div class="nextstepaction"]
 > [Provision a sample building](tutorial-facilities-setup.md)
-
-If you want to continue this quickstart and want to learn how to egress events out of Digital Twins and how to send email notification when poor air quality is detected in rooms, proceed to the following tutorial:
-
-> [!div class="nextstepaction"]
-> [Receive notifications from your building](tutorial-facilities-events.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
