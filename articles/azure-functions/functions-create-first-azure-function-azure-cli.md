@@ -16,7 +16,7 @@ manager: jeconnoc
 
 # Create your first function from the command line
 
-This quickstart topic walks you through how to create your first function from the command line or terminal. You use the Azure CLI to create a function app, which is the [serverless](https://azure.microsoft.com/overview/serverless-computing/) infrastructure that hosts your function. The function code project is generated from a template by using the [Azure Functions Core Tools](functions-run-local.md), which is also used to deploy the function app project to Azure.
+This quickstart topic walks you through how to create your first function from the command line or terminal. You use the Azure CLI to create a function app, which is the [serverless](https://azure.microsoft.com/solutions/serverless/) infrastructure that hosts your function. The function code project is generated from a template by using the [Azure Functions Core Tools](functions-run-local.md), which is also used to deploy the function app project to Azure.
 
 You can follow the steps below using a Mac, Windows, or Linux computer.
 
@@ -195,6 +195,20 @@ After the function app has been created, the Azure CLI shows information similar
     // Remaining output has been truncated for readability.
 }
 ```
+
+## Configure the function app
+
+Core Tools version 2.x creates projects using templates for the Azure Functions 2.x runtime. Because of this, you need to make sure that the version 2.x runtime is used in Azure. Setting the `FUNCTIONS_WORKER_RUNTIME` application setting to `~2` pins the function app to the latest 2.x version. Set application settings with the [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) command.
+
+In the following Azure CLI command, `<app_name> is the name of your function app.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <app_name> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_WORKER_RUNTIME=~2
+```
+
+[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

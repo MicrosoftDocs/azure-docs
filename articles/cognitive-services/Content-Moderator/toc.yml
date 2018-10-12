@@ -3,6 +3,18 @@
   items:
   - name: What is Content Moderator?
     href: overview.md
+- name: Quickstarts
+  items:
+  - name: Get started with Content Moderator
+    href: quick-start.md
+  - name: Using .NET SDK
+    items:
+    - name: Check image content
+      href: image-moderation-quickstart-dotnet.md
+    - name: Check text content
+      href: text-moderation-quickstart-dotnet.md
+    - name: Check video content
+      href: video-moderation-api.md
 - name: Samples
   items:
   - name: .NET SDK samples
@@ -25,30 +37,20 @@
   items:
   - name: Try Content Moderator
     items:
-    - name: Get started with Content Moderator
-      href: quick-start.md
     - name: Moderation APIs
       items:
-      - name: Helper library - .NET
-        href: content-moderator-helper-quickstart-dotnet.md
       - name: Images - API console
         href: try-image-api.md
-      - name: Images - .NET
-        href: image-moderation-quickstart-dotnet.md
+      - name: Check images against custom lists
+        href: image-lists-quickstart-dotnet.md
       - name: Custom images - API console
         href: try-image-list-api.md
-      - name: Custom images - .NET
-        href: image-lists-quickstart-dotnet.md
       - name: Text - API console
         href: try-text-api.md
-      - name: Text - .NET
-        href: text-moderation-quickstart-dotnet.md
+      - name: Check text against custom terms
+        href: term-lists-quickstart-dotnet.md
       - name: Custom terms - API console
         href: try-terms-list-api.md
-      - name: Custom terms - .NET
-        href: term-lists-quickstart-dotnet.md
-      - name: Videos - .NET
-        href: video-moderation-api.md
     - name: Review APIs
       items:
       - name: Jobs - API console

@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -57,11 +57,14 @@ Follow these steps to register the ASDK with Azure.
     #Register Azure Stack
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+    $RegistrationName = "<unique-registration-name>"
+    $UsageReporting = $true # Set to $false if using the Capacity Billing model
     Set-AzsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
-    -RegistrationName "<Unique-name>"
+    -RegistrationName $RegistrationName `
+    -UsageReportingEnabled:$UsageReporting
     ```
 3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
 
