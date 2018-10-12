@@ -641,8 +641,9 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Master.
+See [Red Hat Knowledgebase article 79523](https://access.redhat.com/solutions/79523) for a descricption on how to simulate a network failure. In this example we use the net_breaker script to block all access to the network.
 
-<pre><code>[root@hn1-db-1 ~]# sudo ifdown eth0
+<pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
 
 The virtual machine should now restart or stop depending on your cluster configuration.
