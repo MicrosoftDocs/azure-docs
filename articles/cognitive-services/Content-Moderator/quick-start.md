@@ -27,7 +27,7 @@ The Content Moderator Review Tool is a web-based tool that allows human reviewer
 
 ![Content Moderator Home Page](images/homepage.PNG)
 
-Next, create a review team. You only need to give your team a name, but if you wish to invite your colleagues to the team, you can do so by entering their email addresses here.
+Next, create a review team. You only need to create a team name, but if you wish to invite colleagues to the team, you can do so by entering their email addresses here.
 
 ![Invite team member](images/QuickStart-2-small.png)
 
