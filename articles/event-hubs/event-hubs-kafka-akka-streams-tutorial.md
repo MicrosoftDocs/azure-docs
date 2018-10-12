@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Run Akka Streams consumer
 
 > [!NOTE]
-> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tutorials/akka/java)
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/akka/java)
 
 ## Prerequisites
 
