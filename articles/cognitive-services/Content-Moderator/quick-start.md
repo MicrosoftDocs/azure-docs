@@ -58,20 +58,6 @@ Learn how to integrate Content Moderator with your business applications. Check 
 
 [Subscribe to Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in the Azure portal. Start with one of the following APIs:
 
-### Image moderation
-
-Start with the [API console](try-image-api.md) or use the [.NET quickstart](image-moderation-quickstart-dotnet.md) to scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information.
-
-### Text moderation
-
-Start with the [API console](try-text-api.md) or use the [.NET quickstart](text-moderation-quickstart-dotnet.md) to scan text content for potential profanity, machine-assisted unwanted text classification (preview), and personally identifiable information (PII). 
-
-
-### Video moderation
-
-Start with the [.NET quickstart](video-moderation-api.md) to scan videos and detect potential adult and racy content. 
-
-
 ### Review APIs
 
 Start here by choosing from the Job, Review, and Workflow APIs.
@@ -82,4 +68,6 @@ Start here by choosing from the Job, Review, and Workflow APIs.
 
 ## Next steps
 
-Check out the [API reference](api-reference.md) and the [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Jumpstart your integration with the [.NET SDK samples](sdk-and-samples.md#net-sdk-samples), [REST API samples in C#](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c) and [tutorials](sdk-and-samples.md#tutorials).
+- Try image moderation. Use the [API console](try-image-api.md) or the [C# quickstart](image-moderation-quickstart-dotnet.md) to scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information.
+- Try text moderation. Use the [API console](try-text-api.md) or use the [C# quickstart](text-moderation-quickstart-dotnet.md) to scan text content for potential profanity, machine-assisted unwanted text classification (preview), and personally identifiable information (PII). 
+- Try video moderation. Use the [C# quickstart](video-moderation-api.md) to scan videos and detect potential adult and racy content. 
