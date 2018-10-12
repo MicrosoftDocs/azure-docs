@@ -187,8 +187,8 @@ The following examples demonstrate the footer and click tracking filters:
     sendgrid.send(email);
 
 ## How to: Update Email Properties
-Some email properties can be overwritten using **set*Property*** or
-appended using **add*Property***. For example, you can add additional
+Some email properties can be overwritten using **setProperty** or
+appended using **addProperty**. For example, you can add additional
 recipients by using
 
     email.addTo('jeff@contoso.com');
