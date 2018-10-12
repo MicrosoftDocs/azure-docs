@@ -71,8 +71,6 @@ You can move an app to another App Service plan, as long as the source plan and 
 > You can’t specify the webspace you want when creating a plan, but it’s possible to ensure that a plan is created in the same webspace as an existing plan. In brief, all plans created with the same resource group and region combination are deployed into the same webspace. For example, if you created a plan in resource group A and region B, then any plan you subsequently create in resource group A and region B is deployed into the same webspace. Note that plans can’t move webspaces after they’re created, so you can’t move a plan into “the same webspace” as another plan by moving it to another resource group.
 > 
 
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
-
 Each plan has its own pricing tier. For example, moving a site from a **Free** tier to a **Standard** tier enables all apps assigned to it to use the features and resources of the **Standard** tier. However, moving an app from a higher-tiered plan to a lower-tiered plan means that you no longer have access to certain features. If your app uses a feature that is not available in the target plan, you get an error that shows which feature is in use that is not available. 
 
 For example, if one of your apps uses SSL certificates, you might see this error message:
