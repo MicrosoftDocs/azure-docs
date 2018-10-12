@@ -3,13 +3,13 @@ title: Recognize speech by using the REST API
 description: Learn how to use the Speech to Text API in the Cognitive Services Speech service.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 
 # Recognize speech by using the REST API

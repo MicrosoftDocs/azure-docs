@@ -211,6 +211,18 @@
       "url": "https://github.com/Azure-Samples/media-services-v3-rest-postman",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "remote-monitoring-webui",
+      "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-nodejs",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

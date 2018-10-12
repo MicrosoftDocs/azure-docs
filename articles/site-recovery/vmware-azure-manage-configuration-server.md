@@ -2,9 +2,10 @@
 title: Manage the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article describes how to manage an existing configuration server for VMware disaster recovery to Azure with Azure Site RecoveryS.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ---
 

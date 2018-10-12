@@ -1,14 +1,16 @@
 ---
-title: Project Answer Search use and display requirements - Microsoft Cognitive Services | Microsoft Docs
+title: Use and display requirements - Project Answer Search
+titlesuffix: Azure Cognitive Services
 description: Use and display requirements for the Project Answer Search endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Project Answer Search use and display requirements

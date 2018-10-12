@@ -6,7 +6,7 @@ services: cognitive-services
 author: chlandsi
 
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: chlandsi
