@@ -32,6 +32,8 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 ![Amazon Web Services (AWS) in the results list](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
+Please read [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) tutorial to learn how to configure multiple instances of AWS to Azure.
+
 Please note that we do not recommend to use this approach for following reasons:
 
 * You have to use the Graph Explorer approach to patch all the roles to the app. We don’t recommend using the manifest file approach.
