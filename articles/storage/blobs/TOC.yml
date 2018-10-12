@@ -350,9 +350,11 @@
     href: storage-blob-static-website.md
   - name: Transfer data
     items:
-    - name: AzCopy on Windows
+    - name: AzCopy (v10)
+      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: AzCopy on Windows (v8)
       href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: AzCopy on Linux
+    - name: AzCopy on Linux (v8)
       href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Mount Blob storage as a file system on Linux
       href: storage-how-to-mount-container-linux.md

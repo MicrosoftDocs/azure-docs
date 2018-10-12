@@ -23,7 +23,7 @@ In your web browser, go to the [Azure portal](https://portal.azure.com/). Enter 
 
 ## Create an Azure Database for MariaDB server
 
-You create an Azure Database for MariaDB server with a defined set of compute and storage resources<!-- [compute and storage resources](./concepts-compute-unit-and-storage.md)-->. You create the server in an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+You create an Azure Database for MariaDB server with a defined set of [compute and storage resources](./concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
 To create an Azure Database for MariaDB server:
 
@@ -205,7 +205,7 @@ To connect to the server by using MySQL Workbench:
 4. To check that all parameters are configured correctly, select **Test Connection**. Then, select **OK** to save the connection. 
 
     > [!NOTE]
-    > SSL is enforced by default on your server. It requires additional configuration to connect successfully. <!--For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).--> To disable SSL for this quickstart, on the server overview page in the Azure portal, select **Connection security** in the menu. For **Enforce SSL connection**, select **Disabled**.
+    > SSL is enforced by default on your server. It requires additional configuration to connect successfully. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md). To disable SSL for this quickstart, on the server overview page in the Azure portal, select **Connection security** in the menu. For **Enforce SSL connection**, select **Disabled**.
     >
 
 ## Clean up resources
