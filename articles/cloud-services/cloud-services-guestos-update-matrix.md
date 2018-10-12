@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/13/2018
+ms.date: 10/12/2018
 ms.author: raiye
 
 ---
@@ -39,7 +39,7 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
-###### **October XX, 2018**
+###### **October 12, 2018**
 The September Guest OS has released.
 
 ###### **September 12, 2018**
@@ -92,9 +92,9 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-5.23_201809-01 |October XX, 2018 |Post 5.25 |
+| WA-GUEST-OS-5.23_201809-01 |October 12, 2018 |Post 5.25 |
 | WA-GUEST-OS-5.22_201808-01 |September 12, 2018 |Post 5.24 |
-|~~WA-GUEST-OS-5.21_201807-02~~ |August 3, 2018 |October XX, 2018 |
+|~~WA-GUEST-OS-5.21_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |July 3, 2018 |September 12, 2018 |
 |~~WA-GUEST-OS-5.19_201805-01~~ |June 1, 2018 |August 3, 2018 |
 |~~WA-GUEST-OS-5.18_201804-01~~ |May 4, 2018 |July 3, 2018 |
@@ -113,9 +113,9 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-4.58_201809-01 |October XX, 2018 |Post 4.60 |
+| WA-GUEST-OS-4.58_201809-01 |October 12, 2018 |Post 4.60 |
 | WA-GUEST-OS-4.57_201808-01 |September 12, 2018 |Post 4.59 |
-|~~WA-GUEST-OS-4.56_201807-02~~ |August 3, 2018 |October XX, 2018 |
+|~~WA-GUEST-OS-4.56_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |July 3, 2018 |September 12, 2018 |
 |~~WA-GUEST-OS-4.54_201805-01~~ |June 1, 2018 |August 3, 2018 |
 |~~WA-GUEST-OS-4.53_201804-01~~ |May 4, 2018 |July 3, 2018 |
@@ -134,9 +134,9 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-3.65_201809-01 |October XX, 2018 |Post 3.67 |
+| WA-GUEST-OS-3.65_201809-01 |October 12, 2018 |Post 3.67 |
 | WA-GUEST-OS-3.64_201808-01 |September 12, 2018 |Post 3.66 |
-|~~WA-GUEST-OS-3.63_201807-02~~ |August 3, 2018 |October XX, 2018 |
+|~~WA-GUEST-OS-3.63_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |July 3, 2018 |September 12, 2018 |
 |~~WA-GUEST-OS-3.61_201805-01~~ |June 1, 2018 |August 3, 2018 |
 |~~WA-GUEST-OS-3.60_201804-01~~ |May 4, 2018 |July 3, 2018 |
@@ -155,9 +155,9 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-2.78_201809-01 |October XX, 2018 |Post 2.80 |
+| WA-GUEST-OS-2.78_201809-01 |October 12, 2018 |Post 2.80 |
 | WA-GUEST-OS-2.77_201808-01 |September 12, 2018 |Post 2.79 |
-|~~WA-GUEST-OS-2.76_201807-02~~ |August 3, 2018 |October XX, 2018 |
+|~~WA-GUEST-OS-2.76_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |July 3, 2018 |September 12, 2018 |
 |~~WA-GUEST-OS-2.74_201805-01~~ |June 1, 2018 |August 3, 2018|
 |~~WA-GUEST-OS-2.73_201804-01~~ |May 4, 2018 |July 3, 2018 |
