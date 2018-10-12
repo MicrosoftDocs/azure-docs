@@ -70,7 +70,7 @@ You can now stream events from your applications that use the Kafka protocol int
 
 ## Send messages with Kafka in Event Hubs
 
-1. Clone the [Azure Event Hubs repository](https://github.com/Azure/azure-event-hubs-for-kafka) to your machine.
+1. Clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka) to your machine.
 2. Navigate to the folder: `azure-event-hubs-for-kafka/quickstart/java/producer`. 
 4. Update the configuration details for the producer in `src/main/resources/producer.config`. Specify the **name** and **connection string** for the **event hub namespace**. 
 
@@ -206,6 +206,6 @@ In this article, you learned how to stream into Kafka-enabled Event Hubs without
 
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Learn about Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-* [Explore more samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+* [Explore more samples on the Event Hubs for Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 * Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on-prem to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Learn how to stream into Kafka enabled Event Hubs using [native Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
