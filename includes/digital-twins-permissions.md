@@ -10,7 +10,11 @@
  ms.custom: include file
 ---
 
-1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left navigation panel, and then click **New application registration**.
+1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left navigation panel, and then open the **Properties** pane. Copy the **Directory ID** to a temporary file. You will use this to configure sample application in the following section.
+
+    ![Azure Active Directory directory id](./media/digital-twins-permissions/aad-app-reg-tenant.png)
+
+1. Open the **App registrations** pane, and then click **New application registration** button.
     
     ![Azure Active Directory app registration new](./media/digital-twins-permissions/aad-app-reg-start.png)
 
@@ -18,7 +22,9 @@
 
     ![Azure Active Directory app registration create](./media/digital-twins-permissions/aad-app-reg-create.png)
 
-1. Once complete, copy the value of the **Application ID** field to a temporary file; this value identifies your Azure Active Directory app. You will use Application ID to configure your sample application in the following sections.
+1. Open the registered app, and copy the value of the **Application ID** field to a temporary file; this value identifies your Azure Active Directory app. You will use Application ID to configure your sample application in the following sections.
+
+    ![Azure Active Directory application id](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
 1. Open your app registration pane, and click **Settings** > **Required permissions**:
     - Click **Add** on the top left to open the **Add API access** pane.
