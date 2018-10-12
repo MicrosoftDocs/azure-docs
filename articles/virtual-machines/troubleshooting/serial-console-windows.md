@@ -30,13 +30,15 @@ For serial console documentation for Linux VMs, see [Virtual machine serial cons
 
 ## Prerequisites 
 
-* You must use the resource management deployment model. Classic deployments aren't supported. 
-* Virtual machines must have [boot diagnostics](boot-diagnostics.md) enabled. Select **Boot diagnostics** from the **Support + troubleshooting** section.
+* The VM in which you are accessing a serial console must use the resource management deployment model. Classic deployments aren't supported. 
+
+* The VM in which you are accessing a serial console must have [boot diagnostics](boot-diagnostics.md) enabled. Select **Boot diagnostics** from the **Support + troubleshooting** section.
 
     ![Boot diagnostics settings](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-* The account using the serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the [boot diagnostics](boot-diagnostics.md) storage account. 
-* The virtual machine for which you are accessing the serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
+* An account using a serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
+
+* The VM in which you are accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
 
 
 ## Get started with the serial console
@@ -138,12 +140,12 @@ Alternatively, you can use the following set of bash commands in Cloud Shell to 
     ```
 
 ### VM-level disable
-The serial console can be disabled for specific VMs by disabling that VM's boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM.
+The serial console can be disabled for a specific VM by disabling that VM's boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM.
 
 ## Serial console security 
 
 ### Access security 
-Access to the serial console is limited to users who have an access role of [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or higher to the virtual machine. If your Azure Active Directory tenant requires multi-factor authentication, then access to the serial console will also need MFA because its access is through the [Azure portal](https://portal.azure.com).
+Access to the serial console is limited to users who have an access role of [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or higher to the virtual machine. If your Azure Active Directory tenant requires multi-factor authentication (MFA), then access to the serial console will also need MFA because the serial console's access is through the [Azure portal](https://portal.azure.com).
 
 ### Channel security
 All data that is sent back and forth is encrypted on the wire.
@@ -165,7 +167,7 @@ Scenario          | Actions in the serial console
 :------------------|:-----------------------------------------
 Incorrect firewall rules | Access serial console and fix Windows firewall rules. 
 Filesystem corruption/check | Access the serial console and recover the filesystem. 
-RDP configuration issues | Access the serial console and change the settings. See the [RDP documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) to get started.
+RDP configuration issues | Access the serial console and change the settings. For more information, see the [RDP documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 Network lock down system | Access the serial console from the Azure portal to manage the system. Some network commands are listed in [Windows commands: CMD and PowerShell](serial-console-cmd-ps-commands.md). 
 Interacting with bootloader | Access BCD via the serial console. For information, see [Enable the Windows boot menu in the serial console](#enable-the-windows-boot-menu-in-the-serial-console). 
 
@@ -185,7 +187,7 @@ Error                            |   Mitigation
 :---------------------------------|:--------------------------------------------|
 Unable to retrieve boot diagnostics settings for *&lt;VMNAME&gt;*. To use the serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md) enabled. 
 The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access the serial console
-You do not have the required permissions to use this VM serial console. Ensure you have at least Virtual Machine Contributor role permissions.| The serial console access requires certain permission to access. For information, see [Prerequisites](#prerequisites).
+You do not have the required permissions to use this VM serial console. Ensure you have at least Virtual Machine Contributor role permissions.| The serial console requires certain [access permissions](#prerequisites).
 Unable to determine the resource group for the boot diagnostics storage account *&lt;STORAGEACCOUNTNAME&gt;*. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access. For more information, see [Prerequisites](#prerequisites).
 A "Forbidden" response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for the serial console to function.
 Web socket is closed or could not be opened. | You may need to whitelist `*.console.azure.com`. A more detailed but longer approach is to whitelist the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which change fairly regularly.
@@ -198,7 +200,7 @@ Issue                             |   Mitigation
 :---------------------------------|:--------------------------------------------|
 Pressing **Enter** after the connection banner does not cause a sign-in prompt to be displayed. | For more information, see [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This error can occur if you're running a custom VM, hardened appliance, or GRUB config that causes Windows to fail to properly connect to the serial port.
 Unable to type at SAC prompt if kernel debugging is enabled. | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk by running `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swapping the disk back.
-Pasting into PowerShell in SAC results in a third character if original content had a repeating character. | A workaround is to Past unload the PSReadLine module from the current session. Run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session; this action will not delete or uninstall the module.
+Pasting into PowerShell in SAC results in a third character if original content had a repeating character. | For a workaround, run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session. This action will not delete or uninstall the module.
 Some keyboard inputs produce strange SAC output (for example, **[A**, **[3~**). | [VT100](https://aka.ms/vtsequences) escape sequences aren't supported by the SAC prompt.
 Pasting long strings doesn't work. | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
 
@@ -222,8 +224,7 @@ A. You must have the Virtual Machine Contributor role or higher for a VM to acce
 
 **Q. My serial console isn't displaying anything, what do I do?**
 
-A. Your image is likely misconfigured for serial console access. See 
-[Enable the serial console in custom or older images](#enable-the-serial-console-in-custom-or-older-images) for details on configuring your image to enable the serial console.
+A. Your image is likely misconfigured for serial console access. For information about configuring your image to enable the serial console, see [Enable the serial console in custom or older images](#enable-the-serial-console-in-custom-or-older-images).
 
 **Q. Is the serial console available for virtual machine scale sets?**
 
