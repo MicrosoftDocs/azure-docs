@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/12/2018
 ms.author: vinynigam
 ---
 # Network Performance Monitor solution FAQ
@@ -60,7 +60,7 @@ For the node to support monitoring using TCP protocol:
 
 
 ### How can I change the TCP port being used by NPM for monitoring?
-You can change the TCP port used by NPM for monitoring, by running the  [EnableRules.ps1](https://aka.ms/npmpowershellscript) script. You need enter the port number you intend to use as a parameter. For example, to enable TCP on port 8060, run `npm_startup.sh 8060`. Ensure that you use the same TCP port on all the nodes being used for monitoring.
+You can change the TCP port used by NPM for monitoring, by running the  [EnableRules.ps1](https://aka.ms/npmpowershellscript) script. You need enter the port number you intend to use as a parameter. For example, to enable TCP on port 8060, run `EnableRules.ps1 8060`. Ensure that you use the same TCP port on all the nodes being used for monitoring.
 
 The script configures only Windows Firewall locally. If you have network firewall or Network Security Group (NSG) rules, make sure that they allow the traffic destined for the TCP port used by NPM.
 
@@ -220,3 +220,5 @@ You can view the health status of the nodes being used for monitoring from the f
 NPM rounds the latency numbers in the UI and in milliseconds. The same data is stored at a higher granularity (sometimes up to 4 decimal places).
 
 ## Next steps
+
+- Learn more about Network Performance Monitor by referring to [Network Performance Monitor solution in Azure](log-analytics-network-performance-monitor.md)
