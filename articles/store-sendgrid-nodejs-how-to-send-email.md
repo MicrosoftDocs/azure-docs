@@ -53,14 +53,14 @@ For more information, see [https://sendgrid.com](https://sendgrid.com).
 The SendGrid module for Node.js can be installed through the node
 package manager (npm) by using the following command:
 
-```nodejs
+```bash
 npm install sendgrid
 ```
 
 After installation, you can require the module in your application by
 using the following code:
 
-```nodejs
+```javascript
 var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 ```
 
@@ -75,7 +75,7 @@ creating an email message using the Email function, and then sending it
 using the SendGrid function. The following is an example of creating a
 new message using the Email function:
 
-```nodejs
+```javascript
 var email = new sendgrid.Email({
     to: 'john@contoso.com',
     from: 'anna@contoso.com',
@@ -87,7 +87,7 @@ var email = new sendgrid.Email({
 You can also specify an HTML message for clients that support it by
 setting the html property. For example:
 
-```json
+```javascript
 html: This is a sample <b>HTML<b> email message.
 ```
 
@@ -104,7 +104,7 @@ it using the Web API provided by SendGrid.
 
 ### Web API
 
-```nodejs
+```javascript
 sendgrid.send(email, function(err, json){
     if(err) { return console.error(err); }
     console.log(json);
@@ -116,7 +116,7 @@ sendgrid.send(email, function(err, json){
 > callback function, you can also directly invoke the send
 > function by directly specifying email properties. For example:  
 > 
-> ```nodejs
+> ```javascript
 > sendgrid.send({
 > to: 'john@contoso.com',
 > from: 'anna@contoso.com',
@@ -131,7 +131,7 @@ Attachments can be added to a message by specifying the file name(s) and
 path(s) in the **files** property. The following example demonstrates
 sending an attachment:
 
-```nodejs
+```javascript
 sendgrid.send({
     to: 'john@contoso.com',
     from: 'anna@contoso.com',
@@ -170,7 +170,7 @@ The following examples demonstrate the footer and click tracking filters:
 
 ### Footer
 
-```nodejs
+```javascript
 var email = new sendgrid.Email({
     to: 'john@contoso.com',
     from: 'anna@contoso.com',
@@ -192,7 +192,7 @@ sendgrid.send(email);
 
 ### Click Tracking
 
-```nodejs
+```javascript
 var email = new sendgrid.Email({
     to: 'john@contoso.com',
     from: 'anna@contoso.com',
@@ -217,13 +217,13 @@ Some email properties can be overwritten using **setProperty** or
 appended using **addProperty**. For example, you can add additional
 recipients by using
 
-```nodejs
+```javascript
 email.addTo('jeff@contoso.com');
 ```
 
 or set a filter by using
 
-```nodejs
+```javascript
 email.addFilter('footer', 'enable', 1);
 email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 ```
