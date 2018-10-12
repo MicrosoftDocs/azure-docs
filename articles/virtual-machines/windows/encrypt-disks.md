@@ -1,6 +1,6 @@
 ---
 title: Encrypt disks on a Windows VM in Azure | Microsoft Docs
-description: How to encrypt virtual disks on a Windows VM for enhanced security using Azure PowerShell
+description: Encrypt virtual disks on a Windows VM for enhanced security by using Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/11/2018
+ms.date: 10/12/2018
 ms.author: cynthn
 
 ---
-# How to encrypt virtual disks on a Windows VM
-For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article describes how to encrypt virtual disks on a Windows VM using Azure PowerShell. You can also [encrypt a Linux VM using the Azure CLI](../linux/encrypt-disks.md).
+# Encrypt virtual disks on a Windows VM
+For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted by using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article describes how to encrypt virtual disks on a Windows VM by using Azure PowerShell. You can also [encrypt a Linux VM by using the Azure CLI](../linux/encrypt-disks.md).
 
 ## Overview of disk encryption
-Virtual disks on Windows VMs are encrypted at rest using Bitlocker. There is no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in Azure Key Vault using software protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. Cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You retain control of these cryptographic keys and can audit their use. An Azure Active Directory service principal provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
+Virtual disks on Windows VMs are encrypted at rest by using Bitlocker. There is no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in an Azure Key Vault by using software protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. Cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You retain control of these cryptographic keys and can audit their use. An Azure Active Directory service principal provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
 
 The process for encrypting a VM is as follows:
 
 1. Create a cryptographic key in an Azure Key Vault.
 2. Configure the cryptographic key to be usable for encrypting disks.
 3. To read the cryptographic key from the Azure Key Vault, create an Azure Active Directory service principal with the appropriate permissions.
-4. Issue the command to encrypt your virtual disks, specifying the Azure Active Directory service principal and appropriate cryptographic key to be used.
-5. The Azure Active Directory service principal requests the required cryptographic key from the Azure Key Vault.
-6. The virtual disks are encrypted using the provided cryptographic key.
+4. Use the [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) command to encrypt your virtual disks, specifying the Azure Active Directory service principal and appropriate cryptographic key to be used.
+    1. The Azure Active Directory service principal requests the required cryptographic key from the Azure Key Vault.
+    2. Azure encrypts the virtual disks with the provided cryptographic key.
 
 ## Encryption process
 Disk encryption relies on the following additional components:
 
-* **Azure Key Vault**: Used to safeguard cryptographic keys and secrets used for the disk encryption/decryption process. 
-  * If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
+* **Azure Key Vault**: Safeguards cryptographic keys and secrets used for the disk encryption/decryption process. 
+  * You can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
   * To separate administrative boundaries and key visibility, you can create a dedicated Key Vault.
-* **Azure Active Directory**: Handles the secure exchanging of required cryptographic keys, and authentication for requested actions. 
+* **Azure Active Directory**: Handles the secure exchange of required cryptographic keys, and authentication for requested actions. 
   * You can typically use an existing Azure Active Directory instance for housing your application.
   * The service principal provides a secure mechanism to request and be issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
 
@@ -48,7 +48,7 @@ The currently supported scenarios and requirements for disk encryption are:
 
 * Enabling encryption on new Windows VMs from Azure Marketplace images or custom VHD images.
 * Enabling encryption on existing Windows VMs in Azure.
-* Enabling encryption on Windows VMs that are configured using Storage Spaces.
+* Enabling encryption on Windows VMs that are configured by using Storage Spaces.
 * Disabling encryption on OS and data drives for Windows VMs.
 * Standard tier VMs, such as A, D, DS, G, and GS series VMs.
 
@@ -58,7 +58,7 @@ The currently supported scenarios and requirements for disk encryption are:
 Disk encryption is not currently supported in the following scenarios:
 
 * Basic tier VMs.
-* VMs created using the Classic deployment model.
+* VMs created by using the Classic deployment model.
 * Updating the cryptographic keys on an already encrypted VM.
 * Integration with on-premises Key Management Service.
 
