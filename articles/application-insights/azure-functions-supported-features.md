@@ -26,8 +26,8 @@ Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/a
 |-----------------------------------|---------------|------------------|
 | **Application Insights .NET SDK** | **2.5.0**     | **2.7.2**        |
 | **Automatic  collection of**<br> &bull; Requests<br> &bull; Exceptions<br> &bull; Dependencies<br> &nbsp;&nbsp;&nbsp;&nbsp;&bull; HTTP<br> &nbsp;&nbsp;&nbsp;&nbsp;&bull; ServiceBus<br> &nbsp;&nbsp;&nbsp;&nbsp;&bull; EventHub<br> &nbsp;&nbsp;&nbsp;&nbsp;&bull; SQL |<br> Yes<br> Yes<br> <br> <br> <br> <br> <br>| <br> Yes<br> Yes<br> <br> Yes<br> Yes<br> Yes<br> Yes<br>|
-| **Supported features**<br> &bull; QuickPulse/LiveMetrics<br> &bull; Sampling<br> &bull; Heartbeats<br>|<br> Yes<br> Yes<br> <br>| |
-| **Correlation**<br> &bull; ServiceBus<br> &bull; EventHub<br> <br>|<br> Yes<br> Yes<br> Yes<br>| Yes<br> Yes<br>|
+| **Supported features**<br> &bull; QuickPulse/LiveMetrics<br> &bull; Sampling<br> &bull; Heartbeats<br>|<br> Yes<br> Yes<br>Yes<br>| |
+| **Correlation**<br> &bull; ServiceBus<br> &bull; EventHub<br>|<br> Yes<br> Yes<br>| Yes<br> Yes<br>|
 | **Configurable**<br>&bull;Fully configurable.<br/>See [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) for instructions.<br/>See [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) for all options.           |               | Yes                 |
 
 ## Sampling
