@@ -25,7 +25,7 @@ The discounts are tiered. Reservations with higher request units provide higher 
 The reservation purchase will apply discounts to all regions in the ratio equivalent to the regional on-demand pricing. For reservation discount ratios in each region, see the [Reservation discount per region](#reservation-discount-per-region) section of this article.
 
 ## Reservation discount per region
-The reservation discount is applied to Azure Cosmos DB throughput costs on an hour-by-hour basis at either the single subscription or the enrolled/account scope. The reservation discount applies to meter usage in different regions in the following ratios:
+The reservation discount is applied to Azure Cosmos DB throughput costs on an hour-by-hour basis. It's applied at either the single subscription or the enrolled/account scope. The reservation discount applies to meter usage in different regions in the following ratios:
 
 |Meter description  |Region |Ratio  |
 |---------|---------|---------|
@@ -69,7 +69,7 @@ Consider the following requirements for a reservation:
 * Required throughput: 50,000 RU/s  
 * Regions used: 2 
 
-In this case, your total on-demand charges are for 500 quantity of 100 RU/s meter in these two regions, for a total RU/s consumption of 100,000 every hour. 
+In this case, your total on-demand charges are for 500 quantity of 100 RU/s meter in these two regions. The total RU/s consumption is 100,000 every hour. 
 
 **Scenario 1**
 
