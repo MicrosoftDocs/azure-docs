@@ -153,11 +153,11 @@ Complete part 1: Prepare Azure AD Connect.
 
 Azure Active Directory device registration uses the Over-the-Air Profile enrollment process for iOS devices. This process begins when the user connects to the profile enrollment URL with Safari. The URL format is as follows:
 
-    `https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/<yourdomainname>`
+`https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/<yourdomainname>`
 
 In this case, `yourdomainname` is the domain name that you configured with Azure Active Directory. For example, if your domain name is contoso.com, the URL is as follows:
 
-    https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com
+`https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com`
 
 There are many different ways to communicate this URL to your users. For example, one method we recommend is publishing this URL in a custom application access-denied message in AD FS. This information is covered in the upcoming section [Create an application access policy and custom access-denied message](#create-an-application-access-policy-and-custom-access-denied-message).
 
@@ -180,7 +180,7 @@ You can view and verify that your device objects have been written back to your 
 
 By default, device objects that are written back from Azure Active Directory are placed in the same domain as your AD FS farm.
 
-    CN=RegisteredDevices,defaultNamingContext
+`CN=RegisteredDevices,defaultNamingContext`
 
 ## Create an application access policy and custom access-denied message
 
@@ -211,12 +211,13 @@ Next, you configure a custom error message for your application. The error messa
 
 On your federation server, open a PowerShell command window, and then type the following command. Replace portions of the command with items that are specific to your system:
 
-    Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage
+`Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage`
+
 You must register your device before you can access this application.
 
 **If you are using an iOS device, select this link to join your device**:
 
-    https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/yourdomain.com
+`https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/yourdomain.com`
 
 Join this iOS device to your workplace.
 
