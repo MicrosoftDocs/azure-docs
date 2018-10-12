@@ -16,7 +16,17 @@ ms.author: wolfma
 
 ## Cognitive Services Speech SDK 1.0.1
 
-Reliability improvements and bug fixes.
+Reliability improvements and bug fixes:
+
+* Fixing potential fatal error when disposing in the case of multiple recognizer.
+* Fixed potential fatal error in case of unset properties.
+* Additional error and parameter checking.
+* Objective-C: fix possible fatal error for cancelled recognition results.
+* Objectice-C: adjust visibility of API
+* JavaScript: fixes regarding events and their payloads.
+* Documentation improvements.
+
+In our [sample repository](https://aka.ms/csspeech/samples), a new sample for JavaScript was added.
 
 ## Cognitive Services Speech SDK 1.0.0: 2018-September release
 
