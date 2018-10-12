@@ -25,6 +25,8 @@ ms.custom: aaddev
 > 
 > 
 
+This article applies to Azure AD Graph API. For similar info related to Microsoft Graph API, see [Use the Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/concepts/use_the_api). 
+
 The Azure Active Directory Graph API provides programmatic access to Azure AD through REST API endpoints. Applications can use Azure AD Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects. For example, Azure AD Graph API supports the following common operations for a user object:
 
 * Create a new user in a directory
