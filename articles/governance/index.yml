@@ -57,7 +57,7 @@ sections:
       className: cardsZ
       columns: 3
       items:
-        - href: /azure/architecture/cloud-adoption/governance/what-is-governance?toc=/azure/governance/toc.json
+        - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json 
           html: <p>In the past, enterprises assumed ownership and responsibility of all levels of technology from infrastructure to software. Now, the cloud offers the potential to transform the way enterprises utilize technology by provisioning and consuming resources as needed.</p>
           title: Enterprise Cloud Adoption
         - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json

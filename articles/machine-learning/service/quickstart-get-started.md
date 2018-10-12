@@ -55,6 +55,8 @@ Click on the `Open Azure Notebooks` button to try your first experiment.
 
  ![Launch Azure Notebook](./media/quickstart-get-started/explore_ws.png)
 
+Your organization may require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
+
 After you sign in, a new tab opens and a `Clone Library` prompt appears.  Click on `Clone`
 
 
@@ -64,9 +66,9 @@ Along with two notebooks, you will see a  `config.json` file.  This config file 
 
 Click on `01.run-experiment.ipynb` to open the notebook.
 
-You can run the cells one at a time by using `Shift`+`Enter`.  Or use the menu `Cells` > `Run All` to run the entire notebook.
+You can run the cells one at a time by using `Shift`+`Enter`.  Or use the menu `Cells` > `Run All` to run the entire notebook.  When you see [*] next to a cell, it is running.  When the code for that cell completes, a number will appear.
 
-You may be prompted to log in.  Copy the code in the message, then click on the link and paste the code into the new window.  Be sure not to copy a space before or after the code.
+You may be prompted to sign in.  Copy the code in the message, then click on the link and paste the code into the new window.  Be sure not to copy a space before or after the code.  Sign in with the same account you used in the Azure portal.
 
  ![login](./media/quickstart-get-started/login.png)
 

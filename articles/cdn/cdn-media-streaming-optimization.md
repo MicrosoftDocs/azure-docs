@@ -3,8 +3,8 @@ title: Media streaming optimization with Azure CDN
 description: Optimize streaming media files for smooth delivery
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: v-deasim
+ms.author: magattus
 ---
 # Media streaming optimization with Azure CDN 
  
