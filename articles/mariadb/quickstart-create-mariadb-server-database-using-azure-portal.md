@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 Open your web browser, and then go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MariaDB server
-You create an Azure Database for MariaDB server with a defined set of compute and storage resources <!-- [compute and storage resources](./concepts-compute-unit-and-storage.md)-->. You create the server within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+You create an Azure Database for MariaDB server with a defined set of [compute and storage resources](./concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
 Follow these steps to create an Azure Database for MariaDB server:
 
@@ -194,10 +194,10 @@ To connect to the server using MySQL Workbench, use the following steps:
     Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MariaDB server earlier. Our example username is **myadmin@mydemoserver**. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
     Password | *Your password* | Select the **Store in Vault...** button to save the password. |
 
-4. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
+4. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection.
 
     > [!NOTE]
-    > SSL is enforced by default on your server and requires extra configuration  to connect successfully. <!--For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).--> To disable SSL for this Quickstart, go to the Azure portal. Then select the Connection security page to disable the **Enforce SSL** connection toggle button.
+    > SSL is enforced by default on your server and requires extra configuration  to connect successfully. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md). To disable SSL for this Quickstart, go to the Azure portal. Then select the Connection security page to disable the **Enforce SSL** connection toggle button.
 
 ## Clean up resources
 You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the one server resource.

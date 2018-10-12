@@ -91,13 +91,10 @@
         href: data-box-heavy-overview.md
   - name: Resources
     items:
-    - name: Azure roadmap
-      href: https://azure.microsoft.com/roadmap/?category=storage
-    - name: Azure Data Box marketing
-      href: https://azure.microsoft.com/services/storage/databox/
+    - name: Data Box product
+      href: https://azure.microsoft.com/services/storage/databox/data/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/storage/databox/
-    - name: Service updates
-      href: https://azure.microsoft.com/updates/?product=databox
+
 
 
