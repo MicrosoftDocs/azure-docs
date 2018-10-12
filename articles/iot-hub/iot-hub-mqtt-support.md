@@ -252,7 +252,7 @@ The possible status codes are:
 | 5** | Server errors |
 
 The python code snippet below, demonstrates the twin reported properties update process over MQTT (using Paho MQTT client):
-```
+```python
 from paho.mqtt import client as mqtt
 
 # authenticate the client with IoT Hub (not shown here)
