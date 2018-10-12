@@ -30,10 +30,10 @@ Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/a
 | &bull; Requests                     | Yes           	| Yes              	| 
 | &bull; Exceptions                   | Yes           	| Yes              	| 
 | &bull; Dependencies           	    |               	|                  	|           	
-| &mdash; HTTP                       	|               	| Yes              	| 
-| &mdash; ServiceBus                 	|               	| Yes              	| 
-| &mdash; EventHub                   	|               	| Yes              	| 
-| &mdash; SQL                        	|               	| Yes              	| 
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               	| Yes              	| 
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               	| Yes              	| 
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               	| Yes              	| 
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               	| Yes              	| 
 | | | | 
 | **Supported features**             	|               	|                  	|           	
 | &bull; QuickPulse/LiveMetrics       | Yes           	| Yes              	| 
