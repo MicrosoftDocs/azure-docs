@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/04/2018
+ms.date: 10/12/2018
 
 ---
 # Azure Disk Encryption prerequisites (previous release)
@@ -58,7 +58,7 @@ An example of commands that can be used to mount the data disks and create the n
 
         [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001
-        "SchUseStrongCrypto"=dword:00000001`
+        "SchUseStrongCrypto"=dword:00000001` 
 
  
 
@@ -72,7 +72,7 @@ An example of commands that can be used to mount the data disks and create the n
 ## <a name="bkmk_PSH"></a> Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) provides a set of cmdlets that uses the [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) model for managing your Azure resources. You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can install it on your local machine using the instructions below to use it in any PowerShell session. If you already have it installed locally, make sure you use the latest version of Azure PowerShell SDK version to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell release](https://github.com/Azure/azure-powershell/releases).
 
-### Install Azure PowerShell for use on your local machine (optional): 
+### Install Azure PowerShell for use on your local machine (optional):  
 1. Follow the instructions in the links for your operating system, then continue though the rest of the steps below.      
     - [Install and configure Azure PowerShell for Windows](/powershell/azure/install-azurerm-ps). 
         - Install PowerShellGet, Azure PowerShell, and load the AzureRM module. 
