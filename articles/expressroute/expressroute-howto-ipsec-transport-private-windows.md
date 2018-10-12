@@ -266,7 +266,7 @@ Every computer tht belongs to the OU will have the security group policy assigne
 
   [![50]][50]
 
-## <a name="checktraffic"></a>To check traffic encryption between host on-premises and Azure VM
+## <a name="checktraffic"></a>To check traffic encryption
 
 To check out the encryption GPO applied on the OU, install IIS on all Azure VMs and in the host1. Every IIS is customized to answer to HTTP requests on port 8080.
 To verify encryption, you can install a network sniffer (like Wireshark) in all computers in the OU.
@@ -306,10 +306,6 @@ The following network capture shows the results for on-premises host1 with displ
 [![51]][51]
 
 If you run the powershell script on-premisies (HTTP client), the network capture in the Azure VM shows a similar trace.
-
-## Summary
-
-This article walked you through the steps to set a Windows IPsec policy applied by GPO to all computers belonging to an AD OU. An IPsec policy has been configured to encrypt all the HTTP traffic with destination port 8080 between the on-premises host and the Azure VM. The encrypted traffic transits through the ExpressRoute private peering. By viewing the network capture, you have verified that traffic between the Windows host on-premisies and the Windows Azure VM is encrypted.
 
 ## Next Steps
 
