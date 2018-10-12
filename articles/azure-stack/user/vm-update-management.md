@@ -19,7 +19,7 @@ ms.reviewer: rtiberiu
 ---
 
 # Azure Stack VM update and management
-You can use the following Azure Automation solutions to manage Windows VMs that are deployed to Azure Stack:
+You can use the following Azure Automation solution features to manage Windows VMs that are deployed using Azure Stack:
 
 - **[Update Management](https://docs.microsoft.com/azure/automation/automation-update-management)**. With the Update Management solution, you can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for these Windows VMs.
 
@@ -31,23 +31,28 @@ You can use the following Azure Automation solutions to manage Windows VMs that 
 > These solutions are the same as the ones used to manage Azure VMs. Both Azure and Azure Stack Windows VMs are managed in the same way, from the same interface, using the same tools.
 
 ## Prerequisites
-Several prerequisites must be met before using these solutions to update and manage Azure Stack Windows VMs. These include steps that must be taken in the Azure portal as well as the Azure Stack administration portal.
+Several prerequisites must be met before using these features to update and manage Azure Stack Windows VMs. These include steps that must be taken in the Azure portal as well as the Azure Stack administration portal.
 
 ### In the Azure portal
-To use the inventory, change tracking, and update management solutions for Azure Stack Windows VMs, you first need to enable these solutions in Azure.
+To use the inventory, change tracking, and update management Azure automation features for Azure Stack Windows VMs, you first need to enable these solutions in Azure.
 
 > [!TIP]
-> If you already have these solutions enabled for Azure VMs, you can use your pre-existing LogAnalytics Workspace credentials. If you already have a LogAnalytics WorkspaceID and Primary Key that you want to use, skip ahead to the next section. Otherwise, continue in this section to create a new LogAnalytics Workspace and automation account.
+> If you already have these features enabled for Azure VMs, you can use your pre-existing LogAnalytics Workspace credentials. If you already have a LogAnalytics WorkspaceID and Primary Key that you want to use, skip ahead to the next section. Otherwise, continue in this section to create a new LogAnalytics Workspace and automation account.
 
-The first step in enabling these solutions is to [create a LogAnalytics Workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) in your Azure subscription. After you have created a workspace, note the WorkspaceID and Key. To view this information, go to the workspace blade, click on **Advanced settings**, and review the **Workspace ID** and **Primary Key** values.
+The first step in enabling these solutions is to [create a LogAnalytics Workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) in your Azure subscription. A Log Analytics workspace is a unique Log Analytics environment with its own data repository, data sources, and solutions.
 
-Next, you must [create an Automation Account](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). Once the automation account is created, you need to enable the Inventory, Change tracking, and Update management solutions. To do this, follow these steps for each of the solutions:
+After you have created a workspace, note the WorkspaceID and Key. To view this information, go to the workspace blade, click on **Advanced settings**, and review the **Workspace ID** and **Primary Key** values. 
+
+Next, you must [create an Automation Account](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). An Automation Account is a container for your Azure Automation resources. It provides a way to separate your environments or further organize your Automation workflows and resources.
+
+Once the automation account is created, you need to enable the Inventory, Change tracking, and Update management features. To do this, follow these steps for each:
 
 1. In the Azure portal, go to the Automation Account that you want to use.
 2. Select the solution to enable (either **Inventory**, **Change tracking**, or **Update management**).
 3. Use the **Select Workspace...** drop-down list to select the Log Analytics Workpace to use.
 4. Verify that all remaining information is correct, and then click **Enable** to enable the solution.
 5. Repeat steps 2-4 to enable all three solutions. 
+
 
     [![](media/vm-update-management/1-sm.PNG "Enable automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
 
