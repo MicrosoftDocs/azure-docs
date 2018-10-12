@@ -94,7 +94,7 @@ Video Indexer GA release was announced in August. For new information about curr
 
 The Azure CLI release is coming on 10/23/2018.
 
-## Knonw issues
+## Known issues
 
 Only customers that used the preview API for Asset or AccountFilters are impacted by the following issue.
 
