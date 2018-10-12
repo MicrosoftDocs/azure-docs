@@ -54,7 +54,7 @@ To get local results, use the endpoint. Include the `Ocp-Apim-Subscription-Key` 
 
 GET:
 ````
-https://api.cognitive.microsoft.com/bing/v7.0/local/search?q=restaurant+in+Bellevue
+https://cognitivegblppe.azure-api.net/localbusinesses/v7.0/search?q=restaurant+in+Bellevue&mkt=en-us
 
 ````
 
@@ -63,140 +63,320 @@ https://api.cognitive.microsoft.com/bing/v7.0/local/search?q=restaurant+in+Belle
 The JSON response includes places specified by `?q=restaurant+in+Bellevue`.
 
 ````
-"places": {
-      "totalEstimatedMatches": 10,
-      "value": [
-         {
-            "_type": "Restaurant",
-            "id": "https:\/\/www.bingapis.com\/api\/v7\/#Places.0",
-            "readLink": "https:\/\/www.bingapis.com\/api\/v7\/localbusinesses\/YN873x131690823",
-            "contractualRules": [
-               {
-                  "_type": "ContractualRules\/LinkAttribution",
-                  "text": "Yelp",
-                  "url": "https:\/\/www.yelp.com\/biz\/facing-east-bellevue?adjust_creative=bing&utm_campaign=yelp_feed&utm_medium=bingapi&utm_source=4523F7",
-                  "urlPingSuffix": "DevEx,5114.1",
-                  "optionalForListDisplay": false
-               },
-               {
-                  "_type": "ContractualRules\/LinkAttribution",
-                  "text": "Foursquare",
-                  "url": "https:\/\/foursquare.com\/v\/facing-east\/485bae80f964a520c5501fe3",
-                  "urlPingSuffix": "DevEx,5121.1",
-                  "optionalForListDisplay": true
-               },
-               {
-                  "_type": "ContractualRules\/LinkAttribution",
-                  "text": "Zomato",
-                  "url": "http:\/\/www.urbanspoon.com\/r\/1\/55084\/restaurant\/Seattle\/Facing-East-Taiwanese-Restaurant-Bellevue%2520ForceRecrawl:%25200",
-                  "urlPingSuffix": "DevEx,5122.1",
-                  "optionalForListDisplay": true
-               },
-               {
-                  "_type": "ContractualRules\/MediaAttribution",
-                  "targetPropertyName": "image",
-                  "mustBeCloseToContent": true,
-                  "url": "https:\/\/s3-media1.fl.yelpcdn.com\/bphoto\/Mv2bJT4-WkU56UD_bJP1RQ\/o.jpg",
-                  "urlPingSuffix": "DevEx,5117.1"
-               }
-            ],
-            "webSearchUrl": "https:\/\/www.bing.com\/entityexplore?q=Facing+East+Taiwanese+Restaurant&filters=local_ypid:%22YN873x131690823%22&elv=AXXfrEiqqD9r3GuelwApulpmymQx!ODfuQu*veOQHkvP0!Zbvi5F5tVcMSDJvDEWiQWwrdueYTtIszgj03oFQHykYYLYgq3q5!Sf00QxXGIS",
-            "webSearchUrlPingSuffix": "DevEx,5123.1",
-            "name": "Facing East Taiwanese Restaurant",
-            "url": "http:\/\/litadesign.wix.com\/facingeastrestaurant",
-            "urlPingSuffix": "DevEx,5124.1",
-            "image": {
-               "provider": [
-                  {
-                     "name": "Yelp",
-                     "url": "https:\/\/www.yelp.com\/biz\/facing-east-bellevue?adjust_creative=bing&utm_campaign=yelp_feed&utm_medium=feed_v2&utm_source=bing",
-                     "urlPingSuffix": "DevEx,5119.1"
-                  }
-               ],
-               "contentUrl": "https:\/\/www.bing.com\/th?id=AAHMtP+fpeUAGRg480x360&p=0&pid=Local",
-               "contentUrlPingSuffix": "DevEx,5118.1",
-               "hostPageUrl": "https:\/\/s3-media1.fl.yelpcdn.com\/bphoto\/Mv2bJT4-WkU56UD_bJP1RQ\/o.jpg",
-               "hostPageUrlPingSuffix": "DevEx,5117.1",
-               "width": 216,
-               "height": 288
-            },
-            "entityPresentationInfo": {
-               "entityScenario": "ListItem",
-               "entityTypeHints": [
-                  "Place",
-                  "LocalBusiness",
-                  "Restaurant"
-               ]
-            },
-            "bingId": "YN873x131690823",
-            "geo": {
-               "latitude": 47.6199188232422,
-               "longitude": -122.202743530273
-            },
-            "routablePoint": {
-               "latitude": 47.6199188232422,
-               "longitude": -122.202743530273
-            },
-            "address": {
-               "streetAddress": "1075 Bellevue Way NE Ste B2",
-               "addressLocality": "Bellevue",
-               "addressRegion": "WA",
-               "postalCode": "98004",
-               "addressCountry": "US",
-               "neighborhood": "Bellevue",
-               "text": "1075 Bellevue Way NE Ste B2, Bellevue, WA 98004"
-            },
-            "telephone": "(425) 688-2986",
-            "aggregateRating": {
-               "text": "8",
-               "ratingValue": 8,
-               "bestRating": 10,
-               "reviewCount": 1557
-            },
-            "openingHoursSpecification": [
-               {
-                  "dayOfWeek": "Monday",
-                  "opens": {
-                     "hour": 11,
-                     "minute": 30,
-                     "second": 0,
-                     "milliSecond": 0
-                  },
-                  "closes": {
-                     "hour": 15,
-                     "minute": 0,
-                     "second": 0,
-                     "milliSecond": 0
-                  }
-               },
-               {
-                  "dayOfWeek": "Monday",
-                  "opens": {
-                     "hour": 17,
-                     "minute": 0,
-                     "second": 0,
-                     "milliSecond": 0
-                  },
-. . .
+Vary: Accept-Encoding
+BingAPIs-TraceId: 2A09420075714C3A89A67F6A028F37B3
+BingAPIs-SessionId: 6F12CCE6D7DB46B7AEAE2C5DB9C75319
+X-MSEdge-ClientID: 19E06CE7535F6D9B245A606152136C46
+X-MSAPI-UserState: c4ef
+BingAPIs-Market: en-US
+X-Search-ResponseInfo: InternalResponseTime=694,MSDatacenter=CO4
+X-MSEdge-Ref: Ref A: 2A09420075714C3A89A67F6A028F37B3 Ref B: BY3EDGE0205 Ref C: 2018-10-12T22:13:35Z
+apim-request-id: 49c328c0-b8b7-44c1-9fdb-80d6f6f3b17f
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+x-content-type-options: nosniff
+Cache-Control: max-age=0, private
+Date: Fri, 12 Oct 2018 22:13:35 GMT
+P3P: CP="NON UNI COM NAV STA LOC CURa DEVa PSAa PSDa OUR IND"
+Content-Length: 7438
+Content-Type: application/json; charset=utf-8
+Expires: Fri, 12 Oct 2018 22:12:35 GMT
+
+{
+  "_type": "SearchResponse",
+  "queryContext": {
+    "originalQuery": "restaurant in Bellevue"
+  },
+  "places": {
+    "totalEstimatedMatches": 10,
+    "value": [{
+      "_type": "LocalBusiness",
+      "id": "https:\/\/cognitivegblppe.azure-api.net\/api\/v7\/#Places.0",
+      "name": "Facing East Taiwanese Restaurant",
+      "url": "http:\/\/litadesign.wix.com\/facingeastrestaurant",
+      "entityPresentationInfo": {
+        "entityScenario": "ListItem",
+        "entityTypeHints": ["Place", "LocalBusiness", "Restaurant"]
+      },
+      "geo": {
+        "latitude": 47.6199188232422,
+        "longitude": -122.202796936035
+      },
+      "routablePoint": {
+        "latitude": 47.6199188232422,
+        "longitude": -122.201713562012
+      },
+      "address": {
+        "streetAddress": "1075 Bellevue Way NE Ste B2",
+        "addressLocality": "Bellevue",
+        "addressRegion": "WA",
+        "postalCode": "98004",
+        "addressCountry": "US",
+        "neighborhood": "Bellevue",
+        "text": "1075 Bellevue Way NE Ste B2, Bellevue, WA 98004"
+      },
+      "telephone": "(425) 688-2986"
+    }, {
+      "_type": "LocalBusiness",
+      "id": "https:\/\/cognitivegblppe.azure-api.net\/api\/v7\/#Places.1",
+      "name": "Seastar Restaurant & Raw Bar",
+      "url": "http:\/\/seastarrestaurant.com\/",
+      "entityPresentationInfo": {
+        "entityScenario": "ListItem",
+        "entityTypeHints": ["Place", "LocalBusiness", "Restaurant"]
+      },
+      "geo": {
+        "latitude": 47.6123886108398,
+        "longitude": -122.196937561035
+      },
+      "routablePoint": {
+        "latitude": 47.6123962402344,
+        "longitude": -122.196243286133
+      },
+      "address": {
+        "streetAddress": "205 108th Ave NE",
+        "addressLocality": "Bellevue",
+        "addressRegion": "WA",
+        "postalCode": "98004",
+        "addressCountry": "US",
+        "neighborhood": "Bellevue",
+        "text": "205 108th Ave NE, Bellevue, WA, 98004"
+      },
+      "telephone": "(425) 456-0010"
+    }, {
+      "_type": "LocalBusiness",
+      "id": "https:\/\/cognitivegblppe.azure-api.net\/api\/v7\/#Places.2",
+      "name": "Palomino",
+      "url": "http:\/\/www.palomino.com\/location.php?c=bellevue",
+      "entityPresentationInfo": {
+        "entityScenario": "ListItem",
+        "entityTypeHints": ["Place", "LocalBusiness", "Restaurant"]
+      },
+      "geo": {
+        "latitude": 47.6165084838867,
+        "longitude": -122.201179504395
+      },
+      "routablePoint": {
+        "latitude": 47.6165046691895,
+        "longitude": -122.201698303223
+      },
+      "address": {
+        "streetAddress": "610 Bellevue Way NE",
+        "addressLocality": "Bellevue",
+        "addressRegion": "WA",
+        "postalCode": "98004",
+        "addressCountry": "US",
+        "neighborhood": "Downtown",
+        "text": "610 Bellevue Way NE, Bellevue, WA, 98004"
+      },
+      "telephone": "(425) 455-7600"
+    }, {
+      "_type": "LocalBusiness",
+      "id": "https:\/\/cognitivegblppe.azure-api.net\/api\/v7\/#Places.3",
+      "name": "Earls Kitchen + Bar",
+      "url": "https:\/\/earls.ca\/locations\/bellevue",
+      "entityPresentationInfo": {
+        "entityScenario": "ListItem",
+        "entityTypeHints": ["Place", "LocalBusiness", "Restaurant"]
+      },
+      "geo": {
+        "latitude": 47.6169700622559,
+        "longitude": -122.201232910156
+      },
+      "routablePoint": {
+        "latitude": 47.6169662475586,
+        "longitude": -122.201713562012
+      },
+      "address": {
+        "streetAddress": "700 Bellevue Way NE Ste 130",
+        "addressLocality": "Bellevue",
+        "addressRegion": "WA",
+        "postalCode": "98004",
+        "addressCountry": "US",
+        "neighborhood": "Bellevue",
+        "text": "700 Bellevue Way NE Ste 130, Bellevue, WA, 98004"
+      },
+      "telephone": "(425) 452-3275"
+    }, {
+      "_type": "LocalBusiness",
+      "id": "https:\/\/cognitivegblppe.azure-api.net\/api\/v7\/#Places.4",
+      "name": "JOEY Restaurant",
+      "url": "http:\/\/joeyrestaurants.com\/",
+      "entityPresentationInfo": {
+        "entityScenario": "ListItem",
+        "entityTypeHints": ["Place", "LocalBusiness", "Restaurant"]
+      },
+      "geo": {
+        "latitude": 47.6176681518555,
+        "longitude": -122.201263427734
+      },
+      "routablePoint": {
+        "latitude": 47.61767578125,
+        "longitude": -122.201713562012
+      },
+      "address": {
+        "streetAddress": "800 Bellevue Way NE",
+        "addressLocality": "Bellevue",
+        "addressRegion": "WA",
+        "postalCode": "98004",
+        "addressCountry": "US",
+        "neighborhood": "Bellevue",
+        "text": "800 Bellevue Way NE, Bellevue, WA, 98004"
+      },
+      "telephone": "(425) 637-1177"
+    }, {
+      "_type": "LocalBusiness",
+      "id": "https:\/\/cognitivegblppe.azure-api.net\/api\/v7\/#Places.5",
+      "name": "Cactus Restaurants",
+      "url": "http:\/\/www.cactusrestaurants.com\/location\/bellevue-square",
+      "entityPresentationInfo": {
+        "entityScenario": "ListItem",
+        "entityTypeHints": ["Place", "LocalBusiness", "Restaurant"]
+      },
+      "geo": {
+        "latitude": 47.616569519043,
+        "longitude": -122.203987121582
+      },
+      "routablePoint": {
+        "latitude": 47.6165962219238,
+        "longitude": -122.201705932617
+      },
+      "address": {
+        "streetAddress": "535 Bellevue Sq",
+        "addressLocality": "Bellevue",
+        "addressRegion": "WA",
+        "postalCode": "98004",
+        "addressCountry": "US",
+        "neighborhood": "Bellevue",
+        "text": "535 Bellevue Sq, Bellevue, WA, 98004"
+      },
+      "telephone": "(425) 455-4321"
+    }, {
+      "_type": "LocalBusiness",
+      "id": "https:\/\/cognitivegblppe.azure-api.net\/api\/v7\/#Places.6",
+      "name": "McCormick & Schmick's Seafood & Steaks",
+      "url": "http:\/\/www.mccormickandschmicks.com\/locations\/seattle-washington\/bellevue-washington\/bellevuewayne.aspx",
+      "entityPresentationInfo": {
+        "entityScenario": "ListItem",
+        "entityTypeHints": ["Place", "LocalBusiness", "Restaurant"]
+      },
+      "geo": {
+        "latitude": 47.6169700622559,
+        "longitude": -122.201232910156
+      },
+      "routablePoint": {
+        "latitude": 47.6169662475586,
+        "longitude": -122.201713562012
+      },
+      "address": {
+        "streetAddress": "700 Bellevue Way NE Ste 115",
+        "addressLocality": "Bellevue",
+        "addressRegion": "WA",
+        "postalCode": "98004",
+        "addressCountry": "US",
+        "neighborhood": "Downtown",
+        "text": "700 Bellevue Way NE Ste 115, Bellevue, WA, 98004"
+      },
+      "telephone": "(425) 454-2606"
+    }, {
+      "_type": "LocalBusiness",
+      "id": "https:\/\/cognitivegblppe.azure-api.net\/api\/v7\/#Places.7",
+      "name": "Boiling Point",
+      "url": "http:\/\/www.bpgroupusa.com\/",
+      "entityPresentationInfo": {
+        "entityScenario": "ListItem",
+        "entityTypeHints": ["Place", "LocalBusiness", "Restaurant"]
+      },
+      "geo": {
+        "latitude": 47.6199188232422,
+        "longitude": -122.202796936035
+      },
+      "routablePoint": {
+        "latitude": 47.6199188232422,
+        "longitude": -122.201713562012
+      },
+      "address": {
+        "streetAddress": "1075 Bellevue Way NE",
+        "addressLocality": "Bellevue",
+        "addressRegion": "WA",
+        "postalCode": "98004",
+        "addressCountry": "US",
+        "neighborhood": "North Bellevue",
+        "text": "1075 Bellevue Way NE, Bellevue, WA, 98004"
+      },
+      "telephone": "(425) 455-8375"
+    }, {
+      "_type": "LocalBusiness",
+      "id": "https:\/\/cognitivegblppe.azure-api.net\/api\/v7\/#Places.8",
+      "name": "Top Gun Seafood Restaurant",
+      "url": "http:\/\/topgunrestaurants.com\/",
+      "entityPresentationInfo": {
+        "entityScenario": "ListItem",
+        "entityTypeHints": ["Place", "LocalBusiness", "Restaurant"]
+      },
+      "geo": {
+        "latitude": 47.5780410766602,
+        "longitude": -122.172653198242
+      },
+      "routablePoint": {
+        "latitude": 47.5773887634277,
+        "longitude": -122.17301940918
+      },
+      "address": {
+        "streetAddress": "12450 SE 38th St",
+        "addressLocality": "Bellevue",
+        "addressRegion": "WA",
+        "postalCode": "98006",
+        "addressCountry": "US",
+        "neighborhood": "Bellevue",
+        "text": "12450 SE 38th St, Bellevue, WA, 98006"
+      },
+      "telephone": "(425) 641-3386"
+    }, {
+      "_type": "LocalBusiness",
+      "id": "https:\/\/cognitivegblppe.azure-api.net\/api\/v7\/#Places.9",
+      "name": "Flo Japanese Restaurant & Sushi Bar",
+      "url": "http:\/\/florestaurant.com\/",
+      "entityPresentationInfo": {
+        "entityScenario": "ListItem",
+        "entityTypeHints": ["Place", "LocalBusiness", "Restaurant"]
+      },
+      "geo": {
+        "latitude": 47.6202201843262,
+        "longitude": -122.198852539062
+      },
+      "routablePoint": {
+        "latitude": 47.6202201843262,
+        "longitude": -122.199119567871
+      },
+      "address": {
+        "streetAddress": "1150 106th Ave NE",
+        "addressLocality": "Bellevue",
+        "addressRegion": "WA",
+        "postalCode": "98004",
+        "addressCountry": "US",
+        "neighborhood": "Bellevue",
+        "text": "1150 106th Ave NE, Bellevue, WA, 98004"
+      },
+      "telephone": "(425) 453-4005"
+    }],
+    "searchAction": {}
+  }
+}
  
 ````
 
 ## Attributes of Places response objects
 
 The JSON results include the following attributes:
-* Lat/Long
-* Name
-* Address
-* Phone Number
-* Website
-* Type
-* Category
-* Rating
-* Reviews
-* Images
-* IsClosed
-* open hours
-* price level
+* _type
+* address
+* entityPresentationInfo
+* geo
+* id
+* name
+* routeablePoint
+* telephone
+* url
 
 For general information about headers, parameters, market codes, response objects, errors, etc., see the [Bing Local Search API v7](local-search-reference.md) reference.
 
