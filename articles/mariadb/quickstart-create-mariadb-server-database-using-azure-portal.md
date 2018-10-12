@@ -120,11 +120,11 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
 
     mysql parameter |Suggested value|Description
     ---|---|---
-    --host | *Server name* | The server name value that you used earlier when you created the Azure Database for MariaDB server. Our example server is **mydemoserver.mariadb.database.azure.com**. Use the fully qualified domain name (**\*.mariadb.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information.
-    --user | *Server admin login name* |The server admin login username that you supplied when you created the Azure Database for MariaDB server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
-    -p | *Wait until prompted* |When prompted, provide the same password that you provided when you created the server. Note that the typed password characters are not shown on the bash prompt when you type them. After you've entered the password, select **Enter**.
+    --host | *server name* | The server name value that you used to create the Azure Database for MariaDB server. Our example server is **mydemoserver.mariadb.database.azure.com**. Use the fully qualified domain name (**\*.mariadb.database.azure.com**) as shown in the example. If you don't remember your server name, complete the steps in the preceding section to get the connection information.
+    --user | *server admin login name* |The server admin login user name that you used to create the Azure Database for MariaDB server. If you don't remember the user name, complete the steps in the preceding section to get the connection information. The format is *username@servername*.
+    -p | *wait until prompted* |When prompted, enter the password that you used to create the server. The typed password characters are not shown on the bash prompt when you type them. After you've entered the password, press Enter.
 
-   After it's connected, the mysql utility displays a `mysql>` prompt at which you can type commands. 
+   After it's connected, the mysql utility displays a **mysql>** prompt at which you can type commands. 
 
    Following is example mysql output:
 
@@ -143,6 +143,7 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
     
     mysql>
     ```
+    
     > [!TIP]
     > If the firewall isn't configured to allow the IP address of Azure Cloud Shell, the following error occurs:
     >
@@ -184,7 +185,7 @@ To connect to the server by using MySQL Workbench:
 
 1. Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-2. Create a new connection. Click the plus (+) icon beside the **MySQL Connections** heading.
+2. Create a new connection. Select the plus (+) icon beside the **MySQL Connections** heading.
 
 3. In the **Setup New Connection** dialog box, on the **Parameters** tab, enter your server connection information. Placeholder values are shown as an example. Replace the **Hostname**, **Username**, and **Password** with your own values.
 
