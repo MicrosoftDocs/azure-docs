@@ -1,18 +1,18 @@
 ---
 title: Monitor a space with Azure Digital Twins | Microsoft Docs
-description: Learn how to monitor the working conditions of your spaces with Azure Digital Twins using the steps in this tutorial.
+description: Learn how to provision your spatial resources and monitor the working conditions with Azure Digital Twins using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
 
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 08/30/2018
+ms.date: 10/15/2018
 ms.author: dkshir
 ---
 
-# Tutorial: Monitor temperature and air in your building with Azure Digital Twins
+# Tutorial: Provision your building and monitor working conditions with Azure Digital Twins
 
-This tutorial demonstrates how to use Azure Digital Twins to monitor your spaces for desired temperature conditions and comfort level. Once you have configured your sample building using the steps in [the previous tutorial](tutorial-facilities-setup.md), you can provision and run custom computations on your sensor data using the steps in this tutorial.
+This tutorial demonstrates how to use Azure Digital Twins to monitor your spaces for desired temperature conditions and comfort level. Once you have [configured your sample building](tutorial-facilities-setup.md), you can provision your building and run custom functions on your sensor data using the steps in this tutorial.
 
 In this tutorial, you learn how to:
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-This tutorial assumes that you have completed the steps to [configure your Azure Digital Twins setup](tutorial-facilities-setup.md). Before proceeding, make sure that you have:
+This tutorial assumes that you have [configured your Azure Digital Twins setup](tutorial-facilities-setup.md). Before proceeding, make sure that you have:
 - an [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F),
 - an instance of Digital Twins running, 
 - the [Digital Twins C# samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine, 
@@ -32,7 +32,7 @@ This tutorial assumes that you have completed the steps to [configure your Azure
 - [Visual Studio Code](https://code.visualstudio.com/) to explore the sample code. 
 
 ## Define conditions to monitor
-You can define a set of specific conditions to monitor in the device or sensor data, called **Matchers**. You can then define functions called the *user-defined functions* which execute custom logic on data coming from your spaces and devices, which meets the conditions specified by the matchers. For more information, read the [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
+You can define a set of specific conditions to monitor in the device or sensor data, called **Matchers**. You can then define functions called the *user-defined functions*, which execute custom logic on data coming from your spaces and devices, when the conditions specified by the matchers occur. For more information, read the [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
 
 From the **_occupancy-quickstart_** sample project, open the file **_src\actions\provisionSample.yaml_** in Visual Studio Code. Note the section that begins with the type **matchers**. Each entry under this type creates a matcher with the specified **Name**, that will monitor a sensor of type **dataTypeValue**. Notice how it relates to the space named *Focus Room A1*, which has a **devices** node, containing a few **sensors**. To provision a matcher that will track one of these sensors, its **dataTypeValue** should match with that sensor's **dataType**. 
 
@@ -45,11 +45,12 @@ Add the following matcher below the existing matchers, making sure the keys are 
 
 This will track the *SAMPLE_SENSOR_TEMPERATURE* sensor that you added in [the first tutorial](tutorial-facilities-setup.md).
 
+<a id="udf" />
 
 ## Create a User-Defined Function
-User-defined functions or UDFs allow you to customize the processing of telemetry data from your sensors. They are custom JavaScript code that can run within your Digital Twins instance, when specific conditions as described by the matchers occur. You can create *matchers* and *user-defined functions* for each sensor that you want to monitor. For more detailed information, read [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
+User-defined functions or UDFs allow you to customize the processing of your sensor data. They are custom JavaScript code that can run within your Digital Twins instance, when specific conditions as described by the matchers occur. You can create *matchers* and *user-defined functions* for each sensor that you want to monitor. For more detailed information, read [Data Processing and User-Defined Functions](concepts-user-defined-functions.md). 
 
-In the sample *provisionSample.yaml* file, look for a section beginning with the type **userdefinedfunctions**. This section provisions a user-defined function with a given **Name**, that acts on the list of matchers under the **matcherNames**. Notice how you can provide your own JavaScript file for the UDF as the **script**. Also note the section named **roleassignments**. It assigns the *Space Administrator* role to the user-defined function. This is required for the function to access the events coming from any of the provisioned spaces. 
+In the sample *provisionSample.yaml* file, look for a section beginning with the type **userdefinedfunctions**. This section provisions a user-defined function with a given **Name**, that acts on the list of matchers under the **matcherNames**. Notice how you can provide your own JavaScript file for the UDF as the **script**. Also note the section named **roleassignments**. It assigns the *Space Administrator* role to the user-defined function; this allows it to access the events coming from any of the provisioned spaces. 
 
 1. Configure the UDF to include the temperature matcher by adding the following line to the `matcherNames` node in the *provisionSample.yaml* file:
 
@@ -57,12 +58,12 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             - Matcher Temperature
     ```
 
-1. Open the file **_src\actions\userDefinedFunctions\availability.js_** in your editor. This is the file mentioned in the **script** element of the *provisionSample.yaml*. The user-defined function in this file looks for conditions when no motion is detected in the room, as well as carbon dioxide levels are below 1000 ppm. Modify the JavaScript file to monitor temperature in addition to other conditions. Add the following lines of code to look for conditions when no motion is detected in the room, carbon dioxide levels are below 1000 ppm, and temperature is below 76 degrees Fahrenheit:
+1. Open the file **_src\actions\userDefinedFunctions\availability.js_** in your editor. This is the file referred in the **script** element of the *provisionSample.yaml*. The user-defined function in this file looks for conditions when no motion is detected in the room, as well as carbon dioxide levels are below 1000 ppm. Modify the JavaScript file to monitor temperature in addition to other conditions. Add the following lines of code to look for conditions when no motion is detected in the room, carbon dioxide levels are below 1000 ppm, and temperature is below 78 degrees Fahrenheit:
     1. At the top of the file, add the following lines for temperature below the comment `// Add your sensor type here`:
 
         ```JavaScript
             var temperatureType = "Temperature";
-            var temperatureThreshold = 76;
+            var temperatureThreshold = 78;
         ```
    
     1. Add the following lines after the statement which defines `var motionSensor`, below the comment `// Add your sensor variable here`:
@@ -88,7 +89,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             }
         ```
        
-       Replace them with the following:
+       Replace them with the following lines:
 
         ```JavaScript
             if(carbonDioxideValue === null || motionValue === null || temperatureValue === null){
@@ -104,15 +105,17 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             var noAvailableOrFresh = "Room is not available or air quality is poor";
         ```
 
-       Replace them with the following:
+       Replace them with the following lines:
 
         ```JavaScript
-            var availableFresh = "Room is available, air is fresh, and temperature is just right.";`.
+            var alert = "Room with fresh air and comfortable temperature is available.";
+            var noAlert = "Either room is occupied, or working conditions are not right.";
         ```
     
     1. Remove the following code block after the comment `// Modify this code block for your sensor`:
 
         ```JavaScript
+            // If carbonDioxide less than threshold and no presence in the room => log, notify and set parent space computed value
             if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
                 log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
                 setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
@@ -129,24 +132,28 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             }
         ```
       
-       And replace it with the following:
+       And replace it with the following block:
 
         ```JavaScript
-            if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && !presence) {
-                log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
-                setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
+            // If sensor values are within range and room is available
+            if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && presence) {
+                log(`${alert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
 
-                // Set up custom notification for air quality
-                parentSpace.Notify(JSON.stringify(availableFresh));
+                // log, notify and set parent space computed value
+                setSpaceValue(parentSpace.Id, spaceAvailFresh, alert);
+
+                // Set up notification for this alert
+                parentSpace.Notify(JSON.stringify(alert));
             }
             else {
-                log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
-                setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
-
-                // Set up custom notification for air quality
-                parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
+                log(`${noAlert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
+    
+                // log, notify and set parent space computed value
+                setSpaceValue(parentSpace.Id, spaceAvailFresh, noAlert);
             }
         ```
+        
+        The modified UDF will look for a condition where a room becomes available and has the carbon dioxide and temperature within tolerable limits. It will generate a notification with the statement `parentSpace.Notify(JSON.stringigy(alert));` when this condition is met. It will set the value of the monitored space regardless of whether the condition is met, with the corresponding message.
     
     1. Save the file. 
 
@@ -160,7 +167,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
    > To prevent unauthorized access to your Digital Twins management API, the **_occupancy-quickstart_** application requires you to sign in with your Azure account credentials every time you run it. It will direct you to a Sign-in page, and give a session-specific code to enter on that page. Follow the prompts to sign in with your Azure account.
 
 
-1. Once your login is authenticated, the application will start creating a sample spatial graph as configured in the *provisionSample.yaml*. Wait until the provisioning completes; it will take a few minutes. Once completed, observe the messages in the command window and notice how your spatial graph is created. Notice how it creates an IoT hub at the root node or the `Venue`. 
+1. Once your account is authenticated, the application will start creating a sample spatial graph as configured in the *provisionSample.yaml*. Wait until the provisioning completes; it will take a few minutes. Once completed, observe the messages in the command window and notice how your spatial graph is created. Notice how it creates an IoT hub at the root node or the `Venue`. 
 
 1. From the output in the command window, copy the value of the `ConnectionString`, under the `Devices` section, to your clipboard. You will need this value to simulate the device connection in the following section.
 
@@ -172,7 +179,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
 <a id="simulate" />
 
 ## Simulate sensor data
-In this section, you will use the project named *device-connectivity* in the sample to simulate sensor data for detecting motion, temperature and carbon dioxide. This project generates random values for the sensors, and sends them to the IoT hub by using the device connection string.
+In this section, you will use the project named *device-connectivity* in the sample, to simulate sensor data for detecting motion, temperature, and carbon dioxide. This project generates random values for the sensors, and sends them to the IoT hub by using the device connection string.
 
 1. In a separate command window, navigate to the Digital Twins sample, and then to the **_device-connectivity_** folder.
 
@@ -184,7 +191,7 @@ In this section, you will use the project named *device-connectivity* in the sam
 
 1. Open the *appSettings.json* file in your editor, edit the following values:
     1. *DeviceConnectionString*: Assign the value of `ConnectionString` in the output window from the previous section. Make sure to copy this string completely, within the quotes, for the simulator to connect properly with the IoT hub.
-    2. *HardwareId* within the *Sensors* array: Since you are simulating events from sensors provisioned to your Digital Twins instance, the hardware ID and the names of the sensors in this file should match with those in the `sensors` node of the *provisionSample.yaml* file. Add a new entry for the temperature sensor; the **Sensors** node in the *appSettings.json* should look like the following:
+    2. *HardwareId* within the *Sensors* array: Since you are simulating events from sensors provisioned to your Digital Twins instance, the hardware ID and the names of the sensors in this file should match with `sensors` node of the *provisionSample.yaml* file. Add a new entry for the temperature sensor; the **Sensors** node in the *appSettings.json* should look like the following:
 
         ```JSON
         "Sensors": [{
@@ -199,7 +206,7 @@ In this section, you will use the project named *device-connectivity* in the sam
         }]
         ```
 
-1. Run this command to start simulating device events for temperature, motion and carbon dioxide:
+1. Run this command to start simulating device events for temperature, motion, and carbon dioxide:
 
     ```cmd/sh
     dotnet run
@@ -209,9 +216,9 @@ In this section, you will use the project named *device-connectivity* in the sam
    > Since the simulation sample does not directly communicate with your Digital Twin instance, it does not require you to authenticate.
 
 ## Get results of User-Defined Function
-The user-defined function runs every time your instance receives telemetry data. This section queries your Digital Twins instance to get the results of the user-defined function. You will see in near real time, when a room is available, the air is fresh and temperature is right. 
+The user-defined function runs every time your instance receives device and sensor data. This section queries your Digital Twins instance to get the results of the user-defined function. You will see in near real time, when a room is available, the air is fresh and temperature is right. 
 
-1. Open the command window you used to provision the sample, or open a separate command window, and navigate to the **_occupancy-quickstart\src_** folder of the sample again. 
+1. Open the command window you used to provision the sample, or a new command window, and navigate to the **_occupancy-quickstart\src_** folder of the sample again. 
 
 1. Run the following command and sign in when prompted:
 
@@ -223,18 +230,24 @@ The output window will show how the user-defined function executes, and intercep
 
    ![Execute UDF](./media/tutorial-facilities-udf/udf-running.png)
 
+Depending on whether the monitored condition is met, user-defined function sets the value of space with the relevant message as we saw in [the section above](#udf), which the *GetAvailableAndFreshSpaces` function prints out on the console. 
 
 ## Clean up resources
 
 If you wish to stop exploring Azure Digital Twins beyond this point, feel free to delete resources created in this tutorial:
 
-1. From the left-hand menu in the [Azure portal](http://portal.azure.com), click **All resources**, select and **Delete** your Digital Twins resource group.
+1. From the left-hand menu in the [Azure portal](http://portal.azure.com), click **All resources**, select your Digital Twins resource group, and **Delete** it.
 2. If you need to, you may proceed to delete the sample applications on your work machine as well. 
 
 
 ## Next steps
 
-Proceed to the next tutorial in the series to learn how to create notifications for the simulated sensor data for your sample building. 
-> [!div class="nextstepaction"]
-> [Tutorial: Receive notifications from your building](tutorial-facilities-events.md)
+Now that you have provisioned your spaces and created a framework to trigger custom notifications, you can proceed to any of the following tutorials. 
 
+> [!div class="nextstepaction"]
+> [Tutorial: Receive notifications from your Azure Digital Twins spaces using Logic Apps](tutorial-facilities-events.md)
+
+Or,
+
+> [!div class="nextstepaction"]
+> [Tutorial: Visualize and analyze events from your Azure Digital Twins spaces using Time Series Insights](tutorial-facilities-analyze.md)
