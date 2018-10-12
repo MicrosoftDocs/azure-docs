@@ -50,8 +50,8 @@ An Event Hubs namespace is required to send or receive from any Event Hubs servi
 Now that you have a Kafka-enabled Event Hubs connection string, clone the Azure Event Hubs repository and navigate to the `akka` subfolder:
 
 ```shell
-git clone https://github.com/Azure/azure-event-hubs.git
-cd azure-event-hubs/samples/kafka/akka
+git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
+cd azure-event-hubs-for-kafka/tutorials/akka/java
 ```
 
 ## Run Akka Streams producer
@@ -144,6 +144,7 @@ In this tutorial, you learned how to connect Akka Streams to Kafka-enabled event
 
 To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
 
+* Check out our [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) for a complete list of samples and tutorials
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Learn about Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on-prem to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
