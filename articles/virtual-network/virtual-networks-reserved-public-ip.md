@@ -84,10 +84,9 @@ Expected output:
 
 Once an IP is reserved, it remains associated to your subscription until you delete it. Delete a reserved IP as follows:
 
-- Using Azure PowerShell (classic):
-  ```powershell
-  Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
-  ```
+```powershell
+Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
+```
 
 ### Using Azure CLI (classic)
 Create a reserved IP from the pool of public IP addresses available in the *Central US* location as Using Azure classic CLI follows:
@@ -95,17 +94,19 @@ Create a reserved IP from the pool of public IP addresses available in the *Cent
 > [!NOTE]
 > For classic deployment, you must use Azure classic CLI. For information about installing Azure classic CLI, see [Install the Azure classic CLI](https://docs.microsoft.com/cli/azure/install-classic-cli?view=azure-cli-latest)
   
-    Command:
-    ```azurecli
-      azure network reserved-ip create MyReservedIP centralus
-    ```
-    Example:
-    ```azurecli
-      azure network reserved-ip create MyReservedIP centralus
-    ```
+ Command:
+ 
+```azurecli
+azure network reserved-ip create <name> <location>
+```
+Example:
+ ```azurecli
+ azure network reserved-ip create MyReservedIP centralus
+ ```
 
-To view what IP addresses are reserved in your subscription using Azure CLI, run the following command: 
+You can view what IP addresses are reserved in your subscription using Azure CLI as follows: 
 
+Command:
 ```azurecli
 azure network reserved-ip list
 ```
@@ -116,19 +117,15 @@ azure network reserved-ip list
 ```
 Once an IP is reserved, it remains associated to your subscription until you delete it. Delete a reserved IP as follows:
 
-- Using Azure PowerShell (classic):
-  ```powershell
-  Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
-  ```
-- Using Azure CLI (classic):
-  Command:
-  ```azurecli
-  azure network reserved-ip delete <name>
-  ```
+Command:
+
+ ```azurecli
+ azure network reserved-ip delete <name>
+ ```
   Example:  
-  ```azurecli
-  azure network reserved-ip delete MyReservedIP
-  ```
+ ```azurecli
+ azure network reserved-ip delete MyReservedIP
+ ```
 ## Reserve the IP address of an existing cloud service
 You can reserve the IP address of an existing cloud service by adding the `-ServiceName` parameter. Reserve the IP address of a cloud service *TestService* in the *Central US* location as follows:
 
@@ -139,15 +136,16 @@ You can reserve the IP address of an existing cloud service by adding the `-Serv
   ```
 
 - Using Azure CLI (classic):
-  Command:
+  
+Command:
   ```azurecli
   azure network reserved-ip create <name> <location> -r <service-name> -d <deployment-name>
   ```
-  Example:
+Example:
 
-  ```azurecli
+```azurecli
   azure network reserved-ip create MyReservedIP centralus -r TestService -d asmtest8942
-  ```
+```
 
 ## Associate a reserved IP to a new cloud service
 The following script creates a new reserved IP, then associates it to a new cloud service named *TestService*.
@@ -167,9 +165,10 @@ New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 > 
 
 ## Remove a reserved IP from a running deployment
-Remove a reserved IP added to a new cloud service as follows:
 
+Remove a reserved IP added to a new cloud service as follows: 
 ### Using Azure PowerShell (classic)
+
 ```powershell
 Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService
 ```
@@ -220,7 +219,18 @@ New-AzureVMConfig -Name TestVM2 -InstanceSize Small -ImageName $image.ImageName 
 Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService2
 ```
 
-### Using a service configuration file
+### Using Azure CLI (classic)
+You can associate a new reserved IP to your running cloud service deployment using Azure CLI as follows:
+
+Command:
+```azurecli
+azure network reserved-ip associate <name> <service-name> <deployment-name>
+```
+Example:
+```azurecli
+azure network reserved-ip associate MyReservedIP TestService asmtest8942
+```
+## Associate a reserved ip to a cloud service by using a service configuration file
 You can also associate a reserved IP to a cloud service by using a service configuration (CSCFG) file. The following sample xml shows how to configure a cloud service to use a reserved VIP named *MyReservedIP*:
 ```
    <?xml version="1.0" encoding="utf-8"?>
@@ -240,18 +250,6 @@ You can also associate a reserved IP to a cloud service by using a service confi
       </NetworkConfiguration>
     </ServiceConfiguration>
 ```
-
-### Using Azure CLI (classic)
-You can associate a new reserved IP to your running cloud service deployment using Azure CLI as follows:
-Command:
-```azurecli
-azure network reserved-ip associate <name> <service-name> <deployment-name>
-```
-Example:
-```azurecli
-azure network reserved-ip associate MyReservedIP TestService asmtest8942
-```
-
 ## Next steps
 * Understand how [IP addressing](virtual-network-ip-addresses-overview-classic.md) works in the classic deployment model.
 * Learn about [reserved private IP addresses](virtual-networks-reserved-private-ip.md).
