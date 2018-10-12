@@ -5,13 +5,13 @@ description: This article gives an explanation of what assets are, and how they 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/11/2018
 ms.author: juliako
 ---
 
@@ -83,9 +83,12 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### Pagination
 
-Pagination is supported for each of the four enabled sort orders. 
+Pagination is supported for each of the four enabled sort orders. Currently, the page size is 1000.
 
-If a query response contains many (currently over 1000) items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. The page size is not configurable by the user. 
+> [!TIP]
+> You should always use the next link to enumerate the collection and not depend on a particular page size.
+
+If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. 
 
 If Assets are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
 
