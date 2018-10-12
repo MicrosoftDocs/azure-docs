@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Overview of Azure Digital Twins
 
-Azure Digital Twins is an Azure IoT service that powers creating comprehensive models of the physical environment. Among its many features is the ability to create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
+Azure Digital Twins is an Azure IoT service for creating comprehensive models of the physical environment. Among its many features is the ability to create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
 
 Azure Digital Twins allows querying data from a physical space rather than from many disparate sensors. This service helps you build reusable, highly scalable, spatially aware, experiences that link streaming data across the digital and physical world. Whether you are predicting maintenance needs for a factory, analyzing real-time energy requirements for an electrical grid, or optimizing the use of available space for an office, your apps are enhanced by these uniquely relevant contextual features.
 
@@ -44,7 +44,7 @@ For example, a room occupancy application could use pre-defined space types such
 
 You can build solutions that scale securely and which can be reused for multiple tenants. You can also create multiple subtenants that can be accessed and used in an isolated and secure manner.
 
-Your space utilization app could be configured to isolate a tenant's data from other tenant data within a single building, or to combine data for a single tenant with multiple buildings.
+For example, a space utilization app could be configured to isolate a tenant's data from other tenant data within a single building, or to combine data for a single tenant with multiple buildings.
 
 ### Advanced compute capabilities
 
@@ -62,7 +62,7 @@ For example, a facilities management app could be configured to allow occupants 
 
 You can connect an Azure Digital Twins instance to many powerful Azure services including: Azure Stream Analytics, AI, and Storage services, as well as Azure Maps, Microsoft Mixed Reality, Dynamics 365, or Office 365.
 
-For example, a smart office building application could use Azure Digital Twins to represent teams and devices located on many floors. As devices stream live data into the provisioned Digital Twin instance, Azure Stream Analytics can process that data to provide actionable key insights. Then, the data can be stored in Azure Storage and converted into a shareable file format to be distributed across the whole organization in Office 365.
+For example, a smart office building application could use Azure Digital Twins to represent teams and devices located on many floors. As devices stream live data into the provisioned Digital Twin instance, Azure Stream Analytics can process that data to provide actionable key insights. Then, the data can be stored in Azure Storage and converted into a shareable file format to be distributed across the whole organization using Office 365.
 
 ## Solutions that benefit from Azure Digital Twins
 
