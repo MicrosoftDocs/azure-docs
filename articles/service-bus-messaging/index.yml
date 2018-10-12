@@ -15,7 +15,7 @@ metadata:
   ms.date: 05/16/2018
   ms.author: spelluru
 abstract:
-  description: Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. The asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities.​
+  description: Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. The asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities.<p>Learn how to use Azure Service Bus messaging services to send and receive messages to and from queues, and publish and subscribe for messages using topics and subscriptions.</p>
   aside:
     image:
       alt: 
