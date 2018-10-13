@@ -394,7 +394,7 @@ $RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccoun
 $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 
 $OSDiskReplicationConfig = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
-         -DiskId $OSdiskId -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -DiskId $OSdiskId -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryOSDiskAccountType $RecoveryOSDiskAccountType
 
 # Data disk
@@ -403,7 +403,7 @@ $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccou
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
 
 $DataDisk1ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
-         -DiskId $datadiskId1 -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
