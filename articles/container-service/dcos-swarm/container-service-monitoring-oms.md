@@ -40,7 +40,10 @@ have deployed simple web container applications on the cluster.
 - [DC/OS CLI](https://dcos.io/docs/1.8/usage/cli/install/) installed.
 
 1. In the DC/OS dashboard, click on Universe and search
-for ‘Log Analytics’ as shown below.
+for ‘OMS’ as shown below.
+
+   >[!NOTE]
+   >OMS is now referred to as Log Analytics.
 
 ![](media/container-service-monitoring-oms/image2.png)
 
