@@ -159,7 +159,7 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 
 ### Resolution
 1. Reonboard to the Log Analytics service with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. It allows verbose output of the agent connecting through the proxy to the Log Analytics service. 
-`/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
+`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
 2. Review the section [Update proxy settings](log-analytics-agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
 * Double check that the following Log Analytics service endpoints are whitelisted:
