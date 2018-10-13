@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/13/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -181,7 +181,7 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 
 1. Check the time on your Linux server with the command date. If the time is +/- 15 minutes from current time, then onboarding fails. To correct this update the date and/or timezone of your Linux server. 
 2. Verify you have installed the latest version of the OMS Agent for Linux.  The newest version now notifies you if time skew is causing the onboarding failure.
-3. Reonboard using correct Workspace ID and Workspace Key following the installation instructions earlier in this topic.
+3. Reonboard using correct Workspace ID and Workspace Key following the installation instructions earlier in this article.
 
 ## Issue: You see a 500 and 404 error in the log file right after onboarding
 This is a known issue that occurs on first upload of Linux data into a Log Analytics workspace. This does not affect data being sent or service experience.
@@ -225,7 +225,7 @@ If you see `[error]: unexpected error error_class=Errno::EADDRINUSE error=#<Errn
 This error indicates that the Linux Diagnostic extension (LAD) is installed side by side with the Log Analytics Linux VM extension, and it is using same port for syslog data collection as omsagent.
 
 ### Resolution
-* As root execute the following commands (note that 25224 is an example and it is possible that in your environment you see a different port number used by LAD):
+* As root, execute the following commands (note that 25224 is an example and it is possible that in your environment you see a different port number used by LAD):
 
     ```
     /opt/microsoft/omsagent/bin/configure_syslog.sh configure LAD 25229
@@ -245,7 +245,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 ### Probable causes
 
 * Linux Diagnostic Extension is installed
-* Linux Diagnostic Extension was installed and uninstalled, but you still see an error about omsagent being used by mdsd and can not be removed.
+* Linux Diagnostic Extension was installed and uninstalled, but you still see an error about omsagent being used by mdsd and cannot be removed.
 
 ### Resolution
 * Uninstall the Linux Diagnostic Extension (LAD).
@@ -289,7 +289,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 * Check if onboarding to the Log Analytics service was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
  * Re-onboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)
 * If using a proxy, check proxy troubleshooting steps above.
-* In some Azure distribution systems, omid OMI server daemon does not start after the virtual machine is rebooted. This will result in not seeing Audit, ChangeTracking or UpdateManagement solution related data. Workaround is manually start omi server by running `sudo /opt/omi/bin/service_control restart`.
+* In some Azure distribution systems, omid OMI server daemon does not start after the virtual machine is rebooted. This will result in not seeing Audit, ChangeTracking or UpdateManagement solution-related data. Workaround is manually start omi server by running `sudo /opt/omi/bin/service_control restart`.
 * After OMI package is manually upgraded to a newer version it has to be manually restarted for Log Analytics agent to continue functioning. This step is required for some distros where OMI server does not automatically start after it is upgraded. Please run `sudo /opt/omi/bin/service_control restart` to restart OMI.
 * If you see DSC resource *class not found* error in omsconfig.log, please run `sudo /opt/omi/bin/service_control restart`.
 * In some cases, when the OMS Agent for Linux cannot talk to the OMS Service, data on the Agent is backed up to the full buffer size: 50 MB. The OMS Agent for Linux should be restarted by running the following command `/opt/microsoft/omsagent/bin/service_control restart`.
