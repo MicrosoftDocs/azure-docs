@@ -23,22 +23,22 @@ This article provides help troubleshooting errors you might experience with the 
 
 If none of these steps work for you, the following support channels are also available:
 
-* Customers with Premier support benefits can open a support request with [Premier](https://premier.microsoft.com/)
-* Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true)
-* Diagnose OMI Problems with the [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md)
+* Customers with Premier support benefits can open a support request with [Premier](https://premier.microsoft.com/).
+* Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true).
+* Diagnose OMI Problems with the [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)
 * Visit the Log Analytics Feedback page to review submitted ideas and bugs [http://aka.ms/opinsightsfeedback](http://aka.ms/opinsightsfeedback) or file a new one.  
 
-## Important Log Locations and Log Collector Tool
+## Important log locations and Log Collector tool
 
  File | Path
  ---- | -----
  Log Analytics agent for Linux log file | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log `
  Log Analytics agent configuration log file | `/var/opt/microsoft/omsconfig/omsconfig.log`
 
- We recommend you to use our log collector tool to retrieve important logs for troubleshooting or before submitting a GitHub issue. You can read more about the tool and how to run it [here](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
+ We recommend you to use our log collector tool to retrieve important logs for troubleshooting or before submitting a GitHub issue. You can read more about the tool and how to run it [here](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md).
 
-## Important Configuration Files
+## Important configuration files
 
  Category | File Location
  ----- | -----
@@ -51,7 +51,7 @@ If none of these steps work for you, the following support channels are also ava
 
  `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
 
-## Installation Error Codes
+## Installation error codes
 
 | Error Code | Meaning |
 | --- | --- |
@@ -75,7 +75,7 @@ If none of these steps work for you, the following support channels are also ava
 | 64 | Missing curl program; Install curl |
 | 65 | Missing gpg program; Install gpg |
 
-## Onboarding Error Codes
+## Onboarding error codes
 
 | Error Code | Meaning |
 | --- | --- |
@@ -92,7 +92,7 @@ If none of these steps work for you, the following support channels are also ava
 | 33 | Error generating metaconfiguration for omsconfig; File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) with details from the output |
 | 34 | Metaconfiguration generation script not present; Retry onboarding with `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key>` |
 
-## Enable Debug Logging
+## Enable debug logging
 ### OMS output plugin debug
  FluentD allows for plugin-specific logging levels allowing you to specify different log levels for inputs and outputs. To specify a different log level for OMS output, edit the general agent configuration at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`:
 
