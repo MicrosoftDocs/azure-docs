@@ -21,7 +21,7 @@ ms.component:
 
 This article provides help troubleshooting errors you might experience with the Log Analytics agent for Linux and suggests possible solutions to resolve them.
 
-If none of these steps work for you the following support channels are also available:
+If none of these steps work for you, the following support channels are also available:
 
 * Customers with Premier support benefits can open a support request with [Premier](https://premier.microsoft.com/)
 * Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true)
@@ -68,7 +68,7 @@ If none of these steps work for you the following support channels are also avai
 | 22 | Installation of bundled package failed; Look through the command output for the root failure |
 | 23 | SCX or OMI package already installed; Use `--upgrade` instead of `--install` to install the shell bundle |
 | 30 | Internal bundle error; File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) with details from the output |
-| 55 | Unsupported openssl version OR Cannot connect to Microsoft OMS service OR dpkg is locked OR Missing curl program |
+| 55 | Unsupported openssl version OR Cannot connect to Microsoft Log Analytics service OR dpkg is locked OR Missing curl program |
 | 61 | Missing Python ctypes library; Install the Python ctypes library or package (python-ctypes) |
 | 62 | Missing tar program; Install tar |
 | 63 | Missing sed program; Install sed |
@@ -94,7 +94,7 @@ If none of these steps work for you the following support channels are also avai
 
 ## Enable Debug Logging
 ### OMS output plugin debug
- FluentD allows for plugin specific logging levels allowing you to specify different log levels for inputs and outputs. To specify a different log level for OMS output, edit the general agent configuration at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`:
+ FluentD allows for plugin-specific logging levels allowing you to specify different log levels for inputs and outputs. To specify a different log level for OMS output, edit the general agent configuration at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`:
 
  In the OMS output plugin, before the end of the configuration file, change the `log_level` property from `info` to `debug`
 
@@ -123,7 +123,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 ```
 
 ### Verbose output
-Instead of using the OMS output plugin you can also output data items directly to `stdout` which is visible in the Log Analytics agent for Linux log file.
+Instead of using the OMS output plugin you can also output data items directly to `stdout`, which is visible in the Log Analytics agent for Linux log file.
 
 In the Log Analytics general agent configuration file at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`:
 
@@ -158,7 +158,7 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 * The Log Analytics and Azure Automation Service Endpoints are not whitelisted in your datacenter 
 
 ### Resolution
-1. Reonboard to the Log Analytics service with the OMS Agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the OMS Service. 
+1. Reonboard to the Log Analytics service with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. It allows verbose output of the agent connecting through the proxy to the Log Analytics service. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. Review the section [Update proxy settings](log-analytics-agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
@@ -180,7 +180,7 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 ### Resolution
 
 1. Check the time on your Linux server with the command date. If the time is +/- 15 minutes from current time, then onboarding fails. To correct this update the date and/or timezone of your Linux server. 
-2. Verify you have installed the latest version of the OMS Agent for Linux.  The newest version now notifies you if time skew is causing the onboarding failure.
+2. Verify you have installed the latest version of the Log Analytics agent for Linux.  The newest version now notifies you if time skew is causing the onboarding failure.
 3. Reonboard using correct Workspace ID and Workspace Key following the installation instructions earlier in this article.
 
 ## Issue: You see a 500 and 404 error in the log file right after onboarding
@@ -192,13 +192,13 @@ This is a known issue that occurs on first upload of Linux data into a Log Analy
 
 - Onboarding to the Log Analytics service failed
 - Connection to the Log Analytics service is blocked
-- OMS Agent for Linux data is backed up
+- Log Analytics agent for Linux data is backed up
 
 ### Resolution
 1. Check if onboarding the Log Analytics service was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Reonboard using the `omsadmin.sh` command-line instructions
 3. If using a proxy, refer to the proxy resolution steps provided earlier.
-4. In some cases, when the OMS Agent for Linux cannot communicate with the service, data on the agent is queued to the full buffer size, which is 50 MB. The OMS Agent for Linux should be restarted by running the following command: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
+4. In some cases, when the Log Analytics agent for Linux cannot communicate with the service, data on the agent is queued to the full buffer size, which is 50 MB. The agent should be restarted by running the following command: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
 
     >[!NOTE]
     >This issue is fixed in agent version 1.1.0-28 and later.
@@ -292,7 +292,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 * In some Azure distribution systems, omid OMI server daemon does not start after the virtual machine is rebooted. This will result in not seeing Audit, ChangeTracking or UpdateManagement solution-related data. Workaround is manually start omi server by running `sudo /opt/omi/bin/service_control restart`.
 * After OMI package is manually upgraded to a newer version it has to be manually restarted for Log Analytics agent to continue functioning. This step is required for some distros where OMI server does not automatically start after it is upgraded. Please run `sudo /opt/omi/bin/service_control restart` to restart OMI.
 * If you see DSC resource *class not found* error in omsconfig.log, please run `sudo /opt/omi/bin/service_control restart`.
-* In some cases, when the OMS Agent for Linux cannot talk to the OMS Service, data on the Agent is backed up to the full buffer size: 50 MB. The OMS Agent for Linux should be restarted by running the following command `/opt/microsoft/omsagent/bin/service_control restart`.
+* In some cases, when the Log Analytics agent for Linux cannot talk to the Log Analytics service, data on the agent is backed up to the full buffer size: 50 MB. The agent should be restarted by running the following command `/opt/microsoft/omsagent/bin/service_control restart`.
 
     >[!NOTE]
     >This issue is fixed in Agent version >= 1.1.0-28
@@ -427,36 +427,3 @@ Perform the following steps to correct the issue.
     wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.2-124/omsagent-1.4.2-124.universal.x64.sh
     ```
 3. Upgrade packages by executing `sudo sh ./omsagent-*.universal.x64.sh --upgrade`.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
