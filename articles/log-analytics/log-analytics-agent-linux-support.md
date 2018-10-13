@@ -376,13 +376,12 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 
 * Check that the `omsconfig` agent can communicate with the Log Analytics service by running the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  This command returns the configuration that agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. This command forces the omsconfig agent to talk to the Log Analytics service and retrieve the latest configuration.
 
-**Background:** Instead of the Log Analytics agent for Linux user running as a privileged user, `root` - The agent runs as the `omsagent` user. In most cases explicit permission must be granted to this user in order for certain files to be read.  To grant permission to `omsagent` user run the following commands:
+**Background:** Instead of the Log Analytics agent for Linux running as a privileged user - `root`, the agent runs as the `omsagent` user. In most cases, explicit permission must be granted to this user in order for certain files to be read. To grant permission to `omsagent` user, run the following commands:
 
  * Add the `omsagent` user to specific group `sudo usermod -a -G <GROUPNAME> <USERNAME>`
  * Grant universal read access to the required file `sudo chmod -R ugo+rx <FILE DIRECTORY>`
 
-There is a known issue with a race condition with the Log Analytics agent for Linux version <1.1.0-217. After updating to the latest agent, run the following command to get the latest version of the output plugin
- * `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
+There is a known issue with a race condition with the Log Analytics agent for Linux version <1.1.0-217. After updating to the latest agent, run the following command to get the latest version of the output plugin `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 
 ## Issue: You are trying to re-onboarding to a new workspace
 When you try to re-onboard an agent to a new workspace, the Log Analytics agent  configuration needs to be cleaned up before re-onboarding. To clean up old configuration from the agent, run the shell bundle with `--purge`
