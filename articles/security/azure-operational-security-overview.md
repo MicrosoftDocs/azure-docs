@@ -156,5 +156,5 @@ Mature DevOps practitioners adopt several of the following practices. These prac
 To learn about the Security and Audit solution, see the following articles:
 
 - [Security and compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Monitoring and responding to security alerts in the Security and Audit solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
-- [Monitoring resources in the Security and Audit solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)
+- [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+- [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
