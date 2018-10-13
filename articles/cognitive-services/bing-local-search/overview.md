@@ -27,7 +27,10 @@ To create the request URL, append `q="requestString` to the Local Search endpoin
 
 GET:
 ````
-https://api.cognitive.microsoft.com/bing/v7.0/local/search?q=restaurant_in+Bellevue
+https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search[?q][&localCategories][&cc][&mkt][&safesearch][&setlang][&count][&first][&localCircularView][&localMapView]
+
+https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue
+
 ````
 Complete request syntax is shown in [Local Search quickstart](local-quickstart.md) and [Local Search Java quickstart](local-search-java-quickstart.md).
 
@@ -54,7 +57,7 @@ To get local results, use the endpoint. Include the `Ocp-Apim-Subscription-Key` 
 
 GET:
 ````
-https://cognitivegblppe.azure-api.net/localbusinesses/v7.0/search?q=restaurant+in+Bellevue&mkt=en-us
+https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue&mkt=en-us
 
 ````
 
