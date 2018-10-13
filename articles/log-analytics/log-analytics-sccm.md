@@ -29,7 +29,7 @@ The following steps summarize the steps to configure Configuration Manager integ
 
 1. In the Azure portal, register Configuration Manager as a Web Application and/or Web API app, and ensure that you have the client ID and client secret key from the registration from Azure Active Directory. See [Use portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) for detailed information about how to accomplish this step.
 2. In the Azure portal, [grant Configuration Manager (the registered web app) with permission to access Log Analytics](#grant-configuration-manager-with-permissions-to-log-analytics).
-3. In Configuration Manager, [add a connection using the Add Log Analytics Connection Wizard](#add-an-oms-connection-to-configuration-manager).
+3. In Configuration Manager, [add a connection using the Add OMS Connection Wizard](#add-an-oms-connection-to-configuration-manager).
 4. In Configuration Manager, [update the connection properties](#update-oms-connection-properties) if the password or client secret key ever expires or is lost.
 5. [Download and install the Microsoft Monitoring Agent](#download-and-install-the-agent) on the computer running the Configuration Manager service connection point site system role. The agent sends Configuration Manager data to the Log Analytics workspace.
 6. In Log Analytics, [import collections from Configuration Manager](#import-collections) as computer groups.
