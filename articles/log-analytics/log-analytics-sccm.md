@@ -57,7 +57,11 @@ Review the article [Connect Windows computers to the Log Analytics service in Az
 ## Add a Log Analytics connection to Configuration Manager
 In order to add Log Analytics connection, your Configuration Manager environment must have a [service connection point](https://technet.microsoft.com/library/mt627781.aspx) configured for online mode.
 
-1. In the **Administration** workspace of Configuration Manager, select **Log Analytics Connector**. This opens the **Add Log Analytics Connection Wizard**. Select **Next**.
+1. In the **Administration** workspace of Configuration Manager, select **OMS Connector**. This opens the **Add Log Analytics Connection Wizard**. Select **Next**.
+
+   >[!NOTE]
+   >OMS is now referred to as Log Analytics.
+   
 2. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
 
    1. In the Azure portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
