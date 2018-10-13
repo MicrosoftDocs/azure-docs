@@ -95,37 +95,41 @@ During initial registration of your Operations Manager management group with a L
 After completing the following steps to integrate with Log Analytics, you can remove the configuration by running `netsh winhttp reset proxy` and then use the **Configure proxy server** option in the Operations console to specify the proxy or Log Analytics gateway server. 
 
 1. In the Operations Manager console, select the **Administration** workspace.
-1. Expand the Log Analytics node and click **Connection**.
-1. Click the **Register to Log Analytics** link.
-1. On the **Log Analytics Onboarding Wizard: Authentication** page, enter the email address or phone number and password of the administrator account that is associated with your Log Analytics subscription, and click **Sign in**.
-1. After you are successfully authenticated, on the **Log Analytics Onboarding Wizard: Select Workspace** page, you are prompted to select your Azure tenant, subscription, and Log Analytics workspace. If you have more than one workspace, select the workspace you want to register with the Operations Manager management group from the drop-down list, and then click **Next**.
+1. Expand the Operations Management Suite node and click **Connection**.
+1. Click the **Register to Operations Management Suite** link.
+1. On the **Operations Magement Suite Onboarding Wizard: Authentication** page, enter the email address or phone number and password of the administrator account that is associated with your OMS subscription, and click **Sign in**.
+
+   >[!NOTE]
+   >OMS is now referred to as Log Analytics.
+   
+1. After you are successfully authenticated, on the **Operations Management Suite Onboarding Wizard: Select Workspace** page, you are prompted to select your Azure tenant, subscription, and Log Analytics workspace. If you have more than one workspace, select the workspace you want to register with the Operations Manager management group from the drop-down list, and then click **Next**.
    
    > [!NOTE]
    > Operations Manager only supports one Log Analytics workspace at a time. The connection and the computers that were registered to Log Analytics with the previous workspace are removed from Log Analytics.
    > 
    > 
-1. On the **Log Analytics Onboarding Wizard: Summary** page, confirm your settings and if they are correct, click **Create**.
-1. On the **Log Analytics Onboarding Wizard: Finish** page, click **Close**.
+1. On the **Operations Management Suite Onboarding Wizard: Summary** page, confirm your settings and if they are correct, click **Create**.
+1. On the **Operations Management Suite Onboarding Wizard: Finish** page, click **Close**.
 
 ### Add agent-managed computers
 After configuring integration with your Log Analytics workspace, it only establishes a connection with the service, no data is collected from the agents reporting to your management group. This won’t happen until after you configure which specific agent-managed computers collect data for Log Analytics. You can either select the computer objects individually or you can select a group that contains Windows computer objects. You cannot select a group that  contains instances of another class, such as logical disks or SQL databases.
 
 1. Open the Operations Manager console and select the **Administration** workspace.
-1. Expand the Log Analytics node and click **Connection**.
+1. Expand the Operations Management Suite node and click **Connection**.
 1. Click the **Add a Computer/Group** link under the Actions heading on the right-side of the pane.
 1. In the **Computer Search** dialog box, you can search for computers or groups monitored by Operations Manager. Select computers or groups to onboard to Log Analytics, click **Add**, and then click **OK**.
 
-You can view computers and groups configured to collect data from the Managed Computers node under Log Analytics in the **Administration** workspace of the Operations console. From here, you can add or remove computers and groups as necessary.
+You can view computers and groups configured to collect data from the Managed Computers node under Operations Management Suite in the **Administration** workspace of the Operations console. From here, you can add or remove computers and groups as necessary.
 
 ### Configure proxy settings in the Operations console
 Perform the following steps if an internal proxy server is between the management group and Log Analytics service. These settings are centrally managed from the management group and distributed to agent-managed systems that are included in the scope to collect data for Log Analytics.  This is beneficial for when certain solutions bypass the management server and send data directly to the service.
 
 1. Open the Operations Manager console and select the **Administration** workspace.
-1. Expand Log Analytics, and then click **Connections**.
-1. In the Log Analytics Connection view, click **Configure Proxy Server**.
-1. On **Log Analytics Wizard: Proxy Server** page, select **Use a proxy server to access the Log Analytics**, and then type the URL with the port number, for example, http://corpproxy:80 and then click **Finish**.
+1. Expand Operations Management Suite, and then click **Connections**.
+1. In the OMS Connection view, click **Configure Proxy Server**.
+1. On **Operations Management Suite Wizard: Proxy Server** page, select **Use a proxy server to access the Operations Management Suite**, and then type the URL with the port number, for example, http://corpproxy:80 and then click **Finish**.
 
-If your proxy server requires authentication, perform the following steps to configure credentials and settings that need to propagate to managed computers that reports to Log Analytics MS in the management group.
+If your proxy server requires authentication, perform the following steps to configure credentials and settings that need to propagate to managed computers that reports to Log Analytics in the management group.
 
 1. Open the Operations Manager console and select the **Administration** workspace.
 1. Under **RunAs Configuration**, select **Profiles**.
@@ -139,7 +143,7 @@ If your proxy server requires authentication, perform the following steps to con
 After the connection is created and you configure which agents will collect and report data to Log Analytics, the following configuration is applied in the management group, not necessarily in order:
 
 * The Run As Account **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** is created. It is associated with the Run As profile **Microsoft System Center Advisor Run As Profile Blob** and is targeting two classes - **Collection Server** and **Operations Manager Management Group**.
-* Two connectors are created.  The first is named **Microsoft.SystemCenter.Advisor.DataConnector** and is automatically configured with a subscription that forwards all alerts generated from instances of all classes in the management group to Log Analytics. The second connector is **Advisor Connector**, which is responsible for communicating with Log Analytics web service and sharing data.
+* Two connectors are created.  The first is named **Microsoft.SystemCenter.Advisor.DataConnector** and is automatically configured with a subscription that forwards all alerts generated from instances of all classes in the management group to Log Analytics. The second connector is **Advisor Connector**, which is responsible for communicating with Log Analytics and sharing data.
 * Agents and groups that you have selected to collect data in the management group is added to the **Microsoft System Center Advisor Monitoring Server Group**.
 
 ## Management pack updates
@@ -161,7 +165,7 @@ To continue following your existing change control process for controlling manag
 1. Follow the **Log Analytics Onboarding Wizard** and enter the email address or phone number and password of the administrator account that is associated with your new Log Analytics workspace.
    
    > [!NOTE]
-   > The **Log Analytics Onboarding Wizard: Select Workspace** page presents the existing workspace that is in use.
+   > The **Operations Management Suite Onboarding Wizard: Select Workspace** page presents the existing workspace that is in use.
    > 
    > 
 
@@ -180,7 +184,7 @@ There are a few different ways you can verify that Log Analytics to Operations M
 1. Open the Operations Manager console and select the **Administration** workspace.
 1. Select **Management Packs** and in the **Look for:** text box type **Advisor** or **Intelligence**.
 1. Depending on the solutions you have enabled, you see a corresponding management pack listed in the search results.  For example, if you have enabled the Alert Management solution, the management pack Microsoft System Center Advisor Alert Management is in the list.
-1. From the **Monitoring** view, navigate to the **Log Analytics\Health State** view.  Select a Management server under the **Management Server State** pane, and in the **Detail View** pane confirm the value for property **Authentication service URI** matches the Log Analytics Workspace ID.
+1. From the **Monitoring** view, navigate to the **Operations Management Suite\Health State** view.  Select a Management server under the **Management Server State** pane, and in the **Detail View** pane confirm the value for property **Authentication service URI** matches the Log Analytics Workspace ID.
    
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
