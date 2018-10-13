@@ -49,7 +49,7 @@ for ‘OMS’ as shown below.
 
 2. Click **Install**. You will see a pop-up with the version
 information and an **Install Package** or **Advanced Installation**
-button. When you click **Advanced Installation**, which leads you to the **Log Analytics specific configuration
+button. When you click **Advanced Installation**, which leads you to the **OMS specific configuration
 properties** page.
 
 ![](media/container-service-monitoring-oms/image3.png)
