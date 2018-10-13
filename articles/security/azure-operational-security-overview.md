@@ -27,8 +27,8 @@ An IT operations team is responsible for managing datacenter infrastructure, app
 
 [Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is a cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Its core functionality is provided by the following services that run in Azure. Azure includes multiple services that help you manage and protect your on-premises and cloud infrastructure. Each service provides a specific management function. You can combine services to achieve different management scenarios. 
 
-### Log Analytics
-[Azure Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data can include events, performance data, or custom data provided through the API. After the data is collected, it's available for alerting, analysis, and export. 
+### Azure Monitor
+[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) collects data from managed sourcesa into central data stores. This data can include events, performance data, or custom data provided through the API. After the data is collected, it's available for alerting, analysis, and export. 
 
 You can consolidate data from a variety of sources and combine data from your Azure services with your existing on-premises environment. Log Analytics also clearly separates the collection of the data from the action taken on that data, so that all actions are available to all kinds of data.
 
