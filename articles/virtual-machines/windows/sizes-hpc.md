@@ -49,13 +49,13 @@ ms.author: jonbeck
 
 ### Cluster configuration options
 
-Azure provides several options to create clusters of Linux HPC VMs that can communicate using the RDMA network, including: 
+Azure provides several options to create clusters of Windows HPC VMs that can communicate using the RDMA network, including: 
 
 * **Virtual machines**  - Deploy the RDMA-capable HPC VMs in the same availability set (when you use the Azure Resource Manager deployment model). If you use the classic deployment model, deploy the VMs in the same cloud service. 
 
 * **Virtual machine scale sets** - In a VM scale set, ensure that you limit the deployment to a single placement group. For example, in a Resource Manager template, set the `singlePlacementGroup` property to `true`. 
 
-* **Azure CycleCloud** - Create an HPC cluster in [Azure CycleCloud](/azure/cyclecloud/) to run MPI jobs on Linux nodes.
+* **Azure CycleCloud** - Create an HPC cluster in [Azure CycleCloud](/azure/cyclecloud/) to run MPI jobs on Windows nodes.
 
 * **Azure Batch** - Create an [Azure Batch](/azure/batch/) pool to run MPI workloads on Windows Server compute nodes. For more information, see [Use RDMA-capable or GPU-enabled instances in Batch pools](../../batch/batch-pool-compute-intensive-sizes.md). Also see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) project, for running container-based workloads on Batch.
 
