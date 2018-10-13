@@ -152,7 +152,6 @@ The following Log Analytics features and solutions are not currently available i
 * Features that are in preview in public Azure, including:
   * Export of data to Power BI
 * Azure metrics and Azure diagnostics
-* Log Analytics mobile application
 
 The URLs for Log Analytics are different in Azure Government:
 
