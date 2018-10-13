@@ -70,7 +70,7 @@ In order to add Log Analytics connection, your Configuration Manager environment
       ![Connection to Log Analytics Wizard General page](./media/log-analytics-sccm/sccm-console-general01.png)
 3. On the **Azure Active Directory** screen, configure your connection settings to Log Analytics by providing your **Tenant**, **Client ID**, and **Client Secret Key**, then select **Next**.  
    ![Connection to Log Analytics Wizard Azure Active Directory page](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
-4. If you accomplished all the other procedures successfully, then the information on the **Log Analytics Connection Configuration** screen will automatically appear on this page. Information for the connection settings should appear for your **Azure subscription**, **Azure resource group**, and **Log Analytics workspace**.  
+4. If you accomplished all the other procedures successfully, then the information on the **OMS Connection Configuration** screen will automatically appear on this page. Information for the connection settings should appear for your **Azure subscription**, **Azure resource group**, and **Operations Management Suite Workspace**.  
    ![Connection to Log Analytics Wizard Log Analytics Connection page](./media/log-analytics-sccm/sccm-wizard-configure04.png)
 5. The wizard connects to the Log Analytics service using the information you've input. Select the device collections that you want to sync with the service and then click **Add**.  
    ![Select Collections](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
@@ -86,7 +86,7 @@ After you have linked Configuration Manager to Log Analytics, you can add or rem
 ## Update Log Analytics connection properties
 If a password or client secret key ever expires or is lost, you'll need to manually update the Log Analytics connection properties.
 
-1. In Configuration Manager, navigate to **Cloud Services**, then select **Log Analytics Connector** to open the **Log Analytics Connection Properties** page.
+1. In Configuration Manager, navigate to **Cloud Services**, then select **OMS Connector** to open the **OMS Connection Properties** page.
 2. On this page, click the **Azure Active Directory** tab to view your **Tenant**, **Client ID**, **Client secret key expiration**. **Verify** your **Client secret key** if it has expired.
 
 ## Import collections
