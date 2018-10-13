@@ -186,7 +186,7 @@ The following Log Analytics features behave differently in Azure Government:
 ### Frequently asked questions
 * Can I migrate data from Log Analytics in Microsoft Azure to Azure Government?
   * No. It is not possible to move data or your workspace from Microsoft Azure to Azure Government.
-* Can I switch between Microsoft Azure and Azure Government workspaces from the Log Analytics portal?
+* Can I switch between Microsoft Azure and Azure Government workspaces from the Operations Management Suite portal?
   * No. The portals for Microsoft Azure and Azure Government are separate and do not share information.
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
