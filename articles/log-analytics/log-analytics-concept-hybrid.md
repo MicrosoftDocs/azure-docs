@@ -48,7 +48,7 @@ The following versions of the Windows operating system are officially supported 
 ## Supported Linux operating systems
 This section provides details about the supported Linux distributions.    
 
-Starting with versions release after August 2018, we are making the following changes to our support model:  
+Starting with versions released after August 2018, we are making the following changes to our support model:  
 
 1. Only the server versions are supported, not client.  
 2. New versions of [Azure Linux Endorsed distros](../virtual-machines/linux/endorsed-distros.md) are always supported.  
