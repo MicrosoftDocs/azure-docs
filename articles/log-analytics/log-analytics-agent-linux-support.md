@@ -409,7 +409,7 @@ Perform the following steps to correct the issue.
 * Wait several minutes and the provisioning state changes to **Provisioning succeeded**.
 
 
-## Issue: The Log Analytics agent doesn't upgrade on-demand
+## Issue: The Log Analytics agent upgrade on-demand
 
 ### Probable causes
 
