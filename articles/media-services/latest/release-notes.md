@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/07/2018
+ms.date: 10/12/2018
 ms.author: juliako
 ---
 
@@ -89,6 +89,16 @@ CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players
 ### Video Indexer
 
 Video Indexer GA release was announced in August. For new information about currently supported features, see [What is Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
+
+### Plans for changes
+
+The Azure CLI release is coming on 10/23/2018.
+
+### Known issues
+
+Only customers that used the preview API for Asset or AccountFilters are impacted by the following issue.
+
+If you created Assets or Account Filters between 09/28 and 10/12 with Media Services v3 CLI or APIs, you need to remove all Asset and AccountFilters and re-create them due to a version conflict. 
 
 ## May 2018 - Preview
 
