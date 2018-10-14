@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 10/11/2018
+ms.date: 10/13/2018
 ms.author: juliako
 ---
 
@@ -32,25 +32,25 @@ You can register for all of the events by subscribing to the JobStateChange even
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.Media.JobStateChange| State of the Job changes. |
-| Microsoft.Media.JobScheduled| Job was scheduled. |
-| Microsoft.Media.JobProcessing| Job is processing. |
-| Microsoft.Media.JobCanceling| Job is being canceled. |
-| Microsoft.Media.JobFinished| Job finished processing. This is a final state that includes Job outputs.|
-| Microsoft.Media.JobCanceled| Job was canceled. This is a final state that includes Job outputs.|
-| Microsoft.Media.JobErrored| Job has encountered an error. This is a final state that includes Job outputs.|
+| Microsoft.Media.JobStateChange| Get an event for all Job State changes. |
+| Microsoft.Media.JobScheduled| Get an event when Job transitions to scheduled state. |
+| Microsoft.Media.JobProcessing| Get an event when Job transitions to processing state. |
+| Microsoft.Media.JobCanceling| Get an event when Job transitions to canceling state. |
+| Microsoft.Media.JobFinished| Get an event when Job transitions to finished state. This is a final state that includes Job outputs.|
+| Microsoft.Media.JobCanceled| Get an event when Job transitions to canceled state. This is a final state that includes Job outputs.|
+| Microsoft.Media.JobErrored| Get an event when Job transitions to error state. This is a final state that includes Job outputs.|
 
 #### Monitoring Job Output State Changes
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.Media.JobOutputStateChange|State of the Job's output changes. |
-| Microsoft.Media.JobOutputScheduled|Job output was scheduled. |
-| Microsoft.Media.JobOutputProcessing| Job output is processing. |
-| Microsoft.Media.JobOutputFinished|Job output finished.|
-| Microsoft.Media.JobOutputCanceling|Job output is being canceled.|
-| Microsoft.Media.JobOutputCanceled|Job output was canceled.|
-| Microsoft.Media.JobOutputErrored|Job output has encountered an error.|
+| Microsoft.Media.JobOutputStateChange| Get an event for all Job output State changes. |
+| Microsoft.Media.JobOutputScheduled| Get an event when Job output transitions to scheduled state. |
+| Microsoft.Media.JobOutputProcessing| Get an event when Job output transitions to processing state. |
+| Microsoft.Media.JobOutputCanceling| Get an event when Job output transitions to canceling state.|
+| Microsoft.Media.JobOutputFinished| Get an event when Job output transitions to finished state.|
+| Microsoft.Media.JobOutputCanceled| Get an event when Job output transitions to canceled state.|
+| Microsoft.Media.JobOutputErrored| Get an event when Job output transitions to error state.|
 
 ### Live event types
 
@@ -113,40 +113,66 @@ The data object has the following properties:
 Where the Job state can be one of the values: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
 ### JobScheduled
-
-The Job was scheduled. 
-
-### Microsoft.Media.JobProcessing
-
-The Job is processing. 
-
+### JobProcessing
 ### JobCanceling
 
-The Job is being canceled. 
+For each non-final Job state change (such as JobScheduled, JobProcessing, JobCanceling), the example schema looks similar to the following:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobProcessing",
+  "eventTime": "2018-10-12T16:12:18.0839935",
+  "id": "a0a6efc8-f647-4fc2-be73-861fa25ba2db",
+  "data": {
+    "previousState": "Scheduled",
+    "state": "Processing",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
 
 ### JobFinished
-
-The Job finished processing. This is a final state that includes the Job outputs.
-
-The data object has the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| Outputs | Array | Gets the Job outputs.|
-
 ### JobCanceled
-
-The Job was canceled. This is a final state that includes the Job outputs.
-
-The data object has the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| Outputs | Array | Gets the Job outputs.|
-
 ### JobErrored
 
-The Job has encountered an error. This is a final state that includes the Job outputs.
+For each final Job state change (such as JobFinished, JobCanceled, JobErrored), the example schema looks similar to the following:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobFinished",
+  "eventTime": "2018-10-12T16:25:56.4115495",
+  "id": "9e07e83a-dd6e-466b-a62f-27521b216f2a",
+  "data": {
+    "outputs": [
+      {
+        "@odata.type": "#Microsoft.Media.JobOutputAsset",
+        "assetName": "output-7640689F",
+        "error": null,
+        "label": "VideoAnalyzerPreset_0",
+        "progress": 100,
+        "state": "Finished"
+      }
+    ],
+    "previousState": "Processing",
+    "state": "Finished",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
 
 The data object has the following properties:
 
@@ -156,39 +182,70 @@ The data object has the following properties:
 
 ### JobOutputStateChange
 
-State of the Job output changes. 
+The following example shows the schema of the **JobOutputStateChange** event:
 
-The data object has the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| previousState | string | The state of the job before the event. |
-| state | string | The new state of the job being notified in this event. For example, "Queued: The Job is awaiting resources" or "Scheduled: The job is ready to start".|
-
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputStateChange",
+  "eventTime": "2018-10-12T16:25:56.0242854",
+  "id": "dde85f46-b459-4775-b5c7-befe8e32cf90",
+  "data": {
+    "previousState": "Processing",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 100,
+      "state": "Finished"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
 
 ### JobOutputScheduled
-
-The Job output was scheduled. 
-
 ### JobOutputProcessing
-
-The Job output is processing. 
-
 ### JobOutputFinished
-
-The Job output finished.
-
 ### JobOutputCanceling
-
-The Job output is being canceled.
-
 ### JobOutputCanceled
-
-The Job output was canceled.
-
 ### JobOutputErrored
 
-The Job output has encountered an error.
+For each JobOutput state change, the example schema looks similar to the following:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputProcessing",
+  "eventTime": "2018-10-12T16:12:18.0061141",
+  "id": "f1fd5338-1b6c-4e31-83c9-cd7c88d2aedb",
+  "data": {
+    "previousState": "Scheduled",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 0,
+      "state": "Processing"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
 
 ### LiveEventConnectionRejected
 
