@@ -228,9 +228,9 @@
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json 
       - name: Troubleshoot
         items:
-        - name: Troubleshoot Logs VM Extension
+        - name: Log Analytics VM Extension
           href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
-        - name: Troubleshoot Logs Linux agent
+        - name: Log Analytics Linux agent
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
     - name: Agent data sources
       items:
