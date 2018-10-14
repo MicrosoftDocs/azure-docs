@@ -47,7 +47,7 @@ Next, you must [create an Automation Account](https://docs.microsoft.com/azure/a
 
 2. Select the feature to enable (either **Inventory**, **Change tracking**, or **Update management**).
 
-3. Use the **Select Workspace...** drop-down list to select the Log Analytics Workpace to use.
+3. Use the **Select Workspace...** drop-down list to select the Log Analytics Workspace to use.
 
 4. Verify that all remaining information is correct, and then click **Enable** to enable the feature.
 
@@ -69,25 +69,30 @@ Follow these steps to enable update management for Azure Stack Windows VMs.
 
    [![](media/vm-update-management/3-sm.PNG "Windows VM extension blade")](media/vm-update-management/3-lg.PNG#lightbox)
 
-3. Provide the previously created WorkspaceID and Primary Key to link the agent with the LogAnalytics workspace:
+3. Provide the previously created WorkspaceID and Primary Key to link the agent with the LogAnalytics workspace and click **OK** to deploy the extension.
 
    [![](media/vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/4-lg.PNG#lightbox) 
 
-As described in the [automation update management documentation](https://docs.microsoft.com/azure/automation/automation-update-management) you need to enable the Update Management solution for each VM that you want to manage. 
+4. As described in the [automation update management documentation](https://docs.microsoft.com/azure/automation/automation-update-management), you need to enable the Update Management solution for each VM that you want to manage. To enable the solution for all VMs reporting to the workspace, select **Update management**, click **Manage machines**, and then select the **Enable on all available and future machines** option.
 
-Once enabled, a scan is performed twice per day for each managed Windows VM. The Windows API is called every 15 minutes to query for the last update time to determine whether the status has changed. If the status has changed, a compliance scan is initiated.
+   [![](media/vm-update-management/5-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/5-lg.PNG#lightbox) 
+
+   > [!TIP]
+   > Repeat this step for each solution to enable Azure Stack Windows VMs to report to the workspace. 
+  
+After the Azure Update and Configuration Management extension is installed, and solution reporting enabled, a scan is performed twice per day for each managed Windows VM. The Windows API is called every 15 minutes to query for the last update time to determine whether the status has changed. If the status has changed, a compliance scan is initiated.
 
 After the VMs are scanned, they will appear in the Azure Automation account in the Update Management solution: 
 
-  ![Providing the WorkspaceID and Key](media/vm-update-management/6.PNG)
+   [![](media/vm-update-management/6-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/6-lg.PNG#lightbox) 
 
 > [!IMPORTANT]
 > It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
 
 The Azure Stack Windows VMs can now be included in scheduled update deployments together with Azure VMs.
 
-## Enable Update Management using an ARM template
-If you have a large number of Azure Stack Windows VMs, you can use [this ARM template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) to more easily deploy the solution on Windows VMs. The template deploys the Microsoft Monitoring Agent extension to an existing Windows VM and adds it to an existing Azure LogAnalytics workspace.
+## Enable Update Management using an Resource Manager template
+If you have a large number of Azure Stack Windows VMs, you can use [this Azure Resource Manager template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) to more easily deploy the solution on Windows VMs. The template deploys the Microsoft Monitoring Agent extension to an existing Windows VM and adds it to an existing Azure LogAnalytics workspace.
  
 ## Next steps
 [Optimize SQL Server performance](azure-stack-sql-server-vm-considerations.md)
