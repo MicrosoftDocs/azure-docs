@@ -71,7 +71,7 @@ VMs running in a cloud service are also supported. Only cloud services web and w
 |Environment|Azure|Non-Azure|Azure|Non-Azure|
 |VMBA threat detection alerts|✔|✔|✔ (on supported versions)|✔|
 |Network based threat detection alerts|✔|X|✔|X|
-|Windows Defender ATP integration|V (on supported versions)|✔|X|X|
+|Windows Defender ATP integration*|✔ (on supported versions)|✔|X|X|
 |Missing patches|✔|✔|✔|✔|
 |Security configurations|✔|✔|✔|✔|
 |Anti-malware|✔|✔|X|X|
@@ -82,10 +82,10 @@ VMs running in a cloud service are also supported. Only cloud services web and w
 |Third party deployment|✔|X|✔|X|
 |NSGs|✔|X|✔|X|
 |Filess V1|✔|✔|X|X|
-|Filess V2|✔|✔|✔|✔|
 |Network map|✔|X|✔|X|
 |Adaptive network hardening|✔|X|✔|X|
 
+* These features are currently supported in public preview.
 
 
 ## Supported PaaS features
@@ -94,27 +94,27 @@ VMs running in a cloud service are also supported. Only cloud services web and w
 |Service|Recommendations|Threat detection|
 |----|----|----|
 |SQL|✔| ✔|
-|PostGreSQL|✔| ✔|
-|MySQL|✔| ✔|
-|Blob storage accounts|✔| ✔|
+|PostGreSQL*|✔| ✔|
+|MySQL*|✔| ✔|
+|Blob storage accounts*|✔| ✔|
 |App services|✔| ✔|
-|Cloud services|✔| ✔|
+|Cloud services|✔| X|
 |Redis cache|✔| X|
 |Service fabric|✔| X|
 |Azure automation|✔| X|
 |Data lake |✔| X|
-|Key vault|✔| ✔|
+|Key vault|✔| X|
 |Service bus|✔| X|
 |Stream analytics|✔| X|
 |Batch|✔| X|
 |Logic apps|✔| X|
-|Vnets|✔| ✔|
-|Subnets|✔| ✔|
+|Vnets|✔| NA|
+|Subnets|✔| NA|
 |NICs|✔| ✔|
-|NSGs|✔| ✔|
+|NSGs|✔| NA|
 |Subscription|✔| ✔|
 
-
+* These features are currently supported in public preview.
 
 ## Next steps
 
