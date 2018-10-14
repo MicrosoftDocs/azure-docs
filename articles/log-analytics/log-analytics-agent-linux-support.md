@@ -47,9 +47,8 @@ If none of these steps work for you, the following support channels are also ava
  Additional configurations | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  >[!NOTE]
- >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](log-analytics-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics Advanced Settings or for a single agent run the following:
-
- `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
+ >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](log-analytics-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:  
+> `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
 
 ## Installation error codes
 
