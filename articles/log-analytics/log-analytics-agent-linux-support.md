@@ -93,9 +93,9 @@ If none of these steps work for you, the following support channels are also ava
 
 ## Enable debug logging
 ### OMS output plugin debug
- FluentD allows for plugin-specific logging levels allowing you to specify different log levels for inputs and outputs. To specify a different log level for OMS output, edit the general agent configuration at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`:
+ FluentD allows for plugin-specific logging levels allowing you to specify different log levels for inputs and outputs. To specify a different log level for OMS output, edit the general agent configuration at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.  
 
- In the OMS output plugin, before the end of the configuration file, change the `log_level` property from `info` to `debug`
+ In the OMS output plugin, before the end of the configuration file, change the `log_level` property from `info` to `debug`:
 
  ```
  <match oms.** docker.**>
@@ -124,9 +124,8 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 ### Verbose output
 Instead of using the OMS output plugin you can also output data items directly to `stdout`, which is visible in the Log Analytics agent for Linux log file.
 
-In the Log Analytics general agent configuration file at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`:
+In the Log Analytics general agent configuration file at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`, comment out the OMS output plugin by adding a `#` in front of each line:
 
-Comment out the OMS output plugin by adding a `#` in front of each line
 ```
 #<match oms.** docker.**>
 #  type out_oms
@@ -142,7 +141,7 @@ Comment out the OMS output plugin by adding a `#` in front of each line
 #</match>
 ```
 
-Below the output plugin, uncomment the following section by removing the `#` in front of each line
+Below the output plugin, uncomment the following section by removing the `#` in front of each line:
 
 ```
 <match **>
