@@ -286,11 +286,11 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 ### Resolution
 * Install all dependencies like auditd package
 * Check if onboarding to the Log Analytics service was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
- * Re-onboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)
+ * Reonboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)
 * If using a proxy, check proxy troubleshooting steps above.
-* In some Azure distribution systems, omid OMI server daemon does not start after the virtual machine is rebooted. This will result in not seeing Audit, ChangeTracking or UpdateManagement solution-related data. Workaround is manually start omi server by running `sudo /opt/omi/bin/service_control restart`.
-* After OMI package is manually upgraded to a newer version it has to be manually restarted for Log Analytics agent to continue functioning. This step is required for some distros where OMI server does not automatically start after it is upgraded. Please run `sudo /opt/omi/bin/service_control restart` to restart OMI.
-* If you see DSC resource *class not found* error in omsconfig.log, please run `sudo /opt/omi/bin/service_control restart`.
+* In some Azure distribution systems, omid OMI server daemon does not start after the virtual machine is rebooted. This will result in not seeing Audit, ChangeTracking, or UpdateManagement solution-related data. Workaround is manually start omi server by running `sudo /opt/omi/bin/service_control restart`.
+* After OMI package is manually upgraded to a newer version, it has to be manually restarted for Log Analytics agent to continue functioning. This step is required for some distros where OMI server does not automatically start after it is upgraded. Run `sudo /opt/omi/bin/service_control restart` to restart OMI.
+* If you see DSC resource *class not found* error in omsconfig.log, run `sudo /opt/omi/bin/service_control restart`.
 * In some cases, when the Log Analytics agent for Linux cannot talk to the Log Analytics service, data on the agent is backed up to the full buffer size: 50 MB. The agent should be restarted by running the following command `/opt/microsoft/omsagent/bin/service_control restart`.
 
     >[!NOTE]
@@ -304,7 +304,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
     echo "*/15 * * * * omsagent /opt/omi/bin/OMSConsistencyInvoker >/dev/null 2>&1" | sudo tee /etc/cron.d/OMSConsistencyInvoker
     ```
 
-    Also, make sure the cron service is running. You can use `service cron status` with Debian, Ubuntu, SUSE or `service crond status` with RHEL, CentOS, Oracle Linux to check the status of this service. If the service does not exist, you can install the binaries and start the service using the following:
+    Also, make sure the cron service is running. You can use `service cron status` with Debian, Ubuntu, SUSE, or `service crond status` with RHEL, CentOS, Oracle Linux to check the status of this service. If the service does not exist, you can install the binaries and start the service using the following:
 
     **Ubuntu/Debian**
 
@@ -352,7 +352,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 ### Resolution
 **Background:** `omsconfig` is the Log Analytics agent for Linux configuration agent that looks for new portal-side configuration every five minutes. This configuration is then applied to the Log Analytics agent for Linux configuration files located at /etc/opt/microsoft/omsagent/conf/omsagent.conf.
 
-* In some cases the Log Analytics agent for Linux configuration agent might not be able to communicate with the portal configuration service resulting in latest configuration not being applied.
+* In some cases, the Log Analytics agent for Linux configuration agent might not be able to communicate with the portal configuration service resulting in latest configuration not being applied.
   * Check that the `omsconfig` agent is installed by running `dpkg --list omsconfig` or `rpm -qi omsconfig`.  If it is not installed, reinstall the latest version of the Log Analytics agent for Linux.
 
   * Check that the `omsconfig` agent can communicate with the Log Analytics service by running the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`. This command returns the configuration that agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails run, the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. This command forces the omsconfig agent to talk to the Log Analytics service and retrieve  the latest configuration.
@@ -370,7 +370,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 
 ### Resolution
 * Verify onboarding to the Log Analytics was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. If not, either:
-  * Re-onboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)
+  * Reonboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)
   * In **Advanced Settings** in the Azure portal, ensure that the setting **Apply the following configuration to my Linux Servers** is enabled.
 
 * Check that the `omsconfig` agent can communicate with the Log Analytics service by running the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  This command returns the configuration that agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. This command forces the omsconfig agent to talk to the Log Analytics service and retrieve the latest configuration.
@@ -382,8 +382,8 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 
 There is a known issue with a race condition with the Log Analytics agent for Linux version <1.1.0-217. After updating to the latest agent, run the following command to get the latest version of the output plugin `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 
-## Issue: You are trying to re-onboarding to a new workspace
-When you try to re-onboard an agent to a new workspace, the Log Analytics agent  configuration needs to be cleaned up before re-onboarding. To clean up old configuration from the agent, run the shell bundle with `--purge`
+## Issue: You are trying to reonboard to a new workspace
+When you try to reonboard an agent to a new workspace, the Log Analytics agent  configuration needs to be cleaned up before reonboarding. To clean up old configuration from the agent, run the shell bundle with `--purge`
 
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge
@@ -394,7 +394,7 @@ Or
 sudo sh ./onboard_agent.sh --purge
 ```
 
-You can continue re-onboarding after using the `--purge` option
+You can continue reonboard after using the `--purge` option
 
 ## Log Analytics agent extension in the Azure portal is marked with a failed state: Provisioning failed
 
