@@ -35,7 +35,7 @@ AzureDiagnostics
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourCorrelationIdentifier` | The Correlation ID that was specified on the event data. |
+| *yourCorrelationIdentifier* | The Correlation ID that was specified on the event data |
 
 If you add log statements in your user-defined function, those logs will appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve these logs, enter the following condition in your Azure Log Analytics instance:
 
