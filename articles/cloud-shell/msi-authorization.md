@@ -1,5 +1,5 @@
 ---
-title: Use MSI in Azure Cloud Shell | Microsoft Docs
+title: Use Managed identities for Azure resources in Azure Cloud Shell | Microsoft Docs
 description: Authenticate code with MSI in Azure Cloud Shell
 services: azure
 documentationcenter: ''
