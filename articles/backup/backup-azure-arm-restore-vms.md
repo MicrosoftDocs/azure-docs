@@ -56,22 +56,21 @@ Restoring a VM or all disks from VM backup involves two steps:
 7. From the list, select a VM to open the dashboard. The VM dashboard opens to the monitoring area, which contains the **Recovery points**. All VM level operations like **Backup now**, **File recovery**, **Stop backup** can be performed from this blade.
 Restore can be performed in many ways from this blade. Note that This blade lists only the last 30 days recovery points.
 
-    a) Right click on the recovery point in this blade (less than 30 days) and initiate **Restore VM**
+    a) Right click on the recovery point in this blade (less than 30 days) and initiate **Restore VM**.
 
-    b) To restore recovery points greater than 30 days Click here provided in the blade can be used
+    b) To restore recovery points greater than 30 days Click here provided in the blade can be used.
 
     c) **Restore VM** in the menu header provides an option to list and filter the VMs in customized dates as preferred.
 
     Use the Filter to alter the time range of the restore points displayed. By default, restore points of all consistencies are displayed. Modify the All restore points filter to select a specific restore point consistency. For more information about each type of restoration point, see [Data consistency](backup-azure-vms-introduction.md#data-consistency).
 
     Restore point consistency options:
-
     - Crash consistent restore points
     - Application consistent restore points
     - File-system consistent restore points
     - All restore points
 
-    ![Restore points](./media/backup-azure-arm-restore-vms/vm-blade1.png)
+  ![Restore points](./media/backup-azure-arm-restore-vms/vm-blade1.png)
 
     >  [!NOTE]
     > Recovery Type represent if it is in customer storage account, in vault or both. Learn more about [Instant recovery point](https://azure.microsoft.com/en-us/blog/large-disk-support/).
