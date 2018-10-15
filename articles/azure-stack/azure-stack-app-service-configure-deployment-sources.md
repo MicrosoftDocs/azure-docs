@@ -1,6 +1,6 @@
 ---
 title: Configure deployment sources for App Services on Azure Stack | Microsoft Docs
-description: How a service sdministrator can configure deployment sources (Git, GitHub, BitBucket, DropBox and OneDrive) for App Services on Azure Stack
+description: How a service administrator can configure deployment sources (Git, GitHub, BitBucket, DropBox and OneDrive) for App Services on Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
