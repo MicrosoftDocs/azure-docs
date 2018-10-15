@@ -61,11 +61,13 @@ Each task should be evaluated for frequency, importance, and difficulty. These a
 The proliferation of apps within your organization can strain your delegation model. If it places the burden for application access management on the Global Administrator, it's likely that model increases its overhead as time goes on. If you have granted people the Global Administrator role for things like configuring enterprise applications, you can now offload them to the following less-privileged roles. Doing so helps to improve your security posture and reduces the potential for unfortunate mistakes. The most-privileged application administrator roles are:
 
 * The **Application Administrator** role, which grants the ability to manage all applications in the directory, including registrations, single sign-on settings, user and group assignments and licensing, Application Proxy settings, and consent. It does not grant the ability to manage Conditional Access.
-* The **Cloud Application Administrator** role, which grants all the abilities of the Application Administrator, except it does not grant access to Application Proxy settings (because it has no on-premises permission).### Delegate app owner permissions per-app
+* The **Cloud Application Administrator** role, which grants all the abilities of the Application Administrator, except it does not grant access to Application Proxy settings (because it has no on-premises permission).
+
+<!-- ### Delegate app owner permissions per-app -->
 
 ## Delegate app registration
 
-By default, all users can create application registrations. If you want to selectively grant the ability to create application registrations, you’ll have to set **Users can register applications** to No in User settings, and then assign the Application Developer role. This role grants the ability to create application registrations only when the **Users can register applications** is turned off. Application Developers can also consent for themselves when the **Users can consent to applications accessing company data on their behalf** is set to No. When an Application Developer creates a new application registration, they are automatically added as the first owner.
+By default, all users can create application registrations. If you want to selectively grant the ability to create application registrations, you’ll have to set **Users can register applications** to No in User settings, and then assign the Application Developer role. This role grants the ability to create application registrations only when the **Users can register applications** is turned off. Similarly, even when when the **Users can consent to applications accessing company data on their behalf** is set to No, users assigned to the Application Developer role can still consent for themselves. When an Application Developer creates a new application registration, they are automatically added as the first owner.
 
 ## Delegate app ownership
 
@@ -76,7 +78,7 @@ For even finer-grained app access delegation, you can assign ownership to indivi
 
 ## Develop a security plan
 
-Azure AD provides an extensive guide to planning and executing a security plan on your Azure AD admin roles, [Securing privileged access for hybrid and cloud deployments](directory-admin-roles-secure.md). 
+Azure AD provides an extensive guide to planning and executing a security plan on your Azure AD admin roles, [Securing privileged access for hybrid and cloud deployments](directory-admin-roles-secure.md).
 
 ## Establish emergency accounts
 
@@ -94,7 +96,7 @@ Attackers who get control of privileged accounts can do tremendous damage, so pr
 
 ## Elevate privilege temporarily
 
-For most day-to-day activities, not all users need global administrator rights. And not all users should be permanently assigned to the Global Administrator role. When users need to act as a Global Administrator, they should activate the role assignment in Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) on either their own account or an alternate administrative account.
+For most day-to-day activities, not all users need global administrator rights, and certainly not all of them should be permanently assigned to the Global Administrator role. When users need the permissions of a Global Administrator, they should activate the role assignment in Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) on either their own account or an alternate administrative account.
 
 ## Next steps
 
