@@ -73,7 +73,7 @@ From the same **Certificate Configuration** page you used in Step 3, click **Ste
 
 Choose the preferred domain verification method. 
 
-There are four types of domain verification supported by App Service Certificates: App Service, Domain, and Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
+There are three types of domain verification supported by App Service Certificates: App Service, Domain, and Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
 
 > [!NOTE]
 > **App Service Verification** is the most convenient option when the domain you want to verify is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.

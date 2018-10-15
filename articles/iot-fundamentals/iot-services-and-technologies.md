@@ -13,7 +13,9 @@ ms.author: robinsh
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio is an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
 
-- Platform as a Service (PaaS): build your application using [Azure IoT solution accelerators](https://www.azureiotsolutions.com/), which are a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
+- Platform as a Service (PaaS): build your application using any of the following services.
+    - [Azure IoT solution accelerators](https://www.azureiotsolutions.com/), which are a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions, or 
+    - [Azure Digital Twins](https://azure.microsoft.com/en-us/services/digital-twins/) service, which allows you to model the physical environment to create contextually-aware IoT solutions using a spatial intelligence graph and domain-specifc object models.
 
 - Software as a Service (SaaS): get started fast with [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources to build your own IoT solution, Azure IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
 
@@ -90,7 +92,10 @@ Connect all your devices to Azure IoT using the open-source [device SDKs](/azure
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end. The Azure IoT Hub Device Provisioning Service is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
 
 ### Edge
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) is an Internet of Things (IoT) service. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge." By moving parts of your workload to the edge, you will experience reduced latency and have the option for off-line scenarios.
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) is an IoT service. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge." By moving parts of your workload to the edge, you will experience reduced latency and have the option for off-line scenarios.
+
+### Spatial Intelligence
+[Azure Digital Twins](https://azure.microsoft.com/en-us/services/digital-twins/) is an IoT service that enables you to create a model of a physical environment. It provides a spatial intelligence graph to model the relationships between people, spaces, and devices. By corelating data across the digital and physical world you can create contextually aware solutions.  
 
 ### Data and analytics
 Take advantage of an array of Azure data and analytics PaaS offerings in your IoT solution, from bringing cloud intelligence to the edge with Azure Machine Learning, to storing IoT device data in a cost-effective way with Azure Data Lake, to visualizing huge amount of data from IoT devices with [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).

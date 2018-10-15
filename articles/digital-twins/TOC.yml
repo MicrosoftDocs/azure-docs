@@ -1,0 +1,107 @@
+- name: Azure IoT Fundamentals
+  href: /azure/iot-fundamentals
+- name: Azure Digital Twins
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Digital Twins
+    href: about-digital-twins.md
+- name: Quickstarts
+  items:
+  - name: Find available rooms
+    href: quickstart-view-occupancy-dotnet.md
+- name: Tutorials
+  items:
+  - name: Monitor a building with Digital Twins
+    items:
+      - name: Deploy and configure 
+        href: tutorial-facilities-setup.md
+      - name: Provision and monitor conditions
+        href: tutorial-facilities-udf.md
+      - name: Notify with Logic Apps
+        href: tutorial-facilities-events.md
+      - name: Visualize events with TSI
+        href: tutorial-facilities-analyze.md
+- name: Concepts
+  items:
+  - name: Digital Twins object model and spatial intelligence graph
+    href: concepts-objectmodel-spatialgraph.md
+  - name: Device connectivity and telemetry ingress
+    href: concepts-device-ingress.md
+  - name: Data processing and user-defined functions
+    href: concepts-user-defined-functions.md 
+  - name: Routing events and messages
+    href: concepts-events-routing.md 
+  - name: Public preview service limits
+    href: concepts-service-limits.md 
+  - name: Security
+    items:
+    - name: Security best practices
+      href: security-best-practices.md
+    - name: Role based access control
+      href: security-role-based-access-control.md
+    - name: Create and manage role assignments
+      href: security-create-manage-role-assignments.md
+    - name: Management APIs authentication
+      href: security-authenticating-apis.md
+- name: How-to guides
+  items:
+  - name: How to enable multitenant applications
+    href: how-to-multitenant-applications.md
+  - name: How to create user-defined functions
+    href: how-to-user-defined-functions.md
+  - name: How to route events and messages via endpoints
+    href: how-to-egress-endpoints.md
+  - name: How to use Digital Twins Swagger
+    href: how-to-use-swagger.md
+#- name: Reference
+#  items:
+- name: Related
+  items:
+  - name: Solutions
+    items:
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Platform Services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: IoT Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Maps
+      href: /azure/azure-maps
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+- name: Resources
+  items:
+  - name: Azure Digital Twins samples for C# (.NET)
+    href: https://github.com/Azure-Samples/digital-twins-samples-csharp 
+  - name: Azure Digital Twins REST API
+    href: https://docs.westcentralus.azuresmartspaces.net/management/swagger 
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/digital-twins/     
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-digital-twins 
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuredigitaltwins 
+  - name: Customer stories
+    href: https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/ 
+  - name: Azure IoT Developer Center
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Videos
+    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
+
