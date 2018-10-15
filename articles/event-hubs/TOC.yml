@@ -19,6 +19,38 @@
     href: event-hubs-quickstart-powershell.md
   - name: Stream into Event Hubs for Apache Kafka
     href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+  - name: Send events to event hub 
+    items:
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: Java
+      href: event-hubs-java-get-started-send.md
+    - name: C
+      href: event-hubs-c-getstarted-send.md
+    - name: Go 
+      href: event-hubs-go-get-started-send.md 
+    - name: Python
+      href: event-hubs-python-get-started-send.md
+    - name: Node.js
+      href: event-hubs-node-get-started-send.md
+  - name: Receive events from event hub
+    items:
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: Java
+      href: event-hubs-java-get-started-receive-eph.md
+    - name: Go 
+      href: event-hubs-go-get-started-receive-eph.md 
+    - name: Python
+      href: event-hubs-python-get-started-receive.md
+    - name: Node.js
+      href: event-hubs-node-get-started-receive.md    
+    - name: Apache Storm
+      href: event-hubs-storm-getstarted-receive.md
 - name: Tutorials
   items:
   - name: Visualize data anomalies on Event Hubs data streams
@@ -76,38 +108,6 @@
   items:
   - name: Create an event hub
     href: event-hubs-create.md
-  - name: Send events
-    items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-getstarted-send.md
-    - name: Java
-      href: event-hubs-java-get-started-send.md
-    - name: C
-      href: event-hubs-c-getstarted-send.md
-    - name: Go 
-      href: event-hubs-go-get-started-send.md 
-    - name: Python
-      href: event-hubs-python-get-started-send.md
-    - name: Node.js
-      href: event-hubs-node-get-started-send.md
-  - name: Receive events
-    items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
-    - name: Java
-      href: event-hubs-java-get-started-receive-eph.md
-    - name: Go 
-      href: event-hubs-go-get-started-receive-eph.md 
-    - name: Python
-      href: event-hubs-python-get-started-receive.md
-    - name: Node.js
-      href: event-hubs-node-get-started-receive.md    
-    - name: Apache Storm
-      href: event-hubs-storm-getstarted-receive.md
   - name: Event Hubs for Apache Kafka 
     items:
       - name: Create Apache Kafka-enabled event hubs
