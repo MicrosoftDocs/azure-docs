@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/15/2018
 ms.author: jeedes
 
 ---
@@ -39,7 +39,7 @@ You can configure multiple Identifiers for multiple instances as below.
 
 With these values, Azure AD will remove the value of **#** and send the correct value `https://signin.aws.amazon.com/saml` as the Audience URL in the SAML Token.
 
-We recommend to use this approach for the following reasons:
+**We recommend to use this approach for the following reasons:**
 
 a. Each application will provide you the unique X509 certificate and so each instance can have a different certificate expiry date and you can manage this on the individual AWS account basis. Overall certificate rollover will be easy in this case.
 

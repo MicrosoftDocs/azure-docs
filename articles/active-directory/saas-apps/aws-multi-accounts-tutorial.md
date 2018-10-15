@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/15/2018
 ms.author: jeedes
 
 ---
@@ -32,9 +32,10 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 ![Amazon Web Services (AWS) in the results list](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
-Please read [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) tutorial to learn how to configure multiple instances of AWS to Azure.
+>[!NOTE]
+>Please note connecting one AWS app to all your AWS accounts is not our recommended approach. Instead we recommend you to use [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approach to configure multiple instances of AWS account to Multiple instances of AWS apps in Azure AD.
 
-Please note that we do not recommend to use this approach for following reasons:
+**Please note that we do not recommend to use this approach for following reasons:**
 
 * You have to use the Graph Explorer approach to patch all the roles to the app. We don’t recommend using the manifest file approach.
 
