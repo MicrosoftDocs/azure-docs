@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/15/2018
 ms.author: jeedes
 
 ---
@@ -139,7 +139,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -161,7 +161,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Sign on URL** textbox, paste **Login URL** value which you have copied from the Azure portal.
 
-	b. In the **Issuer** textbox, paste **Azure Ad Identifier** value which you have copied from the Azure portal.
+	b. In the **Issuer** textbox, paste **Azure AD Identifier** value which you have copied from the Azure portal.
 
 	c. Open the downloaded certificate from Azure portal in notepad, paste the content into the **Public Certificate** textbox.
 
