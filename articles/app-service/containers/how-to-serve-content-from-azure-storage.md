@@ -11,7 +11,7 @@ ms.date: 10/16/2018
 ms.author: msangapu
 
 ---
-# Configure Azure Storage in App Service on Linux
+# Serve content from Azure Storage in App Service on Linux
 
 This guide shows how to create and configure Azure Storage with a web app in Web App for Containers. This technique helps your web app offload content and serve only application logic, leaving the content to storage. You can easily [have all your content hosted in a custom storage account](https://blogs.msdn.microsoft.com/appserviceteam/2018/09/24/announcing-bring-your-own-storage-to-app-service/). 
 
