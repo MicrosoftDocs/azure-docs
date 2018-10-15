@@ -1,19 +1,12 @@
 ---
 title: Microsoft Azure Data Box Edge overview | Microsoft Docs
 description: Describes Azure Data Box Edge, a storage solution that uses a physical device for network based transfer into Azure.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: overview
-ms.custom:
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
