@@ -64,6 +64,29 @@ In the hosts file, enter the following value:
 ```
 Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-ubuntu' is the hostname of the Ubuntu virtual machine you are joining to the managed domain.
 
+## Additional Step for Ubuntu v16.04
+If you are trying to domain join a newer version of Ubuntu, feel free to skip this step. In Ubuntu 16.04, you must create a sssd.conf file in /etc/sssd/ before you install the dependencies. The sssd.conf file should look something like this:
+
+```
+[sssd]
+domains = <DNS domain name as displayed in Azure Domain Services>
+config_file_version = 2
+services = nss, pam
+
+[domain/<Dns domain Name as displayed in Azure Domain Services>]
+ad_domain = <DNS domain name as displayed in Azure Domain Services>
+krb5_realm = <DNS domain name in all caps>
+realmd_tags = manages-system joined-with-adcli 
+cache_credentials = True
+id_provider = ad
+krb5_store_password_if_offline = True
+default_shell = /bin/bash
+ldap_sasl_authid = <your VM host name in all caps>$
+ldap_id_mapping = True
+fallback_homedir = /home/%u@%d
+access_provider = ad
+
+```
 
 ## Install required packages on the Linux virtual machine
 Next, install packages required for domain join on the virtual machine. Perform the following steps:
