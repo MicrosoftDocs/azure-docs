@@ -61,5 +61,7 @@ In order to remove an application’s access to your directory (after having gra
 
 Learn about these other related app management quickstarts:
 
-- [Register an application with the Microsoft identity platform](quickstart-add-azure-ad-app-preview.md)
-- [Update an application registered with the Microsoft identity platform](quickstart-update-azure-ad-app-preview.md)
+* [Register an application with the Microsoft identity platform](quickstart-add-azure-ad-app-preview.md)
+* [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis-preview.md)
+* [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis-preview.md)
+* [Modify the accounts supported by an application](quickstart-modify-supported-accounts-preview.md)

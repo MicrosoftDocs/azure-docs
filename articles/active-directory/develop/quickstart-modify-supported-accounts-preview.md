@@ -81,8 +81,8 @@ By default, OAuth 2.0 implicit grant is disabled for applications. You can enabl
 Learn about these other related app management quickstarts for apps:
 
 * [Register an application with the Microsoft identity platform](quickstart-add-azure-ad-app-preview.md)
-* [Configure an application to access web APIs](quickstart-configure-app-to-access-web-apis.md)
-* [Configure an application to expose web APIs](quickstart-configure-app-to-expose-web-apis.md)
+* [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis-preview.md)
+* [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis-preview.md)
 * [Remove an application registered with the Microsoft identity platform](quickstart-remove-azure-ad-app-preview.md)
 
 To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).

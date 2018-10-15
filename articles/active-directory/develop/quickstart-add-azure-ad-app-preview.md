@@ -63,6 +63,9 @@ Azure AD assigns a unique application ID to your app, and you're taken to your a
 ## Next steps
 
 - See [Azure AD consent framework](consent-framework.md) for an overview of consent.
-- To enable additional configuration features in your application registration, such as credentials and permissions, and enable sign-in for users from other tenants, see [Update an application registered with Microsoft identity platform](quickstart-update-azure-ad-app-preview.md).
+- To enable additional configuration features in your application registration, such as credentials and permissions, and enable sign-in for users from other tenants, see these quickstarts:
+    - [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis-preview.md)
+    - [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis-preview.md)
+    - [Modify the accounts supported by an application](quickstart-modify-supported-accounts-preview.md)
 - Learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
 - Learn more about the branding guidelines you should use when developing apps, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).

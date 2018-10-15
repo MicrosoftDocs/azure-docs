@@ -114,8 +114,8 @@ To add permission(s) to access resource APIs from your client:
 Learn about these other related app management quickstarts for apps:
 
 * [Register an application with the Microsoft identity platform](quickstart-add-azure-ad-app-preview.md)
-* [Configure an application to expose web APIs](quickstart-configure-app-to-expose-web-apis.md)
-* [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
+* [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis-preview.md)
+* [Modify the accounts supported by an application](quickstart-modify-supported-accounts-preview.md)
 * [Remove an application registered with the Microsoft identity platform](quickstart-remove-azure-ad-app-preview.md)
 
 To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
