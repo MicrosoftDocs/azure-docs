@@ -234,10 +234,9 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 
     You then need to edit the correct `rsyslogd` or `syslog_ng` config file and change the LAD-related configuration to write to port 25229.
 
-2. If the VM is running `rsyslogd`, the file to be modified is: `/etc/rsyslog.d/95-omsagent.conf` (if it exists, else `/etc/rsyslog`).
-3. If the VM is running `syslog_ng`, the file to be modified is: `/etc/syslog-ng/syslog-ng.conf`.
-4. Restart omsagent `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-5. Restart syslog service.
+2. If the VM is running `rsyslogd`, the file to be modified is: `/etc/rsyslog.d/95-omsagent.conf` (if it exists, else `/etc/rsyslog`). If the VM is running `syslog_ng`, the file to be modified is: `/etc/syslog-ng/syslog-ng.conf`.
+3. Restart omsagent `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+4. Restart syslog service.
 
 ## Issue: You are unable to uninstall omsagent using purge option
 
@@ -257,7 +256,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 * Nagios source and filter have not been uncommented from omsagent.conf file
 
 ### Resolution
-1. Add omsagent user to read from Nagios file [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts).
+1. Add omsagent user to read from Nagios file by following these [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts).
 2. In the Log Analytics agent for Linux general configuration file at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`, ensure that **both** the Nagios source and filter are uncommented.
 
     ```
