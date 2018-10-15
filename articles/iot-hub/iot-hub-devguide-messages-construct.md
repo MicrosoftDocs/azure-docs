@@ -26,7 +26,7 @@ An IoT Hub message consists of:
 
 * An opaque binary body.
 
-Property names and values can only contain ASCII alphanumeric characters, plus ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` when you send device-to-cloud messages using the HTTPS protocol or send cloud-to-device messages.
+Property names and values can only contain ASCII alphanumeric characters, plus `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}` when you send device-to-cloud messages using the HTTPS protocol or send cloud-to-device messages.
 
 Device-to-cloud messaging with IoT Hub has the following characteristics:
 
@@ -44,7 +44,7 @@ The following table lists the set of system properties in IoT Hub messages.
 
 | Property | Description | Is user settable? |
 | --- | --- | --- |
-| message-id |A user-settable identifier for the message used for request-reply patterns. Format: A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Yes |
+| message-id |A user-settable identifier for the message used for request-reply patterns. Format: A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Yes |
 | sequence-number |A number (unique per device-queue) assigned by IoT Hub to each cloud-to-device message. | No for C2D messages; yes otherwise. |
 | to |A destination specified in [Cloud-to-Device](iot-hub-devguide-c2d-guidance.md) messages. | No for C2D messages; yes otherwise. |
 | absolute-expiry-time |Date and time of message expiration. | Yes |
