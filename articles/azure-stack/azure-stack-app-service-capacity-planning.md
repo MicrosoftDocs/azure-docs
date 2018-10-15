@@ -26,7 +26,7 @@ To set up a production ready deployment of Azure App Service on Azure Stack, you
 
 This article provides guidance for the minimum number of compute instances and compute SKUs you should use for any production deployment.
 
-You can plan your App Service capacity strategy using these guidelines. Future versions of Azure Stack will provide high availability options for App Service.
+You can plan your App Service capacity strategy using these guidelines.
 
 | App Service server role | Minimum recommended number of instances | Recommended compute SKU|
 | --- | --- | --- |
@@ -41,31 +41,31 @@ You can plan your App Service capacity strategy using these guidelines. Future v
 
 **Recommended minimum**: Two instances of A1 Standard
 
-The Azure App Service Controller typically experiences low consumption of CPU, memory, and network resources. However, for high availability, you must have two controllers. Two controllers are also the maximum number of controllers permitted. You can create the second Web Sites Controller direct from the installer during deployment.
+The Azure App Service controller typically experiences low consumption of CPU, memory, and network resources. However, for high availability, you must have two controllers. Two controllers are also the maximum number of controllers permitted. You can create the second web sites controller direct from the installer during deployment.
 
-## Front End role
+## Front end role
 
 **Recommended minimum**: Two instances of A1 Standard
 
-The Front End routes requests to Web Workers depending on Web Worker availability. For high availability, you should have more than one Front End, and you can have more than two. For capacity planning purposes, consider that each core can handle approximately 100 requests per second.
+The front end routes requests to web workers depending on web worker availability. For high availability, you should have more than one front end, and you can have more than two. For capacity planning purposes, consider that each core can handle approximately 100 requests per second.
 
 ## Management role
 
 **Recommended minimum**: Two instances of A3 Standard
 
-The Azure App Service management role is responsible for the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. The Management Server role typically requires only about 4 GB RAM in a production environment. However, it may experience high CPU levels when many management tasks (such as web site creation) are performed. For high availability, you should have more than one server assigned to this role, and at least two cores per server.
+The Azure App Service management role is responsible for the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. The management server role typically requires only about 4 GB RAM in a production environment. However, it may experience high CPU levels when many management tasks (such as web site creation) are performed. For high availability, you should have more than one server assigned to this role, and at least two cores per server.
 
 ## Publisher role
 
 **Recommended minimum**: Two instances of A1 Standard
 
-If many users are publishing simultaneously, the Publisher role may experience heavy CPU usage. For high availability, make more than one Publisher role available. The Publisher only handles FTP/FTPS traffic.
+If many users are publishing simultaneously, the publisher role may experience heavy CPU usage. For high availability, make sure more than one publisher role is available. The publisher only handles FTP/FTPS traffic.
 
 ## Web worker role
 
 **Recommended minimum**: Two instances of A1 Standard
 
-For high availability, you should have at least four Web Worker roles, two for shared web site mode and two for each dedicated worker tier you plan to offer. The shared and dedicated compute modes provide different levels of service to tenants. You might need more web workers if many of your customers are:
+For high availability, you should have at least four web worker roles, two for shared web site mode and two for each dedicated worker tier you plan to offer. The shared and dedicated compute modes provide different levels of service to tenants. You might need more web workers if many of your customers are:
 
 - Using dedicated compute mode worker tiers (which are resource-intensive).
 - Running in shared compute mode.
@@ -80,19 +80,19 @@ When deciding on the number of shared web worker roles to use, review these cons
 - **Percentage of active web sites**: Typically, about 5 percent of applications in an Azure App Service on Azure Stack deployment are active. However, the percentage of applications that are active at any given moment can be higher or lower. With an active application rate of 5 percent, the maximum number of applications to place in an Azure App Service on Azure Stack deployment should be less than 20 times the number of active web sites (5 x 20 = 100).
 - **Average memory footprint**: The average memory footprint for applications observed in production environments is about 70 MB. Using this footprint, the memory allocated across all web worker role computers or VMs can be calculated as follows:
 
-    *Number of Provisioned applications * 70 MB * 5% - (Number of Web Worker Roles * 1044 MB)*
+   `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
 
    For example, if there are 5,000 applications on environment that is running 10 web worker roles, each web worker role VM should have 7060 MB RAM:
 
-   5,000 * 70 * 0.05 – (10 * 1044) = 7060 (= about 7 GB)
+   `5,000 * 70 * 0.05 – (10 * 1044) = 7060 (= about 7 GB)`
 
    For information about adding more worker instances, see [Adding more worker roles](azure-stack-app-service-add-worker-roles.md).
 
 ## File server role
 
-For the file server role, you can use a standalone file server for development and testing, for example when deploying Azure App Service on the Azure Stack Development Kit (ASDK) you can use this template: https://aka.ms/appsvconmasdkfstemplate. For production purposes, you should use a pre-configured Windows file server, or a pre-configured non-Windows file server.
+For the file server role, you can use a standalone file server for development and testing; for example, when deploying Azure App Service on the Azure Stack Development Kit (ASDK) you can use this template: https://aka.ms/appsvconmasdkfstemplate. For production purposes, you should use a pre-configured Windows file server, or a pre-configured non-Windows file server.
 
-In production environments, the file server role experiences intensive disk I/O. Because it houses all of the content and application files for user web sites, you should pre-configure one of the following for this role:
+In production environments, the file server role experiences intensive disk I/O. Because it houses all of the content and application files for user web sites, you should pre-configure one of the following resources for this role:
 
 - Windows file server
 - Windows file server cluster
