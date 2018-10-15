@@ -67,10 +67,10 @@ For disaster recovery (DR), you must be able to fail over to a secondary region.
 #### VMs running SAP Web Dispatcher pool 
 The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve high availability for the Web Dispatcher component, Azure Load Balancer is used to implement the parallel Web Dispatcher setup in a round-robin configuration for HTTP(S) traffic distribution among the available Web Dispatchers in the balancer pool. This will be replicated using Azure Site Recovery(ASR) and automation scripts will be used to configure load balancer on the disaster recovery region. 
 
-####VMs running application servers pool
+#### VMs running application servers pool
 To manage logon groups for ABAP application servers, the SMLG transaction is used. It uses the load balancing function within the message server of the Central Services to distribute workload among SAP application servers pool for SAPGUIs and RFC traffic. This will be replicated using Azure Site Recovery 
 
-####VMs running SAP Central Services cluster
+#### VMs running SAP Central Services cluster
 This reference architecture runs Central Services on VMs in the application tier. The Central Services is a potential single point of failure (SPOF) when deployed to a single VM—typical deployment when high availability is not a requirement.<br>
 
 To implement a high availability solution, either a shared disk cluster or a file share cluster can be used.To configure VMs for a shared disk cluster, use Windows Server Failover Cluster. Cloud Witness is recommended as a quorum witness. 
@@ -106,7 +106,7 @@ Below is the recommendation for disaster recovery of each tier used in this exam
 **Active directory virtual machines** |  Active directory replication 
 **SQL database servers** |  SQL always on replication
 
-##Replicate virtual machines
+## Replicate virtual machines
 
 To start replicating all the SAP application virtual machines to the Azure disaster recovery datacenter, follow the guidance in [Replicate a virtual machine to Azure](azure-to-azure-walkthrough-enable-replication.md).
 

@@ -1,4 +1,4 @@
-- name: Azure Data Box for online transfer documentation
+- name: Azure Data Box Documentation - Online Transfer 
   href: /azure/databox-online/
   expanded: true
 - name: Data Box Gateway
@@ -61,13 +61,9 @@
       href: data-box-edge-deploy-configure-compute.md
 - name: Resources
   items:
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=storage
-  - name: Azure Data Box marketing
-    href: https://azure.microsoft.com/services/storage/databox-online
+  - name: Data Box Edge/Gateway product  
+    href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=databox
+    href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
 
 
