@@ -79,7 +79,7 @@
         href: azure-stack-managed-disk-considerations.md
       - name: Protect VMs
         href: azure-stack-manage-vm-protect.md
-      - name: VM update and configuration management
+      - name: VM update and management
         href: vm-update-management.md
       - name: SQL Server VM considerations
         href: azure-stack-sql-server-vm-considerations.md
