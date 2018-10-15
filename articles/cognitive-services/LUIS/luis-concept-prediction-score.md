@@ -1,21 +1,21 @@
 ---
-title: Understand the prediction score returned by LUIS
+title: Prediction score - Intents, entities - LUIS
 titleSuffix: Azure Cognitive Services
-description: Learn what the prediction score means in LUIS
+description: A prediction score indicates the degree of confidence LUIS has for prediction results. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/15/2018
 ms.author: diberry
 ---
 
 # Prediction score
 A prediction score indicates the degree of confidence LUIS has for prediction results. 
 
-A prediction score is usually between zero (0) and one (1). An example of a highly confident LUIS score is 0.99. An example of a score of low confidence is 0.01. 
+A prediction score is between zero (0) and one (1). An example of a highly confident LUIS score is 0.99. An example of a score of low confidence is 0.01. 
 
 |Score value|Confidence|
 |--|--|
