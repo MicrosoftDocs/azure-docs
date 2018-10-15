@@ -20,7 +20,7 @@ sections:
 - title: 
   items:
   - type: paragraph
-    text: <b>NOTE:</b> The new Speech Service and SDK is replacing the Translator Speech API, which will no longer work starting October 15, 2019. For information on switching to the Speech Service, see <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api"> Migrating from the Translator Speech API to the Speech Service </a> 
+    text: <b>NOTE:</b> The new Speech Service and SDK is replacing the Translator Speech API, which will no longer work starting January 15, 2019. For information on switching to the Speech Service, see <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api"> Migrating from the Translator Speech API to the Speech Service </a> 
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
