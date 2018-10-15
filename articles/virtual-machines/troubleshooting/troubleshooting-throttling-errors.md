@@ -45,7 +45,7 @@ x-ms-ratelimit-remaining-resource: Microsoft.Compute/VMScaleSetBatchedVMRequests
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/VmssQueuedVMOperations;4720 
 ```
 
-##Throttling error details
+## Throttling error details
 
 The 429 HTTP status is commonly used to reject a request because a call rate limit is reached. A typical throttling error response from Compute Resource Provider will look like the example below (only relevant headers are shown):
 

@@ -122,9 +122,22 @@ or run load testing that might go above these limits,
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
 
+<a name="sftp"></a>
+
+## FTP, SFTP, and SFTP-SSH limits
+
+### File size
+
+| Name | Limit | Notes |
+|------|-------|-------|
+| FTP | 50 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP | 50 MB | To work around this limit, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP-SSH | 1 GB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+|||| 
+
 <a name="request-limits"></a>
 
-## HTTP Request limits
+## HTTP limits
 
 Here are the limits for a single HTTP 
 request or synchronous connector call:
@@ -155,18 +168,6 @@ Some connector operations make asynchronous calls or listen for webhook requests
 | Retry attempts | 90 | The default is 4. To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Retry max delay | 1 day | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Retry min delay | 5 seconds | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-|||| 
-
-<a name="sftp"></a>
-
-## SFTP and SFTP-SSH limits
-
-### File size
-
-| Name | Limit | Notes |
-|------|-------|-------|
-| SFTP | 50 MB | To work around this limit, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
-| SFTP-SSH | 1 GB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
 |||| 
 
 <a name="custom-connector-limits"></a>
