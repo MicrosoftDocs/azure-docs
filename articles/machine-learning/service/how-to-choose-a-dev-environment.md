@@ -6,6 +6,7 @@ author: rastala
 ms.author: roastala
 manager:  cgronlun
 ms.service: machine-learning
+ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual

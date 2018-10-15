@@ -6,7 +6,7 @@ services: cognitive-services
 author: wsturman
 
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: gracez

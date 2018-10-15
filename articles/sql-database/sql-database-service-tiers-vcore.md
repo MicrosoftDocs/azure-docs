@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/04/2018
+ms.date: 10/12/2018
 ---
 # vCore service tiers, Azure Hybrid Use Benefit, and migration
 
@@ -27,7 +27,7 @@ vCore model also allows you to use [Azure Hybrid Use Benefit for SQL Server](htt
 
 ## Service tier characteristics
 
-The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of compute sizes, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups.
+The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of compute sizes, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups. You must separately configure the required storage and retention period for backups. In the Azure portal, go to Server (not the database) > Managed Backups > Configure Policy > Point In Time Restore Configuration > 7 - 35 days.
 
 The following table helps you understand the differences between these two tiers:
 
@@ -60,7 +60,11 @@ In the vCore-based purchasing model, you can exchange your existing licenses for
 
 ## Migration from DTU model to vCore model
 
-### Migration of single databases with geo-replication links
+### Migration of a database
+
+Migrating a database from the DTU-based purchasing model to the vCore-based purchasing model is similar to upgrading or downgrading between Standard and Premium databases in the DTU-based purchasing model.
+
+### Migration of databases with geo-replication links
 
 Migrating to from DTU-based model to vCore-based model is similar to upgrading or downgrading the geo-replication relationships between Standard and Premium databases. It does not require terminating geo-replication but the user must observe the sequencing rules. When upgrading, you must upgrade the secondary database first, and then upgrade the primary. When downgrading, reverse the order: you must downgrade the primary database first, and then downgrade the secondary.
 

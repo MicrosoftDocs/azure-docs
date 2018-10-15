@@ -175,8 +175,10 @@ A successful token response will look like:
 | expires_in    | How long the access token is valid (in seconds).                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | The scopes that the access_token is valid for.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | refresh_token | An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires. Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time. For more detail on refreshing an access token, refer to the [section below](#refresh-the-access-token). <br> **Note:** Only provided if `offline_access` scope was requested.                                               |
-| id_token      | An unsigned JSON Web Token (JWT). The  app can decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. For more information about id_tokens, see the [`id_token reference`](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
+| id_token      | A JSON Web Token (JWT). The  app can decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. For more information about id_tokens, see the [`id_token reference`](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
+
 #### Error response
+
 Error responses will look like:
 
 ```json

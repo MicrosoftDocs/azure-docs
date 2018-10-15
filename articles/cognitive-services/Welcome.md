@@ -6,7 +6,7 @@ author: nitinme
 manager: cgronlund
 
 ms.service: cognitive-services
-ms.component: cognitive-services
+ms.component: 
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: nitinme 
