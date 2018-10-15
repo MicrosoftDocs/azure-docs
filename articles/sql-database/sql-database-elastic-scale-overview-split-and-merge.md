@@ -93,7 +93,7 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
     Other tables can be present on either the source or the target of a split and merge operation. The split-merge service disregards these tables for any data movement or copy operations. Note, however, that they can interfere with these operations in case of constraints.
 
-    The information on reference vs. sharded tables is provided by the **SchemaInfo** APIs on the shard map. The following example illustrates the use of these APIs on a given shard map manager object smm:
+    The information on reference vs. sharded tables is provided by the **SchemaInfo** APIs on the shard map. The following example illustrates the use of these APIs on a given shard map manager object:
 
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
@@ -154,7 +154,7 @@ The split-merge service package includes a worker role and a web role. The web r
 
   The batch size controls the number of shardlets that will go offline at a time during the data movement. This is an integer value where you can use smaller values when you are sensitive to long periods of downtime for shardlets. Larger values will increase the time that a given shardlet is offline but may improve performance.
 
-- **Operation Id (Cancel)**
+- **Operation ID (Cancel)**
 
   If you have an ongoing operation that is no longer needed, you can cancel the operation by providing its operation ID in this field. You can retrieve the operation ID from the request status table (see Section 8.1) or from the output in the web browser where you submitted the request.
 
@@ -200,7 +200,7 @@ The split-merge Service provides the **RequestStatus** table in the metadata sto
 
 - **Details**
 
-  An XML value that provides a more detailed progress report. The progress report is periodically updated as sets of rows are copied from source to arget. In case of failures or exceptions, this column also includes more detailed information about the failure.
+  An XML value that provides a more detailed progress report. The progress report is periodically updated as sets of rows are copied from source to target. In case of failures or exceptions, this column also includes more detailed information about the failure.
 
 ### Azure Diagnostics
 
