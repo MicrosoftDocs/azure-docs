@@ -89,7 +89,7 @@ print(image.image_build_log_uri)
 print(ws.images()['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items()
+for name, img in ws.images().items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
 The image log uri is a SAS URL pointing to a log file stored in your Azure blob storage. Simply copy and paste the uri into a browser window and you can download and view the log file.

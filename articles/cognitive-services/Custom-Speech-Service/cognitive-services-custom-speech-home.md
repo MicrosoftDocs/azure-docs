@@ -40,7 +40,7 @@ For example, if you were building an app to search MSDN by voice, it’s likely 
 
 ## Next steps
 
-For more information about how to use the Custom Speech Service, see the [Custom Speech Service Portal] (https://cris.ai).
+For more information about how to use the Custom Speech Service, see the [Custom Speech Service Portal](https://cris.ai).
 
 * [Get Started](cognitive-services-custom-speech-get-started.md)
 * [FAQ](cognitive-services-custom-speech-faq.md)
