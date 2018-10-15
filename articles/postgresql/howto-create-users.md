@@ -6,7 +6,7 @@ ms.author: jasonh
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 10/16/2018
 ---
 
 # Create users in Azure Database for PostgreSQL server 
