@@ -228,9 +228,9 @@
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json 
       - name: Troubleshoot
         items:
-        - name: Troubleshoot Logs VM Extension
+        - name: Log Analytics VM Extension
           href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
-        - name: Troubleshoot Logs Linux agent
+        - name: Log Analytics Linux agent
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
     - name: Agent data sources
       items:
@@ -404,9 +404,9 @@
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: Collect custom data 
       items:
-      - name: Log store Data collector API 
+      - name: Log Analytics Data collector API 
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
-      - name: Log store Data Collector API Pipeline example
+      - name: Log Analytics Data Collector API Pipeline example
         href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Application data
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
