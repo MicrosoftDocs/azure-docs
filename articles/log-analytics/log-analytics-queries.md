@@ -53,34 +53,42 @@ The basic structure of a query is a source table followed by a series of operato
 
 For example, suppose you wanted to find the top ten computers with the most error events over the past day.
 
-	Event
-	| where (EventLevelName == "Error")
-	| where (TimeGenerated > ago(1days))
-	| summarize ErrorCount = count() by Computer
-	| top 10 by ErrorCount desc
+```Kusto
+Event
+| where (EventLevelName == "Error")
+| where (TimeGenerated > ago(1days))
+| summarize ErrorCount = count() by Computer
+| top 10 by ErrorCount desc
+```
 
 Or maybe you want to find computers that haven't had a heartbeat in the last day.
 
-	Heartbeat
-	| where TimeGenerated > ago(7d)
-	| summarize max(TimeGenerated) by Computer
-	| where max_TimeGenerated < ago(1d)  
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(7d)
+| summarize max(TimeGenerated) by Computer
+| where max_TimeGenerated < ago(1d)  
+```
 
 How about a line chart with the processor utilization for each computer from last week?
 
-	Perf
-	| where ObjectName == "Processor" and CounterName == "% Processor Time"
-	| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
-	| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
-	| render timechart    
+```Kusto
+Perf
+| where ObjectName == "Processor" and CounterName == "% Processor Time"
+| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
+| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
+| render timechart    
+```
 
 You can see from these quick samples that regardless of the kind of data that you're working with, the structure of the query is similar.  You can break it down into distinct steps where the resulting data from one command is sent through the pipeline to the next command.
 
 You can also query data across Log Analytics workspaces within your subscription.
 
-	union Update, workspace("contoso-workspace").Update
-	| where TimeGenerated >= ago(1h)
-	| summarize dcount(Computer) by Classification 
+```Kusto
+union Update, workspace("contoso-workspace").Update
+| where TimeGenerated >= ago(1h)
+| summarize dcount(Computer) by Classification 
+```
 
 ## How Log Analytics data is organized
 When you build a query, you start by determining which tables have the data that you're looking for. Different kinds of data are separated into dedicated tables in each [Log Analytics workspace](log-analytics-quick-create-workspace.md).  Documentation for different data sources includes the name of the data type that it creates and a description of each of its properties.  Many queries will only require data from a single tables, but others may use a variety of options to include data from multiple tables.
