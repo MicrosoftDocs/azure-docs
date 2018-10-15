@@ -142,13 +142,6 @@ This update also contains the mitigation for the speculative execution side chan
 
 ### Known issues with the update process
 
-<!-- TBD - IS -->
-- You might see the following alerts repeatedly appear and then disappear on your Azure Stack system:
-   - *Infrastructure role instance unavailable*
-   - *Scale unit node is offline*
-   
-  Please run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
-
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md) after the 1808 update, a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
 <!-- 2468613 - IS --> 
@@ -211,6 +204,14 @@ The following are post-installation known issues for this build version.
 
 
 ### Health and monitoring
+
+<!-- TBD - IS -->
+- You might see the following alerts repeatedly appear and then disappear on your Azure Stack system:
+   - *Infrastructure role instance unavailable*
+   - *Scale unit node is offline*
+   
+  Please run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
+
 <!-- 1264761 - IS ASDK --> 
 - You might see alerts for the **Health controller** component that have the following details:  
 
