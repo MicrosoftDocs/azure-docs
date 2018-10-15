@@ -17,7 +17,7 @@ ms.author: zhshang
 
 # Build Real-time Apps with Azure Functions and Azure SignalR Service
 
-Because Azure SignalR Service and Azure Functions are both fully managed, highly scalable services that allow you to focus on building applications instead of managing infrastructure, it's common to use the two services together to provide real-time communications in a serverless environment.
+Because Azure SignalR Service and Azure Functions are both fully managed, highly scalable services that allow you to focus on building applications instead of managing infrastructure, it's common to use the two services together to provide real-time communications in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment.
 
 ## Integrate real-time communications with Azure services
 
