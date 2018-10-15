@@ -146,18 +146,14 @@
       href: stream-analytics-edge-csharp-udf-methods.md
   - name: Troubleshoot
     items:
-    - name: Troubleshooting steps
-      href: stream-analytics-troubleshooting-guide.md
-    - name: Common issues
-      href: stream-analytics-common-troubleshooting-issues.md
-    - name: Job diagram
-      href: stream-analytics-job-diagram-with-metrics.md
+    - name: Input connections
+      href: stream-analytics-troubleshoot-input.md
+    - name: Ouput connections
+      href: stream-analytics-troubleshoot-output.md
+    - name: Query logic
+      href: stream-analytics-troubleshoot-query.md
     - name: Diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
-    - name: SELECT INTO statement
-      href: stream-analytics-select-into.md
-    - name: Event Hub receivers
-      href: stream-analytics-event-hub-consumer-groups.md
   - name: Integrate with machine learning
     items:
     - name: Sentiment analysis with ML models
@@ -166,6 +162,8 @@
       href: stream-analytics-machine-learning-anomaly-detection.md
     - name: Use REST APIs
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
+  - name: Debug using job diagram
+    href: stream-analytics-job-diagram-with-metrics.md      
 - name: Reference
   items:
   - name: Azure PowerShell
