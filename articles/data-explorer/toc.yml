@@ -57,3 +57,17 @@
   items:
   - name: Language reference
     href: https://aka.ms/kustolangref
+- name: Resources
+  items:
+  - name: Blogs
+    href: https://aka.ms/kustolangref
+  - name: Stack Overflow
+    href: https://aka.ms/kustolangref
+  - name: MSDN
+    href: https://aka.ms/kustolangref
+  - name: User Voice
+    href: https://aka.ms/kustolangref
+    name: Pricing
+    href: https://aka.ms/kustolangref
+    name: Pricing Calculator
+    href: https://aka.ms/kustolangref
