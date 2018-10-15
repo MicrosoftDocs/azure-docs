@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 10/11/2018
 ms.author: iainfou
 ---
 
@@ -69,23 +69,19 @@ The IP address plan for an AKS cluster consists of a virtual network, at least o
 
 The default maximum number of pods per node in an AKS cluster varies between Basic and Advanced networking, and the method of cluster deployment.
 
-### Default maximum
-
-These are the *default* maximums when you deploy an AKS cluster without specifying the maximum number of pods at deployment time:
-
 | Deployment method | Basic | Advanced | Configurable at deployment |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | Yes |
-| Resource Manager template | 110 | 30 | Yes |
+| Azure CLI | 110 | 30 | Yes (up to 110) |
+| Resource Manager template | 110 | 30 | Yes (up to 110) |
 | Portal | 110 | 30 | No |
 
 ### Configure maximum - new clusters
 
-To specify a different maximum number of pods per node when you deploy an AKS cluster:
+You're able to configure the maximum number of pods per node *only at cluster deployment time*. If you deploy with the Azure CLI or with a Resource Manager template, you can set the maximum pods per node value as high as 110.
 
-* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command.
-* **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template.
-* **Azure portal**: You cannot modify the maximum number of pods per node when you deploy a cluster with the Azure portal. Advanced networking clusters are limited to 30 pods per node when deployed in the Azure portal.
+* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 110.
+* **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template. The maximum value is 110.
+* **Azure portal**: You can't change the maximum number of pods per node when you deploy a cluster with the Azure portal. Advanced networking clusters are limited to 30 pods per node when you deploy using the Azure portal.
 
 ### Configure maximum - existing clusters
 
