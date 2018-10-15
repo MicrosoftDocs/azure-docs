@@ -28,7 +28,7 @@ You can use the following Azure Automation solution features to manage Windows V
 - **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. The Inventory tracking for an Azure Stack Windows virtual machine provides a browser-based user interface for setting up and configuring inventory collection. 
 
 > [!IMPORTANT]
-> These solutions are the same as the ones used to manage Azure VMs. Both Azure and Azure Stack Windows VMs are managed in the same way, from the same interface, using the same tools. The Azure Stack VMs are also priced the same as Azure VMs so when using the Update Management, Change Tracking, and Inventory solutions, you will not incur additional costs from Azure VMs.
+> These solutions are the same as the ones used to manage Azure VMs. Both Azure and Azure Stack Windows VMs are managed in the same way, from the same interface, using the same tools. The Azure Stack VMs are also priced the same as Azure VMs when using the Update Management, Change Tracking, and Inventory solutions with Azure Stack.
 
 ## Prerequisites
 Several prerequisites must be met before using these features to update and manage Azure Stack Windows VMs. These include steps that must be taken in the Azure portal as well as the Azure Stack administration portal.
