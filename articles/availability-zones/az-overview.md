@@ -59,6 +59,7 @@ The Azure services that support Availability Zones are:
 - Service Bus
 - VPN Gateway
 - ExpressRoute
+- Application Gateway (preview)
 
 
 ## Pricing

@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/08/2018
+ms.date: 10/10/2018
 ms.author: genli
 
 ---
@@ -261,12 +261,10 @@ Make sure that the following settings are configured correctly for remote deskto
 3. The Dump log can be helpful in troubleshooting Windows crash issues. Enable the Dump log collection:
 
     ```powershell
-    cmd
-
     # Setup the Guest OS to collect a kernel dump on an OS crash event
-    Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl' -name CrashDumpEnabled -Type DWord -force -Value 2
-    Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl' -name DumpFile -Type ExpandString -force -Value "%SystemRoot%\MEMORY.DMP"
-    Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl' -name NMICrashDump -Type DWord -force -Value 1
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name CrashDumpEnabled -Type DWord -force -Value 2
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name DumpFile -Type ExpandString -force -Value "%SystemRoot%\MEMORY.DMP"
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name NMICrashDump -Type DWord -force -Value 1
 
     #Setup the Guest OS to collect user mode dumps on a service crash event
     $key = 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps'
@@ -274,9 +272,7 @@ Make sure that the following settings are configured correctly for remote deskto
     New-ItemProperty -Path $key -name DumpFolder -Type ExpandString -force -Value "c:\CrashDumps"
     New-ItemProperty -Path $key -name CrashCount -Type DWord -force -Value 10
     New-ItemProperty -Path $key -name DumpType -Type DWord -force -Value 2
-    sc config WerSvc start= demand
-
-    exit
+    Set-Service -Name WerSvc -StartupType Manual
     ```
 4. Verify that the Windows Management Instrumentations repository is consistent. To perform this, run the following command:
 

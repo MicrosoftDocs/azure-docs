@@ -3,13 +3,13 @@ title: Use Text to Speech using Speech services
 description: Learn how to use Text to Speech in the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 # Use "Text to Speech" in Speech service
 
