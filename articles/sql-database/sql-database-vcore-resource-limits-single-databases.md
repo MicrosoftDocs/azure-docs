@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 10/10/2018
+ms.date: 10/15/2018
 ---
 # Azure SQL Database vCore-based purchasing model limits for a single database
 
