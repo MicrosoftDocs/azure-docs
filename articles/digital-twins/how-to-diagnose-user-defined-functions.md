@@ -22,11 +22,11 @@ Follow this article on [Azure Monitor](../monitoring-and-diagnostics/monitoring-
 
 ## Tracing sensor telemetry through Azure Digital Twins execution path
 
-Ensure that diagnostic settings are enabled on your Digital Twins instance, all log categories are selected, and the logs are being sent into Log Analytics.
+Ensure that diagnostic settings are enabled on your Digital Twins instance, all log categories are selected, and the logs are being sent into **Log Analytics**.
 
 To correlate a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent by setting the `x-ms-client-request-id` property to a GUID.
 
-After sending telemetry, open up Log Analytics within Azure to query for logs with the specified Correlation ID.
+After sending telemetry, open up **Log Analytics** within Azure to query for logs with the specified Correlation ID.
 
 ```text
 AzureDiagnostics
@@ -37,7 +37,7 @@ AzureDiagnostics
 | --- | --- |
 | `yourCorrelationIdentifier` | The Correlation ID that was specified on the event data. |
 
-If you log within your user-defined function, those logs will appear in your Log Analytics instance with the category `UserDefinedFunction`. To retrieve these logs, enter the following within your Log Analytics instance.
+If you log within your user-defined function, those logs will appear in your Log Analytics instance with the category `UserDefinedFunction`. To retrieve these logs, enter the following condition into your Log Analytics instance.
 
 ```text
 AzureDiagnostics
@@ -134,7 +134,7 @@ Response:
 
 ### Issue with receiving notifications
 
-When not receiving notifications from within the user-defined function that was triggered, make sure that your topology object type parameter matches the type of the identifier that is being used.
+When not receiving notifications from within the triggered user-defined function, make sure that your topology object type parameter matches the type of the identifier that is being used.
 
 **Incorrect** Example:
 
@@ -186,6 +186,7 @@ If your diagnostic settings are enabled, these exceptions should be visible in t
 1. Data Not Found
 
     - If your user-defined function attempts to access metadata that does not exist, the operation will fail.
+
 1. Not Authorized
 
-    - If your user-defined function doesn't have a role assignment set, or if the role assignment does not give enough permission to access certain metadata from the topology, the operation will fail.
+    - If your user-defined function doesn't have a role assignment set or lacks enough permission to access certain metadata from the topology, the operation will fail.
