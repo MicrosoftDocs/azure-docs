@@ -27,7 +27,7 @@ This checklist will help you quickly deploy critical recommended actions to prot
 * Enable more predictable and complete end-user security with self-help.
 
 > [!NOTE]
-> Many of the recommendations in this document apply only to applications, which are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) is the foundation - on which all these recommendations are based.
+> Many of the recommendations in this document apply only to applications that are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) is the foundation - on which all these recommendations are based.
 
 ## Before you begin: Protect privileged accounts with MFA
 
@@ -39,7 +39,7 @@ All set? Let's get started on the checklist.
 
 ## Step 1 - Strengthen your credentials 
 
-Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video:
+Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video (1h 15m):
 > [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
 
 If users in your identity system are using weak passwords and not strengthening them with multi-factor authentication, it isn't a matter of if or when you get compromised – just "how often."

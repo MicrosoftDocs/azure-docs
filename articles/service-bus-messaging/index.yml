@@ -15,7 +15,7 @@ metadata:
   ms.date: 05/16/2018
   ms.author: spelluru
 abstract:
-  description: Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. The asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities.​
+  description: Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. The asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities.<p>Learn how to use Azure Service Bus messaging services to send and receive messages to and from queues, and publish and subscribe for messages using topics and subscriptions.</p>
   aside:
     image:
       alt: 
@@ -29,22 +29,83 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to send and receive messages to and from Service Bus:'
+    text: 'Learn how to send and receive messages to and from Service Bus <b>queues</b>:'
   - type: list
     style: icon48
     items: 
     - image: 
+        src: /azure/service-bus-messaging/media/index/logo_net.svg
+      text: .NET
+      href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues    
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_java.svg
+      text: Java
+      href: /azure/service-bus-messaging/service-bus-java-how-to-use-queues
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_python.svg
+      text: Python
+      href: /azure/service-bus-messaging/service-bus-python-how-to-use-queues
+    - image: 
+        src: /azure/service-bus-messaging/media/index/ruby.svg
+      text: Ruby
+      href: /azure/service-bus-messaging/service-bus-ruby-how-to-use-queues
+    - image: 
         src: /azure/service-bus-messaging/media/index/portal.svg
       text: Azure portal
-      href: /azure/service-bus-messaging/service-bus-quickstart-portal?branch=release-mvc-service-bus
+      href: /azure/service-bus-messaging/service-bus-quickstart-portal
     - image: 
         src: /azure/service-bus-messaging/media/index/cli.svg
       text: Azure CLI
-      href: /azure/service-bus-messaging/service-bus-quickstart-cli?branch=release-mvc-service-bus
+      href: /azure/service-bus-messaging/service-bus-quickstart-cli
     - image: 
         src: /azure/service-bus-messaging/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/service-bus-messaging/service-bus-quickstart-powershell
+  - type: paragraph
+    text: 'Learn how to publish and subscribe for messages using Service Bus <b>topics and subscriptions</b>:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_net.svg
+      text: .NET
+      href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_java.svg
+      text: Java
+      href: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_php.svg
+      text: PHP
+      href: /azure/service-bus-messaging/service-bus-php-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_python.svg
+      text: Python
+      href: /azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/ruby.svg
+      text: Ruby
+      href: /azure/service-bus-messaging/service-bus-ruby-how-to-use-topics-subscriptions
+    - image: 
+        src: /azure/service-bus-messaging/media/index/portal.svg
+      text: Azure portal
+      href: /azure/service-bus-messaging/service-bus-quickstart-portal
+    - image: 
+        src: /azure/service-bus-messaging/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/service-bus-messaging/service-bus-quickstart-cli
+    - image: 
+        src: /azure/service-bus-messaging/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/service-bus-messaging/service-bus-quickstart-powershell      
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
