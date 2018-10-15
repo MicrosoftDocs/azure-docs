@@ -152,7 +152,7 @@ For services running inside containers, you can use the environment variable, `F
 ```
 For the local cluster, `Fabric_NodeIPOrFQDN` is set to "localhost" by default. Start the local cluster with the `-UseMachineName` parameter to make sure containers can reach reverse proxy running on the node. For more information, see [Configure your developer environment to debug containers](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
 
-Service Fabric services that run within Docker Compose containers require a special docker-compose.yml Ports section http: or https: configuration. For more information, see [Docker Compose deployment support in Azure Service Fabric](service-fabric-docker-compose.md).
+Service Fabric services that run within Docker Compose containers require a special docker-compose.yml *Ports section* http: or https: configuration. For more information, see [Docker Compose deployment support in Azure Service Fabric](service-fabric-docker-compose.md).
 
 ## Next steps
 * [Set up and configure reverse proxy on a cluster](service-fabric-reverseproxy-setup.md).
