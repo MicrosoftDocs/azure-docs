@@ -37,8 +37,6 @@ az storage blob upload-batch -d <local_directory_name> --account-name <account_n
 
 To link a storage account to a directory within your web app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/en-us/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command.
 
-1. Link storage to your app
-
 ```azurecli
 az webapp config storage-account add --resource-group <resource_group> --name <web_app_name> --custom-id <custom_id> --storage-type AzureBlob --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
 ```
