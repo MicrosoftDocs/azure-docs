@@ -115,7 +115,7 @@
   - name: Critical service failed
     href: troubleshoot-critical-service-failed-boot-error.md
   - name: Stuck at Windows update
-    href: troubleshoot-stuck-on-updating-boot-error.md
+    href: troubleshoot-stuck-updating-boot-error.md
 - name: Throttling errors
   href: troubleshooting-throttling-errors.md
 - name: Use nested virtualization 
