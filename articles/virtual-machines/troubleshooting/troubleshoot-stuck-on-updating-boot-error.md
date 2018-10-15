@@ -1,6 +1,6 @@
 ﻿---
-title: Azure VM startup is stuck on Windows update| Microsoft Docs
-description: Learn how to troubleshoot the issue in which Azure VM startup is stuck on on Windows update.
+title: Azure VM startup is stuck at Windows Update| Microsoft Docs
+description: Learn how to troubleshoot the issue when an Azure VM startup is stuck at Windows update.
 services: virtual-machines-windows
 documentationCenter: ''
 authors: genli
@@ -16,42 +16,43 @@ ms.date: 10/09/2018
 ms.author: genli
 ---
 
-# Azure VM startup is stuck on Windows update
+# Azure VM startup is stuck at Windows update
 
-This article helps you resolve the issue when your Virtual Machine (VM) is stuck on the Windows update stage during startup. 
+This article helps resolve the issue when your Virtual Machine (VM) is stuck at the Windows Update stage during startup. 
 
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
 
  ## Symptom
 
- A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](../windows/boot-diagnostics.md) window, you see the startup is stuck on the update process. The following are the sample messages you may see in the screenshots:
+ A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) window, you see that the startup is stuck in the update process. The following are examples of messages that you may receive:
 
-- Working on updates 85% complete. Don’t turn off your computer.
-- Installing Windows 67%. Don't turn off your PC. This will take a while. Your PC will restart several times
-- Error C01A001D applying update operations 25875 of 53017 (\Regist...)
-- Failure configuring Windows Updates. Reverting changes. Do not turn off your computer.
+- Installing Windows ##% Don't turn off your PC. This will take a while Your PC will restart several times
+- Keep your PC on until this is done. Installing update # of #... 
+- We couldn't complete the updates Undoing changes Don't turn off your computer
+- Failure configuring Windows updates Reverting changes Do not turn off your computer
+- Error < error code > applying update operations ##### of ##### (\Regist...)
+- Fatal Error < error code >  applying update operations ##### of ##### ($$...)
 
-
-- Enter the password to unlock this drive [ ] Press the Insert Key to see the password as you type.
-- Enter your recovery key Load your recovery key from a USB device.
 
 ## Solution
 
-Depending on the number of updates that are installing or roll backing, the update process could take some time. Leave the VM in this state for 8 hours. If the VM is still in this state, restart the VM from the Azure portal and see if it can start normally. If this step does not work, try the following solution.
+Depending on the number of updates that are getting installed or rolled backing, the update process can take a while. Leave the VM in this state for 8 hours. If the VM is still in this state after that period, restart the VM from the Azure portal, and see if it can start normally. If this step doesn't work, try the following solution.
 
 ### Remove the update that causes the problem
 
 1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md). 
-2. [Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md). 
-3. Get the list of the update packages on the attach OS disk
+2. [Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).
+3. Once the OS disk is attached on the recovery VM, open the **disk manager** and ensure it is **ONLINE**. Take note which is the drive letter assign to the partition holding the \windows folder. If the disk is encrypted, decrypt the disk before proceeding with next steps in this document.
+
+3. Get the list of the update packages that are on the attached OS disk:
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
-    For exmaple, If the driver letter that is assigned to the attached OS disk is F, run the following command:
+    For example, if the attached OS disk is drive F, run the following command:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-4. Open the C:\temp\Patch_level.txt file, and then read it from the bottom up. Locate the update that the state is **Install Pending** or **Uninstall Pending**.  The following is a sample of the update status:
+4. Open the C:\temp\Patch_level.txt file, and then read it from the bottom up. Locate the update that's in **Install Pending** or **Uninstall Pending** state.  The following is a sample of the update status:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
@@ -59,15 +60,17 @@ Depending on the number of updates that are installing or roll backing, the upda
     Release Type : Security Update
     Install Time :
     ```
-5. Remove the updates that caused the problem:
+5. Remove the update that caused the problem:
     
     ```
-    dism /Image:<<BROKEN DISK LETTER>>:\ /Remove-Package /PackageName:<<PACKAGE NAME TO DELETE>>
+    dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
     ```
     Example: 
 
     ```
     dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     ```
-Note: Depend on the size of the package, DISk tool will take some time to process uninstalling. Normally the process will be completed within 16 minutes.
-6. Once this has been completed, detach the OS disk, and then [rebuild the VM using the OS Disk](troubleshoot-recovery-disks-portal-windows.md). 
+
+    > [!NOTE] Depending on the size of the package, the DISM tool will take a while to process the un-installation. Normally the process will be completed within 16 minutes.
+
+6. Detach the OS disk, and then [rebuild the VM by using the OS disk](troubleshoot-recovery-disks-portal-windows.md). 
