@@ -101,17 +101,19 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Open tracing and Application Insights
 
-[Open Tracing](http://opentracing.io/) and Application Insights data models looks 
+The [Open Tracing data model specification](http://opentracing.io/) and Application Insights data models map in the following way:
 
-- `request`, `pageView` maps to **Span** with `span.kind = server`
-- `dependency` maps to **Span** with `span.kind = client`
-- `id` of a `request` and `dependency` maps to **Span.Id**
-- `operation_Id` maps to **TraceId**
-- `operation_ParentId` maps to **Reference** of type `ChildOf`
+| Application Insights               	| Open Tracing                                    	|
+|------------------------------------	|-------------------------------------------------	|
+| `Request`, `PageView`              	| `Span` with `span.kind = server`                	|
+| `Dependency`                       	| `Span` with `span.kind = client`                	|
+| `Id` of `Request` and `Dependency` 	| `SpanId`                                        	|
+| `Operation_Id`                     	| `TraceId`                                       	|
+| `Operation_ParentId`               	| `Reference` of type `ChildOf` (the parent span) 	|
 
-See [data model](application-insights-data-model.md) for Application Insights types and data model.
+For more information on the Application Insights data model, see [data model](application-insights-data-model.md). 
 
-See [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
+See the Open Tracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
 
 
 ## Telemetry correlation in .NET
