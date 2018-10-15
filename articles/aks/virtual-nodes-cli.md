@@ -252,7 +252,7 @@ If you no longer wish to use virtual nodes, you can disable them using the [az a
 az aks disable-addons -resource-group myResourceGroup --name myAKSCluster –-add-ons virtual-nodes --os-type linux
 ```
 
-Now, remove the virtual network resources:
+Now, remove the virtual network resources and resource group:
 
 ```azurecli-interactive
 # Change the name of your resource group and network resources as needed
@@ -278,6 +278,9 @@ az network vnet subnet delete --resource-group $RES_GROUP --vnet-name myVnet --n
 
 # Delete virtual network
 az network vnet delete --resource-group $RES_GROUP --name myVnet
+
+# Delete the resource group
+az group delete --name $RES_GROUP
 ```
 
 ## Next steps
