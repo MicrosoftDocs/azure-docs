@@ -13,19 +13,19 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/12/2018    
+ms.date: 10/15/2018    
 ms.author: rogarana
 ---
 
 # Expand virtual hard disks on a Linux VM with the Azure CLI
 
-The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](add-disk.md) to provide for additional storage space, but you may also expand an existing data disk. This article describes how to expand managed disks for a Linux VM with the Azure CLI. 
+This article describes how to expand managed disks for a Linux virtual machine (VM) with the Azure CLI. You can [add data disks](add-disk.md) to provide for additional storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. 
 
 > [!WARNING]
 > Always make sure that you back up your data before you perform disk resize operations. For more information, see [Back up Linux VMs in Azure](tutorial-backup-vms.md).
 
 ## Expand an Azure Managed Disk
-Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az-login).
+Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and are logged in to an Azure account by using [az login](/cli/azure/reference-index#az-login).
 
 This article requires an existing VM in Azure with at least one data disk attached and prepared. If you do not already have a VM that you can use, see [Create and prepare a VM with data disks](tutorial-manage-disks.md#create-and-attach-disks).
 
@@ -69,7 +69,7 @@ In the following samples, replace example parameter names such as *myResourceGro
 
 
 ## Expand a disk partition and filesystem
-To use an expanded disk, you'll need to expand the underlying partition and filesystem.
+To use an expanded disk, expand the underlying partition and filesystem.
 
 1. SSH to your VM with the appropriate credentials. You can see the public IP address of your VM with [az vm show](/cli/azure/vm#az-vm-show):
 
@@ -91,7 +91,7 @@ To use an expanded disk, you'll need to expand the underlying partition and file
     sudo parted /dev/sdc
     ```
 
-    View information about the existing partition layout with `print`. The output is similar to the following example, which shows the underlying disk is 215 GB in size:
+    View information about the existing partition layout with `print`. The output is similar to the following example, which shows the underlying disk is 215 GB:
 
     ```bash
     GNU Parted 3.2
@@ -124,7 +124,7 @@ To use an expanded disk, you'll need to expand the underlying partition and file
     sudo e2fsck -f /dev/sdc1
     ```
 
-1. Now resize the filesystem with `resize2fs`:
+1. Resize the filesystem with `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
@@ -144,5 +144,5 @@ To use an expanded disk, you'll need to expand the underlying partition and file
     ```
 
 ## Next steps
-* If you need additional storage, you also [add data disks to a Linux VM](add-disk.md). 
+* If you need additional storage, you can also [add data disks to a Linux VM](add-disk.md). 
 * For more information about disk encryption, see [Encrypt disks on a Linux VM using the Azure CLI](encrypt-disks.md).
