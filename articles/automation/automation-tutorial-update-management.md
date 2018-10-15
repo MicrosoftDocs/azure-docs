@@ -84,8 +84,7 @@ For each type of alert, there are different alert conditions that need to be def
 
 #### Log Analytics query alert
 
-For successful deployments, you can create an alert based on a Log Analytics query. For failed deployments, you can use the [Runbook alert](#runbook-alert) steps to alert when the master runbook that orchestrators update deployments fails. You can write a custom query for additional alerts to cover many different scenarios.
-<!-- Linguist comment: Could you please explain the meaning of this string or confirm correct translation? It is not clear how "orchestrators" fits in here and who is being alerted.-->
+For successful deployments, you can create an alert based on a Log Analytics query. For failed deployments, you can use the [Runbook alert](#runbook-alert) steps to alert when the master runbook that orchestrates update deployments fails. You can write a custom query for additional alerts to cover many different scenarios.
 
 In the Azure portal, go to **Monitor**, and then select **Create Alert**.
 
