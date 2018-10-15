@@ -9,8 +9,6 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 09/24/2018
 ms.topic: hub-page
-ms.prod: cognitive-services
-ms.technology: cognitive-services
 ---
 
 <h1>Azure Cognitive Services Documentation</h1>
