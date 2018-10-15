@@ -111,7 +111,7 @@ The [Open Tracing data model specification](http://opentracing.io/) and Applicat
 | `Operation_Id`                     	| `TraceId`                                       	|
 | `Operation_ParentId`               	| `Reference` of type `ChildOf` (the parent span) 	|
 
-for more information on the Application Insights data model, see [data model](application-insights-data-model.md). 
+For more information on the Application Insights data model, see [data model](application-insights-data-model.md). 
 
 See the Open Tracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
 
