@@ -80,4 +80,4 @@ project.
 ## Next steps
 
 - To manage your projects efficiently read [how to search, edit, delete project](how-to-search-edit-delete-projects.md).
-- [Upload document](how-to-upload-document) to start building translation models.
+- [Upload document](how-to-upload-document.md) to start building translation models.

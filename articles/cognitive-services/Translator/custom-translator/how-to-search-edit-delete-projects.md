@@ -66,4 +66,4 @@ within that project.
 
 ## Next steps
 
-- [Upload document](how-to-upload-document) to start building translation models.
+- [Upload document](how-to-upload-document.md) to start building translation models.

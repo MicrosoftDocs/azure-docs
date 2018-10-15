@@ -18,7 +18,7 @@ A workspace is a work area for composing and building your custom translation sy
 
 Workspace is private to you and the people you invite into your workspace. Uninvited people do not have access to the content of your workspace. You can invite as many people as you like into your workspace and modify or remove their access anytime. You can also create a new workspace. By default a workspace will not contain any projects or documents that are within your other workspaces.
 
-# What is a Custom Translator project?
+## What is a Custom Translator project?
 
 A project is a wrapper for a model, documents, and tests. Each project
 automatically includes all documents that are uploaded into that workspace that
@@ -69,4 +69,4 @@ would be a wise decision.
 
 ## Next steps
 
-- Read about [Training and model](concept-training-model.md) to know, how to efficiently build a translation model.
+- Read about [Training and model](training-model.md) to know, how to efficiently build a translation model.

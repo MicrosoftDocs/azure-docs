@@ -44,4 +44,4 @@ Spanish system, the files should be named “data_en” and “data_es”.
 
 ## Next steps
 
-- Read about the [project](project.md) to create and manage them.
+- Read about the [project](workspace-and-project.md#what-is-a-custom-translator-project) to create and manage them.

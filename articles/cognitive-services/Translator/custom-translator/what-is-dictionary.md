@@ -74,4 +74,4 @@ English to Spanish.
 
 ## Next steps
 
-- Read about [guidelines on document formats](concept-document-formats-naming-convention.md).
+- Read about [guidelines on document formats](document-formats-naming-convention.md).
