@@ -43,7 +43,7 @@ Depending on the number of updates that are getting installed or rolled backing,
 
 1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md). 
 2. [Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).
-3. Once the OS disk is attached on the recovery VM, open the **disk manager** and ensure it is **ONLINE**. Take note of the drive letter that is assign to the attached OS disk holding the \windows folder. If the disk is encrypted, decrypt the disk before proceeding with next steps in this document.
+3. Once the OS disk is attached on the recovery VM, open the **disk manager** and ensure it is **ONLINE**. Take note of the drive letter that is assigned to the attached OS disk holding the \windows folder. If the disk is encrypted, decrypt the disk before proceeding with next steps in this document.
 
 3. Get the list of the update packages that are on the attached OS disk:
 
