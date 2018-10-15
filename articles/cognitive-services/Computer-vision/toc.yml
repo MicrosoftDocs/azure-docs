@@ -127,7 +127,7 @@
     href: concept-detecting-adult-content.md
 - name: How-to guides
   items:
-  - name: First Computer Vision apps
+  - name: Use Computer Vision
     items:
     - name: Java
       href: Tutorials/java-tutorial.md
