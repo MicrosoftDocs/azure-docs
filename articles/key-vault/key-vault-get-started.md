@@ -101,7 +101,7 @@ For example, if you use:
 you would type:
 
 ```powershell
-New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
+New-AzureRmKeyVault -Name 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 ![Output after Key Vault creation command completes](./media/key-vault-get-started/output-after-creating-keyvault.png)
 
@@ -268,7 +268,7 @@ To create these HSM-protected keys, you must use the [Azure Key Vault Premium se
 When you create the key vault, add the **-SKU** parameter:
 
 ```powershell
-New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US' -SKU 'Premium'
+New-AzureRmKeyVault -Name 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US' -SKU 'Premium'
 ```
 
 
