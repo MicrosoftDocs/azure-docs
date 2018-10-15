@@ -4,7 +4,7 @@
     ```json
     {
       "require": {
-        "microsoft/azure-storage": "*"
+        "microsoft/windowsazure": "^0.5"
       }
     }
     ```
