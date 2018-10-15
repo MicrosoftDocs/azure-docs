@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Go Publish Knowledge Base - QnA Maker"
+title: "Quickstart: Publish KB - REST, Go - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: How to publish a knowledge base in Go for QnA Maker.
 services: cognitive-services

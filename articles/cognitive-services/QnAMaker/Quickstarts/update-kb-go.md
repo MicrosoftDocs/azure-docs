@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Go Update knowledge base - QnA Maker"
+title: "Quickstart: Update KB - REST, Go - QnA Maker"
 titleSuffix: Azure Cognitive Services
 description: How to update a knowledge base in Go for QnA Maker.
 services: cognitive-services

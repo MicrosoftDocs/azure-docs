@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Java Update knowledge base - QnA Maker"
+title: "Quickstart: Update KB - REST, Java - QnA Maker"
 titleSuffix: Azure Cognitive Services
 description: How to update a knowledge base in Java for QnA Maker.
 services: cognitive-services

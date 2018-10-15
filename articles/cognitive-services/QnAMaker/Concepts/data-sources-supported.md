@@ -85,7 +85,7 @@ Below is an example of a semi-structured doc, without an index:
 
 The format for structured Question-Answers in DOC files, is in the form of alternating Questions and Answers per line, one question per line followed by its answer in the following line, as shown below: 
 
-```
+```text
 Question1
 
 Answer1

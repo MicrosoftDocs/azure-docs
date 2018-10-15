@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Update knowledge base - REST, Node.js - QnA Maker"
+title: "Quickstart: Update KB - REST, Node.js - QnA Maker"
 titleSuffix: Azure Cognitive Services
 description: This quickstart walks you through programmatically updating an existing QnA Maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
 services: cognitive-services

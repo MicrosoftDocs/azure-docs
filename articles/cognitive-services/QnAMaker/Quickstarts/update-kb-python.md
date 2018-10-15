@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Python Update knowledge base - QnA Maker"
+title: "Quickstart: Update KB - REST, Python - QnA Maker"
 description: How to update a knowledge base in Python for QnA Maker.
 services: cognitive-services
 author: diberry

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Python Publish Knowledge Base - QnA Maker"
+title: "Quickstart: Publish KB - REST, Python - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: How to publish a knowledge base in Python for QnA Maker.
 services: cognitive-services

@@ -1,6 +1,7 @@
 ---
 title: QnA bot with Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
+description: This tutorial walks you through building a QnA bot with Azure Bot service v3 on the Azure portal.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
