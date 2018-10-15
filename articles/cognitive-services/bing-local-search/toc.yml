@@ -6,8 +6,6 @@
     href: overview.md
   - name: Geographic search boundaries
     href: specify-geographic-search.md
-  - name: Local search endpoint
-    href: local-search-endpoint.md 
 - name: Quickstarts  
   expanded: true
   items:

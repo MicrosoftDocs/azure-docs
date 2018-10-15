@@ -154,7 +154,6 @@ public class LocalSearchCls {
 ````
 
 ## Next steps
-- [Local Search endpoint](local-search-endpoint.md)
 - [Local Search quickstart](local-quickstart.md)
 - [Local Search Node quickstart](local-search-node-quickstart.md)
 - [Local Search Python quickstart](local-search-python-quickstart.md)
