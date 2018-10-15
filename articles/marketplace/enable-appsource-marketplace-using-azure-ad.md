@@ -17,7 +17,7 @@ ms.date: 09/12/2018
 ms.author: qianw211
 
 ---
-# Enable a Microsoft AppSource and Azure Marketplace listing by using Azure Active Directory
+# Enable an AppSource and Marketplace listing by using Azure Active Directory
 
  Azure Active Directory (Azure AD) is a cloud identity service that enables authentication with a Microsoft account. Azure AD uses industry-standard frameworks. [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
