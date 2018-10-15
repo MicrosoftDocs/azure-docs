@@ -2,17 +2,11 @@
 title: Set up your Azure Data Box| Microsoft Docs
 description: Learn how to cable and connect your Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/03/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.

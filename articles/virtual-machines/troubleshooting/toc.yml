@@ -1,5 +1,3 @@
-- name: VM startup is stuck on "Getting Windows Ready. Don't turn off your computer."
-  href: troubleshoot-vm-boot-configure-update.md
 - name: Troubleshooting Azure VMs
   href: index.md
 - name: Allocation failures
@@ -112,6 +110,10 @@
     href: troubleshoot-check-disk-boot-error.md
   - name: Blue screen errors
     href: troubleshoot-common-blue-screen-error.md
+  - name: VM startup is stuck
+    href: troubleshoot-vm-boot-configure-update.md
+  - name: Critical service failed
+    href: troubleshoot-critical-service-failed-boot-error.md
 - name: Throttling errors
   href: troubleshooting-throttling-errors.md
 - name: Use nested virtualization 

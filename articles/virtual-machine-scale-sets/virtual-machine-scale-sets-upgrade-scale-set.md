@@ -122,7 +122,7 @@ These properties provide a summary of the current runtime state of the VMs in th
 
 
 ### The scale set VM model view
-Similar to how a scale set has a model view, each VM in the scale set has its own model view. To query the model view for a scale set, you can use:
+Similar to how a scale set has a model view, each VM instance in the scale set has its own model view. To query the model view for a particular VM instance in a scale set, you can use:
 
 - REST API with [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) as follows:
 
@@ -158,11 +158,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-These properties describe the configuration of the VM itself, not the configuration of the scale set as a whole. For example, the scale set model has `overprovision` as a property, while the model for a VM in a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VMs in the scale set (for more information about overprovisioning, see [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+These properties describe the configuration of the VM instance, not the configuration of the scale set as a whole. For example, the scale set model has `overprovision` as a property, while the model for a VM instance in a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VM instances in the scale set (for more information about overprovisioning, see [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### The scale set VM instance view
-Similar to how a scale set has an instance view, each VM in the scale set has its own instance view. To query the instance view for a scale set, you can use:
+Similar to how a scale set has an instance view, each VM instance in the scale set has its own instance view. To query the instance view for a particular VM instance in a scale set, you can use:
 
 - REST API with [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) as follows:
 
@@ -235,7 +235,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-These properties describe the current runtime state of the VM itself, that includes any extensions applied to the scale set.
+These properties describe the current runtime state of the VM instance, which includes any extensions applied to the scale set.
 
 
 ## How to update global scale set properties

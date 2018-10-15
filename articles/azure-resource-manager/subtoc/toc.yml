@@ -237,6 +237,9 @@
     - name: Linked Servers
       href: /azure/templates/Microsoft.Cache/redis/linkedServers
       maintainContext: true
+    - name: Patch Schedules
+      href: /azure/templates/Microsoft.Cache/redis/patchschedules
+      maintainContext: true
 - name: CDN
   items:
   - name: Profiles
@@ -608,6 +611,15 @@
   - name: Components
     href: /azure/templates/Microsoft.insights/components
     maintainContext: true
+  - name: Metric Alerts
+    href: /azure/templates/microsoft.insights/metricalerts
+    maintainContext: true
+  - name: Guest Diagnostic Settings
+    href: /azure/templates/microsoft.insights/guestdiagnosticsettings
+    maintainContext: true
+  - name: Scheduled Query Rules
+    href: /azure/templates/microsoft.insights/scheduledqueryrules
+    maintainContext: true
   - name: Web Tests
     href: /azure/templates/Microsoft.insights/webtests
     maintainContext: true
@@ -660,11 +672,59 @@
   - name: Web Services
     href: /azure/templates/Microsoft.MachineLearning/webServices
     maintainContext: true
+- name: MariaDB
+  items:
+  - name: Servers
+    href: /azure/templates/microsoft.dbformariadb/servers
+    maintainContext: true
+    items:
+    - name: Configurations
+      href: /azure/templates/microsoft.dbformariadb/servers/configurations
+      maintainContext: true
+    - name: Databases
+      href: /azure/templates/microsoft.dbformariadb/servers/databases
+      maintainContext: true
+    - name: Firewall Rules
+      href: /azure/templates/microsoft.dbformariadb/servers/firewallrules
+      maintainContext: true
+    - name: Security Alert Policies
+      href: /azure/templates/microsoft.dbformariadb/servers/securityalertpolicies
+      maintainContext: true
 - name: Media
   items:
   - name: Media Services
     href: /azure/templates/Microsoft.Media/mediaservices
     maintainContext: true
+    items:
+    - name: Assets
+      href: /azure/templates/microsoft.media/mediaservices/assets
+      maintainContext: true
+    - name: Content Key Policies
+      href: /azure/templates/microsoft.media/mediaservices/contentkeypolicies
+      maintainContext: true
+    - name: Live Events
+      href: /azure/templates/microsoft.media/mediaservices/liveevents
+      maintainContext: true
+      items:
+      - name: Live Outputs
+        href: /azure/templates/microsoft.media/mediaservices/liveevents/liveoutputs
+        maintainContext: true
+    - name: Streaming Endpoints
+      href: /azure/templates/microsoft.media/mediaservices/streamingendpoints
+      maintainContext: true
+    - name: Streaming Locators
+      href: /azure/templates/microsoft.media/mediaservices/streaminglocators
+      maintainContext: true
+    - name: Streaming Policies
+      href: /azure/templates/microsoft.media/mediaservices/streamingpolicies
+      maintainContext: true
+    - name: Transforms
+      href: /azure/templates/microsoft.media/mediaservices/transforms
+      maintainContext: true
+      items:
+      - name: Jobs
+        href: /azure/templates/microsoft.media/mediaservices/transforms/jobs
+        maintainContext: true
 - name: MySQL
   items:
   - name: Servers
@@ -1040,6 +1100,9 @@
     - name: Disaster Recovery Configs
       href: /azure/templates/Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs
       maintainContext: true
+    - name: Migration Configurations
+      href: /azure/templates/Microsoft.ServiceBus/namespaces/migrationconfigurations
+      maintainContext: true
     - name: Queues
       href: /azure/templates/Microsoft.ServiceBus/namespaces/queues
       maintainContext: true
@@ -1065,6 +1128,17 @@
   items:
   - name: Clusters
     href: /azure/templates/Microsoft.ServiceFabric/clusters
+    maintainContext: true
+- name: Service Fabric Mesh
+  items:
+  - name: Applications
+    href: /azure/templates/microsoft.servicefabricmesh/applications
+    maintainContext: true
+  - name: Networks
+    href: /azure/templates/microsoft.servicefabricmesh/networks
+    maintainContext: true
+  - name: Volumes
+    href: /azure/templates/microsoft.servicefabricmesh/volumes
     maintainContext: true
 - name: SQL
   items:

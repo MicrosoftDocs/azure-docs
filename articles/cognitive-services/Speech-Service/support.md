@@ -43,7 +43,7 @@ Where *{Your Search Terms}* is your search keywords.
 
 Azure customers can create and manage support requests in the Azure portal.
 
-* [Azure Portal](https://portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
 ## Post a question to Stack Overflow

@@ -80,12 +80,12 @@ If you need to enable Windows boot loader prompts to show in the serial console,
 1. Connect to your Windows virtual machine via Remote Desktop
 2. From an Administrative command prompt run the following commands 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 30`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Reboot the system for the boot menu to be enabled
 
 > [!NOTE] 
-> The timeout that you set for the boot manager menu to show up will impact your OS boot time in the future. While it may be acceptable to some to add a 30 second timeout to ensure that the boot manager is visible via serial console, others may want a shorter timeout. Set the timeout value to a value that you are comfortable with.
+> The timeout that you set for the boot manager menu to show up will impact your OS boot time in the future. While it may be acceptable to some to add a 10 second timeout to ensure that the boot manager is visible via serial console, others may want a shorter or longer timeout. Set the timeout value to a value that you are comfortable with.
 
 ## Use Serial Console for NMI calls in Windows VMs
 A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems which are hung.
@@ -193,7 +193,7 @@ We are aware of some issues with the serial console. Here is a list of these iss
 
 Issue                             |   Mitigation 
 :---------------------------------|:--------------------------------------------|
-Hitting enter after the connection banner does not show a log in prompt | Please see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or GRUB config that causers Windows to fail to properly connect to the serial port.
+Hitting enter after the connection banner does not show a log in prompt | Please see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or a boot config that causers Windows to fail to properly connect to the serial port. This will also happen if you are running a Windows 10 client VM, as only Windows Server VMs are configured to have EMS enabled.
 Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk using `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swap the disk back.
 Pasting into PowerShell in SAC results in a third character if original content had a repeating character | A workaround is to Past unload the PSReadLine module from the current session. Run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session - this will not delete or uninstall the module.
 Some keyboard inputs produce strange SAC output (e.g. `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escape sequences are not supported by the SAC prompt.

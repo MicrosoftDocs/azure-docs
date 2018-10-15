@@ -51,9 +51,9 @@ ConnectionPolicy policy = new ConnectionPolicy
    ConnectionProtocol = Protocol.Tcp,
    UseMultipleWriteLocations = true,
 };
-policy.PreferredLocations.Add("West US");
-policy.PreferredLocations.Add("North Europe");
-policy.PreferredLocations.Add("Southeast Asia");
+policy.PreferredLocations.Add(LocationNames.WestUS);
+policy.PreferredLocations.Add(LocationNames.NorthEurope);
+policy.PreferredLocations.Add(LocationNames.SoutheastAsia);
 ```
 
 ## Enable multi-master using PowerShell

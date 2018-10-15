@@ -60,7 +60,9 @@ Select `Open Azure Notebooks` to try your first experiment.
 
  ![Open Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
 
-After you sign in, a new tab opens and a `Clone Library` prompt appears. Select `Clone`.
+Your organization might require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
+
+After you sign in, a new tab opens and a `Clone Library` prompt appears. Select `Clone`
 
 
 ### Run the notebook
@@ -98,7 +100,7 @@ You can view these values in your workspace after the code runs.
 
 ## View logged values
 
-After all the cells in the notebook are complete, go back to the portal page.  
+After you run all the cells in the notebook, go back to the portal page.  
 
 Select `View Experiments`.
 
@@ -112,9 +114,11 @@ See information about the run you just performed. Scroll down the page to find t
 
  ![Run history link](./media/quickstart-get-started/report.png)
 
-You see plots of the logged values that were automatically created.
+You see plots that were automatically created of the logged values.  
 
    ![View history](./media/quickstart-get-started/plots.png)
+
+Since the code to approximate pi uses random values, your plots will show different values.
 
 ## Clean up resources 
 

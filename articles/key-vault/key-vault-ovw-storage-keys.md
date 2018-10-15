@@ -12,7 +12,8 @@ ms.date: 10/03/2018
 ---
 # Azure Key Vault Storage Account Keys
 
-[!NOTE] [Azure storage now supports AAD authorization](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure Active Directory for authentication and authorization to Storage as users wouldn't have to worry about rotating their Storage Account keys. 
+> [!NOTE]
+> [Azure storage now supports AAD authorization](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure Active Directory for authentication and authorization to Storage as users wouldn't have to worry about rotating their Storage Account keys.
 
 - Azure Key Vault manages keys of an Azure Storage Account (ASA).
     - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.    
@@ -33,24 +34,19 @@ Step by step instructions
 -------------------------
 
 1. Get the resource ID of the Azure Storage Account you want to manage.
-    a. Once we create a storage account 
+    a. After creating a storage account run the following command to get the resource ID of the storage account you want to manage
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
-2. Get the resource ID of the Azure Storage Account you want to manage.
-    ```
-    az storage account show -n storageaccountname (Take ID out of this)
-    ```
-3. Get Application ID of Azure Key Vault's service principal 
+2. Get Application ID of Azure Key Vault's service principal 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
-4. Assign Storage Key Operator role to Azure Key Vault Identity
+3. Assign Storage Key Operator role to Azure Key Vault Identity
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
-5. Create a Key Vault Managed Storage Account.     <br /><br />
-   Below command asks Key Vault to regenerate the key every 90 days.
+4. Create a Key Vault Managed Storage Account.     <br /><br />
    Below command asks Key Vault to regenerate your storage's access keys periodically, with a regeneration period. Below, we are setting a regeneration period of 90 days. After 90 days, Key Vault will regenerate 'key1' and swap the active key from 'key2' to 'key1'.
    ### Key regeneration
     ```
