@@ -69,10 +69,11 @@ Restore can be performed in many ways from this blade. Note that This blade list
   - File-system consistent restore points
   - All restore points
 
+    The following image displays restore point consistency
     ![Restore points](./media/backup-azure-arm-restore-vms/vm-blade1.png)
 
     >  [!NOTE]
-    > Recovery Type represent if it is in customer storage account or in vault. Learn more about [Instant recovery point](https://azure.microsoft.com/en-us/blog/large-disk-support/).
+    > Recovery Type represent if it is in customer storage account, in vault or both. Learn more about [Instant recovery point](https://azure.microsoft.com/en-us/blog/large-disk-support/).
 
 8. On the **Restore** blade, select **Restore point**.
 
@@ -145,7 +146,7 @@ On the **Restore configuration** blade, select **OK** to finalize the restore co
 In **Place Restore** is being done through the tab **Replace Existing**.
 
 ## Replace existing disks from a restore point
-**Replace existing** option helps to replace existing disks in the current VM with the selected restore point. This operation can be only performed if current VM exists. If it was deleted because of any reasons, this operation cannot be performed; alternatively, we recommend you to do Create new VM or disks to continue with restore operations. During replace existing disk(s) operations, as a precautionary measure, we backup the data before initiating the replace disks operations. If the restore point has disks more/less than the current VM, then the number of disks in the restore point will only reflect in the VM.  
+**Replace existing** option helps to replace existing disks in the current VM with the selected restore point. This operation can be only performed if current VM exists. If it was deleted because of any reasons, this operation cannot be performed; alternatively, we recommend you to do **Create new** VM or disks to continue with restore operations. During replace existing disk(s) operations, as a precautionary measure, we backup the data before initiating the replace disks operations. If the restore point has disks more/less than the current VM, then the number of disks in the restore point will only reflect in the VM. Replace existing option is currently supported for only Managed Disks and unencrypted VMs.  
 
  On the **Restore Configuration** blade, the only input which needs to be selected is **Staging Location**.
 
