@@ -81,7 +81,7 @@ GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluat
 
 Response:
 
-```javascript
+```JavaScript
 {
     "success": true,
     "logs": [
@@ -92,7 +92,7 @@ Response:
 
 ### Check what a sensor will trigger
 
-With the following call against your Azure Digital Twins instances' Management API, you will be able to determine the identifiers of your user-defined functions that will be triggered by the given sensor's incoming telemetry.
+With the following call against your Azure Digital Twins instances' Management API, you will be able to determine the identifiers of your user-defined functions that will be triggered by the given sensor's incoming telemetry:
 
 ```text
 GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
@@ -105,7 +105,7 @@ GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?
 
 Response:
 
-```javascript
+```JavaScript
 [
     {
         "id": "48a64768-797e-4832-86dd-de625f5f3fd9",
@@ -138,7 +138,7 @@ When not receiving notifications from within the triggered user-defined function
 
 **Incorrect** Example:
 
-```javascript
+```JavaScript
 var customNotification = {
     Message: 'Custom notification that will not work'
 };
@@ -150,7 +150,7 @@ This scenario arises because the used identifier refers to a sensor while the to
 
 **Correct** Example:
 
-```javascript
+```JavaScript
 var customNotification = {
     Message: 'Custom notification that will work'
 };
@@ -162,7 +162,7 @@ The easiest way to not run into this issue is to use the `Notify` method on the 
 
 Example:
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
     var sensorMetadata = getSensorMetadata(telemetry.SensorId);
 
@@ -175,18 +175,12 @@ function process(telemetry, executionContext) {
 }
 ```
 
-### Exceptions
+### Diagnostic exceptions
 
-If your diagnostic settings are enabled, these exceptions should be visible in the logs if encountered.
+If you enable diagnostic settings, you might encounter these common exceptions:
 
-1. Throttling
+1. **Throttling**: if your user-defined function exceeds the execution rate limits outlined in the [Service Limits](./concepts-service-limits.md) article, it will be throttled. Throttling entails no further operations successfully executing until the limits expire.
 
-    - If your user-defined function is executing past the rate limits outlined in the [Service Limits](./concepts-service-limits.md) article, it will be throttled which will have the immediate effect of no operations successfully executing within the user-defined function.
+1. **Data Not Found**: if your user-defined function attempts to access metadata that does not exist, the operation will fail.
 
-1. Data Not Found
-
-    - If your user-defined function attempts to access metadata that does not exist, the operation will fail.
-
-1. Not Authorized
-
-    - If your user-defined function doesn't have a role assignment set or lacks enough permission to access certain metadata from the topology, the operation will fail.
+1. **Not Authorized**: if your user-defined function doesn't have a role assignment set or lacks enough permission to access certain metadata from the topology, the operation will fail.
