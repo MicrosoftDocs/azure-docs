@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 10/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -23,7 +23,6 @@ ms.custom: it-pro
 With organizational growth comes further complexity, and one common response is to reduce some of the overhead of access management with Azure Active Directory (AD) admin roles. You can assign the least possible privilege to users to access their apps and perform their tasks. You might not want to assign the Global Administrator role to every application owner, but the tradeoff can be that you force application management responsibilities onto the existing Global Administrators. There are many reasons for an organization move toward a more decentralized administration. This article can help you plan for delegation in your organization.
 
 <!--What about reporting? Who has which role and how do I audit?-->
-
 
 ## Centralized versus delegated permissions
 
@@ -63,15 +62,23 @@ The proliferation of apps within your organization can strain your delegation mo
 * The **Application Administrator** role, which grants the ability to manage all applications in the directory, including registrations, single sign-on settings, user and group assignments and licensing, Application Proxy settings, and consent. It does not grant the ability to manage Conditional Access.
 * The **Cloud Application Administrator** role, which grants all the abilities of the Application Administrator, except it does not grant access to Application Proxy settings (because it has no on-premises permission).
 
-<!-- ### Delegate app owner permissions per-app -->
-
 ## Delegate app registration
 
-By default, all users can create application registrations. If you want to selectively grant the ability to create application registrations, you’ll have to set **Users can register applications** to No in User settings, and then assign the Application Developer role. This role grants the ability to create application registrations only when the **Users can register applications** is turned off. Similarly, even when when the **Users can consent to applications accessing company data on their behalf** is set to No, users assigned to the Application Developer role can still consent for themselves. When an Application Developer creates a new application registration, they are automatically added as the first owner.
+By default, all users can create application registrations. To selectively grant the ability to create application registrations:
+
+* Set **Users can register applications** to No in **User settings**
+* Assign the user to the Application Developer role
+
+To selectively grant the ability to consent to allow an application to access data:
+
+* Set **Users can consent to applications accessing company data on their behalf** To No in **User settings**
+* Assign the user to the Application Developer role
+
+When an Application Developer creates a new application registration, they are automatically added as the first owner.
 
 ## Delegate app ownership
 
-For even finer-grained app access delegation, you can assign ownership to individual enterprise applications. This complements the existing support for assigning application registration owners. Ownership is assigned on a per-enterprise application basis in the enterprise apps blade. The benefit is owners can manage only the enterprise applications they own. For example, you can assign an owner for the Salesforce application, and that owner can manage access to and configuration for Salesforce, and no other applications. An enterprise application can have many owners, and a user can be the owner for many enterprise applications. There are two app owner roles:
+For even finer-grained app access delegation, you can assign ownership to individual enterprise applications. This complements the existing support for assigning application registration owners. Ownership is assigned on a per-enterprise application basis in the Enterprise Applications blade. The benefit is owners can manage only the enterprise applications they own. For example, you can assign an owner for the Salesforce application, and that owner can manage access to and configuration for Salesforce, and no other applications. An enterprise application can have many owners, and a user can be the owner for many enterprise applications. There are two app owner roles:
 
 * The **Enterprise Application Owner** role grants the ability to manage the ‘enterprise applications that the user owns, including single sign-on settings, user and group assignments, and adding additional owners. It does not grant the ability to manage Application Proxy settings or conditional access.
 * The **Application Registration Owner** role grants the ability to manage application registrations for app that the user owns, including the application manifest and adding additional owners.
