@@ -318,7 +318,7 @@
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL features comparison
     href: sql-database-features.md
-  - name: Performance and tuning
+  - name: Performance and monitoring
     items:
     - name: Intelligent performance   
       items:

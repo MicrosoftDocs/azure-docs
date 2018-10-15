@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ---
 # Azure SQL Database Managed Instance deployment model with virtual network and near 100% SQL Server compatibility
 
@@ -99,7 +99,7 @@ Find more information about the difference between service tiers in [Managed Ins
 
 ### Business Critical service tier (preview)
 
-Business Critical service tier is built for applications with high IO requirements. It offers highest resilience to failures using several isolated Always On replicas.
+Business Critical service tier is built for applications with high IO requirements. It offers highest resilience to failures using several isolated replicas.
 
 The following list outlines the key characteristics of the Business Critical service tier:
 
@@ -203,7 +203,7 @@ The following diagram outlines surface area compatibility in Managed Instance:
 
 Managed Instance benefits from being always-up-to-date in the cloud, which means that some features in on-premises SQL Server may be either obsolete, retired, or have alternatives. There are specific cases when tools need to recognize that a particular feature works in a slightly different way or that service is not running in an environment you do not fully control:
 
-- High-availability is built in and pre-configured. Always On high availability features are not exposed in a same way as it is on SQL IaaS implementations
+- High-availability is built in and pre-configured using technology similar to [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Automated backups and point in time restore. Customer can initiate `copy-only` backups that do not interfere with automatic backup chain.
 - Managed Instance does not allow specifying full physical paths so all corresponding scenarios have to be supported differently: RESTORE DB does not support WITH MOVE, CREATE DB doesn’t allow physical paths, BULK INSERT works with Azure Blobs only, etc.
 - Managed Instance supports [Azure AD authentication](sql-database-aad-authentication.md) as cloud alternative to Windows authentication.
