@@ -3,13 +3,13 @@ title: "Tutorial: Build an image processing app - C#"
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explore a basic Windows app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: v-deken
+ms.author: pafarley
 ---
 
 # Tutorial: Build an image processing app - C&#35;
