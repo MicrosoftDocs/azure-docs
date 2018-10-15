@@ -33,6 +33,9 @@ Azure Firewall has a fixed cost + variable cost:
 * Fixed fee: $1.25/firewall/hour
 * Variable fee: $0.03/GB processed by the firewall (ingress or egress)
 
+> [!NOTE]
+> When an instance of the Azure Firewall is deallocated, the fixed cost element is still incurred, whilst the variable cost element is removed.
+
 ### What is the typical deployment model for Azure Firewall?
 
 You can deploy Azure Firewall on any virtual network, but customers typically deploy it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network.
