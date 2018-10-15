@@ -63,10 +63,11 @@ Restore can be performed in many ways from this blade. Note that This blade list
     c) **Restore VM** in the menu header provides an option to list and filter the VMs in customized dates as preferred.
 
     Use the Filter to alter the time range of the restore points displayed. By default, restore points of all consistencies are displayed. Modify the All restore points filter to select a specific restore point consistency. For more information about each type of restoration point, see [Data consistency](backup-azure-vms-introduction.md#data-consistency).  Restore point consistency options:
-  * Crash consistent restore points
-  * Application consistent restore points
-  * File-system consistent restore points
-  * All restore points
+
+  - Crash consistent restore points
+  - Application consistent restore points
+  - File-system consistent restore points
+  - All restore points
 
     ![Restore points](./media/backup-azure-arm-restore-vms/vm-blade1.png)
 
@@ -99,7 +100,7 @@ After you select the restore point, choose a VM restore configuration. To config
 
    * **Restore disks**
 
-![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
+   ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
 
 The portal provides a **Quick Create** option for a restored VM. To customize the VM configuration or the names of the resources created as part of creating a new VM choice, use PowerShell or the portal to restore backed-up disks. Use PowerShell commands to attach them to your choice of VM configuration. Or you can use the template that comes with restored disks to customize the restored VM. For information on how to restore a VM that has multiple NICs or is under a load balancer, see [Restore a VM with special network configurations](#restore-vms-with-special-network-configurations). If your Windows VM uses [HUB licensing](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restore disks and use PowerShell/Template as specified in this article to create the VM. Make sure that you specify the **License Type** as "Windows_Server" while you create the VM to avail HUB benefits on the restored VM. Note this can be done later after the creation of VM as well.
 
@@ -176,15 +177,15 @@ To get the template that was generated as part of the restore disks option:
 
 2. On the **Restore Job Details** screen, select **Deploy Template** to initiate template deployment.
 
-![Restore job drill-down](./media/backup-azure-arm-restore-vms/upload-template1.png)    
+  ![Restore job drill-down](./media/backup-azure-arm-restore-vms/upload-template1.png)    
 
 3. On the **Deploy template** blade for custom deployment, use template deployment to [edit and deploy the template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) or append more customizations by [authoring a template](../azure-resource-manager/resource-group-authoring-templates.md) before you deploy.
 
-![Load template deployment](./media/backup-azure-arm-restore-vms/edit-template1.png)
+  ![Load template deployment](./media/backup-azure-arm-restore-vms/edit-template1.png)
 
 4. After you enter the required values, accept the **Terms and Conditions** and select **Purchase**.
 
-![Submit template deployment](./media/backup-azure-arm-restore-vms/submitting-template1.png)
+  ![Submit template deployment](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
 ## Post-restore steps
 * If you use a cloud-init-based Linux distribution, such as Ubuntu, for security reasons, the password is blocked post restore. Use the VMAccess extension on the restored VM to [reset the password](../virtual-machines/linux/reset-password.md). We recommend using SSH keys on these distributions to avoid resetting the password post restore.
