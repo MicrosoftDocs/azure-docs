@@ -6,7 +6,7 @@ author: markjbrown
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -45,13 +45,9 @@ This policy is designed for application-defined semantics for reconciliation of 
 
 However, if you configure your container with the custom resolution option, but either choose not to register a merge procedure on the container, or if the merge procedure throws an exception at runtime, the conflicts are written to the “conflicts feed”. Your application will then need to manually resolve the conflicts in the conflicts feed.
 
-## Next steps
+## Samples
 
-See [How-To configure LWW conflict resolution](TBD).
-
-See [How-To configure custom conflict resolution](TBD).
-
-Also, you can learn more about conflict resolution policies from the following samples.  Each sample generates conflicts within a Cosmos container and then shows how conflicts are resolved for each supported conflict resolution policy.
+You can learn more about conflict resolution policies from the following samples.  Each sample generates conflicts within a Cosmos container and then shows how conflicts are resolved for each supported conflict resolution policy.
 
 |API model  | SDK |Sample |
 |---------|---------|---------|
@@ -61,3 +57,9 @@ Also, you can learn more about conflict resolution policies from the following s
 |MongoDB  | .NET    |[azure-cosmos-db-mongodb-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-multi-master)   |
 |Table  API  | .NET    |[azure-cosmos-db-table-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-multi-master)       |
 |Gremlin API | .NET | [azure-cosmos-db-gremlin-dontnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-gremlin-dontnet-multi-master)|
+
+## Next steps
+
+How-To configure LWW conflict resolution
+
+How-To configure custom conflict resolution

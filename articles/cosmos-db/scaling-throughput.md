@@ -1,12 +1,12 @@
 ---
 title: Scaling throughput in Azure Cosmos DB 
-description: This article describes how Cosmos DB scales throughput elastically
+description: This article describes how Azure Cosmos DB scales throughput elastically
 services: cosmos-db
 author: dharmas
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
 
@@ -22,6 +22,8 @@ You can provision RUs on a Cosmos container or a Cosmos database. RUs provisione
 
 For elastically scaling throughput up or down, you can increase or decrease the provisioned RU/s at any time. For more information, see How-to provision throughput and elastically scale Cosmos containers and databases. For globally scaling throughput, you can add or remove regions on your Cosmos account at any time. For more information, see How-to add or remove regions to your Cosmos account. Associating multiple regions with a Cosmos account is important in many scenarios to achieve low latency and [high availability](high-availability) around the world.
 
+## Throughput scaling details
+
 If you provision R RUs on a Cosmos container (or database), Cosmos DB ensures that R RUs are available in *each* of the regions associated with your Cosmos account. Each time you add a new region to your Cosmos account, Cosmos DB automatically provisions R RUs in the newly added region. The operations performed against your Cosmos container are guaranteed to get R RUs in each of the regions associated with your Cosmos account. You can't selectively assign RUs to a specific region - the RUs provisioned for a Cosmos container (or database) are provisioned for all the regions associated with your Cosmos account.
 
 Assuming that a Cosmos container is configured with R RUs and there are N regions associated with the Cosmos account, then:
@@ -31,12 +33,10 @@ Assuming that a Cosmos container is configured with R RUs and there are N region
 
 Your choice of [consistency model](consistency-levels) also affects throughput. You can get approximately 2x read throughput for session, consistent prefix, and eventual consistency compared to bounded staleness or strong consistency.
 
-### Next steps
+## Next steps
 
-[Request units](TBD)
+Request units
 
-[Cosmos DB pricing](TBD)
+Cosmos DB pricing
 
-[How-to add and remove regions to your Cosmos account](TBD)
-
-[How do RU/s get consumed?](TBD)
+How-to add and remove regions to your Cosmos account
