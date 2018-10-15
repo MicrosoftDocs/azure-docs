@@ -60,11 +60,9 @@ Using static resource classes is recommended. You can start with resource class 
 EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
 ```
 
-For more information, check out the documents for [memory and concurrency limits](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/memory-and-concurrency-limits#data-warehouse-limits) and [resource classes](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression#ways-to-allocate-more-memory)
+For more information, check out the documents for [memory and concurrency limits](https://docs.microsoft.com/azure/sql-data-warehouse/memory-and-concurrency-limits#data-warehouse-limits) and [resource classes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression#ways-to-allocate-more-memory)
 
 CONTROL permission is needed to create database scoped credentials that will be used while loading files from Blob Storage using PolyBase.
-
-## Enter Credentials
 
 Enter the credentials to access Azure SQL Data Warehouse
 
