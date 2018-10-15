@@ -19,7 +19,7 @@ ms.author: juluk
 
 # Use managed identities for Azure resources in Azure Cloud Shell
 
-Azure Cloud Shell supports authorization with Managed Service Identities (MSI). Utilize this to retrieve access tokens to securely communicate with Azure services.
+Azure Cloud Shell supports authorization with managed identities for Azure resources. Utilize this to retrieve access tokens to securely communicate with Azure services.
 
 ## About managed identities for Azure resources
 A common challenge when building cloud applications is how to securely manage the credentials that need to be in your code for authenticating to cloud services. In Cloud Shell you may need to authenticate retrieval from Key Vault for a credential that a script may need.
