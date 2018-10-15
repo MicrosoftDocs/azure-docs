@@ -41,14 +41,22 @@
       href: encoding-concept.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
-  - name: Examining assets
-    href: assets-concept.md
+  - name: Examining entities
+    items:
+    - name: Assets
+      href: assets-concept.md
+    - name: Content key policies
+      href: content-key-policy-concept.md
+    - name: Streaming endpoints
+      href: streaming-endpoint-concept.md
+    - name: Streaming locators
+      href: streaming-locators-concept.md
+    - name: Streaming policies
+      href: streaming-policy-concept.md
+    - name: Transforms and jobs
+      href: transform-concept.md
   - name: Examining storage accounts
     href: storage-account-concept.md
-  - name: Examining streaming endpoints
-    href: streaming-endpoint-concept.md
-  - name: Examining transforms and jobs
-    href: transform-concept.md
   - name: Handling Event Grid events
     href: reacting-to-media-services-events.md      
   - name: Protecting content
@@ -87,12 +95,10 @@
       href: protect-with-drm.md
 - name: Reference
   items:
-  - name: OpenAPI Specification (Swagger)
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01  
-  - name: Azure CLI
-    href: https://aka.ms/ams-v3-cli-ref
   - name: REST
     href: https://aka.ms/ams-v3-rest-ref
+  - name: Azure CLI
+    href: https://aka.ms/ams-v3-cli-ref
   - name: .NET
     href: https://aka.ms/ams-v3-dotnet-ref
   - name: Java
