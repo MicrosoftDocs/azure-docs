@@ -44,7 +44,7 @@ For more information on permissions and access control, see [Secure your key vau
 
 ## Enabling soft-delete
 
-You must enable soft-delete to be able to recover a deleted key vault, or objects stored in a key vault.
+You enable "soft-delete" to be able to recover a deleted key vault, or objects stored in a key vault.
 
 ### Existing key vault
 
@@ -69,7 +69,7 @@ New-AzureRmKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Locatio
 
 ### Verify soft-delete enablement
 
-To verify that a key vault has soft-delete enabled, run the *get* command and look for the 'Soft Delete Enabled?' attribute and its setting, true or false.
+To verify that a key vault has soft-delete enabled, run the *show* command and look for the 'Soft Delete Enabled?' attribute:
 
 ```powershell
 Get-AzureRmKeyVault -VaultName "ContosoVault"
@@ -77,7 +77,7 @@ Get-AzureRmKeyVault -VaultName "ContosoVault"
 
 ## Deleting a key vault protected by soft-delete
 
-The command to delete (or remove) a key vault changes in behavior, depending on whether you have enabled soft-delete.
+The command to delete a key vault changes in behavior, depending on whether soft-delete is enabled.
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName 'ContosoVault'
@@ -102,17 +102,17 @@ PS C:\> Get-AzureRmKeyVault -InRemovedState
 
 - *Id* can be used to identify the resource when recovering, or purging. 
 - *Resource ID* is the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. 
-- *Scheduled Purge Date* indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault. The default retention period, used to calculate the *Scheduled Purge Date*, is 90 days.
+- *Scheduled Purge Date* is when the vault will be permanently deleted, if no action is taken. The default retention period, used to calculate the *Scheduled Purge Date*, is 90 days.
 
 ## Recovering a key vault
 
-To recover a key vault, you need to specify the key vault name, resource group, and location. Note the location and the resource group of the deleted key vault as you need these for a key vault recovery process.
+To recover a key vault, you specify the key vault name, resource group, and location. Note the location and the resource group of the deleted key vault, as you need them for the recovery process.
 
 ```powershell
 Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
 ```
 
-When a key vault is recovered, a new resource is created with the key vault's original resource ID. If the original resource group is removed, a new one with same name must be created before the key vault can be recovered.
+When a key vault is recovered, a new resource is created with the key vault's original resource ID. If the original resource group is removed, one must be created with same name before attempting recovery.
 
 ## Key Vault objects and soft-delete
 
@@ -155,7 +155,7 @@ Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemoved
 > [!IMPORTANT]
 > Purging a key will permanently delete it, and it will not be recoverable. 
 
-The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action, they must have the respective permission for that key or secret. By default, **purge** isn't added to a key vault's access policy, when the 'all' shortcut is used to grant all permissions. You must explicitly grant **purge** permission. 
+The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action, they must have the respective permission for that key or secret. By default, **purge** isn't added to a key vault's access policy, when the 'all' shortcut is used to grant all permissions. You must specifically grant **purge** permission. 
 
 #### Set a key vault access policy
 
