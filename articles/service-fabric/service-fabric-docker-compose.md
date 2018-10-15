@@ -125,7 +125,7 @@ Specify either the http or https protocol in the Ports section that will be used
 * To route to secure Service Fabric Compose services, specify **/https**. For example, - **"443:443/http"**.
 
 > [!NOTE]
->The /http and /https Ports section syntax is specific to Service Fabric to register the correct >Service Fabric listener URL.  If the Docker compose file syntax is programmatically validated, >it may cause a validation error.
+> The /http and /https Ports section syntax is specific to Service Fabric to register the correct Service Fabric listener URL.  If the Docker compose file syntax is programmatically validated, it may cause a validation error.
 
 ## ServiceDnsName computation
 
