@@ -1,7 +1,7 @@
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-You can create a pipeline with the copy activity by using one of the following tools or SDKs. Select a link to go to a tutorial with step-by-step instructions to create a pipeline with a copy activity. 
+You can use one of the following tools or SDKs to use Copy Activity with a pipeline. Select a link for step-by-step instructions:
 
 - [Copy Data tool](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [Azure portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
@@ -9,5 +9,5 @@ You can create a pipeline with the copy activity by using one of the following t
 - [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
 - [REST API](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
-- [Azure Resource Manager template](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md). 
+- [Azure Resource Manager template](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md)
 

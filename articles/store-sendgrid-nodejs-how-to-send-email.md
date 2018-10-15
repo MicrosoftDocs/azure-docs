@@ -18,6 +18,7 @@ ms.author: erikre
 
 ---
 # How to Send Email Using SendGrid from Node.js
+
 This guide demonstrates how to perform common programming tasks with the
 SendGrid email service on Azure. The samples are written using
 the Node.js API. The scenarios covered include **constructing email**,
@@ -26,6 +27,7 @@ the Node.js API. The scenarios covered include **constructing email**,
 email, see the [Next Steps](#next-steps) section.
 
 ## What is the SendGrid Email Service?
+
 SendGrid is a [cloud-based email service] that provides reliable
 [transactional email delivery], scalability, and real-time analytics along with flexible APIs
 that make custom integration easy. Common SendGrid usage scenarios
@@ -43,40 +45,51 @@ include:
 For more information, see [https://sendgrid.com](https://sendgrid.com).
 
 ## Create a SendGrid Account
+
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## Reference the SendGrid Node.js Module
+
 The SendGrid module for Node.js can be installed through the node
 package manager (npm) by using the following command:
 
-    npm install sendgrid
+```bash
+npm install sendgrid
+```
 
 After installation, you can require the module in your application by
 using the following code:
 
-    var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
+```javascript
+var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
+```
 
 The SendGrid module exports the **SendGrid** and **Email** functions.
 **SendGrid** is responsible for sending email through Web API, 
 while **Email** encapsulates an email message.
 
 ## How to: Create an Email
+
 Creating an email message using the SendGrid module involves first
 creating an email message using the Email function, and then sending it
 using the SendGrid function. The following is an example of creating a
 new message using the Email function:
 
-    var email = new sendgrid.Email({
-        to: 'john@contoso.com',
-        from: 'anna@contoso.com',
-        subject: 'test mail',
-        text: 'This is a sample email message.'
-    });
+```javascript
+var email = new sendgrid.Email({
+    to: 'john@contoso.com',
+    from: 'anna@contoso.com',
+    subject: 'test mail',
+    text: 'This is a sample email message.'
+});
+```
 
 You can also specify an HTML message for clients that support it by
 setting the html property. For example:
 
-    html: This is a sample <b>HTML<b> email message.
+```javascript
+html: This is a sample <b>HTML<b> email message.
+```
 
 Setting both the text and html properties provides graceful fallback to
 text content for clients that cannot support HTML messages.
@@ -85,52 +98,57 @@ For more information on all properties supported by the Email function,
 see [sendgrid-nodejs][sendgrid-nodejs].
 
 ## How to: Send an Email
+
 After creating an email message using the Email function, you can send
 it using the Web API provided by SendGrid. 
 
 ### Web API
-    sendgrid.send(email, function(err, json){
-        if(err) { return console.error(err); }
-        console.log(json);
-    });
+
+```javascript
+sendgrid.send(email, function(err, json){
+    if(err) { return console.error(err); }
+    console.log(json);
+});
+```
 
 > [!NOTE]
 > While the above examples show passing in an email object and
 > callback function, you can also directly invoke the send
 > function by directly specifying email properties. For example:  
 > 
-> `````
+> ```javascript
 > sendgrid.send({
 > to: 'john@contoso.com',
 > from: 'anna@contoso.com',
 > subject: 'test mail',
 > text: 'This is a sample email message.'
 > });
-> `````
-> 
-> 
+> ```
+>
 
 ## How to: Add an Attachment
 Attachments can be added to a message by specifying the file name(s) and
 path(s) in the **files** property. The following example demonstrates
 sending an attachment:
 
-    sendgrid.send({
-        to: 'john@contoso.com',
-        from: 'anna@contoso.com',
-        subject: 'test mail',
-        text: 'This is a sample email message.',
-        files: [
-            {
-                filename:     '',           // required only if file.content is used.
-                contentType:  '',           // optional
-                cid:          '',           // optional, used to specify cid for inline content
-                path:         '',           //
-                url:          '',           // == One of these three options is required
-                content:      ('' | Buffer) //
-            }
-        ],
-    });
+```javascript
+sendgrid.send({
+    to: 'john@contoso.com',
+    from: 'anna@contoso.com',
+    subject: 'test mail',
+    text: 'This is a sample email message.',
+    files: [
+        {
+            filename:     '',           // required only if file.content is used.
+            contentType:  '',           // optional
+            cid:          '',           // optional, used to specify cid for inline content
+            path:         '',           //
+            url:          '',           // == One of these three options is required
+            content:      ('' | Buffer) //
+        }
+    ],
+});
+```
 
 > [!NOTE]
 > When using the **files** property, the file must be accessible
@@ -139,6 +157,7 @@ sending an attachment:
 > 
 
 ## How to: Use Filters to Enable Footers and Tracking
+
 SendGrid provides additional email functionality through the use of
 filters. These are settings that can be added to an email message to
 enable specific functionality such as enabling click tracking, Google
@@ -150,62 +169,75 @@ Each filter is specified by a hash containing filter-specific settings.
 The following examples demonstrate the footer and click tracking filters:
 
 ### Footer
-    var email = new sendgrid.Email({
-        to: 'john@contoso.com',
-        from: 'anna@contoso.com',
-        subject: 'test mail',
-        text: 'This is a sample email message.'
-    });
 
-    email.setFilters({
-        'footer': {
-            'settings': {
-                'enable': 1,
-                'text/plain': 'This is a text footer.'
-            }
+```javascript
+var email = new sendgrid.Email({
+    to: 'john@contoso.com',
+    from: 'anna@contoso.com',
+    subject: 'test mail',
+    text: 'This is a sample email message.'
+});
+
+email.setFilters({
+    'footer': {
+        'settings': {
+            'enable': 1,
+            'text/plain': 'This is a text footer.'
         }
-    });
+    }
+});
 
-    sendgrid.send(email);
+sendgrid.send(email);
+```
 
 ### Click Tracking
-    var email = new sendgrid.Email({
-        to: 'john@contoso.com',
-        from: 'anna@contoso.com',
-        subject: 'test mail',
-        text: 'This is a sample email message.'
-    });
 
-    email.setFilters({
-        'clicktrack': {
-            'settings': {
-                'enable': 1
-            }
+```javascript
+var email = new sendgrid.Email({
+    to: 'john@contoso.com',
+    from: 'anna@contoso.com',
+    subject: 'test mail',
+    text: 'This is a sample email message.'
+});
+
+email.setFilters({
+    'clicktrack': {
+        'settings': {
+            'enable': 1
         }
-    });
+    }
+});
 
-    sendgrid.send(email);
+sendgrid.send(email);
+```
 
 ## How to: Update Email Properties
-Some email properties can be overwritten using **set*Property*** or
-appended using **add*Property***. For example, you can add additional
+
+Some email properties can be overwritten using **setProperty** or
+appended using **addProperty**. For example, you can add additional
 recipients by using
 
-    email.addTo('jeff@contoso.com');
+```javascript
+email.addTo('jeff@contoso.com');
+```
 
 or set a filter by using
 
-    email.addFilter('footer', 'enable', 1);
-    email.addFilter('footer', 'text/html', '<strong>boo</strong>');
+```javascript
+email.addFilter('footer', 'enable', 1);
+email.addFilter('footer', 'text/html', '<strong>boo</strong>');
+```
 
 For more information, see [sendgrid-nodejs][sendgrid-nodejs].
 
 ## How to: Use Additional SendGrid Services
+
 SendGrid offers web-based APIs that you can use to leverage additional
 SendGrid functionality from your Azure application. For full
 details, see the [SendGrid API documentation][SendGrid API documentation].
 
 ## Next Steps
+
 Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
