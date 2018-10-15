@@ -3,14 +3,14 @@ title: "Quickstart: Extract text - SDK, C# - Computer Vision"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract text from an image using the Computer Vision Windows C# client library.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.author: nolachar
+ms.author: pafarley
 ---
 # Quickstart: Extract text using the Computer Vision SDK and C#
 
