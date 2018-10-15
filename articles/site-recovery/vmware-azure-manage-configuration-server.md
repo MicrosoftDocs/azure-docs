@@ -87,6 +87,9 @@ You run update rollups to update the configuration server. Updates can be applie
 
 Links to update rollups for upgrading to all versions of the configuration server are available in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 
+> [!IMPORTANT]
+> With every new version 'N' of an Azure Site Recovery componenet that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.
+
 Upgrade the server as follows:
 
 1. In the vault, go to **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
