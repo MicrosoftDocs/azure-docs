@@ -77,6 +77,9 @@ Yes. However, to use Azure Backup with System Center Data Protection Manager (DP
 ### Can I use DPM to back up apps in Azure Stack?
 No. Though you can use Azure Backup to protect Azure Stack, Azure Backup does not currently support using DPM to back up apps in Azure Stack.
 
+### Can I do an ILR (Item Level Restore) for VMs backed up to the Online Vault (Azure)?
+No, Item Level Restore (ILR) is not available for virtual machines backed up to the Site Recovery Services Vault.
+
 ## How Azure Backup works
 ### If I cancel a backup job once it has started, is the transferred backup data deleted? <br/>
 No. All data transferred into the vault, before the backup job was canceled, stays in the vault. Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup. Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files. The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
