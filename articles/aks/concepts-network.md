@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 9/24/2018
+ms.date: 10/16/2018
 ms.author: iainfou
 ---
 
