@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/14/2018
+ms.date: 08/23/2018
 ms.author: jdial
 ---
 
@@ -35,9 +35,9 @@ If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-res
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure 
+## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at https://portal.azure.com.
 
 ## Create a virtual network
 
@@ -45,19 +45,18 @@ Log in to the Azure portal at http://portal.azure.com.
 2. Select **Networking**, and then select **Virtual network**.
 3. Enter, or select, the following information, and then select **Create**:
 
-    |Setting|Value|
-    |----|----|
-    |Name| myVirtualNetwork |
-    |Address space| 10.0.0.0/16|
-    |Subscription| Select your subscription|
-    |Resource group | Select **Create new** and enter *myResourceGroup*.|
-    |Location| Select **East US** |
-    |Subnet Name| Public|
-    |Subnet Address range| 10.0.0.0/24|
-    |Service endpoints| Disabled|
+   |Setting|Value|
+   |----|----|
+   |Name| myVirtualNetwork |
+   |Address space| 10.0.0.0/16|
+   |Subscription| Select your subscription|
+   |Resource group | Select **Create new** and enter *myResourceGroup*.|
+   |Location| Select **East US** |
+   |Subnet Name| Public|
+   |Subnet Address range| 10.0.0.0/24|
+   |Service endpoints| Disabled|
 
-    ![Enter basic information about your virtual network](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
-
+   ![Enter basic information about your virtual network](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
 ## Enable a service endpoint
 
@@ -97,7 +96,7 @@ By default, all VMs in a subnet can communicate with all resources. You can limi
 4. After the network security group is created, enter *myNsgPrivate*, in the **Search resources, services, and docs** box at the top of the portal. When **myNsgPrivate** appears in the search results, select it.
 5. Under **SETTINGS**, select **Outbound security rules**.
 6. Select **+ Add**.
-7. Create a rule that allows outbound communication to the Azure Storage service. Enter, or select, the following information, and then select **OK**:
+7. Create a rule that allows outbound communication to the Azure Storage service. Enter, or select, the following information, and then select **Add**:
 
     |Setting|Value|
     |----|----|
@@ -110,8 +109,8 @@ By default, all VMs in a subnet can communicate with all resources. You can limi
     |Action|Allow|
     |Priority|100|
     |Name|Allow-Storage-All|
-    
-8. Create a rule that denies outbound communication to the internet. This rule overrides a default rule in all network security groups that allows outbound internet communication. Complete steps 6 and 7 again, using the following values:
+
+8. Create another outbound security rule that denies communication to the internet. This rule overrides a default rule in all network security groups that allows outbound internet communication. Complete steps 5-7 again, using the following values:
 
     |Setting|Value|
     |----|----|
@@ -127,14 +126,13 @@ By default, all VMs in a subnet can communicate with all resources. You can limi
 
 9. Under **SETTINGS**, select **Inbound security rules**.
 10. Select **+ Add**.
-11. Create a rule that allows Remote Desktop Protocol (RDP) traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. Remote desktop connections are allowed to the subnet so that connectivity can be tested in a later step. Complete steps 6 and 7 again, using the following values:
+11. Create an inbound security rule that allows Remote Desktop Protocol (RDP) traffic to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. Remote desktop connections are allowed to the subnet so that connectivity can be tested in a later step. Under **SETTINGS**, select **Inbound security rules**, select **+Add**, enter the following values, and then select **Add**:
 
     |Setting|Value|
     |----|----|
     |Source| Any |
     |Source port ranges| * |
-    |Destination | Select **Service Tag**|
-    |Destination service tag| Select **VirtualNetwork**|
+    |Destination | Select **VirtualNetwork**|
     |Destination port ranges| 3389 |
     |Protocol|Any|
     |Action|Allow|
@@ -160,18 +158,19 @@ The steps necessary to restrict network access to resources created through Azur
     |----|----|
     |Name| Enter a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters.|
     |Account kind|StorageV2 (general purpose v2)|
+    |Location| Select **East US** |
     |Replication| Locally-redundant storage (LRS)|
     |Subscription| Select your subscription|
     |Resource group | Select **Use existing** and select *myResourceGroup*.|
-    |Location| Select **East US** |
 
 ### Create a file share in the storage account
 
 1. After the storage account is created, enter the name of the storage account in the **Search resources, services, and docs** box, at the top of the portal. When the name of your storage account appears in the search results, select it.
 2. Select **Files**, as shown in the following picture:
 
-    ![Storage account](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
-3. Select **+ File share**, under **File service**.
+   ![Storage account](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
+
+3. Select **+ File share**.
 4. Enter *my-file-share* under **Name**, and then select **OK**.
 5. Close the **File service** box.
 
@@ -180,8 +179,8 @@ The steps necessary to restrict network access to resources created through Azur
 By default, storage accounts accept network connections from clients in any network, including the internet. Deny network access from the internet, and all other subnets in all virtual networks, except for the *Private* subnet in the *myVirtualNetwork* virtual network.
 
 1. Under **SETTINGS** for the storage account, select **Firewalls and virtual networks**.
-2. Under **Virtual networks**, select **Selected networks**.
-3. Select **Add existing virtual network**.
+2. Select **Selected networks**.
+3. Select **+Add existing virtual network**.
 4. Under **Add networks**, select the following values, and then select **Add**:
 
     |Setting|Value|
@@ -190,7 +189,7 @@ By default, storage accounts accept network connections from clients in any netw
     |Virtual networks|Select **myVirtualNetwork**, under **Virtual networks**|
     |Subnets| Select **Private**, under **Subnets**|
 
-    ![Firewalls and virtual networks](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png) 
+    ![Firewalls and virtual networks](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
 
 5. Select **Save**.
 6. Close the **Firewalls and virtual networks** box.
@@ -208,27 +207,29 @@ To test network access to a storage account, deploy a VM to each subnet.
 
 1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
-3. Enter, or select, the following information, and then select **OK**:
+3. Enter, or select, the following information and then select **OK**:
 
-    |Setting|Value|
-    |----|----|
-    |Name| myVmPublic|
-    |User name|Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Subscription| Select your subscription.|
-    |Resource group| Select **Use existing** and select **myResourceGroup**.|
-    |Location| Select **East US**.|
+   |Setting|Value|
+   |----|----|
+   |Name| myVmPublic|
+   |User name|Enter a user name of your choosing.|
+   |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |Subscription| Select your subscription.|
+   |Resource group| Select **Use existing** and select **myResourceGroup**.|
+   |Location| Select **East US**.|
 
-    ![Enter basic information about a virtual machine](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
+   ![Enter basic information about a virtual machine](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 4. Select a size for the virtual machine and then select **Select**.
 5. Under **Settings**, select **Network** and then select **myVirtualNetwork**. Then select **Subnet**, and select **Public**, as shown in the following picture:
 
-    ![Select a virtual network](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
-6. On the **Summary** page, select **Create** to start the virtual machine deployment. The VM takes a few minutes to deploy, but you can continue to the next step while the VM is creating.
+   ![Select a virtual network](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
+
+6. Under **Network Security Group**, select **Advanced**. The portal automatically creates a network security group for you that allows port 3389, which you'll need open to connect to the virtual machine in a later step. Select **OK** on the **Settings** page.
+7. On the **Summary** page, select **Create** to start the virtual machine deployment. The VM takes a few minutes to deploy, but you can continue to the next step while the VM is creating.
 
 ### Create the second virtual machine
 
-Complete steps 1-6 again, but in step 3, name the virtual machine *myVmPrivate* and in step 5, select the **Private** subnet.
+Complete steps 1-7 again, but in step 3, name the virtual machine *myVmPrivate* and in step 5, select the **Private** subnet.
 
 The VM takes a few minutes to deploy. Do not continue to the next step until it finishes creating and its settings open in the portal.
 
@@ -236,7 +237,7 @@ The VM takes a few minutes to deploy. Do not continue to the next step until it 
 
 1. Once the *myVmPrivate* VM finishes creating, Azure opens the settings for it. Connect to the VM by selecting the **Connect** button, as shown in the following picture:
 
-    ![Connect to a virtual machine](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
+   ![Connect to a virtual machine](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
 
 2. After selecting the **Connect** button, a Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.  
 3. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM. 
@@ -244,29 +245,29 @@ The VM takes a few minutes to deploy. Do not continue to the next step until it 
 5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
 6. On the *myVmPrivate* VM, map the Azure file share to drive Z using PowerShell. Before running the commands that follow, replace `<storage-account-key>` and `<storage-account-name>` with values you supplied and retrieved in [Create a storage account](#create-a-storage-account).
 
-    ```powershell
-    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
-    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
-    ```
-    
-    PowerShell returns output similar to the following example output:
+   ```powershell
+   $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
+   $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
+   New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
+   ```
 
-    ```powershell
-    Name           Used (GB)     Free (GB) Provider      Root
-    ----           ---------     --------- --------      ----
-    Z                                      FileSystem    \\vnt.file.core.windows.net\my-f...
-    ```
+   PowerShell returns output similar to the following example output:
 
-    The Azure file share successfully mapped to the Z drive.
+   ```powershell
+   Name           Used (GB)     Free (GB) Provider      Root
+   ----           ---------     --------- --------      ----
+   Z                                      FileSystem    \\vnt.file.core.windows.net\my-f...
+   ```
+
+   The Azure file share successfully mapped to the Z drive.
 
 7. Confirm that the VM has no outbound connectivity to the internet from a command prompt:
 
-    ```
-    ping bing.com
-    ```
-    
-    You receive no replies, because the network security group associated to the *Private* subnet does not allow outbound access to the internet.
+   ```
+   ping bing.com
+   ```
+
+   You receive no replies, because the network security group associated to the *Private* subnet does not allow outbound access to the internet.
 
 8. Close the remote desktop session to the *myVmPrivate* VM.
 
@@ -276,7 +277,7 @@ The VM takes a few minutes to deploy. Do not continue to the next step until it 
 2. When **myVmPublic** appears in the search results, select it.
 3. Complete steps 1-6 in [Confirm access to storage account](#confirm-access-to-storage-account) for the *myVmPublic* VM.
 
-    Access is denied and you receive a `New-PSDrive : Access is denied` error. Access is denied because the *myVmPublic* VM is deployed in the *Public* subnet. The *Public* subnet does not have a service endpoint enabled for Azure Storage. The storage account only allows network access from the *Private* subnet, not the *Public* subnet.
+   After a short wait, you receive a `New-PSDrive : Access is denied` error. Access is denied because the *myVmPublic* VM is deployed in the *Public* subnet. The *Public* subnet does not have a service endpoint enabled for Azure Storage. The storage account only allows network access from the *Private* subnet, not the *Public* subnet.
 
 4. Close the remote desktop session to the *myVmPublic* VM.
 
@@ -285,9 +286,9 @@ The VM takes a few minutes to deploy. Do not continue to the next step until it 
 7. Select **Files**.
 8. You receive the error shown in the following picture:
 
-    ![Access denied error](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
+   ![Access denied error](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
 
-    Access is denied, because your computer is not in the *Private* subnet of the *MyVirtualNetwork* virtual network.
+   Access is denied, because your computer is not in the *Private* subnet of the *MyVirtualNetwork* virtual network.
 
 ## Clean up resources
 

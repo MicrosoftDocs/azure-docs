@@ -23,26 +23,26 @@ ms.custom:
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager deployment model.
 
-You can create and configure a virtual network (classic) with a network configuration file using the Azure command-line interface (CLI) 1.0 or Azure PowerShell. You cannot create or modify a virtual network through the Azure Resource Manager deployment model using a network configuration file. You cannot use the Azure portal to create or modify a virtual network (classic) using a network configuration file, however you can use the Azure portal to create a virtual network (classic), without using a network configuration file.
+You can create and configure a virtual network (classic) with a network configuration file using the Azure classic command-line interface (CLI) or Azure PowerShell. You cannot create or modify a virtual network through the Azure Resource Manager deployment model using a network configuration file. You cannot use the Azure portal to create or modify a virtual network (classic) using a network configuration file, however you can use the Azure portal to create a virtual network (classic), without using a network configuration file.
 
 Creating and configuring a virtual network (classic) with a network configuration file requires exporting, changing, and importing the file.
 
 ## <a name="export"></a>Export a network configuration file
 
-You can use PowerShell or the Azure CLI to export a network configuration file. PowerShell exports an XML file, while the Azure CLI exports a json file.
+You can use PowerShell or the Azure classic CLI to export a network configuration file. PowerShell exports an XML file, while the Azure classic CLI exports a json file.
 
 ### PowerShell
  
-1. [Install Azure PowerShell and sign in to Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Install Azure PowerShell and sign in to Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. Change the directory (and ensure it exists) and filename in the following command as desired, then run the command to export the network configuration file:
 
     ```powershell
     Get-AzureVNetConfig -ExportToFile c:\azure\networkconfig.xml
     ```
 
-### Azure CLI 1.0
+### Azure classic CLI
 
-1. [Install the Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Complete the remaining steps from an Azure CLI 1.0 command prompt.
+1. [Install the Azure classic CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Complete the remaining steps from a classic CLI command prompt.
 2. Log in to Azure by entering the `azure login` command.
 3. Ensure you're in asm mode by entering the `azure config mode asm` command.
 4. Change the directory (and ensure it exists) and filename in the following command as desired, then run the command to export the network configuration file:
@@ -53,7 +53,7 @@ You can use PowerShell or the Azure CLI to export a network configuration file. 
 
 ## Create or modify a network configuration file
 
-A network configuration file is an XML file (when using PowerShell) or a json file (when using the Azure CLI). You can edit the file in any text, or XML/json editor. The [Network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx) article includes details for all settings. For additional explanation of the settings, see [View virtual networks and settings](manage-virtual-network.md#view-virtual-networks-and-settings). The changes you make to the file:
+A network configuration file is an XML file (when using PowerShell) or a json file (when using the classic CLI). You can edit the file in any text, or XML/json editor. The [Network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx) article includes details for all settings. For additional explanation of the settings, see [View virtual networks and settings](manage-virtual-network.md#view-virtual-networks-and-settings). The changes you make to the file:
 
 - Must comply with the schema, or importing the network configuration file will fail.
 - Overwrite any existing network settings for your subscription, so use extreme caution when making modifications. For example, reference the example network configuration files that follow. Say the original file contained two **VirtualNetworkSite** instances, and you changed it, as shown in the examples. When you import the file, Azure deletes the virtual network for the **VirtualNetworkSite** instance you removed in the file. This simplified scenario assumes no resources were in the virtual network, as if there were, the virtual network could not be deleted, and the import would fail.
@@ -88,7 +88,7 @@ The following example network configuration file creates a virtual network named
 
 If the network configuration file you exported contains no contents, you can copy the XML in the previous example, and paste it into a new file.
 
-### Example JSON for use with the Azure CLI 1.0
+### Example JSON for use with the classic CLI
 
 The following example network configuration file creates a virtual network named *myVirtualNetwork* with an address space of *10.0.0.0/16* in the *East US* Azure region. The virtual network contains one subnet named *mySubnet* with an address prefix of *10.0.0.0/24*.
 
@@ -117,20 +117,20 @@ If the network configuration file you exported contains no contents, you can cop
 
 ## <a name="import"></a>Import a network configuration file
 
-You can use PowerShell or the Azure CLI to import a network configuration file. PowerShell imports an XML file, while the Azure CLI imports a json file. If the import fails, confirm that the file complies with the [network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
+You can use PowerShell or the classic CLI to import a network configuration file. PowerShell imports an XML file, while the classic CLI imports a json file. If the import fails, confirm that the file complies with the [network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
 ### PowerShell
  
-1. [Install Azure PowerShell and sign in to Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Install Azure PowerShell and sign in to Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. Change the directory and filename in the following command as necessary, then run the command to import the network configuration file:
  
     ```powershell
     Set-AzureVNetConfig  -ConfigurationPath c:\azure\networkconfig.xml
     ```
 
-### Azure CLI 1.0
+### Azure classic CLI
 
-1. [Install the Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Complete the remaining steps from an Azure CLI 1.0 command prompt.
+1. [Install the Azure classic CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Complete the remaining steps from a classic CLI command prompt.
 2. Log in to Azure by entering the `azure login` command.
 3. Ensure you're in asm mode by entering the `azure config mode asm` command.
 4. Change the directory and filename in the following command as necessary, then run the command to import the network configuration file:

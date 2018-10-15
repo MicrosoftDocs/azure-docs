@@ -1,22 +1,17 @@
 ﻿---
 title: "PowerShell - Remove a TDE protector - Azure SQL Database| Microsoft Docs"
 description: "How-to guide for responding to a potentially compromised TDE protector for an Azure SQL Database or Data Warehouse using TDE with Bring YOur Own Key (BYOK) support."
-keywords:
-services: "sql-database"
-documentationcenter:
-author: "becczhang"
-manager: craigg
-ms.prod: 
-ms.reviewer: ""
-ms.suite: sql
-ms.prod_service: sql-database, sql-data-warehouse
-ms.service: "sql-database"
+services: sql-database
+ms.service: sql-database
+ms.subservice: security
 ms.custom: 
-ms.tgt_pltfrm:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: "08/07/2017"
-ms.author: "rebeccaz"
-monikerRange: "= azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions"
+author: aliceku
+ms.author: aliceku
+ms.reviewer: vanto
+manager: craigg
+ms.date: 08/07/2017
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 ## Prerequisites
@@ -34,8 +29,8 @@ If a key is ever suspected to be compromised, such that a service or user had un
 Keep in mind that once the TDE protector is deleted in Key Vault, **all connections to the encrypted databases under the server are blocked, and these databases go offline and get dropped within 24 hours**. Old backups encrypted with the compromised key are no longer accessible.
 
 This how-to guide goes over two approaches depending on the desired result after the incident response:
-- To keep the Azure SQL Databases / Data Warehouses **accessible**
-- To make the Azure SQL Databases / Data Warehouses **inaccessible**
+- To keep the Azure SQL databases / Data Warehouses **accessible**
+- To make the Azure SQL databases / Data Warehouses **inaccessible**
 
 ## To keep the encrypted resources accessible
 1. Create a [new key in Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level. 

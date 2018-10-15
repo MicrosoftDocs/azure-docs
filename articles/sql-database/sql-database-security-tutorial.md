@@ -2,14 +2,16 @@
 title: Secure your Azure SQL database | Microsoft Docs
 description: Learn about techniques and features to secure your Azure SQL database.
 services: sql-database
-author: DRediske
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,security
+ms.subservice: security
+ms.custom:
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 04/24/2018
+author: DRediske
 ms.author: daredis
-
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/07/2018
 ---
 # Secure your Azure SQL Database
 
@@ -41,11 +43,11 @@ To complete this tutorial, make sure you have the following:
 
 - Installed the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
 - Installed Microsoft Excel
-- Created an Azure SQL server and database - See [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md), [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md), and [Create a single Azure SQL database using PowerShell](sql-database-get-started-powershell.md). 
+- Created an Azure SQL server and database - See [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md), [Create a single Azure SQL database using the Azure CLI](sql-database-cli-samples.md), and [Create a single Azure SQL database using PowerShell](sql-database-powershell-samples.md). 
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a server-level firewall rule in the Azure portal
 
@@ -166,7 +168,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
 1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 
-2. In the Settings blade, select **Auditing & Threat Detection**. Notice that sever-level auditing is diabled and that there is a **View server settings** link that allows you to view or modify the server auditing settings from this context.
+2. In the Settings blade, select **Auditing & Threat Detection**. Notice that server-level auditing is disabled and that there is a **View server settings** link that allows you to view or modify the server auditing settings from this context.
 
     ![Auditing Blade](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 

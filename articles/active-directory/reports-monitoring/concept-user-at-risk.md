@@ -26,9 +26,9 @@ Azure Active Directory detects suspicious actions that are related to your user 
 
 The detected risk events are used to calculate:
 
-- **Risky sign-ins** - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. For more information, see [Risky sign-ins](../identity-protection/overview.md#risky-sign-ins). 
+- **Risky sign-ins** - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. For more information, see [How to configure the sign-in risk policy](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. For more information, see [Users flagged for risk](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. For more information, see [How to configure the user risk policy](../identity-protection/howto-user-risk-policy.md).  
 
 In the Azure portal, you can find the security reports on the **Azure Active Directory** blade in the **Security** section.  
 
@@ -75,13 +75,13 @@ This dialog provides you with an option to:
 
 The users flagged for risk report in the Azure Active Directory premium editions provides you with:
 
-- A [list of user accounts](../identity-protection/overview.md#users-flagged-for-risk) that may have been compromised 
+- A list of user accounts that may have been compromised 
 
 - Aggregated information about the [risk event types](concept-risk-events.md) that have been detected
 
 - An option to download the report
 
-- An option to configure a [user risk remediation policy](../identity-protection/overview.md#user-risk-security-policy)  
+- An option to configure a [user risk remediation policy](../identity-protection/howto-user-risk-policy.md)  
 
 
 ![Risky Sign-ins](./media/concept-user-at-risk/71.png)
@@ -100,7 +100,7 @@ When you select a user, you get a detailed report view for this user that enable
 ![Risky Sign-ins](./media/concept-user-at-risk/324.png)
 
 
-To investigate a risk event, select one from the list to open the **Details** blade for this risk event. On the **Details** blade, you have the option to either [manually close a risk event](../identity-protection/overview.md#closing-risk-events-manually) or reactivate a manually closed risk event. 
+To investigate a risk event, select one from the list to open the **Details** blade for this risk event. On the **Details** blade, you have the option to either manually close a risk event or reactivate a manually closed risk event. 
 
 
 ![Risky Sign-ins](./media/concept-user-at-risk/325.png)

@@ -35,10 +35,16 @@
     href: expressroute-workflows.md
   - name: Routing requirements
     href: expressroute-routing.md
+  - name: BFD over ExpressRoute
+    href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
   - name: About moving circuits from classic to Resource Manager
     href: expressroute-move.md
+  - name: About ExpressRoute Direct
+    href: expressroute-erdirect-about.md
+  - name: About ExpressRoute Global Reach
+    href: expressroute-global-reach.md
 - name: How-to guides
   items:
   - name: Create and modify a circuit
@@ -65,8 +71,12 @@
       href: expressroute-howto-linkvnet-arm.md
     - name: Azure CLI
       href: howto-linkvnet-cli.md
+  - name: Configure ExpressRoute Global Reach
+    href: expressroute-howto-set-global-reach.md
   - name: Configure a site-to-site VPN over Microsoft peering
     href: site-to-site-vpn-over-microsoft-peering.md
+  - name: Configure IPsec transport mode for Windows hosts
+    href: expressroute-howto-ipsec-transport-private-windows.md
   - name: Configure a virtual network gateway for ExpressRoute
     items:
     - name: Azure portal
@@ -75,6 +85,8 @@
       href: expressroute-howto-add-gateway-resource-manager.md
   - name: Configure ExpressRoute and site-to-site coexisting connections
     href: expressroute-howto-coexist-resource-manager.md
+  - name: Configure ExpressRoute Direct
+    href: expressroute-howto-erdirect.md
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal
@@ -83,6 +95,8 @@
       href: how-to-routefilter-powershell.md
     - name: Azure CLI
       href: how-to-routefilter-cli.md
+  - name: Enable and disable peerings
+    href: expressroute-howto-reset-peering.md
   - name: Move from public peering to Microsoft peering
     href: how-to-move-peering.md
   - name: Move a circuit from classic to Resource Manager
@@ -97,8 +111,12 @@
       href: expressroute-config-samples-routing.md
     - name: Router configuration samples for NAT
       href: expressroute-config-samples-nat.md
-  - name: Configure Network Performance Monitor for ExpressRoute
-    href: how-to-npm.md
+  - name: Monitoring
+    items:
+    - name: ExpressRoute monitoring, metrics, and alerts
+      href: expressroute-monitoring-metrics-alerts.md
+    - name: Configure Network Performance Monitor for ExpressRoute
+      href: how-to-npm.md
   - name: Classic deployment model articles
     items:
     - name: Modify a circuit

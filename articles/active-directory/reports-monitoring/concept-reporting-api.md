@@ -30,6 +30,7 @@ This article provides you with a roadmap for accessing the reporting data using 
 
 If you run into issues, see [how to get support for Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
+This article applies to Azure AD Graph API.  For similar info related to Microsoft Graph API, see [directoryAudit resource type](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit).
 
 ## Prerequisites
 
@@ -44,7 +45,7 @@ For detailed instructions, see the [prerequisites to access the Azure Active Dir
 
 ## APIs with Graph Explorer
 
-You can use the [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
+You can use the [MSGraph explorer](https://developer.microsoft.com/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
 
 ![Graph Explorer](./media/concept-reporting-api/graph-explorer.png)
 

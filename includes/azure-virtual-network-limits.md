@@ -5,7 +5,7 @@
  author: jimdial
  ms.service: networking
  ms.topic: include
- ms.date: 08/03/2018
+ ms.date: 08/16/2018
  ms.author: jdial
  ms.custom: include file
 
@@ -56,6 +56,8 @@ The following limits apply only for networking resources managed through Azure R
 | User defined route tables |200 |
 | User defined routes per route table |400 |
 | Point-to-Site Root Certificates per VPN Gateway |20 |
+| Virtual network TAPs |100 |
+| Network interface TAP configurations per virtual network TAP |100 |
 
 #### <a name="publicip-address"></a>Public IP address limits
 
@@ -71,17 +73,17 @@ The following limits apply only for networking resources managed through Azure R
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
 | Load Balancers | 100 | 1000 |
-| Rules per resource, Basic | 150 | 250 |
-| Rules per resource, Standard | 1250 | 1500 |
+| Rules per resource, Basic | 250 | 250 |
+| Rules per resource, Standard | 1500 | 1500 |
 | Rules per IP configuration | 299 |299 |
 | Frontend IP configurations, Basic | 10 | 200 |
 | Frontend IP configurations, Standard | 10 | 600 |
 | Backend pool, Basic | 100, single Availability Set | 100, single Availability Set |
 | Backend pool, Standard | 1000, single VNet | 1000, single VNet |
-| Backend resources per Load Balancer, Standard &ast; | 50 | 150 |
+| Backend resources per Load Balancer, Standard * | 150 | 150 |
 | HA Ports, Standard | 1 per internal frontend | 1 per internal frontend |
 
-&ast; Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
+** Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 

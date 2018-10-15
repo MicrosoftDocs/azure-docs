@@ -3,13 +3,13 @@ title: About Speech Translation
 description: An overview of the capabilities of Speech Translation
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 
 # About the Speech Translation API
@@ -28,7 +28,7 @@ The Speech Translation API employs the same technologies that power various Micr
 
 Underlying Microsoft's translation engine are two different approaches: statistical machine translation (SMT) and neural machine translation (NMT). The latter, an artificial intelligence approach employing neural networks, is the more modern approach to machine translation. NMT provides better translations — not just more accurate, but also more fluent and natural. The key reason for this fluidity is that NMT uses the full context of a sentence to translate words.
 
-Today, Microsoft has migrated to NMT for the most popular languages, employing SMT only for less-frequently-used languages. All [languages available for speech-to-speech translation](supported-languages.md#speech-translation) are powered by NMT. Speech-to-text translation may use SMT or NMT depending on the language pair. If the target language is supported by NMT, the full translation is NMT-powered. If the target language isn't supported by NMT, the translation is a hybrid of NMT and SMT, using English as a "pivot" between the two languages.
+Today, Microsoft has migrated to NMT for the most popular languages, employing SMT only for less-frequently-used languages. All [languages available for speech-to-speech translation](language-support.md#speech-translation) are powered by NMT. Speech-to-text translation may use SMT or NMT depending on the language pair. If the target language is supported by NMT, the full translation is NMT-powered. If the target language isn't supported by NMT, the translation is a hybrid of NMT and SMT, using English as a "pivot" between the two languages.
 
 The differences between models are internal to the translation engine. End users notice only the improved translation quality, especially for Chinese, Japanese, and Arabic.
 
@@ -39,3 +39,5 @@ The differences between models are internal to the translation engine. End users
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 * [See how to translate speech in C#](how-to-translate-speech-csharp.md)
+* [See how to translate speech in C++](how-to-translate-speech-cpp.md)
+* [See how to translate speech in Java](how-to-translate-speech-java.md)

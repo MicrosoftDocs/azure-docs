@@ -3,7 +3,7 @@ title: Subscribe to an offer in Azure Stack | Microsoft Docs
 description: Create subscriptions for offers in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/11/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+ms.author: sethm
 
 ---
 # Create subscriptions to offers in Azure Stack
@@ -42,9 +42,9 @@ After you create a subscription for a user, they can sign in to the user portal 
    - **Display name** – A friendly name for identifying the subscription that appears as the *User subscription name*.
    - **User** – Specify a user from an available directory tenant for this subscription. The user name appears as *Owner*.  The format of the user name depends on your identity solution. For example:
 
-     - **Azure AD:**  *&lt;user1>@&lt;contoso.onmicrosoft.com>*
+     - **Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS:**  *&lt;user1>@&lt;azurestack.local>*
+     - **AD FS:** `<user1>@<azurestack.local>` 
 
    - **Directory tenant** –  Select the directory tenant where the user account belongs. If you haven't enabled multi-tenancy, only your local directory tenant is available.
 
@@ -56,7 +56,7 @@ After you create a subscription for a user, they can sign in to the user portal 
 
 A cloud operator can add an add-on plan to a previously created subscription at any time:
 
-1. In the admin portal, select **More Services** > **User subscriptions**. Select the subscription you want to change.
+1. In the admin portal, select **All Services** and then under the **ADMINISTRATIVE RESOURCES** category, select **User subscriptions**. Select the subscription you want to change.
 
 2. Select **Add-ons**  and then select **+Add**.  
 
@@ -80,13 +80,13 @@ As a user, you can sign in to the user portal to locate and subscribe to public 
    ![Create an offer](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
 3. After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
-4. To see the subscription you created, select **More services** and then select **Subscriptions**. Select the subscription to see the subscription details.  
+4. To see the subscription you created, select **All services** and then under the **GENERAL** category select **Subscriptions**. Select the subscription to see the subscription details.  
 
 ### To subscribe to an add-on plan
 
 If an offer has an add-on plan, you can add that plan to your subscription at any time.  
 
-1. In the user portal, select **More services** > **Subscriptions**, and then select the subscription that you want change. If there are any add-on plans available, **+Add plan** is active and there's a tile for **Add-on plans**.
+1. In the user portal, select **All services**. Next, under the **GENERAL** category select **Subscriptions**, and then select the subscription that you want change. If there are any add-on plans available, **+Add plan** is active and there's a tile for **Add-on plans**.
 
    >[!NOTE]
    >If **+Add plan** isn't active, then there aren't any add-on plans for the offer associated with that subscription.

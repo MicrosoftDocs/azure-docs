@@ -41,6 +41,8 @@
         href: automation-update-management.md
       - name: Manage updates for multiple VMs
         href: manage-update-multi.md
+      - name: Pre and post scripts
+        href: pre-post-scripts.md
       - name: Migrate OMS update deployments to Azure
         href: migrate-oms-update-deployments.md
       - name: Integrate SCCM with Update Management
@@ -59,18 +61,12 @@
       items:
       - name: Create standalone Automation account
         href: automation-create-standalone-account.md
-      - name: Create Azure AD user account
-        href: automation-create-aduser-account.md
+      - name: Manage Automation Run As account
+        href: manage-runas-account.md
       - name: Configure authentication with AWS
         href: automation-config-aws-account.md
-      - name: Create Automation Run As account
-        href: automation-create-runas-account.md
-      - name: Validate Automation account config
-        href: automation-verify-runas-authentication.md
       - name: Manage role-based access control
         href: automation-role-based-access-control.md
-      - name: Manage Automation account
-        href: automation-manage-account.md
     - name: Create runbooks
       items:
         - name: Runbook types
@@ -98,7 +94,9 @@
         - name: Runbook output
           href: automation-runbook-output-and-messages.md
         - name: Source control integration
-          href: automation-source-control-integration.md
+          href: source-control-integration.md
+        - name: Source control integration - legacy
+          href: automation-source-control-integration-legacy.md
         - name: Create runbooks with the Graphical runbook SDK
           href: graphical-runbook-sdk.md
     - name: Automate
@@ -119,6 +117,8 @@
           href: automation-pass-json-string.md
         - name: Start/stop VMs during off-hours
           href: automation-solution-vm-management.md
+        - name: Manage Python 2 packages
+          href: python-packages.md
     - name: Hybrid Runbook Worker
       items:
         - name: Hybrid Runbook Worker overview
@@ -141,6 +141,8 @@
           href: automation-dsc-onboarding.md
         - name: Compiling DSC configurations
           href: automation-dsc-compile.md
+        - name: Composing DSC Configurations using Composite Resources
+          href: compose-configurationwithcompositeresources.md
         - name: Continuous deployment using Chocolatey
           href: automation-dsc-cd-chocolatey.md
         - name: Forward State Configuration reporting data to Log Analytics
@@ -175,7 +177,7 @@
           href: automation-scenario-remove-resourcegroup.md
         - name: Source control integration with GitHub Enterprise
           href: automation-scenario-source-control-integration-with-github-ent.md
-        - name: Source control integration with VSTS
+        - name: Source control integration with Azure DevOps
           href: automation-scenario-source-control-integration-with-VSTS.md
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md
@@ -185,8 +187,6 @@
       items:
         - name: Forward Azure Automation job data to Log Analytics
           href: automation-manage-send-joblogs-log-analytics.md
-        - name: Unlink Azure Automation account from Log Analytics
-          href: automation-unlink-from-log-analytics.md
     - name: Migrate
       items:
         - name: Migrate from Orchestrator

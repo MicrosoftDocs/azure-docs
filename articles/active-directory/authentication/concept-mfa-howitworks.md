@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,18 +32,12 @@ Multi-Factor Authentication comes as part of the following offerings:
 
 * **Azure Active Directory Premium licenses** - Full featured use of Azure Multi-Factor Authentication Service (Cloud) or Azure Multi-Factor Authentication Server (On-premises).
    * **Azure MFA Service (Cloud)** - **This option is the recommended path for new deployments**. Azure MFA in the cloud requires no on-premises infrastructure and can be used with your federated or cloud-only users.
-   * **Azure MFA Server** - If your organization wants to manage the associated infrastructure elements and has deployed AD FS in your on-premsies environment this way may be an option.
+   * **Azure MFA Server** - If your organization wants to manage the associated infrastructure elements and has deployed AD FS in your on-premises environment this way may be an option.
 * **Multi-Factor Authentication for Office 365** - A subset of Azure Multi-Factor Authentication capabilities are available as a part of your subscription. For more information about MFA for Office 365, see the article [Plan for multi-factor authentication for Office 365 Deployments](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
 * **Azure Active Directory Global Administrators** - A subset of Azure Multi-Factor Authentication capabilities are available as a means to protect global administrator accounts.
 
-### Auth Provider or MFA license
-
-If you have Azure AD Premium or a license bundle that includes Azure AD Premium, you already have Azure MFA. Your organization doesn't need anything additional to extend the two-step verification capability to all users. You only need to assign a license to a user, and then you can turn on MFA.
-
-If you don't have licenses that include Azure MFA or don't have enough licenses to cover all of your users, then you can create an [MFA Auth Provider](concept-mfa-authprovider.md) to extend the full capabilities of MFA to the users who need them. 
-
-> [!IMPORTANT]
-> If you don't have enough licenses for all your users, you can create a per-user Multi-Factor Auth Provider to cover the rest of your organization. Do not create a per-authentication Multi-Factor Auth Provider. If you do, you could end up paying for verification requests from users that already have licenses.
+> [!NOTE]
+> New customers may no longer purchase Azure Multi-Factor Authentication as a standalone offering effective September 1st, 2018. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
 
 ## Supportability
 
@@ -51,8 +45,7 @@ Since most users are accustomed to using only passwords to authenticate, it is i
 
 * Train your support staff to handle scenarios where the user can't sign in because they do not have access to their authentication methods or they are not working correctly.
    * Using conditional access policies for Azure MFA Service, your support staff can add a user to a group that is excluded from a policy requiring MFA.
-   * Support staff can enable a temporary one-time bypass for Azure MFA Server users to allow a user to authenticate without two-step verification. The bypass is temporary and expires after a specified number of seconds.
-   * Using conditional access policies for Azure MFA Service your support staff can add a user to a group that is excluded from a policy requiring MFA.
+   * Support staff can enable a temporary one-time bypass for Azure MFA Server users to allow a user to authenticate without two-step verification. The bypass is temporary and expires after a specified number of seconds.   
 * Consider using Trusted IPs or named locations as a way to minimize two-step verification prompts. With this feature, administrators of a managed or federated tenant can bypass two-step verification for users that are signing in from a trusted network location such as their organization's intranet.
 * Deploy [Azure AD Identity Protection](../active-directory-identityprotection.md) and trigger two-step verification based on risk events.
 

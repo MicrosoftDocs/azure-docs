@@ -8,5 +8,5 @@ ms.author: wolfma
 
 ## Top-level declarations
 
-For all code below, the following top-level declarations should be in place:
+For all code in the following sections, these top-level declarations should be in place:
 

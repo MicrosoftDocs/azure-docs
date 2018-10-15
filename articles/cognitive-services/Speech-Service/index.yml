@@ -1,33 +1,51 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service and SDK Documentation (Preview)
+title: Speech Service SDK Documentation
 metadata:
-  title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
+  title: Speech Service documentation - Tutorials, quickstarts, API reference - Cognitive Services | Microsoft Docs
   meta.description: |
-    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications. 
-    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
+    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
+    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: nitinme
+  manager: cgronlun
   layout: LandingPage
   ms.service: cognitive-services
   ms.component: speech-service
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/16/2018
-  ms.author: nolachar
+  ms.date: 09/24/2018
+  ms.author: nitinme
 
 abstract:
-  description: |
-    Via our Speech SDK, the <a href="overview">Speech Service</a> helps developers add speech-enabled features to their apps.<br/>
-    Features include&#58; <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS).
-
+  description: Learn how to use the Speech Service and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Service also has a REST API that works with any programming language that can make HTTP requests.
 sections:
-- title: 5-minute SDK download and quickstart
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/speech-service/overview
+          html: <p>Learn about Azure Speech Service.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Speech Service?
+        - href: /azure/cognitive-services/speech-service/get-started
+          html: <p>Learn how to sign up for the Speech service for free.</p>
+          image:
+            src: ../media/index/i_get-started.svg
+          title: Sign up for Speech Service
+        - href: /azure/cognitive-services/speech-service/speech-devices-sdk
+          html: <p>Learn about the speech-enabled hardware reference.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Speech Devices SDK
+- title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to download, install, and use by clicking on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
+    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:
@@ -42,11 +60,26 @@ sections:
       - image:
           src: media/index/logo_java.jpg
       - image:
+          src: media/index/logo_objc.jpg
+      - image:
+          src: media/index/logo_js.svg
+      - image:
           src: media/index/logo_rest_sr.svg
       - image:
           src: media/index/logo_rest_tts.svg
     rows:
-      - title: Windows (x86/x64)
+      - title: Windows 10 (x64)
+        values:
+        - href: quickstart-csharp-uwp
+        - href: quickstart-csharp-windows
+        - href: quickstart-cpp-windows
+        - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-java-jre
+        - href:
+        - href:
+        - href:
+        - href:
+      - title: Windows 10 (x86)
         values:
         - href: quickstart-csharp-uwp
         - href: quickstart-csharp-windows
@@ -55,11 +88,28 @@ sections:
         - href:
         - href:
         - href:
-      - title: Linux (x86/x64)
+        - href:
+        - href:
+      - title: Linux (x64)
         values:
         - href:
         - href:
         - href: quickstart-cpp-linux
+        - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-java-jre
+        - href:
+        - href:
+        - href:
+        - href:
+      - title: Linux (x86)
+        values:
+        - href:
+        - href:
+        - href: quickstart-cpp-linux
+        - href:
+        - href:
+        - href:
+        - href:
         - href:
         - href:
       - title: Android (ARM32/ARM64)
@@ -71,6 +121,8 @@ sections:
         - href: quickstart-java-android
         - href:
         - href:
+        - href:
+        - href:
       - title: Devices SDK (ARM64)
         values:
         - href:
@@ -80,6 +132,19 @@ sections:
         - href: speech-devices-sdk
         - href:
         - href:
+        - href:
+        - href:
+      - title: iOS (ARM64)
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: quickstart-objectivec-ios
+        - href:
+        - href:
+        - href:
       - title: Web
         values:
         - href:
@@ -87,40 +152,48 @@ sections:
         - href:
         - href:
         - href:
+        - href:
+        - href: quickstart-js-browser
         - href: rest-apis
         - href: rest-apis
-
-- title: Speech SDK samples and reference
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using Speech Service:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
+    - html: <a href="intent.md">Intent Recognition</a><br/>
+    - html: <a href="translation.md">Translation</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Find samples on Github for Speech Service:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Service SDK Samples</a><br/>
+    - html: <a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Device SDK Samples</a><br/>
+- title: Reference
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: Samples
+    - title: SDK Reference
       html: |
-        &nbsp;&#8226; <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
-        &nbsp;&#8226; <a href="intent.md">Intent Recognition</a><br/>
-        &nbsp;&#8226; <a href="translation.md">Translation</a>
-    - title: API Reference
+        <p><a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a></p>
+        <p><a href="https://aka.ms/csspeech/cppref">C++ API</a></p>
+        <p><a href="https://aka.ms/csspeech/javaref">Java API</a></p>
+        <p><a href="https://aka.ms/csspeech/objectivecref">Objective-C API</a></p>
+        <p><a href="https://aka.ms/csspeech/javascriptref">JavaScript API</a></p>
+    - title: REST API
       html: |
-        &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a><br/>
-        &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">C++ API</a><br/>
-        &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java API</a>
-  - type: paragraph
-    text: Use the samples and API above with your subscription key (see <a href="get-started.md">Try the speech service for free</a>).
-
-- title: Customizing speech with your own data
-  items:
-  - type: paragraph
-    text: |
-      Our Speech Service also lets you customize models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.<br/>
-      &nbsp;&#8226; <a href="how-to-customize-speech-models">Customized speech-to-text</a><br/>
-      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">Customized speech-translation</a><br/>
-      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">Customized text-to-speech</a>
-- title: Speech enabled HW reference design
-  items:
-  - type: paragraph
-    text: |
-      For those wishing to build new speech-enabled device HW, see our reference device at
-      <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>.
-
+        <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">REST API</a></p>
+    - title: PowerShell
+      html: |
+        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: |
+        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>

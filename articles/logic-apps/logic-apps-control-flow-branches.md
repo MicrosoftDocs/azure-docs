@@ -1,18 +1,14 @@
 ---
-# required metadata
 title: Create or join parallel branches - Azure Logic Apps | Microsoft Docs
 description: How to create or join parallel branches for workflows in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
-
-# optional metadata
 ms.reviewer: klam, LADocs
-ms.suite: integration
+ms.topic: article
+ms.date: 10/10/2018
 ---
 
 # Create or join parallel branches for workflow actions in Azure Logic Apps
@@ -37,14 +33,14 @@ and then [join those branches](#join-branches) later in your flow.
 
 <a name="parallel-branches"></a>
 
-## Add a parallel branch
+## Add parallel branch
 
 To run independent steps at the same time, 
 you can add parallel branches next to an existing step. 
 
 ![Run steps in parallel](media/logic-apps-control-flow-branches/parallel.png)
 
-Your logic app waits for all branches to finish before continuing workflow.
+Your logic app waits for all branches to finish before continuing workflow. 
 Parallel branches run only when their `runAfter` property 
 values match the finished parent step's status. 
 For example, both `branchAction1` and `branchAction2` are set to 
@@ -57,22 +53,38 @@ run only when the `parentAction` completes with `Succeded` status.
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 open your logic app in Logic App Designer.
 
-2. Move your mouse over the arrow above the step where you want to add parallel branches.
-
-3. Choose the **plus** sign (**+**), choose **Add a parallel branch**, 
-and select the item that you want to add.
+1. Move your pointer over the arrow above the 
+step where you want to add parallel branches. 
+Choose the **plus** sign (**+**) that appears, 
+and then choose **Add a parallel branch**. 
 
    ![Add parallel branch](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
-   Your selected item now appears in a parallel branch.
+1. In the search box, find and select the action you want.
 
-4. For each parallel branch, add the steps that you want. 
-To add a sequential action to a parallel branch, 
-move your mouse under the action where you want to add the sequential action. Choose the **plus** (**+**) sign and the step that you want to add.
+   ![Find and select the action you want](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
-   ![Add sequential step to parallel branch](media/logic-apps-control-flow-branches/add-sequential-action-parallel-branch.png)
+   Your selected action now appears in the parallel branch, for example:
 
-5. To merge branches back together, 
+   ![Find and select the action you want](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+
+1. Now, in each parallel branch, add the steps you want. 
+To add another action to a branch, move your pointer under 
+the action where you want to add a sequential action. 
+Choose the **plus** (**+**) sign that appears, 
+and then select **Add an action**.
+
+   ![Add sequential action to parallel branch](media/logic-apps-control-flow-branches/add-sequential-action.png)
+
+1. In the search box, find and select the action you want.
+
+   ![Find and select sequential action](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+
+   Your selected action now appears within the current branch, for example:
+
+   ![Find and select sequential action](media/logic-apps-control-flow-branches/added-sequential-action.png)
+
+To merge branches back together, 
 [join your parallel branches](#join-branches). 
 
 <a name="parallel-json"></a>
@@ -85,17 +97,17 @@ structure in your logic app's JSON definition instead, for example:
 ``` json
 {
   "triggers": {
-    "myTrigger": { }
+    "myTrigger": {}
   },
   "actions": {
     "parentAction": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {}
     },
     "branchAction1": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -104,7 +116,7 @@ structure in your logic app's JSON definition instead, for example:
     },
     "branchAction2": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -129,12 +141,18 @@ This step runs after all the parallel branches finish running.
 1. In the [Azure portal](https://portal.azure.com), 
 find and open your logic app in Logic App Designer. 
 
-2. Under the parallel branches that you want to join, 
-add the step that you want to perform.
+1. Under the parallel branches you want to join, choose **New step**. 
 
-   ![Add a step that joins parallel branches](media/logic-apps-control-flow-branches/join-steps.png)
+   ![Add step to join](media/logic-apps-control-flow-branches/add-join-step.png)
+
+1. In the search box, find and select the action 
+you want as the step that joins the branches.
+
+   ![Find and select the action that joins parallel branches](media/logic-apps-control-flow-branches/join-steps.png)
 
    Your parallel branches are now merged.
+
+   ![Joined branches](media/logic-apps-control-flow-branches/joined-branches.png)
 
 <a name="join-json"></a>
 

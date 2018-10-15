@@ -1,51 +1,100 @@
-- name: Azure Data Box Documentation
-  href: /azure/databox/
-- name: Overview
+- name:  Azure Data Box Documentation - Offline Transfer
+  href: /azure/databox
   items:
-  - name: What is Data Box Disk?
-    href: data-box-disk-overview.md
-- name: Quickstarts
-  items:
-  - name: Set up - Azure portal
-    href: data-box-disk-quickstart-portal.md
-- name: Tutorials
-  items:
-  - name: 1 - Order
-    href: data-box-disk-deploy-ordered.md
-  - name: 2 - Set up
-    href: data-box-disk-deploy-set-up.md
-  - name: 3 - Copy data
-    href: data-box-disk-deploy-copy-data.md 
-  - name: 4 - Return, upload, verify
-    href: data-box-disk-deploy-picked-up.md  
-- name: Concepts
-  items:
-  - name: Review requirements
-    href: data-box-disk-system-requirements.md
-  - name: Understand limits
-    href: data-box-disk-limits.md
-  - name: Review security 
-    href: data-box-disk-security.md 
-  - name: FAQ
-    href: data-box-disk-faq.md  
-- name: How to
-  items:
-  - name: Manage via Azure portal
-    href: data-box-portal-ui-admin.md
-  - name: Troubleshoot disk issues
-    href: data-box-disk-troubleshoot.md 
-- name: Resources
-  items:
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=storage
-  - name: Azure Data Box marketing
-    href: https://azure.microsoft.com/services/storage/databox/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=databox
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=databox
+  - name: Data Box
+    items:
+    - name: Overview
+      items:
+      - name: What is Data Box?
+        href: data-box-overview.md
+    - name: Quickstarts
+      expanded: true
+      items:
+      - name: Set up - Azure portal
+        href: data-box-quickstart-portal.md
+    - name: Tutorials
+      items:
+      - name: 1 - Order
+        href: data-box-deploy-ordered.md
+      - name: 2 - Set up
+        href: data-box-deploy-set-up.md
+      - name: 3 - Copy data
+        href: data-box-deploy-copy-data.md 
+      - name: 4 - Return, upload, verify
+        href: data-box-deploy-picked-up.md  
+    - name: Concepts
+      items:
+      - name: Read safety guidelines
+        href: data-box-safety.md
+      - name: Review requirements
+        href: data-box-system-requirements.md
+      - name: Understand limits
+        href: data-box-limits.md
+      - name: Review security 
+        href: data-box-security.md 
+      - name: FAQ
+        href: data-box-faq.md  
+    - name: How to
+      items:  
+      - name: Manage via Azure portal
+        href: data-box-portal-admin.md
+      - name: Manage via local web UI
+        href: data-box-local-web-ui-admin.md
+      - name: Contact Support
+        href: data-box-disk-contact-microsoft-support.md  
+    
+  - name: Data Box Disk 
+    items:
+    - name: Overview
+      items:
+      - name: What is Data Box Disk?
+        href: data-box-disk-overview.md
+    - name: Quickstarts
+      expanded: true
+      items:
+      - name: Set up - Azure portal
+        href: data-box-disk-quickstart-portal.md
+    - name: Tutorials
+      items:
+      - name: 1 - Order
+        href: data-box-disk-deploy-ordered.md
+      - name: 2 - Set up
+        href: data-box-disk-deploy-set-up.md
+      - name: 3 - Copy and validate
+        href: data-box-disk-deploy-copy-data.md 
+      - name: 4 - Return, upload, verify
+        href: data-box-disk-deploy-picked-up.md  
+    - name: Concepts
+      items:
+      - name: Review requirements
+        href: data-box-disk-system-requirements.md
+      - name: Understand limits
+        href: data-box-disk-limits.md
+      - name: Review security 
+        href: data-box-disk-security.md 
+      - name: FAQ
+        href: data-box-disk-faq.md  
+    - name: How to
+      items:
+      - name: Manage via Azure portal
+        href: data-box-portal-ui-admin.md
+      - name: Troubleshoot disk issues
+        href: data-box-disk-troubleshoot.md 
+      - name: Contact Support
+        href: data-box-disk-contact-microsoft-support.md  
+
+  - name: Data Box Heavy
+    items:
+    - name: Overview
+      items:
+      - name: What is Data Box Heavy?
+        href: data-box-heavy-overview.md
+  - name: Resources
+    items:
+    - name: Data Box product
+      href: https://azure.microsoft.com/services/storage/databox/data/
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/storage/databox/
+
+
 

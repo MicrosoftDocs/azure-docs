@@ -1,8 +1,20 @@
 - name: Content Moderator Documentation
 - name: Overview
-  items: 
+  items:
   - name: What is Content Moderator?
     href: overview.md
+- name: Quickstarts
+  items:
+  - name: Get started with Content Moderator
+    href: quick-start.md
+  - name: Using .NET SDK
+    items:
+    - name: Check image content
+      href: image-moderation-quickstart-dotnet.md
+    - name: Check text content
+      href: text-moderation-quickstart-dotnet.md
+    - name: Check video content
+      href: video-moderation-api.md
 - name: Samples
   items:
   - name: .NET SDK samples
@@ -15,8 +27,6 @@
     href: image-moderation-api.md
   - name: Text moderation
     href: text-moderation-api.md
-  - name: Text moderation - languages
-    href: Text-Moderation-API-Languages.md
   - name: Video moderation
     href: video-moderation-human-review.md
   - name: Jobs and reviews
@@ -27,30 +37,20 @@
   items:
   - name: Try Content Moderator
     items:
-    - name: Get started with Content Moderator
-      href: quick-start.md
     - name: Moderation APIs
       items:
-      - name: Helper library - .NET
-        href: content-moderator-helper-quickstart-dotnet.md
       - name: Images - API console
         href: try-image-api.md
-      - name: Images - .NET
-        href: image-moderation-quickstart-dotnet.md
+      - name: Check images against custom lists
+        href: image-lists-quickstart-dotnet.md
       - name: Custom images - API console
         href: try-image-list-api.md
-      - name: Custom images - .NET
-        href: image-lists-quickstart-dotnet.md
       - name: Text - API console
         href: try-text-api.md
-      - name: Text - .NET
-        href: text-moderation-quickstart-dotnet.md
+      - name: Check text against custom terms
+        href: term-lists-quickstart-dotnet.md
       - name: Custom terms - API console
         href: try-terms-list-api.md
-      - name: Custom terms - .NET
-        href: term-lists-quickstart-dotnet.md
-      - name: Videos - .NET
-        href: video-moderation-api.md
     - name: Review APIs
       items:
       - name: Jobs - API console
@@ -112,9 +112,11 @@
     - name: .NET
       href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator
 - name: Resources
-  items:  
+  items:
   - name: FAQ
     href: FAQs.md
+  - name: Language and region support
+    href: language-support.md
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Pricing

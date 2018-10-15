@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -21,28 +21,37 @@ Changes to installed software, Windows services, Windows registry and files, and
 
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
-* Windows Server 2008 Service Pack 1 (SP1) or later
-* Windows 7 SP1 and later.
+* Windows Server 2008 R2 or later
 
 ## Supported Linux operating systems
 
 The following Linux distributions are officially supported. However, the Linux agent might also run on other distributions not listed. Unless otherwise noted, all minor releases are supported for each major version listed.  
 
-* Amazon Linux 2012.09 to 2015.09 (x86/x64)
-* CentOS Linux 5, 6, and 7 (x86/x64)  
-* Oracle Linux 5, 6, and 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
-* Debian GNU/Linux 6, 7, and 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+### 64-bit
+
+* CentOS 6 and 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 and 7
+* Red Hat Enterprise Linux Server 6 and 7
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+### 32-bit
+
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS and 16.04 LTS
 
 ## Enable Change Tracking and Inventory
 
 To begin tracking changes, you need to enable the Change Tracking and Inventory solution for your Automation Account.
 
 1. In the Azure portal, navigate to your Automation Account
-1. Select **Change Tracking** under **CONFIGURATION**.
-1. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**.
+2. Select **Change Tracking** under **CONFIGURATION**.
+3. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**.
 
 This enables the solution for your automation account. The solution can take up to 15 minutes to enable. The blue banner notifies you when the solution is enabled. Navigate back to the **Change Tracking** page to manage the solution.
 
@@ -88,8 +97,18 @@ Use the following steps to configure files tracking on Windows computers:
 |Enabled     | Determines if the setting is applied.        |
 |Item Name     | Friendly name of the file to be tracked.        |
 |Group     | A group name for logically grouping files.        |
-|Enter Path     | The path to check for the file For example: "c:\temp\myfile.txt"       |
+|Enter Path     | The path to check for the file For example: "c:\temp\\\*.txt"<br>You can also use environment variables such as "%winDir%\System32\\\*.*"       |
+|Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
+
+## Wildcard, recursion, and environment settings
+
+Recursion allows you to specify wildcards to simplify tracking across directories, and environment variables to allow you to track files across environments with multiple or dynamic drive names. The following is a list of common information you should know when configuring recursion:
+
+* Wildcards are required for tracking multiple files
+* If using wildcards, they can only be used in the last segment of a path. (such as C:\folder\\**file** or /etc/*.conf)
+* If an environment variable has an invalid path, validation will succeed but that path will fail when inventory runs.
+* Avoid general paths such as `c:\*.*` when setting the path, as this would result in too many folders being traversed.
 
 ## Configure File Content tracking
 
@@ -116,13 +135,8 @@ Use the following steps to configure registry key tracking on Windows computers:
 
 The Change Tracking solution does not currently support the following items:
 
-* Folders (directories) for Windows file tracking
-* Recursion for Windows file tracking
-* Wild cards for Windows file tracking
 * Recursion for Windows registry tracking
-* Path variables
 * Network file systems
-* File Content
 
 Other limitations:
 
@@ -136,6 +150,7 @@ Other limitations:
 The Change Tracking solution is currently experiencing the following issues:
 
 * Hotfix updates are not collected for Windows 10 Creators Update and Windows Server 2016 Core RS3 machines.
+* For Windows files, Change Tracking does not currently detect when a new file has been added to a tracked folder path
 
 ## Change Tracking data collection details
 
@@ -203,6 +218,17 @@ The purpose of monitoring changes to registry keys is to pinpoint extensibility 
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors the list of known or commonly used system DLLs; this system prevents people from exploiting weak application directory permissions by dropping in Trojan horse versions of system DLLs.|
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors the list of packages able to receive event notifications from Winlogon, the interactive logon support model for the Windows operating system.|
+
+## Network requirements
+
+The following addresses are required specifically for Change Tracking. Communication to these addresses is done over port 443.
+
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 ## Use Change Tracking
 

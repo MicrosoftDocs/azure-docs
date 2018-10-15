@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery troubleshooting from VMware to Azure | Microsoft Docs
-description: Troubleshoot errors when you replicate Azure virtual machines.
+title: Troubleshoot Mobility Service push installation failures during Enable Replication(VMware to Azure) | Microsoft Docs
+description: Troubleshoot mobility service/push installation errors when you replicate Azure virtual machines.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,89 +8,92 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 07/06/2018
+ms.date: 09/19/2018
 
 
 ---
 # Troubleshoot Mobility Service push installation issues
 
-This article describes how to troubleshoot common errors you might face when you try to install Azure Site Recovery Mobility Service on the source server to enable protection.
+Installation of Mobility service is a key step during Enable Replication. The success of this step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to
 
-## Error 78007 - The requested operation could not be completed
-This error can be thrown by the service for several reasons. Choose the corresponding provider error to troubleshoot further.
+* Credential/Privilege errors
+* Connectivity errors
+* Unsupported Operating systems
 
-* [Error 95103](#error-95103---protection-could-not-be-enabled-ep0854) 
-* [Error 95105](#error-95105---protection-could-not-be-enabled-ep0856) 
-* [Error 95107](#error-95107---protection-could-not-be-enabled-ep0858) 
-* [Error 95108](#error-95108---protection-could-not-be-enabled-ep0859) 
-* [Error 95117](#error-95117---protection-could-not-be-enabled-ep0865) 
-* [Error 95213](#error-95213---protection-could-not-be-enabled-ep0874) 
-* [Error 95224](#error-95224---protection-could-not-be-enabled-ep0883) 
-* [Error 95265](#error-95265---protection-could-not-be-enabled-ep0902) 
+When you enable replication, Azure Site Recovery tries to push install mobility service agent on your virtual machine. As part of this, Configuration server tries to connect with the virtual machine and copy the Agent. To enable successful installation, follow the step by step troubleshooting guidance given below.
 
+## Credentials check (ErrorID: 95107 & 95108)
 
-## Error 95105 - Protection could not be enabled (EP0856)
+* Verify if the user account chosen during enable replication is **valid, accurate**.
+* Azure Site Recovery requires **administrator privilege** to perform push installation.
+  * For Windows, verify if the user account has administrative access, either local or domain, on the source machine.
+  * If you are not using a domain account, you need to disable Remote User Access control on the local computer.
+    * To disable Remote User Access control, under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD: LocalAccountTokenFilterPolicy. Set the value to 1. To execute this step, run the following command from command prompt:
 
-**Error code** | **Possible causes** | **Error-specific recommendations**
---- | --- | ---
-95105 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0856**. <br> Either **File and Printer Sharing** isn't allowed on the source machine or there are network connectivity problems between the process server and the source machine.| **File and Printer Sharing** isn't enabled. | Allow **File and Printer Sharing** on the source machine in Windows Firewall. On the source machine, under **Windows Firewall** > **Allow an app or feature through Firewall**, select **File and Printer Sharing for all profiles**. </br> In addition, check the following prerequisites to successfully finish the push installation.<br> Read more about [troubleshooting WMI issues](#troubleshoot-wmi-issues).
+         `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+  * For Linux, you must choose the root account for successful installation of mobility agent.
 
+If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## Error 95107 - Protection could not be enabled (EP0858)
+## **Connectivity check (ErrorID: 95117 & 97118)**
 
-**Error code** | **Possible causes** | **Error-specific recommendations**
---- | --- | ---
-95107 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0858**. <br> Either the credentials provided to install Mobility Service are incorrect or the user account has insufficient privileges. | User credentials provided to install Mobility Service on the source machine are incorrect. | Ensure that the user credentials provided for the source machine on the configuration server are correct. <br> To add or edit user credentials, go to the configuration server, and select **Cspsconfigtool** > **Manage account**. </br> In addition, check the following [prerequisites](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to successfully finish the push installation.
+* Ensure you are able to ping your Source machine from the Configuration server. If you have chosen scale-out process server during enable replication, ensure you are able to ping your Source machine from process server.
+  * From Source Server machine command line, use Telnet to ping the configuration server/ scale-out process server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
 
+     `telnet <CS/ scale-out PS IP address> <port>`
 
-## Error 95117 - Protection could not be enabled (EP0865)
+  * If you are unable to connect, allow inbound port 9443 on the configuration server/ scale-out process server.
+  * Check the status of service **InMage Scout VX Agent – Sentinel/Outpost**. Start the service, if it is not running.
 
-**Error code** | **Possible causes** | **Error-specific recommendations**
---- | --- | ---
-95117 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0865**. <br> Either the source machine isn't running or there are network connectivity problems between the process server and the source machine. | Network connectivity problems between the process server and the source server. | Check connectivity between the process server and the source server. </br> In addition, check the following [prerequisites](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to successfully finish the push installation.|
+* Additionally, for **Linux VM**,
+  * Check if latest openssh, openssh-server, and openssl packages are installed.
+  * Check and ensure that Secure Shell (SSH) is enabled and is running on port 22.
+  * SFTP services should be running. To enable SFTP subsystem and password authentication in the sshd_config file,
+    * Sign in as root.
+    * Go to /etc/ssh/sshd_config file, find the line that begins with PasswordAuthentication.
+    * Uncomment the line, and change the value to yes
+    * Find the line that begins with Subsystem, and uncomment the line
+    * Restart the sshd service.
+* A connection attempt could have failed if there is no proper response after a period of time, or established connection failed because connected host has failed to respond.
+* It may be a Connectivity/network/domain related issue. It could also be due to DNS name resolving issue or TCP port exhaustion issue. Please check if there are any such known issues in your domain.
 
-## Error 95103 - Protection could not be enabled (EP0854)
+## File and Printer sharing services check (ErrorID: 95105 & 95106)
 
-**Error code** | **Possible causes** | **Error-specific recommendations**
---- | --- | ---
-95103 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0854**. <br> Either Windows Management Instrumentation (WMI) isn't allowed on the source machine or there are network connectivity problems between the process server and the source machine.| WMI is blocked in Windows Firewall. | Allow WMI in Windows Firewall. Under **Windows Firewall** > **Allow an app or feature through Firewall**, select **WMI for all profiles**. </br> In addition, check the following [prerequisites](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to successfully finish the push installation.|
+After connectivity check, verify if File and printer sharing service is enabled on your virtual machine.
 
-## Error 95213 - Protection could not be enabled (EP0874)
+For **windows 2008 R2 and prior versions**,
 
-**Error code** | **Possible causes** | **Error-specific recommendations**
---- | --- | ---
-95213 </br>**Message:** Installation of Mobility Service to the source machine %SourceIP; failed with error code **EP0874**. <br> | The operating system version on the source machine isn't supported. <br>| Ensure that the source machine OS version is supported. Read the [support matrix](https://aka.ms/asr-os-support). </br> In addition, check the following [prerequisites](https://aka.ms/pushinstallerror) to successfully finish the push installation.| 
+* To enable file and print sharing through Windows Firewall,
+  * Open control panel -> System and Security -> Windows Firewall -> on left pane, click Advanced settings -> click Inbound Rules in console tree.
+  * Locate rules File and Printer Sharing (NB-Session-In) and File and Printer Sharing (SMB-In). For each rule, right-click the rule, and then click **Enable Rule**.
+* To enable file sharing with Group Policy,
+  * Go to Start, type gpmc.msc and search.
+  * In the navigation pane, open the following folders: Local Computer Policy, User Configuration, Administrative Templates, Windows Components, and Network Sharing.
+  * In the details pane, double-click **Prevent users from sharing files within their profile**. To disable the Group Policy setting, and enable the user's ability to share files, click Disabled. Click OK to save your changes. To learn more, click [here](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
+For **later versions**, follow the instructions provided [here](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to enable file and printer sharing
 
-## Error 95108 - Protection could not be enabled (EP0859)
+## Windows Management Instrumentation (WMI) configuration check
 
-**Error code** | **Possible causes** | **Error-specific recommendations**
---- | --- | ---
-95108 </br>**Message:** Push installation of Mobility Service to the source machine failed with error code **EP0859**. <br>| Either the credentials provided to install Mobility Service are incorrect or the user account has insufficient privileges. <br>| Ensure that the credentials provided are the **root** account's credentials. To add or edit user credentials, go to the configuration server and select the **Cspsconfigtool** shortcut icon on the desktop. Select **Manage account** to add or edit credentials.|
+After file and printer services check, enable WMI service through firewall.
 
-## Error 95265 - Protection could not be enabled (EP0902)
+* In the Control Panel, click Security and then click Windows Firewall.
+* Click Change Settings and then click the Exceptions tab.
+* In the Exceptions window, select the check box for Windows Management Instrumentation (WMI) to enable WMI traffic through the firewall. 
 
-**Error code** | **Possible causes** | **Error-specific recommendations**
---- | --- | ---
-95265 </br>**Message:** Push installation of Mobility Service to the source machine succeeded but the source machine requires a restart for some system changes to take effect. <br>| An older version of Mobility Service was already installed on the server.| Replication of the virtual machine continues seamlessly.<br> Reboot the server during your next maintenance window to get benefits of the new enhancements in Mobility Service.|
+You can also enable WMI traffic through the firewall at the command prompt. Use the following command
+    `netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes`
+Other WMI troubleshooting articles could be found at the following articles.
 
-
-## Error 95224 - Protection could not be enabled (EP0883)
-
-**Error code** | **Possible causes** | **Error-specific recommendations**
---- | --- | ---
-95224 </br>**Message:** Push installation of Mobility Service to the source machine %SourceIP; failed with error code **EP0883**. A system restart from a previous installation or update is pending.| The system wasn't restarted when uninstalling an older or incompatible version of Mobility Service.| Ensure that no version of Mobility Service exists on the server. <br> Reboot the server, and rerun the enable protection job.|
-
-## Resource to troubleshoot push installation problems
-
-#### Troubleshoot file and print sharing issues
-* [Enable or disable file sharing with Group Policy](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
-* [Enable file and print sharing through Windows Firewall](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
-
-#### Troubleshoot WMI issues
 * [Basic WMI testing](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
 * [WMI troubleshooting](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
 * [Troubleshooting problems with WMI scripts and WMI services](https://technet.microsoft.com/library/ff406382.aspx#H22)
+
+## Unsupported Operating Systems
+
+Another most common reason for failure could be due to unsupported operating system. Ensure you are on the supported Operating System/Kernel version for successful installation of Mobility service.
+
+To learn about which operating systems are supported by Azure Site Recovery, refer to our [support matrix document](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## Next steps
 

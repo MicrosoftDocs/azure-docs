@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Collect data in a hybrid environment with Log Analytics agent
@@ -46,15 +46,30 @@ The following versions of the Windows operating system are officially supported 
 * Windows 7 SP1 and later.
 
 ## Supported Linux operating systems
-The following Linux distributions are officially supported.  However, the Linux agent might also run on other distributions not listed.  Unless otherwise noted, all minor releases are supported for each major version listed.  
+This section provides details about the supported Linux distributions.    
 
-* Amazon Linux 2012.09 to 2015.09 (x86/x64)
-* CentOS Linux 5, 6, and 7 (x86/x64)  
-* Oracle Linux 5, 6, and 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
-* Debian GNU/Linux 6, 7, and 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+Starting with versions released after August 2018, we are making the following changes to our support model:  
+
+* Only the server versions are supported, not client.  
+* New versions of [Azure Linux Endorsed distros](../virtual-machines/linux/endorsed-distros.md) are always supported.  
+* All minor releases are supported for each major version listed.
+* Versions that have passed their manufacturer's end-of-support date are not supported.  
+* New versions of AMI are not supported.  
+* Only versions that run SSL 1.x by default are supported.
+
+If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
+
+* Amazon Linux 2017.09 (x64)
+* CentOS Linux 6 (x86/x64) and 7 (x64)  
+* Oracle Linux 6 and 7 (x86/x64) 
+* Red Hat Enterprise Linux Server 6 (x86/x64) and 7 (x64)
+* Debian GNU/Linux 8 and 9 (x86/x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64), and 18.04 LTS (x64)
+* SUSE Linux Enterprise Server 12 (x64)
+
+>[!NOTE]
+>OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
+>
 
 ## TLS 1.2 protocol
 To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 

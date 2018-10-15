@@ -6,12 +6,10 @@ author: vhorne
 
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 7/19/2018
+ms.date: 09/24/2018
 ms.author: victorh
 ---
 
-# Azure Firewall FAQ (Preview)
-
-[!INCLUDE [Azure Firewall Preview](../../includes/firewall-preview-notice.md)]
+# Azure Firewall FAQ
 
 [!INCLUDE [Azure Firewall FAQ](../../includes/firewall-faq-include.md)]

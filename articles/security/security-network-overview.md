@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 09/19/2018
 ms.author: terrylan
+#Customer intent: As an IT Pro or decision maker I am looking for information on the network security controls available in Azure.
 
 ---
 # Azure network security overview
 
-Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the internet and Azure.
+Network security could be defined as the process of protecting resources from unauthorized access or attack by applying controls to network traffic. The goal is to ensure that only legitimate traffic is allowed. Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the internet and Azure.
 
 This article covers some of the options that Azure offers in the area of network security. You can learn about:
 
@@ -54,6 +55,9 @@ Azure supports several types of network access control, such as:
 
 Any secure deployment requires some measure of network access control. The goal of network access control is to restrict virtual machine communication to the necessary systems. Other communication attempts are blocked.
 
+>[!NOTE]
+Storage Firewalls are covered in the [Azure storage security overview](security-storage-overview.md) article
+
 #### Network security rules (NSGs)
 
 If you need basic network level access control (based on IP address and the TCP or UDP protocols), you can use Network Security Groups (NSGs). An NSG is a basic, stateful, packet filtering firewall, and it enables you to control access based on a [5-tuple](https://www.techopedia.com/definition/28190/5-tuple). NSGs include functionality to simplify management and reduce the chances of configuration mistakes:
@@ -70,7 +74,11 @@ Learn more:
 
 #### ASC just in time VM access
 
-[Azure security center](../security-center/security-center-just-in-time.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate role-based access control [RBAC](../role-based-access-control/overview.md) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
+[Azure security center](../security-center/security-center-intro.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate role-based access control [RBAC](../role-based-access-control/overview.md) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
+
+Learn more:
+
+* [Azure Security Center Just in T](../security-center/security-center-just-in-time.md)
 
 #### Service endpoints
 
@@ -319,7 +327,6 @@ You can also use [Microsoft Power BI](https://powerbi.microsoft.com/what-is-powe
 Learn more:
 
 * [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## Azure DDoS protection
 

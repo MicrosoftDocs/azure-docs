@@ -22,7 +22,7 @@ ms.author: deguhath
 In this tutorial, you walk through the process of building and deploying a machine learning model using SQL Server and a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows a standard data science workflow: ingest and explore the data, engineer features to facilitate learning, then build and deploy a model.
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
-The NYC Taxi Trip data is about 20GB of compressed CSV files (~48GB uncompressed), comprising more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and drop-off location and time, anonymized hack (driver's) license number and medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
+The NYC Taxi Trip data is about 20GB of compressed CSV files (~48GB uncompressed), comprising more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff location and time, anonymized hack (driver's) license number and medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
 1. The 'trip_data' CSV contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
    
@@ -66,7 +66,7 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 
 To set up your Azure Data Science environment:
 
-1. [Create a storage account](../../storage/common/storage-create-storage-account.md)
+1. [Create a storage account](../../storage/common/storage-quickstart-create-account.md)
 2. [Create an Azure Machine Learning workspace](../studio/create-workspace.md)
 3. [Provision a Data Science Virtual Machine](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), which provides a SQL Server and an IPython Notebook server.
    
@@ -216,7 +216,7 @@ This example computes the distribution of tip ranges in a given time period (or 
     GROUP BY tip_class
 
 #### Exploration: Compute and Compare Trip Distance
-This example converts the pickup and drop-off longitude and latitude to SQL geography points, computes the trip distance using SQL geography points difference, and returns a random sample of the results for comparison. The example limits the results to valid coordinates only using the data quality assessment query covered earlier.
+This example converts the pickup and dropoff longitude and latitude to SQL geography points, computes the trip distance using SQL geography points difference, and returns a random sample of the results for comparison. The example limits the results to valid coordinates only using the data quality assessment query covered earlier.
 
     SELECT
     pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
@@ -581,7 +581,7 @@ In this exercise, we have already explored and engineered the data in SQL Server
 2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
 3. Enter the database DNS name in the **Database server name** field. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Enter the **Database name** in the corresponding field.
-5. Enter the **SQL user name** in the **Server user aqccount name, and the password in the **Server user account password**.
+5. Enter the **SQL user name** in the **Server user account name**, and the **password** in the **Server user account password**.
 7. In the **Database query** edit text area, paste the query which extracts the necessary database fields (including any computed fields such as the labels) and down samples the data to the desired sample size.
 
 An example of a binary classification experiment reading data directly from the SQL Server database is in the figure below. Similar experiments can be constructed for multiclass classification and regression problems.

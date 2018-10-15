@@ -14,6 +14,8 @@ ms.author: chliang
 
 # Use the Anomaly Finder API with Javascript
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 This article provides information and code samples to help you quickly get started using the Anomaly Detection API with Javascript to accomplish the task of getting anomaly detection result of time series data.
 
 ## Prerequisites
@@ -27,6 +29,7 @@ This article provides information and code samples to help you quickly get start
 ### Example of time series data
 
 The example of the time series data points is as follows:
+
 [!INCLUDE [Request](../includes/request.md)]
 
 ### Analyze data and get anomaly points Javascript example

@@ -94,7 +94,7 @@ To get the information, follow these steps:
     1. Select the application.
     2. Get the **Client ID** from the window on the right. 
 
-    ![API access](./media/connect-with-rest/existing-client-id.png).
+    ![API access](./media/connect-with-rest/existing-client-id.png)
 
 7.  Get the application's **Key** (client secret). 
 

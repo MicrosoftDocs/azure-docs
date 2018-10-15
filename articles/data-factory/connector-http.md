@@ -1,5 +1,5 @@
 ---
-title: Copy data from HTTP source using Azure Data Factory | Microsoft Docs
+title: Copy data from an HTTP source by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from a cloud or on-premises HTTP source to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,58 +12,59 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 08/24/2018
 ms.author: jingwang
 
 ---
-# Copy data from HTTP endpoint using Azure Data Factory
+# Copy data from an HTTP endpoint by using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-http-connector.md)
 > * [Current version](connector-http.md)
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 ## Supported capabilities
 
-You can copy data from HTTP source to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from an HTTP source to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Specifically, this HTTP connector supports:
+You can use this HTTP connector to:
 
-- Retrieving data from HTTP/s endpoint by using HTTP **GET** or **POST** method.
-- Retrieving data using the following authentications: **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**.
-- Copying the HTTP response as-is or parsing it with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- Retrieve data from an HTTP/S endpoint by using the HTTP **GET** or **POST** methods.
+- Retrieve data by using one of the following authentications: **Anonymous**, **Basic**, **Digest**, **Windows**, or **ClientCertificate**.
+- Copy the HTTP response as-is or parse it by using [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
-The difference between this connector and the [Web table connector](connector-web-table.md) is that the latter is used to extract table content from web HTML page.
+The difference between this connector and the [Web table connector](connector-web-table.md) is that the Web table connector extracts table content from an HTML webpage.
 
->[!TIP]
->To test HTTP request for data retrieving before configuring HTTP connector in ADF, you can learn from the API spec on header and body requirements, and use tools like Postman or web browser to validate.
+> [!TIP]
+> To test an HTTP request for data retrieval before you configure the HTTP connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
 
-## Getting started
+## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to HTTP connector.
+The following sections provide details about properties you can use to define Data Factory entities that are specific to the HTTP connector.
 
 ## Linked service properties
 
-The following properties are supported for HTTP linked service:
+The following properties are supported for the HTTP linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to: **HttpServer**. | Yes |
-| url | Base URL to the Web Server | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when connecting to HTTP endpoint. When your HTTPS server is using self-signed certificate, set this to false. | No, default is true |
-| authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
+| type | The **type** property must be set to **HttpServer**. | Yes |
+| url | The base URL to the web server. | Yes |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect to an HTTP endpoint. If your HTTPS server uses a self-signed certificate, set this property to **false**. | No<br /> (the default is **true**) |
+| authenticationType | Specifies the authentication type. Allowed values are **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. <br><br> See the sections that follow this table for more properties and JSON samples for these authentication types. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted Integration Runtime (if your data store is located in a private network). If not specified, this property uses the default Azure Integration Runtime. |No |
 
 ### Using Basic, Digest, or Windows authentication
 
-Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and specify the following properties along with generic properties described in the previous section:
+Set the **authenticationType** property to **Basic**, **Digest**, or **Windows**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| userName | User name to access the HTTP endpoint. | Yes |
-| password | Password for the user (userName). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| userName | The user name to use to access the HTTP endpoint. | Yes |
+| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example**
 
@@ -75,7 +76,7 @@ Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and 
         "typeProperties": {
             "authenticationType": "Basic",
             "url" : "<HTTP endpoint>",
-            "userName": "<username>",
+            "userName": "<user name>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"
@@ -91,22 +92,22 @@ Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and 
 
 ### Using ClientCertificate authentication
 
-To use ClientCertificate authentication, set "authenticationType" property to **ClientCertificate**, and specify the following properties along with the generic properties described in the previous section:
+To use ClientCertificate authentication, set the **authenticationType** property to **ClientCertificate**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| embeddedCertData | Base64 encoded certificate data. | Specify either the `embeddedCertData` or `certThumbprint`. |
-| certThumbprint | The thumbprint of the certificate that is installed on your Self-hosted Integration Runtime machine's cert store. Applies only when Self-hosted type of Integration Runtime is specified in connectVia. | Specify either the `embeddedCertData` or `certThumbprint`. |
-| password | Password associated with the certificate. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| embeddedCertData | Base64-encoded certificate data. | Specify either **embeddedCertData** or **certThumbprint**. |
+| certThumbprint | The thumbprint of the certificate that's installed on your self-hosted Integration Runtime machine's cert store. Applies only when the self-hosted type of Integration Runtime is specified in the **connectVia** property. | Specify either **embeddedCertData** or **certThumbprint**. |
+| password | The password that's associated with the certificate. Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
-If you use "certThumbprint" for authentication and the certificate is installed in the personal store of the local computer, you need to grant the read permission to the Self-hosted Integration Runtime:
+If you use **certThumbprint** for authentication and the certificate is installed in the personal store of the local computer, grant read permissions to the self-hosted Integration Runtime:
 
-1. Launch Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets the **Local Computer**.
-2. Expand **Certificates**, **Personal**, and click **Certificates**.
-3. Right-click the certificate from the personal store, and select **All Tasks** -> **Manage Private Keys...**
-3. On the **Security** tab, add the user account under which Integration Runtime Host Service (DIAHostService) is running with the read access to the certificate.
+1. Open the Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets **Local Computer**.
+2. Expand **Certificates** > **Personal**, and then select **Certificates**.
+3. Right-click the certificate from the personal store, and then select **All Tasks** > **Manage Private Keys**.
+3. On the **Security** tab, add the user account under which the Integration Runtime Host Service (DIAHostService) is running, with read access to the certificate.
 
-**Example 1: using certThumbprint**
+**Example 1: Using certThumbprint**
 
 ```json
 {
@@ -126,7 +127,7 @@ If you use "certThumbprint" for authentication and the certificate is installed 
 }
 ```
 
-**Example 2: using embeddedCertData**
+**Example 2: Using embeddedCertData**
 
 ```json
 {
@@ -136,7 +137,7 @@ If you use "certThumbprint" for authentication and the certificate is installed 
         "typeProperties": {
             "authenticationType": "ClientCertificate",
             "url": "<HTTP endpoint>",
-            "embeddedCertData": "<base64 encoded cert data>",
+            "embeddedCertData": "<Base64-encoded cert data>",
             "password": {
                 "type": "SecureString",
                 "value": "password of cert"
@@ -152,21 +153,26 @@ If you use "certThumbprint" for authentication and the certificate is installed 
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by HTTP dataset.
+This section provides a list of properties that the HTTP dataset supports. 
 
-To copy data from HTTP, set the type property of the dataset to **HttpFile**. The following properties are supported:
+For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). 
+
+To copy data from HTTP, set the **type** property of the dataset to **HttpFile**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **HttpFile** | Yes |
-| relativeUrl | A relative URL to the resource that contains the data. When this property is not specified, only the URL specified in the linked service definition is used. | No |
-| requestMethod | Http method.<br/>Allowed values are **Get** (default) or **Post**. | No |
+| type | The **type** property of the dataset must be set to **HttpFile**. | Yes |
+| relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. | No |
+| requestMethod | The HTTP method. Allowed values are **Get** (default) and **Post**. | No |
 | additionalHeaders | Additional HTTP request headers. | No |
-| requestBody | Body for HTTP request. | No |
-| format | If you want to **retrieve data from HTTP endpoint as-is** without parsing it and copy to a file-based store, skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse the HTTP response content during copy, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Json Format](supported-file-formats-and-compression-codecs.md#json-format), [Text Format](supported-file-formats-and-compression-codecs.md#text-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No |
-| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
+| requestBody | The body for the HTTP request. | No |
+| format | If you want to retrieve data from the HTTP endpoint as-is without parsing it, and then copy the data to a file-based store, skip the **format** section in both the input and output dataset definitions.<br/><br/>If you want to parse the HTTP response content during copy, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Under **format**, set the **type** property to one of these values. For more information, see [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Text format](supported-file-formats-and-compression-codecs.md#text-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format). |No |
+| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Supported types: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels:  **Optimal** and **Fastest**. |No |
 
-**Example 1: using Get method (default)**
+> [!NOTE]
+> The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
+
+**Example 1: Using the Get method (default)**
 
 ```json
 {
@@ -185,7 +191,7 @@ To copy data from HTTP, set the type property of the dataset to **HttpFile**. Th
 }
 ```
 
-**Example 2: using Post method**
+**Example 2: Using the Post method**
 
 ```json
 {
@@ -205,20 +211,22 @@ To copy data from HTTP, set the type property of the dataset to **HttpFile**. Th
 }
 ```
 
-## Copy activity properties
+## Copy Activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by HTTP source.
+This section provides a list of properties that the HTTP source supports.
+
+For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md). 
 
 ### HTTP as source
 
-To copy data from HTTP, set the source type in the copy activity to **HttpSource**. The following properties are supported in the copy activity **source** section:
+To copy data from HTTP, set **source type** in the copy activity to **HttpSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **HttpSource** | Yes |
-| httpRequestTimeout | The timeout (TimeSpan) for the HTTP request to get a response. It is the timeout to get a response, not the timeout to read response data.<br/> Default value is: 00:01:40  | No |
+| type | The **type** property of the copy activity source must be set to **HttpSource**. | Yes |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**.  | No |
 
-**Example:**
+**Example**
 
 ```json
 "activities":[
@@ -252,4 +260,5 @@ To copy data from HTTP, set the source type in the copy activity to **HttpSource
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+
+For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

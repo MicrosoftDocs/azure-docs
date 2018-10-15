@@ -9,22 +9,28 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Blob storage events - Azure CLI
-    href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-  - name: Blob storage events - PowerShell
-    href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
-  - name: Blob storage events - Portal
-    href: blob-event-quickstart-portal.md
-  - name: Custom events - Azure CLI
-    href: custom-event-quickstart.md
-  - name: Custom events - PowerShell
-    href: custom-event-quickstart-powershell.md
-  - name: Custom events - portal
-    href: custom-event-quickstart-portal.md
-  - name: Send events to Queue storage
+  - name: Storage events
+    items:
+    - name: Azure CLI
+      href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: PowerShell
+      href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Portal
+      href: blob-event-quickstart-portal.md
+  - name: Custom events
+    items:
+    - name: Azure CLI
+      href: custom-event-quickstart.md
+    - name: PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: Portal
+      href: custom-event-quickstart-portal.md
+  - name: Queue storage as event handler
     href: custom-event-to-queue-storage.md
-  - name: Send events to Event Hubs
+  - name: Event Hubs as event handler
     href: custom-event-to-eventhub.md
+  - name: Container Registry events
+    href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutorials
   items:
   - name: Email when VM changes
@@ -103,6 +109,8 @@
     href: monitor-event-delivery.md
   - name: Query event subscriptions
     href: query-event-subscriptions.md
+  - name: Subscribe through portal
+    href: subscribe-through-portal.md
   - name: Map custom fields to schema
     href: input-mappings.md
   - name: Use CloudEvents schema
@@ -146,6 +154,8 @@
     href: sdk-overview.md
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-event-grid
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

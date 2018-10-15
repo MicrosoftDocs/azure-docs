@@ -6,33 +6,62 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Hybrid identity
+        tocHref: /azure/active-directory/hybrid/
+        topicHref: /azure/active-directory/hybrid/    
+      - name: Fundamentals
+        tocHref: /azure/active-directory/fundamentals/
+        topicHref: /azure/active-directory/fundamentals/
+      - name: Identity protection
+        tocHref: /azure/active-directory/identity-protection/
+        topicHref: /azure/active-directory/identity-protection/
+      - name: Devices
+        tocHref: /azure/active-directory/devices/
+        topicHref: /azure/active-directory/devices/
+      - name: Conditional access
+        tocHref: /azure/active-directory/conditional-access/
+        topicHref: /azure/active-directory/conditional-access/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
-      - name: Connect
-        tocHref: /azure/active-directory/connect/
-        topicHref: /azure/active-directory/connect/
-      - name: Connect Health
-        tocHref: /azure/active-directory/connect-health/
-        topicHref: /azure/active-directory/connect-health/
       - name: Develop
         tocHref: /azure/active-directory/develop/
         topicHref: /azure/active-directory/develop/
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
-      - name: Managed Service Identity
-        tocHref: /azure/active-directory/managed-service-identity/
-        topicHref: /azure/active-directory/managed-service-identity/
-      - name: User Help
+      - name: Managed identities for Azure resources
+        tocHref: /azure/active-directory/managed-identities-azure-resources/
+        topicHref: /azure/active-directory/managed-identities-azure-resources/
+      - name: User help
         tocHref: /azure/active-directory/user-help/
         topicHref: /azure/active-directory/user-help/         
+      - name: B2B
+        tocHref: /azure/active-directory/b2b/
+        topicHref: /azure/active-directory/b2b/
       - name: B2C
         tocHref: /azure/active-directory-b2c/
         topicHref: /azure/active-directory-b2c/
-      - name: Domain Services
+      - name: Domain services
         tocHref: /azure/active-directory-domain-services/
         topicHref: /azure/active-directory-domain-services/
+      - name: Users, groups, and roles
+        tocHref: /azure/active-directory/users-groups-roles/
+        topicHref: /azure/active-directory/users-groups-roles/
+      - name: Identity governance
+        tocHref: /azure/active-directory/governance/
+        topicHref: /azure/active-directory/governance/
+      - name: Application management
+        tocHref: /azure/active-directory/manage-apps/
+        topicHref: /azure/active-directory/manage-apps/
+        items:
+        - name: SaaS application tutorials
+          tocHref: /azure/active-directory/saas-apps/
+          topicHref: /azure/active-directory/saas-apps/tutorial-list
+      - name: Reports and monitoring
+        tocHref: /azure/active-directory/reports-monitoring/
+        topicHref: /azure/active-directory/reports-monitoring/
+        
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -68,15 +97,27 @@
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
-  - name: Application Insights
-    tocHref: /azure/application-insights/
-    topicHref: /azure/application-insights/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
+  - name: Azure Data Explorer
+    tocHref: /azure/data-explorer/
+    topicHref: /azure/data-explorer/
+  - name: Azure Monitor
+    tocHref: /azure/application-insights/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/log-analytics/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/monitoring/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/monitoring-and-diagnostics/
+    topicHref: /azure/azure-monitor/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -98,12 +139,15 @@
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
-  - name: Azure portal
+  - name: Azure portal customization
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
+  - name: SignalR Service
+    tocHref: /azure/azure-signalr/
+    topicHref: /azure/azure-signalr/
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
@@ -228,7 +272,7 @@
     - name: Speech API
       tocHref: /azure/cognitive-services/Speech/
       topicHref: /azure/cognitive-services/Speech/home
-    - name: Speech Service (preview)
+    - name: Speech Service
       tocHref: /azure/cognitive-services/Speech-Service/
       topicHref: /azure/cognitive-services/Speech-Service/
     - name: Text Analytics
@@ -249,6 +293,9 @@
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
       topicHref: /azure/cognitive-services/project-personality-chat/overview    
+    - name: Project Acoustics
+      tocHref: /azure/cognitive-services/acoustics/
+      topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -271,6 +318,16 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: Data Box family
+    tocHref: /azure/databox-family/
+    topicHref: /azure/databox-family/
+    items:
+    - name: Data Box offline transfer
+      tocHref: /azure/databox/
+      topicHref: /azure/databox/
+    - name: Data Box online transfer
+      tocHref: /azure/databox-online/
+      topicHref: /azure/databox-online/ 
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -301,6 +358,25 @@
   - name: Firewall
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Front Door Service
+    tocHref: /azure/frontdoor/
+    topicHref: /azure/frontdoor/
+  - name: Governance
+    tocHref: /azure/governance/
+    topicHref: /azure/governance/
+    items:
+      - name: Blueprints
+        tocHref: /azure/governance/blueprints/
+        topicHref: /azure/governance/blueprints/
+      - name: Management Groups
+        tocHref: /azure/governance/management-groups/
+        topicHref: /azure/governance/management-groups/
+      - name: Policy
+        tocHref: /azure/governance/policy/
+        topicHref: /azure/governance/policy/
+      - name: Resource Graph
+        tocHref: /azure/governance/resource-graph/
+        topicHref: /azure/governance/resource-graph/
   - name: Guidance
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/
@@ -369,9 +445,6 @@
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
-  - name: Log Analytics
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/log-analytics/
   - name: Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
@@ -379,7 +452,7 @@
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
     items:
-      - name: Services (preview)
+      - name: Service
         tocHref: /azure/machine-learning/service
         topicHref: /azure/machine-learning/service/
       - name: Studio
@@ -413,9 +486,6 @@
   - name: Mobile Services
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
-  - name: Monitoring And Diagnostics
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/monitoring-and-diagnostics/
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/
@@ -438,31 +508,6 @@
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
-  - name: Policy documentation
-    tocHref: /azure/azure-policy/
-    topicHref: /azure/azure-policy/
-    items:
-      - name: Overview of Azure Policy
-        tocHref: /azure/azure-policy/azure-policy-introduction/
-        topicHref: /azureazure-policy/azure-policy-introduction/
-      - name: Assign a policy - Portal
-        tocHref: /azure/azure-policy/assign-policy-definition/
-        topicHref: /azureazure-policy/assign-policy-definition/
-      - name: Assign a policy - PowerShell
-        tocHref: /azure/azure-policy/assign-policy-definition-ps/
-        topicHref: /azureazure-policy/assign-policy-definition-ps/
-      - name: Assign a policy - Azure CLI
-        tocHref: /azure/azure-policy/assign-policy-definition-cli/
-        topicHref: /azureazure-policy/assign-policy-definition-cli/
-      - name: Create and manage Azure Policy
-        tocHref: /azure/azure-policy/create-manage-polic/
-        topicHref: /azureazure-policy/create-manage-polic/
-      - name: Policy templates
-        tocHref: /azure/azure-policy/json-samples/
-        topicHref: /azureazure-policy/json-samples/
-      - name: Azure Policy definition structure
-        tocHref: /azure/azure-policy/policy-definition/
-        topicHref: /azureazure-policy/policy-definition/
   - name: PostgreSQL
     tocHref: /azure/postgresql/
     topicHref: /azure/postgresql/

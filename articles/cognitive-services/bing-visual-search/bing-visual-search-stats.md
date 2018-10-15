@@ -1,14 +1,14 @@
 ---
-title: Bing analytics for Bing Web Search APIs | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Describes how to get analytics for Bing Visual Searach API. 
+title: Bing analytics - Bing Visual Search
+titleSuffix: Azure Cognitive Services
+description: Describes how to get analytics for Bing Visual Search API. 
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-visual-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: scottwhi
 ---

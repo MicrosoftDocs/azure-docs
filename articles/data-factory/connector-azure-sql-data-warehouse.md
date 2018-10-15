@@ -29,7 +29,7 @@ You can copy data from Azure SQL Data Warehouse to any supported sink data store
 
 Specifically, this Azure SQL Data Warehouse connector supports these functions:
 
-- Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or Managed Service Identity (MSI).
+- Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure.
 - As a sink, load data by using PolyBase or a bulk insert. We recommend PolyBase for better copy performance.
 
@@ -66,7 +66,10 @@ For different authentication types, refer to the following sections on prerequis
 
 - [SQL authentication](#sql-authentication)
 - Azure AD application token authentication: [Service principal](#service-principal-authentication)
-- Azure AD application token authentication: [Managed Service Identity](#managed-service-identity-authentication)
+- Azure AD application token authentication: [Managed identities for Azure resources](#managed-identity)
+
+>[!TIP]
+>If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
 
 ### SQL authentication
 
@@ -145,9 +148,9 @@ To use service principal-based Azure AD application token authentication, follow
 }
 ```
 
-### Managed Service Identity authentication
+### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
-A data factory can be associated with a [Managed Service Identity](data-factory-service-identity.md) that represents the specific factory. You can use this service identity for Azure SQL Data Warehouse authentication. The designated factory can access and copy data from or to your data warehouse by using this identity.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific factory. You can use this service identity for Azure SQL Data Warehouse authentication. The designated factory can access and copy data from or to your data warehouse by using this identity.
 
 > [!IMPORTANT]
 > Note that PolyBase isn't currently supported for MSI authentication.
@@ -156,9 +159,9 @@ To use MSI-based Azure AD application token authentication, follow these steps:
 
 1. **Create a group in Azure AD.** Make the factory MSI a member of the group.
 
-    a. Find the data factory service identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
+    1. Find the data factory service identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
 
-    b. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the data factory MSI as a member.
+    1. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the data factory MSI as a member.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
@@ -393,14 +396,15 @@ SQL Data Warehouse PolyBase directly supports Azure Blob and Azure Data Lake Sto
 
 If the requirements aren't met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1. The **Source linked service** type is **AzureStorage** or **AzureDataLakeStore** with service principal authentication.
-1. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
+1. The **Source linked service** type is Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) with account key authentication or Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) with service principal authentication.
+2. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
 
-   1. `rowDelimiter` must be **\n**.
-   1. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is not set to false.
-   1. `encodingName` is set to **utf-8**, which is the default value.
-   1. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
-   1. `compression` can be **no compression**, **GZip**, or **Deflate**.
+   1. `fileName` doesn't contain wildcard filter.
+   2. `rowDelimiter` must be **\n**.
+   3. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is not set to false.
+   4. `encodingName` is set to **utf-8**, which is the default value.
+   5. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
+   6. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 	```json
 	"typeProperties": {

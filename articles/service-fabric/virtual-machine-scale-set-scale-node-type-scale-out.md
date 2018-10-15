@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/21/2018
+ms.date: 08/21/2018
 ms.author: ryanwi
 
 ---
@@ -21,6 +21,8 @@ ms.author: ryanwi
 This article describes how to scale an Azure Service Fabric cluster by adding a new virtual machine scale set to an existing cluster. A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes), upgrade the operating system of the node type VMs, or add a new virtual machine scale set to an existing cluster.  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
 
 > [!WARNING]
+> Do not start to change the primary nodetype VM SKU, if the cluster health is unhealthy. If the cluster health is unhealthy, you will only destabilize the cluster further, if you try to change the VM SKU.
+>
 > We recommend that you do not change the VM SKU of a scale set/node type unless it is running at [Silver durability or greater](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. This means your primary node type, which is running stateful service fabric system services, or any node type that is running your stateful application work loads.
 >
 
@@ -28,7 +30,7 @@ This article describes how to scale an Azure Service Fabric cluster by adding a 
 Here is the process for updating the VM size and operating system of the primary node type VMs.  After the upgrade, the primary node type VMs are size Standard D4_V2 and running Windows Server 2016 Datacenter with Containers.
 
 > [!WARNING]
-> Before attempting this procedure on a production cluster, we recommend that you study the sample templates and verify the process against a test cluster. The cluster is also unavailable for a time.
+> Before attempting this procedure on a production cluster, we recommend that you study the sample templates and verify the process against a test cluster. The cluster is also unavailable for a time. You can NOT make changes to multiple VMSS declared as the same NodeType in parrallel; you will need to perform seperated deployment operations to apply changes to each NodeType VMSS individually.
 
 1. Deploy the initial cluster with two node types and two scale sets (one scale set per node type) using these sample [template](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) and [parameters](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) files.  Both scale sets are size Standard D2_V2 and running Windows Server 2012 R2 Datacenter.  Wait for the cluster to complete the baseline upgrade.   
 2. Optional- deploy a stateful sample to the cluster.

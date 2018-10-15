@@ -65,24 +65,28 @@
       href: azure-to-azure-architecture.md
     - name: Azure to Azure support matrix
       href: azure-to-azure-support-matrix.md
+    - name: Accelerated networking for Azure VM disaster recovery
+      href: azure-vm-disaster-recovery-with-accelerated-networking.md
+    - name: ExpressRoute with Azure VM disaster recovery
+      href: azure-vm-disaster-recovery-with-expressroute.md
   - name: VMware VMs and physical servers
     items:
     - name: Replication to Azure
       items:
       - name: Common questions for VMware to Azure replication
         href: vmware-azure-common-questions.md
-      - name: VMware/physical to Azure support matrix
+      - name: Support matrix
         href: vmware-physical-azure-support-matrix.md
       - name: VMware to Azure architecture
         href: vmware-azure-architecture.md
       - name: Physical to Azure architecture
         href: physical-azure-architecture.md
-      - name: Multi-tenant support for VMware replication to Azure
-        href: vmware-azure-multi-tenant-overview.md
-      - name: About the Mobility service
-        href: vmware-azure-install-mobility-service.md
-      - name: Failback location options
+      - name: About disaster recovery
+        href: vmware-azure-about-disaster-recovery.md
+      - name: About failback location options
         href: concepts-types-of-failback.md
+      - name: About multi-tenant support for VMware
+        href: vmware-azure-multi-tenant-overview.md
     - name: Replication to a secondary site
       items:
       - name: VMware/physical to secondary site support matrix
@@ -93,6 +97,8 @@
     items:
     - name: Replication to Azure
       items:
+      - name: Common questions for Hyper-V to Azure replication
+        href: hyper-v-azure-common-questions.md
       - name: Hyper-V to Azure support matrix
         href: hyper-v-azure-support-matrix.md
       - name: Hyper-V to Azure architecture
@@ -111,6 +117,8 @@
       href: concepts-expressroute-with-site-recovery.md
     - name: Network Security Groups with Site Recovery
       href: concepts-network-security-group-with-site-recovery.md
+    - name: Public IP Address with Site Recovery
+      href: concepts-public-ip-address-with-site-recovery.md
   - name: Disaster recovery for apps
     href: site-recovery-workload.md
   - name: About recovery plans
@@ -133,7 +141,7 @@
         href: azure-to-azure-network-mapping.md
       - name: Set up IP addressing for failover
         href: site-recovery-retain-ip-azure-vm-failover.md
-      - name: ExpressRoute with Azure VM disaster recovery
+      - name: Integrate ExpressRoute with Azure VM disaster recovery
         href: azure-vm-disaster-recovery-with-expressroute.md
     - name: Disaster recovery
       items:
@@ -145,6 +153,8 @@
       items:
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
+      - name: Enable Azure to Azure replication for encrypted VMs
+        href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Reprotect from an Azure secondary region to primary
         href: azure-to-azure-how-to-reprotect.md
     - name: Troubleshooting
@@ -185,26 +195,28 @@
       items:
       - name: Replicate VMware virtual machines to Azure using PowerShell
         href: vmware-azure-disaster-recovery-powershell.md
-      - name: Disaster recovery of physical servers to Azure
-        href: physical-azure-disaster-recovery.md
       - name: Set up the source environment for VMware VMs
         href: vmware-azure-set-up-source.md
-      - name: Set up the source environment for physical servers
-        href: physical-azure-set-up-source.md
       - name: Deploy the configuration server for VMware replication
         href: vmware-azure-deploy-configuration-server.md
       - name: Set up the target environment for VMware VMs
         href: vmware-azure-set-up-target.md
-      - name: Set up the target environment for physical servers
-        href: physical-azure-set-up-target.md
-      - name: Configure replication settings
+      - name: Configure replication settings for VMware VMs
         href: vmware-azure-set-up-replication.md
-      - name: Exclude disks from replication
-        href: vmware-azure-exclude-disk.md
-      - name: Enable VMware VM replication
+      - name: Enable replication for VMware VMs
         href: vmware-azure-enable-replication.md
-      - name: Multi-tenancy with CSP for VMWare VMs
+      - name: Exclude disks from VMware VM replication
+        href: vmware-azure-exclude-disk.md
+      - name: Set up replication with multi-tenancy and CSP for VMWare VMs
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
+      - name: Set up disaster recovery of physical servers to Azure
+        href: physical-azure-disaster-recovery.md
+      - name: Set up the source environment for physical server replication
+        href: physical-azure-set-up-source.md
+      - name: Set up the target environment for physical server replication
+        href: vmware-azure-set-up-target.md
+      - name: Set up disaster recovery for Azure Stack VMs
+        href: azure-stack-site-recovery.md
     - name: Deploy the Mobility service
       items:
       - name: Mobility service overview
@@ -213,24 +225,24 @@
         href: vmware-azure-mobility-install-configuration-mgr.md
     - name: Failover and failback
       items:
-      - name: Run a disaster recovery drill to Azure
-        href: site-recovery-test-failover-to-azure.md
       - name: Set up recovery plans
         href: site-recovery-create-recovery-plans.md
       - name: Add Azure runbooks to recovery plans
         href: site-recovery-runbook-automation.md
+      - name: Run a disaster recovery drill to Azure
+        href: site-recovery-test-failover-to-azure.md
+      - name: Run a failover to Azure
+        href: site-recovery-failover.md
+      - name: Reprotect from Azure to on-premises VMware
+        href: vmware-azure-reprotect.md
+      - name: Fail back from Azure to VMware
+        href: vmware-azure-failback.md
       - name: Set up and manage a failback process server in Azure
         href: vmware-azure-set-up-process-server-azure.md
       - name: Set up a Linux master target server for failback
         href: vmware-azure-install-linux-master-target.md
-      - name: Run a failover to Azure
-        href: site-recovery-failover.md
       - name: Run a failover and failback for physical servers
         href: physical-to-azure-failover-failback.md
-      - name: Fail back from Azure to VMware
-        href: vmware-azure-failback.md
-      - name: Reprotect from Azure to on-premises VMware
-        href: vmware-azure-reprotect.md
     - name: Manage
       items:
       - name: Manage the configuration server for VMware replication
@@ -251,7 +263,7 @@
         href: site-recovery-monitor-and-troubleshoot.md
       - name: Troubleshoot VMware to Azure replication
         href: vmware-azure-troubleshoot-replication.md
-      - name: Troubleshoot the Mobility service in VMware and physical server replication
+      - name: Troubleshoot mobility service/push installation in VMware and physical server replication
         href: vmware-azure-troubleshoot-push-install.md
       - name: Troubleshoot failover to Azure
         href: site-recovery-failover-to-azure-troubleshoot.md

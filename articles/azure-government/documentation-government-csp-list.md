@@ -31,7 +31,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Atmosera, Inc.](https://www.atmosera.com)|
 |[Atos IT Solutions and Services](https://atos.net)|
 |[Avolve Software Corp.](https://www.avolvesoftware.com)|
-|[Avtex Solutions](https://www.avtex.com)|
+|[Avtex Solutions](http://www.avtex.com)|
 |[Bio Automation Support](http://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](http://www.blackwoodassociates.com/)|
 |[Blue Source Group, Inc.](http://www.blackwoodassociates.com/)|
@@ -154,7 +154,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[SHI International Corp](https://www.shi.com)|
 |[Simons Advisors, LLC](http://simonsadvisors.com/)|
 |[Sirius Computer Solutions, Inc.](http://www.siriuscom.com/)|
-|[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
+|[SKY SOLUTIONS LLC](http://www.skysolutions.com/|
 |[Smartronix](https://www.smartronix.com)|
 |[Socius 1 LLC](https://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|

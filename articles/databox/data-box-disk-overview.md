@@ -2,18 +2,12 @@
 title: Microsoft Azure Data Box Disk overview | Microsoft Docs in data 
 description: Describes Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -102,12 +96,14 @@ During the preview, Data Box Disk can transfer data to the following Azure regio
 
 |Azure region  |Azure region  |
 |---------|---------|
-|West Central US     |North Central US         |        
-|West US2     | East US          |     
-|West US     | East US2           |      
-|South Central US   | West Europe       |         
-|Central US     | North Europe |
-
+|West Central US     |Canada Central       |        
+|West US2     |Canada East         |     
+|West US     | West Europe        |      
+|South Central US   |North Europe     |         
+|Central US     |Australia East|
+|North Central US  |Australia Southeast   |
+|East US      |Australia Central |
+|East US2     |Australia Central 2|
 
 
 ## Pricing

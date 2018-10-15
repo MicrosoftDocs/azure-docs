@@ -1,9 +1,9 @@
-﻿---
+---
 title: Create a site-to-site VPN connection between two virtual networks in different Azure Stack Development Kit environments | Microsoft Docs
 description: Step-by-step procedure that a cloud administrator uses to create a site-to-site VPN connection between two single-node Azure Stack Development Kit environments.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
 
@@ -97,10 +97,7 @@ you sign in.
 
 ### Create the virtual network and VM subnet
 1. Use a tenant account to sign in to the user portal.
-2. In the user portal, select **New**.
-
-    ![Create new virtual network](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
-
+2. In the user portal, select **+ Create a resource**.
 3. Go to **Marketplace**, and then select **Networking**.
 4. Select **Virtual network**.
 5. For **Name**, **Address space**, **Subnet name**, and **Subnet address range**, use the values that appear earlier in the network configuration table.
@@ -125,7 +122,7 @@ you sign in.
 6. Select **OK** to create the gateway subnet.
 
 ### Create the virtual network gateway
-1. In the Azure portal, select **New**. 
+1. In the Azure portal, select **+ Create a resource**. 
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of
    network resources, select **Virtual network gateway**.
@@ -150,7 +147,7 @@ A way to think about this more generically is that the local network gateway res
 
 ### Create the local network gateway resource
 1. Sign in to the Azure Stack physical machine for POC1.
-2. In the user portal, select **New**.
+2. In the user portal, select **+ Create a resource**.
 3. Go to **Marketplace**, and then select **Networking**.
 4. From the list of resources, select **local network gateway**.
 5. In **Name**, enter **POC2-GW**.
@@ -160,7 +157,7 @@ A way to think about this more generically is that the local network gateway res
    **location** are correct, and then select **Create**.
 
 ### Create the connection
-1. In the user portal, select **New**.
+1. In the user portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of resources, select **Connection**.
 4. On the **Basics** settings blade, for the **Connection type**, select **Site-to-site (IPSec)**.
@@ -177,7 +174,7 @@ To validate the data that travels through the VPN connection, you
 need the virtual machines to send and receive data in each Azure Stack Development Kit. Create a virtual machine in
 POC1 now, and then in your virtual network, put it on your VM subnet.
 
-1. In the Azure portal, select **New**.
+1. In the Azure portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Compute**.
 3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
 4. On the **Basics** blade, in **Name**, enter **VM01**.
@@ -208,7 +205,7 @@ you sign in.
 ### Create the virtual network and VM subnet
 
 1. Sign in by using a tenant account.
-2. In the user portal, select **New**.
+2. In the user portal, select **+ Create a resource**.
 3. Go to **Marketplace**, and then select **Networking**.
 4. Select **Virtual network**.
 5. Use the information appearing earlier in the network configuration table to identify the values for the POC2 **Name**, **Address space**, **Subnet name**, and **Subnet address range**.
@@ -230,7 +227,7 @@ you sign in.
 6. Select **OK** to create the gateway subnet.
 
 ### Create the virtual network gateway
-1. In the Azure portal, select **New**.  
+1. In the Azure portal, select **+ Create a resource**.  
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of network resources, select **Virtual network gateway**.
 4. In **Name**, enter **GW2**.
@@ -245,7 +242,7 @@ you sign in.
 
 ### Create the local network gateway resource
 
-1. In the POC2 user portal, select **New**. 
+1. In the POC2 user portal, select **+ Create a resource**. 
 4. Go to **Marketplace**, and then select **Networking**.
 5. From the list of resources, select **Local network gateway**.
 6. In **Name**, enter **POC1-GW**.
@@ -255,7 +252,7 @@ you sign in.
 9. Verify that your **Subscription**, **Resource Group**, and **Location** are correct, and then select **Create**.
 
 ## Create the connection
-1. In the user portal, select **New**. 
+1. In the user portal, select **+ Create a resource**. 
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of resources, select **Connection**.
 4. On the **Basic** settings blade, for the **Connection type**, choose **Site-to-site (IPSec)**.
@@ -271,7 +268,7 @@ you sign in.
 Create a virtual machine in POC2 now, and put it on your VM subnet in your virtual
 network.
 
-1. In the Azure portal, select **New**.
+1. In the Azure portal, select **+ Create a resource**.
 2. Go to **Marketplace**, and then select **Compute**.
 3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
 4. On the **Basics** blade, for **Name**, enter **VM02**.

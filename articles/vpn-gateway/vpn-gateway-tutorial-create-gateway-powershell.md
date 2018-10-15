@@ -142,7 +142,7 @@ For more information, see [Reset a VPN gateway](vpn-gateway-resetgw-classic.md).
 
 ## Get the gateway public IP address
 
-If you know the name of the public IP address, use [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Reset-AzureRmPublicIpAddress) to show the public IP address assigned to the gateway.
+If you know the name of the public IP address, use [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-6.8.1) to show the public IP address assigned to the gateway.
 
 ```azurepowershell-interactive
 $myGwIp = Get-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1

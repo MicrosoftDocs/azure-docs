@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -21,26 +21,19 @@ To use a Google account as an identity provider in Azure Active Directory (Azure
 
 1. Sign in to the [Google Developers Console](https://console.developers.google.com/) with your Google account credentials.
 2. Select **Create project**, and then click **Create**. If you have created projects before, select the project list, and then select **New Project**.
-3. Enter a **Project name**, and then click **Create**.
+3. Enter a **Project Name**, click **Create**, and then make sure you are using the new project.
 3. Select **Credentials** in the left menu, and then select **Create credentials** > **Oauth client ID**.
 4. Select **Configure consent screen**.
-5. Select or specify a valid **Email address**, provide a **Product name shown to users**, and click **Save**.
+5. Select or specify a valid **Email address**, provide a **Product name shown to users**, add `b2clogin.com` to **Authorized domains**, and click **Save**.
 6. Under **Application type**, select **Web application**.
-7. Enter a **Name** for your application, enter `https://login.microsoftonline.com` in **Authorized JavaScript origins**, and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Authorized redirect URIs**. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
+7. Enter a **Name** for your application, enter `https://your-tenant-name.b2clogin.com` in **Authorized JavaScript origins**, and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Authorized redirect URIs**. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
 8. Click **Create**.
 9. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google as an identity provider in your tenant. **Client secret** is an important security credential.
 
 ## Configure a Google account as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by switching to it in the top-right corner of the Azure portal. Select your subscription information, and then select **Switch Directory**. 
-
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
-    Choose the directory that contains your tenant.
-
-    ![Select directory](./media/active-directory-b2c-setup-fb-app/select-directory.png)
-
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **Identity providers**, and then select **Add**.
 5. Enter a **Name**. For example, enter *Google*.

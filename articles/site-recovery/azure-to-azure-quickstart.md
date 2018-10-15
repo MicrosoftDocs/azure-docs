@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running, during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 
-This quickstart describes how to replicate an Azure VM to a different Azure region. 
+This quickstart describes how to replicate an Azure VM to a different Azure region.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -57,8 +57,7 @@ VM also stops.
 Stop replication as follows:
 
 1. Select the VM.
-2. In **Disaster recovery**, click **More**.
-3. Click **Disable Replication**.
+2. In **Disaster recovery**, click **Disable Replication**.
 
    ![Disable replication](media/azure-to-azure-quickstart/disable2-replication.png)
 

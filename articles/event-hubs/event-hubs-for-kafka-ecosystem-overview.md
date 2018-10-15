@@ -3,13 +3,13 @@ title: Azure Event Hubs for Apache Kafka | Microsoft Docs
 description: Overview and introduction to Kafka enabled Azure Event Hubs
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
+author: basilhariri
 manager: timlt
 
 ms.service: event-hubs
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: shvija
+ms.date: 08/16/2018
+ms.author: bahariri
 
 ---
 # Azure Event Hubs for Apache Kafka (preview)
@@ -66,6 +66,7 @@ This article provided an introduction to Event Hubs for Kafka. To learn more, se
 
 * [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md)
 * [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Explore more samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 * Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 

@@ -44,5 +44,5 @@ After you have set the signature algorithm with one of the two processes below, 
    <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ## Also read
-* [Repair Office 365 trust with Azure AD Connect](connect/active-directory-aadconnect-federation-management.md#repairthetrust)
+* [Repair Office 365 trust with Azure AD Connect](hybrid/how-to-connect-fed-management.md#repairthetrust)
 

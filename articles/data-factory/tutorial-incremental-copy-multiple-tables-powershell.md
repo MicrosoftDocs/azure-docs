@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ---
@@ -600,7 +600,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     							"referenceName": "SinkDataset",
     							"type": "DatasetReference",
     							"parameters": {
-    								"SinkTableName": "@{item().TABLE_NAME}"
+    								"SinkTableName": "@{item().TableType}"
     							}
     						}]
     					},

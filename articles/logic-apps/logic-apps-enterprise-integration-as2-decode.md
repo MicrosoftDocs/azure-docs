@@ -1,23 +1,18 @@
 ---
 title: Decode AS2 messages - Azure Logic Apps | Microsoft Docs
-description: How to use the AS2 decoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Decode AS messages with Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-
 ---
-# Decode AS2 messages for Azure Logic Apps with the Enterprise Integration Pack 
+
+# Decode AS2 messages with Azure Logic Apps and Enterprise Integration Pack 
 
 To establish security and reliability while transmitting messages, use the Decode AS2 message connector. 
 This connector provides digital signing, decryption, and acknowledgements through Message Disposition Notifications (MDN).

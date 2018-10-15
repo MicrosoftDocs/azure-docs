@@ -28,7 +28,7 @@ AppSource has list and trial offers, with the call to action "Contact Me" or "Tr
 
 ### Office 365
 
-Review the [publishing process and guidelines](https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)
+Review the [publishing process and guidelines](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)
 
 ### Power Apps
 
@@ -36,15 +36,15 @@ Learn about how customers can [test drive your app on AppSource.](https://powera
 
 ### Power BI
 
-Review the [publishing process and guidelines.](https://docs.microsoft.com/en-us/power-bi/developer/office-store)
+Review the [publishing process and guidelines.](https://docs.microsoft.com/power-bi/developer/office-store)
 
 ### Dynamics 365
 
 #### Dynamics 365 for Finance and Operations
-When building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+When building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 ### Dynamics 365 for Customer Engagement
-Review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource)
+Review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource)
 
 ## Next Steps
 

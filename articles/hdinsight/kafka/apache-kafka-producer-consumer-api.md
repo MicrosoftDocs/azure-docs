@@ -4,7 +4,7 @@ description: Learn how to use the Apache Kafka Producer and Consumer APIs with K
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial

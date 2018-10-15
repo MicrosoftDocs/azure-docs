@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2018
+ms.date: 10/15/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -27,27 +27,37 @@ If you are a [Global Administrator](../active-directory/users-groups-roles/direc
 - See all Azure subscriptions in an organization
 - Allow an automation app (such as an invoicing or auditing app) to access all Azure subscriptions
 
-By default, Azure AD administrator roles and Azure role-based access control (RBAC) roles do not span Azure AD and Azure. However, if you are a Global Administrator in Azure AD, you can elevate your access to manage Azure subscriptions and management groups. When you elevate your access, you will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables you to grant other users access to Azure resources at the root scope (`/`).
-
-This elevation should be temporary and only done when needed.
+This article describes the different ways that you can elevate your access in Azure AD.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## Elevate access for a Global Administrator using the Azure portal
+## Overview
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com).
+Azure AD and Azure resources are secured independently from one another. That is, Azure AD role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Azure AD. However, if you are a Global Administrator in Azure AD, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
+
+When you elevate your access, you will be assigned the [User Access Administrator](built-in-roles.md#user-access-administrator) role in Azure at root scope (`/`). This allows you to view all resources and assign access in any subscription or management group in the directory. User Access Administrator role assignments can be removed using PowerShell.
+
+You should remove this elevated access once you have made the changes you need to make at root scope.
+
+![Elevate access](./media/elevate-access-global-admin/elevate-access.png)
+
+## Azure portal
+
+Follow these steps to elevate access for a Global Administrator using the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com) as a Global Administrator.
 
 1. In the navigation list, click **Azure Active Directory** and then click **Properties**.
 
    ![Azure AD Properties - screenshot](./media/elevate-access-global-admin/aad-properties.png)
 
-1. Under **Global admin can manage Azure Subscriptions and Management Groups**, set the switch to **Yes**.
+1. Under **Access management for Azure resources**, set the switch to **Yes**.
 
-   ![Global admin can manage Azure Subscriptions and Management Groups - screenshot](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
+   ![Access management for Azure resources - screenshot](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   When you set the switch to **Yes**, your Global Administrator account (currently logged in user) is added to the User Access Administrator role in Azure RBAC at the root scope (`/`), which grants you access to view and report on all Azure subscriptions associated with your Azure AD tenant.
+   When you set the switch to **Yes**, you are assigned the User Access Administrator role in Azure RBAC at the root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Azure AD directory. This switch is only available to users who are assigned the Global Administrator role in Azure AD.
 
-   When you set the switch to **No**, your Global Administrator account (currently logged in user) is removed from the User Access Administrator role in Azure RBAC. You can't see all Azure subscriptions that are associated with the Azure AD tenant, and you can view and manage only the Azure subscriptions to which you have been granted access.
+   When you set the switch to **No**, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Azure AD directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
 
 1. Click **Save** to save your setting.
 
@@ -55,7 +65,9 @@ This elevation should be temporary and only done when needed.
 
 1. Perform the tasks you need to make at the elevated access. When you are done, set the switch back to **No**.
 
-## List role assignment at the root scope (/) using PowerShell
+## Azure PowerShell
+
+### List role assignment at the root scope (/)
 
 To list the User Access Administrator role assignment for a user at the root scope (`/`), use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command.
 
@@ -75,7 +87,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## Remove a role assignment at the root scope (/) using PowerShell
+### Remove a role assignment at the root scope (/)
 
 To remove a User Access Administrator role assignment for a user at the root scope (`/`), use the [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command.
 
@@ -84,7 +96,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## Elevate access for a Global Administrator using the REST API
+## REST API
+
+### Elevate access for a Global Administrator
 
 Use the following basic steps to elevate access for a Global Administrator using the REST API.
 
@@ -113,7 +127,7 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 1. Remove your User Access Administrator privileges until they're needed again.
 
-## List role assignments at the root scope (/) using the REST API
+### List role assignments at the root scope (/)
 
 You can list all of the role assignments for a user at the root scope (`/`).
 
@@ -123,7 +137,17 @@ You can list all of the role assignments for a user at the root scope (`/`).
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## Remove elevated access using the REST API
+### List deny assignments at the root scope (/)
+
+You can list all of the deny assignments for a user at the root scope (`/`).
+
+- Call GET denyAssignments where `{objectIdOfUser}` is the object ID of the user whose deny assignments you want to retrieve.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   ```
+
+### Remove elevated access
 
 When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to remove the assignment.
 
@@ -170,17 +194,17 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
     Save the ID from the `name` parameter, in this case `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-2. You also need to list the role assignment for tenant administrator at tenant scope. List all assignments at tenant scope for the `principalId` of the tenant administrator who made the elevate access call. This will list all assignments in the tenant for the objectid.
+2. You also need to list the role assignment for the directory administrator at directory scope. List all assignments at directory scope for the `principalId` of the directory administrator who made the elevate access call. This will list all assignments in the directory for the objectid.
 
 	```http
 	GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
 	```
 	
 	>[!NOTE] 
-	>A tenant administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at tenant scope level, then filter the results: 
+	>A directory administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at directory scope level, then filter the results: 
 	> `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
 		
-	2. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the tenant administrator. 
+	2. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the directory administrator. 
 	
 	Sample role assignment:
 
@@ -216,6 +240,5 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ## Next steps
 
+- [Understand the different roles](rbac-and-directory-admin-roles.md)
 - [Role-based access control with REST](role-assignments-rest.md)
-- [Manage access to Azure resources with Privileged Identity Management](pim-azure-resource.md)
-- [Manage access to Azure management with conditional access](conditional-access-azure-management.md)

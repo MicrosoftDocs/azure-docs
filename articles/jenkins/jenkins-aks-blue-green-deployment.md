@@ -1,20 +1,13 @@
 ---
 title: Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
 description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern.
-services: app-service\web
-documentationcenter: ''
+ms.service: jenkins
+keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
 author: tomarcher
-manager: jpconnock
-editor: ''
-ms.assetid: 
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 07/23/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.custom: jenkins
+ms.topic: tutorial
+ms.date: 10/11/2018
 ---
 
 # Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
@@ -84,9 +77,6 @@ In this section, you perform the following steps:
 - Use the Azure CLI 2.0 to create a managed Kubernetes cluster.
 - Learn how to set up a cluster, either by using the setup script or manually.
 - Create an instance of the Azure Container Registry service.
-
-> [!NOTE]	
-> AKS is currently in preview. For information on enabling the preview for your Azure subscription, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
 
 ### Use the Azure CLI 2.0 to create a managed Kubernetes cluster
 In order to create a managed Kubernetes cluster with the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ensure that you are using the Azure CLI version 2.0.25 or later.

@@ -3,7 +3,7 @@ title: Create Azure Service Bus namespace topic subscription using Azure Resourc
 description: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,15 +13,15 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
-ms.author: sethm
+ms.date: 09/11/2018
+ms.author: spelluru
 
 ---
 # Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
 
 This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a topic and subscription within that namespace. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
-For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
+For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
 For the complete template, see the [Service Bus namespace with topic and subscription][Service Bus namespace with topic and subscription] template.
 
@@ -37,7 +37,7 @@ For the complete template, see the [Service Bus namespace with topic and subscri
 > 
 > 
 
-## What will you deploy?
+## What do you deploy?
 
 With this template, you deploy a Service Bus namespace with topic and subscription.
 
@@ -49,9 +49,9 @@ To run the deployment automatically, click the following button:
 
 ## Parameters
 
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that always stay the same. Each parameter value is used in the template to define the resources that are deployed.
+With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. Define a parameter for those values that vary based on the project you're deploying or based on the environment you're deploying to. Do not define parameters for values that always stay the same. Each parameter value is used in the template to define the resources that are deployed.
 
-The template defines the following parameters.
+The template defines the following parameters:
 
 ### serviceBusNamespaceName
 The name of the Service Bus namespace to create.

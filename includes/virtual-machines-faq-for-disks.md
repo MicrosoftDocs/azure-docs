@@ -62,7 +62,7 @@ No. The VMs in an availability set must use either all managed disks or all unma
 
 **Is Managed Disks the default option in the Azure portal?**
 
-Yes. 
+Yes.
 
 **Can I create an empty managed disk?**
 
@@ -96,8 +96,7 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
-
-**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (256 GB)?**
+**If I create a 128-GB disk and then increase the size to 130 GiB, will I be charged for the next disk size (256 GiB)?**
 
 Yes.
 
@@ -125,23 +124,27 @@ No. You can't update the computer name property. The new VM inherits it from the
 
 No.
 
-## Standard SSD disks (Preview)
+**When creating a disk from a blob, is there any continually existing relationship with that source blob?**
+
+No, when the new disk is created it is a full standalone copy of that blob at that time and there is no connection between the two. If you like, once you've created the disk, the source blob may be deleted without affecting the newly created disk in any way.
+
+**Can I rename a managed or unmanaged disk after it has been created?**
+
+For managed disks you cannot rename them. However, you may rename an unmanaged disk as long as it is not currently attached to a VHD or VM.
+
+## Standard SSD disks
 
 **What are Azure Standard SSD disks?**
-Standard SSD disks are standard disks backed by solid-state media, optimized as cost effective storage for workloads that need consistent performance at lower IOPS levels. In preview, they are available in a limited number of regions, with limited manageability (available through Resource Manager templates).
+Standard SSD disks are standard disks backed by solid-state media, optimized as cost effective storage for workloads that need consistent performance at lower IOPS levels.
 
-<a id="standard-ssds-azure-regions"></a>**What are the regions currently supported for Standard SSD disks (Preview)?**
-* North Europe
-* France Central
-* East US 2
-* Central US
-* Canada Central
-* East Asia
-* Korea South
-* Australia East
+<a id="standard-ssds-azure-regions"></a>**What are the regions currently supported for Standard SSD disks?**
+All Azure regions now support Standard SSD disks.
+
+**Is Azure Backup available when using Standard SSDs?**
+Yes, Azure Backup is now available.
 
 **How do I create Standard SSD disks?**
-Currently, you can create Standard SSD disks using Azure Resource Manager templates. Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
+You can create Standard SSD disks using Azure Resource Manager templates, SDK, PowerShell or CLI. Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
 
 * *apiVersion* for Microsoft.Compute must be set as `2018-04-01` (or later)
 * Specify *managedDisk.storageAccountType* as `StandardSSD_LRS`
@@ -166,17 +169,20 @@ For a complete template example of how to create a Standard SSD disk with a temp
 Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
     -AccountType StandardSSD_LRS
 
+**What is the benefit of using Standard SSD disks instead of HDD?**
+Standard SSD disks deliver better latency, consistency, availability and reliability compared to HDD disks. Application workloads run a lot more smoothly on Standard SSD because of that. Note, Premium SSD disks are the recommended solution for most IO-intensive production workloads. 
+
 **Can I use Standard SSDs as Unmanaged Disks?**
 No, Standard SSDs disks are only available as Managed Disks.
 
 **Do Standard SSD Disks support "single instance VM SLA"?**
 No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for single instance VM SLA.
 
-## Migrate to Managed Disks 
+## Migrate to Managed Disks
 
 **What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?**
 
-No changes are required. 
+No changes are required.
 
 **Will my VM backups created via Azure Backup service before the migration continue to work?**
 
@@ -184,15 +190,15 @@ Yes, backups work seamlessly.
 
 **What changes are required in a pre-existing Azure Disks Encryption configuration prior/after migration to Managed Disks?**
 
-No changes are required. 
+No changes are required.
 
 **Is automated migration of an existing virtual machine scale sets from unmanaged disks to Managed Disks supported?**
 
-No. You can create a new scale set with Managed Disks using the image from your old scale set with unmanaged disks. 
+No. You can create a new scale set with Managed Disks using the image from your old scale set with unmanaged disks.
 
 **Can I create a Managed Disk from a page blob snapshot taken before migrating to Managed Disks?**
 
-No. You can export a page blob snapshot as a page blob and then create a Managed Disk from the exported page blob. 
+No. You can export a page blob snapshot as a page blob and then create a Managed Disk from the exported page blob.
 
 **Can I fail over my on-premises machines protected by Azure Site Recovery to a VM with Managed Disks?**
 
@@ -206,7 +212,7 @@ Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Manag
 
 Yes
 
-## Managed Disks and Storage Service Encryption 
+## Managed Disks and Storage Service Encryption
 
 **Is Azure Storage Service Encryption enabled by default when I create a managed disk?**
 
@@ -267,7 +273,7 @@ There is a fixed cost for each disk size, which comes provisioned with specific 
 
 **What are the limits for IOPS and throughput that I can get from the disk cache?**
 
-The combined limits for cache and local SSD for a DS series are 4,000 IOPS per core and 33 MB per second per core. The GS series offers 5,000 IOPS per core and 50 MB per second per core.
+The combined limits for cache and local SSD for a DS series are 4,000 IOPS per core and 33 MiB per second per core. The GS series offers 5,000 IOPS per core and 50 MiB per second per core.
 
 **Is the local SSD supported for a Managed Disks VM?**
 
@@ -279,38 +285,60 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 ## New disk sizes: Managed and unmanaged
 
-**What is the largest disk size supported for operating system and data disks?**
+**What is the largest Managed disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TB. The largest size that Azure supports for an operating system disk is 2 TB. Azure supports up to 4 TB for data disks. 
+The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks. Managed Disk sizes larger than 4 TiB are in preview. For more information on them see our [blog post](http://aka.ms/azure-large-disk-32TB-preview-blog).
+
+**What is the largest Unmanaged Disk size supported for operating system and data disks?**
+
+The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system Unmanaged disk is 2 TiB. Azure supports up to 4 TiB for data Unmanaged disks.
 
 **What is the largest page blob size that's supported?**
 
-The largest page blob size that Azure supports is 8 TB (8,191 GB). The maximum page blog size when attached to a VM as data or operating system disks is 4 TB (4,095 GB).
+The largest page blob size that Azure supports is 8 TiB (8,191 GiB). The maximum page blog size when attached to a VM as data or operating system disks is 4 TiB (4,095 GiB).
 
-**Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TB?**
+**Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TiB?**
 
-You don't need to upgrade your existing Azure tools to create, attach, or resize disks larger than 1 TB. To upload your VHD file from on-premises directly to Azure as a page blob or unmanaged disk, you need to use the latest tool sets:
+You don't need to upgrade your existing Azure tools to create, attach, or resize disks larger than 1 TiB. To upload your VHD file from on-premises directly to Azure as a page blob or unmanaged disk, you need to use the latest tool sets listed below. We only support VHD uploads of up to 8 TiB.
 
 |Azure tools      | Supported versions                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Version number 4.1.0: June 2017 release or later|
 |Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
+|Azure CLI v2     | Version number 2.0.12: July 2017 release or later|
 |AzCopy	          | Version number 6.1.0: June 2017 release or later|
-
-The support for Azure CLI v2 and Azure Storage Explorer is coming soon. 
 
 **Are P4 and P6 disk sizes supported for unmanaged disks or page blobs?**
 
-No. P4 (32 GB) and P6 (64 GB) disk sizes are supported only for managed disks. Support for unmanaged disks and page blobs is coming soon.
+P4 (32 GiB) and P6 (64 GiB) disk sizes are not supported as the default disk tiers for unmanaged disks and page blobs. You need to explicitly [set the Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) to P4 and P6 to have your disk mapped to these tiers. If you deploy a unmanaged disk or page blob with the disk size or content length less than 32 GiB or between 32 GiB to 64 GiB without setting the Blob Tier, you will continue to land on P10 with 500 IOPS and 100 MiB/s and the mapped pricing tier.
 
-**If my existing premium managed disk less than 64 GB was created before the small disk was enabled (around June 15, 2017), how is it billed?**
+**If my existing premium managed disk less than 64 GiB was created before the small disk was enabled (around June 15, 2017), how is it billed?**
 
-Existing small premium disks less than 64 GB continue to be billed according to the P10 pricing tier. 
+Existing small premium disks less than 64 GiB continue to be billed according to the P10 pricing tier.
 
-**How can I switch the disk tier of small premium disks less than 64 GB from P10 to P4 or P6?**
+**How can I switch the disk tier of small premium disks less than 64 GiB from P10 to P4 or P6?**
 
-You can take a snapshot of your small disks and then create a disk to automatically switch the pricing tier to P4 or P6 based on the provisioned size. 
+You can take a snapshot of your small disks and then create a disk to automatically switch the pricing tier to P4 or P6 based on the provisioned size.
 
+**Can you resize existing Managed Disks from sizes less than 4 TiB to new newly introduced disk sizes up to 32 TiB?**
+
+New Managed Disk sizes 8 TiB, 16 TiB, and 32 TiB are currently in Preview. We don’t yet support resizing existing disk sizes to the new disk sizes.
+
+**What is the largest disk sizes supported by Azure Backup and Azure Site Recovery service?**
+
+The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB.
+
+**What are the recommended VM sizes for large disk sizes (>4TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
+
+To achieve the disk throughput of Standard SSD and Standard HDD large disk sizes (>4TB) beyond 500 IOPS and 60 MiB/s, you should use one of the following VM sizes to optimize your performance: B-series, DSv2-series, Dsv3-Series, ESv3-Series, Fs-series, Fsv2-series, M-series, GS-series, NCv2-series, NCv3-series, or Ls-Series VMs.
+
+**What regions are the managed disk sizes larger than 4 TiB supported in?**
+
+At this time in the preview, the managed disk sizes are supported in West US Central only.
+
+**Do we support enabling Host Caching on the newer disk sizes?**
+
+We support Host Caching of ReadOnly and Read/Write on disk sizes less than 4TiB. For disk sizes more than 4 TiB, we don’t support setting caching option other than None. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
 
 ## What if my question isn't answered here?
 

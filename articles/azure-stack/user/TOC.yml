@@ -21,20 +21,38 @@
     href: azure-stack-quick-create-vm-linux-cli.md
 - name: Tutorials
   items:
-  - name: Deploy apps to Azure and Azure Stack
-    href: azure-stack-solution-pipeline.md
-  - name: Configure hybrid cloud identity
-    href: azure-stack-solution-hybrid-identity.md
-  - name: Configure hybrid cloud connectivity
-    href: azure-stack-solution-hybrid-connectivity.md
-  - name: Subscribe to an offer
-    href: azure-stack-subscribe-services.md
-  - name: Create a VM from a template
-    href: azure-stack-create-vm-template.md
+    - name: Common tasks
+      items:
+      - name: Subscribe to an offer
+        href: azure-stack-subscribe-services.md
+      - name: Create a VM from a template
+        href: azure-stack-create-vm-template.md
+      - name: Create highly available SQL databases
+        href: azure-stack-tutorial-sql.md
+      - name: Create highly available MySQL databases
+        href: azure-stack-tutorial-mysql.md
+    - name: Hybrid cloud patterns
+      items:
+      - name: Deploy apps to Azure and Azure Stack
+        href: azure-stack-solution-pipeline.md
+      - name: Configure hybrid cloud identity
+        href: azure-stack-solution-hybrid-identity.md
+      - name: Configure hybrid cloud connectivity
+        href: azure-stack-solution-hybrid-connectivity.md
+      - name: Create an edge machine learning solution
+        href: azure-stack-solution-machine-learning.md
+      - name: Create a staged data analytics solution
+        href: azure-stack-solution-staged-data-analytics.md
+      - name: Create cross-cloud scaling solutions with Azure
+        href: azure-stack-solution-cloud-burst.md
+      - name: Create a geo-distributed app solution
+        href: azure-stack-solution-geo-distributed.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal
     href: azure-stack-use-portal.md
+  - name: Connect with PowerShell
+    href: azure-stack-powershell-configure-user.md
   - name: Use the Azure Stack API
     href: azure-stack-rest-api-use.md
   - name: Security & compliance
@@ -57,8 +75,12 @@
         href: azure-stack-vm-sizes.md
       - name: Manage VM disks
         href: azure-stack-manage-vm-disks.md
+      - name: Managed disks considerations
+        href: azure-stack-managed-disk-considerations.md
       - name: Protect VMs
         href: azure-stack-manage-vm-protect.md
+      - name: VM update and management
+        href: vm-update-management.md
       - name: SQL Server VM considerations
         href: azure-stack-sql-server-vm-considerations.md
     - name: Storage
@@ -97,12 +119,23 @@
         href: azure-stack-kv-push-secret-into-vm.md
       - name: KeyVault sample app
         href: azure-stack-kv-sample-app.md
+    - name: Azure Monitor
+      href: azure-stack-metrics-azure-data.md
+      items: 
+      - name: Supported metrics
+        href: azure-stack-metrics-supported.md
+      - name: Consume Azure monitoring data
+        href: azure-stack-metrics-monitor.md
     - name: Solution templates
       items:
       - name: Deploy a Service Fabric cluster
         href: azure-stack-solution-template-service-fabric-cluster.md
-      - name: Deploy a Kubernetes cluster
-        href: azure-stack-solution-template-kubernetes-deploy.md
+      - name: Add Kubernetes cluster
+        items:
+        - name: Deploy a Kubernetes cluster
+          href: azure-stack-solution-template-kubernetes-deploy.md
+        - name: Troubleshoot Kubernetes cluster
+          href: azure-stack-solution-template-kubernetes-trouble.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
@@ -112,18 +145,23 @@
       - name: Install Azure Stack PowerShell
         href: ../azure-stack-powershell-install.md
         maintainContext: true
-      - name: Download Azure Stack tools
-        href: azure-stack-powershell-download.md
-      - name: Configure PowerShell - User
+      - name: Configure PowerShell
         href: azure-stack-powershell-configure-user.md
+      - name: Download Azure Stack tools
+        href: ../azure-stack-powershell-download.md
+        maintainContext: true
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
       - name: Using API version profiles
         href: azure-stack-version-profiles.md
         items:
+        - name: .NET
+          href: azure-stack-version-profiles-net.md
+        - name: Java
+          href: azure-stack-version-profiles-java.md
         - name: PowerShell
           href: azure-stack-version-profiles-powershell.md
-        - name: Azure CLI 2.0
+        - name: Azure CLI
           href: azure-stack-version-profiles-azurecli2.md
         - name: GO
           href: azure-stack-version-profiles-go.md
@@ -154,7 +192,9 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+  - name: Azure Stack REST API Browser
+    href: /rest/api/
   - name: Azure Stack CLI
     href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: Related

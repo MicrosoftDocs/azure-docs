@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Perform cross-resource log searches in Log Analytics  
 
 Previously with Azure Log Analytics, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio.  This also made it a challenge to natively analyze operational and application data together.   
 
-Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.  You can only perform these types of queries in the [Advanced portal](log-analytics-log-search-portals.md#advanced-analytics-portal), not in the Azure portal. The number of resources (Log Analytics workspaces and Application Insights app) that you can include in a single query is limited to 100. 
+Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.  You can only perform these types of queries in [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). The number of resources (Log Analytics workspaces and Application Insights app) that you can include in a single query is limited to 100. 
 
 ## Querying across Log Analytics workspaces and from Application Insights
 To reference another workspace in your query, use the [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identifier, and for an app from Application Insights, use the [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) identifier.  
@@ -89,12 +89,13 @@ Identifying an application in Application Insights can be accomplished with the 
 You can query multiple resorces from any of your resource instances, these can be workspaces and apps combined.
     
 Example for query across two workspaces:    
-    ```
-    union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
-    | where TimeGenerated >= ago(1h)
-    | where UpdateState == "Needed"
-    | summarize dcount(Computer) by Classification
-    ```
+
+```
+union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+| where TimeGenerated >= ago(1h)
+| where UpdateState == "Needed"
+| summarize dcount(Computer) by Classification
+```
 
 ## Next steps
 

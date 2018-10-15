@@ -2,14 +2,16 @@
 title: Azure SQL Database dynamic data masking | Microsoft docs
 description: SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang:
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: ronitr
 ms.author: ronitr
-
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
 ---
 # SQL Database dynamic data masking
 
@@ -47,5 +49,5 @@ The DDM recommendations engine, flags certain fields from your database as poten
 See [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## Set up dynamic data masking for your database using REST API
-See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
+See [Operations for Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
 

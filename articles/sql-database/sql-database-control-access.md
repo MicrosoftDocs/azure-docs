@@ -2,22 +2,26 @@
 title: Granting access to Azure SQL Database and SQL Data Warehouse | Microsoft Docs
 description: Learn about granting access to Microsoft Azure SQL Database and SQL Data Warehouse.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 06/13/2018
-ms.author: carlrab
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 10/05/2018
 ---
 # Azure SQL Database and SQL Data Warehouse access control
+
 To provide security, Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) control access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. 
 
 > [!IMPORTANT]
 > For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md). For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md). For an overview of SQL Data Warehouse security features, see [SQL Data Warehouse security overview](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
 
 ## Firewall and firewall rules
+
 Microsoft Azure SQL Database provides a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database firewall rules](sql-database-firewall-configure.md)
 
 The Azure SQL Database service is only available through TCP port 1433. To access a SQL Database from your computer, ensure that your client computer firewall allows outgoing TCP communication on TCP port 1433. If not needed for other applications, block inbound connections on TCP port 1433. 
@@ -28,8 +32,12 @@ As part of the connection process, connections from Azure virtual machines are r
 
 SQL Database supports two types of authentication:
 
-* **SQL Authentication**, which uses a username and password. When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo." 
-* **Azure Active Directory Authentication**, which uses identities managed by Azure Active Directory and is supported for managed and integrated domains. Use Active Directory authentication (integrated security) [whenever possible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode). If you want to use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can. See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) for a walkthrough of how to create an Azure AD admin to enable Azure Active Directory Authentication.
+- **SQL Authentication**:
+
+  This authentication method uses a username and password. When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo." 
+- **Azure Active Directory Authentication**:
+
+  THis authentication method uses identities managed by Azure Active Directory and is supported for managed and integrated domains. Use Active Directory authentication (integrated security) [whenever possible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode). If you want to use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can. See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) for a walkthrough of how to create an Azure AD admin to enable Azure Active Directory Authentication.
 
 The Database Engine closes connections that remain idle for more than 30 minutes. The connection must login again before it can be used. Continuously active connections to SQL Database require reauthorization (performed by the database engine) at least every 10 hours. The database engine attempts reauthorization using the originally submitted password and no user input is required. For performance reasons, when a password is reset in SQL Database, the connection is not reauthenticated, even if the connection is reset due to connection pooling. This is different from the behavior of on-premises SQL Server. If the password has been changed since the connection was initially authorized, the connection must be terminated and a new connection made using the new password. A user with the `KILL DATABASE CONNECTION` permission can explicitly terminate a connection to SQL Database by using the [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql) command.
 
@@ -43,11 +51,12 @@ Authorization refers to what a user can do within an Azure SQL Database, and thi
 
 Typically, only administrators need access to the `master` database. Routine access to each user database should be through non-administrator contained database users created in each database. When you use contained database users, you do not need to create logins in the `master` database. For more information, see [Contained Database Users - Making Your Database Portable](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 
-You should familiarize yourself with the following features that can be used to limit or elevate permissions:   
-* [Impersonation](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/customizing-permissions-with-impersonation-in-sql-server) and [module-signing](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server) can be used to securely elevate permissions temporarily.
-* [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) can be used limit which rows a user can access.
-* [Data Masking](sql-database-dynamic-data-masking-get-started.md) can be used to limit exposure of sensitive data.
-* [Stored procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) can be used to limit the actions that can be taken on the database.
+You should familiarize yourself with the following features that can be used to limit or elevate permissions:
+
+- [Impersonation](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/customizing-permissions-with-impersonation-in-sql-server) and [module-signing](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server) can be used to securely elevate permissions temporarily.
+- [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) can be used limit which rows a user can access.
+- [Data Masking](sql-database-dynamic-data-masking-get-started.md) can be used to limit exposure of sensitive data.
+- [Stored procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) can be used to limit the actions that can be taken on the database.
 
 ## Next steps
 

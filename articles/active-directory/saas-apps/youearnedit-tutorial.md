@@ -136,7 +136,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![YouEarnedIt Configuration](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. To configure single sign-on on **YouEarnedIt** side, you need to send the downloaded **Certificate(Base64)** and **SAML Single Sign-On Service URL** to your assigned YouEarnedIt Customer Success manager. They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on the **YouEarnedIt** side, you need to send the downloaded ***Certificate(Base64)*** and ***SAML Single Sign-On Service URL*** to your assigned **YouEarnedIt** Customer Success manager. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
