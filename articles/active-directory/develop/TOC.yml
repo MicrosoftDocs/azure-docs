@@ -15,14 +15,18 @@
       items:
       - name: Register an app
         href: quickstart-v1-add-azure-ad-app.md
-      - name: Register an app (Preview)
-        href: quickstart-add-azure-ad-app-preview.md
       - name: Update an app
         href: quickstart-v1-update-azure-ad-app.md
-      - name: Update an app (Preview)
-        href: quickstart-update-azure-ad-app-preview.md
       - name: Remove an app
         href: quickstart-v1-remove-azure-ad-app.md
+      - name: Register an app (Preview)
+        href: quickstart-add-azure-ad-app-preview.md
+      - name: Configure app to access web APIs (Preview)
+        href: quickstart-configure-app-access-web-apis-preview.md
+      - name: Configure app to expose web APIs (Preview)
+        href: quickstart-configure-app-expose-web-apis-preview.md
+      - name: Modify accounts supported by an app (Preview)
+        href: quickstart-modify-supported-accounts-preview.md
       - name: Remove an app (Preview)
         href: quickstart-remove-azure-ad-app-preview.md
     - name: Single-page apps
@@ -229,14 +233,18 @@
       items:
       - name: Register an app
         href: quickstart-v2-register-an-app.md
-      - name: Register an app (Preview)
-        href: quickstart-add-azure-ad-app-preview.md
       - name: Update an app
         href: quickstart-v1-update-azure-ad-app.md
-      - name: Update an app (Preview)
-        href: quickstart-update-azure-ad-app-preview.md
       - name: Remove an app
         href: quickstart-v1-remove-azure-ad-app.md
+      - name: Register an app (Preview)
+        href: quickstart-add-azure-ad-app-preview.md
+      - name: Configure app to access web APIs (Preview)
+        href: quickstart-configure-app-access-web-apis-preview.md
+      - name: Configure app to expose web APIs (Preview)
+        href: quickstart-configure-app-expose-web-apis-preview.md
+      - name: Modify accounts supported by an app (Preview)
+        href: quickstart-modify-supported-accounts-preview.md
       - name: Remove an app (Preview)
         href: quickstart-remove-azure-ad-app-preview.md
     - name: Single-page apps

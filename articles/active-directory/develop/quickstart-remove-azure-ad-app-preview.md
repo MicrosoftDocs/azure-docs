@@ -1,6 +1,6 @@
 ---
-title: Remove an application registered with Microsoft identity platform | Azure
-description: Learn how to remove an application registered with Microsoft identity platform.
+title: Remove an application registered with the Microsoft identity platform | Azure
+description: Learn how to remove an application registered with the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,10 +17,10 @@ ms.date: 10/17/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-#Customer intent: As an application developer, I want to know how to remove my application from Azure Active Directory.
+#Customer intent: As an application developer, I want to know how to remove my application from the Microsoft identity registered.
 ---
 
-# Quickstart: Remove an application registered with Microsoft identity platform (Preview)
+# Quickstart: Remove an application registered with the Microsoft identity platform (Preview)
 
 Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with Microsoft identity platform may need to remove an application's registration.
 
@@ -31,7 +31,10 @@ In this quickstart, you'll learn how to:
 
 ## Prerequisites
 
-To get started, you'll need an account that has applications registered to it. To learn how to add and register apps, see [Register an application with Microsoft identity platform](quickstart-add-azure-ad-app-preview.md).
+To get started, make sure you complete these prerequisites:
+
+* Have a tenant that has applications registered to it. To learn how to add and register apps, see [Register an application with the Microsoft identity platform](quickstart-add-azure-ad-app-preview.md).
+* Opt-in to the Preview experience for app registrations in the Azure portal. The steps in this quickstart correspond to the new UI and only work if you opted-in to the Preview experience..
 
 ## Remove an application authored by you or your organization
 
@@ -58,5 +61,5 @@ In order to remove an application’s access to your directory (after having gra
 
 Learn about these other related app management quickstarts:
 
-- [Register an application with Microsoft identity platform](quickstart-add-azure-ad-app-preview.md)
-- [Update an application registered with Microsoft identity platform](quickstart-update-azure-ad-app-preview.md)
+- [Register an application with the Microsoft identity platform](quickstart-add-azure-ad-app-preview.md)
+- [Update an application registered with the Microsoft identity platform](quickstart-update-azure-ad-app-preview.md)

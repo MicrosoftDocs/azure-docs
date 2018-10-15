@@ -1,5 +1,5 @@
 ---
-title: Register an app registered with Microsoft identity platform (Preview) | Azure
+title: Register an app registered with the Microsoft identity platform (Preview) | Azure
 description: Learn how to add and register an application with the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.date: 10/17/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-#Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with Microsoft identity platform.
+#Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with the Microsoft identity platform.
 ---
 
-# Quickstart: Register an app with Microsoft identity platform (Preview)
+# Quickstart: Register an app with the Microsoft identity platform (Preview)
 
 Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform to provide secure sign-in and authorization for their services.
 
@@ -28,7 +28,7 @@ This quickstart shows you how to add and register an application in the Azure po
 
 ## Prerequisite
 
-To get started, make sure have an Azure AD tenant that you can use to register your apps to. If you don't already have a tenant, [learn how to get one](quickstart-create-new-tenant.md).
+To get started, you need to opt-in to the Preview experience for app registrations in the Azure portal. The steps in this quickstart correspond to the new UI and only work if you opted-in to the Preview experience.
 
 ## Register a new application using the Azure portal
 
@@ -42,7 +42,7 @@ To get started, make sure have an Azure AD tenant that you can use to register y
 
         | Supported account types | Description |
         |-------------------------|-------------|
-        | **Accounts in this organizational directory only** | Select this option if you are building a line-of-business (LOB) application. This option is not available if you are not registering the application in a directory.<br><br>This option maps to an Azure AD only single tenant.<br><br>This is the default option unless you are registering the app outside of a directory. In cases where the app is registered outside of a directory, the default is Azure AD multi-tenant and personal Microsoft accounts. |
+        | **Accounts in this organizational directory only** | Select this option if you are building a line-of-business (LOB) application. This option is not available if you are not registering the application in a directory.<br><br>This option maps to Azure AD only single-tenant.<br><br>This is the default option unless you are registering the app outside of a directory. In cases where the app is registered outside of a directory, the default is Azure AD multi-tenant and personal Microsoft accounts. |
         | **Accounts in any organizational directory** | Select this option if you would like to target all business and educational customers.<br><br>This option maps to an Azure AD only multi-tenant.<br><br>If you registered the app as Azure AD only single-tenant, you can update it to be Azure AD multi-tenant and back to single-tenant through the **Authentication** blade. |
         | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>This option maps to Azure AD multi-tenant and personal Microsoft accounts.<br><br>If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you cannot change this in the UI. Instead, you must use the application manifest editor to change the supported account types. |
 
