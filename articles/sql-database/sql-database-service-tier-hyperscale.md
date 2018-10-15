@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 10/10/2018
+ms.date: 10/15/2018
 ---
 
 # Hyperscale service tier (preview)
@@ -148,7 +148,7 @@ Hyperscale service tier is currently in public preview and available in followin
 | If a database file grows during migration due to an active workload and crosses the 1 TB per file boundary, the migration fails | Mitigations: <br> - If possible, migrate the database when there is no update workload running.<br> - Re-try the migration, it will succeed as long as the 1 TB boundary is not crossed during the migration.|
 | Managed Instance is not currently supported | Not currently supported |
 | Migration to Hyperscale is currently a one-way operation | Once a database is migrated to Hyperscale, it cannot be migrated directly to a non-Hyperscale service tier. At present, the only way to migrate a database from Hyperscale to non-Hyperscale is to export/import using a BACPAC file.|
-| Migration of databases with in-memory objects is not currently supported | The migration workflow checks for in-memory objects before starting the migration but missed to undeploy hekaton, that is drop memory optimized file groups that are not currently supported. This results in unavailability until migration is cancelled (rolled back) by dev ops.
+| Migration of databases with in-memory objects is not currently supported | In-Memory objects must be dropped and recreated as non-In-Memory objects before migrating a database to the Hyperscale service tier.
 
 ## Next steps
 
