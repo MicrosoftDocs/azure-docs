@@ -38,6 +38,9 @@ For your convenience, this tutorial is available as a [Jupyter notebook](https:/
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
+>[!NOTE]
+> This tutorial was tested with Azure Machine Learning SDK version 0.168 
+
 ## Set up your development environment
 
 All the setup for your development work can be accomplished in a Python notebook.  Setup includes:
@@ -285,7 +288,7 @@ y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
-run = Run.get_submitted_run()
+run = Run.get_context()
 
 print('Train a logistic regression model with regularizaion rate of', args.reg)
 clf = LogisticRegression(C=1.0/args.reg, random_state=42)
