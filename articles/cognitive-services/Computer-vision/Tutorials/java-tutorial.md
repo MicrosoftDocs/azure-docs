@@ -39,7 +39,7 @@ This tutorial has been developed using the NetBeans IDE. Specifically, the **Jav
 
 ### Subscribe to Computer Vision API and get a subscription key 
 
-Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial. 
+Before creating the example, you must subscribe to Computer Vision API which is part of the Azure Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial. 
 
 ## Acquire the incomplete tutorial project
 
