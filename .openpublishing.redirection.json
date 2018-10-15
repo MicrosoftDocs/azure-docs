@@ -6,6 +6,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
+            "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/frontdoor/front-door-rest-api.md",
             "redirect_url": "/rest/api/frontdoor",
             "redirect_document_id": true
@@ -12627,6 +12632,21 @@
         {
             "source_path": "articles/stream-analytics/stream-analytics-functions-redis.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-event-hub-consumer-groups.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-troubleshooting-guide.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-select-into.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-query",
             "redirect_document_id": false
         },
         {
