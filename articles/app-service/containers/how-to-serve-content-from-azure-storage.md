@@ -15,7 +15,7 @@ ms.author: msangapu
 
 This guide shows how to create and configure Azure Storage with a web app in Web App for Containers. This technique helps your web app offload content and serve only application logic, leaving the content to storage. You can easily [have all your content hosted in a custom storage account](https://blogs.msdn.microsoft.com/appserviceteam/2018/09/24/announcing-bring-your-own-storage-to-app-service/). 
 
-The benefits of moving content to Azure Storage include: more bandwidth to the web app, content portability, and multiple methods of transferring content. You'll complete this how-to locally with the [Azure CLI](/cli/azure/install-azure-cli) command-line tool (2.0.46 or later). <!-- You can also use the Cloud Shell, but will not be able to upload files from local disk. -->
+The benefits of moving content to Azure Storage include: more bandwidth to the web app, content portability, and multiple methods of transferring content. You'll complete this how-to locally with the [Azure CLI](/cli/azure/install-azure-cli) command-line tool (2.0.46 or later).
 
 ## Prerequisites
 
@@ -35,19 +35,24 @@ az storage blob upload-batch -d <local_directory_name> --account-name <account_n
 > Linking an existing directory in a web app to a storage account will delete the directory contents. Before you begin, make a backup of your app and its content.
 >
 
-To link a storage account to a directory within your web app, you use the [`az webapp config storage-account add`]() command.
+To link a storage account to a directory within your web app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/en-us/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command.
 
 1. Link storage to your app
 
-        az webapp config storage-account add --resource-group myResourceGroup --name <web_app_name> --custom-id wp-uploads --storage-type AzureBlob --share-name wp-uploads --account-name wp-uploads-account --access-key "<access_key>" --mount-path /home/site/wwwroot/uploads
+```azurecli
+az webapp config storage-account add --resource-group <resource_group> --name <web_app_name> --custom-id <custom_id> --storage-type AzureBlob --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
+```
 
 You should do this for any other directories you want to be linked to a storage account.
 
 ## Verify
 
-    az webapp conf storage-account list --resource-group <resource_group> --name <web_app_name>
+Once a storage container is linked to a web app, you can verify this by running the following:
 
+```azurecli
+    az webapp conf storage-account list --resource-group <resource_group> --name <web_app_name>
+```
 
 ## Next steps
 
-For more information, see the []().
+- [Configure web apps in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/web-sites-configure).
