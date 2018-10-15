@@ -27,7 +27,7 @@ Monitoring file space usage and shrinking data files may be necessary in the fol
 
 ### Monitoring file space usage
 Most storage space metrics displayed in the Azure portal and the following APIs only measure the amount of used data pages:
-- ARM based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
+- Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 However, the following APIs also measure the amount of space allocated for databases and elastic pools:
