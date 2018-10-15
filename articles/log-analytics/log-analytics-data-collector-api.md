@@ -97,7 +97,7 @@ The samples in the next sections have sample code to help you create an authoriz
 ## Request body
 The body of the message must be in JSON. It must include one or more records with the property name and value pairs in this format:
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -110,7 +110,7 @@ The body of the message must be in JSON. It must include one or more records wit
 
 You can batch multiple records together in a single request by using the following format. All the records must be the same record type.
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -214,7 +214,7 @@ For each sample, do these steps to set the variables for the authorization heade
 Alternatively, you can change the variables for the log type and JSON data.
 
 ### PowerShell sample
-```
+```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 
@@ -297,7 +297,7 @@ Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([Syst
 ```
 
 ### C# sample
-```
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;
@@ -383,7 +383,7 @@ namespace OIAPIExample
 ```
 
 ### Python 2 sample
-```
+```python
 import json
 import requests
 import datetime

@@ -44,12 +44,6 @@ If you don't have one, create it:
 *Questions already?* [More about creating a resource](app-insights-create-new-resource.md).
 
 ### Add the SDK script to your app or web pages
-In Quick Start, get the script for web pages:
-
-![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-> [!NOTE]
-> The *Getting Started* experience varies depending on the application type you select when creating your Application Insights resource. If the script is not present for your app as seen in the preceding screenshot, just use the following script.
 
 ```HTML
 <!-- 

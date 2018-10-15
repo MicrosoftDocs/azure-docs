@@ -62,9 +62,9 @@ Developers can now implement custom deserializers in C# to deserialize events re
 
 It is now possible to partition your Azure Stream Analytics output to Blob storage based on any column in your query.
 
-### Managed Service Identity (MSI) authentication to Azure Data Lake Storage
+### Managed identities for Azure resources authentication to Azure Data Lake Storage
 
-You can now operationalize your real-time pipelines with MSI-based authentication while writing to Azure Data Lake Storage Gen1, allowing you to create jobs programmatically. For further information, visit [Use Managed Identities to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output](stream-analytics-managed-identities-adls.md).
+You can now operationalize your real-time pipelines with managed identities for Azure resources based authentication while writing to Azure Data Lake Storage Gen1, allowing you to create jobs programmatically. For further information, visit [Use Managed identities for Azure resources to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output](stream-analytics-managed-identities-adls.md).
 
 ## Next steps
 
