@@ -12,13 +12,15 @@ ms.author: stegaw
 
 # How to diagnose issues with user-defined functions in Azure Digital Twins
 
-## Enabling Log Analytics for your Digital Twins instance
+This article explains how to diagnose user-defined function and some of the most common scenarios one might encounter in diagnosing them.
+
+## Enabling log analytics for your Azure Digital Twins instance
 
 Logs and metrics for your Digital Twins instance are exposed through Azure Monitor. The following documentation assumes you have created an [Azure Log Analytics](../log-analytics/log-analytics-queries.md) workspace through the [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md), through [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), or through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
 
 Follow this article on [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) to enable diagnostic settings for your Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
 
-## Tracing sensor telemetry through Digital Twins execution path
+## Tracing sensor telemetry through Azure Digital Twins execution path
 
 Ensure that diagnostic settings are enabled on your Digital Twins instance, all log categories are selected, and the logs are being sent into Log Analytics.
 
@@ -44,11 +46,13 @@ AzureDiagnostics
 
 ## Common issues
 
+Several common scenarios that might arise when working with user-defined functions are detailed to assist with diagnosing and resolving issues.
+
 ### Ensure that a role assignment was created for the user-defined function
 
 Without a role assignment created within Management API, the user-defined function will not have access to perform any actions such as sending notifications, retrieving metadata, and setting computed values within the topology.
 
-Check if a role assignment exists for your user-defined function
+Check if a role assignment exists for your user-defined function through your Management API:
 
 ```text
 GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
@@ -63,7 +67,7 @@ If there is no role assignment retrieved, follow this article on [How to create 
 
 ### Check if the matcher will work for a given sensor's telemetry
 
-With the following call against your Digital Twins instances' Management API, you will be able to determine if a given matcher applies for the given sensor.
+With the following call against your Azure Digital Twins instances' Management API, you will be able to determine if a given matcher applies for the given sensor.
 
 ```text
 GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
@@ -88,7 +92,7 @@ Response
 
 ### Check what user-defined functions the sensor's telemetry will trigger
 
-With the following call against your Digital Twins instances' Management API, you will be able to determine the identifiers of your user-defined functions that will be triggered by the given sensor's incoming telemetry.
+With the following call against your Azure Digital Twins instances' Management API, you will be able to determine the identifiers of your user-defined functions that will be triggered by the given sensor's incoming telemetry.
 
 ```text
 GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
