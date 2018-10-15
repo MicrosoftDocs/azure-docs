@@ -1,21 +1,14 @@
 ---
 title: Connect to, configure, and activate Azure Data Box Edge in Azure portal | Microsoft Docs
 description: Third tutorial to deploy Data Box Edge instructs you to connect, set up, and activate your physical device.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/08/2018
 ms.author: alkohli
-ms.custom:
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Connect, set up, activate Azure Data Box Edge (Preview) 

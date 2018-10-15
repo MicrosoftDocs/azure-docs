@@ -110,7 +110,7 @@ Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, sel
 
 #### Runbook alert
 
-For failed deployments you must alert of the failure of the master run
+For failed deployments you must alert on the failure of the master runbook.
 In the Azure portal, go to **Monitor**, and then select **Create Alert**.
 
 Under **1. Define alert condition**, click **Select target**. Under **Filter by resource type**, select **Automation Accounts**. Select your Automation Account, and then select **Done**.
