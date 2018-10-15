@@ -76,7 +76,7 @@ Use the following JSON template for the **Container Create Options** field. Conf
    }
    ```   
    
-In the create options JSON, update `\<your storage account name\>` with any name. Update `\<your storage account key\>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64) which allows you to select your byte length. You'll use these credentials to access the blob storage from other modules.
+In the create options JSON, update `\<your storage account name\>` with any name. Update `\<your storage account key\>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) which allows you to select your byte length. You'll use these credentials to access the blob storage from other modules.
 
 In the create options JSON, update `<storage directory bind>` depending on your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data.  
 
@@ -145,7 +145,7 @@ The solution template creates a deployment manifest template that includes your 
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Provide any name for the storage account name, and provide a 64-byte base64 key for the storage account key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64). You'll use these credentials to access the blob storage from other modules. 
+8. Provide any name for the storage account name, and provide a 64-byte base64 key for the storage account key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). You'll use these credentials to access the blob storage from other modules. 
 
 9. Save **.env**. 
 
