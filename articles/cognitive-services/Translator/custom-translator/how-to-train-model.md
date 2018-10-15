@@ -1,18 +1,20 @@
 ---
-title: Train your model in Custom Translator
+title: Train a model - Custom Translator
 titlesuffix: Azure Cognitive Services
-description: Train your model in Custom Translator
+description: Training a model is the important step to building a translation model. Training happens based on documents you select for that trainings.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.component: custom-translator
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: v-rada
-ms.topic: how to train a model
-Customer intent: As a custom translator user, I want to understand how to train a model, so that I can start using the feature.
+ms.topic: article
+#Customer intent: As a custom translator user, I want to understand how to train, so that I can start start building my custom translation model.
 ---
 
 # Train a model
+
+Training a model is the important step to building a translation model. Training happens based on documents you select for that trainings.
 
 To train a model,
 
@@ -51,6 +53,23 @@ To train a model,
     ![Train model page](media/how-to/ct-how-to-train-model-3.png)
 
 
+## Edit a model
+
+You can edit a project using the Edit link on Model detail page.
+
+1.  Click on the Pencil icon
+
+    ![Edit model](media/how-to/ct-how-to-edit-model.png)
+
+2.  In the dialog change,
+
+    1.  Model Name (required): Give your project a meaningful name.
+
+        ![Edit more dialog](media/how-to/ct-how-to-edit-model-dialog.png)
+
+3.  Click Save
+
+
 ## Next steps
 
-- Read about [model details](how-to-train-model.md).
+- Read about [models details](how-to-view-model-details.md) to know about  analysis of a model and training.

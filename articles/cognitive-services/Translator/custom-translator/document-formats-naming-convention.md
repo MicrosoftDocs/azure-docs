@@ -1,23 +1,23 @@
 ---
-title: Document formats and naming convention in Custom Translator
+title: Document formats and naming convention - Custom Translator
 titlesuffix: Azure Cognitive Services
-description: Guideline on document formats and naming convention in Custom Translator.
+description: This is a guide on document formats and naming convention in Custom Translator. This concept helps to manage documents names better abd avoid naming conflicts.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.component: custom-translator
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: v-rada
-ms.topic: document format and naming convention
-Customer intent: As a custom translator user, I want to understand document format and naming convention so that I can prepare documents efficiently.
+ms.topic: conceptual
+#Customer intent: As a custom translator user, I want to understand document format and naming convention so that I can prepare documents efficiently.
 ---
 
-# Document formats and naming convention
+# Document formats and naming convention guidance
 
 File names must be at least **four** characters in length.
 
-You can use documents in any of the following formats to build your translation
-system:
+Use any of these formats to build your translation system:
+
 
 | Format            | Extensions   | Description                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -32,28 +32,16 @@ system:
 | Aligned text file | .ALIGN       | The extension “.ALIGN” is a special extension that you can use if you know that the sentences in the document pair are perfectly aligned. If you provide a ".ALIGN" file, Custom Translator will not align the sentences for you. |
 | Excel file        | .XLSX        | Excel file (2013 or later)                                                                                                                                                                                                                                                     |
 
-Documents can be grouped together into a
-single zip file and uploaded. The Custom Translator supports popular zip file
-formats (ZIP, GZ, and TGZ).
+Documents can be grouped into a single zip file and uploaded. The Custom Translator supports zip file formats (ZIP, GZ, and TGZ).
 
-Within each zip file, Custom Translator requires that you follow a document
-naming convention.
+Each document in the zip file must follow this naming convention:
 
-“\<document name\>_\<language code\>”
+“\<document name\>_\<language code\>” where *“document name”* is the name of your document *“language code”* is the ISO LanguageID (two characters), indicating that the document contains sentences in that language. There must be an underscore (_) before the language code.
 
-where
-
-*“document name”* is the name of your document
-
-*“language code”* is the ISO LanguageID (two characters), indicating that the
-document contains sentences in that language.
-
-There must be an underscore (_) before the language code.
-
-For example, to upload two parallel documents within a zip for an English to
+>For example, to upload two parallel documents within a zip for an English to
 Spanish system, the files should be named “data_en” and “data_es”.
 
 
 ## Next steps
 
-- Read about [projects](concept-project.md).
+- Read about the [project](project.md) to create and manage them.

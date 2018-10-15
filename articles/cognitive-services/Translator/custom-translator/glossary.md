@@ -1,15 +1,15 @@
 ---
-title: Custom Translator Glossary
+title: Glossary - Custom Translator
 titlesuffix: Azure Cognitive Services
 description: Custom Translator Glossary
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.component: custom-translator
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: v-rada
-ms.topic: glossary
-Customer intent: As a custom translator user, I want to review glossary, so that I can understand the terms in multiple articles.
+ms.topic: reference
+#Customer intent: As a custom translator user, I want to review glossary, so that I can understand the terms in multiple articles.
 ---
 
 # Glossary
@@ -30,4 +30,4 @@ Customer intent: As a custom translator user, I want to review glossary, so that
 | Testing Files            | These files are often “virtual” or derived files, randomly selected from the training set (if you do not select any test set). The purpose of these sentences is to evaluate the translation model’s accuracy. These are sentences you want to make sure the system accurately translates. So you may wish to create a testing set and upload it to the translator to ensure that these sentences are used in the system’s evaluation (the generation of a BLEU score).   |
 | Combo file               | A type of file in which the source and translated sentences are contained in the same file. Supported file formats (".tmx", ".xliff", ".xlf", ".lcl", ".xlsx")                                                                                                                                                                                                                                                                                                                           |
 | Archive file             | A file that contains other files. Supported file formats (zip, gz, tgz)                                                                                                                                                                                                                                                                                                                                                                                                  |
-| BLEU Score               | BLEU is the industry standard method for evaluating the “precision” or accuracy of the translation model. Though other methods of evaluation exist, Microsoft Translator relies BLEU  method to report accuracy to Project Owners.                                                     
+| BLEU Score               | [BLEU](what-is-bleu-score.md) is the industry standard method for evaluating the “precision” or accuracy of the translation model. Though other methods of evaluation exist, Microsoft Translator relies BLEU  method to report accuracy to Project Owners.                                                     

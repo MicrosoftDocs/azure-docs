@@ -1,19 +1,24 @@
 ---
-title: Project in Custom Translator
+title: What is a workspace and project? - Custom Translator
 titlesuffix: Azure Cognitive Services
-description: What is project in Custom Translator.
+description: A workspace is a work area for composing and building your custom translation system. A workspace can contain multiple projects, models, and documents. A project is a wrapper for a model, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
 services: cognitive-services
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.component: custom-translator
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: v-rada
-ms.topic: project concept
-Customer intent: As a custom translator user, I want to concept of a project, so that I can use it efficiently.
+ms.topic: conceptual
+#Customer intent: As a custom translator user, I want to concept of a project, so that I can use it efficiently.
 ---
+# What is a Custom Translator workspace?
 
-# Project
+A workspace is a work area for composing and building your custom translation system. A workspace can contain multiple projects, models, and documents. All the work you do in Custom Translator is inside a specific workspace.
+
+Workspace is private to you and the people you invite into your workspace. Uninvited people do not have access to the content of your workspace. You can invite as many people as you like into your workspace and modify or remove their access anytime. You can also create a new workspace. By default a workspace will not contain any projects or documents that are within your other workspaces.
+
+# What is a Custom Translator project?
 
 A project is a wrapper for a model, documents, and tests. Each project
 automatically includes all documents that are uploaded into that workspace that
@@ -22,28 +27,22 @@ Spanish project and a Spanish to English project, the same documents will be
 included in both projects. Each project has a CategoryID associated with it
 that is used when querying the V3 API for translations.
 
-## Categories
+## Project categories
 
-The category identifies the domain – the area of terminology and style you want
-to use – for your project. Choose a category that is most appropriate and
-relevant to your type of documents. In some cases, your choice of the category
-directly influences the behavior of the Custom Translator.
+The category identifies the domain – the area of terminology and style you want to use – for your project. Choose the category most relevant to your documents. In some cases, your choice of the category directly influences the behavior of the Custom Translator.
 
-We do not have custom models for categories yet except a general
+We don't have custom models for categories yet except a general
 baseline system. But we still recommend users to select the category most
 applicable to their domain so that it can be used as an identifier in the
-CategoryID. For projects in the technology domain, selecting the
-“Technology” category will ensure that if a baseline model does become available
-then your project can take advantage of it.
+CategoryID. For projects in the technology domain, selecting "Technology" ensures that when a baseline model is available, that your project will be able to use it.
 
 In the same workspace, you may create projects for the same language pair in
 different categories. Custom Translator prevents creation of a duplicate project
 with the same language pair and category. Applying a label to your project
-allows you to avoid this restriction. It is recommended *not* to use the label,
-unless you are building translation systems for multiple clients, as adding a
+allows you to avoid this restriction. Don't use labels unless you're building translation systems for multiple clients, as adding a
 unique label to your project will be reflected in your projects CategoryID.
 
-## Project label
+## Project labels
 
 Custom Translator allows you to assign a project label to your project. The
 project label distinguishes between multiple projects with the same language
@@ -70,4 +69,4 @@ would be a wise decision.
 
 ## Next steps
 
-- Read about [training and model](concept-training-model.md).
+- Read about [Training and model](concept-training-model.md) to know, how to efficiently build a translation model.

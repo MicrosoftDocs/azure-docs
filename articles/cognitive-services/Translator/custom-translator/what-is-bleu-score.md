@@ -1,22 +1,21 @@
 ---
-title: What is BLEU score - Custom Translator
+title: What is BLEU score? - Custom Translator
 titlesuffix: Azure Cognitive Services
-description: What is BLEU score - Custom Translator
-services: cognitive-services
+description: BLEU is a measurement of the differences between an automatic translation and one or more human-created reference translations of the same source sentence. The BLEU algorithm compares consecutive phrases of the automatic translation with the consecutive phrases it finds in the reference translation, and counts
+the number of matches, in a weighted fashion.
 author: rajdeep-in
-manager: Chris.Wendt
-
+manager: christw
 ms.service: cognitive-services
 ms.component: custom-translator
-ms.topic: overview
-ms.date: 10/03/2018
+ms.topic: article
+ms.date: 11/13/2018
 ms.author: v-rada
-Customer intent: As a custom translator user, I want to understand how BLEU score works so that I understand system test outcome better.
+#Customer intent: As a custom translator user, I want to understand how BLEU score works so that I understand system test outcome better.
 ---
 
-# What is BLEU score?
+# What is a BLEU score?
 
-BLEU is a measurement of the differences between an automatic translation and
+[BLEU (Bilingual Evaluation Understudy)](https://en.wikipedia.org/wiki/BLEU) is a measurement of the differences between an automatic translation and
 one or more human-created reference translations of the same source sentence.
 The BLEU algorithm compares consecutive phrases of the automatic translation
 with the consecutive phrases it finds in the reference translation, and counts
@@ -35,9 +34,9 @@ BLEU results depend strongly on the breadth of your domain, the consistency of
 the test data with the training and tuning data, and how much data you have
 available to train. If your models have been trained on a narrow domain, and
 your training data is consistent with your test data, you can expect a high
-BLEU score. 
+BLEU score.
 
->Note: a comparison between BLEU scores is only
+[!NOTE] A comparison between BLEU scores is only
 justifiable when BLEU results are compared with the same Test set, the same
 language pair, and the same MT engine. A BLEU score from a different test set is
 bound to be different.

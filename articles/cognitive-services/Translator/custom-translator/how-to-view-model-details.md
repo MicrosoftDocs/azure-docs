@@ -1,20 +1,20 @@
 ---
-title: View model details in Custom Translator
+title: View model details - Custom Translator
 titlesuffix: Azure Cognitive Services
-description: View model details in Custom Translator
+description: Models tab under any project shows details of each model for that project.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.component: custom-translator
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: v-rada
-ms.topic: how to edit a model
-Customer intent: As a custom translator user, I want to understand how to view model details, so that I can start using the feature.
+ms.topic: article
+#Customer intent: As a custom translator user, I want to understand how to view model details, so that I can review details of each translation model.
 ---
 
 # View model details
 
-The Models tab shows all details for each model within a project.
+The Models tab under any project shows details of each model for that project.
 
 1.  Model Name: Shows the model name of a given model.
 
@@ -44,7 +44,7 @@ The Models tab shows all details for each model within a project.
 
     -  Undeployed: Specifies that the undeployment process of a training belonging to a removed project has completed successfully.
 
-    -  Training Failed: Specifies that the training failed. If a training failure occurs, retry the training job. If the error persists, contact us. Do not delete the failed model.
+    -  Training Failed: Specifies that the training failed. If a training failure occurs, retry the training job. If the error persists, contact us. Don't delete the failed model.
 
     - DataProcessingFailed: Specifies that data processing has failed for one or more documents belonging to the model.
 
@@ -55,7 +55,7 @@ The Models tab shows all details for each model within a project.
 4.  BLEU Score: shows BLEU (Bilingual Evaluation Understudy) score of the model,
     indicating the quality of your translation system. This score tells you how
     closely the translations done by the translation system resulting from this
-    training match the reference sentences in the test data set. The BLEU score appears if training is successfully complete. If training is not complete/ failed, you will not see any BLEU score.
+    training match the reference sentences in the test data set. The BLEU score appears if training is successfully complete. If training isn't complete/ failed, you wont see any BLEU score.
 
 5.  Training Sentence count: Shows total number of sentences used as training
     set.
@@ -72,14 +72,14 @@ The Models tab shows all details for each model within a project.
     button is shown.
 
 10. Delete: You can use this button if you want to delete the model. Deleting a
-    model will not delete any of the documents used to create that model.
+    model wont delete any of the documents used to create that model.
 
     ![View model details](media/how-to/ct-how-to-view-model-details.png)
 
 
->Note: To compare consecutive trainings for the same systems, it is important to keep the tuning set and testing set constant.
+[!Note] To compare consecutive trainings for the same systems, it is important to keep the tuning set and testing set constant.
 
 
 ## Next steps
 
-- Read about [model training details](how-to-view-model-details.md).
+- Review [model training details](how-to-view-model-details.md) and start analyzing your trained translation model.

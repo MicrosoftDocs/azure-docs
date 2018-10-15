@@ -1,20 +1,20 @@
 ---
-title: Dictionary in Custom Translator
+title: What is a dictionary? - Custom Translator
 titlesuffix: Azure Cognitive Services
-description: How dictionary works in Custom Translator.
+description: Dictionary is an aligned document that specifies a list of phrases or sentences (and their translations) that you always want Microsoft Translator to translate the same way. Dictionaries are sometimes also called glossaries or term bases.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.component: custom-translator
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: v-rada
-ms.topic: dictionary
-Customer intent: As a user, I want to concept of dictionary, so that I can build custom model using it.
+ms.topic: article
+#Customer intent: As a user, I want to concept of dictionary, so that I can build custom model using it.
 ---
 
-# Dictionary
+# What is a dictionary?
 
-Dictionary is an aligned document that specifies a list of phrases or sentences (and their translations) that you always want Microsoft Translator to translate the same way. Dictionaries are sometimes also called glossaries or term bases. You can think of the dictionary as a brute force “copy and replace” for all the terms you list. Your dictionary should not contain multiple translations of the same word. 
+A dictionary is an aligned document that specifies a list of phrases or sentences (and their translations) that you always want Microsoft Translator to translate the same way. Dictionaries are sometimes also called glossaries or term bases. You can think of the dictionary as a brute force “copy and replace” for all the terms you list. Your dictionary should not contain multiple translations of the same word. 
 
 The dictionary determines the translation of phrases or sentences with 100% probability. Use phrase dictionary to define proper names and product names exactly the way you want to see them translated. Use sentence dictionaries, when you want to translate entire sentence exactly into the corresponding dictionary entry.
 
@@ -37,21 +37,17 @@ translations. Here are some guidelines and hints:
 
 -   The dictionary works well for compound nouns like product names (“Microsoft
     SQL Server”), proper names (“City of Hamburg”), or features of the product
-    (“pivot table”). It doesn’t work equally well for verbs or adjectives
+    (“pivot table”). It doesn’t work well for verbs or adjectives
     because these are typically highly inflected in the source or in the target
     language. Avoid dictionary entries for anything but compound nouns.
 
--   Both sides of the dictionary are case sensitive. Each casing situation
+-   Both sides of the dictionary are case-sensitive. Each casing situation
     requires an individual entry into the dictionary.
 
 -   You may create dictionary entries for longer phrases and expressions.
 
--   Chinese and Japanese are relatively safe with a glossary. Most other
-    languages have a richer morphology (more inflections) than English, so the
-    quality will suffer if there is a glossary entry for a term or phrase that
-    the system already translates correctly.
 
-## How to Create a Dictionary File (WIP)
+## How to create a dictionary file?
 
 To create a dictionary, follow the steps listed here.
 
@@ -61,7 +57,7 @@ To create a dictionary, follow the steps listed here.
     target-language equivalents in the first sheet of the Workbook. Other
     sheets in the workbook will be ignored.
 
-2.  In cell A1 of the first sheet, enter the ISO standard language IDs for
+2.  In cell A1 of the first sheet, enter the ISO standard Language IDs for
     the source language (for example “en” or “en-us” for English)
 
 3.  In cell B1 of the first sheet, enter the ISO standard language IDs for
@@ -74,7 +70,7 @@ To create a dictionary, follow the steps listed here.
 The image below shows an Excel file containing a dictionary of terms mapped from
 English to Spanish.
 
-![Dictioary file](media/how-to/ct-how-to-create-dictionary.png)
+![Dictionary file](media/how-to/ct-how-to-create-dictionary.png)
 
 ## Next steps
 

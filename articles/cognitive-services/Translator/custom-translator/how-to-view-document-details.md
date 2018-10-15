@@ -1,15 +1,15 @@
 ---
-title: Document details in Custom Translator?
+title: Document details - Custom Translator
 titlesuffix: Azure Cognitive Services
-description: Document details in Custom Translator?  
+description: The document details page displays the list of extracted sentences from the document.  
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.component: custom-translator
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: how to edit a model
-Customer intent: As a custom translator user, I want to understand how to view  document details, so that I can start using the feature.
+#Customer intent: As a custom translator user, I want to understand how to view  document details, so that I can to review list of extracted sentences in a document.
 ---
 
 # View document details
@@ -25,6 +25,24 @@ Click on an individual document to view the document details page. The document 
 
 ![document details](media/how-to/ct-how-to-view-document-details.png)
 
+
+## Delete a document
+
+1. Go to document page
+2.  Hover on any document record and click on the trash icon.
+
+    ![Delete document](media/how-to/ct-how-to-delete-document-1.png)
+
+3.  Confirm Delete.
+
+    ![Delete confirm](media/how-to/ct-how-to-delete-document-confirm.png)
+
+
+[!Note] 
+- User must be a workspace owner to delete document
+- The document cannot be in use by a model that is in any part of the training process or any part of the deployment process.
+- 
+
 ## Next steps
 
-- Read about [train model](how-to-train-model.md).
+- [How to train a model](how-to-train-model.md).

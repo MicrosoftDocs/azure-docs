@@ -1,18 +1,20 @@
 ---
-title: System test results in Custom Translator
+title: View system test results and deployment - Custom Translator
 titlesuffix: Azure Cognitive Services
-description: System test results in Custom Translator
+description: When your training is successful review system test results and analyze your training results. If you're happy with the training results deploy the trained model.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.component: custom-translator
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: v-rada
-ms.topic: how to edit a model
-Customer intent: As a custom translator user, I want to understand how to view system test results, so that I can start using the feature.
+ms.topic: article
+#Customer intent: As a custom translator user, I want to understand how to view system test results, so that I can review test results and analyze my training.
 ---
 
 # View system test results
+
+When your training is successful, review test results and analyze your training. If you're happy with the training results, deploy the trained model.
 
 The test detail tab shows you,
 
@@ -47,18 +49,31 @@ machine translations of source sentences in the test data set.
 
 ![Download test](media/how-to/ct-how-to-system-test-download.png)
 
-This zip file contains three files.
+This downloaded zip archive contains three files.
 
-1.  custom.mt.txt: Contains machine translations of source language sentences in
+1.  custom.mt.txt: This file contains machine translations of source language sentences in
     the target language done by the model trained with user’s data.
 
-2.  ref.txt: Contains user provided translations of source language sentences in
+2.  ref.txt: This file contains user provided translations of source language sentences in
     the target language.
 
-3.  Src_Dataset_source.txt: Contains sentences in the source language.
+3.  Src_Dataset_source.txt: This file contains sentences in the source language.
 
     ![Downloaded system test results](media/how-to/ct-how-to-download-system-test.png)
 
-## Next steps
 
-- Read about [deploy model](how-to-deploy-or-undeploy-model.md).
+## Deploy a model
+
+To request a deployment ,
+
+1.  Click on the project name
+
+2.  In the project page, go to Models tab.
+
+    -  For a successfully trained model, it shows “Deploy” button, if not deployed.
+
+        ![Deploy model](media/how-to/ct-how-to-deploy-model.png)
+
+3.  Click on Deploy. You can view the status of your deployrequest in the “Status” column.
+
+[!Note] If a model is deployed already, you'll see “Undeploy” button for that model. To undeploy a model click "Undeploy" button. 

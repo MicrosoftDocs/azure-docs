@@ -1,18 +1,18 @@
 ---
-title: Sentence alignment in Custom Translator
+title: Sentence pairing and alignment - Custom Translator
 titlesuffix: Azure Cognitive Services
-description: How sentence alignment works in Custom Translator.
+description: During the training execution, sentences present in parallel documents are paired or aligned. Custom Translator learns translations one sentence at a time, by reading a sentence, the translation of this sentence. Then it aligns words and phrases in these two sentences to each other. 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.component: custom-translator
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: v-rada
-ms.topic: sentence alignment
-Customer intent: As a custom translator user, I want to know how sentence alignment works, so that I can understand the underlying translation process better.
+ms.topic: conceptual
+#Customer intent: As a Custom Translator user, I want to know how sentence alignment works, so that I can have better understanding of underlying process of sentence extraction, pairing, filtering, aligning.
 ---
 
-# Sentence alignment in parallel documents
+# Sentence pairing and alignment in parallel documents
 
 During the training execution, sentences present in parallel documents are
 paired or aligned. Custom Translator reports the number of sentences it was
@@ -31,16 +31,18 @@ sentences from both documents into text file, organized one sentence per line,
 and upload with an “.align” extension. The “.align” extension signals Custom
 Translator that it should skip sentence alignment.
 
-For a training run to succeed, the table below shows the minimum \# of extracted
+For best results, try to make sure that you have one sentence per line in your
+files. Don't have newline characters within a sentence as this will cause poor
+alignments.
+
+## Suggested minimum number of extracted and aligned sentences
+
+For a training to succeed, the table below shows the minimum number of extracted
 sentences and aligned sentences required in each data set. The
 suggested minimum number of extracted sentences is much higher than the
 suggested minimum number of aligned sentences to take into account the fact that
 the sentence alignment may not be able to align all extracted sentences
 successfully.
-
-For best results, try to make sure that you have one sentence per line in your
-files.  Do not have newline characters within a sentence as this will cause poor
-alignments.
 
 | Data set   | Suggested minimum extracted sentence count | Suggested minimum aligned sentence count | Maximum aligned sentence count |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
@@ -48,9 +50,3 @@ alignments.
 | Tuning     | 2,000                                      | 500                                      | 2,500                          |
 | Testing    | 2,000                                      | 500                                      | 2,500                          |
 | Dictionary | 0                                          | 0                                        | No upper limit                 |
-
-
-
-## Next steps
-
-- Read about [how to manage settings](#).
