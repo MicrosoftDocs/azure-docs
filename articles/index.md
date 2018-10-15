@@ -59,7 +59,7 @@ featureFlags:
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Free Pluralsight Video Training for Azure</span>
+                                    <span class="likeAnH3">Free Azure Courses from Pluralsight</span>
                                 </div>
                             </div>
                         </div>
