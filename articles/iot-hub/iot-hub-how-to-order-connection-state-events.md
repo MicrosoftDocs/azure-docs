@@ -249,12 +249,12 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
    * **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
-   ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+       ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
    * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
    The form looks similar to the following example: 
 
-   ![Sample event subscription form](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
+       ![Sample event subscription form](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
 5. Select **Create** to save the event subscription.
 

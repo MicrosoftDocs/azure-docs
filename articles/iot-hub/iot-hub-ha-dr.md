@@ -36,7 +36,7 @@ The IoT Hub service provides intra-region HA by implementing redundancies in alm
 
 There could be some rare situations when a datacenter experiences extended outages due to power failures or other failures involving physical assets. Such events are rare during which the intra region HA capability described above may not always help. IoT Hub provides multiple solutions for recovering from such extended outages. 
 
-The recovery options available to customers in such a situation are "Microsoft initiated failover" and "manual failover". The fundamental difference between the two is that Microsoft initiates the former and the user initiates the latter. Also, manual failover provides a lower recovery time objective (RTO) compared to the Microsoft initiated failover option. The specific RTOs offered with each option are discussed in the sections below. When either of these options to perform failover of an IoT hub from its primary region is exercised, the hub becomes fully functional in the corresponding [Azure geo-paired region](../best-practices-availability-paired-regions.md).
+The recovery options available to customers in such a situation are "Microsoft-initiated failover" and "manual failover". The fundamental difference between the two is that Microsoft initiates the former and the user initiates the latter. Also, manual failover provides a lower recovery time objective (RTO) compared to the Microsoft-initiated failover option. The specific RTOs offered with each option are discussed in the sections below. When either of these options to perform failover of an IoT hub from its primary region is exercised, the hub becomes fully functional in the corresponding [Azure geo-paired region](../best-practices-availability-paired-regions.md).
 
 Both these failover options offer the following recovery point objectives (RPOs):
 
@@ -59,9 +59,9 @@ Once the failover operation for the IoT hub completes, all operations from the d
 >
 > - Cloud-to-device messages and parent jobs do not get recovered as a part of manual failover in the preview offering of this feature.
 
-### Microsoft initiated failover
+### Microsoft-initiated failover
 
-Microsoft initiated failover is exercised by Microsoft in rare situations to failover all the IoT hubs from an affected region to the corresponding geo-paired region. This process is a default option (no way for users to opt out) and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's hub is failed over. Microsoft initiated failover has a recovery time objective (RTO) of 2-26 hours. 
+Microsoft-initiated failover is exercised by Microsoft in rare situations to failover all the IoT hubs from an affected region to the corresponding geo-paired region. This process is a default option (no way for users to opt out) and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's hub is failed over. Microsoft-initiated failover has a recovery time objective (RTO) of 2-26 hours. 
 
 The large RTO is because Microsoft must perform the failover operation on behalf of all the affected customers in that region. If you are running a less critical IoT solution that can sustain a downtime of roughly a day, it is ok for you to take a dependency on this option to satisfy the overall disaster recovery goals for your IoT solution. The total time for runtime operations to become fully operational once this process is triggered, is described in the "Time to recover" section.
 
@@ -91,14 +91,14 @@ Failing back to the old primary region can be achieved by triggering the failove
 
 While the FQDN (and therefore the connection string) of the IoT hub instance remains the same post failover, the underlying IP address will change. Therefore the overall time for the runtime operations being performed against your IoT hub instance to become fully operational after the failover process is triggered can be expressed using the following function.
 
-Time to recover = RTO [10 min - 2 hours for manual failover | 2 - 26 hours for Microsoft initiated failover] + DNS propagation delay + Time taken by the client application to refresh any cached IoT Hub IP address.
+Time to recover = RTO [10 min - 2 hours for manual failover | 2 - 26 hours for Microsoft-initiated failover] + DNS propagation delay + Time taken by the client application to refresh any cached IoT Hub IP address.
 
 > [!IMPORTANT]
 > The IoT SDKs do not cache the IP address of the IoT hub. We recommend that user code interfacing with the SDKs should not cache the IP address of the IoT hub.
 
 ## Achieve cross region HA
 
-If your business uptime goals aren't satisfied by the RTO that either Microsoft initiated failover or manual failover options provide, you should consider implementing a per-device automatic cross region failover mechanism.
+If your business uptime goals aren't satisfied by the RTO that either Microsoft-initiated failover or manual failover options provide, you should consider implementing a per-device automatic cross region failover mechanism.
 A complete treatment of deployment topologies in IoT solutions is outside the scope of this article. The article discusses the *regional failover* deployment model for the purpose of high availability and disaster recovery.
 
 In a regional failover model, the solution back end runs primarily in one datacenter location. A secondary IoT hub and back end are deployed in another datacenter location. If the IoT hub in the primary region suffers an outage or the network connectivity from the device to the primary region is interrupted, devices use a secondary service endpoint. You can improve the solution availability by implementing a cross-region failover model instead of staying within a single region. 
@@ -122,7 +122,7 @@ Here's a summary of the HA/DR options presented in this article that can be used
 
 | HA/DR option | RTO | RPO | Requires manual intervention? | Implementation complexity | Additional cost impact|
 | --- | --- | --- | --- | --- | --- | --- |
-| Microsoft initiated failover |2 - 26 hours|Refer RPO table above|No|None|None|
+| Microsoft-initiated failover |2 - 26 hours|Refer RPO table above|No|None|None|
 | Manual failover |10 min - 2 hours|Refer RPO table above|Yes|Very low. You only need to trigger this operation from the portal.|None|
 | Cross region HA |< 1 min|Depends on the replication frequency of your custom HA solution|No|High|> 1x the cost of 1 IoT hub|
 

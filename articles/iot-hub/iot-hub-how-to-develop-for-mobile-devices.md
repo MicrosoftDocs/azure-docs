@@ -28,7 +28,7 @@ These documentations walk through how to develop a device application or service
 * [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-ios.md)  
 
 * [Send messages from the cloud to your device with IoT hub](iot-hub-ios-swift-c2d.md) 
-### Develop with Azure IoT Hub CocoaPod libraries
+## Develop with Azure IoT Hub CocoaPod libraries
 
 Azure IoT Hub SDKs releases a set of Objective-C CocoaPod libraries for iOS development.  To see the latest list of CocoaPod libraries, see [CocoaPods for Microsoft Azure IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/ios/CocoaPods.md).  Once the relevant libraries are incorporated into your XCode project, there are two ways to write IoT Hub related code:
 
