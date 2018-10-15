@@ -44,7 +44,7 @@ For more information on permissions and access control, see [Secure your key vau
 
 ## Enabling soft-delete
 
-To be able to recover a deleted key vault or objects stored in a key vault, you must first enable soft-delete for that key vault.
+You must enable soft-delete to be able to recover a deleted key vault, or objects stored in a key vault.
 
 ### Existing key vault
 
@@ -77,7 +77,7 @@ Get-AzureRmKeyVault -VaultName "ContosoVault"
 
 ## Deleting a key vault protected by soft-delete
 
-The command to delete (or remove) a key vault remains the same, but its behavior changes depending on whether you have enabled soft-delete or not.
+The command to delete (or remove) a key vault changes in behavior, depending on whether you have enabled soft-delete.
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName 'ContosoVault'
@@ -90,26 +90,18 @@ Remove-AzureRmKeyVault -VaultName 'ContosoVault'
 
 With soft-delete enabled:
 
-- When a key vault is deleted, it is removed from its resource group and placed in a reserved namespace that is only associated with the location where it was created. 
-- Objects in a deleted key vault, such as keys, secrets and, certificates, are inaccessible and remain so while their containing key vault is in the deleted state. 
-- The DNS name for a key vault in a deleted state is still reserved so, a new key vault with same name cannot be created.  
+- A deleted key vault is removed from its resource group and placed in a reserved namespace, associated with the location where it was created. 
+- Deleted objects such as keys, secrets, and certificates, are inaccessible as long as their containing key vault is in the deleted state. 
+- The DNS name for a deleted key vault is reserved, preventing a new key vault with same name from being created.  
 
 You may view deleted state key vaults, associated with your subscription, using the following command:
 
 ```powershell
 PS C:\> Get-AzureRmKeyVault -InRemovedState 
-
-Name                 : ContosoVault
-Location             : westus
-Id                   : /subscriptions/<subscription-id>/providers/Microsoft.KeyVault/locations/westus/deletedVaults/ContosoVault
-Resource ID          : /subscriptions/<subscription-id>/resourceGroups/ContosoVault/providers/Microsoft.KeyVault/vaults/ContosoVault
-Deletion Date        : 5/9/2017 12:14:14 AM
-Scheduled Purge Date : 8/7/2017 12:14:14 AM
-Tags                 :
 ```
 
 - *Id* can be used to identify the resource when recovering, or purging. 
-- *Resource ID* us the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. 
+- *Resource ID* is the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. 
 - *Scheduled Purge Date* indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault. The default retention period, used to calculate the *Scheduled Purge Date*, is 90 days.
 
 ## Recovering a key vault
@@ -120,7 +112,7 @@ To recover a key vault, you need to specify the key vault name, resource group, 
 Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
 ```
 
-When a key vault is recovered, the result is a new resource with the key vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name must be created before the key vault can be recovered.
+When a key vault is recovered, a new resource is created with the key vault's original resource ID. If the original resource group is removed, a new one with same name must be created before the key vault can be recovered.
 
 ## Key Vault objects and soft-delete
 
@@ -140,7 +132,7 @@ Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
 
 ### Transition state 
 
-When you delete a key in a key vault with soft-delete enabled, it may take a few seconds for the transition to complete. During this transition state, it may appear that the key is not in the active state or the deleted state. 
+When you delete a key in a key vault with soft-delete enabled, it may take a few seconds for the transition to complete. During this transition, it may appear that the key is not in the active state or the deleted state. 
 
 ### Using soft-delete with key vault objects
 
@@ -163,11 +155,11 @@ Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemoved
 > [!IMPORTANT]
 > Purging a key will permanently delete it, and it will not be recoverable. 
 
-The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action, they must have the respective permission for that key or secret. By default, **purge** is not added to a key vault's access policy when the 'all' shortcut is used to grant all permissions. You must explicitly grant **purge** permission. 
+The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action, they must have the respective permission for that key or secret. By default, **purge** isn't added to a key vault's access policy, when the 'all' shortcut is used to grant all permissions. You must explicitly grant **purge** permission. 
 
 #### Set a key vault access policy
 
-The following command grants user@contoso.com permission to perform several operations on keys in *ContosoVault* including **purge**:
+The following command grants user@contoso.com permission to use several operations on keys in *ContosoVault* including **purge**:
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
@@ -207,10 +199,10 @@ Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPass
 
 ### Key vault objects
 
-Purging a key, secret or, certificate will permanently delete it, meaning it will not be recoverable. The key vault that contained the deleted object will however remain intact as will all other objects in the key vault. 
+Purging a key, secret, or certificate, causes permanent deletion and it will not be recoverable. The key vault that contained the deleted object will however remain intact as will all other objects in the key vault. 
 
 ### Key vaults as containers
-When a key vault is purged, all of its contents, including keys, secrets, and certificates, are permanently deleted. To purge a key vault, use the `Remove-AzureRmKeyVault` command with the option `-InRemovedState` and by specifying the location of the deleted key vault with the `-Location location` argument. You can find the location of a deleted vault using the command `Get-AzureRmKeyVault -InRemovedState`.
+When a key vault is purged, its entire contents are permanently deleted, including keys, secrets, and certificates. To purge a key vault, use the `Remove-AzureRmKeyVault` command with the option `-InRemovedState` and by specifying the location of the deleted key vault with the `-Location location` argument. You can find the location of a deleted vault using the command `Get-AzureRmKeyVault -InRemovedState`.
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus
@@ -220,13 +212,13 @@ Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 >Purging a key vault will permanently delete it, meaning it will not be recoverable.
 
 ### Purge permissions required
-- To purge a deleted key vault, such that the vault and all its contents are permanently removed, the user needs RBAC permission to perform a *Microsoft.KeyVault/locations/deletedVaults/purge/action* operation. 
-- To list the deleted key, the vault a user needs RBAC permission to perform *Microsoft.KeyVault/deletedVaults/read* permission. 
+- To purge a deleted key vault, the user needs RBAC permission to the *Microsoft.KeyVault/locations/deletedVaults/purge/action* operation. 
+- To list a deleted key vault, the user needs RBAC permission to the *Microsoft.KeyVault/deletedVaults/read* operation. 
 - By default only a subscription administrator has these permissions. 
 
 ### Scheduled purge
 
-Listing your deleted key vault objects shows when they are schedled to be purged by Key Vault. The *Scheduled Purge Date* field indicates when a key vault object will be permanently deleted, if no action is taken. By default, the retention period for a deleted key vault object is 90 days.
+Listing deleted key vault objects also shows when they're scheduled to be purged by Key Vault. *Scheduled Purge Date* indicates when a key vault object will be permanently deleted, if no action is taken. By default, the retention period for a deleted key vault object is 90 days.
 
 >[!NOTE]
 >A purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable.
