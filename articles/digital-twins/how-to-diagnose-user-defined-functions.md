@@ -1,13 +1,13 @@
 ---
 title: How to diagnose issues with user-defined functions in Azure Digital Twins | Microsoft Docs
 description: Guideline on what to investigate if running into issues.
-author: stegaw
+author: stefanmsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.author: stegaw
+ms.author: stefanmsft
 ---
 
 # How to diagnose issues with user-defined functions in Azure Digital Twins
