@@ -1,20 +1,44 @@
 ---
-title: Debug Azure Stream Analytics queries by using SELECT INTO
-description: This article describes how to sample data mid-query in Azure Stream Analytics job by using SELECT INTO statements in the query syntax.
+title: Troubleshoot Azure Stream Analytics queries
+description: This article describes techniques to troubleshoot your queries in Azure Stream Analytics jobs.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+author: sidram
+ms.author: sidram
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
+ms.date: 10/11/2018
 ---
-# Debug queries by using SELECT INTO statements
+
+# Troubleshoot Azure Stream Analytics queries
+
+This article describes common issues with developing Stream Analytics queries and how to troubleshoot them.
+
+## Query is not producing expected output 
+1.  Examine errors by testing locally:
+    - On the **Query** tab, select **Test**. Use the downloaded sample data to [test the query](stream-analytics-test-query.md). Examine any errors and attempt to correct them.   
+    - You can also [test your query directly on live input](stream-analytics-live-data-local-testing.md) using Stream Analytics tools for Visual Studio.
+
+2.  If you use [**Timestamp By**](https://msdn.microsoft.com/library/azure/mt573293.aspx), verify that the events have timestamps greater than the [job start time](stream-analytics-out-of-order-and-late-events.md).
+
+3.  Eliminate common pitfalls, such as:
+    - A [**WHERE**](https://msdn.microsoft.com/library/azure/dn835048.aspx) clause in the query filtered out all events, preventing any output from being generated.
+    - A [**CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) function fails, causing the job to fail. To avoid type cast failures, use [**TRY_CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) instead.
+    - When you use window functions, wait for the entire window duration to see an output from the query.
+    - The timestamp for events precedes the job start time and, therefore, events are being dropped.
+
+4.  Ensure event ordering policies are configured as expected. Go to the **Settings** and select [**Event Ordering**](stream-analytics-out-of-order-and-late-events.md). The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production. 
+
+5. Debug by using audit and diagnostic logs:
+    - Use [Audit Logs](../azure-resource-manager/resource-group-audit.md), and filter to identify and debug errors.
+    - Use [job diagnostic logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
+
+## Job is consuming too many Streaming Units
+Ensure you take advantage of parallelization in Azure Stream Analytics. You can learn to [scale with query parallelization](stream-analytics-parallelization.md) of Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
+
+## Debug queries progressively
 
 In real-time data processing, knowing what the data looks like in the middle of the query can be helpful. Because inputs or steps of an Azure Stream Analytics job can be read multiple times, you can write extra SELECT INTO statements. Doing so outputs intermediate data into storage and lets you inspect the correctness of the data, just as *watch variables* do when you debug a program.
-
-## Use SELECT INTO to check the data stream
 
 The following example query in an Azure Stream Analytics job has one stream input, two reference data inputs, and an output to Azure Table Storage. The query joins data from the event hub and two reference blobs to get the name and category information:
 
@@ -60,7 +84,6 @@ This time, the data in the output is formatted and populated as expected.
 
 ![SELECT INTO final table](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
-
 ## Get help
 
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
@@ -72,4 +95,3 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
