@@ -28,7 +28,8 @@ Azure HDInsight IO Cache is available on Azure HDInsight 3.6+ Spark clusters, wh
 
 Confirm restart of all the affected services on the cluster.
   
->[!NOTE] Even though the progress bar shows activated, IO Cache isn't actually enabled until you restart the service.
+>[!NOTE] 
+> Even though the progress bar shows activated, IO Cache isn't actually enabled until you restart the service.
 
 # Troubleshooting
   
