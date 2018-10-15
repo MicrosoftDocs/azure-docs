@@ -71,6 +71,7 @@ Depending on the number of updates that are getting installed or rolled backing,
     dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     ```
 
-    > [!NOTE] Depending on the size of the package, the DISM tool will take a while to process the un-installation. Normally the process will be completed within 16 minutes.
+    > [!NOTE] 
+    > Depending on the size of the package, the DISM tool will take a while to process the un-installation. Normally the process will be completed within 16 minutes.
 
 6. Detach the OS disk, and then [rebuild the VM by using the OS disk](troubleshoot-recovery-disks-portal-windows.md). 
