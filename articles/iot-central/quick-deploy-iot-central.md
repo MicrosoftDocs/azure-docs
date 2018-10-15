@@ -13,19 +13,7 @@ manager: peterpr
 
 # Create an Azure IoT Central application
 
-As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure IoT Central application. This quickstart shows you how to:
-
-- Create an Azure IoT Central application that contains a sample _device template_ and simulated _devices_.
-- View the features of the **Refrigerated Vending Machine** device template in your application.
-- View the telemetry and analytics from your simulated **Refrigerator** devices.
-
-In this quickstart, you view a simulated **Refrigerator** device from a device template. The simulated device:
-
-* Sends telemetry, such as temperature and pressure, to your application.
-* Reports device property values, such as a motion alert, to your application.
-* Has device settings, such as fan speed, that you can set in the application.
-
-When you create a simulated device from a device template in an Azure IoT Central application, the simulated device enables you to test your application before you connect a real device.
+As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure IoT Central application. This quickstart shows you how to create an Azure IoT Central application that contains a sample _device template_ and simulated _devices_.
 
 ## Create the application
 

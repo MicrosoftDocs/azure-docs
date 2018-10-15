@@ -47,7 +47,7 @@ Next, you create a function in the new function app.
 
 1. In the search field, type `blob` and then choose the **Blob trigger** template.
 
-1. If prompted, select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
+1. If prompted, select **Install** to install the Azure Storage extension any dependencies in the function app. After installation succeeds, select **Continue**.
 
     ![Install binding extensions](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
