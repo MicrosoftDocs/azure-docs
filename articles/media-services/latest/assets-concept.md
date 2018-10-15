@@ -33,7 +33,7 @@ The following table shows the Asset's properties and gives their definitions.
 
 |Name|Type|Description|
 |---|---|---|
-|Id|string|Fully qualified resource ID for the resource.|
+|id|string|Fully qualified resource ID for the resource.|
 |name|string|The name of the resource.|
 |properties.alternateId |string|The alternate ID of the Asset.|
 |properties.assetId |string|The Asset ID.|
@@ -56,18 +56,27 @@ Media Services supports the following OData query options for Assets:
 * $top 
 * $skiptoken 
 
+Operator description:
+
+* Eq = equal to
+* Ne = not equal to
+* Ge = Greater than or equal to
+* Le = Less than or equal to
+* Gt = Greater than
+* Lt = Less than
+
 ### Filtering/ordering
 
 The following table shows how these options may be applied to the Asset properties: 
 
 |Name|Filter|Order|
 |---|---|---|
-|Id|Supports:<br/>Equals<br/>Greater than<br/>Less Than|Supports:<br/>Ascending<br/>Descending|
-|name|||
-|properties.alternateId |Supports:<br/>Equals||
-|properties.assetId |Supports:<br/>Equals||
+|id|||
+|name|Supports: Eq, Gt, Lt|Supports:Ascending and Descending|
+|properties.alternateId |Supports: Eq||
+|properties.assetId |Supports: Eq||
 |properties.container |||
-|properties.created|Supports:<br/>Equals<br/>Greater than<br/>Less Than|Supports:<br/>Ascending<br/>Descending|
+|properties.created|Supports: Eq, Gt, Lt| Supports: Ascending and Descending|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
@@ -104,7 +113,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
+For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/assets_list)
 
 
 ## Storage side encryption
@@ -123,5 +132,4 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Stream a file](stream-files-dotnet-quickstart.md)
+[Stream a file](stream-files-dotnet-quickstart.md)
