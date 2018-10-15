@@ -170,15 +170,85 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 The log output should show that `wget` was able to connect and download the index file from the first container using its private IP address on the local subnet. Network traffic between the two container groups remained within the virtual network.
 
+## Deploy to existing virtual network - YAML
+
+You can also deploy a container group to an existing virtual network by using a YAML file. To deploy to a subnet in a virtual network, you specify several additional properties in the YAML:
+
+* `ipAddress`: The IP address settings for the container group.
+  * `ports`: The ports to open, if any.
+  * `protocol`: The protocol (TCP or UDP) for the opened port.
+* `networkProfile`: Specifies network settings like the virtual network and subnet for an Azure resource.
+  * `id`: The full Resource Manager resource ID of the `networkProfile`.
+
+To deploy a container group to a virtual network with a YAML file, you first need to get the ID of the network profile. Execute the [az network profile list][az-network-profile-list] command, specifying the name of the resource group that contains your virtual network and delegated subnet.
+
+``` azurecli
+az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+```
+
+The output of the command displays the full resource ID for the network profile:
+
+```console
+$ az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
+```
+
+Once you have the network profile ID, copy the following YAML into a new file named *vnet-deploy-aci.yaml*. Under `networkProfile`, replace the `id` value with ID you just retrieved, then save the file. This YAML creates a container group named *appcontaineryaml* in your virtual network.
+
+```YAML
+apiVersion: '2018-09-01'
+location: westus
+name: appcontaineryaml
+properties:
+  containers:
+  - name: appcontaineryaml
+    properties:
+      image: microsoft/aci-helloworld
+      ports:
+      - port: 80
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  ipAddress:
+    type: Private
+    ports:
+    - protocol: tcp
+      port: '80'
+  networkProfile:
+    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name for the `--file` parameter:
+
+```azurecli
+az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
+```
+
+Once the deployment has completed, run the [az container show][az-container-show] command to display its status:
+
+```console
+$ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
+Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+```
+
 ## Clean up resources
 
 ### Delete container instances
 
-When you're done working with the container instances you created, delete both with the following commands:
+When you're done working with the container instances you created, delete them with the following commands:
 
 ```azurecli
 az container delete --resource-group myResourceGroup --name appcontainer -y
 az container delete --resource-group myResourceGroup --name commchecker -y
+az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### Delete network resources
@@ -235,4 +305,6 @@ Several virtual network resources and features were discussed in this article, t
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
+[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list

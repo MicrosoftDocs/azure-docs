@@ -2,13 +2,13 @@
 title: Speech service REST APIs
 description: Reference for REST APIs for the Speech service.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 # Speech service REST APIs
 
@@ -16,7 +16,7 @@ The REST APIs of the Azure Cognitive Services Speech service are similar to the 
 
 ## Speech to Text
 
-The endpoints for the Speech to Text REST API are shown in the following table. Use the one that matches your subscription region. Reference the **Recognition modes** section below to replace `conversation` with either `interactive` or `dictation` for your desired sceanrio in a given API call.
+The endpoints for the Speech to Text REST API are shown in the following table. Use the one that matches your subscription region. 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -24,52 +24,6 @@ The endpoints for the Speech to Text REST API are shown in the following table. 
 > If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
 
 This API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API returns only final results, not partial or interim results. The Speech service also has a [batch transcription](batch-transcription.md) API that can transcribe longer audio.
-
-### Recognition modes
-
-When using the REST API or WebSocket protocol directly, it needs to specify the mode of recognition: `interactive`, `conversation`, or `dictation`. The recognition mode adjusts speech recognition based on how the users are likely to speak. Choose the appropriate recognition mode for your application.
-
-> [!NOTE]
-> Recognition modes might have different behaviors in the REST protocol than they do in the WebSocket protocol. For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
-> [!NOTE]
-> These modes are applicable when you directly use the REST or WebSocket protocol. The [Speech SDK](speech-sdk.md) uses different parameters to specify recognition configration. For more information, see the client library of your choice.
-
-The Microsoft Speech Service returns only one recognition phrase result for all recognition modes. There is a limit of 15 seconds for any single utterance, when using the REST API or WebSocket protocol directly.
-
-#### Interactive mode
-
-In `interactive` mode, a user makes short requests and expects the application to perform an action in response.
-
-The following characteristics are typical of interactive mode applications:
-
-- Users know they are speaking to a machine and not to another human.
-- Application users know ahead of time what they want to say, based on what they want the application to do.
-- Utterances typically last about 2-3 seconds.
-
-#### Conversation mode
-
-In `conversation` mode, users are engaged in a human-to-human conversation.
-
-The following characteristics are typical of conversation mode applications:
-
-- Users know that they are talking to another person.
-- Speech recognition enhances the human conversations by allowing one or both participants to see the spoken text.
-- Users do not always plan what they want to say.
-- Users frequently use slang and other informal speech.
-
-#### Dictation mode
-
-In `dictation` mode, users recite longer utterances to the application for further processing.
-
-The following characteristics are typical of dictation mode applications:
-
-- Users know that they are talking to a machine.
-- Users are shown the speech recognition text results.
-- Users often plan what they want to say and use more formal language.
-- Users employ full sentences that last 5-8 seconds.
-
-> [!NOTE]
-> In dictation and conversation modes, the Microsoft Speech Service does not return partial results. Instead, the service returns stable phrase results after silence boundaries in the audio stream. Microsoft might enhance the speech protocol to improve the user experience in these continuous recognition modes.
 
 
 ### Query parameters
