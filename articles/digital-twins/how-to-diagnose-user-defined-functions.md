@@ -6,7 +6,7 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/14/2018
+ms.date: 10/15/2018
 ms.author: stegaw
 ---
 
@@ -24,7 +24,7 @@ Follow this article on [Azure Monitor](../monitoring-and-diagnostics/monitoring-
 
 Ensure that diagnostic settings are enabled on your Digital Twins instance, all log categories are selected, and the logs are being sent into Log Analytics.
 
-To correlate a sensor telemetry message to it's respective logs, you can specify a Correlation ID on the event data being sent by setting the `x-ms-client-request-id` property to a GUID.
+To correlate a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent by setting the `x-ms-client-request-id` property to a GUID.
 
 After sending telemetry, open up Log Analytics within Azure to query for logs with the specified Correlation ID.
 
@@ -61,7 +61,7 @@ GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&o
 | Custom Attribute Name | Replace With |
 | --- | --- |
 | `yourManagementApiUrl` | The full URL path for your Management API  |
-| `yourUserDefinedFunctionId` | The id of the user-defined function to retrieve role assignments for|
+| `yourUserDefinedFunctionId` | The ID of the user-defined function to retrieve role assignments for|
 
 If there is no role assignment retrieved, follow this article on [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md#Create-a-role-assignment).
 
@@ -76,8 +76,8 @@ GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluat
 | Custom Attribute Name | Replace With |
 | --- | --- |
 | `yourManagementApiUrl` | The full URL path for your Management API  |
-| `yourMatcherIdentifier` | The id of the matcher you wish to evaluate |
-| `yourSensorIdentifier` | The id of the sensor you wish to evaluate |
+| `yourMatcherIdentifier` | The ID of the matcher you wish to evaluate |
+| `yourSensorIdentifier` | The ID of the sensor you wish to evaluate |
 
 Response
 
@@ -101,7 +101,7 @@ GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?
 | Custom Attribute Name | Replace With |
 | --- | --- |
 | `yourManagementApiUrl` | The full URL path for your Management API  |
-| `yourSensorIdentifier` | The id of the sensor that will be sending telemetry |
+| `yourSensorIdentifier` | The ID of the sensor that will be sending telemetry |
 
 Response:
 
@@ -146,7 +146,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-This will not work because the identifier used is that of a sensor, but the topology object type specified is 'Space'.
+This scenario arises because the used identifier refers to a sensor while the topology object type specified is 'Space'.
 
 **Correct** Example:
 
@@ -181,11 +181,11 @@ If your diagnostic settings are enabled, these exceptions should be visible in t
 
 1. Throttling
 
-    - If your user-defined function is executing past the rate limits outlined here: [Service Limits](./concepts-service-limits.md#UDF-rate-limits) then it will be throttled which will have the immmediate effect of no operations successfully executing within the user-defined function.
+    - If your user-defined function is executing past the rate limits outlined in the [Service Limits](./concepts-service-limits.md#UDF-rate-limits) article, it will be throttled which will have the immediate effect of no operations successfully executing within the user-defined function.
 
 1. Data Not Found
 
-    - If your user-defined function attempts to access metadata which does not exist, the operation will fail.
+    - If your user-defined function attempts to access metadata that does not exist, the operation will fail.
 1. Not Authorized
 
     - If your user-defined function doesn't have a role assignment set, or if the role assignment does not give enough permission to access certain metadata from the topology, the operation will fail.
