@@ -3,7 +3,7 @@ title: SQL Data Warehouse Recommendations - Concepts | Microsoft Docs
 description: Learn about SQL Data Warehouse recommendations and how they are generated
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
@@ -24,7 +24,7 @@ Click [here](https://aka.ms/Azureadvisor) to check your recommendations today! C
 
 ## Data Skew
 
-Data skew can cause additional data movement or resource bottlenecks when running your workload. The following documentation describes show to identify data skew and prevent it from happening by selecting an optimal distribution key.
+Data skew can cause additional data movement or resource bottlenecks when running your workload. The following documentation describes show to identify data skew and prevent it from happening by selecting an optimal distribution key. 
 
 - [Identify and remove skew](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice) 
 
@@ -32,6 +32,31 @@ Data skew can cause additional data movement or resource bottlenecks when runnin
 
 Having suboptimal statistics can severely impact query performance as it can cause the SQL Data Warehouse query optimizer to generate suboptimal query plans. The following documentation describes the best practices around creating and updating statistics:
 
-- [Creating and updating table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
+- [Creating and updating table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistic)
 
-To see the list of impacted tables by these recommendations, run the following [T-SQL script](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). The advisor continuously runs the same T-SQL script to generate these recommendations.
+To see the list of impacted tables by these recommendations, run the following  [T-SQL script](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). The advisor continuously runs the same T-SQL script to generate these recommendations.
+
+## Replicate Tables
+
+For replicated table recommendations, the advisor detects table candidates based on the following
+physical characteristics:
+
+- Replicated table size
+- Number of columns
+- Table distribution type
+- Number of partitions
+
+The advisor continuously leverages workload based heuristics such as table access frequency, rows returned on average, and thresholds around data warehouse size and activity to ensure high quality recommendations are generated. 
+
+The following describes workload based heuristics you may find in the Azure portal for each replicated table recommendation:
+
+- Scan avg- this is the average percent of rows which were returned from the table for each table access over the past 7 days
+- Frequent read, no update - this indicates that the table has not been updated in the past 7 days while showing access activity
+- Read/update ratio - this is the ratio of how frequent the table was accessed relative to when it gets updated over the past 7 days
+- Activity - this measures the usage based on access activity. This compares the table access activity relative to the average table access activity across the data warehouse over the past 7 days. 
+
+Currently the advisor will only show at most 4 replicated table candidates at once with clustered columnstore indexes prioritizing the highest activity.
+
+> [!IMPORTANT]
+> The replicated table recommendation is not full proof. You should always validate your workload after applying the recommendation. Please contact sqldwadvisor@service.microsoft.com if you discover replicated table recommendations that causes your workload to regress.
+>
