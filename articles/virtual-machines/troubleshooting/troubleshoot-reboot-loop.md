@@ -21,7 +21,7 @@ This article describes the reboot loop you may experience on a Windows Virtual M
 
 ## Symptom
 
-When you use [Boot diagnostics](./boot-diagnostics.md)to get the screenshots of a VM, you find the virtual machine is booting but the boot process is getting interrupted and the process is starting over.
+When you use [Boot diagnostics](./boot-diagnostics.md) to get the screenshots of a VM, you find the virtual machine is booting but the boot process is getting interrupted and the process is starting over.
 
 ![Start screen 1](./media/troubleshoot-reboot-loop/start-screen-1.png)
 
