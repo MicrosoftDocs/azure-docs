@@ -161,5 +161,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
-- [Application Insights confg reference](app-insights-configuration-with-applicationinsights-config.md)
+- [Application Insights config reference](app-insights-configuration-with-applicationinsights-config.md)
 
