@@ -54,10 +54,8 @@
     href: how-to-egress-endpoints.md
   - name: How to use Digital Twins Swagger
     href: how-to-use-swagger.md
-  - name: Troubleshoot
-    items:
-    - name: User-defined functions
-      href: how-to-diagnose-user-defined-functions.md
+  - name: Diagnose user-defined functions
+    href: how-to-diagnose-user-defined-functions.md
 #- name: Reference
 #  items:
 - name: Related

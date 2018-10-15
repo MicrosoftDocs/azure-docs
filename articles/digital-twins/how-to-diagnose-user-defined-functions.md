@@ -1,6 +1,6 @@
 ---
-title: How to diagnose issues with user-defined functions in Azure Digital Twins | Microsoft Docs
-description: Guideline on what to investigate if running into issues.
+title: How to debug UDFs in Azure Digital Twins | Microsoft Docs
+description: Guideline about how to debug UDFs in Azure Digital Twins
 author: stefanmsft
 manager: deshner
 ms.service: digital-twins
@@ -12,7 +12,7 @@ ms.author: stefanmsft
 
 # How to diagnose issues with user-defined functions in Azure Digital Twins
 
-This article explains how to diagnose user-defined function and some of the most common scenarios one might encounter in diagnosing them.
+This article explains how to diagnose user-defined functions and some of the most common scenarios one might encounter in diagnosing them.
 
 ## Enabling log analytics for your Azure Digital Twins instance
 
@@ -20,11 +20,11 @@ Logs and metrics for your Azure Digital Twins instance are exposed through Azure
 
 Follow this article on [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) to enable diagnostic settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
 
-## Tracing sensor telemetry through Azure Digital Twins execution path
+## Trace sensor telemetry
 
 Ensure that diagnostic settings are enabled on your Azure Digital Twins instance, all log categories are selected, and the logs are being sent into Azure Log Analytics.
 
-To correlate a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent by setting the `x-ms-client-request-id` property to a GUID.
+To match a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent by setting the `x-ms-client-request-id` property to a GUID.
 
 After sending telemetry, open up Azure Log Analytics to query for logs with the specified Correlation ID.
 
@@ -37,7 +37,7 @@ AzureDiagnostics
 | --- | --- |
 | `yourCorrelationIdentifier` | The Correlation ID that was specified on the event data. |
 
-If you log within your user-defined function, those logs will appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve these logs, enter the following condition in your Azure Log Analytics instance:
+If you add log statements in your user-defined function, those logs will appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve these logs, enter the following condition in your Azure Log Analytics instance:
 
 ```text
 AzureDiagnostics
@@ -46,9 +46,14 @@ AzureDiagnostics
 
 ## Common issues
 
-Several common scenarios that might arise when working with user-defined functions are detailed to assist with diagnosing and resolving issues.
+Several common scenarios to assist with diagnosing and resolving issues 
 
-### Ensure that a role assignment was created for the user-defined function
+
+that might arise when working with user-defined functions are detailed 
+
+.
+
+### Ensure a role assignment was created
 
 Without a role assignment created within Management API, the user-defined function will not have access to perform any actions such as sending notifications, retrieving metadata, and setting computed values within the topology.
 
@@ -63,9 +68,9 @@ GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&o
 | `yourManagementApiUrl` | The full URL path for your Management API  |
 | `yourUserDefinedFunctionId` | The ID of the user-defined function to retrieve role assignments for|
 
-If there is no role assignment retrieved, follow this article on [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md).
+If no role assignment is retrieved, follow this article on [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md).
 
-### Check if the matcher will work for a given sensor's telemetry
+### Check if the matcher will work for a sensor's telemetry
 
 With the following call against your Azure Digital Twins instances' Management API, you will be able to determine if a given matcher applies for the given sensor.
 
