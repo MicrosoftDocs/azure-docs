@@ -8,7 +8,7 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
 ---
 
@@ -57,7 +57,7 @@ After the package is installed, a confirmation appears in the Package Manager co
 
 1. Open `Program.cs`, and replace all the code in it with the following.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore/helloworld/Program.cs#code)]
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
