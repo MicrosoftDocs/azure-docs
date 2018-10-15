@@ -19,6 +19,9 @@ A compute target is the resource that runs your training script or hosts your mo
 
 You can start with local runs on your machine, and then scale up and out to other environments such as remote Data Science virtual machines with GPU or Azure Batch AI. 
 
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 0.168 
+
 ## Supported compute targets
 
 Azure Machine Learning service supports the following compute targets:
@@ -100,7 +103,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 run_config_system_managed = RunConfiguration()
 
 run_config_system_managed.environment.python.user_managed_dependencies = False
-run_config_system_managed.prepare_environment = True
+run_config_system_managed.auto_prepare_environment = True
 
 # Specify conda dependencies with scikit-learn
 
