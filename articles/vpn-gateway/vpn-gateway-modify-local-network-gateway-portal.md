@@ -22,6 +22,8 @@ ms.author: cherylmc
 
 Sometimes the settings for your local network gateway AddressPrefix or GatewayIPAddress change. This article shows you how to modify your local network gateway settings. You can also modify these settings using a different method by selecting a different option from the following list:
 
+Attention: Before the proceed to delete the connection, download de configuration (for any device) to get the defined PSK, so you don't take to redefine it on the other side.
+
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
