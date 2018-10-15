@@ -14,11 +14,11 @@ ms.author: lyrana
 
 Azure Digital Twins uses Azure Active Directory (Azure AD) to authenticate users and protect applications. Azure AD supports authentication for a variety of modern architectures, all of them based on industry-standard protocols OAuth 2.0 or OpenID Connect. In addition, Azure AD enables developers building both single-tenant, line-of-business (LOB) applications, as well as developers looking to develop multi-tenant applications.
 
-For an overview of Azure AD visit the [fundamentals page](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/index) for step-by-step guides, concepts, and quick starts.
+For an overview of Azure AD visit the [fundamentals page](https://docs.microsoft.com/azure/active-directory/fundamentals/index) for step-by-step guides, concepts, and quick starts.
 
-To integrate an application or service with Azure AD, a developer must first register the application with Azure AD. For detailed instructions and screen shots view the instructions [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+To integrate an application or service with Azure AD, a developer must first register the application with Azure AD. For detailed instructions and screen shots view the instructions [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
-These are the [five primary application scenarios](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-app-types) supported by Azure AD:
+These are the [five primary application scenarios](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) supported by Azure AD:
 
 * Single-page application (SPA): A user needs to sign in to a single-page application that is secured by Azure AD.
 * Web browser to web application: A user needs to sign in to a web application that is secured by Azure AD.
@@ -39,7 +39,7 @@ In order to get up and running with the Digital Twins APIs you can use a client 
 
 
 1. Navigate to https://www.getpostman.com/ to download the app
-1. Follow the steps [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure Active Directory application (or you can choose to re-use an existing registration). 
+1. Follow the steps [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure Active Directory application (or you can choose to re-use an existing registration). 
 1. Under Required permissions add “Azure Digital Twins,” and select Delegated Permissions. Don't forget to click Grant Permissions to finalize.
 1. Configure a reply url to [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback).
 1. Select the **Authorization Tab**, click on **OAuth 2.0**, and select **Get New Access Token**.
