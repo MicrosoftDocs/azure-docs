@@ -9,7 +9,7 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 10/08/2018
 ms.author: glenga
 ---
 # Develop Azure Functions using Visual Studio  
@@ -91,7 +91,7 @@ To set the storage account connection string:
 
 3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.
 
-## Create a function
+## Add a function to your project
 
 In pre-compiled functions, the bindings used by the function are defined by applying attributes in the code. When you use the Azure Functions Tools to create your functions from the provided templates, these attributes are applied for you. 
 
@@ -166,7 +166,9 @@ To test your function, press F5. If prompted, accept the request from Visual Stu
 
 With the project running, you can test your code as you would test deployed function. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). When running in debug mode, breakpoints are hit in Visual Studio as expected. 
 
+<!---
 For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 To learn more about using the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
 
@@ -191,6 +193,20 @@ You can also manage application settings in one of these other ways:
 * [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
 * [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+
+## Monitoring functions
+
+The recommended way to monitor the execution of your function in Azure is by integrating with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done. Instead, you get built-in logging, which isn't recommended.
+
+To enable Application Insights for your function app in Azure:
+
+1. Create an Application Insights instance in the [Azure portal](https://portal.azure.com) and copy its instrumentation key. To learn how, see [Manually connect an App Insights resource](functions-monitoring.md#manually-connect-an-app-insights-resource).  
+
+1. Add an app setting named `APPINSIGHTS_INSTRUMENTATIONKEY` to the function app settings in Azure, as described in [Function app settings](#function-app-settings). This app setting contains the instrumentation key that you created in the previous step.
+
+1. Remove the `AzureWebJobsDashboard` app setting from the function app in Azure, which disables built-in logging.  
+
+To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 ## Next steps
 

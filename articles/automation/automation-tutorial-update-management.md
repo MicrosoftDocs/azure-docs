@@ -6,7 +6,7 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
 ---
@@ -110,7 +110,7 @@ Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, sel
 
 #### Runbook alert
 
-For failed deployments you must alert of the failure of the master run
+For failed deployments you must alert on the failure of the master runbook.
 In the Azure portal, go to **Monitor**, and then select **Create Alert**.
 
 Under **1. Define alert condition**, click **Select target**. Under **Filter by resource type**, select **Automation Accounts**. Select your Automation Account, and then select **Done**.
@@ -153,6 +153,8 @@ Under **New update deployment**, specify the following information:
 
 * **Operating system**: Select the OS to target for the update deployment.
 
+* **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management.md#using-dynamic-groups)
+
 * **Machines to update**: Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Update classification**: Select the types of software that the update deployment included in the deployment. For this tutorial, leave all types selected.
@@ -166,10 +168,13 @@ Under **New update deployment**, specify the following information:
 
    For a description of the classification types, see [update classifications](automation-update-management.md#update-classifications).
 
+* **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior)
+
 * **Schedule settings**: The **Schedule Settings** pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
    You can also specify whether the deployment occurs once, or set up a recurring schedule. Under **Recurrence**, select **Once**. Leave the default as 1 day and select **OK**. This sets up a recurring schedule.
 
+* **Pre-scripts + Post-scripts**: Select the scripts to run before and after your deployment. To learn more, see [Manage Pre and Post scripts](pre-post-scripts.md).
 * **Maintenance window (minutes)**: Leave the default value. You can set the window of time that you want the update deployment to occur within. This setting helps ensure that changes are performed within your defined service windows.
 
 * **Reboot options**: This setting

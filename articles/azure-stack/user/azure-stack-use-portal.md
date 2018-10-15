@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
 
@@ -33,7 +33,7 @@ Your Azure Stack operator (either a service provider or an administrator in your
 
 ## Customize the dashboard
 
-The dashboard contains a default set of tiles. You can select **Edit dashboard** to modify the default dashboard, or select **New dashboard** to create a custom dashboard. You can easily customize a dashboard by adding or removing tiles. For example, to add a Compute tile, select **New**. Right-click **Compute**, and then select **Pin to dashboard**.
+The dashboard contains a default set of tiles. You can select **Edit dashboard** to modify the default dashboard, or select **New dashboard** to create a custom dashboard. You can easily customize a dashboard by adding or removing tiles. For example, to add a Compute tile, select **+ Create a resource**. Right-click **Compute**, and then select **Pin to dashboard**.
 
 ## Create subscription and browse available resources
 
@@ -41,7 +41,7 @@ If you don't already have a subscription, the first thing you need to do is subs
 
 - Select the **Marketplace** tile on the dashboard.
 - On the **All resources** tile, select **Create resources**.
-- On the left navigation pane, select **New**.
+- On the left navigation pane, select **+ Create a resource**.
 
 ## Learn how to use available services
 

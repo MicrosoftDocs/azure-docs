@@ -1,5 +1,6 @@
 ---
 title: Text to Speech API of Microsoft Speech Service | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use the text to speech API to provide real-time text-to-speech conversion in a variety of voices and languages
 services: cognitive-services
 author: priyaravi20
@@ -7,8 +8,9 @@ manager: yanbo
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 09/18/2018
 ms.author: priyar
+ROBOTS: NOINDEX
 ---
 # Bing text to speech API
 

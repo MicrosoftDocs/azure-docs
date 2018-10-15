@@ -2,15 +2,16 @@
 title: Azure SQL Data Sync | Microsoft Docs
 description: This overview introduces Azure SQL Data Sync
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.custom: data-sync
+manager: craigg
+ms.date: 08/09/2018
 ---
 # Sync data across multiple cloud and on-premises databases with SQL Data Sync
 
@@ -42,9 +43,9 @@ A Sync Group has the following properties:
 
 ## When to use Data Sync
 
-Data Sync is useful in cases where data needs to be kept up-to-date across several Azure SQL Databases or SQL Server databases. Here are the main use cases for Data Sync:
+Data Sync is useful in cases where data needs to be kept up-to-date across several Azure SQL databases or SQL Server databases. Here are the main use cases for Data Sync:
 
--   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL Databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
+-   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
 
 -   **Distributed Applications:** In many cases, it's beneficial to separate different workloads across different databases. For example, if you have a large production database, but you also need to run a reporting or analytics workload on this data, it's helpful to have a second database for this additional workload. This approach minimizes the performance impact on your production workload. You can use Data Sync to keep these two databases synchronized.
 
@@ -119,6 +120,8 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 -   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 
 -   Azure Active Directory authentication is not supported.
+
+-   Tables with same name but different schema (for example, dbo.customers and sales.customers) are not supported.
 
 #### Unsupported data types
 

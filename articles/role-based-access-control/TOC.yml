@@ -25,6 +25,8 @@
   items:
   - name: Understand role definitions
     href: role-definitions.md
+  - name: Understand deny assignments
+    href: deny-assignments.md
   - name: Privileged Identity Management (PIM) for RBAC
     href: pim-azure-resource.md
   - name: Conditional access for Azure management
@@ -43,6 +45,10 @@
       href: role-assignments-rest.md
     - name: Template
       href: role-assignments-template.md
+  - name: Deny access
+    items:
+    - name: REST API
+      href: deny-assignments-rest.md
   - name: Custom roles
     href: custom-roles.md
     items:
@@ -74,3 +80,7 @@
     href: /cli/azure/role?view=azure-cli-latest
   - name: REST API
     href: /rest/api/authorization/
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-active-directory

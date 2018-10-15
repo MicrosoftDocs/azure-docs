@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use managed identities for Azure resources on a virtual machine to acquire an access token
 description: Step by step instructions and examples for using managed identities for Azure resources on a virtual machines to acquire an OAuth access token.
 services: active-directory
@@ -19,7 +19,7 @@ ms.author: daveba
 
 # How to use managed identities for Azure resources on an Azure VM to acquire an access token 
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 
 Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal | Microsoft Docs'
 description: Steps to connect classic VNets to Resource Manager VNets using VPN Gateway and the portal
 services: vpn-gateway
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-
 ---
 # Connect virtual networks from different deployment models using the portal
 
@@ -293,7 +292,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
 ```
 
-##<a name="verify"></a>Section 6 - Verify your connections
+## <a name="verify"></a>Section 6 - Verify your connections
 
 You can verify your connections by using the Azure portal or PowerShell. When verifying, you may need to wait a minute or two as the connection is being created. When a connection is successful, the connectivity state changes from 'Connecting' to 'Connected'.
 

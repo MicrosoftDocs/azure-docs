@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Silverback, you need the following items:
 
 - An Azure AD subscription
-- A Silverback single sign-on enabled subscription
+- An active Silverback subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -104,11 +104,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Silverback Domain and URLs single sign-on information](./media/silverback-tutorial/tutorial_silverback_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>/ssp`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>.com/ssp`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `<YOURSILVERBACKURL>.com`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>/sts/authorize/login`
+	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Silverback Client support team](mailto:helpdesk@matrix42.com) to get these values. 
@@ -121,7 +121,31 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/silverback-tutorial/tutorial_general_400.png)
 
-6. To configure single sign-on on **Silverback** side, you need to send the **App Federation Metadata Url** to [Silverback support team](mailto:helpdesk@matrix42.com). They set this setting to have the SAML SSO connection set properly on both sides.
+6.  Login to your Silverback Server as an Administrator and perform the following steps:
+
+	a. 	Navigate to **Admin** > **Authentication Provider**.
+
+	b. On the **Authentication Provider Settings** page, perform the following steps:
+
+	![The admin ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+
+	c. 	Click on **Import from URL**.
+ 	
+	d.	Paste the copied Metadata URL and click **OK**.
+	
+	e.	Confirm with **OK** then the values will be populated automatically.
+	
+	f.	Enable **Show on Login Page**.
+	
+	g.	Enable **Dynamic User Creation** if you want to add by Azure AD authorized users automatically (optional).
+	
+	h.	Create a **Title** for the button on the Self Service Portal.
+
+	i.	Upload an **Icon** by clicking on **Choose File**.
+	
+	j.	Select the background **color** for the button.
+	
+	k.	Click **Save**.
 
 ### Create an Azure AD test user
 
@@ -157,7 +181,34 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Silverback test user
 
-In this section, you create a user called Britta Simon in Silverback. Work with [Silverback support team](mailto:helpdesk@matrix42.com) to add the users in the Silverback platform. Users must be created and activated before you use single sign-on.
+To enable Azure AD users to log in to Silverback, they must be provisioned into Silverback. In Silverback, provisioning is a manual task.
+
+**To provision a user account, perform the following steps:**
+
+1. Login to your Silverback Server as an Administrator.
+
+2. Navigate to **Users** and **add a new device user**.
+
+3. On the **Basic** page, perform the following steps:
+
+	![The user ](./media/silverback-tutorial/tutorial_silverback_user.png)
+
+	a. In **Username** text box, enter the name of user like **Britta**.
+
+	b. In **First Name** text box, enter the first name of user like **Britta**.
+
+	c. In **Last Name** text box, enter the last name of user like **Simon**.
+
+	d. In **E-mail Address** text box, enter the email of user like **Brittasimon@contoso.com**.
+
+	e. In the **Password** text box, enter your password.
+	
+	f. In the **Confirm Password** text box, Re-enter your password and confirm.
+
+	g. Click **Save**.
+
+>[!NOTE]
+>If you don’t want to create each user manually Enable the **Dynamic User Creation** Checkbox under **Admin** > **Authentication Provider**.
 
 ### Assign the Azure AD test user
 

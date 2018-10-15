@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Assign a Managed Service Identity (MSI) access to a resource using Azure CLI
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Once you've configured an Azure resource with an MSI, you can give the MSI access to another resource, just like any security principal. This example shows you how to give an Azure virtual machine or virtual machine scale set's MSI access to an Azure storage account, using Azure CLI.
 
@@ -31,7 +31,7 @@ To run the CLI script examples, you have three options:
 
 - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
-- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
+- [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

@@ -97,6 +97,43 @@ To enable the solution for all available machines and all future machines, selec
 
 To enable the solution for one or more machines, select **Enable on selected machines** and click **add** next to each machine you want to add to the solution. This task adds the selected machine names to the computer group saved search query for the solution.
 
+## Unlink workspace
+
+The following solutions are dependent on a Log Analytics workspace:
+
+* [Update Management](automation-update-management.md)
+* [Change Tracking](automation-change-tracking.md)
+* [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
+
+If you decide you no longer wish to integrate your Automation account with Log Analytics, you can unlink your account directly from the Azure portal.  Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
+
+After you remove these solutions, you can perform the following steps to unlink your Automation account.
+
+> [!NOTE]
+> Some solutions including earlier versions of the Azure SQL monitoring solution may have created automation assets and may also need to be removed prior to unlinking the workspace.
+
+1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
+
+1. On the Unlink workspace page, click **Unlink workspace**.
+
+   ![Unlink workspace page](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
+
+   You will receive a prompt verifying you wish to proceed.
+
+1. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
+
+If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
+
+* Update schedules - Each will have names that match the update deployments you created)
+
+* Hybrid worker groups created for the solution -  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+
+If you used the Start/Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
+
+* Start and stop VM runbook schedules
+* Start and stop VM runbooks
+* Variables
+
 ## Next steps
 
 Continue to the tutorials on the solutions to learn how to use them.

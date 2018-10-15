@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/21/2018
+ms.date: 10/10/2018
 ---
 
 # Azure Database for PostgreSQL pricing tiers
@@ -41,8 +41,8 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Central US | X |  |
-| East US | X | X |
+| Central US |  | X |
+| East US |  | X |
 | East US 2 | X | X |
 | North Central US | X | X |
 | South Central US | X | X |
@@ -69,6 +69,11 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Japan West | X | X |
 | Korea Central |  | X |
 | Korea South |  | X |
+| Germany Central |  | X |
+| US DoD Central  | X |  |
+| US DoD East  | X |  |
+| US Gov Arizona |  | X |
+| US Gov Texas |  | X |
 
 ## Storage
 
@@ -115,4 +120,4 @@ For the most up-to-date pricing information, see the service [pricing page](http
 
 - Learn how to [create a PostgreSQL server in the portal](tutorial-design-database-using-azure-portal.md).
 - Learn how to [monitor and scale an Azure Database for PostgreSQL server by using Azure CLI](scripts/sample-scale-server-up-or-down.md).
-- Learn about the [service limitations](concepts-limits.md).
+- Learn about the [service limitations](concepts-limits.md). 

@@ -1,14 +1,14 @@
 ---
-title: Bing Search SDK | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bing Search SDK for applications that search the web.
+title: Bing News Search SDK
+titleSuffix: Azure Cognitive Services
+description: Bing News Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: 
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/24/2018
 ms.author: v-gedod
 ---

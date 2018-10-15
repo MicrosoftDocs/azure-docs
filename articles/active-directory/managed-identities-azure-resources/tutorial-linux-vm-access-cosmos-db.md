@@ -1,4 +1,4 @@
----
+﻿---
 title: Use a Linux VM system-assigned managed identity to access Azure Cosmos DB
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Cosmos DB.
 services: active-directory
@@ -19,10 +19,10 @@ ms.author: daveba
 ---
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure Cosmos DB 
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
-This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Cosmos DB. You learn how to:
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Cosmos DB. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Cosmos DB account

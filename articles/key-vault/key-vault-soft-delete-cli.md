@@ -5,7 +5,7 @@ description: Use case examples of soft-delete with CLI code snips
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bryanla
@@ -19,9 +19,9 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 
 ## Prerequisites
 
-- Azure CLI 2.0 - If you don't have this setup for your environment, see [Manage Key Vault using CLI 2.0](key-vault-manage-with-cli2.md).
+- Azure CLI - If you don't have this setup for your environment, see [Manage Key Vault using Azure CLI](key-vault-manage-with-cli2.md).
 
-For Key Vault specific reference information for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
+For Key Vault specific reference information for CLI, see [Azure CLI Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
 
 ## Required permissions
 

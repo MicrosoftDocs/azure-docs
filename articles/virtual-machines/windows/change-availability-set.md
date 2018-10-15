@@ -31,13 +31,10 @@ The following script provides an example of gathering the required information, 
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get VM Details
-    $originalVM = get-azurermvm `
+# Get the details of the VM to be moved to the Availablity Set
+    $originalVM = Get-AzureRmVM `
 	   -ResourceGroupName $resourceGroup `
 	   -Name $vmName
-
-# Remove the original VM
-    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
 
 # Create new availability set if it does not exist
     $availSet = Get-AzureRmAvailabilitySet `
@@ -53,6 +50,9 @@ The following script provides an example of gathering the required information, 
 	   -PlatformUpdateDomainCount 2 `
 	   -Sku Aligned
     }
+    
+# Remove the original VM
+    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName    
 
 # Create the basic configuration for the replacement VM
     $newVM = New-AzureRmVMConfig `

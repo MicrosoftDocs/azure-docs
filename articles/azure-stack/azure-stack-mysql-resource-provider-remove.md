@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 
@@ -49,6 +49,7 @@ The administrator is responsible for the following cleanup tasks:
 5. Run the DeployMySqlProvider.ps1 script using the following parameters:
     - **Uninstall**. Removes the resource provider and all associated resources.
     - **PrivilegedEndpoint**. The IP address or DNS name of the privileged endpoint.
+    - **AzureEnvironment**. The Azure environment used for deploying Azure Stack. Required only for Azure AD deployments.
     - **CloudAdminCredential**. The credential for the cloud administrator, necessary to access the privileged endpoint.
     - **DirectoryTenantID**
     - **AzCredential**. The credential for the Azure Stack service admin account. Use the same credentials that you used for deploying Azure Stack.

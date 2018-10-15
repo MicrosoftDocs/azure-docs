@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 09/25/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Common questions for transition from OMS portal to Azure portal for Log Analytics users
@@ -79,7 +79,7 @@ Manage most Connected Source settings the  in the **Advanced settings** menu for
 | Azure Storage     | **Advanced settings** menu for the workspace. |
 | System Center     | **Advanced settings** menu for the workspace. |
 | Office 365        | See the [documentation for Office 365 management solution](../operations-management-suite/oms-solution-office-365.md) for configuration details. |
-| Windows Telemetry | Not yet available in Azure portal. |
+| Windows Telemetry | Settings menu for the solution. See [Windows Analytics in the Azure portal](/windows/deployment/update/windows-analytics-azure-portal) for configuration details. |
 | ITSM Connector    | See  [Connect ITSM products/services with IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) for instructions on connecting your ITSM service with Log Analytics. |
 
 ### Data

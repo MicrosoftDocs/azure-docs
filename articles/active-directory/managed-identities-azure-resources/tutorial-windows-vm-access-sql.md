@@ -1,4 +1,4 @@
----
+﻿---
 title: Use a Windows VM system-assigned managed identity  to access Azure SQL
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure SQL. 
 services: active-directory
@@ -20,7 +20,7 @@ ms.author: daveba
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure SQL
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use a system-assigned identity for a Windows virtual machine (VM) to access an Azure SQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
 
@@ -147,7 +147,7 @@ For this next step, you will need [Microsoft SQL Server Management Studio](https
 11.  Clear the query window, enter the following line, and click **Execute** in the toolbar:
      
      ```
-     ALTER ROLE db_datareader ADD MEMBER [VM VM managed identity access to SQL access to SQL]
+     ALTER ROLE db_datareader ADD MEMBER [VM managed identity access to SQL]
      ```
 
      The command should complete successfully, granting the contained user the ability to read the entire database.

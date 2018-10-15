@@ -7,13 +7,12 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
 
@@ -319,13 +318,13 @@ Usage is reported for the following resource providers:
 **Notes**: Total incoming request response bytes + total outgoing request bytes + total incoming FTP request response bytes + total incoming web deploy request response bytes.  
   
 
-## How do the Azure Stack usage APIs compare to the [Azure usage API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (currently in public preview)?
+## How do the Azure Stack usage APIs compare to the [Azure usage API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (currently in public preview)?
 * The Tenant Usage API is consistent with the Azure API, with one
   exception: the *showDetails* flag currently is not supported in
   Azure Stack.
 * The Provider Usage API applies only to Azure Stack.
 * Currently, the [RateCard
-  API](https://msdn.microsoft.com/library/azure/mt219004.aspx)
+  API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview)
   that is available in Azure is not available in Azure Stack.
 
 ## What is the difference between usage time and reported time?

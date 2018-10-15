@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Configure a VM with managed identities for Azure resources using an Azure SDK
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory (AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 

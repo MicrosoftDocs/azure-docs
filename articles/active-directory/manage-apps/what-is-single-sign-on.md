@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
@@ -86,7 +86,7 @@ For select applications, Azure AD enables automated user provisioning and de-pro
 
 When a user is deleted or their information changes in Azure AD, these changes are also reflected in the SaaS application. This means, configuring automated identity lifecycle management enables administrators to control and provide automated provisioning and de-provisioning from SaaS applications. In Azure AD, this automation of identity lifecycle management is enabled by user provisioning.
 
-To learn more, see [Automated User Provisioning and Deprovisioning to SaaS Applications](../active-directory-saas-app-provisioning.md)
+To learn more, see [Automated User Provisioning and Deprovisioning to SaaS Applications](user-provisioning.md)
 
 ## Get started with the Azure AD application gallery
 Ready to get started? To deploy single sign-on between Azure AD and SaaS applications that your organization uses, follow these guidelines.
@@ -106,7 +106,7 @@ Once you’ve found your application, you can get started by following the step-
 ### Application not in the gallery?
 If your application is not found in the Azure AD application gallery, then you have these options:
 
-* **Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
+* **Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](configure-federated-single-sign-on-non-gallery-applications.md).
 * **Add your own app you are developing** - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API. For more information, see these resources:
   
   * [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md)
@@ -188,7 +188,6 @@ When an authorized user clicks on one of these application-specific links, they 
 These links use the same access control mechanisms as the access panel and Office 365, and only those users or groups who have been assigned to the application in the Azure portal will be able to successfully authenticate. However, any user who is unauthorized will see a message explaining that they have not been granted access, and are given a link to load the access panel to view available applications for which they do have access.
 
 ## Related articles
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introduction to Managing Access to Apps](what-is-access-management.md)

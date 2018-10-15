@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -22,7 +22,7 @@ ms.custom: it-pro
 
 In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. Dynamic group membership reduces the administrative overhead of adding and removing users. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
 
-When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
+When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed. You can't manually add or remove a member of a dynamic group.
 
 * You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
 * You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
@@ -127,15 +127,29 @@ The following table lists all the supported operators and their syntax for a sin
 | In | -in |
 | Not In | -notIn |
 
-### Using the -In and -notIn operators
+### Using the -in and -notIn operators
 
-If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values.
+If you want to compare the value of a user attribute against a number of different values you can use the -in or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values.
 
  In the following example, the expression evaluates to true if the value of user.department equals any of the values in the list:
 
 ```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
+
+
+### Using the -match operator 
+The **-match** operator is used for matching any regular expression. Examples:
+
+```
+user.displayName -match "Da.*"   
+```
+Da, Dav, David evaluate to true, aDa evaluates to false.
+
+```
+user.displayName -match ".*vid"
+```
+David evaluates to true, Da evaluates to false.
 
 ## Supported values
 

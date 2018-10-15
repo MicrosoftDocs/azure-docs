@@ -1,0 +1,83 @@
+- name: Azure Data Explorer Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Data Explorer?
+    href: data-explorer-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a cluster - Azure portal
+    href: create-cluster-database-portal.md
+  - name: Ingest data
+    expanded: true
+    items:
+    - name: Streaming data - Event Hub
+      href: ingest-data-event-hub.md
+    - name: Batching data - Python
+      href: python-ingest-data.md
+  - name: Query data
+    expanded: true
+    items:
+    - name: Web UI
+      href: web-query-data.md
+    - name: Python
+      href: python-query-data.md
+- name: Tutorials
+  items:
+  - name: Visualize data - Power BI
+    href: visualize-power-bi.md  
+- name: Concepts
+  items:
+  - name: Data ingestion overview
+    href: ingest-data-overview.md
+- name: How-to guides
+  items:
+  - name: Write queries
+    href: write-queries.md
+  - name: Ingest sample data
+    href: ingest-sample-data.md
+  - name: Delete data
+    href: delete-data.md
+  - name: Manage database permissions
+    href: manage-database-permissions.md
+  - name: Check cluster health
+    href: check-cluster-health.md
+  - name: Manage cluster scaling
+    href: manage-cluster-scaling.md
+  - name: Troubleshooting
+    items:
+    - name: Creating a cluster
+      href: troubleshoot-create-cluster.md
+    - name: Connecting to a cluster
+      href: troubleshoot-connect-cluster.md
+    - name: Working with databases and tables
+      href: troubleshoot-database-table.md
+- name: Reference
+  items:
+  - name: Query language
+    href: /azure/kusto/query/
+  - name: Management commands
+    href: /azure/kusto/management/
+  - name: APIs
+    href: /azure/kusto/api/
+- name: Resources
+  items:
+  - name: Forums
+    items:
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-data-explorer
+    - name: Microsoft Tech Community
+      href: https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto
+    - name: MSDN forum
+      href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
+  - name: Product feedback
+    href: https://feedback.azure.com/forums/335175-kusto
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/data-explorer/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=data-explorer

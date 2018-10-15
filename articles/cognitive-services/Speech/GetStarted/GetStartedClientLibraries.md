@@ -1,14 +1,16 @@
 ---
-title: Get started with the Microsoft Speech Recognition API by using Bing Speech client libraries | Microsoft Docs
-description: Use the Microsoft Speech Service client libraries in Microsoft Cognitive Services to develop applications that convert spoken audio to text.
+title: Get started with the Bing Speech Recognition API by using client libraries | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Use the Bing Speech client libraries in Microsoft Cognitive Services to develop applications that convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 # Get started with Bing Speech Service client libraries
 
@@ -27,7 +29,7 @@ Currently, the following Bing Speech client libraries are available:
 - [Objective-C library for iOS](Get-Started-ObjectiveC-iOS.md)
 
 > [!NOTE] 
-In May 2018, we also released the new [Speech Service](../../speech-service/index.yml) in public preview. We encourage you to [try it out for free](../../speech-service/get-started.md). 
+Since September 2018, the new [Speech Service](../../speech-service/index.yml) has become generally available. We encourage you to [try it out for free](../../speech-service/get-started.md). 
 
 ## Additional resources
 
@@ -37,3 +39,4 @@ In May 2018, we also released the new [Speech Service](../../speech-service/inde
 ## License
 
 All Cognitive Services SDKs and samples are licensed with the MIT License. For more information, see [License](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+

@@ -73,7 +73,7 @@ From the same **Certificate Configuration** page you used in Step 3, click **Ste
 
 Choose the preferred domain verification method. 
 
-There are four types of domain verification supported by App Service Certificates: App Service, Domain, and Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
+There are three types of domain verification supported by App Service Certificates: App Service, Domain, and Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
 
 > [!NOTE]
 > **App Service Verification** is the most convenient option when the domain you want to verify is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.
@@ -193,14 +193,6 @@ To manually renew the certificate instead, click **Manual Renew** instead. You c
 
 > [!NOTE]
 > The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
-
-<a name="notrenewed"></a>
-## Why is my certificate not auto-renewed?
-
-If your SSL certificate is configured for auto-renewal, but it is not automatically renewed, you may have a pending domain verification. Note that: 
-
-- GoDaddy, which generates App Service certificates, requires domain verification once every two years. The domain administrator receives an email once every three years to verify the domain. Failure to check the email or verify your domain prevents the App Service certificate from being automatically renewed. 
-- Because of a change in GoDaddy policy, all App Service certificates issued prior to March 1, 2017 require reverification of domain at the time of next renewal (even if the auto-renewal is enabled for the certificate). Check your email and complete this one-time domain verification to continue the auto-renewal of the App Service certificate. 
 
 ## More resources
 

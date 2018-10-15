@@ -2,14 +2,16 @@
 title: Azure SQL Database file space management| Microsoft Docs
 description: This page describes how to manage file space with Azure SQL Database, and provides code samples for how to determine if you need to shrink a database as well as how to perform a database shrink operation.
 services: sql-database
-author: oslake
-manager: craigg
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 08/15/2018
+author: oslake
 ms.author: moslake
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
 ---
 # Manage file space in Azure SQL Database
 This article describes different types of storage space in Azure SQL Database, and steps that can be taken when the file space allocated for databases and elastic pools needs to be explicitly managed.
@@ -22,7 +24,7 @@ In Azure SQL Database, most storage space metrics displayed in the Azure portal 
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-There are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages.  This can occur when space used increases and data is subsequently deleted.  This is because file space allocated is not automatically reclaimed when data is deleted.  In such scenarios, the allocated space for a database or pool may exceed supported limits and prevent data growth or prevent performance tier changes, and require shrinking data files to mitigate.
+There are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages.  This can occur when space used increases and data is subsequently deleted.  This is because file space allocated is not automatically reclaimed when data is deleted.  In such scenarios, the allocated space for a database or pool may exceed supported limits and prevent data growth or prevent service tier and compute size changes, and require shrinking data files to mitigate.
 
 The SQL DB service does not automatically shrink data files to reclaim unused allocated space due to the potential impact to database performance.  However, customers may shrink data files via self-service at a time of their choosing by following the steps described in [Reclaim unused allocated space](#reclaim-unused-allocated-space). 
 

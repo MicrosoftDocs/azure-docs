@@ -144,6 +144,8 @@
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Glossary
+    href: glossary.md
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
   - name: Pricing

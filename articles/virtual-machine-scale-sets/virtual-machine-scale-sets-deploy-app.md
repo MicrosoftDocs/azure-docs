@@ -27,14 +27,14 @@ When you use one of the Azure platform images to create the instances in your sc
 
 To reduce the configuration management and time to provision a VM, you can create a custom VM image that is ready to run your application as soon as an instance is provisioned in the scale set. For more information on how to create and use a custom VM image with a scale set, see the following tutorials:
 
-- [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+- [Azure CLI](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Install an app with the Custom Script Extension
 The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. For more information on how to create and use a custom VM image with a scale set, see the following tutorials:
 
-- [Azure CLI 2.0](tutorial-install-apps-cli.md)
+- [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Azure Resource Manager template](tutorial-install-apps-template.md)
 
@@ -110,7 +110,7 @@ az vmss create \
 ### Install applications with OS updates
 When new OS releases are available, you can use or build a new custom image and [deploy OS upgrades](virtual-machine-scale-sets-upgrade-scale-set.md) to a scale set. Each VM instance is upgraded to the latest image that you specify. You can use a custom image with the application pre-installed, the Custom Script Extension, or PowerShell DSC to have your application automatically available as you perform the upgrade. You may need to plan for application maintenance as you perform this process to ensure that there are no version compatibility issues.
 
-If you use a custom VM image with the application pre-installed, you could integrate the application updates with a deployment pipeline to build the new images and deploy OS upgrades across the scale set. This approach allows the pipeline to pick up the latest application builds, create and validate a VM image, then upgrade the VM instances in the scale set. To run a deployment pipeline that builds and deploys application updates across custom VM images, you could [create a Packer image and deploy with Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), or use another platform such as [Spinnaker](https://www.spinnaker.io/) or [Jenkins](https://jenkins.io/).
+If you use a custom VM image with the application pre-installed, you could integrate the application updates with a deployment pipeline to build the new images and deploy OS upgrades across the scale set. This approach allows the pipeline to pick up the latest application builds, create and validate a VM image, then upgrade the VM instances in the scale set. To run a deployment pipeline that builds and deploys application updates across custom VM images, you could [create a Packer image and deploy with Azure DevOps Services](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), or use another platform such as [Spinnaker](https://www.spinnaker.io/) or [Jenkins](https://jenkins.io/).
 
 
 ## Next steps

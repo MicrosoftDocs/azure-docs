@@ -64,5 +64,5 @@ You can upgrade and downgrade to and from any tier. Note that upgrading or downg
 
 ## Next steps
 
-*[How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
-*[How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)
+- [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
+- [How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)

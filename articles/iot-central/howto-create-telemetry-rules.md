@@ -12,6 +12,8 @@ manager: peterpr
 
 # Create a telemetry rule and set up notifications in your Azure IoT Central application
 
+*This article applies to operators, builders, and administrators.*
+
 You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email or trigger Microsoft Flow. In just a few clicks, you can define the condition for which to monitor your device data and configure the corresponding action. This article explains how to create rules to monitor telemetry sent by the device.
 
 Devices can use telemetry measurement to send numerical data from the device. A telemetry rule triggers when the selected device telemetry crosses a specified threshold.
@@ -31,9 +33,9 @@ To create a telemetry rule, the device template must have at least one telemetry
 
     ![No rules yet](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
 
-1. On the **Rules** tab, click **+ New Rule** to see the types of rules you can create.
+1. On the **Rules** tab, click **Edit Template** and then **+ New Rule** to see the types of rules you can create.
 
-1. Click on the **Telemetry** tile to create a rule to monitor device telemetry.
+1. Click **Telemetry** to create a rule to monitor device telemetry.
 
     ![Rule Types](media\howto-create-telemetry-rules\Rule_Types.png)
 
@@ -81,6 +83,8 @@ This section shows you how to set up actions to take when the rule is fired. Act
    ![Configure Action](media\howto-create-telemetry-rules\Configure_Action.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
+
+1. Choose **Done** to exit the **Edit Template** mode.
 
 You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
 

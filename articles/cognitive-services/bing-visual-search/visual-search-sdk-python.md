@@ -1,18 +1,19 @@
 ---
-title: Visual search SDK Python Quickstart | Microsoft Docs
-description: Setup for Visual search SDK Python console application.
+title: "Quickstart: Bing Visual Search SDK, Python"
 titleSuffix: Azure Cognitive Services
+description: Setup for Visual search SDK Python console application.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
 ---
 
-# Visual Search SDK Python Quickstart
+# Quickstart: Bing Visual Search SDK Python
 
 The Bing Visual Search SDK uses the functionality of the REST API for web requests and parsing results.
 The [source code for Python Bing Visual Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) is available on Git Hub.

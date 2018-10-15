@@ -1,4 +1,4 @@
----
+﻿---
 title: Use a Windows VM system-assigned managed identity to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Use a Windows VM system-assigned managed identity to access Resource Manager
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 This quickstart shows you how to access the Azure Resource Manager API using a Windows virtual machine with system-assigned managed identity enabled. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You learn how to:
 

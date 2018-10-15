@@ -1,6 +1,6 @@
 ﻿---
 title: Modify an Azure virtual machine scale set| Microsoft Docs
-description: Learn how to modify and update an Azure virtual machine scale set with the REST APIs, Azure PowerShell, and Azure CLI 2.0
+description: Learn how to modify and update an Azure virtual machine scale set with the REST APIs, Azure PowerShell, and Azure CLI
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -19,7 +19,7 @@ ms.author: negat
 
 ---
 # Modify a virtual machine scale set
-Throughout the lifecycle of your applications, you may need to modify or update your virtual machine scale set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set with the REST APIs, Azure PowerShell, or Azure CLI 2.0.
+Throughout the lifecycle of your applications, you may need to modify or update your virtual machine scale set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set with the REST APIs, Azure PowerShell, or Azure CLI.
 
 ## Fundamental concepts
 
@@ -38,7 +38,7 @@ A scale set has a "scale set model" that captures the *desired* state of the sca
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Azure CLI 2.0 with [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Azure CLI with [az vmss show](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -46,7 +46,7 @@ A scale set has a "scale set model" that captures the *desired* state of the sca
 
 - You can also use [resources.azure.com](https://resources.azure.com) or the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 
-The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI 2.0:
+The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -82,7 +82,7 @@ A scale set also has a "scale set instance view" that captures the current *runt
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI 2.0 with [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -90,7 +90,7 @@ A scale set also has a "scale set instance view" that captures the current *runt
 
 - You can also use [resources.azure.com](https://resources.azure.com) or the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/)
 
-The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI 2.0:
+The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -122,7 +122,7 @@ These properties provide a summary of the current runtime state of the VMs in th
 
 
 ### The scale set VM model view
-Similar to how a scale set has a model view, each VM in the scale set has its own model view. To query the model view for a scale set, you can use:
+Similar to how a scale set has a model view, each VM instance in the scale set has its own model view. To query the model view for a particular VM instance in a scale set, you can use:
 
 - REST API with [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) as follows:
 
@@ -136,7 +136,7 @@ Similar to how a scale set has a model view, each VM in the scale set has its ow
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI 2.0 with [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Azure CLI with [az vmss show](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -144,7 +144,7 @@ Similar to how a scale set has a model view, each VM in the scale set has its ow
 
 - You can also use [resources.azure.com](https://resources.azure.com) or the [Azure SDKs](https://azure.microsoft.com/downloads/).
 
-The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI 2.0:
+The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI:
 
 ```azurecli
 $ az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -158,11 +158,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-These properties describe the configuration of the VM itself, not the configuration of the scale set as a whole. For example, the scale set model has `overprovision` as a property, while the model for a VM in a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VMs in the scale set (for more information about overprovisioning, see [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+These properties describe the configuration of the VM instance, not the configuration of the scale set as a whole. For example, the scale set model has `overprovision` as a property, while the model for a VM instance in a scale set does not. This difference is because overprovisioning is a property for the scale set as a whole, not individual VM instances in the scale set (for more information about overprovisioning, see [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### The scale set VM instance view
-Similar to how a scale set has an instance view, each VM in the scale set has its own instance view. To query the instance view for a scale set, you can use:
+Similar to how a scale set has an instance view, each VM instance in the scale set has its own instance view. To query the instance view for a particular VM instance in a scale set, you can use:
 
 - REST API with [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) as follows:
 
@@ -176,7 +176,7 @@ Similar to how a scale set has an instance view, each VM in the scale set has it
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI 2.0 with [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
+- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -184,7 +184,7 @@ Similar to how a scale set has an instance view, each VM in the scale set has it
 
 - You can also use [resources.azure.com](https://resources.azure.com) or the [Azure SDKs](https://azure.microsoft.com/downloads/)
 
-The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI 2.0:
+The exact presentation of the output depends on the options you provide to the command. The following example shows condensed sample output from the Azure CLI:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -235,7 +235,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-These properties describe the current runtime state of the VM itself, that includes any extensions applied to the scale set.
+These properties describe the current runtime state of the VM instance, which includes any extensions applied to the scale set.
 
 
 ## How to update global scale set properties
@@ -255,7 +255,7 @@ To update a global scale set property, you must update the property in the scale
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- Azure CLI 2.0 with [az vmss update](/cli/azure/vmss#az_vmss_update):
+- Azure CLI with [az vmss update](/cli/azure/vmss#az_vmss_update):
     - To modify a property:
 
         ```azurecli
@@ -302,7 +302,7 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI 2.0 with [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
+- Azure CLI with [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -327,7 +327,7 @@ There is one type of modification to global scale set properties that does not f
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI 2.0 with [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
+- Azure CLI with [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -388,7 +388,7 @@ You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want 
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- Azure CLI 2.0 with [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+- Azure CLI with [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -414,7 +414,7 @@ Let's say you have a scale set with an Azure Load Balancer, and you want to repl
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
-- Azure CLI 2.0:
+- Azure CLI:
 
     ```azurecli
     # Remove the load balancer backend pool from the scale set model
@@ -432,4 +432,4 @@ Let's say you have a scale set with an Azure Load Balancer, and you want to repl
 
 
 ## Next steps
-You can also perform common management tasks on scale sets with the [Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+You can also perform common management tasks on scale sets with the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

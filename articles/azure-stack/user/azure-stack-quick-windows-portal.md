@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: 
 ms.custom: mvc
@@ -32,7 +32,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
 ## Create a virtual machine
 
-1. Click **New** > **Compute** > **Windows Server 2016 Datacenter – Pay-as-you-use** > **Create**. If you don't see **Windows Server 2016 Datacenter – Pay-as-you-use** entry, contact your Azure Stack operator. Ask that they add it to the marketplace as explained in the [Add the Windows Server 2016 VM image to the Azure Stack marketplace](../azure-stack-add-default-image.md) article.
+1. Click **+ Create a resource** > **Compute** > **Windows Server 2016 Datacenter – Pay-as-you-use** > **Create**. If you don't see **Windows Server 2016 Datacenter – Pay-as-you-use** entry, contact your Azure Stack operator. Ask that they add it to the marketplace as explained in the [Add the Windows Server 2016 VM image to the Azure Stack marketplace](../azure-stack-add-default-image.md) article.
 
     ![Steps to create a Windows virtual machine in portal](media/azure-stack-quick-windows-portal/image01.png)
 2. Under **Basics**, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, select a **Location**, and then click **OK**.

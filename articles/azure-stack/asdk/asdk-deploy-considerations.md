@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -89,6 +89,8 @@ To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD
    | Microsoft Account with valid Public Azure Subscription |Yes |
    | Work or school account with valid China Azure Subscription |Yes |
    | Work or school account with valid US Government Azure Subscription |Yes |
+
+After deployment, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily re-instate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
 
 ## Network
 ### Switch

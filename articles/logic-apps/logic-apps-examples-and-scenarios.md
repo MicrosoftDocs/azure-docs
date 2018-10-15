@@ -109,7 +109,7 @@ and [switch statements](../logic-apps/logic-apps-control-flow-switch-statement.m
 ## Deploy and manage logic apps
 
 You can fully develop and deploy logic apps with Visual Studio, 
-Visual Studio Team Services, or any other source control and automated build tools. 
+Azure DevOps, or any other source control and automated build tools. 
 To support deployment for workflows and dependent connections in a resource template, 
 logic apps use Azure resource deployment templates. 
 Visual Studio tools automatically generate these templates, 

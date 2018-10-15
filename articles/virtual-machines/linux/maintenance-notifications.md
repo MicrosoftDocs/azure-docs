@@ -106,7 +106,7 @@ az vm perform-maintenance -g rgName -n vmName
 
 ## Classic deployments
 
-If you still have legacy VMs that were deployed using the classic deployment model, you can use CLI 1.0 to query for VMs and initiate maintenance.
+If you still have legacy VMs that were deployed using the classic deployment model, you can use the Azure classic CLI to query for VMs and initiate maintenance.
 
 Make sure you are in the correct mode to work with classic VM by typing:
 

@@ -10,7 +10,7 @@ keywords: azure functions, functions, event processing, webhooks, dynamic comput
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 05/24/2018
+ms.date: 09/24/2018
 ms.author: glenga
 ---
 
@@ -156,7 +156,7 @@ In some development environments, you have to explicitly *register* a binding th
 |C# class library using Visual Studio 2017|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|
 |C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-The following binding types are exceptions that don't require explicit registration because they are automatically registered in all versions and environments: HTTP, timer, and Azure Storage (blobs, queues, and tables). 
+The following binding types are exceptions that don't require explicit registration because they are automatically registered in all versions and environments: HTTP and timer.
 
 ### Azure portal development
 
@@ -164,7 +164,7 @@ This section applies only to Functions 2.x. Binding extensions don't have to be 
 
 When you create a function or add a binding, you are prompted when the extension for the trigger or binding requires registration. Respond to the prompt by clicking **Install** to register the extension. Installation can take up to 10 minutes on a consumption plan.
 
-You need only install each extension one time for a given function app. 
+You need only install each extension one time for a given function app. For supported bindings that are not available in the portal or to update the an installed extension, you can also [manually install or update Azure Functions binding extensions from the portal](install-update-binding-extensions-manual.md).  
 
 ### Local development Azure Functions Core Tools
 

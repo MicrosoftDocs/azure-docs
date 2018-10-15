@@ -171,7 +171,7 @@ you can capture and deploy your app as an
 to any Azure region in the world. 
 You can use this capability both to modify parameters 
 for creating different versions of your app and for 
-integrating your solution into a build and release pipeline. 
+integrating your solution into Azure Pipelines. 
 You can also include Azure Functions in your deployment 
 template so that you can manage the entire solution 
 with all dependencies as a single template. Learn 
