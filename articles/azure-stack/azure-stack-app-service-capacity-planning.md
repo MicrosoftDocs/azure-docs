@@ -43,7 +43,7 @@ You can plan your App Service capacity strategy using these guidelines.
 
 The Azure App Service controller typically experiences low consumption of CPU, memory, and network resources. However, for high availability, you must have two controllers. Two controllers are also the maximum number of controllers permitted. You can create the second web sites controller direct from the installer during deployment.
 
-## Front end role
+## Front-end role
 
 **Recommended minimum**: Two instances of A1 Standard
 
@@ -53,7 +53,7 @@ The front end routes requests to web workers depending on web worker availabilit
 
 **Recommended minimum**: Two instances of A3 Standard
 
-The Azure App Service management role is responsible for the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. The management server role typically requires only about 4 GB RAM in a production environment. However, it may experience high CPU levels when many management tasks (such as web site creation) are performed. For high availability, you should have more than one server assigned to this role, and at least two cores per server.
+The Azure App Service management role is responsible for the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. The management server role typically requires only about 4-GB RAM in a production environment. However, it may experience high CPU levels when many management tasks (such as web site creation) are performed. For high availability, you should have more than one server assigned to this role, and at least two cores per server.
 
 ## Publisher role
 
@@ -82,7 +82,7 @@ When deciding on the number of shared web worker roles to use, review these cons
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
 
-   For example, if there are 5,000 applications on environment that is running 10 web worker roles, each web worker role VM should have 7060 MB RAM:
+   For example, if there are 5,000 applications on environment that is running 10 web worker roles, each web worker role VM should have 7060-MB RAM:
 
    `5,000 * 70 * 0.05 – (10 * 1044) = 7060 (= about 7 GB)`
 
