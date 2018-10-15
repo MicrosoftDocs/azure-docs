@@ -235,7 +235,7 @@ Add to the IPsec policy the **IP Filter List** and **Filter Action** that you pr
 
   * Transport mode encrypts only the payload and ESP trailer; the IP header of the original packet isn't encrypted. In transport mode, the IP source and IP destination of the packets are unchanged.
 
-Select **This rule does not specify a tunnel**, and then click **Next**.
+  Select **This rule does not specify a tunnel**, and then click **Next**.
 
   [![43]][43]
 4. **Network Type** defines which network connection associates with the security policy. Select **All network connections**, and then click **Next**.
@@ -266,7 +266,7 @@ Every computer tht belongs to the OU will have the security group policy assigne
 
   [![50]][50]
 
-## <a name="checktraffic"></a>To check traffic encryption
+## <a name="checktraffic"></a>Check traffic encryption
 
 To check out the encryption GPO applied on the OU, install IIS on all Azure VMs and in the host1. Every IIS is customized to answer to HTTP requests on port 8080.
 To verify encryption, you can install a network sniffer (like Wireshark) in all computers in the OU.
