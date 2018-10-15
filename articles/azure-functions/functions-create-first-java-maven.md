@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 > [!NOTE] 
 > Java for Azure Functions is currently in preview.
 
-This quickstart guides through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with Maven, testing it locally, and deploying it to Azure. When you're done, your Java function code is running in the cloud and can be triggered from an HTTP request.
+This quickstart guides through creating a [serverless](https://azure.microsoft.com/solutions/serverless/) function project with Maven, testing it locally, and deploying it to Azure. When you're done, your Java function code is running in the cloud and can be triggered from an HTTP request.
 
 ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png)
 

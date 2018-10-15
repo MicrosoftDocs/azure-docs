@@ -92,7 +92,7 @@
         href: iot-accelerators-remote-monitoring-customize-service.md
       - name: Add a grid
         href: iot-accelerators-remote-monitoring-customize-grid.md
-      - name: Add a fly-out
+      - name: Add a flyout
         href: iot-accelerators-remote-monitoring-customize-flyout.md
       - name: Add a panel
         href: iot-accelerators-remote-monitoring-customize-panel.md
