@@ -63,7 +63,7 @@ GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&o
 | `yourManagementApiUrl` | The full URL path for your Management API  |
 | `yourUserDefinedFunctionId` | The ID of the user-defined function to retrieve role assignments for|
 
-If there is no role assignment retrieved, follow this article on [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md#Create-a-role-assignment).
+If there is no role assignment retrieved, follow this article on [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md).
 
 ### Check if the matcher will work for a given sensor's telemetry
 
@@ -181,7 +181,7 @@ If your diagnostic settings are enabled, these exceptions should be visible in t
 
 1. Throttling
 
-    - If your user-defined function is executing past the rate limits outlined in the [Service Limits](./concepts-service-limits.md#UDF-rate-limits) article, it will be throttled which will have the immediate effect of no operations successfully executing within the user-defined function.
+    - If your user-defined function is executing past the rate limits outlined in the [Service Limits](./concepts-service-limits.md) article, it will be throttled which will have the immediate effect of no operations successfully executing within the user-defined function.
 
 1. Data Not Found
 
