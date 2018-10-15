@@ -120,11 +120,7 @@ The following JSON defines a copy activity in a pipeline. The columns from sourc
         "translator":
         {
             "type": "TabularTranslator",
-            "columnMappings": 
-            {
-                "UserId": "MyUserId",
-                "Group": "MyGroup",
-                "Name": "MyName"
+            "columnMappings": "UserId: MyUserId, Group:MyGroup, Name:MyName"
             }
         }
     }
