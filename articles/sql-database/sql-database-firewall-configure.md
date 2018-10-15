@@ -184,9 +184,9 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | API | Level | Description |
 | --- | --- | --- |
 | [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver) |Server |Displays the current server-level firewall rules |
-| [Create or Update Firewall Rule](https://docs.microsoft.com/en-us/rest/api/sql/firewallrules/firewallrules_createorupdate) |Server |Creates or updates server-level firewall rules |
+| [Create or Update Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate) |Server |Creates or updates server-level firewall rules |
 | [Delete Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete) |Server |Removes server-level firewall rules |
-| [Get Firewall Rules](https://docs.microsoft.com/en-us/rest/api/sql/firewallrules/firewallrules_get) | Server | Gets server-level firewall rules |
+| [Get Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get) | Server | Gets server-level firewall rules |
 
 ## Server-level firewall rule versus a database-level firewall rule
 

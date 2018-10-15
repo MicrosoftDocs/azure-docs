@@ -97,7 +97,7 @@ To create and manage SQL Database elastic pools and pooled databases, use these 
 |[Elastic pools - Create Or Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Creates a new elastic pool or updates an existing elastic pool.|
 |[Elastic pools - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Deletes the elastic pool.|
 |[Elastic pools - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Gets an elastic pool.|
-|[Elastic pools - List By Server](https://docs.microsoft.com/en-us/rest/api/sql/elasticpools/elasticpools_listbyserver)|Returns a list of elastic pools in a server.|
+|[Elastic pools - List By Server](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Returns a list of elastic pools in a server.|
 |[Elastic pools - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Updates an existing elastic pool.|
 |[Elastic pool Activities](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Returns elastic pool activities.|
 |[Elastic pool Database Activities](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Returns activity on databases inside of an elastic pool.|

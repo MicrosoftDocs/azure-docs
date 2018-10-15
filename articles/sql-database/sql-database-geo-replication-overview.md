@@ -284,7 +284,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | Removes the failover group from the server |
 | [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | Fails over from the current primary server to this server. |
 | [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |ails over from the current primary server to this server. This operation might result in data loss. |
-| [Get Failover Group](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups/failovergroups_get) | Gets a failover group. |
+| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) | Gets a failover group. |
 | [List Failover Groups By Server](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | Lists the failover groups in a server. |
 | [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | Updates a failover group. |
 |  | |

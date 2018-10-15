@@ -172,7 +172,7 @@ To create and manage Azure SQL server, databases, and firewalls, use these REST 
 |[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|Updates an existing server.|
 |[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Creates a new database or updates an existing database.|
 |[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|Deletes a database.|
-|[Databases - Get](https://docs.microsoft.com/en-us/rest/api/sql/databases/databases_get)|Gets a database.|
+|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Gets a database.|
 |[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Returns a list of databases in an elastic pool.|
 |[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Returns a list of databases in a server.|
 |[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Updates an existing database.|
