@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer:
 
@@ -160,5 +160,5 @@ In-development builds will provide the following benefits:
 - Other improvements
 
 ## Next steps
-[Evaluate the Azure Stack Development Kit](azure-stack-deploy-overview.md)
+[Administration basics](azure-stack-manage-basics.md)
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/04/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
@@ -43,5 +43,6 @@ The ASDK has the following limitations:
 
 ## Next steps
 
-- [Key features and concepts](azure-stack-key-features.md)
-- [Azure Stack: An extension of Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[Key features and concepts](azure-stack-key-features.md)
+
+[Azure Stack: An extension of Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)

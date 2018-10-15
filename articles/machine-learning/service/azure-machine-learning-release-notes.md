@@ -14,6 +14,24 @@ ms.date: 03/28/2018
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2018-10-12
+
+### Azure Machine Learning SDK for Python v0.1.68
+
+#### New features
+ * Multiple tenant support when creating new workspace.
+
+#### Breaking changes
+ * **Upcoming in next release** *Workspace.compute_targets, datastores, experiments, images, models* and *webservices* will become properties instead of methods. For example, replace *Workspace.compute_targets()* with *Workspace.compute_targets*.
+
+#### Bugs fixed
+ * The pynacl library version no longer needs to be pinned when deploying web servcie.
+
+### Azure Machine Learning Data Prep SDK v0.3.0
+
+#### New features:
+* Added method transform_partition_with_file(script_path), which allows users to pass in the path of a Python file to execute
+
 ## 2018-10-01
 
 ### Azure Machine Learning SDK for Python v0.1.65

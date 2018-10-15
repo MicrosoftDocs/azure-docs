@@ -50,19 +50,19 @@ In addition to adding pre-integrated applications from the gallery, all the cust
 **To get started adding your own application**:
 
 1. Click **add your own link** at the top of the application gallery. 
-2. You’ll see two options in front of you: **deploy an existing application** or **develop a new application**. Read on to learn the difference between the two options and how to use them.
+1. You’ll see two options in front of you: **deploy an existing application** or **develop a new application**. Read on to learn the difference between the two options and how to use them.
 
 ### Deploying existing applications
 
 1. If you’ve got an application running already and just want to integrate it into Azure AD for single-sign on or provisioning, choose the **Deploy an existing application** option. Pick a name for your application, click **Add**.
-2. That's it! Instead of needing to know all the details about your application up front, you can now set up how your new application works by navigating through the left menu and configuring the application to your liking at any time.
+1. That's it! Instead of needing to know all the details about your application up front, you can now set up how your new application works by navigating through the left menu and configuring the application to your liking at any time.
 
   ![Adding an existing application with one click](./media/active-directory-enterprise-apps-whats-new-azure-portal/04.png)
  
 ### Developing new applications
 
 1. If you’re developing a new application, there's an easy way for you to get to the Application Registry right from the gallery:
-2. Click the **add your own** option from the Application Gallery, select **develop an existing application**, and you’ll see a quick link right to the application add experience.
+1. Click the **add your own** option from the Application Gallery, select **develop an existing application**, and you’ll see a quick link right to the application add experience.
 
   ![Adding a newly developed application in a few clicks](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
@@ -83,20 +83,20 @@ After you’ve added an application, whether it be pre-integrated or your own ap
 
 
 ## Updated application proxy configuration
+
 Now, let’s say one of the new applications you added is running in your on-premises environment and you want to integrate it with Azure AD.  One of the cool new things about the new application configuration experience in the new Azure AD portal is that by splitting the application’s sign-on mode from its application proxy configuration, you can now easily expose password SSO or federated applications that are running in your corporate network right to the cloud, without having to create multiple instances of the application.
 
 You can also configure any of the new applications you’ve added for use with the Azure AD Application Proxy right from the new portal, including applications that support native Windows authentication experiences.
 
   ![Configuring an application to use the Integrated Windows Authentication sign-on option](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
-
 To get started configuring a native Windows authentication application with the Application Proxy:
 1. Click on the Single sign-on navigation item and choose **Integrated Windows Authentication** under sign-on settings and configure the settings to your liking.
-2. On top of supporting these new authentication modes, you can now also upload certificates from custom domains to support applications running on secure endpoints within your organization.  
+1. On top of supporting these new authentication modes, you can now also upload certificates from custom domains to support applications running on secure endpoints within your organization.  
  
    ![Uploading a certificate to be used with the Application Proxy](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
 
-3. To upload a new certificate for your favorite on-premises application, click on the **Application proxy** option from the left navigation menu, click the **Certificate** selector, and upload a certificate file we can use to encrypt requests from our cloud endpoint to your application.
+1. To upload a new certificate for your favorite on-premises application, click on the **Application proxy** option from the left navigation menu, click the **Certificate** selector, and upload a certificate file we can use to encrypt requests from our cloud endpoint to your application.
 
 ## Advanced federated single sign-on configuration
 
@@ -104,10 +104,9 @@ For those of you using federated applications today, there are many new features
  
   ![Customizing the SAML token user attributes passed to a federated application](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
-
 To check that out the new federated SSO configuration:
 1. Open a federated application’s **single sign-on** from the left navigation menu and make sure the ‘*SAML-based Sign-on** mode is selected. 
-2. Once there, enable the checkbox under the **User Attributes** heading to modify all of the attributes included in the SAML token passed to that application.
+1. Once there, enable the checkbox under the **User Attributes** heading to modify all of the attributes included in the SAML token passed to that application.
 
 You can also create, rollover, and manage certificates used for federated single sign-on, as well as edit who gets notified when your certificate is about to expire. You’ll see these new options under the **Certificates** heading on the same Single sign-on pane.
  
@@ -121,7 +120,7 @@ Finally, we’ve also extended the set of SAML URL parameters we support to incl
 **To set the relay state parameter**:
 
 1. Enable the **Show advanced URL settings** check-box under the **Domain and URLs** heading on the single-sign on configuration pane. 
-2. A set of new URL input boxes appear that allow you to set this parameter, and other SAML URL settings.
+1. A set of new URL input boxes appear that allow you to set this parameter, and other SAML URL settings.
 
 ## Bring your own password SSO applications
 
@@ -132,8 +131,8 @@ We know that not every application supports federation right out of the box. For
 **To check out the 'Bring your own applications' feature**:
 
 1. After you set the single sign-on mode for a new custom application that you’ve added to **Password-based Sign-on**, enter the URL where the application renders its login screen and 
-2. Click **Save**.  
-2. Once you do that, we’ll automatically scrape that URL for a username and password input box and allow you to use Azure AD to securely transmit passwords to that application using the access panel browser extension.
+1. Click **Save**.  
+1. Once you do that, we’ll automatically scrape that URL for a username and password input box and allow you to use Azure AD to securely transmit passwords to that application using the access panel browser extension.
 
 ## Configure self-service application access
 
@@ -144,7 +143,7 @@ After you’ve added lots of new applications, maybe you want to allow your user
 **To configure and manage self-service application access**:
 
 1. To get started, you can select the **Self-service** option from the application’s left navigation menu and set the **Allow users to request access to this application?** option to ‘**Yes**’. 
-2. This will enable you to configure who is allowed to approve access to this application, and which group self-service users will be added. In addition, if the application is configured for password single-sign on, you’ll also see another option that lets you optionally allow those approvers to manage the passwords assigned to the application.
+1. This will enable you to configure who is allowed to approve access to this application, and which group self-service users will be added. In addition, if the application is configured for password single-sign on, you’ll also see another option that lets you optionally allow those approvers to manage the passwords assigned to the application.
 
 ## Feedback
 

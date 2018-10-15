@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -86,4 +86,4 @@ Perform the following steps if the infrastructure and tenant services don't succ
 
 ## Next steps 
 
-Learn more about Azure Stack diagnostic tool and issue logging, see [Azure Stack diagnostic tools](azure-stack-diagnostics.md).
+Learn more about [Azure Stack diagnostic tools](azure-stack-diagnostics.md)
