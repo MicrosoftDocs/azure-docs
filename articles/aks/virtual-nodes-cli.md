@@ -26,10 +26,10 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Create a resource group with the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Create a resource group with the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *westus* location.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westus:
 ```
 
 ## Create a virtual network
@@ -126,7 +126,7 @@ After several minutes, the command completes and returns JSON-formatted informat
 To provide additional functionality, the virtual nodes connector uses an Azure CLI extension. Before you can enable the virtual nodes connector, first install the extension using the [az extension add][az-extension-add] command:
 
 ```azurecli-interactive
-az extension add --name aks-virtual-nodes
+az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.1.0-py2.py3-none-any.whl
 ```
 
 To enable virtual nodes, now use the [az aks enable-addons][az-aks-enable-addons] command. The following example uses the subnet named *myVirtualNodeSubnet* created in a previous step:
@@ -135,7 +135,7 @@ To enable virtual nodes, now use the [az aks enable-addons][az-aks-enable-addons
 az aks enable-addons \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --addons virtual-node \
+    --addons aks-virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
 
@@ -168,7 +168,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 Create a file named `virtual-node.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aci-helloworld
@@ -250,6 +250,34 @@ If you no longer wish to use virtual nodes, you can disable them using the [az a
 
 ```azurecli-interactive
 az aks disable-addons -resource-group myResourceGroup --name myAKSCluster –-add-ons virtual-nodes --os-type linux
+```
+
+Now, remove the virtual network resources:
+
+```azurecli-interactive
+# Change the name of your resource group and network resources as needed
+RES_GROUP=myResourceGroup
+
+# Get network profile ID
+NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
+
+# Delete the network profile
+az network profile delete --id $NETWORK_PROFILE_ID -y
+
+# Get the service association link (SAL) ID
+SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
+
+# Delete the default SAL ID for the subnet
+az resource delete --ids $SAL_ID --api-version 2018-07-01
+
+# Delete the subnet delegation to Azure Container Instances
+az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet --remove delegations 0
+
+# Delete the subnet
+az network vnet subnet delete --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet
+
+# Delete virtual network
+az network vnet delete --resource-group $RES_GROUP --name myVnet
 ```
 
 ## Next steps
