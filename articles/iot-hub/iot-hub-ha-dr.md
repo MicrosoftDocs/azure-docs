@@ -44,11 +44,13 @@ Both these failover options offer the following recovery point objectives (RPOs)
 | --- | --- |
 | Identity registry |0-5 mins data loss |
 | Device twin data |0-5 mins data loss |
-| Cloud-to-device messages** |0-5 mins data loss |
-| Parent** and device jobs |0-5 mins data loss |
+| Cloud-to-device messages<sup>1</sup> |0-5 mins data loss |
+| Parent<sup>1</sup> and device jobs |0-5 mins data loss |
 | Device-to-cloud messages |All unread messages are lost |
 | Operations monitoring messages |All unread messages are lost |
 | Cloud-to-device feedback messages |All unread messages are lost |
+
+<sup>1</sup>Cloud-to-device messages and parent jobs do not get recovered as a part of manual failover in the preview offering of this feature.
 
 Once the failover operation for the IoT hub completes, all operations from the device and back-end applications are expected to continue working without requiring a manual intervention.
 
@@ -57,7 +59,6 @@ Once the failover operation for the IoT hub completes, all operations from the d
 >
 > - After failover, the events emitted via Event Grid can be consumed via the same subscription(s) configured earlier as long as those Event Grid subscriptions continue to be available.
 >
-> - Cloud-to-device messages and parent jobs do not get recovered as a part of manual failover in the preview offering of this feature.
 
 ### Microsoft-initiated failover
 
