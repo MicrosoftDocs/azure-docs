@@ -50,7 +50,7 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 ## Building highly available applications
 
-- To ensure high write and read availability, configure your Cosmos account to span at least two regions with multiple-write regions. This configuration will ensure the best availability, lowest latency, and scalability for both reads and writes backed by SLAs. See how to [configure your Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api).
+- To ensure high write and read availability, configure your Cosmos account to span at least two regions with multiple-write regions. This configuration will ensure the best availability, lowest latency, and scalability for both reads and writes backed by SLAs. See how to [configure your Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api.md).
 
 - For multi-region Cosmos accounts that are configured with a single-write region, enable “automatic-failover” by using Azure CLI or Azure portal.  After you enable automatic failover, whenever there is a regional disaster, Cosmos DB will automatically failover your account.  
 
