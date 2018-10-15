@@ -12,7 +12,7 @@ ms.author: kumud
 
 # Tutorial: Control traffic routing with weighted endpoints using Traffic Manager 
 
-This tutorial describes how to use Traffic Manager to control routing of user traffic between endpoints using the weighted routing method. In this routing method, you assign weights to each endpoint in the Traffic Manager profile configuration and user traffic is routed based on the weight assigned to each endpoint. The weight is an integer from 1 to 1000. The higher the weight value assigned to a endpoint, the higher its priority.
+This tutorial describes how to use Traffic Manager to control routing of user traffic between endpoints using the weighted routing method. In this routing method, you assign weights to each endpoint in the Traffic Manager profile configuration and user traffic is routed based on the weight assigned to each endpoint. The weight is an integer from 1 to 1000. The higher the weight value assigned to an endpoint, the higher its priority.
 
 In this tutorial, you learn how to:
 
