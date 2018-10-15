@@ -200,7 +200,6 @@ namespace localSearch
 ````
 
 ## Next steps
-- [Local Search endpoint](local-search-endpoint.md)
 - [Local Search Java quickstart](local-search-java-quickstart.md)
 - [Local Search Node quickstart](local-search-node-quickstart.md)
 - [Local Search Python quickstart](local-search-python-quickstart.md)

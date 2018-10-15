@@ -32,7 +32,8 @@ For information about permitted use and display of results, see [Use and display
 To request local search results, send a GET request to: 
 
 ``` 
-https://api.cognitive.microsoft.com/bing/v7.0/local/search
+https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search
+
 ```
   
 The request must use the HTTPS protocol.  
@@ -113,19 +114,7 @@ Defines the license under which the text or photo may be used.
 |----------|-----------|----------|  
 |name|The name of the license.|String|  
 |url|The URL to a website where the user can get more information about the license.<br /><br /> Use the name and URL to create a hyperlink.|String|  
-  
 
-### LicenseAttribution  
-Defines a contractual rule for license attribution.  
-  
-|Name|Value|Type|  
-|----------|-----------|----------|  
-|_type|A type hint, which is set to LicenseAttribution.|String|  
-|license|The license under which the content may be used.|[License](#license)|  
-|licenseNotice|The license to display next to the targeted field. For example, "Text under CC-BY-SA license".<br /><br /> Use the license's name and URL in the `license` field to create a hyperlink to the website that describes the details of the license. Then, replace the license name in the `licenseNotice` string (for example, CC-BY-SA) with the hyperlink you just created.|String|  
-|mustBeCloseToContent|A Boolean value that determines whether the contents of the rule must be placed in close proximity to the field that the rule applies to. If **true**, the contents must be placed in close proximity. If **false**, or this field does not exist, the contents may be placed at the caller's discretion.|Boolean|  
-|targetPropertyName|The name of the field that the rule applies to.|String|  
-  
 
 ### Link  
 Defines the components of a hyperlink.  
@@ -137,29 +126,7 @@ Defines the components of a hyperlink.
 |url|A URL. Use the URL and display text to create a hyperlink.|String|  
   
 
-### LinkAttribution  
-Defines a contractual rule for link attribution.  
-  
-|Name|Value|Type|  
-|----------|-----------|----------|  
-|_type|A type hint, which is set to LinkAttribution.|String|  
-|mustBeCloseToContent|A Boolean value that determines whether the contents of the rule must be placed in close proximity to the field that the rule applies to. If **true**, the contents must be placed in close proximity. If **false**, or this field does not exist, the contents may be placed at the caller's discretion.|Boolean|  
-|targetPropertyName|The name of the field that the rule applies to.<br /><br /> If a target is not specified, the attribution applies to the entity as a whole and should be displayed immediately following the entity presentation. If there are multiple text and link attribution rules that do not specify a target, you should concatenate them and display them using a "Data from: " label. For example, “Data from <provider name1\> &#124; <provider name2\>".|String|  
-|text|The attribution text.|String|  
-|url|The URL to the provider's website. Use `text` and URL to create of hyperlink.|String|  
-  
-  
-### MediaAttribution  
-Defines a contractual rule for media attribution.  
-  
-|Name|Value|Type|  
-|----------|-----------|----------|  
-|_type|A type hint, which is set to MediaAttribution.|String|  
-|mustBeCloseToContent|A Boolean value that determines whether the contents of the rule must be placed in close proximity to the field that the rule applies to. If **true**, the contents must be placed in close proximity. If **false**, or this field does not exist, the contents may be placed at the caller's discretion.|Boolean|  
-|targetPropertyName|The name of the field that the rule applies to.|String|  
-|url|The URL that you use to create of hyperlink of the media content. For example, if the target is an image, you would use the URL to make the image clickable.|String|  
-  
-  
+
   
 ### Organization  
 Defines a publisher.  
@@ -238,14 +205,6 @@ Note that if the service suspects a denial of service attack, the request will s
 |places|A list of entities that are relevant to the search query.|JSON object|  
 |queryContext|An object that contains the query string that Bing used for the request.<br /><br /> This object contains the query string as entered by the user. It may also contain an altered query string that Bing used for the query if the query string contained a spelling mistake.|[QueryContext](#querycontext)|  
 
-### TextAttribution  
-Defines a contractual rule for plain text attribution.  
-  
-|Name|Value|Type|  
-|----------|-----------|----------|  
-|_type|A type hint, which is set to TextAttribution.|String|  
-|text|The attribution text.<br /><br /> Text attribution applies to the entity as a whole and should be displayed immediately following the entity presentation. If there are multiple text or link attribution rules that do not specify a target, you should concatenate them and display them using a "Data from: " label.|String| 
-
 
 ## Error codes
 
@@ -300,7 +259,6 @@ The following are the possible error code and sub-error code values.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returns InsufficientAuthorization when the caller does not have permissions to access the resource. This can occur if the subscription key has been disabled or has expired. <br/><br/>If the error is InsufficientAuthorization, the HTTP status code is 403.
 
 ## Next steps
-- [Local Search endpoint](local-search-endpoint.md)
 - [Local Search quickstart](local-quickstart.md)
 - [Local Search Java quickstart](local-search-java-quickstart.md)
 - [Local Search Node quickstart](local-search-node-quickstart.md)
