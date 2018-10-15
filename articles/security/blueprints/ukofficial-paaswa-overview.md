@@ -47,7 +47,6 @@ As part of the deployment architecture, secure storage provision, monitoring & l
 This solution uses the following Azure services. Details of the deployment architecture are in the [deployment architecture](#deployment-architecture) section.
 
 - Azure Active Directory
-- Managed Service Identity
 - App Service
 - Web App
 - API App
