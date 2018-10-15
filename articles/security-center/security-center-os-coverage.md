@@ -1,23 +1,24 @@
 ---
-title: Supported platforms in Azure Security Center | Microsoft Docs
-description: This document provides a list of Windows and Linux operatings systems supported in Azure Security Center.
+title: Features and platforms supported by Azure Security Center | Microsoft Docs
+description: This document provides a list of features and platforms supported by Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
-ms.author: terrylan
+ms.date: 10/10/2018
+ms.author: rkarlin
 
 ---
-# Supported platforms in Azure Security Center
+# Platforms and features supported by Azure Security Center
+
 Security state monitoring and recommendations are available for virtual machines (VMs), created using both the classic and Resource Manager deployment models, and computers.
 
 > [!NOTE]
@@ -25,7 +26,11 @@ Security state monitoring and recommendations are available for virtual machines
 >
 >
 
-## Supported platforms for Windows computers and VMs
+## Supported platforms 
+
+This section lists the platforms on which the Azure Security Center agent can run and from which it can gather data.
+
+### Supported platforms for Windows computers and VMs
 Supported Windows operating systems:
 
 * Windows Server 2008
@@ -35,7 +40,7 @@ Supported Windows operating systems:
 * Windows Server 2016
 
 
-## Supported platforms for Linux computers and VMs
+### Supported platforms for Linux computers and VMs
 Supported Linux operating systems:
 
 * Ubuntu versions 12.04 LTS, 14.04 LTS, 16.04 LTS
@@ -54,6 +59,62 @@ Supported Linux operating systems:
 
 ## VMs and Cloud Services
 VMs running in a cloud service are also supported. Only cloud services web and worker roles running in production slots are monitored. To learn more about cloud service, see [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).
+
+
+## Supported IaaS features
+
+> [!div class="mx-tableFixed"]
+> 
+
+|Server|Windows||Linux||
+|----|----|----|----|----|
+|Environment|Azure|Non-Azure|Azure|Non-Azure|
+|VMBA threat detection alerts|✔|✔|✔ (on supported versions)|✔|
+|Network based threat detection alerts|✔|X|✔|X|
+|Windows Defender ATP integration*|✔ (on supported versions)|✔|X|X|
+|Missing patches|✔|✔|✔|✔|
+|Security configurations|✔|✔|✔|✔|
+|Anti-malware|✔|✔|X|X|
+|JIT VM access|✔|X|✔|X|
+|Adaptive application controls|✔ (only Azure)|X|X|X|
+|FIM|✔|✔|✔|✔|
+|Disk encryption|✔|X|✔|X|
+|Third party deployment|✔|X|✔|X|
+|NSGs|✔|X|✔|X|
+|Filess V1|✔|✔|X|X|
+|Network map|✔|X|✔|X|
+|Adaptive network hardening|✔|X|✔|X|
+
+* These features are currently supported in public preview.
+
+
+## Supported PaaS features
+
+
+|Service|Recommendations|Threat detection|
+|----|----|----|
+|SQL|✔| ✔|
+|PostGreSQL*|✔| ✔|
+|MySQL*|✔| ✔|
+|Blob storage accounts*|✔| ✔|
+|App services|✔| ✔|
+|Cloud services|✔| X|
+|Redis cache|✔| X|
+|Service fabric|✔| X|
+|Azure automation|✔| X|
+|Data lake |✔| X|
+|Key vault|✔| X|
+|Service bus|✔| X|
+|Stream analytics|✔| X|
+|Batch|✔| X|
+|Logic apps|✔| X|
+|Vnets|✔| NA|
+|Subnets|✔| NA|
+|NICs|✔| ✔|
+|NSGs|✔| NA|
+|Subscription|✔| ✔|
+
+* These features are currently supported in public preview.
 
 ## Next steps
 

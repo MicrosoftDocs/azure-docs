@@ -102,7 +102,7 @@ Use the encoded password along with your user name and repository location to co
 git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 ```
 
-Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
+Once the repository is cloned, you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## To update your local repository with the most current service instance configuration
 
@@ -161,7 +161,7 @@ Each folder can contain one or more files, and in some cases one or more folders
 | xml |Policy statements |
 | css |Style sheets for developer portal customization |
 
-These files can be created, deleted, edited, and managed on your local file system, and the changes deployed back to the your API Management service instance.
+These files can be created, deleted, edited, and managed on your local file system, and the changes deployed back to your API Management service instance.
 
 > [!NOTE]
 > The following entities are not contained in the Git repository and cannot be configured using Git.
@@ -212,11 +212,11 @@ The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscrip
 The final setting, `$ref-policy`, maps to the global policy statements file for the service instance.
 
 ### apis folder
-The `apis` folder contains a folder for each API in the service instance which contains the following items.
+The `apis` folder contains a folder for each API in the service instance, which contains the following items.
 
 * `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) with `export=true` in `application/json` format.
 * `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API which maps to the `description` property of the [operation entity](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
+* `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
 
 ### groups folder
 The `groups` folder contains a folder for each group defined in the service instance.
@@ -254,8 +254,8 @@ The `templates` folder contains configuration for the [email templates](api-mana
 For information on other ways to manage your service instance, see:
 
 * Manage your service instance using the following PowerShell cmdlets
-  * [Service deployment PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [Service management PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [Service deployment PowerShell cmdlet reference](https://docs.microsoft.com/powershell/module/wds)
+  * [Service management PowerShell cmdlet reference](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Manage your service instance using the REST API
   * [API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

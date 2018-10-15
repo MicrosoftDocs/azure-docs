@@ -1,4 +1,4 @@
----
+﻿---
 title: Automate Azure Application Insights processes with Microsoft Flow
 description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Application Insights connector.
 services: application-insights
@@ -20,7 +20,7 @@ Do you find yourself repeatedly running the same queries on your telemetry data 
 
 With this integration, you can now automate numerous processes without writing a single line of code. After you create a flow by using an Application Insights action, the flow automatically runs your Application Insights Analytics query. 
 
-You can add additional actions as well. Microsoft Flow makes hundreds of actions available. For example, you can use Microsoft Flow to automatically send an email notification or create a bug in Visual Studio Team Services. You can also use one of the many [templates](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) that are available for the connector for Microsoft Flow. These templates speed up the process of creating a flow. 
+You can add additional actions as well. Microsoft Flow makes hundreds of actions available. For example, you can use Microsoft Flow to automatically send an email notification or create a bug in Azure DevOps. You can also use one of the many [templates](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) that are available for the connector for Microsoft Flow. These templates speed up the process of creating a flow. 
 
 <!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). --> 
 
@@ -30,19 +30,19 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 
 ### Step 1: Create a flow
 1. Sign in to [Microsoft Flow](http://flow.microsoft.com), and then select **My Flows**.
-2. Click **Create a flow from blank**.
+1. Click **Create a flow from blank**.
 
 ### Step 2: Create a trigger for your flow
 1. Select **Schedule**, and then select **Schedule - Recurrence**.
-2. In the **Frequency** box, select **Day**, and in the **Interval** box, enter **1**.
+1. In the **Frequency** box, select **Day**, and in the **Interval** box, enter **1**.
 
     ![Microsoft Flow trigger dialog box](./media/app-insights-automate-with-flow/flow1.png)
 
 
 ### Step 3: Add an Application Insights action
 1. Click **New step**, and then click **Add an action**.
-2. Search for **Azure Application Insights**.
-3. Click **Azure Application Insights – Visualize Analytics query Preview**.
+1. Search for **Azure Application Insights**.
+1. Click **Azure Application Insights – Visualize Analytics query Preview**.
 
     ![Run Analytics query window](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -79,12 +79,12 @@ When you create your own queries, verify that they are working properly in Analy
 ### Step 6: Configure the flow to send email
 
 1. Click **New step**, and then click **Add an action**.
-2. Search for **Office 365 Outlook**.
-3. Click **Office 365 Outlook – Send an email**.
+1. Search for **Office 365 Outlook**.
+1. Click **Office 365 Outlook – Send an email**.
 
     ![Office 365 Outlook selection window](./media/app-insights-automate-with-flow/flow2b.png)
 
-4. In the **Send an email** window, do the following:
+1. In the **Send an email** window, do the following:
 
    a. Type the email address of the recipient.
 
@@ -96,7 +96,7 @@ When you create your own queries, verify that they are working properly in Analy
 
     ![Office 365 Outlook configuration](./media/app-insights-automate-with-flow/flow5.png)
 
-5. On the dynamic content menu, do the following:
+1. On the dynamic content menu, do the following:
 
     a. Select **Attachment Name**.
 

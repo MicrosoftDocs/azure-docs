@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 
 ---
@@ -71,7 +71,7 @@ Set up an [Azure network](../virtual-network/quick-create-portal.md).
 
 ## Set up an Azure storage account
 
-Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Set up an [Azure storage account](../storage/common/storage-quickstart-create-account.md).
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.

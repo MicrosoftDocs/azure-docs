@@ -233,7 +233,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
 6. In the **Secret** box, enter the app ID that you defined earlier.
 
-7. For **Key usage**, select **Secret**.
+7. For **Key usage**, select **Signature**.
 
 8. Select **Create**.
 
@@ -253,7 +253,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
 6. In the **Secret** box, enter the app secret that you defined earlier.
 
-7. For **Key usage**, select **Secret**.
+7. For **Key usage**, select **Signature**.
 
 8. Select **Create**.
 
@@ -322,7 +322,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
       "exp": 1507125903,
       "nbf": 1507122303,
       "ver": "1.0",
-      "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+      "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
       "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
       "acr": "b2c_1a_signup_signin",
       "nonce": "defaultNonce",

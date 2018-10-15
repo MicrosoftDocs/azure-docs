@@ -3,7 +3,7 @@ title: Auditing in Azure SQL Data Warehouse  | Microsoft Docs
 description: Learn about auditing, and how to set up auditing in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
@@ -107,7 +107,7 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](s
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 
-###Server-level policy audit logs
+### Server-level policy audit logs
 Server-level audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription. They are saved as a collection of blob files within a container named **sqldbauditlogs**.
 
 For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -143,7 +143,7 @@ There are several methods you can use to view blob auditing logs:
 
 
 <br>
-###Database-level policy audit logs
+### Database-level policy audit logs
 Database-level audit logs are aggregated in a collection of Store Tables with a **SQLDBAuditLogs** prefix in the Azure storage account you chose during setup. You can view log files using a tool such as [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com).
 
 A preconfigured dashboard report template is available as a [downloadable Excel spreadsheet](http://go.microsoft.com/fwlink/?LinkId=403540) to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can [download here](http://www.microsoft.com/download/details.aspx?id=39379).

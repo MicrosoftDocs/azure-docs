@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
 ---
@@ -25,8 +25,8 @@ Wire data is consolidated network and performance data collected from Windows-co
 
 In addition to the OMS agent, the Wire Data solution uses Microsoft Dependency Agents that you install on computers in your IT infrastructure. Dependency Agents monitor network data sent to and from your computers for network levels 2-3 in the [OSI model](https://en.wikipedia.org/wiki/OSI_model), including the various protocols and ports used. Data is then sent to Log Analytics using agents.  
 
-> [!NOTE]
-> You cannot add the previous version of the Wire Data solution to new workspaces. If you have the original Wire Data solution enabled, you can continue to use it. However, to use Wire Data 2.0, you must first remove the original version.
+>[!NOTE]
+>If you have already deployed Service Map, or are considering Service Map or [Azure Monitor for VMs](../monitoring/monitoring-vminsights-overview.md), there is a new connection metrics data set they collect and store in Log Analytics that provides comparable information to Wire Data.
 
 By default, Log Analytics logs data for CPU, memory, disk, and network performance data from counters built into Windows and Linux, as well as other performance counters that you can specify. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer.  Wire Data looks at network data at the application level, not down at the TCP transport layer.  The solution doesn't look at individual ACKs and SYNs.  Once the handshake is completed, it is considered a live connection and marked as Connected. That connection stays live as long as both sides agree the socket is open and data can pass back and forth.  Once either sides closes the connection, it is marked as Disconnected.  Therefore, it only counts the bandwidth of successfully completed packets, it doesn't report on resends or failed packets.
 
@@ -51,22 +51,20 @@ However, since you're viewing metadata, it's not necessarily useful for in-depth
 
 ## Connected sources
 
-Wire Data gets its data from the Microsoft Dependency Agent. The Dependency Agent depends on the OMS Agent for its connections to Log Analytics. This means that a server must have the OMS Agent installed and configured first, and then you install the Dependency Agent. The following table describes the connected sources that the Wire Data solution supports.
+Wire Data gets its data from the Microsoft Dependency Agent. The Dependency Agent depends on the Log Analytics agent for its connections to Log Analytics. This means that a server must have the Log Analytics agent installed and configured with the Dependency agent. The following table describes the connected sources that the Wire Data solution supports.
 
 | **Connected source** | **Supported** | **Description** |
 | --- | --- | --- |
-| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [OMS Agent](log-analytics-windows-agent.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [OMS Agent](log-analytics-quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) for a complete list of operating system versions. |
-| System Center Operations Manager management group | Yes | Wire Data analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](log-analytics-om-agents.md). <br><br> A direct connection from the System Center Operations Manager agent computer to Log Analytics is required. Data is forwarded from the management group to Log Analytics. |
+| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [Log Analytics agent for Windows](log-analytics-windows-agent.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [Log Analytics agent for Linux](log-analytics-quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) for a complete list of operating system versions. |
+| System Center Operations Manager management group | Yes | Wire Data analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](log-analytics-om-agents.md). <br><br> A direct connection from the System Center Operations Manager agent computer to Log Analytics is required. |
 | Azure storage account | No | Wire Data collects data from agent computers, so there is no data from it to collect from Azure Storage. |
 
-On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Log Analytics to gather and send data. Depending on the context, the agent is called the System Center Operations Manager Agent, OMS Agent, Log Analytics Agent, MMA, or Direct Agent. System Center Operations Manager and Log Analytics provide slightly different versions of the MMA. These versions can each report to System Center Operations Manager, to Log Analytics, or to both.
+On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Log Analytics to gather and send data. Depending on the context, the agent is called the System Center Operations Manager Agent, OMS Agent, Log Analytics agent, MMA, or Direct Agent. System Center Operations Manager and Log Analytics provide slightly different versions of the MMA. These versions can each report to System Center Operations Manager, to Log Analytics, or to both.
 
-On Linux, the OMS Agent for Linux gathers and sends data to Log Analytics. You can use Wire Data on servers with OMS Direct Agents or on servers that are attached to Log Analytics via System Center Operations Manager management groups.
+On Linux, the Log Analytics agent for Linux gathers and sends data to Log Analytics. You can use Wire Data on servers with agents directly connected to Log Analytics, or on servers that are connecting to Log Analytics via System Center Operations Manager management groups.
 
-In this article, references to all agents, whether Linux or Windows, whether connected to a System Center Operations Manager management group or directly to Log Analytics are termed the _OMS agent_. We'll use the specific deployment name of the agent only if it's needed for context.
-
-The Dependency Agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Wire Data is always transmitted by the OMS agent to Log Analytics, either directly or using the OMS Gateway.
+The Dependency Agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Wire Data is always transmitted by the Log Analytics agent to Log Analytics, either directly or through the OMS Gateway.
 
 ![agent diagram](./media/log-analytics-wire-data/agents.png)
 
@@ -75,7 +73,7 @@ If you are a System Center Operations Manager user with a management group conne
 - No additional configuration is required when your System Center Operations Manager agents can access the Internet to connect to Log Analytics.
 - You need to configure the OMS Gateway to work with System Center Operations Manager when your System Center Operations Manager agents cannot access Log Analytics over the Internet.
 
-If you are using the Direct Agent, you need to configure the OMS agent itself to connect to Log Analytics or to your OMS Gateway. You can download the OMS Gateway from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. You can download the OMS Gateway from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ## Prerequisites
 
@@ -197,6 +195,9 @@ Perform the following steps to configure the Wire Data solution for your workspa
 1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 2. Install the Dependency Agent on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
+> [!NOTE]
+> You cannot add the previous version of the Wire Data solution to new workspaces. If you have the original Wire Data solution enabled, you can continue to use it. However, to use Wire Data 2.0, you must first remove the original version.
+> 
 ### Install the Dependency Agent on Windows
 
 Administrator privileges are required to install or uninstall the agent.
@@ -384,8 +385,6 @@ In the **Overview** page for your Log Analytics workspace in the Azure portal, c
 | Agents capturing network traffic | Shows the number of agents that are capturing network traffic and lists the top 10 computers that are capturing traffic. Click the number to run a log search for <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Click a computer in the list to run a log search returning the total number of bytes captured. |
 | Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
 | Application-level Protocols | Shows the number of application-level protocols in use, as discovered by agents. Click the number to run a log search for <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Click a protocol to run a log search returning the total number of bytes sent using the protocol. |
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Wire Data dashboard](./media/log-analytics-wire-data/wire-data-dash.png)
 

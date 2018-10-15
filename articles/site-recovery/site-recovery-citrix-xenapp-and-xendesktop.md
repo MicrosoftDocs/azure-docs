@@ -189,7 +189,7 @@ state. Shutdown the VM from Azure Portal.
 
 
    >[!NOTE]
-   >You can use scripts at [location](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) to update the DNS with the new IPs of the failed over >virtual machines or to attach a load balancer on the failed over virtual machine, if needed.
+   >You can use scripts at [location](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts) to update the DNS with the new IPs of the failed over >virtual machines or to attach a load balancer on the failed over virtual machine, if needed.
 
 
 ## Doing a test failover

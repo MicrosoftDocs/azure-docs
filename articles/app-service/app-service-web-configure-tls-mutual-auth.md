@@ -47,7 +47,7 @@ Make sure to change the value of "location" to wherever your web app is located 
 
 You can also use https://resources.azure.com to flip the `clientCertEnabled` property to `true`.
 
-> **Note:** If you run ARMClient from Powershell, you will need to escape the @ symbol for the JSON file with a back tick `.
+> **Note:** If you run ARMClient from Powershell, you will need to escape the \@ symbol for the JSON file with a back tick `.
 > 
 > 
 

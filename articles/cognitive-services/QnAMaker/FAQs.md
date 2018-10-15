@@ -1,15 +1,15 @@
 ---
-title: FAQ - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: FAQs
+title: FAQ - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: List of frequently asked questions for QnA Maker service
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
+ms.date: 09/12/2018
+ms.author: tulasim
 ---
 # Frequently Asked Questions
 
@@ -81,6 +81,6 @@ Follow the instructions in [this](./Tutorials/create-qna-bot.md) documentation t
 Follow these steps to embed the QnA Maker service as a web-chat control in your website:
 
 1. Create your FAQ bot by following the instructions [here](./Tutorials/create-qna-bot.md).
-2. Enable the web chat by following the steps [here](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat)
+2. Enable the web chat by following the steps [here](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
 
 

@@ -1,21 +1,13 @@
 ---
-title: Use ScaleR and SparkR with Azure HDInsight | Microsoft Docs
+title: Use ScaleR and SparkR with Azure HDInsight
 description: Use ScaleR and SparkR with ML Services on HDInsight
 services: hdinsight
-documentationcenter: ''
-author: bradsev
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
+author: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.author: bradsev
-
 ---
 
 # Combine ScaleR and SparkR in HDInsight
@@ -270,7 +262,7 @@ weatherDF <- rename(weatherDF,
 
 ## Joining the weather and airline data
 
-We now use the SparkR [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there is no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
+We now use the SparkR [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there is no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -334,7 +326,7 @@ joinedDF5 <- rename(joinedDF4,
 
 ## Save results to CSV for exchange with ScaleR
 
-That completes the joins we need to do with SparkR. We save the data from the final Spark DataFrame “joinedDF5” to a CSV for input to ScaleR and then close out the SparkR session. We explicitly tell SparkR to save the resultant CSV in 80 separate partitions to enable sufficient parallelism in ScaleR processing:
+That completes the joins we need to do with SparkR. We save the data from the final Spark DataFrame "joinedDF5" to a CSV for input to ScaleR and then close out the SparkR session. We explicitly tell SparkR to save the resultant CSV in 80 separate partitions to enable sufficient parallelism in ScaleR processing:
 
 ```
 logmsg('output the joined data from Spark to CSV') 

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Recognize | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Recognize.
 services: active-directory
@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Recognize from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Recognize from the gallery
 To configure the integration of Recognize into Azure AD, you need to add Recognize from the gallery to your list of managed SaaS apps.
@@ -60,19 +60,19 @@ To configure the integration of Recognize into Azure AD, you need to add Recogni
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
 
-4. In the search box, type **Recognize**.
+1. In the search box, type **Recognize**.
 
 	![Creating an Azure AD test user](./media/recognize-tutorial/tutorial_recognize_search.png)
 
-5. In the results panel, select **Recognize**, and then click **Add** button to add the application.
+1. In the results panel, select **Recognize**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/recognize-tutorial/tutorial_recognize_addfromgallery.png)
 
@@ -86,10 +86,10 @@ In Recognize, assign the value of the **user name** in Azure AD as the value of 
 To configure and test Azure AD single sign-on with Recognize, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Recognize test user](#creating-a-recognize-test-user)** - to have a counterpart of Britta Simon in Recognize that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a Recognize test user](#creating-a-recognize-test-user)** - to have a counterpart of Britta Simon in Recognize that is linked to the Azure AD representation of user.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -101,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_recognize_samlbase.png)
 
-3. On the **Recognize Domain and URLs** section, perform the following steps:
+1. On the **Recognize Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_recognize_url.png)
 
@@ -116,29 +116,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Recognize Client support team](mailto:support@recognizeapp.com) to get Sign-On URL and you can get Identifier value by opening the Service Provider Metadata URL from the SSO Settings section that is explained later in the tutorial. . 
  
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_recognize_certificate.png) 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_general_400.png)
 
-6. On the **Recognize Configuration** section, click **Configure Recognize** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Recognize Configuration** section, click **Configure Recognize** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_recognize_configure.png) 
 
-7. In a different web browser window, sign-on to your Recognize tenant as an administrator.
+1. In a different web browser window, sign-on to your Recognize tenant as an administrator.
 
-8. On the upper right corner, click **Menu**. Go to **Company Admin**.
+1. On the upper right corner, click **Menu**. Go to **Company Admin**.
    
     ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_000.png)
 
-9. On the left navigation pane, click **Settings**.
+1. On the left navigation pane, click **Settings**.
    
     ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_001.png)
 
-10. Perform the following steps on **SSO Settings** section.
+1. Perform the following steps on **SSO Settings** section.
    
     ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_002.png)
 	
@@ -154,11 +154,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	f. Click the **Save settings** button. 
 
-11. Beside the **SSO Settings** section, copy the URL under **Service Provider Metadata url**.
+1. Beside the **SSO Settings** section, copy the URL under **Service Provider Metadata url**.
    
     ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-12. Open the **Metadata URL link** under a blank browser to download the metadata document. Then copy the EntityDescriptor value(entityID) from the file and paste it in **Identifier** textbox in **Recognize Domain and URLs section** on Azure portal.
+1. Open the **Metadata URL link** under a blank browser to download the metadata document. Then copy the EntityDescriptor value(entityID) from the file and paste it in **Identifier** textbox in **Recognize Domain and URLs section** on Azure portal.
     
     ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_004.png)
 
@@ -177,15 +177,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/recognize-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
+1. To display the list of users, go to **Users and groups** and click **All users**.
 	
 	![Creating an Azure AD test user](./media/recognize-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+1. To open the **User** dialog, click **Add** on the top of the dialog.
  
 	![Creating an Azure AD test user](./media/recognize-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/recognize-tutorial/create_aaduser_04.png) 
 
@@ -207,11 +207,11 @@ This app doesn't support SCIM provisioning but has an alternate user sync that p
 
 1. Log into your Recognize company site as an administrator.
 
-2. On the upper right corner, click **Menu**. Go to **Company Admin**.
+1. On the upper right corner, click **Menu**. Go to **Company Admin**.
 
-3. On the left navigation pane, click **Settings**.
+1. On the left navigation pane, click **Settings**.
 
-4. Perform the following steps on **User Sync** section.
+1. Perform the following steps on **User Sync** section.
    
    ![New User](./media/recognize-tutorial/tutorial_recognize_005.png "New User")
    
@@ -233,29 +233,29 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Recognize**.
+1. In the applications list, select **Recognize**.
 
 	![Configure Single Sign-On](./media/recognize-tutorial/tutorial_recognize_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Testing single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Recognize tile in the Access Panel, you should get automatically signed-on to your Recognize application. For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+When you click the Recognize tile in the Access Panel, you should get automatically signed-on to your Recognize application. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

@@ -32,6 +32,8 @@
     href: point-to-site-about.md
   - name: About Point-to-Site VPN routing
     href: vpn-gateway-about-point-to-site-routing.md
+  - name: About zone-redundant gateways for Availability Zones
+    href: about-zone-redundant-vnet-gateways.md
 - name: How-to guides
   items:
   - name: Configure Site-to-Site connections
@@ -52,16 +54,20 @@
         href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-howto-point-to-site-rm-ps.md
-    - name: Generate self-signed certificates
+    - name: P2S certificates and clients
       items:
-      - name: Azure PowerShell
-        href: vpn-gateway-certificates-point-to-site.md
-      - name: Makecert
-        href: vpn-gateway-certificates-point-to-site-makecert.md
-    - name: Create and install VPN client configuration files
-      href: point-to-site-vpn-client-configuration-azure-cert.md
+      - name: Generate self-signed certificates
+        items:
+        - name: Azure PowerShell
+          href: vpn-gateway-certificates-point-to-site.md
+        - name: Makecert
+          href: vpn-gateway-certificates-point-to-site-makecert.md
+        - name: Linux
+          href: vpn-gateway-certificates-point-to-site-linux.md
     - name: Install client certificates
       href: point-to-site-how-to-vpn-client-install-azure-cert.md
+    - name: Create and install VPN client configuration files
+      href: point-to-site-vpn-client-configuration-azure-cert.md
   - name: Configure Point-to-Site connections - RADIUS authentication
     items:
     - name: Configure a P2S VPN
@@ -72,6 +78,12 @@
       href: point-to-site-vpn-client-configuration-radius.md
     - name: Integrate P2S VPN RADIUS authentication with NPS server
       href: vpn-gateway-radiuis-mfa-nsp.md
+  - name: Configure OpenVPN
+    items:
+    - name: Configure OpenVPN for Point-to-Site connections
+      href: vpn-gateway-howto-openvpn.md
+    - name: Configure OpenVPN clients
+      href: vpn-gateway-howto-openvpn-clients.md
   - name: Configure VNet-to-VNet connections
     items:
     - name: Azure portal

@@ -1,17 +1,19 @@
 ---
-title: eCommerce catalog moderation with machine learning and AI with Azure Content Moderator | Microsoft Docs
-description: Automatically moderate eCommerce catalogs with machine learning and AI
+title: "Tutorial: eCommerce catalog moderation - Content Moderator"
+titlesuffix: Azure Cognitive Services
+description: Automatically moderate eCommerce catalogs with machine learning and AI.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
 ---
 
-# eCommerce catalog moderation with machine learning
+# Tutorial: eCommerce catalog moderation with machine learning
 
 In this tutorial, we learn how to implement machine-learning-based intelligent ecommerce catalog moderation by combining machine-assisted AI technologies with human moderation to provide an intelligent catalog system.
 

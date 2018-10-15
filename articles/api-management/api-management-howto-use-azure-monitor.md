@@ -61,6 +61,8 @@ To access metrics:
     For example, select **Total Gateway Requests** and **Failed Gateway Requests** from the list of available metrics.
 3. The chart shows the total number of API calls. It also shows the number of API calls that failed.
 
+    ![metrics chart](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+
 ## Set up an alert rule for unauthorized request
 
 You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
@@ -102,6 +104,10 @@ To view activity logs:
 2. Click **Activity log**.
 
     ![activity log](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. Select desired filtering scope and click **Apply**.
+
+    ![activity logs](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
 
 ## Diagnostic Logs
 

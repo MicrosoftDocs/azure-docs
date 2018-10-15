@@ -3,19 +3,19 @@ title: Prebuilt domain reference - Azure| Microsoft Docs
 titleSuffix: Azure
 description: Reference for the prebuilt domains, which are prebuilt collections of intents and entities from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Prebuilt domain reference
 This reference provides information about the [prebuilt domains](luis-how-to-use-prebuilt-domains.md), which are prebuilt collections of intents and entities that LUIS offers.
 
-[Custom domains](create-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
+[Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
 
 ## List of prebuilt domains
 LUIS offers 20 prebuilt domains. 
@@ -149,7 +149,7 @@ The Entertainment domain provides intents and entities related to searching for 
 | ContentRating | Media content rating like G, or R for movies.|Kids video.<br/>PG rated.|
 | Genre | The genre of a movie, game, app or song.|Comedies<br/>Dramas<br/>Funny|
 | Keyword| A generic search keyword specifying an attribute the doesn't exist in the more specific media slots.|Soundtracks<br/>Moon River<br/>Amelia Earhart|
-| Language | Media content rating like G, or R for movies.|French<br/>English<br/>Korean|
+| Language | Language used in media, such as spoken language of movie or song.|French<br/>English<br/>Korean|
 | MediaFormat | The additional special technical type in which the media is formatted.|HD Movies<br/>3D movies<br/>Downloadable|
 | MediaSource | The store or marketplace for acquiring the media.|Netflix<br/>Prime|
 | MediaSubTypes| Media types smaller than movies and games.|Demos<br/>Dlc<br/>Trailers|

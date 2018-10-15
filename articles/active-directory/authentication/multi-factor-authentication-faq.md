@@ -5,13 +5,13 @@ description: Frequently asked questions and answers related to Azure Multi-Facto
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Frequently asked questions about Azure Multi-Factor Authentication
@@ -19,6 +19,7 @@ ms.reviewer: richagi
 This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
 
 ## General
+
 **Q: How does Azure Multi-Factor Authentication Server handle user data?**
 
 With Multi-Factor Authentication Server, user data is stored only on the on-premises servers. No persistent user data is stored in the cloud. When the user performs two-step verification, Multi-Factor Authentication Server sends data to the Azure Multi-Factor Authentication cloud service for authentication. Communication between Multi-Factor Authentication Server and the Multi-Factor Authentication cloud service uses Secure Sockets Layer (SSL) or Transport Layer Security (TLS) over port 443 outbound.
@@ -57,6 +58,7 @@ In Canada Microsoft uses the following SMS short codes:
 Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries besides the United States and Canada
 
 ## Billing
+
 Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
 **Q: Is my organization charged for sending the phone calls and text messages that are used for authentication?**
@@ -115,8 +117,7 @@ Azure Active Directory is required for the license model because licenses are ad
 
 Hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page.
 
-You can point your users to the [End-user troubleshooting guide](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
-
+You can point your users to the [End-user troubleshooting guide](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
 **Q: What should I do if one of my users can't get in to their account?**
 
@@ -128,7 +129,7 @@ To prevent unauthorized access, delete all the user's app passwords. After the u
 
 **Q: What if a user can't sign in to non-browser apps?**
 
-If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-mfasettings.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
+If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-mfasettings.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](../user-help/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
 
 If your organization doesn't have legacy clients, you should not allow your users to create app passwords.
 
@@ -193,8 +194,8 @@ There are several reasons that users could be prompted to register their securit
 - The organization has created and enabled an MFA Registration policy that has been applied to the user.
 - The user previously registered for MFA, but chose a verification method that an administrator has since disabled. The user must therefore go through MFA registration again to select a new default verification method.
 
-
 ## Errors
+
 **Q: What should users do if they see an “Authentication request is not for an activated account” error message when using mobile app notifications?**
 
 Tell them to follow this procedure to remove their account from the mobile app, then add it again:
@@ -211,9 +212,10 @@ The 0x800434D4L error occurs when you try to sign in to a non-browser applicatio
 A workaround for this error is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this solution, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## Next steps
+
 If your question isn't answered here, please leave it in the comments at the bottom of the page. Or, here are some additional options for getting help:
 
-* Search the [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) for solutions to common technical issues.
+* Search the [Microsoft Support Knowledge Base](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) for solutions to common technical issues.
 * Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * If you're a legacy PhoneFactor customer and you have questions or need help resetting a password, use the [password reset](mailto:phonefactorsupport@microsoft.com) link to open a support case.
 * Contact a support professional through [Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.

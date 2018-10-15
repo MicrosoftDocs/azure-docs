@@ -7,7 +7,8 @@ manager: douge
 assetId: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2017
 ms.author: ghogen
@@ -69,8 +70,8 @@ For new or existing connection strings, select **...*** on the right of the **Va
 
 1. Under **Connect using**, choose the **Your subscription** option to select a storage account from a subscription. Visual Studio then obtains the storage account credentials automatically from the `.publishsettings` file.
 1. Selecting **Manually entered credentials** lets you specify the account name and key directly using information from the Azure portal. To copy the account key:
-    a. Navigate to the storage account on the Azure portal and select **Manage Keys**.
-    2. To copy the account key, navigate to the storage account on the Azure portal, select **Settings > Access keys**, then use the copy button to copy the primary access key to the clipboard.
+    1. Navigate to the storage account on the Azure portal and select **Manage Keys**.
+    1. To copy the account key, navigate to the storage account on the Azure portal, select **Settings > Access keys**, then use the copy button to copy the primary access key to the clipboard.
 1. Select one of the connection options. **Specify custom endpoints** asks you to specify specific URLs for blobs, tables, and queues. Custom endpoints allow you to use [custom domains](storage/blobs/storage-custom-domain-name.md) and to control access more exactly. See [Configure Azure Storage Connection Strings](./storage/common/storage-configure-connection-string.md).
 1. Select **OK**, then **File > Save** to update the configuration with the new connection string.
 

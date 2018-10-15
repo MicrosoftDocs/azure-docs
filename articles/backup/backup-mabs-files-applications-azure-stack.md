@@ -22,7 +22,7 @@ This article does not cover installing Azure Backup Server in the Azure Stack en
 
 ## Back up Files and Folders in Azure Stack VMs to Azure
 
-To configure Azure Backup Server to protect Files in Azure Stack VMs virtual machines, open the Azure Backup Server console. You'll use the console to configure protection groups and to protect the data on your virtual machines.
+To configure Azure Backup Server to protect Files in Azure Stack virtual machines, open the Azure Backup Server console. You'll use the console to configure protection groups and to protect the data on your virtual machines.
 
 1. In the Azure Backup Server console, click **Protection** and in the toolbar, click **New** to open the **Create New Protection Group** wizard.
 
@@ -44,7 +44,7 @@ To configure Azure Backup Server to protect Files in Azure Stack VMs virtual mac
 
     ![New Protection group wizard opens](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft recommends putting all data that will share a protection policy, into one protection group. For complete information about planning and deploying protection groups, see the System Center DPM article, [Deploy Protection Groups](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft recommends putting all data that will share a protection policy, into one protection group. For complete information about planning and deploying protection groups, see the System Center DPM article, [Deploy Protection Groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. In the **Select Data Protection Method** screen, type a name for the protection group. Select the checkbox for **I want short-term protection using:** and **I want online protection**. Click **Next**.
 
@@ -86,15 +86,13 @@ using removable media.
 
 13. On **Summary**, review your settings. When you click **Create Group**, the initial data replication occurs. When the data replication finishes, on the **Status** page, the protection group status shows as **OK**. The initial backup job takes place in line with the protection group settings.
 
-Questions that need answering: How do you expand disk storage for Azure Stack short-term disk storage. What are guidelines that need to be called out explaining short-term disk storage?
-
 ## Recover file data
 
 Use Azure Backup Server console to recover data to your virtual machine.
 
 1. In the Azure Backup Server console, on the navigation bar, click **Recovery** and browse for the data you want to recover. In the results pane, select the data.
 
-2. On the calendar in the recovery points section, dates in bold indicate recovery points are available. Select the date to recover a recovery point.
+2. On the calendar in the recovery points section, dates in bold indicate recovery points are available. Select the date to recover.
 
 3. In the **Recoverable item** pane, select the item you want to recover.
 
@@ -133,5 +131,5 @@ To view Azure Backup Server entities in Azure Portal, you can follow the followi
 
 ## See also
 For information on using Azure Backup Server to protect other workloads, see one of the following articles:
-- [Back up SharePoint farm](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [Back up SQL server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Back up SharePoint farm](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Back up SQL server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

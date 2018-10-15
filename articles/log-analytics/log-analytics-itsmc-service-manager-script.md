@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.component: na
+ms.component: 
 ---
 
 # Create Service Manager Web app using the automated script
@@ -37,7 +37,7 @@ Save these values, you will need these values when you create a connection with 
 ## Prerequisites
 
  Windows Management Framework 5.0 or above.
- Windows 10 has 5.1 by default. You can download the framework from [here](https://www.microsoft.com/download/details.aspx?id=53347):
+ Windows 10 has 5.1 by default. You can download the framework from [here](https://www.microsoft.com/download/details.aspx?id=50395):
 
 Use the following script:
 

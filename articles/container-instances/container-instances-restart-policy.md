@@ -1,17 +1,16 @@
 ---
-title: Run containerized tasks in Azure Container Instances
+title: Run containerized tasks in Azure Container Instances with restart policies
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/16/2017
-ms.author: marsma
+ms.date: 07/26/2018
+ms.author: danlep
 ---
 
-# Run a containerized task in Azure Container Instances
+# Run containerized tasks with restart policies
 
 The ease and speed of deploying containers in Azure Container Instances provides a compelling platform for executing run-once tasks like build, test, and image rendering in a container instance.
 
@@ -169,7 +168,7 @@ For details on how to persist the output of your containers that run to completi
 [aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -3,9 +3,10 @@ title: About migration in Azure Site Recovery | Microsoft Docs
 description: This article describes how to migrate on-premises and Azure VMs using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
 
 ---
@@ -34,7 +35,7 @@ In addition to using Site Recovery for disaster recovery of on-premises and Azur
 --- | ---
 **Migrate from on-premises to Azure** | You can migrate on-premises VMware VMs, Hyper-V VMs, and physical servers to Azure. To do this, you complete almost the same steps as you would for full disaster recovery. You simply don't fail machines back from Azure to the on-premises site.
 **Migrate between Azure regions** | You can migrate Azure VMs from one Azure region to another. After the migration is complete, you can configure disaster recovery for the Azure VMs now in the secondary region to which you migrated.
-**Migrate AWS to Azure** | You can migrate AWS instances to Azure VMs. Site Recovery treats AWS instances as physical servers for  for migration purposes. 
+**Migrate AWS to Azure** | You can migrate AWS instances to Azure VMs. Site Recovery treats AWS instances as physical servers for migration purposes. 
 
 ## Next steps
 

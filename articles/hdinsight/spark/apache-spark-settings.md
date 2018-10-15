@@ -1,21 +1,14 @@
 ---
-title: Configure Spark settings - Azure HDInsight | Microsoft Docs
-description: 'How to configure Spark for an HDInsight cluster.'
+title: Configure Spark settings - Azure HDInsight 
+description: How to configure Spark for an Azure HDInsight cluster.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+ms.author: maxluk
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
-ms.author: maxluk
-
 ---
 # Configure Spark settings
 
@@ -38,7 +31,7 @@ When you create a new cluster, here are the current Spark versions to choose fro
 Spark 2.x can run much better than Spark 1.x. Spark 2.x has a number of performance optimizations, such as Tungsten, Catalyst Query Optimization, and more.  
 
 > [!NOTE]
-> The default version of Apache Spark in the HDInsight service may change without notice. If you have a version dependency, Microsoft recommends that you specify that particular version when you create clusters using .NET SDK/Azure PowerShell and Azure CLI.
+> The default version of Apache Spark in the HDInsight service may change without notice. If you have a version dependency, Microsoft recommends that you specify that particular version when you create clusters using .NET SDK, Azure PowerShell, and Azure Classic CLI.
 
 Apache Spark has three system configuration locations:
 

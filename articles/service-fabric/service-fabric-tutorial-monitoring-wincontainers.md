@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Tutorial: Monitor Windows containers on Service Fabric using Log Analytics
 
-This is part two of a tutorial, and walks you through setting up Log Analytics to monitor your Windows containers orchestrated on Service Fabric.
+This is part three of a tutorial, and walks you through setting up Log Analytics to monitor your Windows containers orchestrated on Service Fabric.
 
 In this tutorial, you learn how to:
 
@@ -38,7 +38,7 @@ Before you begin this tutorial, you should:
 
 ## Setting up Log Analytics with your cluster in the Resource Manager template
 
-In the case that you used the [template provided](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) in the first part of this tutorial, it should include the following additions to a generic Service Fabric Azure Resource Manager template. In case the case that you have a cluster of your own that you are looking to set up for monitoring containers with Log Analytics:
+In the case that you used the [template provided](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) in the first part of this tutorial, it should include the following additions to a generic Service Fabric Azure Resource Manager template. In case the case that you have a cluster of your own that you are looking to set up for monitoring containers with Log Analytics:
 
 * Make the following changes to your Resource Manager template.
 * Deploy it using PowerShell to upgrade your cluster by [deploying the template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager realizes that the resource exists, so will roll it out as an upgrade.

@@ -3,233 +3,338 @@
 - name: Overview
   expanded: true
   items:
-  - name: About Azure Machine Learning
+  - name: What is Azure Machine Learning service?
     href: overview-what-is-azure-ml.md
-  - name: Model Management overview
-    href: ../desktop-workbench/model-management-overview.md
-  - name: Other ML products
-    href: overview-more-machine-learning.md    
-  - name: What's new
-    href: ../desktop-workbench/azure-machine-learning-release-notes.md    
+  - name: What's happening to Workbench?
+    href: overview-what-happened-to-workbench.md 
 - name: Quickstarts
   items:
-  - name: Install and start
-    href: quickstart-installation.md
+  - name: Get started - Portal
+    href: quickstart-get-started.md
+  - name: Get started - Python
+    href: quickstart-create-workspace-with-python.md
 - name: Tutorials
   items:
-  - name: '1: Prepare data'
-    href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
-  - name: '2: Build models' 
-    href: ../desktop-workbench/tutorial-classifying-iris-part-2.md
-  - name: '3: Deploy models'
-    href: ../desktop-workbench/tutorial-classifying-iris-part-3.md
-  - name: '4: Advanced data preparation'
-    href: ../desktop-workbench/tutorial-bikeshare-dataprep.md  
+  - name: 'Train models: Part 1'
+    href: tutorial-train-models-with-aml.md
+  - name: 'Deploy models: Part 2'
+    href: tutorial-deploy-models-with-aml.md
+  - name: Train automated ML models 
+    href: tutorial-auto-train-models.md
+- name: Samples
+  items:
+  - name: Jupyter notebooks (GitHub)
+    href: http://aka.ms/aml-notebooks
 - name: Concepts   
   items: 
-  - name: Key concepts
-    href: ../desktop-workbench/overview-general-concepts.md
-  - name: FPGA accelerations
-    href: concept-accelerate-with-fpgas.md    
+  - name: How the service works
+    href: concept-azure-machine-learning-architecture.md    
+  - name: Model management
+    href: concept-model-management-and-deployment.md
+  - name: Accelerate with FPGAs
+    href: concept-accelerate-with-fpgas.md  
+  - name: Machine learning pipelines
+    href: concept-ml-pipelines.md         
 - name: How-to guides
   items:  
-  - name: Top CLI tasks
-    href: ../desktop-workbench/cli-for-azure-machine-learning.md
-  - name: Use Workbench
-    items:
-    - name: Work with Python IDEs
-      href: ../desktop-workbench/how-to-configure-your-IDE.md
-    - name: Use Jupyter notebooks      
-      href: ../desktop-workbench/how-to-use-jupyter-notebooks.md
-    - name: Integrate with Git repos
-      href: ../desktop-workbench/using-git-ml-project.md
-    - name: Structure projects with TDSP
-      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
-    - name: Roaming and collaboration
-      href: ../desktop-workbench/roaming-and-collaboration.md
-  - name: Use IDE extensions
-    items:
-      - name: Use Visual Studio Tools for AI
-        href: ../desktop-workbench/quickstart-visual-studio-tools.md
-      - name: Use Visual Studio Code Tools for AI
-        href: ../desktop-workbench/quickstart-visual-studio-code-tools.md
-  - name: Use Azure IoT Edge AI Toolkit 
-    href: ../desktop-workbench/use-azure-iot-edge-ai-toolkit.md 
-  - name: Configure compute environment
-    items: 
-    - name: Configure experimentation
-      href: ../desktop-workbench/experimentation-service-configuration.md    
-    - name: Create DSVM and HDI Spark cluster
-      href: ../desktop-workbench/how-to-create-dsvm-hdi.md
-    - name: Train with GPUs
-      href: ../desktop-workbench/how-to-use-gpu.md    
-  - name: Acquire and understand data
+  - name: Manage workspaces
+    href: how-to-manage-workspace.md 
+  - name: Set up development environment 	
     items:    
-    - name: Add data source
-      href: ../desktop-workbench/data-source-wizard.md
-    - name: Data preparation guide
-      href: ../desktop-workbench/data-prep-getting-started.md
-    - name: Advanced data preparation
-      href: ../desktop-workbench/data-prep-user-guide.md
-    - name: Data preparation transformations
-      href: ../desktop-workbench/data-prep-appendix3-supported-transforms.md
+    - name: Choose an environment 
+      href: how-to-choose-a-dev-environment.md 
+    - name: Configure an environment
+      href: how-to-configure-environment.md
+    - name: VS Code Tools for AI
       items:
-      - name: Combine columns by example
-        href: ../desktop-workbench/data-prep-combine-columns-by-example.md
-      - name: Derive column by example
-        href: ../desktop-workbench/data-prep-derive-column-by-example.md
-      - name: Split column by example
-        href: ../desktop-workbench/data-prep-split-column-by-example.md
-      - name: Expand JSON
-        href: ../desktop-workbench/data-prep-expand-json.md
-  - name: Develop models
-    items: 
-    - name: Classify Iris using CLI
-      href: ../desktop-workbench/tutorial-iris-azure-cli.md
-    - name: Track run history and model metrics
-      href: ../desktop-workbench/how-to-use-run-history-model-metrics.md    
-    - name: Find run with the best accuracy
-      href: ../desktop-workbench/how-to-find-best-accuracy-cli.md
-    - name: Read and write files
-      href: ../desktop-workbench/how-to-read-write-files.md
-    - name: Use MMLSpark library
-      href: ../desktop-workbench/how-to-use-mmlspark.md
-  - name: Deploy and consume models
+      - name: Get started
+        href: how-to-vscode-tools.md
+      - name: Train and deploy        
+        href: how-to-vscode-train-deploy.md
+  - name: Prepare data
+    href: how-to-data-prep.md   
     items:
-    - name: Deploy models to FPGAs
-      href: how-to-deploy-fpga-web-service.md
-    - name: Set up Model Management
-      href: ../desktop-workbench/deployment-setup-configuration.md
-    - name: Scale clusters and services
-      href: ../desktop-workbench/how-to-scale-clusters.md
-    - name: Enable SSL on an MLC cluster
-      href: ../desktop-workbench/how-to-setup-ssl-on-mlc.md
-    - name: Deploy a web service
-      href: ../desktop-workbench/model-management-service-deploy.md
-    - name: Customize a container
-      href: ../desktop-workbench/model-management-custom-container.md
-    - name: Deploy to an IoT Edge device 
-      href: ../desktop-workbench/deploy-to-iot-edge-device.md 
-    - name: Consume a web service
-      href: ../desktop-workbench/model-management-consumption.md  
-    - name: Collect model data
-      href: ../desktop-workbench/how-to-use-model-data-collection.md
-    - name: Deployment troubleshooting guide
-      href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-  - name: Real-world examples
+    - name: Load data
+      href: how-to-load-data.md
+    - name: Transform data
+      href: how-to-transform-data.md
+    - name: Write data
+      href: how-to-write-data.md
+  - name: Access data
+    href: how-to-access-data.md
+  - name: Train models
+    items:    
+    - name: Set up training environments	
+      href: how-to-set-up-training-targets.md
+    - name: Create estimators
+      href: how-to-train-ml-models.md
+      items:
+      - name: PyTorch
+        href: how-to-train-pytorch.md
+      - name: TensorFlow
+        href: how-to-train-tensorflow.md
+    - name: Create and deploy ONNX models
+      href: how-to-build-deploy-onnx.md   
+  - name: Tune models
+    items:    
+    - name: Tune hyperparameters
+      href: how-to-tune-hyperparameters.md    
+    - name: Track experiments and metrics
+      href: how-to-track-experiments.md
+  - name: Automate machine learning
+    href: how-to-automated-ml.md	
     items:
-    - name: Document collection analysis
-      href: ../desktop-workbench/scenario-document-collection-analysis.md  
-    - name: Q & A matching
-      href: ../desktop-workbench/scenario-qna-matching.md
-    - name: Predictive maintenance
-      href: ../desktop-workbench/scenario-predictive-maintenance.md
-    - name: Aerial image classification
-      href: ../desktop-workbench/scenario-aerial-image-classification.md
-    - name: Server workload forecasting on terabytes of data
-      href: ../desktop-workbench/scenario-big-data.md
-    - name: Energy demand time series forecasting
-      href: ../desktop-workbench/scenario-time-series-forecasting.md
-    - name: Distributed tuning of hyperparameters
-      href: ../desktop-workbench/scenario-distributed-tuning-of-hyperparameters.md
-    - name: Customer churn prediction
-      href: ../desktop-workbench/scenario-churn-prediction.md
-    - name: Sentiment analysis with deep learning
-      href: ../desktop-workbench/scenario-sentiment-analysis-deep-learning.md
-    - name: Biomedical entity recognition - TDSP project
-      href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md  
-    - name: Classify US incomes - TDSP project
-      href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
-    - name: Image classification using CNTK
-      href: ../desktop-workbench/scenario-image-classification-using-cntk.md
-    - name: Deep Learning for Predictive Maintenance 
-      href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
+    - name: Configure auto training
+      href: how-to-configure-auto-train.md 
+    - name: Use remote compute targets
+      href: how-to-auto-train-remote.md
+  - name: Deploy models	
+    items:    
+    - name: Where to deploy models
+      href: how-to-deploy-and-where.md
+    - name: Deploy to ACI
+      href: how-to-deploy-to-aci.md
+    - name: Deploy to AKS
+      href: how-to-deploy-to-aks.md
+    - name: Deploy to FPGAs
+      href: how-to-deploy-fpga-web-service.md  
+    - name: Deploy to IoT Edge
+      href: how-to-deploy-to-iot.md 
+    - name: Troubleshoot
+      href: how-to-troubleshoot-deployment.md 
+    - name: Secure with SSL
+      href: how-to-secure-web-service.md  
+  - name: Monitor models
+    items:  
+    - name: Collect data in production  
+      href: how-to-enable-data-collection.md
+    - name: Monitor with Application Insights  
+      href: how-to-enable-app-insights.md 
+  - name: Manage resource quotas
+    href: how-to-manage-quotas.md
+  - name: Export and delete data
+    href: how-to-export-delete-data.md
 - name: Reference
-  items:  
-  - name: Python packages
-    href: reference-python-package-overview.md
-    items:    
-    - name: Computer vision
-      items:
-      - name: Package overview and install
-        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
-      - name: Build and deploy image classification models
-        href: how-to-build-deploy-image-classification-models.md
-      - name: Build and deploy object detection models
-        href: how-to-build-deploy-object-detection-models.md        
-      - name: Model accuracy
-        href: how-to-improve-accuracy-for-computer-vision-models.md
-    - name: Forecasting
-      items:
-      - name: Overview and install
-        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
-      - name: Build and deploy forecast models
-        href: how-to-build-deploy-forecast-models.md
-    - name: FPGA acceleration
-      href: reference-fpga-package-overview.md
-    - name: Text analytics
-      items:
-      - name: Overview and install
-        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
-      - name: Build and deploy text classification models
-        href: how-to-build-deploy-text-classification-models.md    
-  - name: Data preparation
-    items:
-    - name: Python extensions for data preparation
-      href: ../desktop-workbench/data-prep-python-extensibility-overview.md
-    - name: Supported data sources
-      href: ../desktop-workbench/data-prep-appendix2-supported-data-sources.md
-    - name: Load Azure Cosmos DB as data source 
-      href: ../desktop-workbench/data-prep-load-azure-cosmos-db.md
-    - name: Supported inspectors
-      href: ../desktop-workbench/data-prep-appendix4-supported-inspectors.md
-    - name: Supported data destinations
-      href: ../desktop-workbench/data-prep-appendix5-supported-destinations.md
-    - name: Supported execution and data environment combinations
-      href: ../desktop-workbench/data-prep-supported-runtime-data-environments.md
-    - name: Sample of filter expressions in Python
-      href: ../desktop-workbench/data-prep-appendix6-sample-filter-expressions-python.md
-    - name: Sample of custom data flow transforms in Python
-      href: ../desktop-workbench/data-prep-appendix7-sample-transform-data-flow-python.md
-    - name: Sample of source connections in Python
-      href: ../desktop-workbench/data-prep-appendix8-sample-source-connections-python.md
-    - name: Sample of destination connections in Python
-      href: ../desktop-workbench/data-prep-appendix9-sample-destination-connections-python.md
-    - name: Sample of column transforms in Python
-      href: ../desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md  
-    - name: Data preparation execution API
-      href: ../desktop-workbench/data-prep-python-execution-api.md
-  - name: Experimentation    
-    items:
-    - name: Experimentation Service configuration
-      href: ../desktop-workbench/experimentation-service-configuration-reference.md
-    - name: Logging API
-      href: ../desktop-workbench/reference-logging-api.md
-    - name: Experimentation Service template
-      href: ../desktop-workbench/experimentation-service-template.md
-  - name: Model Management
-    items:
-    - name: Model Management API
-      href: ../desktop-workbench/model-management-api-reference.md
-    - name: Model Management CLI
-      href: ../desktop-workbench/model-management-cli-reference.md
-    - name: Model data collection API
-      href: ../desktop-workbench/model-data-collection-api-reference.md
+  items:    
+  - name: Machine learning SDK
+    href: http://aka.ms/aml-sdk
+  - name: Data prep SDK
+    href: http://aka.ms/data-prep-sdk
+  - name: Machine learning CLI
+    href: reference-azure-machine-learning-cli.md   
 - name: Resources
   items:  
-  - name: Frequently asked questions
-    href: ../desktop-workbench/frequently-asked-questions.md
-  - name: Issues and troubleshooting
-    href: known-issues-and-troubleshooting-guide.md
-  - name: Export or delete account data
-    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
-  - name: Support and training
-    href: support-for-aml-services.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
-  - name: Region availability
+  - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Team Data Science Process
-    href: ../team-data-science-process/overview.md
+  - name: Export or delete account data
+    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+  - name: Release notes
+    href: azure-machine-learning-release-notes.md  
+  - name: Known issues
+    href: resource-known-issues.md
+  - name: Get support
+    href: support-for-aml-services.md
+  - name: Deprecated docs
+    items:  
+    - name: How to migrate
+      href: how-to-migrate.md             
+    - name: Workbench quickstart
+      href: ../desktop-workbench/quickstart-installation.md
+    - name: 'Tutorial 1: Prepare data'
+      href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
+    - name: 'Tutorial 2: Build models' 
+      href: ../desktop-workbench/tutorial-classifying-iris-part-2.md
+    - name: 'Tutorial 3: Deploy models'
+      href: ../desktop-workbench/tutorial-classifying-iris-part-3.md
+    - name: 'Tutorial 4: Advanced data preparation'
+      href: ../desktop-workbench/tutorial-bikeshare-dataprep.md  
+    - name: Model Management overview
+      href: ../desktop-workbench/model-management-overview.md
+    - name: Top CLI tasks
+      href: ../desktop-workbench/cli-for-azure-machine-learning.md
+    - name: Use Workbench
+      items:
+      - name: Work with Python IDEs
+        href: ../desktop-workbench/how-to-configure-your-IDE.md
+      - name: Use Jupyter notebooks      
+        href: ../desktop-workbench/how-to-use-jupyter-notebooks.md
+      - name: Integrate with Git repos
+        href: ../desktop-workbench/using-git-ml-project.md
+      - name: Structure projects with TDSP
+        href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
+      - name: Roaming and collaboration
+        href: ../desktop-workbench/roaming-and-collaboration.md
+    - name: Use IDE extensions
+      items:
+        - name: Use Visual Studio Tools for AI
+          href: ../desktop-workbench/quickstart-visual-studio-tools.md
+        - name: Use Visual Studio Code Tools for AI
+          href: ../desktop-workbench/quickstart-visual-studio-code-tools.md
+    - name: Use Azure IoT Edge AI Toolkit 
+      href: ../desktop-workbench/use-azure-iot-edge-ai-toolkit.md 
+    - name: Configure compute environment
+      items: 
+      - name: Configure experimentation
+        href: ../desktop-workbench/experimentation-service-configuration.md    
+      - name: Create DSVM and HDI Spark cluster
+        href: ../desktop-workbench/how-to-create-dsvm-hdi.md
+      - name: Train with GPUs
+        href: ../desktop-workbench/how-to-use-gpu.md    
+    - name: Acquire and understand data
+      items:    
+      - name: Add data source
+        href: ../desktop-workbench/data-source-wizard.md
+      - name: Data preparation guide
+        href: ../desktop-workbench/data-prep-getting-started.md
+      - name: Advanced data preparation
+        href: ../desktop-workbench/data-prep-user-guide.md
+      - name: Data preparation transformations
+        href: ../desktop-workbench/data-prep-appendix3-supported-transforms.md
+        items:
+        - name: Combine columns by example
+          href: ../desktop-workbench/data-prep-combine-columns-by-example.md
+        - name: Derive column by example
+          href: ../desktop-workbench/data-prep-derive-column-by-example.md
+        - name: Split column by example
+          href: ../desktop-workbench/data-prep-split-column-by-example.md
+        - name: Expand JSON
+          href: ../desktop-workbench/data-prep-expand-json.md
+    - name: Develop models
+      items: 
+      - name: Classify Iris using CLI
+        href: ../desktop-workbench/tutorial-iris-azure-cli.md
+      - name: Track run history and model metrics
+        href: ../desktop-workbench/how-to-use-run-history-model-metrics.md    
+      - name: Find run with the best accuracy
+        href: ../desktop-workbench/how-to-find-best-accuracy-cli.md
+      - name: Read and write files
+        href: ../desktop-workbench/how-to-read-write-files.md
+      - name: Use MMLSpark library
+        href: ../desktop-workbench/how-to-use-mmlspark.md
+    - name: Deploy & consume models
+      items:
+      - name: Set up Model Management
+        href: ../desktop-workbench/deployment-setup-configuration.md
+      - name: Scale clusters and services
+        href: ../desktop-workbench/how-to-scale-clusters.md
+      - name: Enable SSL on an MLC cluster
+        href: ../desktop-workbench/how-to-setup-ssl-on-mlc.md
+      - name: Deploy a web service
+        href: ../desktop-workbench/model-management-service-deploy.md
+      - name: Customize a container
+        href: ../desktop-workbench/model-management-custom-container.md
+      - name: Deploy to an IoT Edge device 
+        href: ../desktop-workbench/deploy-to-iot-edge-device.md 
+      - name: Consume a web service
+        href: ../desktop-workbench/model-management-consumption.md  
+      - name: Collect model data
+        href: ../desktop-workbench/how-to-use-model-data-collection.md
+      - name: Deployment troubleshooting guide
+        href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
+    - name: Real-world how-tos
+      items:
+      - name: Document collection analysis
+        href: ../desktop-workbench/scenario-document-collection-analysis.md  
+      - name: Q & A matching
+        href: ../desktop-workbench/scenario-qna-matching.md
+      - name: Predictive maintenance
+        href: ../desktop-workbench/scenario-predictive-maintenance.md
+      - name: Aerial image classification
+        href: ../desktop-workbench/scenario-aerial-image-classification.md
+      - name: Server workload forecasting on terabytes of data
+        href: ../desktop-workbench/scenario-big-data.md
+      - name: Energy demand time series forecasting
+        href: ../desktop-workbench/scenario-time-series-forecasting.md
+      - name: Distributed tuning of hyperparameters
+        href: ../desktop-workbench/scenario-distributed-tuning-of-hyperparameters.md
+      - name: Customer churn prediction
+        href: ../desktop-workbench/scenario-churn-prediction.md
+      - name: Sentiment analysis with deep learning
+        href: ../desktop-workbench/scenario-sentiment-analysis-deep-learning.md
+      - name: Biomedical entity recognition - TDSP project
+        href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md  
+      - name: Classify US incomes - TDSP project
+        href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
+      - name: Image classification using CNTK
+        href: ../desktop-workbench/scenario-image-classification-using-cntk.md
+      - name: Deep Learning for Predictive Maintenance 
+        href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
+    - name: Reference
+      items:
+      - name: Python extensions for data preparation
+        href: ../desktop-workbench/data-prep-python-extensibility-overview.md
+      - name: Supported data sources
+        href: ../desktop-workbench/data-prep-appendix2-supported-data-sources.md
+      - name: Load Azure Cosmos DB as data source 
+        href: ../desktop-workbench/data-prep-load-azure-cosmos-db.md
+      - name: Supported inspectors
+        href: ../desktop-workbench/data-prep-appendix4-supported-inspectors.md
+      - name: Supported data destinations
+        href: ../desktop-workbench/data-prep-appendix5-supported-destinations.md
+      - name: Supported execution and data environment combinations
+        href: ../desktop-workbench/data-prep-supported-runtime-data-environments.md
+      - name: Sample of filter expressions in Python
+        href: ../desktop-workbench/data-prep-appendix6-sample-filter-expressions-python.md
+      - name: Sample of custom data flow transforms in Python
+        href: ../desktop-workbench/data-prep-appendix7-sample-transform-data-flow-python.md
+      - name: Sample of source connections in Python
+        href: ../desktop-workbench/data-prep-appendix8-sample-source-connections-python.md
+      - name: Sample of destination connections in Python
+        href: ../desktop-workbench/data-prep-appendix9-sample-destination-connections-python.md
+      - name: Sample of column transforms in Python
+        href: ../desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md  
+      - name: Data preparation execution API
+        href: ../desktop-workbench/data-prep-python-execution-api.md
+      - name: Experimentation Service configuration
+        href: ../desktop-workbench/experimentation-service-configuration-reference.md
+      - name: Logging API
+        href: ../desktop-workbench/reference-logging-api.md
+      - name: Experimentation Service template
+        href: ../desktop-workbench/experimentation-service-template.md
+      - name: Model Management API
+        href: ../desktop-workbench/model-management-api-reference.md
+      - name: Model Management CLI
+        href: ../desktop-workbench/model-management-cli-reference.md
+      - name: Model data collection API
+        href: ../desktop-workbench/model-data-collection-api-reference.md
+    - name: Key concepts
+      href: ../desktop-workbench/overview-general-concepts.md    
+    - name: Domain packages
+      href: ../desktop-workbench/reference-python-package-overview.md
+      items:    
+      - name: Computer vision package
+        items:
+        - name: Package install
+          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
+        - name: Model and deploy
+          items:
+          - name: Image classification
+            href: ../desktop-workbench/how-to-build-deploy-image-classification-models.md
+          - name: Object detection
+            href: ../desktop-workbench/how-to-build-deploy-object-detection-models.md
+          - name: Image similarity
+            href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
+          - name: Improve model accuracy
+            href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
+      - name: Forecasting package
+        items:
+        - name: Overview and install
+          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
+        - name: Build and deploy forecast models
+          href: ../desktop-workbench/how-to-build-deploy-forecast-models.md
+      - name: FPGA acceleration package
+        href: reference-fpga-package-overview.md
+      - name: Text analytics package
+        items:
+        - name: Overview and install
+          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
+        - name: Build and deploy text classification models
+          href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md     
+    - name: FAQs
+      href: ../desktop-workbench/frequently-asked-questions.md
+    - name: Old Issues
+      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md

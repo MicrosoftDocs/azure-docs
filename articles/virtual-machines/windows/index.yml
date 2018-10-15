@@ -52,7 +52,7 @@ sections:
     items: 
     - image:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
-      text: VSTS
+      text: Azure DevOps Services
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: Step-by-Step Tutorials
   items:
@@ -76,27 +76,30 @@ sections:
     - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Create a continuous integration pipeline with Visual Studio</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-iis-sql">Install a SQL/IIS/.NET stack</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">Secure a web server with SSL</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:  Create a Windows virtual machine in Azure
+      href: /learn/modules/create-windows-virtual-machine-in-azure/
+      image: 
+        src: /learn/achievements/create-windows-virtual-machine-in-azure.svg
+        href: /learn/modules/create-windows-virtual-machine-in-azure/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-virtual-machines">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: Managing Infrastructure
-      href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - title: Azure Administrator
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - title: Getting Started with Virtual Machines
-      href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - title: Getting Started with IaaS Monitoring
-      href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
 - title: Samples
   items:
   - type: paragraph

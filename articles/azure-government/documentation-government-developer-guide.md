@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/19/2017
+ms.date: 08/13/2018
 ms.author: stemi
 
 ---
@@ -79,7 +79,7 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 | Name | Azure Government endpoint | Azure Commercial endpoint |
 | --- | --- | --- |
 | Portal | https://portal.azure.us | https://portal.azure.com |
-| Active Directory Endpoint and Authority | https://login.microsoftonline.us | https://login.microsoftonline.com |
+| Active Directory Endpoint and Authority | https://login.microsoftonline.us | https://login.microsoftonline.com <br/> https://login.windows.net |
 | Active Directory Graph API | https://graph.windows.net/ | https://graph.windows.net/ |
 | Microsoft Graph API | https://graph.microsoft.com/ | https://graph.microsoft.com/ |
 | Azure API | https://management.usgovcloudapi.net/ | https://management.azure.com/ |

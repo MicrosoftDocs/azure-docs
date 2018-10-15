@@ -3,7 +3,7 @@ title: Azure Cosmos DB firewall support & IP access control | Microsoft Docs
 description: Learn how to use IP access control policies for firewall support on Azure Cosmos DB database accounts.
 keywords: IP access control, firewall support
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 tags: azure-resource-manager
 
@@ -11,14 +11,11 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
-ms.author: sngun
+ms.author: govindk
 
 ---
 # Azure Cosmos DB firewall support
 To secure data stored in an Azure Cosmos DB database account, Azure Cosmos DB has provided support for a secret based [authorization model](https://msdn.microsoft.com/library/azure/dn783368.aspx) that utilizes a strong Hash-based message authentication code (HMAC). Now, in addition to the secret based authorization model, Azure Cosmos DB supports policy driven IP-based access controls for inbound firewall support. This model is  similar to the firewall rules of a traditional database system and provides an additional level of security to the Azure Cosmos DB database account. With this model, you can now configure an Azure Cosmos DB database account to be accessible only from an approved set of machines and/or cloud services. Access to Azure Cosmos DB resources from these approved sets of machines and services still require the caller to present a valid authorization token.
-
-> [!NOTE]
-> Currently firewall support is available for Azure Cosmos DB SQL API and Mongo API accounts. Ability to configure firewalls for other  APIs and sovereign clouds such as Azure Germany or Azure Government will be available soon. If you are planning to configure service endpoint ACL for your Azure Cosmos DB account that has an existing IP firewall configured, please note the firewall configuration, remove the IP firewall and then configure the service endpoint ACL. After you configure service endpoint, you can re-enable the IP firewall if needed.
 
 ## IP access control overview
 By default, an Azure Cosmos DB database account is accessible from public internet as long as the request is accompanied by a valid authorization token. To configure IP policy-based access control, the user must provide the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. Once this configuration is applied, all requests originating from machines outside this allowed list are blocked by the server.  The connection processing flow for the IP-based access control is described in the following diagram:
@@ -53,7 +50,12 @@ Access to the Azure portal is enabled by default when you change the Firewall se
 ![Screenshot showing how to enable Azure portal access](./media/firewall-support/enable-azure-portal.png)
 
 ## Connections from Global Azure datacenters or Azure PaaS services
-In Azure, PaaS services like Azure Stream analytics, Azure Functions, and Azure App Service are used in conjunction with Azure Cosmos DB. To enable access to  Azure Cosmos DB database account from these services whose IP addresses are not readily available add the IP address of 0.0.0.0 to the allowed list of IP addresses associated with your Azure Cosmos DB database account programmatically. 
+
+Azure PaaS services like Azure Stream analytics, Azure Functions etc. are used in conjunction with Azure Cosmos DB. To allow applications from other Azure PaaS services to connect to your Azure Cosmos DB resources, a firewall setting must be enabled. To enable this firewall setting, add the IP address- 0.0.0.0 to the list of allowed IP addresses. 0.0.0.0 restricts connections to Azure Cosmos DB account from Azure datacenter IP range. This setting does not allow access for any other IP ranges to the Azure Cosmos DB account.
+
+> [!IMPORTANT]
+> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+> 
 
 Access to the connections from within global Azure datacenters is enabled by default when you change the Firewall setting to **Selected Networks** in the Azure portal. 
 

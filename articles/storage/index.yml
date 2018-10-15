@@ -90,6 +90,29 @@ sections:
     - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blobs</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Files</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Queues</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduction to data in Azure
+      href: /learn/modules/intro-to-data-in-azure/
+      image: 
+        src: /learn/achievements/intro-to-data-in-azure.svg
+        href: //learn/modules/intro-to-data-in-azure/
+    - title:  Choose a data storage approach in Azure
+      href: /learn/modules/choose-storage-approach-in-azure/
+      image: 
+        src: /learn/achievements/choose-storage-approach-in-azure.svg
+        href: /learn/modules/choose-storage-approach-in-azure/
+    - title:  Create an Azure storage account
+      href: /learn/modules/create-azure-storage-account/
+      image: 
+        src: /learn/achievements/create-azure-storage-account.svg
+        href: /learn/modules/create-azure-storage-account/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-storage">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
@@ -115,6 +138,6 @@ sections:
     - title: Command-Line
       html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Azure CLI</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node​.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/storage/client?view=azure-dotnet">.NET</a></p><p><a href="/java/api/overview/azure/storage/client?view=azure-java-stable">Java</a></p><p><a href="/javascript/api/overview/azure/storage?view=azure-node-latest">Node​.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
       html: <p><a href="/rest/api/storageservices">Blobs, Queues, Tables, and Files API</a></p><p><a href="/rest/api/storagerp">Storage Resource Provider API</a></p><p><a href="/rest/api/storageimportexport">Import/Export Service API</a></p>

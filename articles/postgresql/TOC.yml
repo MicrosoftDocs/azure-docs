@@ -36,7 +36,9 @@
     - name: Azure CLI
       href: tutorial-design-database-using-azure-cli.md
   - name: 2 - Design Web App - Python
-    href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+    href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json 
+  - name: 3 - Monitor and tune
+    href: tutorial-monitor-and-tune.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -51,8 +53,6 @@
       href: concepts-supported-versions.md
     - name: PostgreSQL extensions
       href: concepts-extensions.md
-    - name: Server logs
-      href: concepts-server-logs.md
     - name: High availability
       href: concepts-high-availability.md
   - name: Resources
@@ -67,6 +67,8 @@
       href: concepts-firewall-rules.md
     - name: Configure SSL
       href: concepts-ssl-connection-security.md
+    - name: Advanced Threat Protection
+      href: concepts-data-access-and-security-threat-protection.md
     - name: VNet
       href: concepts-data-access-and-security-vnet.md 
   - name: Business continuity
@@ -75,8 +77,24 @@
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
-  - name: Monitor
-    href: concepts-monitoring.md
+  - name: Monitor and tune
+    items:
+    - name: Monitor and tune
+      href: concepts-monitoring.md
+    - name: Server logs
+      href: concepts-server-logs.md
+    - name: Query Store
+      items:
+        - name: Query Store
+          href: concepts-query-store.md
+        - name: Query Store usage scenarios
+          href: concepts-query-store-scenarios.md
+        - name: Query Store best practices
+          href: concepts-query-store-best-practices.md
+    - name: Query Performance Insight
+      href: concepts-query-performance-insight.md
+    - name: Performance Recommendations
+      href: concepts-performance-recommendations.md
   - name: Development
     items:
     - name: Connection libraries
@@ -121,6 +139,10 @@
     items:
     - name: Create alerts on metrics
       href: howto-alert-on-metric.md
+  - name: Advanced Threat Protection
+    items:
+    - name: Azure portal
+      href: howto-database-threat-protection-portal.md
   - name: Virtual Network
     items:
     - name: Azure portal
@@ -135,6 +157,8 @@
     href: /rest/api/postgresql
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/
   - name: Deployment templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql
   - name: Azure Roadmap

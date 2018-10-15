@@ -5,7 +5,7 @@ description: Code and PowerShell samples for Azure Active Directory B2B collabor
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: sample
 ms.date: 04/11/2017
 
 ms.author: mimart
@@ -34,14 +34,14 @@ You can bulk-invite external users to an organization from email addresses that 
 
 3. Sign in to your tenancy
 
-    ```
+    ```powershell
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. Run the PowerShell cmdlet
 
-  ```
+  ```powershell
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -56,7 +56,7 @@ This cmdlet sends an invitation to the email addresses in invitations.csv. Addit
 ## Code sample
 Here we illustrate how to call the invitation API, in "app-only" mode, to get the redemption URL for the resource to which you are inviting the B2B user. The goal is to send a custom invitation email. The email can be composed with an HTTP client, so you can customize how it looks and send it through Graph API.
 
-```
+```csharp
 namespace SampleInviteApp
 {
     using System;

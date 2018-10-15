@@ -66,7 +66,7 @@ It has the following characteristics:
 
 * low latency
 * capable of receiving and processing millions of events per second
-* exactly once delivery
+* at least once delivery
 
 ### Service Bus
 
@@ -78,7 +78,8 @@ It has the following characteristics:
 
 * reliable asynchronous message delivery (enterprise messaging as a service) that requires polling
 * advanced messaging features like FIFO, batching/sessions, transactions, dead-lettering, temporal control, routing and filtering, and duplicate detection
-* exactly once delivery
+* at least once delivery
+* optional in-order delivery
 
 ## Use the services together
 
