@@ -28,13 +28,13 @@ You can use the following Azure Automation solution features to manage Windows V
 - **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. The Inventory tracking for an Azure Stack Windows virtual machine provides a browser-based user interface for setting up and configuring inventory collection. 
 
 > [!IMPORTANT]
-> These solutions are the same as the ones used to manage Azure VMs. Both Azure and Azure Stack Windows VMs are managed in the same way, from the same interface, using the same tools.
+> These solutions are the same as the ones used to manage Azure VMs. Both Azure and Azure Stack Windows VMs are managed in the same way, from the same interface, using the same tools. The Azure Stack VMs are also priced the same as Azure VMs so when using Update Management, Change Tracking, and Inventory solutions will not incur additional costs from Azure VMs.
 
 ## Prerequisites
 Several prerequisites must be met before using these features to update and manage Azure Stack Windows VMs. These include steps that must be taken in the Azure portal as well as the Azure Stack administration portal.
 
 ### In the Azure portal
-To use the inventory, change tracking, and update management Azure automation features for Azure Stack Windows VMs, you first need to enable these solutions in Azure.
+To use the Inventory, Change Tracking, and Update Management Azure automation features for Azure Stack Windows VMs, you first need to enable these solutions in Azure.
 
 > [!TIP]
 > If you already have these features enabled for Azure VMs, you can use your pre-existing LogAnalytics Workspace credentials. If you already have a LogAnalytics WorkspaceID and Primary Key that you want to use, skip ahead to the next section. Otherwise, continue in this section to create a new LogAnalytics Workspace and automation account.
@@ -45,13 +45,13 @@ Next, you must [create an Automation Account](https://docs.microsoft.com/azure/a
 
 1. In the Azure portal, go to the Automation Account that you want to use.
 
-2. Select the feature to enable (either **Inventory**, **Change tracking**, or **Update management**).
+2. Select the solution to enable (either **Inventory**, **Change tracking**, or **Update management**).
 
 3. Use the **Select Workspace...** drop-down list to select the Log Analytics Workspace to use.
 
-4. Verify that all remaining information is correct, and then click **Enable** to enable the feature.
+4. Verify that all remaining information is correct, and then click **Enable** to enable the solution.
 
-5. Repeat steps 2-4 to enable all three features. 
+5. Repeat steps 2-4 to enable all three solutions. 
 
    [![](media/vm-update-management/1-sm.PNG "Enable automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
 
@@ -78,9 +78,9 @@ Follow these steps to enable update management for Azure Stack Windows VMs.
    [![](media/vm-update-management/5-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/5-lg.PNG#lightbox) 
 
    > [!TIP]
-   > Repeat this step for each solution to enable Azure Stack Windows VMs to report to the workspace. 
+   > Repeat this step to enable each solution for the Azure Stack Windows VMs that report to the workspace. 
   
-After the Azure Update and Configuration Management extension is installed, and solution reporting enabled, a scan is performed twice per day for each managed Windows VM. The Windows API is called every 15 minutes to query for the last update time to determine whether the status has changed. If the status has changed, a compliance scan is initiated.
+After the Azure Update and Configuration Management extension is enabled, a scan is performed twice per day for each managed Windows VM. The Windows API is called every 15 minutes to query for the last update time to determine whether the status has changed. If the status has changed, a compliance scan is initiated.
 
 After the VMs are scanned, they will appear in the Azure Automation account in the Update Management solution: 
 
@@ -91,7 +91,7 @@ After the VMs are scanned, they will appear in the Azure Automation account in t
 
 The Azure Stack Windows VMs can now be included in scheduled update deployments together with Azure VMs.
 
-## Enable Update Management using an Resource Manager template
+## Enable Update Management using a Resource Manager template
 If you have a large number of Azure Stack Windows VMs, you can use [this Azure Resource Manager template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) to more easily deploy the solution on Windows VMs. The template deploys the Microsoft Monitoring Agent extension to an existing Windows VM and adds it to an existing Azure LogAnalytics workspace.
  
 ## Next steps
