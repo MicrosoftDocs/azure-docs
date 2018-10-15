@@ -101,6 +101,8 @@
       href: concepts-read-replicas.md  
 - name: How-to guides
   items:
+  - name: Create Mysql with Powershell
+    href: hhowto-create-mysql-server-databaser-using-powershell.md
   - name: Manage a Server
     items:
     - name: Azure portal
