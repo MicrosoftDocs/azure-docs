@@ -4,7 +4,7 @@ description: This topic gives an overview of Microsoft Azure Media Services scen
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,8 +12,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
+ms.date: 10/15/2018
+ms.author: juliako 
 ---
 # Scenarios and availability of Media Services features across datacenters
 
