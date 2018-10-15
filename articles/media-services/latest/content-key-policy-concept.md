@@ -99,6 +99,6 @@ For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use AES-128 dynamic encryption and the key delivery service](sprotect-with-aes128.md)
+> [Use AES-128 dynamic encryption and the key delivery service](protect-with-aes128.md)
 >
 > [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
