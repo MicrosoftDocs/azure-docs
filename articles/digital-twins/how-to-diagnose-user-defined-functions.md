@@ -26,7 +26,7 @@ Ensure that diagnostic settings are enabled on your Azure Digital Twins instance
 
 To correlate a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent by setting the `x-ms-client-request-id` property to a GUID.
 
-After sending telemetry, open up Azure Log Analytics within Azure to query for logs with the specified Correlation ID.
+After sending telemetry, open up Azure Log Analytics to query for logs with the specified Correlation ID.
 
 ```text
 AzureDiagnostics
@@ -37,7 +37,7 @@ AzureDiagnostics
 | --- | --- |
 | `yourCorrelationIdentifier` | The Correlation ID that was specified on the event data. |
 
-If you log within your user-defined function, those logs will appear in your Log Analytics instance with the category `UserDefinedFunction`. To retrieve these logs, enter the following condition into your Log Analytics instance.
+If you log within your user-defined function, those logs will appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve these logs, enter the following condition in your Azure Log Analytics instance:
 
 ```text
 AzureDiagnostics
@@ -79,7 +79,7 @@ GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluat
 | `yourMatcherIdentifier` | The ID of the matcher you wish to evaluate |
 | `yourSensorIdentifier` | The ID of the sensor you wish to evaluate |
 
-Response
+Response:
 
 ```javascript
 {
