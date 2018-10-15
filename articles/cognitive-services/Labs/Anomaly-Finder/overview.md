@@ -10,8 +10,10 @@ ms.topic: article
 ms.date: 04/19/2018 
 ms.author: tonyxing
 --- 
- 
+
 # What is Anomaly Finder?
+
+[!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Anomaly Finder enables you to monitor data over time and detect anomalies with machine learning that adapts to your unique data by automatically applying the right statistical model regardless of industry, scenario, or data volume. Using a time series as input, the Anomaly Finder API returns whether or not a data point is an anomaly, determines the expected value, and upper and lower bounds for visualization. 
 As a prebuilt AI service, Anomaly Finder doesn’t require any machine learning expertise beyond understanding how to use a RESTful API. This makes development simple and versatile since it works with any time series data and can also be built into streaming data systems. Anomaly Finder encompasses a broad span of use cases – for instance, financial tools for managing fraud, theft, changing markets, and potential business incidents, or monitoring IoT device traffic while preserving anonymity. This solution can also be monetized as part of a service for end-customers to understand changes in data, spending, return on investment, or user activity.

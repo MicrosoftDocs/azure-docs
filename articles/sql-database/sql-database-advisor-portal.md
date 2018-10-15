@@ -2,15 +2,16 @@
 title: Apply performance recommendations - Azure SQL Database | Microsoft Docs
 description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Find and apply performance recommendations
 
@@ -98,7 +99,7 @@ You can set the Azure SQL Database to implement recommendations automatically. A
     ![Recommended Indexes](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
+> Please note that **DROP_INDEX** option is currently not compatible with applications using partition switching and index hints. 
 >
 
 Once you have selected your desired configuration, click Apply.

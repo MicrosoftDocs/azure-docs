@@ -2,13 +2,16 @@
 title: "Create and manage Azure SQL Elastic Database Jobs using Transact-SQL (T-SQL) | Microsoft Docs"
 description: Run scripts across many databases with Elastic Database Job agent using Transact-SQL (T-SQL).
 services: sql-database
-author: jaredmoo
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
 ms.author: jaredmoo
-
+author: jaredmoo
+ms.reviewer: 
+manager: craigg
+ms.date: 06/14/2018
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs
 

@@ -71,19 +71,49 @@ The standard also defines two schemas of `Request-Id` generation - flat and hier
 
 Application Insights defines the [extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) for the correlation HTTP protocol. It uses `Request-Context` name value pairs to propagate the collection of properties used by the immediate caller or callee. Application Insights SDK uses this header to set `dependency.target` and `request.source` fields.
 
+### W3C Distributed Tracing
+
+We are transitioning to (W3C Distributed tracing format)[https://w3c.github.io/distributed-tracing/report-trace-context.html]. It defines:
+- `traceparent` - carries globally unique operation id and unique identifier of the call
+- `tracestate` - carries tracing system specific context.
+
+#### Enable W3C distributed tracing support for ASP.NET Classic apps
+
+This feature is available in Microsoft.ApplicationInsights.Web and Microsoft.ApplicationInsights.DependencyCollector packages starting with version 2.8.0-beta1.
+It is **off** by default, to enable it, change `ApplicationInsights.config`:
+
+* under `RequestTrackingTelemetryModule` add `EnableW3CHeadersExtraction` element with value set to `true`
+* under `DependencyTrackingTelemetryModule` add `EnableW3CHeadersInjection` element with value set to `true`
+
+#### Enable W3C distributed tracing support for ASP.NET Core apps
+
+This feature is in Microsoft.ApplicationInsights.AspNetCore with version 2.5.0-beta1 and Microsoft.ApplicationInsights.DependencyCollector version 2.8.0-beta1.
+It is **off** by default, to enable it set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry(o => 
+        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
+    // ....
+}
+```
+
 ## Open tracing and Application Insights
 
-[Open Tracing](http://opentracing.io/) and Application Insights data models looks 
+The [Open Tracing data model specification](http://opentracing.io/) and Application Insights data models map in the following way:
 
-- `request`, `pageView` maps to **Span** with `span.kind = server`
-- `dependency` maps to **Span** with `span.kind = client`
-- `id` of a `request` and `dependency` maps to **Span.Id**
-- `operation_Id` maps to **TraceId**
-- `operation_ParentId` maps to **Reference** of type `ChildOf`
+| Application Insights               	| Open Tracing                                    	|
+|------------------------------------	|-------------------------------------------------	|
+| `Request`, `PageView`              	| `Span` with `span.kind = server`                	|
+| `Dependency`                       	| `Span` with `span.kind = client`                	|
+| `Id` of `Request` and `Dependency` 	| `SpanId`                                        	|
+| `Operation_Id`                     	| `TraceId`                                       	|
+| `Operation_ParentId`               	| `Reference` of type `ChildOf` (the parent span) 	|
 
-See [data model](application-insights-data-model.md) for Application Insights types and data model.
+For more information on the Application Insights data model, see [data model](application-insights-data-model.md). 
 
-See [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
+See the Open Tracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
 
 
 ## Telemetry correlation in .NET
@@ -133,3 +163,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
+- [Application Insights config reference](app-insights-configuration-with-applicationinsights-config.md)
+

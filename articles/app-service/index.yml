@@ -109,6 +109,19 @@ sections:
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Host a web application with Azure App service
+      href: /learn/modules/host-a-web-app-with-azure-app-service/
+      image: 
+        src: /learn/achievements/host-a-web-app-with-azure-app-service.svg
+        href: /learn/modules/host-a-web-app-with-azure-app-service/
+  - type: paragraph
+    text: <a href="/learn/browse/">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

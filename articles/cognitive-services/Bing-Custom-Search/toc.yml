@@ -15,15 +15,13 @@
     - name: Java
       href: call-endpoint-java.md
     - name: Node.js
-      href: call-endpoint-nodejs.md 
+      href: call-endpoint-nodejs.md
     - name: Python
       href: call-endpoint-python.md
 - name: SDK Quickstarts
   items:
-    - name: SDK samples overview 
-      href: sdk.md
-    - name: Custom Search SDK C# quickstart
-      href: custom-search-sdk-quickstart.md 
+    - name: C# SDK quickstart
+      href: sdk-csharp-quick-start.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
@@ -32,8 +30,8 @@
   items:
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
-- name: How-to guides 
-  items:        
+- name: How-to guides
+  items:
     - name: Configure custom search experience
       href: define-your-custom-view.md
     - name: Call custom search
@@ -42,14 +40,16 @@
       href: hosted-ui.md
     - name: Share custom search
       href: share-your-custom-search.md
+    - name: Get images from your instance
+      href: get-images-from-instance.md
+    - name: Get videos from your instance
+      href: get-videos-from-instance.md
     - name: Configure custom autosuggest experience
       href: define-custom-suggestions.md
-    - name: Get custom suggestions
-      href: get-custom-suggestions.md
     - name: Handle hit highlighting
       href: hit-highlighting.md
     - name: Page webpages
-      href: page-webpages.md 
+      href: page-webpages.md
 - name: Reference
   items:
     - name: Bing Custom Autosuggest API Reference
@@ -58,8 +58,10 @@
       href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference
     - name: Bing Custom Search API Reference
       href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
+    - name: Bing Custom Video Search API Reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference
     - name: Bing Search API use and display requirements
-      href: use-and-display-requirements.md  
+      href: use-and-display-requirements.md
 - name: Resources
   items:
   - name: Pricing
@@ -80,6 +82,5 @@
     href: https://aka.ms/bingcustomsearchtryit
   - name: Bing Custom Search endpoint
     href: endpoint-custom.md
-  - name: Supported countries and markets
-    href: supported-countries-markets.md
-
+  - name: Language and region support
+    href: language-support.md

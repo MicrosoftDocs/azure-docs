@@ -74,7 +74,7 @@ Export allows you to export the data stored in Azure Redis Cache to Redis compat
 2. Click **Choose Storage Container** and select the desired storage account. The storage account must be in the same subscription and region as your cache.
 
    > [!IMPORTANT]
-   > Export works with page blobs, which are supported by both classic and Resource Manager storage accounts, but are not supported by [Blob storage accounts](../storage/common/storage-account-options.md#blob-storage-accounts) at this time.
+   > Export works with page blobs, which are supported by both classic and Resource Manager storage accounts, but are not supported by Blob storage accounts at this time. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
    >
    >
 
@@ -152,7 +152,7 @@ If you remain on the **Import data** or **Export data** blade for longer than 15
 To resolve this, initiate the import or export operation before 15 minutes has elapsed.
 
 ### I got an error when exporting my data to Azure Blob Storage. What happened?
-Export works only with RDB files stored as page blobs. Other blob types are not currently supported, including blob storage accounts with hot and cool tiers. For more information, see [Blob storage accounts](../storage/common/storage-account-options.md#blob-storage-accounts).
+Export works only with RDB files stored as page blobs. Other blob types are not currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 
 ## Next steps
 Learn how to use more premium cache features.

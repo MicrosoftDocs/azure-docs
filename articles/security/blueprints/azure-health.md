@@ -19,8 +19,8 @@ ms.author: rarangap
 ## Overview
 
 **The Azure Security and Compliance Blueprint - HIPAA/HITRUST Health Data and AI offers a turn-key deployment of
-an Azure PaaS solution to demonstrate how to securely ingest, store, 
-analyze, and interact with health data while being able to meet industry
+an Azure PaaS and IaaS solution to demonstrate how to ingest, store, 
+analyze, interact, identity and Securely deploy solutions with health data while being able to meet industry
 compliance requirements. The blueprint helps accelerate cloud adoption
 and utilization for customers with data that is regulated.**
 
@@ -28,8 +28,9 @@ The Azure Security and Compliance Blueprint - HIPAA/HITRUST Health Data and AI B
 deploy a secure,  Health Insurance Portability and Accountability Act (HIPAA), and Health Information Trust Alliance (HITRUST) ready platform-as-a-service
 (PaaS) environment for ingesting, storing, analyzing, and interacting
 with personal and non-personal medical records in a secure,
-multi-tier cloud environment, deployed as an end-to-end solution. It
-showcases a common reference architecture and is designed to simplify
+multi-tier cloud environment, deployed as an end-to-end solution. 
+
+IaaS solution will demonstrate how to migrate an on-premises SQL based solution to Azure, and to implement a Privileged Access Workstation (PAW) to securely manage cloud-based services and solutions. The IaaS SQL Server database adds potential experimentation data is imported into a SQL IaaS VM, and that VM uses MSI authenticated access to interact a SQL Azure PaaS service.Both these showcases a common reference architecture and is designed to simplify
 adoption of Microsoft Azure. This provided architecture illustrates a
  solution to meet the needs of organizations seeking a
 cloud-based approach to reducing the burden and cost of deployment.
@@ -66,35 +67,16 @@ HIPAA and HITRUST (through the Common Security Framework
 
 ## Deploying the automation
 
-- To deploy the solution, follow the instructions provided in the deployment guidance. 
+- To deploy the solution, follow the instructions provided in the [deployment guidance](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-For a quick overview of how this solution works, watch this [video](https://aka.ms/healthblueprintvideo) explaining and demonstrating its deployment.
+- For a quick overview of how this solution works, watch this [video](https://aka.ms/healthblueprintvideo) explaining and demonstrating its deployment.
 
 - Frequently asked question can be found in the [FAQ](https://aka.ms/healthblueprintfaq) guidance.
 
 -   **Architectural diagram.** The diagram shows the reference
     architecture used for the blueprint and the example use case scenario.
 
--   **Deployment templates**. In this deployment, [Azure Resource
-    Manager
-    templates](/azure/azure-resource-manager/resource-group-overview#template-deployment)
-    are used to automatically deploy the components of the architecture
-    into Microsoft Azure by specifying configuration parameters during
-    setup.
-
--   **[Automated deployment scripts](https://aka.ms/healthblueprintdeploy)**. These scripts help deploy the
-     solution. The scripts consist of:
-
-
--   A module installation and [global
-    administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-    setup script is used to install and verify that required PowerShell
-    modules and global administrator roles are configured correctly. 
--   An installation PowerShell script is used to deploy the 
-    solution, provided via a .zip file that contains a pre-built
-    demo functions.
+-   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   This solution will demonstrate how to migrate an on-premise SQL based solution to Azure, and to implement a Privieged Access Workstation to securely manage cloud-bsed services and solutions. 
 
 ## Solution components
 
@@ -121,7 +103,7 @@ The foundational architecture is composed of the following components:
 # Architectural diagram
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## Roles
 

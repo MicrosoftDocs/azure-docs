@@ -71,7 +71,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A Workday implementation tenant for testing and integration purposes
 * Administrator permissions in Workday to create a system integration user, and make changes to test employee data for testing purposes
 * For user provisioning to Active Directory, a domain-joined server running Windows Service 2012 or greater is required to host the [on-premises synchronization agent](https://go.microsoft.com/fwlink/?linkid=847801)
-* [Azure AD Connect](../connect/active-directory-aadconnect.md) for synchronizing between Active Directory and Azure AD
+* [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) for synchronizing between Active Directory and Azure AD
 
 ### Solution architecture
 
@@ -550,11 +550,11 @@ How you configure provisioning to Azure Active Directory will depend on your pro
 
 | Scenario | Solution |
 | -------- | -------- |
-| **Users need to be provisioned to Active Directory and Azure AD** | Use **[AAD Connect](../connect/active-directory-aadconnect.md)** |
-| **Users need to be provisioned to Active Directory only** | Use **[AAD Connect](../connect/active-directory-aadconnect.md)** |
+| **Users need to be provisioned to Active Directory and Azure AD** | Use **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
+| **Users need to be provisioned to Active Directory only** | Use **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
 | **Users need to be provisioned to Azure AD only (cloud only)** | Use the **Workday to Azure Active Directory provisioning** app in the app gallery |
 
-For instructions on setting up Azure AD Connect, see the [Azure AD Connect documentation](../connect/active-directory-aadconnect.md).
+For instructions on setting up Azure AD Connect, see the [Azure AD Connect documentation](../hybrid/whatis-hybrid-identity.md).
 
 The following sections describe setting up a connection between Workday and Azure AD to provision cloud-only users.
 

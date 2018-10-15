@@ -107,6 +107,8 @@ To understand the step by step procedure to configure service tags, watch [this 
 
 If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
 
+Furthermore, if your subnet doesn't have a route for internet outbound traffic, you need to add a service endpoint with service tag "Microsoft.Storage" to your subnet. 
+
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)
 
 #### Solution

@@ -1,16 +1,17 @@
 ﻿---
 title: Automatic tuning email notifications how-to guide - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database analyzes SQL query and automatically adapts to user workload.
+description: Enable e-mail notifications for Azure SQL Database automatic query tuning.  
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 02/05/2018
+author: danimir
 ms.author: v-daljep
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
 ---
 # Email notifications for automatic tuning
 
@@ -200,12 +201,12 @@ The next step is to add three jobs (create, get output and send email) to the ne
 1. Create action to execute PowerShell script to retrieve tuning recommendations
 - Select “**+New step**”, followed by “**Add an action**” inside the Recurrence flow pane
 - In the search field type “**automation**” and select “**Azure Automation – Create job**” from the search results
-- In the Create job pane, configure the job properties. For this configuration, you will need details of your Azure subscription ID, Resource Group and Automation Account **previously recorded** at the **Automation Account pane**. To learn more about options available in this section, see [Azure Automation - Create Job](https://docs.microsoft.com/connectors/azureautomation/#Create_job).
+- In the Create job pane, configure the job properties. For this configuration, you will need details of your Azure subscription ID, Resource Group and Automation Account **previously recorded** at the **Automation Account pane**. To learn more about options available in this section, see [Azure Automation - Create Job](https://docs.microsoft.com/connectors/azureautomation/#create-job).
 - Complete creating this action by clicking on “**Save flow**”
 
 2. Create action to retrieve output from the executed PowerShell script
 - Select “**+New step**”, followed by “**Add an action**” inside the Recurrence flow pane
-- In the search filed type “**automation**” and select “**Azure Automation – Get job output**” from the search results. To learn more about options available in this section, see [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output).
+- In the search filed type “**automation**” and select “**Azure Automation – Get job output**” from the search results. To learn more about options available in this section, see [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
 - Populate fields required (similar to creating the previous job) - populate your Azure subscription ID, Resource Group, and Automation Account (as entered in the Automation Account pane)
 - Click inside the field “**Job ID**” for the “**Dynamic content**” menu to show up. From within this menu, select the option “**Job ID**”.
 - Complete creating this action by clicking on “**Save flow**”

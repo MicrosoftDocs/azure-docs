@@ -6,7 +6,7 @@ description: Federate with Google to enable guest users to sign in to your Azure
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/20/2018
 
 ms.author: mimart

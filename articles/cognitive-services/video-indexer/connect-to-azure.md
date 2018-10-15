@@ -1,17 +1,18 @@
 ---
-title: Create a Video Indexer account connected to Azure | Microsoft Docs
-description: This article shows how to create a Video Indexer account connected to Azure.
+title: Create a Video Indexer account in the Azure portal
+titlesuffix: Azure Cognitive Services
+description: This article shows how to create a Video Indexer account in the Azure portal.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: juliako
-
 ---
+
 # Create a Video Indexer account connected to Azure
 
 When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is connected to your Azure subscription and an Azure Media Services account. You pay for minutes indexed as well as the Media Account related charges. 
@@ -48,16 +49,18 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
 ## Connect to Azure
 
-1. Sign in to [https://www.videoindexer.ai/](https://www.videoindexer.ai/) and click on the **Connect to Azure** button:
+1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+
+2. Click on the **Connect to Azure** button:
 
     ![connect to Azure](./media/create-account/connect-to-azure.png)
 
-2. When the subscriptions list appears, select the subscription you want to use. 
+3. When the subscriptions list appears, select the subscription you want to use. 
 
     ![connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-3. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
-4. Under **Azure Media Services account**, choose one of these options:
+4. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
+5. Under **Azure Media Services account**, choose one of these options:
 
     * To create a new Media Services account, select **Create new resource group**. Provide a name for your resource group.
 
@@ -81,13 +84,13 @@ This article shows how to create a Video Indexer account that's linked to an Azu
         |Application ID|The Azure AD application ID with permissions for the specified Media Services account. For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Application Key|For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
-5. When you're done, choose **Connect**. This operation might take up to a few minutes. 
+6. When you're done, choose **Connect**. This operation might take up to a few minutes. 
 
     After you're connected to Azure, your new Video Indexer account appears in the account list:
 
     ![new account](./media/create-account/new-account.png)
 
-6. Browse to your new account: 
+7. Browse to your new account: 
 
     ![Video Indexer account](./media/create-account/vi-account.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Key Vault using CLI | Microsoft Docs
-description: Use this article to automate common tasks in Key Vault by using the CLI 2.0
+description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -17,11 +17,10 @@ ms.date: 08/28/2018
 ms.author: barclayn
 
 ---
-# Manage Key Vault using CLI 2.0
+# Manage Key Vault using the Azure CLI 
 
-This article covers how to get started working with Azure Key Vault using the Azure CLI 2.0. You can see information on:
+This article covers how to get started working with Azure Key Vault using the Azure CLI.  You can see information on:
 
-- Prerequisites
 - How to create a hardened container (a vault) in Azure
 - Adding a key, secret, or certificate to the key vault
 - Registering an application with Azure Active Directory
@@ -46,7 +45,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To use the Azure CLI commands in this article, you must have the following items:
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* Command-Line Interface version 2.0 or later. To install the latest version, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](/cli/azure/install-azure-cli).
+* Azure Command-Line Interface version 2.0 or later. To install the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * An application that will be configured to use the key or password that you create in this article. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the included Readme file.
 
 ### Getting help with Azure Cross-Platform Command-Line Interface
@@ -63,7 +62,7 @@ az account set -h
 You can also read the following articles to get familiar with Azure Resource Manager in Azure Cross-Platform Command-Line Interface:
 
 * [Install Azure CLI](/cli/azure/install-azure-cli)
-* [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli)
+* [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli)
 
 ## How to create a hardened container (a vault) in Azure
 
@@ -196,7 +195,7 @@ Applications that use a key vault must authenticate by using a token from Azure 
 
 The application must present both these values to Azure Active Directory, to get a token. How an application is configured to get a token will depend on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
 
-For detailed steps on registering an application with Azure Active Directory you should review the articles titled [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md), [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md), and [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
+For detailed steps on registering an application with Azure Active Directory you should review the articles titled [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 To register an application in Azure Active Directory:
 

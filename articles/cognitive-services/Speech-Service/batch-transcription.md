@@ -5,7 +5,7 @@ services: cognitive-services
 author: PanosPeriorellis
 
 ms.service: cognitive-services
-ms.technology: Speech to Text
+ms.component: Speech
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
@@ -13,7 +13,7 @@ ms.author: panosper
 
 # Batch transcription
 
-Batch transcription is ideal if you have large amounts of audio. You can point to audio files and get back transcriptions in asynchronous mode.
+Batch transcription is ideal if you have large amounts of audio. You can point to audio files by URI and get back transcriptions in asynchronous mode.
 
 ## Batch transcription API
 
@@ -55,21 +55,21 @@ For stereo audio streams, Batch transcription splits the left and right channel 
 
 ## Authorization token
 
-As with all features of the Unified Speech Service, you create a subscription key from the [Azure portal](https://portal.azure.com). Please follow these 6 easy steps.
+As with all features of the Speech Service, you create a subscription key from the [Azure portal](https://portal.azure.com) following our [Get-Started guide](get-started.md). If you plan to get transcriptions from our baseline models then this is all you need to do. 
 
-1. Created a subcription key in Azure following our [Get-Started guide](get-started.md) 
+If you plan on customizing and using a custom model then you need to add this subscritpion key to the custom speech portal as follows:
 
-2. Sign in to [Custom Speech](https://customspeech.ai).
+1. Sign in to [Custom Speech](https://customspeech.ai).
 
-3. Select **Subscriptions**.
+2. Select **Subscriptions**.
 
-4. Select **Connect Existing Subscription**.
+3. Select **Connect Existing Subscription**.
 
-5. Add the Subscription key and an alias in the view that pops up
+4. Add the Subscription key and an alias in the view that pops up
 
     ![Screenshot of Custom Speech Subscriptions page](media/stt/Subscriptions.jpg)
 
-6. Copy and paste that key in the client code in the following sample.
+5. Copy and paste that key in the client code in the following sample.
 
 > [!NOTE]
 > If you plan to use a custom model, you will need the ID of that model too. Note that this is not the endpoint ID that you find on the Endpoint Details view. It is the model ID that you can retrieve when you select the details of that model.
@@ -96,8 +96,8 @@ After you obtain the token, you must specify the SAS URI pointing to the audio f
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
-            private const string HostName = "cris.ai";
+            private const string SubscriptionKey = "<your Speech subscription key>";
+            private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
             // Creating a Batch transcription API Client
@@ -165,7 +165,7 @@ After you obtain the token, you must specify the SAS URI pointing to the audio f
 ```
 
 > [!NOTE]
-> In the preceding code, the subscription key is from the Speech(Preview) resource that you create on the Azure portal. Keys obtained from the Custom Speech Service resource do not work.
+> In the preceding code, the subscription key is from the Speech resource that you create on the Azure portal. Keys obtained from the Custom Speech Service resource do not work.
 
 Notice the asynchronous setup for posting audio and receiving transcription status. The client created is a .NET Http client. There is a `PostTranscriptions` method for sending the audio file details, and a `GetTranscriptions` method to receive the results. `PostTranscriptions` returns a handle, and  `GetTranscriptions` uses this handle to create a handle to obtain the transcription status.
 

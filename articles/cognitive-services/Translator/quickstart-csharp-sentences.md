@@ -1,10 +1,10 @@
 ---
-title: Translator Text get sentence lengths with C# | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with C# in Cognitive Services.
+title: "Quickstart: Get sentence lengths - Translator Text API, C#"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: translator-text
@@ -23,6 +23,9 @@ You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
 ## BreakSentence request
+
+> [!TIP]
+> Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 The following code breaks the source text into sentences using the [BreakSentence](./reference/v3-0-break-sentence.md) method.
 

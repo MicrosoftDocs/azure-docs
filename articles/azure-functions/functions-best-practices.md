@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 # Optimize the performance and reliability of Azure Functions
 
-This article provides guidance to improve the performance and reliability of your [serverless](https://azure.microsoft.com/overview/serverless-computing/) function apps. 
+This article provides guidance to improve the performance and reliability of your [serverless](https://azure.microsoft.com/solutions/serverless/) function apps. 
 
 ## General best practices
 
@@ -72,6 +72,10 @@ Take advantage of defensive measures already provided for components you use in 
 ## Scalability best practices
 
 There are a number of factors which impact how instances of your function app scale. The details are provided in the documentation for [function scaling](functions-scale.md).  The following are some best practices to ensure optimal scalability of a function app.
+
+### Share and manage connections
+
+Re-use connections to external resources whenever possible.  See [how to manage connections in Azure Functions](./manage-connections.md).
 
 ### Don't mix test and production code in the same function app
 

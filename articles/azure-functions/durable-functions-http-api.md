@@ -193,6 +193,9 @@ The **HTTP 202** response also includes a **Location** response header that refe
 
 You can also query all instances status. Remove the `instanceId` from the 'Get instance status' request. The parameters are the same as the 'Get instance status.' 
 
+One thing to remember is that `connection` and `code` are optional. If you have anonymous auth on the function then code isn't required.
+If you don't want to use a different blob storage connection string other than defined in the AzureWebJobsStorage app setting, then you can safely ignore the connection query string parameter.
+
 #### Request
 
 For Functions 1.0, the request format is as follows:
@@ -261,7 +264,7 @@ Here is an example of response payloads including the orchestration status (form
 ```
 
 > [!NOTE]
-> This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Performance and scale in Durable Functions (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentation.
+> This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Performance and scale in Durable Functions (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentation.
 > 
 
 ### Raise event

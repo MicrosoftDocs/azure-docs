@@ -56,6 +56,8 @@ The following limits apply only for networking resources managed through Azure R
 | User defined route tables |200 |
 | User defined routes per route table |400 |
 | Point-to-Site Root Certificates per VPN Gateway |20 |
+| Virtual network TAPs |100 |
+| Network interface TAP configurations per virtual network TAP |100 |
 
 #### <a name="publicip-address"></a>Public IP address limits
 

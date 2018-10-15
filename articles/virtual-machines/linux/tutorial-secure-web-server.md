@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Secure a Linux web server with SSL certificates in Azure | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to secure a Linux virtual machine that runs the NGINX web server with SSL certificates stored in Azure Key Vault.
+description: In this tutorial, you learn how to use the Azure CLI to secure a Linux virtual machine that runs the NGINX web server with SSL certificates stored in Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -32,7 +32,7 @@ To secure web servers, a Secure Sockets Layer (SSL) certificate can be used to e
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## Overview
