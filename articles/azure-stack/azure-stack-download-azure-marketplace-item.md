@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/03/2018
+ms.date: 10/09/2018
 ms.author: sethm
 ms.reviewer: ''
 ---
@@ -121,7 +121,10 @@ There are two parts to this scenario:
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Export-AzSOfflineMarketplaceItem -destination "Destination folder path"
+   Sync-AzSOfflineMarketplaceItem 
+      -Destination "Destination folder path in quotes" `
+      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
 6. When the tool runs, you are prompted to enter your Azure account credentials. Sign in to the Azure account that you have used to register Azure Stack. After the login succeeds, you should see a screen like the following image, with the list of available marketplace items.  

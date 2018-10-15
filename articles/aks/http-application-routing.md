@@ -84,6 +84,13 @@ spec:
       containers:
       - image: r.j3ss.co/party-clippy
         name: party-clippy
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         tty: true
         command: ["party-clippy"]
         ports:

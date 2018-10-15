@@ -320,7 +320,7 @@
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL features comparison
     href: sql-database-features.md
-  - name: Performance and tuning
+  - name: Performance and monitoring
     items:
     - name: Intelligent performance   
       items:
@@ -593,7 +593,7 @@
   - name: SQLCMD
     href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
-    href: https://msdn.microsoft.com/hh550080.aspx
+    href: https://docs.microsoft.com/sql/tools/sqlpackage
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL Server drivers

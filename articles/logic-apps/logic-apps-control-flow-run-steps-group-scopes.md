@@ -1,21 +1,18 @@
 ---
-# required metadata
 title: Add scopes that run actions based on group status - Azure Logic Apps | Microsoft Docs
 description: How to create scopes that run workflow actions based on group action status in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
-
-# optional metadata
 ms.reviewer: klam, LADocs
-ms.suite: integration
+ms.date: 10/03/2018
+ms.topic: article
 ---
 
-# Create scopes that run workflow actions based on group status in Azure Logic Apps
+# Run actions based on group status with scopes in Azure Logic Apps
 
 To run actions only after another group of actions succeed or fail, 
 group those actions inside a *scope*. This structure is useful when 
@@ -83,7 +80,7 @@ so save your work often.
 1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 if you haven't already. Create a blank logic app.
 
-2. Add the **Schedule - Recurrence** trigger with these settings: 
+1. Add the **Schedule - Recurrence** trigger with these settings: 
 **Interval** = "1" and **Frequency** = "Minute"
 
    ![Set up "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
@@ -92,7 +89,7 @@ if you haven't already. Create a blank logic app.
    > To visually simplify your view and hide each action's details in the designer, 
    > collapse each action's shape as you progress through these steps.
 
-3. Add the **Bing Maps - Get route** action. 
+1. Add the **Bing Maps - Get route** action. 
 
    1. If you don't already have a Bing Maps connection, 
    you're asked to create a connection.
@@ -103,7 +100,7 @@ if you haven't already. Create a blank logic app.
       | **API Key** | <*your-Bing-Maps-key*> | Enter the Bing Maps key that you previously received. | 
       ||||  
 
-   2. Set up your **Get route** action as shown the table below this image:
+   1. Set up your **Get route** action as shown the table below this image:
 
       ![Set up "Bing Maps - Get route" action](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
@@ -121,35 +118,40 @@ if you haven't already. Create a blank logic app.
       | **Transit Date-Type Type** | None | Applies to transit mode only. | 
       ||||  
 
-4. Add a condition to heck whether the current travel time with 
-traffic exceeds a specified time. For this example, follow the steps 
-under this image:
+1. [Add a condition](../logic-apps/logic-apps-control-flow-conditional-statement.md) 
+that checks whether the current travel time with traffic exceeds a specified time. 
+For this example, follow these steps:
 
-   ![Build condition](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
+   1. Rename the condition with this description: 
+   **If traffic time is more than specified time**
 
-   1. Rename the condition with this description: **If traffic time more than specified time**
+   1. In the leftmost column, click inside the **Choose a value** 
+   box so the dynamic content list appears. From that list, 
+   select the **Travel Duration Traffic** field, which is in seconds. 
 
-   2. From the parameter list, select the **Travel Duration Traffic** field, 
-   which is in seconds. 
+      ![Build condition](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
 
-   3. For the comparison operator, select this operator: **is greater than**
+   1. In the middle box, select this operator: **is greater than**
 
-   4. For the comparison value, enter **600**, which is in seconds 
-   and equivalent to 10 minutes.
+   1. In the rightmost column, enter this comparison value, 
+   which is in seconds and equivlent to 10 minutes: **600**
 
-5. In the condition's **If true** branch, add a "send email" action for your 
-email provider. Set up this action with the details as shown in the table under 
-this image:
+      When you're done, your condition looks like this example:
+
+      ![Finished condition](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
+
+1. In the **If true** branch, add a "send email" action for your email provider. 
+Set up this action by following the steps under this image:
 
    ![Add "Send an email" action to "If true" branch](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
-   1. For the **To** field, enter your email address for testing purposes.
+   1. In the **To** field, enter your email address for testing purposes.
 
-   2. For the **Subject** field, enter this text:
+   1. In the **Subject** field, enter this text:
 
       ```Time to leave: Traffic more than 10 minutes```
 
-   3. For the **Body** field, enter this text with a trailing space: 
+   1. In the **Body** field, enter this text with a trailing space: 
 
       ```Travel time: ```
 
@@ -157,20 +159,20 @@ this image:
       the dynamic content list stays open so that you can 
       select any parameters that are available at this point.
 
-   4. In the dynamic content list, choose **Expression**.
+   1. In the dynamic content list, choose **Expression**.
 
-   5. Find and select the **div( )** function.
+   1. Find and select the **div()** function. 
+   Put your cursor in inside the function's parentheses.
 
-   6. While your cursor is inside the function's parentheses, 
-   choose **Dynamic content** so that you can add the 
-   **Traffic Duration Traffic** parameter next.
-
-   7. Under **Get route** in the dynamic parameter list, 
+   1. While your cursor is inside the function's parentheses, 
+   choose **Dynamic content** so that the dynamic content list appears. 
+   
+   1. From the **Get route** section, 
    select the **Traffic Duration Traffic** field.
 
       ![Select "Traffic Duration Traffic"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   8. After the field resolves to JSON format, 
+   1. After the field resolves to JSON format, 
    add a **comma** (```,```) followed by the number ```60``` 
    so that you convert the value in **Traffic Duration Traffic** 
    from seconds to minutes. 
@@ -183,72 +185,102 @@ this image:
 
       ![Finish expression](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   9. Make sure that you choose **OK** when you're done.
+   1. When you're done, choose **OK**.
 
-  10. After the expression resolves, 
+  1. After the expression resolves, 
   add this text with a leading space: ``` minutes```
   
-      Your **Body** field now looks like this example:
+     Your **Body** field now looks like this example:
 
-      ![Finished "Body" field](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+     ![Finished "Body" field](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
-6. Save your logic app.
+1. Save your logic app.
 
-Next, add a scope so that you can group specific actions and evaluate 
-their status.
+Next, add a scope so that you can group 
+specific actions and evaluate their status.
 
 ## Add a scope
 
 1. If you haven't already, open your logic app in Logic App Designer. 
 
-2. Add a scope at the workflow location that you want. 
-For example:
+1. Add a scope at the workflow location that you want. For example, 
+to add a scope between existing steps in the logic app workflow, 
+follow these steps: 
 
-   * To add a scope between existing steps in the logic app workflow, 
-   move the pointer over the arrow where you want to add the scope. 
-   Choose the **plus sign** (**+**) > **Add a scope**.
+   1. Move your pointer over the arrow where you want to add the scope. 
+   Choose the **plus sign** (**+**) > **Add an action**.
 
-     ![Add a scope](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+      ![Add a scope](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
-     When you want to add a scope at the end of your workflow, 
-     at the bottom of your logic app, 
-     choose **+ New step** > **...More** > **Add a scope**.
+   1. In the search box, enter "scope" as your filter. 
+   Select the **Scope** action.
 
-3. Now add the steps or drag existing steps that 
+## Add steps to scope
+
+1. Now add the steps or drag existing steps that 
 you want to run inside the scope. For this example, 
 drag these actions into the scope:
       
    * **Get route**
-   * **If traffic time more than specified time**, 
-      which includes both the **true** and **false** branches
+   * **If traffic time is more than specified time**, 
+   which includes both the **true** and **false** branches
 
    Your logic app now looks like this example:
 
    ![Scope added](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-4. Under the scope, add a condition that checks the scope's status. 
+1. Under the scope, add a condition that checks the scope's status. 
 Rename the condition with this description: **If scope failed**
 
    ![Add condition to check scope status](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
-5. Build this expression that checks whether the scope's status is 
-equal to `Failed` or `Aborted`.
+1. In the condition, add these expressions that check whether 
+the scope's status is equal to "Failed" or "Aborted". 
 
-   ![Add expression that checks the scope's status](./media/logic-apps-control-flow-run-steps-group-scopes/build-expression-check-scope-status.png)
+   1. To add another row, choose **Add**. 
 
-   Or, to enter this expression as text, choose **Edit in advanced mode**.
+   1. In each row, click inside the left box so the dynamic content list appears. 
+   From the dynamic content list, choose **Expression**. In the edit box,
+   enter this expression, and then choose **OK**: 
+   
+      `result('Scope')[0]['status']`
 
-   ```@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')```
+      ![Add expression that checks the scope's status](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
-6. In the **If true** and **If false** branches, 
-add the actions that you want to perform, for example, 
-send email or a message.
+   1. For both rows, select **is equal to** as the operator. 
+   
+   1. For the comparison values, in the first row, enter `Failed`. 
+   In the second row, enter `Aborted`. 
 
-   ![Add expression that checks the scope's status](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+      When you're done, your condition looks like this example:
 
-7. Save your logic app.
+      ![Add expression that checks the scope's status](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
 
-Your finished logic app now looks like this example with all the shapes expanded:
+      Now, set the condition's `runAfter` property so the condition checks the 
+      scope status and runs the matching action that you define in later steps.
+
+   1. On the **If scope failed** condition, choose the **ellipsis** (...) button, 
+   and then choose **Configure run after**.
+
+      ![Configure `runAfter` property](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
+
+   1. Select all these scope statuses: **is successful**, 
+   **has failed**, **is skipped**, and **has timed out**
+
+      ![Select scope statuses](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
+
+   1. When you're finished, choose **Done**. 
+   The condition now shows an "information" icon.
+
+1. In the **If true** and **If false** branches, 
+add the actions that you want to perform based on 
+each scope status, for example, send an email or message.
+
+   ![Add actions to take based on scope status](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+
+1. Save your logic app.
+
+Your finished logic app now looks like this example:
 
 ![Finished logic app with scope](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
 
@@ -273,7 +305,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
     "recurrence": {
        "frequency": "Minute",
        "interval": 1
-    },
+    }
   }
 }
 ```
@@ -287,7 +319,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
         "type": "ApiConnection",
         "inputs": {
           "body": {
-            "Body": "Scope failed",
+            "Body": "Scope failed. Scope status: @{result('Scope')[0]['status']}",
             "Subject": "Scope failed",
             "To": "<your-email@domain.com>"
           },
@@ -308,7 +340,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
           "type": "ApiConnection",
           "inputs": {
             "body": {
-              "Body": "None",
+              "Body": "Scope succeeded. Scope status: @{result('Scope')[0]['status']}",
               "Subject": "Scope succeeded",
               "To": "<your-email@domain.com>"
             },
@@ -324,10 +356,28 @@ here is the JSON definition for trigger and actions in the previous logic app:
         }
       }
     },
-    "expression": "@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')",
+    "expression": {
+      "or": [ 
+         {
+            "equals": [ 
+              "@result('Scope')[0]['status']", 
+              "Failed"
+            ]
+         },
+         {
+            "equals": [
+               "@result('Scope')[0]['status']", 
+               "Aborted"
+            ]
+         } 
+      ]
+    },
     "runAfter": {
       "Scope": [
-        "Succeeded"
+        "Failed",
+        "Skipped",
+        "Succeeded",
+        "TimedOut"
       ]
     }
   },
@@ -354,14 +404,14 @@ here is the JSON definition for trigger and actions in the previous logic app:
         },
         "runAfter": {}
       },
-      "If_traffic_time_more_than_specified_time": {
+      "If_traffic_time_is_more_than_specified_time": {
         "type": "If",
         "actions": {
           "Send_mail_when_traffic_exceeds_10_minutes": {
             "type": "ApiConnection",
             "inputs": {
               "body": {
-                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'], 60)} minutes",
+                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'],60)} minutes",
                  "Subject": "Time to leave: Traffic more than 10 minutes",
                  "To": "<your-email@domain.com>"
               },
@@ -376,7 +426,16 @@ here is the JSON definition for trigger and actions in the previous logic app:
             "runAfter": {}
           }
         },
-        "expression": "@greater(body('Get_route')?['travelDurationTraffic'], 600)",
+        "expression": {
+          "and" : [
+            {
+               "greater": [ 
+                  "@body('Get_route')?['travelDurationTraffic']", 
+                  600
+               ]
+            }
+          ]
+        },
         "runAfter": {
           "Get_route": [
             "Succeeded"
@@ -386,7 +445,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
     },
     "runAfter": {}
   }
-}
+},
 ```
 
 ## Get support

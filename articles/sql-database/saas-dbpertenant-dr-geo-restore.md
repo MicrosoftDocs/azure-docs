@@ -11,7 +11,7 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/16/2018
+ms.date: 10/05/2018
 ---
 # Use geo-restore to recover a multitenant SaaS application from database backups
 

@@ -3,13 +3,13 @@ title: Speech SDK reference
 description: References for the Speech SDK.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
-author: v-jerkin
+author: erhopf
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 
 # Speech SDK reference

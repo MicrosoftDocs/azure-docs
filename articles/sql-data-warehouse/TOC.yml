@@ -18,6 +18,8 @@
     href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
   items:
+    - name: September 2018 
+      href: release-notes-september-2018.md
     - name: August 2018 
       href: release-notes-august-2018.md
     - name: July 2018 

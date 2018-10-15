@@ -78,6 +78,8 @@
       href: plan-connect-design-concepts.md
     - name: Topologies for Azure AD Connect
       href: plan-connect-topologies.md
+    - name: Factors influencing the performance of Azure AD Connect
+      href: plan-connect-performance-factors.md
     - name: How will users sign-in
       href: plan-connect-user-signin.md
     - name: Special considerations for instances

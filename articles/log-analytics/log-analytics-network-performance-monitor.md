@@ -266,7 +266,7 @@ If you are an NPM user creating an alert via Azure Portal:
 3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
-##Pricing
+## Pricing
 
 Information on pricing is available [online](log-analytics-network-performance-monitor-pricing-faq.md).
 

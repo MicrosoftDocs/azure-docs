@@ -63,7 +63,7 @@ The following Site Recovery features are not currently available in Azure Govern
 
 | Site Recovery | Classic | Resource Manager |
 | --- | --- | --- |
-| VMWare/Physical  | GA | GA |
+| VMware/Physical  | GA | GA |
 | Hyper-V | GA | GA |
 | Site to Site | GA | GA |
 

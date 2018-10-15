@@ -7,7 +7,7 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/08/2018
 ---
 # Extend Azure HDInsight using an Azure Virtual Network
 
@@ -296,7 +296,7 @@ If you use network security groups or user-defined routes, you must allow traffi
 
     For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
 
-3. If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
+3. You must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 For more information, see the [Controlling network traffic](#networktraffic) section.
 

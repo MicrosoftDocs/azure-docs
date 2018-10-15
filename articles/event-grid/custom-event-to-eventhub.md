@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -68,6 +68,8 @@ az eventgrid event-subscription create \
   --endpoint-type eventhub \
   --endpoint $hubid
 ```
+
+The account that creates the event subscription must have write access to the event hub.
 
 ## Send an event to your custom topic
 

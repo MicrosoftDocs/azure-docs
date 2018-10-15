@@ -62,6 +62,8 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
+```
+```javascript
 // You can also use 'arguments' to dynamically handle inputs
 module.exports = async function(context) {
     context.log('Number of inputs: ' + arguments.length);
@@ -75,6 +77,37 @@ module.exports = async function(context) {
 Triggers and input bindings (bindings of `direction === "in"`) can be passed to the function as parameters. They are passed to the function in the same order that they are defined in *function.json*. You can also dynamically handle inputs using the JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[2]`.
 
 All bindings, regardless of direction, are also passed along on the `context` object using the `context.bindings` property.
+
+### Exporting an async function
+When using the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (not available with Functions v1.x), you do not explicitly need to call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function will complete when the exported async function/Promise completes.
+
+For example, this is a simple function that logs that it was triggered and immediately completes execution.
+``` javascript
+module.exports = async function (context) {
+    context.log('JavaScript trigger function processed a request.');
+};
+```
+
+When exporting an async function, you can also configure output bindings to take the `return` value. This is an alternative approach to assigning outputs using the [`context.bindings`](#contextbindings-property) property.
+
+To assign an output using `return`, change the `name` property to `$return` in `function.json`.
+```json
+{
+  "type": "http",
+  "direction": "out",
+  "name": "$return"
+}
+```
+Your JavaScript function code could look like this:
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    // You can call and await an async method here
+    return {
+        body: "Hello, world!"
+    };
+}
+```
 
 ## context object
 The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
