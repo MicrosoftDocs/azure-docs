@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/12/2018
+ms.date: 10/15/2018
 ---
 # vCore service tiers, Azure Hybrid Use Benefit, and migration
 
