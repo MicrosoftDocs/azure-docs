@@ -14,7 +14,7 @@ ms.reviewer: craigg
 
 # Striim Azure SQL DW Marketplace Offering Install Guide
 
-This quick start assumes that you already have a pre-existing instance of SQL Data Warehouse.
+This quickstart assumes that you already have a pre-existing instance of SQL Data Warehouse.
 
 Search for Striim in the Azure Marketplace, and select the Striim for Data Integration to SQL Data Warehouse (Staged) option 
 
@@ -30,11 +30,11 @@ Once deployed, click on <VM Name>-masternode in the Azure portal, click Connect,
 
 Download the sqljdbc42.jar from <https://www.microsoft.com/en-us/download/details.aspx?id=54671> to your local machine. 
 
-Open a command line window, and change directories to where you downloaded the JDBC jar. SCP the jar file to your Striim VM, getting the address and password from the Azure portal
+Open a command-line window, and change directories to where you downloaded the JDBC jar. SCP the jar file to your Striim VM, getting the address and password from the Azure portal
 
 ![Copy jar file to your VM][copy-jar]
 
-Open another command line window, or use a SSH utility to SSH into the Striim cluster
+Open another command-line window, or use an ssh utility to ssh into the Striim cluster
 
 ![SSH into the cluster][ssh]
 
@@ -54,9 +54,9 @@ Now, open your favorite browser and navigate to <DNS Name>:9080
 
 ![Navigate to the login screen][navigate]
 
-Login with admin as the username and the password you set up in the Azure portal, and select your preferred wizard to get started, or go to the Apps page to start using the drag and drop UI
+Log in with the username and the password you set up in the Azure portal, and select your preferred wizard to get started, or go to the Apps page to start using the drag and drop UI
 
-![Login with server credentials][login]
+![Log in with server credentials][login]
 
 
 

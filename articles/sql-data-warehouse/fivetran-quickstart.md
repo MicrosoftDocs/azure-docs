@@ -14,7 +14,7 @@ ms.reviewer: craigg
 
 # Get started quickly with Fivetran and SQL Data Warehouse
 
-This quick start assumes that you already have a pre-existing instance of SQL Data Warehouse.
+This quickstart assumes that you already have a pre-existing instance of SQL Data Warehouse.
 
 ## Setup connection
 
@@ -24,9 +24,9 @@ This quick start assumes that you already have a pre-existing instance of SQL Da
 
 2. In the setup wizard, decide if you'd like to connect your database directly or via an SSH tunnel.
 
-   If you decide to connect directly to your database, you will need to create a firewall rule to allow access. This is the simplest and most secure method.
+   If you decide to connect directly to your database, you will need to create a firewall rule to allow access. This method is the simplest and most secure method.
 
-   If you decide to connect via an SSH tunnel, Fivetran will connect to a separate server in your network which provides an SSH tunnel to your database. This method is necessary if your database is in an inaccessible subnet on a virtual network.
+   If you decide to connect via an SSH tunnel, Fivetran will connect to a separate server in your network that provides an SSH tunnel to your database. This method is necessary if your database is in an inaccessible subnet on a virtual network.
 
 3. Add "52.0.2.4" IP address in your server level firewall to allow incoming connections to your Azure SQL Data Warehouse from Fivetran.
 
@@ -52,9 +52,9 @@ Once user fivetran is created, grant it the following permissions to your wareho
 GRANT CONTROL to fivetran;
 ```
 
-Add a suitable resource class to the created user depending upon the memory requirement for columnstore index creation. For example, integrations like marketo, salesforce will need higher resource class because of the higher number of columns/ higher volume of data which requires more memory to create columnstore indexes.
+Add a suitable resource class to the created user depending upon the memory requirement for columnstore index creation. For example, integrations like Marketo and Salesforce need higher resource class due to the large number of columns/ larger volume of data, which requires more memory to create columnstore indexes.
 
-Using static resource classes is recommended. You can start with resource class `staticrc20` which allocates 200 MB for user irrespective of the performance level you use. If columnstore indexing fails with the current resource class, we have to increase the resource class.
+Using static resource classes is recommended. You can start with resource class `staticrc20`, which allocates 200 MB for user irrespective of the performance level you use. If columnstore indexing fails with the current resource class, we have to increase the resource class.
 
 ```
 EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
@@ -62,7 +62,7 @@ EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
 
 For more information, check out the documents for [memory and concurrency limits](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/memory-and-concurrency-limits#data-warehouse-limits) and [resource classes](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression#ways-to-allocate-more-memory)
 
-CONTROL permission is needed to create database scoped credentials which will be used while loading files from Blob Storage using PolyBase.
+CONTROL permission is needed to create database scoped credentials that will be used while loading files from Blob Storage using PolyBase.
 
 ## Enter Credentials
 
