@@ -19,7 +19,7 @@ This tutorial shows the "multi-value" property of entities.
 
 [![Tutorial 6 Preview](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
-##Requirements
+## Requirements
 This tutorial requires that the general tutorial bot is running
 
 	npm run tutorial-general

@@ -161,6 +161,7 @@ For production workloads:
 - The 14 GB local SSD is a minimum requirement. Our recommendation is a minimum of 50 GB. For your workloads, especially when running Windows containers, larger disks are required. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
 - Standard A1 SKU is not supported for production workloads for performance reasons.
+- Low-priority VMs are not supported.
 
 > [!WARNING]
 > Changing the primary node VM SKU size on a running cluster, is a scaling operation, and documented in [Virtual Machine Scale Set scale out](virtual-machine-scale-set-scale-node-type-scale-out.md) documentation.

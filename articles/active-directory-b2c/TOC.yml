@@ -103,6 +103,8 @@
         href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
     - name: OIDC/OAUTH providers
       items:
+      - name: Amazon
+        href: setup-amazon-custom.md
       - name: Azure AD (Single-Tenant)
         href: active-directory-b2c-setup-aad-custom.md
       - name: Azure AD (Multi-Tenant) 
@@ -141,6 +143,8 @@
         href: active-directory-b2c-reference-kmsi-custom.md
     - name: Reference
       items:
+      - name: Claim resolvers
+        href: claim-resolver-overview.md
       - name: Identity Experience Framework schema
         items:
         - name: TrustFrameworkPolicy

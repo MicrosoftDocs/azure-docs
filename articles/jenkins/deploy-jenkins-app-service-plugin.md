@@ -32,8 +32,10 @@ If you don't already have a Jenkins Master, start with the [solution template](i
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
 You can use the Jenkins plugin to deploy a web app in any language that is supported by Web Apps, such as C#, PHP, Java, and Node.js. In this tutorial, we use a [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). To fork the repo to your own GitHub account, select the **Fork** button in the upper right corner of the GitHub interface.  
+
 > [!NOTE]
 > The Java JDK and Maven are required to build the Java project. Install these components on the Jenkins Master, or on the VM agent if you use the agent for continuous integration. If you are deploying a Java SE application, ZIP is also needed on the build server.
+>
 
 To install the components, sign in to the Jenkins instance with SSH and run the following commands:
 
@@ -44,7 +46,7 @@ sudo apt-get install -y maven
 
 To deploy to Web App for Containers, install Docker on the Jenkins Master or on the VM agent that is used for the build. For instructions, see [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a> Add an Azure service principal to the Jenkins credentials
+## <a name="service-principal"></a> Add an Azure service principal to the Jenkins credentials
 
 You need an Azure service principal to deploy to Azure. 
 

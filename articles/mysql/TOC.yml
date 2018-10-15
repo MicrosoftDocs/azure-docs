@@ -59,8 +59,6 @@
       href: concepts-servers.md
     - name: Supported versions
       href: concepts-supported-versions.md
-    - name: Server logs
-      href: concepts-server-logs.md
     - name: High availability
       href: concepts-high-availability.md
   - name: Resources
@@ -86,7 +84,11 @@
     - name: Backup and restore
       href: concepts-backup.md
   - name: Monitor
-    href: concepts-monitoring.md
+    items:
+    - name: Monitor
+      href: concepts-monitoring.md
+    - name: Server logs
+      href: concepts-server-logs.md
   - name: Development
     items:
     - name: Drivers and tools compatiblity
@@ -163,7 +165,7 @@
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
-    name: Advanced Threat Threat Protection
+    name: Advanced Threat Protection
     items:
     - name: Azure portal
       href: howto-database-threat-protection-portal.md

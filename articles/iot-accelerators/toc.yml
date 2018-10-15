@@ -85,6 +85,17 @@
       href: iot-accelerators-remote-monitoring-deploy-simulated-device.md
     - name: Customize the UI
       href: iot-accelerators-remote-monitoring-customize.md
+      items:
+      - name: Add a page
+        href: iot-accelerators-remote-monitoring-customize-page.md
+      - name: Add a service
+        href: iot-accelerators-remote-monitoring-customize-service.md
+      - name: Add a grid
+        href: iot-accelerators-remote-monitoring-customize-grid.md
+      - name: Add a flyout
+        href: iot-accelerators-remote-monitoring-customize-flyout.md
+      - name: Add a panel
+        href: iot-accelerators-remote-monitoring-customize-panel.md
     - name: Customize and redeploy a microservice
       href: iot-accelerators-microservices-example.md
     - name: Deploy using the CLI
