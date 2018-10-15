@@ -55,19 +55,29 @@
       href: troubleshoot-database-table.md
 - name: Reference
   items:
-  - name: Language reference
-    href: https://aka.ms/kustolangref
+  - name: Query language
+    href: /azure/kusto/query/
+  - name: Management commands
+    href: /azure/kusto/management/
+  - name: APIs
+    href: /azure/kusto/api/
 - name: Resources
   items:
-  - name: Blogs
-    href: https://aka.ms/kustolangref
-  - name: Stack Overflow
-    href: https://aka.ms/kustolangref
-  - name: MSDN
-    href: https://aka.ms/kustolangref
-  - name: User Voice
-    href: https://aka.ms/kustolangref
-    name: Pricing
-    href: https://aka.ms/kustolangref
-    name: Pricing Calculator
-    href: https://aka.ms/kustolangref
+  - name: Forums
+    items:
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-data-explorer
+    - name: Microsoft Tech Community
+      href: https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto
+    - name: MSDN forum
+      href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
+  - name: Product feedback
+    href: https://feedback.azure.com/forums/335175-kusto
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/data-explorer/
+  - name: Pricing Calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=data-explorer
