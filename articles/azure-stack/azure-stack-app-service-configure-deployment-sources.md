@@ -36,7 +36,7 @@ In addition to local Git, the following source control providers are supported:
 
 1. Sign in to the Azure Stack Admin Portal (https://adminportal.local.azurestack.external) as the service administrator.
 2. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
-    [ ![App Service Resource Provider Admin] ][1]
+    ![App Service Resource Provider Admin][1]
 3. Click **Source control configuration**. You can see the list of all configured deployment sources.
     ![App Service Resource Provider Admin Source Control Configuration][2]
 
