@@ -66,11 +66,11 @@ Follow the mitigation options accordingly:
 
 1. Once the OS disk is attached to a working VM, make sure that the disk is flagged as **Online** in the Disk Management console and note the drive letter of the partition that holds the **\Windows** folder.
 
-  ![Check the disk status in disk management](./media/troubleshoot-reboot-loop/check-the-disk-status-in-disk-management.png)
+    ![Check the disk status in disk management](./media/troubleshoot-reboot-loop/check-the-disk-status-in-disk-management.png)
 
 2. If the disk is set to **Offline**, then set it to **Online**.
 
-  ![Set the disk to online in disk management](./media/troubleshoot-reboot-loop/set-the-disk-to-online-in-disk-management.png)
+    ![Set the disk to online in disk management](./media/troubleshoot-reboot-loop/set-the-disk-to-online-in-disk-management.png)
 
 3.	Create a copy of the **\Windows\System32\config** folder in case a rollback on the changes is needed.
 
@@ -78,15 +78,19 @@ Follow the mitigation options accordingly:
 
 5.	Select the **HKEY_LOCAL_MACHINE** key and then select **File** > **Load Hive** from the menu.
 
-  ![Load hive for the HKEY_LOCAL_MACHINE key](./media/troubleshoot-reboot-loop/load-hive-for-the-HKEY_LOCAL_MACHINE-key.png)
+    ![Load hive for the HKEY_LOCAL_MACHINE key](./media/troubleshoot-reboot-loop/load-hive-for-the-HKEY_LOCAL_MACHINE-key.png)
 
 6.	Browse to the SYSTEM file in the **\Windows\System32\config** folder.
 
 7.	Select **Open**, type **BROKENSYSTEM** for the name, expand the **HKEY_LOCAL_MACHINE** key, and then you will see an additional key called **BROKENSYSTEM**.
 
-8.	Check which ControlSet the computer is booting from. You will see its key number in the `HKEY_LOCAL_MACHINE\BROKENSYSTEM\Select\Current` registry key.
+8.	Check which ControlSet the computer is booting from. You will see its key number in the following  registry key.
 
-9.	Check which is the criticality of the VM agent service through the following `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\RDAgent\ErrorControl` registry key.
+  `HKEY_LOCAL_MACHINE\BROKENSYSTEM\Select\Current`
+
+9.	Check which is the criticality of the VM agent service through the following registry key.
+
+  `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\RDAgent\ErrorControl`
 
 10.	If the value of the registry key is not set to **2**, then go to the next mitigation.
 
@@ -100,7 +104,7 @@ Follow the mitigation options accordingly:
 
 13.	Select the **BROKENSYSTEM** key and then select **File** > **Load Hive** from the menu.
 
-  ![Load hive for the BROKENSYSTEM key](./media/troubleshoot-reboot-loop/load-hive-for-the BROKENSYSTEM-key.png)
+    ![Load hive for the BROKENSYSTEM key](./media/troubleshoot-reboot-loop/load-hive-for-the-BROKENSYSTEM-key.png)
 
 14.	Detach the OS disk from the troubleshooting VM.
 
