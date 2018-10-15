@@ -115,6 +115,7 @@ If none of these steps work for you, the following support channels are also ava
 Debug logging allows you to see batched uploads to the Log Analytics service separated by type, number of data items, and time taken to send:
 
 *Example debug enabled log:*
+
 ```
 Success sending oms.nagios x 1 in 0.14s
 Success sending oms.omi x 4 in 0.52s
@@ -223,7 +224,7 @@ If you see `[error]: unexpected error error_class=Errno::EADDRINUSE error=#<Errn
 This error indicates that the Linux Diagnostic extension (LAD) is installed side by side with the Log Analytics Linux VM extension, and it is using same port for syslog data collection as omsagent.
 
 ### Resolution
-* As root, execute the following commands (note that 25224 is an example and it is possible that in your environment you see a different port number used by LAD):
+1. As root, execute the following commands (note that 25224 is an example and it is possible that in your environment you see a different port number used by LAD):
 
     ```
     /opt/microsoft/omsagent/bin/configure_syslog.sh configure LAD 25229
@@ -233,10 +234,10 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 
     You then need to edit the correct `rsyslogd` or `syslog_ng` config file and change the LAD-related configuration to write to port 25229.
 
-1. If the VM is running `rsyslogd`, the file to be modified is: `/etc/rsyslog.d/95-omsagent.conf` (if it exists, else `/etc/rsyslog`)
-2. If the VM is running `syslog_ng`, the file to be modified is: `/etc/syslog-ng/syslog-ng.conf`
-3. Restart omsagent `sudo /opt/microsoft/omsagent/bin/service_control restart`
-4. Restart syslog service
+2. If the VM is running `rsyslogd`, the file to be modified is: `/etc/rsyslog.d/95-omsagent.conf` (if it exists, else `/etc/rsyslog`).
+3. If the VM is running `syslog_ng`, the file to be modified is: `/etc/syslog-ng/syslog-ng.conf`.
+4. Restart omsagent `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+5. Restart syslog service.
 
 ## Issue: You are unable to uninstall omsagent using purge option
 
@@ -247,7 +248,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 
 ### Resolution
 1. Uninstall the Linux Diagnostic Extension (LAD).
-2. Remove Linux Diagnostic Extension files from the machine if they are present in the following location: `/var/lib/waagent/Microsoft.Azure.Diagnostics.LinuxDiagnostic-<version>/` and `/var/opt/microsoft/omsagent/LAD/`
+2. Remove Linux Diagnostic Extension files from the machine if they are present in the following location: `/var/lib/waagent/Microsoft.Azure.Diagnostics.LinuxDiagnostic-<version>/` and `/var/opt/microsoft/omsagent/LAD/`.
 
 ## Issue: You cannot see data any Nagios data 
 
@@ -256,7 +257,7 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 * Nagios source and filter have not been uncommented from omsagent.conf file
 
 ### Resolution
-1. Add omsagent user to read from Nagios file [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts)
+1. Add omsagent user to read from Nagios file [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts).
 2. In the Log Analytics agent for Linux general configuration file at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`, ensure that **both** the Nagios source and filter are uncommented.
 
     ```
@@ -284,8 +285,8 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 * DSC logs *Current configuration does not exist. Execute Start-DscConfiguration command with -Path parameter to specify a configuration file and create a current configuration first.* in `omsconfig.log` log file, but no log message exists about `PerformRequiredConfigurationChecks` operations.
 
 ### Resolution
-1. Install all dependencies like auditd package
-2. Check if onboarding to the Log Analytics service was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`.  If it was not, reonboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)
+1. Install all dependencies like auditd package.
+2. Check if onboarding to the Log Analytics service was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`.  If it was not, reonboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
 4. If using a proxy, check proxy troubleshooting steps above.
 5. In some Azure distribution systems, omid OMI server daemon does not start after the virtual machine is rebooted. This will result in not seeing Audit, ChangeTracking, or UpdateManagement solution-related data. The workaround is to manually start omi server by running `sudo /opt/omi/bin/service_control restart`.
 6. After OMI package is manually upgraded to a newer version, it has to be manually restarted for Log Analytics agent to continue functioning. This step is required for some distros where OMI server does not automatically start after it is upgraded. Run `sudo /opt/omi/bin/service_control restart` to restart OMI.
@@ -404,7 +405,7 @@ You can continue reonboard after using the `--purge` option
 
 ### Resolution 
 Perform the following steps to correct the issue.
-1. Remove extension from Azure portal
+1. Remove extension from Azure portal.
 2. Install the agent following the [instructions](log-analytics-quick-collect-linux-computer.md).
 3. Restart the agent by running the following command: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 * Wait several minutes and the provisioning state changes to **Provisioning succeeded**.
@@ -419,10 +420,11 @@ The Log Analytics agent packages on the host are outdated.
 ### Resolution 
 Perform the following steps to correct the issue.
 
-1. Check for the latest release on [page](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/)
+1. Check for the latest release on [page](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/).
 2. Download install script (1.4.2-124 as example version):
 
     ```
     wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.2-124/omsagent-1.4.2-124.universal.x64.sh
     ```
+
 3. Upgrade packages by executing `sudo sh ./omsagent-*.universal.x64.sh --upgrade`.
