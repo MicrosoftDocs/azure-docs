@@ -68,7 +68,7 @@ Event Hubs provides message stream handling capability but has characteristics t
 - **Partitions**: Each consumer only reads a specific subset, or partition, of the message stream.
 - **Consumer groups**: A view (state, position, or offset) of an entire event hub. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.
 - **Throughput units**: Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
-- **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session, and events are delivered through the session as they become available. All Kafka consumers connect via the Kafka 1.0 and above protocol.
+- **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session, and events are delivered through the session as they become available. All Kafka consumers connect via the Kafka protocol 1.0 or later.
 
 The following figure shows the Event Hubs stream processing architecture:
 
