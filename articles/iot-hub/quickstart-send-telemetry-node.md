@@ -65,7 +65,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
-    
+ 
     Make a note of the device connection string, which looks like:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
