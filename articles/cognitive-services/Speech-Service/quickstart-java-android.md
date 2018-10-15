@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: Speech
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.author: fmegen
+ms.author: wolfma
 ---
 
 # Quickstart: Recognize speech in Java on Android by using the Speech SDK
