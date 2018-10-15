@@ -53,6 +53,12 @@
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
+  - name: Partner tools
+    items:
+      - name: Fivetran
+        href: fivetran-quickstart.md
+      - name: Striim
+        href: striim-quickstart.md
 - name: Concepts
   items:
   - name: Security
