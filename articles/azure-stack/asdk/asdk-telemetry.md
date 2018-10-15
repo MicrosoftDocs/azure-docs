@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -139,4 +139,4 @@ if($psSession)
 ```
 
 ## Next steps
-[Add a marketplace item](asdk-marketplace-item.md)
+[Start and stop the ASDK](asdk-start-stop.md)
