@@ -47,7 +47,7 @@ The vCore-based service tiers are primarily differentiated based upon availabili
 | **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
 | **Storage size** | Single database / elastic pool | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
 | | Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | To be determined | 5000 IOPS with 200,000 maximum IOPS|
+| **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Unknown yet | 5000 IOPS with 200,000 maximum IOPS|
 | | Managed instance | Depends on size of file | N/A | Managed Instance: Depends on size of file|
 |**Availability**|All|1 replica, no read-scale, no local cache | Multiple replicas, up to 15 read-scale, partial local cache | 3 replicas, 1 read-scale, zone-redundant HA, full local cache |
 |**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7-35 days (7 days by default), constant time point-in0time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
@@ -104,7 +104,7 @@ No, your application programming model stays as is. You use your connection stri
 
 On the primary node, the transaction isolation level is RCSI (Read Committed Snapshot Isolation). On the read scale secondary nodes, the isolation level is Snapshot.
 
-### Can I bring my on-premise or IaaS SQL Server license to SQL Database Hyperscale
+### Can I bring my on-premises or IaaS SQL Server license to SQL Database Hyperscale
 
 Yes, [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) is available for Hyperscale. Every SQL Server Standard core can map to 1 Hyperscale vCores. Every SQL Server Enterprise core can map to 4 Hyperscale vCores. You don’t need a SQL license for secondary replicas. The Azure Hybrid Benefit price will be automatically applied to read-scale (secondary) replicas.
 
@@ -152,7 +152,7 @@ For mission-critical apps that require high availability, you should provision a
 
 ### What is the size of the transaction log with Hyperscale
 
-The transaction log with Hyperscale is practically infinite. You do not need to worry about running out of log space on a system that has a high log throughput. However, the log generation rate might be throttled for continuous aggressive workloads. The peak and average log generation rate is to be determined.
+The transaction log with Hyperscale is practically infinite. You do not need to worry about running out of log space on a system that has a high log throughput. However, the log generation rate might be throttled for continuous aggressive workloads. The peak and average log generation rate is not yet known (preview).
 
 ### Does my temp db scale as my database grows
 
@@ -223,7 +223,7 @@ Downtime is the same as the downtime when you migrate your databases to a single
 
 ### How much time would it take to bring in X amount of data to SQL Database Hyperscale
 
-To be determined
+Not yet known
 
 ### Can I read data from blob storage and do fast load (like Polybase and SQL Data Warehouse)
 
@@ -281,7 +281,7 @@ No, not during public preview.
 
 No, not during public preview.
 
-### Can I take a SQL Database Hyperscale database backup and restore it to my on-premise server or SQL Server in VM
+### Can I take a SQL Database Hyperscale database backup and restore it to my on-premises server or SQL Server in VM
 
 No. The storage format for Hyperscale databases is different from traditional SQL Server, and you don’t control backups or have access to them. To take your data out of a SQL Database Hyperscale database, either use the export service or use scripting plus BCP.
 
@@ -307,11 +307,11 @@ No. Your database resides on a compute VM and not a container.
 
 ### How much throughput can I push on the largest SQL Database Hyperscale compute
 
-To be determined
+Not yet known
 
 ### How many IOPS do I get on the largest SQL Database Hyperscale compute
 
-To be determined
+Not yet known
 
 ### Does my throughput get affected by backups
 
