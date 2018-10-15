@@ -26,7 +26,7 @@ ms.author: msangapu
 - **Multi-container deployment**: "Dockerize" your app across multiple containers using a Docker Compose or a Kubernetes configuration file. For more information, see [Multi-container app](#multi-container-apps-supportability).
 - **App deployment with a built-in platform image**: Our built-in platform images contain common web app runtimes and dependencies, such as Node and PHP. Use any one of the [Azure App Service deployment methods](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to deploy your app to your web app's storage, and then use a built-in platform image to run it.
 
-##Which method is right for your app? 
+## Which method is right for your app? 
 
 The primary factors to consider are:
 
