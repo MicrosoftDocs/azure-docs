@@ -422,5 +422,4 @@ Videos that are found to contain adult or racy content might be available for pr
 ```
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md)
+[Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md)

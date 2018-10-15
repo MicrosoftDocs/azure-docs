@@ -132,5 +132,4 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Stream a file](stream-files-dotnet-quickstart.md)
+[Stream a file](stream-files-dotnet-quickstart.md)

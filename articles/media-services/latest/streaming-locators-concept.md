@@ -104,5 +104,4 @@ For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/re
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Stream a file](stream-files-dotnet-quickstart.md)
+[Stream a file](stream-files-dotnet-quickstart.md)

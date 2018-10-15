@@ -75,5 +75,4 @@ Suppose you wanted to extract the first frame of all your videos as a thumbnail 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Stream video files](stream-files-dotnet-quickstart.md)
+[Stream video files](stream-files-dotnet-quickstart.md)
