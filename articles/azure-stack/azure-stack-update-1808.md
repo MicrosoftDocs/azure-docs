@@ -164,7 +164,7 @@ The following are post-installation known issues for this build version.
 
 ### Portal
 
-- The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
+- The Azure Stack technical documentation focuses on the latest release of Azure Stack. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
 
 <!-- TBD - IS ASDK --> 
 - You might see a blank dashboard in the portal. To recover the dashboard, click **Edit Dashboard**, then right-click and select **Reset to default state**.
