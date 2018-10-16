@@ -173,7 +173,7 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 1. Run Firefox and enter `about:config` in the address bar. Dismiss any notifications that you see.
 2. Search for the **network.negotiate-auth.trusted-uris** preference. This preference lists Firefox's trusted sites for Kerberos authentication.
 3. Right-click and select **Modify**.
-4. Enter https://autologon.microsoftazuread-sso.com in the field.
+4. Enter `autologon.microsoftazuread-sso.com` in the field.
 5. Select **OK** and then reopen the browser.
 
 #### Safari (macOS)
