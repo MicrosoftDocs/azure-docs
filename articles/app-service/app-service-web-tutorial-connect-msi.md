@@ -110,7 +110,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
     // DataSource != LocalDB means app is running in Azure with the SQLDB connection string you configured
     if(conn.DataSource != "(localdb)\\MSSQLLocalDB")
         conn.AccessToken = (new AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
-
+    // The default initializer (CreateDatabaseIfNotExists) will attempt to connect to the database using the connection string, so disable it.
     Database.SetInitializer<MyDatabaseContext>(null);
 }
 ```
