@@ -18,7 +18,7 @@ This article summarizes logging options and how to combine them in ways specific
 
 ## Review activity logs
 
-Azure [activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide quick insights into subscription-level event and operation histories for each Azure service instance. Resource creation or removal are examples of these kinds of subscription-level events:
+Azure [activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide quick insights into subscription-level event and operation histories for each Azure service instance. Resource creation and resource removal are examples of these kinds of subscription-level events:
 
 ![Activity log][1]
 
@@ -46,7 +46,7 @@ To set up diagnostic logging for an instance:
 
 ## Azure monitor and log analytics
 
-Azure Monitor contains the powerful Log Analytics service which allows logging sources to be viewed and analyzed in one location. For example, multiple diagnostic log histories can be combined, queried, and viewed in Azure Monitor.
+Azure Monitor contains the powerful Log Analytics service, which allows logging sources to be viewed and analyzed in one location. For example, multiple diagnostic log histories can be combined, queried, and viewed in Azure Monitor.
 
 Log histories can quickly become immense. Full log querying capabilities are provided through [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). To set up these powerful features:
 
