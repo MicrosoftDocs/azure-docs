@@ -195,18 +195,35 @@ ORDER BY end_time DESC
 
 ## Reclaim unused allocated space
 
-Once databases have been identified for reclaiming unused allocated space, modify the following command to shrink the data files for each database.
+### DBCC shrink
+
+Once databases have been identified for reclaiming unused allocated space, modify the name of the database in the following command to shrink the data files for each database.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+Note that this command can impact database performance while it is running, and if possible should be run during periods of low usage.  
+
 For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
-> [!IMPORTANT] 
-> Consider rebuilding database indexes
-After database data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If this occurs, then the indexes should be rebuilt. For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+### Auto-shrink
+
+Alternatively, auto-shrink can be enabled for a database.  Auto-shrink reduces file management complexity and is less impactful to database performance than SHRINKDATABASE or SHRINKFILE.  Auto-shrink can be particularly helpful for managing elastic pools with many databases.  Note, however, that auto-shrink is less effective in reclaiming file space than SHRINKDATABASE and SHRINKFILE.
+To enable auto-shrink, modify the name of the database in the following command.
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+For more information about this command, see [DATABASE SET](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) options. 
+
+### Rebuild indexes
+
+After database data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If this occurs, then consider rebuilding database indexes. For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## Next steps
 
