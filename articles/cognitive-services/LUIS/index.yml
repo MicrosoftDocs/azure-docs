@@ -59,8 +59,6 @@ sections:
       - image:
           src: media/index/logo_java.svg
       - image:
-          src: media/index/logo_js.svg
-      - image:
           src: media/index/logo_nodejs.svg
       - image:
           src: media/index/logo_python.svg
@@ -69,14 +67,12 @@ sections:
         values:
         - href: luis-get-started-cs-get-intent
         - href: luis-get-started-java-get-intent
-        - href: luis-get-started-js-get-intent
         - href: luis-get-started-node-get-intent
         - href: luis-get-started-python-get-intent
       - title: Authoring API
         values:
         - href: luis-get-started-cs-add-utterance
         - href: luis-get-started-java-add-utterance
-        - href: luis-get-started-javascript-add-utterance
         - href: luis-get-started-node-add-utterance
         - href: luis-get-started-python-add-utterance
 
