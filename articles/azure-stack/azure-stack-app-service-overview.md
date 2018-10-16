@@ -1,5 +1,5 @@
 ---
-title: App Service overview: Azure Stack | Microsoft Docs
+title: App Service on Azure Stack overview | Microsoft Docs
 description: Overview of App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
