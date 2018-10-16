@@ -19,6 +19,9 @@ This topic shows you how to use Azure Functions to create a scheduled job that c
 
 To have your function process individual create, read, update, and delete (CRUD) operations in a Mobile Apps table, you should instead use [Mobile Apps bindings](functions-bindings-mobile-apps.md).
 
+> [!IMPORTANT]
+> The samples in this doc are applicable to the 1.x runtime. Information on how to create a 1.x function app [can be found here](./functions-versions.md#creating-1x-apps).
+
 ## Prerequisites
 
 + This topic uses a timer triggered function. Complete the steps in the topic [Create a function in Azure that is triggered by a timer](functions-create-scheduled-function.md) to create a C# version of this function.   
