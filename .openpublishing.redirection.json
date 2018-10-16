@@ -7294,6 +7294,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/azure-stack-powershell-configure-quickstart.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-powershell-install",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-create-vpn-connection-one-node-tp2.md",
             "redirect_url": "/azure/azure-stack/azure-stack-create-vpn-connection-one-node",
             "redirect_document_id": false
