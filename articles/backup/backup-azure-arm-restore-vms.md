@@ -100,7 +100,7 @@ After you select the restore point, choose a VM restore configuration. To config
  - **Create virtual machine**
  - **Restore disks**
 
- ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
+![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
 
 The portal provides a **Quick Create** option for a restored VM. To customize the VM configuration or the names of the resources created as part of creating a new VM choice, use PowerShell or the portal to restore backed-up disks. Use PowerShell commands to attach them to your choice of VM configuration. Or you can use the template that comes with restored disks to customize the restored VM. For information on how to restore a VM that has multiple NICs or is under a load balancer, see [Restore a VM with special network configurations](#restore-vms-with-special-network-configurations). If your Windows VM uses [HUB licensing](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restore disks and use PowerShell/Template as specified in this article to create the VM. Make sure that you specify the **License Type** as "Windows_Server" while you create the VM to avail HUB benefits on the restored VM. Note this can be done later after the creation of VM as well.
 
