@@ -7,16 +7,16 @@ manager: femila
 services: azure-stack
 cloud: azure-stack
 
-ms.assetid: D44641CB-BF3C-46FE-BCF1-D7F7E1D01AFA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/15/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
 ---
+
 # Run a validation test for Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
@@ -60,7 +60,7 @@ Validates the status of Azure Stack. The cmdlet reports the status of your Azure
 
 | Parameter               | Value           | Required | Default |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | PSCredential    | No       | FALSE   |
+| ServiceAdminCredentials | String    | No       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | No       | FALSE   |
 | AdminCredential         | PSCredential    | No       | NA      |
 | List                    | SwitchParameter | No       | FALSE   |
