@@ -21,10 +21,10 @@
       href: event-hubs-quickstart-powershell.md
   - name: Send events to event hub 
     items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: .NET Standard
       href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Java
       href: event-hubs-java-get-started-send.md
     - name: C
@@ -37,10 +37,10 @@
       href: event-hubs-node-get-started-send.md
   - name: Receive events from event hub
     items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
     - name: .NET Standard
       href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
     - name: Java
       href: event-hubs-java-get-started-receive-eph.md
     - name: Go 
