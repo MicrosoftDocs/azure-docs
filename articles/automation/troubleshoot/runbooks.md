@@ -219,7 +219,7 @@ This error can be caused by the following reasons:
 
 1. Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets as described at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Module Incompatible. This can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
+1. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
 #### Resolution
 
@@ -297,7 +297,7 @@ This error is caused when the PowerShell engine can't find the cmdlet you're usi
 Any of the following solutions fix the problem:  
 
 * Check that you've entered the cmdlet name correctly.  
-* Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you've validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and ensure that you're using a valid parameter set in your runbook.  
+* Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you've validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and make sure that you're using a valid parameter set in your runbook.  
 * If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.  
 * If you're executing the runbook on-premises in a hybrid worker group, then make sure that the module/cmdlet is installed on the machine that hosts the hybrid worker.
 
@@ -305,7 +305,7 @@ Any of the following solutions fix the problem:
 
 #### Issue
 
-This behavior is by design in Azure sandboxes due to the "Fair Share" monitoring of processes within Azure Automation, which automatically stops a runbook if it executes longer than three hours. The status of a runbook that exceeds fair-share differs by runbook type. PowerShell and Python runbooks are set to a **Stopped** status. PowerShell Workflow runbooks are set to **Failed**.
+This behavior is by design in Azure sandboxes because of the "Fair Share" monitoring of processes within Azure Automation, which automatically stops a runbook if it executes longer than three hours. The status of a runbook that goes past the fair-share time limit differs by runbook type. PowerShell and Python runbooks are set to a **Stopped** status. PowerShell Workflow runbooks are set to **Failed**.
 
 #### Cause
 
@@ -313,7 +313,7 @@ The runbook ran over the 3 hour limit allowed by fair share in an Azure Sandbox.
 
 #### Resolution
 
-The recommended solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers aren't limited by the [fair share](../automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks ran on them should still be developed to support restart behaviors from unexpected local infrastructure issues.
+The recommended solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers aren't limited by the [fair share](../automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks ran on Hybrid Runbook Workers should still be developed to support restart behaviors in case of unexpected local infrastructure issues.
 
 ## Common errors when importing modules
 
