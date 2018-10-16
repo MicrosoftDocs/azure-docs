@@ -171,7 +171,7 @@
         href: luis-tutorial-list-entity.md
   - name: Integrate
     items:
-    - name: With Bing Spell Check REST API v7
+    - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
       href: luis-tutorial-speech-to-intent.md
