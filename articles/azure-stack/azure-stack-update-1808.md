@@ -258,6 +258,10 @@ The following are post-installation known issues for this build version.
    2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
       1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4467062/).
       2. Follow the steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+      
+<!-- TBD - IS ASDK --> 
+- Managed Disks usage is reported in hours as described in the [Azure Stack Usage FAQ](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-related-faq#managed-disks). However, Azure Stack billing uses the monthly price instead so you may get incorrectly charged for Managed Disks usage on or before September 27th. We have temporarily suspended charges for Managed Disks after September 27th until the billing issue is addressed. If you have been charged incorrectly for Managed Disks usage, please contact Microsoft Billing Support.
+Usage reports produced from the Azure Stack usage APIs show correct quantities and can be used.
 
 <!-- 2869209 – IS, ASDK --> 
 - When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
