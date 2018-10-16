@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Data Box for offline transfer
+title: Azure Data Box Documentation - Offline Transfer 
 metadata:
-  title: Azure Data Box Documentation for offline transfer
+  title: Azure Data Box Documentation - Offline Transfer  
   description:  Use the Data Box devices for offline data transfer to Azure when you are limited by time, network, or cost.
   services: databox
   author: alkohli

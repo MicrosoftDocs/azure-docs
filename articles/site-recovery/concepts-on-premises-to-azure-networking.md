@@ -3,12 +3,12 @@ title: Set up IP addressing to connect after failover to Azure with Azure Site R
 description: Describes how to set up IP addressing to connect to Azure VMs after failover from on-premises with Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
 # Set up IP addressing to connect after failover to Azure

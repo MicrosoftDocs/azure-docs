@@ -117,13 +117,10 @@ These controls allow the use of certain external or custom services as condition
 Providers currently offering a compatible service include:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-
+- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
-
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
-
 
 For more information on those services, contact the providers directly.
 

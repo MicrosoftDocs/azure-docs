@@ -1,5 +1,5 @@
-- name: Documentation - Azure Data Box for offline transfer
-  href: /azure/databox/
+- name:  Azure Data Box Documentation - Offline Transfer
+  href: /azure/databox
   items:
   - name: Data Box
     items:

@@ -393,5 +393,5 @@
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Getting help
     href: developer-support-help-options.md
-  - name: Managed Service Identity for Azure resources
+  - name: Managed identities for Azure resources
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/11/2018
+ms.date: 10/16/2018
 ms.author: harijay
 ---
 
@@ -169,13 +169,13 @@ Incorrect firewall rules | Access serial console and fix Windows firewall rules.
 Filesystem corruption/check | Access the serial console and recover the filesystem. 
 RDP configuration issues | Access the serial console and change the settings. For more information, see the [RDP documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 Network lock down system | Access the serial console from the Azure portal to manage the system. Some network commands are listed in [Windows commands: CMD and PowerShell](serial-console-cmd-ps-commands.md). 
-Interacting with bootloader | Access BCD via the serial console. For information, see [Enable the Windows boot menu in the serial console](#enable-the-windows-boot-menu-in-the-serial-console). 
+Interacting with bootloader | Access BCD through the serial console. For information, see [Enable the Windows boot menu in the serial console](#enable-the-windows-boot-menu-in-the-serial-console). 
 
 ## Accessibility
 Accessibility is a key focus for the Azure serial console. To that end, we have ensured that the serial console is accessible for the visual and hearing impaired, as well as people who may not be able to use a mouse.
 
 ### Keyboard navigation
-Use the **Tab** key on your keyboard to navigate in the serial console interface from the Azure portal. Your location will be highlighted on screen. To leave the focus of the serial console window, press **Ctrl + F6** on your keyboard.
+Use the **Tab** key on your keyboard to navigate in the serial console interface from the Azure portal. Your location will be highlighted on screen. To leave the focus of the serial console window, press **Ctrl**+**F6** on your keyboard.
 
 ### Use the serial console with a screen reader
 The serial console has screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
@@ -187,8 +187,8 @@ Error                            |   Mitigation
 :---------------------------------|:--------------------------------------------|
 Unable to retrieve boot diagnostics settings for *&lt;VMNAME&gt;*. To use the serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md) enabled. 
 The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access the serial console
-You do not have the required permissions to use this VM serial console. Ensure you have at least Virtual Machine Contributor role permissions.| The serial console requires certain [access permissions](#prerequisites).
-Unable to determine the resource group for the boot diagnostics storage account *&lt;STORAGEACCOUNTNAME&gt;*. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access. For more information, see [Prerequisites](#prerequisites).
+You do not have the required permissions to use this VM serial console. Ensure you have at least Virtual Machine Contributor role permissions.| Serial console access requires certain permissions. For more information, see [Prerequisites](#prerequisites).
+Unable to determine the resource group for the boot diagnostics storage account *&lt;STORAGEACCOUNTNAME&gt;*. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permissions. For more information, see [Prerequisites](#prerequisites).
 A "Forbidden" response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for the serial console to function.
 Web socket is closed or could not be opened. | You may need to whitelist `*.console.azure.com`. A more detailed but longer approach is to whitelist the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which change fairly regularly.
 Only health information is shown when connecting to a Windows VM| This error occurs if the Special Administrative Console has not been enabled for your Windows image. See [Enable the serial console in custom or older images](#enable-the-serial-console-in-custom-or-older-images) for instructions on how to manually enable SAC on your Windows VM. For more information, see [Windows health signals](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
@@ -200,7 +200,7 @@ Issue                             |   Mitigation
 :---------------------------------|:--------------------------------------------|
 Pressing **Enter** after the connection banner does not cause a sign-in prompt to be displayed. | For more information, see [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This error can occur if you're running a custom VM, hardened appliance, or GRUB config that causes Windows to fail to properly connect to the serial port.
 Unable to type at SAC prompt if kernel debugging is enabled. | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk by running `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swapping the disk back.
-Pasting into PowerShell in SAC results in a third character if original content had a repeating character. | For a workaround, run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session. This action will not delete or uninstall the module.
+Pasting into PowerShell in SAC results in a third character if the original content had a repeating character. | For a workaround, run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session. This action will not delete or uninstall the module.
 Some keyboard inputs produce strange SAC output (for example, **[A**, **[3~**). | [VT100](https://aka.ms/vtsequences) escape sequences aren't supported by the SAC prompt.
 Pasting long strings doesn't work. | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
 
@@ -212,11 +212,11 @@ A. Provide feedback by creating a GitHub issue at  https://aka.ms/serialconsolef
 
 **Q. Does the serial console support copy/paste?**
 
-A. Yes. Use **Ctrl + Shift + C** and **Ctrl + Shift + V** to copy and paste into the terminal.
+A. Yes. Use **Ctrl**+**Shift**+**C** and **Ctrl**+**Shift**+**V** to copy and paste into the terminal.
 
 **Q. Who can enable or disable the serial console for my subscription?**
 
-A. To enable or disable the serial console at a subscription-wide level, you must have write permissions to the subscription. Roles that have write permission include, but aren't limited to, administrator or owner roles. Custom roles may also have write permissions.
+A. To enable or disable the serial console at a subscription-wide level, you must have write permissions to the subscription. Roles that have write permission include administrator or owner roles. Custom roles can also have write permissions.
 
 **Q. Who can access the serial console for my VM?**
 
