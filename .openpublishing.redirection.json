@@ -29859,6 +29859,16 @@
             "source_path": "articles/app-service/web-sites-java-add-app.md",
             "redirect_url": "/azure/app-service/app-service-web-get-started-java",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-tutorial-mysql.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-mysql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-tutorial-sql.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-tutorial-sql",
+            "redirect_document_id": false
         }
     ]
 }
